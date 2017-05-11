@@ -1977,7 +1977,7 @@ input[type="color"]:focus, uneditable-input:focus {
   left: 0;
   width: 100%;
   text-align: center;
-  background-color: rgba(30, 65, 78, 0.8);
+  background-color: #091f40;
   color: #fff;
   padding: 10px 0;
 }
