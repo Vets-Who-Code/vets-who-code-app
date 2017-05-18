@@ -350,21 +350,23 @@ h1.bold_404 {
 }
 
 .btn-charity-default {
-  border: 1px solid #c5203e;
+  border: 1px solid #091f40;
   background-color: #c5203e;
-  color: #091f40;
+  color: #ffffff;
   border-radius: 4px;
   font-weight: 700;
 }
 
 .btn-charity-default:hover {
-  background-color: #FFC903;
+  border: 1px solid #c5203e;
+  background-color: #091f40;
+  color: #ffffff;
 }
 
 .btn-charity-default-o {
   background-color: transparent;
   color: #ffffff;
-  border: 1px solid #ffffff;
+  border: 1px solid #091f40;
 }
 
 .btn-charity-default-o:hover {
@@ -2625,7 +2627,7 @@ div.zabuto_calendar tr.calendar-dow td {
 .footer {
   background-color: #091f40;
   border-top: 1px solid #234c5b;
-  color: #4ba3c4;
+  color: #ffffff;
   padding: 40px 0px;
 }
 
@@ -2634,13 +2636,13 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 
 .footer .footer-menu li {
-  border-right: 1px solid #4ba3c4;
+  border-right: 1px solid #ffffff;
   display: inline-block;
   padding: 0px 10px;
 }
 
 .footer .footer-menu li a {
-  color: #4ba3c4;
+  color: #ffffff;
 }
 
 .footer .footer-menu li:last-child {
@@ -2657,4 +2659,8 @@ div.zabuto_calendar tr.calendar-dow td {
   .footer {
     text-align: center;
   }
+}
+
+.red {
+color: #c5203e;
 }
