@@ -1,11 +1,11 @@
 /*===================================
  preloader
  ===================================*/
- 
+
 // makes sure the whole site is loaded
 $(window).on('load', function () {
-    
-    $("#loader").fadeOut();    
+
+    $("#loader").fadeOut();
     $("#loader-wrapper").delay(200).fadeOut("slow");
 
 });
@@ -23,7 +23,7 @@ $(window).on('load', function () {
             $nav.addClass('navbar-solid');
             return;
         }
-        
+
         $nav.removeClass('navbar-solid');
         $(".navbar-nav > li > a").blur();
     }
@@ -133,7 +133,7 @@ $(window).resize(function() {
     04. Carousel For Carousel
  ------------------------------------------*/
 
-$("#causesCarousel").owlCarousel({              
+$("#causesCarousel").owlCarousel({
     navigation : false, // Show next and prev buttons
     slideSpeed : 100,
     paginationSpeed : 400,
@@ -315,7 +315,7 @@ $(document).ready(function () {
             $cfsubmit 		= $("#cfsubmit"),
             cfsubmitText 	= $cfsubmit.text();
 
-        $cfsubmit.text("Sending...");
+        $cfsubmit.text("Sent!");
 
 
         $.ajax(
@@ -330,7 +330,7 @@ $(document).ready(function () {
                 },
                 error: function(data)
                 {
-                    alert("Error occurd! Please try again");
+                    alert("We seem to have an error");
                 }
             });
 
@@ -344,7 +344,7 @@ $(document).ready(function () {
  ===================================*/
 
  (function(){
-     $('#dg-container').gallery();            
+     $('#dg-container').gallery();
  })();
 
 
@@ -406,5 +406,3 @@ function isMac() {
  $('.popup-vimeo').magnificPopup({
         type: 'iframe'
 });
-
-

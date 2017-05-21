@@ -139,11 +139,11 @@
 <header class="inner-header overlay grey text-center slim-bg " style="background-image: url(assets/images/this_is_us.png); background-position-y: bottom;">
 	<div class="overlay-01"></div>
     <div class="container">
-    	<h2 class="text-center text-uppercase">CONTACT</h2>
+    	<h2 class="text-center text-uppercase">Mentor</h2>
         <div class="breadcrumb">
             <a href="#">Home</a>
             <span>/</span>
-            <a href="#" class="page-active">CONTACT</a>
+            <a href="#" class="page-active">Mentor</a>
         </div>
     </div>
 </header>
@@ -155,7 +155,7 @@
 			<div class="col-xs-12">
 				<div class="contactus-brief">
 					<h3>Become A Mentor</h3>
-					<p class="section-description">Duis sit amet sapien consequat, commodo lacus nec, porta odio. Pellentesque habitant morbi.</p>
+					<p class="section-description">Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.</p>
 				</div>
 			</div>
 		</div>
@@ -166,59 +166,25 @@
 <section id="contact-form" class="section bg-default default-section-padding">
 	<div class="container">
 		<div class="row">
-			<div class="contact-form">
-				<form action="php-files/contact-form.php" id="contactForm" method="post" accept-charset="utf-8">
-					<div class="col-md-4">
-				  		<div class="form-group">
-							<label for="InputName" class="dark-text">Your Display Name <super>*<super></label>
-							<input type="text" class="form-control form-control-dark" name="name" id="InputName" placeholder="Jane Doe" required>
-						</div>
-					</div>
-					<div class="col-md-4">
-				  		<div class="form-group">
-							<label for="InputEmail" class="dark-text">Your Email Address <super>*<super></label>
-							<input type="email" class="form-control form-control-dark" name="email" id="InputEmail" placeholder="john@example.com" required>
-						</div>
-					</div>
-					<div class="col-md-4">
-				  		<div class="form-group">
-							<label for="InputPhoneNumber" class="dark-text">Your Phone Number</label>
-							<input type="number"  class="form-control form-control-dark" name="contact_number" id="InputPhoneNumber" placeholder="123-456-789">
-						</div>
-					</div>
-					<div class="col-sm-12">
-						<div class="form-group">
-							<label for="message" class="dark-text">Your Message <super>*<super></label>
-							<textarea  id="message" class="form-control form-control-dark" rows="3" name="message" placeholder="Your Message Here.." required></textarea>
-						</div>
-						<input id="cfsubmit" type="submit" name="submit" value="SEND MESSAGE" href="#" class="btn btn-charity-default" title="">
-					</div>
-					<div id="contactFormResponse"></div>
-				</form>
-
         <form>
+          <div class="col-md-8">
             <div class="form-group">
+              <label for="InputName" class="dark-text">Your Display Name <super>*<super></label>
+              <input class="form-control input-lg" type="text" placeholder="Large input">
+            </div>
+          </div>
 
-                <input class="form-control input-lg" type="text" placeholder="Large input">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Default input">
-            </div>
-            <div class="form-group">
-                <input class="form-control input-sm" type="text" placeholder="Small input">
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Disabled input" disabled>
-            </div>
-            <div class="form-group">
-                <input class="form-control" type="text" placeholder="Readonly input" readonly>
-            </div>
+          <div class="col-md-8">
             <div class="form-group">
                 <textarea class="form-control" rows="7" placeholder="Textarea"></textarea>
             </div>
+          </div>
+          <div class ="col-md-8">
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-charity-default">
+                <input id="cfsubmit" type="submit" name="submit" value="SEND MESSAGE" href="#" class="btn btn-charity-default" title="">
             </div>
+          </div>
+            <div id="contactFormResponse"></div>
         </form>
 			</div>
 		</div>
