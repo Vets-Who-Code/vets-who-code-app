@@ -14,7 +14,7 @@
     <meta property="og:image" content="http://www.vetswhocode.io/img/us_flag.jpeg"/>
     <meta property="og:site_name" content="Vets Who Code"/>
     <meta property="og:description" content="Veterans Coding Non Profit Organization"/>
-    <title>#VetsWhoCode | Veterans Coding Nonprofit Training Service Organization | RETOOL - RETRAIN - RELAUNCH</title>
+    <title>#VetsWhoCode | Apply</title>
 
     <!-- favicons
     ============================================= -->
@@ -59,6 +59,7 @@
     <!-- Custom Template Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link href="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -134,7 +135,7 @@
     <div class="container">
     	<h2 class="text-center text-uppercase">Apply</h2>
         <div class="breadcrumb">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <span>/</span>
             <a href="#" class="page-active">Apply</a>
         </div>
@@ -148,64 +149,72 @@
 			<div class="col-xs-12">
 				<div class="contactus-brief">
 					<h3>Apply</h3>
-					<p class="section-description">Thank thank you for choosing to apply to be a aprt of Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.</p>
+					<p class="section-description">Thank thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.</p>
 
-        <form>
+        <form id="s2do-form" action="#" method="POST">
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputName" class="dark-text">Name <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Name">
+              <input class="form-control input-lg" type="text" placeholder="Name" name="name">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputEmail" class="dark-text">Email <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Email">
+              <input class="form-control input-lg" type="text" placeholder="Email" name="email">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
-              <label for="InputService" class="dark-text">Military Branch Of Service<super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Thank you for your service">
+              <label for="InputService" class="dark-text">Military Branch Of Service <super>*<super></label>
+              <input class="form-control input-lg" type="text" placeholder="Thank you for your service" name="branch-of-service">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="Experience" class="dark-text">Experience <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Do you program and if so for how long?">
+              <input class="form-control input-lg" type="text" placeholder="Do you program and if so for how long?" name="experience">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputPortfolio" class="dark-text">Github, Portfolio or Linkedin <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Share your work">
+              <input class="form-control input-lg" type="text" placeholder="Share your work" name="github-portfolio-or-linkedin">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputLocation" class="dark-text">Location ( City and State ) <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Location">
+              <input class="form-control input-lg" type="text" placeholder="Location" name="location">
+            </div>
+          </div>
+
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="InputMRE" class="dark-text">Favorite MRE? <super>*<super></label>
+              <input class="form-control input-lg" type="text" placeholder="Chilli Mac?" name="favorite-mre">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputInterviewStory" class="dark-text">Tell Us About Yourself</label>
-                <textarea class="form-control" rows="7" placeholder="Here we focus on Aptitude and Impact, so tell us about yourself and why you want to join #VetsWhoCode?"></textarea>
+                <textarea class="form-control" rows="7" placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?" name="tell-us-about-yourself"></textarea>
             </div>
           </div>
           <div class ="col-md-8">
             <div class="form-group">
-                <input id="cfsubmit" type="submit" name="submit" value="SEND MESSAGE" href="#" class="btn btn-charity-default" title="">
+                <input type="submit" name="submit"  href="#" class="btn btn-charity-default" title="">
             </div>
           </div>
-            <div id="contactFormResponse"></div>
         </form>
+        <script type="text/javascript" src="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.js"></script>
+<script type="text/javascript">new window.stacktodo.ui.SlackForm(document.getElementById('s2do-form'), { form: 'f955ed68-9cf2-4867-bdab-5f64d7e0d4cb' });</script>
 			</div>
 		</div>
 	</div>
@@ -250,7 +259,7 @@
                   <li><a href="#">Apply</a></li>
                   <li><a href="#">Donate</a></li>
 									<li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Blog</a></li>
+                  <li><a href="https://medium.com/vets-who-code" target="_blank">Blog</a></li>
 								</ul>
 							</div>
 						</div>

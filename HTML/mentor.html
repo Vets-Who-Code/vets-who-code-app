@@ -14,7 +14,8 @@
     <meta property="og:image" content="http://www.vetswhocode.io/img/us_flag.jpeg"/>
     <meta property="og:site_name" content="Vets Who Code"/>
     <meta property="og:description" content="Veterans Coding Non Profit Organization"/>
-    <title>#VetsWhoCode | Veterans Coding Nonprofit Training Service Organization | RETOOL - RETRAIN - RELAUNCH</title>
+    <link href="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.css" rel="stylesheet" type="text/css">
+    <title>#VetsWhoCode | Mentors</title>
 
     <!-- favicons
     ============================================= -->
@@ -98,7 +99,7 @@
             <ul class="nav navbar-nav navbar-right" role="menu">
 
                 <li>
-                    <a href="#"><span>Home</span></a>
+                    <a href="index.html"><span>Home</span></a>
                 </li>
 
                 <li>
@@ -134,7 +135,7 @@
     <div class="container">
     	<h2 class="text-center text-uppercase">Mentor</h2>
         <div class="breadcrumb">
-            <a href="#">Home</a>
+            <a href="index.html">Home</a>
             <span>/</span>
             <a href="#" class="page-active">Mentor</a>
         </div>
@@ -150,66 +151,68 @@
 					<h3>Become A Mentor</h3>
 					<p class="section-description">Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.</p>
 
-        <form>
+        <form id="s2do-form" action="#" method="POST">
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputName" class="dark-text">Name <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Name">
+              <input class="form-control input-lg" type="text" placeholder="Name" name="name">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputEmail" class="dark-text">Email <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Email">
+              <input class="form-control input-lg" type="text" placeholder="Email" name="email">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputService" class="dark-text">Military Branch Of Service<super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Thank you for your service">
+              <input class="form-control input-lg" type="text" placeholder="Thank you for your service" name="branch-of-service">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputTechnicalExpertise" class="dark-text">Area Of Technical Expertise ( Javascript, Ruby, etc) <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="What languages you write in?">
+              <input class="form-control input-lg" type="text" placeholder="What languages you write in?" name="technical-expertise">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputPortfolio" class="dark-text">Github, Portfolio or Linkedin <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Share your work">
+              <input class="form-control input-lg" type="text" placeholder="Share your work" name="github-portfolio-or-linkedin">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputLocation" class="dark-text">Location ( City and State ) <super>*<super></label>
-              <input class="form-control input-lg" type="text" placeholder="Location">
+              <input class="form-control input-lg" type="text" placeholder="Location" name="location">
             </div>
           </div>
 
           <div class="col-md-8">
             <div class="form-group">
               <label for="InputEmployerImplementedRestricted" class="dark-text">Employer Implemented Restrictions, If Any.</label>
-                <textarea class="form-control" rows="7" placeholder="Mentoring our veterans requires reading and writing code with them. Can you do that?"></textarea>
+                <textarea class="form-control" rows="7" placeholder="Please put here any employer restrictions about writing and reading code?" name="employer-restrictions"></textarea>
             </div>
           </div>
           <div class ="col-md-8">
             <div class="form-group">
-                <input id="cfsubmit" type="submit" name="submit" value="SEND MESSAGE" href="#" class="btn btn-charity-default" title="">
+                <input type="submit" name="submit" href="#" class="btn btn-charity-default" title="">
             </div>
           </div>
-            <div id="contactFormResponse"></div>
         </form>
+        <script type="text/javascript" src="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.js"></script>
+<script type="text/javascript">new window.stacktodo.ui.SlackForm(document.getElementById('s2do-form'), { form: '76a7550e-246e-4e5e-852e-7dc4999e234d' });</script>
 			</div>
 		</div>
 	</div>
 </section>
+
 <section class="footer-widgets pad-extra">
 	<div class="container">
 		<div class="row">
@@ -220,10 +223,9 @@
              is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code.
            Our EIN is 47-3555231.</p>
 					<div class="footer-social">
-						<a href="#"><i class="fa fa-facebook-f"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-medium"></i></a>
-            <a href="#"><i class="fa fa-codepen"></i></a>
+						<a href="http://bit.ly/vetswhocode-fb"><i class="fa fa-facebook-f"></i></a>
+						<a href="http://bit.ly/vets-who-code-twitter"><i class="fa fa-twitter"></i></a>
+            <a href="http://bit.ly/2omsjdX"><i class="fa fa-codepen"></i></a>
 					</div>
 				</div>
 			</div> <!-- /.col-md-4 -->
@@ -237,9 +239,9 @@
 						<div class="col-md-5 col-md-offset-1">
 							<div class="widgets-content">
 								<ul class="widgets-list">
-									<li><a href="#">Home</a></li>
-									<li><a href="#">About</a></li>
-									<li><a href="#">Syllabus</a></li>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="syllabus.html">Syllabus</a></li>
 									<li><a href="#">Mentor</a></li>
 								</ul>
 							</div>
@@ -247,10 +249,10 @@
 						<div class="col-md-6">
 							<div class="widgets-content">
 								<ul class="widgets-list">
-                  <li><a href="#">Apply</a></li>
-                  <li><a href="#">Donate</a></li>
-									<li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Blog</a></li>
+                  <li><a href="apply.html">Apply</a></li>
+                  <li><a href="donate.html">Donate</a></li>
+									<li><a href="contact.html">Contact Us</a></li>
+                  <li><a href="https://medium.com/vets-who-code" target="_blank" ><span>Blog</span></a></li>
 								</ul>
 							</div>
 						</div>
