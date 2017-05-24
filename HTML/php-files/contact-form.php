@@ -1,7 +1,7 @@
 <?php
 
-	$to = 'info@themewagon.com';  // please change this email id
-	$subject = 'Contact Form : Rights Non-Profit Website';
+	$to = 'hello@vetswhocode';  // please change this email id
+	$subject = 'Contact Form | #VetsWhoCode';
 
 
 	$errors = array();
@@ -10,12 +10,12 @@
 	if (!isset($_POST['name'])) {
 		$errors['name'] = 'Please enter your name';
 	}
-	
+
 	// Check if email has been entered and is valid
 	if (!isset($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		$errors['email'] = 'Please enter a valid email address';
 	}
-	
+
 	//Check if message has been entered
 	if (!isset($_POST['massage'])) {
 		$errors['message'] = 'Please enter your message';
@@ -49,7 +49,7 @@
 	$phone_number = $_POST['contact_number'];
 	$from = $email;
 	$refer = $_SERVER['HTTP_REFERER'];
-	
+
 	$body = "From: $name\n E-Mail: $email\n Message:\n $message \n $phone_number \n \n This form is submitted at: $refer";
 
 
@@ -72,4 +72,3 @@
 	$result .= '</div>';
 
 	echo $result;
-	
