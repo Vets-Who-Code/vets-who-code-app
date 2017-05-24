@@ -58,7 +58,7 @@
 	if (mail ($to, $subject, $body)) {
 		$result .= '<div class="alert alert-success alert-dismissible" role="alert">';
  		$result .= '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-		$result .= 'Thank You! I will be in touch';
+		$result .= 'Thank You! We will be in touch';
 		$result .= '</div>';
 
 		echo $result;
