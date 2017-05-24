@@ -88,7 +88,7 @@
             <div class="navbar-brand" itemscope itemtype="https://schema.org/Organization">
                 <span itemprop="name" class="sr-only">#VetsWhoCode</span>
                 <a itemprop="url" href="index.html">
-                    <img src="assets/images/flag.gif" alt="#vetsWhoCode Logo" class="logo_holder" />
+                    <img src="assets/images/flag.gif" alt="#VetsWhoCode Logo" class="logo_holder" />
                 </a>
             </div>
             <!-- /Logo -->
@@ -100,57 +100,36 @@
             <ul class="nav navbar-nav navbar-right" role="menu">
 
                 <li>
-                    <a href="#"><span>Home</span></a>
+                    <a href="index.html"><span>Home</span></a>
                 </li>
 
                 <li>
                     <a href="about_us.html"><span>About</span></a>
                 </li>
                 <li>
-                    <a href="events.html"><span>Syllabus</span></a>
+                    <a href="#"><span>Syllabus</span></a>
                 </li>
                 <li>
-                    <a href="events.html"><span>Sponsors</span></a>
+                    <a href="mentor.html"><span>Mentor</span></a>
                 </li>
                 <li>
-                    <a href="events.html"><span>Become A Mentor</span></a>
+                    <a href="apply.html"><span>Apply</span></a>
                 </li>
                 <li>
-                    <a href="events.html"><span>Apply</span></a>
-                </li>
-                <li>
-                    <a href="events.html"><span>Donate</span></a>
-                </li>
-                <li>
-                    <a href="causes.html"><span>Media</span></a>
-                </li>
-                <li>
-                    <a href="events.html"><span>Podcast</span></a>
-                </li>
-                <li>
-                    <a href="https://medium.com/vets-who-code"><span>Blog</span></a>
-                </li>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span>Components</span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="component_icons.html">Icons</a></li>
-                        <li><a href="component_typography.html">Typography</a></li>
-                        <li><a href="component_forms.html">Forms</a></li>
-                        <li><a href="component_buttons.html">Buttons</a></li>
-                        <li><a href="component_tabs_accordions.html">Tab and Accordions</a></li>
-                        <li><a href="component_alerts_well.html">Alerts and Wells</a></li>
-                    </ul>
+                    <a href="donate.html"><span>Donate</span></a>
                 </li>
                 <li>
                     <a href="contact.html"><span>Contact Us</span></a>
+                </li>
+                <li>
+                    <a href="https://medium.com/vets-who-code" target="_blank" ><span>Blog</span></a>
                 </li>
             </ul>
         </div>
         <!-- /Navigation Links -->
 
     </div><!-- /.container -->
-</nav>
+    </nav>
 <!-- /Fixed Top Navigation -->
 
 <header class="inner-header overlay grey text-center slim-bg " style="background-image: url(assets/images/this_is_us.png); background-position-y: bottom;">
@@ -421,6 +400,7 @@
 
 	</div>
 </section>
+
 <section class="footer-widgets pad-extra">
 	<div class="container">
 		<div class="row">
@@ -433,9 +413,7 @@
 					<div class="footer-social">
 						<a href="#"><i class="fa fa-facebook-f"></i></a>
 						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-github"></i></a>
 						<a href="#"><i class="fa fa-medium"></i></a>
-            <a href="#"><i class="fa fa-podcast"></i></a>
             <a href="#"><i class="fa fa-codepen"></i></a>
 					</div>
 				</div>
@@ -451,19 +429,19 @@
 							<div class="widgets-content">
 								<ul class="widgets-list">
 									<li><a href="#">Home</a></li>
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Curriculum</a></li>
-									<li><a href="#">Apply</a></li>
+									<li><a href="#">About</a></li>
+									<li><a href="#">Syllabus</a></li>
+									<li><a href="#">Mentor</a></li>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="widgets-content">
 								<ul class="widgets-list">
-                  <li><a href="#">Mentor</a></li>
-                  <li><a href="#">Podcast</a></li>
+                  <li><a href="#">Apply</a></li>
                   <li><a href="#">Donate</a></li>
 									<li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Blog</a></li>
 								</ul>
 							</div>
 						</div>
@@ -523,11 +501,13 @@
 <script src="assets/extras/slick/slick.js"></script>
 <script src="assets/extras/magnificpopup/jquery.magnific-popup.min.js"></script>
 <script src="assets/extras/scrollspeed/jQuery.scrollSpeed.js"></script>
-
-
+<script src="assets/lib/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="assets/lib/waypoints/lib/shortcuts/inview.min.js"></script>
+<script src="assets/lib/countdown/dest/jquery.countdown.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src='assets/js/donate.js' data-embed-id='donate' data-lookup-type='jquery-selector' data-lookup-value='#donate'></script>
 
 <script type="text/javascript">
-
 			(function() {
 
   $(".panel").on("show.bs.collapse hide.bs.collapse", function(e) {
@@ -540,9 +520,6 @@
 
 }).call(this);
 		</script>
-
-<script src="assets/js/main.js"></script>
-
 
 </body>
 </html>
