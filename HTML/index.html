@@ -14,7 +14,7 @@
     <meta property="og:image" content="http://www.vetswhocode.io/img/us_flag.jpeg"/>
     <meta property="og:site_name" content="Vets Who Code"/>
     <meta property="og:description" content="Veterans Coding Non Profit Organization"/>
-    <title>Home | #VetsWhoCode | Home</title>
+    <title>#VetsWhoCode | Home</title>
 
     <!-- favicons
     ============================================= -->
@@ -56,9 +56,10 @@
     <link rel="stylesheet" href="assets/extras/magnificpopup/magnific-popup.css">
     <link rel="stylesheet" href="assets/lib/FlexSlider/flexslider.css">
 
-    <!-- Custom Template Styles -->
+
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link href="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -287,6 +288,7 @@
         </div>
     </div>
 </section>
+
 <section id="newsletter_card" class="section bg-light pad-regular newsletter_card">
     <div class="container">
         <div class="row">
@@ -294,11 +296,11 @@
                 <div class="newsletter_inner_wrapper">
                 	<div class="row">
                 		<div class="col-md-4">
-                			<h3 class="text-center">NEWSLETTER SIGN-UP</h3>
+                			<h3 class="text-center">SIGN UP FOR OUR NEWSLETTER</h3>
                 		</div>
 
                 		<div class="col-md-8">
-                			<form id="subscription-form">
+                			<form id="s2do-form" action="#" method="POST">
                 				<div class="row">
                 					<div class="col-md-9">
                 						<div class="form-group">
@@ -309,8 +311,9 @@
                 						<button id="subscribe-button" type="submit" class="btn btn-subscribe">subscribe</button>
                 					</div>
                 				</div>
-							  	<div id="subscriptionResponse"></div>
 							</form>
+              <script type="text/javascript" src="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.js"></script>
+<script type="text/javascript">new window.stacktodo.ui.SlackForm(document.getElementById('s2do-form'), { form: '75a81d11-b8d2-4a5f-9260-aecef1532d90' });</script>
                 		</div>
                 	</div>
                 </div>
