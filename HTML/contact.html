@@ -55,6 +55,7 @@
     <!-- Custom Template Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link href="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -161,7 +162,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="contact-form">
-				<form action="php-files/contact-form.php" id="contactForm" method="post" accept-charset="utf-8">
+				<form id="s2do-form" action="#" method="POST">
 					<div class="col-md-4">
 				  		<div class="form-group">
 							<label for="InputName" class="dark-text">Your Display Name <super>*<super></label>
@@ -177,7 +178,7 @@
 					<div class="col-md-4">
 				  		<div class="form-group">
 							<label for="InputPhoneNumber" class="dark-text">Your Phone Number</label>
-							<input type="number"  class="form-control form-control-dark" name="contact_number" id="InputPhoneNumber" placeholder="123-456-789">
+							<input type="number"  class="form-control form-control-dark" name="phone" id="InputPhoneNumber" placeholder="123-456-789">
 						</div>
 					</div>
 					<div class="col-sm-12">
@@ -187,8 +188,9 @@
 						</div>
 						<input id="cfsubmit" type="submit" name="submit" value="SEND MESSAGE" href="#" class="btn btn-charity-default" title="">
 					</div>
-					<div id="contactFormResponse"></div>
 				</form>
+        <script type="text/javascript" src="https://s3.amazonaws.com/stacktodoapi/0_0_4/stacktodo_full.min.js"></script>
+        <script type="text/javascript">new window.stacktodo.ui.SlackForm(document.getElementById('s2do-form'), { form: '422b1ef7-6680-41eb-9e6b-662fc91d026c' });</script>
 			</div>
 		</div>
 	</div>
