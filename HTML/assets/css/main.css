@@ -501,3 +501,8 @@ div.zabuto_calendar tr.calendar-dow td{height:150px;}
 @media (max-width:767px){.footer{text-align:center;}
 }
 .red{color:#c5203e;}
+
+.logo_holder {
+  width: 50px;
+  height: auto;
+}
