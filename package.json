@@ -5,7 +5,7 @@
   "repository": "Vets-Who-Code/web-app",
   "author": "mrbernnz <noel.sagaille@gmail.com>",
   "license": "MIT",
-  "script": {
+  "scripts": {
     "start": "pm2 start app.js"
   },
   "dependencies": {
