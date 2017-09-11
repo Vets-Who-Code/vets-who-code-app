@@ -1,17 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  charset: 'UTF-8',
   'import': 'url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700,800)',
   'import': 'url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900)',
   'import': 'url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700)',
   'body': {
     'backgroundColor': 'white',
-    'fontFamily': '"Open Sans", sans-serif',
+    'fontFamily': '"Open Sans",sans-serif',
     'fontSize': [{ 'unit': 'px', 'value': 15 }],
     'fontWeight': '400',
-    'lineHeight': [{ 'unit': 'px', 'value': 29 }],
-    'color': '#222222',
+    'lineHeight': [{ 'unit': 'px', 'value': 24 }],
+    'color': '#222',
     'WebkitFontSmoothing': 'antialiased',
     'MozOsxFontSmoothing': 'grayscale',
     'fontSmoothing': 'antialiased',
@@ -20,7 +19,7 @@ export default StyleSheet.create({
     'overflowX': 'hidden'
   },
   'h1': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -39,7 +38,7 @@ export default StyleSheet.create({
     }
   },
   'h2': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -58,7 +57,7 @@ export default StyleSheet.create({
     }
   },
   'h3': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -77,7 +76,7 @@ export default StyleSheet.create({
     }
   },
   'h4': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -96,7 +95,7 @@ export default StyleSheet.create({
     }
   },
   'h5': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -115,7 +114,7 @@ export default StyleSheet.create({
     }
   },
   'h6': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'color': '#091f40',
     'only screen&&<w500': {
       'fontSize': [{ 'unit': 'px', 'value': 42 }]
@@ -134,7 +133,7 @@ export default StyleSheet.create({
     }
   },
   'font-alt': {
-    'fontFamily': '"Roboto Slab", serif'
+    'fontFamily': '"Roboto Slab",serif'
   },
   'h1': {
     'marginTop': [{ 'unit': 'px', 'value': 0 }],
@@ -193,7 +192,7 @@ export default StyleSheet.create({
     'zIndex': '5'
   },
   'bg-default': {
-    'background': '#ffffff'
+    'background': '#fff'
   },
   'bg-dark': {
     'background': '#091f40'
@@ -205,25 +204,25 @@ export default StyleSheet.create({
     'paddingRight': [{ 'unit': 'px', 'value': 0 }]
   },
   'bg-dark h1': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark h2': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark h3': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark h4': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark h5': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark h6': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-dark p': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'bg-light h1': {
     'color': '#091f40'
@@ -296,7 +295,7 @@ export default StyleSheet.create({
     'borderLeft': [{ 'unit': 'px', 'value': 10 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#ccc' }],
     'margin': [{ 'unit': 'px', 'value': 85 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 85 }, { 'unit': 'px', 'value': 10 }],
     'padding': [{ 'unit': 'em', 'value': 0.5 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'em', 'value': 0.5 }, { 'unit': 'px', 'value': 10 }],
-    'quotes': '"“" "”" "‘" "’"',
+    'quotes': '"“""”""‘""’"',
     'border': [{ 'unit': 'px', 'value': 0 }]
   },
   'blockquote p': {
@@ -392,23 +391,23 @@ export default StyleSheet.create({
   'btn-charity-default': {
     'border': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#091f40' }],
     'backgroundColor': '#c5203e',
-    'color': '#ffffff',
+    'color': '#fff',
     'borderRadius': '4px',
     'fontWeight': '700'
   },
   'btn-charity-default:hover': {
     'border': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#c5203e' }],
     'backgroundColor': '#091f40',
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'btn-charity-default-o': {
     'backgroundColor': 'transparent',
-    'color': '#ffffff',
+    'color': '#fff',
     'border': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#091f40' }]
   },
   'btn-charity-default-o:hover': {
     'color': '#091f40',
-    'backgroundColor': '#ffffff'
+    'backgroundColor': '#fff'
   },
   'btn-charity-dark-o': {
     'backgroundColor': 'transparent',
@@ -427,7 +426,7 @@ export default StyleSheet.create({
   'btnbtn-block': {
     'width': [{ 'unit': '%H', 'value': 1 }]
   },
-  'btn-group-lg > btn': {
+  'btn-group-lg>btn': {
     'padding': [{ 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 16 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 16 }],
     'fontSize': [{ 'unit': 'px', 'value': 18 }],
     'lineHeight': [{ 'unit': 'px', 'value': 1.3333333 }],
@@ -441,7 +440,7 @@ export default StyleSheet.create({
     'borderRadius': '6px',
     'width': [{ 'unit': 'string', 'value': 'auto' }]
   },
-  'btn-group-sm > btn': {
+  'btn-group-sm>btn': {
     'padding': [{ 'unit': 'px', 'value': 5 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 5 }, { 'unit': 'px', 'value': 10 }],
     'fontSize': [{ 'unit': 'px', 'value': 12 }],
     'lineHeight': [{ 'unit': 'px', 'value': 1.5 }],
@@ -455,7 +454,7 @@ export default StyleSheet.create({
     'borderRadius': '3px',
     'width': [{ 'unit': 'string', 'value': 'auto' }]
   },
-  'btn-group-xs > btn': {
+  'btn-group-xs>btn': {
     'padding': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'px', 'value': 5 }, { 'unit': 'px', 'value': 1 }, { 'unit': 'px', 'value': 5 }],
     'fontSize': [{ 'unit': 'px', 'value': 12 }],
     'lineHeight': [{ 'unit': 'px', 'value': 1.5 }],
@@ -515,7 +514,7 @@ export default StyleSheet.create({
     'borderRadius': '2px',
     'fontSize': [{ 'unit': 'px', 'value': 28 }]
   },
-  'main-navigation navbar-nav > dropdownopen > a': {
+  'main-navigation navbar-nav>dropdownopen>a': {
     'background': 'transparent',
     'only screen&&<w767': {
       'borderBottom': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': 'rgba(73, 71, 71, 0.15)' }]
@@ -523,7 +522,7 @@ export default StyleSheet.create({
   },
   'main-navigation navbar-nav > dropdownopen > a span': {
     'background': 'transparent',
-    'color': '#ffffff',
+    'color': '#fff',
     'only screen&&<w767': {
       'background': 'transparent',
       'color': 'white'
@@ -590,7 +589,7 @@ export default StyleSheet.create({
     'marginTop': [{ 'unit': 'px', 'value': -6 }],
     'font': [{ 'unit': 'string', 'value': 'normal' }, { 'unit': 'string', 'value': 'normal' }, { 'unit': 'string', 'value': 'normal' }, { 'unit': 'px', 'value': 14 }, { 'unit': 'string', 'value': 'FontAwesome' }],
     'fontSize': [{ 'unit': 'px', 'value': 9 }],
-    'content': '"\f107"',
+    'content': '"f107"',
     'textRendering': 'auto',
     'WebkitFontSmoothing': 'antialiased',
     'MozOsxFontSmoothing': 'grayscale',
@@ -601,7 +600,7 @@ export default StyleSheet.create({
     }
   },
   'main-navigation dropdown-toggleopen:after': {
-    'content': '"\f106"'
+    'content': '"f106"'
   },
   'main-navigation dropdown-menu': {
     'background': 'rgba(26, 26, 26, 0.9)',
@@ -620,15 +619,15 @@ export default StyleSheet.create({
     'lineHeight': [{ 'unit': 'px', 'value': 1 }]
   },
   'main-navigation dropdown-menu li a:hover': {
-    'color': '#ffffff',
-    'background': '#000000',
+    'color': '#fff',
+    'background': '#000',
     'borderBottomColor': 'rgba(73, 71, 71, 0.15)'
   },
-  'main-navigation dropdown-menu liopen > a': {
-    'color': '#ffffff',
-    'background': '#000000'
+  'main-navigation dropdown-menu liopen>a': {
+    'color': '#fff',
+    'background': '#000'
   },
-  'main-navigation dropdown-menu liopen > a:hover': {
+  'main-navigation dropdown-menu liopen>a:hover': {
     'color': 'white'
   },
   'main-navigation dropdown-menuleft-side dropdown-menu': {
@@ -653,7 +652,7 @@ export default StyleSheet.create({
   'navbar-solid navbar-brand': {
     'padding': [{ 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 15 }, { 'unit': 'px', 'value': 5 }, { 'unit': 'px', 'value': 15 }]
   },
-  'navbar-solid navbar-nav > li > a': {
+  'navbar-solid navbar-nav>li>a': {
     'padding': [{ 'unit': 'px', 'value': 20 }, { 'unit': 'px', 'value': 20 }, { 'unit': 'px', 'value': 20 }, { 'unit': 'px', 'value': 20 }]
   },
   'navbar-solid dropdown-toggle:after': {
@@ -662,7 +661,7 @@ export default StyleSheet.create({
   'nav-tabs': {
     'marginRight': [{ 'unit': 'px', 'value': 2 }]
   },
-  'nav-tabs > li > a': {
+  'nav-tabs>li>a': {
     'borderRadius': '0px',
     'color': '#969595',
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }],
@@ -713,7 +712,7 @@ export default StyleSheet.create({
     'zIndex': '0'
   },
   'grey:after': {
-    'backgroundColor': 'rgba(0, 0, 0, 0.5)'
+    'backgroundColor': 'rgba(0,0,0,0.5)'
   },
   'parallax-hero': {
     'position': 'fixed',
@@ -728,7 +727,7 @@ export default StyleSheet.create({
     'height': [{ 'unit': '%V', 'value': 1 }],
     'width': [{ 'unit': '%H', 'value': 1 }]
   },
-  'wrapper-table > valign-center': {
+  'wrapper-table>valign-center': {
     'display': 'table-cell',
     'verticalAlign': 'middle'
   },
@@ -768,7 +767,7 @@ export default StyleSheet.create({
     'wordSpacing': '5px',
     'fontFamily': ''Lato'',
     'fontWeight': '700',
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'site-header intro psubtitle': {
     'display': 'inline-block',
@@ -856,7 +855,7 @@ export default StyleSheet.create({
     'border': [{ 'unit': 'px', 'value': 0 }],
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }]
   },
-  'flexslider slides > li': {
+  'flexslider slides>li': {
     'backgroundRepeat': 'no-repeat',
     'backgroundSize': 'cover',
     'backgroundPosition': 'center center'
@@ -867,16 +866,16 @@ export default StyleSheet.create({
     'textShadow': [{ 'unit': 'string', 'value': 'none' }, { 'unit': 'string', 'value': 'none' }, { 'unit': 'string', 'value': 'none' }, { 'unit': 'string', 'value': 'none' }]
   },
   'flexslider flex-direction-nav aflex-prev::before': {
-    'content': '"\f124"'
+    'content': '"f124"'
   },
   'flexslider flex-direction-nav aflex-next::before': {
-    'content': '"\f125"'
+    'content': '"f125"'
   },
   'flexslider intro h1': {
     'letterSpacing': [{ 'unit': 'px', 'value': 1 }],
     'wordSpacing': '2px',
     'fontWeight': '700',
-    'color': '#ffffff !important',
+    'color': '#fff !important',
     'marginBottom': [{ 'unit': 'px', 'value': 0 }]
   },
   'flexslider intro p': {
@@ -929,10 +928,10 @@ export default StyleSheet.create({
     'marginBottom': [{ 'unit': 'px', 'value': 20 }]
   },
   '#services section-description': {
-    'color': '#999999'
+    'color': '#999'
   },
   '#process section-description': {
-    'color': '#999999'
+    'color': '#999'
   },
   '#services-wiget': {
     'borderBottom': [{ 'unit': 'px', 'value': 2 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#f6f6f6' }],
@@ -1017,7 +1016,7 @@ export default StyleSheet.create({
     'display': 'inline',
     'paddingRight': [{ 'unit': 'px', 'value': 15 }],
     'fontSize': [{ 'unit': 'px', 'value': 14 }],
-    'color': '#999999',
+    'color': '#999',
     'marginRight': [{ 'unit': 'px', 'value': 60 }]
   },
   'progress-box': {
@@ -1027,7 +1026,7 @@ export default StyleSheet.create({
     'marginBottom': [{ 'unit': 'px', 'value': 20 }]
   },
   'goal_value p': {
-    'color': '#999999',
+    'color': '#999',
     'fontFamily': ''Lato'',
     'fontWeight': '700'
   },
@@ -1036,7 +1035,7 @@ export default StyleSheet.create({
     'fontWeight': 'bold'
   },
   'cause_content hr': {
-    'color': '#ffffff',
+    'color': '#fff',
     'margin': [{ 'unit': 'px', 'value': 14 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 14 }, { 'unit': 'px', 'value': 0 }]
   },
   'progress': {
@@ -1053,9 +1052,9 @@ export default StyleSheet.create({
     'width': [{ 'unit': 'px', 'value': 0 }],
     'position': 'relative',
     'WebkitTransition': 'width 3s cubic-bezier(0, 0, 0.2, 1)',
-    'transition': 'width 3s cubic-bezier(0, 0, 0.2, 1)'
+    'transition': 'width 3s cubic-bezier(0,0,0.2,1)'
   },
-  'progress-bar > span': {
+  'progress-bar>span': {
     'display': 'inline-block',
     'right': [{ 'unit': 'px', 'value': 0 }],
     'zIndex': '1',
@@ -1113,7 +1112,7 @@ export default StyleSheet.create({
   },
   'cause_single small_event_card event_meta ul li': {
     'fontFamily': ''Open Sans'',
-    'color': '#999999',
+    'color': '#999',
     'fontSize': [{ 'unit': 'px', 'value': 15 }],
     'marginLeft': [{ 'unit': 'px', 'value': 40 }]
   },
@@ -1147,7 +1146,7 @@ export default StyleSheet.create({
     'color': '#c5203e'
   },
   'bg-dark event_meta ul li': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'countdown-box': {
     'display': 'inline-block',
@@ -1197,7 +1196,7 @@ export default StyleSheet.create({
     'display': 'block',
     'marginBottom': [{ 'unit': 'px', 'value': 0 }],
     'fontSize': [{ 'unit': 'px', 'value': 30 }],
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'event_meta ul li': {
     'display': 'inline',
@@ -1347,7 +1346,7 @@ export default StyleSheet.create({
     'position': 'absolute',
     'left': [{ 'unit': 'px', 'value': 0 }],
     'right': [{ 'unit': 'px', 'value': 0 }],
-    'color': '#ffffff',
+    'color': '#fff',
     'fontSize': [{ 'unit': 'px', 'value': 14 }],
     'fontWeight': 'bold',
     'background': '#142e39',
@@ -1443,32 +1442,32 @@ export default StyleSheet.create({
   'first-cat-col': {
     'paddingLeft': [{ 'unit': 'px', 'value': 0 }]
   },
-  'nav-tabs > li': {
+  'nav-tabs>li': {
     'width': [{ 'unit': '%H', 'value': 0.5 }],
     'backgroundColor': '#728f98'
   },
-  'nav-tabs > liactive > a': {
+  'nav-tabs>liactive>a': {
     'color': '#fff',
     'cursor': 'default',
     'backgroundColor': '#091f40',
     'border': [{ 'unit': 'string', 'value': 'transparent' }],
     'borderBottomColor': 'transparent'
   },
-  'nav-tabs > liactive > a:focus': {
+  'nav-tabs>liactive>a:focus': {
     'color': '#fff',
     'cursor': 'default',
     'backgroundColor': '#091f40',
     'border': [{ 'unit': 'string', 'value': 'transparent' }],
     'borderBottomColor': 'transparent'
   },
-  'nav-tabs > liactive > a:hover': {
+  'nav-tabs>liactive>a:hover': {
     'color': '#fff',
     'cursor': 'default',
     'backgroundColor': '#091f40',
     'border': [{ 'unit': 'string', 'value': 'transparent' }],
     'borderBottomColor': 'transparent'
   },
-  'nav-tabs > li > a': {
+  'nav-tabs>li>a': {
     'borderRadius': '0px',
     'color': '#fff',
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }],
@@ -1530,7 +1529,7 @@ export default StyleSheet.create({
   },
   'tag-widget tags a:hover': {
     'backgroundColor': '#091f40',
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'align-left': {
     'float': 'left',
@@ -1604,7 +1603,7 @@ export default StyleSheet.create({
   },
   'ulgallery-filter li a': {
     'padding': [{ 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 20 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 20 }],
-    'color': '#ffffff',
+    'color': '#fff',
     'fontWeight': 'bold',
     'borderRadius': '0'
   },
@@ -1632,15 +1631,15 @@ export default StyleSheet.create({
   'contactus-brief': {
     'marginBottom': [{ 'unit': 'px', 'value': 50 }]
   },
-  'contactus-brief > h3': {
+  'contactus-brief>h3': {
     'fontFamily': ''Open Sans'',
     'fontSize': [{ 'unit': 'px', 'value': 30 }],
     'fontWeight': '900',
     'marginBottom': [{ 'unit': 'px', 'value': 45 }],
     'color': '#091f40'
   },
-  'contactus-brief > section-description': {
-    'color': '#999999'
+  'contactus-brief>section-description': {
+    'color': '#999'
   },
   'contact-us-wiget-section': {
     'color': '#091f40'
@@ -1648,8 +1647,8 @@ export default StyleSheet.create({
   'contact-wigets-description': {
     'color': '#091f40'
   },
-  'contact-wigets-description > p': {
-    'color': '#999999',
+  'contact-wigets-description>p': {
+    'color': '#999',
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }],
     'lineHeight': [{ 'unit': 'px', 'value': 1.8 }]
   },
@@ -1844,7 +1843,7 @@ export default StyleSheet.create({
     'lineHeight': [{ 'unit': 'px', 'value': 1.7 }],
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }]
   },
-  'personal-info > designation': {
+  'personal-info>designation': {
     'textTransform': 'uppercase'
   },
   'meet-social': {
@@ -1891,10 +1890,10 @@ export default StyleSheet.create({
     'background': '#091f40'
   },
   'faq_list active panel-heading a': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'faq_list panel-heading': {
-    'background': '#ffffff',
+    'background': '#fff',
     'borderTopLeftRadius': '0px',
     'borderTopRightRadius': '0px'
   },
@@ -1924,11 +1923,11 @@ export default StyleSheet.create({
   'fluid-grid h2': {
     'fontSize': [{ 'unit': 'px', 'value': 42 }],
     'color': '#fff',
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'margin': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 0 }]
   },
   'fluid-grid span': {
-    'fontFamily': '"Roboto Slab", serif',
+    'fontFamily': '"Roboto Slab",serif',
     'fontSize': [{ 'unit': 'px', 'value': 21 }],
     'color': '#fff'
   },
@@ -1958,7 +1957,7 @@ export default StyleSheet.create({
   'third-grid': {
     'backgroundColor': '#336f85'
   },
-  'no-gutter > [class*='col-']': {
+  'no-gutter>[class*='col-']': {
     'paddingRight': [{ 'unit': 'px', 'value': 0 }],
     'paddingLeft': [{ 'unit': 'px', 'value': 0 }]
   },
@@ -1992,7 +1991,7 @@ export default StyleSheet.create({
     'transition': 'all 0.3s'
   },
   'watch-film-player svg:hover polygon': {
-    'fill': '#FFCC00',
+    'fill': '#FC0',
     'stroke': 'none'
   },
   'watch-film-player svg:hover path': {
@@ -2020,7 +2019,7 @@ export default StyleSheet.create({
   },
   'watch-film-player i': {
     'fontSize': [{ 'unit': 'px', 'value': 22 }],
-    'color': 'rgba(255, 0, 62, 0.5)'
+    'color': 'rgba(255,0,62,0.5)'
   },
   'call-to-action-small': {
     'backgroundColor': '#091f40',
@@ -2060,7 +2059,7 @@ export default StyleSheet.create({
     'fontSize': [{ 'unit': 'px', 'value': 21 }]
   },
   'organisations span': {
-    'color': '#999999',
+    'color': '#999',
     'display': 'inline-block'
   },
   'organisations span i': {
@@ -2352,7 +2351,7 @@ export default StyleSheet.create({
   'footer': {
     'backgroundColor': '#091f40',
     'borderTop': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#234c5b' }],
-    'color': '#ffffff',
+    'color': '#fff',
     'padding': [{ 'unit': 'px', 'value': 40 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 40 }, { 'unit': 'px', 'value': 0 }],
     '<w767': {
       'textAlign': 'center'
@@ -2365,12 +2364,12 @@ export default StyleSheet.create({
     }
   },
   'footer footer-menu li': {
-    'borderRight': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#ffffff' }],
+    'borderRight': [{ 'unit': 'px', 'value': 1 }, { 'unit': 'string', 'value': 'solid' }, { 'unit': 'string', 'value': '#fff' }],
     'display': 'inline-block',
     'padding': [{ 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 10 }, { 'unit': 'px', 'value': 0 }, { 'unit': 'px', 'value': 10 }]
   },
   'footer footer-menu li a': {
-    'color': '#ffffff'
+    'color': '#fff'
   },
   'footer footer-menu li:last-child': {
     'borderRight': [{ 'unit': 'string', 'value': 'none' }]
@@ -2381,7 +2380,7 @@ export default StyleSheet.create({
   'logo_holder': {
     'width': [{ 'unit': 'px', 'value': 45 }],
     'height': [{ 'unit': 'string', 'value': 'auto' }],
-    'background': '#FFFFFF',
+    'background': '#FFF',
     'borderRadius': '50%'
   }
 });
