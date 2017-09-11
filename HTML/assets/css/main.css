@@ -503,6 +503,8 @@ div.zabuto_calendar tr.calendar-dow td{height:150px;}
 .red{color:#c5203e;}
 
 .logo_holder {
-  width: 50px;
+  width: 45px;
   height: auto;
+  background: #FFFFFF;
+  border-radius: 50%;
 }
