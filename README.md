@@ -1,4 +1,4 @@
-# Vets Who Code Web app
+# Vets Who Code Serverless Web App
 
 
 The Vets Who Code Web App is a Jamstack Applicaton designed more for speed.
