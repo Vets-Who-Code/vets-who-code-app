@@ -10,4 +10,4 @@ By doing this we can focus on creating a beautiful web experience with a focus o
 2. Add Shop page
 3. Add Testimonials
 4. Add serverless CMS - Noel's decision
-5. Start implementing React to slider and countdown calendar
+5. Start implementing React image slider and countdown calendar
