@@ -6,8 +6,8 @@ By doing this we can focus on creating a beautiful web experience with a focus o
 
 
 ## TODOS
-1. Add Podcast page
-2. Add Shop page
-3. Add Testimonials
-4. Add serverless CMS - Noel's decision
-5. Start implementing React image slider and countdown calendar
+- [ ] Add Podcast page
+- [ ] Add Shop page
+- [ ] Add Testimonials
+- [ ] Add serverless CMS - Noel's decision
+- [ ] Start implementing React image slider and countdown calendar
