@@ -4,7 +4,7 @@ const app = express()
 
 app
   .set('port', process.env.PORT || 4000)
-  .use(express.static(`${__dirname}/HTML`))
+  .use(express.static('HTML'))
 
   /*
    * .use((err, req, res, next) => {
