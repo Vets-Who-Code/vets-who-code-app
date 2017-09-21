@@ -6,10 +6,15 @@
   "author": "mrbernnz <noel.sagaille@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "pm2 start app.js"
+    "start": "pm2 start app.js",
+    "restart": "pm2 restart all",
+    "test": "mocha"
   },
   "dependencies": {
     "express": "^4.15.3",
     "pm2": "^2.4.6"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.3"
   }
 }
