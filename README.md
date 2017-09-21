@@ -1,3 +1,5 @@
+[ ![Codeship Status for Vets-Who-Code/vwc-site](https://app.codeship.com/projects/ff28da80-8113-0135-d5bf-5e2b912b9312/status?branch=master)](https://app.codeship.com/projects/246835)
+
 # Vets Who Code Serverless Web App
 
 ## Prerequisites
