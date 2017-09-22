@@ -1,0 +1,187 @@
+.btn-cal-default {
+  background: #ff5027;
+  color: #ffffff;
+}
+
+.btn-cal-default:hover, .btn-cal-default:focus, .btn-cal-default:active {
+  background-color: rgba(255, 80, 39, 0.7);
+  color: #ffffff;
+  border-color: #ff5027;
+}
+
+.btn-cal-default-o-color {
+  color: #ff5027;
+  border-color: #ff5027;
+  background: transparent;
+}
+
+.btn-cal-default-o-color:hover {
+  background-color: rgba(255, 80, 39, 0.7);
+  color: #ffffff;
+  border-color: #ff5027;
+}
+
+.btn-hover-base:hover {
+  background-color: #ff5027;
+  color: #ffffff;
+}
+
+.menuzord-menu > li > .megamenu {
+  border-color: #ff5027;
+}
+
+.top-cart-item-desc a:hover {
+  color: #ff5027;
+}
+
+.top-cart-item-image:hover {
+  border-color: #ff5027;
+}
+
+.menuzord-brand:hover, .menuzord-brand:focus, .menuzord-brand:active {
+  color: #ff5027;
+}
+
+.menuzord.red .menuzord-menu > li:hover > a,
+.menuzord.red .menuzord-menu ul.dropdown li:hover > a {
+  color: #ff5027;
+}
+
+.menuzord-menu > li.item-icon > a .badge {
+  background: #ff5027;
+}
+
+.menuzord-menu > li .navbar-form .input-group > input:focus, .menuzord-menu > li .navbar-form .input-group > input:active {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ff5027;
+}
+
+.mega-sub-menu > li > a:hover {
+  color: #ff5027;
+}
+
+.service-item .icon {
+  color: #ff5027;
+}
+
+.base-bg {
+  background-color: #ff5027;
+}
+
+.team-social li a:hover {
+  background: #ff5027;
+}
+
+.card-process:hover header span {
+  color: #ff5027;
+  border-color: #ff5027;
+}
+
+.card-process:hover header::before, .card-process:hover header::after {
+  background-color: #ff5027;
+}
+
+.progress-bar {
+  background-color: #ff5027;
+}
+
+.level .video-info .video-icon:hover, .level .video-info .video-icon:active, .level .video-info .video-icon:focus {
+  color: #ff5027;
+}
+
+.price-box {
+  border: 1px solid #ff5027;
+}
+
+.price-box.featured {
+  border-bottom: 1px solid #ff5027;
+}
+
+.blog .blog-post .blog-content h5 a:hover {
+  color: #ff5027;
+}
+
+.blog .blog-post .post-meta span.blog-catagory a:hover {
+  color: #ff5027;
+}
+
+.client-info p a {
+  color: #ff5027;
+}
+
+.social-icon li a:hover, .social-icon li a:focus, .social-icon li a:active {
+  color: #ff5027;
+}
+
+.widget-contact a:hover, .widget-contact a:focus, .widget-contact a:active {
+  color: #ff5027;
+}
+
+.portfolio-filter li.active a {
+  color: #ff5027;
+}
+
+.portfolio-hover {
+  background-color: rgba(255, 80, 39, 0.9);
+}
+
+.cta6 > a:hover {
+  background-color: #ff5027;
+}
+
+.team-profile.hiring:hover a {
+  color: #ff5027;
+}
+
+.cta7 h5 span {
+  color: #ff5027;
+}
+
+.breadcrumb a:hover, .breadcrumb a:active, .breadcrumb a:focus {
+  color: #ff5027;
+}
+
+.cart-table a:hover {
+  color: #ff5027;
+}
+
+.panel-title:hover a {
+  color: #ff5027;
+}
+
+.sitemap ul li a:hover {
+  color: #ff5027;
+}
+
+.subscribe-form input:focus {
+  border-color: #ff5027;
+}
+
+.card-product .product-badge {
+  background-color: #ff5027;
+}
+
+.card-product .product-price {
+  color: #ff5027;
+}
+
+.single-product .breadcrumb a:hover {
+  color: #ff5027;
+}
+
+.single-product .product-price {
+  color: #ff5027;
+}
+
+.cd-nav h5 {
+  color: #ff5027;
+}
+
+.search-widget form input:focus {
+  border-color: #ff5027;
+}
+
+.search-widget form button:hover {
+  color: #ff5027;
+}
