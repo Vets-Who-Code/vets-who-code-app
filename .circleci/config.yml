@@ -2,30 +2,35 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.5.0
+      - image: circleci/node:8.5
+
     working_directory: ~/vwc-site
+
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
+
       - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
+
       - run:
           name: Installing packages
-          command: yarn
+          command: yarn install
+
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+          paths: ./node_modules
+
       - run:
           name: Running tests
           command: yarn test
+
       - store_artifacts:
           path: test-results.xml
           prefix: tests
+
       - store_test_results:
           path: test-results.xml
+
       - deploy:
           name: Deploy to DigitalOcean
           command: |
