@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/Vets-Who-Code/vwc-site/tree/master.svg?style=shield&circle-token=dbe27b659f5cde187ca07f5897bbc51fd7f5b59a)](https://circleci.com/gh/Vets-Who-Code/vwc-site/tree/master)
-
 # Vets Who Code Serverless Web App
 
 ## Prerequisites
