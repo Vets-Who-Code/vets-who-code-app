@@ -13,34 +13,26 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Installing packages
-          command: yarn install
+          name: Installing Packages
+          command: yarn
 
       - save_cache:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths: ./node_modules
 
       - run:
-          name: Running tests
+          name: Running Tests
           command: yarn test
-
-      - store_artifacts:
-          path: test-results.xml
-          prefix: tests
-
-      - store_test_results:
-          path: test-results.xml
 
       - deploy:
           name: Deploy to DigitalOcean
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ssh $DEPLOY_USER@$DEPLOY_HOST
-              yes
+              ssh -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST
               cd $PROJECT_NAME
               git pull -r origin master
               yarn
               yarn restart
             else
-              echo "Not master branch so not deploying"
+              echo "Not master branch, so not deploying"
             fi
