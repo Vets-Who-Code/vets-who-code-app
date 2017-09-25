@@ -182,7 +182,7 @@ $(document).ready(function(){
     if($(".container-countdown").length == 0) return;
 
     $('.container-countdown').countdown({
-        date: "September 04, 2017 00:00:00",
+        date: "March 05, 2018 00:00:00",
         render: function(data) {
             var el = $(this.el);
             el.empty()
