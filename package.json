@@ -7,12 +7,13 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2 start --name 'website' bin/www",
-    "dev": "DEBUG=* node bin/www",
+    "dev": "DEBUG=* nodemon bin/www",
     "restart": "pm2 restart all",
     "test": "mocha"
   },
   "dependencies": {
     "express": "^4.15.3",
+    "nodemon": "1.14.3",
     "pm2": "^2.4.6"
   },
   "devDependencies": {
