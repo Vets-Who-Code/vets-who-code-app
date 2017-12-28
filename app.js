@@ -1,8 +1,10 @@
 const express = require('express')
+const shop = require('./routes/shop')
 const app = express()
 
 app
   .use(express.static('public'))
+  .use('/shop', shop)
   /*
    * .use((err, req, res, next) => {
    *   res.status(404).sendFile(`${__dirname}/HTML/404.html`)
