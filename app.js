@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 
 app
-  .set('port', process.env.PORT || 4000)
   .use(express.static('public'))
   /*
    * .use((err, req, res, next) => {
@@ -14,7 +13,9 @@ app
     res.status(err.status)
     res.render('Error', {
       message: err.message,
-      error: app.get('env') === 'development' ? err : {}
+      error: app.get('env') === 'development' ? err : {},
+      title: 'Error'
     })
   })
-  .listen(app.get('port'), () => console.log(`Listening on ${app.get('port')}`))
+
+module.exports = app
