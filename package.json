@@ -13,8 +13,7 @@
   },
   "dependencies": {
     "express": "^4.15.3",
-    "nodemon": "1.14.3",
-    "pm2": "^2.4.6"
+    "nodemon": "1.14.3"
   },
   "devDependencies": {
     "mocha": "^3.5.3"
