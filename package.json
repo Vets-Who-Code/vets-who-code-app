@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "pm2 start --name 'website' bin/www",
-    "dev": "DEBUG=* nodemon bin/www",
+    "dev": "webpack-dev-server",
     "restart": "pm2 restart all",
     "test": "mocha"
   },
