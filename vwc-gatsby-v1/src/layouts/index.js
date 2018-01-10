@@ -23,7 +23,7 @@ import '../assets/css/main.css';
 import '../assets/css/custom.css';
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <main>
     <Helmet
       title="#VetsWhoCode 🇺🇸 "
       meta={[
@@ -36,9 +36,10 @@ const TemplateWrapper = ({ children }) => (
       <Nav />
       <Header />
       {children()}
+
       <Footer />
     </div>
-  </div>
+  </main>
 );
 
 TemplateWrapper.propTypes = {

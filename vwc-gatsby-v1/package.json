@@ -4,14 +4,11 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "bootstrap": "3.3.7",
-    "gatsby": "^1.9.145",
-    "gatsby-link": "^1.6.32",
-    "gatsby-plugin-react-helmet": "^1.0.8",
-    "generate": "0.14.0",
-    "jquery": "3.2.1",
-    "modernizr": "3.5.0",
-    "owl.carousel": "2.2.0"
+    "gatsby": "^1.9.149",
+    "gatsby-link": "1.6.34",
+    "gatsby-plugin-create-client-paths": "1.0.1",
+    "gatsby-plugin-react-helmet": "1.0.8",
+    "generate": "0.14.0"
   },
   "keywords": [
     "gatsby"

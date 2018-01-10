@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import codePNG from '../images/code.png';
-import speakingPNG from '../images/speaking.png';
-import thisIsUsPNG from '../images/this_is_us.png';
+import codePNG from '../images/code.png'
+import speakingPNG from '../images/speaking.png'
+import thisIsUsPNG from '../images/this_is_us.png'
 
 const Header = () => {
   return (
-    <header id="site-header" className="site-header flexslider classNameic">
+    <header id="site-header" className="site-header flexslider classic">
       <ul className="slides">
         <li style={{ backgroundImage: `url(${codePNG})` }}>
-          <div className="header-classNameic wrapper-table overlay-01">
+          <div className="header-classic  wrapper-table overlay-01">
             <div className="valign-center">
               <div className="container">
                 <div className="col-md-10 col-md-offset-1">
@@ -29,7 +29,7 @@ const Header = () => {
           </div>
         </li>
         <li style={{ backgroundImage: `url(${speakingPNG})` }}>
-          <div className="header-classNameic wrapper-table overlay-01">
+          <div className="header-classic  wrapper-table overlay-01">
             <div className="valign-center">
               <div className="container">
                 <div className="col-md-10 col-md-offset-1">
@@ -50,7 +50,7 @@ const Header = () => {
           </div>
         </li>
         <li style={{ backgroundImage: `url(${thisIsUsPNG})` }}>
-          <div className="header-classNameic wrapper-table overlay-01">
+          <div className="header-classic wrapper-table overlay-01">
             <div className="valign-center">
               <div className="container">
                 <div className="col-md-10 col-md-offset-1">
@@ -98,7 +98,7 @@ const Header = () => {
         </li>
       </ul>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
