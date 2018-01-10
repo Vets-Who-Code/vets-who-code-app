@@ -4,4 +4,4 @@ module.exports = {
   },
   pathPrefix: '/static',
   plugins: [`gatsby-plugin-react-helmet`],
-};
+}
