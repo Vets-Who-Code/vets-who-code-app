@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Loader extends Component {
+  constructor(props) {
+    super(props);
+    this.handleLoader = this.handleLoader.bind(this);
+  }
+
   componentDidMount() {
     this.handleLoader();
     this.handleLoader = this.handleLoader.bind(this);
