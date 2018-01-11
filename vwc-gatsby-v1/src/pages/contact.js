@@ -49,7 +49,7 @@ class Contact extends Component {
                 <form id="s2do-form" action="#" method="POST">
                   <div className="col-md-4">
                     <div className="form-group">
-                      <label htmlhtmlFor="InputName" className="dark-text">
+                      <label htmlFor="InputName" className="dark-text">
                         Your Display Name
                         <super>*</super>
                       </label>
