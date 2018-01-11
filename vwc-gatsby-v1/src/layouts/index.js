@@ -23,7 +23,7 @@ import '../assets/css/main.css';
 import '../assets/css/custom.css';
 
 const TemplateWrapper = ({ children }) => (
-  <main>
+  <div>
     <Helmet
       title="#VetsWhoCode 🇺🇸 "
       meta={[
@@ -34,28 +34,46 @@ const TemplateWrapper = ({ children }) => (
       <script async src="./static/vendor/components-modernizr/modernizr.js" />
       <script async src="./static/vendor/jquery/dist/jquery.js" />
       <script async src="./static/vendor/bootstrap/dist/js/bootstrap.min.js" />
-      <script async src="./static/vendor/owlcarousel/owl-carousel/owl.carousel.min.js" />
+      <script
+        async
+        src="./static/vendor/owlcarousel/owl-carousel/owl.carousel.min.js"
+      />
       <script async src="./static/vendor/swipebox/js/jquery.swipebox.min.js" />
-      <script async src="./static/vendor/rotating-carousel/js/jquery.gallery.js" />
+      <script
+        async
+        src="./static/vendor/rotating-carousel/js/jquery.gallery.js"
+      />
       <script async src="./static/vendor/slick/slick.js" />
-      <script async src="./static/vendor/magnificpopup/jquery.magnific-popup.min.js" />
+      <script
+        async
+        src="./static/vendor/magnificpopup/jquery.magnific-popup.min.js"
+      />
       <script async src="./static/vendor/scrollspeed/jQuery.scrollSpeed.js" />
       <script async src="./static/vendor/FlexSlider/jquery.flexslider.js" />
-      <script async src="./static/vendor/waypoints/lib/jquery.waypoints.min.js" />
-      <script async src="./static/vendor/waypoints/lib/shortcuts/inview.min.js" />
-      <script async src="./static/vendor/countdown/dest/jquery.countdown.min.js" />
+      <script
+        async
+        src="./static/vendor/waypoints/lib/jquery.waypoints.min.js"
+      />
+      <script
+        async
+        src="./static/vendor/waypoints/lib/shortcuts/inview.min.js"
+      />
+      <script
+        async
+        src="./static/vendor/countdown/dest/jquery.countdown.min.js"
+      />
       <script async src="./static/js/main.js" />
       <script async src="https://linked.chat/web/a9LB63" />
     </Helmet>
 
-    <div className="main_container">
+    <main className="main_container">
       <Loader />
       <Nav />
       <Header />
       {children()}
       <Footer />
-    </div>
-  </main>
+    </main>
+  </div>
 );
 
 TemplateWrapper.propTypes = {
