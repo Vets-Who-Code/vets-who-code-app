@@ -18,10 +18,6 @@ class IndexPage extends Component {
     this.handleTimer = this.handleTimer.bind(this);
   }
 
-  componentWillMount() {
-    this.handleSlider();
-  }
-
   componentDidMount() {
     this.handleTimer();
     this.handleSlider();
