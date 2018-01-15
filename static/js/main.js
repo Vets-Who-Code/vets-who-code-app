@@ -24,7 +24,7 @@ var navbar = $('.main-navigation'),
   mobileTest;
 if (
   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
+    navigator.userAgent
   )
 ) {
   mobileTest = true;
@@ -61,12 +61,12 @@ function navbarSubmenu(width) {
 function hoverDropdown(width, mobileTest) {
   if (width > 767 && mobileTest !== true) {
     $(
-      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown',
+      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown'
     ).removeClass('open');
     var delay = 0;
     var setTimeoutConst;
     $(
-      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown',
+      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown'
     ).hover(
       function() {
         var $this = $(this);
@@ -81,11 +81,11 @@ function hoverDropdown(width, mobileTest) {
         $(this)
           .find('.dropdown-toggle')
           .removeClass('disabled');
-      },
+      }
     );
   } else {
     $(
-      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown',
+      '.main-navigation .navbar-nav > li.dropdown, .main-navigation li.dropdown > ul > li.dropdown'
     ).unbind('mouseenter mouseleave');
     $('.main-navigation [data-toggle=dropdown]')
       .not('.binded')
@@ -128,7 +128,7 @@ $('#causesCarousel').owlCarousel({
   singleItem: false,
   autoPlay: true,
   pagination: true,
-  items: 3,
+  items: 3
 });
 $(document).ready(function() {
   $('.progressbars').each(function() {
@@ -139,7 +139,7 @@ $(document).ready(function() {
         $this.find('.progress-bar').each(function() {
           $(this).css('width', $(this).attr('aria-valuenow') + '%');
         });
-      },
+      }
     });
   });
 });
@@ -157,24 +157,24 @@ $(document).ready(function() {
         .append(
           "<div class='countdown-box'><span class='counter'>" +
             this.leadingZeros(data.days, 2) +
-            '</span><h4>Days</h4></div>',
+            '</span><h4>Days</h4></div>'
         )
         .append(
           "<div class='countdown-box'><span class='counter'>" +
             this.leadingZeros(data.hours, 2) +
-            '</span><h4>Hours</h4></div>',
+            '</span><h4>Hours</h4></div>'
         )
         .append(
           "<div class='countdown-box'><span class='counter'>" +
             this.leadingZeros(data.min, 2) +
-            '</span><h4>Minutes</h4></div>',
+            '</span><h4>Minutes</h4></div>'
         )
         .append(
           "<div class='countdown-box'><span class='counter'>" +
             this.leadingZeros(data.sec, 2) +
-            '</span><h4>Seconds</h4></div>',
+            '</span><h4>Seconds</h4></div>'
         );
-    },
+    }
   });
 });
 (function() {
@@ -234,7 +234,7 @@ $('#subscription-form').submit(function(e) {
     },
     error: function() {
       alert('Something is wrong! Please try again');
-    },
+    }
   });
 });
 $(window).load(function() {
@@ -260,7 +260,7 @@ $(document).ready(function() {
       },
       error: function(data) {
         alert('We seem to have an error');
-      },
+      }
     });
     return false;
   });
@@ -274,7 +274,7 @@ $(document).ready(function() {
     slidesToShow: 2,
     slidesToScroll: 2,
     prevArrow: '<i class="fa fa-chevron-left"></i>',
-    nextArrow: '<i class="fa fa-chevron-right"></i>',
+    nextArrow: '<i class="fa fa-chevron-right"></i>'
   });
 })();
 function iOS() {
@@ -284,7 +284,7 @@ function iOS() {
     'iPod Simulator',
     'iPad',
     'iPhone',
-    'iPod',
+    'iPod'
   ];
   if (!!navigator.platform) {
     while (iDevices.length) {

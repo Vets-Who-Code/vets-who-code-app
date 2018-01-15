@@ -1,0 +1,90 @@
+{
+  "assetsByChunkName": {
+    "component---src-pages-syllabus-js": [
+      "component---src-pages-syllabus-js-c03f9ab6be8215bfade8.js",
+      "component---src-pages-syllabus-js-c03f9ab6be8215bfade8.js.map"
+    ],
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-884f99650454e72204db.js",
+      "component---src-pages-index-js-884f99650454e72204db.js.map"
+    ],
+    "component---src-pages-mentor-js": [
+      "component---src-pages-mentor-js-bf4492a2700533d5639b.js",
+      "component---src-pages-mentor-js-bf4492a2700533d5639b.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "component---src-pages-contact-js": [
+      "component---src-pages-contact-js-03b9e9117a4b19468606.js",
+      "component---src-pages-contact-js-03b9e9117a4b19468606.js.map"
+    ],
+    "component---src-pages-apply-js": [
+      "component---src-pages-apply-js-63e95213df65e89fa34e.js",
+      "component---src-pages-apply-js-63e95213df65e89fa34e.js.map"
+    ],
+    "component---src-pages-donate-js": [
+      "component---src-pages-donate-js-1b1c9a1bdeece7fbf9aa.js",
+      "component---src-pages-donate-js-1b1c9a1bdeece7fbf9aa.js.map"
+    ],
+    "path---donate": [
+      "path---donate-a0e39f21c11f6a62c5ab.js",
+      "path---donate-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-b3fafb1478d6496a454d.js",
+      "component---src-layouts-index-js-b3fafb1478d6496a454d.js.map"
+    ],
+    "path---apply": [
+      "path---apply-a0e39f21c11f6a62c5ab.js",
+      "path---apply-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---syllabus": [
+      "path---syllabus-a0e39f21c11f6a62c5ab.js",
+      "path---syllabus-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---index": [
+      "path---index-a0e39f21c11f6a62c5ab.js",
+      "path---index-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---mentor": [
+      "path---mentor-a0e39f21c11f6a62c5ab.js",
+      "path---mentor-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-404-js": [
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js",
+      "component---src-pages-404-js-4503918ea3a16cfcdb75.js.map"
+    ],
+    "commons": [
+      "commons-c5a89ff2bc0feac80ef2.js",
+      "commons-c5a89ff2bc0feac80ef2.js.map"
+    ],
+    "path---404-html": [
+      "path---404-html-a0e39f21c11f6a62c5ab.js",
+      "path---404-html-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "path---contact": [
+      "path---contact-a0e39f21c11f6a62c5ab.js",
+      "path---contact-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "app": [
+      "app-8b8aef852de3d1785cf0.js",
+      "build-js-styles.css",
+      "app-8b8aef852de3d1785cf0.js.map",
+      "build-js-styles.css.map"
+    ],
+    "path---404": [
+      "path---404-a0e39f21c11f6a62c5ab.js",
+      "path---404-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "component---src-pages-about-js": [
+      "component---src-pages-about-js-9ff0d4072679a02adc21.js",
+      "component---src-pages-about-js-9ff0d4072679a02adc21.js.map"
+    ],
+    "path---about": [
+      "path---about-a0e39f21c11f6a62c5ab.js",
+      "path---about-a0e39f21c11f6a62c5ab.js.map"
+    ]
+  }
+}

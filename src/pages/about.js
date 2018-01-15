@@ -1,12 +1,33 @@
-import React from 'react'
+import React from 'react';
+import Link from 'gatsby-link';
 
-import vwcGIF from '../images/vwc.gif'
-import jerome from '../images/team/jerome.png'
-import noel from '../images/team/noel.png'
-import andrew from '../images/team/andrew.png'
+import vwcGIF from '../images/vwc.gif';
+import jerome from '../images/team/jerome.png';
+import noel from '../images/team/noel.png';
+import andrew from '../images/team/andrew.png';
+import thisIsUs from '../images/this_is_us.png';
 
 const About = () => (
   <div>
+    <header
+      className="inner-header overlay grey text-center slim-bg "
+      style={{
+        backgroundImage: `url(${thisIsUs})`,
+        backgroundPositionY: 'bottom'
+      }}
+    >
+      <div className="overlay-01" />
+      <div className="container">
+        <h2 className="text-center text-uppercase">About</h2>
+        <div className="breadcrumb">
+          <Link to="/">Home</Link>
+          <span>/</span>
+          <Link href="/syllabus" className="page-active">
+            About
+          </Link>
+        </div>
+      </div>
+    </header>
     <section id="about" className="small-top-pad section bg-default">
       <div className="container">
         <div className="row">
@@ -125,6 +146,6 @@ const About = () => (
       </div>
     </section>
   </div>
-)
+);
 
-export default About
+export default About;

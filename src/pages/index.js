@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Header from '../components/Header';
+
 import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 import pluralsightPNG from '../images/supporters/ps.png';
 import basecampPNG from '../images/supporters/basecamp-logo.png';
@@ -13,6 +15,11 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
     this.handleSlider = this.handleSlider.bind(this);
+    this.handleTimer = this.handleTimer.bind(this);
+  }
+
+  componentWillMount() {
+    this.handleSlider();
   }
 
   componentDidMount() {
@@ -32,37 +39,49 @@ class IndexPage extends Component {
             .append(
               `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
                 data.days,
-                2,
-              )}</span><h4>Days</h4></div>`,
+                2
+              )}</span><h4>Days</h4></div>`
             )
             .append(
               `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
                 data.hours,
-                2,
-              )}</span><h4>Hours</h4></div>`,
+                2
+              )}</span><h4>Hours</h4></div>`
             )
             .append(
               `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
                 data.min,
-                2,
-              )}</span><h4>Minutes</h4></div>`,
+                2
+              )}</span><h4>Minutes</h4></div>`
             )
             .append(
               `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
                 data.sec,
-                2,
-              )}</span><h4>Seconds</h4></div>`,
+                2
+              )}</span><h4>Seconds</h4></div>`
             );
-        },
+        }
       });
     });
   }
 
-  handleSlider() {}
+  handleSlider() {
+    $('#causesCarousel').owlCarousel({
+      navigation: false,
+      slideSpeed: 100,
+      paginationSpeed: 400,
+      navigationText: false,
+      singleItem: false,
+      autoPlay: true,
+      pagination: true,
+      items: 3
+    });
+  }
 
   render() {
     return (
       <div>
+        <Header />
         <section
           id="our_stories"
           className="section pad-regular bg-default our_stories small-top-pad"

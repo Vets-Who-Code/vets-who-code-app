@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Link from 'gatsby-link';
+
+import thisIsUs from '../images/this_is_us.png';
 
 class Contact extends Component {
   initialize() {
@@ -7,7 +10,7 @@ class Contact extends Component {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(mapCanvas, mapOptions);
   }
@@ -19,6 +22,25 @@ class Contact extends Component {
   render() {
     return (
       <div>
+        <header
+          className="inner-header overlay grey text-center slim-bg "
+          style={{
+            backgroundImage: `url(${thisIsUs})`,
+            backgroundPositionY: 'bottom'
+          }}
+        >
+          <div className="overlay-01" />
+          <div className="container">
+            <h2 className="text-center text-uppercase">Contact Us</h2>
+            <div className="breadcrumb">
+              <Link to="/">Home</Link>
+              <span>/</span>
+              <Link href="/contact" className="page-active">
+                Contact Us
+              </Link>
+            </div>
+          </div>
+        </header>
         <section id="contact" className="pad-regular section bg-default">
           <div className="container">
             <div className="row">
