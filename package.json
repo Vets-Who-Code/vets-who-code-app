@@ -1,21 +1,27 @@
 {
-  "name": "vwc-web-app",
+  "name": "gatsby-starter-default",
+  "description": "Gatsby default starter",
   "version": "1.0.0",
-  "main": "app.js",
-  "repository": "Vets-Who-Code/web-app",
-  "author": "mrbernnz <noel.sagaille@gmail.com>",
-  "license": "MIT",
-  "scripts": {
-    "start": "pm2 start --name 'website' bin/www",
-    "dev": "DEBUG=* node bin/www",
-    "restart": "pm2 restart all",
-    "test": "mocha"
-  },
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "express": "^4.15.3",
-    "pm2": "^2.4.6"
+    "gatsby": "^1.9.149",
+    "gatsby-link": "1.6.34",
+    "gatsby-plugin-create-client-paths": "1.0.1",
+    "gatsby-plugin-react-helmet": "1.0.8",
+    "generate": "0.14.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "mocha": "^3.5.3"
+    "prettier": "^1.9.2"
   }
 }
