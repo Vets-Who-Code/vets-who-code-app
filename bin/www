@@ -1,7 +1,0 @@
-#!/usr/bin/env node
-const app = require('../app')
-const debug = require('debug')('server')
-
-app.set('port', process.env.PORT || 4000)
-
-const server = app.listen(app.get('port'))
