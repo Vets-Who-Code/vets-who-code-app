@@ -1,3 +1,4 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE)
 # Vets Who Code Serverless Web App
 
 ## Prerequisites
