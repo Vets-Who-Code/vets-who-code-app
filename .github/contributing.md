@@ -44,6 +44,5 @@ Provide more context by answering these questions:
 ### Pull Requests
 
 * Include screenshots and animated GIFs in your pull request whenever possible.
-* Follow the [Airbnb React/JSX](https://github.com/airbnb/javascript/tree/master/react) styleguide.
-* Include thoughtfully-worded, well-structured
-  [Jest](https://facebook.github.io/jest/) tests in the `./__tests__` folder. Run them using `npm test`.
+* Follow the [Airbnb](https://github.com/airbnb/javascript) styleguide.
+* Include thoughtfully-worded, well-structured [Jest](https://facebook.github.io/jest/) tests in the `./__tests__` folder if applicable. Run them using `npm test`.
