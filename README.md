@@ -1,16 +1,26 @@
-![node](https://img.shields.io/badge/node-v8.9.4-brightgreen.svg?style=flat-square)
-![npm](https://img.shields.io/npm/v/npm.svg?style=flat-square)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square)](https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md)
+<p align=center>
+  <img src=https://img.shields.io/badge/node-v8.9.4-brightgreen.svg?style=flat-square alt="node" />
+  <img src=https://img.shields.io/badge/npm-v5.6.0-blue.svg alt="npm" />
+  <a href=https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE>
+    <img src=https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square alt="License: MIT" />
+  </a>
+  <a href=https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md>
+    <img src=https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square alt="Contributions Welcome" />
+  </a>
+</p>
 
-# ![VetsWhoCode](https://avatars1.githubusercontent.com/u/18350560?s=200&v=4 "VWC Logo") Vets Who Code Web App
+<p align=center>
+  <img src=https://avatars1.githubusercontent.com/u/18350560?s=200&v=4 alt="VWC Logo" />
+</p>
+
+# Vets Who Code Web App
 The Vets Who Code Web App is a Jamstack Applicaton designed more for speed.
 By doing this we can focus on creating a beautiful web experience with a focus on telling the story of Vets Who Code.
 
 ## Getting Started
 These instuctions will get you a copy of the project up and running on your local machine for development and testing purposes.  See deployment for notes on how to deploy the project on a live system.
 
-## Prerequisites
+### Prerequisites
 You will need the following properly installed on your computer.
 
 * [Git](http://git-scm.com/)
@@ -18,11 +28,12 @@ You will need the following properly installed on your computer.
 * [NVM](https://github.com/creationix/nvm)
 * [Gatsby](https://www.gatsbyjs.org/)
 
-## Installing
+### Installing
 In a terminal window run these commands.
 ```sh
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
 $ cd vwc-site
+$ nvm install
 $ npm install
 $ npm run develop
 ```
@@ -34,10 +45,12 @@ $ npm run build --prefix-path
 
 You should be able to view the website locally at `http://localhost:8000/`.
 
+<!-- ## Tests -->
+
 <!-- ## Deployment -->
 
 ## Contributing
-Please read [contributing](https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md) for details on our code of conduct and the process for submitting pull requests.
+Please read [contributing](https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md) for details on our code of conduct and the process for submitting issues and/or pull requests.
 
 [CONTRIBUTORS](https://github.com/Vets-Who-Code/vwc-site/graphs/contributors)
 ## License

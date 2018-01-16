@@ -24,7 +24,7 @@ When you are creating a bug report, please [include as many details as possible]
 
 #### How Do I Submit A (Good) Bug Report?
 
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/).
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/).  Please submit [here](https://github.com/Vets-Who-Code/vwc-site/issues)
 
 Explain the problem and include additional details to help maintainers reproduce the problem:
 
