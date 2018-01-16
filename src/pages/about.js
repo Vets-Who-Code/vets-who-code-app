@@ -22,7 +22,7 @@ const About = () => (
         <div className="breadcrumb">
           <Link to="/">Home</Link>
           <span>/</span>
-          <Link to="/syllabus" className="page-active">
+          <Link to="/about" className="page-active">
             About
           </Link>
         </div>

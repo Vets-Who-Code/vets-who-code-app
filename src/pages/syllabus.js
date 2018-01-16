@@ -15,12 +15,12 @@ const Syllabus = () => {
       >
         <div className="overlay-01" />
         <div className="container">
-          <h2 className="text-center text-uppercase">Apply</h2>
+          <h2 className="text-center text-uppercase">Syllabus</h2>
           <div className="breadcrumb">
             <Link to="/">Home</Link>
             <span>/</span>
-            <Link to="/apply" className="page-active">
-              Apply
+            <Link to="/syllabus" className="page-active">
+              Syllabus
             </Link>
           </div>
         </div>
