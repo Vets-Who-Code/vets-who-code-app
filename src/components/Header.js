@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 import codePNG from '../images/code.png'
 import speakingPNG from '../images/speaking.png'
@@ -18,9 +19,9 @@ const Header = () => {
                     <p className="subtitle">How To Code With Other Veterans.</p>
                     <div className="btn-cal-group">
                       {' '}
-                      <a href="apply.html" className="btn btn-charity-default">
+                      <Link to="/apply" className="btn btn-charity-default">
                         Apply
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -38,10 +39,10 @@ const Header = () => {
                     <p className="subtitle">As A Mentor.</p>
                     <div className="btn-cal-group">
                       {' '}
-                      <a href="mentor.html" className="btn btn-charity-default">
+                      <Link to="/mentor" className="btn btn-charity-default">
                         {' '}
                         Sign Up
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -63,9 +64,9 @@ const Header = () => {
                     </p>
                     <div className="btn-cal-group">
                       {' '}
-                      <a href="donate.html" className="btn btn-charity-default">
+                      <Link to="/donate" className="btn btn-charity-default">
                         Please Donate
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
