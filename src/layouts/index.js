@@ -6,7 +6,6 @@ import Helmet from 'react-helmet';
 
 import Nav from '../components/Nav';
 import Loader from '../components/Loader';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css';
@@ -28,7 +27,7 @@ const TemplateWrapper = ({ children }) => (
       title="#VetsWhoCode 🇺🇸 "
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
+        { name: 'keywords', content: 'sample, something' },
       ]}
     >
       <script src={withPrefix('/vendor/components-modernizr/modernizr.js')} />
@@ -64,7 +63,6 @@ const TemplateWrapper = ({ children }) => (
     <main className="main_container">
       <Loader />
       <Nav />
-      <Header />
       {children()}
       <Footer />
     </main>
@@ -72,7 +70,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };
 
 export default TemplateWrapper;

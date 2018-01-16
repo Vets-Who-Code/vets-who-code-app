@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Header from '../components/Header';
 import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 import pluralsightPNG from '../images/supporters/ps.png';
 import basecampPNG from '../images/supporters/basecamp-logo.png';
@@ -58,11 +59,15 @@ class IndexPage extends Component {
     });
   }
 
-  handleSlider() {}
+  handleSlider() {
+    if ($('.flexslider').length == 0) return;
+    $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
+  }
 
   render() {
     return (
       <div>
+        <Header />
         <section
           id="our_stories"
           className="section pad-regular bg-default our_stories small-top-pad"

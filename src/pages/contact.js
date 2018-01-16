@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Contact extends Component {
   initialize() {
-    var mapCanvas = document.getElementById('map-canvas');
+    var mapCanvas = document.getElementById('map-canvas')
     var mapOptions = {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
-    };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    }
+    var map = new google.maps.Map(mapCanvas, mapOptions)
   }
 
   componentDidMount() {
-    this.initialize();
+    this.initialize()
   }
 
   render() {
@@ -124,8 +124,8 @@ class Contact extends Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default Contact;
+export default Contact
