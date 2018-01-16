@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Apply = () => {
   return (
@@ -143,7 +143,7 @@ const Apply = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Apply;
+export default Apply
