@@ -57,7 +57,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <script src={withPrefix('/js/main.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
-      <script async src="https://linked.chat/web/a9LB63" />
+      <script src="https://linked.chat/web/a9LB63" />
     </Helmet>
 
     <main className="main_container">
