@@ -6,7 +6,6 @@ import Helmet from 'react-helmet';
 
 import Nav from '../components/Nav';
 import Loader from '../components/Loader';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css';
@@ -24,13 +23,7 @@ import '../assets/css/custom.css';
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet
-      title="#VetsWhoCode 🇺🇸 "
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
-      ]}
-    >
+    <Helmet title="#VetsWhoCode 🇺🇸 ">
       <script src={withPrefix('/vendor/components-modernizr/modernizr.js')} />
       <script src={withPrefix('/vendor/jquery/dist/jquery.js')} />
       <script src={withPrefix('/vendor/bootstrap/dist/js/bootstrap.min.js')} />
@@ -64,7 +57,6 @@ const TemplateWrapper = ({ children }) => (
     <main className="main_container">
       <Loader />
       <Nav />
-      <Header />
       {children()}
       <Footer />
     </main>

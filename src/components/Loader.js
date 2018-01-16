@@ -8,7 +8,6 @@ class Loader extends Component {
 
   componentDidMount() {
     this.handleLoader();
-    this.handleLoader = this.handleLoader.bind(this);
   }
 
   handleLoader() {
