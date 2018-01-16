@@ -13,12 +13,15 @@ import honeyBadgerPNG from '../images/supporters/honeybadger.png';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.handleSlider = this.handleSlider.bind(this);
+    this.handleHeaderSlider = this.handleHeaderSlider.bind(this);
+    this.handleTimer = this.handleTimer.bind(this);
+    this.handleSponsorSlider = this.handleSponsorSlider.bind(this);
   }
 
   componentDidMount() {
     this.handleTimer();
-    this.handleSlider();
+    this.handleHeaderSlider();
+    this.handleSponsorSlider();
   }
 
   handleTimer() {
@@ -59,9 +62,22 @@ class IndexPage extends Component {
     });
   }
 
-  handleSlider() {
-    if ($('.flexslider').length == 0) return;
+  handleHeaderSlider() {
+    // if ($('.flexslider').length == 0) return;
     $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
+  }
+
+  handleSponsorSlider() {
+    $('#causesCarousel').owlCarousel({
+      navigation: false,
+      slideSpeed: 100,
+      paginationSpeed: 400,
+      navigationText: false,
+      singleItem: false,
+      autoPlay: true,
+      pagination: true,
+      items: 3,
+    });
   }
 
   render() {
