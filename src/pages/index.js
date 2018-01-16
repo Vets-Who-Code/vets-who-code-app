@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
 import Header from '../components/Header';
 import troopsAtGooglePNG from '../images/troops-at-google.jpg';
@@ -233,9 +234,9 @@ class IndexPage extends Component {
               </div>
               <div className="col-sm-6 event_counter_container text-center">
                 <div className="container-countdown" />
-                <a className="btn btn-charity-default" href="apply.html">
+                <Link className="btn btn-charity-default" to="/apply">
                   Apply
-                </a>
+                </Link>
               </div>
             </div>
           </div>
