@@ -71,6 +71,28 @@ const Donate = () => {
           </div>
         </div>
       </section>
+      <section id="call-to-action-small" className="call-to-action-small">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 text-center">
+              <h3>Help Us Teach More Veterans How To Code</h3>
+            </div>
+            <div className="col-md-4">
+              <div className="button-align text-left">
+                {' '}
+                <a
+                  className="btn btn-charity-default donate"
+                  id="donate"
+                  href="#!"
+                  style={{ cursor: 'pointer' }}
+                >
+                  Donate
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>{' '}
+      </section>
     </div>
   )
 }
