@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link, { withPrefix } from 'gatsby-link';
 import Helmet from 'react-helmet';
+import { Provider } from 'react-redux';
 
 import Nav from '../components/Nav';
 import Loader from '../components/Loader';

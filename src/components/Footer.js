@@ -65,6 +65,9 @@ const Footer = () => {
                           <Link to="/contact">Contact Us</Link>
                         </li>
                         <li>
+                          <Link to="/podcast">Podcast</Link>
+                        </li>
+                        <li>
                           <a
                             href="https://medium.com/vets-who-code"
                             target="_blank"
