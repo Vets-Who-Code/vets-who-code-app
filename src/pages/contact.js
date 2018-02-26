@@ -30,8 +30,16 @@ export default class Contact extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  resetForm = () => ({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
   handleSubmit = e => {
-    const gatewayUrl = 'add uri';
+    const gatewayUrl =
+      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -43,7 +51,7 @@ export default class Contact extends Component {
     };
     fetch(gatewayUrl, options);
     e.preventDefault();
-    e.target.reset();
+    this.setState(this.resetForm);
   };
 
   render() {
@@ -95,7 +103,7 @@ export default class Contact extends Component {
           <div className="container">
             <div className="row">
               <div className="contact-form">
-                <form id="s2do-form" action="#" method="POST">
+                <form id="s2do-form" onSubmit={this.handleSubmit}>
                   <div className="col-md-4">
                     <div className="form-group">
                       <label htmlFor="InputName" className="dark-text">
@@ -108,9 +116,9 @@ export default class Contact extends Component {
                         name="name"
                         id="InputName"
                         placeholder="Jody"
-                        required
                         value={this.state.name}
                         onChange={this.handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -126,9 +134,9 @@ export default class Contact extends Component {
                         name="email"
                         id="InputEmail"
                         placeholder="jody@example.com"
-                        required
                         value={this.state.email}
                         onChange={this.handleChange}
+                        required
                       />
                     </div>
                   </div>
@@ -160,9 +168,9 @@ export default class Contact extends Component {
                         rows="3"
                         name="message"
                         placeholder="Your Message Here.."
-                        required
                         value={this.state.message}
                         onChange={this.handleChange}
+                        required
                       />
                     </div>
                     <input

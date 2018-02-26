@@ -18,6 +18,16 @@ export default class Mentor extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  resetForm = () => ({
+    name: '',
+    email: '',
+    'branch-of-service': '',
+    'technical-expertise': '',
+    'github-portfolio-or-linkedin': '',
+    location: '',
+    'employer-restrictions': ''
+  });
+
   handleSubmit = e => {
     const gatewayUrl =
       'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
@@ -37,7 +47,7 @@ export default class Mentor extends Component {
     };
     fetch(gatewayUrl, options);
     e.preventDefault();
-    e.target.reset();
+    this.setState(this.resetForm);
   };
 
   render() {
@@ -72,7 +82,7 @@ export default class Mentor extends Component {
                     Thank you for choosing to become a mentor for our veterans.
                     Please fill out the form below and we will reach out to you.
                   </p>
-                  <form id="s2do-form" onSubmit={this.handleSubmit} ref="form">
+                  <form id="s2do-form" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
                       <div className="form-group">
                         <label for="InputName" className="dark-text">
