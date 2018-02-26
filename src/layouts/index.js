@@ -27,7 +27,7 @@ const TemplateWrapper = ({ children }) => (
       title="#VetsWhoCode 🇺🇸 "
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        { name: 'keywords', content: 'sample, something' }
       ]}
     >
       <script src={withPrefix('/vendor/components-modernizr/modernizr.js')} />
@@ -70,7 +70,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func
 };
 
 export default TemplateWrapper;
