@@ -1,16 +1,53 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
-const Apply = () => {
+export default class Apply extends Component {
+  state = {
+    name: '',
+    email: '',
+    'branch-of-service': '',
+    experience: '',
+    'github-portfolio-or-linkedin': '',
+    location: '',
+    'favorite-mre': '',
+    'tell-us-about-yourself': ''
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        'branch-of-service': this.state['branch-of-service'],
+        experience: this.state.experience,
+        'github-portfolio-or-linkedin': this.state[
+          'github-portfolio-or-linkedin'
+        ],
+        location: this.state.location,
+        'favorite-mre': this.state['favorite-mre'],
+        'tell-us-about-yourself': this.state['tell-us-about-yourself']
+      })
+    };
+    fetch(gatewayUrl, options);
+    e.preventDefault();
+    e.target.reset();
+  };
+
   return (
     <div>
       <header
         className="inner-header overlay grey text-center slim-bg "
         style={{
           backgroundImage: `url(${thisIsUs})`,
-          backgroundPositionY: 'bottom',
+          backgroundPositionY: 'bottom'
         }}
       >
         <div className="overlay-01" />
@@ -37,7 +74,7 @@ const Apply = () => {
                   inclusive enviroment so our troops can truly thrive. Please
                   fill out the form below and we will contact you soon.
                 </p>
-                <form id="s2do-form" action="#" method="POST">
+                <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                   <div className="col-md-8">
                     <div className="form-group">
                       <label for="InputName" className="dark-text">
@@ -49,6 +86,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Name"
                         name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -63,6 +102,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Email"
                         name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -77,6 +118,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Thank you for your service"
                         name="branch-of-service"
+                        value={this.state['branch-of-service']}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -91,6 +134,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Do you program and if so for how long?"
                         name="experience"
+                        value={this.state.experience}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -105,6 +150,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Share your work"
                         name="github-portfolio-or-linkedin"
+                        value={this.state['github-portfolio-or-linkedin']}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -119,6 +166,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Location"
                         name="location"
+                        value={this.state.location}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -133,6 +182,8 @@ const Apply = () => {
                         type="text"
                         placeholder="Chilli Mac?"
                         name="favorite-mre"
+                        value={this.state['favorite-mre']}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -146,6 +197,8 @@ const Apply = () => {
                         rows="7"
                         placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
                         name="tell-us-about-yourself"
+                        value={this.state['tell-us-about-yourself']}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -167,7 +220,5 @@ const Apply = () => {
         </div>
       </section>
     </div>
-  )
-}
-
-export default Apply
+  );
+};
