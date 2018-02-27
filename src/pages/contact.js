@@ -1,23 +1,58 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
-class Contact extends Component {
-  initialize() {
-    var mapCanvas = document.getElementById('map-canvas')
+export default class Contact extends Component {
+  componentDidMount() {
+    this.initialize();
+  }
+
+  state = {
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  };
+
+  initialize = () => {
+    var mapCanvas = document.getElementById('map-canvas');
     var mapOptions = {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    }
-    var map = new google.maps.Map(mapCanvas, mapOptions)
-  }
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+  };
 
-  componentDidMount() {
-    this.initialize()
-  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  resetForm = () => ({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  handleSubmit = e => {
+    const gatewayUrl =
+      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
+    const options = {
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.state.name,
+        email: this.state.email,
+        phone: this.state.phone,
+        message: this.state.message
+      })
+    };
+    fetch(gatewayUrl, options);
+    e.preventDefault();
+    this.setState(this.resetForm);
+  };
 
   render() {
     return (
@@ -26,7 +61,7 @@ class Contact extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
+            backgroundPositionY: 'bottom'
           }}
         >
           <div className="overlay-01" />
@@ -68,7 +103,7 @@ class Contact extends Component {
           <div className="container">
             <div className="row">
               <div className="contact-form">
-                <form id="s2do-form" action="#" method="POST">
+                <form id="s2do-form" onSubmit={this.handleSubmit}>
                   <div className="col-md-4">
                     <div className="form-group">
                       <label htmlFor="InputName" className="dark-text">
@@ -81,6 +116,8 @@ class Contact extends Component {
                         name="name"
                         id="InputName"
                         placeholder="Jody"
+                        value={this.state.name}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
@@ -97,6 +134,8 @@ class Contact extends Component {
                         name="email"
                         id="InputEmail"
                         placeholder="jody@example.com"
+                        value={this.state.email}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
@@ -112,6 +151,8 @@ class Contact extends Component {
                         name="phone"
                         id="InputPhoneNumber"
                         placeholder="123-456-789"
+                        value={this.state.phone}
+                        onChange={this.handleChange}
                       />
                     </div>
                   </div>
@@ -127,6 +168,8 @@ class Contact extends Component {
                         rows="3"
                         name="message"
                         placeholder="Your Message Here.."
+                        value={this.state.message}
+                        onChange={this.handleChange}
                         required
                       />
                     </div>
@@ -146,8 +189,6 @@ class Contact extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
-
-export default Contact
