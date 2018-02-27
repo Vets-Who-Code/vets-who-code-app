@@ -40,7 +40,7 @@ $ npm run develop
 
 In another terminal window run this command.
 ```sh
-$ npm run build --prefix-path
+$ npm run build --prefix-paths
 ```
 
 You should be able to view the website locally at `http://localhost:8000/`.
