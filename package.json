@@ -4,7 +4,8 @@
   "repository": "Vets-Who-Code/vwc-site",
   "engines": {
     "node": "8.9.4",
-    "npm": "5.6.0"
+    "npm": "5.6.0",
+    "yarn": "1.5.1"
   },
   "dependencies": {
     "gatsby": "^1.9.149",
@@ -13,14 +14,13 @@
     "gatsby-plugin-react-helmet": "1.0.8",
     "generate": "0.14.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "format":
+      "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
