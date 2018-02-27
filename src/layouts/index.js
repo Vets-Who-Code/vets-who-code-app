@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link, { withPrefix } from 'gatsby-link';
@@ -23,13 +22,7 @@ import '../assets/css/custom.css';
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet
-      title="#VetsWhoCode 🇺🇸 "
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
-      ]}
-    >
+    <Helmet title="#VetsWhoCode 🇺🇸 ">
       <script src={withPrefix('/vendor/components-modernizr/modernizr.js')} />
       <script src={withPrefix('/vendor/jquery/dist/jquery.js')} />
       <script src={withPrefix('/vendor/bootstrap/dist/js/bootstrap.min.js')} />
