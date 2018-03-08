@@ -48,6 +48,7 @@ const TemplateWrapper = ({ children }) => (
       <script
         src={withPrefix('/vendor/countdown/dest/jquery.countdown.min.js')}
       />
+      <script src={withPrefix('/js/donate.js')} />
       <script src={withPrefix('/js/main.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
       <script src="https://linked.chat/web/a9LB63" />

@@ -1,9 +1,10 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
-import code from '../images/code.png'
-import john from '../images/profile.png'
-import thisIsUs from '../images/this_is_us.png'
+import code from '../images/code.png';
+import john from '../images/profile.png';
+import thisIsUs from '../images/this_is_us.png';
+// import '../assets/js/donate';
 
 const Donate = () => {
   return (
@@ -12,7 +13,7 @@ const Donate = () => {
         className="inner-header overlay grey text-center slim-bg "
         style={{
           backgroundImage: `url(${thisIsUs})`,
-          backgroundPositionY: 'bottom',
+          backgroundPositionY: 'bottom'
         }}
       >
         <div className="overlay-01" />
@@ -84,7 +85,7 @@ const Donate = () => {
                   className="btn btn-charity-default donate"
                   id="donate"
                   href="#!"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: 'not-allowed' }}
                 >
                   Donate
                 </a>
@@ -94,7 +95,7 @@ const Donate = () => {
         </div>{' '}
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Donate
+export default Donate;
