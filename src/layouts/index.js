@@ -51,6 +51,25 @@ const TemplateWrapper = ({ children }) => (
       <script src={withPrefix('/js/main.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
       <script src="https://linked.chat/web/a9LB63" />
+
+      <title>🇺🇸 #VetsWhoCode</title>
+      <meta name="description" content=""/>
+
+      <meta itemprop="name" content="#VetsWhoCode 🇺🇸 "/>
+      <meta itemprop="description" content=""/>
+      <meta itemprop="image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"/>
+
+      <meta property="og:url" content="http://www.vetswhocode.io"/>
+      <meta property="og:type" content="website"/>
+      <meta property="og:title" content="#VetsWhoCode 🇺🇸 "/>
+      <meta property="og:description" content=""/>
+      <meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"/>
+
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:title" content="#VetsWhoCode 🇺🇸 "/>
+      <meta name="twitter:description" content=""/>
+      <meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"/>
+
     </Helmet>
 
     <main className="main_container">
