@@ -78,14 +78,14 @@ const Donate = () => {
               <h3>Help Us Teach More Veterans How To Code</h3>
             </div>
             <div className="col-md-4">
-              <div className="button-align text-left">
+              <div className="button-align text-center">
                 {' '}
                 <a
-                  class="dbox-donation-button"
+                  className="dbox-donation-button"
                   href={'https://donorbox.org/vetswhocode-donation'}
                   style={{
                     background:
-                      '#c5203e url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 37px center',
+                      '#c5203e url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 55px center',
                     color: '#fff',
                     textDecoration: 'none',
                     fontFamily: 'Verdana,sans-serif',
