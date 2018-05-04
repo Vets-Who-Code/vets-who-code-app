@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 import code from '../images/code.png';
 import john from '../images/profile.png';
 import thisIsUs from '../images/this_is_us.png';
-// import '../assets/js/donate';
 
 const Donate = () => {
   return (
@@ -82,10 +81,21 @@ const Donate = () => {
               <div className="button-align text-left">
                 {' '}
                 <a
-                  className="btn btn-charity-default donate"
-                  id="donate"
-                  href="#!"
-                  style={{ cursor: 'not-allowed' }}
+                  class="dbox-donation-button"
+                  href={'https://donorbox.org/vetswhocode-donation'}
+                  style={{
+                    background:
+                      '#c5203e url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 37px center',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    fontFamily: 'Verdana,sans-serif',
+                    display: 'inline-block',
+                    fontSize: '16px',
+                    padding: '15px 38px 15px 75px',
+                    borderRadius: ' 2px',
+                    boxShadow: '0 1px 0 0 #06152C',
+                    textShadow: '0 1px rgba(0, 0, 0, 0.3)'
+                  }}
                 >
                   Donate
                 </a>
