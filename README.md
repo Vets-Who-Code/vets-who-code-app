@@ -38,12 +38,12 @@ $ npm install
 $ npm run develop
 ```
 
-Navigate to the public directory and paste the following into your index.html file.
+Navigate to the public directory.
 ```sh
 $ cd public
 ```
 
-Open `index.html` and paste the following into this file.
+Open `index.html` and paste the following into this file. **Note you will have to do this every time you run a build**.
 ```
 <!DOCTYPE html>
 <html>
