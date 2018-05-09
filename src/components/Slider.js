@@ -12,13 +12,24 @@ import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
 class HeaderSlider extends Component {
+  constructor(props) {
+    super(props);
+    this.play = this.play.bind(this);
+  }
+
+  play() {
+    this.slider.slickPlay();
+  }
+
   render() {
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000
     };
     return (
       <Slider {...settings}>
