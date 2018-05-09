@@ -14,7 +14,7 @@ import honeyBadgerPNG from '../images/supporters/honeybadger.png';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.handleHeaderSlider = this.handleHeaderSlider.bind(this);
+    // this.handleHeaderSlider = this.handleHeaderSlider.bind(this);
     this.handleTimer = this.handleTimer.bind(this);
     this.handleSponsorSlider = this.handleSponsorSlider.bind(this);
   }
@@ -65,7 +65,7 @@ class IndexPage extends Component {
 
   handleHeaderSlider() {
     // if ($('.flexslider').length == 0) return;
-    $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
+    // $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
   }
 
   handleSponsorSlider() {
