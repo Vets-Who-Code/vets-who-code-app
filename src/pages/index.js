@@ -11,6 +11,10 @@ import doPNG from '../images/supporters/DO.png';
 import icPNG from '../images/supporters/IC.png';
 import honeyBadgerPNG from '../images/supporters/honeybadger.png';
 
+import '../../static/vendor/FlexSlider/jquery.flexslider.js';
+import '../../static/vendor/owlcarousel/owl-carousel/owl.carousel.js';
+import '../../static/vendor/countdown/dest/jquery.countdown.min.js';
+
 class IndexPage extends Component {
   constructor(props) {
     super(props);
@@ -64,7 +68,7 @@ class IndexPage extends Component {
   }
 
   handleHeaderSlider() {
-    // if ($('.flexslider').length == 0) return;
+    if ($('.flexslider').length == 0) return;
     $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
   }
 

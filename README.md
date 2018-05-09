@@ -38,12 +38,44 @@ $ npm install
 $ npm run develop
 ```
 
-In another terminal window run this command.
+Navigate to the public directory.
 ```sh
-$ npm run build --prefix-paths
+$ cd public
 ```
 
-You should be able to view the website locally at `http://localhost:8000/`.
+Open `index.html` and paste the following into this file. **Note you will have to do this every time you run a build**.
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title data-react-helmet="true"></title>
+    <script data-react-helmet="true" src="/vendor/components-modernizr/modernizr.js"></script>
+    <script data-react-helmet="true" src="/vendor/jquery/dist/jquery.js"></script>
+    <script data-react-helmet="true" src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/owlcarousel/owl-carousel/owl.carousel.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/swipebox/js/jquery.swipebox.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/rotating-carousel/js/jquery.gallery.js"></script>
+    <script data-react-helmet="true" src="/vendor/slick/slick.js"></script>
+    <script data-react-helmet="true" src="/vendor/magnificpopup/jquery.magnific-popup.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/scrollspeed/jQuery.scrollSpeed.js"></script>
+    <script data-react-helmet="true" src="/vendor/FlexSlider/jquery.flexslider.js"></script>
+    <script data-react-helmet="true" src="/vendor/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/waypoints/lib/shortcuts/inview.min.js"></script>
+    <script data-react-helmet="true" src="/vendor/countdown/dest/jquery.countdown.min.js"></script>
+    <script data-react-helmet="true" src="/js/main.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="___gatsby"></div>
+    <script src="/commons.js"></script>
+  </body>
+</html>
+```
+
+You should be able to view the website locally at `http://localhost:8000/` and have instant feedback on save.
 
 <!-- ## Tests -->
 

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+window.$ = window.jQuery = require('../../static/vendor/jquery/dist/jquery.js');
+
 class Loader extends Component {
   constructor(props) {
     super(props);

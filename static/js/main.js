@@ -237,10 +237,7 @@ $('#subscription-form').submit(function(e) {
     },
   });
 });
-$(window).load(function() {
-  if ($('.flexslider').length == 0) return;
-  $('.flexslider').flexslider({ animation: 'fade', pauseOnHover: true });
-});
+//
 $(document).ready(function() {
   $('#contactForm').submit(function(e) {
     e.preventDefault();
