@@ -6,5 +6,3 @@ const Header = () => (
     <HeaderSlider />
   </header>
 );
-
-export default Header;
