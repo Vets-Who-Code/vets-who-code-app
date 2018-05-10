@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-
-// import HeaderSlider from './Slider'
-
 import Slider from "react-slick";
 import Link from 'gatsby-link'
 
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css'
-
 
 import codePNG from '../images/code.png'
 import speakingPNG from '../images/speaking.png'
@@ -44,6 +39,7 @@ class Header extends Component {
       autoplay: true,
       autoplaySpeed: 3000,
     }
+
     return (
       <header id="site-header" className="site-header flexslider classic">
         <Slider {...settings} ref={slider => this.slider = slider }>
@@ -135,12 +131,5 @@ class Header extends Component {
     );
   }
 }
-
-// const Header = () => {
-//   return (
-
-
-//   )
-// }
 
 export default Header
