@@ -2222,3 +2222,14 @@ div.zabuto_calendar tr.calendar-dow td {
 .red {
   color: #C5203E;
 }
+
+/* SLICK SLIDE STYLES FOR SPONSORS */
+.slick-slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.slick-slide img {
+  margin: 0 auto;
+}
