@@ -8,51 +8,37 @@ import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.handleTimer = this.handleTimer.bind(this);
+    this.getTimeRemaining = this.getTimeRemaining.bind(this);
+  }
+
+  componentWillMount() {
+    this.getTimeRemaining();
   }
 
   componentDidMount() {
-    this.handleTimer();
+    window.setInterval(() => {
+      this.getTimeRemaining();
+    }, 1000);
   }
 
-  handleTimer() {
-    $(document).ready(() => {
-      if ($('.container-countdown').length == 0) return;
-      $('.container-countdown').countdown({
-        date: 'March 05, 2018 00:00:00',
-        render(data) {
-          const el = $(this.el);
-          el
-            .empty()
-            .append(
-              `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
-                data.days,
-                2
-              )}</span><h4>Days</h4></div>`
-            )
-            .append(
-              `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
-                data.hours,
-                2
-              )}</span><h4>Hours</h4></div>`
-            )
-            .append(
-              `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
-                data.min,
-                2
-              )}</span><h4>Minutes</h4></div>`
-            )
-            .append(
-              `<div class='countdown-box'><span class='counter'>${this.leadingZeros(
-                data.sec,
-                2
-              )}</span><h4>Seconds</h4></div>`
-            );
-        },
-      });
+  getTimeRemaining() {
+    const endTime = 'September 04 2018';
+    const t = Date.parse(endTime) - Date.parse(new Date());
+    const seconds = Math.floor((t / 1000) % 60);
+    const minutes = Math.floor((t / 1000 / 60) % 60);
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+    this.setState({
+      days,
+      hours,
+      minutes,
+      seconds,
     });
   }
+
   render() {
+    const { days, hours, minutes, seconds } = this.state;
     return (
       <div>
         <Header />
@@ -120,7 +106,24 @@ class IndexPage extends Component {
                 </div>
               </div>
               <div className="col-sm-6 event_counter_container text-center">
-                <div className="container-countdown" />
+                <div className="container-countdown">
+                  <div className="countdown-box">
+                    <span className="counter">{days}</span>
+                    <h4>Days</h4>
+                  </div>
+                  <div className="countdown-box">
+                    <span className="counter">{hours}</span>
+                    <h4>Hours</h4>
+                  </div>
+                  <div className="countdown-box">
+                    <span className="counter">{minutes}</span>
+                    <h4>Minutes</h4>
+                  </div>
+                  <div className="countdown-box">
+                    <span className="counter">{seconds}</span>
+                    <h4>Seconds</h4>
+                  </div>
+                </div>
                 <Link className="btn btn-charity-default" to="/apply">
                   Apply
                 </Link>
