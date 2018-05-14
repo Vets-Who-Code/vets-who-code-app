@@ -23,6 +23,8 @@ import '../assets/css/custom.css';
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="#VetsWhoCode 🇺🇸 ">
+      <script src={withPrefix('/vendor/jquery/dist/jquery.js')} />
+      <script src={withPrefix('/vendor/bootstrap/dist/js/bootstrap.min.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
       <script src="https://linked.chat/web/a9LB63" />
 
@@ -37,7 +39,7 @@ const TemplateWrapper = ({ children }) => (
         itemProp="description"
         content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
       />
-      <meta itemprop="image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png" />
+      <meta itemProp="image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png" />
 
       <meta property="og:url" content="http://www.vetswhocode.io" />
       <meta property="og:type" content="website" />
