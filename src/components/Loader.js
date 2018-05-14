@@ -14,12 +14,10 @@ class Loader extends Component {
   }
 
   handleLoader() {
-    // $(window).on('load', () => {
     $('#loader').fadeOut();
     $('#loader-wrapper')
       .delay(100)
       .fadeOut();
-    // });
   }
 
   render() {
