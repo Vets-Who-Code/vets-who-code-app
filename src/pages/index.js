@@ -21,6 +21,10 @@ class IndexPage extends Component {
     }, 1000);
   }
 
+  componentWillUnmount() {
+    this.getTimeRemaining();
+  }
+
   getTimeRemaining() {
     const endTime = 'September 04 2018';
     const t = Date.parse(endTime) - Date.parse(new Date());
