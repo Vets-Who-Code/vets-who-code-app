@@ -11,7 +11,7 @@ export default class Mentor extends Component {
     'technical-expertise': '',
     'github-portfolio-or-linkedin': '',
     location: '',
-    'employer-restrictions': ''
+    'employer-restrictions': '',
   };
 
   handleChange = e => {
@@ -25,12 +25,11 @@ export default class Mentor extends Component {
     'technical-expertise': '',
     'github-portfolio-or-linkedin': '',
     location: '',
-    'employer-restrictions': ''
+    'employer-restrictions': '',
   });
 
   handleSubmit = e => {
-    const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -38,12 +37,10 @@ export default class Mentor extends Component {
         email: this.state.email,
         'branch-of-service': this.state['branch-of-service'],
         'technical-expertise': this.state['technical-expertise'],
-        'github-portfolio-or-linkedin': this.state[
-          'github-portfolio-or-linkedin'
-        ],
+        'github-portfolio-or-linkedin': this.state['github-portfolio-or-linkedin'],
         location: this.state.location,
-        'employer-restrictions': this.state['employer-restrictions']
-      })
+        'employer-restrictions': this.state['employer-restrictions'],
+      }),
     };
     fetch(gatewayUrl, options);
     e.preventDefault();
@@ -57,7 +54,7 @@ export default class Mentor extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
+            backgroundPositionY: 'bottom',
           }}
         >
           <div className="overlay-01" />
@@ -79,13 +76,13 @@ export default class Mentor extends Component {
                 <div className="contactus-brief">
                   <h3>Become A Mentor</h3>
                   <p className="section-description">
-                    Thank you for choosing to become a mentor for our veterans.
-                    Please fill out the form below and we will reach out to you.
+                    Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we
+                    will reach out to you.
                   </p>
                   <form id="s2do-form" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputName" className="dark-text">
+                        <label htmlFor="InputName" className="dark-text">
                           Name
                           <super>*</super>
                         </label>
@@ -101,7 +98,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputEmail" className="dark-text">
+                        <label htmlFor="InputEmail" className="dark-text">
                           Email
                           <super>*</super>
                         </label>
@@ -117,7 +114,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputService" className="dark-text">
+                        <label htmlFor="InputService" className="dark-text">
                           Military Branch Of Service
                           <super>*</super>
                         </label>
@@ -133,10 +130,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label
-                          for="InputTechnicalExpertise"
-                          className="dark-text"
-                        >
+                        <label htmlFor="InputTechnicalExpertise" className="dark-text">
                           Area Of Technical Expertise ( Javascript, Ruby, etc)
                           <super>*</super>
                         </label>
@@ -152,7 +146,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputPortfolio" className="dark-text">
+                        <label htmlFor="InputPortfolio" className="dark-text">
                           Github, Portfolio or Linkedin
                           <super>*</super>
                         </label>
@@ -168,7 +162,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputLocation" className="dark-text">
+                        <label htmlFor="InputLocation" className="dark-text">
                           Location ( City and State )
                           <super>*</super>
                         </label>
@@ -184,10 +178,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label
-                          for="InputEmployerImplementedRestricted"
-                          className="dark-text"
-                        >
+                        <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
                           Employer Implemented Restrictions, If Any.
                         </label>
                         <textarea
@@ -202,13 +193,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <input
-                          type="submit"
-                          name="submit"
-                          href="#"
-                          className="btn btn-charity-default"
-                          title=""
-                        />
+                        <input type="submit" name="submit" href="#" className="btn btn-charity-default" title="" />
                       </div>
                     </div>
                   </form>
