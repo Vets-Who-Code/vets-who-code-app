@@ -10,6 +10,7 @@ import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 class IndexPage extends Component {
   constructor(props) {
     super(props);
+    this.timer = null;
     this.getTimeRemaining = this.getTimeRemaining.bind(this);
   }
 
@@ -18,13 +19,15 @@ class IndexPage extends Component {
   }
 
   componentDidMount() {
-    window.setInterval(() => {
-      this.getTimeRemaining();
-    }, 1000);
+    this.getTimeRemaining();
+  }
+
+  componentDidUpdate() {
+    clearTimeout(this.timer);
   }
 
   componentWillUnmount() {
-    this.getTimeRemaining();
+    clearTimeout(this.timer);
   }
 
   getTimeRemaining() {
@@ -41,6 +44,7 @@ class IndexPage extends Component {
       minutes,
       seconds,
     });
+    this.timer = setTimeout(this.getTimeRemaining.bind(this), 1000);
   }
 
   render() {
