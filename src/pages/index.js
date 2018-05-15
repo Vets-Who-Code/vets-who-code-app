@@ -6,68 +6,14 @@ import Countdown from '../components/Countdown';
 import Header from '../components/Header';
 import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 
-
-class IndexPage extends Component {
-  constructor(props) {
-    super(props);
-    this.timer = null;
-    this.getTimeRemaining = this.getTimeRemaining.bind(this);
-  }
-
-  componentWillMount() {
-    this.getTimeRemaining();
-  }
-
-  componentDidMount() {
-    this.getTimeRemaining();
-  }
-
-  componentDidUpdate() {
-    clearTimeout(this.timer);
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timer);
-  }
-
-  getTimeRemaining() {
-    const endTime = 'September 04 2018';
-    const t = Date.parse(endTime) - Date.parse(new Date());
-    const seconds = Math.floor((t / 1000) % 60);
-    const minutes = Math.floor((t / 1000 / 60) % 60);
-    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(t / (1000 * 60 * 60 * 24));
-
-    this.setState({
-      days,
-      hours,
-      minutes,
-      seconds,
-    });
-    this.timer = setTimeout(this.getTimeRemaining.bind(this), 1000);
-  }
-
-  render() {
-    const { days, hours, minutes, seconds } = this.state;
-    return (
-      <div>
-        <Header />
-        <section id="our_stories" className="section pad-regular bg-default our_stories small-top-pad">
-          <div className="container">
-            <div className="row bg-dark">
-              <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
-                <img className="img-responsive" src={troopsAtGooglePNG} alt="Our Troops at a Google event." />
-              </div>
-              <div className="col-md-7 col-sm-12 our_story_content text-center">
-                <div className="featured-heading">
-                  <h2>#VetsWhoCode</h2>
-                </div>
-                <p>
-                  #VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to
-                  program free of charge so that they may find gainful employment after service.
-                </p>
-              </div>
-            </div>
+const IndexPage = () => (
+  <div>
+    <Header />
+    <section id="our_stories" className="section pad-regular bg-default our_stories small-top-pad">
+      <div className="container">
+        <div className="row bg-dark">
+          <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
+            <img className="img-responsive" src={troopsAtGooglePNG} alt="Our Troops at a Google event." />
           </div>
           <div className="col-md-7 col-sm-12 our_story_content text-center">
             <div className="featured-heading">
