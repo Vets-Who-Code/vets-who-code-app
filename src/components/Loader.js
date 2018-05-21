@@ -7,8 +7,10 @@ class Loader extends Component {
   }
 
   componentDidMount() {
+    global.jQuery = require('../../static/vendor/jquery/dist/jquery');
+    window.$ = jQuery;
+    window.jQuery = jQuery;
     this.handleLoader();
-    this.handleLoader = this.handleLoader.bind(this);
   }
 
   handleLoader() {

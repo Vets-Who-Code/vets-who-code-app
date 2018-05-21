@@ -34,13 +34,8 @@ In a terminal window run these commands.
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
 $ cd vwc-site
 $ nvm install
-$ npm install
-$ npm run develop
-```
-
-In another terminal window run this command.
-```sh
-$ npm run build --prefix-paths
+$ yarn
+$ yarn develop
 ```
 
 You should be able to view the website locally at `http://localhost:8000/`.

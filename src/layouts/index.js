@@ -23,34 +23,40 @@ import '../assets/css/custom.css';
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet title="#VetsWhoCode 🇺🇸 ">
-      <script src={withPrefix('/vendor/components-modernizr/modernizr.js')} />
       <script src={withPrefix('/vendor/jquery/dist/jquery.js')} />
       <script src={withPrefix('/vendor/bootstrap/dist/js/bootstrap.min.js')} />
-      <script
-        src={withPrefix('/vendor/owlcarousel/owl-carousel/owl.carousel.min.js')}
-      />
-      <script src={withPrefix('/vendor/swipebox/js/jquery.swipebox.min.js')} />
-      <script
-        src={withPrefix('/vendor/rotating-carousel/js/jquery.gallery.js')}
-      />
-      <script src={withPrefix('/vendor/slick/slick.js')} />
-      <script
-        src={withPrefix('/vendor/magnificpopup/jquery.magnific-popup.min.js')}
-      />
-      <script src={withPrefix('/vendor/scrollspeed/jQuery.scrollSpeed.js')} />
-      <script src={withPrefix('/vendor/FlexSlider/jquery.flexslider.js')} />
-      <script
-        src={withPrefix('/vendor/waypoints/lib/jquery.waypoints.min.js')}
-      />
-      <script
-        src={withPrefix('/vendor/waypoints/lib/shortcuts/inview.min.js')}
-      />
-      <script
-        src={withPrefix('/vendor/countdown/dest/jquery.countdown.min.js')}
-      />
-      <script src={withPrefix('/js/main.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
       <script src="https://linked.chat/web/a9LB63" />
+
+      <title>🇺🇸 #VetsWhoCode</title>
+      <meta
+        name="description"
+        content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      />
+
+      <meta itemProp="name" content="#VetsWhoCode 🇺🇸 " />
+      <meta
+        itemProp="description"
+        content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      />
+      <meta itemProp="image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png" />
+
+      <meta property="og:url" content="http://www.vetswhocode.io" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="#VetsWhoCode 🇺🇸 " />
+      <meta
+        property="og:description"
+        content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      />
+      <meta property="og:image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="#VetsWhoCode 🇺🇸 " />
+      <meta
+        name="twitter:description"
+        content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      />
+      <meta name="twitter:image" content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png" />
     </Helmet>
 
     <main className="main_container">
@@ -63,7 +69,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
 };
 
 export default TemplateWrapper;

@@ -12,7 +12,7 @@ export default class Apply extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'favorite-mre': '',
-    'tell-us-about-yourself': ''
+    'tell-us-about-yourself': '',
   };
 
   handleChange = e => {
@@ -27,12 +27,11 @@ export default class Apply extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'favorite-mre': '',
-    'tell-us-about-yourself': ''
+    'tell-us-about-yourself': '',
   });
 
   handleSubmit = e => {
-    const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -40,13 +39,11 @@ export default class Apply extends Component {
         email: this.state.email,
         'branch-of-service': this.state['branch-of-service'],
         experience: this.state.experience,
-        'github-portfolio-or-linkedin': this.state[
-          'github-portfolio-or-linkedin'
-        ],
+        'github-portfolio-or-linkedin': this.state['github-portfolio-or-linkedin'],
         location: this.state.location,
         'favorite-mre': this.state['favorite-mre'],
-        'tell-us-about-yourself': this.state['tell-us-about-yourself']
-      })
+        'tell-us-about-yourself': this.state['tell-us-about-yourself'],
+      }),
     };
     fetch(gatewayUrl, options);
     e.preventDefault();
@@ -60,7 +57,7 @@ export default class Apply extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
+            backgroundPositionY: 'bottom',
           }}
         >
           <div className="overlay-01" />
@@ -82,15 +79,14 @@ export default class Apply extends Component {
                 <div className="contactus-brief">
                   <h3>Apply</h3>
                   <p className="section-description">
-                    Thank thank you for choosing to apply to Vets Who Code. We
-                    work really hard to train our veterans and to maintain an
-                    inclusive enviroment so our troops can truly thrive. Please
-                    fill out the form below and we will contact you soon.
+                    Thank thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans
+                    and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form
+                    below and we will contact you soon.
                   </p>
                   <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputName" className="dark-text">
+                        <label htmlFor="InputName" className="dark-text">
                           Name
                           <super>*</super>
                         </label>
@@ -106,7 +102,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputEmail" className="dark-text">
+                        <label htmlFor="InputEmail" className="dark-text">
                           Email
                           <super>*</super>
                         </label>
@@ -122,7 +118,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputService" className="dark-text">
+                        <label htmlFor="InputService" className="dark-text">
                           Military Branch Of Service
                           <super>*</super>
                         </label>
@@ -138,7 +134,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="Experience" className="dark-text">
+                        <label htmlFor="Experience" className="dark-text">
                           Experience
                           <super>*</super>
                         </label>
@@ -154,7 +150,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputPortfolio" className="dark-text">
+                        <label htmlFor="InputPortfolio" className="dark-text">
                           Github, Portfolio or Linkedin
                           <super>*</super>
                         </label>
@@ -170,7 +166,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputLocation" className="dark-text">
+                        <label htmlFor="InputLocation" className="dark-text">
                           Location ( City and State )
                           <super>*</super>
                         </label>
@@ -186,7 +182,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputMRE" className="dark-text">
+                        <label htmlFor="InputMRE" className="dark-text">
                           Favorite MRE?
                           <super>*</super>
                         </label>
@@ -202,7 +198,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label for="InputInterviewStory" className="dark-text">
+                        <label htmlFor="InputInterviewStory" className="dark-text">
                           Tell Us About Yourself
                         </label>
                         <textarea
@@ -217,13 +213,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <input
-                          type="submit"
-                          name="submit"
-                          href="#"
-                          className="btn btn-charity-default"
-                          title=""
-                        />
+                        <input type="submit" name="submit" href="#" className="btn btn-charity-default" title="" />
                       </div>
                     </div>
                   </form>

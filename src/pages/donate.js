@@ -1,9 +1,9 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
-import code from '../images/code.png'
-import john from '../images/profile.png'
-import thisIsUs from '../images/this_is_us.png'
+import code from '../images/code.png';
+import john from '../images/profile.png';
+import thisIsUs from '../images/this_is_us.png';
 
 const Donate = () => {
   return (
@@ -12,7 +12,7 @@ const Donate = () => {
         className="inner-header overlay grey text-center slim-bg "
         style={{
           backgroundImage: `url(${thisIsUs})`,
-          backgroundPositionY: 'bottom',
+          backgroundPositionY: 'bottom'
         }}
       >
         <div className="overlay-01" />
@@ -71,8 +71,41 @@ const Donate = () => {
           </div>
         </div>
       </section>
+      <section id="call-to-action-small" className="call-to-action-small">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 text-center">
+              <h3>Help Us Teach More Veterans How To Code</h3>
+            </div>
+            <div className="col-md-4">
+              <div className="button-align text-center">
+                {' '}
+                <a
+                  className="dbox-donation-button"
+                  href={'https://donorbox.org/vetswhocode-donation'}
+                  style={{
+                    background:
+                      '#c5203e url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 55px center',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    fontFamily: 'Verdana,sans-serif',
+                    display: 'inline-block',
+                    fontSize: '16px',
+                    padding: '15px 38px 15px 75px',
+                    borderRadius: ' 2px',
+                    boxShadow: '0 1px 0 0 #06152C',
+                    textShadow: '0 1px rgba(0, 0, 0, 0.3)'
+                  }}
+                >
+                  Donate
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>{' '}
+      </section>
     </div>
-  )
-}
+  );
+};
 
-export default Donate
+export default Donate;

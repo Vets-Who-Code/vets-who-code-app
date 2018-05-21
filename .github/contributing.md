@@ -46,3 +46,20 @@ Provide more context by answering these questions:
 * Include screenshots and animated GIFs in your pull request whenever possible.
 * Follow the [Airbnb](https://github.com/airbnb/javascript) styleguide.
 * Include thoughtfully-worded, well-structured [Jest](https://facebook.github.io/jest/) tests in the `./__tests__` folder if applicable. Run them using `npm test`.
+
+### Branch Naming Convention
+
+Slash Notation with the following prefixes:
+
+* feature
+* refactor
+* bug
+
+e.g.
+```
+feature/something
+refactor/something
+bug/something
+```
+
+You are not limited to these three, but most changes can be standardized to fit within them.
