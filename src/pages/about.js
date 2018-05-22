@@ -17,21 +17,18 @@ class About extends Component {
   }
 
   componentDidMount() {
-    $('.success-video').css('display', 'none');
+    $('.vwc-animated-gif').css('display', 'none');
   }
 
   play() {
-    $('.play-button').hide('fast');
-    $('.success-story-video').hide('fast');
-    $('.success-video').toggle('fast');
-    this.refs.video.play();
-    this.refs.video.onended = this.end;
+    $('.play-button').fadeOut();
+    this.video.play();
+    this.video.onended = this.end;
   }
 
   end() {
-    $('.play-button').toggle('fast');
-    $('.success-story-video').toggle('fast');
     $('.success-video').hide('fast');
+    $('.vwc-animated-gif').toggle('fast');
   }
 
   render() {
@@ -64,23 +61,38 @@ class About extends Component {
                   <h3 className="story-title">Our Success story</h3>
                 </div>
                 <div className="col-md-5" style={{ marginBottom: 20 }}>
-                  <div className="success-video">
-                    <video ref="video" type="video/mp4" className="img-responsive" muted controls>
+                  <div className="success-video" style={{ position: 'relative' }}>
+                    <video
+                      ref={video => (this.video = video)}
+                      type="video/mp4"
+                      className="img-responsive"
+                      muted
+                      controls
+                    >
                       <source src={facebookVideo} />
                     </video>
+                    <a className="play-button" onClick={this.play}>
+                      <i
+                        className="fa fa-play-circle-o"
+                        style={{
+                          color: '#0e203e',
+                          position: 'absolute',
+                          top: '50%',
+                          left: '50%',
+                          transform: 'translate(-50%, -50%)',
+                          fontSize: 40,
+                        }}
+                      />
+                    </a>
                   </div>
                   <div
-                    className="success-story-video"
+                    className="vwc-animated-gif"
                     style={{
                       backgroundImage: `url(${vwcGIF})`,
                       backgroundPosition: 'center center',
                       backgroundSize: 'cover',
                     }}
-                  >
-                    <a className="play-button" onClick={this.play}>
-                      <i className="fa fa-play-circle-o" style={{ color: '#B8B8B8' }} />
-                    </a>
-                  </div>
+                  />
                 </div>
                 <div className="col-md-7">
                   <div className="success-story">
