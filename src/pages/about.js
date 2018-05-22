@@ -10,8 +10,8 @@ import thisIsUs from '../images/this_is_us.png';
 import facebookVideo from '../video/vwc-facebook-reel.mp4';
 
 class About extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.play = this.play.bind(this);
     this.end = this.end.bind(this);
   }
