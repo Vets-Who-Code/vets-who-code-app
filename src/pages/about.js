@@ -13,20 +13,25 @@ class About extends Component {
   constructor(props) {
     super(props);
     this.play = this.play.bind(this);
+    this.end = this.end.bind(this);
+  }
+
+  componentDidMount() {
+    $('.success-video').css('display', 'none');
   }
 
   play() {
-    $('.play-button')
-      .delay(100)
-      .fadeOut();
-    $('.success-story-video')
-      .delay(100)
-      .fadeOut()
-      .css('background-image', 'none');
-    $('.success-video')
-      .fadeIn()
-      .css('display', 'block');
+    $('.play-button').hide('fast');
+    $('.success-story-video').hide('fast');
+    $('.success-video').toggle('fast');
     this.refs.video.play();
+    this.refs.video.onended = this.end;
+  }
+
+  end() {
+    $('.play-button').toggle('fast');
+    $('.success-story-video').toggle('fast');
+    $('.success-video').hide('fast');
   }
 
   render() {
@@ -58,26 +63,24 @@ class About extends Component {
                 <div className="col-md-12">
                   <h3 className="story-title">Our Success story</h3>
                 </div>
-                <div className="col-md-5">
+                <div className="col-md-5" style={{ marginBottom: 20 }}>
+                  <div className="success-video">
+                    <video ref="video" type="video/mp4" className="img-responsive" muted controls>
+                      <source src={facebookVideo} />
+                    </video>
+                  </div>
                   <div
                     className="success-story-video"
-                    style={{ backgroundImage: `url(${vwcGIF})` }}
-                    onClick={this.play}
+                    style={{
+                      backgroundImage: `url(${vwcGIF})`,
+                      backgroundPosition: 'center center',
+                      backgroundSize: 'cover',
+                    }}
                   >
-                    <a className="play-button">
-                      <i className="fa fa-play-circle-o" style={{ color: 'grey' }} />
+                    <a className="play-button" onClick={this.play}>
+                      <i className="fa fa-play-circle-o" style={{ color: '#B8B8B8' }} />
                     </a>
                   </div>
-                  <video
-                    className="success-video"
-                    poster={{ backgroundImage: `url(${vwcGIF})` }}
-                    ref="video"
-                    className="img-responsive"
-                    muted
-                    style={{ display: 'hidden' }}
-                  >
-                    <source src={facebookVideo} />
-                  </video>
                 </div>
                 <div className="col-md-7">
                   <div className="success-story">
@@ -149,7 +152,6 @@ class About extends Component {
                         </div>
                       </div>
                     </div>
-
                     <div className="col-md-4 col-sm-6">
                       <div className="team-wiget clearfix">
                         <img className="img-responsive" src={noel} alt="Noel Sagaille Devops Geek" />
@@ -182,8 +184,3 @@ class About extends Component {
 }
 
 export default About;
-// const About = () => (
-
-// );
-
-// export default About;
