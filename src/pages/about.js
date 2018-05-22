@@ -81,6 +81,7 @@ class About extends Component {
                           left: '50%',
                           transform: 'translate(-50%, -50%)',
                           fontSize: 40,
+                          cursor: 'pointer',
                         }}
                       />
                     </a>
