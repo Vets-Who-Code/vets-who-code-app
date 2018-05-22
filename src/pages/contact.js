@@ -62,8 +62,7 @@ export default class Contact extends Component {
           style={{
             backgroundImage: `url(${thisIsUs})`,
             backgroundPositionY: 'bottom'
-          }}
-        >
+          }}>
           <div className="overlay-01" />
           <div className="container">
             <h2 className="text-center text-uppercase">Contact Us</h2>
@@ -98,8 +97,7 @@ export default class Contact extends Component {
         </section>
         <section
           id="contact-form"
-          className="section bg-default default-section-padding"
-        >
+          className="section bg-default default-section-padding">
           <div className="container">
             <div className="row">
               <div className="contact-form">
@@ -118,7 +116,7 @@ export default class Contact extends Component {
                         placeholder="Jody"
                         value={this.state.name}
                         onChange={this.handleChange}
-                        required
+                        required={true}
                       />
                     </div>
                   </div>
@@ -136,7 +134,7 @@ export default class Contact extends Component {
                         placeholder="jody@example.com"
                         value={this.state.email}
                         onChange={this.handleChange}
-                        required
+                        required={true}
                       />
                     </div>
                   </div>
@@ -170,7 +168,7 @@ export default class Contact extends Component {
                         placeholder="Your Message Here.."
                         value={this.state.message}
                         onChange={this.handleChange}
-                        required
+                        required={true}
                       />
                     </div>
                     <input
