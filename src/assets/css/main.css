@@ -1604,7 +1604,7 @@ uneditable-input:focus {
   background-repeat: no-repeat;
   background-size: cover;
   height: 450px;
-  postion: relative;
+  position: relative;
 }
 @media (max-width: 991px) {
   .vwc-animated-gif {
