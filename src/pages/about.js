@@ -62,13 +62,7 @@ class About extends Component {
                 </div>
                 <div className="col-md-5" style={{ marginBottom: 20 }}>
                   <div className="success-video" style={{ position: 'relative' }}>
-                    <video
-                      ref={video => (this.video = video)}
-                      type="video/mp4"
-                      className="img-responsive"
-                      muted
-                      controls
-                    >
+                    <video ref={video => (this.video = video)} type="video/mp4" className="img-responsive" muted>
                       <source src={facebookVideo} />
                     </video>
                     <a className="play-button" onClick={this.play}>
