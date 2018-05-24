@@ -1600,21 +1600,19 @@ uneditable-input:focus {
 .success-story-img img {
   margin-bottom: 56px;
 }
-.success-story-video {
+.vwc-animated-gif {
   background-repeat: no-repeat;
   background-size: cover;
-  height: 320px;
-  postion: relative;
+  height: 450px;
+  position: relative;
 }
 @media (max-width: 991px) {
-  .success-story-video {
+  .vwc-animated-gif {
     margin-bottom: 30px;
   }
 }
-.success-story-video:hover {
-  cursor: pointer;
-}
-.success-story-video i {
+
+.vwc-animated-gif i {
   color: #091F40;
   font-size: 48px;
   left: 50%;
@@ -1625,7 +1623,7 @@ uneditable-input:focus {
   -webkit-transition: all 0.3s;
           transition: all 0.3s;
 }
-.success-story-video:hover i {
+.vwc-animated-gif:hover i {
   color: #000000;
 }
 .success-story p {

@@ -2,22 +2,20 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link';
 
 class Countdown extends Component {
-  constructor(props) {
-    super(props);
-    this.timer = null;
+  constructor() {
+    super();
+    this.state = {
+      timer: null,
+      days: null,
+      hours: null,
+      minutes: null,
+      seconds: null,
+    };
     this.getTimeRemaining = this.getTimeRemaining.bind(this);
-  }
-
-  componentWillMount() {
-    this.getTimeRemaining();
   }
 
   componentDidMount() {
     this.getTimeRemaining();
-  }
-
-  componentDidUpdate() {
-    clearTimeout(this.timer);
   }
 
   componentWillUnmount() {
@@ -38,7 +36,7 @@ class Countdown extends Component {
       minutes,
       seconds,
     });
-    this.timer = setTimeout(this.getTimeRemaining.bind(this), 1000);
+    this.state.timer = setTimeout(this.getTimeRemaining.bind(this), 1000);
   }
   render() {
     const { days, hours, minutes, seconds } = this.state;
