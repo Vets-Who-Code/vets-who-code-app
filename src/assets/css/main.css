@@ -319,8 +319,13 @@ h1.bold_404 {
   color: #FFFFFF;
 }
 .btn-subscribe {
+<<<<<<<
+  background-color: #091f40;
+  color: #ffffff;
+=======
   background-color: #091F40;
   color: #C5203E;
+>>>>>>>
   margin-top: 8px;
 }
 .btn.btn-block {
