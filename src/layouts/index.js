@@ -22,7 +22,7 @@ import '../assets/css/custom.css';
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet title="#VetsWhoCode 🇺🇸 ">
+    <Helmet title="#VetsWhoCode">
       <script src={withPrefix('/vendor/jquery/dist/jquery.js')} />
       <script src={withPrefix('/vendor/bootstrap/dist/js/bootstrap.min.js')} />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
