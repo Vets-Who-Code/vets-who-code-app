@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "gatsby": "^1.9.149",
+    "gatsby": "1.9.269",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-create-client-paths": "1.0.1",
     "gatsby-plugin-react-helmet": "1.0.8",
     "generate": "0.14.0",
+    "react-modal": "3.4.5",
     "react-slick": "0.23.1",
     "slick-carousel": "1.8.1"
   },
