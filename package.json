@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "gatsby": "1.9.269",
+    "gatsby": "1.9.273",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-create-client-paths": "1.0.1",
     "gatsby-plugin-react-helmet": "1.0.8",
