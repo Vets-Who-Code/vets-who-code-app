@@ -12,18 +12,37 @@ export default class Contact extends Component {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   };
 
   initialize = () => {
-    var mapCanvas = document.getElementById('map-canvas');
-    var mapOptions = {
+    const mapCanvas = document.getElementById('map-canvas');
+    const mapOptions = {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
     };
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+    const map = new google.maps.Map(mapCanvas, mapOptions);
+    const contentString = `
+      <div id="content">
+        <h2>#VetsWhoCode</h2>
+        <div id="bodyContent">41 N Peabody st, Nashville Tn, 37120</div>
+      </div>
+    `;
+    const myLatLng = { lat: 36.1577981, lng: -86.7707313 };
+    const infowindow = new google.maps.InfoWindow({
+      content: contentString,
+    });
+    const marker = new google.maps.Marker({
+      position: myLatLng,
+      map,
+      title: '#VetsWhoCode',
+    });
+
+    marker.addListener('click', () => {
+      infowindow.open(map, marker);
+    });
   };
 
   handleChange = e => {
@@ -34,20 +53,19 @@ export default class Contact extends Component {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
 
   handleSubmit = e => {
-    const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
     const options = {
       method: 'POST',
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
-        message: this.state.message
-      })
+        message: this.state.message,
+      }),
     };
     fetch(gatewayUrl, options);
     e.preventDefault();
@@ -61,8 +79,9 @@ export default class Contact extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
-          }}>
+            backgroundPositionY: 'bottom',
+          }}
+        >
           <div className="overlay-01" />
           <div className="container">
             <h2 className="text-center text-uppercase">Contact Us</h2>
@@ -82,8 +101,7 @@ export default class Contact extends Component {
                 <div className="contactus-brief">
                   <h3>Contact us</h3>
                   <p className="section-description">
-                    Fill out the from below and someone will contact you within
-                    24 hours. Can't wait to hear from you!
+                    Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!
                   </p>
                 </div>
               </div>
@@ -95,9 +113,7 @@ export default class Contact extends Component {
             </div>
           </div>
         </section>
-        <section
-          id="contact-form"
-          className="section bg-default default-section-padding">
+        <section id="contact-form" className="section bg-default default-section-padding">
           <div className="container">
             <div className="row">
               <div className="contact-form">
@@ -116,7 +132,7 @@ export default class Contact extends Component {
                         placeholder="Jody"
                         value={this.state.name}
                         onChange={this.handleChange}
-                        required={true}
+                        required
                       />
                     </div>
                   </div>
@@ -134,7 +150,7 @@ export default class Contact extends Component {
                         placeholder="jody@example.com"
                         value={this.state.email}
                         onChange={this.handleChange}
-                        required={true}
+                        required
                       />
                     </div>
                   </div>
@@ -168,7 +184,7 @@ export default class Contact extends Component {
                         placeholder="Your Message Here.."
                         value={this.state.message}
                         onChange={this.handleChange}
-                        required={true}
+                        required
                       />
                     </div>
                     <input
