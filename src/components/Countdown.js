@@ -5,30 +5,34 @@ class Countdown extends Component {
   constructor() {
     super();
     this.state = {
-      timer: null,
       days: null,
       hours: null,
       minutes: null,
       seconds: null,
+      interval: null,
     };
     this.getTimeRemaining = this.getTimeRemaining.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.getTimeRemaining();
   }
 
+  componentDidMount() {
+    this.state.interval = setInterval(() => this.getTimeRemaining(), 1000);
+  }
+
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    this.stopCountDown();
   }
 
   getTimeRemaining() {
-    const endTime = 'September 04 2018';
-    const t = Date.parse(endTime) - Date.parse(new Date());
-    const seconds = Math.floor((t / 1000) % 60);
-    const minutes = Math.floor((t / 1000 / 60) % 60);
-    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+    const deadLine = 'September 04 2018';
+    const time = Date.parse(deadLine) - Date.parse(new Date());
+    const seconds = Math.floor((time / 1000) % 60);
+    const minutes = Math.floor((time / 1000 / 60) % 60);
+    const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
 
     this.setState({
       days,
@@ -36,8 +40,13 @@ class Countdown extends Component {
       minutes,
       seconds,
     });
-    this.state.timer = setTimeout(this.getTimeRemaining.bind(this), 1000);
   }
+
+  stopCountDown = () => {
+    const { interval } = this.state;
+    clearInterval(interval);
+  };
+
   render() {
     const { days, hours, minutes, seconds } = this.state;
     return (
