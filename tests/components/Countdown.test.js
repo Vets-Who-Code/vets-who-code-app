@@ -8,7 +8,7 @@ describe('<Countdown />', () => {
     <Countdown />
   ))
 
-  test('should match snapshot', () => {
+  test('should render correctly', () => {
     wrapper.setState({
       days: 1,
       hours: 1,
