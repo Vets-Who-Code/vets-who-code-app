@@ -26,6 +26,7 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --env=jsdom --coverage",
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
@@ -34,13 +35,10 @@
     "react-test-renderer": "15.6.1"
   },
   "jest": {
-    "transform": {
-      ".(js|jsx)": "babel-jest"
-    },
-    "testRegex": "(\\.(test|spec))\\.(jsx|js)$",
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/.cache/"
+      "/.cache/",
+      "/tests/setupTests.js"
     ],
     "setupFiles": [
       "./tests/setupTests.js"

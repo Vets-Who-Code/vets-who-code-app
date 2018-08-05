@@ -68,3 +68,6 @@ public/
 # Editors
 .vscode/*
 .idea/*
+
+# jest coverage report
+coverage

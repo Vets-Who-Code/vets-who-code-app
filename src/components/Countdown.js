@@ -18,7 +18,7 @@ class Countdown extends Component {
     this.state.interval = setInterval(() => this.getTimeRemaining(), 1000)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.stopCountDown()
   }
 

@@ -5,7 +5,6 @@ import Adapter from 'enzyme-adapter-react-15'
 /**
 * React 15 Enzyme adapter
 */
-
 enzyme.configure({ adapter: new Adapter(), ignoreLifeCycleMethods: true })
 
 /**
