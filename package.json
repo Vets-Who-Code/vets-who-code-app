@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
+    "babel-jest": "23.4.2",
+    "babel-plugin-transform-es2015-arrow-functions": "6.22.0",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-15": "1.0.6",
     "gatsby": "1.9.273",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-create-client-paths": "1.0.1",
@@ -21,9 +25,25 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:watch": "jest --watch",
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
-    "prettier": "^1.9.2"
+    "enzyme-to-json": "3.3.4",
+    "prettier": "^1.9.2",
+    "react-test-renderer": "15.6.1"
+  },
+  "jest": {
+    "transform": {
+      ".(js|jsx)": "babel-jest"
+    },
+    "testRegex": "(\\.(test|spec))\\.(jsx|js)$",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.cache/"
+    ],
+    "setupFiles": [
+      "./tests/setupTests.js"
+    ]
   }
 }
