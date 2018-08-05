@@ -40,6 +40,9 @@
       "/.cache/",
       "/tests/setupTests.js"
     ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
     "setupFiles": [
       "./tests/setupTests.js"
     ]
