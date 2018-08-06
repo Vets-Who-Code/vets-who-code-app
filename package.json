@@ -27,6 +27,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:watch": "jest --watch",
     "test:coverage": "jest --env=jsdom --coverage",
+    "view:coverage": "open coverage/lcov-report/index.html",
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
@@ -50,9 +51,8 @@
       "src/pages/**/*.{js,jsx}",
       "!/static/vendor/jquery/dist"
     ],
-    "globals":{
-      "google": {
-      }
+    "globals": {
+      "google": {}
     },
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
