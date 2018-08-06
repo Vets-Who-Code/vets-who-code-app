@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeaderSlider /> should render correctly 1`] = `
+<div>
+  <[object Object]
+    autoplay={true}
+    autoplaySpeed={3000}
+    fade={true}
+    infinite={true}
+    slidesToScroll={1}
+    slidesToShow={1}
+    speed={500}
+  >
+    <div>
+      <div
+        style={
+          Object {
+            "backgroundImage": "url(image-mock)",
+            "backgroundSize": "cover",
+          }
+        }
+      >
+        <div
+          className="header-classic  wrapper-table overlay-01"
+        >
+          <div
+            className="valign-center"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="col-md-10 col-md-offset-1"
+              >
+                <div
+                  className="intro text-left"
+                >
+                  <h1>
+                    Learn
+                  </h1>
+                  <p
+                    className="subtitle"
+                  >
+                    How To Code With Other Veterans.
+                  </p>
+                  <div
+                    className="btn-cal-group"
+                  >
+                     
+                    <GatsbyLink
+                      className="btn btn-charity-default"
+                      to="/apply"
+                    >
+                      Apply
+                    </GatsbyLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        style={
+          Object {
+            "backgroundImage": "url(image-mock)",
+            "backgroundSize": "cover",
+          }
+        }
+      >
+        <div
+          className="header-classic  wrapper-table overlay-01"
+        >
+          <div
+            className="valign-center"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="col-md-10 col-md-offset-1"
+              >
+                <div
+                  className="intro text-left"
+                >
+                  <h1>
+                    Sign Up
+                  </h1>
+                  <p
+                    className="subtitle"
+                  >
+                    As A Mentor.
+                  </p>
+                  <div
+                    className="btn-cal-group"
+                  >
+                     
+                    <GatsbyLink
+                      className="btn btn-charity-default"
+                      to="/mentor"
+                    >
+                       
+                      Sign Up
+                    </GatsbyLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        style={
+          Object {
+            "backgroundImage": "url(image-mock)",
+            "backgroundSize": "cover",
+          }
+        }
+      >
+        <div
+          className="header-classic wrapper-table overlay-01"
+        >
+          <div
+            className="valign-center"
+          >
+            <div
+              className="container"
+            >
+              <div
+                className="col-md-10 col-md-offset-1"
+              >
+                <div
+                  className="intro text-right"
+                >
+                  <h1
+                    className="red"
+                  >
+                    <span
+                      className="red"
+                    >
+                      Help Us
+                    </span>
+                  </h1>
+                  <p
+                    className="subtitle red"
+                  >
+                    Teach More Veterans How To Code.
+                  </p>
+                  <div
+                    className="btn-cal-group"
+                  >
+                     
+                    <GatsbyLink
+                      className="btn btn-charity-default"
+                      to="/donate"
+                    >
+                      Please Donate
+                    </GatsbyLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </[object Object]>
+  <ol
+    className="flex-control-nav flex-control-paging"
+  >
+    <li>
+      <a
+        className=""
+      >
+        1
+      </a>
+    </li>
+    <li>
+      <a
+        className="flex-active"
+      >
+        2
+      </a>
+    </li>
+    <li>
+      <a
+        className=""
+      >
+        3
+      </a>
+    </li>
+  </ol>
+  <ul
+    className="flex-direction-nav"
+  >
+    <li
+      className="flex-nav-prev"
+      onClick={[Function]}
+    >
+      <a
+        className="flex-prev"
+        href="#"
+      >
+        Previous
+      </a>
+    </li>
+    <li
+      className="flex-nav-next"
+      onClick={[Function]}
+    >
+      <a
+        className="flex-next"
+        href="#"
+      >
+        Next
+      </a>
+    </li>
+  </ul>
+</div>
+`;

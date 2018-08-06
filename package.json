@@ -50,7 +50,8 @@
       "!/static/vendor/jquery/dist"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
+      "\\.(css|scss|sass)$": "<rootDir>/tests/__mocks__/style-mock.js"
     }
   }
 }

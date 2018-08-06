@@ -10,7 +10,7 @@ import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
 class HeaderSlider extends Component {
-  play= () => {
+  play = () => {
     this.slider.slickPlay()
   }
 

@@ -13,7 +13,7 @@ class Nav extends Component {
 
     if ($(window).scrollTop() > 0) {
       $nav.addClass('navbar-solid')
-      return;
+      return
     }
 
     $nav.removeClass('navbar-solid')
