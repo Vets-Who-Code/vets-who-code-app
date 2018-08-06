@@ -5,6 +5,7 @@ describe('<HeaderSlider />', () => {
   let wrapper
 
   beforeEach(() => wrapper = shallow(<HeaderSlider />))
+
   test('should render correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })
