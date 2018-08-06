@@ -13,6 +13,13 @@ describe('<Donate />', () => {
     expect(wrapper.state('modalIsOpen')).toBe(true)
   })
 
+  test('should set modalIsOpen to false when clicking outside modal', () => {
+    wrapper.setState({ modalIsOpen: true })
+    wrapper.instance().closeModal()
+    wrapper.instance().forceUpdate()
+    expect(wrapper.state('modalIsOpen')).toBe(false)
+  })
+
   test('should render correctly', () => {
     expect(wrapper).toMatchSnapshot()
   })

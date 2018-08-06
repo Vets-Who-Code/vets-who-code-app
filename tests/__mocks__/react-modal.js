@@ -1,7 +1,11 @@
-class Component {}
+import React from 'react'
 
-class Modal extends Component {
+class Modal extends React.Component {
   static setAppElement(element) {
+  }
+
+  render(){
+    return <div />
   }
 }
 
