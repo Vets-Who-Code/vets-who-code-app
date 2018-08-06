@@ -1,10 +1,10 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import SponsorSlider from '../components/SponsorSlider';
-import Countdown from '../components/Countdown';
+import React from 'react'
+import Link from 'gatsby-link'
+import SponsorSlider from '../components/SponsorSlider'
+import Countdown from '../components/Countdown'
 
-import Header from '../components/Header';
-import troopsAtGooglePNG from '../images/troops-at-google.jpg';
+import Header from '../components/Header'
+import troopsAtGooglePNG from '../images/troops-at-google.jpg'
 
 const IndexPage = () => (
   <div>
@@ -115,6 +115,6 @@ const IndexPage = () => (
       </div>
     </section>
   </div>
-);
+)
 
-export default IndexPage;
+export default IndexPage

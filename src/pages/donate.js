@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
 
-import DonateModal from '../components/DonateModal';
-import code from '../images/code.png';
-import john from '../images/profile.png';
-import thisIsUs from '../images/this_is_us.png';
-import './donate.css';
+import DonateModal from '../components/DonateModal'
+import code from '../images/code.png'
+import john from '../images/profile.png'
+import thisIsUs from '../images/this_is_us.png'
+import '../assets/css/donate.css'
 
 class Donate extends Component {
   state = {
-    modalIsOpen: false,
+    modalIsOpen: false
   };
 
   openModal = () => this.setState({ modalIsOpen: true });
@@ -17,7 +17,7 @@ class Donate extends Component {
   closeModal = () => this.setState({ modalIsOpen: false });
 
   render() {
-    const { modalIsOpen } = this.state;
+    const { modalIsOpen } = this.state
 
     return (
       <div>
@@ -25,7 +25,7 @@ class Donate extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
+            backgroundPositionY: 'bottom'
           }}
         >
           <div className="overlay-01" />
@@ -98,7 +98,7 @@ class Donate extends Component {
                       MozBorderRadius: 2,
                       borderRadius: 2,
                       boxShadow: '0 1px 0 0 #06152C',
-                      textShadow: '0 1px rgba(0, 0, 0, 0.3)',
+                      textShadow: '0 1px rgba(0, 0, 0, 0.3)'
                     }}
                     onClick={this.openModal}
                   >
@@ -110,8 +110,8 @@ class Donate extends Component {
           </div>{' '}
         </section>
       </div>
-    );
+    )
   }
 }
 
-export default Donate;
+export default Donate

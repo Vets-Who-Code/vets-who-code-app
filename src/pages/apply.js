@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
 
-import thisIsUs from '../images/this_is_us.png';
+import thisIsUs from '../images/this_is_us.png'
 
 export default class Apply extends Component {
   state = {
@@ -16,7 +16,7 @@ export default class Apply extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   resetForm = () => ({
@@ -32,7 +32,7 @@ export default class Apply extends Component {
 
   handleSubmit = e => {
     const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
+      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -47,10 +47,10 @@ export default class Apply extends Component {
         'favorite-mre': this.state['favorite-mre'],
         'tell-us-about-yourself': this.state['tell-us-about-yourself']
       })
-    };
-    fetch(gatewayUrl, options);
-    e.preventDefault();
-    this.setState(this.resetForm);
+    }
+    fetch(gatewayUrl, options)
+    e.preventDefault()
+    this.setState(this.resetForm)
   };
 
   render() {
@@ -100,7 +100,7 @@ export default class Apply extends Component {
                           name="name"
                           value={this.state.name}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -117,7 +117,7 @@ export default class Apply extends Component {
                           name="email"
                           value={this.state.email}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -134,7 +134,7 @@ export default class Apply extends Component {
                           name="branch-of-service"
                           value={this.state['branch-of-service']}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -151,7 +151,7 @@ export default class Apply extends Component {
                           name="experience"
                           value={this.state.experience}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -168,7 +168,7 @@ export default class Apply extends Component {
                           name="github-portfolio-or-linkedin"
                           value={this.state['github-portfolio-or-linkedin']}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default class Apply extends Component {
                           name="location"
                           value={this.state.location}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -202,7 +202,7 @@ export default class Apply extends Component {
                           name="favorite-mre"
                           value={this.state['favorite-mre']}
                           onChange={this.handleChange}
-                          required={true}
+                          required
                         />
                       </div>
                     </div>
@@ -241,6 +241,6 @@ export default class Apply extends Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }

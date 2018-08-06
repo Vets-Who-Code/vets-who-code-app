@@ -1,75 +1,75 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
 
-import thisIsUs from '../images/this_is_us.png';
+import thisIsUs from '../images/this_is_us.png'
 
 export default class Contact extends Component {
   componentDidMount() {
-    this.initialize();
+    this.initialize()
   }
 
   state = {
     name: '',
     email: '',
     phone: '',
-    message: '',
+    message: ''
   };
 
   initialize = () => {
-    const mapCanvas = document.getElementById('map-canvas');
+    const mapCanvas = document.getElementById('map-canvas')
     const mapOptions = {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    };
-    const map = new google.maps.Map(mapCanvas, mapOptions);
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    const map = new google.maps.Map(mapCanvas, mapOptions)
     const contentString = `
       <div id="content">
         <h2>#VetsWhoCode</h2>
         <div id="bodyContent">41 N Peabody st, Nashville Tn, 37120</div>
       </div>
-    `;
-    const myLatLng = { lat: 36.1577981, lng: -86.7707313 };
+    `
+    const myLatLng = { lat: 36.1577981, lng: -86.7707313 }
     const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    });
+      content: contentString
+    })
     const marker = new google.maps.Marker({
       position: myLatLng,
       map,
-      title: '#VetsWhoCode',
-    });
+      title: '#VetsWhoCode'
+    })
 
     marker.addListener('click', () => {
-      infowindow.open(map, marker);
-    });
+      infowindow.open(map, marker)
+    })
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value })
   };
 
   resetForm = () => ({
     name: '',
     email: '',
     phone: '',
-    message: '',
+    message: ''
   });
 
   handleSubmit = e => {
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact'
     const options = {
       method: 'POST',
       body: JSON.stringify({
         name: this.state.name,
         email: this.state.email,
         phone: this.state.phone,
-        message: this.state.message,
-      }),
-    };
-    fetch(gatewayUrl, options);
-    e.preventDefault();
-    this.setState(this.resetForm);
+        message: this.state.message
+      })
+    }
+    fetch(gatewayUrl, options)
+    e.preventDefault()
+    this.setState(this.resetForm)
   };
 
   render() {
@@ -79,7 +79,7 @@ export default class Contact extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
+            backgroundPositionY: 'bottom'
           }}
         >
           <div className="overlay-01" />
@@ -203,6 +203,6 @@ export default class Contact extends Component {
           </div>
         </section>
       </div>
-    );
+    )
   }
 }

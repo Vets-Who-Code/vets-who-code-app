@@ -1,34 +1,34 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Link from 'gatsby-link'
 
-import vwcGIF from '../images/vwc.gif';
-import jerome from '../images/team/jerome.png';
-import noel from '../images/team/noel.png';
-import andrew from '../images/team/andrew.png';
-import thisIsUs from '../images/this_is_us.png';
+import vwcGIF from '../images/vwc.gif'
+import jerome from '../images/team/jerome.png'
+import noel from '../images/team/noel.png'
+import andrew from '../images/team/andrew.png'
+import thisIsUs from '../images/this_is_us.png'
 
-import facebookVideo from '../video/vwc-facebook-reel.mp4';
+import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
   constructor() {
-    super();
-    this.play = this.play.bind(this);
-    this.end = this.end.bind(this);
+    super()
+    this.play = this.play.bind(this)
+    this.end = this.end.bind(this)
   }
 
   componentDidMount() {
-    $('.vwc-animated-gif').css('display', 'none');
+    $('.vwc-animated-gif').css('display', 'none')
   }
 
   play() {
-    $('.play-button').fadeOut();
-    this.video.play();
-    this.video.onended = this.end;
+    $('.play-button').fadeOut()
+    this.video.play()
+    this.video.onended = this.end
   }
 
   end() {
-    $('.success-video').hide('fast');
-    $('.vwc-animated-gif').toggle('fast');
+    $('.success-video').hide('fast')
+    $('.vwc-animated-gif').toggle('fast')
   }
 
   render() {
@@ -39,7 +39,7 @@ class About extends Component {
             className="inner-header overlay grey text-center slim-bg "
             style={{
               backgroundImage: `url(${thisIsUs})`,
-              backgroundPositionY: 'bottom',
+              backgroundPositionY: 'bottom'
             }}
           >
             <div className="overlay-01" />
@@ -75,7 +75,7 @@ class About extends Component {
                           left: '50%',
                           transform: 'translate(-50%, -50%)',
                           fontSize: 40,
-                          cursor: 'pointer',
+                          cursor: 'pointer'
                         }}
                       />
                     </a>
@@ -85,7 +85,7 @@ class About extends Component {
                     style={{
                       backgroundImage: `url(${vwcGIF})`,
                       backgroundPosition: 'center center',
-                      backgroundSize: 'cover',
+                      backgroundSize: 'cover'
                     }}
                   />
                 </div>
@@ -186,8 +186,8 @@ class About extends Component {
           </section>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default About;
+export default About
