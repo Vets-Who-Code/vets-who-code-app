@@ -1,7 +1,6 @@
 import enzyme from 'enzyme'
 
 import Adapter from 'enzyme-adapter-react-15'
-
 /**
 * React 15 Enzyme adapter
 */
