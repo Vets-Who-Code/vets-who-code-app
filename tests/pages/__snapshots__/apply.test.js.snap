@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Apply /> should render correctly 1`] = `
+<div>
+  <header
+    className="inner-header overlay grey text-center slim-bg "
+    style={
+      Object {
+        "backgroundImage": "url(image-mock)",
+        "backgroundPositionY": "bottom",
+      }
+    }
+  >
+    <div
+      className="overlay-01"
+    />
+    <div
+      className="container"
+    >
+      <h2
+        className="text-center text-uppercase"
+      >
+        Apply
+      </h2>
+      <div
+        className="breadcrumb"
+      >
+        <Component
+          to="/"
+        >
+          Home
+        </Component>
+        <span>
+          /
+        </span>
+        <Component
+          className="page-active"
+          to="/apply"
+        >
+          Apply
+        </Component>
+      </div>
+    </div>
+  </header>
+  <section
+    className="pad-regular section bg-default"
+    id="contact"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-12"
+        >
+          <div
+            className="contactus-brief"
+          >
+            <h3>
+              Apply
+            </h3>
+            <p
+              className="section-description"
+            >
+              Thank thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.
+            </p>
+            <form
+              action="#"
+              id="s2do-form"
+              onSubmit={[Function]}
+            >
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputName"
+                  >
+                    Name
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="name"
+                    onChange={[Function]}
+                    placeholder="Name"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputEmail"
+                  >
+                    Email
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="Email"
+                    required={true}
+                    type="email"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputService"
+                  >
+                    Military Branch Of Service
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="branch-of-service"
+                    onChange={[Function]}
+                    placeholder="Thank you for your service"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="Experience"
+                  >
+                    Experience
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="experience"
+                    onChange={[Function]}
+                    placeholder="Do you program and if so for how long?"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputPortfolio"
+                  >
+                    Github, Portfolio or Linkedin
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="github-portfolio-or-linkedin"
+                    onChange={[Function]}
+                    placeholder="Share your work"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputLocation"
+                  >
+                    Location ( City and State )
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="location"
+                    onChange={[Function]}
+                    placeholder="Location"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputMRE"
+                  >
+                    Favorite MRE?
+                    <super>
+                      *
+                    </super>
+                  </label>
+                  <input
+                    className="form-control input-lg"
+                    name="favorite-mre"
+                    onChange={[Function]}
+                    placeholder="Chilli Mac?"
+                    required={true}
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="dark-text"
+                    htmlFor="InputInterviewStory"
+                  >
+                    Tell Us About Yourself
+                  </label>
+                  <textarea
+                    className="form-control"
+                    name="tell-us-about-yourself"
+                    onChange={[Function]}
+                    placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
+                    rows="7"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                className="col-md-8"
+              >
+                <div
+                  className="form-group"
+                >
+                  <input
+                    className="btn btn-charity-default"
+                    href="#"
+                    name="submit"
+                    title=""
+                    type="submit"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
