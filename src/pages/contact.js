@@ -34,6 +34,7 @@ export default class Contact extends Component {
     const infowindow = new google.maps.InfoWindow({
       content: contentString
     })
+
     const marker = new google.maps.Marker({
       position: myLatLng,
       map,

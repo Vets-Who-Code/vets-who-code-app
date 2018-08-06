@@ -12,3 +12,16 @@ enzyme.configure({ adapter: new Adapter(), ignoreLifeCycleMethods: true })
 global.shallow = enzyme.shallow
 global.render = enzyme.render
 global.mount = enzyme.mount
+global.google = {
+  maps: {
+    LatLng: jest.fn(),
+    Map: jest.fn(),
+    InfoWindow: jest.fn(),
+    Marker: () => ({
+      addListener: jest.fn()
+    }),
+    MapTypeId: {
+      ROADMAP: ''
+    }
+  }
+}

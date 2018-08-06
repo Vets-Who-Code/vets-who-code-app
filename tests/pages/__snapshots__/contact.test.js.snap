@@ -1,3 +1,222 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Contact /> should render correctly 1`] = `undefined`;
+exports[`<Contact /> should render correctly 1`] = `
+<div>
+  <header
+    className="inner-header overlay grey text-center slim-bg "
+    style={
+      Object {
+        "backgroundImage": "url(image-mock)",
+        "backgroundPositionY": "bottom",
+      }
+    }
+  >
+    <div
+      className="overlay-01"
+    />
+    <div
+      className="container"
+    >
+      <h2
+        className="text-center text-uppercase"
+      >
+        Contact Us
+      </h2>
+      <div
+        className="breadcrumb"
+      >
+        <Component
+          to="/"
+        >
+          Home
+        </Component>
+        <span>
+          /
+        </span>
+        <Component
+          className="page-active"
+          to="/contact"
+        >
+          Contact Us
+        </Component>
+      </div>
+    </div>
+  </header>
+  <section
+    className="pad-regular section bg-default"
+    id="contact"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-xs-12"
+        >
+          <div
+            className="contactus-brief"
+          >
+            <h3>
+              Contact us
+            </h3>
+            <p
+              className="section-description"
+            >
+              Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row"
+      >
+        <div
+          className="col-md-12 clearfix"
+        >
+          <div
+            className="map-default-height"
+            id="map-canvas"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="section bg-default default-section-padding"
+    id="contact-form"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="contact-form"
+        >
+          <form
+            id="s2do-form"
+            onSubmit={[Function]}
+          >
+            <div
+              className="col-md-4"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="dark-text"
+                  htmlFor="InputName"
+                >
+                  Your Display Name
+                  <super>
+                    *
+                  </super>
+                </label>
+                <input
+                  className="form-control form-control-dark"
+                  id="InputName"
+                  name="name"
+                  onChange={[Function]}
+                  placeholder="Jody"
+                  required={true}
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="col-md-4"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="dark-text"
+                  htmlFor="InputEmail"
+                >
+                  Your Email Address
+                  <super>
+                    *
+                  </super>
+                </label>
+                <input
+                  className="form-control form-control-dark"
+                  id="InputEmail"
+                  name="email"
+                  onChange={[Function]}
+                  placeholder="jody@example.com"
+                  required={true}
+                  type="email"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="col-md-4"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="dark-text"
+                  htmlFor="InputPhoneNumber"
+                >
+                  Your Phone Number
+                </label>
+                <input
+                  className="form-control form-control-dark"
+                  id="InputPhoneNumber"
+                  name="phone"
+                  onChange={[Function]}
+                  placeholder="123-456-789"
+                  type="number"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="col-sm-12"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="dark-text"
+                  htmlFor="message"
+                >
+                  Your Message
+                  <super>
+                    *
+                  </super>
+                </label>
+                <textarea
+                  className="form-control form-control-dark"
+                  id="message"
+                  name="message"
+                  onChange={[Function]}
+                  placeholder="Your Message Here.."
+                  required={true}
+                  rows="3"
+                  value=""
+                />
+              </div>
+              <input
+                className="btn btn-charity-default"
+                href="#"
+                id="cfsubmit"
+                name="submit"
+                title=""
+                type="submit"
+                value="SEND MESSAGE"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
