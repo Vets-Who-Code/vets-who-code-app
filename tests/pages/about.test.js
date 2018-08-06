@@ -6,7 +6,7 @@ describe('<About />', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(<About />)
+    wrapper = mount(<About />)
     global.$ = global.jQuery = $
   })
 

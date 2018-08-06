@@ -25,20 +25,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
       <div
         className="breadcrumb"
       >
-        <GatsbyLink
+        <Component
           to="/"
         >
           Home
-        </GatsbyLink>
+        </Component>
         <span>
           /
         </span>
-        <GatsbyLink
+        <Component
           className="page-active"
           to="/syllabus"
         >
           Syllabus
-        </GatsbyLink>
+        </Component>
       </div>
     </div>
   </header>

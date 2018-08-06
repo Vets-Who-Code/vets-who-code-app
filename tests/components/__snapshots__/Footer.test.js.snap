@@ -94,32 +94,32 @@ exports[`<Footer /> should render correctly 1`] = `
                     className="widgets-list"
                   >
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/"
                       >
                         Home
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/about"
                       >
                         About
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/syllabus"
                       >
                         Syllabus
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/mentor"
                       >
                         Mentor
-                      </GatsbyLink>
+                      </Component>
                     </li>
                   </ul>
                 </div>
@@ -134,25 +134,25 @@ exports[`<Footer /> should render correctly 1`] = `
                     className="widgets-list"
                   >
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/apply"
                       >
                         Apply
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/donate"
                       >
                         Donate
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
-                      <GatsbyLink
+                      <Component
                         to="/contact"
                       >
                         Contact Us
-                      </GatsbyLink>
+                      </Component>
                     </li>
                     <li>
                       <a

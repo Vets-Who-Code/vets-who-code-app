@@ -44,7 +44,7 @@ exports[`<Nav /> should render correctly 1`] = `
         >
           #VetsWhoCode
         </span>
-        <GatsbyLink
+        <Component
           itemProp="url"
           to="/"
         >
@@ -53,7 +53,7 @@ exports[`<Nav /> should render correctly 1`] = `
             className="logo_holder"
             src="image-mock"
           />
-        </GatsbyLink>
+        </Component>
       </div>
     </div>
     <div
@@ -72,73 +72,73 @@ exports[`<Nav /> should render correctly 1`] = `
       >
         <li>
            
-          <GatsbyLink
+          <Component
             to="/"
           >
             <span>
               Home
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/about"
           >
             <span>
               About
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/syllabus"
           >
             <span>
               Syllabus
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/mentor"
           >
             <span>
               Mentor
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/apply"
           >
             <span>
               Apply
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/donate"
           >
             <span>
               Donate
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            
-          <GatsbyLink
+          <Component
             to="/contact"
           >
             <span>
               Contact Us
             </span>
-          </GatsbyLink>
+          </Component>
         </li>
         <li>
            

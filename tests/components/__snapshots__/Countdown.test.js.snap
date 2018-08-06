@@ -56,11 +56,11 @@ exports[`<Countdown /> should render correctly 1`] = `
       </h4>
     </div>
   </div>
-  <GatsbyLink
+  <Component
     className="btn btn-charity-default"
     to="/apply"
   >
     Apply
-  </GatsbyLink>
+  </Component>
 </div>
 `;

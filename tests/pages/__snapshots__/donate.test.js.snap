@@ -25,20 +25,20 @@ exports[`<Donate /> should render correctly 1`] = `
       <div
         className="breadcrumb"
       >
-        <GatsbyLink
+        <Component
           to="/"
         >
           Home
-        </GatsbyLink>
+        </Component>
         <span>
           /
         </span>
-        <GatsbyLink
+        <Component
           className="page-active"
           to="/donate"
         >
           Donate
-        </GatsbyLink>
+        </Component>
       </div>
     </div>
   </header>
