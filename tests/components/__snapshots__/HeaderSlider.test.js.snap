@@ -2,7 +2,7 @@
 
 exports[`<HeaderSlider /> should render correctly 1`] = `
 <div>
-  <[object Object]
+  <react-slick-mock
     autoplay={true}
     autoplaySpeed={3000}
     fade={true}
@@ -168,7 +168,7 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
         </div>
       </div>
     </div>
-  </[object Object]>
+  </react-slick-mock>
   <ol
     className="flex-control-nav flex-control-paging"
   >

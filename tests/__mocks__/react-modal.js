@@ -1,3 +1,9 @@
-export default {
-  setAppElement: jest.fn()
+class Component {}
+
+class Modal extends Component {
+  static setAppElement(element) {
+    jest.fn()
+  }
 }
+
+export default Modal
