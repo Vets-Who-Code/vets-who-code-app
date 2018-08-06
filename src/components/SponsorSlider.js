@@ -1,13 +1,13 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from 'react'
+import Slider from 'react-slick'
 
-import pluralsightPNG from '../images/supporters/ps.png';
-import basecampPNG from '../images/supporters/basecamp-logo.png';
-import replItPNG from '../images/supporters/repl.it.png';
-import slackPNG from '../images/supporters/slack.png';
-import doPNG from '../images/supporters/DO.png';
-import icPNG from '../images/supporters/IC.png';
-import honeyBadgerPNG from '../images/supporters/honeybadger.png';
+import pluralsightPNG from '../images/supporters/ps.png'
+import basecampPNG from '../images/supporters/basecamp-logo.png'
+import replItPNG from '../images/supporters/repl.it.png'
+import slackPNG from '../images/supporters/slack.png'
+import doPNG from '../images/supporters/DO.png'
+import icPNG from '../images/supporters/IC.png'
+import honeyBadgerPNG from '../images/supporters/honeybadger.png'
 
 const settings = {
   dots: true,
@@ -25,18 +25,18 @@ const settings = {
       breakpoint: 990,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 1,
-      },
+        slidesToScroll: 1
+      }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
+        slidesToScroll: 1
+      }
+    }
+  ]
+}
 
 const SponsorSlider = () => (
   <Slider {...settings}>
@@ -76,6 +76,6 @@ const SponsorSlider = () => (
       </a>
     </div>
   </Slider>
-);
+)
 
-export default SponsorSlider;
+export default SponsorSlider

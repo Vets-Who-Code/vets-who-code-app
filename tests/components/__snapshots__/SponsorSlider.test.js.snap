@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SponsorSlider /> should render correctly 1`] = `
+<[object Object]
+  autoplay={true}
+  autoplaySpeed={3000}
+  centerMode={true}
+  centerPadding={0}
+  className="slider"
+  dots={true}
+  infinite={true}
+  responsive={
+    Array [
+      Object {
+        "breakpoint": 990,
+        "settings": Object {
+          "slidesToScroll": 1,
+          "slidesToShow": 4,
+        },
+      },
+      Object {
+        "breakpoint": 480,
+        "settings": Object {
+          "slidesToScroll": 1,
+          "slidesToShow": 3,
+        },
+      },
+    ]
+  }
+  slidesToScroll={1}
+  slidesToShow={7}
+  speed={500}
+>
+  <div>
+    <a
+      href="https://www.pluralsight.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Pluralsight"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://basecamp.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Basecamp"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://repl.it"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="repl.it"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://slack.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Slack"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://www.digitalocean.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Digital Ocean"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://www.interviewcake.com/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Interview Cake"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+  <div>
+    <a
+      href="https://www.honeybadger.io/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="Honeybadger"
+        height="60"
+        src="image-mock"
+        width="60"
+      />
+    </a>
+  </div>
+</[object Object]>
+`;

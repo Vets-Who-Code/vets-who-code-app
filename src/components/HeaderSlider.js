@@ -10,22 +10,15 @@ import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
 class HeaderSlider extends Component {
-  constructor(props) {
-    super(props)
-    this.play = this.play.bind(this)
-    this.next = this.next.bind(this)
-    this.previous = this.previous.bind(this)
-  }
-
-  play() {
+  play= () => {
     this.slider.slickPlay()
   }
 
-  next() {
+  next = () => {
     this.slider.slickNext()
   }
 
-  previous() {
+  previous = () => {
     this.slider.slickPrev()
   }
 
@@ -39,6 +32,7 @@ class HeaderSlider extends Component {
       autoplay: true,
       autoplaySpeed: 3000
     }
+
     return (
       <div>
         <Slider {...settings} ref={slider => (this.slider = slider)}>
