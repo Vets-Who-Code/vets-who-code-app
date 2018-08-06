@@ -10,23 +10,17 @@ import thisIsUs from '../images/this_is_us.png'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
-  constructor() {
-    super()
-    this.play = this.play.bind(this)
-    this.end = this.end.bind(this)
-  }
-
   componentDidMount() {
     $('.vwc-animated-gif').css('display', 'none')
   }
 
-  play() {
+  play = () => {
     $('.play-button').fadeOut()
     this.video.play()
     this.video.onended = this.end
   }
 
-  end() {
+  end = () => {
     $('.success-video').hide('fast')
     $('.vwc-animated-gif').toggle('fast')
   }
