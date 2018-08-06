@@ -4,16 +4,16 @@ import Link from 'gatsby-link'
 import thisIsUs from '../images/this_is_us.png'
 
 export default class Contact extends Component {
-  componentDidMount() {
-    this.initialize()
-  }
-
   state = {
     name: '',
     email: '',
     phone: '',
     message: ''
-  };
+  }
+
+  componentDidMount() {
+    this.initialize()
+  }
 
   initialize = () => {
     const mapCanvas = document.getElementById('map-canvas')
