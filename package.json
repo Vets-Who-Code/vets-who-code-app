@@ -37,14 +37,17 @@
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
-      "/.cache/",
-      "/tests/setupTests.js"
+      "/.cache/"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
     "setupFiles": [
       "./tests/setupTests.js"
+    ],
+    "collectCoverageFrom": [
+      "src/components/**/*.{js,jsx}",
+      "!/static/vendor/jquery/dist"
     ]
   }
 }
