@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SponsorSlider /> should render correctly 1`] = `
-<react-slick-mock
+<Slider
   autoplay={true}
   autoplaySpeed={3000}
   centerMode={true}
@@ -129,5 +129,5 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
       />
     </a>
   </div>
-</react-slick-mock>
+</Slider>
 `;
