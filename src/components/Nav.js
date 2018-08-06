@@ -8,7 +8,7 @@ class Nav extends Component {
     window.addEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll= () => {
+  handleScroll = () => {
     const $nav = $('#fixedTopNav')
 
     if ($(window).scrollTop() > 0) {

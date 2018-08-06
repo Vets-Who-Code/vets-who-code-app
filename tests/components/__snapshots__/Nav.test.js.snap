@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Nav /> should render correctly 1`] = `
+<nav
+  className="navbar navbar-fixed-top main-navigation"
+  id="fixedTopNav"
+  itemScope=""
+  itemType="https://schema.org/SiteNavigationElement"
+  role="navigation"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="navbar-header"
+    >
+      <button
+        aria-expanded="false"
+        className="navbar-toggle collapsed"
+        data-target="#main-nav-collapse"
+        data-toggle="collapse"
+        type="button"
+      >
+         
+        <span
+          className="sr-only"
+        >
+          #VetsWhoCode
+        </span>
+         
+        <span
+          className="ion-drag"
+        />
+      </button>
+      <div
+        className="navbar-brand"
+        itemScope=""
+        itemType="https://schema.org/Organization"
+      >
+         
+        <span
+          className="sr-only"
+          itemProp="name"
+        >
+          #VetsWhoCode
+        </span>
+        <GatsbyLink
+          itemProp="url"
+          to="/"
+        >
+          <img
+            alt="#VetsWhoCode Logo"
+            className="logo_holder"
+            src="image-mock"
+          />
+        </GatsbyLink>
+      </div>
+    </div>
+    <div
+      aria-expanded="false"
+      className="navbar-collapse collapse"
+      id="main-nav-collapse"
+      style={
+        Object {
+          "height": "1px",
+        }
+      }
+    >
+      <ul
+        className="nav navbar-nav navbar-right"
+        role="menu"
+      >
+        <li>
+           
+          <GatsbyLink
+            to="/"
+          >
+            <span>
+              Home
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/about"
+          >
+            <span>
+              About
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/syllabus"
+          >
+            <span>
+              Syllabus
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/mentor"
+          >
+            <span>
+              Mentor
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/apply"
+          >
+            <span>
+              Apply
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/donate"
+          >
+            <span>
+              Donate
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <GatsbyLink
+            to="/contact"
+          >
+            <span>
+              Contact Us
+            </span>
+          </GatsbyLink>
+        </li>
+        <li>
+           
+          <a
+            href="https://medium.com/vets-who-code"
+            target="_blank"
+          >
+            <span>
+              Blog
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
