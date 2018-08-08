@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "babel-jest": "23.4.2",
-    "babel-plugin-transform-es2015-arrow-functions": "6.22.0",
-    "enzyme": "3.3.0",
-    "enzyme-adapter-react-15": "1.0.6",
     "gatsby": "1.9.273",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-create-client-paths": "1.0.1",
@@ -31,7 +27,9 @@
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
+    "enzyme": "3.3.0",
     "enzyme-to-json": "3.3.4",
+    "enzyme-adapter-react-15": "1.0.6",
     "prettier": "^1.9.2",
     "react-test-renderer": "15.6.1"
   },
@@ -51,9 +49,6 @@
       "src/pages/**/*.{js,jsx}",
       "!/static/vendor/jquery/dist"
     ],
-    "globals": {
-      "google": {}
-    },
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
       "\\.(css|scss|sass)$": "<rootDir>/tests/__mocks__/style-mock.js"
