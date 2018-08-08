@@ -49,7 +49,15 @@ You should be able to view the website locally at `http://localhost:8000/`.
 
 ### Testing
 
-In a terminal window run these commands to install jest globally and run the jest test watcher.
+In a terminal window run these commands to install jest globally and run the jest test suite.
+
+```
+$ npm -i -g jest@23.4.2
+$ cd vwc-site
+$ yarn test
+```
+
+In a terminal window run these commands to run the jest test suite in watch mode.
 
 ```
 $ npm -i -g jest@23.4.2
