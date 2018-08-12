@@ -8,6 +8,7 @@
     "gatsby-plugin-create-client-paths": "1.0.1",
     "gatsby-plugin-react-helmet": "1.0.8",
     "generate": "0.14.0",
+    "jest": "23.5.0",
     "react-modal": "3.4.5",
     "react-slick": "0.23.1",
     "slick-carousel": "1.8.1"
@@ -28,8 +29,8 @@
   },
   "devDependencies": {
     "enzyme": "3.3.0",
-    "enzyme-to-json": "3.3.4",
     "enzyme-adapter-react-15": "1.0.6",
+    "enzyme-to-json": "3.3.4",
     "prettier": "^1.9.2",
     "react-test-renderer": "15.6.1"
   },
