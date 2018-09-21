@@ -13,15 +13,15 @@ const IndexPage = () => (
       <div className="container">
         <div className="row bg-dark">
           <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
-            <img className="img-responsive" src={troopsAtGooglePNG} alt="Our Troops at a Google event." />
+            <img className="img-responsive" src={troopsAtGooglePNG} alt="Vets Who Code veterans at Google event." />
           </div>
           <div className="col-md-7 col-sm-12 our_story_content text-center">
             <div className="featured-heading">
               <h2>#VetsWhoCode</h2>
             </div>
             <p>
-              #VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to
-              program free of charge so that they may find gainful employment after service.
+              #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering
+              principles free of charge with the focus of starting careeers as javascript developers.
             </p>
           </div>
         </div>
@@ -40,8 +40,8 @@ const IndexPage = () => (
           <div className="col-sm-12 our_mission_content text-center">
             <blockquote>
               <p>
-                Through training, mentorship, and opportunities to connect with industry experts, we ensure that our
-                troops get the best knowledge in Computer Science and JavaScript.
+                Through training, building projects, mentorship, and opportunities to connect with industry experts, we ensure that our
+                troops gain the best knowledge possible in web development and software engineering.
               </p>
             </blockquote>
           </div>
@@ -51,13 +51,13 @@ const IndexPage = () => (
     <section id="causes" className="section bg-default causes-card" style={{ padding: '75px 0' }}>
       <div className="container">
         <div className="normal_heading text-center">
-          <h2>Technology Donors</h2>
+          <h2>Our Partners</h2>
         </div>
         <div className="row">
           <div className="col-sm-12 cause_content text-center" style={{ marginBottom: 40 }}>
-            <h4 className="cause_title">Thank You For Supporting #VetsWhoCode!</h4>
+            <h4 className="cause_title">Thank You For Working With #VetsWhoCode!</h4>
             <hr />
-            <h3 className="subtitle">We Are Grateful To Be Supported By These Companies.</h3>
+            <h3 className="subtitle">We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.</h3>
           </div>
         </div>
         <SponsorSlider />
@@ -69,7 +69,7 @@ const IndexPage = () => (
           <div className="col-sm-6 event_content">
             <h4>Next Cohort</h4>
             <div className="event_excerpt">
-              <p>Our next #VetsWhoCode Cohort will begin at this time.</p>
+              <p>Countdown until our next #VetsWhoCode Cohort gets started:</p>
             </div>
           </div>
           <Countdown />
@@ -83,7 +83,7 @@ const IndexPage = () => (
             <div className="newsletter_inner_wrapper">
               <div className="row">
                 <div className="col-md-4">
-                  <h3 className="text-center">SIGN UP FOR OUR NEWSLETTER</h3>
+                  <h3 className="text-center">JOIN OUR EMAIL LIST</h3>
                 </div>
                 <div className="col-md-8">
                   <form id="s2do-form" action="#" method="POST">

@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
 class Countdown extends Component {
   state = {
@@ -8,43 +8,43 @@ class Countdown extends Component {
     minutes: null,
     seconds: null,
     interval: null
-  }
+  };
 
   componentWillMount = () => {
-    this.getTimeRemaining()
-  }
+    this.getTimeRemaining();
+  };
 
   componentDidMount = () => {
-    this.state.interval = setInterval(() => this.getTimeRemaining(), 1000)
-  }
+    this.state.interval = setInterval(() => this.getTimeRemaining(), 1000);
+  };
 
   componentWillUnmount = () => {
-    this.stopCountDown()
-  }
+    this.stopCountDown();
+  };
 
   getTimeRemaining = () => {
-    const deadLine = 'March 17 2019'
-    const time = Date.parse(deadLine) - Date.parse(new Date())
-    const seconds = Math.floor((time / 1000) % 60)
-    const minutes = Math.floor((time / 1000 / 60) % 60)
-    const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
-    const days = Math.floor(time / (1000 * 60 * 60 * 24))
+    const deadLine = 'March 04 2019';
+    const time = Date.parse(deadLine) - Date.parse(new Date());
+    const seconds = Math.floor((time / 1000) % 60);
+    const minutes = Math.floor((time / 1000 / 60) % 60);
+    const hours = Math.floor((time / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
 
     this.setState({
       days,
       hours,
       minutes,
       seconds
-    })
-  }
+    });
+  };
 
   stopCountDown = () => {
-    const { interval } = this.state
-    clearInterval(interval)
+    const { interval } = this.state;
+    clearInterval(interval);
   };
 
   render() {
-    const { days, hours, minutes, seconds } = this.state
+    const { days, hours, minutes, seconds } = this.state;
     return (
       <div className="col-sm-6 event_counter_container text-center">
         <div className="container-countdown">
@@ -69,8 +69,8 @@ class Countdown extends Component {
           Apply
         </Link>
       </div>
-    )
+    );
   }
 }
 
-export default Countdown
+export default Countdown;

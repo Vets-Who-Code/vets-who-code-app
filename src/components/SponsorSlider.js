@@ -1,13 +1,13 @@
 import React from 'react'
 import Slider from 'react-slick'
 
-import pluralsightPNG from '../images/supporters/ps.png'
-import basecampPNG from '../images/supporters/basecamp-logo.png'
+import googlePNG from '../images/supporters/google.png'
+import githubPNG from '../images/supporters/github.png'
 import replItPNG from '../images/supporters/repl.it.png'
 import slackPNG from '../images/supporters/slack.png'
 import doPNG from '../images/supporters/DO.png'
-import icPNG from '../images/supporters/IC.png'
-import honeyBadgerPNG from '../images/supporters/honeybadger.png'
+import femPNG from '../images/supporters/fem.png'
+import comcastPNG from '../images/supporters/comcast.png'
 
 const settings = {
   dots: true,
@@ -41,13 +41,17 @@ const settings = {
 const SponsorSlider = () => (
   <Slider {...settings}>
     <div>
-      <a href="https://www.pluralsight.com/" target="_blank" rel="noopener noreferrer">
-        <img src={pluralsightPNG} alt="Pluralsight" height="60" width="60" />
+      <a
+        href="https://www.pluralsight.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={googlePNG} alt="google" height="60" width="60" />
       </a>
     </div>
     <div>
-      <a href="https://basecamp.com/" target="_blank" rel="noopener noreferrer">
-        <img src={basecampPNG} alt="Basecamp" height="60" width="60" />
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+        <img src={githubPNG} alt="GitHub" height="60" width="60" />
       </a>
     </div>
     <div>
@@ -61,21 +65,33 @@ const SponsorSlider = () => (
       </a>
     </div>
     <div>
-      <a href="https://www.digitalocean.com/" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.digitalocean.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <img src={doPNG} alt="Digital Ocean" height="60" width="60" />
       </a>
     </div>
     <div>
-      <a href="https://www.interviewcake.com/" target="_blank" rel="noopener noreferrer">
-        <img src={icPNG} alt="Interview Cake" height="60" width="60" />
+      <a
+        href="https://frontendmasters.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={femPNG} alt="Front End Masters" height="60" width="60" />
       </a>
     </div>
     <div>
-      <a href="https://www.honeybadger.io/" target="_blank" rel="noopener noreferrer">
-        <img src={honeyBadgerPNG} alt="Honeybadger" height="60" width="60" />
+      <a
+        href="https://corporate.comcast.com/company/nbcuniversal/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src={comcastPNG} alt="Comcast" height="60" width="80" />
       </a>
     </div>
   </Slider>
-)
+);
 
 export default SponsorSlider
