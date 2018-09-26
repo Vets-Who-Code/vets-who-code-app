@@ -38,7 +38,7 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
       target="_blank"
     >
       <img
-        alt="Pluralsight"
+        alt="google"
         height="60"
         src="image-mock"
         width="60"
@@ -47,12 +47,12 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
   </div>
   <div>
     <a
-      href="https://basecamp.com/"
+      href="https://github.com/"
       rel="noopener noreferrer"
       target="_blank"
     >
       <img
-        alt="Basecamp"
+        alt="GitHub"
         height="60"
         src="image-mock"
         width="60"
@@ -103,12 +103,12 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
   </div>
   <div>
     <a
-      href="https://www.interviewcake.com/"
+      href="https://frontendmasters.com/"
       rel="noopener noreferrer"
       target="_blank"
     >
       <img
-        alt="Interview Cake"
+        alt="Front End Masters"
         height="60"
         src="image-mock"
         width="60"
@@ -117,15 +117,15 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
   </div>
   <div>
     <a
-      href="https://www.honeybadger.io/"
+      href="https://corporate.comcast.com/company/nbcuniversal/"
       rel="noopener noreferrer"
       target="_blank"
     >
       <img
-        alt="Honeybadger"
+        alt="Comcast"
         height="60"
         src="image-mock"
-        width="60"
+        width="80"
       />
     </a>
   </div>
