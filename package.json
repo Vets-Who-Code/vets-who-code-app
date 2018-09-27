@@ -43,7 +43,8 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "npm run eslint",
+      "yarn eslint",
+      "yarn test",
       "git add"
     ]
   },
