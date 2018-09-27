@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IndexPaege /> should render correctly 1`] = `
-<div>
+<TemplateWrapper>
   <Header />
   <section
     className="section pad-regular bg-default our_stories small-top-pad"
@@ -230,5 +230,5 @@ exports[`<IndexPaege /> should render correctly 1`] = `
       </div>
     </div>
   </section>
-</div>
+</TemplateWrapper>
 `;

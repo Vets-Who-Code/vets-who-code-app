@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
+
+import Layout from '../components/layout';
 
 import thisIsUs from '../images/this_is_us.png';
 
@@ -75,7 +77,7 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <header
           className="inner-header overlay grey text-center slim-bg "
           style={{
@@ -124,7 +126,7 @@ export default class Contact extends Component {
                     <div className="form-group">
                       <label htmlFor="InputName" className="dark-text">
                         Your Display Name
-                        <super>*</super>
+                        <sup>*</sup>
                       </label>
                       <input
                         type="text"
@@ -142,7 +144,7 @@ export default class Contact extends Component {
                     <div className="form-group">
                       <label htmlFor="InputEmail" className="dark-text">
                         Your Email Address
-                        <super>*</super>
+                        <sup>*</sup>
                       </label>
                       <input
                         type="email"
@@ -176,7 +178,7 @@ export default class Contact extends Component {
                     <div className="form-group">
                       <label htmlFor="message" className="dark-text">
                         Your Message
-                        <super>*</super>
+                        <sup>*</sup>
                       </label>
                       <textarea
                         id="message"
@@ -204,7 +206,7 @@ export default class Contact extends Component {
             </div>
           </div>
         </section>
-      </div>
+      </Layout>
     );
   }
 }

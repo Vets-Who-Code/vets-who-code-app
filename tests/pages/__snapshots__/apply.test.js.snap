@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Apply /> should render correctly 1`] = `
-<div>
+<TemplateWrapper>
   <header
     className="inner-header overlay grey text-center slim-bg "
     style={
@@ -25,20 +25,20 @@ exports[`<Apply /> should render correctly 1`] = `
       <div
         className="breadcrumb"
       >
-        <Component
+        <Link
           to="/"
         >
           Home
-        </Component>
+        </Link>
         <span>
           /
         </span>
-        <Component
+        <Link
           className="page-active"
           to="/apply"
         >
           Apply
-        </Component>
+        </Link>
       </div>
     </div>
   </header>
@@ -82,9 +82,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputName"
                   >
                     Name
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -108,9 +108,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputEmail"
                   >
                     Email
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -134,9 +134,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputService"
                   >
                     Military Branch Of Service
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -160,9 +160,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="Experience"
                   >
                     Experience
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -186,9 +186,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputPortfolio"
                   >
                     Github, Portfolio or Linkedin
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -212,9 +212,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputLocation"
                   >
                     Location ( City and State )
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -238,9 +238,9 @@ exports[`<Apply /> should render correctly 1`] = `
                     htmlFor="InputMRE"
                   >
                     Favorite MRE?
-                    <super>
+                    <sup>
                       *
-                    </super>
+                    </sup>
                   </label>
                   <input
                     className="form-control input-lg"
@@ -296,5 +296,5 @@ exports[`<Apply /> should render correctly 1`] = `
       </div>
     </div>
   </section>
-</div>
+</TemplateWrapper>
 `;

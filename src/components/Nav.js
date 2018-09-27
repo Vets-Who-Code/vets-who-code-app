@@ -48,10 +48,10 @@ class Nav extends Component {
               itemType="https://schema.org/Organization"
             >
               {' '}
-              <span itemProp="name" className="sr-only">
+              <span className="sr-only">
                 #VetsWhoCode
               </span>
-              <Link itemProp="url" to="/">
+              <Link to="/">
                 <img
                   src={logo}
                   alt="#VetsWhoCode Logo"
@@ -111,7 +111,7 @@ class Nav extends Component {
               </li>
               <li>
                 {' '}
-                <a href="https://medium.com/vets-who-code" without rel="noopener noreferrer" target="_blank">
+                <a href="https://medium.com/vets-who-code" without="true" rel="noopener noreferrer" target="_blank">
                   <span>Blog</span>
                 </a>
               </li>

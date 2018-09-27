@@ -40,12 +40,10 @@ exports[`<Nav /> should render correctly 1`] = `
          
         <span
           className="sr-only"
-          itemProp="name"
         >
           #VetsWhoCode
         </span>
-        <Component
-          itemProp="url"
+        <GatsbyLink
           to="/"
         >
           <img
@@ -53,7 +51,7 @@ exports[`<Nav /> should render correctly 1`] = `
             className="logo_holder"
             src="image-mock"
           />
-        </Component>
+        </GatsbyLink>
       </div>
     </div>
     <div
@@ -72,73 +70,73 @@ exports[`<Nav /> should render correctly 1`] = `
       >
         <li>
            
-          <Component
+          <GatsbyLink
             to="/"
           >
             <span>
               Home
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/about"
           >
             <span>
               About
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/syllabus"
           >
             <span>
               Syllabus
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/mentor"
           >
             <span>
               Mentor
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/apply"
           >
             <span>
               Apply
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/donate"
           >
             <span>
               Donate
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
-          <Component
+          <GatsbyLink
             to="/contact"
           >
             <span>
               Contact Us
             </span>
-          </Component>
+          </GatsbyLink>
         </li>
         <li>
            
@@ -146,7 +144,7 @@ exports[`<Nav /> should render correctly 1`] = `
             href="https://medium.com/vets-who-code"
             rel="noopener noreferrer"
             target="_blank"
-            without={true}
+            without="true"
           >
             <span>
               Blog

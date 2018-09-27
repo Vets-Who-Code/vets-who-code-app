@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
+import Layout from '../components/layout';
 import DonateModal from '../components/DonateModal';
 import code from '../images/code.png';
 import john from '../images/profile.png';
@@ -20,7 +21,7 @@ class Donate extends Component {
     const { modalIsOpen } = this.state;
 
     return (
-      <div>
+      <Layout>
         <header
           className="inner-header overlay grey text-center slim-bg "
           style={{
@@ -109,7 +110,7 @@ class Donate extends Component {
             </div>
           </div>{' '}
         </section>
-      </div>
+      </Layout>
     );
   }
 }

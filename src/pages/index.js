@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import SponsorSlider from '../components/SponsorSlider';
-import Countdown from '../components/Countdown';
 
+import Layout from '../components/layout';
+import Countdown from '../components/Countdown';
 import Header from '../components/Header';
+
 import troopsAtGooglePNG from '../images/troops-at-google.jpg';
 
 class IndexPage extends Component {
@@ -38,7 +40,7 @@ class IndexPage extends Component {
     const { email } = this.state;
 
     return (
-      <div>
+      <Layout>
         <Header />
         <section id="our_stories" className="section pad-regular bg-default our_stories small-top-pad">
           <div className="container">
@@ -154,7 +156,7 @@ class IndexPage extends Component {
             </div>
           </div>
         </section>
-      </div>
+      </Layout>
     );
   }
 }

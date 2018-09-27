@@ -1,10 +1,12 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
+
+import Layout from '../components/layout';
 
 import thisIsUs from '../images/this_is_us.png';
 
 const Syllabus = () => (
-  <div>
+  <Layout>
     <header
       className="inner-header overlay grey text-center slim-bg "
       style={{
@@ -486,7 +488,7 @@ const Syllabus = () => (
         </div>
       </div>
     </section>
-  </div>
+  </Layout>
 );
 
 export default Syllabus;

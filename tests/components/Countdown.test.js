@@ -25,6 +25,15 @@ describe('<Countdown />', () => {
     expect(spy).toHaveBeenCalled();
   });
 
+  test('should update state when getTimeRemaining is invoked', () => {
+    wrapper.instance().getTimeRemaining();
+    expect(wrapper.state('days')).not.toBe(null);
+    expect(wrapper.state('hours')).not.toBe(null);
+    expect(wrapper.state('minutes')).not.toBe(null);
+    expect(wrapper.state('seconds')).not.toBe(null);
+  });
+
+
   test('should clear interval when stopCountDown is invoked', () => {
     wrapper.instance().stopCountDown();
     expect(clearInterval).toHaveBeenCalledWith(expect.any(Number));

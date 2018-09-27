@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Layout /> should render correctly 1`] = `
+<div>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4"
+    />
+    <script
+      src="https://linked.chat/web/a9LB63"
+    />
+    <title>
+      #VetsWhoCode
+    </title>
+    <meta
+      content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      name="description"
+    />
+    <meta
+      content="#VetsWhoCode 🇺🇸 "
+      itemProp="name"
+    />
+    <meta
+      content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      itemProp="description"
+    />
+    <meta
+      content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
+      itemProp="image"
+    />
+    <meta
+      content="http://www.vetswhocode.io"
+      property="og:url"
+    />
+    <meta
+      content="website"
+      property="og:type"
+    />
+    <meta
+      content="#VetsWhoCode 🇺🇸 "
+      property="og:title"
+    />
+    <meta
+      content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      property="og:description"
+    />
+    <meta
+      content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
+      property="og:image"
+    />
+    <meta
+      content="summary_large_image"
+      name="twitter:card"
+    />
+    <meta
+      content="#VetsWhoCode 🇺🇸 "
+      name="twitter:title"
+    />
+    <meta
+      content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
+      name="twitter:description"
+    />
+    <meta
+      content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
+      name="twitter:image"
+    />
+  </HelmetWrapper>
+  <main
+    className="main_container"
+  >
+    <Nav />
+    <Footer />
+  </main>
+</div>
+`;

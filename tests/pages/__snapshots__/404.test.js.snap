@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<NotFoundPage /> should render correctly 1`] = `
-<div>
+<TemplateWrapper>
   <h1>
     NOT FOUND
   </h1>
   <p>
     You just hit a route that doesn't exist... the sadness.
   </p>
-</div>
+</TemplateWrapper>
 `;

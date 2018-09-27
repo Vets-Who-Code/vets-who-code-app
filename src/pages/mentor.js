@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
+
+import Layout from '../components/layout';
 
 import thisIsUs from '../images/this_is_us.png';
 
@@ -52,7 +54,7 @@ export default class Mentor extends Component {
 
   render() {
     return (
-      <div>
+      <Layout>
         <header
           className="inner-header overlay grey text-center slim-bg "
           style={{
@@ -86,7 +88,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputName" className="dark-text">
                           Name
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -103,7 +105,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputEmail" className="dark-text">
                           Email
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -120,7 +122,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputService" className="dark-text">
                           Military Branch Of Service
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -139,7 +141,7 @@ export default class Mentor extends Component {
                           htmlFor="InputTechnicalExpertise"
                           className="dark-text">
                           Area Of Technical Expertise ( Javascript, Ruby, etc)
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -156,7 +158,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputPortfolio" className="dark-text">
                           Github, Portfolio or Linkedin
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -173,7 +175,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputLocation" className="dark-text">
                           Location ( City and State )
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -220,7 +222,7 @@ export default class Mentor extends Component {
             </div>
           </div>
         </section>
-      </div>
+      </Layout>
     );
   }
 }

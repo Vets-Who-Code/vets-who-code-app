@@ -47,12 +47,12 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
                     className="btn-cal-group"
                   >
                      
-                    <Component
+                    <GatsbyLink
                       className="btn btn-charity-default"
                       to="/apply"
                     >
                       Apply
-                    </Component>
+                    </GatsbyLink>
                   </div>
                 </div>
               </div>
@@ -97,13 +97,13 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
                     className="btn-cal-group"
                   >
                      
-                    <Component
+                    <GatsbyLink
                       className="btn btn-charity-default"
                       to="/mentor"
                     >
                        
                       Sign Up
-                    </Component>
+                    </GatsbyLink>
                   </div>
                 </div>
               </div>
@@ -154,12 +154,12 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
                     className="btn-cal-group"
                   >
                      
-                    <Component
+                    <GatsbyLink
                       className="btn btn-charity-default"
                       to="/donate"
                     >
                       Please Donate
-                    </Component>
+                    </GatsbyLink>
                   </div>
                 </div>
               </div>
