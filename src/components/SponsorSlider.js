@@ -1,13 +1,13 @@
-import React from 'react'
-import Slider from 'react-slick'
+import React from 'react';
+import Slider from 'react-slick';
 
-import googlePNG from '../images/supporters/google.png'
-import githubPNG from '../images/supporters/github.png'
-import replItPNG from '../images/supporters/repl.it.png'
-import slackPNG from '../images/supporters/slack.png'
-import doPNG from '../images/supporters/DO.png'
-import femPNG from '../images/supporters/fem.png'
-import comcastPNG from '../images/supporters/comcast.png'
+import googlePNG from '../images/supporters/google.png';
+import githubPNG from '../images/supporters/github.png';
+import replItPNG from '../images/supporters/repl.it.png';
+import slackPNG from '../images/supporters/slack.png';
+import doPNG from '../images/supporters/DO.png';
+import femPNG from '../images/supporters/fem.png';
+import comcastPNG from '../images/supporters/comcast.png';
 
 const settings = {
   dots: true,
@@ -36,7 +36,7 @@ const settings = {
       }
     }
   ]
-}
+};
 
 const SponsorSlider = () => (
   <Slider {...settings}>
@@ -94,4 +94,4 @@ const SponsorSlider = () => (
   </Slider>
 );
 
-export default SponsorSlider
+export default SponsorSlider;

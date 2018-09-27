@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import DonateModal from '../components/DonateModal'
-import code from '../images/code.png'
-import john from '../images/profile.png'
-import thisIsUs from '../images/this_is_us.png'
-import '../assets/css/donate.css'
+import DonateModal from '../components/DonateModal';
+import code from '../images/code.png';
+import john from '../images/profile.png';
+import thisIsUs from '../images/this_is_us.png';
+import '../assets/css/donate.css';
 
 class Donate extends Component {
   state = {
@@ -17,7 +17,7 @@ class Donate extends Component {
   closeModal = () => this.setState({ modalIsOpen: false });
 
   render() {
-    const { modalIsOpen } = this.state
+    const { modalIsOpen } = this.state;
 
     return (
       <div>
@@ -62,9 +62,9 @@ class Donate extends Component {
                   <blockquote>
                     <p>
                       <img src={john} alt="John Garcia" />
-                      <br />"VWC helped me gain the technical knowledge I needed in order to get the attention of
+                      <br />&quot;VWC helped me gain the technical knowledge I needed in order to get the attention of
                       employers. The guidance, support and experience I had going through the program continues to help
-                      me in my role as a full time web developer."
+                      me in my role as a full time web developer.&quot;
                       <br /> - John Garcia, USAF | Web Developer, Hearst Media
                     </p>
                   </blockquote>
@@ -110,8 +110,8 @@ class Donate extends Component {
           </div>{' '}
         </section>
       </div>
-    )
+    );
   }
 }
 
-export default Donate
+export default Donate;

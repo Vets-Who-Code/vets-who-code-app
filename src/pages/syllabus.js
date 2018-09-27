@@ -1,7 +1,7 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
 const Syllabus = () => (
   <div>
@@ -33,8 +33,8 @@ const Syllabus = () => (
               <p>
                   Our curriculum is designed using the Agile Methodology with
                   four-day sprints dedicated to the subject. We do it in this
-                  manner based on the practice of how veterans "Train How You
-                  Fight" in the military, so they should train how they would
+                  manner based on the practice of how veterans &quot;Train How You
+                  Fight&quot; in the military, so they should train how they would
                   work in a real software company. The primary language we will
                   focus on is JavaScript, due to its popularity in the job
                   market, ease of transition between Computer Science topics and
@@ -487,6 +487,6 @@ const Syllabus = () => (
       </div>
     </section>
   </div>
-)
+);
 
-export default Syllabus
+export default Syllabus;

@@ -1,23 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Link from 'gatsby-link'
-import logo from '../images/flag.gif'
+import Link from 'gatsby-link';
+import logo from '../images/flag.gif';
 
 class Nav extends Component {
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll)
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   handleScroll = () => {
-    const $nav = $('#fixedTopNav')
+    const $nav = $('#fixedTopNav');
 
     if ($(window).scrollTop() > 0) {
-      $nav.addClass('navbar-solid')
-      return
+      $nav.addClass('navbar-solid');
+      return;
     }
 
-    $nav.removeClass('navbar-solid')
-    $('.navbar-nav > li > a').blur()
+    $nav.removeClass('navbar-solid');
+    $('.navbar-nav > li > a').blur();
   }
 
   render() {
@@ -111,7 +111,7 @@ class Nav extends Component {
               </li>
               <li>
                 {' '}
-                <a href="https://medium.com/vets-who-code" target="_blank">
+                <a href="https://medium.com/vets-who-code" without rel="noopener noreferrer" target="_blank">
                   <span>Blog</span>
                 </a>
               </li>
@@ -119,8 +119,8 @@ class Nav extends Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 
-export default Nav
+export default Nav;

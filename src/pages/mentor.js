@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
 export default class Mentor extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class Mentor extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   resetForm = () => ({
@@ -30,7 +30,7 @@ export default class Mentor extends Component {
 
   handleSubmit = e => {
     const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
+      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -44,10 +44,10 @@ export default class Mentor extends Component {
         location: this.state.location,
         'employer-restrictions': this.state['employer-restrictions']
       })
-    }
-    fetch(gatewayUrl, options)
-    e.preventDefault()
-    this.setState(this.resetForm)
+    };
+    fetch(gatewayUrl, options);
+    e.preventDefault();
+    this.setState(this.resetForm);
   };
 
   render() {
@@ -221,6 +221,6 @@ export default class Mentor extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }

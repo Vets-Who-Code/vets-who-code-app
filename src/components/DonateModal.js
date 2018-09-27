@@ -1,7 +1,8 @@
-import React from 'react'
-import Modal from 'react-modal'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Modal from 'react-modal';
 
-Modal.setAppElement('#___gatsby')
+Modal.setAppElement('#___gatsby');
 
 const container = {
   content: {
@@ -9,13 +10,13 @@ const container = {
     bottom: '20%',
     height: 'auto'
   }
-}
+};
+// unused variable do we need this???
+// const closeButton = {
+//   right: '8px'
+// };
 
-const closeButton = {
-  right: '8px'
-}
-
-const DonateModal = ({ modalIsOpen, openModal, closeModal }) => (
+const DonateModal = ({ modalIsOpen, closeModal }) => (
   <Modal
     style={container}
     contentLabel="Donate"
@@ -39,6 +40,11 @@ const DonateModal = ({ modalIsOpen, openModal, closeModal }) => (
       frameBorder={0}
     />
   </Modal>
-)
+);
 
-export default DonateModal
+DonateModal.propTypes = {
+  modalIsOpen: PropTypes.bool,
+  closeModal: PropTypes.func
+};
+
+export default DonateModal;

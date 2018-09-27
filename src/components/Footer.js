@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
 
 const Footer = () => (
   <div>
@@ -69,7 +69,7 @@ const Footer = () => (
                         <Link to="/contact">Contact Us</Link>
                       </li>
                       <li>
-                        <a href="https://medium.com/vets-who-code" target="_blank">
+                        <a href="https://medium.com/vets-who-code" rel="noopener noreferrer" target="_blank">
                           <span>Blog</span>
                         </a>
                       </li>
@@ -111,6 +111,6 @@ const Footer = () => (
       </div>
     </footer>
   </div>
-)
+);
 
-export default Footer
+export default Footer;

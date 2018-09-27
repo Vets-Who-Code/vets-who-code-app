@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
 export default class Contact extends Component {
   state = {
@@ -12,42 +12,42 @@ export default class Contact extends Component {
   }
 
   componentDidMount() {
-    this.initialize()
+    this.initialize();
   }
 
   initialize = () => {
-    const mapCanvas = document.getElementById('map-canvas')
+    const mapCanvas = document.getElementById('map-canvas');
     const mapOptions = {
       center: new google.maps.LatLng(36.1579519, -86.7708364),
       scrollwheel: false,
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    const map = new google.maps.Map(mapCanvas, mapOptions)
+    };
+    const map = new google.maps.Map(mapCanvas, mapOptions);
     const contentString = `
       <div id="content">
         <h2>#VetsWhoCode</h2>
         <div id="bodyContent">41 N Peabody st, Nashville Tn, 37120</div>
       </div>
-    `
-    const myLatLng = { lat: 36.1577981, lng: -86.7707313 }
+    `;
+    const myLatLng = { lat: 36.1577981, lng: -86.7707313 };
     const infowindow = new google.maps.InfoWindow({
       content: contentString
-    })
+    });
 
     const marker = new google.maps.Marker({
       position: myLatLng,
       map,
       title: '#VetsWhoCode'
-    })
+    });
 
     marker.addListener('click', () => {
-      infowindow.open(map, marker)
-    })
+      infowindow.open(map, marker);
+    });
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   resetForm = () => ({
@@ -58,7 +58,7 @@ export default class Contact extends Component {
   });
 
   handleSubmit = e => {
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact'
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -67,10 +67,10 @@ export default class Contact extends Component {
         phone: this.state.phone,
         message: this.state.message
       })
-    }
-    fetch(gatewayUrl, options)
-    e.preventDefault()
-    this.setState(this.resetForm)
+    };
+    fetch(gatewayUrl, options);
+    e.preventDefault();
+    this.setState(this.resetForm);
   };
 
   render() {
@@ -102,7 +102,8 @@ export default class Contact extends Component {
                 <div className="contactus-brief">
                   <h3>Contact us</h3>
                   <p className="section-description">
-                    Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!
+                    Fill out the from below and someone will contact you within 24 hours.
+                    Can&apos;t wait to hear from you!
                   </p>
                 </div>
               </div>
@@ -204,6 +205,6 @@ export default class Contact extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }

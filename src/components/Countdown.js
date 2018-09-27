@@ -10,12 +10,9 @@ class Countdown extends Component {
     interval: null
   };
 
-  componentWillMount = () => {
-    this.getTimeRemaining();
-  };
-
   componentDidMount = () => {
-    this.state.interval = setInterval(() => this.getTimeRemaining(), 1000);
+    const interval = setInterval(() => this.getTimeRemaining(), 1000);
+    this.setState({ interval });
   };
 
   componentWillUnmount = () => {

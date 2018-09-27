@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from 'react';
+import Link from 'gatsby-link';
 
-import thisIsUs from '../images/this_is_us.png'
+import thisIsUs from '../images/this_is_us.png';
 
 export default class Apply extends Component {
   state = {
@@ -16,7 +16,7 @@ export default class Apply extends Component {
   };
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   resetForm = () => ({
@@ -32,7 +32,7 @@ export default class Apply extends Component {
 
   handleSubmit = e => {
     const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -47,10 +47,10 @@ export default class Apply extends Component {
         'favorite-mre': this.state['favorite-mre'],
         'tell-us-about-yourself': this.state['tell-us-about-yourself']
       })
-    }
-    fetch(gatewayUrl, options)
-    e.preventDefault()
-    this.setState(this.resetForm)
+    };
+    fetch(gatewayUrl, options);
+    e.preventDefault();
+    this.setState(this.resetForm);
   };
 
   render() {
@@ -216,7 +216,8 @@ export default class Apply extends Component {
                         <textarea
                           className="form-control"
                           rows="7"
-                          placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
+                          placeholder="Here we focus on aptitude and impact, so tell us about yourself
+                          and why you want to join #VetsWhoCode?"
                           name="tell-us-about-yourself"
                           value={this.state['tell-us-about-yourself']}
                           onChange={this.handleChange}
@@ -241,6 +242,6 @@ export default class Apply extends Component {
           </div>
         </section>
       </div>
-    )
+    );
   }
 }
