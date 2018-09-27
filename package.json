@@ -45,6 +45,11 @@
       "git add"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./pre-commit.sh"
+    }
+  },
   "jest": {
     "testPathIgnorePatterns": [
       "/node_modules/",
