@@ -5,5 +5,5 @@ if [ $DISABLE_PRECOMMIT == 1 ]
 then
   echo "Skipping pre-commit hook"
 else
-  npm run lint-staged
+  yarn pre-commit
 fi
