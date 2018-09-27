@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
 import SponsorSlider from '../components/SponsorSlider';
 import Countdown from '../components/Countdown';
 
@@ -52,8 +51,9 @@ class IndexPage extends Component {
                   <h2>#VetsWhoCode</h2>
                 </div>
                 <p>
-              #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering
-              principles free of charge with the focus of starting careeers as javascript developers.
+              #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
+              focuses on training veterans in web development and software engineering
+              principles free of charge with the focus of starting careers as javascript developers.
                 </p>
               </div>
             </div>
@@ -72,8 +72,9 @@ class IndexPage extends Component {
               <div className="col-sm-12 our_mission_content text-center">
                 <blockquote>
                   <p>
-                Through training, building projects, mentorship, and opportunities to connect with industry experts, we ensure that our
-                troops gain the best knowledge possible in web development and software engineering.
+                Through training, building projects, mentorship, and opportunities to connect with industry
+                experts, we ensure that our troops gain the best knowledge possible in web development
+                and software engineering.
                   </p>
                 </blockquote>
               </div>
@@ -89,7 +90,9 @@ class IndexPage extends Component {
               <div className="col-sm-12 cause_content text-center" style={{ marginBottom: 40 }}>
                 <h4 className="cause_title">Thank You For Working With #VetsWhoCode!</h4>
                 <hr />
-                <h3 className="subtitle">We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.</h3>
+                <h3 className="subtitle">
+                We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.
+                </h3>
               </div>
             </div>
             <SponsorSlider />
@@ -152,7 +155,6 @@ class IndexPage extends Component {
           </div>
         </section>
       </div>
-
     );
   }
 }
