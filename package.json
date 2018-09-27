@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
+    "eslint": "5.6.0",
     "gatsby": "1.9.273",
     "gatsby-link": "1.6.34",
     "gatsby-plugin-create-client-paths": "1.0.1",
@@ -25,14 +26,24 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --env=jsdom --coverage",
     "view:coverage": "open coverage/lcov-report/index.html",
+    "eslint": "./node_modules/eslint/bin/eslint.js ./src/**/*.js",
+    "precommit": "lint-staged",
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
     "enzyme": "3.3.0",
     "enzyme-adapter-react-15": "1.0.6",
     "enzyme-to-json": "3.3.4",
+    "husky": "0.14.3",
+    "lint-staged": "7.1.2",
     "prettier": "^1.9.2",
     "react-test-renderer": "15.6.1"
+  },
+  "lint-staged": {
+    "src/*.js": [
+      "npm run eslint",
+      "git add"
+    ]
   },
   "jest": {
     "testPathIgnorePatterns": [
