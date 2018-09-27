@@ -1,12 +1,12 @@
-import React from 'react'
-import DonateModal from '../../src/components/DonateModal'
+import React from 'react';
+import DonateModal from '../../src/components/DonateModal';
 
 describe('<DonateModal />', () => {
-  let wrapper
+  let wrapper;
 
-  beforeEach(() => wrapper = shallow(<DonateModal />))
+  beforeEach(() => wrapper = shallow(<DonateModal />));
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+    expect(wrapper).toMatchSnapshot();
+  });
+});

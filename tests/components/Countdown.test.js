@@ -1,34 +1,34 @@
-import React from 'react'
-import Countdown from '../../src/components/Countdown'
+import React from 'react';
+import Countdown from '../../src/components/Countdown';
 
-jest.useFakeTimers()
+jest.useFakeTimers();
 
 describe('<Countdown />', () => {
-  let wrapper
+  let wrapper;
 
   beforeEach(() => wrapper = shallow(
     <Countdown />
-  ))
+  ));
 
   test('should set interval to a number that can be tracked in local state', () => {
     wrapper.setState({
       interval: null
-    })
-    wrapper.instance().componentDidMount()
-    const result = wrapper.state('interval')
-    expect(result).toBe(2)
-  })
+    });
+    wrapper.instance().componentDidMount();
+    const result = wrapper.state('interval');
+    expect(result).toBe(2);
+  });
 
   test('should call stopCountDown when componentWillUnmount', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'stopCountDown')
-    wrapper.instance().componentWillUnmount()
-    expect(spy).toHaveBeenCalled()
-  })
+    const spy = jest.spyOn(wrapper.instance(), 'stopCountDown');
+    wrapper.instance().componentWillUnmount();
+    expect(spy).toHaveBeenCalled();
+  });
 
   test('should clear interval when stopCountDown is invoked', () => {
-    wrapper.instance().stopCountDown()
-    expect(clearInterval).toHaveBeenCalledWith(expect.any(Number))
-  })
+    wrapper.instance().stopCountDown();
+    expect(clearInterval).toHaveBeenCalledWith(expect.any(Number));
+  });
 
   test('should render correctly', () => {
     wrapper.setState({
@@ -36,7 +36,7 @@ describe('<Countdown />', () => {
       hours: 1,
       minutes: 27,
       seconds: 30
-    })
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+    });
+    expect(wrapper).toMatchSnapshot();
+  });
+});
