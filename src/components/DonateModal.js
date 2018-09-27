@@ -11,7 +11,9 @@ const container = {
     height: 'auto'
   }
 };
+
 // unused variable do we need this???
+
 // const closeButton = {
 //   right: '8px'
 // };
