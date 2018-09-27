@@ -144,7 +144,9 @@ exports[`<Nav /> should render correctly 1`] = `
            
           <a
             href="https://medium.com/vets-who-code"
+            rel="noopener noreferrer"
             target="_blank"
+            without={true}
           >
             <span>
               Blog

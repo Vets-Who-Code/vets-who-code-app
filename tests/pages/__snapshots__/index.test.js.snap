@@ -33,7 +33,7 @@ exports[`<IndexPaege /> should render correctly 1`] = `
             </h2>
           </div>
           <p>
-            #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering principles free of charge with the focus of starting careeers as javascript developers.
+            #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering principles free of charge with the focus of starting careers as javascript developers.
           </p>
         </div>
       </div>
