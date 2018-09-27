@@ -1,0 +1,108 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 8,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "impliedStrict": true,
+      "classes": true
+    }
+  },
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "no-undef": "off",
+    "no-debugger": "off",
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "getter-return": [
+      "error",
+      {
+        "allowImplicit": true
+      }
+    ],
+    "no-template-curly-in-string": "error",
+    "semi": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "block-spacing": [
+      "error",
+      "always"
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "camelcase": "warn",
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "computed-property-spacing": [
+      "error",
+      "never"
+    ],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "indent": [
+      "warn",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "max-len": [
+      "warn",
+      120
+    ],
+    "no-duplicate-imports": "error",
+    "id-length": "off",
+    "id-blacklist": 0,
+    "max-depth": [
+      "warn",
+      4
+    ]
+  },
+  "globals": {
+    "expect": true
+  }
+}
