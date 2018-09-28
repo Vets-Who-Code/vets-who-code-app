@@ -95,7 +95,7 @@ class TemplateWrapper extends Component {
 }
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.array || PropTypes.object,
+  children: PropTypes.any
 }
 
 export default TemplateWrapper
