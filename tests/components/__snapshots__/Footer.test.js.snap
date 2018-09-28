@@ -216,7 +216,7 @@ exports[`<Footer /> should render correctly 1`] = `
           <p
             className="copyright"
           >
-            © #VetsWhoCode
+            &copy #VetsWhoCode
           </p>
         </div>
         <div

@@ -1,14 +1,14 @@
-import React from 'react';
-import TemplateWrapper from '../../src/components/layout';
+import React from 'react'
+import TemplateWrapper from '../../src/components/layout'
 
 describe('<Layout />', () => {
-  let wrapper;
+  let wrapper
 
   beforeEach(() => {
-    wrapper = shallow(<TemplateWrapper />);
-  });
+    wrapper = shallow(<TemplateWrapper />)
+  })
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+    expect(wrapper).toMatchSnapshot()
+  })
+})

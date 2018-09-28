@@ -11,7 +11,7 @@ const Syllabus = () => (
       className="inner-header overlay grey text-center slim-bg "
       style={{
         backgroundImage: `url(${thisIsUs})`,
-        backgroundPositionY: 'bottom'
+        backgroundPositionY: 'bottom',
       }}
     >
       <div className="overlay-01" />
@@ -21,7 +21,7 @@ const Syllabus = () => (
           <Link to="/">Home</Link>
           <span>/</span>
           <Link to="/syllabus" className="page-active">
-              Syllabus
+            Syllabus
           </Link>
         </div>
       </div>
@@ -33,19 +33,16 @@ const Syllabus = () => (
             <div className="faq-short-brief">
               <h2>#VetsWhoCode Syllabus</h2>
               <p>
-                  Our curriculum is designed using the Agile Methodology with
-                  four-day sprints dedicated to the subject. We do it in this
-                  manner based on the practice of how veterans &quot;Train How You
-                  Fight&quot; in the military, so they should train how they would
-                  work in a real software company. The primary language we will
-                  focus on is JavaScript, due to its popularity in the job
-                  market, ease of transition between Computer Science topics and
-                  real world application, and the scope of industries we can
-                  introduce our veterans to, all while keeping language
-                  proficiency at the forefront of the program. This way we can
-                  introduce Data Visualization, Data Science, Cyber Security,
-                  and Internet of Things(IoT) to our veterans, while continuing
-                  to have our troops grow in the area of JavaScript.
+                Our curriculum is designed using the Agile Methodology with four-day sprints
+                dedicated to the subject. We do it in this manner based on the practice of how
+                veterans &quot;Train How You Fight&quot; in the military, so they should train how
+                they would work in a real software company. The primary language we will focus on is
+                JavaScript, due to its popularity in the job market, ease of transition between
+                Computer Science topics and real world application, and the scope of industries we
+                can introduce our veterans to, all while keeping language proficiency at the
+                forefront of the program. This way we can introduce Data Visualization, Data
+                Science, Cyber Security, and Internet of Things(IoT) to our veterans, while
+                continuing to have our troops grow in the area of JavaScript.
               </p>
             </div>
           </div>
@@ -68,7 +65,7 @@ const Syllabus = () => (
                       aria-controls="collapseOne"
                     >
                       {' '}
-                        Week One: Set Up and Prep
+                      Week One: Set Up and Prep
                       <i className="fa fa-minus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -80,9 +77,8 @@ const Syllabus = () => (
                   aria-labelledby="headingOne"
                 >
                   <div className="panel-body">
-                      During this week we focus on ensuring that our troops have
-                      the needed technologies set up and to gain exposure to our
-                      tools.
+                    During this week we focus on ensuring that our troops have the needed
+                    technologies set up and to gain exposure to our tools.
                   </div>
                 </div>
               </div>
@@ -99,7 +95,7 @@ const Syllabus = () => (
                       aria-controls="collapseTwo"
                     >
                       {' '}
-                        Week Two: The Web, Git and HTML
+                      Week Two: The Web, Git and HTML
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -111,9 +107,8 @@ const Syllabus = () => (
                   aria-labelledby="headingTwo"
                 >
                   <div className="panel-body">
-                      This is when we start diving in on the basics, ensuring
-                      that you are comfortable in the terminal, and using
-                      version control, while teaching how the web works.
+                    This is when we start diving in on the basics, ensuring that you are comfortable
+                    in the terminal, and using version control, while teaching how the web works.
                   </div>
                 </div>
               </div>
@@ -130,7 +125,7 @@ const Syllabus = () => (
                       aria-controls="collapseThree"
                     >
                       {' '}
-                        Week 3: Basics of CSS
+                      Week 3: Basics of CSS
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -142,8 +137,7 @@ const Syllabus = () => (
                   aria-labelledby="headingThree"
                 >
                   <div className="panel-body">
-                      Here we start learning CSS with the focus on learning web
-                      design.
+                    Here we start learning CSS with the focus on learning web design.
                   </div>
                 </div>
               </div>
@@ -160,7 +154,7 @@ const Syllabus = () => (
                       aria-controls="collapseFour"
                     >
                       {' '}
-                        Week 4: Advanced CSS
+                      Week 4: Advanced CSS
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -172,8 +166,8 @@ const Syllabus = () => (
                   aria-labelledby="headingFour"
                 >
                   <div className="panel-body">
-                      Here we focus on more advanced concepts such as Grid
-                      Layout as well as working with Foundation and Bootstrap.
+                    Here we focus on more advanced concepts such as Grid Layout as well as working
+                    with Foundation and Bootstrap.
                   </div>
                 </div>
               </div>
@@ -190,7 +184,7 @@ const Syllabus = () => (
                       aria-controls="collapseFive"
                     >
                       {' '}
-                        Week 5: JavaScript Basics
+                      Week 5: JavaScript Basics
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -202,9 +196,8 @@ const Syllabus = () => (
                   aria-labelledby="headingFive"
                 >
                   <div className="panel-body">
-                      This week we will start to learn the history and basics of
-                      Javascript and learn how to use it alone as well as in web
-                      design.
+                    This week we will start to learn the history and basics of Javascript and learn
+                    how to use it alone as well as in web design.
                   </div>
                 </div>
               </div>
@@ -221,7 +214,7 @@ const Syllabus = () => (
                       aria-controls="collapseSix"
                     >
                       {' '}
-                        Week 6: Computer Science With Javascript
+                      Week 6: Computer Science With Javascript
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -233,10 +226,9 @@ const Syllabus = () => (
                   aria-labelledby="headingSix"
                 >
                   <div className="panel-body">
-                      We continue our training in Javascript while also learning
-                      fundamentals in Computer Science. Recursion, Big O
-                      Notation, Sorting, Data Structures and Functional
-                      Programming.
+                    We continue our training in Javascript while also learning fundamentals in
+                    Computer Science. Recursion, Big O Notation, Sorting, Data Structures and
+                    Functional Programming.
                   </div>
                 </div>
               </div>
@@ -253,7 +245,7 @@ const Syllabus = () => (
                       aria-controls="collapseSeven"
                     >
                       {' '}
-                        Week 7: Computer Science With Javascript II: Deeper Dive
+                      Week 7: Computer Science With Javascript II: Deeper Dive
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -265,9 +257,8 @@ const Syllabus = () => (
                   aria-labelledby="headingSeven"
                 >
                   <div className="panel-body">
-                      Here we continue to build Computer Science skills with
-                      javascript. Binary Trees and Breadth-First Search are just
-                      a few of the things we will dive into.
+                    Here we continue to build Computer Science skills with javascript. Binary Trees
+                    and Breadth-First Search are just a few of the things we will dive into.
                   </div>
                 </div>
               </div>
@@ -284,7 +275,7 @@ const Syllabus = () => (
                       aria-controls="collapseEight"
                     >
                       {' '}
-                        Week 8: Data Visualization
+                      Week 8: Data Visualization
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -296,8 +287,7 @@ const Syllabus = () => (
                   aria-labelledby="headingEight"
                 >
                   <div className="panel-body">
-                      More JavaScript and even more math as we enter the world
-                      of Canvas, D3.js, WebGL
+                    More JavaScript and even more math as we enter the world of Canvas, D3.js, WebGL
                   </div>
                 </div>
               </div>
@@ -314,7 +304,7 @@ const Syllabus = () => (
                       aria-controls="collapseNine"
                     >
                       {' '}
-                        Week 9: Node.js Express and Socket.io
+                      Week 9: Node.js Express and Socket.io
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -326,8 +316,7 @@ const Syllabus = () => (
                   aria-labelledby="headingNine"
                 >
                   <div className="panel-body">
-                      Entering the world of Node.js and writing Javascript on
-                      the server
+                    Entering the world of Node.js and writing Javascript on the server
                   </div>
                 </div>
               </div>
@@ -344,7 +333,7 @@ const Syllabus = () => (
                       aria-controls="collapseTen"
                     >
                       {' '}
-                        Node, Express and Socket.io II
+                      Node, Express and Socket.io II
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -356,8 +345,7 @@ const Syllabus = () => (
                   aria-labelledby="headingTen"
                 >
                   <div className="panel-body">
-                      Continuing to build with Node and learning Test Driven
-                      Development
+                    Continuing to build with Node and learning Test Driven Development
                   </div>
                 </div>
               </div>
@@ -374,7 +362,7 @@ const Syllabus = () => (
                       aria-controls="collapseE"
                     >
                       {' '}
-                        React
+                      React
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -385,9 +373,7 @@ const Syllabus = () => (
                   role="tabpanel"
                   aria-labelledby="headingE"
                 >
-                  <div className="panel-body">
-                      Start down the path or React, ES6 and Mongo DB
-                  </div>
+                  <div className="panel-body">Start down the path or React, ES6 and Mongo DB</div>
                 </div>
               </div>
               <div className="panel panel-default">
@@ -403,7 +389,7 @@ const Syllabus = () => (
                       aria-controls="collapseT"
                     >
                       {' '}
-                        React II
+                      React II
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -414,9 +400,7 @@ const Syllabus = () => (
                   role="tabpanel"
                   aria-labelledby="headingT"
                 >
-                  <div className="panel-body">
-                      Continuing to develop in React
-                  </div>
+                  <div className="panel-body">Continuing to develop in React</div>
                 </div>
               </div>
               <div className="panel panel-default">
@@ -432,7 +416,7 @@ const Syllabus = () => (
                       aria-controls="collapseTh"
                     >
                       {' '}
-                        Interview Prep I
+                      Interview Prep I
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -444,17 +428,13 @@ const Syllabus = () => (
                   aria-labelledby="headingTh"
                 >
                   <div className="panel-body">
-                      Start resume preparations as well as how to indentify
-                      potential job opportunities
+                    Start resume preparations as well as how to indentify potential job
+                    opportunities
                   </div>
                 </div>
               </div>
               <div className="panel panel-default">
-                <div
-                  className="panel-heading"
-                  role="tab"
-                  id="headingFourteen"
-                >
+                <div className="panel-heading" role="tab" id="headingFourteen">
                   <h4 className="panel-title">
                     <a
                       className="collapsed"
@@ -466,7 +446,7 @@ const Syllabus = () => (
                       aria-controls="collapseFourteen"
                     >
                       {' '}
-                        Interview Prep II
+                      Interview Prep II
                       <i className="fa fa-plus accordions-derective-icon pull-right" />
                     </a>
                   </h4>
@@ -478,8 +458,8 @@ const Syllabus = () => (
                   aria-labelledby="headingFourteen"
                 >
                   <div className="panel-body">
-                      Starting the process of mock interviews and learning how
-                      to hack the technical interview.
+                    Starting the process of mock interviews and learning how to hack the technical
+                    interview.
                   </div>
                 </div>
               </div>

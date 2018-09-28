@@ -1,38 +1,35 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-// import { withPrefix } from 'gatsby';
-import Helmet from 'react-helmet';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+// import { withPrefix } from 'gatsby'
+import Helmet from 'react-helmet'
 
-import Nav from './Nav';
-// import Loader from './Loader';
-import Footer from './Footer';
+import Nav from './Nav'
+// import Loader from './Loader'
+import Footer from './Footer'
 
-import '../assets/lib/bootstrap/dist/css/bootstrap.min.css';
-import '../assets/lib/owlcarousel/owl-carousel/owl.carousel.css';
-import '../assets/lib/owlcarousel/owl-carousel/owl.theme.css';
-import '../assets/lib/ionicons/css/ionicons.css';
-import '../assets/lib/fontawesome/css/font-awesome.min.css';
-import '../assets/extras/swipebox/css/swipebox.min.css';
-import '../assets/extras/rotating-carousel/css/style.css';
-import '../assets/extras/slick/slick.css';
-import '../assets/extras/magnificpopup/magnific-popup.css';
-import '../assets/lib/FlexSlider/flexslider.css';
-import '../assets/css/main.css';
-import '../assets/css/custom.css';
-
-
-
+import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
+import '../assets/lib/owlcarousel/owl-carousel/owl.carousel.css'
+import '../assets/lib/owlcarousel/owl-carousel/owl.theme.css'
+import '../assets/lib/ionicons/css/ionicons.css'
+import '../assets/lib/fontawesome/css/font-awesome.min.css'
+import '../assets/extras/swipebox/css/swipebox.min.css'
+import '../assets/extras/rotating-carousel/css/style.css'
+import '../assets/extras/slick/slick.css'
+import '../assets/extras/magnificpopup/magnific-popup.css'
+import '../assets/lib/FlexSlider/flexslider.css'
+import '../assets/css/main.css'
+import '../assets/css/custom.css'
 
 class TemplateWrapper extends Component {
   componentDidMount() {
-    global.jQuery = require('../../static/vendor/jquery/dist/jquery');
-    require('../../static/vendor/bootstrap/dist/bootstrap');
-    window.$ = jQuery;
-    window.jQuery = jQuery;
+    global.jQuery = require('../../static/vendor/jquery/dist/jquery')
+    require('../../static/vendor/bootstrap/dist/bootstrap')
+    window.$ = jQuery
+    window.jQuery = jQuery
   }
 
   render() {
-    const { children } = this.props;
+    const { children } = this.props
 
     return (
       <div>
@@ -93,13 +90,12 @@ class TemplateWrapper extends Component {
           <Footer />
         </main>
       </div>
-
-    );
+    )
   }
 }
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.array || PropTypes.object
-};
+  children: PropTypes.array || PropTypes.object,
+}
 
-export default TemplateWrapper;
+export default TemplateWrapper

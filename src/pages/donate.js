@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 
-import Layout from '../components/layout';
-import DonateModal from '../components/DonateModal';
-import code from '../images/code.png';
-import john from '../images/profile.png';
-import thisIsUs from '../images/this_is_us.png';
-import '../assets/css/donate.css';
+import Layout from '../components/layout'
+import DonateModal from '../components/DonateModal'
+import code from '../images/code.png'
+import john from '../images/profile.png'
+import thisIsUs from '../images/this_is_us.png'
+import '../assets/css/donate.css'
 
 class Donate extends Component {
   state = {
-    modalIsOpen: false
-  };
+    modalIsOpen: false,
+  }
 
-  openModal = () => this.setState({ modalIsOpen: true });
+  openModal = () => this.setState({ modalIsOpen: true })
 
-  closeModal = () => this.setState({ modalIsOpen: false });
+  closeModal = () => this.setState({ modalIsOpen: false })
 
   render() {
-    const { modalIsOpen } = this.state;
+    const { modalIsOpen } = this.state
 
     return (
       <Layout>
@@ -26,7 +26,7 @@ class Donate extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
+            backgroundPositionY: 'bottom',
           }}
         >
           <div className="overlay-01" />
@@ -52,20 +52,23 @@ class Donate extends Component {
                 <br />
                 <div className="cause_section_content">
                   <p>
-                    Since 2014 we have been successfully training veterans in web development. From holding speaking
-                    engagements with industry leaders, to curriculum and teaching, to setting up tours and meetings with
-                    top tech companies, we have been on the front lines getting our troops the training and tools that
-                    they need to earn the opportunities that the tech industry offers. TO do that we need support from
-                    people like you, who not only support veterans but who understand the value of hard work and pushing
-                    yourself to obtain a goal. Please continue your support by giving a small donation so that we can
-                    continue to train more veterans.
+                    Since 2014 we have been successfully training veterans in web development. From
+                    holding speaking engagements with industry leaders, to curriculum and teaching,
+                    to setting up tours and meetings with top tech companies, we have been on the
+                    front lines getting our troops the training and tools that they need to earn the
+                    opportunities that the tech industry offers. TO do that we need support from
+                    people like you, who not only support veterans but who understand the value of
+                    hard work and pushing yourself to obtain a goal. Please continue your support by
+                    giving a small donation so that we can continue to train more veterans.
                   </p>
                   <blockquote>
                     <p>
                       <img src={john} alt="John Garcia" />
-                      <br />&quot;VWC helped me gain the technical knowledge I needed in order to get the attention of
-                      employers. The guidance, support and experience I had going through the program continues to help
-                      me in my role as a full time web developer.&quot;
+                      <br />
+                      &quot;VWC helped me gain the technical knowledge I needed in order to get the
+                      attention of employers. The guidance, support and experience I had going
+                      through the program continues to help me in my role as a full time web
+                      developer.&quot;
                       <br /> - John Garcia, USAF | Web Developer, Hearst Media
                     </p>
                   </blockquote>
@@ -74,7 +77,11 @@ class Donate extends Component {
             </div>
           </div>
         </section>
-        <DonateModal modalIsOpen={modalIsOpen} openModal={this.openModal} closeModal={this.closeModal} />
+        <DonateModal
+          modalIsOpen={modalIsOpen}
+          openModal={this.openModal}
+          closeModal={this.closeModal}
+        />
         <section id="call-to-action-small" className="call-to-action-small">
           <div className="container">
             <div className="row">
@@ -99,7 +106,7 @@ class Donate extends Component {
                       MozBorderRadius: 2,
                       borderRadius: 2,
                       boxShadow: '0 1px 0 0 #06152C',
-                      textShadow: '0 1px rgba(0, 0, 0, 0.3)'
+                      textShadow: '0 1px rgba(0, 0, 0, 0.3)',
                     }}
                     onClick={this.openModal}
                   >
@@ -111,8 +118,8 @@ class Donate extends Component {
           </div>{' '}
         </section>
       </Layout>
-    );
+    )
   }
 }
 
-export default Donate;
+export default Donate

@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import Slider from 'react-slick';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Slider from 'react-slick'
+import Link from 'gatsby-link'
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-import codePNG from '../images/code.png';
-import speakingPNG from '../images/speaking.png';
-import thisIsUsPNG from '../images/this_is_us.png';
+import codePNG from '../images/code.png'
+import speakingPNG from '../images/speaking.png'
+import thisIsUsPNG from '../images/this_is_us.png'
 
 class HeaderSlider extends Component {
   next = () => {
-    this.slider.slickNext();
+    this.slider.slickNext()
   }
 
   previous = () => {
-    this.slider.slickPrev();
+    this.slider.slickPrev()
   }
 
   render() {
@@ -26,8 +26,8 @@ class HeaderSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000
-    };
+      autoplaySpeed: 3000,
+    }
 
     return (
       <div>
@@ -126,8 +126,8 @@ class HeaderSlider extends Component {
           </li>
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default HeaderSlider;
+export default HeaderSlider

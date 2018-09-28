@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import Layout from '../components/layout';
-import { Link } from 'gatsby';
+import React, { Component } from 'react'
+import Layout from '../components/layout'
+import { Link } from 'gatsby'
 
-import vwcGIF from '../images/vwc.gif';
-import jerome from '../images/team/jerome.png';
-import noel from '../images/team/noel.png';
-import andrew from '../images/team/andrew.png';
-import thisIsUs from '../images/this_is_us.png';
+import vwcGIF from '../images/vwc.gif'
+import jerome from '../images/team/jerome.png'
+import noel from '../images/team/noel.png'
+import andrew from '../images/team/andrew.png'
+import thisIsUs from '../images/this_is_us.png'
 
-import facebookVideo from '../video/vwc-facebook-reel.mp4';
+import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
   componentDidMount() {
-    $('.vwc-animated-gif').css('display', 'none');
+    $('.vwc-animated-gif').css('display', 'none')
   }
 
   play = () => {
-    $('.play-button').fadeOut();
-    this.video.play();
-    this.video.onended = this.end;
+    $('.play-button').fadeOut()
+    this.video.play()
+    this.video.onended = this.end
   }
 
   end = () => {
-    $('.success-video').hide('fast');
-    $('.vwc-animated-gif').toggle('fast');
+    $('.success-video').hide('fast')
+    $('.vwc-animated-gif').toggle('fast')
   }
 
   render() {
@@ -33,7 +33,7 @@ class About extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
+            backgroundPositionY: 'bottom',
           }}
         >
           <div className="overlay-01" />
@@ -43,7 +43,7 @@ class About extends Component {
               <Link to="/">Home</Link>
               <span>/</span>
               <Link to="/about" className="page-active">
-                  About
+                About
               </Link>
             </div>
           </div>
@@ -56,7 +56,12 @@ class About extends Component {
               </div>
               <div className="col-md-5" style={{ marginBottom: 20 }}>
                 <div className="success-video" style={{ position: 'relative' }}>
-                  <video ref={video => (this.video = video)} type="video/mp4" className="img-responsive" muted>
+                  <video
+                    ref={video => (this.video = video)}
+                    type="video/mp4"
+                    className="img-responsive"
+                    muted
+                  >
                     <source src={facebookVideo} />
                   </video>
                   <a className="play-button" onClick={this.play}>
@@ -69,7 +74,7 @@ class About extends Component {
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
                         fontSize: 40,
-                        cursor: 'pointer'
+                        cursor: 'pointer',
                       }}
                     />
                   </a>
@@ -79,30 +84,30 @@ class About extends Component {
                   style={{
                     backgroundImage: `url(${vwcGIF})`,
                     backgroundPosition: 'center center',
-                    backgroundSize: 'cover'
+                    backgroundSize: 'cover',
                   }}
                 />
               </div>
               <div className="col-md-7">
                 <div className="success-story">
                   <p className="story">
-                      Launched in 2014, Vets Who Code is a non-profit dedicated to filling the
-                      nations technical skills gap with America’s best. We achieve this by using
-                      technology to connect and train veterans remotely in web development in order to
-                      close the digital talent gap and ease career transition
-                      for military veterans and to give military spouses skills to provide stability as they
-                      move to support their families. We believe that those who serve in uniform can be the
-                      digital economy’s most productive and innovative . Vets Who Code prepares them
-                      to enter the civilian work force with tangible skills for new careers.
+                    Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
+                    technical skills gap with America’s best. We achieve this by using technology to
+                    connect and train veterans remotely in web development in order to close the
+                    digital talent gap and ease career transition for military veterans and to give
+                    military spouses skills to provide stability as they move to support their
+                    families. We believe that those who serve in uniform can be the digital
+                    economy’s most productive and innovative . Vets Who Code prepares them to enter
+                    the civilian work force with tangible skills for new careers.
                   </p>
                   <p className="story-last">
-                      Vets Who Code is a reintegration solution for veterans that believes in the principle of
-                      &quot;To Teach a Man To Fish&quot;
-                      to better prepare early stage transitioning veterans for returning to the
-                      workforce. Many veterans are not homeless, but are un- and under-employed.
-                      Some have a deep desire to be independent business owners.
-                      Their skill sets are desperately needed to enhance local economies and to drive innovation.
-                      Vets Who Code serves as a launch pad for our veterans and military spouses.
+                    Vets Who Code is a reintegration solution for veterans that believes in the
+                    principle of &quot;To Teach a Man To Fish&quot; to better prepare early stage
+                    transitioning veterans for returning to the workforce. Many veterans are not
+                    homeless, but are un- and under-employed. Some have a deep desire to be
+                    independent business owners. Their skill sets are desperately needed to enhance
+                    local economies and to drive innovation. Vets Who Code serves as a launch pad
+                    for our veterans and military spouses.
                   </p>
                 </div>
               </div>
@@ -117,7 +122,11 @@ class About extends Component {
                 <div className="row">
                   <div className="col-md-4 col-sm-6">
                     <div className="team-wiget clearfix">
-                      <img className="img-responsive" src={jerome} alt="Jerome Hardaway Head Geek" />
+                      <img
+                        className="img-responsive"
+                        src={jerome}
+                        alt="Jerome Hardaway Head Geek"
+                      />
                       <div className="meet-social">
                         <a href="https://twitter.com/JeromeHardaway">
                           <i className="fa fa-twitter" />
@@ -137,7 +146,11 @@ class About extends Component {
                   </div>
                   <div className="col-md-4 col-sm-6">
                     <div className="team-wiget clearfix">
-                      <img className="img-responsive" src={andrew} alt="Andrew Lebowitz Brand Geek" />
+                      <img
+                        className="img-responsive"
+                        src={andrew}
+                        alt="Andrew Lebowitz Brand Geek"
+                      />
                       <div className="meet-social">
                         <a href="https://twitter.com/witzcreative">
                           <i className="fa fa-twitter" />
@@ -181,8 +194,8 @@ class About extends Component {
           </div>
         </section>
       </Layout>
-    );
+    )
   }
 }
 
-export default About;
+export default About

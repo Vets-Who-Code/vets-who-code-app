@@ -1,13 +1,13 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React from 'react'
+import Slider from 'react-slick'
 
-import googlePNG from '../images/supporters/google.png';
-import githubPNG from '../images/supporters/github.png';
-import replItPNG from '../images/supporters/repl.it.png';
-import slackPNG from '../images/supporters/slack.png';
-import doPNG from '../images/supporters/DO.png';
-import femPNG from '../images/supporters/fem.png';
-import comcastPNG from '../images/supporters/comcast.png';
+import googlePNG from '../images/supporters/google.png'
+import githubPNG from '../images/supporters/github.png'
+import replItPNG from '../images/supporters/repl.it.png'
+import slackPNG from '../images/supporters/slack.png'
+import doPNG from '../images/supporters/DO.png'
+import femPNG from '../images/supporters/fem.png'
+import comcastPNG from '../images/supporters/comcast.png'
 
 const settings = {
   dots: true,
@@ -25,27 +25,23 @@ const settings = {
       breakpoint: 990,
       settings: {
         slidesToShow: 4,
-        slidesToScroll: 1
-      }
+        slidesToScroll: 1,
+      },
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 3,
-        slidesToScroll: 1
-      }
-    }
-  ]
-};
+        slidesToScroll: 1,
+      },
+    },
+  ],
+}
 
 const SponsorSlider = () => (
   <Slider {...settings}>
     <div>
-      <a
-        href="https://www.pluralsight.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.pluralsight.com/" target="_blank" rel="noopener noreferrer">
         <img src={googlePNG} alt="google" height="60" width="60" />
       </a>
     </div>
@@ -65,20 +61,12 @@ const SponsorSlider = () => (
       </a>
     </div>
     <div>
-      <a
-        href="https://www.digitalocean.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://www.digitalocean.com/" target="_blank" rel="noopener noreferrer">
         <img src={doPNG} alt="Digital Ocean" height="60" width="60" />
       </a>
     </div>
     <div>
-      <a
-        href="https://frontendmasters.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="https://frontendmasters.com/" target="_blank" rel="noopener noreferrer">
         <img src={femPNG} alt="Front End Masters" height="60" width="60" />
       </a>
     </div>
@@ -92,6 +80,6 @@ const SponsorSlider = () => (
       </a>
     </div>
   </Slider>
-);
+)
 
-export default SponsorSlider;
+export default SponsorSlider

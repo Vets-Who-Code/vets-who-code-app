@@ -33,10 +33,7 @@
       }
     ],
     "no-template-curly-in-string": "error",
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": "off",
     "array-bracket-spacing": [
       "error",
       "never"
@@ -53,10 +50,7 @@
       }
     ],
     "camelcase": "warn",
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": "off",
     "comma-spacing": [
       "error",
       {

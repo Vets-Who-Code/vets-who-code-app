@@ -1,17 +1,17 @@
-import enzyme from 'enzyme';
+import enzyme from 'enzyme'
 
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-16'
 /**
 * React 16 Enzyme adapter
 */
-enzyme.configure({ adapter: new Adapter(), ignoreLifeCycleMethods: true });
+enzyme.configure({ adapter: new Adapter(), ignoreLifeCycleMethods: true })
 
 /**
 * Make Enzyme functions available in all test files without importing
 */
-global.shallow = enzyme.shallow;
-global.render = enzyme.render;
-global.mount = enzyme.mount;
+global.shallow = enzyme.shallow
+global.render = enzyme.render
+global.mount = enzyme.mount
 global.google = {
   maps: {
     LatLng: jest.fn(),
@@ -24,4 +24,4 @@ global.google = {
       ROADMAP: ''
     }
   }
-};
+}

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 
-import Layout from '../components/layout';
-import thisIsUs from '../images/this_is_us.png';
+import Layout from '../components/layout'
+import thisIsUs from '../images/this_is_us.png'
 
 export default class Apply extends Component {
   state = {
@@ -13,12 +13,12 @@ export default class Apply extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'favorite-mre': '',
-    'tell-us-about-yourself': ''
-  };
+    'tell-us-about-yourself': '',
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   resetForm = () => ({
     name: '',
@@ -28,12 +28,11 @@ export default class Apply extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'favorite-mre': '',
-    'tell-us-about-yourself': ''
-  });
+    'tell-us-about-yourself': '',
+  })
 
   handleSubmit = e => {
-    const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -41,18 +40,16 @@ export default class Apply extends Component {
         email: this.state.email,
         'branch-of-service': this.state['branch-of-service'],
         experience: this.state.experience,
-        'github-portfolio-or-linkedin': this.state[
-          'github-portfolio-or-linkedin'
-        ],
+        'github-portfolio-or-linkedin': this.state['github-portfolio-or-linkedin'],
         location: this.state.location,
         'favorite-mre': this.state['favorite-mre'],
-        'tell-us-about-yourself': this.state['tell-us-about-yourself']
-      })
-    };
-    fetch(gatewayUrl, options);
-    e.preventDefault();
-    this.setState(this.resetForm);
-  };
+        'tell-us-about-yourself': this.state['tell-us-about-yourself'],
+      }),
+    }
+    fetch(gatewayUrl, options)
+    e.preventDefault()
+    this.setState(this.resetForm)
+  }
 
   render() {
     return (
@@ -61,8 +58,9 @@ export default class Apply extends Component {
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
-          }}>
+            backgroundPositionY: 'bottom',
+          }}
+        >
           <div className="overlay-01" />
           <div className="container">
             <h2 className="text-center text-uppercase">Apply</h2>
@@ -82,10 +80,9 @@ export default class Apply extends Component {
                 <div className="contactus-brief">
                   <h3>Apply</h3>
                   <p className="section-description">
-                    Thank thank you for choosing to apply to Vets Who Code. We
-                    work really hard to train our veterans and to maintain an
-                    inclusive enviroment so our troops can truly thrive. Please
-                    fill out the form below and we will contact you soon.
+                    Thank thank you for choosing to apply to Vets Who Code. We work really hard to
+                    train our veterans and to maintain an inclusive enviroment so our troops can
+                    truly thrive. Please fill out the form below and we will contact you soon.
                   </p>
                   <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
@@ -176,8 +173,7 @@ export default class Apply extends Component {
                     <div className="col-md-8">
                       <div className="form-group">
                         <label htmlFor="InputLocation" className="dark-text">
-                          Location ( City and State )
-                          <sup>*</sup>
+                          Location ( City and State )<sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -209,9 +205,7 @@ export default class Apply extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label
-                          htmlFor="InputInterviewStory"
-                          className="dark-text">
+                        <label htmlFor="InputInterviewStory" className="dark-text">
                           Tell Us About Yourself
                         </label>
                         <textarea
@@ -243,6 +237,6 @@ export default class Apply extends Component {
           </div>
         </section>
       </Layout>
-    );
+    )
   }
 }
