@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/layout'
 
-import thisIsUs from '../images/this_is_us.png';
+import thisIsUs from '../images/this_is_us.png'
 
 export default class Mentor extends Component {
   state = {
@@ -14,11 +14,11 @@ export default class Mentor extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'employer-restrictions': '',
-  };
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   resetForm = () => ({
     name: '',
@@ -28,10 +28,10 @@ export default class Mentor extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'employer-restrictions': '',
-  });
+  })
 
   handleSubmit = e => {
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -43,11 +43,11 @@ export default class Mentor extends Component {
         location: this.state.location,
         'employer-restrictions': this.state['employer-restrictions'],
       }),
-    };
-    fetch(gatewayUrl, options);
-    e.preventDefault();
-    this.setState(this.resetForm);
-  };
+    }
+    fetch(gatewayUrl, options)
+    e.preventDefault()
+    this.setState(this.resetForm)
+  }
 
   render() {
     return (
@@ -216,6 +216,6 @@ export default class Mentor extends Component {
           </div>
         </section>
       </Layout>
-    );
+    )
   }
 }

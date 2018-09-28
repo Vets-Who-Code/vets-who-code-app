@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'gatsby';
+import React from 'react'
+import { Link } from 'gatsby'
 
-import Layout from '../components/layout';
+import Layout from '../components/layout'
 
-import thisIsUs from '../images/this_is_us.png';
+import thisIsUs from '../images/this_is_us.png'
 
 const Syllabus = () => (
   <Layout>
@@ -469,6 +469,6 @@ const Syllabus = () => (
       </div>
     </section>
   </Layout>
-);
+)
 
-export default Syllabus;
+export default Syllabus
