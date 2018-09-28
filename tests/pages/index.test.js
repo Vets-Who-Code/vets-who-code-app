@@ -1,11 +1,12 @@
 import React from 'react'
-import IndexPaege from '../../src/pages/index'
+import IndexPage from '../../src/pages/index'
+import jQuery from '../../static/vendor/jquery/dist/jquery'
 
-describe('<IndexPaege />', () => {
+describe('<IndexPage />', () => {
   let wrapper
 
 
-  beforeEach(() => wrapper = shallow(<IndexPaege />))
+  beforeEach(() => wrapper = shallow(<IndexPage />))
 
   test('should update email property in state onChange', () => {
     const expected = 'someuser@mail.com'

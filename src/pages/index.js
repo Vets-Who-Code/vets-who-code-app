@@ -34,6 +34,8 @@ class IndexPage extends Component {
 
     fetch(url, options)
     this.setState({ email: '' })
+
+    $('#subscribe-button').blur()
   }
 
   render() {
