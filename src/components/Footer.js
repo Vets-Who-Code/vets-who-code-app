@@ -1,5 +1,5 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from "react";
+import Link from "gatsby-link";
 
 const Footer = () => (
   <div>
@@ -10,8 +10,9 @@ const Footer = () => (
             <div className="widgets-content footer-widget-wrap">
               <h3 className="widgets-title">About #VetsWhoCode</h3>
               <p>
-                FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of
-                the Internal Revenue Code. Our EIN is 47-3555231.
+                FRAGO, doing business as #VetsWhoCode, is an exempt organization
+                as described in Section 501(c)(3) of the Internal Revenue Code.
+                Our EIN is 47-3555231.
               </p>
               <div className="footer-social">
                 <a href="http://bit.ly/vetswhocode-fb">
@@ -28,6 +29,12 @@ const Footer = () => (
                 </a>
                 <a href="https://bit.ly/2sFKi1u">
                   <i className="fa fa-linkedin" />
+                </a>
+                <a href="https://open.spotify.com/user/eflxajj8zjvqh6u2nwd1ocnsd/playlist/4uAXMY3yCzKU8gl4Qf9XXF?si=ODJFYH7gSpqCv2kMY4msFQ">
+                  <i className="fa fa-spotify" />
+                </a>
+                <a href="https://github.com/Vets-Who-Code">
+                  <i className="fa fa-github" />
                 </a>
               </div>
             </div>
@@ -69,7 +76,10 @@ const Footer = () => (
                         <Link to="/contact">Contact Us</Link>
                       </li>
                       <li>
-                        <a href="https://medium.com/vets-who-code" target="_blank">
+                        <a
+                          href="https://medium.com/vets-who-code"
+                          target="_blank"
+                        >
                           <span>Blog</span>
                         </a>
                       </li>
@@ -84,7 +94,9 @@ const Footer = () => (
               <h3 className="widgets-title">Contact Us</h3>
               <div className="office map">
                 <p>
-                  <span>Hi, if you have any questions, please drop us a line.</span>
+                  <span>
+                    Hi, if you have any questions, please drop us a line.
+                  </span>
                   <br />Email: hello@vetswhocode.io
                   <br />Phone: (917) 960-3806
                 </p>
@@ -111,6 +123,6 @@ const Footer = () => (
       </div>
     </footer>
   </div>
-)
+);
 
-export default Footer
+export default Footer;
