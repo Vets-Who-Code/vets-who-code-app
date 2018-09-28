@@ -63,10 +63,10 @@ class IndexPage extends Component {
                     <h2>#VetsWhoCode</h2>
                   </div>
                   <p>
-                  #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
-                  focuses on training veterans in web development and software engineering
-                  principles free of charge with the focus of starting careers as javascript
-                  developers.
+                    #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
+                    focuses on training veterans in web development and software engineering
+                    principles free of charge with the focus of starting careers as javascript
+                    developers.
                   </p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ class IndexPage extends Component {
               <div className="row">
                 <div className="featured-heading text-center">
                   <h2 className="dark_color">
-                  RETOOL
+                    RETOOL
                     <i className="fa fa-code" aria-hidden="true" /> RETRAIN
                     <i className="fa fa-code" aria-hidden="true" /> RELAUNCH
                   </h2>
@@ -85,9 +85,9 @@ class IndexPage extends Component {
                 <div className="col-sm-12 our_mission_content text-center">
                   <blockquote>
                     <p>
-                    Through training, building projects, mentorship, and opportunities to connect
-                    with industry experts, we ensure that our troops gain the best knowledge
-                    possible in web development and software engineering.
+                      Through training, building projects, mentorship, and opportunities to connect
+                      with industry experts, we ensure that our troops gain the best knowledge
+                      possible in web development and software engineering.
                     </p>
                   </blockquote>
                 </div>
@@ -108,8 +108,8 @@ class IndexPage extends Component {
                   <h4 className="cause_title">Thank You For Working With #VetsWhoCode!</h4>
                   <hr />
                   <h3 className="subtitle">
-                  We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
-                  Veterans How To Code!.
+                    We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
+                    Veterans How To Code!.
                   </h3>
                 </div>
               </div>
@@ -161,7 +161,7 @@ class IndexPage extends Component {
                                 type="submit"
                                 className="btn btn-subscribe"
                               >
-                              subscribe
+                                subscribe
                               </button>
                             </div>
                           </div>
