@@ -4,14 +4,14 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Img from 'gatsby-image'
 
-const CodePNG = ({ data, width }) =>  (
+const CodePNG = ({ data, width }) => (
   <Img
     style={{
-      position: "",
+      position: '',
       left: 0,
       top: 0,
       width: width < 700 ? 690 : '100%',
-      maxHeight: width < 700 ? '100%' : 457
+      maxHeight: width < 700 ? '100%' : 457,
     }}
     fluid={data.file.childImageSharp.fluid}
   />
@@ -20,15 +20,15 @@ const CodePNG = ({ data, width }) =>  (
 export const CodeImage = props => (
   <StaticQuery
     query={graphql`
-    query {
-      file(relativePath: { eq: "code.png" }) {
-        childImageSharp {
+      query {
+        file(relativePath: { eq: "code.png" }) {
+          childImageSharp {
             fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid
+            }
           }
         }
       }
-    }
     `}
     render={data => <CodePNG data={data} {...props} />}
   />
@@ -36,5 +36,5 @@ export const CodeImage = props => (
 
 CodePNG.propTypes = {
   data: PropTypes.object,
-  width: PropTypes.number
+  width: PropTypes.number,
 }

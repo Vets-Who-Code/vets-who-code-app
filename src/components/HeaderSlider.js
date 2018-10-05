@@ -11,7 +11,7 @@ import thisIsUsPNG from '../images/this_is_us.png'
 import { CodeImage } from '../components/code-image'
 
 class HeaderSlider extends Component {
-  state = { mockWindowWidth: 0 };
+  state = { mockWindowWidth: 0 }
 
   next = () => {
     this.slider.slickNext()
@@ -34,20 +34,21 @@ class HeaderSlider extends Component {
 
     const { mockWindowWidth } = this.state
 
-
     return (
       <div>
         <Slider {...settings} ref={slider => (this.slider = slider)}>
           <div>
-            <div style={{position: 'relative'}}>
+            <div style={{ position: 'relative' }}>
               <CodeImage width={mockWindowWidth} />
             </div>
-            <div className="header-classic  wrapper-table overlay-01"
+            <div
+              className="header-classic  wrapper-table overlay-01"
               style={{
                 position: 'absolute',
                 top: 0,
-                left: 0
-              }} >
+                left: 0,
+              }}
+            >
               <div className="valign-center">
                 <div className="container">
                   <div className="col-md-10 col-md-offset-1">
@@ -57,7 +58,7 @@ class HeaderSlider extends Component {
                       <div className="btn-cal-group">
                         {' '}
                         <Link to="/apply" className="btn btn-charity-default">
-                            Apply
+                          Apply
                         </Link>
                       </div>
                     </div>
