@@ -5,11 +5,14 @@ import Link from 'gatsby-link'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-import codePNG from '../images/code.png'
 import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
+import { CodeImage } from '../components/code-image'
+
 class HeaderSlider extends Component {
+  state = { mockWindowWidth: 0 };
+
   next = () => {
     this.slider.slickNext()
   }
@@ -29,24 +32,33 @@ class HeaderSlider extends Component {
       autoplaySpeed: 3000,
     }
 
+    const { mockWindowWidth } = this.state
+
+
     return (
       <div>
         <Slider {...settings} ref={slider => (this.slider = slider)}>
           <div>
-            <div style={{ backgroundImage: `url(${codePNG})`, backgroundSize: 'cover' }}>
-              <div className="header-classic  wrapper-table overlay-01">
-                <div className="valign-center">
-                  <div className="container">
-                    <div className="col-md-10 col-md-offset-1">
-                      <div className="intro text-left">
-                        <h1>Learn</h1>
-                        <p className="subtitle">How To Code With Other Veterans.</p>
-                        <div className="btn-cal-group">
-                          {' '}
-                          <Link to="/apply" className="btn btn-charity-default">
+            <div style={{position: 'relative'}}>
+              <CodeImage width={mockWindowWidth} />
+            </div>
+            <div className="header-classic  wrapper-table overlay-01"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0
+              }} >
+              <div className="valign-center">
+                <div className="container">
+                  <div className="col-md-10 col-md-offset-1">
+                    <div className="intro text-left">
+                      <h1>Learn</h1>
+                      <p className="subtitle">How To Code With Other Veterans.</p>
+                      <div className="btn-cal-group">
+                        {' '}
+                        <Link to="/apply" className="btn btn-charity-default">
                             Apply
-                          </Link>
-                        </div>
+                        </Link>
                       </div>
                     </div>
                   </div>

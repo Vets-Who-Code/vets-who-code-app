@@ -43,8 +43,8 @@ class IndexPage extends Component {
 
     return (
       <Layout>
+        <Header />
         <div className="fade-in">
-          <Header />
           <section
             id="our_stories"
             className="section pad-regular bg-default our_stories small-top-pad"

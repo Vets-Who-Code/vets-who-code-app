@@ -2,10 +2,10 @@
 
 exports[`<IndexPage /> should render correctly 1`] = `
 <TemplateWrapper>
+  <Header />
   <div
     className="fade-in"
   >
-    <Header />
     <section
       className="section pad-regular bg-default our_stories small-top-pad"
       id="our_stories"
