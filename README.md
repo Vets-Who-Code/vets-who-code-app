@@ -59,7 +59,7 @@ $ yarn test
 In a terminal window run these commands to run the jest test suite in watch mode.
 
 ```
-$ npm -i -g jest@23.4.2
+$ npm -i -g jest
 $ cd vwc-site
 $ yarn test:watch
 ```
