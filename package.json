@@ -62,7 +62,7 @@
   },
   "config": {
     "ghooks": {
-      "pre-commit": "yarn test && yarn lint",
+      "pre-commit": "yarn lint; yarn test",
       "pre-push": "yarn format"
     }
   },

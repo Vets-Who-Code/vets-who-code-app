@@ -84,7 +84,6 @@ class TemplateWrapper extends Component {
         </Helmet>
 
         <main className="main_container">
-          {/* <Loader /> */}
           <Nav />
           {children}
           <Footer />
