@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IndexPaege /> should render correctly 1`] = `
-<div>
+exports[`<IndexPage /> should render correctly 1`] = `
+<TemplateWrapper>
   <Header />
   <section
     className="section pad-regular bg-default our_stories small-top-pad"
@@ -16,10 +16,8 @@ exports[`<IndexPaege /> should render correctly 1`] = `
         <div
           className="col-md-5 col-sm-12 no_left_pad no_right_pad"
         >
-          <img
-            alt="Vets Who Code veterans at Google event."
+          <TroopsAtGoogle
             className="img-responsive"
-            src="image-mock"
           />
         </div>
         <div
@@ -230,5 +228,5 @@ exports[`<IndexPaege /> should render correctly 1`] = `
       </div>
     </div>
   </section>
-</div>
+</TemplateWrapper>
 `;

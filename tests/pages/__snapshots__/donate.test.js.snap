@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Donate /> should render correctly 1`] = `
-<div>
+<TemplateWrapper>
   <header
     className="inner-header overlay grey text-center slim-bg "
     style={
@@ -25,20 +25,20 @@ exports[`<Donate /> should render correctly 1`] = `
       <div
         className="breadcrumb"
       >
-        <Component
+        <Link
           to="/"
         >
           Home
-        </Component>
+        </Link>
         <span>
           /
         </span>
-        <Component
+        <Link
           className="page-active"
           to="/donate"
         >
           Donate
-        </Component>
+        </Link>
       </div>
     </div>
   </header>
@@ -150,5 +150,5 @@ exports[`<Donate /> should render correctly 1`] = `
     </div>
      
   </section>
-</div>
+</TemplateWrapper>
 `;

@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Link from 'gatsby-link';
-import logo from '../images/flag.gif';
+import Link from 'gatsby-link'
+import logo from '../images/flag.gif'
 
 class Nav extends Component {
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = () => {
-    const $nav = $('#fixedTopNav');
+    const $nav = $('#fixedTopNav')
 
     if ($(window).scrollTop() > 0) {
-      $nav.addClass('navbar-solid');
-      return;
+      $nav.addClass('navbar-solid')
+      return
     }
 
-    $nav.removeClass('navbar-solid');
-    $('.navbar-nav > li > a').blur();
+    $nav.removeClass('navbar-solid')
+    $('.navbar-nav > li > a').blur()
   }
 
   render() {
@@ -39,24 +39,13 @@ class Nav extends Component {
               aria-expanded="false"
             >
               {' '}
-              <span className="sr-only">#VetsWhoCode</span>{' '}
-              <span className="ion-drag" />
+              <span className="sr-only">#VetsWhoCode</span> <span className="ion-drag" />
             </button>
-            <div
-              className="navbar-brand"
-              itemScope=""
-              itemType="https://schema.org/Organization"
-            >
+            <div className="navbar-brand" itemScope="" itemType="https://schema.org/Organization">
               {' '}
-              <span itemProp="name" className="sr-only">
-                #VetsWhoCode
-              </span>
-              <Link itemProp="url" to="/">
-                <img
-                  src={logo}
-                  alt="#VetsWhoCode Logo"
-                  className="logo_holder"
-                />
+              <span className="sr-only">#VetsWhoCode</span>
+              <Link to="/">
+                <img src={logo} alt="#VetsWhoCode Logo" className="logo_holder" />
               </Link>
             </div>
           </div>
@@ -111,7 +100,12 @@ class Nav extends Component {
               </li>
               <li>
                 {' '}
-                <a href="https://medium.com/vets-who-code" without rel="noopener noreferrer" target="_blank">
+                <a
+                  href="https://medium.com/vets-who-code"
+                  without="true"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <span>Blog</span>
                 </a>
               </li>
@@ -119,8 +113,8 @@ class Nav extends Component {
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
 
-export default Nav;
+export default Nav

@@ -8,10 +8,10 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
           font-smoothing: antialiased;
   font-weight: 400;
   line-height: 29px;
-  -moz-osx-font-smoothing: grayscale;
   overflow-scrolling: touch;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
@@ -265,7 +265,8 @@ h1.bold_404 {
   z-index: 9999;
 }
 #loader {
-  background-image: url(../../images/Preloader_1.gif);
+  /* background-image: url(../../images/Preloader_1.gif); */
+  /* background-image: url(../../images/flag.gif); */
   background-position: center;
   background-repeat: no-repeat;
   height: 200px;
@@ -461,8 +462,8 @@ h1.bold_404 {
   font: normal normal normal 14px/1 FontAwesome;
   font-size: 9px;
   -webkit-font-smoothing: antialiased;
-  margin-top: -6px;
   -moz-osx-font-smoothing: grayscale;
+  margin-top: -6px;
   position: absolute;
   right: 0;
   text-rendering: auto;

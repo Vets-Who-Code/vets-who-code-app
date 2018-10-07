@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import Slider from 'react-slick';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import Slider from 'react-slick'
+import Link from 'gatsby-link'
 
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-import codePNG from '../images/code.png';
-import speakingPNG from '../images/speaking.png';
-import thisIsUsPNG from '../images/this_is_us.png';
+import speakingPNG from '../images/speaking.png'
+import thisIsUsPNG from '../images/this_is_us.png'
+
+import { CodeImage } from './CodeImage'
 
 class HeaderSlider extends Component {
+  state = { mockWindowWidth: 0 }
+
   next = () => {
-    this.slider.slickNext();
+    this.slider.slickNext()
   }
 
   previous = () => {
-    this.slider.slickPrev();
+    this.slider.slickPrev()
   }
 
   render() {
@@ -26,27 +29,37 @@ class HeaderSlider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      autoplaySpeed: 3000
-    };
+      autoplaySpeed: 3000,
+    }
+
+    const { mockWindowWidth } = this.state
 
     return (
       <div>
         <Slider {...settings} ref={slider => (this.slider = slider)}>
           <div>
-            <div style={{ backgroundImage: `url(${codePNG})`, backgroundSize: 'cover' }}>
-              <div className="header-classic  wrapper-table overlay-01">
-                <div className="valign-center">
-                  <div className="container">
-                    <div className="col-md-10 col-md-offset-1">
-                      <div className="intro text-left">
-                        <h1>Learn</h1>
-                        <p className="subtitle">How To Code With Other Veterans.</p>
-                        <div className="btn-cal-group">
-                          {' '}
-                          <Link to="/apply" className="btn btn-charity-default">
-                            Apply
-                          </Link>
-                        </div>
+            <div style={{ position: 'relative' }}>
+              <CodeImage width={mockWindowWidth} />
+            </div>
+            <div
+              className="header-classic  wrapper-table overlay-01"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+              }}
+            >
+              <div className="valign-center">
+                <div className="container">
+                  <div className="col-md-10 col-md-offset-1">
+                    <div className="intro text-left">
+                      <h1>Learn</h1>
+                      <p className="subtitle">How To Code With Other Veterans.</p>
+                      <div className="btn-cal-group">
+                        {' '}
+                        <Link to="/apply" className="btn btn-charity-default">
+                          Apply
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -126,8 +139,8 @@ class HeaderSlider extends Component {
           </li>
         </ul>
       </div>
-    );
+    )
   }
 }
 
-export default HeaderSlider;
+export default HeaderSlider

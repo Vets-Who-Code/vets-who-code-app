@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'gatsby-link';
+import React from 'react'
+import Link from 'gatsby-link'
 
 const Footer = () => (
   <div>
@@ -10,8 +10,8 @@ const Footer = () => (
             <div className="widgets-content footer-widget-wrap">
               <h3 className="widgets-title">About #VetsWhoCode</h3>
               <p>
-                FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of
-                the Internal Revenue Code. Our EIN is 47-3555231.
+                FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in
+                Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
               </p>
               <div className="footer-social">
                 <a href="http://bit.ly/vetswhocode-fb">
@@ -69,7 +69,11 @@ const Footer = () => (
                         <Link to="/contact">Contact Us</Link>
                       </li>
                       <li>
-                        <a href="https://medium.com/vets-who-code" rel="noopener noreferrer" target="_blank">
+                        <a
+                          href="https://medium.com/vets-who-code"
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
                           <span>Blog</span>
                         </a>
                       </li>
@@ -85,8 +89,10 @@ const Footer = () => (
               <div className="office map">
                 <p>
                   <span>Hi, if you have any questions, please drop us a line.</span>
-                  <br />Email: hello@vetswhocode.io
-                  <br />Phone: (917) 960-3806
+                  <br />
+                  Email: hello@vetswhocode.io
+                  <br />
+                  Phone: (917) 960-3806
                 </p>
               </div>
             </div>
@@ -98,7 +104,7 @@ const Footer = () => (
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <p className="copyright">&copy; #VetsWhoCode</p>
+            <p className="copyright">&copy #VetsWhoCode</p>
           </div>
           <div className="col-md-6 col-sm-6">
             <ul className="footer-menu">
@@ -111,6 +117,6 @@ const Footer = () => (
       </div>
     </footer>
   </div>
-);
+)
 
-export default Footer;
+export default Footer

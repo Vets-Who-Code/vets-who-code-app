@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 
-import thisIsUs from '../images/this_is_us.png';
+import Layout from '../components/layout'
+
+import thisIsUs from '../images/this_is_us.png'
 
 export default class Mentor extends Component {
   state = {
@@ -11,12 +13,12 @@ export default class Mentor extends Component {
     'technical-expertise': '',
     'github-portfolio-or-linkedin': '',
     location: '',
-    'employer-restrictions': ''
-  };
+    'employer-restrictions': '',
+  }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   resetForm = () => ({
     name: '',
@@ -25,12 +27,11 @@ export default class Mentor extends Component {
     'technical-expertise': '',
     'github-portfolio-or-linkedin': '',
     location: '',
-    'employer-restrictions': ''
-  });
+    'employer-restrictions': '',
+  })
 
   handleSubmit = e => {
-    const gatewayUrl =
-      'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor';
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -38,27 +39,26 @@ export default class Mentor extends Component {
         email: this.state.email,
         'branch-of-service': this.state['branch-of-service'],
         'technical-expertise': this.state['technical-expertise'],
-        'github-portfolio-or-linkedin': this.state[
-          'github-portfolio-or-linkedin'
-        ],
+        'github-portfolio-or-linkedin': this.state['github-portfolio-or-linkedin'],
         location: this.state.location,
-        'employer-restrictions': this.state['employer-restrictions']
-      })
-    };
-    fetch(gatewayUrl, options);
-    e.preventDefault();
-    this.setState(this.resetForm);
-  };
+        'employer-restrictions': this.state['employer-restrictions'],
+      }),
+    }
+    fetch(gatewayUrl, options)
+    e.preventDefault()
+    this.setState(this.resetForm)
+  }
 
   render() {
     return (
-      <div>
+      <Layout>
         <header
           className="inner-header overlay grey text-center slim-bg "
           style={{
             backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom'
-          }}>
+            backgroundPositionY: 'bottom',
+          }}
+        >
           <div className="overlay-01" />
           <div className="container">
             <h2 className="text-center text-uppercase">Mentor</h2>
@@ -78,15 +78,15 @@ export default class Mentor extends Component {
                 <div className="contactus-brief">
                   <h3>Become A Mentor</h3>
                   <p className="section-description">
-                    Thank you for choosing to become a mentor for our veterans.
-                    Please fill out the form below and we will reach out to you.
+                    Thank you for choosing to become a mentor for our veterans. Please fill out the
+                    form below and we will reach out to you.
                   </p>
                   <form id="s2do-form" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
                       <div className="form-group">
                         <label htmlFor="InputName" className="dark-text">
                           Name
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -103,7 +103,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputEmail" className="dark-text">
                           Email
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -120,7 +120,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputService" className="dark-text">
                           Military Branch Of Service
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -135,11 +135,9 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label
-                          htmlFor="InputTechnicalExpertise"
-                          className="dark-text">
+                        <label htmlFor="InputTechnicalExpertise" className="dark-text">
                           Area Of Technical Expertise ( Javascript, Ruby, etc)
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -156,7 +154,7 @@ export default class Mentor extends Component {
                       <div className="form-group">
                         <label htmlFor="InputPortfolio" className="dark-text">
                           Github, Portfolio or Linkedin
-                          <super>*</super>
+                          <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -172,8 +170,7 @@ export default class Mentor extends Component {
                     <div className="col-md-8">
                       <div className="form-group">
                         <label htmlFor="InputLocation" className="dark-text">
-                          Location ( City and State )
-                          <super>*</super>
+                          Location ( City and State )<sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
@@ -188,9 +185,7 @@ export default class Mentor extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label
-                          htmlFor="InputEmployerImplementedRestricted"
-                          className="dark-text">
+                        <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
                           Employer Implemented Restrictions, If Any.
                         </label>
                         <textarea
@@ -220,7 +215,7 @@ export default class Mentor extends Component {
             </div>
           </div>
         </section>
-      </div>
-    );
+      </Layout>
+    )
   }
 }

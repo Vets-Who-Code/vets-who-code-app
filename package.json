@@ -3,23 +3,31 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "gatsby": "1.9.273",
-    "gatsby-link": "1.6.34",
-    "gatsby-plugin-create-client-paths": "1.0.1",
-    "gatsby-plugin-react-helmet": "1.0.8",
+    "gatsby": "2.0.11",
+    "gatsby-image": "2.0.12",
+    "gatsby-link": "2.0.2",
+    "gatsby-plugin-create-client-paths": "2.0.0",
+    "gatsby-plugin-react-helmet": "3.0.0",
+    "gatsby-plugin-sharp": "2.0.5",
+    "gatsby-source-filesystem": "2.0.1",
+    "gatsby-transformer-sharp": "2.1.3",
     "generate": "0.14.0",
-    "jest": "23.5.0",
-    "react-modal": "3.4.5",
+    "jest": "23.6.0",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-helmet": "5.2.0",
+    "react-modal": "3.6.1",
     "react-slick": "0.23.1",
     "slick-carousel": "1.8.1"
   },
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format":
-      "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "format": "prettier --write \"src/**/*.js\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --env=jsdom --coverage",
@@ -28,38 +36,66 @@
     "heroku-postbuild": "gatsby build"
   },
   "devDependencies": {
+    "@babel/core": "7.1.0",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-proposal-optional-chaining": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-react": "7.0.0",
+    "babel-core": "^7.0.0-0",
     "babel-eslint": "10.0.0",
+    "babel-jest": "23.6.0",
     "enzyme": "3.3.0",
-    "enzyme-adapter-react-15": "1.0.6",
+    "enzyme-adapter-react-16": "1.5.0",
     "enzyme-to-json": "3.3.4",
     "eslint": "5.6.0",
     "eslint-plugin-react": "7.11.1",
     "ghooks": "2.0.4",
     "lint-staged": "7.3.0",
-    "prettier": "^1.9.2",
-    "react-test-renderer": "15.6.1"
+    "prettier": "1.14.3",
+    "react-test-renderer": "16.5.2"
   },
   "lint-staged": {
-    "src/**/*.js": ["yarn format", "git add"]
+    "src/**/*.js": [
+      "eslint ./src/**/*.js",
+      "git add"
+    ]
   },
   "config": {
     "ghooks": {
-      "pre-commit": "yarn test",
-      "pre-push": "yarn lint"
+      "pre-commit": "yarn lint; yarn test",
+      "pre-push": "yarn format"
     }
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "/.cache/"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"],
-    "setupFiles": ["./tests/setupTests.js"],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      ".cache"
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "<rootDir>/tests/jest-preprocess.js"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "globals": {
+      "__PATH_PREFIX__": ""
+    },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./tests/setupTests.js",
+      "./tests/jest-preprocess.js",
+      "./tests/loadershim.js"
+    ],
+    "testURL": "http://localhost",
     "collectCoverageFrom": [
       "src/components/**/*.{js,jsx}",
       "src/pages/**/*.{js,jsx}",
       "!/static/vendor/jquery/dist"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/tests/__mocks__/image-mock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
       "\\.(css|scss|sass)$": "<rootDir>/tests/__mocks__/style-mock.js"
     }
   }

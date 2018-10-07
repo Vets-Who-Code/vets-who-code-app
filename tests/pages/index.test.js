@@ -1,37 +1,38 @@
-import React from 'react';
-import IndexPaege from '../../src/pages/index';
+import React from 'react'
+import IndexPage from '../../src/pages/index'
+import jQuery from '../../static/vendor/jquery/dist/jquery'
 
-describe('<IndexPaege />', () => {
-  let wrapper;
+describe('<IndexPage />', () => {
+  let wrapper
 
 
-  beforeEach(() => wrapper = shallow(<IndexPaege />));
+  beforeEach(() => wrapper = shallow(<IndexPage />))
 
   test('should update email property in state onChange', () => {
-    const expected = 'someuser@mail.com';
+    const expected = 'someuser@mail.com'
     const mockEvent = {
       target: {
         name: 'email',
         value: expected
       }
-    };
-    wrapper.instance().handleInputChange(mockEvent);
-    expect(wrapper.state('email')).toEqual(expected);
-  });
+    }
+    wrapper.instance().handleInputChange(mockEvent)
+    expect(wrapper.state('email')).toEqual(expected)
+  })
 
   test('should call window.fetch when handleUserSubscribe is invoked', () => {
     const mockEvent = {
       preventDefault: jest.fn()
-    };
+    }
 
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve());
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve())
 
-    wrapper.instance().handleUserSubscribe(mockEvent);
-    expect(window.fetch).toHaveBeenCalled();
-  });
+    wrapper.instance().handleUserSubscribe(mockEvent)
+    expect(window.fetch).toHaveBeenCalled()
+  })
 
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-});
+    expect(wrapper).toMatchSnapshot()
+  })
+})

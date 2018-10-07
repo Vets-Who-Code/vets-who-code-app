@@ -1,13 +1,13 @@
-import React from 'react';
-import Footer from '../../src/components/Footer';
+import React from 'react'
+import Footer from '../../src/components/Footer'
 
 describe('<Footer />', () => {
-  let wrapper;
+  let wrapper
 
-  beforeEach(() => wrapper = shallow(<Footer />));
+  beforeEach(() => wrapper = shallow(<Footer />))
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    expect(wrapper).toMatchSnapshot()
+  })
 
-});
+})

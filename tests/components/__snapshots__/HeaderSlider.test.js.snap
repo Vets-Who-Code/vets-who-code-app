@@ -15,45 +15,54 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
       <div
         style={
           Object {
-            "backgroundImage": "url(image-mock)",
-            "backgroundSize": "cover",
+            "position": "relative",
+          }
+        }
+      >
+        <CodeImage
+          width={0}
+        />
+      </div>
+      <div
+        className="header-classic  wrapper-table overlay-01"
+        style={
+          Object {
+            "left": 0,
+            "position": "absolute",
+            "top": 0,
           }
         }
       >
         <div
-          className="header-classic  wrapper-table overlay-01"
+          className="valign-center"
         >
           <div
-            className="valign-center"
+            className="container"
           >
             <div
-              className="container"
+              className="col-md-10 col-md-offset-1"
             >
               <div
-                className="col-md-10 col-md-offset-1"
+                className="intro text-left"
               >
-                <div
-                  className="intro text-left"
+                <h1>
+                  Learn
+                </h1>
+                <p
+                  className="subtitle"
                 >
-                  <h1>
-                    Learn
-                  </h1>
-                  <p
-                    className="subtitle"
+                  How To Code With Other Veterans.
+                </p>
+                <div
+                  className="btn-cal-group"
+                >
+                   
+                  <GatsbyLink
+                    className="btn btn-charity-default"
+                    to="/apply"
                   >
-                    How To Code With Other Veterans.
-                  </p>
-                  <div
-                    className="btn-cal-group"
-                  >
-                     
-                    <Component
-                      className="btn btn-charity-default"
-                      to="/apply"
-                    >
-                      Apply
-                    </Component>
-                  </div>
+                    Apply
+                  </GatsbyLink>
                 </div>
               </div>
             </div>
@@ -97,13 +106,13 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
                     className="btn-cal-group"
                   >
                      
-                    <Component
+                    <GatsbyLink
                       className="btn btn-charity-default"
                       to="/mentor"
                     >
                        
                       Sign Up
-                    </Component>
+                    </GatsbyLink>
                   </div>
                 </div>
               </div>
@@ -154,12 +163,12 @@ exports[`<HeaderSlider /> should render correctly 1`] = `
                     className="btn-cal-group"
                   >
                      
-                    <Component
+                    <GatsbyLink
                       className="btn btn-charity-default"
                       to="/donate"
                     >
                       Please Donate
-                    </Component>
+                    </GatsbyLink>
                   </div>
                 </div>
               </div>
