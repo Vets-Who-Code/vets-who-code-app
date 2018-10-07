@@ -7,6 +7,11 @@ import Header from '../components/Header'
 
 import { TroopsAtGoogle } from '../components/TroopsAtGoogle'
 
+global.jQuery = require('../../static/vendor/jquery/dist/jquery')
+require('../../static/vendor/bootstrap/dist/bootstrap')
+window.$ = jQuery
+window.jQuery = jQuery
+
 class IndexPage extends Component {
   state = {
     email: '',
