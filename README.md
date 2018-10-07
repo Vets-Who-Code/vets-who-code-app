@@ -20,7 +20,7 @@ By doing this we can focus on creating a beautiful web experience with a focus o
 
 ## Getting Started
 
-These instuctions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
 
@@ -51,14 +51,27 @@ You should be able to view the website locally at `http://localhost:8000/`.
 
 In a terminal window run these commands to install jest globally and run the jest test suite.
 
-```
+```sh
 $ cd vwc-site
 $ yarn test
 ```
 
+<details>
+<summary>If you get a Watchman Error/Warning</summary>
+<br>
+
+```sh
+$ watchman shutdown-server
+$ brew update
+$ brew reinstall watchman
+```
+</details>
+
+<br>
+
 In a terminal window run these commands to run the jest test suite in watch mode.
 
-```
+```sh
 $ npm -i -g jest
 $ cd vwc-site
 $ yarn test:watch
@@ -66,7 +79,7 @@ $ yarn test:watch
 
 In a terminal window run these commands to view the jest coverage report.
 
-```
+```sh
 $ cd vwc-site
 $ yarn test:coverage
 $ yarn view:coverage
