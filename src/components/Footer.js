@@ -107,7 +107,9 @@ const Footer = () => (
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <p className="copyright"><span className="fa fa-copyright" /> #VetsWhoCode</p>
+            <p className="copyright">
+              <span className="fa fa-copyright" /> #VetsWhoCode
+            </p>
           </div>
           <div className="col-md-6 col-sm-6">
             <ul className="footer-menu">
