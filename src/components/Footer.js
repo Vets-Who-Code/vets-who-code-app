@@ -29,6 +29,9 @@ const Footer = () => (
                 <a href="https://bit.ly/2sFKi1u">
                   <i className="fa fa-linkedin" />
                 </a>
+                <a href="http://bit.ly/vwc-github">
+                  <i className="fa fa-github" />
+                </a>
               </div>
             </div>
           </div>
@@ -104,7 +107,9 @@ const Footer = () => (
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <p className="copyright">&copy #VetsWhoCode</p>
+            <p className="copyright">
+              <span className="fa fa-copyright" /> #VetsWhoCode
+            </p>
           </div>
           <div className="col-md-6 col-sm-6">
             <ul className="footer-menu">
