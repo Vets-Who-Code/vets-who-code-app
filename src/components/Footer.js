@@ -29,7 +29,7 @@ const Footer = () => (
                 <a href="https://bit.ly/2sFKi1u">
                   <i className="fa fa-linkedin" />
                 </a>
-                <a href="https://bit.ly/2sFKi1u">
+                <a href="http://bit.ly/vwc-github">
                   <i className="fa fa-github" />
                 </a>
               </div>
