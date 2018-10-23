@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import DonateModal from '../components/DonateModal'
 import code from '../images/code.png'
 import john from '../images/profile.png'

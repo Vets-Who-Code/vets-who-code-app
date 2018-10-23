@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SponsorSlider from '../components/SponsorSlider'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 

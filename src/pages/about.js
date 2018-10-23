@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { Link } from 'gatsby'
 
 import vwcGIF from '../images/vwc.gif'

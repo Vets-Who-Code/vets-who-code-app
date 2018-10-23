@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 
 import thisIsUs from '../images/this_is_us.png'
 
