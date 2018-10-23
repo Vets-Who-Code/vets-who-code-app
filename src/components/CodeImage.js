@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Img from 'gatsby-image'
 
-const CodePNG = ({ data, width }) => (
+export const CodePNG = ({ data, width }) => (
   <Img
     style={{
       position: '',

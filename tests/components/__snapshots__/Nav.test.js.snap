@@ -1,158 +1,356 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Nav /> should render correctly 1`] = `
-<nav
-  className="navbar navbar-fixed-top main-navigation"
-  id="fixedTopNav"
-  itemScope=""
-  itemType="https://schema.org/SiteNavigationElement"
-  role="navigation"
->
-  <div
-    className="container"
-  >
-    <div
-      className="navbar-header"
-    >
-      <button
-        aria-expanded="false"
-        className="navbar-toggle collapsed"
-        data-target="#main-nav-collapse"
-        data-toggle="collapse"
-        type="button"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <nav
+        class="navbar navbar-fixed-top main-navigation"
+        id="fixedTopNav"
+        itemtype="https://schema.org/SiteNavigationElement"
+        role="navigation"
       >
-         
-        <span
-          className="sr-only"
+        <div
+          class="container"
         >
-          #VetsWhoCode
-        </span>
-         
-        <span
-          className="ion-drag"
-        />
-      </button>
+          <div
+            class="navbar-header"
+          >
+            <button
+              aria-expanded="false"
+              class="navbar-toggle collapsed"
+              data-target="#main-nav-collapse"
+              data-toggle="collapse"
+              type="button"
+            >
+               
+              <span
+                class="sr-only"
+              >
+                #VetsWhoCode
+              </span>
+               
+              <span
+                class="ion-drag"
+              />
+            </button>
+            <div
+              class="navbar-brand"
+              itemtype="https://schema.org/Organization"
+            >
+               
+              <span
+                class="sr-only"
+              >
+                #VetsWhoCode
+              </span>
+              <a
+                aria-current="page"
+                class=""
+                href="/"
+              >
+                <img
+                  alt="#VetsWhoCode Logo"
+                  class="logo_holder"
+                  src="image-mock"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            aria-expanded="false"
+            class="navbar-collapse collapse"
+            id="main-nav-collapse"
+            style="height: 1px;"
+          >
+            <ul
+              class="nav navbar-nav navbar-right"
+              role="menu"
+            >
+              <li>
+                 
+                <a
+                  aria-current="page"
+                  class=""
+                  href="/"
+                >
+                  <span>
+                    Home
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/about"
+                >
+                  <span>
+                    About
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/syllabus"
+                >
+                  <span>
+                    Syllabus
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/mentor"
+                >
+                  <span>
+                    Mentor
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/apply"
+                >
+                  <span>
+                    Apply
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/donate"
+                >
+                  <span>
+                    Donate
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/contact"
+                >
+                  <span>
+                    Contact Us
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="https://medium.com/vets-who-code"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  without="true"
+                >
+                  <span>
+                    Blog
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </body>,
+  "container": <div>
+    <nav
+      class="navbar navbar-fixed-top main-navigation"
+      id="fixedTopNav"
+      itemtype="https://schema.org/SiteNavigationElement"
+      role="navigation"
+    >
       <div
-        className="navbar-brand"
-        itemScope=""
-        itemType="https://schema.org/Organization"
+        class="container"
       >
-         
-        <span
-          className="sr-only"
+        <div
+          class="navbar-header"
         >
-          #VetsWhoCode
-        </span>
-        <GatsbyLink
-          to="/"
+          <button
+            aria-expanded="false"
+            class="navbar-toggle collapsed"
+            data-target="#main-nav-collapse"
+            data-toggle="collapse"
+            type="button"
+          >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+             
+            <span
+              class="ion-drag"
+            />
+          </button>
+          <div
+            class="navbar-brand"
+            itemtype="https://schema.org/Organization"
+          >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+            <a
+              aria-current="page"
+              class=""
+              href="/"
+            >
+              <img
+                alt="#VetsWhoCode Logo"
+                class="logo_holder"
+                src="image-mock"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          aria-expanded="false"
+          class="navbar-collapse collapse"
+          id="main-nav-collapse"
+          style="height: 1px;"
         >
-          <img
-            alt="#VetsWhoCode Logo"
-            className="logo_holder"
-            src="image-mock"
-          />
-        </GatsbyLink>
+          <ul
+            class="nav navbar-nav navbar-right"
+            role="menu"
+          >
+            <li>
+               
+              <a
+                aria-current="page"
+                class=""
+                href="/"
+              >
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/syllabus"
+              >
+                <span>
+                  Syllabus
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/mentor"
+              >
+                <span>
+                  Mentor
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/apply"
+              >
+                <span>
+                  Apply
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/donate"
+              >
+                <span>
+                  Donate
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/contact"
+              >
+                <span>
+                  Contact Us
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="https://medium.com/vets-who-code"
+                rel="noopener noreferrer"
+                target="_blank"
+                without="true"
+              >
+                <span>
+                  Blog
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div
-      aria-expanded="false"
-      className="navbar-collapse collapse"
-      id="main-nav-collapse"
-      style={
-        Object {
-          "height": "1px",
-        }
-      }
-    >
-      <ul
-        className="nav navbar-nav navbar-right"
-        role="menu"
-      >
-        <li>
-           
-          <GatsbyLink
-            to="/"
-          >
-            <span>
-              Home
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/about"
-          >
-            <span>
-              About
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/syllabus"
-          >
-            <span>
-              Syllabus
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/mentor"
-          >
-            <span>
-              Mentor
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/apply"
-          >
-            <span>
-              Apply
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/donate"
-          >
-            <span>
-              Donate
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <GatsbyLink
-            to="/contact"
-          >
-            <span>
-              Contact Us
-            </span>
-          </GatsbyLink>
-        </li>
-        <li>
-           
-          <a
-            href="https://medium.com/vets-who-code"
-            rel="noopener noreferrer"
-            target="_blank"
-            without="true"
-          >
-            <span>
-              Blog
-            </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </nav>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

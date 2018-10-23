@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TroopsAtGoogle /> should render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class=" gatsby-image-wrapper"
+        style="position: relative; overflow: hidden;"
+      >
+        <div
+          style="width: 100%; padding-bottom: 0.16666666666666666%;"
+        />
+        
+        <picture>
+          <source
+            sizes=""
+            srcset="some-source-here"
+          />
+          <img
+            alt=""
+            src="some-source-here"
+            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 1;"
+          />
+        </picture>
+        <noscript>
+          &lt;picture&gt;&lt;source srcSet="some-source-here" /&gt;&lt;img src="some-source-here" alt="" style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:0.5s;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+        </noscript>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class=" gatsby-image-wrapper"
+      style="position: relative; overflow: hidden;"
+    >
+      <div
+        style="width: 100%; padding-bottom: 0.16666666666666666%;"
+      />
+      
+      <picture>
+        <source
+          sizes=""
+          srcset="some-source-here"
+        />
+        <img
+          alt=""
+          src="some-source-here"
+          style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 1;"
+        />
+      </picture>
+      <noscript>
+        &lt;picture&gt;&lt;source srcSet="some-source-here" /&gt;&lt;img src="some-source-here" alt="" style="position:absolute;top:0;left:0;transition:opacity 0.5s;transition-delay:0.5s;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+      </noscript>
+    </div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
