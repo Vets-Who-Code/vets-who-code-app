@@ -10,6 +10,6 @@ describe('<Header />', () => {
   test('should render correctly', () => {
 
     const { container } = wrapper;
-    expect(container).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

@@ -9,7 +9,7 @@ describe('<Footer />', () => {
 
   test('should render correctly', () => {
     const { container } = wrapper;
-    expect(wrapper).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 
 })
