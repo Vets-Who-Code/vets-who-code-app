@@ -1,251 +1,550 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Footer /> should render correctly 1`] = `
-<div>
-  <section
-    className="footer-widgets pad-extra"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="row"
-      >
-        <div
-          className="col-md-4"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div>
+        <section
+          class="footer-widgets pad-extra"
         >
           <div
-            className="widgets-content footer-widget-wrap"
-          >
-            <h3
-              className="widgets-title"
-            >
-              About #VetsWhoCode
-            </h3>
-            <p>
-              FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
-            </p>
-            <div
-              className="footer-social"
-            >
-              <a
-                href="http://bit.ly/vetswhocode-fb"
-              >
-                <i
-                  className="fa fa-facebook-f"
-                />
-              </a>
-              <a
-                href="http://bit.ly/vets-who-code-twitter"
-              >
-                <i
-                  className="fa fa-twitter"
-                />
-              </a>
-              <a
-                href="http://bit.ly/2omsjdX"
-              >
-                <i
-                  className="fa fa-codepen"
-                />
-              </a>
-              <a
-                href="https://bit.ly/2sJ6W9f"
-              >
-                <i
-                  className="fa fa-instagram"
-                />
-              </a>
-              <a
-                href="https://bit.ly/2sFKi1u"
-              >
-                <i
-                  className="fa fa-linkedin"
-                />
-              </a>
-              <a
-                href="http://bit.ly/vwc-github"
-              >
-                <i
-                  className="fa fa-github"
-                />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div
-          className="col-md-4"
-        >
-          <div
-            className="footer-widget-wrap"
+            class="container"
           >
             <div
-              className="row"
+              class="row"
             >
               <div
-                className="col-md-11 col-md-offset-1"
+                class="col-md-4"
+              >
+                <div
+                  class="widgets-content footer-widget-wrap"
+                >
+                  <h3
+                    class="widgets-title"
+                  >
+                    About #VetsWhoCode
+                  </h3>
+                  <p>
+                    FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                  </p>
+                  <div
+                    class="footer-social"
+                  >
+                    <a
+                      href="http://bit.ly/vetswhocode-fb"
+                    >
+                      <i
+                        class="fa fa-facebook-f"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/vets-who-code-twitter"
+                    >
+                      <i
+                        class="fa fa-twitter"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/2omsjdX"
+                    >
+                      <i
+                        class="fa fa-codepen"
+                      />
+                    </a>
+                    <a
+                      href="https://bit.ly/2sJ6W9f"
+                    >
+                      <i
+                        class="fa fa-instagram"
+                      />
+                    </a>
+                    <a
+                      href="https://bit.ly/2sFKi1u"
+                    >
+                      <i
+                        class="fa fa-linkedin"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/vwc-github"
+                    >
+                      <i
+                        class="fa fa-github"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-4"
+              >
+                <div
+                  class="footer-widget-wrap"
+                >
+                  <div
+                    class="row"
+                  >
+                    <div
+                      class="col-md-11 col-md-offset-1"
+                    >
+                      <h3
+                        class="widgets-title"
+                      >
+                        Site Map
+                      </h3>
+                    </div>
+                    <div
+                      class="col-md-5 col-md-offset-1"
+                    >
+                      <div
+                        class="widgets-content"
+                      >
+                        <ul
+                          class="widgets-list"
+                        >
+                          <li>
+                            <a
+                              aria-current="page"
+                              class=""
+                              href="/"
+                            >
+                              Home
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/about"
+                            >
+                              About
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/syllabus"
+                            >
+                              Syllabus
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/mentor"
+                            >
+                              Mentor
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-6"
+                    >
+                      <div
+                        class="widgets-content"
+                      >
+                        <ul
+                          class="widgets-list"
+                        >
+                          <li>
+                            <a
+                              href="/apply"
+                            >
+                              Apply
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/donate"
+                            >
+                              Donate
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/contact"
+                            >
+                              Contact Us
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://medium.com/vets-who-code"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              <span>
+                                Blog
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-4"
+              >
+                <div
+                  class="widgets-content"
+                >
+                  <h3
+                    class="widgets-title"
+                  >
+                    Contact Us
+                  </h3>
+                  <div
+                    class="office map"
+                  >
+                    <p>
+                      <span>
+                        Hi, if you have any questions, please drop us a line.
+                      </span>
+                      <br />
+                      Email: hello@vetswhocode.io
+                      <br />
+                      Phone: (917) 960-3806
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer
+          class="section footer"
+          id="footer"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col-md-6 col-sm-6"
+              >
+                <p
+                  class="copyright"
+                >
+                  <span
+                    class="fa fa-copyright"
+                  />
+                   #VetsWhoCode
+                </p>
+              </div>
+              <div
+                class="col-md-6 col-sm-6"
+              >
+                <ul
+                  class="footer-menu"
+                >
+                  <li>
+                    Made with 
+                    <span
+                      class="fa fa-heart red"
+                    />
+                     By #VetsWhoCode.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div>
+      <section
+        class="footer-widgets pad-extra"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content footer-widget-wrap"
               >
                 <h3
-                  className="widgets-title"
+                  class="widgets-title"
                 >
-                  Site Map
+                  About #VetsWhoCode
                 </h3>
-              </div>
-              <div
-                className="col-md-5 col-md-offset-1"
-              >
+                <p>
+                  FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                </p>
                 <div
-                  className="widgets-content"
+                  class="footer-social"
                 >
-                  <ul
-                    className="widgets-list"
+                  <a
+                    href="http://bit.ly/vetswhocode-fb"
                   >
-                    <li>
-                      <GatsbyLink
-                        to="/"
-                      >
-                        Home
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <GatsbyLink
-                        to="/about"
-                      >
-                        About
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <GatsbyLink
-                        to="/syllabus"
-                      >
-                        Syllabus
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <GatsbyLink
-                        to="/mentor"
-                      >
-                        Mentor
-                      </GatsbyLink>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div
-                className="col-md-6"
-              >
-                <div
-                  className="widgets-content"
-                >
-                  <ul
-                    className="widgets-list"
+                    <i
+                      class="fa fa-facebook-f"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vets-who-code-twitter"
                   >
-                    <li>
-                      <GatsbyLink
-                        to="/apply"
-                      >
-                        Apply
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <GatsbyLink
-                        to="/donate"
-                      >
-                        Donate
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <GatsbyLink
-                        to="/contact"
-                      >
-                        Contact Us
-                      </GatsbyLink>
-                    </li>
-                    <li>
-                      <a
-                        href="https://medium.com/vets-who-code"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        <span>
-                          Blog
-                        </span>
-                      </a>
-                    </li>
-                  </ul>
+                    <i
+                      class="fa fa-twitter"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/2omsjdX"
+                  >
+                    <i
+                      class="fa fa-codepen"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sJ6W9f"
+                  >
+                    <i
+                      class="fa fa-instagram"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sFKi1u"
+                  >
+                    <i
+                      class="fa fa-linkedin"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vwc-github"
+                  >
+                    <i
+                      class="fa fa-github"
+                    />
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div
-          className="col-md-4"
-        >
-          <div
-            className="widgets-content"
-          >
-            <h3
-              className="widgets-title"
-            >
-              Contact Us
-            </h3>
             <div
-              className="office map"
+              class="col-md-4"
             >
-              <p>
-                <span>
-                  Hi, if you have any questions, please drop us a line.
-                </span>
-                <br />
-                Email: hello@vetswhocode.io
-                <br />
-                Phone: (917) 960-3806
-              </p>
+              <div
+                class="footer-widget-wrap"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-md-11 col-md-offset-1"
+                  >
+                    <h3
+                      class="widgets-title"
+                    >
+                      Site Map
+                    </h3>
+                  </div>
+                  <div
+                    class="col-md-5 col-md-offset-1"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            aria-current="page"
+                            class=""
+                            href="/"
+                          >
+                            Home
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/about"
+                          >
+                            About
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/syllabus"
+                          >
+                            Syllabus
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/mentor"
+                          >
+                            Mentor
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-6"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            href="/apply"
+                          >
+                            Apply
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/donate"
+                          >
+                            Donate
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/contact"
+                          >
+                            Contact Us
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://medium.com/vets-who-code"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <span>
+                              Blog
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  Contact Us
+                </h3>
+                <div
+                  class="office map"
+                >
+                  <p>
+                    <span>
+                      Hi, if you have any questions, please drop us a line.
+                    </span>
+                    <br />
+                    Email: hello@vetswhocode.io
+                    <br />
+                    Phone: (917) 960-3806
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <footer
-    className="section footer"
-    id="footer"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="row"
+      </section>
+      <footer
+        class="section footer"
+        id="footer"
       >
         <div
-          className="col-md-6 col-sm-6"
+          class="container"
         >
-          <p
-            className="copyright"
+          <div
+            class="row"
           >
-            <span
-              className="fa fa-copyright"
-            />
-             #VetsWhoCode
-          </p>
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <p
+                class="copyright"
+              >
+                <span
+                  class="fa fa-copyright"
+                />
+                 #VetsWhoCode
+              </p>
+            </div>
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <ul
+                class="footer-menu"
+              >
+                <li>
+                  Made with 
+                  <span
+                    class="fa fa-heart red"
+                  />
+                   By #VetsWhoCode.
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div
-          className="col-md-6 col-sm-6"
-        >
-          <ul
-            className="footer-menu"
-          >
-            <li>
-              Made with 
-              <span
-                className="fa fa-heart red"
-              />
-               By #VetsWhoCode.
-            </li>
-          </ul>
-        </div>
-      </div>
+      </footer>
     </div>
-  </footer>
-</div>
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
