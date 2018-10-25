@@ -9,7 +9,7 @@ describe('<Countdown />', () => {
     const { unmount } = render(<Countdown />)
 
     jest.spyOn(console, 'error').mockImplementation(() => {})
-
+    jest.runOnlyPendingTimers()
     unmount()
     // eslint-disable-next-line
     expect(console.error).not.toHaveBeenCalled()
