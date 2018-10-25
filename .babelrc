@@ -5,6 +5,12 @@
   ],
   plugins: [
     "@babel/plugin-syntax-dynamic-import",
-    "transform-class-properties"
+    "transform-class-properties",
+    [
+      "@babel/transform-runtime",
+      {
+        "regenerator": true
+      }
+    ]
   ]
 }

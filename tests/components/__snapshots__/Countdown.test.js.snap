@@ -2,65 +2,65 @@
 
 exports[`<Countdown /> should render correctly 1`] = `
 <div
-  className="col-sm-6 event_counter_container text-center"
+  class="col-sm-6 event_counter_container text-center"
 >
   <div
-    className="container-countdown"
+    class="container-countdown"
   >
     <div
-      className="countdown-box"
+      class="countdown-box"
     >
       <span
-        className="counter"
+        class="counter"
       >
-        1
+        129
       </span>
       <h4>
         Days
       </h4>
     </div>
     <div
-      className="countdown-box"
+      class="countdown-box"
     >
       <span
-        className="counter"
+        class="counter"
       >
-        1
+        19
       </span>
       <h4>
         Hours
       </h4>
     </div>
     <div
-      className="countdown-box"
+      class="countdown-box"
     >
       <span
-        className="counter"
+        class="counter"
       >
-        27
+        20
       </span>
       <h4>
         Minutes
       </h4>
     </div>
     <div
-      className="countdown-box"
+      class="countdown-box"
     >
       <span
-        className="counter"
+        class="counter"
       >
-        30
+        51
       </span>
       <h4>
         Seconds
       </h4>
     </div>
   </div>
-  <GatsbyLink
-    className="btn btn-charity-default"
-    to="/apply"
+  <a
+    class="btn btn-charity-default"
+    href="/apply"
   >
     Apply
-  </GatsbyLink>
+  </a>
 </div>
 `;
