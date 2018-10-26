@@ -7263,7 +7263,17 @@ gatsby-image@2.0.12:
     prop-types "^15.6.1"
     react-testing-library "^4.1.7"
 
-gatsby-link@2.0.2, gatsby-link@^2.0.2:
+gatsby-link@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.5.tgz#67ed7bf67c892452695659e0e0fc0f9ba5c1fc34"
+  integrity sha512-BmUmyq+ra2B7KlmbkLcn2WBwBcfQ+FEQUyW9KBpTewKB+5CBzsjb0UzqGPFdbnSHeT2HcqDD0PlZ1PaBl+EWZw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    "@reach/router" "^1.1.1"
+    "@types/reach__router" "^1.0.0"
+    prop-types "^15.6.1"
+
+gatsby-link@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.0.2.tgz#b131b281cd0acdfb9a64e87fefeb01499296fa29"
   integrity sha512-0zfjuAwOyZQv3jeDL9c2omfKitVFWGdCfYU4YJLr2nvx+2I7VVQF+NugSdKIocYFQ1g12K/zzguMJpyRO99l3w==
