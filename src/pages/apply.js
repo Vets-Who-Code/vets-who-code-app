@@ -87,13 +87,14 @@ export default class Apply extends Component {
                   <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
                       <div className="form-group">
-                        <label htmlFor="InputName" className="dark-text">
+                        <label htmlFor="name" className="dark-text">
                           Name
                           <sup>*</sup>
                         </label>
                         <input
                           className="form-control input-lg"
                           type="text"
+                          id="name"
                           placeholder="Name"
                           name="name"
                           value={this.state.name}
@@ -224,6 +225,7 @@ export default class Apply extends Component {
                         <input
                           type="submit"
                           name="submit"
+                          value="submit"
                           href="#"
                           className="btn btn-charity-default"
                           title=""
