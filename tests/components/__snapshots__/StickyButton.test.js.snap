@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StickyButton /> should render correctly 1`] = `
+<Link
+  to="/donate"
+>
+  <button
+    className="btn btn-sm btn-charity-default"
+    style={
+      Object {
+        "bottom": 28,
+        "left": "12px",
+        "padding": "1rem 1.5rem",
+        "position": "fixed",
+        "zIndex": 20000,
+      }
+    }
+  >
+    Donate
+  </button>
+</Link>
+`;

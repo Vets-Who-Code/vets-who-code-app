@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import Nav from './Nav'
 import Footer from './Footer'
+import StickyButton from './StickyButton'
 
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
 import '../assets/lib/owlcarousel/owl-carousel/owl.carousel.css'
@@ -71,6 +72,7 @@ const TemplateWrapper = ({ children }) => (
     <main className="main_container">
       <Nav />
       {children}
+      <StickyButton />
       <Footer />
     </main>
   </div>
