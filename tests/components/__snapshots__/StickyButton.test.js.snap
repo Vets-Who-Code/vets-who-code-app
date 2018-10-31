@@ -5,11 +5,11 @@ exports[`<StickyButton /> should render correctly 1`] = `
   to="/donate"
 >
   <button
-    className="btn btn-sm btn-charity-default"
+    className="btn btn-charity-default"
     style={
       Object {
         "bottom": 28,
-        "left": "12px",
+        "left": 0,
         "padding": "1rem 1.5rem",
         "position": "fixed",
         "zIndex": 20000,
