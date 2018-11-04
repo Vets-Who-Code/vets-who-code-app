@@ -1,273 +1,666 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Mentor /> should render correctly 1`] = `
-<TemplateWrapper>
-  <header
-    className="inner-header overlay grey text-center slim-bg "
-    style={
-      Object {
-        "backgroundImage": "url(image-mock)",
-        "backgroundPositionY": "bottom",
-      }
-    }
-  >
-    <div
-      className="overlay-01"
-    />
-    <div
-      className="container"
+<div>
+  <div>
+    <main
+      class="main_container"
     >
-      <h2
-        className="text-center text-uppercase"
-      >
-        Mentor
-      </h2>
-      <div
-        className="breadcrumb"
-      >
-        <Link
-          to="/"
-        >
-          Home
-        </Link>
-        <span>
-          /
-        </span>
-        <Link
-          className="page-active"
-          to="/mentor"
-        >
-          Mentor
-        </Link>
-      </div>
-    </div>
-  </header>
-  <section
-    className="pad-regular section bg-default"
-    id="contact"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="row"
+      <nav
+        class="navbar navbar-fixed-top main-navigation"
+        id="fixedTopNav"
+        itemtype="https://schema.org/SiteNavigationElement"
+        role="navigation"
       >
         <div
-          className="col-xs-12"
+          class="container"
         >
           <div
-            className="contactus-brief"
+            class="navbar-header"
           >
-            <h3>
-              Become A Mentor
-            </h3>
-            <p
-              className="section-description"
+            <button
+              aria-expanded="false"
+              class="navbar-toggle collapsed"
+              data-target="#main-nav-collapse"
+              data-toggle="collapse"
+              type="button"
             >
-              Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.
-            </p>
-            <form
-              id="s2do-form"
-              onSubmit={[Function]}
+               
+              <span
+                class="sr-only"
+              >
+                #VetsWhoCode
+              </span>
+               
+              <span
+                class="ion-drag"
+              />
+            </button>
+            <div
+              class="navbar-brand"
+              itemtype="https://schema.org/Organization"
             >
-              <div
-                className="col-md-8"
+               
+              <span
+                class="sr-only"
               >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputName"
-                  >
-                    Name
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="name"
-                    onChange={[Function]}
-                    placeholder="Name"
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
+                #VetsWhoCode
+              </span>
+              <a
+                aria-current="page"
+                class=""
+                href="/"
               >
-                <div
-                  className="form-group"
+                <img
+                  alt="#VetsWhoCode Logo"
+                  class="logo_holder"
+                  src="image-mock"
+                />
+              </a>
+            </div>
+          </div>
+          <div
+            aria-expanded="false"
+            class="navbar-collapse collapse"
+            id="main-nav-collapse"
+            style="height: 1px;"
+          >
+            <ul
+              class="nav navbar-nav navbar-right"
+              role="menu"
+            >
+              <li>
+                 
+                <a
+                  aria-current="page"
+                  class=""
+                  href="/"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputEmail"
-                  >
-                    Email
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="email"
-                    onChange={[Function]}
-                    placeholder="Email"
-                    required={true}
-                    type="email"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    Home
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/about"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputService"
-                  >
-                    Military Branch Of Service
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="branch-of-service"
-                    onChange={[Function]}
-                    placeholder="Thank you for your service"
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    About
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/syllabus"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputTechnicalExpertise"
-                  >
-                    Area Of Technical Expertise ( Javascript, Ruby, etc)
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="technical-expertise"
-                    onChange={[Function]}
-                    placeholder="What languages you write in?"
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    Syllabus
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/mentor"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputPortfolio"
-                  >
-                    Github, Portfolio or Linkedin
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="github-portfolio-or-linkedin"
-                    onChange={[Function]}
-                    placeholder="Share your work"
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    Mentor
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/apply"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputLocation"
-                  >
-                    Location ( City and State )
-                    <sup>
-                      *
-                    </sup>
-                  </label>
-                  <input
-                    className="form-control input-lg"
-                    name="location"
-                    onChange={[Function]}
-                    placeholder="Location"
-                    required={true}
-                    type="text"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    Apply
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/donate"
                 >
-                  <label
-                    className="dark-text"
-                    htmlFor="InputEmployerImplementedRestricted"
-                  >
-                    Employer Implemented Restrictions, If Any.
-                  </label>
-                  <textarea
-                    className="form-control"
-                    name="employer-restrictions"
-                    onChange={[Function]}
-                    placeholder="Please put here any employer restrictions about writing and reading code?"
-                    rows="7"
-                    value=""
-                  />
-                </div>
-              </div>
-              <div
-                className="col-md-8"
-              >
-                <div
-                  className="form-group"
+                  <span>
+                    Donate
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="/contact"
                 >
-                  <input
-                    className="btn btn-charity-default"
-                    href="#"
-                    name="submit"
-                    title=""
-                    type="submit"
-                  />
-                </div>
-              </div>
-            </form>
+                  <span>
+                    Contact Us
+                  </span>
+                </a>
+              </li>
+              <li>
+                 
+                <a
+                  href="https://medium.com/vets-who-code"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  without="true"
+                >
+                  <span>
+                    Blog
+                  </span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
+      </nav>
+      <header
+        class="inner-header overlay grey text-center slim-bg "
+        style="background-image: url(image-mock); background-position-y: bottom;"
+      >
+        <div
+          class="overlay-01"
+        />
+        <div
+          class="container"
+        >
+          <h2
+            class="text-center text-uppercase"
+          >
+            Mentor
+          </h2>
+          <div
+            class="breadcrumb"
+          >
+            <link
+              to="/"
+            >
+              Home
+            </link>
+            <span>
+              /
+            </span>
+            <link
+              class="page-active"
+              to="/mentor"
+            >
+              Mentor
+            </link>
+          </div>
+        </div>
+      </header>
+      <section
+        class="pad-regular section bg-default"
+        id="contact"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-xs-12"
+            >
+              <div
+                class="contactus-brief"
+              >
+                <h3>
+                  Become A Mentor
+                </h3>
+                <p
+                  class="section-description"
+                >
+                  Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.
+                </p>
+                <form
+                  id="s2do-form"
+                >
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputName"
+                      >
+                        Name
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="name"
+                        placeholder="Name"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputEmail"
+                      >
+                        Email
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="email"
+                        placeholder="Email"
+                        required=""
+                        type="email"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputService"
+                      >
+                        Military Branch Of Service
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="branch-of-service"
+                        placeholder="Thank you for your service"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputTechnicalExpertise"
+                      >
+                        Area Of Technical Expertise ( Javascript, Ruby, etc)
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="technical-expertise"
+                        placeholder="What languages you write in?"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputPortfolio"
+                      >
+                        Github, Portfolio or Linkedin
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="github-portfolio-or-linkedin"
+                        placeholder="Share your work"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputLocation"
+                      >
+                        Location ( City and State )
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        name="location"
+                        placeholder="Location"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="InputEmployerImplementedRestricted"
+                      >
+                        Employer Implemented Restrictions, If Any.
+                      </label>
+                      <textarea
+                        class="form-control"
+                        name="employer-restrictions"
+                        placeholder="Please put here any employer restrictions about writing and reading code?"
+                        rows="7"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <input
+                        class="btn btn-charity-default"
+                        href="#"
+                        name="submit"
+                        title=""
+                        type="submit"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div>
+        <section
+          class="footer-widgets pad-extra"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col-md-4"
+              >
+                <div
+                  class="widgets-content footer-widget-wrap"
+                >
+                  <h3
+                    class="widgets-title"
+                  >
+                    About #VetsWhoCode
+                  </h3>
+                  <p>
+                    FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                  </p>
+                  <div
+                    class="footer-social"
+                  >
+                    <a
+                      href="http://bit.ly/vetswhocode-fb"
+                    >
+                      <i
+                        class="fa fa-facebook-f"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/vets-who-code-twitter"
+                    >
+                      <i
+                        class="fa fa-twitter"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/2omsjdX"
+                    >
+                      <i
+                        class="fa fa-codepen"
+                      />
+                    </a>
+                    <a
+                      href="https://bit.ly/2sJ6W9f"
+                    >
+                      <i
+                        class="fa fa-instagram"
+                      />
+                    </a>
+                    <a
+                      href="https://bit.ly/2sFKi1u"
+                    >
+                      <i
+                        class="fa fa-linkedin"
+                      />
+                    </a>
+                    <a
+                      href="http://bit.ly/vwc-github"
+                    >
+                      <i
+                        class="fa fa-github"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-4"
+              >
+                <div
+                  class="footer-widget-wrap"
+                >
+                  <div
+                    class="row"
+                  >
+                    <div
+                      class="col-md-11 col-md-offset-1"
+                    >
+                      <h3
+                        class="widgets-title"
+                      >
+                        Site Map
+                      </h3>
+                    </div>
+                    <div
+                      class="col-md-5 col-md-offset-1"
+                    >
+                      <div
+                        class="widgets-content"
+                      >
+                        <ul
+                          class="widgets-list"
+                        >
+                          <li>
+                            <a
+                              aria-current="page"
+                              class=""
+                              href="/"
+                            >
+                              Home
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/about"
+                            >
+                              About
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/syllabus"
+                            >
+                              Syllabus
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/mentor"
+                            >
+                              Mentor
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-6"
+                    >
+                      <div
+                        class="widgets-content"
+                      >
+                        <ul
+                          class="widgets-list"
+                        >
+                          <li>
+                            <a
+                              href="/apply"
+                            >
+                              Apply
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/donate"
+                            >
+                              Donate
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="/contact"
+                            >
+                              Contact Us
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href="https://medium.com/vets-who-code"
+                              rel="noopener noreferrer"
+                              target="_blank"
+                            >
+                              <span>
+                                Blog
+                              </span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-md-4"
+              >
+                <div
+                  class="widgets-content"
+                >
+                  <h3
+                    class="widgets-title"
+                  >
+                    Contact Us
+                  </h3>
+                  <div
+                    class="office map"
+                  >
+                    <p>
+                      <span>
+                        Hi, if you have any questions, please drop us a line.
+                      </span>
+                      <br />
+                      Email: hello@vetswhocode.io
+                      <br />
+                      Phone: (917) 960-3806
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer
+          class="section footer"
+          id="footer"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col-md-6 col-sm-6"
+              >
+                <p
+                  class="copyright"
+                >
+                  <span
+                    class="fa fa-copyright"
+                  />
+                   #VetsWhoCode
+                </p>
+              </div>
+              <div
+                class="col-md-6 col-sm-6"
+              >
+                <ul
+                  class="footer-menu"
+                >
+                  <li>
+                    Made with 
+                    <span
+                      class="fa fa-heart red"
+                    />
+                     By #VetsWhoCode.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
-    </div>
-  </section>
-</TemplateWrapper>
+    </main>
+  </div>
+</div>
 `;
