@@ -237,6 +237,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="name"
                         name="name"
                         placeholder="Name"
                         required=""
@@ -262,6 +263,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="email"
                         name="email"
                         placeholder="Email"
                         required=""

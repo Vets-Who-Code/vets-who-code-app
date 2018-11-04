@@ -93,6 +93,7 @@ export default class Mentor extends Component {
                           type="text"
                           placeholder="Name"
                           name="name"
+                          id="name"
                           value={this.state.name}
                           onChange={this.handleChange}
                           required
@@ -108,6 +109,7 @@ export default class Mentor extends Component {
                         <input
                           className="form-control input-lg"
                           type="email"
+                          id="email"
                           placeholder="Email"
                           name="email"
                           value={this.state.email}

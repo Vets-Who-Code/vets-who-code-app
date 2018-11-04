@@ -18,8 +18,6 @@ describe('<About />', () => {
     })
   })
 
-  test.skip('should invoke end method on click', async () => {})
-
   test('should render correctly', () => {
     const { container } = render(<About />)
     expect(container.firstChild).toMatchSnapshot()
