@@ -176,20 +176,11 @@ exports[`<Mentor /> should render correctly 1`] = `
           <div
             class="breadcrumb"
           >
-            <link
-              to="/"
-            >
-              Home
-            </link>
+            gatsby-link
             <span>
               /
             </span>
-            <link
-              class="page-active"
-              to="/mentor"
-            >
-              Mentor
-            </link>
+            gatsby-link
           </div>
         </div>
       </header>

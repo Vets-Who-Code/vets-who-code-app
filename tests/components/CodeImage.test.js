@@ -3,7 +3,6 @@ import { CodePNG as CodeImage  } from '../../src/components/CodeImage'
 import { render } from "react-testing-library"
 
 describe('<CodePNG />', () => {
-  let wrapper
   const data = {
     file: {
       childImageSharp: {
@@ -18,9 +17,9 @@ describe('<CodePNG />', () => {
     },
   }
 
-  beforeEach(() => wrapper = render(<CodeImage data={data} width={690} />))
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<CodeImage data={data} width={690} />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

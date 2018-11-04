@@ -175,20 +175,11 @@ exports[`<Contact /> should render correctly 1`] = `
         <div
           class="breadcrumb"
         >
-          <link
-            to="/"
-          >
-            Home
-          </link>
+          gatsby-link
           <span>
             /
           </span>
-          <link
-            class="page-active"
-            to="/contact"
-          >
-            Contact Us
-          </link>
+          gatsby-link
         </div>
       </div>
     </header>
