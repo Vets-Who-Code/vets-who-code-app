@@ -1,8 +1,6 @@
 import React from 'react'
 import { TroopsAtGoogleImage  } from '../../src/components/TroopsAtGoogle'
-import { render, cleanup } from "react-testing-library"
-
-afterEach(cleanup)
+import { render } from "react-testing-library"
 
 describe('<TroopsAtGoogle />', () => {
   let wrapper
