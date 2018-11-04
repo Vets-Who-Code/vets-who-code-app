@@ -84,7 +84,6 @@
       "./tests/jest-preprocess.js",
       "./tests/loadershim.js"
     ],
-    "testURL": "http://localhost",
     "collectCoverageFrom": [
       "src/components/**/*.{js,jsx}",
       "src/pages/**/*.{js,jsx}",
