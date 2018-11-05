@@ -1,10 +1,9 @@
 import React from 'react'
-import { TroopsAtGoogleImage  } from '../../src/components/TroopsAtGoogle'
+import { TroopsAtGoogleImage as TroopsAtGoogle  } from '../../src/components/TroopsAtGoogle'
 import { render } from "react-testing-library"
 
 describe('<TroopsAtGoogle />', () => {
   const data = {
-    query: '',
     file: {
       childImageSharp: {
         fluid: {
@@ -19,7 +18,7 @@ describe('<TroopsAtGoogle />', () => {
   }
 
   test('should render correctly', () => {
-    const { container } = render(<TroopsAtGoogleImage data={data} />)
+    const { container } = render(<TroopsAtGoogle data={data} />)
     expect(container.firstChild).toMatchSnapshot()
   })
 })
