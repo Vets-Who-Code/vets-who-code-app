@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
-import { CodeImage } from './CodeImage'
+import CodeImage from './CodeImage'
 
 class HeaderSlider extends Component {
   state = { mockWindowWidth: 0 }
