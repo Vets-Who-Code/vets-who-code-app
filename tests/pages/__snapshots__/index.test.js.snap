@@ -227,9 +227,7 @@ exports[`<IndexPage /> should render correctly 1`] = `
           <div
             class="col-md-5 col-sm-12 no_left_pad no_right_pad"
           >
-            <div>
-              Loading (StaticQuery)
-            </div>
+            static-query
           </div>
           <div
             class="col-md-7 col-sm-12 our_story_content text-center"
