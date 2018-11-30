@@ -28,7 +28,7 @@ class IndexPage extends Component {
     event.preventDefault()
     const { email } = this.state
 
-    const url = 'https://still-oasis-71573.herokuapp.com/subscribe'
+    const url = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/dev/subscribe'
 
     const options = {
       method: 'POST',
