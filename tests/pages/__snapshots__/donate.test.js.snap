@@ -271,6 +271,7 @@ exports[`<Donate /> should render correctly 1`] = `
       </div>
        
     </section>
+    gatsby-link
     <div>
       <section
         class="footer-widgets pad-extra"
