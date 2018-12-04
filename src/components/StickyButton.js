@@ -3,16 +3,23 @@ import { Link } from 'gatsby'
 
 const styles = {
   position: 'fixed',
-  bottom: 28,
   zIndex: 20000,
-  left: 0,
-  padding: '1rem 1.5rem',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  boxShadow: '0 5px 40px rgba(0,0,0,0.16)',
+  height: 60,
+  width: 60,
+  left: 20,
+  bottom: 20,
+  borderRadius: '50%',
+  fontSize: 35
 }
 
 const StickyButton = () => (
   <Link to="/donate">
     <button className="btn btn-charity-default" style={styles}>
-      Donate
+      <i className="fa fa-heart"></i>
     </button>
   </Link>
 )

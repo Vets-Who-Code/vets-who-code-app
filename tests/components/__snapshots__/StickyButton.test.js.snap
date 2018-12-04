@@ -8,15 +8,24 @@ exports[`<StickyButton /> should render correctly 1`] = `
     className="btn btn-charity-default"
     style={
       Object {
-        "bottom": 28,
-        "left": 0,
-        "padding": "1rem 1.5rem",
+        "alignItems": "center",
+        "borderRadius": "50%",
+        "bottom": 20,
+        "boxShadow": "0 5px 40px rgba(0,0,0,0.16)",
+        "display": "flex",
+        "fontSize": 35,
+        "height": 60,
+        "justifyContent": "center",
+        "left": 20,
         "position": "fixed",
+        "width": 60,
         "zIndex": 20000,
       }
     }
   >
-    Donate
+    <i
+      className="fa fa-heart"
+    />
   </button>
 </Link>
 `;
