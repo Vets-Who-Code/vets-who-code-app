@@ -24,13 +24,13 @@ exports[`<Layout /> should render correctly 1`] = `
             data-toggle="collapse"
             type="button"
           >
-             
+
             <span
               class="sr-only"
             >
               #VetsWhoCode
             </span>
-             
+
             <span
               class="ion-drag"
             />
@@ -39,7 +39,7 @@ exports[`<Layout /> should render correctly 1`] = `
             class="navbar-brand"
             itemtype="https://schema.org/Organization"
           >
-             
+
             <span
               class="sr-only"
             >
@@ -69,7 +69,7 @@ exports[`<Layout /> should render correctly 1`] = `
             role="menu"
           >
             <li>
-               
+
               <a
                 aria-current="page"
                 class=""
@@ -81,7 +81,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/about"
               >
@@ -91,7 +91,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/syllabus"
               >
@@ -101,7 +101,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/mentor"
               >
@@ -111,7 +111,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/apply"
               >
@@ -121,7 +121,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/donate"
               >
@@ -131,7 +131,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="/contact"
               >
@@ -141,7 +141,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li>
-               
+
               <a
                 href="https://medium.com/vets-who-code"
                 rel="noopener noreferrer"
@@ -394,7 +394,7 @@ exports[`<Layout /> should render correctly 1`] = `
                 class="footer-menu"
               >
                 <li>
-                  Made with 
+                  Made with
                   <span
                     class="fa fa-heart red"
                   />
