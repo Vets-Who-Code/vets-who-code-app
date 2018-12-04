@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import '../assets/css/heart-pulse.css'
+
 const styles = {
   position: 'fixed',
   zIndex: 20000,
