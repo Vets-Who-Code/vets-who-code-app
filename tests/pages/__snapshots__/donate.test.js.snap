@@ -1,154 +1,525 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Donate /> should render correctly 1`] = `
-<TemplateWrapper>
-  <header
-    className="inner-header overlay grey text-center slim-bg "
-    style={
-      Object {
-        "backgroundImage": "url(image-mock)",
-        "backgroundPositionY": "bottom",
-      }
-    }
+<div>
+  <main
+    class="main_container"
   >
-    <div
-      className="overlay-01"
-    />
-    <div
-      className="container"
-    >
-      <h2
-        className="text-center text-uppercase"
-      >
-        Donate
-      </h2>
-      <div
-        className="breadcrumb"
-      >
-        <Link
-          to="/"
-        >
-          Home
-        </Link>
-        <span>
-          /
-        </span>
-        <Link
-          className="page-active"
-          to="/donate"
-        >
-          Donate
-        </Link>
-      </div>
-    </div>
-  </header>
-  <section
-    className="cause_single section bg-default single pad-regular"
-    id="cause_singe"
-  >
-    <div
-      className="container"
+    <nav
+      class="navbar navbar-fixed-top main-navigation"
+      id="fixedTopNav"
+      itemtype="https://schema.org/SiteNavigationElement"
+      role="navigation"
     >
       <div
-        className="row"
+        class="container"
       >
         <div
-          className="col-md-12"
+          class="navbar-header"
         >
-          <div
-            className="cause_image_holder"
-          >
-            <img
-              alt="cause"
-              className="img-responsive"
-              src="image-mock"
-            />
-          </div>
-          <h4
-            className="cause_title"
-          >
-            Help Us Continue To Train More Veterans
-          </h4>
-          <br />
-          <div
-            className="cause_section_content"
-          >
-            <p>
-              Since 2014 we have been successfully training veterans in web development. From holding speaking engagements with industry leaders, to curriculum and teaching, to setting up tours and meetings with top tech companies, we have been on the front lines getting our troops the training and tools that they need to earn the opportunities that the tech industry offers. TO do that we need support from people like you, who not only support veterans but who understand the value of hard work and pushing yourself to obtain a goal. Please continue your support by giving a small donation so that we can continue to train more veterans.
-            </p>
-            <blockquote>
-              <p>
-                <img
-                  alt="John Garcia"
-                  src="image-mock"
-                />
-                <br />
-                "VWC helped me gain the technical knowledge I needed in order to get the attention of employers. The guidance, support and experience I had going through the program continues to help me in my role as a full time web developer."
-                <br />
-                 - John Garcia, USAF | Web Developer, Hearst Media
-              </p>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <DonateModal
-    closeModal={[Function]}
-    modalIsOpen={false}
-    openModal={[Function]}
-  />
-  <section
-    className="call-to-action-small"
-    id="call-to-action-small"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="row"
-      >
-        <div
-          className="col-md-8 text-center"
-        >
-          <h3>
-            Help Us Teach More Veterans How To Code
-          </h3>
-        </div>
-        <div
-          className="col-md-4"
-        >
-          <div
-            className="button-align text-center"
+          <button
+            aria-expanded="false"
+            class="navbar-toggle collapsed"
+            data-target="#main-nav-collapse"
+            data-toggle="collapse"
+            type="button"
           >
              
-            <button
-              className="dbox-donation-button"
-              onClick={[Function]}
-              style={
-                Object {
-                  "MozBorderRadius": 2,
-                  "WebkitBorderRadius": 2,
-                  "background": "#c5203e url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat 55px center",
-                  "borderRadius": 2,
-                  "boxShadow": "0 1px 0 0 #06152C",
-                  "color": "#fff",
-                  "display": "inline-block",
-                  "fontFamily": "Verdana,sans-serif",
-                  "fontSize": 16,
-                  "padding": "15px 50px 15px 90px",
-                  "textDecoration": "none",
-                  "textShadow": "0 1px rgba(0, 0, 0, 0.3)",
-                }
-              }
+            <span
+              class="sr-only"
             >
-              Donate
-            </button>
+              #VetsWhoCode
+            </span>
+             
+            <span
+              class="ion-drag"
+            />
+          </button>
+          <div
+            class="navbar-brand"
+            itemtype="https://schema.org/Organization"
+          >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+            <a
+              aria-current="page"
+              class=""
+              href="/"
+            >
+              <img
+                alt="#VetsWhoCode Logo"
+                class="logo_holder"
+                src="image-mock"
+              />
+            </a>
+          </div>
+        </div>
+        <div
+          aria-expanded="false"
+          class="navbar-collapse collapse"
+          id="main-nav-collapse"
+          style="height: 1px;"
+        >
+          <ul
+            class="nav navbar-nav navbar-right"
+            role="menu"
+          >
+            <li>
+               
+              <a
+                aria-current="page"
+                class=""
+                href="/"
+              >
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/syllabus"
+              >
+                <span>
+                  Syllabus
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/mentor"
+              >
+                <span>
+                  Mentor
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/apply"
+              >
+                <span>
+                  Apply
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/donate"
+              >
+                <span>
+                  Donate
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/contact"
+              >
+                <span>
+                  Contact Us
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="https://medium.com/vets-who-code"
+                rel="noopener noreferrer"
+                target="_blank"
+                without="true"
+              >
+                <span>
+                  Blog
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <header
+      class="inner-header overlay grey text-center slim-bg "
+      style="background-image: url(image-mock); background-position-y: bottom;"
+    >
+      <div
+        class="overlay-01"
+      />
+      <div
+        class="container"
+      >
+        <h2
+          class="text-center text-uppercase"
+        >
+          Donate
+        </h2>
+        <div
+          class="breadcrumb"
+        >
+          gatsby-link
+          <span>
+            /
+          </span>
+          gatsby-link
+        </div>
+      </div>
+    </header>
+    <section
+      class="cause_single section bg-default single pad-regular"
+      id="cause_singe"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-12"
+          >
+            <div
+              class="cause_image_holder"
+            >
+              <img
+                alt="cause"
+                class="img-responsive"
+                src="image-mock"
+              />
+            </div>
+            <h4
+              class="cause_title"
+            >
+              Help Us Continue To Train More Veterans
+            </h4>
+            <br />
+            <div
+              class="cause_section_content"
+            >
+              <p>
+                Since 2014 we have been successfully training veterans in web development. From holding speaking engagements with industry leaders, to curriculum and teaching, to setting up tours and meetings with top tech companies, we have been on the front lines getting our troops the training and tools that they need to earn the opportunities that the tech industry offers. TO do that we need support from people like you, who not only support veterans but who understand the value of hard work and pushing yourself to obtain a goal. Please continue your support by giving a small donation so that we can continue to train more veterans.
+              </p>
+              <blockquote>
+                <p>
+                  <img
+                    alt="John Garcia"
+                    src="image-mock"
+                  />
+                  <br />
+                  "VWC helped me gain the technical knowledge I needed in order to get the attention of employers. The guidance, support and experience I had going through the program continues to help me in my role as a full time web developer."
+                  <br />
+                   - John Garcia, USAF | Web Developer, Hearst Media
+                </p>
+              </blockquote>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+    <div />
+    <section
+      class="call-to-action-small"
+      id="call-to-action-small"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-8 text-center"
+          >
+            <h3>
+              Help Us Teach More Veterans How To Code
+            </h3>
+          </div>
+          <div
+            class="col-md-4"
+          >
+            <div
+              class="button-align text-center"
+            >
+               
+              <button
+                class="dbox-donation-button"
+                style="background: rgb(197, 32, 62) url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat center; color: rgb(255, 255, 255); text-decoration: none; font-family: Verdana,sans-serif; display: inline-block; font-size: 16px; padding: 15px 50px 15px 90px; border-radius: 2px; box-shadow: 0 1px 0 0 #06152C; text-shadow: 0 1px rgba(0, 0, 0, 0.3);"
+              >
+                Donate
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+       
+    </section>
+    <div>
+      <section
+        class="footer-widgets pad-extra"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content footer-widget-wrap"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  About #VetsWhoCode
+                </h3>
+                <p>
+                  FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                </p>
+                <div
+                  class="footer-social"
+                >
+                  <a
+                    href="http://bit.ly/vetswhocode-fb"
+                  >
+                    <i
+                      class="fa fa-facebook-f"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vets-who-code-twitter"
+                  >
+                    <i
+                      class="fa fa-twitter"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/2omsjdX"
+                  >
+                    <i
+                      class="fa fa-codepen"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sJ6W9f"
+                  >
+                    <i
+                      class="fa fa-instagram"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sFKi1u"
+                  >
+                    <i
+                      class="fa fa-linkedin"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vwc-github"
+                  >
+                    <i
+                      class="fa fa-github"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="footer-widget-wrap"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-md-11 col-md-offset-1"
+                  >
+                    <h3
+                      class="widgets-title"
+                    >
+                      Site Map
+                    </h3>
+                  </div>
+                  <div
+                    class="col-md-5 col-md-offset-1"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            aria-current="page"
+                            class=""
+                            href="/"
+                          >
+                            Home
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/about"
+                          >
+                            About
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/syllabus"
+                          >
+                            Syllabus
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/mentor"
+                          >
+                            Mentor
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-6"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            href="/apply"
+                          >
+                            Apply
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/donate"
+                          >
+                            Donate
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/contact"
+                          >
+                            Contact Us
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://medium.com/vets-who-code"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <span>
+                              Blog
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  Contact Us
+                </h3>
+                <div
+                  class="office map"
+                >
+                  <p>
+                    <span>
+                      Hi, if you have any questions, please drop us a line.
+                    </span>
+                    <br />
+                    Email: hello@vetswhocode.io
+                    <br />
+                    Phone: (917) 960-3806
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="section footer"
+        id="footer"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <p
+                class="copyright"
+              >
+                <span
+                  class="fa fa-copyright"
+                />
+                 #VetsWhoCode
+              </p>
+            </div>
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <ul
+                class="footer-menu"
+              >
+                <li>
+                  Made with 
+                  <span
+                    class="fa fa-heart red"
+                  />
+                   By #VetsWhoCode.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-     
-  </section>
-</TemplateWrapper>
+  </main>
+</div>
 `;

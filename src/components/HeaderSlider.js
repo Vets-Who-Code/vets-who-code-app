@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -8,7 +8,7 @@ import 'slick-carousel/slick/slick-theme.css'
 import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
-import { CodeImage } from './CodeImage'
+import CodeImage from './CodeImage'
 
 class HeaderSlider extends Component {
   state = { mockWindowWidth: 0 }

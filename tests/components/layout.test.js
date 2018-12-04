@@ -1,14 +1,10 @@
 import React from 'react'
 import TemplateWrapper from '../../src/components/layout'
+import { render } from 'react-testing-library'
 
 describe('<Layout />', () => {
-  let wrapper
-
-  beforeEach(() => {
-    wrapper = shallow(<TemplateWrapper />)
-  })
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<TemplateWrapper />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

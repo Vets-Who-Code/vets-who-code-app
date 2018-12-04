@@ -1,12 +1,10 @@
 import React from 'react'
 import Header from '../../src/components/Header'
+import { render } from 'react-testing-library'
 
 describe('<Header />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<Header />))
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Header />);
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

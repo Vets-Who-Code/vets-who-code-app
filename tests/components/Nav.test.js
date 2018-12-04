@@ -1,13 +1,11 @@
 import React from 'react'
 import Nav from '../../src/components/Nav'
 import jQuery from '../../static/vendor/jquery/dist/jquery'
+import { render } from 'react-testing-library'
 
 describe('<Nav />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<Nav />))
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Nav />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

@@ -1,11 +1,10 @@
 import React from 'react'
 import SponsorSlider from '../../src/components/SponsorSlider'
+import { render } from 'react-testing-library'
 
 describe('<SponsorSlider />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<SponsorSlider />))
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<SponsorSlider />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

@@ -1,67 +1,27 @@
 import React from 'react'
 import Apply from '../../src/pages/apply'
-
+import { render, fireEvent } from 'react-testing-library';
 
 describe('<Apply />', () => {
-  let wrapper
+  test('should submit form and clear fields', () => {
+    const { container } = render(<Apply />)
+    const nameInput = container.querySelector('#name')
+    const applyForm = container.querySelector('form')
+    global.fetch = jest.fn().mockImplementation(() => Promise.resolve())
 
-  beforeEach(() => wrapper = shallow(<Apply />))
-
-  test('should update state handleChange is invoked', () => {
-    const mockEvent = {
+    fireEvent.change(nameInput, {
       target: {
-        name: 'name',
-        value: 'User Name'
+        value: 'New User'
       }
-    }
-    wrapper.instance().handleChange(mockEvent)
-    expect(wrapper.state('name')).toEqual('User Name')
-  })
-
-  test('should call fetch with correct options when handleSubmit is invoked', () => {
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve())
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-    wrapper.setState({
-      name: 'User Name',
-      email: 'me@mail.com',
-      'branch-of-service': 'branch',
-      experience: 'typing',
-      'github-portfolio-or-linkedin': 'github-url',
-      location: 'some state usa',
-      'favorite-mre': 'chill-mac',
-      'tell-us-about-yourself': 'I was in the military'
     })
-    const mockUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
-    const mockOptions = {
-      method: 'POST',
-      body: JSON.stringify({
-        name: 'User Name',
-        email: 'me@mail.com',
-        'branch-of-service': 'branch',
-        experience: 'typing',
-        'github-portfolio-or-linkedin': 'github-url',
-        location: 'some state usa',
-        'favorite-mre': 'chill-mac',
-        'tell-us-about-yourself': 'I was in the military'
-      })
-    }
-    wrapper.instance().handleSubmit(mockEvent)
-    expect(window.fetch).toHaveBeenCalledWith(mockUrl, mockOptions)
-  })
 
-  test('should invoke resetForm when handleSubmit is invoked', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'resetForm')
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve())
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-    wrapper.instance().handleSubmit(mockEvent)
-    expect(spy).toHaveBeenCalled()
+    expect(nameInput.value).toBe('New User')
+    fireEvent.submit(applyForm)
+    expect(nameInput.value).toBe('')
   })
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Apply />)
+    expect(container).toMatchSnapshot()
   })
 })

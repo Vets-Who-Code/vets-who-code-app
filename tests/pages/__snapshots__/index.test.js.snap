@@ -1,232 +1,734 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IndexPage /> should render correctly 1`] = `
-<TemplateWrapper>
-  <Header />
-  <section
-    className="section pad-regular bg-default our_stories small-top-pad"
-    id="our_stories"
+<div>
+  <main
+    class="main_container"
   >
-    <div
-      className="container"
+    <nav
+      class="navbar navbar-fixed-top main-navigation"
+      id="fixedTopNav"
+      itemtype="https://schema.org/SiteNavigationElement"
+      role="navigation"
     >
       <div
-        className="row bg-dark"
+        class="container"
       >
         <div
-          className="col-md-5 col-sm-12 no_left_pad no_right_pad"
+          class="navbar-header"
         >
-          <TroopsAtGoogle
-            className="img-responsive"
-          />
+          <button
+            aria-expanded="false"
+            class="navbar-toggle collapsed"
+            data-target="#main-nav-collapse"
+            data-toggle="collapse"
+            type="button"
+          >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+             
+            <span
+              class="ion-drag"
+            />
+          </button>
+          <div
+            class="navbar-brand"
+            itemtype="https://schema.org/Organization"
+          >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+            <a
+              aria-current="page"
+              class=""
+              href="/"
+            >
+              <img
+                alt="#VetsWhoCode Logo"
+                class="logo_holder"
+                src="image-mock"
+              />
+            </a>
+          </div>
         </div>
         <div
-          className="col-md-7 col-sm-12 our_story_content text-center"
+          aria-expanded="false"
+          class="navbar-collapse collapse"
+          id="main-nav-collapse"
+          style="height: 1px;"
         >
-          <div
-            className="featured-heading"
+          <ul
+            class="nav navbar-nav navbar-right"
+            role="menu"
           >
-            <h2>
-              #VetsWhoCode
-            </h2>
-          </div>
-          <p>
-            #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering principles free of charge with the focus of starting careers as javascript developers.
-          </p>
+            <li>
+               
+              <a
+                aria-current="page"
+                class=""
+                href="/"
+              >
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/syllabus"
+              >
+                <span>
+                  Syllabus
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/mentor"
+              >
+                <span>
+                  Mentor
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/apply"
+              >
+                <span>
+                  Apply
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/donate"
+              >
+                <span>
+                  Donate
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/contact"
+              >
+                <span>
+                  Contact Us
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="https://medium.com/vets-who-code"
+                rel="noopener noreferrer"
+                target="_blank"
+                without="true"
+              >
+                <span>
+                  Blog
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
-  <section
-    className="section pad-regular bg-light our_missions"
-    id="our_missions"
-  >
-    <div
-      className="container"
+    </nav>
+    <header
+      class="site-header flexslider classic"
+      id="site-header"
+    >
+      <div>
+        <div />
+        <ol
+          class="flex-control-nav flex-control-paging"
+        >
+          <li>
+            <a
+              class=""
+            >
+              1
+            </a>
+          </li>
+          <li>
+            <a
+              class="flex-active"
+            >
+              2
+            </a>
+          </li>
+          <li>
+            <a
+              class=""
+            >
+              3
+            </a>
+          </li>
+        </ol>
+        <ul
+          class="flex-direction-nav"
+        >
+          <li
+            class="flex-nav-prev"
+          >
+            <a
+              class="flex-prev"
+              href="#"
+            >
+              Previous
+            </a>
+          </li>
+          <li
+            class="flex-nav-next"
+          >
+            <a
+              class="flex-next"
+              href="#"
+            >
+              Next
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section
+      class="section pad-regular bg-default our_stories small-top-pad"
+      id="our_stories"
     >
       <div
-        className="row"
+        class="container"
       >
         <div
-          className="featured-heading text-center"
+          class="row bg-dark"
         >
-          <h2
-            className="dark_color"
+          <div
+            class="col-md-5 col-sm-12 no_left_pad no_right_pad"
           >
-            RETOOL
-            <i
-              aria-hidden="true"
-              className="fa fa-code"
-            />
-             RETRAIN
-            <i
-              aria-hidden="true"
-              className="fa fa-code"
-            />
-             RELAUNCH
+            static-query
+          </div>
+          <div
+            class="col-md-7 col-sm-12 our_story_content text-center"
+          >
+            <div
+              class="featured-heading"
+            >
+              <h2>
+                #VetsWhoCode
+              </h2>
+            </div>
+            <p>
+              #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that focuses on training veterans in web development and software engineering principles free of charge with the focus of starting careers as javascript developers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="section pad-regular bg-light our_missions"
+      id="our_missions"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="featured-heading text-center"
+          >
+            <h2
+              class="dark_color"
+            >
+              RETOOL
+              <i
+                aria-hidden="true"
+                class="fa fa-code"
+              />
+               RETRAIN
+              <i
+                aria-hidden="true"
+                class="fa fa-code"
+              />
+               RELAUNCH
+            </h2>
+          </div>
+          <div
+            class="col-sm-12 our_mission_content text-center"
+          >
+            <blockquote>
+              <p>
+                Through training, building projects, mentorship, and opportunities to connect with industry experts, we ensure that our troops gain the best knowledge possible in web development and software engineering.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="section bg-default causes-card"
+      id="causes"
+      style="padding: 75px 0px;"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="normal_heading text-center"
+        >
+          <h2>
+            Our Partners
           </h2>
         </div>
         <div
-          className="col-sm-12 our_mission_content text-center"
+          class="row"
         >
-          <blockquote>
-            <p>
-              Through training, building projects, mentorship, and opportunities to connect with industry experts, we ensure that our troops gain the best knowledge possible in web development and software engineering.
-            </p>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section
-    className="section bg-default causes-card"
-    id="causes"
-    style={
-      Object {
-        "padding": "75px 0",
-      }
-    }
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="normal_heading text-center"
-      >
-        <h2>
-          Our Partners
-        </h2>
-      </div>
-      <div
-        className="row"
-      >
-        <div
-          className="col-sm-12 cause_content text-center"
-          style={
-            Object {
-              "marginBottom": 40,
-            }
-          }
-        >
-          <h4
-            className="cause_title"
-          >
-            Thank You For Working With #VetsWhoCode!
-          </h4>
-          <hr />
-          <h3
-            className="subtitle"
-          >
-            We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.
-          </h3>
-        </div>
-      </div>
-      <SponsorSlider />
-    </div>
-  </section>
-  <section
-    className="section bg-dark pad-regular event_card"
-    id="event_card"
-  >
-    <div
-      className="container"
-    >
-      <div
-        className="row"
-      >
-        <div
-          className="col-sm-6 event_content"
-        >
-          <h4>
-            Next Cohort
-          </h4>
           <div
-            className="event_excerpt"
+            class="col-sm-12 cause_content text-center"
+            style="margin-bottom: 40px;"
           >
-            <p>
-              Countdown until our next #VetsWhoCode Cohort gets started:
-            </p>
+            <h4
+              class="cause_title"
+            >
+              Thank You For Working With #VetsWhoCode!
+            </h4>
+            <hr />
+            <h3
+              class="subtitle"
+            >
+              We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.
+            </h3>
           </div>
         </div>
-        <Countdown />
+        <div />
       </div>
-    </div>
-  </section>
-  <section
-    className="section bg-light pad-regular newsletter_card"
-    id="newsletter_card"
-  >
-    <div
-      className="container"
+    </section>
+    <section
+      class="section bg-dark pad-regular event_card"
+      id="event_card"
     >
       <div
-        className="row"
+        class="container"
       >
         <div
-          className="col-md-12 newsletter_wrapper"
+          class="row"
         >
           <div
-            className="newsletter_inner_wrapper"
+            class="col-sm-6 event_content"
+          >
+            <h4>
+              Next Cohort
+            </h4>
+            <div
+              class="event_excerpt"
+            >
+              <p>
+                Countdown until our next #VetsWhoCode Cohort gets started:
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-sm-6 event_counter_container text-center"
           >
             <div
-              className="row"
+              class="container-countdown"
             >
               <div
-                className="col-md-4"
+                class="countdown-box"
               >
-                <h3
-                  className="text-center"
-                >
-                  JOIN OUR EMAIL LIST
-                </h3>
+                <span
+                  class="counter"
+                />
+                <h4>
+                  Days
+                </h4>
               </div>
               <div
-                className="col-md-8"
+                class="countdown-box"
               >
-                <form
-                  id="s2do-form"
-                  onSubmit={[Function]}
+                <span
+                  class="counter"
+                />
+                <h4>
+                  Hours
+                </h4>
+              </div>
+              <div
+                class="countdown-box"
+              >
+                <span
+                  class="counter"
+                />
+                <h4>
+                  Minutes
+                </h4>
+              </div>
+              <div
+                class="countdown-box"
+              >
+                <span
+                  class="counter"
+                />
+                <h4>
+                  Seconds
+                </h4>
+              </div>
+            </div>
+            <a
+              class="btn btn-charity-default"
+              href="/apply"
+            >
+              Apply
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="section bg-light pad-regular newsletter_card"
+      id="newsletter_card"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-12 newsletter_wrapper"
+          >
+            <div
+              class="newsletter_inner_wrapper"
+            >
+              <div
+                class="row"
+              >
+                <div
+                  class="col-md-4"
                 >
-                  <div
-                    className="row"
+                  <h3
+                    class="text-center"
+                  >
+                    JOIN OUR EMAIL LIST
+                  </h3>
+                </div>
+                <div
+                  class="col-md-8"
+                >
+                  <form
+                    id="s2do-form"
                   >
                     <div
-                      className="col-md-9"
+                      class="row"
                     >
                       <div
-                        className="form-group"
+                        class="col-md-9"
                       >
-                        <input
-                          className="form-control"
-                          id="subscriber-email"
-                          name="email"
-                          onChange={[Function]}
-                          placeholder="Enter your email address"
-                          required={true}
-                          type="email"
-                          value=""
-                        />
+                        <div
+                          class="form-group"
+                        >
+                          <input
+                            class="form-control"
+                            id="subscriber-email"
+                            name="email"
+                            placeholder="Enter your email address"
+                            required=""
+                            type="email"
+                            value=""
+                          />
+                        </div>
+                      </div>
+                      <div
+                        class="col-md-3 subscribe-button_box"
+                      >
+                        <button
+                          class="btn btn-subscribe"
+                          id="subscribe-button"
+                          type="submit"
+                        >
+                          subscribe
+                        </button>
                       </div>
                     </div>
-                    <div
-                      className="col-md-3 subscribe-button_box"
-                    >
-                      <button
-                        className="btn btn-subscribe"
-                        id="subscribe-button"
-                        type="submit"
-                      >
-                        subscribe
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <div>
+      <section
+        class="footer-widgets pad-extra"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content footer-widget-wrap"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  About #VetsWhoCode
+                </h3>
+                <p>
+                  FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                </p>
+                <div
+                  class="footer-social"
+                >
+                  <a
+                    href="http://bit.ly/vetswhocode-fb"
+                  >
+                    <i
+                      class="fa fa-facebook-f"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vets-who-code-twitter"
+                  >
+                    <i
+                      class="fa fa-twitter"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/2omsjdX"
+                  >
+                    <i
+                      class="fa fa-codepen"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sJ6W9f"
+                  >
+                    <i
+                      class="fa fa-instagram"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sFKi1u"
+                  >
+                    <i
+                      class="fa fa-linkedin"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vwc-github"
+                  >
+                    <i
+                      class="fa fa-github"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="footer-widget-wrap"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-md-11 col-md-offset-1"
+                  >
+                    <h3
+                      class="widgets-title"
+                    >
+                      Site Map
+                    </h3>
+                  </div>
+                  <div
+                    class="col-md-5 col-md-offset-1"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            aria-current="page"
+                            class=""
+                            href="/"
+                          >
+                            Home
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/about"
+                          >
+                            About
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/syllabus"
+                          >
+                            Syllabus
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/mentor"
+                          >
+                            Mentor
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-6"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            href="/apply"
+                          >
+                            Apply
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/donate"
+                          >
+                            Donate
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/contact"
+                          >
+                            Contact Us
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://medium.com/vets-who-code"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <span>
+                              Blog
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  Contact Us
+                </h3>
+                <div
+                  class="office map"
+                >
+                  <p>
+                    <span>
+                      Hi, if you have any questions, please drop us a line.
+                    </span>
+                    <br />
+                    Email: hello@vetswhocode.io
+                    <br />
+                    Phone: (917) 960-3806
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="section footer"
+        id="footer"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <p
+                class="copyright"
+              >
+                <span
+                  class="fa fa-copyright"
+                />
+                 #VetsWhoCode
+              </p>
+            </div>
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <ul
+                class="footer-menu"
+              >
+                <li>
+                  Made with 
+                  <span
+                    class="fa fa-heart red"
+                  />
+                   By #VetsWhoCode.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </section>
-</TemplateWrapper>
+  </main>
+</div>
 `;

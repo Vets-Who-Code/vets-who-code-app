@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import SponsorSlider from '../components/SponsorSlider'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 
-import { TroopsAtGoogle } from '../components/TroopsAtGoogle'
+import TroopsAtGoogle from '../components/TroopsAtGoogle'
 
 if (typeof window !== `undefined`) {
   global.jQuery = require('../../static/vendor/jquery/dist/jquery')

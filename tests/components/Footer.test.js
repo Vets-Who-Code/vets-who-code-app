@@ -1,13 +1,11 @@
 import React from 'react'
 import Footer from '../../src/components/Footer'
+import { render } from 'react-testing-library'
 
 describe('<Footer />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<Footer />))
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<Footer />);
+    expect(container.firstChild).toMatchSnapshot()
   })
 
 })

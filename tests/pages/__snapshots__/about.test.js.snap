@@ -1,324 +1,689 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<About /> should render correctly 1`] = `
-<TemplateWrapper>
-  <header
-    className="inner-header overlay grey text-center slim-bg "
-    style={
-      Object {
-        "backgroundImage": "url(image-mock)",
-        "backgroundPositionY": "bottom",
-      }
-    }
+<div>
+  <main
+    class="main_container"
   >
-    <div
-      className="overlay-01"
-    />
-    <div
-      className="container"
-    >
-      <h2
-        className="text-center text-uppercase"
-      >
-        About
-      </h2>
-      <div
-        className="breadcrumb"
-      >
-        <Link
-          to="/"
-        >
-          Home
-        </Link>
-        <span>
-          /
-        </span>
-        <Link
-          className="page-active"
-          to="/about"
-        >
-          About
-        </Link>
-      </div>
-    </div>
-  </header>
-  <section
-    className="small-top-pad section bg-default"
-    id="about"
-  >
-    <div
-      className="container"
+    <nav
+      class="navbar navbar-fixed-top main-navigation"
+      id="fixedTopNav"
+      itemtype="https://schema.org/SiteNavigationElement"
+      role="navigation"
     >
       <div
-        className="row"
+        class="container"
       >
         <div
-          className="col-md-12"
+          class="navbar-header"
         >
-          <h3
-            className="story-title"
+          <button
+            aria-expanded="false"
+            class="navbar-toggle collapsed"
+            data-target="#main-nav-collapse"
+            data-toggle="collapse"
+            type="button"
           >
-            Our Success story
-          </h3>
-        </div>
-        <div
-          className="col-md-5"
-          style={
-            Object {
-              "marginBottom": 20,
-            }
-          }
-        >
+             
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+             
+            <span
+              class="ion-drag"
+            />
+          </button>
           <div
-            className="success-video"
-            style={
-              Object {
-                "position": "relative",
-              }
-            }
+            class="navbar-brand"
+            itemtype="https://schema.org/Organization"
           >
-            <video
-              className="img-responsive"
-              muted={true}
-              type="video/mp4"
+             
+            <span
+              class="sr-only"
             >
-              <source
-                src="image-mock"
-              />
-            </video>
+              #VetsWhoCode
+            </span>
             <a
-              className="play-button"
-              onClick={[Function]}
+              aria-current="page"
+              class=""
+              href="/"
             >
-              <i
-                className="fa fa-play-circle-o"
-                style={
-                  Object {
-                    "color": "#0e203e",
-                    "cursor": "pointer",
-                    "fontSize": 40,
-                    "left": "50%",
-                    "position": "absolute",
-                    "top": "50%",
-                    "transform": "translate(-50%, -50%)",
-                  }
-                }
+              <img
+                alt="#VetsWhoCode Logo"
+                class="logo_holder"
+                src="image-mock"
               />
             </a>
           </div>
-          <div
-            className="vwc-animated-gif"
-            style={
-              Object {
-                "backgroundImage": "url(image-mock)",
-                "backgroundPosition": "center center",
-                "backgroundSize": "cover",
-              }
-            }
-          />
         </div>
         <div
-          className="col-md-7"
+          aria-expanded="false"
+          class="navbar-collapse collapse"
+          id="main-nav-collapse"
+          style="height: 1px;"
         >
-          <div
-            className="success-story"
+          <ul
+            class="nav navbar-nav navbar-right"
+            role="menu"
           >
-            <p
-              className="story"
-            >
-              Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations technical skills gap with America’s best. We achieve this by using technology to connect and train veterans remotely in web development in order to close the digital talent gap and ease career transition for military veterans and to give military spouses skills to provide stability as they move to support their families. We believe that those who serve in uniform can be the digital economy’s most productive and innovative . Vets Who Code prepares them to enter the civilian work force with tangible skills for new careers.
-            </p>
-            <p
-              className="story-last"
-            >
-              Vets Who Code is a reintegration solution for veterans that believes in the principle of "To Teach a Man To Fish" to better prepare early stage transitioning veterans for returning to the workforce. Many veterans are not homeless, but are un- and under-employed. Some have a deep desire to be independent business owners. Their skill sets are desperately needed to enhance local economies and to drive innovation. Vets Who Code serves as a launch pad for our veterans and military spouses.
-            </p>
-          </div>
+            <li>
+               
+              <a
+                aria-current="page"
+                class=""
+                href="/"
+              >
+                <span>
+                  Home
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/about"
+              >
+                <span>
+                  About
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/syllabus"
+              >
+                <span>
+                  Syllabus
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/mentor"
+              >
+                <span>
+                  Mentor
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/apply"
+              >
+                <span>
+                  Apply
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/donate"
+              >
+                <span>
+                  Donate
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="/contact"
+              >
+                <span>
+                  Contact Us
+                </span>
+              </a>
+            </li>
+            <li>
+               
+              <a
+                href="https://medium.com/vets-who-code"
+                rel="noopener noreferrer"
+                target="_blank"
+                without="true"
+              >
+                <span>
+                  Blog
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </div>
-  </section>
-  <section
-    className="section bg-default"
-    id="team"
-  >
-    <div
-      className="container"
+    </nav>
+    <header
+      class="inner-header overlay grey text-center slim-bg "
+      style="background-image: url(image-mock); background-position-y: bottom;"
     >
       <div
-        className="row"
+        class="overlay-01"
+      />
+      <div
+        class="container"
+      >
+        <h2
+          class="text-center text-uppercase"
+        >
+          About
+        </h2>
+        <div
+          class="breadcrumb"
+        >
+          gatsby-link
+          <span>
+            /
+          </span>
+          gatsby-link
+        </div>
+      </div>
+    </header>
+    <section
+      class="small-top-pad section bg-default"
+      id="about"
+    >
+      <div
+        class="container"
       >
         <div
-          className="col-md-12"
+          class="row"
         >
-          <h3
-            className="meet-us-heading"
-          >
-            Our Team
-          </h3>
           <div
-            className="row"
+            class="col-md-12"
+          >
+            <h3
+              class="story-title"
+            >
+              Our Success story
+            </h3>
+          </div>
+          <div
+            class="col-md-5"
+            style="margin-bottom: 20px;"
           >
             <div
-              className="col-md-4 col-sm-6"
+              class="success-video"
+              style="position: relative;"
             >
-              <div
-                className="team-wiget clearfix"
+              <video
+                class="img-responsive"
+                type="video/mp4"
               >
-                <img
-                  alt="Jerome Hardaway Head Geek"
-                  className="img-responsive"
+                <source
                   src="image-mock"
                 />
-                <div
-                  className="meet-social"
-                >
-                  <a
-                    href="https://twitter.com/JeromeHardaway"
-                  >
-                    <i
-                      className="fa fa-twitter"
-                    />
-                  </a>
-                  <a
-                    href="https://github.com/jeromehardaway"
-                  >
-                    <i
-                      className="fa fa-github"
-                    />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/jeromehardaway/"
-                  >
-                    <i
-                      className="fa fa-linkedin"
-                    />
-                  </a>
-                </div>
-                <div
-                  className="personal-info"
-                >
-                  <p
-                    className="title"
-                  >
-                    Jerome Hardaway
-                  </p>
-                  <p
-                    className="designation"
-                  >
-                    Head Geek
-                  </p>
-                </div>
-              </div>
+              </video>
+              <a
+                class="play-button"
+              >
+                <i
+                  class="fa fa-play-circle-o"
+                  style="color: rgb(14, 32, 62); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; cursor: pointer;"
+                />
+              </a>
             </div>
             <div
-              className="col-md-4 col-sm-6"
+              class="vwc-animated-gif"
+              style="background-image: url(image-mock); background-position: center center; background-size: cover; display: none;"
+            />
+          </div>
+          <div
+            class="col-md-7"
+          >
+            <div
+              class="success-story"
+            >
+              <p
+                class="story"
+              >
+                Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations technical skills gap with America’s best. We achieve this by using technology to connect and train veterans remotely in web development in order to close the digital talent gap and ease career transition for military veterans and to give military spouses skills to provide stability as they move to support their families. We believe that those who serve in uniform can be the digital economy’s most productive and innovative . Vets Who Code prepares them to enter the civilian work force with tangible skills for new careers.
+              </p>
+              <p
+                class="story-last"
+              >
+                Vets Who Code is a reintegration solution for veterans that believes in the principle of "To Teach a Man To Fish" to better prepare early stage transitioning veterans for returning to the workforce. Many veterans are not homeless, but are un- and under-employed. Some have a deep desire to be independent business owners. Their skill sets are desperately needed to enhance local economies and to drive innovation. Vets Who Code serves as a launch pad for our veterans and military spouses.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="section bg-default"
+      id="team"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-12"
+          >
+            <h3
+              class="meet-us-heading"
+            >
+              Our Team
+            </h3>
+            <div
+              class="row"
             >
               <div
-                className="team-wiget clearfix"
+                class="col-md-4 col-sm-6"
               >
-                <img
-                  alt="Andrew Lebowitz Brand Geek"
-                  className="img-responsive"
-                  src="image-mock"
-                />
                 <div
-                  className="meet-social"
+                  class="team-wiget clearfix"
                 >
-                  <a
-                    href="https://twitter.com/witzcreative"
+                  <img
+                    alt="Jerome Hardaway Head Geek"
+                    class="img-responsive"
+                    src="image-mock"
+                  />
+                  <div
+                    class="meet-social"
                   >
-                    <i
-                      className="fa fa-twitter"
-                    />
-                  </a>
-                  <a
-                    href="https://www.behance.net/WitzCreative"
+                    <a
+                      href="https://twitter.com/JeromeHardaway"
+                    >
+                      <i
+                        class="fa fa-twitter"
+                      />
+                    </a>
+                    <a
+                      href="https://github.com/jeromehardaway"
+                    >
+                      <i
+                        class="fa fa-github"
+                      />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/jeromehardaway/"
+                    >
+                      <i
+                        class="fa fa-linkedin"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="personal-info"
                   >
-                    <i
-                      className="fa fa-behance"
-                    />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/witzcreative"
-                  >
-                    <i
-                      className="fa fa-linkedin"
-                    />
-                  </a>
-                </div>
-                <div
-                  className="personal-info"
-                >
-                  <p
-                    className="title"
-                  >
-                    Andrew Lebowitz
-                  </p>
-                  <p
-                    className="designation"
-                  >
-                    Brand Geek
-                  </p>
+                    <p
+                      class="title"
+                    >
+                      Jerome Hardaway
+                    </p>
+                    <p
+                      class="designation"
+                    >
+                      Head Geek
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="col-md-4 col-sm-6"
-            >
               <div
-                className="team-wiget clearfix"
+                class="col-md-4 col-sm-6"
               >
-                <img
-                  alt="Noel Sagaille Devops Geek"
-                  className="img-responsive"
-                  src="image-mock"
-                />
                 <div
-                  className="meet-social"
+                  class="team-wiget clearfix"
                 >
-                  <a
-                    href="https://twitter.com/MrBernnz"
+                  <img
+                    alt="Andrew Lebowitz Brand Geek"
+                    class="img-responsive"
+                    src="image-mock"
+                  />
+                  <div
+                    class="meet-social"
                   >
-                    <i
-                      className="fa fa-twitter"
-                    />
-                  </a>
-                  <a
-                    href="https://github.com/mrbernnz"
+                    <a
+                      href="https://twitter.com/witzcreative"
+                    >
+                      <i
+                        class="fa fa-twitter"
+                      />
+                    </a>
+                    <a
+                      href="https://www.behance.net/WitzCreative"
+                    >
+                      <i
+                        class="fa fa-behance"
+                      />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/witzcreative"
+                    >
+                      <i
+                        class="fa fa-linkedin"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="personal-info"
                   >
-                    <i
-                      className="fa fa-github"
-                    />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/mrbernnz"
-                  >
-                    <i
-                      className="fa fa-linkedin"
-                    />
-                  </a>
+                    <p
+                      class="title"
+                    >
+                      Andrew Lebowitz
+                    </p>
+                    <p
+                      class="designation"
+                    >
+                      Brand Geek
+                    </p>
+                  </div>
                 </div>
+              </div>
+              <div
+                class="col-md-4 col-sm-6"
+              >
                 <div
-                  className="personal-info"
+                  class="team-wiget clearfix"
                 >
-                  <p
-                    className="title"
+                  <img
+                    alt="Noel Sagaille Devops Geek"
+                    class="img-responsive"
+                    src="image-mock"
+                  />
+                  <div
+                    class="meet-social"
                   >
-                    Noel Sagaille
-                  </p>
-                  <p
-                    className="designation"
+                    <a
+                      href="https://twitter.com/MrBernnz"
+                    >
+                      <i
+                        class="fa fa-twitter"
+                      />
+                    </a>
+                    <a
+                      href="https://github.com/mrbernnz"
+                    >
+                      <i
+                        class="fa fa-github"
+                      />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/mrbernnz"
+                    >
+                      <i
+                        class="fa fa-linkedin"
+                      />
+                    </a>
+                  </div>
+                  <div
+                    class="personal-info"
                   >
-                    Devops Geek
-                  </p>
+                    <p
+                      class="title"
+                    >
+                      Noel Sagaille
+                    </p>
+                    <p
+                      class="designation"
+                    >
+                      Devops Geek
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
+    <div>
+      <section
+        class="footer-widgets pad-extra"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content footer-widget-wrap"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  About #VetsWhoCode
+                </h3>
+                <p>
+                  FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                </p>
+                <div
+                  class="footer-social"
+                >
+                  <a
+                    href="http://bit.ly/vetswhocode-fb"
+                  >
+                    <i
+                      class="fa fa-facebook-f"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vets-who-code-twitter"
+                  >
+                    <i
+                      class="fa fa-twitter"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/2omsjdX"
+                  >
+                    <i
+                      class="fa fa-codepen"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sJ6W9f"
+                  >
+                    <i
+                      class="fa fa-instagram"
+                    />
+                  </a>
+                  <a
+                    href="https://bit.ly/2sFKi1u"
+                  >
+                    <i
+                      class="fa fa-linkedin"
+                    />
+                  </a>
+                  <a
+                    href="http://bit.ly/vwc-github"
+                  >
+                    <i
+                      class="fa fa-github"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="footer-widget-wrap"
+              >
+                <div
+                  class="row"
+                >
+                  <div
+                    class="col-md-11 col-md-offset-1"
+                  >
+                    <h3
+                      class="widgets-title"
+                    >
+                      Site Map
+                    </h3>
+                  </div>
+                  <div
+                    class="col-md-5 col-md-offset-1"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            aria-current="page"
+                            class=""
+                            href="/"
+                          >
+                            Home
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/about"
+                          >
+                            About
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/syllabus"
+                          >
+                            Syllabus
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/mentor"
+                          >
+                            Mentor
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-6"
+                  >
+                    <div
+                      class="widgets-content"
+                    >
+                      <ul
+                        class="widgets-list"
+                      >
+                        <li>
+                          <a
+                            href="/apply"
+                          >
+                            Apply
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/donate"
+                          >
+                            Donate
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="/contact"
+                          >
+                            Contact Us
+                          </a>
+                        </li>
+                        <li>
+                          <a
+                            href="https://medium.com/vets-who-code"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            <span>
+                              Blog
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-md-4"
+            >
+              <div
+                class="widgets-content"
+              >
+                <h3
+                  class="widgets-title"
+                >
+                  Contact Us
+                </h3>
+                <div
+                  class="office map"
+                >
+                  <p>
+                    <span>
+                      Hi, if you have any questions, please drop us a line.
+                    </span>
+                    <br />
+                    Email: hello@vetswhocode.io
+                    <br />
+                    Phone: (917) 960-3806
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer
+        class="section footer"
+        id="footer"
+      >
+        <div
+          class="container"
+        >
+          <div
+            class="row"
+          >
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <p
+                class="copyright"
+              >
+                <span
+                  class="fa fa-copyright"
+                />
+                 #VetsWhoCode
+              </p>
+            </div>
+            <div
+              class="col-md-6 col-sm-6"
+            >
+              <ul
+                class="footer-menu"
+              >
+                <li>
+                  Made with 
+                  <span
+                    class="fa fa-heart red"
+                  />
+                   By #VetsWhoCode.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </section>
-</TemplateWrapper>
+  </main>
+</div>
 `;

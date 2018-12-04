@@ -1,12 +1,11 @@
 import React from 'react'
 import NotFoundPage from '../../src/pages/404'
+import { render } from 'react-testing-library'
 
 describe('<NotFoundPage />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<NotFoundPage />))
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<NotFoundPage />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

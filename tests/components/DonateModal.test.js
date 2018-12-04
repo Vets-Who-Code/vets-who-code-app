@@ -1,12 +1,10 @@
 import React from 'react'
 import DonateModal from '../../src/components/DonateModal'
+import { render } from 'react-testing-library'
 
 describe('<DonateModal />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<DonateModal />))
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<DonateModal />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

@@ -3,22 +3,22 @@
 exports[`<Footer /> should render correctly 1`] = `
 <div>
   <section
-    className="footer-widgets pad-extra"
+    class="footer-widgets pad-extra"
   >
     <div
-      className="container"
+      class="container"
     >
       <div
-        className="row"
+        class="row"
       >
         <div
-          className="col-md-4"
+          class="col-md-4"
         >
           <div
-            className="widgets-content footer-widget-wrap"
+            class="widgets-content footer-widget-wrap"
           >
             <h3
-              className="widgets-title"
+              class="widgets-title"
             >
               About #VetsWhoCode
             </h3>
@@ -26,140 +26,142 @@ exports[`<Footer /> should render correctly 1`] = `
               FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
             </p>
             <div
-              className="footer-social"
+              class="footer-social"
             >
               <a
                 href="http://bit.ly/vetswhocode-fb"
               >
                 <i
-                  className="fa fa-facebook-f"
+                  class="fa fa-facebook-f"
                 />
               </a>
               <a
                 href="http://bit.ly/vets-who-code-twitter"
               >
                 <i
-                  className="fa fa-twitter"
+                  class="fa fa-twitter"
                 />
               </a>
               <a
                 href="http://bit.ly/2omsjdX"
               >
                 <i
-                  className="fa fa-codepen"
+                  class="fa fa-codepen"
                 />
               </a>
               <a
                 href="https://bit.ly/2sJ6W9f"
               >
                 <i
-                  className="fa fa-instagram"
+                  class="fa fa-instagram"
                 />
               </a>
               <a
                 href="https://bit.ly/2sFKi1u"
               >
                 <i
-                  className="fa fa-linkedin"
+                  class="fa fa-linkedin"
                 />
               </a>
               <a
                 href="http://bit.ly/vwc-github"
               >
                 <i
-                  className="fa fa-github"
+                  class="fa fa-github"
                 />
               </a>
             </div>
           </div>
         </div>
         <div
-          className="col-md-4"
+          class="col-md-4"
         >
           <div
-            className="footer-widget-wrap"
+            class="footer-widget-wrap"
           >
             <div
-              className="row"
+              class="row"
             >
               <div
-                className="col-md-11 col-md-offset-1"
+                class="col-md-11 col-md-offset-1"
               >
                 <h3
-                  className="widgets-title"
+                  class="widgets-title"
                 >
                   Site Map
                 </h3>
               </div>
               <div
-                className="col-md-5 col-md-offset-1"
+                class="col-md-5 col-md-offset-1"
               >
                 <div
-                  className="widgets-content"
+                  class="widgets-content"
                 >
                   <ul
-                    className="widgets-list"
+                    class="widgets-list"
                   >
                     <li>
-                      <GatsbyLink
-                        to="/"
+                      <a
+                        aria-current="page"
+                        class=""
+                        href="/"
                       >
                         Home
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
-                      <GatsbyLink
-                        to="/about"
+                      <a
+                        href="/about"
                       >
                         About
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
-                      <GatsbyLink
-                        to="/syllabus"
+                      <a
+                        href="/syllabus"
                       >
                         Syllabus
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
-                      <GatsbyLink
-                        to="/mentor"
+                      <a
+                        href="/mentor"
                       >
                         Mentor
-                      </GatsbyLink>
+                      </a>
                     </li>
                   </ul>
                 </div>
               </div>
               <div
-                className="col-md-6"
+                class="col-md-6"
               >
                 <div
-                  className="widgets-content"
+                  class="widgets-content"
                 >
                   <ul
-                    className="widgets-list"
+                    class="widgets-list"
                   >
                     <li>
-                      <GatsbyLink
-                        to="/apply"
+                      <a
+                        href="/apply"
                       >
                         Apply
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
-                      <GatsbyLink
-                        to="/donate"
+                      <a
+                        href="/donate"
                       >
                         Donate
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
-                      <GatsbyLink
-                        to="/contact"
+                      <a
+                        href="/contact"
                       >
                         Contact Us
-                      </GatsbyLink>
+                      </a>
                     </li>
                     <li>
                       <a
@@ -179,18 +181,18 @@ exports[`<Footer /> should render correctly 1`] = `
           </div>
         </div>
         <div
-          className="col-md-4"
+          class="col-md-4"
         >
           <div
-            className="widgets-content"
+            class="widgets-content"
           >
             <h3
-              className="widgets-title"
+              class="widgets-title"
             >
               Contact Us
             </h3>
             <div
-              className="office map"
+              class="office map"
             >
               <p>
                 <span>
@@ -208,37 +210,37 @@ exports[`<Footer /> should render correctly 1`] = `
     </div>
   </section>
   <footer
-    className="section footer"
+    class="section footer"
     id="footer"
   >
     <div
-      className="container"
+      class="container"
     >
       <div
-        className="row"
+        class="row"
       >
         <div
-          className="col-md-6 col-sm-6"
+          class="col-md-6 col-sm-6"
         >
           <p
-            className="copyright"
+            class="copyright"
           >
             <span
-              className="fa fa-copyright"
+              class="fa fa-copyright"
             />
              #VetsWhoCode
           </p>
         </div>
         <div
-          className="col-md-6 col-sm-6"
+          class="col-md-6 col-sm-6"
         >
           <ul
-            className="footer-menu"
+            class="footer-menu"
           >
             <li>
               Made with 
               <span
-                className="fa fa-heart red"
+                class="fa fa-heart red"
               />
                By #VetsWhoCode.
             </li>

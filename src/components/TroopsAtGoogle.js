@@ -23,6 +23,8 @@ export const TroopsAtGoogle = props => (
   />
 )
 
+export default TroopsAtGoogle
+
 TroopsAtGoogleImage.propTypes = {
   data: PropTypes.object,
 }

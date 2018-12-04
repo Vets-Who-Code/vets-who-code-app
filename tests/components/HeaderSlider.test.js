@@ -1,25 +1,24 @@
 import React from 'react'
 import HeaderSlider from '../../src/components/HeaderSlider'
+import { render, fireEvent } from 'react-testing-library'
 
 describe('<HeaderSlider />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<HeaderSlider />))
-
-  test('should call slickNext when next method is invoked', () => {
-    wrapper = mount(<HeaderSlider />)
-    wrapper.instance().next()
-    wrapper.instance().forceUpdate()
-    expect(wrapper.instance().slider.slickNext).toHaveBeenCalled()
+  test('should update slide on click', () => {
+    const { container } = render(<HeaderSlider />)
+    const nextButton = container.querySelector('.flex-next')
+    fireEvent.click(nextButton)
+    expect(container).toMatchSnapshot()
   })
 
-  test('should call slickPrev when previous method is invoked', () => {
-    wrapper = mount(<HeaderSlider />)
-    wrapper.instance().previous()
-    wrapper.instance().forceUpdate()
-    expect(wrapper.instance().slider.slickPrev).toHaveBeenCalled()
+  test('should update slide on click', () => {
+    const { container } = render(<HeaderSlider />)
+    const prevButton = container.querySelector('.flex-prev')
+    fireEvent.click(prevButton)
+    expect(container).toMatchSnapshot()
   })
+
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<HeaderSlider />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

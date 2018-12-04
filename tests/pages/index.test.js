@@ -1,38 +1,28 @@
 import React from 'react'
 import IndexPage from '../../src/pages/index'
-import jQuery from '../../static/vendor/jquery/dist/jquery'
+import { render, fireEvent } from 'react-testing-library'
 
 describe('<IndexPage />', () => {
-  let wrapper
+  test('should submit subscription form', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      status: 200,
+    }))
+    const { container } = render(<IndexPage />)
+    const subscriptionForm = container.querySelector('#s2do-form');
+    const submissionInput = container.querySelector('.form-control')
 
+    fireEvent.change(submissionInput, {
+      target: { value: 'new-user@mail.com'},
+    })
 
-  beforeEach(() => wrapper = shallow(<IndexPage />))
-
-  test('should update email property in state onChange', () => {
-    const expected = 'someuser@mail.com'
-    const mockEvent = {
-      target: {
-        name: 'email',
-        value: expected
-      }
-    }
-    wrapper.instance().handleInputChange(mockEvent)
-    expect(wrapper.state('email')).toEqual(expected)
+    expect(submissionInput.value).toBe('new-user@mail.com')
+    fireEvent.submit(subscriptionForm)
+    expect(window.fetch).toHaveBeenCalledTimes(1)
+    expect(submissionInput.value).toBe('')
   })
-
-  test('should call window.fetch when handleUserSubscribe is invoked', () => {
-    const mockEvent = {
-      preventDefault: jest.fn()
-    }
-
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve())
-
-    wrapper.instance().handleUserSubscribe(mockEvent)
-    expect(window.fetch).toHaveBeenCalled()
-  })
-
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<IndexPage />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

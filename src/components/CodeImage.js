@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 
 import Img from 'gatsby-image'
 
-const CodePNG = ({ data, width }) => (
+export const PureCodeImage = ({ data, width }) => (
   <Img
     style={{
       position: '',
@@ -30,11 +30,13 @@ export const CodeImage = props => (
         }
       }
     `}
-    render={data => <CodePNG data={data} {...props} />}
+    render={data => <PureCodeImage data={data} {...props} />}
   />
 )
 
-CodePNG.propTypes = {
+export default CodeImage
+
+PureCodeImage.propTypes = {
   data: PropTypes.object,
   width: PropTypes.number,
 }

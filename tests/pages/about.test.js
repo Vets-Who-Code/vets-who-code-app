@@ -1,29 +1,25 @@
 import React from 'react'
 import About from '../../src/pages/about'
 import jQuery from '../../static/vendor/jquery/dist/jquery'
+import { render, fireEvent } from 'react-testing-library'
 
 describe('<About />', () => {
-  let wrapper
+  test('should invoke play method on click', async () => {
+    const { container } = render(<About />)
+    global.HTMLMediaElement.prototype.play = () => ({})
+    const playButton = container.querySelector('.play-button')
+    const animatedGif = container.querySelector('.vwc-animated-gif')
 
-  beforeEach(() => {
-    wrapper = shallow(<About />)
-  })
+    expect(animatedGif.style.display).toBe('none')
 
-  test.skip('should invoke play method on click', () => {
-    wrapper.find('.play-button').simulate('click')
-    const spy = jest.spyOn(wrapper.instance(), 'play')
-    // global.HTMLMediaElement.prototype.play = () => ({})
-    // wrapper.instance().forceUpdate()
-    expect(spy).toHaveBeenCalled()
-  })
-
-  test('should invoke end method when video completes', () => {
-    const spy = jest.spyOn(wrapper.instance(), 'end')
-    window.HTMLMediaElement.prototype.end = wrapper.instance().end()
-    expect(spy).toHaveBeenCalled()
+    fireEvent.click(playButton)
+    await (() => {
+      expect(playButton.style.opacity).toBe("")
+    })
   })
 
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<About />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
