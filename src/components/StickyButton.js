@@ -13,13 +13,13 @@ const styles = {
   left: 20,
   bottom: 20,
   borderRadius: '50%',
-  fontSize: 35
+  fontSize: 35,
 }
 
 const StickyButton = () => (
   <Link to="/donate">
     <button className="btn btn-charity-default" style={styles}>
-      <i className="fa fa-heart"></i>
+      <i className="fa fa-heart" />
     </button>
   </Link>
 )
