@@ -1,12 +1,10 @@
 import React from 'react'
+import { render } from 'react-testing-library'
 import StickyButton from '../../src/components/StickyButton'
 
 describe('<StickyButton />', () => {
-  let wrapper
-
-  beforeEach(() => wrapper = shallow(<StickyButton />))
-
   test('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot()
+    const { container } = render(<StickyButton />)
+    expect(container.firstChild).toMatchSnapshot()
   })
 })

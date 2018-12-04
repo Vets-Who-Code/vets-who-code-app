@@ -1,31 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<StickyButton /> should render correctly 1`] = `
-<Link
-  to="/donate"
->
-  <button
-    className="btn btn-charity-default"
-    style={
-      Object {
-        "alignItems": "center",
-        "borderRadius": "50%",
-        "bottom": 20,
-        "boxShadow": "0 5px 40px rgba(0,0,0,0.16)",
-        "display": "flex",
-        "fontSize": 35,
-        "height": 60,
-        "justifyContent": "center",
-        "left": 20,
-        "position": "fixed",
-        "width": 60,
-        "zIndex": 20000,
-      }
-    }
-  >
-    <i
-      className="fa fa-heart"
-    />
-  </button>
-</Link>
-`;
+exports[`<StickyButton /> should render correctly 1`] = `gatsby-link`;
