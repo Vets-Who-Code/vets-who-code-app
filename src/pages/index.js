@@ -148,6 +148,7 @@ class IndexPage extends Component {
                               <input
                                 name="email"
                                 type="email"
+                                aria-label="Subscriber Email"
                                 value={email}
                                 onChange={this.handleInputChange}
                                 id="subscriber-email"

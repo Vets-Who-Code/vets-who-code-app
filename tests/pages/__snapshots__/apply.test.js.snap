@@ -459,6 +459,7 @@ exports[`<Apply /> should render correctly 1`] = `
                     class="footer-social"
                   >
                     <a
+                      aria-label="Facebook"
                       href="http://bit.ly/vetswhocode-fb"
                     >
                       <i
@@ -466,6 +467,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Twitter"
                       href="http://bit.ly/vets-who-code-twitter"
                     >
                       <i
@@ -473,6 +475,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Codepen"
                       href="http://bit.ly/2omsjdX"
                     >
                       <i
@@ -480,6 +483,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Instagram"
                       href="https://bit.ly/2sJ6W9f"
                     >
                       <i
@@ -487,6 +491,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Linkedin"
                       href="https://bit.ly/2sFKi1u"
                     >
                       <i
@@ -494,6 +499,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Github"
                       href="http://bit.ly/vwc-github"
                     >
                       <i

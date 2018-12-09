@@ -289,6 +289,7 @@ exports[`<About /> should render correctly 1`] = `
                     class="meet-social"
                   >
                     <a
+                      aria-label="Hardaway Twitter"
                       href="https://twitter.com/JeromeHardaway"
                     >
                       <i
@@ -296,6 +297,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Hardaway Github"
                       href="https://github.com/jeromehardaway"
                     >
                       <i
@@ -303,6 +305,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Hardaway Linkedin"
                       href="https://www.linkedin.com/in/jeromehardaway/"
                     >
                       <i
@@ -341,6 +344,7 @@ exports[`<About /> should render correctly 1`] = `
                     class="meet-social"
                   >
                     <a
+                      aria-label="Lebowitz Twitter"
                       href="https://twitter.com/witzcreative"
                     >
                       <i
@@ -348,6 +352,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Lebowitz Behance"
                       href="https://www.behance.net/WitzCreative"
                     >
                       <i
@@ -355,6 +360,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Lebowitz Linkedin"
                       href="https://www.linkedin.com/in/witzcreative"
                     >
                       <i
@@ -393,6 +399,7 @@ exports[`<About /> should render correctly 1`] = `
                     class="meet-social"
                   >
                     <a
+                      aria-label="Sagaille Twitter"
                       href="https://twitter.com/MrBernnz"
                     >
                       <i
@@ -400,6 +407,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Sagaille Github"
                       href="https://github.com/mrbernnz"
                     >
                       <i
@@ -407,6 +415,7 @@ exports[`<About /> should render correctly 1`] = `
                       />
                     </a>
                     <a
+                      aria-label="Sagaille Linkedin"
                       href="https://www.linkedin.com/in/mrbernnz"
                     >
                       <i
@@ -464,6 +473,7 @@ exports[`<About /> should render correctly 1`] = `
                   class="footer-social"
                 >
                   <a
+                    aria-label="Facebook"
                     href="http://bit.ly/vetswhocode-fb"
                   >
                     <i
@@ -471,6 +481,7 @@ exports[`<About /> should render correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-label="Twitter"
                     href="http://bit.ly/vets-who-code-twitter"
                   >
                     <i
@@ -478,6 +489,7 @@ exports[`<About /> should render correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-label="Codepen"
                     href="http://bit.ly/2omsjdX"
                   >
                     <i
@@ -485,6 +497,7 @@ exports[`<About /> should render correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-label="Instagram"
                     href="https://bit.ly/2sJ6W9f"
                   >
                     <i
@@ -492,6 +505,7 @@ exports[`<About /> should render correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-label="Linkedin"
                     href="https://bit.ly/2sFKi1u"
                   >
                     <i
@@ -499,6 +513,7 @@ exports[`<About /> should render correctly 1`] = `
                     />
                   </a>
                   <a
+                    aria-label="Github"
                     href="http://bit.ly/vwc-github"
                   >
                     <i

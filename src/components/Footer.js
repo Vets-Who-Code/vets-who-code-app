@@ -14,22 +14,22 @@ const Footer = () => (
                 Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
               </p>
               <div className="footer-social">
-                <a href="http://bit.ly/vetswhocode-fb">
+                <a href="http://bit.ly/vetswhocode-fb" aria-label="Facebook">
                   <i className="fa fa-facebook-f" />
                 </a>
-                <a href="http://bit.ly/vets-who-code-twitter">
+                <a href="http://bit.ly/vets-who-code-twitter" aria-label="Twitter">
                   <i className="fa fa-twitter" />
                 </a>
-                <a href="http://bit.ly/2omsjdX">
+                <a href="http://bit.ly/2omsjdX" aria-label="Codepen">
                   <i className="fa fa-codepen" />
                 </a>
-                <a href="https://bit.ly/2sJ6W9f">
+                <a href="https://bit.ly/2sJ6W9f" aria-label="Instagram">
                   <i className="fa fa-instagram" />
                 </a>
-                <a href="https://bit.ly/2sFKi1u">
+                <a href="https://bit.ly/2sFKi1u" aria-label="Linkedin">
                   <i className="fa fa-linkedin" />
                 </a>
-                <a href="http://bit.ly/vwc-github">
+                <a href="http://bit.ly/vwc-github" aria-label="Github">
                   <i className="fa fa-github" />
                 </a>
               </div>
