@@ -134,7 +134,10 @@ class About extends Component {
                         <a href="https://github.com/jeromehardaway" aria-label="Hardaway Github">
                           <i className="fa fa-github" />
                         </a>
-                        <a href="https://www.linkedin.com/in/jeromehardaway/" aria-label="Hardaway Linkedin">
+                        <a
+                          href="https://www.linkedin.com/in/jeromehardaway/"
+                          aria-label="Hardaway Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>
@@ -155,10 +158,16 @@ class About extends Component {
                         <a href="https://twitter.com/witzcreative" aria-label="Lebowitz Twitter">
                           <i className="fa fa-twitter" />
                         </a>
-                        <a href="https://www.behance.net/WitzCreative" aria-label="Lebowitz Behance">
+                        <a
+                          href="https://www.behance.net/WitzCreative"
+                          aria-label="Lebowitz Behance"
+                        >
                           <i className="fa fa-behance" />
                         </a>
-                        <a href="https://www.linkedin.com/in/witzcreative" aria-label="Lebowitz Linkedin">
+                        <a
+                          href="https://www.linkedin.com/in/witzcreative"
+                          aria-label="Lebowitz Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>
@@ -178,7 +187,10 @@ class About extends Component {
                         <a href="https://github.com/mrbernnz" aria-label="Sagaille Github">
                           <i className="fa fa-github" />
                         </a>
-                        <a href="https://www.linkedin.com/in/mrbernnz" aria-label="Sagaille Linkedin">
+                        <a
+                          href="https://www.linkedin.com/in/mrbernnz"
+                          aria-label="Sagaille Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>

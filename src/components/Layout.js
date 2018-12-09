@@ -21,7 +21,7 @@ import '../assets/css/custom.css'
 
 const TemplateWrapper = ({ children }) => (
   <div>
-    <Helmet htmlAttributes={{ lang : 'en' }}>
+    <Helmet htmlAttributes={{ lang: 'en' }}>
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4" />
       <script src="https://linked.chat/web/a9LB63" />
 
