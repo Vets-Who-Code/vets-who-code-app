@@ -128,13 +128,16 @@ class About extends Component {
                         alt="Jerome Hardaway Head Geek"
                       />
                       <div className="meet-social">
-                        <a href="https://twitter.com/JeromeHardaway">
+                        <a href="https://twitter.com/JeromeHardaway" aria-label="Hardaway Twitter">
                           <i className="fa fa-twitter" />
                         </a>
-                        <a href="https://github.com/jeromehardaway">
+                        <a href="https://github.com/jeromehardaway" aria-label="Hardaway Github">
                           <i className="fa fa-github" />
                         </a>
-                        <a href="https://www.linkedin.com/in/jeromehardaway/">
+                        <a
+                          href="https://www.linkedin.com/in/jeromehardaway/"
+                          aria-label="Hardaway Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>
@@ -152,13 +155,19 @@ class About extends Component {
                         alt="Andrew Lebowitz Brand Geek"
                       />
                       <div className="meet-social">
-                        <a href="https://twitter.com/witzcreative">
+                        <a href="https://twitter.com/witzcreative" aria-label="Lebowitz Twitter">
                           <i className="fa fa-twitter" />
                         </a>
-                        <a href="https://www.behance.net/WitzCreative">
+                        <a
+                          href="https://www.behance.net/WitzCreative"
+                          aria-label="Lebowitz Behance"
+                        >
                           <i className="fa fa-behance" />
                         </a>
-                        <a href="https://www.linkedin.com/in/witzcreative">
+                        <a
+                          href="https://www.linkedin.com/in/witzcreative"
+                          aria-label="Lebowitz Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>
@@ -172,13 +181,16 @@ class About extends Component {
                     <div className="team-wiget clearfix">
                       <img className="img-responsive" src={noel} alt="Noel Sagaille Devops Geek" />
                       <div className="meet-social">
-                        <a href="https://twitter.com/MrBernnz">
+                        <a href="https://twitter.com/MrBernnz" aria-label="Sagaille Twitter">
                           <i className="fa fa-twitter" />
                         </a>
-                        <a href="https://github.com/mrbernnz">
+                        <a href="https://github.com/mrbernnz" aria-label="Sagaille Github">
                           <i className="fa fa-github" />
                         </a>
-                        <a href="https://www.linkedin.com/in/mrbernnz">
+                        <a
+                          href="https://www.linkedin.com/in/mrbernnz"
+                          aria-label="Sagaille Linkedin"
+                        >
                           <i className="fa fa-linkedin" />
                         </a>
                       </div>

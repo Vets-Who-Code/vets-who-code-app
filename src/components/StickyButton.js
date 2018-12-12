@@ -20,7 +20,7 @@ const styles = {
 
 const StickyButton = () => (
   <Link to="/donate">
-    <button className="btn btn-charity-default" style={styles}>
+    <button className="btn btn-charity-default" aria-label="Donate" style={styles}>
       <i className="fa fa-heart" />
     </button>
   </Link>
