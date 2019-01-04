@@ -20,15 +20,6 @@ export default class Apply extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  displaySuccessMessage = () => {
-    let sectionDescription = document.querySelector(".section-description");
-    let successMessage = "Your application has been submitted successfully! We look forward to contacting you soon."
-    // Changing the section description to display a success message
-    sectionDescription.innerHTML = successMessage;
-    // Hiding the form to prevent a repeat submission
-    document.querySelector("form").style.display = "none";
-  }
-
   resetForm = () => ({
     name: '',
     email: '',
@@ -39,7 +30,6 @@ export default class Apply extends Component {
     'favorite-mre': '',
     'tell-us-about-yourself': '',
   })
-
   handleSubmit = e => {
     const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
@@ -55,14 +45,20 @@ export default class Apply extends Component {
         'tell-us-about-yourself': this.state['tell-us-about-yourself'],
       }),
     }
-    fetch(gatewayUrl, options)
-      .then(function(resp) {
-        if (resp.ok) {
-          displaySuccessMessage();
-        }
-      })
-      e.preventDefault()
-      this.setState(this.resetForm);
+    fetch(gatewayUrl, options).then(function(resp) {
+      if (resp.ok) {
+        let sectionDescription = document.querySelector('.section-description')
+        let successMessage =
+          'Your application has been submitted successfully! We look forward to contacting you soon.'
+        // Changing the section description to display a success message
+        window.scrollTo(0,0);
+        sectionDescription.innerHTML = successMessage
+        // Hiding the form to prevent a repeat submission
+        document.querySelector('form').style.display = 'none'
+      }
+    })
+    e.preventDefault()
+    this.setState(this.resetForm)
   }
 
   render() {
@@ -94,9 +90,9 @@ export default class Apply extends Component {
                 <div className="contactus-brief">
                   <h3>Apply</h3>
                   <p className="section-description">
-                    Thank you for choosing to apply to Vets Who Code. We work really hard to
-                    train our veterans and to maintain an inclusive enviroment so our troops can
-                    truly thrive. Please fill out the form below and we will contact you soon.
+                    Thank you for choosing to apply to Vets Who Code. We work really hard to train
+                    our veterans and to maintain an inclusive enviroment so our troops can truly
+                    thrive. Please fill out the form below and we will contact you soon.
                   </p>
                   <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                     <div className="col-md-8">
