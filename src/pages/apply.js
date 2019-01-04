@@ -20,6 +20,15 @@ export default class Apply extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  displaySuccessMessage = () => {
+    let sectionDescription = document.querySelector(".section-description");
+    let successMessage = "Your application has been submitted successfully! We look forward to contacting you soon."
+    // Changing the section description to display a success message
+    sectionDescription.innerHTML = successMessage;
+    // Hiding the form to prevent a repeat submission
+    document.querySelector("form").style.display = "none";
+  }
+
   resetForm = () => ({
     name: '',
     email: '',
@@ -47,8 +56,13 @@ export default class Apply extends Component {
       }),
     }
     fetch(gatewayUrl, options)
-    e.preventDefault()
-    this.setState(this.resetForm)
+      .then(function(resp) {
+        if (resp.ok) {
+          displaySuccessMessage();
+        }
+      })
+      e.preventDefault()
+      this.setState(this.resetForm);
   }
 
   render() {
@@ -80,7 +94,7 @@ export default class Apply extends Component {
                 <div className="contactus-brief">
                   <h3>Apply</h3>
                   <p className="section-description">
-                    Thank thank you for choosing to apply to Vets Who Code. We work really hard to
+                    Thank you for choosing to apply to Vets Who Code. We work really hard to
                     train our veterans and to maintain an inclusive enviroment so our troops can
                     truly thrive. Please fill out the form below and we will contact you soon.
                   </p>

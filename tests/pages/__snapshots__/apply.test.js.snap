@@ -206,7 +206,7 @@ exports[`<Apply /> should render correctly 1`] = `
                 <p
                   class="section-description"
                 >
-                  Thank thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.
+                  Thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.
                 </p>
                 <form
                   action="#"
