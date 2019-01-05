@@ -14,6 +14,10 @@ export default class Apply extends Component {
     location: '',
     'favorite-mre': '',
     'tell-us-about-yourself': '',
+    message: '',
+    loading: false,
+    formSuccess: false,
+    formError: false,
   }
 
   handleChange = e => {
@@ -30,8 +34,13 @@ export default class Apply extends Component {
     'favorite-mre': '',
     'tell-us-about-yourself': '',
   })
+
   handleSubmit = e => {
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    e.preventDefault()
+    // set loading state to show in the button
+    this.setState({ loading: true })
+    // const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    const gatewayUrl = ''
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -45,23 +54,109 @@ export default class Apply extends Component {
         'tell-us-about-yourself': this.state['tell-us-about-yourself'],
       }),
     }
-    fetch(gatewayUrl, options).then(function(resp) {
-      if (resp.ok) {
-        let sectionDescription = document.querySelector('.section-description')
-        let successMessage =
-          'Your application has been submitted successfully! We look forward to contacting you soon.'
-        // Changing the section description to display a success message
-        window.scrollTo(0,0);
-        sectionDescription.innerHTML = successMessage
-        // Hiding the form to prevent a repeat submission
-        document.querySelector('form').style.display = 'none'
-      }
-    })
-    e.preventDefault()
+
+    fetch(gatewayUrl, options)
+      .then(resp => {
+        if (resp.ok) {
+          const message =
+            'Your application has been submitted successfully! We look forward to contacting you soon.'
+          // Changing the section description to display a success message
+          window.scrollTo(0, 0)
+          // set message for use to view, toggle form success
+          this.setState({ message, formSuccess: true })
+        }
+      })
+      .catch(err => {
+        // TODO: add some kind of error handling message here
+        const message = 'SOME ERROR MESSAGE HERE'
+        this.setState({ message, formError: true })
+      })
+
     this.setState(this.resetForm)
   }
 
   render() {
+    // destructor everything we need off state
+    const { formSuccess, message, formError, loading } = this.state
+
+    // if form successfully completes swap out what we render
+    if (formSuccess) {
+      return (
+        <Layout>
+          <header
+            className="inner-header overlay grey text-center slim-bg "
+            style={{
+              backgroundImage: `url(${thisIsUs})`,
+              backgroundPositionY: 'bottom',
+            }}
+          >
+            <div className="overlay-01" />
+            <div className="container">
+              <h2 className="text-center text-uppercase">Apply</h2>
+              <div className="breadcrumb">
+                <Link to="/">Home</Link>
+                <span>/</span>
+                <Link to="/apply" className="page-active">
+                  Apply
+                </Link>
+              </div>
+            </div>
+          </header>
+          <section id="contact" className="pad-regular section bg-default">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="contactus-brief">
+                    <h3>Thank You</h3>
+                    <p className="section-description">{message}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Layout>
+      )
+    } else if (formError) {
+      // if form response not ok render show an error message
+      return (
+        <Layout>
+          <header
+            className="inner-header overlay grey text-center slim-bg "
+            style={{
+              backgroundImage: `url(${thisIsUs})`,
+              backgroundPositionY: 'bottom',
+            }}
+          >
+            <div className="overlay-01" />
+            <div className="container">
+              <h2 className="text-center text-uppercase">Apply</h2>
+              <div className="breadcrumb">
+                <Link to="/">Home</Link>
+                <span>/</span>
+                <Link to="/apply" className="page-active">
+                  Apply
+                </Link>
+              </div>
+            </div>
+          </header>
+          <section id="contact" className="pad-regular section bg-default">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="contactus-brief">
+                    <h3>OOPS Some thing went wrong</h3>
+                    <p className="section-description">{message}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Layout>
+      )
+    }
+
+    // finally this is the initial return that will render initially
+
     return (
       <Layout>
         <header
@@ -235,7 +330,7 @@ export default class Apply extends Component {
                         <input
                           type="submit"
                           name="submit"
-                          value="submit"
+                          value={loading ? 'loading...' : 'submit'}
                           href="#"
                           className="btn btn-charity-default"
                           title=""
