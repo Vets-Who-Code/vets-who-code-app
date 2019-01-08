@@ -65,7 +65,9 @@ export default class Apply extends Component {
         }
       })
       .catch(err => {
-        const message = 'There was an error trying to submit your application. Please try again later.'
+        const message = `
+          There was an error trying to submit your application. Please try again later.
+          Error: ${err}`
         this.setState({ message, formError: true })
       })
 
