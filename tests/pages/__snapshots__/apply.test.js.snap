@@ -255,6 +255,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="InputEmail"
                         name="email"
                         placeholder="Email"
                         required=""
@@ -280,6 +281,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="InputService"
                         name="branch-of-service"
                         placeholder="Thank you for your service"
                         required=""
@@ -305,6 +307,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="Experience"
                         name="experience"
                         placeholder="Do you program and if so for how long?"
                         required=""
@@ -330,6 +333,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="InputPortfolio"
                         name="github-portfolio-or-linkedin"
                         placeholder="Share your work"
                         required=""
@@ -355,6 +359,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="InputLocation"
                         name="location"
                         placeholder="Location"
                         required=""
@@ -380,6 +385,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
+                        id="InputMRE"
                         name="favorite-mre"
                         placeholder="Chilli Mac?"
                         required=""
@@ -402,6 +408,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <textarea
                         class="form-control"
+                        id="InputInterviewStory"
                         name="tell-us-about-yourself"
                         placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
                         rows="7"

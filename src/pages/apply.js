@@ -39,8 +39,7 @@ export default class Apply extends Component {
     e.preventDefault()
     // set loading state to show in the button
     this.setState({ loading: true })
-    // const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
-    const gatewayUrl = ''
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -60,15 +59,13 @@ export default class Apply extends Component {
         if (resp.ok) {
           const message =
             'Your application has been submitted successfully! We look forward to contacting you soon.'
-          // Changing the section description to display a success message
           window.scrollTo(0, 0)
           // set message for use to view, toggle form success
           this.setState({ message, formSuccess: true })
         }
       })
       .catch(err => {
-        // TODO: add some kind of error handling message here
-        const message = 'SOME ERROR MESSAGE HERE'
+        const message = 'There was an error trying to submit your application. Please try again later.'
         this.setState({ message, formError: true })
       })
 
@@ -197,6 +194,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="name"
                           className="form-control input-lg"
                           type="text"
                           id="name"
@@ -215,6 +213,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="InputEmail"
                           className="form-control input-lg"
                           type="email"
                           placeholder="Email"
@@ -232,6 +231,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="InputService"
                           className="form-control input-lg"
                           type="text"
                           placeholder="Thank you for your service"
@@ -249,6 +249,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="Experience"
                           className="form-control input-lg"
                           type="text"
                           placeholder="Do you program and if so for how long?"
@@ -266,6 +267,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="InputPortfolio"
                           className="form-control input-lg"
                           type="text"
                           placeholder="Share your work"
@@ -282,6 +284,7 @@ export default class Apply extends Component {
                           Location ( City and State )<sup>*</sup>
                         </label>
                         <input
+                          id="InputLocation"
                           className="form-control input-lg"
                           type="text"
                           placeholder="Location"
@@ -299,6 +302,7 @@ export default class Apply extends Component {
                           <sup>*</sup>
                         </label>
                         <input
+                          id="InputMRE"
                           className="form-control input-lg"
                           type="text"
                           placeholder="Chilli Mac?"
@@ -315,6 +319,7 @@ export default class Apply extends Component {
                           Tell Us About Yourself
                         </label>
                         <textarea
+                          id="InputInterviewStory"
                           className="form-control"
                           rows="7"
                           placeholder="Here we focus on aptitude and impact, so tell us about yourself
