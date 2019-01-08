@@ -15,6 +15,7 @@ export default class Apply extends Component {
     'favorite-mre': '',
     'tell-us-about-yourself': '',
     message: '',
+    formHeading: '',
     loading: false,
     formSuccess: false,
     formError: false,
@@ -39,7 +40,8 @@ export default class Apply extends Component {
     e.preventDefault()
     // set loading state to show in the button
     this.setState({ loading: true })
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    //const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    const gatewayUrl = ''
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -59,16 +61,18 @@ export default class Apply extends Component {
         if (resp.ok) {
           const message =
             'Your application has been submitted successfully! We look forward to contacting you soon.'
+          const formHeading = 'Thank You'
           window.scrollTo(0, 0)
           // set message for use to view, toggle form success
-          this.setState({ message, formSuccess: true })
+          this.setState({ message, formSuccess: true, formHeading })
         }
       })
       .catch(err => {
         const message = `
           There was an error trying to submit your application. Please try again later.
           Error: ${err}`
-        this.setState({ message, formError: true })
+        const formHeading = 'OOPS Some thing went wrong'
+        this.setState({ message, formError: true, formHeading })
       })
 
     this.setState(this.resetForm)
@@ -76,14 +80,14 @@ export default class Apply extends Component {
 
   render() {
     // destructor everything we need off state
-    const { formSuccess, message, formError, loading } = this.state
+    const { formSuccess, message, formError, loading, formHeading } = this.state
 
-    // if form successfully completes swap out what we render
-    if (formSuccess) {
+    // if form successfully or Error completes swap out what we render
+    if (formSuccess || formError) {
       return (
         <Layout>
           <header
-            className="inner-header overlay grey text-center slim-bg "
+            className="inner-header overlay grey text-center slim-bg"
             style={{
               backgroundImage: `url(${thisIsUs})`,
               backgroundPositionY: 'bottom',
@@ -106,44 +110,7 @@ export default class Apply extends Component {
               <div className="row">
                 <div className="col-xs-12">
                   <div className="contactus-brief">
-                    <h3>Thank You</h3>
-                    <p className="section-description">{message}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Layout>
-      )
-    } else if (formError) {
-      // if form response not ok render show an error message
-      return (
-        <Layout>
-          <header
-            className="inner-header overlay grey text-center slim-bg "
-            style={{
-              backgroundImage: `url(${thisIsUs})`,
-              backgroundPositionY: 'bottom',
-            }}
-          >
-            <div className="overlay-01" />
-            <div className="container">
-              <h2 className="text-center text-uppercase">Apply</h2>
-              <div className="breadcrumb">
-                <Link to="/">Home</Link>
-                <span>/</span>
-                <Link to="/apply" className="page-active">
-                  Apply
-                </Link>
-              </div>
-            </div>
-          </header>
-          <section id="contact" className="pad-regular section bg-default">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  <div className="contactus-brief">
-                    <h3>OOPS Some thing went wrong</h3>
+                    <h3>{formHeading}</h3>
                     <p className="section-description">{message}</p>
                   </div>
                 </div>
