@@ -14,8 +14,9 @@ export default class Mentor extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'employer-restrictions': '',
-    message: '',
-    formHeading: '',
+    message:
+      'Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.',
+    formHeading: 'Become A Mentor',
     loading: false,
     formSuccess: false,
     formError: false,
@@ -38,6 +39,7 @@ export default class Mentor extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
+    //const gatewayUrl = ''
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -76,45 +78,6 @@ export default class Mentor extends Component {
     // destructor everything we need off state
     const { formSuccess, message, formError, loading, formHeading } = this.state
 
-    // if form successfully or Error completes swap out what we render
-    if (formSuccess || formError) {
-      return (
-        <Layout>
-          <header
-            className="inner-header overlay grey text-center slim-bg "
-            style={{
-              backgroundImage: `url(${thisIsUs})`,
-              backgroundPositionY: 'bottom',
-            }}
-          >
-            <div className="overlay-01" />
-            <div className="container">
-              <h2 className="text-center text-uppercase">Mentor</h2>
-              <div className="breadcrumb">
-                <Link to="/">Home</Link>
-                <span>/</span>
-                <Link to="/mentor" className="page-active">
-                  Mentor
-              </Link>
-              </div>
-            </div>
-          </header>
-          <section id="contact" className="pad-regular section bg-default">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  <div className="contactus-brief">
-                    <h3>{formHeading}</h3>
-                    <p className="section-description">{message}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Layout>
-      )
-    }
-
     return (
       <Layout>
         <header
@@ -141,12 +104,13 @@ export default class Mentor extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="contactus-brief">
-                  <h3>Become A Mentor</h3>
-                  <p className="section-description">
-                    Thank you for choosing to become a mentor for our veterans. Please fill out the
-                    form below and we will reach out to you.
-                  </p>
-                  <form id="s2do-form" onSubmit={this.handleSubmit}>
+                  <h3>{formHeading}</h3>
+                  <p className="section-description">{message}</p>
+                  <form
+                    id="s2do-form"
+                    onSubmit={this.handleSubmit}
+                    style={{ display: formSuccess || formError ? 'none' : 'block' }}
+                  >
                     <div className="col-md-8">
                       <div className="form-group">
                         <label htmlFor="InputName" className="dark-text">

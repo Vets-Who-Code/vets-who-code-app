@@ -14,8 +14,9 @@ export default class Apply extends Component {
     location: '',
     'favorite-mre': '',
     'tell-us-about-yourself': '',
-    message: '',
-    formHeading: '',
+    message: 
+    'Thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.',
+    formHeading: 'Apply',
     loading: false,
     formSuccess: false,
     formError: false,
@@ -40,7 +41,8 @@ export default class Apply extends Component {
     e.preventDefault()
     // set loading state to show in the button
     this.setState({ loading: true })
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    //const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
+    const gatewayUrl = ''
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -81,47 +83,6 @@ export default class Apply extends Component {
     // destructor everything we need off state
     const { formSuccess, message, formError, loading, formHeading } = this.state
 
-    // if form successfully or Error completes swap out what we render
-    if (formSuccess || formError) {
-      return (
-        <Layout>
-          <header
-            className="inner-header overlay grey text-center slim-bg"
-            style={{
-              backgroundImage: `url(${thisIsUs})`,
-              backgroundPositionY: 'bottom',
-            }}
-          >
-            <div className="overlay-01" />
-            <div className="container">
-              <h2 className="text-center text-uppercase">Apply</h2>
-              <div className="breadcrumb">
-                <Link to="/">Home</Link>
-                <span>/</span>
-                <Link to="/apply" className="page-active">
-                  Apply
-                </Link>
-              </div>
-            </div>
-          </header>
-          <section id="contact" className="pad-regular section bg-default">
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12">
-                  <div className="contactus-brief">
-                    <h3>{formHeading}</h3>
-                    <p className="section-description">{message}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </Layout>
-      )
-    }
-
-    // finally this is the initial return that will render initially
-
     return (
       <Layout>
         <header
@@ -148,13 +109,14 @@ export default class Apply extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="contactus-brief">
-                  <h3>Apply</h3>
-                  <p className="section-description">
-                    Thank you for choosing to apply to Vets Who Code. We work really hard to train
-                    our veterans and to maintain an inclusive enviroment so our troops can truly
-                    thrive. Please fill out the form below and we will contact you soon.
-                  </p>
-                  <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
+                  <h3>{formHeading}</h3>
+                  <p className="section-description">{message}</p>
+                  <form 
+                    id="s2do-form" 
+                    action="#" 
+                    onSubmit={this.handleSubmit}
+                    style={{ display: formSuccess || formError ? 'none' : 'block' }}
+                  >
                     <div className="col-md-8">
                       <div className="form-group">
                         <label htmlFor="name" className="dark-text">
