@@ -210,7 +210,6 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </p>
                 <form
                   id="s2do-form"
-                  style="display: block;"
                 >
                   <div
                     class="col-md-8"
