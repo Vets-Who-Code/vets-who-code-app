@@ -15,7 +15,9 @@ export default class Apply extends Component {
     'favorite-mre': '',
     'tell-us-about-yourself': '',
     message:
-      'Thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.',
+      'Thank you for choosing to apply to Vets Who Code. We work really hard to ' +
+      'train our veterans and to maintain an inclusive enviroment so our troops ' +
+      'can truly thrive. Please fill out the form below and we will contact you soon.',
     formHeading: 'Apply',
     loading: false,
     formSuccess: false,
@@ -61,14 +63,15 @@ export default class Apply extends Component {
       .then(resp => {
         if (resp.ok) {
           const message =
-            'Your application has been submitted successfully! We look forward to contacting you soon.'
+            'Your application has been submitted successfully! ' +
+            'We look forward to contacting you soon.'
           const formHeading = 'Thank You'
           window.scrollTo(0, 0)
           // set message for use to view, toggle form success
           this.setState({ message, formSuccess: true, formHeading })
         }
       })
-      .catch(err => {
+      .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
         this.setState({ message, formError: true, formHeading })
       })
@@ -107,7 +110,11 @@ export default class Apply extends Component {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>{formHeading}</h3>
-                  <p className={ formSuccess ? "alert alert-success" : "section-description"}>{message}</p>
+                  <p 
+                    className={ formSuccess ? "alert alert-success" : "section-description"}
+                  >
+                    {message}
+                  </p>
                   {formError && 
                   <p className="alert alert-danger fade-in">
                     There was an error trying to submit your application. Please try again.
@@ -253,8 +260,8 @@ export default class Apply extends Component {
                             id="InputInterviewStory"
                             className="form-control"
                             rows="7"
-                            placeholder="Here we focus on aptitude and impact, so tell us about yourself
-                              and why you want to join #VetsWhoCode?"
+                            placeholder="Here we focus on aptitude and impact, so tell 
+                              us about yourself and why you want to join #VetsWhoCode?"
                             name="tell-us-about-yourself"
                             value={this.state['tell-us-about-yourself']}
                             onChange={this.handleChange}

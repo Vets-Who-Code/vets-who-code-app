@@ -15,7 +15,8 @@ export default class Mentor extends Component {
     location: '',
     'employer-restrictions': '',
     message:
-      'Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.',
+      'Thank you for choosing to become a mentor for our veterans. ' +
+      'Please fill out the form below and we will reach out to you.',
     formHeading: 'Become A Mentor',
     loading: false,
     formSuccess: false,
@@ -56,14 +57,15 @@ export default class Mentor extends Component {
       .then(resp => {
         if (resp.ok) {
           const message =
-            'Your application has been submitted successfully! We look forward to contacting you soon.'
+            'Your application has been submitted successfully! ' +
+            'We look forward to contacting you soon.'
           const formHeading = 'Thank You'
           window.scrollTo(0, 0)
           // set message for use to view, toggle form success
           this.setState({ message, formSuccess: true, formHeading })
         }
       })
-      .catch(err => {
+      .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
         this.setState({ message, formError: true, formHeading })
       })
@@ -102,7 +104,11 @@ export default class Mentor extends Component {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>{formHeading}</h3>
-                  <p className={formSuccess ? "alert alert-success" : "section-description"}>{message}</p>
+                  <p
+                    className={formSuccess ? "alert alert-success" : "section-description"}
+                  >
+                    {message}
+                  </p>
                   {formError &&
                     <p className="alert alert-danger fade-in">
                       There was an error trying to submit your application. Please try again.
@@ -221,7 +227,8 @@ export default class Mentor extends Component {
                           <textarea
                             className="form-control"
                             rows="7"
-                            placeholder="Please put here any employer restrictions about writing and reading code?"
+                            placeholder=
+                            "Please put here any employer restrictions about writing and reading code?"
                             name="employer-restrictions"
                             value={this.state['employer-restrictions']}
                             onChange={this.handleChange}

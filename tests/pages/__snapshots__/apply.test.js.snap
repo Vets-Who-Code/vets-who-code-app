@@ -410,7 +410,7 @@ exports[`<Apply /> should render correctly 1`] = `
                         class="form-control"
                         id="InputInterviewStory"
                         name="tell-us-about-yourself"
-                        placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
+                        placeholder="Here we focus on aptitude and impact, so tell  us about yourself and why you want to join #VetsWhoCode?"
                         rows="7"
                       />
                     </div>
