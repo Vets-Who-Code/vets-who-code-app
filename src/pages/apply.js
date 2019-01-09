@@ -69,9 +69,6 @@ export default class Apply extends Component {
         }
       })
       .catch(err => {
-        const message = `
-          There was an error trying to submit your application. Please try again later.
-          Error: ${err}`
         const formHeading = 'OOPS Some thing went wrong'
         this.setState({ message, formError: true, formHeading })
       })
@@ -110,16 +107,17 @@ export default class Apply extends Component {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>{formHeading}</h3>
-                  <p className="section-description">{message}</p>
-                  {formError && <p>Some Form Error message Here</p>}
-                  {!formSuccess && ( // this is a common patter in
-                    //React that you will see all over the place
+                  <p className={ formSuccess ? "alert alert-success" : "section-description"}>{message}</p>
+                  {formError && 
+                  <p class="alert alert-danger fade-in">
+                    There was an error trying to submit your application. Please try again.
+                  </p>
+                  }
+                  {!formSuccess && ( 
                     <form
                       id="s2do-form"
                       action="#"
                       onSubmit={this.handleSubmit}
-                      // this was a nice solution for real. I like what you did here.
-                      // style={{ display: formSuccess || formError ? 'none' : 'block' }}
                     >
                       <div className="col-md-8">
                         <div className="form-group">
