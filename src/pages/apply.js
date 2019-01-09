@@ -109,7 +109,7 @@ export default class Apply extends Component {
                   <h3>{formHeading}</h3>
                   <p className={ formSuccess ? "alert alert-success" : "section-description"}>{message}</p>
                   {formError && 
-                  <p class="alert alert-danger fade-in">
+                  <p className="alert alert-danger fade-in">
                     There was an error trying to submit your application. Please try again.
                   </p>
                   }
