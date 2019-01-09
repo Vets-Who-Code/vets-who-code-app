@@ -14,6 +14,11 @@ export default class Mentor extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'employer-restrictions': '',
+    message: '',
+    formHeading: '',
+    loading: false,
+    formSuccess: false,
+    formError: false,
   }
 
   handleChange = e => {
@@ -31,6 +36,7 @@ export default class Mentor extends Component {
   })
 
   handleSubmit = e => {
+    e.preventDefault()
     const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
@@ -45,11 +51,70 @@ export default class Mentor extends Component {
       }),
     }
     fetch(gatewayUrl, options)
-    e.preventDefault()
+      .then(resp => {
+        if (resp.ok) {
+          const message =
+            'Your application has been submitted successfully! We look forward to contacting you soon.'
+          const formHeading = 'Thank You'
+          window.scrollTo(0, 0)
+          // set message for use to view, toggle form success
+          this.setState({ message, formSuccess: true, formHeading })
+        }
+      })
+      .catch(err => {
+        const message = `
+        There was an error trying to submit your application. Please try again later.
+        Error: ${err}`
+        const formHeading = 'OOPS Some thing went wrong'
+        this.setState({ message, formError: true, formHeading })
+      })
+
     this.setState(this.resetForm)
   }
 
   render() {
+    // destructor everything we need off state
+    const { formSuccess, message, formError, loading, formHeading } = this.state
+
+    // if form successfully or Error completes swap out what we render
+    if (formSuccess || formError) {
+      return (
+        <Layout>
+          <header
+            className="inner-header overlay grey text-center slim-bg "
+            style={{
+              backgroundImage: `url(${thisIsUs})`,
+              backgroundPositionY: 'bottom',
+            }}
+          >
+            <div className="overlay-01" />
+            <div className="container">
+              <h2 className="text-center text-uppercase">Mentor</h2>
+              <div className="breadcrumb">
+                <Link to="/">Home</Link>
+                <span>/</span>
+                <Link to="/mentor" className="page-active">
+                  Mentor
+              </Link>
+              </div>
+            </div>
+          </header>
+          <section id="contact" className="pad-regular section bg-default">
+            <div className="container">
+              <div className="row">
+                <div className="col-xs-12">
+                  <div className="contactus-brief">
+                    <h3>{formHeading}</h3>
+                    <p className="section-description">{message}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </Layout>
+      )
+    }
+
     return (
       <Layout>
         <header
@@ -205,6 +270,7 @@ export default class Mentor extends Component {
                         <input
                           type="submit"
                           name="submit"
+                          value={loading ? 'loading...' : 'submit'}
                           href="#"
                           className="btn btn-charity-default"
                           title=""

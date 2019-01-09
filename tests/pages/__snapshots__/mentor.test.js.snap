@@ -395,6 +395,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                         name="submit"
                         title=""
                         type="submit"
+                        value="submit"
                       />
                     </div>
                   </div>

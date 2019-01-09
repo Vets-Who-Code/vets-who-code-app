@@ -40,8 +40,7 @@ export default class Apply extends Component {
     e.preventDefault()
     // set loading state to show in the button
     this.setState({ loading: true })
-    //const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
-    const gatewayUrl = ''
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
       method: 'POST',
       body: JSON.stringify({
