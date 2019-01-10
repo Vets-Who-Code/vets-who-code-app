@@ -40,7 +40,6 @@ export default class Mentor extends Component {
   handleSubmit = e => {
     e.preventDefault()
     const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
-    //const gatewayUrl = ''
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -61,7 +60,6 @@ export default class Mentor extends Component {
             'We look forward to contacting you soon.'
           const formHeading = 'Thank You'
           window.scrollTo(0, 0)
-          // set message for use to view, toggle form success
           this.setState({ message, formSuccess: true, formHeading })
         }
       })
@@ -74,7 +72,6 @@ export default class Mentor extends Component {
   }
 
   render() {
-    // destructor everything we need off state
     const { formSuccess, message, formError, loading, formHeading } = this.state
 
     return (
@@ -104,16 +101,14 @@ export default class Mentor extends Component {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>{formHeading}</h3>
-                  <p
-                    className={formSuccess ? "alert alert-success" : "section-description"}
-                  >
+                  <p className={formSuccess ? 'alert alert-success' : 'section-description'}>
                     {message}
                   </p>
-                  {formError &&
+                  {formError && (
                     <p className="alert alert-danger fade-in">
                       There was an error trying to submit your application. Please try again.
-                  </p>
-                  }
+                    </p>
+                  )}
                   {!formSuccess && (
                     <form id="s2do-form" onSubmit={this.handleSubmit}>
                       <div className="col-md-8">
@@ -227,8 +222,7 @@ export default class Mentor extends Component {
                           <textarea
                             className="form-control"
                             rows="7"
-                            placeholder=
-                            "Please put here any employer restrictions about writing and reading code?"
+                            placeholder="Please put here any employer restrictions about writing and reading code?"
                             name="employer-restrictions"
                             value={this.state['employer-restrictions']}
                             onChange={this.handleChange}

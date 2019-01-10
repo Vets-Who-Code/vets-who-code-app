@@ -43,8 +43,7 @@ export default class Apply extends Component {
     e.preventDefault()
     // set loading state to show in the button
     this.setState({ loading: true })
-    //const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
-    const gatewayUrl = ''
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/apply'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -67,7 +66,6 @@ export default class Apply extends Component {
             'We look forward to contacting you soon.'
           const formHeading = 'Thank You'
           window.scrollTo(0, 0)
-          // set message for use to view, toggle form success
           this.setState({ message, formSuccess: true, formHeading })
         }
       })
@@ -80,7 +78,6 @@ export default class Apply extends Component {
   }
 
   render() {
-    // destructor everything we need off state
     const { formSuccess, message, formError, loading, formHeading } = this.state
 
     return (
@@ -110,22 +107,16 @@ export default class Apply extends Component {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>{formHeading}</h3>
-                  <p 
-                    className={ formSuccess ? "alert alert-success" : "section-description"}
-                  >
+                  <p className={formSuccess ? 'alert alert-success' : 'section-description'}>
                     {message}
                   </p>
-                  {formError && 
-                  <p className="alert alert-danger fade-in">
-                    There was an error trying to submit your application. Please try again.
-                  </p>
-                  }
-                  {!formSuccess && ( 
-                    <form
-                      id="s2do-form"
-                      action="#"
-                      onSubmit={this.handleSubmit}
-                    >
+                  {formError && (
+                    <p className="alert alert-danger fade-in">
+                      There was an error trying to submit your application. Please try again.
+                    </p>
+                  )}
+                  {!formSuccess && (
+                    <form id="s2do-form" action="#" onSubmit={this.handleSubmit}>
                       <div className="col-md-8">
                         <div className="form-group">
                           <label htmlFor="name" className="dark-text">
