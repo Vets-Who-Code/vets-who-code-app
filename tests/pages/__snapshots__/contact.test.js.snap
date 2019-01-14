@@ -345,7 +345,7 @@ exports[`<Contact /> should render correctly 1`] = `
                   name="submit"
                   title=""
                   type="submit"
-                  value="SEND MESSAGE"
+                  value="Submit Message"
                 />
               </div>
             </form>
