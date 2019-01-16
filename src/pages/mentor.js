@@ -14,6 +14,13 @@ export default class Mentor extends Component {
     'github-portfolio-or-linkedin': '',
     location: '',
     'employer-restrictions': '',
+    message:
+      'Thank you for choosing to become a mentor for our veterans. ' +
+      'Please fill out the form below and we will reach out to you.',
+    formHeading: 'Become A Mentor',
+    loading: false,
+    formSuccess: false,
+    formError: false,
   }
 
   handleChange = e => {
@@ -31,6 +38,7 @@ export default class Mentor extends Component {
   })
 
   handleSubmit = e => {
+    e.preventDefault()
     const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
@@ -45,11 +53,27 @@ export default class Mentor extends Component {
       }),
     }
     fetch(gatewayUrl, options)
-    e.preventDefault()
+      .then(resp => {
+        if (resp.ok) {
+          const message =
+            'Your application has been submitted successfully! ' +
+            'We look forward to contacting you soon.'
+          const formHeading = 'Thank You'
+          window.scrollTo(0, 0)
+          this.setState({ message, formSuccess: true, formHeading })
+        }
+      })
+      .catch(() => {
+        const formHeading = 'OOPS Some thing went wrong'
+        this.setState({ message, formError: true, formHeading })
+      })
+
     this.setState(this.resetForm)
   }
 
   render() {
+    const { formSuccess, message, formError, loading, formHeading } = this.state
+
     return (
       <Layout>
         <header
@@ -76,142 +100,149 @@ export default class Mentor extends Component {
             <div className="row">
               <div className="col-xs-12">
                 <div className="contactus-brief">
-                  <h3>Become A Mentor</h3>
-                  <p className="section-description">
-                    Thank you for choosing to become a mentor for our veterans. Please fill out the
-                    form below and we will reach out to you.
+                  <h3>{formHeading}</h3>
+                  <p className={formSuccess ? 'alert alert-success' : 'section-description'}>
+                    {message}
                   </p>
-                  <form id="s2do-form" onSubmit={this.handleSubmit}>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputName" className="dark-text">
-                          Name
-                          <sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="text"
-                          placeholder="Name"
-                          name="name"
-                          id="name"
-                          value={this.state.name}
-                          onChange={this.handleChange}
-                          required
-                        />
+                  {formError && (
+                    <p className="alert alert-danger fade-in">
+                      There was an error trying to submit your application. Please try again.
+                    </p>
+                  )}
+                  {!formSuccess && (
+                    <form id="s2do-form" onSubmit={this.handleSubmit}>
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputName" className="dark-text">
+                            Name
+                            <sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            id="name"
+                            value={this.state.name}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputEmail" className="dark-text">
-                          Email
-                          <sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="email"
-                          id="email"
-                          placeholder="Email"
-                          name="email"
-                          value={this.state.email}
-                          onChange={this.handleChange}
-                          required
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputEmail" className="dark-text">
+                            Email
+                            <sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="email"
+                            id="email"
+                            placeholder="Email"
+                            name="email"
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputService" className="dark-text">
-                          Military Branch Of Service
-                          <sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="text"
-                          placeholder="Thank you for your service"
-                          name="branch-of-service"
-                          value={this.state['branch-of-service']}
-                          onChange={this.handleChange}
-                          required
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputService" className="dark-text">
+                            Military Branch Of Service
+                            <sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="text"
+                            placeholder="Thank you for your service"
+                            name="branch-of-service"
+                            value={this.state['branch-of-service']}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputTechnicalExpertise" className="dark-text">
-                          Area Of Technical Expertise ( Javascript, Ruby, etc)
-                          <sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="text"
-                          placeholder="What languages you write in?"
-                          name="technical-expertise"
-                          value={this.state['technical-expertise']}
-                          onChange={this.handleChange}
-                          required
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputTechnicalExpertise" className="dark-text">
+                            Area Of Technical Expertise ( Javascript, Ruby, etc)
+                            <sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="text"
+                            placeholder="What languages you write in?"
+                            name="technical-expertise"
+                            value={this.state['technical-expertise']}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputPortfolio" className="dark-text">
-                          Github, Portfolio or Linkedin
-                          <sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="text"
-                          placeholder="Share your work"
-                          name="github-portfolio-or-linkedin"
-                          value={this.state['github-portfolio-or-linkedin']}
-                          onChange={this.handleChange}
-                          required
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputPortfolio" className="dark-text">
+                            Github, Portfolio or Linkedin
+                            <sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="text"
+                            placeholder="Share your work"
+                            name="github-portfolio-or-linkedin"
+                            value={this.state['github-portfolio-or-linkedin']}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputLocation" className="dark-text">
-                          Location ( City and State )<sup>*</sup>
-                        </label>
-                        <input
-                          className="form-control input-lg"
-                          type="text"
-                          placeholder="Location"
-                          name="location"
-                          value={this.state.location}
-                          onChange={this.handleChange}
-                          required
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputLocation" className="dark-text">
+                            Location ( City and State )<sup>*</sup>
+                          </label>
+                          <input
+                            className="form-control input-lg"
+                            type="text"
+                            placeholder="Location"
+                            name="location"
+                            value={this.state.location}
+                            onChange={this.handleChange}
+                            required
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
-                          Employer Implemented Restrictions, If Any.
-                        </label>
-                        <textarea
-                          className="form-control"
-                          rows="7"
-                          placeholder="Please put here any employer restrictions about writing and reading code?"
-                          name="employer-restrictions"
-                          value={this.state['employer-restrictions']}
-                          onChange={this.handleChange}
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
+                            Employer Implemented Restrictions, If Any.
+                          </label>
+                          <textarea
+                            className="form-control"
+                            rows="7"
+                            placeholder="Please put here any employer restrictions about writing and reading code?"
+                            name="employer-restrictions"
+                            value={this.state['employer-restrictions']}
+                            onChange={this.handleChange}
+                          />
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-md-8">
-                      <div className="form-group">
-                        <input
-                          type="submit"
-                          name="submit"
-                          href="#"
-                          className="btn btn-charity-default"
-                          title=""
-                        />
+                      <div className="col-md-8">
+                        <div className="form-group">
+                          <input
+                            type="submit"
+                            name="submit"
+                            value={loading ? 'loading...' : 'submit'}
+                            href="#"
+                            className="btn btn-charity-default"
+                            title=""
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  )}
                 </div>
               </div>
             </div>
