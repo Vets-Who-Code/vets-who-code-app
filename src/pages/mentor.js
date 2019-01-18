@@ -113,6 +113,9 @@ export default class Mentor extends Component {
                     </p>
                     <div className="container">
                       <h4 className="small-top-pad">Our Philosophy</h4>
+                      <p>
+We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
+                      </p>
                       <div
                         className="panel-group faq_list"
                         id="main-guidelines"
