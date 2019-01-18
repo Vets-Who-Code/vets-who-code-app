@@ -1529,6 +1529,10 @@ label {
   font-weight: 900;
   margin-bottom: 45px;
 }
+.contactus-brief > ul, li {
+  list-style-type: disc !important;
+  margin: 0 3rem;
+}
 .contactus-brief > .section-description {
   color: #999999;
 }
