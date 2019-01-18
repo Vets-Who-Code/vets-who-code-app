@@ -39,8 +39,7 @@ export default class Mentor extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    //const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
-    const gatewayUrl = ''
+    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
       body: JSON.stringify({
@@ -61,13 +60,17 @@ export default class Mentor extends Component {
             'We look forward to contacting you soon.'
           const formHeading = 'Thank You'
           this.setState({ message, formSuccess: true, formHeading })
+          window.scrollBy({
+            top: -450,
+            left: 0,
+            behavior: 'smooth'
+          });
         }
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
         this.setState({ message, formError: true, formHeading })
       })
-
     this.setState(this.resetForm)
   }
 
@@ -109,7 +112,7 @@ export default class Mentor extends Component {
                       each of these areas:
                     </p>
                     <div className="container">
-                      <h4>Our Philosophy</h4>
+                      <h4 className="small-top-pad">Our Philosophy</h4>
                       <div
                         className="panel-group faq_list"
                         id="main-guidelines"
@@ -309,8 +312,9 @@ export default class Mentor extends Component {
                                 aria-controls="collapseFive"
                               >
                                 {' '}
-                                <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors find it
-                                difficult when they do not have all the answers.
+                                <b>Your Role: </b> You will not be the expert on all your mentee’s
+                                needs. Many mentors find it difficult when they do not have all the
+                                answers.
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
@@ -337,7 +341,7 @@ export default class Mentor extends Component {
                           </div>
                         </div>
                       </div>
-                      <h4>Time Commitment</h4>
+                      <h4 className="small-top-pad">Time Commitment</h4>
                       <p>
                         After being formally assigned a mentee we ask mentors to set up a time for
                         an initial chat with their mentee to discuss their needs and generally get
@@ -358,7 +362,7 @@ export default class Mentor extends Component {
               </div>
             </div>
           </section>
-          <section id="contact" className="section bg-default">
+          <section id="mentor-form" className="section bg-default">
             <div className="container">
               <div className="row">
                 <div className="col-xs-12">
@@ -370,7 +374,7 @@ export default class Mentor extends Component {
                     {formError && (
                       <p className="alert alert-danger fade-in">
                         There was an error trying to submit your application. Please try again.
-                    </p>
+                      </p>
                     )}
                     {!formSuccess && (
                       <form id="s2do-form" onSubmit={this.handleSubmit}>
@@ -378,7 +382,7 @@ export default class Mentor extends Component {
                           <div className="form-group">
                             <label htmlFor="InputName" className="dark-text">
                               Name
-                            <sup>*</sup>
+                              <sup>*</sup>
                             </label>
                             <input
                               className="form-control input-lg"
@@ -396,7 +400,7 @@ export default class Mentor extends Component {
                           <div className="form-group">
                             <label htmlFor="InputEmail" className="dark-text">
                               Email
-                            <sup>*</sup>
+                              <sup>*</sup>
                             </label>
                             <input
                               className="form-control input-lg"
@@ -414,7 +418,7 @@ export default class Mentor extends Component {
                           <div className="form-group">
                             <label htmlFor="InputService" className="dark-text">
                               Military Branch Of Service
-                            <sup>*</sup>
+                              <sup>*</sup>
                             </label>
                             <input
                               className="form-control input-lg"
@@ -431,7 +435,7 @@ export default class Mentor extends Component {
                           <div className="form-group">
                             <label htmlFor="InputTechnicalExpertise" className="dark-text">
                               Area Of Technical Expertise ( Javascript, Ruby, etc)
-                            <sup>*</sup>
+                              <sup>*</sup>
                             </label>
                             <input
                               className="form-control input-lg"
@@ -448,7 +452,7 @@ export default class Mentor extends Component {
                           <div className="form-group">
                             <label htmlFor="InputPortfolio" className="dark-text">
                               Github, Portfolio or Linkedin
-                            <sup>*</sup>
+                              <sup>*</sup>
                             </label>
                             <input
                               className="form-control input-lg"
@@ -479,9 +483,12 @@ export default class Mentor extends Component {
                         </div>
                         <div className="col-md-8">
                           <div className="form-group">
-                            <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
+                            <label
+                              htmlFor="InputEmployerImplementedRestricted"
+                              className="dark-text"
+                            >
                               Employer Implemented Restrictions, If Any.
-                          </label>
+                            </label>
                             <textarea
                               className="form-control"
                               rows="7"

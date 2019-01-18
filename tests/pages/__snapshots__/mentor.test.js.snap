@@ -214,7 +214,9 @@ exports[`<Mentor /> should render correctly 1`] = `
                   <div
                     class="container"
                   >
-                    <h4>
+                    <h4
+                      class="small-top-pad"
+                    >
                       Our Philosophy
                     </h4>
                     <div
@@ -509,7 +511,9 @@ exports[`<Mentor /> should render correctly 1`] = `
                         </div>
                       </div>
                     </div>
-                    <h4>
+                    <h4
+                      class="small-top-pad"
+                    >
                       Time Commitment
                     </h4>
                     <p>
@@ -525,7 +529,7 @@ exports[`<Mentor /> should render correctly 1`] = `
         </section>
         <section
           class="section bg-default"
-          id="contact"
+          id="mentor-form"
         >
           <div
             class="container"
