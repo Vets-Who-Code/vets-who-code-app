@@ -248,11 +248,15 @@ exports[`<Mentor /> should render correctly 1`] = `
                               href="#collapseOne"
                               role="button"
                             >
-                               
-                              <b>
-                                Technical:
-                              </b>
-                               Mentors will assist students in understanding the technical aspects of software development and coding.
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Technical:
+                                </b>
+                                 Mentors will assist students in understanding the technical aspects of software development and coding.
+                              </div>
                               <i
                                 class="fa fa-plus accordions-derective-icon pull-right"
                               />
@@ -302,11 +306,15 @@ exports[`<Mentor /> should render correctly 1`] = `
                               href="#collapseTwo"
                               role="button"
                             >
-                               
-                              <b>
-                                Professional:
-                              </b>
-                               Mentors will help students understand the professional aspects of working in the field of software development.
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Professional:
+                                </b>
+                                 Mentors will help students understand the professional aspects of working in the field of software development.
+                              </div>
                               <i
                                 class="fa fa-plus accordions-derective-icon pull-right"
                               />
@@ -356,11 +364,15 @@ exports[`<Mentor /> should render correctly 1`] = `
                               href="#collapseThree"
                               role="button"
                             >
-                               
-                              <b>
-                                Personal:
-                              </b>
-                               Get to know students on a personal level.
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Personal:
+                                </b>
+                                 Get to know students on a personal level.
+                              </div>
                               <i
                                 class="fa fa-plus accordions-derective-icon pull-right"
                               />
@@ -421,11 +433,15 @@ exports[`<Mentor /> should render correctly 1`] = `
                               href="#collapseFour"
                               role="button"
                             >
-                               
-                              <b>
-                                Establishing goals: 
-                              </b>
-                               As a mentor, you should understand your assigned mentee’s goals. Talk with them about how you can best help them accomplish those goals.
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Establishing goals: 
+                                </b>
+                                 As a mentor, you should understand your assigned mentee’s goals. Talk with them about how you can best help them accomplish those goals.
+                              </div>
                               <i
                                 class="fa fa-plus accordions-derective-icon pull-right"
                               />
@@ -482,11 +498,15 @@ exports[`<Mentor /> should render correctly 1`] = `
                               href="#collapseFive"
                               role="button"
                             >
-                               
-                              <b>
-                                Your Role: 
-                              </b>
-                               You will not be the expert on all your mentee’s needs. Many mentors find it difficult when they do not have all the answers.
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Your Role: 
+                                </b>
+                                 You will not be the expert on all your mentee’s needs. Many mentors find it difficult when they do not have all the answers.
+                              </div>
                               <i
                                 class="fa fa-plus accordions-derective-icon pull-right"
                               />

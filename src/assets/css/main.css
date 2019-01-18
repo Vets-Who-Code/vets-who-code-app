@@ -1529,10 +1529,6 @@ label {
   font-weight: 900;
   margin-bottom: 45px;
 }
-.contactus-brief > ul, li {
-  list-style-type: disc !important;
-  margin: 0 3rem;
-}
 .contactus-brief > .section-description {
   color: #999999;
 }
@@ -1726,6 +1722,10 @@ uneditable-input:focus {
 }
 .faq_list .panel-body {
   padding: 40px 15px;
+}
+.faq_list .panel-body ul li{
+  list-style-type: disc;
+  margin: 0 3rem;
 }
 .faq_list .panel-heading a {
   color: #091F40;

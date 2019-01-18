@@ -114,7 +114,7 @@ export default class Mentor extends Component {
                     <div className="container">
                       <h4 className="small-top-pad">Our Philosophy</h4>
                       <p>
-We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
+                        We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
                       </p>
                       <div
                         className="panel-group faq_list"
@@ -134,9 +134,11 @@ We ask mentors to address the technical, professional and personal needs of stud
                                 aria-expanded="false"
                                 aria-controls="collapseOne"
                               >
-                                {' '}
-                                <b>Technical:</b> Mentors will assist students in understanding the
-                                technical aspects of software development and coding.
+                                <div className="adjust-wrap">
+                                  {' '}
+                                  <b>Technical:</b> Mentors will assist students in understanding the
+                                  technical aspects of software development and coding.
+                                </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
@@ -168,10 +170,12 @@ We ask mentors to address the technical, professional and personal needs of stud
                                 aria-expanded="false"
                                 aria-controls="collapseTwo"
                               >
-                                {' '}
-                                <b>Professional:</b> Mentors will help students understand the
-                                professional aspects of working in the field of software
-                                development.
+                                <div className="adjust-wrap">
+                                  {' '}
+                                  <b>Professional:</b> Mentors will help students understand the
+                                  professional aspects of working in the field of software
+                                  development.
+                                </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
@@ -208,8 +212,10 @@ We ask mentors to address the technical, professional and personal needs of stud
                                 aria-expanded="false"
                                 aria-controls="collapseThree"
                               >
-                                {' '}
-                                <b>Personal:</b> Get to know students on a personal level.
+                                <div className="adjust-wrap">
+                                  {' '}
+                                  <b>Personal:</b> Get to know students on a personal level.
+                                </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
@@ -260,10 +266,12 @@ We ask mentors to address the technical, professional and personal needs of stud
                                 aria-expanded="false"
                                 aria-controls="collapseFour"
                               >
-                                {' '}
-                                <b>Establishing goals: </b> As a mentor, you should understand your
-                                assigned mentee’s goals. Talk with them about how you can best help
-                                them accomplish those goals.
+                                <div className="adjust-wrap">
+                                  {' '}
+                                  <b>Establishing goals: </b> As a mentor, you should understand your
+                                  assigned mentee’s goals. Talk with them about how you can best help
+                                  them accomplish those goals.
+                                </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
@@ -314,10 +322,12 @@ We ask mentors to address the technical, professional and personal needs of stud
                                 aria-expanded="false"
                                 aria-controls="collapseFive"
                               >
-                                {' '}
-                                <b>Your Role: </b> You will not be the expert on all your mentee’s
-                                needs. Many mentors find it difficult when they do not have all the
-                                answers.
+                                <div className="adjust-wrap">
+                                  {' '}
+                                  <b>Your Role: </b> You will not be the expert on all your mentee’s
+                                  needs. Many mentors find it difficult when they do not have all the
+                                  answers.
+                                </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
                             </h4>
