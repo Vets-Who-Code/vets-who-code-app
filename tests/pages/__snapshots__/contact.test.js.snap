@@ -200,12 +200,12 @@ exports[`<Contact /> should render correctly 1`] = `
               class="contactus-brief"
             >
               <h3>
-                Contact us
+                Contact Us
               </h3>
               <p
                 class="section-description"
               >
-                Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!
+                Fill out the from below and someone will contact you within 24 hours. Can&apos;t wait to hear from you!
               </p>
             </div>
           </div>
@@ -345,7 +345,7 @@ exports[`<Contact /> should render correctly 1`] = `
                   name="submit"
                   title=""
                   type="submit"
-                  value="SEND MESSAGE"
+                  value="Submit Message"
                 />
               </div>
             </form>
