@@ -193,7 +193,7 @@ export default class Mentor extends Component {
                                 </li>
                                 <li>
                                   Building your virtual resume (GitHub, personal website, social
-                                  media)
+                                  media) and profession network
                                 </li>
                                 <li>Job application and interviewing</li>
                               </ul>
@@ -229,14 +229,13 @@ export default class Mentor extends Component {
                             <div className="panel-body">
                               <ul>
                                 <li>
-                                  Be sensitive to any personal/life needs a student may have. We are
-                                  not mental health professionals so
+                                  Its not just about software and coding. Get to know the student and build a lifelong personal relationship
                                 </li>
                                 <li>
-                                  Be prepared to spot issues and involve VetsWhoCode leadership{' '}
+                                  Be sensitive to any personal/life needs a student may have
                                 </li>
                                 <li>
-                                  If there are signs a person might be a danger to themselves or
+                                  We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership{' '}If there are signs a person might be a danger to themselves or
                                   others
                                 </li>
                               </ul>

@@ -335,7 +335,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                                 What it means to be a member of a team of software developers
                               </li>
                               <li>
-                                Building your virtual resume (GitHub, personal website, social media)
+                                Building your virtual resume (GitHub, personal website, social media) and profession network
                               </li>
                               <li>
                                 Job application and interviewing
@@ -390,13 +390,14 @@ exports[`<Mentor /> should render correctly 1`] = `
                           >
                             <ul>
                               <li>
-                                Be sensitive to any personal/life needs a student may have. We are not mental health professionals so
+                                Its not just about software and coding. Get to know the student and build a lifelong personal relationship
                               </li>
                               <li>
-                                Be prepared to spot issues and involve VetsWhoCode leadership
+                                Be sensitive to any personal/life needs a student may have
+                              </li>
+                              <li>
+                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership
                                  
-                              </li>
-                              <li>
                                 If there are signs a person might be a danger to themselves or others
                               </li>
                             </ul>
