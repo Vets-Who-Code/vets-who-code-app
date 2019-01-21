@@ -63,8 +63,8 @@ export default class Mentor extends Component {
           window.scrollBy({
             top: -450,
             left: 0,
-            behavior: 'smooth'
-          });
+            behavior: 'smooth',
+          })
         }
       })
       .catch(() => {
@@ -132,7 +132,8 @@ export default class Mentor extends Component {
                     <div className="container">
                       <h4 className="small-top-pad">Our Philosophy</h4>
                       <p>
-                        We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
+                        We ask mentors to address the technical, professional and personal needs of
+                        students. Here is more detail on each of these areas:
                       </p>
                       <div
                         className="panel-group faq_list"
@@ -155,8 +156,8 @@ export default class Mentor extends Component {
                               >
                                 <div className="adjust-wrap">
                                   {' '}
-                                  <b>Technical:</b> Mentors will assist students in understanding the
-                                  technical aspects of software development and coding.
+                                  <b>Technical:</b> Mentors will assist students in understanding
+                                  the technical aspects of software development and coding.
                                 </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
@@ -248,14 +249,14 @@ export default class Mentor extends Component {
                             <div className="panel-body">
                               <ul>
                                 <li>
-                                  Its not just about software and coding. Get to know the student and build a lifelong personal relationship
+                                  Its not just about software and coding. Get to know the student
+                                  and build a lifelong personal relationship
                                 </li>
+                                <li>Be sensitive to any personal/life needs a student may have</li>
                                 <li>
-                                  Be sensitive to any personal/life needs a student may have
-                                </li>
-                                <li>
-                                  We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership{' '}If there are signs a person might be a danger to themselves or
-                                  others
+                                  We are not mental health professionals so be prepared to spot
+                                  issues and involve VetsWhoCode leadership If there are signs a
+                                  person might be a danger to themselves or others
                                 </li>
                               </ul>
                             </div>
@@ -287,9 +288,9 @@ export default class Mentor extends Component {
                               >
                                 <div className="adjust-wrap">
                                   {' '}
-                                  <b>Establishing goals: </b> As a mentor, you should understand your
-                                  assigned mentee’s goals. Talk with them about how you can best help
-                                  them accomplish those goals.
+                                  <b>Establishing goals: </b> As a mentor, you should understand
+                                  your assigned mentee’s goals. Talk with them about how you can
+                                  best help them accomplish those goals.
                                 </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>
@@ -344,8 +345,8 @@ export default class Mentor extends Component {
                                 <div className="adjust-wrap">
                                   {' '}
                                   <b>Your Role: </b> You will not be the expert on all your mentee’s
-                                  needs. Many mentors find it difficult when they do not have all the
-                                  answers.
+                                  needs. Many mentors find it difficult when they do not have all
+                                  the answers.
                                 </div>
                                 <i className="fa fa-plus accordions-derective-icon pull-right" />
                               </a>

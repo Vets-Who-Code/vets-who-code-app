@@ -5,13 +5,10 @@ import Layout from '../components/Layout'
 
 import thisIsUs from '../images/this_is_us.png'
 
-import Panel from '../components/Panel'
+import Accordion from '../components/Accordion/Accordion'
+import Panel from '../components/Accordion/Panel'
 
 export default class Mentor extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   state = {
     weeks: [
       {
@@ -94,23 +91,23 @@ export default class Mentor extends Component {
     ],
   }
 
-  handleClick = e => {
-    let accordion = e.currentTarget
-    let modules = accordion.querySelectorAll('.panel-default')
-    modules.forEach(panel => {
-      let icon = panel.querySelector('i')
-      if (panel.classList.contains('active')) {
-        panel.classList.remove('active')
-        icon.classList.remove('fa-minus')
-        icon.classList.add('fa-plus')
-      }
-      if (panel.querySelector('a[aria-expanded="true"]')) {
-        panel.classList.add('active')
-        panel.querySelector('i').classList.remove('fa-plus')
-        panel.querySelector('i').classList.add('fa-minus')
-      }
-    })
-  }
+  // handleClick = e => {
+  //   let accordion = e.currentTarget
+  //   let modules = accordion.querySelectorAll('.panel-default')
+  //   modules.forEach(panel => {
+  //     let icon = panel.querySelector('i')
+  //     if (panel.classList.contains('active')) {
+  //       panel.classList.remove('active')
+  //       icon.classList.remove('fa-minus')
+  //       icon.classList.add('fa-plus')
+  //     }
+  //     if (panel.querySelector('a[aria-expanded="true"]')) {
+  //       panel.classList.add('active')
+  //       panel.querySelector('i').classList.remove('fa-plus')
+  //       panel.querySelector('i').classList.add('fa-minus')
+  //     }
+  //   })
+  // }
 
   render = () => {
     const { weeks } = this.state
@@ -156,17 +153,11 @@ export default class Mentor extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <div
-                  className="panel-group faq_list"
-                  id="accordion"
-                  role="tablist"
-                  aria-multiselectable="true"
-                  onClick={e => this.handleClick(e)}
-                >
-                  {weeks.map(week => {
-                    return <Panel key={week.id} title={week.title} body={week.body} id={week.id} />
-                  })}
-                </div>
+                <Accordion>
+                  {weeks.map(week => (
+                    <Panel key={week.id} title={week.title} body={week.body} id={week.id} />
+                  ))}
+                </Accordion>
               </div>
             </div>
           </div>

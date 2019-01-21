@@ -396,9 +396,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                                 Be sensitive to any personal/life needs a student may have
                               </li>
                               <li>
-                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership
-                                 
-                                If there are signs a person might be a danger to themselves or others
+                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership If there are signs a person might be a danger to themselves or others
                               </li>
                             </ul>
                           </div>
