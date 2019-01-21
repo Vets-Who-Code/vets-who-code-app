@@ -236,8 +236,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseOne"
                       role="button"
                     >
-                       
-                      Week 1: Set Up and Prep
+                      <div>
+                        Week 1: Set Up and Prep
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -277,8 +278,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseTwo"
                       role="button"
                     >
-                       
-                      Week 2: The Web, Git and HTML
+                      <div>
+                        Week 2: The Web, Git and HTML
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -318,8 +320,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseThree"
                       role="button"
                     >
-                       
-                      Week 3: Basics of CSS
+                      <div>
+                        Week 3: Basics of CSS
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -359,8 +362,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseFour"
                       role="button"
                     >
-                       
-                      Week 4: Advanced CSS
+                      <div>
+                        Week 4: Advanced CSS
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -400,8 +404,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseFive"
                       role="button"
                     >
-                       
-                      Week 5: JavaScript Basics
+                      <div>
+                        Week 5: JavaScript Basics
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -441,8 +446,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseSix"
                       role="button"
                     >
-                       
-                      Week 6: Computer Science With Javascript
+                      <div>
+                        Week 6: Computer Science With Javascript
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -482,8 +488,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseSeven"
                       role="button"
                     >
-                       
-                      Week 7: Computer Science With Javascript II: Deeper Dive
+                      <div>
+                        Week 7: Computer Science With Javascript II: Deeper Dive
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -523,8 +530,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseEight"
                       role="button"
                     >
-                       
-                      Week 8: Data Visualization
+                      <div>
+                        Week 8: Data Visualization
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -564,8 +572,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseNine"
                       role="button"
                     >
-                       
-                      Week 9: Node.js Express and Socket.io
+                      <div>
+                        Week 9: Node.js Express and Socket.io
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -605,8 +614,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseTen"
                       role="button"
                     >
-                       
-                      Week 10: Node, Express and Socket.io II
+                      <div>
+                        Week 10: Node, Express and Socket.io II
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -646,8 +656,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseEleven"
                       role="button"
                     >
-                       
-                      Week 11: React
+                      <div>
+                        Week 11: React
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -687,8 +698,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseTwelve"
                       role="button"
                     >
-                       
-                      Week 12: React II
+                      <div>
+                        Week 12: React II
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -728,8 +740,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseThirteen"
                       role="button"
                     >
-                       
-                      Week 13: Interview Prep I
+                      <div>
+                        Week 13: Interview Prep I
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -769,8 +782,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       href="#collapseFourteen"
                       role="button"
                     >
-                       
-                      Week 14: Interview Prep II
+                      <div>
+                        Week 14: Interview Prep II
+                      </div>
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
