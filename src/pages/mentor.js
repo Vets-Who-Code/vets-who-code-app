@@ -74,6 +74,24 @@ export default class Mentor extends Component {
     this.setState(this.resetForm)
   }
 
+  handleClick = e => {
+    let accordion = e.currentTarget
+    let modules = accordion.querySelectorAll('.panel-default')
+    modules.forEach(panel => {
+      let icon = panel.querySelector('i')
+      if (panel.classList.contains('active')) {
+        panel.classList.remove('active')
+        icon.classList.remove('fa-minus')
+        icon.classList.add('fa-plus')
+      }
+      if (panel.querySelector('a[aria-expanded="true"]')) {
+        panel.classList.add('active')
+        panel.querySelector('i').classList.remove('fa-plus')
+        panel.querySelector('i').classList.add('fa-minus')
+      }
+    })
+  }
+
   render() {
     const { formSuccess, message, formError, loading, formHeading } = this.state
 
@@ -121,6 +139,7 @@ export default class Mentor extends Component {
                         id="main-guidelines"
                         role="tablist"
                         aria-multiselectable="true"
+                        onClick={e => this.handleClick(e)}
                       >
                         <div className="panel panel-default">
                           <div className="panel-heading" role="tab" id="mentorHeadingOne">
@@ -252,6 +271,7 @@ export default class Mentor extends Component {
                         id="additional-guidelines"
                         role="tablist"
                         aria-multiselectable="true"
+                        onClick={e => this.handleClick(e)}
                       >
                         <div className="panel panel-default">
                           <div className="panel-heading" role="tab" id="mentorHeadingFour">

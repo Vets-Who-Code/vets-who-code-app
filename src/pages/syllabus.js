@@ -95,8 +95,8 @@ export default class Mentor extends Component {
   }
 
   handleClick = e => {
-    let accordian = e.currentTarget
-    let modules = accordian.querySelectorAll('.panel-default')
+    let accordion = e.currentTarget
+    let modules = accordion.querySelectorAll('.panel-default')
     modules.forEach(panel => {
       let icon = panel.querySelector('i')
       if (panel.classList.contains('active')) {
