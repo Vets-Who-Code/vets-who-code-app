@@ -52,8 +52,7 @@ class Panel extends Component {
               aria-expanded={active}
               aria-controls={`collapse${id}`}
             >
-              {' '}
-              {title}
+              <div dangerouslySetInnerHTML={{ __html: title }} />
               <i
                 className={
                   active
@@ -70,7 +69,7 @@ class Panel extends Component {
           role="tabpanel"
           aria-labelledby={`heading${id}`}
         >
-          <div className="panel-body">{body}</div>
+          <div className="panel-body" dangerouslySetInnerHTML={{ __html: body }} />
         </div>
       </div>
     )
