@@ -184,227 +184,595 @@ exports[`<Mentor /> should render correctly 1`] = `
           </div>
         </div>
       </header>
-      <section
-        class="pad-regular section bg-default"
-        id="contact"
+      <div
+        class="pad-regular bg-default"
       >
-        <div
-          class="container"
+        <section
+          class="section bg-default"
+          id="contact"
         >
           <div
-            class="row"
+            class="container"
           >
             <div
-              class="col-xs-12"
+              class="row"
             >
               <div
-                class="contactus-brief"
+                class="col-xs-12"
               >
-                <h3>
-                  Become A Mentor
-                </h3>
-                <p
-                  class="section-description"
+                <div
+                  class="contactus-brief"
                 >
-                  Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.
-                </p>
-                <form
-                  id="s2do-form"
-                >
-                  <div
-                    class="col-md-8"
+                  <h3>
+                    Become A Mentor
+                  </h3>
+                  <p
+                    class="section-description"
                   >
-                    <div
-                      class="form-group"
+                    Thank you for your interest in mentoring with VetsWhocode. This document is intended to share our philosophy on mentoring. We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
+                  </p>
+                  <div
+                    class="container"
+                  >
+                    <h4
+                      class="small-top-pad"
                     >
-                      <label
-                        class="dark-text"
-                        for="InputName"
+                      Our Philosophy
+                    </h4>
+                    <p>
+                      We ask mentors to address the technical, professional and personal needs of students. Here is more detail on each of these areas:
+                    </p>
+                    <div
+                      aria-multiselectable="true"
+                      class="panel-group faq_list"
+                      id="main-guidelines"
+                      role="tablist"
+                    >
+                      <div
+                        class="panel panel-default"
                       >
-                        Name
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        id="name"
-                        name="name"
-                        placeholder="Name"
-                        required=""
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
-                    >
-                      <label
-                        class="dark-text"
-                        for="InputEmail"
+                        <div
+                          class="panel-heading"
+                          id="mentorHeadingOne"
+                          role="tab"
+                        >
+                          <h4
+                            class="panel-title"
+                          >
+                            <a
+                              aria-controls="collapseOne"
+                              aria-expanded="false"
+                              class="collapsed"
+                              data-parent="#main-guidelines"
+                              data-toggle="collapse"
+                              href="#collapseOne"
+                              role="button"
+                            >
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Technical:
+                                </b>
+                                 Mentors will assist students in understanding the technical aspects of software development and coding.
+                              </div>
+                              <i
+                                class="fa fa-plus accordions-derective-icon pull-right"
+                              />
+                            </a>
+                          </h4>
+                        </div>
+                        <div
+                          aria-labelledby="mentorHeadingOne"
+                          class="panel-collapse collapse"
+                          id="collapseOne"
+                          role="tabpanel"
+                        >
+                          <div
+                            class="panel-body"
+                          >
+                            <ul>
+                              <li>
+                                Code reviews
+                              </li>
+                              <li>
+                                Best practices
+                              </li>
+                              <li>
+                                Finding resources and tutorials for learning
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="panel panel-default"
                       >
-                        Email
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        required=""
-                        type="email"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
-                    >
-                      <label
-                        class="dark-text"
-                        for="InputService"
+                        <div
+                          class="panel-heading"
+                          id="mentorHeadingTwo"
+                          role="tab"
+                        >
+                          <h4
+                            class="panel-title"
+                          >
+                            <a
+                              aria-controls="collapseTwo"
+                              aria-expanded="false"
+                              class="collapsed"
+                              data-parent="#main-guidelines"
+                              data-toggle="collapse"
+                              href="#collapseTwo"
+                              role="button"
+                            >
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Professional:
+                                </b>
+                                 Mentors will help students understand the professional aspects of working in the field of software development.
+                              </div>
+                              <i
+                                class="fa fa-plus accordions-derective-icon pull-right"
+                              />
+                            </a>
+                          </h4>
+                        </div>
+                        <div
+                          aria-labelledby="mentorHeadingTwo"
+                          class="panel-collapse collapse"
+                          id="collapseTwo"
+                          role="tabpanel"
+                        >
+                          <div
+                            class="panel-body"
+                          >
+                            <ul>
+                              <li>
+                                What it means to be a member of a team of software developers
+                              </li>
+                              <li>
+                                Building your virtual resume (GitHub, personal website, social media) and profession network
+                              </li>
+                              <li>
+                                Job application and interviewing
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="panel panel-default"
                       >
-                        Military Branch Of Service
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        name="branch-of-service"
-                        placeholder="Thank you for your service"
-                        required=""
-                        type="text"
-                        value=""
-                      />
+                        <div
+                          class="panel-heading"
+                          id="mentorHeadingThree"
+                          role="tab"
+                        >
+                          <h4
+                            class="panel-title"
+                          >
+                            <a
+                              aria-controls="collapseThree"
+                              aria-expanded="false"
+                              class="collapsed"
+                              data-parent="#main-guidelines"
+                              data-toggle="collapse"
+                              href="#collapseThree"
+                              role="button"
+                            >
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Personal:
+                                </b>
+                                 Get to know students on a personal level.
+                              </div>
+                              <i
+                                class="fa fa-plus accordions-derective-icon pull-right"
+                              />
+                            </a>
+                          </h4>
+                        </div>
+                        <div
+                          aria-labelledby="mentorHeadingThree"
+                          class="panel-collapse collapse"
+                          id="collapseThree"
+                          role="tabpanel"
+                        >
+                          <div
+                            class="panel-body"
+                          >
+                            <ul>
+                              <li>
+                                Its not just about software and coding. Get to know the student and build a lifelong personal relationship
+                              </li>
+                              <li>
+                                Be sensitive to any personal/life needs a student may have
+                              </li>
+                              <li>
+                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership
+                                 
+                                If there are signs a person might be a danger to themselves or others
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
+                    <p>
+                      In addition to the three areas addressed above here are a few other items to consider.
+                    </p>
                     <div
-                      class="form-group"
+                      aria-multiselectable="true"
+                      class="panel-group faq_list"
+                      id="additional-guidelines"
+                      role="tablist"
                     >
-                      <label
-                        class="dark-text"
-                        for="InputTechnicalExpertise"
+                      <div
+                        class="panel panel-default"
                       >
-                        Area Of Technical Expertise ( Javascript, Ruby, etc)
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        name="technical-expertise"
-                        placeholder="What languages you write in?"
-                        required=""
-                        type="text"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
-                    >
-                      <label
-                        class="dark-text"
-                        for="InputPortfolio"
+                        <div
+                          class="panel-heading"
+                          id="mentorHeadingFour"
+                          role="tab"
+                        >
+                          <h4
+                            class="panel-title"
+                          >
+                            <a
+                              aria-controls="collapseFour"
+                              aria-expanded="false"
+                              class="collapsed"
+                              data-parent="#additional-guidelines"
+                              data-toggle="collapse"
+                              href="#collapseFour"
+                              role="button"
+                            >
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Establishing goals: 
+                                </b>
+                                 As a mentor, you should understand your assigned mentee’s goals. Talk with them about how you can best help them accomplish those goals.
+                              </div>
+                              <i
+                                class="fa fa-plus accordions-derective-icon pull-right"
+                              />
+                            </a>
+                          </h4>
+                        </div>
+                        <div
+                          aria-labelledby="mentorHeadingFour"
+                          class="panel-collapse collapse"
+                          id="collapseFour"
+                          role="tabpanel"
+                        >
+                          <div
+                            class="panel-body"
+                          >
+                            <ul>
+                              <li>
+                                Assist with finding resources such as people, books, articles, tools and web-based information
+                              </li>
+                              <li>
+                                Imparting knowledge and skills by explaining, giving useful examples, demonstrating processes and asking thought-provoking questions
+                                 
+                              </li>
+                              <li>
+                                Helping her or him gain broader perspectives of the field of software development and what area they might like to work in or focus on (front end, back end, devops ect)
+                              </li>
+                              <li>
+                                Discussing actions you’ve taken in your career and explaining your rationale
+                              </li>
+                              <li>
+                                Introduce him or her to your colleagues who can be additional useful contacts or inspiring models
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="panel panel-default"
                       >
-                        Github, Portfolio or Linkedin
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        name="github-portfolio-or-linkedin"
-                        placeholder="Share your work"
-                        required=""
-                        type="text"
-                        value=""
-                      />
+                        <div
+                          class="panel-heading"
+                          id="mentorHeadingFive"
+                          role="tab"
+                        >
+                          <h4
+                            class="panel-title"
+                          >
+                            <a
+                              aria-controls="collapseFive"
+                              aria-expanded="false"
+                              class="collapsed"
+                              data-parent="#additional-guidelines"
+                              data-toggle="collapse"
+                              href="#collapseFive"
+                              role="button"
+                            >
+                              <div
+                                class="adjust-wrap"
+                              >
+                                 
+                                <b>
+                                  Your Role: 
+                                </b>
+                                 You will not be the expert on all your mentee’s needs. Many mentors find it difficult when they do not have all the answers.
+                              </div>
+                              <i
+                                class="fa fa-plus accordions-derective-icon pull-right"
+                              />
+                            </a>
+                          </h4>
+                        </div>
+                        <div
+                          aria-labelledby="mentorHeadingFive"
+                          class="panel-collapse collapse"
+                          id="collapseFive"
+                          role="tabpanel"
+                        >
+                          <div
+                            class="panel-body"
+                          >
+                            <ul>
+                              <li>
+                                Your role is that of a learning facilitator early in your relationship.
+                              </li>
+                              <li>
+                                Tell your mentee that you will not have all the answers, and you are looking forward to learning together as well as seeking help from others who are more expert on different topics.
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
+                    <h4
+                      class="small-top-pad"
                     >
-                      <label
-                        class="dark-text"
-                        for="InputLocation"
-                      >
-                        Location ( City and State )
-                        <sup>
-                          *
-                        </sup>
-                      </label>
-                      <input
-                        class="form-control input-lg"
-                        name="location"
-                        placeholder="Location"
-                        required=""
-                        type="text"
-                        value=""
-                      />
-                    </div>
+                      Time Commitment
+                    </h4>
+                    <p>
+                      After being formally assigned a mentee we ask mentors to set up a time for an initial chat with their mentee to discuss their needs and generally get to know one another. After this initial meeting, we ask that our mentors check in with their mentee at least once a week to inquire about their progress and if the students have any issues.
+                    </p>
+                    VetsWhoCode is a virtual organization and Slack is the primary vehicle for communication and activity. We ask mentors to be available in Slack to students and to use slack as a way to check in with mentees on a weekly basis. Mentors and students may also use email or video chat to communicate with one another. Please work with your mentee to establish the best frequency and method of communication for you both.
+                    <p />
                   </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
-                    >
-                      <label
-                        class="dark-text"
-                        for="InputEmployerImplementedRestricted"
-                      >
-                        Employer Implemented Restrictions, If Any.
-                      </label>
-                      <textarea
-                        class="form-control"
-                        name="employer-restrictions"
-                        placeholder="Please put here any employer restrictions about writing and reading code?"
-                        rows="7"
-                      />
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-8"
-                  >
-                    <div
-                      class="form-group"
-                    >
-                      <input
-                        class="btn btn-charity-default"
-                        href="#"
-                        name="submit"
-                        title=""
-                        type="submit"
-                        value="submit"
-                      />
-                    </div>
-                  </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section
+          class="section bg-default"
+          id="mentor-form"
+        >
+          <div
+            class="container"
+          >
+            <div
+              class="row"
+            >
+              <div
+                class="col-xs-12"
+              >
+                <div
+                  class="contactus-brief"
+                >
+                  <h3>
+                    Mentor Application
+                  </h3>
+                  <p
+                    class="section-description"
+                  >
+                    Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.
+                  </p>
+                  <form
+                    id="s2do-form"
+                  >
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputName"
+                        >
+                          Name
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          id="name"
+                          name="name"
+                          placeholder="Name"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputEmail"
+                        >
+                          Email
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          id="email"
+                          name="email"
+                          placeholder="Email"
+                          required=""
+                          type="email"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputService"
+                        >
+                          Military Branch Of Service
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          name="branch-of-service"
+                          placeholder="Thank you for your service"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputTechnicalExpertise"
+                        >
+                          Area Of Technical Expertise ( Javascript, Ruby, etc)
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          name="technical-expertise"
+                          placeholder="What languages you write in?"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputPortfolio"
+                        >
+                          Github, Portfolio or Linkedin
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          name="github-portfolio-or-linkedin"
+                          placeholder="Share your work"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputLocation"
+                        >
+                          Location ( City and State )
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control input-lg"
+                          name="location"
+                          placeholder="Location"
+                          required=""
+                          type="text"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="dark-text"
+                          for="InputEmployerImplementedRestricted"
+                        >
+                          Employer Implemented Restrictions, If Any.
+                        </label>
+                        <textarea
+                          class="form-control"
+                          name="employer-restrictions"
+                          placeholder="Please put here any employer restrictions about writing and reading code?"
+                          rows="7"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-md-8"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <input
+                          class="btn btn-charity-default"
+                          href="#"
+                          name="submit"
+                          title=""
+                          type="submit"
+                          value="submit"
+                        />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
       gatsby-link
       <div>
         <section
