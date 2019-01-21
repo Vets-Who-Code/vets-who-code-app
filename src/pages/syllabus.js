@@ -91,24 +91,6 @@ export default class Mentor extends Component {
     ],
   }
 
-  // handleClick = e => {
-  //   let accordion = e.currentTarget
-  //   let modules = accordion.querySelectorAll('.panel-default')
-  //   modules.forEach(panel => {
-  //     let icon = panel.querySelector('i')
-  //     if (panel.classList.contains('active')) {
-  //       panel.classList.remove('active')
-  //       icon.classList.remove('fa-minus')
-  //       icon.classList.add('fa-plus')
-  //     }
-  //     if (panel.querySelector('a[aria-expanded="true"]')) {
-  //       panel.classList.add('active')
-  //       panel.querySelector('i').classList.remove('fa-plus')
-  //       panel.querySelector('i').classList.add('fa-minus')
-  //     }
-  //   })
-  // }
-
   render = () => {
     const { weeks } = this.state
     return (
