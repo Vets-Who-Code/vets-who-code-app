@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 
 class Panel extends Component {
   static propTypes = {
-    title: PropTypes.string,
-    body: PropTypes.string,
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    body: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     id: PropTypes.string,
   }
 
@@ -52,7 +52,7 @@ class Panel extends Component {
               aria-expanded={active}
               aria-controls={`collapse${id}`}
             >
-              <div dangerouslySetInnerHTML={{ __html: title }} />
+              <div>{typeof title === 'function' ? title() : title}</div>
               <i
                 className={
                   active
@@ -69,7 +69,7 @@ class Panel extends Component {
           role="tabpanel"
           aria-labelledby={`heading${id}`}
         >
-          <div className="panel-body" dangerouslySetInnerHTML={{ __html: body }} />
+          <div className="panel-body">{typeof body === 'function' ? body() : body}</div>
         </div>
       </div>
     )

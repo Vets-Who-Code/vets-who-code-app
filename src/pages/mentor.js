@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { Link } from 'gatsby'
 
 import Layout from '../components/Layout'
@@ -19,109 +19,111 @@ export default class Mentor extends Component {
     'employer-restrictions': '',
     mainGuidelines: [
       {
-        title:
-          '<b>Technical:</b> Mentors will assist students in understanding ' +
-          'the technical aspects of software development and coding.',
-        body: `
-            <ul>
-              <li>Code reviews</li>
-              <li>Best practices</li>
-              <li>Finding resources and tutorials for learning</li>
-            </ul>
-        `,
+        title: () => (
+          <Fragment>
+            <b>Technical:</b> Mentors will assist students in understanding the technical aspects of
+            software development and coding.
+          </Fragment>
+        ),
+        body: () => (
+          <ul>
+            <li>Code reviews</li>
+            <li>Best practices</li>
+            <li>Finding resources and tutorials for learning</li>
+          </ul>
+        ),
         id: 'One',
       },
       {
-        title:
-          '<b>Professional:</b> Mentors will help students understand  ' +
-          'the professional aspects of working in the field of software ' +
-          'development.',
-        body: `
+        title: () => (
+          <Fragment>
+            <b>Professional:</b> Mentors will help students understand the professional aspects of
+            working in the field of software development.
+          </Fragment>
+        ),
+        body: () => (
           <ul>
+            <li>What it means to be a member of a team of software developers</li>
             <li>
-              What it means to be a member of a team of software developers
-            </li>
-            <li>
-              Building your virtual resume (GitHub, personal website, social
-              media) and profession network
+              Building your virtual resume (GitHub, personal website, social media) and profession
+              network
             </li>
             <li>Job application and interviewing</li>
           </ul>
-        `,
+        ),
         id: 'Two',
       },
       {
-        title: '<b>Personal:</b> Get to know students on a personal level.',
-        body: `
+        title: () => (
+          <Fragment>
+            <b>Personal:</b> Get to know students on a personal level.
+          </Fragment>
+        ),
+        body: () => (
           <ul>
             <li>
-              Its not just about software and coding. Get to know the student
-              and build a lifelong personal relationship
+              Its not just about software and coding. Get to know the student and build a lifelong
+              personal relationship
             </li>
+            <li>Be sensitive to any personal/life needs a student may have</li>
             <li>
-              Be sensitive to any personal/life needs a student may have</li>
-            <li>
-              We are not mental health professionals so be prepared to spot
-              issues and involve VetsWhoCode leadership If there are signs a
-              person might be a danger to themselves or others
+              We are not mental health professionals so be prepared to spot issues and involve
+              VetsWhoCode leadership If there are signs a person might be a danger to themselves or
+              others
             </li>
           </ul>
-        `,
+        ),
         id: 'Three',
       },
     ],
     additionalGuidelines: [
       {
-        title: `<b>Establishing goals: </b> As a mentor, you should understand
-          your assigned mentee’s goals. Talk with them about how you can
-          best help them accomplish those goals.
-        `,
-        body: `
+        title: () => (
+          <Fragment>
+            <b>Establishing goals: </b> As a mentor, you should understand your assigned mentee’s
+            goals. Talk with them about how you can best help them accomplish those goals.
+          </Fragment>
+        ),
+        body: () => (
           <ul>
             <li>
-              Assist with finding resources such as people, books, articles,
-              tools and web-based information
+              Assist with finding resources such as people, books, articles, tools and web-based
+              information
             </li>
             <li>
-              Imparting knowledge and skills by explaining, giving useful
-              examples, demonstrating processes and asking thought-provoking
-              questions
+              Imparting knowledge and skills by explaining, giving useful examples, demonstrating
+              processes and asking thought-provoking questions
             </li>
             <li>
-              Helping her or him gain broader perspectives of the field of
-              software development and what area they might like to work in or
-             focus on (front end, back end, devops ect)
+              Helping her or him gain broader perspectives of the field of software development and
+              what area they might like to work in or focus on (front end, back end, devops ect)
             </li>
+            <li>Discussing actions you’ve taken in your career and explaining your rationale</li>
             <li>
-              Discussing actions you’ve taken in your career and explaining your
-              rationale
-            </li>
-            <li>
-              Introduce him or her to your colleagues who can be additional
-              useful contacts or inspiring models
+              Introduce him or her to your colleagues who can be additional useful contacts or
+              inspiring models
             </li>
           </ul>
-      `,
+        ),
         id: 'Four',
       },
       {
-        title: `<b>Your Role: </b> You will not be the expert on all your mentee’s
-          needs. Many mentors find it difficult when they do not have all
-          the answers.
-        `,
-        body: `
+        title: () => (
+          <Fragment>
+            <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors
+            find it difficult when they do not have all the answers.
+          </Fragment>
+        ),
+        body: () => (
           <ul>
+            <li>Your role is that of a learning facilitator early in your relationship.</li>
             <li>
-              Your role is that of a learning facilitator early in your
-              relationship.
-            </li>
-            <li>
-               Tell your mentee that you will not have all the answers, and you
-              are looking forward to learning together as well as seeking help
-              from others who are more expert on different topics.
+              Tell your mentee that you will not have all the answers, and you are looking forward
+              to learning together as well as seeking help from others who are more expert on
+              different topics.
             </li>
           </ul>
-        `,
+        ),
         id: 'Five',
       },
     ],
@@ -185,24 +187,6 @@ export default class Mentor extends Component {
     this.setState(this.resetForm)
   }
 
-  handleClick = e => {
-    let accordion = e.currentTarget
-    let modules = accordion.querySelectorAll('.panel-default')
-    modules.forEach(panel => {
-      let icon = panel.querySelector('i')
-      if (panel.classList.contains('active')) {
-        panel.classList.remove('active')
-        icon.classList.remove('fa-minus')
-        icon.classList.add('fa-plus')
-      }
-      if (panel.querySelector('a[aria-expanded="true"]')) {
-        panel.classList.add('active')
-        panel.querySelector('i').classList.remove('fa-plus')
-        panel.querySelector('i').classList.add('fa-minus')
-      }
-    })
-  }
-
   render() {
     const {
       formSuccess,
@@ -258,9 +242,10 @@ export default class Mentor extends Component {
                         {mainGuidelines.map(guideline => (
                           <Panel
                             key={guideline.id}
-                            title={guideline.title}
-                            body={guideline.body}
-                            id={guideline.id}
+                            // title={guideline.title}
+                            // body={guideline.body}
+                            // id={guideline.id}
+                            {...guideline}
                           />
                         ))}
                       </Accordion>
