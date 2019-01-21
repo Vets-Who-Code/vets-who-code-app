@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 class Accordion extends Component {
   static propTypes = {
-    children: PropTypes.arrayOf(PropTypes.object)
+    children: PropTypes.arrayOf(PropTypes.object),
   }
 
   renderChildren = () => React.Children.map(this.props.children, child => React.cloneElement(child))

@@ -5,7 +5,7 @@ class Panel extends Component {
   static propTypes = {
     title: PropTypes.string,
     body: PropTypes.string,
-    id: PropTypes.string
+    id: PropTypes.string,
   }
 
   state = {
