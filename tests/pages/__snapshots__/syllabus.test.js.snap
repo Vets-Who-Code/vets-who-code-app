@@ -217,7 +217,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               role="tablist"
             >
               <div
-                class="panel panel-default active"
+                class="panel panel-default"
               >
                 <div
                   class="panel-heading"
@@ -229,23 +229,24 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   >
                     <a
                       aria-controls="collapseOne"
-                      aria-expanded="true"
+                      aria-expanded="false"
+                      class="collapsed"
                       data-parent="#accordion"
                       data-toggle="collapse"
                       href="#collapseOne"
                       role="button"
                     >
                        
-                      Week One: Set Up and Prep
+                      Week 1: Set Up and Prep
                       <i
-                        class="fa fa-minus accordions-derective-icon pull-right"
+                        class="fa fa-plus accordions-derective-icon pull-right"
                       />
                     </a>
                   </h4>
                 </div>
                 <div
                   aria-labelledby="headingOne"
-                  class="panel-collapse collapse in"
+                  class="panel-collapse collapse"
                   id="collapseOne"
                   role="tabpanel"
                 >
@@ -277,7 +278,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                        
-                      Week Two: The Web, Git and HTML
+                      Week 2: The Web, Git and HTML
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -605,7 +606,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                        
-                      Node, Express and Socket.io II
+                      Week 10: Node, Express and Socket.io II
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -630,23 +631,23 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="headingE"
+                  id="headingEleven"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseE"
+                      aria-controls="collapseEleven"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#accordion"
                       data-toggle="collapse"
-                      href="#collapseE"
+                      href="#collapseEleven"
                       role="button"
                     >
                        
-                      React
+                      Week 11: React
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -654,9 +655,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingE"
+                  aria-labelledby="headingEleven"
                   class="panel-collapse collapse"
-                  id="collapseE"
+                  id="collapseEleven"
                   role="tabpanel"
                 >
                   <div
@@ -671,23 +672,23 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="headingT"
+                  id="headingTwelve"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseT"
+                      aria-controls="collapseTwelve"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#accordion"
                       data-toggle="collapse"
-                      href="#collapseT"
+                      href="#collapseTwelve"
                       role="button"
                     >
                        
-                      React II
+                      Week 12: React II
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -695,9 +696,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingT"
+                  aria-labelledby="headingTwelve"
                   class="panel-collapse collapse"
-                  id="collapseT"
+                  id="collapseTwelve"
                   role="tabpanel"
                 >
                   <div
@@ -712,23 +713,23 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="headingTh"
+                  id="headingThirteen"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTh"
+                      aria-controls="collapseThirteen"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#accordion"
                       data-toggle="collapse"
-                      href="#collapseTh"
+                      href="#collapseThirteen"
                       role="button"
                     >
                        
-                      Interview Prep I
+                      Week 13: Interview Prep I
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
@@ -736,9 +737,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingTh"
+                  aria-labelledby="headingThirteen"
                   class="panel-collapse collapse"
-                  id="collapseTh"
+                  id="collapseThirteen"
                   role="tabpanel"
                 >
                   <div
@@ -769,7 +770,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                        
-                      Interview Prep II
+                      Week 14: Interview Prep II
                       <i
                         class="fa fa-plus accordions-derective-icon pull-right"
                       />
