@@ -41,7 +41,7 @@ const settings = {
 const SponsorSlider = () => (
   <Slider {...settings}>
     <div>
-      <a href="https://www.pluralsight.com/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
         <img src={googlePNG} alt="google" height="60" width="60" />
       </a>
     </div>
