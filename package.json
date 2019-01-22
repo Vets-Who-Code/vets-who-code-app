@@ -56,14 +56,14 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "eslint ./src/**/*.js",
+      "eslint",
+      "yarn format",
       "git add"
     ]
   },
   "config": {
     "ghooks": {
-      "pre-commit": "yarn lint; yarn test",
-      "pre-push": "yarn format"
+      "pre-commit": "yarn lint; yarn test"
     }
   },
   "jest": {

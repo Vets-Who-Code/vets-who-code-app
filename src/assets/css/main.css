@@ -1729,13 +1729,20 @@ uneditable-input:focus {
 }
 .faq_list .panel-heading a {
   color: #091F40;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 15px;
   font-weight: bold;
   line-height: 30px;
-  padding-left: 10px;
+  padding: 10px 15px;
   width: 100%;
 }
+
+.panel-heading {
+  padding: 0;
+}
+
 .faq_list .panel-title {
   font-family: "Open Sans";
   font-weight: 800;

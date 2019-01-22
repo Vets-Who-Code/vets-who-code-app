@@ -225,7 +225,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="main-guidelines"
+                      id="accordion"
                       role="tablist"
                     >
                       <div
@@ -233,7 +233,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
-                          id="mentorHeadingOne"
+                          id="headingOne"
                           role="tab"
                         >
                           <h4
@@ -243,15 +243,12 @@ exports[`<Mentor /> should render correctly 1`] = `
                               aria-controls="collapseOne"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#main-guidelines"
+                              data-parent="#accordion"
                               data-toggle="collapse"
                               href="#collapseOne"
                               role="button"
                             >
-                              <div
-                                class="adjust-wrap"
-                              >
-                                 
+                              <div>
                                 <b>
                                   Technical:
                                 </b>
@@ -264,7 +261,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="mentorHeadingOne"
+                          aria-labelledby="headingOne"
                           class="panel-collapse collapse"
                           id="collapseOne"
                           role="tabpanel"
@@ -291,7 +288,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
-                          id="mentorHeadingTwo"
+                          id="headingTwo"
                           role="tab"
                         >
                           <h4
@@ -301,15 +298,12 @@ exports[`<Mentor /> should render correctly 1`] = `
                               aria-controls="collapseTwo"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#main-guidelines"
+                              data-parent="#accordion"
                               data-toggle="collapse"
                               href="#collapseTwo"
                               role="button"
                             >
-                              <div
-                                class="adjust-wrap"
-                              >
-                                 
+                              <div>
                                 <b>
                                   Professional:
                                 </b>
@@ -322,7 +316,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="mentorHeadingTwo"
+                          aria-labelledby="headingTwo"
                           class="panel-collapse collapse"
                           id="collapseTwo"
                           role="tabpanel"
@@ -349,7 +343,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
-                          id="mentorHeadingThree"
+                          id="headingThree"
                           role="tab"
                         >
                           <h4
@@ -359,15 +353,12 @@ exports[`<Mentor /> should render correctly 1`] = `
                               aria-controls="collapseThree"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#main-guidelines"
+                              data-parent="#accordion"
                               data-toggle="collapse"
                               href="#collapseThree"
                               role="button"
                             >
-                              <div
-                                class="adjust-wrap"
-                              >
-                                 
+                              <div>
                                 <b>
                                   Personal:
                                 </b>
@@ -380,7 +371,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="mentorHeadingThree"
+                          aria-labelledby="headingThree"
                           class="panel-collapse collapse"
                           id="collapseThree"
                           role="tabpanel"
@@ -396,9 +387,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                                 Be sensitive to any personal/life needs a student may have
                               </li>
                               <li>
-                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership
-                                 
-                                If there are signs a person might be a danger to themselves or others
+                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership If there are signs a person might be a danger to themselves or others
                               </li>
                             </ul>
                           </div>
@@ -411,7 +400,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="additional-guidelines"
+                      id="accordion"
                       role="tablist"
                     >
                       <div
@@ -419,7 +408,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
-                          id="mentorHeadingFour"
+                          id="headingFour"
                           role="tab"
                         >
                           <h4
@@ -429,15 +418,12 @@ exports[`<Mentor /> should render correctly 1`] = `
                               aria-controls="collapseFour"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#additional-guidelines"
+                              data-parent="#accordion"
                               data-toggle="collapse"
                               href="#collapseFour"
                               role="button"
                             >
-                              <div
-                                class="adjust-wrap"
-                              >
-                                 
+                              <div>
                                 <b>
                                   Establishing goals: 
                                 </b>
@@ -450,7 +436,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="mentorHeadingFour"
+                          aria-labelledby="headingFour"
                           class="panel-collapse collapse"
                           id="collapseFour"
                           role="tabpanel"
@@ -464,7 +450,6 @@ exports[`<Mentor /> should render correctly 1`] = `
                               </li>
                               <li>
                                 Imparting knowledge and skills by explaining, giving useful examples, demonstrating processes and asking thought-provoking questions
-                                 
                               </li>
                               <li>
                                 Helping her or him gain broader perspectives of the field of software development and what area they might like to work in or focus on (front end, back end, devops ect)
@@ -484,7 +469,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
-                          id="mentorHeadingFive"
+                          id="headingFive"
                           role="tab"
                         >
                           <h4
@@ -494,15 +479,12 @@ exports[`<Mentor /> should render correctly 1`] = `
                               aria-controls="collapseFive"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#additional-guidelines"
+                              data-parent="#accordion"
                               data-toggle="collapse"
                               href="#collapseFive"
                               role="button"
                             >
-                              <div
-                                class="adjust-wrap"
-                              >
-                                 
+                              <div>
                                 <b>
                                   Your Role: 
                                 </b>
@@ -515,7 +497,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="mentorHeadingFive"
+                          aria-labelledby="headingFive"
                           class="panel-collapse collapse"
                           id="collapseFive"
                           role="tabpanel"
