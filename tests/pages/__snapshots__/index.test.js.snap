@@ -469,7 +469,7 @@ exports[`<IndexPage /> should render correctly 1`] = `
                           id="subscribe-button"
                           type="submit"
                         >
-                          subscribe
+                          Subscribe
                         </button>
                       </div>
                     </div>

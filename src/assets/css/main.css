@@ -322,6 +322,12 @@ h1.bold_404 {
   background-color: #091F40;
   color: #FFFFFF;
   margin-top: 8px;
+  font-weight: 700;
+}
+.btn-subscribe:hover {
+  background-color: #C5203E;
+  border: 1px solid #091F40;
+  color: #FFFFFF;
 }
 .btn.btn-block {
   width: 100%;
