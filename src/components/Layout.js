@@ -78,6 +78,13 @@ const TemplateWrapper = ({ children }) => (
   </div>
 )
 
+if (typeof window !== `undefined`) {
+  global.jQuery = require('../../static/vendor/jquery/dist/jquery')
+  require('../../static/vendor/bootstrap/dist/bootstrap')
+  window.$ = jQuery
+  window.jQuery = jQuery
+}
+
 TemplateWrapper.propTypes = {
   children: PropTypes.any,
 }
