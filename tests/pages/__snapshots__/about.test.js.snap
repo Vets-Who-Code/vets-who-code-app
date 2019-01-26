@@ -158,7 +158,7 @@ exports[`<About /> should render correctly 1`] = `
       </div>
     </nav>
     <header
-      class="inner-header overlay grey text-center slim-bg "
+      class="inner-header overlay grey text-center slim-bg"
       style="background-image: url(image-mock); background-position-y: bottom;"
     >
       <div
