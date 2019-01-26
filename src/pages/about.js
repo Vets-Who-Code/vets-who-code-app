@@ -11,10 +11,6 @@ import thisIsUs from '../images/this_is_us.png'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
-  componentDidMount() {
-    $('.vwc-animated-gif').css('display', 'none')
-  }
-
   play = () => {
     $('.play-button').fadeOut()
     this.video.play()
@@ -30,7 +26,7 @@ class About extends Component {
     return (
       <Layout>
         <header
-          className="inner-header overlay grey text-center slim-bg "
+          className="inner-header overlay grey text-center slim-bg"
           style={{
             backgroundImage: `url(${thisIsUs})`,
             backgroundPositionY: 'bottom',
@@ -85,6 +81,7 @@ class About extends Component {
                     backgroundImage: `url(${vwcGIF})`,
                     backgroundPosition: 'center center',
                     backgroundSize: 'cover',
+                    display: 'none',
                   }}
                 />
               </div>
