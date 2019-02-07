@@ -236,14 +236,13 @@ export default class Mentor extends Component {
                         We ask mentors to address the technical, professional and personal needs of
                         students. Here is more detail on each of these areas:
                       </p>
-                      <Accordion>
+                      <Accordion accordionId={'mainGuidelines'}>
                         {mainGuidelines.map(guideline => (
                           <Panel
                             key={guideline.id}
-                            // title={guideline.title}
-                            // body={guideline.body}
-                            // id={guideline.id}
-                            {...guideline}
+                            id={guideline.id}
+                            title={guideline.title}
+                            body={guideline.body}
                           />
                         ))}
                       </Accordion>
@@ -251,13 +250,13 @@ export default class Mentor extends Component {
                         In addition to the three areas addressed above here are a few other items to
                         consider.
                       </p>
-                      <Accordion>
+                      <Accordion accordionId={'additionalGuidelines'}>
                         {additionalGuidelines.map(guideline => (
                           <Panel
                             key={guideline.id}
+                            id={guideline.id}
                             title={guideline.title}
                             body={guideline.body}
-                            id={guideline.id}
                           />
                         ))}
                       </Accordion>
