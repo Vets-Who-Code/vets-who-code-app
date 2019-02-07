@@ -213,11 +213,10 @@ exports[`<Syllabus /> should render correctly 1`] = `
             <div
               aria-multiselectable="true"
               class="panel-group faq_list"
-              id="accordion"
               role="tablist"
             >
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -230,8 +229,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseOne"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseOne"
                       role="button"
@@ -240,16 +238,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 1: Set Up and Prep
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingOne"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseOne"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -259,7 +261,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -272,8 +274,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseTwo"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseTwo"
                       role="button"
@@ -282,16 +283,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 2: The Web, Git and HTML
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingTwo"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseTwo"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -301,7 +306,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -314,8 +319,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseThree"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseThree"
                       role="button"
@@ -324,16 +328,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 3: Basics of CSS
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingThree"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseThree"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -343,7 +351,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -356,8 +364,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseFour"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseFour"
                       role="button"
@@ -366,16 +373,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 4: Advanced CSS
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingFour"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseFour"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -385,7 +396,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -398,8 +409,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseFive"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseFive"
                       role="button"
@@ -408,16 +418,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 5: JavaScript Basics
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingFive"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseFive"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -427,7 +441,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -440,8 +454,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseSix"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseSix"
                       role="button"
@@ -450,16 +463,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 6: Computer Science With Javascript
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingSix"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseSix"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -469,7 +486,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -482,8 +499,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseSeven"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseSeven"
                       role="button"
@@ -492,16 +508,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 7: Computer Science With Javascript II: Deeper Dive
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingSeven"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseSeven"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -511,7 +531,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -524,8 +544,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseEight"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseEight"
                       role="button"
@@ -534,16 +553,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 8: Data Visualization
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingEight"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseEight"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -553,7 +576,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -566,8 +589,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseNine"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseNine"
                       role="button"
@@ -576,16 +598,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 9: Node.js Express and Socket.io
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingNine"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseNine"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -595,7 +621,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -608,8 +634,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseTen"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseTen"
                       role="button"
@@ -618,16 +643,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 10: Node, Express and Socket.io II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingTen"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseTen"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -637,7 +666,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -650,8 +679,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseEleven"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseEleven"
                       role="button"
@@ -660,16 +688,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 11: React
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingEleven"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseEleven"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -679,7 +711,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -692,8 +724,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseTwelve"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseTwelve"
                       role="button"
@@ -702,16 +733,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 12: React II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingTwelve"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseTwelve"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -721,7 +756,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -734,8 +769,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseThirteen"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseThirteen"
                       role="button"
@@ -744,16 +778,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 13: Interview Prep I
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingThirteen"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseThirteen"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"
@@ -763,7 +801,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
@@ -776,8 +814,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                     <a
                       aria-controls="collapseFourteen"
                       aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#undefined"
                       data-toggle="collapse"
                       href="#collapseFourteen"
                       role="button"
@@ -786,16 +823,20 @@ exports[`<Syllabus /> should render correctly 1`] = `
                         Week 14: Interview Prep II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
+                  aria-hidden="true"
                   aria-labelledby="headingFourteen"
-                  class="panel-collapse collapse"
+                  class="sc-bdVaJa bfFwr"
                   id="collapseFourteen"
                   role="tabpanel"
+                  style=""
                 >
                   <div
                     class="panel-body"

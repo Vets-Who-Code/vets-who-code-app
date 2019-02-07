@@ -225,11 +225,11 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="accordion"
+                      id="mainGuidelines"
                       role="tablist"
                     >
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
@@ -242,8 +242,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                             <a
                               aria-controls="collapseOne"
                               aria-expanded="false"
-                              class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
                               href="#collapseOne"
                               role="button"
@@ -255,16 +254,20 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Mentors will assist students in understanding the technical aspects of software development and coding.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
+                          aria-hidden="true"
                           aria-labelledby="headingOne"
-                          class="panel-collapse collapse"
+                          class="sc-bdVaJa bfFwr"
                           id="collapseOne"
                           role="tabpanel"
+                          style=""
                         >
                           <div
                             class="panel-body"
@@ -284,7 +287,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
@@ -297,8 +300,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                             <a
                               aria-controls="collapseTwo"
                               aria-expanded="false"
-                              class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
                               href="#collapseTwo"
                               role="button"
@@ -310,16 +312,20 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Mentors will help students understand the professional aspects of working in the field of software development.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
+                          aria-hidden="true"
                           aria-labelledby="headingTwo"
-                          class="panel-collapse collapse"
+                          class="sc-bdVaJa bfFwr"
                           id="collapseTwo"
                           role="tabpanel"
+                          style=""
                         >
                           <div
                             class="panel-body"
@@ -339,7 +345,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
@@ -352,8 +358,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                             <a
                               aria-controls="collapseThree"
                               aria-expanded="false"
-                              class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
                               href="#collapseThree"
                               role="button"
@@ -365,16 +370,20 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Get to know students on a personal level.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
+                          aria-hidden="true"
                           aria-labelledby="headingThree"
-                          class="panel-collapse collapse"
+                          class="sc-bdVaJa bfFwr"
                           id="collapseThree"
                           role="tabpanel"
+                          style=""
                         >
                           <div
                             class="panel-body"
@@ -400,11 +409,11 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="accordion"
+                      id="additionalGuidelines"
                       role="tablist"
                     >
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
@@ -417,8 +426,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                             <a
                               aria-controls="collapseFour"
                               aria-expanded="false"
-                              class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#additionalGuidelines"
                               data-toggle="collapse"
                               href="#collapseFour"
                               role="button"
@@ -430,16 +438,20 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  As a mentor, you should understand your assigned mentee’s goals. Talk with them about how you can best help them accomplish those goals.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
+                          aria-hidden="true"
                           aria-labelledby="headingFour"
-                          class="panel-collapse collapse"
+                          class="sc-bdVaJa bfFwr"
                           id="collapseFour"
                           role="tabpanel"
+                          style=""
                         >
                           <div
                             class="panel-body"
@@ -465,7 +477,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                         </div>
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
@@ -478,8 +490,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                             <a
                               aria-controls="collapseFive"
                               aria-expanded="false"
-                              class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#additionalGuidelines"
                               data-toggle="collapse"
                               href="#collapseFive"
                               role="button"
@@ -491,16 +502,20 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  You will not be the expert on all your mentee’s needs. Many mentors find it difficult when they do not have all the answers.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
+                          aria-hidden="true"
                           aria-labelledby="headingFive"
-                          class="panel-collapse collapse"
+                          class="sc-bdVaJa bfFwr"
                           id="collapseFive"
                           role="tabpanel"
+                          style=""
                         >
                           <div
                             class="panel-body"
