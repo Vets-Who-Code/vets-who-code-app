@@ -1,11 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Spring } from 'react-spring/renderprops.cjs'
+
+const StyledPanel = styled.div`
+  height: ${({ active }) => (active ? 'auto' : 0)};
+  display: 'none';
+  opacity: ${({ active }) => (active ? 1 : 0)};
+  transition: all ease-in-out 0.2s;
+`
 
 class Panel extends Component {
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     body: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     id: PropTypes.string,
+    accordionId: PropTypes.string,
   }
 
   state = {
@@ -33,44 +43,57 @@ class Panel extends Component {
   }
 
   render() {
-    const { title, body, id } = this.props
+    const { title, body, id, accordionId } = this.props
     const { active } = this.state
     return (
       <div
-        className={active ? 'panel panel-default active' : 'panel panel-default'}
+        className={`panel panel-default ${active ? 'active' : ''}`}
         onClick={this.handleClick}
         ref={panel => (this.panel = panel)}
       >
         <div className="panel-heading" role="tab" id={`heading${id}`}>
           <h4 className="panel-title">
             <a
-              className="collapsed"
+              // className="collapsed"
               role="button"
               data-toggle="collapse"
-              data-parent="#accordion"
+              data-parent={`#${accordionId}`}
               href={`#collapse${id}`}
               aria-expanded={active}
               aria-controls={`collapse${id}`}
             >
               <div>{typeof title === 'function' ? title() : title}</div>
               <i
-                className={
-                  active
-                    ? 'fa fa-minus accordions-derective-icon pull-right'
-                    : 'fa fa-plus accordions-derective-icon pull-right'
-                }
+                className={`accordions-derective-icon pull-right
+                  ${active ? 'fa fa-minus' : 'fa fa-plus'}
+                `}
               />
             </a>
           </h4>
         </div>
-        <div
-          id={`collapse${id}`}
-          className="panel-collapse collapse"
-          role="tabpanel"
-          aria-labelledby={`heading${id}`}
+        <Spring
+          from={{
+            height: 0,
+            opacity: 0,
+          }}
+          to={{
+            height: 'auto',
+            opacity: 1,
+          }}
         >
-          <div className="panel-body">{typeof body === 'function' ? body() : body}</div>
-        </div>
+          {springProps => (
+            <StyledPanel
+              id={`collapse${id}`}
+              style={{ springProps }}
+              role="tabpanel"
+              aria-labelledby={`heading${id}`}
+              aria-hidden={!active}
+              active={active}
+            >
+              <div className="panel-body">{typeof body === 'function' ? body() : body}</div>
+            </StyledPanel>
+          )}
+        </Spring>
       </div>
     )
   }
