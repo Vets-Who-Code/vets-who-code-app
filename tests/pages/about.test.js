@@ -3,7 +3,7 @@ import About from '../../src/pages/about'
 import { render, fireEvent } from 'react-testing-library'
 
 describe('<About />', () => {
-  test.skip('should invoke play method on click', async () => {
+  test('should invoke play method on click', async () => {
     const { container } = render(<About />)
     global.HTMLMediaElement.prototype.play = () => ({})
     const playButton = container.querySelector('.play-button')
