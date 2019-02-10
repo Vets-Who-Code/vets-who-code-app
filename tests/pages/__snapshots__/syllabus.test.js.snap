@@ -213,6 +213,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
             <div
               aria-multiselectable="true"
               class="panel-group faq_list"
+              id="syllabus"
               role="tablist"
             >
               <div
@@ -220,18 +221,17 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="headingOne"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseOne"
+                      aria-controls="collapse0"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseOne"
                       role="button"
                     >
                       <div>
@@ -247,36 +247,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingOne"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseOne"
+                  aria-labelledby="heading0"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    During this week we focus on ensuring that our troops have the needed technologies set up and to gain exposure to our tools.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTwo"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTwo"
+                      aria-controls="collapse1"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTwo"
                       role="button"
                     >
                       <div>
@@ -292,36 +283,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingTwo"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseTwo"
+                  aria-labelledby="heading1"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    This is when we start diving in on the basics, ensuring that you are comfortable in the terminal, and using version control, while teaching how the web works.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingThree"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseThree"
+                      aria-controls="collapse2"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseThree"
                       role="button"
                     >
                       <div>
@@ -337,36 +319,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingThree"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseThree"
+                  aria-labelledby="heading2"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we start learning CSS with the focus on learning web design.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFour"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFour"
+                      aria-controls="collapse3"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFour"
                       role="button"
                     >
                       <div>
@@ -382,36 +355,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingFour"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseFour"
+                  aria-labelledby="heading3"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we focus on more advanced concepts such as Grid Layout as well as working with Foundation and Bootstrap.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFive"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFive"
+                      aria-controls="collapse4"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFive"
                       role="button"
                     >
                       <div>
@@ -427,36 +391,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingFive"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseFive"
+                  aria-labelledby="heading4"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    This week we will start to learn the history and basics of Javascript and learn how to use it alone as well as in web design.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingSix"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseSix"
+                      aria-controls="collapse5"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseSix"
                       role="button"
                     >
                       <div>
@@ -472,36 +427,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingSix"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseSix"
+                  aria-labelledby="heading5"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    We continue our training in Javascript while also learning fundamentals in Computer Science. Recursion, Big O Notation, Sorting, Data Structures and Functional Programming.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingSeven"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseSeven"
+                      aria-controls="collapse6"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseSeven"
                       role="button"
                     >
                       <div>
@@ -517,36 +463,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingSeven"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseSeven"
+                  aria-labelledby="heading6"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we continue to build Computer Science skills with javascript. Binary Trees and Breadth-First Search are just a few of the things we will dive into.
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingEight"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseEight"
+                      aria-controls="collapse7"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseEight"
                       role="button"
                     >
                       <div>
@@ -562,36 +499,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingEight"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseEight"
+                  aria-labelledby="heading7"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    More JavaScript and even more math as we enter the world of Canvas, D3.js, WebGL
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingNine"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseNine"
+                      aria-controls="collapse8"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseNine"
                       role="button"
                     >
                       <div>
@@ -607,36 +535,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingNine"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseNine"
+                  aria-labelledby="heading8"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Entering the world of Node.js and writing Javascript on the server
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTen"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTen"
+                      aria-controls="collapse9"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTen"
                       role="button"
                     >
                       <div>
@@ -652,36 +571,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingTen"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseTen"
+                  aria-labelledby="heading9"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Continuing to build with Node and learning Test Driven Development
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingEleven"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseEleven"
+                      aria-controls="collapse10"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseEleven"
                       role="button"
                     >
                       <div>
@@ -697,36 +607,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingEleven"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseEleven"
+                  aria-labelledby="heading10"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Start down the path or React, ES6 and Mongo DB
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTwelve"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTwelve"
+                      aria-controls="collapse11"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTwelve"
                       role="button"
                     >
                       <div>
@@ -742,36 +643,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingTwelve"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseTwelve"
+                  aria-labelledby="heading11"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Continuing to develop in React
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingThirteen"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseThirteen"
+                      aria-controls="collapse12"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseThirteen"
                       role="button"
                     >
                       <div>
@@ -787,36 +679,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingThirteen"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseThirteen"
+                  aria-labelledby="heading12"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Start resume preparations as well as how to indentify potential job opportunities
-                  </div>
-                </div>
+                />
               </div>
               <div
                 class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFourteen"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFourteen"
+                      aria-controls="collapse13"
                       aria-expanded="false"
-                      data-parent="#undefined"
+                      class="collapsed"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFourteen"
                       role="button"
                     >
                       <div>
@@ -832,18 +715,10 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="headingFourteen"
-                  class="sc-bdVaJa bfFwr"
-                  id="collapseFourteen"
+                  aria-labelledby="heading13"
+                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
-                  style=""
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Starting the process of mock interviews and learning how to hack the technical interview.
-                  </div>
-                </div>
+                />
               </div>
             </div>
           </div>

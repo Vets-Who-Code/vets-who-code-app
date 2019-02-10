@@ -135,9 +135,9 @@ export default class Mentor extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <Accordion id={'syllabus'}>
-                  {weeks.map(week => (
-                    <Panel key={week.id} title={week.title} body={week.body} id={week.id} />
+                <Accordion single accordionId={'syllabus'}>
+                  {weeks.map((week, index) => (
+                    <Panel key={week.id} title={week.title} body={week.body} id={index} />
                   ))}
                 </Accordion>
               </div>
