@@ -11,15 +11,16 @@ import thisIsUs from '../images/this_is_us.png'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
+  videoRef = React.createRef()
+
   play = () => {
-    $('.play-button').fadeOut()
     this.video.play()
     this.video.onended = this.end
   }
 
   end = () => {
-    $('.success-video').hide('fast')
-    $('.vwc-animated-gif').toggle('fast')
+    document.querySelector('.success-video > fast').style.display = 'hidden'
+    document.querySelector('.vwc-animated-gif').classList.toggle('fast')
   }
 
   render() {
@@ -52,12 +53,7 @@ class About extends Component {
               </div>
               <div className="col-md-5" style={{ marginBottom: 20 }}>
                 <div className="success-video" style={{ position: 'relative' }}>
-                  <video
-                    ref={video => (this.video = video)}
-                    type="video/mp4"
-                    className="img-responsive"
-                    muted
-                  >
+                  <video ref={this.videoRef} type="video/mp4" className="img-responsive" muted>
                     <source src={facebookVideo} />
                   </video>
                   <a className="play-button" onClick={this.play}>
