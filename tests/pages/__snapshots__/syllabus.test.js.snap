@@ -221,6 +221,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading0"
                   role="tab"
                 >
                   <h4
@@ -257,6 +258,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading1"
                   role="tab"
                 >
                   <h4
@@ -293,6 +295,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading2"
                   role="tab"
                 >
                   <h4
@@ -329,6 +332,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading3"
                   role="tab"
                 >
                   <h4
@@ -365,6 +369,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading4"
                   role="tab"
                 >
                   <h4
@@ -401,6 +406,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading5"
                   role="tab"
                 >
                   <h4
@@ -437,6 +443,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading6"
                   role="tab"
                 >
                   <h4
@@ -473,6 +480,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading7"
                   role="tab"
                 >
                   <h4
@@ -509,6 +517,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading8"
                   role="tab"
                 >
                   <h4
@@ -545,6 +554,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading9"
                   role="tab"
                 >
                   <h4
@@ -581,6 +591,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading10"
                   role="tab"
                 >
                   <h4
@@ -617,6 +628,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading11"
                   role="tab"
                 >
                   <h4
@@ -653,6 +665,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading12"
                   role="tab"
                 >
                   <h4
@@ -689,6 +702,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
+                  id="heading13"
                   role="tab"
                 >
                   <h4

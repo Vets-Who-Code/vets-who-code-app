@@ -32,22 +32,6 @@ class Panel extends Component {
     }
   }
 
-  handleDocumentClick = event => {
-    if (!this.panel.contains(event.target) && this.state.active) {
-      this.setState({ active: false })
-    }
-  }
-
-  componentDidMount() {
-    document.addEventListener('click', this.handleDocumentClick, false)
-    document.addEventListener('touchend', this.handleDocumentClick, false)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleDocumentClick, false)
-    document.removeEventListener('touchend', this.handleDocumentClick, false)
-  }
-
   toggleActive = () => {
     this.setState(({ active }) => ({ active: !active }))
   }
@@ -65,7 +49,7 @@ class Panel extends Component {
         ref={ref => (this.panel = ref)}
         className={`panel panel-default ${active ? 'active' : ''}`}
       >
-        <div onClick={this.handleClick} className="panel-heading" role="tab">
+        <div onClick={this.handleClick} id={`heading${id}`} className="panel-heading" role="tab">
           <h4 className="panel-title">
             <a
               className="collapsed"

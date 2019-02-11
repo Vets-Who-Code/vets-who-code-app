@@ -233,6 +233,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
+                          id="heading0"
                           role="tab"
                         >
                           <h4
@@ -272,6 +273,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
+                          id="heading1"
                           role="tab"
                         >
                           <h4
@@ -311,6 +313,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
+                          id="heading2"
                           role="tab"
                         >
                           <h4
@@ -360,6 +363,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
+                          id="heading0"
                           role="tab"
                         >
                           <h4
@@ -399,6 +403,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                       >
                         <div
                           class="panel-heading"
+                          id="heading1"
                           role="tab"
                         >
                           <h4
