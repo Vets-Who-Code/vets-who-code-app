@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Spring } from 'react-spring/renderprops.cjs' // please leave this import as is. The test sweet needs this to run properly
+import { Spring } from 'react-spring/renderprops.cjs' // Do not change this import statement
 
 const StyledPanel = styled.div`
   padding: ${({ active }) => (active ? '40px 15px' : '0 15px')};
