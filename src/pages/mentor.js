@@ -127,9 +127,7 @@ export default class Mentor extends Component {
         id: 'Five',
       },
     ],
-    message:
-      'Thank you for choosing to become a mentor for our veterans. ' +
-      'Please fill out the form below and we will reach out to you.',
+    message: 'Please fill out the form below and we will reach out to you.',
     formHeading: 'Mentor Application',
     loading: false,
     formSuccess: false,
