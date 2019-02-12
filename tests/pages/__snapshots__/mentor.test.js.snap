@@ -555,7 +555,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                   <p
                     class="section-description"
                   >
-                    Thank you for choosing to become a mentor for our veterans. Please fill out the form below and we will reach out to you.
+                    Please fill out the form below and we will reach out to you.
                   </p>
                   <form
                     id="s2do-form"
