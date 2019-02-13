@@ -249,8 +249,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading0"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -286,8 +286,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading1"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -323,8 +323,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading2"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -360,8 +360,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading3"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -397,8 +397,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading4"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -434,8 +434,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading5"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -471,8 +471,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading6"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -508,8 +508,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading7"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -545,8 +545,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading8"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -582,8 +582,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading9"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -619,8 +619,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading10"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -656,8 +656,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading11"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -693,8 +693,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading12"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
               <div
@@ -730,8 +730,8 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 <div
                   aria-hidden="true"
                   aria-labelledby="heading13"
-                  class="sc-bdVaJa jFLkKS"
                   role="tabpanel"
+                  style="padding: 0px 15px;"
                 />
               </div>
             </div>

@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { Spring } from 'react-spring/renderprops.cjs' // Do not change this import statement
-
-const StyledPanel = styled.div`
-  padding: ${({ active }) => (active ? '40px 15px' : '0 15px')};
-  height: ${({ active }) => (active ? 'auto' : 0)};
-  will-change: height, padding;
-  transition: all ease 0.5s;
-`
 
 class Panel extends Component {
   static propTypes = {
@@ -68,7 +60,12 @@ class Panel extends Component {
             </a>
           </h4>
         </div>
-        <StyledPanel
+        <div
+          style={{
+            padding: active ? '40px 15px' : '0 15px',
+            transition: 'all ease 0.5s',
+            willChange: 'height, padding;',
+          }}
           role="tabpanel"
           aria-labelledby={`heading${id}`}
           aria-hidden={!active}
@@ -86,7 +83,7 @@ class Panel extends Component {
               )}
             </Spring>
           )}
-        </StyledPanel>
+        </div>
       </div>
     )
   }

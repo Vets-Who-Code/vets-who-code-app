@@ -264,8 +264,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                         <div
                           aria-hidden="true"
                           aria-labelledby="heading0"
-                          class="sc-bdVaJa jFLkKS"
                           role="tabpanel"
+                          style="padding: 0px 15px;"
                         />
                       </div>
                       <div
@@ -304,8 +304,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                         <div
                           aria-hidden="true"
                           aria-labelledby="heading1"
-                          class="sc-bdVaJa jFLkKS"
                           role="tabpanel"
+                          style="padding: 0px 15px;"
                         />
                       </div>
                       <div
@@ -344,8 +344,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                         <div
                           aria-hidden="true"
                           aria-labelledby="heading2"
-                          class="sc-bdVaJa jFLkKS"
                           role="tabpanel"
+                          style="padding: 0px 15px;"
                         />
                       </div>
                     </div>
@@ -394,8 +394,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                         <div
                           aria-hidden="true"
                           aria-labelledby="heading0"
-                          class="sc-bdVaJa jFLkKS"
                           role="tabpanel"
+                          style="padding: 0px 15px;"
                         />
                       </div>
                       <div
@@ -434,8 +434,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                         <div
                           aria-hidden="true"
                           aria-labelledby="heading1"
-                          class="sc-bdVaJa jFLkKS"
                           role="tabpanel"
+                          style="padding: 0px 15px;"
                         />
                       </div>
                     </div>
