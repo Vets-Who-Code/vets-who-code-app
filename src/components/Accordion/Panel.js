@@ -64,12 +64,11 @@ class Panel extends Component {
           style={{
             padding: active ? '40px 15px' : '0 15px',
             transition: 'all ease 0.5s',
-            willChange: 'height, padding;',
+            willChange: 'height, padding',
           }}
           role="tabpanel"
           aria-labelledby={`heading${id}`}
           aria-hidden={!active}
-          active={active}
         >
           {active && (
             <Spring
