@@ -19,6 +19,8 @@ import '../assets/lib/FlexSlider/flexslider.css'
 import '../assets/css/main.css'
 import '../assets/css/custom.css'
 
+import metaImage from '../images/meta-image.jpg'
+
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet htmlAttributes={{ lang: 'en' }}>
@@ -38,10 +40,7 @@ const TemplateWrapper = ({ children }) => (
         content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on
     teaching veterans how to program free of charge so that they may find gainful employment after service."
       />
-      <meta
-        itemProp="image"
-        content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
-      />
+      <meta itemProp="image" content={metaImage} />
 
       <meta property="og:url" content="http://www.vetswhocode.io" />
       <meta property="og:type" content="website" />
@@ -51,10 +50,7 @@ const TemplateWrapper = ({ children }) => (
         content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on
     teaching veterans how to program free of charge so that they may find gainful employment after service."
       />
-      <meta
-        property="og:image"
-        content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
-      />
+      <meta property="og:image" content={metaImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="#VetsWhoCode 🇺🇸 " />
@@ -63,10 +59,7 @@ const TemplateWrapper = ({ children }) => (
         content="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on
     teaching veterans how to program free of charge so that they may find gainful employment after service."
       />
-      <meta
-        name="twitter:image"
-        content="https://cdn-images-1.medium.com/max/1000/1*idlh1wOIqUQOj1LkOt51gA.png"
-      />
+      <meta name="twitter:image" content={metaImage} />
     </Helmet>
 
     <main className="main_container">

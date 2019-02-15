@@ -213,596 +213,526 @@ exports[`<Syllabus /> should render correctly 1`] = `
             <div
               aria-multiselectable="true"
               class="panel-group faq_list"
-              id="accordion"
+              id="syllabus"
               role="tablist"
             >
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingOne"
+                  id="heading0"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseOne"
+                      aria-controls="collapse0"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseOne"
                       role="button"
                     >
                       <div>
                         Week 1: Set Up and Prep
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingOne"
-                  class="panel-collapse collapse"
-                  id="collapseOne"
+                  aria-hidden="true"
+                  aria-labelledby="heading0"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    During this week we focus on ensuring that our troops have the needed technologies set up and to gain exposure to our tools.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTwo"
+                  id="heading1"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTwo"
+                      aria-controls="collapse1"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTwo"
                       role="button"
                     >
                       <div>
                         Week 2: The Web, Git and HTML
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingTwo"
-                  class="panel-collapse collapse"
-                  id="collapseTwo"
+                  aria-hidden="true"
+                  aria-labelledby="heading1"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    This is when we start diving in on the basics, ensuring that you are comfortable in the terminal, and using version control, while teaching how the web works.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingThree"
+                  id="heading2"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseThree"
+                      aria-controls="collapse2"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseThree"
                       role="button"
                     >
                       <div>
                         Week 3: Basics of CSS
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingThree"
-                  class="panel-collapse collapse"
-                  id="collapseThree"
+                  aria-hidden="true"
+                  aria-labelledby="heading2"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we start learning CSS with the focus on learning web design.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFour"
+                  id="heading3"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFour"
+                      aria-controls="collapse3"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFour"
                       role="button"
                     >
                       <div>
                         Week 4: Advanced CSS
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingFour"
-                  class="panel-collapse collapse"
-                  id="collapseFour"
+                  aria-hidden="true"
+                  aria-labelledby="heading3"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we focus on more advanced concepts such as Grid Layout as well as working with Foundation and Bootstrap.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFive"
+                  id="heading4"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFive"
+                      aria-controls="collapse4"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFive"
                       role="button"
                     >
                       <div>
                         Week 5: JavaScript Basics
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingFive"
-                  class="panel-collapse collapse"
-                  id="collapseFive"
+                  aria-hidden="true"
+                  aria-labelledby="heading4"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    This week we will start to learn the history and basics of Javascript and learn how to use it alone as well as in web design.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingSix"
+                  id="heading5"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseSix"
+                      aria-controls="collapse5"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseSix"
                       role="button"
                     >
                       <div>
                         Week 6: Computer Science With Javascript
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingSix"
-                  class="panel-collapse collapse"
-                  id="collapseSix"
+                  aria-hidden="true"
+                  aria-labelledby="heading5"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    We continue our training in Javascript while also learning fundamentals in Computer Science. Recursion, Big O Notation, Sorting, Data Structures and Functional Programming.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingSeven"
+                  id="heading6"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseSeven"
+                      aria-controls="collapse6"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseSeven"
                       role="button"
                     >
                       <div>
                         Week 7: Computer Science With Javascript II: Deeper Dive
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingSeven"
-                  class="panel-collapse collapse"
-                  id="collapseSeven"
+                  aria-hidden="true"
+                  aria-labelledby="heading6"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Here we continue to build Computer Science skills with javascript. Binary Trees and Breadth-First Search are just a few of the things we will dive into.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingEight"
+                  id="heading7"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseEight"
+                      aria-controls="collapse7"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseEight"
                       role="button"
                     >
                       <div>
                         Week 8: Data Visualization
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingEight"
-                  class="panel-collapse collapse"
-                  id="collapseEight"
+                  aria-hidden="true"
+                  aria-labelledby="heading7"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    More JavaScript and even more math as we enter the world of Canvas, D3.js, WebGL
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingNine"
+                  id="heading8"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseNine"
+                      aria-controls="collapse8"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseNine"
                       role="button"
                     >
                       <div>
                         Week 9: Node.js Express and Socket.io
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingNine"
-                  class="panel-collapse collapse"
-                  id="collapseNine"
+                  aria-hidden="true"
+                  aria-labelledby="heading8"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Entering the world of Node.js and writing Javascript on the server
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTen"
+                  id="heading9"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTen"
+                      aria-controls="collapse9"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTen"
                       role="button"
                     >
                       <div>
                         Week 10: Node, Express and Socket.io II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingTen"
-                  class="panel-collapse collapse"
-                  id="collapseTen"
+                  aria-hidden="true"
+                  aria-labelledby="heading9"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Continuing to build with Node and learning Test Driven Development
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingEleven"
+                  id="heading10"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseEleven"
+                      aria-controls="collapse10"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseEleven"
                       role="button"
                     >
                       <div>
                         Week 11: React
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingEleven"
-                  class="panel-collapse collapse"
-                  id="collapseEleven"
+                  aria-hidden="true"
+                  aria-labelledby="heading10"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Start down the path or React, ES6 and Mongo DB
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingTwelve"
+                  id="heading11"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseTwelve"
+                      aria-controls="collapse11"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseTwelve"
                       role="button"
                     >
                       <div>
                         Week 12: React II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingTwelve"
-                  class="panel-collapse collapse"
-                  id="collapseTwelve"
+                  aria-hidden="true"
+                  aria-labelledby="heading11"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Continuing to develop in React
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingThirteen"
+                  id="heading12"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseThirteen"
+                      aria-controls="collapse12"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseThirteen"
                       role="button"
                     >
                       <div>
                         Week 13: Interview Prep I
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingThirteen"
-                  class="panel-collapse collapse"
-                  id="collapseThirteen"
+                  aria-hidden="true"
+                  aria-labelledby="heading12"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Start resume preparations as well as how to indentify potential job opportunities
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
               <div
-                class="panel panel-default"
+                class="panel panel-default "
               >
                 <div
                   class="panel-heading"
-                  id="headingFourteen"
+                  id="heading13"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapseFourteen"
+                      aria-controls="collapse13"
                       aria-expanded="false"
                       class="collapsed"
-                      data-parent="#accordion"
+                      data-parent="#syllabus"
                       data-toggle="collapse"
-                      href="#collapseFourteen"
                       role="button"
                     >
                       <div>
                         Week 14: Interview Prep II
                       </div>
                       <i
-                        class="fa fa-plus accordions-derective-icon pull-right"
+                        class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                       />
                     </a>
                   </h4>
                 </div>
                 <div
-                  aria-labelledby="headingFourteen"
-                  class="panel-collapse collapse"
-                  id="collapseFourteen"
+                  aria-hidden="true"
+                  aria-labelledby="heading13"
                   role="tabpanel"
-                >
-                  <div
-                    class="panel-body"
-                  >
-                    Starting the process of mock interviews and learning how to hack the technical interview.
-                  </div>
-                </div>
+                  style="padding: 0px 15px;"
+                />
               </div>
             </div>
           </div>

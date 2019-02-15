@@ -18,6 +18,7 @@
     "react-helmet": "5.2.0",
     "react-modal": "3.6.1",
     "react-slick": "0.23.1",
+    "react-spring": "8.0.2",
     "slick-carousel": "1.8.1"
   },
   "keywords": [
@@ -47,6 +48,7 @@
     "babel-preset-gatsby-package": "0.1.2",
     "eslint": "5.6.0",
     "eslint-plugin-react": "7.11.1",
+    "gatsby-plugin-purgecss": "3.1.0",
     "ghooks": "2.0.4",
     "jest-dom": "2.1.0",
     "lint-staged": "7.3.0",

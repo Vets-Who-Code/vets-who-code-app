@@ -1,75 +1,87 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Spring } from 'react-spring/renderprops.cjs' // Do not change this import statement
 
 class Panel extends Component {
   static propTypes = {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     body: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    id: PropTypes.string,
+    id: PropTypes.number,
+    accordionId: PropTypes.string,
+    activeId: PropTypes.number,
+    clickHandler: PropTypes.func,
   }
 
   state = {
     active: false,
   }
 
-  handleDocumentClick = event => {
-    if (!this.panel.contains(event.target) && this.state.active) {
-      this.setState({ active: false })
+  componentDidUpdate = (prevProps, prevState) => {
+    const { activeId, single } = prevProps
+
+    if (single && this.props.activeId !== activeId && prevState.active) {
+      this.toggleActive()
     }
   }
 
-  componentDidMount() {
-    document.addEventListener('click', this.handleDocumentClick, false)
-    document.addEventListener('touchend', this.handleDocumentClick, false)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('click', this.handleDocumentClick, false)
-    document.removeEventListener('touchend', this.handleDocumentClick, false)
+  toggleActive = () => {
+    this.setState(({ active }) => ({ active: !active }))
   }
 
   handleClick = () => {
-    this.setState({ active: !this.state.active })
+    this.toggleActive()
+    this.props.clickHandler(this.props.id)
   }
 
   render() {
-    const { title, body, id } = this.props
+    const { title, body, id, accordionId } = this.props
     const { active } = this.state
     return (
       <div
-        className={active ? 'panel panel-default active' : 'panel panel-default'}
-        onClick={this.handleClick}
-        ref={panel => (this.panel = panel)}
+        ref={ref => (this.panel = ref)}
+        className={`panel panel-default ${active ? 'active' : ''}`}
       >
-        <div className="panel-heading" role="tab" id={`heading${id}`}>
+        <div onClick={this.handleClick} id={`heading${id}`} className="panel-heading" role="tab">
           <h4 className="panel-title">
             <a
               className="collapsed"
               role="button"
               data-toggle="collapse"
-              data-parent="#accordion"
-              href={`#collapse${id}`}
+              data-parent={`#${accordionId}`}
               aria-expanded={active}
               aria-controls={`collapse${id}`}
             >
               <div>{typeof title === 'function' ? title() : title}</div>
               <i
-                className={
-                  active
-                    ? 'fa fa-minus accordions-derective-icon pull-right'
-                    : 'fa fa-plus accordions-derective-icon pull-right'
-                }
+                className={`accordions-derective-icon pull-right
+                  ${active ? 'fa fa-minus' : 'fa fa-plus'}
+                `}
               />
             </a>
           </h4>
         </div>
         <div
-          id={`collapse${id}`}
-          className="panel-collapse collapse"
+          style={{
+            padding: active ? '40px 15px' : '0 15px',
+            transition: 'all ease 0.5s',
+            willChange: 'height, padding',
+          }}
           role="tabpanel"
           aria-labelledby={`heading${id}`}
+          aria-hidden={!active}
         >
-          <div className="panel-body">{typeof body === 'function' ? body() : body}</div>
+          {active && (
+            <Spring
+              active={active}
+              from={{ number: 0, opacity: 0 }}
+              to={{ number: 10, opacity: 1 }}
+              delay={50}
+            >
+              {springProps => (
+                <div style={springProps}>{typeof body === 'function' ? body() : body}</div>
+              )}
+            </Spring>
+          )}
         </div>
       </div>
     )

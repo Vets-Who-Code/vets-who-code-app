@@ -225,27 +225,26 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="accordion"
+                      id="mainGuidelines"
                       role="tablist"
                     >
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
-                          id="headingOne"
+                          id="heading0"
                           role="tab"
                         >
                           <h4
                             class="panel-title"
                           >
                             <a
-                              aria-controls="collapseOne"
+                              aria-controls="collapse0"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
-                              href="#collapseOne"
                               role="button"
                             >
                               <div>
@@ -255,52 +254,37 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Mentors will assist students in understanding the technical aspects of software development and coding.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="headingOne"
-                          class="panel-collapse collapse"
-                          id="collapseOne"
+                          aria-hidden="true"
+                          aria-labelledby="heading0"
                           role="tabpanel"
-                        >
-                          <div
-                            class="panel-body"
-                          >
-                            <ul>
-                              <li>
-                                Code reviews
-                              </li>
-                              <li>
-                                Best practices
-                              </li>
-                              <li>
-                                Finding resources and tutorials for learning
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                          style="padding: 0px 15px;"
+                        />
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
-                          id="headingTwo"
+                          id="heading1"
                           role="tab"
                         >
                           <h4
                             class="panel-title"
                           >
                             <a
-                              aria-controls="collapseTwo"
+                              aria-controls="collapse1"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
-                              href="#collapseTwo"
                               role="button"
                             >
                               <div>
@@ -310,52 +294,37 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Mentors will help students understand the professional aspects of working in the field of software development.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="headingTwo"
-                          class="panel-collapse collapse"
-                          id="collapseTwo"
+                          aria-hidden="true"
+                          aria-labelledby="heading1"
                           role="tabpanel"
-                        >
-                          <div
-                            class="panel-body"
-                          >
-                            <ul>
-                              <li>
-                                What it means to be a member of a team of software developers
-                              </li>
-                              <li>
-                                Building your virtual resume (GitHub, personal website, social media) and profession network
-                              </li>
-                              <li>
-                                Job application and interviewing
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                          style="padding: 0px 15px;"
+                        />
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
-                          id="headingThree"
+                          id="heading2"
                           role="tab"
                         >
                           <h4
                             class="panel-title"
                           >
                             <a
-                              aria-controls="collapseThree"
+                              aria-controls="collapse2"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#mainGuidelines"
                               data-toggle="collapse"
-                              href="#collapseThree"
                               role="button"
                             >
                               <div>
@@ -365,33 +334,19 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  Get to know students on a personal level.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="headingThree"
-                          class="panel-collapse collapse"
-                          id="collapseThree"
+                          aria-hidden="true"
+                          aria-labelledby="heading2"
                           role="tabpanel"
-                        >
-                          <div
-                            class="panel-body"
-                          >
-                            <ul>
-                              <li>
-                                Its not just about software and coding. Get to know the student and build a lifelong personal relationship
-                              </li>
-                              <li>
-                                Be sensitive to any personal/life needs a student may have
-                              </li>
-                              <li>
-                                We are not mental health professionals so be prepared to spot issues and involve VetsWhoCode leadership If there are signs a person might be a danger to themselves or others
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                          style="padding: 0px 15px;"
+                        />
                       </div>
                     </div>
                     <p>
@@ -400,27 +355,26 @@ exports[`<Mentor /> should render correctly 1`] = `
                     <div
                       aria-multiselectable="true"
                       class="panel-group faq_list"
-                      id="accordion"
+                      id="additionalGuidelines"
                       role="tablist"
                     >
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
-                          id="headingFour"
+                          id="heading0"
                           role="tab"
                         >
                           <h4
                             class="panel-title"
                           >
                             <a
-                              aria-controls="collapseFour"
+                              aria-controls="collapse0"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#additionalGuidelines"
                               data-toggle="collapse"
-                              href="#collapseFour"
                               role="button"
                             >
                               <div>
@@ -430,58 +384,37 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  As a mentor, you should understand your assigned mentee’s goals. Talk with them about how you can best help them accomplish those goals.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="headingFour"
-                          class="panel-collapse collapse"
-                          id="collapseFour"
+                          aria-hidden="true"
+                          aria-labelledby="heading0"
                           role="tabpanel"
-                        >
-                          <div
-                            class="panel-body"
-                          >
-                            <ul>
-                              <li>
-                                Assist with finding resources such as people, books, articles, tools and web-based information
-                              </li>
-                              <li>
-                                Imparting knowledge and skills by explaining, giving useful examples, demonstrating processes and asking thought-provoking questions
-                              </li>
-                              <li>
-                                Helping her or him gain broader perspectives of the field of software development and what area they might like to work in or focus on (front end, back end, devops ect)
-                              </li>
-                              <li>
-                                Discussing actions you’ve taken in your career and explaining your rationale
-                              </li>
-                              <li>
-                                Introduce him or her to your colleagues who can be additional useful contacts or inspiring models
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                          style="padding: 0px 15px;"
+                        />
                       </div>
                       <div
-                        class="panel panel-default"
+                        class="panel panel-default "
                       >
                         <div
                           class="panel-heading"
-                          id="headingFive"
+                          id="heading1"
                           role="tab"
                         >
                           <h4
                             class="panel-title"
                           >
                             <a
-                              aria-controls="collapseFive"
+                              aria-controls="collapse1"
                               aria-expanded="false"
                               class="collapsed"
-                              data-parent="#accordion"
+                              data-parent="#additionalGuidelines"
                               data-toggle="collapse"
-                              href="#collapseFive"
                               role="button"
                             >
                               <div>
@@ -491,30 +424,19 @@ exports[`<Mentor /> should render correctly 1`] = `
                                  You will not be the expert on all your mentee’s needs. Many mentors find it difficult when they do not have all the answers.
                               </div>
                               <i
-                                class="fa fa-plus accordions-derective-icon pull-right"
+                                class="accordions-derective-icon pull-right
+                  fa fa-plus
+                "
                               />
                             </a>
                           </h4>
                         </div>
                         <div
-                          aria-labelledby="headingFive"
-                          class="panel-collapse collapse"
-                          id="collapseFive"
+                          aria-hidden="true"
+                          aria-labelledby="heading1"
                           role="tabpanel"
-                        >
-                          <div
-                            class="panel-body"
-                          >
-                            <ul>
-                              <li>
-                                Your role is that of a learning facilitator early in your relationship.
-                              </li>
-                              <li>
-                                Tell your mentee that you will not have all the answers, and you are looking forward to learning together as well as seeking help from others who are more expert on different topics.
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                          style="padding: 0px 15px;"
+                        />
                       </div>
                     </div>
                     <h4

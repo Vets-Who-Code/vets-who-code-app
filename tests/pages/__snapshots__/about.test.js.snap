@@ -212,20 +212,13 @@ exports[`<About /> should render correctly 1`] = `
             >
               <video
                 class="img-responsive"
+                controls=""
                 type="video/mp4"
               >
                 <source
                   src="image-mock"
                 />
               </video>
-              <a
-                class="play-button"
-              >
-                <i
-                  class="fa fa-play-circle-o"
-                  style="color: rgb(14, 32, 62); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; cursor: pointer;"
-                />
-              </a>
             </div>
             <div
               class="vwc-animated-gif"

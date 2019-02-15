@@ -11,15 +11,16 @@ import thisIsUs from '../images/this_is_us.png'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
+  video = React.createRef()
+
   play = () => {
-    $('.play-button').fadeOut()
-    this.video.play()
-    this.video.onended = this.end
+    this.video.current.play()
+    this.video.current.onended = this.end
   }
 
   end = () => {
-    $('.success-video').hide('fast')
-    $('.vwc-animated-gif').toggle('fast')
+    document.querySelector('.success-video').style.display = 'none'
+    document.querySelector('.vwc-animated-gif').style.display = 'block'
   }
 
   render() {
@@ -53,27 +54,15 @@ class About extends Component {
               <div className="col-md-5" style={{ marginBottom: 20 }}>
                 <div className="success-video" style={{ position: 'relative' }}>
                   <video
-                    ref={video => (this.video = video)}
+                    onPlay={this.play}
+                    ref={this.video}
                     type="video/mp4"
                     className="img-responsive"
                     muted
+                    controls
                   >
                     <source src={facebookVideo} />
                   </video>
-                  <a className="play-button" onClick={this.play}>
-                    <i
-                      className="fa fa-play-circle-o"
-                      style={{
-                        color: '#0e203e',
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        fontSize: 40,
-                        cursor: 'pointer',
-                      }}
-                    />
-                  </a>
                 </div>
                 <div
                   className="vwc-animated-gif"
