@@ -11,11 +11,11 @@ import thisIsUs from '../images/this_is_us.png'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 class About extends Component {
-  video = React.createRef()
+  videoRef = React.createRef()
 
   play = () => {
-    this.video.current.play()
-    this.video.current.onended = this.end
+    this.videoRef.current.play()
+    this.videoRef.current.onended = this.end
   }
 
   end = () => {
@@ -55,7 +55,7 @@ class About extends Component {
                 <div className="success-video" style={{ position: 'relative' }}>
                   <video
                     onPlay={this.play}
-                    ref={this.video}
+                    ref={this.videoRef}
                     type="video/mp4"
                     className="img-responsive"
                     muted
