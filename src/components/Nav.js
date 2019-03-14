@@ -4,25 +4,42 @@ import Link from 'gatsby-link'
 import logo from '../images/flag.gif'
 
 class Nav extends Component {
+  state = {
+    isNavOpen: false,
+  }
+
+  navRef = React.createRef()
+
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll)
   }
 
-  handleScroll = () => {
-    const $nav = $('#fixedTopNav')
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 
-    if ($(window).scrollTop() > 0) {
-      $nav.addClass('navbar-solid')
-      return
+  handleScroll = () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+    if (winScroll === 0) {
+      this.navRef.current.classList.remove('navbar-solid')
     }
 
-    $nav.removeClass('navbar-solid')
-    $('.navbar-nav > li > a').blur()
+    if (winScroll > 0) {
+      this.navRef.current.classList.add('navbar-solid')
+    }
+  }
+
+  setIsNavOpen = () => {
+    this.setState({
+      isNavOpen: !this.state.isNavOpen,
+    })
   }
 
   render() {
+    const { isNavOpen } = this.state
     return (
       <nav
+        ref={this.navRef}
         id="fixedTopNav"
         className="navbar navbar-fixed-top main-navigation"
         itemScope=""
@@ -33,10 +50,9 @@ class Nav extends Component {
           <div className="navbar-header">
             <button
               type="button"
+              onClick={this.setIsNavOpen}
               className="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#main-nav-collapse"
-              aria-expanded="false"
+              aria-expanded={isNavOpen ? 'true' : 'false'}
             >
               {' '}
               <span className="sr-only">#VetsWhoCode</span> <span className="ion-drag" />
@@ -50,10 +66,9 @@ class Nav extends Component {
             </div>
           </div>
           <div
-            className="navbar-collapse collapse"
+            className={`navbar-collapse collapse ${isNavOpen ? 'in' : ''}`}
             id="main-nav-collapse"
-            aria-expanded="false"
-            style={{ height: '1px' }}
+            aria-expanded={isNavOpen ? 'true' : 'false'}
           >
             <ul className="nav navbar-nav navbar-right" role="menu">
               <li>
