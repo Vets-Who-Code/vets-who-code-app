@@ -106,7 +106,7 @@ class IndexPage extends Component {
                 <hr />
                 <h3 className="subtitle">
                   We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
-                  Veterans How To Code!.
+                  Veterans How To Code!
                 </h3>
               </div>
             </div>
