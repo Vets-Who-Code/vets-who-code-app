@@ -234,7 +234,6 @@ exports[`<Donate /> should render correctly 1`] = `
         </div>
       </div>
     </section>
-    <div />
     <section
       class="call-to-action-small"
       id="call-to-action-small"
