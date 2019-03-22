@@ -20,8 +20,6 @@ exports[`<IndexPage /> should render correctly 1`] = `
           <button
             aria-expanded="false"
             class="navbar-toggle collapsed"
-            data-target="#main-nav-collapse"
-            data-toggle="collapse"
             type="button"
           >
              
@@ -60,9 +58,8 @@ exports[`<IndexPage /> should render correctly 1`] = `
         </div>
         <div
           aria-expanded="false"
-          class="navbar-collapse collapse"
+          class="navbar-collapse collapse "
           id="main-nav-collapse"
-          style="height: 1px;"
         >
           <ul
             class="nav navbar-nav navbar-right"
@@ -318,7 +315,7 @@ exports[`<IndexPage /> should render correctly 1`] = `
             <h3
               class="subtitle"
             >
-              We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!.
+              We Are Grateful To Have These Companies Partner With Us On Our Journey To Train Veterans How To Code!
             </h3>
           </div>
         </div>

@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import Slider from 'react-slick'
 import { Link } from 'gatsby'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import speakingPNG from '../images/speaking.png'
 import thisIsUsPNG from '../images/this_is_us.png'
 
@@ -42,7 +39,7 @@ class HeaderSlider extends Component {
               <CodeImage width={mockWindowWidth} />
             </div>
             <div
-              className="header-classic  wrapper-table overlay-01"
+              className="header-classic wrapper-table overlay-01"
               style={{
                 position: 'absolute',
                 top: 0,

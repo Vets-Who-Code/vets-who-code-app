@@ -12,6 +12,8 @@ class IndexPage extends Component {
     email: '',
   }
 
+  subscribeButtonRef = React.createRef()
+
   handleInputChange = event => {
     const { name, value } = event.target
     this.setState({ [name]: value })
@@ -35,7 +37,7 @@ class IndexPage extends Component {
     fetch(url, options)
     this.setState({ email: '' })
 
-    $('#subscribe-button').blur()
+    this.subscribeButtonRef.current.blur()
   }
 
   render() {
@@ -104,7 +106,7 @@ class IndexPage extends Component {
                 <hr />
                 <h3 className="subtitle">
                   We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
-                  Veterans How To Code!.
+                  Veterans How To Code!
                 </h3>
               </div>
             </div>
@@ -153,6 +155,7 @@ class IndexPage extends Component {
                           </div>
                           <div className="col-md-3 subscribe-button_box">
                             <button
+                              ref={this.subscribeButtonRef}
                               id="subscribe-button"
                               type="submit"
                               className="btn btn-subscribe"
