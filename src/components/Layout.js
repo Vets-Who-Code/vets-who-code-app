@@ -16,6 +16,7 @@ import '../assets/extras/rotating-carousel/css/style.css'
 import '../assets/extras/slick/slick.css'
 import '../assets/extras/magnificpopup/magnific-popup.css'
 import '../assets/lib/FlexSlider/flexslider.css'
+import '@reach/dialog/styles.css'
 import '../assets/css/main.css'
 import '../assets/css/custom.css'
 
