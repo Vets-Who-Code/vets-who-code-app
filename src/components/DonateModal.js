@@ -1,49 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-// import Transition from 'react-spring/renderprops.cjs'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 
-import '@reach/dialog/styles.css'
-
 class DonateModal extends Component {
-  state = {
-    loading: true,
-  }
-
   buttonRef = React.createRef()
   iframeRef = React.createRef()
 
-  componentDidMount = () => {
-    // console.log(this.iframeRef)
-  }
-
-  handleIframeLoaded = () => {
-    this.setState({ loading: false })
-  }
   render() {
     return (
       <>
         {this.props.modalIsOpen && (
           <DialogOverlay initialFocusRef={this.buttonRef} style={{ zIndex: 100 }}>
-            {this.state.isLoading ? (
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  height: '685px',
-                  alignItems: 'center',
-                }}
-              >
-                <p>Loading... A spinner would probably be nice here</p>
-              </div>
-            ) : null}
             <DialogContent>
               <button
-                className="btn btn-subscribe"
+                style={{
+                  cursor: 'pointer',
+                  color: 'inherit',
+                  border: 'none',
+                  padding: '5px 10px',
+                  margin: '0 0 5px 0',
+                }}
+                className="pull-right"
                 ref={this.buttonRef}
                 onClick={this.props.closeModal}
               >
-                close
+                <i className="fa fa-times" aria-hidden="true" />
               </button>
               <iframe
                 ref={this.iframeRef}
@@ -60,7 +41,7 @@ class DonateModal extends Component {
                 width="100%"
                 height="685px"
                 frameBorder={0}
-                onLoad={this.handleIframeLoaded}
+                tabIndex={0}
               />
             </DialogContent>
           </DialogOverlay>
