@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 
+import '../assets/css/modal.css'
+
 class DonateModal extends Component {
   buttonRef = React.createRef()
   iframeRef = React.createRef()
