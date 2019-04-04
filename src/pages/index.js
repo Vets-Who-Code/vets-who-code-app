@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import SponsorSlider from '../components/SponsorSlider'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 
+import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
@@ -10,6 +11,8 @@ import TroopsAtGoogle from '../components/TroopsAtGoogle'
 class IndexPage extends Component {
   state = {
     email: '',
+    successMessage: '',
+    errorMessage: '',
   }
 
   subscribeButtonRef = React.createRef()
@@ -23,18 +26,18 @@ class IndexPage extends Component {
     event.preventDefault()
     const { email } = this.state
 
-    const url = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/dev/subscribe'
+    addToMailchimp(email).then(res => {
+      if (res.result === 'success') {
+        this.setState({
+          successMessage: res.msg,
+        })
+      } else if (res.result === 'error') {
+        this.setState({
+          errorMessage: res.msg,
+        })
+      }
+    })
 
-    const options = {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    }
-
-    fetch(url, options)
     this.setState({ email: '' })
 
     this.subscribeButtonRef.current.blur()
