@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ToastContainer } from 'react-toastify'
 import Helmet from 'react-helmet'
 
 import Nav from './Nav'
@@ -66,6 +67,7 @@ const TemplateWrapper = ({ children }) => (
     </Helmet>
 
     <main className="main_container">
+      <ToastContainer />
       <Nav />
       {children}
       <StickyButton />

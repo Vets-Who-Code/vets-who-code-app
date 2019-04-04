@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'
@@ -31,10 +33,16 @@ class IndexPage extends Component {
         this.setState({
           successMessage: res.msg,
         })
+
+        this.onSubscribeSuccess(this.state.successMessage)
       } else if (res.result === 'error') {
         this.setState({
           errorMessage: res.msg,
         })
+        const mailChimpErrorMessage = this.state.errorMessage.split('.')
+
+        const errorMessage = `${mailChimpErrorMessage[0]} ${mailChimpErrorMessage[1]}`
+        this.onSubscribeError(errorMessage)
       }
     })
 
@@ -42,6 +50,26 @@ class IndexPage extends Component {
 
     this.subscribeButtonRef.current.blur()
   }
+
+  onSubscribeSuccess = message =>
+    toast.success(message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    })
+
+  onSubscribeError = message =>
+    toast.error(message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    })
 
   render() {
     const { email } = this.state
