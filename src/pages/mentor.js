@@ -225,7 +225,7 @@ export default class Mentor extends Component {
                   <div className="contactus-brief">
                     <h3>Become A Mentor</h3>
                     <p className="section-description">
-                      Thank you for your interest in mentoring with VetsWhocode. This document is
+                      Thank you for your interest in mentoring with VetsWhoCode. This document is
                       intended to share our philosophy on mentoring. We ask mentors to address the
                       technical, professional and personal needs of students. Here is more detail on
                       each of these areas:
