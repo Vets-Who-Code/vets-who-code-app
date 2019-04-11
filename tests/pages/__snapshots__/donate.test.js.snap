@@ -193,15 +193,6 @@ exports[`<Donate /> should render correctly 1`] = `
           <div
             class="col-md-12"
           >
-            <div
-              class="cause_image_holder"
-            >
-              <img
-                alt="cause"
-                class="img-responsive"
-                src="image-mock"
-              />
-            </div>
             <h4
               class="cause_title"
             >
@@ -232,6 +223,33 @@ exports[`<Donate /> should render correctly 1`] = `
       </div>
     </section>
     <section
+      style="display: flex;"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="row"
+        >
+          <div
+            class="col-md-12"
+          >
+            <iframe
+              allowpaymentrequest="true"
+              frameborder="0"
+              height="800px"
+              name="donorbox"
+              scrolling="yes"
+              seamless=""
+              src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
+              tabindex="0"
+              width="100%"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
       class="call-to-action-small"
       id="call-to-action-small"
     >
@@ -242,7 +260,7 @@ exports[`<Donate /> should render correctly 1`] = `
           class="row"
         >
           <div
-            class="col-md-8 text-center"
+            class="col-sm-12 text-center"
           >
             <h3>
               Help Us Teach More Veterans How To Code
@@ -255,12 +273,6 @@ exports[`<Donate /> should render correctly 1`] = `
               class="button-align text-center"
             >
                
-              <button
-                class="dbox-donation-button"
-                style="background: rgb(197, 32, 62) url(https://d1iczxrky3cnb2.cloudfront.net/white_logo.png) no-repeat center; color: rgb(255, 255, 255); text-decoration: none; font-family: Verdana,sans-serif; display: inline-block; font-size: 16px; padding: 15px 50px 15px 90px; border-radius: 2px; box-shadow: 0 1px 0 0 #06152C; text-shadow: 0 1px rgba(0, 0, 0, 0.3);"
-              >
-                Donate
-              </button>
             </div>
           </div>
         </div>

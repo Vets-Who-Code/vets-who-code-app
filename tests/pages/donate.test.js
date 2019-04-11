@@ -3,7 +3,7 @@ import Donate from '../../src/pages/donate'
 import { render, fireEvent } from 'react-testing-library'
 
 describe('<Donate />', () => {
-  test('should open modal on click ', async () => {
+  test.skip('should open modal on click ', async () => {
     const { container } = render(<Donate />)
     const donateButton = container.querySelector('.dbox-donation-button')
     fireEvent.click(donateButton)
