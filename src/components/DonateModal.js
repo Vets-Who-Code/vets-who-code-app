@@ -12,8 +12,21 @@ class DonateModal extends Component {
     return (
       <>
         {this.props.modalIsOpen && (
-          <DialogOverlay initialFocusRef={this.buttonRef} style={{ zIndex: 100 }}>
-            <DialogContent>
+          <DialogOverlay
+            initialFocusRef={this.buttonRef}
+            style={{
+              background: 'hsla(0, 100%, 100%, 0.9)',
+              zIndex: 100,
+              overflowY: 'scroll',
+              WebkitOverflowScrolling: 'touch',
+            }}
+          >
+            <DialogContent
+              style={{
+                boxShadow: '0px 10px 50px hsla(0, 0%, 0%, 0.33)',
+                padding: 10,
+              }}
+            >
               <button
                 style={{
                   cursor: 'pointer',
@@ -32,15 +45,17 @@ class DonateModal extends Component {
                 ref={this.iframeRef}
                 src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
                 style={{
-                  maxWidth: '100%',
-                  minWidth: '100%',
+                  // maxWidth: '70%',
+                  minWidth: '80%',
                   maxHeight: 'none!important',
+                  marginLeft: 45,
+                  marginTop: 10,
                 }}
                 seamless="seamless"
                 name="donorbox"
                 scrolling="yes"
                 allowpaymentrequest="true"
-                width="100%"
+                width="80%"
                 height="685px"
                 frameBorder={0}
                 tabIndex={0}

@@ -45,9 +45,9 @@ class Donate extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="cause_image_holder">
+                {/* <div className="cause_image_holder">
                   <img src={code} className="img-responsive" alt="cause" />
-                </div>
+                </div> */}
                 <h4 className="cause_title">Help Us Continue To Train More Veterans</h4>
                 <br />
                 <div className="cause_section_content">
@@ -77,21 +77,42 @@ class Donate extends Component {
             </div>
           </div>
         </section>
-        <DonateModal
+        {/* <DonateModal
           modalIsOpen={modalIsOpen}
           openModal={this.openModal}
           closeModal={this.closeModal}
-        />
+        /> */}
+        <section style={{ display: 'flex' }}>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
+                <iframe
+                  ref={this.iframeRef}
+                  src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
+                  seamless="seamless"
+                  name="donorbox"
+                  scrolling="yes"
+                  allowpaymentrequest="true"
+                  width="100%"
+                  height="800px"
+                  frameBorder={0}
+                  tabIndex={0}
+                />
+
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="call-to-action-small" className="call-to-action-small">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 text-center">
+              <div className="col-sm-12 text-center">
                 <h3>Help Us Teach More Veterans How To Code</h3>
               </div>
               <div className="col-md-4">
                 <div className="button-align text-center">
                   {' '}
-                  <button
+                  {/* <button
                     className="dbox-donation-button"
                     style={{
                       background:
@@ -111,7 +132,7 @@ class Donate extends Component {
                     onClick={this.openModal}
                   >
                     Donate
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
