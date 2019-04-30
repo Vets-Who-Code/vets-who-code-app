@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
-import SponsorSlider from '../components/SponsorSlider'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
+import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
@@ -10,6 +13,8 @@ import TroopsAtGoogle from '../components/TroopsAtGoogle'
 class IndexPage extends Component {
   state = {
     email: '',
+    successMessage: '',
+    errorMessage: '',
   }
 
   subscribeButtonRef = React.createRef()
@@ -23,22 +28,48 @@ class IndexPage extends Component {
     event.preventDefault()
     const { email } = this.state
 
-    const url = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/dev/subscribe'
+    addToMailchimp(email).then(res => {
+      if (res.result === 'success') {
+        this.setState({
+          successMessage: res.msg,
+        })
 
-    const options = {
-      method: 'POST',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    }
+        this.onSubscribeSuccess(this.state.successMessage)
+      } else if (res.result === 'error') {
+        this.setState({
+          errorMessage: res.msg,
+        })
+        const mailChimpErrorMessage = this.state.errorMessage.split('.')
 
-    fetch(url, options)
+        const errorMessage = `${mailChimpErrorMessage[0]} ${mailChimpErrorMessage[1]}`
+        this.onSubscribeError(errorMessage)
+      }
+    })
+
     this.setState({ email: '' })
 
     this.subscribeButtonRef.current.blur()
   }
+
+  onSubscribeSuccess = message =>
+    toast.success(message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    })
+
+  onSubscribeError = message =>
+    toast.error(message, {
+      position: 'top-right',
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    })
 
   render() {
     const { email } = this.state

@@ -6,6 +6,9 @@ exports[`<Mentor /> should render correctly 1`] = `
     <main
       class="main_container"
     >
+      <div
+        class="Toastify"
+      />
       <nav
         class="navbar navbar-fixed-top main-navigation"
         id="fixedTopNav"
