@@ -72,11 +72,21 @@ const SponsorSlider = () => (
     </div>
     <div>
       <a
-        href="https://corporate.comcast.com/company/nbcuniversal/"
+        href="https://corporate.comcast.com/company/nbcuniversal"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <img src={comcastPNG} alt="Comcast" height="60" width="80" />
+        <img src={comcastPNG} alt="Comcast" height="60" width="100" />
+      </a>
+    </div>
+    <div>
+      <a href="https://www.contentful.com/" rel="noopener noreferrer" target="_blank">
+        <img
+          src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
+          height="60"
+          width="100"
+          alt="Powered by Contentful"
+        />
       </a>
     </div>
   </Slider>
