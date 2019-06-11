@@ -20,7 +20,20 @@ export default class Contact extends Component {
   }
 
   componentDidMount() {
-    this.initialize()
+    if (!window.google) {
+      var s = document.createElement('script')
+      s.type = 'text/javascript'
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4'
+      var x = document.getElementsByTagName('script')[0]
+      x.parentNode.insertBefore(s, x)
+      // Below is important.
+      //We cannot access google.maps until it's finished loading
+      s.addEventListener('load', () => {
+        this.initialize()
+      })
+    } else {
+      this.initialize()
+    }
   }
 
   initialize = () => {

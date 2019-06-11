@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import FluidImage from '../components/FluidImage'
 
 import Link from 'gatsby-link'
-import logo from '../images/flag.gif'
 
 class Nav extends Component {
   state = {
     isNavOpen: false,
+    opacity: 0.9,
   }
 
   navRef = React.createRef()
@@ -21,11 +22,12 @@ class Nav extends Component {
   handleScroll = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
     if (winScroll === 0) {
-      this.navRef.current.classList.remove('navbar-solid')
+      // this.navRef.current.classList.remove('navbar-solid')
+      this.setState({ opacity: 0.9 })
     }
-
     if (winScroll > 0) {
-      this.navRef.current.classList.add('navbar-solid')
+      // this.navRef.current.classList.add('navbar-solid')
+      this.setState({ opacity: 1 })
     }
   }
 
@@ -41,10 +43,11 @@ class Nav extends Component {
       <nav
         ref={this.navRef}
         id="fixedTopNav"
-        className="navbar navbar-fixed-top main-navigation"
+        className="navbar navbar-fixed-top main-navigation navbar-solid"
         itemScope=""
         itemType="https://schema.org/SiteNavigationElement"
         role="navigation"
+        style={{ opacity: this.state.opacity }}
       >
         <div className="container">
           <div className="navbar-header">
@@ -61,7 +64,11 @@ class Nav extends Component {
               {' '}
               <span className="sr-only">#VetsWhoCode</span>
               <Link to="/">
-                <img src={logo} alt="#VetsWhoCode Logo" className="logo_holder" />
+                <FluidImage
+                  fileName="hashflag_white.jpg"
+                  alt="#VetsWhoCode Logo"
+                  className="logo_holder"
+                />
               </Link>
             </div>
           </div>

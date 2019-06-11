@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
@@ -8,7 +9,15 @@ import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 
-import TroopsAtGoogle from '../components/TroopsAtGoogle'
+import FluidImage from '../components/FluidImage'
+
+export const onClientEntry = () => {
+  // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+  if (typeof window.IntersectionObserver === `undefined`) {
+    import(`intersection-observer`)
+    console.log(`# IntersectionObserver is polyfilled!`)
+  }
+}
 
 class IndexPage extends Component {
   state = {
@@ -18,6 +27,10 @@ class IndexPage extends Component {
   }
 
   subscribeButtonRef = React.createRef()
+
+  componentDidMount() {
+    onClientEntry()
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target
@@ -77,6 +90,47 @@ class IndexPage extends Component {
     return (
       <Layout>
         <Header />
+        <section id="call-to-action" className="section bg-default call-to-action">
+          <div className="container-fluid">
+            <div className="row no-gutter">
+              <div className="col-md-4">
+                <div
+                  className="fluid-grid first-grid text-center"
+                  style={{ backgroundColor: '#091f40' }}
+                >
+                  <Link to="/donate">
+                    <span>Help Us Teach More Veterans</span>
+                    <h2>Donate</h2>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="col-md-4">
+                <div
+                  className="fluid-grid second-grid text-center"
+                  style={{ backgroundColor: '#0f356d' }}
+                >
+                  <Link to="/apply">
+                    <span>Learn Javascript</span>
+                    <h2>APPLY</h2>
+                  </Link>
+                </div>
+              </div>
+
+              <div className="col-md-4">
+                <div
+                  className="fluid-grid third-grid text-center"
+                  style={{ backgroundColor: '#123f83' }}
+                >
+                  <Link to="/mentor">
+                    <span>Become A Mentor</span>
+                    <h2>Get involved</h2>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section
           id="our_stories"
           className="section pad-regular bg-default our_stories small-top-pad"
@@ -84,7 +138,11 @@ class IndexPage extends Component {
           <div className="container">
             <div className="row bg-dark">
               <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
-                <TroopsAtGoogle className="img-responsive" />
+                <FluidImage
+                  fileName="troops-at-google.jpg"
+                  className="img-responsive"
+                  alt="troops at google"
+                />
               </div>
               <div className="col-md-7 col-sm-12 our_story_content text-center">
                 <div className="featured-heading">
