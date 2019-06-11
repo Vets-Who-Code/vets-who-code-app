@@ -1700,7 +1700,7 @@ a.list-group-item:focus, a.list-group-item:hover .media-heading {
 }
 
 .gallery-grid .item .img-hover {
-  background: url("../images/gallery/gallery-hover.png") center center no-repeat rgba(0, 0, 0, 0.6);
+  /* background: url("../images/gallery/gallery-hover.png") center center no-repeat rgba(0, 0, 0, 0.6); */
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -2072,7 +2072,7 @@ input[type="color"]:focus, uneditable-input:focus {
 
 .watch-film-player {
   position: relative;
-  background-image: url("../images/movie/movie.png");
+  /* background-image: url("../images/movie/movie.png"); */
   background-position: center center;
   background-size: cover;
   height: 436px;
