@@ -4,6 +4,7 @@
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
     "@reach/dialog": "0.2.9",
+    "@testing-library/react": "8.0.1",
     "babel-preset-gatsby": "0.2.0",
     "gatsby": "2.10.0",
     "gatsby-background-image": "0.7.2",
@@ -60,7 +61,7 @@
     "lint-staged": "8.2.1",
     "prettier": "1.18.2",
     "react-test-renderer": "16.8.6",
-    "react-testing-library": "8.0.1"
+    "@testing-library/react": "8.0.1"
   },
   "lint-staged": {
     "src/**/*.js": [
@@ -75,7 +76,9 @@
     }
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/setup-test-env.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup-test-env.js"
+    ],
     "testPathIgnorePatterns": [
       "node_modules",
       ".cache"

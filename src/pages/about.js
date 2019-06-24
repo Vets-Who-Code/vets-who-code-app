@@ -9,12 +9,12 @@ import facebookVideo from '../video/vwc-facebook-reel.mp4'
 function About() {
   const videoRef = useRef()
 
-  const play = () => {
+  function play() {
     videoRef.current.play()
     videoRef.current.onended = end
   }
 
-  const end = () => {
+  function end() {
     document.querySelector('.success-video').style.display = 'none'
     document.querySelector('.vwc-animated-gif').style.display = 'block'
   }
@@ -31,7 +31,7 @@ function About() {
             <div className="col-md-5" style={{ marginBottom: 20 }}>
               <div className="success-video" style={{ position: 'relative' }}>
                 <video
-                  onPlay={() => play()}
+                  onPlay={play}
                   ref={videoRef}
                   type="video/mp4"
                   className="img-responsive"
