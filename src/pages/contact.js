@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
+import GoogleMap from '../components/GoogleMap'
 
 export default class Contact extends Component {
   state = {
@@ -14,54 +15,6 @@ export default class Contact extends Component {
     loading: false,
     formSuccess: false,
     formError: false,
-  }
-
-  componentDidMount() {
-    if (!window.google) {
-      var s = document.createElement('script')
-      s.type = 'text/javascript'
-      s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4'
-      var x = document.getElementsByTagName('script')[0]
-      x.parentNode.insertBefore(s, x)
-      // Below is important.
-      //We cannot access google.maps until it's finished loading
-      s.addEventListener('load', () => {
-        this.initialize()
-      })
-    } else {
-      this.initialize()
-    }
-  }
-
-  initialize = () => {
-    const mapCanvas = document.getElementById('map-canvas')
-    const mapOptions = {
-      center: new google.maps.LatLng(36.1579519, -86.7708364),
-      scrollwheel: false,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    }
-    const map = new google.maps.Map(mapCanvas, mapOptions)
-    const contentString = `
-      <div id="content">
-        <h2>#VetsWhoCode</h2>
-        <div id="bodyContent">41 N Peabody st, Nashville Tn, 37120</div>
-      </div>
-    `
-    const myLatLng = { lat: 36.1577981, lng: -86.7707313 }
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    })
-
-    const marker = new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: '#VetsWhoCode',
-    })
-
-    marker.addListener('click', () => {
-      infowindow.open(map, marker)
-    })
   }
 
   handleChange = e => {
@@ -132,7 +85,7 @@ export default class Contact extends Component {
             {!formSuccess && (
               <div className="row">
                 <div className="col-md-12 clearfix">
-                  <div id="map-canvas" className="map-default-height" />
+                  <GoogleMap />
                 </div>
               </div>
             )}
