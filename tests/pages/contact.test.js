@@ -1,6 +1,6 @@
 import React from 'react'
 import Contact from '../../src/pages/contact'
-import { render, fireEvent } from 'react-testing-library'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('<Contact />', () => {
   test('should submit subscription form', async () => {

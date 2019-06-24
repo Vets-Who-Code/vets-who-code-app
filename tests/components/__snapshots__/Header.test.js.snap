@@ -5,7 +5,9 @@ exports[`<Header /> should render correctly 1`] = `
   class="site-header flexslider classic"
   id="site-header"
 >
-  <div>
+  <div
+    style="background-color: rgb(9, 31, 64);"
+  >
     <div />
     <ol
       class="flex-control-nav flex-control-paging"
@@ -58,4 +60,194 @@ exports[`<Header /> should render correctly 1`] = `
     </ul>
   </div>
 </header>
+`;
+
+exports[`<Header /> should render correctly 2`] = `
+<header
+  class="site-header flexslider classic"
+  id="site-header"
+>
+  <div
+    style="background-color: rgb(9, 31, 64);"
+  >
+    <div />
+    <ol
+      class="flex-control-nav flex-control-paging"
+    >
+      <li>
+        <a
+          class=""
+        >
+          1
+        </a>
+      </li>
+      <li>
+        <a
+          class="flex-active"
+        >
+          2
+        </a>
+      </li>
+      <li>
+        <a
+          class=""
+        >
+          3
+        </a>
+      </li>
+    </ol>
+    <ul
+      class="flex-direction-nav"
+    >
+      <li
+        class="flex-nav-prev"
+      >
+        <a
+          class="flex-prev"
+          href="#"
+        >
+          Previous
+        </a>
+      </li>
+      <li
+        class="flex-nav-next"
+      >
+        <a
+          class="flex-next"
+          href="#"
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+`;
+
+exports[`<Header /> should update slide on click 1`] = `
+<div>
+  <header
+    class="site-header flexslider classic"
+    id="site-header"
+  >
+    <div
+      style="background-color: rgb(9, 31, 64);"
+    >
+      <div />
+      <ol
+        class="flex-control-nav flex-control-paging"
+      >
+        <li>
+          <a
+            class=""
+          >
+            1
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex-active"
+          >
+            2
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+          >
+            3
+          </a>
+        </li>
+      </ol>
+      <ul
+        class="flex-direction-nav"
+      >
+        <li
+          class="flex-nav-prev"
+        >
+          <a
+            class="flex-prev"
+            href="#"
+          >
+            Previous
+          </a>
+        </li>
+        <li
+          class="flex-nav-next"
+        >
+          <a
+            class="flex-next"
+            href="#"
+          >
+            Next
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`<Header /> should update slide on click 2`] = `
+<div>
+  <header
+    class="site-header flexslider classic"
+    id="site-header"
+  >
+    <div
+      style="background-color: rgb(9, 31, 64);"
+    >
+      <div />
+      <ol
+        class="flex-control-nav flex-control-paging"
+      >
+        <li>
+          <a
+            class=""
+          >
+            1
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex-active"
+          >
+            2
+          </a>
+        </li>
+        <li>
+          <a
+            class=""
+          >
+            3
+          </a>
+        </li>
+      </ol>
+      <ul
+        class="flex-direction-nav"
+      >
+        <li
+          class="flex-nav-prev"
+        >
+          <a
+            class="flex-prev"
+            href="#"
+          >
+            Previous
+          </a>
+        </li>
+        <li
+          class="flex-nav-next"
+        >
+          <a
+            class="flex-next"
+            href="#"
+          >
+            Next
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+</div>
 `;

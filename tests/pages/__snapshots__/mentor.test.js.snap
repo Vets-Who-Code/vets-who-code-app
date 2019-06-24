@@ -10,10 +10,11 @@ exports[`<Mentor /> should render correctly 1`] = `
         class="Toastify"
       />
       <nav
-        class="navbar navbar-fixed-top main-navigation"
+        class="navbar navbar-fixed-top main-navigation navbar-solid"
         id="fixedTopNav"
         itemtype="https://schema.org/SiteNavigationElement"
         role="navigation"
+        style="opacity: 0.9;"
       >
         <div
           class="container"
@@ -52,11 +53,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                 class=""
                 href="/"
               >
-                <img
-                  alt="#VetsWhoCode Logo"
-                  class="logo_holder"
-                  src="image-mock"
-                />
+                static-query
               </a>
             </div>
           </div>
@@ -158,32 +155,7 @@ exports[`<Mentor /> should render correctly 1`] = `
           </div>
         </div>
       </nav>
-      <header
-        class="inner-header overlay grey text-center slim-bg "
-        style="background-image: url(image-mock); background-position-y: bottom;"
-      >
-        <div
-          class="overlay-01"
-        />
-        <div
-          class="container"
-        >
-          <h2
-            class="text-center text-uppercase"
-          >
-            Mentor
-          </h2>
-          <div
-            class="breadcrumb"
-          >
-            gatsby-link
-            <span>
-              /
-            </span>
-            gatsby-link
-          </div>
-        </div>
-      </header>
+      static-query
       <div
         class="pad-regular bg-default"
       >
@@ -265,7 +237,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading0"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -305,7 +277,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading1"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -345,7 +317,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading2"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                     </div>
@@ -395,7 +367,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading0"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -435,7 +407,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading1"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                     </div>

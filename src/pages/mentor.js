@@ -1,12 +1,8 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/Layout'
-
-import thisIsUs from '../images/this_is_us.png'
-
 import Accordion from '../components/Accordion/Accordion'
 import Panel from '../components/Accordion/Panel'
+import PageHeader from '../components/PageHeader'
 
 export default class Mentor extends Component {
   state = {
@@ -198,25 +194,7 @@ export default class Mentor extends Component {
 
     return (
       <Layout>
-        <header
-          className="inner-header overlay grey text-center slim-bg "
-          style={{
-            backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">Mentor</h2>
-            <div className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/mentor" className="page-active">
-                Mentor
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PageHeader title="mentor" />
         <div className="pad-regular bg-default">
           <section id="contact" className="section bg-default">
             <div className="container">

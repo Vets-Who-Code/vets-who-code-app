@@ -9,10 +9,11 @@ exports[`<NotFoundPage /> should render correctly 1`] = `
       class="Toastify"
     />
     <nav
-      class="navbar navbar-fixed-top main-navigation"
+      class="navbar navbar-fixed-top main-navigation navbar-solid"
       id="fixedTopNav"
       itemtype="https://schema.org/SiteNavigationElement"
       role="navigation"
+      style="opacity: 0.9;"
     >
       <div
         class="container"
@@ -51,11 +52,7 @@ exports[`<NotFoundPage /> should render correctly 1`] = `
               class=""
               href="/"
             >
-              <img
-                alt="#VetsWhoCode Logo"
-                class="logo_holder"
-                src="image-mock"
-              />
+              static-query
             </a>
           </div>
         </div>

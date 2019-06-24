@@ -9,10 +9,11 @@ exports[`<About /> should render correctly 1`] = `
       class="Toastify"
     />
     <nav
-      class="navbar navbar-fixed-top main-navigation"
+      class="navbar navbar-fixed-top main-navigation navbar-solid"
       id="fixedTopNav"
       itemtype="https://schema.org/SiteNavigationElement"
       role="navigation"
+      style="opacity: 0.9;"
     >
       <div
         class="container"
@@ -51,11 +52,7 @@ exports[`<About /> should render correctly 1`] = `
               class=""
               href="/"
             >
-              <img
-                alt="#VetsWhoCode Logo"
-                class="logo_holder"
-                src="image-mock"
-              />
+              static-query
             </a>
           </div>
         </div>
@@ -157,32 +154,7 @@ exports[`<About /> should render correctly 1`] = `
         </div>
       </div>
     </nav>
-    <header
-      class="inner-header overlay grey text-center slim-bg"
-      style="background-image: url(image-mock); background-position-y: bottom;"
-    >
-      <div
-        class="overlay-01"
-      />
-      <div
-        class="container"
-      >
-        <h2
-          class="text-center text-uppercase"
-        >
-          About
-        </h2>
-        <div
-          class="breadcrumb"
-        >
-          gatsby-link
-          <span>
-            /
-          </span>
-          gatsby-link
-        </div>
-      </div>
-    </header>
+    static-query
     <section
       class="small-top-pad section bg-default"
       id="about"
@@ -273,11 +245,7 @@ exports[`<About /> should render correctly 1`] = `
                 <div
                   class="team-wiget clearfix"
                 >
-                  <img
-                    alt="Jerome Hardaway Head Geek"
-                    class="img-responsive"
-                    src="image-mock"
-                  />
+                  static-query
                   <div
                     class="meet-social"
                   >
@@ -328,11 +296,7 @@ exports[`<About /> should render correctly 1`] = `
                 <div
                   class="team-wiget clearfix"
                 >
-                  <img
-                    alt="Andrew Lebowitz Brand Geek"
-                    class="img-responsive"
-                    src="image-mock"
-                  />
+                  static-query
                   <div
                     class="meet-social"
                   >
@@ -383,11 +347,7 @@ exports[`<About /> should render correctly 1`] = `
                 <div
                   class="team-wiget clearfix"
                 >
-                  <img
-                    alt="Noel Sagaille Devops Geek"
-                    class="img-responsive"
-                    src="image-mock"
-                  />
+                  static-query
                   <div
                     class="meet-social"
                   >

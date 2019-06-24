@@ -18,12 +18,14 @@ const styles = {
   fontSize: 35,
 }
 
-const StickyButton = () => (
-  <Link to="/donate">
-    <button className="btn btn-charity-default" aria-label="Donate" style={styles}>
-      <i className="fa fa-heart" />
-    </button>
-  </Link>
-)
+function StickyButton() {
+  return (
+    <Link to="/donate">
+      <button className="btn btn-charity-default" aria-label="Donate" style={styles}>
+        <i className="fa fa-heart" />
+      </button>
+    </Link>
+  )
+}
 
 export default StickyButton

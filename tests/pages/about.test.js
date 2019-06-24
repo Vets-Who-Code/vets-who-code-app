@@ -1,6 +1,6 @@
 import React from 'react'
 import About from '../../src/pages/about'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 
 describe('<About />', () => {
   test('should render correctly', () => {

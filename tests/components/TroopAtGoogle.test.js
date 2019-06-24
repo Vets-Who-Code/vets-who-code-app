@@ -1,6 +1,6 @@
 import React from 'react'
 import { TroopsAtGoogleImage as TroopsAtGoogle  } from '../../src/components/TroopsAtGoogle'
-import { render } from "react-testing-library"
+import { render } from "@testing-library/react"
 
 describe('<TroopsAtGoogle />', () => {
   const data = {

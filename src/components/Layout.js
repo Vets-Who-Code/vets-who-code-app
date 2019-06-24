@@ -21,7 +21,7 @@ import metaImage from '../images/meta-image.jpg'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet htmlAttributes={{ lang: 'en' }}>
-      <script src="https://linked.chat/web/a9LB63" />
+      {/* <script src="https://linked.chat/web/a9LB63" /> */}
       <title>#VetsWhoCode</title>
       <meta
         name="description"

@@ -1,6 +1,6 @@
 import React from 'react'
 import Mentor from '../../src/pages/mentor'
-import { render, fireEvent } from 'react-testing-library'
+import { render, fireEvent } from '@testing-library/react'
 
 
 describe('<Mentor />', () => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Donate from '../../src/pages/donate'
-import { render, fireEvent } from 'react-testing-library'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('<Donate />', () => {
   test.skip('should open modal on click ', async () => {

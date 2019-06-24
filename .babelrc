@@ -1,15 +1,14 @@
 {
-  presets: [
-    "@babel/react",
-    "@babel/env"
-  ],
-  plugins: [
-    "@babel/plugin-syntax-dynamic-import",
-    "transform-class-properties",
+  "presets": [
     [
-      "@babel/transform-runtime",
+      "babel-preset-gatsby",
       {
-        "regenerator": true
+        "targets": {
+          "browsers": [
+            ">0.25%",
+            "not dead"
+          ]
+        }
       }
     ]
   ]

@@ -3,14 +3,14 @@ import { graphql, StaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import BackgroundImage from 'gatsby-background-image'
 
-const BackgroundSection = ({ fileName, className, children }) => (
+const BackgroundSection = ({ fileName, className, children, ...rest }) => (
   <StaticQuery
     query={graphql`
       query {
         allImageSharp {
           edges {
             node {
-              fluid(quality: 90, maxWidth: 4100) {
+              fluid(quality: 90, maxWidth: 2100) {
                 ...GatsbyImageSharpFluid_withWebp
                 originalName
               }
@@ -27,6 +27,7 @@ const BackgroundSection = ({ fileName, className, children }) => (
       }
       return (
         <BackgroundImage
+          {...rest}
           Tag="section"
           className={className}
           fluid={image.node.fluid}

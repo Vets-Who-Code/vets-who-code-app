@@ -1,15 +1,12 @@
-import React, { Component, useRef } from 'react'
+import React, { useRef } from 'react'
 import Layout from '../components/Layout'
-import { Link } from 'gatsby'
-
 import FluidImage from '../components/FluidImage'
+import PageHeader from '../components/PageHeader'
 
 import vwcGIF from '../images/vwc.gif'
-import thisIsUs from '../images/this_is_us.png'
-
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
-const About = () => {
+function About() {
   const videoRef = useRef()
 
   const play = () => {
@@ -24,25 +21,7 @@ const About = () => {
 
   return (
     <Layout>
-      <header
-        className="inner-header overlay grey text-center slim-bg"
-        style={{
-          backgroundImage: `url(${thisIsUs})`,
-          backgroundPositionY: 'bottom',
-        }}
-      >
-        <div className="overlay-01" />
-        <div className="container">
-          <h2 className="text-center text-uppercase">About</h2>
-          <div className="breadcrumb">
-            <Link to="/">Home</Link>
-            <span>/</span>
-            <Link to="/about" className="page-active">
-              About
-            </Link>
-          </div>
-        </div>
-      </header>
+      <PageHeader title="about" />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">

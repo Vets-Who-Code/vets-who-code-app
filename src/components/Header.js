@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import Slider from 'react-slick'
 import { Link } from 'gatsby'
-import BackgroundSection from '../components/BackgroundImage'
+import BackgroundSection from '../components/BackgroundSection'
 
 const settings = {
   infinite: true,
@@ -13,14 +13,14 @@ const settings = {
   autoplaySpeed: 3000,
 }
 
-const Header = () => {
+function Header() {
   const sliderRef = useRef()
 
   return (
     <header id="site-header" className="site-header flexslider classic">
       <div style={{ backgroundColor: 'rgb(9, 31, 64)' }}>
         <Slider {...settings} ref={sliderRef}>
-          <BackgroundSection fileName="code.png">
+          <BackgroundSection fileName="code.png" critical fadeIn>
             <div className="header-classic wrapper-table overlay-01">
               <div className="valign-center">
                 <div className="container">

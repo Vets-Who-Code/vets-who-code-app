@@ -8,16 +8,7 @@ import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
-
 import FluidImage from '../components/FluidImage'
-
-export const onClientEntry = () => {
-  // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
-  if (typeof window.IntersectionObserver === `undefined`) {
-    import(`intersection-observer`)
-    console.log(`# IntersectionObserver is polyfilled!`)
-  }
-}
 
 class IndexPage extends Component {
   state = {
@@ -29,7 +20,18 @@ class IndexPage extends Component {
   subscribeButtonRef = React.createRef()
 
   componentDidMount() {
-    onClientEntry()
+    this.onClientEntry()
+  }
+
+  onClientEntry = () => {
+    // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+    if (typeof window !== `undefined`) {
+      if (typeof window.IntersectionObserver === `undefined`) {
+        import(`intersection-observer`)
+        // eslint-disable-next-line no-console
+        console.log(`# IntersectionObserver is polyfilled!`)
+      }
+    }
   }
 
   handleInputChange = event => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import Apply from '../../src/pages/apply'
-import { render, fireEvent } from 'react-testing-library';
+import { render, fireEvent } from '@testing-library/react';
 
 describe('<Apply />', () => {
   test('should submit form and clear fields', () => {

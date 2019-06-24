@@ -1,6 +1,6 @@
 import React from 'react'
 import { PureCodeImage as CodeImage  } from '../../src/components/CodeImage'
-import { render } from "react-testing-library"
+import { render } from "@testing-library/react"
 
 describe('<CodePNG />', () => {
   const data = {

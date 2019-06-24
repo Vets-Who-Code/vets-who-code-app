@@ -1,6 +1,6 @@
 import React from 'react'
 import DonateModal from '../../src/components/DonateModal'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 
 describe('<DonateModal />', () => {
   test('should render correctly', () => {

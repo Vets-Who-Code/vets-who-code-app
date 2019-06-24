@@ -9,10 +9,11 @@ exports[`<Contact /> should render correctly 1`] = `
       class="Toastify"
     />
     <nav
-      class="navbar navbar-fixed-top main-navigation"
+      class="navbar navbar-fixed-top main-navigation navbar-solid"
       id="fixedTopNav"
       itemtype="https://schema.org/SiteNavigationElement"
       role="navigation"
+      style="opacity: 0.9;"
     >
       <div
         class="container"
@@ -51,11 +52,7 @@ exports[`<Contact /> should render correctly 1`] = `
               class=""
               href="/"
             >
-              <img
-                alt="#VetsWhoCode Logo"
-                class="logo_holder"
-                src="image-mock"
-              />
+              static-query
             </a>
           </div>
         </div>
@@ -157,32 +154,7 @@ exports[`<Contact /> should render correctly 1`] = `
         </div>
       </div>
     </nav>
-    <header
-      class="inner-header overlay grey text-center slim-bg "
-      style="background-image: url(image-mock); background-position-y: bottom;"
-    >
-      <div
-        class="overlay-01"
-      />
-      <div
-        class="container"
-      >
-        <h2
-          class="text-center text-uppercase"
-        >
-          Contact Us
-        </h2>
-        <div
-          class="breadcrumb"
-        >
-          gatsby-link
-          <span>
-            /
-          </span>
-          gatsby-link
-        </div>
-      </div>
-    </header>
+    static-query
     <section
       class="pad-regular section bg-default"
       id="contact"
@@ -219,6 +191,7 @@ exports[`<Contact /> should render correctly 1`] = `
             <div
               class="map-default-height"
               id="map-canvas"
+              style="width: 100%; height: 300px;"
             />
           </div>
         </div>

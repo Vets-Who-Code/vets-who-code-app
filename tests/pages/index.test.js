@@ -1,6 +1,6 @@
 import React from 'react'
 import IndexPage from '../../src/pages/index'
-import { render, fireEvent } from 'react-testing-library'
+import { render, fireEvent } from '@testing-library/react'
 
 describe('<IndexPage />', () => {
   test.skip('should submit subscription form', async () => {

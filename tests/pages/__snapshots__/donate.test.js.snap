@@ -9,10 +9,11 @@ exports[`<Donate /> should render correctly 1`] = `
       class="Toastify"
     />
     <nav
-      class="navbar navbar-fixed-top main-navigation"
+      class="navbar navbar-fixed-top main-navigation navbar-solid"
       id="fixedTopNav"
       itemtype="https://schema.org/SiteNavigationElement"
       role="navigation"
+      style="opacity: 0.9;"
     >
       <div
         class="container"
@@ -51,11 +52,7 @@ exports[`<Donate /> should render correctly 1`] = `
               class=""
               href="/"
             >
-              <img
-                alt="#VetsWhoCode Logo"
-                class="logo_holder"
-                src="image-mock"
-              />
+              static-query
             </a>
           </div>
         </div>
@@ -157,32 +154,7 @@ exports[`<Donate /> should render correctly 1`] = `
         </div>
       </div>
     </nav>
-    <header
-      class="inner-header overlay grey text-center slim-bg "
-      style="background-image: url(image-mock); background-position-y: bottom;"
-    >
-      <div
-        class="overlay-01"
-      />
-      <div
-        class="container"
-      >
-        <h2
-          class="text-center text-uppercase"
-        >
-          Donate
-        </h2>
-        <div
-          class="breadcrumb"
-        >
-          gatsby-link
-          <span>
-            /
-          </span>
-          gatsby-link
-        </div>
-      </div>
-    </header>
+    static-query
     <section
       class="cause_single section bg-default single pad-regular"
       id="cause_singe"
@@ -210,10 +182,7 @@ exports[`<Donate /> should render correctly 1`] = `
               </p>
               <blockquote>
                 <p>
-                  <img
-                    alt="John Garcia"
-                    src="image-mock"
-                  />
+                  static-query
                   <br />
                   "VWC helped me gain the technical knowledge I needed in order to get the attention of employers. The guidance, support and experience I had going through the program continues to help me in my role as a full time web developer."
                   <br />

@@ -30,16 +30,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-favicon`,
       options: {
-        fonts: [
-          `source lato: 400, 300, 700, 900`,
-          `source roboto + slab: 400, 100, 300, 700`,
-          `source sans pro: 300, 300i, 400, 400i, 700`
-        ],
-        display: `swap`
+        logo: `${__dirname}/src/images/favicon.png`,
       }
     }
   ],
-  pathPrefix: `/ `
+  pathPrefix: `/`
 };

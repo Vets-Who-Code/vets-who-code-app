@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/Layout'
-
-import thisIsUs from '../images/this_is_us.png'
+import PageHeader from '../components/PageHeader'
 
 export default class Contact extends Component {
   state = {
@@ -114,25 +111,7 @@ export default class Contact extends Component {
 
     return (
       <Layout>
-        <header
-          className="inner-header overlay grey text-center slim-bg "
-          style={{
-            backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">Contact Us</h2>
-            <div className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/contact" className="page-active">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PageHeader title="contact us" />
         <section id="contact" className="pad-regular section bg-default">
           <div className="container">
             <div className="row">
