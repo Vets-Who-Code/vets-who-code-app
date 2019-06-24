@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Slider from 'react-slick'
 import FluidImage from './FluidImage'
 
