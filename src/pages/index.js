@@ -96,39 +96,39 @@ class IndexPage extends Component {
           <div className="container-fluid">
             <div className="row no-gutter">
               <div className="col-md-4">
-                <div
-                  className="fluid-grid first-grid text-center"
-                  style={{ backgroundColor: '#091f40' }}
-                >
-                  <Link to="/donate">
+                <Link to="/donate">
+                  <div
+                    className="fluid-grid first-grid text-center"
+                    style={{ backgroundColor: '#091f40' }}
+                  >
                     <span>Help Us Teach More Veterans</span>
                     <h2>Donate</h2>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
 
               <div className="col-md-4">
-                <div
-                  className="fluid-grid second-grid text-center"
-                  style={{ backgroundColor: '#0f356d' }}
-                >
-                  <Link to="/apply">
+                <Link to="/apply">
+                  <div
+                    className="fluid-grid second-grid text-center"
+                    style={{ backgroundColor: '#0f356d' }}
+                  >
                     <span>Learn Javascript</span>
                     <h2>APPLY</h2>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
 
               <div className="col-md-4">
-                <div
-                  className="fluid-grid third-grid text-center"
-                  style={{ backgroundColor: '#123f83' }}
-                >
-                  <Link to="/mentor">
+                <Link to="/mentor">
+                  <div
+                    className="fluid-grid third-grid text-center"
+                    style={{ backgroundColor: '#123f83' }}
+                  >
                     <span>Become A Mentor</span>
                     <h2>Get involved</h2>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
