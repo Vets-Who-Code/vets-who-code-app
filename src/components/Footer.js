@@ -15,7 +15,7 @@ function Footer() {
                   Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
                 </p>
                 <div className="footer-social">
-                  <a href="http://bit.ly/vetswhocode-fb" aria-label="Facebook">
+                  <a href="http://bit.ly/vetswhocode-facebook-link" aria-label="Facebook">
                     <i className="fa fa-facebook-f" />
                   </a>
                   <a href="http://bit.ly/vets-who-code-twitter" aria-label="Twitter">

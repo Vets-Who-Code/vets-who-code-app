@@ -356,7 +356,7 @@ exports[`<Contact /> should render correctly 1`] = `
                 >
                   <a
                     aria-label="Facebook"
-                    href="http://bit.ly/vetswhocode-fb"
+                    href="http://bit.ly/vetswhocode-facebook-link"
                   >
                     <i
                       class="fa fa-facebook-f"
