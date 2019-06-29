@@ -265,7 +265,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading0"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -305,7 +305,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading1"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -345,7 +345,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading2"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                     </div>
@@ -395,7 +395,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading0"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                       <div
@@ -435,7 +435,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                           aria-hidden="true"
                           aria-labelledby="heading1"
                           role="tabpanel"
-                          style="padding: 0px 15px;"
+                          style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                         />
                       </div>
                     </div>

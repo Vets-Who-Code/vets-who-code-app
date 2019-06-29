@@ -250,7 +250,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading0"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -287,7 +287,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading1"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -324,7 +324,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading2"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -361,7 +361,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading3"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -398,7 +398,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading4"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -435,7 +435,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading5"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -472,7 +472,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading6"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -509,7 +509,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading7"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -546,7 +546,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading8"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -583,7 +583,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading9"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -620,7 +620,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading10"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -657,7 +657,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading11"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -694,7 +694,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading12"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
               <div
@@ -731,7 +731,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   aria-hidden="true"
                   aria-labelledby="heading13"
                   role="tabpanel"
-                  style="padding: 0px 15px;"
+                  style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
               </div>
             </div>

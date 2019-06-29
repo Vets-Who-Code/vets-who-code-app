@@ -17,7 +17,7 @@ exports[`<CodePNG /> should render correctly 1`] = `
     <img
       alt=""
       src="some-source-here"
-      style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 1;"
+      style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 1; transition: opacity 0.5s;"
     />
   </picture>
   <noscript>
