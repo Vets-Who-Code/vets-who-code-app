@@ -2,7 +2,7 @@
 
 module.exports = {
   siteMetadata: {
-    title: `VetsWhoCode`
+    title: `VetsWhoCode`,
   },
   plugins: [
     {
@@ -11,12 +11,12 @@ module.exports = {
         path: `${__dirname}/src/images`,
         name: 'images',
       },
-      {
-        resolve: `gatsby-plugin-google-analytics`,
-        options: {
-          // replace "UA-XXXXXXXXX-X" with your own Tracking ID
-          trackingId: "UA-73856435-2",
-        },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: 'UA-XXXXXXXXX-X',
       },
     },
     'gatsby-transformer-sharp',
@@ -27,15 +27,16 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
-        purgeOnly : ['components/', '/main.css', 'bootstrap/', 'css/'], // Purge only these files/folders
-      }
+        purgeOnly: ['components/', '/main.css', 'bootstrap/', 'css/'], // Purge only these files/folders
+      },
     },
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint: 'https://vetswhocode.us12.list-manage.com/subscribe/post?u=80af3c15cfdb9ee5ad4bc6ee6&amp;id=642229d1fe',
+        endpoint:
+          'https://vetswhocode.us12.list-manage.com/subscribe/post?u=80af3c15cfdb9ee5ad4bc6ee6&amp;id=642229d1fe',
       },
-    }
+    },
   ],
-  pathPrefix: `/`
-};
+  pathPrefix: `/`,
+}
