@@ -1,6 +1,6 @@
 import React from 'react'
-import { TroopsAtGoogleImage as TroopsAtGoogle  } from '../../src/components/TroopsAtGoogle'
-import { render } from "@testing-library/react"
+import { TroopsAtGoogleImage as TroopsAtGoogle } from '../../src/components/TroopsAtGoogle'
+import { render } from '@testing-library/react'
 
 describe('<TroopsAtGoogle />', () => {
   const data = {
@@ -12,7 +12,7 @@ describe('<TroopsAtGoogle />', () => {
           srcSet: 'some-source-here',
           sizes: '',
           base64: '',
-        }
+        },
       },
     },
   }

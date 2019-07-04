@@ -2,6 +2,83 @@
   width: 50px;
   height: auto;
 }
-.adjust-wrap{
+
+.adjust-wrap {
  width: 90%;
+}
+
+.index .fluid-grid:hover h2,
+.index .fluid-grid:hover span {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* herat pulse */
+.fa-heart {
+  animation: heartpulse 1s infinite;
+}
+
+@keyframes heartpulse {
+  10% {
+    transform: scale(1.1);
+  }
+}
+
+/* flex-slider arror default overides */
+.flexslider .flex-direction-nav a.flex-prev::before {
+  content: "\f0d9";
+  font-family: "fontawesome";
+}
+
+.flexslider .flex-direction-nav a.flex-next::before {
+  content: "\f0da";
+  font-family: "fontawesome";
+}
+
+/* overide bootstrap mobile nav styles */
+.main-navigation .navbar-brand a {
+}
+
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+  padding: 8px;
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 8px;
+}
+
+.hamburger .line{
+  width: 39px;
+  height: 2px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 8px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover{
+  cursor: pointer;
+}
+
+.hamburger:focus{
+  border: 1px dashed #fff;
+}
+
+#hamburger-1.is-active .line:nth-child(2){
+  opacity: 0;
+}
+
+#hamburger-1.is-active .line:nth-child(1){
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger-1.is-active .line:nth-child(3){
+  transform: translateY(-10px) rotate(-45deg);
 }

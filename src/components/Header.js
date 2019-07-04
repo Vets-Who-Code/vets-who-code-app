@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, Fragment } from 'react'
 import Slider from 'react-slick'
 import { Link } from 'gatsby'
 import BackgroundSection from '../components/BackgroundSection'
@@ -7,10 +7,13 @@ const settings = {
   infinite: true,
   speed: 500,
   fade: true,
+  lazyLoad: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
+  nextArrow: <Fragment />, // use Fragment to disable react-slick bd
+  prevArrow: <Fragment />,
 }
 
 function Header() {
@@ -20,7 +23,7 @@ function Header() {
     <header id="site-header" className="site-header flexslider classic">
       <div style={{ backgroundColor: 'rgb(9, 31, 64)' }}>
         <Slider {...settings} ref={sliderRef}>
-          <BackgroundSection fileName="code.png" critical fadeIn>
+          <BackgroundSection fileName="code.jpg" critical fadeIn>
             <div className="header-classic wrapper-table overlay-01">
               <div className="valign-center">
                 <div className="container">
@@ -40,7 +43,7 @@ function Header() {
               </div>
             </div>
           </BackgroundSection>
-          <BackgroundSection fileName="speaking.png">
+          <BackgroundSection fileName="speaking.jpg">
             <div className="header-classic  wrapper-table overlay-01">
               <div className="valign-center">
                 <div className="container">
@@ -61,7 +64,7 @@ function Header() {
               </div>
             </div>
           </BackgroundSection>
-          <BackgroundSection fileName="this_is_us.png">
+          <BackgroundSection fileName="this_is_us.jpg">
             <div className="header-classic wrapper-table overlay-01">
               <div className="valign-center">
                 <div className="container">

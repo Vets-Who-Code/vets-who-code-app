@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {
@@ -12,39 +12,34 @@ const defaultProps = {
   accordionId: '',
 }
 
-class Accordion extends Component {
-  state = {
-    activeId: null,
+function Accordion({ accordionId, single, children }) {
+  const [activeId, setActiveId] = useState(null)
+
+  function clickHandler(id) {
+    setActiveId(id)
   }
 
-  handlePanelUpdate = id => {
-    this.setState({
-      activeId: id,
-    })
-  }
-
-  renderChildren = () =>
-    React.Children.map(this.props.children, child =>
+  function renderChildren() {
+    return React.Children.map(children, child =>
       React.cloneElement(child, {
-        accordionId: this.props.accordionId,
-        clickHandler: this.handlePanelUpdate,
-        activeId: this.state.activeId,
-        single: this.props.single,
+        accordionId,
+        clickHandler,
+        activeId,
+        single,
       })
     )
-
-  render() {
-    return (
-      <div
-        className="panel-group faq_list"
-        id={this.props.accordionId}
-        role="tablist"
-        aria-multiselectable="true"
-      >
-        {this.renderChildren()}
-      </div>
-    )
   }
+
+  return (
+    <div
+      className="panel-group faq_list"
+      id={accordionId}
+      role="tablist"
+      aria-multiselectable="true"
+    >
+      {renderChildren()}
+    </div>
+  )
 }
 
 Accordion.propTypes = propTypes

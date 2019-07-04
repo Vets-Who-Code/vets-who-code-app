@@ -20,6 +20,7 @@
     "es6": true
   },
   "rules": {
+    "no-useless-catch": "off",
     "no-undef": "off",
     "no-debugger": "off",
     "eqeqeq": [

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { toast } from 'react-toastify'
@@ -17,7 +17,7 @@ class IndexPage extends Component {
     errorMessage: '',
   }
 
-  subscribeButtonRef = React.createRef()
+  subscribeButtonRef = createRef()
 
   componentDidMount() {
     this.onClientEntry()
@@ -25,11 +25,9 @@ class IndexPage extends Component {
 
   onClientEntry = () => {
     // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
-    if (typeof window !== `undefined`) {
-      if (typeof window.IntersectionObserver === `undefined`) {
-        import(`intersection-observer`)
-        // eslint-disable-next-line no-console
-        console.log(`# IntersectionObserver is polyfilled!`)
+    if (window !== undefined) {
+      if (window.IntersectionObserver === undefined) {
+        require(`intersection-observer`)
       }
     }
   }
@@ -42,7 +40,6 @@ class IndexPage extends Component {
   handleUserSubscribe = event => {
     event.preventDefault()
     const { email } = this.state
-
     addToMailchimp(email).then(res => {
       if (res.result === 'success') {
         this.setState({
@@ -92,7 +89,7 @@ class IndexPage extends Component {
     return (
       <Layout>
         <Header />
-        <section id="call-to-action" className="section bg-default call-to-action">
+        <section id="call-to-action" className="section bg-default call-to-action index">
           <div className="container-fluid">
             <div className="row no-gutter">
               <div className="col-md-4">
@@ -106,7 +103,6 @@ class IndexPage extends Component {
                   </div>
                 </Link>
               </div>
-
               <div className="col-md-4">
                 <Link to="/apply">
                   <div
@@ -118,7 +114,6 @@ class IndexPage extends Component {
                   </div>
                 </Link>
               </div>
-
               <div className="col-md-4">
                 <Link to="/mentor">
                   <div

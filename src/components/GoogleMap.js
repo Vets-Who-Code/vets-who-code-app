@@ -12,15 +12,17 @@ function GoogleMap() {
   })
 
   function mapInit() {
-    const googleMapScript = document.createElement('script')
-    googleMapScript.src =
-      'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4'
-    window.document.body.appendChild(googleMapScript)
+    if (window.google === undefined) {
+      const googleMapScript = document.createElement('script')
+      googleMapScript.src =
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyBQt6WATWNedQ8TSM7sCKOI1uoPR2JrG-4'
+      window.document.body.appendChild(googleMapScript)
 
-    googleMapScript.addEventListener('load', () => {
-      createGoogleMap()
-      createMarker()
-    })
+      googleMapScript.addEventListener('load', () => {
+        createGoogleMap()
+        createMarker()
+      })
+    }
   }
 
   function createGoogleMap() {

@@ -25,13 +25,13 @@ function Donate() {
                   giving a small donation so that we can continue to train more veterans.
                 </p>
                 <blockquote>
+                  <FluidImage
+                    fileName="profile.png"
+                    alt="John Garcia"
+                    style={{ height: 200, width: 200 }}
+                  />
+                  <br />
                   <p>
-                    <FluidImage
-                      fileName="profile.png"
-                      alt="John Garcia"
-                      style={{ height: 200, width: 200 }}
-                    />
-                    <br />
                     &quot;VWC helped me gain the technical knowledge I needed in order to get the
                     attention of employers. The guidance, support and experience I had going through
                     the program continues to help me in my role as a full time web developer.&quot;

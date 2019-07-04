@@ -1,9 +1,0 @@
-[data-reach-dialog-content] {
-  width: 60vw;
-}
-
-@media (max-width: 820px) {
-  [data-reach-dialog-content] {
-    width: 95vw;
-  }
-}

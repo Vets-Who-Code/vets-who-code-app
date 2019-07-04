@@ -1,7 +1,7 @@
-import "jest-dom/extend-expect"
+import 'jest-dom/extend-expect'
 
 // this is basically: afterEach(cleanup)
-import "@testing-library/react/cleanup-after-each"
+import '@testing-library/react/cleanup-after-each'
 
 global.google = {
   maps: {
@@ -9,10 +9,10 @@ global.google = {
     Map: jest.fn(),
     InfoWindow: jest.fn(),
     Marker: () => ({
-      addListener: jest.fn()
+      addListener: jest.fn(),
     }),
     MapTypeId: {
-      ROADMAP: ''
-    }
-  }
+      ROADMAP: '',
+    },
+  },
 }

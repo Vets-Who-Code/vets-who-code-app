@@ -87,7 +87,7 @@ function About() {
                   <div className="team-wiget clearfix">
                     <FluidImage
                       className="img-responsive"
-                      fileName="jerome.png"
+                      fileName="jerome.jpg"
                       alt="Jerome Hardaway Head Geek"
                     />
                     <div className="meet-social">
@@ -114,7 +114,7 @@ function About() {
                   <div className="team-wiget clearfix">
                     <FluidImage
                       className="img-responsive"
-                      fileName="andrew.png"
+                      fileName="andrew.jpg"
                       alt="Andrew Lebowitz Brand Geek"
                     />
                     <div className="meet-social">
@@ -141,7 +141,7 @@ function About() {
                   <div className="team-wiget clearfix">
                     <FluidImage
                       className="img-responsive"
-                      fileName="noel.png"
+                      fileName="noel.jpg"
                       alt="Noel Sagaille Devops Geek"
                     />
                     <div className="meet-social">

@@ -21,27 +21,10 @@ exports[`<Syllabus /> should render correctly 1`] = `
         <div
           class="navbar-header"
         >
-          <button
-            aria-expanded="false"
-            class="navbar-toggle collapsed"
-            type="button"
-          >
-             
-            <span
-              class="sr-only"
-            >
-              #VetsWhoCode
-            </span>
-             
-            <span
-              class="ion-drag"
-            />
-          </button>
           <div
             class="navbar-brand"
             itemtype="https://schema.org/Organization"
           >
-             
             <span
               class="sr-only"
             >
@@ -55,6 +38,27 @@ exports[`<Syllabus /> should render correctly 1`] = `
               static-query
             </a>
           </div>
+          <button
+            aria-expanded="false"
+            class="navbar-toggle collapsed hamburger "
+            id="hamburger-1"
+            type="button"
+          >
+            <span
+              class="line"
+            />
+            <span
+              class="line"
+            />
+            <span
+              class="line"
+            />
+            <span
+              class="sr-only"
+            >
+              #VetsWhoCode
+            </span>
+          </button>
         </div>
         <div
           aria-expanded="false"
@@ -65,7 +69,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
             class="nav navbar-nav navbar-right"
             role="menu"
           >
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 aria-current="page"
@@ -77,7 +83,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/about"
@@ -87,7 +95,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/syllabus"
@@ -97,7 +107,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/mentor"
@@ -107,7 +119,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/apply"
@@ -117,7 +131,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/donate"
@@ -127,7 +143,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="/contact"
@@ -137,7 +155,9 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </span>
               </a>
             </li>
-            <li>
+            <li
+              role="menu-item"
+            >
                
               <a
                 href="https://medium.com/vets-who-code"
@@ -193,14 +213,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading0"
+                  id="heading-0"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse0"
+                      aria-controls="collapse-0"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -220,7 +240,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading0"
+                  aria-labelledby="heading-0"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -230,14 +250,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading1"
+                  id="heading-1"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse1"
+                      aria-controls="collapse-1"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -257,7 +277,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading1"
+                  aria-labelledby="heading-1"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -267,14 +287,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading2"
+                  id="heading-2"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse2"
+                      aria-controls="collapse-2"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -294,7 +314,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading2"
+                  aria-labelledby="heading-2"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -304,14 +324,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading3"
+                  id="heading-3"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse3"
+                      aria-controls="collapse-3"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -331,7 +351,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading3"
+                  aria-labelledby="heading-3"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -341,14 +361,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading4"
+                  id="heading-4"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse4"
+                      aria-controls="collapse-4"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -368,7 +388,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading4"
+                  aria-labelledby="heading-4"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -378,14 +398,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading5"
+                  id="heading-5"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse5"
+                      aria-controls="collapse-5"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -405,7 +425,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading5"
+                  aria-labelledby="heading-5"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -415,14 +435,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading6"
+                  id="heading-6"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse6"
+                      aria-controls="collapse-6"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -442,7 +462,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading6"
+                  aria-labelledby="heading-6"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -452,14 +472,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading7"
+                  id="heading-7"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse7"
+                      aria-controls="collapse-7"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -479,7 +499,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading7"
+                  aria-labelledby="heading-7"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -489,14 +509,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading8"
+                  id="heading-8"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse8"
+                      aria-controls="collapse-8"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -516,7 +536,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading8"
+                  aria-labelledby="heading-8"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -526,14 +546,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading9"
+                  id="heading-9"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse9"
+                      aria-controls="collapse-9"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -553,7 +573,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading9"
+                  aria-labelledby="heading-9"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -563,14 +583,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading10"
+                  id="heading-10"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse10"
+                      aria-controls="collapse-10"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -590,7 +610,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading10"
+                  aria-labelledby="heading-10"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -600,14 +620,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading11"
+                  id="heading-11"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse11"
+                      aria-controls="collapse-11"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -627,7 +647,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading11"
+                  aria-labelledby="heading-11"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -637,14 +657,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading12"
+                  id="heading-12"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse12"
+                      aria-controls="collapse-12"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -664,7 +684,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading12"
+                  aria-labelledby="heading-12"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />
@@ -674,14 +694,14 @@ exports[`<Syllabus /> should render correctly 1`] = `
               >
                 <div
                   class="panel-heading"
-                  id="heading13"
+                  id="heading-13"
                   role="tab"
                 >
                   <h4
                     class="panel-title"
                   >
                     <a
-                      aria-controls="collapse13"
+                      aria-controls="collapse-13"
                       aria-expanded="false"
                       class="collapsed"
                       data-parent="#syllabus"
@@ -701,7 +721,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
-                  aria-labelledby="heading13"
+                  aria-labelledby="heading-13"
                   role="tabpanel"
                   style="padding: 0px 15px; transition: all ease 0.5s; will-change: height, padding;"
                 />

@@ -8,7 +8,6 @@ import Footer from './Footer'
 import StickyButton from './StickyButton'
 
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
-import '../assets/lib/ionicons/css/ionicons.css'
 import '../assets/lib/fontawesome/css/font-awesome.min.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -21,7 +20,7 @@ import metaImage from '../images/meta-image.jpg'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet htmlAttributes={{ lang: 'en' }}>
-      {/* <script src="https://linked.chat/web/a9LB63" /> */}
+      <script async src="https://linked.chat/web/a9LB63" />
       <title>#VetsWhoCode</title>
       <meta
         name="description"

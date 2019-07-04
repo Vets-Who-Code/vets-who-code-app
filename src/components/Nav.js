@@ -40,17 +40,7 @@ function Nav() {
     >
       <div className="container">
         <div className="navbar-header">
-          <button
-            type="button"
-            onClick={() => setIsNavOpen(!isNavOpen)}
-            className="navbar-toggle collapsed"
-            aria-expanded={isNavOpen ? 'true' : 'false'}
-          >
-            {' '}
-            <span className="sr-only">#VetsWhoCode</span> <span className="ion-drag" />
-          </button>
           <div className="navbar-brand" itemScope="" itemType="https://schema.org/Organization">
-            {' '}
             <span className="sr-only">#VetsWhoCode</span>
             <Link to="/">
               <FluidImage
@@ -60,6 +50,18 @@ function Nav() {
               />
             </Link>
           </div>
+          <button
+            type="button"
+            id="hamburger-1"
+            onClick={() => setIsNavOpen(!isNavOpen)}
+            className={`navbar-toggle collapsed hamburger ${isNavOpen ? 'is-active' : ''}`}
+            aria-expanded={isNavOpen ? 'true' : 'false'}
+          >
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="line"></span>
+            <span className="sr-only">#VetsWhoCode</span>
+          </button>
         </div>
         <div
           className={`navbar-collapse collapse ${isNavOpen ? 'in' : ''}`}
@@ -67,49 +69,49 @@ function Nav() {
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu">
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/about">
                 <span>About</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/mentor">
                 <span>Mentor</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/apply">
                 <span>Apply</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/donate">
                 <span>Donate</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <Link to="/contact">
                 <span>Contact Us</span>
               </Link>
             </li>
-            <li>
+            <li role="menu-item">
               {' '}
               <a
                 href="https://medium.com/vets-who-code"

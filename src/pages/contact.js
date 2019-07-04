@@ -53,7 +53,8 @@ export default class Contact extends Component {
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
-        this.setState({ description, formError: true, formHeading })
+        window.scrollTo(0, 0)
+        this.setState({ formError: true, formHeading })
       })
 
     this.setState(this.resetForm)
@@ -82,13 +83,11 @@ export default class Contact extends Component {
                 </div>
               </div>
             </div>
-            {!formSuccess && (
-              <div className="row">
-                <div className="col-md-12 clearfix">
-                  <GoogleMap />
-                </div>
+            <div className="row">
+              <div className="col-md-12 clearfix">
+                <GoogleMap />
               </div>
-            )}
+            </div>
           </div>
         </section>
         {!formSuccess && (

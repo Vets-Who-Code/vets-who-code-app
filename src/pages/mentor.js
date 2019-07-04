@@ -176,7 +176,7 @@ export default class Mentor extends Component {
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
-        this.setState({ message, formError: true, formHeading })
+        this.setState({ formError: true, formHeading })
       })
     this.setState(this.resetForm)
   }

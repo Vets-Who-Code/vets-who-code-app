@@ -20,7 +20,7 @@ export const CodeImage = props => (
   <StaticQuery
     query={graphql`
       query {
-        file(relativePath: { eq: "code.png" }) {
+        file(relativePath: { eq: "code.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 600) {
               ...GatsbyImageSharpFluid

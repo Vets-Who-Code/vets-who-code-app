@@ -1,6 +1,6 @@
 import React from 'react'
-import { PureCodeImage as CodeImage  } from '../../src/components/CodeImage'
-import { render } from "@testing-library/react"
+import { PureCodeImage as CodeImage } from '../../src/components/CodeImage'
+import { render } from '@testing-library/react'
 
 describe('<CodePNG />', () => {
   const data = {
@@ -12,11 +12,10 @@ describe('<CodePNG />', () => {
           srcSet: 'some-source-here',
           sizes: '',
           base64: '',
-        }
+        },
       },
     },
   }
-
 
   test('should render correctly', () => {
     const { container } = render(<CodeImage data={data} width={690} />)

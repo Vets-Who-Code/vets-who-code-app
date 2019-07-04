@@ -7,7 +7,7 @@ const PageHeader = ({ title, link }) => {
     <StaticQuery
       query={graphql`
         query {
-          file(relativePath: { eq: "this_is_us.png" }) {
+          file(relativePath: { eq: "this_is_us.jpg" }) {
             childImageSharp {
               fixed(width: 1200) {
                 ...GatsbyImageSharpFixed

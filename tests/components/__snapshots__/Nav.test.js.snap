@@ -14,27 +14,10 @@ exports[`<Nav /> should render correctly 1`] = `
     <div
       class="navbar-header"
     >
-      <button
-        aria-expanded="false"
-        class="navbar-toggle collapsed"
-        type="button"
-      >
-         
-        <span
-          class="sr-only"
-        >
-          #VetsWhoCode
-        </span>
-         
-        <span
-          class="ion-drag"
-        />
-      </button>
       <div
         class="navbar-brand"
         itemtype="https://schema.org/Organization"
       >
-         
         <span
           class="sr-only"
         >
@@ -48,6 +31,27 @@ exports[`<Nav /> should render correctly 1`] = `
           static-query
         </a>
       </div>
+      <button
+        aria-expanded="false"
+        class="navbar-toggle collapsed hamburger "
+        id="hamburger-1"
+        type="button"
+      >
+        <span
+          class="line"
+        />
+        <span
+          class="line"
+        />
+        <span
+          class="line"
+        />
+        <span
+          class="sr-only"
+        >
+          #VetsWhoCode
+        </span>
+      </button>
     </div>
     <div
       aria-expanded="false"
@@ -58,7 +62,9 @@ exports[`<Nav /> should render correctly 1`] = `
         class="nav navbar-nav navbar-right"
         role="menu"
       >
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             aria-current="page"
@@ -70,7 +76,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/about"
@@ -80,7 +88,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/syllabus"
@@ -90,7 +100,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/mentor"
@@ -100,7 +112,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/apply"
@@ -110,7 +124,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/donate"
@@ -120,7 +136,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="/contact"
@@ -130,7 +148,9 @@ exports[`<Nav /> should render correctly 1`] = `
             </span>
           </a>
         </li>
-        <li>
+        <li
+          role="menu-item"
+        >
            
           <a
             href="https://medium.com/vets-who-code"

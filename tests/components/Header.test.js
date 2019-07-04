@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react'
 
 describe('<Header />', () => {
   test('should render correctly', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<Header />)
     expect(container.firstChild).toMatchSnapshot()
   })
 
