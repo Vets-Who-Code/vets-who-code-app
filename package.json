@@ -12,6 +12,7 @@
     "gatsby-link": "2.2.0",
     "gatsby-plugin-create-client-paths": "2.1.1",
     "gatsby-plugin-favicon": "3.1.6",
+    "gatsby-plugin-gtag": "^1.0.11",
     "gatsby-plugin-mailchimp": "https://github.com/benjaminhoffman/gatsby-plugin-mailchimp.git#gatsby-v2",
     "gatsby-plugin-react-helmet": "3.1.0",
     "gatsby-plugin-sharp": "2.2.1",
