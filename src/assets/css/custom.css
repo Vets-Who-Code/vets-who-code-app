@@ -82,3 +82,9 @@
 #hamburger-1.is-active .line:nth-child(3){
   transform: translateY(-10px) rotate(-45deg);
 }
+
+li .slider-slide .slide-visible {
+  display: flex;
+  justify-content: center;
+  border: 1px solid rebeccapurple;
+}

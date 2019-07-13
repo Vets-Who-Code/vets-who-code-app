@@ -44,8 +44,27 @@ module.exports = {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: `${__dirname}/src/images/favicon.png`,
-      }
-    }
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto Slab`,
+            variants: [`100`, `300`, `400`, `700`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`300`, `300i`, `400`, `400i`, `800`],
+          },
+          {
+            family: `Lato`,
+            variants: [`300`, `400`, `700`, `900`],
+          },
+        ],
+      },
+    },
   ],
   pathPrefix: `/`,
 }

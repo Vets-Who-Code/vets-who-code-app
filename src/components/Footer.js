@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Icon from './Icon'
 
 function Footer() {
   return (
@@ -16,22 +17,22 @@ function Footer() {
                 </p>
                 <div className="footer-social">
                   <a href="http://bit.ly/vetswhocode-facebook-link" aria-label="Facebook">
-                    <i className="fa fa-facebook-f" />
+                    <Icon iconName="facebook" />
                   </a>
                   <a href="http://bit.ly/vets-who-code-twitter" aria-label="Twitter">
-                    <i className="fa fa-twitter" />
+                    <Icon iconName="twitter" />
                   </a>
                   <a href="http://bit.ly/2omsjdX" aria-label="Codepen">
-                    <i className="fa fa-codepen" />
+                    <Icon iconName="codepen" />
                   </a>
                   <a href="https://bit.ly/2sJ6W9f" aria-label="Instagram">
-                    <i className="fa fa-instagram" />
+                    <Icon iconName="instagram" />
                   </a>
                   <a href="https://bit.ly/2sFKi1u" aria-label="Linkedin">
-                    <i className="fa fa-linkedin" />
+                    <Icon iconName="linkedin" />
                   </a>
                   <a href="http://bit.ly/vwc-github" aria-label="Github">
-                    <i className="fa fa-github" />
+                    <Icon iconName="github" />
                   </a>
                 </div>
               </div>

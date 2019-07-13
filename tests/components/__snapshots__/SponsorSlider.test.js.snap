@@ -1,3 +1,137 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SponsorSlider /> should render correctly 1`] = `<div />`;
+exports[`<SponsorSlider /> should render correctly 1`] = `
+<div
+  class="slider "
+  style="box-sizing: border-box; display: block; height: auto; position: relative; width: 100%;"
+>
+  <div
+    class="slider-frame"
+    style="box-sizing: border-box; display: block; height: 100%; margin: 0px; overflow: hidden; padding: 0px; position: relative; transform: translate3d(0, 0, 0);"
+  >
+    <ul
+      class="slider-list"
+      style="box-sizing: border-box; cursor: pointer; display: block; height: 0px; margin: 0px 0px; padding: 0px; width: 0px;"
+    >
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://www.google.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://github.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://repl.it"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://slack.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://www.digitalocean.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://frontendmasters.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://corporate.comcast.com/company/nbcuniversal"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+      <li
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
+      >
+        <a
+          aria-hidden="false"
+          href="https://www.contentful.com/"
+          rel="noopener noreferrer"
+          tabindex="0"
+          target="_blank"
+        >
+          static-query
+        </a>
+      </li>
+    </ul>
+  </div>
+  <style
+    type="text/css"
+  >
+    .slider-slide &gt; img { width: 100%; display: block; }
+          .slider-slide &gt; img:focus { margin: auto; }
+  </style>
+</div>
+`;

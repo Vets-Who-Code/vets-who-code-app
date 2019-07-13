@@ -2,7 +2,6 @@ import React, { Component, createRef } from 'react'
 import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'

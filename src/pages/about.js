@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
+import Icon from '../components/Icon'
 
 import vwcGIF from '../images/vwc.gif'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
@@ -92,16 +93,16 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/JeromeHardaway" aria-label="Hardaway Twitter">
-                        <i className="fa fa-twitter" />
+                        <Icon iconName="twitter" />
                       </a>
                       <a href="https://github.com/jeromehardaway" aria-label="Hardaway Github">
-                        <i className="fa fa-github" />
+                        <Icon iconName="github" />
                       </a>
                       <a
                         href="https://www.linkedin.com/in/jeromehardaway/"
                         aria-label="Hardaway Linkedin"
                       >
-                        <i className="fa fa-linkedin" />
+                        <Icon iconName="linkedin" />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -119,16 +120,16 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/witzcreative" aria-label="Lebowitz Twitter">
-                        <i className="fa fa-twitter" />
+                        <Icon iconName="twitter" />
                       </a>
                       <a href="https://www.behance.net/WitzCreative" aria-label="Lebowitz Behance">
-                        <i className="fa fa-behance" />
+                        <Icon iconName="behance" />
                       </a>
                       <a
                         href="https://www.linkedin.com/in/witzcreative"
                         aria-label="Lebowitz Linkedin"
                       >
-                        <i className="fa fa-linkedin" />
+                        <Icon iconName="linkedin" />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -146,13 +147,13 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/MrBernnz" aria-label="Sagaille Twitter">
-                        <i className="fa fa-twitter" />
+                        <Icon iconName="twitter" />
                       </a>
                       <a href="https://github.com/mrbernnz" aria-label="Sagaille Github">
-                        <i className="fa fa-github" />
+                        <Icon iconName="github" />
                       </a>
                       <a href="https://www.linkedin.com/in/mrbernnz" aria-label="Sagaille Linkedin">
-                        <i className="fa fa-linkedin" />
+                        <Icon iconName="linkedin" />
                       </a>
                     </div>
                     <div className="personal-info">
