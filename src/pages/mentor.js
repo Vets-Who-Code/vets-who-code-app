@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Layout from '../components/Layout'
-import Accordion from '../components/Accordion/Accordion'
-import Panel from '../components/Accordion/Panel'
+import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
 
 export default class Mentor extends Component {

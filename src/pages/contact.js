@@ -10,7 +10,7 @@ export default class Contact extends Component {
     phone: '',
     message: '',
     description:
-      'Fill out the from below and someone will contact you within 24 hours. Can&apos;t wait to hear from you!',
+      "Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!",
     formHeading: 'Contact Us',
     loading: false,
     formSuccess: false,

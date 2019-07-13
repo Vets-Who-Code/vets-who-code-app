@@ -4,22 +4,22 @@
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  /* @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700,800); */
 }
+
 @font-face {
   font-family: 'Roboto Slab';
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  /* @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700); */
 }
+
 @font-face {
   font-family: 'Lato';
   font-display: swap;
   font-style: normal;
   font-weight: 400;
-  @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 }
+
 body {
   background-color: white;
   color: #222222;

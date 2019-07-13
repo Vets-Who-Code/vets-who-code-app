@@ -24,21 +24,18 @@
   }
 }
 
-/* flex-slider arror default overides */
-.flexslider .flex-direction-nav a.flex-prev::before {
-  content: "\f0d9";
-  font-family: "fontawesome";
-}
-
-.flexslider .flex-direction-nav a.flex-next::before {
-  content: "\f0da";
-  font-family: "fontawesome";
+/* slider default button overides */
+.slider-control {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 /* overide bootstrap mobile nav styles */
-.main-navigation .navbar-brand a {
-}
-
 .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
   padding: 8px;
 }
@@ -48,6 +45,7 @@
   overflow-x: hidden;
 }
 
+/* hamburger menu styles */
 .hamburger {
   position: absolute;
   top: 15px;
@@ -83,8 +81,6 @@
   transform: translateY(-10px) rotate(-45deg);
 }
 
-li .slider-slide .slide-visible {
-  display: flex;
-  justify-content: center;
-  border: 1px solid rebeccapurple;
+.main-overlay {
+  height: 80vh;
 }

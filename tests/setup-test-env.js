@@ -16,3 +16,9 @@ global.google = {
     },
   },
 }
+
+global.MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
+}

@@ -197,7 +197,7 @@ exports[`<Contact /> should render correctly 1`] = `
               <p
                 class="section-description"
               >
-                Fill out the from below and someone will contact you within 24 hours. Can&apos;t wait to hear from you!
+                Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!
               </p>
             </div>
           </div>

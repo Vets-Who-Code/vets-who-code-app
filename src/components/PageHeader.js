@@ -18,11 +18,11 @@ const PageHeader = ({ title, link }) => {
       `}
       render={data => (
         <header
-          className="inner-header overlay grey text-center slim-bg "
+          className="inner-header overlay grey text-center slim-bg"
           style={{
             backgroundImage: `url(${data.file.childImageSharp.fixed.src})`,
             backgroundPositionY: 'bottom',
-            height: '60vh',
+            height: '45vh',
           }}
         >
           <div className="overlay-01" />
