@@ -6,89 +6,36 @@ import PageHeader from '../components/PageHeader'
 
 export default class Mentor extends Component {
   state = {
-    weeks: [
+    blocks: [
       {
-        title: 'Week 1: Set Up and Prep',
+        title: 'Block 1: The Big Three',
+        id: 'b-1',
         body:
-          'During this week we focus on ensuring that our troops have the needed technologies set up and to gain exposure to our tools.',
-        id: 'One',
+          "Block one is the foundation of our curriculum. We start out teaching how the internet works and how this impacts how we develop for the web. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with API's.",
       },
       {
-        title: 'Week 2: The Web, Git and HTML',
+        title: 'Block 2: Computer Science With JavaScript',
+        id: 'b-2',
         body:
-          'This is when we start diving in on the basics, ensuring that you are comfortable in the terminal, and using version control, while teaching how the web works.',
-        id: 'Two',
+          'Block two is all about computer science. As real world trends prove to us that web apps are growing in complexity we need to understand the tools to be able to create efficiencies and faster processes. This begins with the computer science elements learned through JavaScript. ',
       },
       {
-        title: 'Week 3: Basics of CSS',
-        body: 'Here we start learning CSS with the focus on learning web design.',
-        id: 'Three',
-      },
-      {
-        title: 'Week 4: Advanced CSS',
+        title: 'Block 3: React & JAMstack',
+        id: 'b-3',
         body:
-          'Here we focus on more advanced concepts such as Grid Layout as well as working with Foundation and Bootstrap.',
-        id: 'Four',
+          'Block three introduces the JAMstack. Utilizing Gatsby which relies upon the best tech, such as React and GraphQL, we can make sure our students are getting the best and most sought after skills in our industry today.',
       },
       {
-        title: 'Week 5: JavaScript Basics',
+        title: 'Block 4: Official VWC Member: Interview prep',
+        id: 'b-4',
         body:
-          'This week we will start to learn the history and basics of Javascript and learn how to use it alone as well as in web design.',
-        id: 'Five',
-      },
-      {
-        title: 'Week 6: Computer Science With Javascript',
-        body:
-          'We continue our training in Javascript while also learning fundamentals in Computer Science. Recursion, Big O Notation, Sorting, Data Structures and Functional Programming.',
-        id: 'Six',
-      },
-      {
-        title: 'Week 7: Computer Science With Javascript II: Deeper Dive',
-        body:
-          'Here we continue to build Computer Science skills with javascript. Binary Trees and Breadth-First Search are just a few of the things we will dive into.',
-        id: 'Seven',
-      },
-      {
-        title: 'Week 8: Data Visualization',
-        body: 'More JavaScript and even more math as we enter the world of Canvas, D3.js, WebGL',
-        id: 'Eight',
-      },
-      {
-        title: 'Week 9: Node.js Express and Socket.io',
-        body: 'Entering the world of Node.js and writing Javascript on the server',
-        id: 'Nine',
-      },
-      {
-        title: 'Week 10: Node, Express and Socket.io II',
-        body: 'Continuing to build with Node and learning Test Driven Development',
-        id: 'Ten',
-      },
-      {
-        title: 'Week 11: React',
-        body: 'Start down the path or React, ES6 and Mongo DB',
-        id: 'Eleven',
-      },
-      {
-        title: 'Week 12: React II',
-        body: 'Continuing to develop in React',
-        id: 'Twelve',
-      },
-      {
-        title: 'Week 13: Interview Prep I',
-        body: 'Start resume preparations as well as how to indentify potential job opportunities',
-        id: 'Thirteen',
-      },
-      {
-        title: 'Week 14: Interview Prep II',
-        body:
-          'Starting the process of mock interviews and learning how to hack the technical interview.',
-        id: 'Fourteen',
+          'By block four our students are full VWC members and start the job transitioning process. Through top resources and interview preparation we make sure they have shown the interviewers they are set for the job before they even walk in the door. ',
       },
     ],
   }
 
   render = () => {
-    const { weeks } = this.state
+    const { blocks } = this.state
     return (
       <Layout>
         <PageHeader title="syllabus" />
@@ -114,10 +61,20 @@ export default class Mentor extends Component {
               </div>
               <div className="col-md-12">
                 <Accordion single accordionId={'syllabus'}>
-                  {weeks.map((week, index) => (
-                    <Panel key={week.id} title={week.title} body={week.body} id={index} />
+                  {blocks.map((block, index) => (
+                    <Panel key={block.id} title={block.title} body={block.body} id={index} />
                   ))}
                 </Accordion>
+                <div className="col-md-12 text-center ">
+                  <a
+                    href="https://github.com/Vets-Who-Code/Curriculum"
+                    type="button"
+                    className="btn btn-subscribe"
+                    aria-label="Curriculum Github"
+                  >
+                    Full Curriculum
+                  </a>
+                </div>
               </div>
             </div>
           </div>
