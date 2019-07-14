@@ -1,44 +1,55 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback, useContext, createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {
   children: PropTypes.node,
   accordionId: PropTypes.string.isRequired,
-  single: PropTypes.bool,
+  singlePanel: PropTypes.bool,
 }
 
 const defaultProps = {
-  single: false,
+  singlePanel: false,
   accordionId: '',
 }
 
-function Accordion({ accordionId, single, children }) {
-  const [activeId, setActiveId] = useState(null)
+const AccordionContext = createContext({
+  isOpen: () => false,
+  onClick() {},
+})
 
-  function clickHandler(id) {
-    setActiveId(id)
+export const useAccordion = sectionSlug => {
+  const { onClick, isOpen, accordionId } = useContext(AccordionContext)
+  return {
+    accordionId,
+    onClick,
+    isOpen: isOpen(sectionSlug),
   }
+}
 
-  function renderChildren() {
-    return React.Children.map(children, child =>
-      React.cloneElement(child, {
-        accordionId,
-        clickHandler,
-        activeId,
-        single,
+function Accordion({ accordionId, singlePanel, children }) {
+  const [openSections, setOpenSections] = useState({})
+  const isOpen = sectionSlug => Boolean(openSections[sectionSlug])
+  const onClick = useCallback(
+    sectionSlug => {
+      setOpenSections({
+        ...(singlePanel ? {} : openSections),
+        [sectionSlug]: !openSections[sectionSlug],
       })
-    )
-  }
+    },
+    [openSections, singlePanel, setOpenSections]
+  )
 
   return (
-    <div
-      className="panel-group faq_list"
-      id={accordionId}
-      role="tablist"
-      aria-multiselectable="true"
-    >
-      {renderChildren()}
-    </div>
+    <AccordionContext.Provider value={{ onClick, isOpen, accordionId }}>
+      <div
+        className="panel-group faq_list"
+        id={accordionId}
+        role="tablist"
+        aria-multiselectable="true"
+      >
+        {children}
+      </div>
+    </AccordionContext.Provider>
   )
 }
 

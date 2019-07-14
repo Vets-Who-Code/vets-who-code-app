@@ -59,7 +59,7 @@ export default class Mentor extends Component {
                 </div>
               </div>
               <div className="col-md-12">
-                <Accordion single accordionId={'syllabus'}>
+                <Accordion singlePanel accordionId="syllabus">
                   {blocks.map((block, index) => (
                     <Panel key={block.id} title={block.title} body={block.body} id={index} />
                   ))}

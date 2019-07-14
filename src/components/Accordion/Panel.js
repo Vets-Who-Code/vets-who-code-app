@@ -1,53 +1,28 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import { useAccordion } from './Accordion'
 import Icon from '../Icon/'
 
-function Panel(props) {
-  const { activeId, id, single, clickHandler, accordionId, body, title } = props
-  const panelRef = useRef()
-  const [active, setActive] = useState(false)
+function Panel({ body, title, id }) {
+  const { onClick, isOpen, accordionId } = useAccordion(id)
 
-  useEffect(() => {
-    if (!single) {
-      openMultiplePanels()
-    } else {
-      openSinglePanel()
+  function toggle(e) {
+    if (e.keyCode === 13 || e.type === 'click') {
+      onClick(id)
     }
-  }, [activeId, id, single])
-
-  function openMultiplePanels() {
-    if (activeId === id && !active) {
-      setActive(true)
-    } else if (activeId === id && active) {
-      setActive(false)
-    }
-  }
-
-  function openSinglePanel() {
-    if (activeId === id && !active) {
-      setActive(true)
-    } else {
-      setActive(false)
-    }
-  }
-
-  function handleClick() {
-    openMultiplePanels()
-    clickHandler(id)
   }
 
   return (
     <div
-      onKeyDown={handleClick}
-      ref={panelRef}
-      className={`panel panel-default ${active ? 'active' : ''}`}
+      role="tab"
+      onKeyDown={e => toggle(e)}
+      className={`panel panel-default ${isOpen ? 'active' : ''}`}
     >
       <div
-        onClick={handleClick}
+        onClick={e => toggle(e)}
         role="button"
         id={`heading-${id}`}
         className="panel-heading"
-        // role="tab"
         tabIndex="0"
       >
         <h4 className="panel-title">
@@ -55,37 +30,33 @@ function Panel(props) {
             className="collapsed"
             data-toggle="collapse"
             data-parent={`#${accordionId}`}
-            aria-expanded={active}
+            aria-expanded={isOpen}
             aria-controls={`collapse-${id}`}
           >
             <div>{typeof title === 'function' ? title() : title}</div>
-            {active ? <Icon iconName="minusIcon" /> : <Icon iconName="plusIcon" fill="#091F40" />}
+            {isOpen ? <Icon iconName="minusIcon" /> : <Icon iconName="plusIcon" fill="#091F40" />}
           </a>
         </h4>
       </div>
       <div
         style={{
-          padding: active ? '40px 15px' : '0 15px',
+          padding: isOpen ? '40px 15px' : '0 15px',
           transition: 'all ease 0.5s',
           willChange: 'height, padding',
         }}
         role="tabpanel"
         aria-labelledby={`heading-${id}`}
-        aria-hidden={!active}
+        aria-hidden={!isOpen}
       >
-        {active && <div>{typeof body === 'function' ? body() : body}</div>}
+        {isOpen && <div>{typeof body === 'function' ? body() : body}</div>}
       </div>
     </div>
   )
 }
 
 Panel.propTypes = {
-  accordionId: PropTypes.string,
-  activeId: PropTypes.number,
   body: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  clickHandler: PropTypes.func,
   id: PropTypes.number,
-  single: PropTypes.bool,
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 }
 

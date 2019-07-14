@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Carousel from 'nuka-carousel'
+// import Carousel from 'nuka-carousel'
 import BackgroundSection from '../components/BackgroundSection'
-import Icon from './Icon'
+// import Icon from './Icon'
 
-const settings = {
-  autoplay: true,
-  enableKeyboardControls: true,
-  pauseOnHover: true,
-  speed: 500,
-  transitionMode: 'fade',
-}
+// const settings = {
+//   autoplay: true,
+//   enableKeyboardControls: true,
+//   pauseOnHover: true,
+//   speed: 500,
+//   transitionMode: 'fade',
+// }
 
 function Header() {
   return (

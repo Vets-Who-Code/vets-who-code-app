@@ -15,7 +15,8 @@
   },
   "plugins": [
     "react",
-    "prettier"
+    "prettier",
+    "react-hooks"
   ],
   "env": {
     "browser": true,
@@ -97,7 +98,9 @@
     "max-depth": [
       "warn",
       4
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "globals": {
     "expect": true
