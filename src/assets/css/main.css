@@ -2140,7 +2140,7 @@ div.zabuto_calendar tr.calendar-dow td {
   margin-bottom: 10px;
 }
 .footer-widgets .widgets-title {
-  color: #C5203E;
+  color: #BDC3C7;
   font-size: 21px;
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -2253,15 +2253,4 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .red {
   color: #C5203E;
-}
-
-/* SLICK SLIDE STYLES FOR SPONSORS */
-.slick-slide {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.slick-slide img {
-  margin: 0 auto;
 }

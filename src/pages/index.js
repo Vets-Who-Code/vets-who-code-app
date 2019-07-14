@@ -218,7 +218,9 @@ class IndexPage extends Component {
                 <div className="newsletter_inner_wrapper">
                   <div className="row">
                     <div className="col-md-4">
-                      <h3 className="text-center">JOIN OUR EMAIL LIST</h3>
+                      <h3 className="text-center" style={{ color: '#ECECEC' }}>
+                        JOIN OUR EMAIL LIST
+                      </h3>
                     </div>
                     <div className="col-md-8">
                       <form id="s2do-form" onSubmit={this.handleUserSubscribe}>

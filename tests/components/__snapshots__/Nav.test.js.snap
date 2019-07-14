@@ -63,9 +63,8 @@ exports[`<Nav /> should render correctly 1`] = `
         role="menu"
       >
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             aria-current="page"
             class=""
@@ -77,7 +76,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
            
           <a
@@ -89,7 +88,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
            
           <a
@@ -101,9 +100,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             href="/mentor"
           >
@@ -113,9 +111,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             href="/apply"
           >
@@ -125,9 +122,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             href="/donate"
           >
@@ -137,9 +133,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             href="/contact"
           >
@@ -149,9 +144,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          role="menu-item"
+          role="menuitem"
         >
-           
           <a
             href="https://medium.com/vets-who-code"
             rel="noopener noreferrer"

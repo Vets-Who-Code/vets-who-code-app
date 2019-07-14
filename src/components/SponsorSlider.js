@@ -7,7 +7,6 @@ const baseSettlings = {
   enableKeyboardControls: true,
   pauseOnHover: true,
   speed: 500,
-  transitionMode: 'fade',
   wrapAround: true,
   withoutControls: true,
 }
@@ -34,7 +33,11 @@ function SponsorSlider() {
   const isMobile = Boolean(viewport < 800)
 
   return (
-    <Carousel {...baseSettlings} slidesToShow={isMobile ? 4 : 8}>
+    <Carousel
+      {...baseSettlings}
+      slidesToShow={isMobile ? 4 : 8}
+      transitionMode={isMobile ? 'scroll' : 'fade'}
+    >
       <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
         <FluidImage fileName="google.png" alt="google" style={alignmentStyles} />
       </a>

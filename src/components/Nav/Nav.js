@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
-import FluidImage from '../components/FluidImage'
+import FluidImage from '../FluidImage'
+
+import './nav.css'
 
 function Nav() {
   const navRef = useRef()
@@ -40,7 +42,12 @@ function Nav() {
     >
       <div className="container">
         <div className="navbar-header">
-          <div className="navbar-brand" itemScope="" itemType="https://schema.org/Organization">
+          <div
+            className="navbar-brand"
+            style={{ padding: '5px 15px 5px' }}
+            itemScope=""
+            itemType="https://schema.org/Organization"
+          >
             <span className="sr-only">#VetsWhoCode</span>
             <Link to="/">
               <FluidImage
@@ -69,50 +76,44 @@ function Nav() {
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu">
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
               {' '}
               <Link to="/about">
                 <span>About</span>
               </Link>
             </li>
-            <li role="menu-item">
+            <li role="menuitem">
               {' '}
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <Link to="/mentor">
                 <span>Mentor</span>
               </Link>
             </li>
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <Link to="/apply">
                 <span>Apply</span>
               </Link>
             </li>
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <Link to="/donate">
                 <span>Donate</span>
               </Link>
             </li>
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <Link to="/contact">
                 <span>Contact Us</span>
               </Link>
             </li>
-            <li role="menu-item">
-              {' '}
+            <li role="menuitem">
               <a
                 href="https://medium.com/vets-who-code"
                 without="true"

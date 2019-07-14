@@ -71,9 +71,8 @@ exports[`<Mentor /> should render correctly 1`] = `
               role="menu"
             >
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   aria-current="page"
                   class=""
@@ -85,7 +84,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
                  
                 <a
@@ -97,7 +96,7 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
                  
                 <a
@@ -109,9 +108,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   href="/mentor"
                 >
@@ -121,9 +119,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   href="/apply"
                 >
@@ -133,9 +130,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   href="/donate"
                 >
@@ -145,9 +141,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   href="/contact"
                 >
@@ -157,9 +152,8 @@ exports[`<Mentor /> should render correctly 1`] = `
                 </a>
               </li>
               <li
-                role="menu-item"
+                role="menuitem"
               >
-                 
                 <a
                   href="https://medium.com/vets-who-code"
                   rel="noopener noreferrer"

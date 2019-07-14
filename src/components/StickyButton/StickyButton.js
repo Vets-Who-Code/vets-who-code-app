@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Icon from './Icon'
+import Icon from '../Icon'
+import './sticky-button.css'
 
 const styles = {
   position: 'fixed',
