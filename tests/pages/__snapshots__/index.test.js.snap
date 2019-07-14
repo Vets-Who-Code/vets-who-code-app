@@ -24,6 +24,7 @@ exports[`<IndexPage /> should render correctly 1`] = `
           <div
             class="navbar-brand"
             itemtype="https://schema.org/Organization"
+            style="padding: 5px 15px 5px;"
           >
             <span
               class="sr-only"
