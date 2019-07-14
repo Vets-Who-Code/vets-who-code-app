@@ -6,11 +6,11 @@ import '@testing-library/react/cleanup-after-each'
 global.google = {
   maps: {
     LatLng: jest.fn(),
-    Map: jest.fn(),
+    Map: class {},
     InfoWindow: jest.fn(),
-    Marker: () => ({
-      addListener: jest.fn(),
-    }),
+    Marker: class {
+      addListener() {}
+    },
     MapTypeId: {
       ROADMAP: '',
     },

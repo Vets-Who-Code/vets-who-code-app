@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
-import GoogleMap from '../components/GoogleMap'
+import GoogleMap, { createMarker } from '../components/GoogleMap'
 
 export default class Contact extends Component {
   state = {
@@ -85,7 +85,7 @@ export default class Contact extends Component {
             </div>
             <div className="row">
               <div className="col-md-12 clearfix">
-                <GoogleMap />
+                <GoogleMap createMarker={createMarker} />
               </div>
             </div>
           </div>

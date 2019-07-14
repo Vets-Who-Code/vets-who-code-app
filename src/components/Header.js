@@ -40,7 +40,7 @@ function Header() {
     //   className="site-header flexslider classic"
     //   style={{
     //     minHeight: '80vh',
-    //     // backgroundColor: '#0f356d',
+    // backgroundColor: '#0f356d',
     //     backgroundImage: `url("../images/code.jpg")`,
     //   }}
     //   fileName="code.jpg"
