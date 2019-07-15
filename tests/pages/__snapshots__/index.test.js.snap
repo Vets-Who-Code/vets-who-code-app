@@ -169,7 +169,6 @@ exports[`<IndexPage /> should render correctly 1`] = `
         </div>
       </div>
     </nav>
-    static-query
     <section
       class="section bg-default call-to-action index"
       id="call-to-action"

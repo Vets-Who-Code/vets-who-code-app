@@ -1,7 +1,17 @@
 const gatsby = jest.requireActual('gatsby')
 module.exports = {
   ...gatsby,
-  graphql: jest.fn(),
+  graphql: args => args,
   Link: () => 'gatsby-link',
   StaticQuery: () => 'static-query',
+  useStaticQuery: args => {
+    const query = args[0]
+    if (query.indexOf('codeImage') > -1) {
+      return {
+        codeImage: {
+          childImageSharp: {},
+        },
+      }
+    }
+  },
 }
