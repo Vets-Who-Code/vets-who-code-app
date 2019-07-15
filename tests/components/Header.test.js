@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../src/components/Header'
-import { render, fireEvent } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('<Header />', () => {
   test('should render correctly', () => {

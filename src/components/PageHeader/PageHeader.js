@@ -10,7 +10,7 @@ const PageHeader = ({ title, link }) => {
           file(relativePath: { eq: "this_is_us.jpg" }) {
             childImageSharp {
               fixed(width: 1200) {
-                ...GatsbyImageSharpFixed
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }

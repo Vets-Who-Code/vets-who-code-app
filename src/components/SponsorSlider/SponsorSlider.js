@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import FluidImage from './FluidImage'
+import FluidImage from '../FluidImage'
 import Carousel from 'nuka-carousel'
 
 const baseSettlings = {

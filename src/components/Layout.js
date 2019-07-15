@@ -9,7 +9,6 @@ import StickyButton from './StickyButton'
 
 import 'react-toastify/dist/ReactToastify.css'
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
-// import '../assets/lib/fontawesome/css/font-awesome.min.css'
 import '../assets/css/main.css'
 import '../assets/css/custom.css'
 
@@ -18,7 +17,7 @@ import metaImage from '../images/meta-image.jpg'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet htmlAttributes={{ lang: 'en' }}>
-      {/* <script async src="https://linked.chat/web/a9LB63" /> */}
+      <script async src="https://linked.chat/web/a9LB63" />
       <title>#VetsWhoCode</title>
       <meta
         name="description"
