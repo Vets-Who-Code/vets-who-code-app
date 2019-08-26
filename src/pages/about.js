@@ -93,16 +93,16 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/JeromeHardaway" aria-label="Hardaway Twitter">
-                        <Icon iconName="twitter" />
+                        <Icon iconName="twitter" height={20} />
                       </a>
                       <a href="https://github.com/jeromehardaway" aria-label="Hardaway Github">
-                        <Icon iconName="github" />
+                        <Icon iconName="github" height={20} />
                       </a>
                       <a
                         href="https://www.linkedin.com/in/jeromehardaway/"
                         aria-label="Hardaway Linkedin"
                       >
-                        <Icon iconName="linkedin" />
+                        <Icon iconName="linkedin" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -120,16 +120,16 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/witzcreative" aria-label="Lebowitz Twitter">
-                        <Icon iconName="twitter" />
+                        <Icon iconName="twitter" height={20} />
                       </a>
                       <a href="https://www.behance.net/WitzCreative" aria-label="Lebowitz Behance">
-                        <Icon iconName="behance" />
+                        <Icon iconName="behance" height={20} />
                       </a>
                       <a
                         href="https://www.linkedin.com/in/witzcreative"
                         aria-label="Lebowitz Linkedin"
                       >
-                        <Icon iconName="linkedin" />
+                        <Icon iconName="linkedin" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -147,13 +147,13 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/MrBernnz" aria-label="Sagaille Twitter">
-                        <Icon iconName="twitter" />
+                        <Icon iconName="twitter" height={20} />
                       </a>
                       <a href="https://github.com/mrbernnz" aria-label="Sagaille Github">
-                        <Icon iconName="github" />
+                        <Icon iconName="github" height={20} />
                       </a>
                       <a href="https://www.linkedin.com/in/mrbernnz" aria-label="Sagaille Linkedin">
-                        <Icon iconName="linkedin" />
+                        <Icon iconName="linkedin" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">

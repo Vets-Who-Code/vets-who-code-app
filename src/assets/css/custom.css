@@ -45,3 +45,24 @@
 .light-text {
   color: #fff;
 }
+
+/* overides for social icons in about page for each user */
+.meet-social i {
+  background-color: #091F40;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 50px;
+  margin-top: 10px;
+  position: relative;
+  transition: all 0.3s;
+  width: 50px;
+}
+
+.meet-social svg {
+  left: 50%;
+  margin-left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
