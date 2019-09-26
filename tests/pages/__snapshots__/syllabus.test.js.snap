@@ -236,7 +236,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                       <div>
-                        Week 1: Set Up and Prep
+                        Block 1: The Big Three
                       </div>
                       <i
                         class="accordions-derective-icon pull-right
@@ -273,7 +273,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                       <div>
-                        Week 2: The Web, Git and HTML
+                        Block 2: Computer Science With JavaScript
                       </div>
                       <i
                         class="accordions-derective-icon pull-right
@@ -310,7 +310,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                       <div>
-                        Week 3: Basics of CSS
+                        Block 3: React & JAMstack
                       </div>
                       <i
                         class="accordions-derective-icon pull-right
@@ -347,7 +347,7 @@ exports[`<Syllabus /> should render correctly 1`] = `
                       role="button"
                     >
                       <div>
-                        Week 4: Advanced CSS
+                        Block 4: Official VWC Member: Interview prep
                       </div>
                       <i
                         class="accordions-derective-icon pull-right
@@ -364,376 +364,18 @@ exports[`<Syllabus /> should render correctly 1`] = `
                   style="padding: 0px 15px;"
                 />
               </div>
-              <div
-                class="panel panel-default "
+            </div>
+            <div
+              class="col-md-12 text-center "
+            >
+              <a
+                aria-label="Curriculum Github"
+                class="btn btn-subscribe"
+                href="https://github.com/Vets-Who-Code/Curriculum"
+                type="button"
               >
-                <div
-                  class="panel-heading"
-                  id="heading4"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse4"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 5: JavaScript Basics
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading4"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading5"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse5"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 6: Computer Science With Javascript
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading5"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading6"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse6"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 7: Computer Science With Javascript II: Deeper Dive
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading6"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading7"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse7"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 8: Data Visualization
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading7"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading8"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse8"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 9: Node.js Express and Socket.io
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading8"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading9"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse9"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 10: Node, Express and Socket.io II
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading9"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading10"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse10"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 11: React
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading10"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading11"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse11"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 12: React II
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading11"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading12"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse12"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 13: Interview Prep I
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading12"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
-              <div
-                class="panel panel-default "
-              >
-                <div
-                  class="panel-heading"
-                  id="heading13"
-                  role="tab"
-                >
-                  <h4
-                    class="panel-title"
-                  >
-                    <a
-                      aria-controls="collapse13"
-                      aria-expanded="false"
-                      class="collapsed"
-                      data-parent="#syllabus"
-                      data-toggle="collapse"
-                      role="button"
-                    >
-                      <div>
-                        Week 14: Interview Prep II
-                      </div>
-                      <i
-                        class="accordions-derective-icon pull-right
-                  fa fa-plus
-                "
-                      />
-                    </a>
-                  </h4>
-                </div>
-                <div
-                  aria-hidden="true"
-                  aria-labelledby="heading13"
-                  role="tabpanel"
-                  style="padding: 0px 15px;"
-                />
-              </div>
+                Full Curriculum
+              </a>
             </div>
           </div>
         </div>
