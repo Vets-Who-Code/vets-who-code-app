@@ -70,7 +70,9 @@
     }
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/setup-test-env.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup-test-env.js"
+    ],
     "testPathIgnorePatterns": [
       "node_modules",
       ".cache"
