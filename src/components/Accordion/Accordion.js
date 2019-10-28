@@ -1,50 +1,56 @@
-import React, { Component } from 'react'
+import React, { useState, useCallback, useContext, createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {
   children: PropTypes.node,
   accordionId: PropTypes.string.isRequired,
-  single: PropTypes.bool,
+  singlePanel: PropTypes.bool,
 }
 
 const defaultProps = {
-  single: false,
+  singlePanel: false,
   accordionId: '',
 }
 
-class Accordion extends Component {
-  state = {
-    activeId: null,
-  }
+const AccordionContext = createContext({
+  isOpen: () => false,
+  onClick() {},
+})
 
-  handlePanelUpdate = id => {
-    this.setState({
-      activeId: id,
-    })
+export const useAccordion = sectionSlug => {
+  const { onClick, isOpen, accordionId } = useContext(AccordionContext)
+  return {
+    accordionId,
+    onClick,
+    isOpen: isOpen(sectionSlug),
   }
+}
 
-  renderChildren = () =>
-    React.Children.map(this.props.children, child =>
-      React.cloneElement(child, {
-        accordionId: this.props.accordionId,
-        clickHandler: this.handlePanelUpdate,
-        activeId: this.state.activeId,
-        single: this.props.single,
+function Accordion({ accordionId, singlePanel, children }) {
+  const [openSections, setOpenSections] = useState({})
+  const isOpen = sectionSlug => Boolean(openSections[sectionSlug])
+  const onClick = useCallback(
+    sectionSlug => {
+      setOpenSections({
+        ...(singlePanel ? {} : openSections),
+        [sectionSlug]: !openSections[sectionSlug],
       })
-    )
+    },
+    [openSections, singlePanel, setOpenSections]
+  )
 
-  render() {
-    return (
+  return (
+    <AccordionContext.Provider value={{ onClick, isOpen, accordionId }}>
       <div
         className="panel-group faq_list"
-        id={this.props.accordionId}
+        id={accordionId}
         role="tablist"
         aria-multiselectable="true"
       >
-        {this.renderChildren()}
+        {children}
       </div>
-    )
-  }
+    </AccordionContext.Provider>
+  )
 }
 
 Accordion.propTypes = propTypes

@@ -1,18 +1,24 @@
-import "jest-dom/extend-expect"
+import 'jest-dom/extend-expect'
 
 // this is basically: afterEach(cleanup)
-import "react-testing-library/cleanup-after-each"
+import '@testing-library/react/cleanup-after-each'
 
 global.google = {
   maps: {
     LatLng: jest.fn(),
-    Map: jest.fn(),
+    Map: class {},
     InfoWindow: jest.fn(),
-    Marker: () => ({
-      addListener: jest.fn()
-    }),
+    Marker: class {
+      addListener() {}
+    },
     MapTypeId: {
-      ROADMAP: ''
-    }
-  }
+      ROADMAP: '',
+    },
+  },
+}
+
+global.MutationObserver = class {
+  constructor() {}
+  disconnect() {}
+  observe() {}
 }

@@ -1,10 +1,9 @@
 import React from 'react'
 
 class Modal extends React.Component {
-  static setAppElement(element) {
-  }
+  static setAppElement(element) {}
 
-  render(){
+  render() {
     return <div />
   }
 }

@@ -1,12 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/Layout'
-
-import thisIsUs from '../images/this_is_us.png'
-
-import Accordion from '../components/Accordion/Accordion'
-import Panel from '../components/Accordion/Panel'
+import Accordion, { Panel } from '../components/Accordion'
+import PageHeader from '../components/PageHeader'
 
 export default class Mentor extends Component {
   state = {
@@ -180,7 +175,7 @@ export default class Mentor extends Component {
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
-        this.setState({ message, formError: true, formHeading })
+        this.setState({ formError: true, formHeading })
       })
     this.setState(this.resetForm)
   }
@@ -198,25 +193,7 @@ export default class Mentor extends Component {
 
     return (
       <Layout>
-        <header
-          className="inner-header overlay grey text-center slim-bg "
-          style={{
-            backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">Mentor</h2>
-            <div className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/mentor" className="page-active">
-                Mentor
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PageHeader title="mentor" />
         <div className="pad-regular bg-default">
           <section id="contact" className="section bg-default">
             <div className="container">
@@ -236,7 +213,7 @@ export default class Mentor extends Component {
                         We ask mentors to address the technical, professional and personal needs of
                         students. Here is more detail on each of these areas:
                       </p>
-                      <Accordion accordionId={'mainGuidelines'}>
+                      <Accordion accordionId="mainGuidelines">
                         {mainGuidelines.map((guideline, index) => (
                           <Panel
                             key={guideline.id}
@@ -250,7 +227,7 @@ export default class Mentor extends Component {
                         In addition to the three areas addressed above here are a few other items to
                         consider.
                       </p>
-                      <Accordion accordionId={'additionalGuidelines'}>
+                      <Accordion accordionId="additionalGuidelines">
                         {additionalGuidelines.map((guideline, index) => (
                           <Panel
                             key={guideline.id}

@@ -9,7 +9,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/images`,
-        name: 'images',
+        name: `images`,
       },
     },
     {
@@ -29,16 +29,40 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        printRejected: true, // Print removed selectors and processed file names
+        // printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
         purgeOnly: ['components/', '/main.css', 'bootstrap/', 'css/'], // Purge only these files/folders
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
+      resolve: `gatsby-plugin-mailchimp`,
       options: {
-        endpoint:
-          'https://vetswhocode.us12.list-manage.com/subscribe/post?u=80af3c15cfdb9ee5ad4bc6ee6&amp;id=642229d1fe',
+        endpoint: `https://vetswhocode.us12.list-manage.com/subscribe/post?u=80af3c15cfdb9ee5ad4bc6ee6&amp;id=642229d1fe`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-favicon`,
+      options: {
+        logo: `${__dirname}/src/images/favicon.png`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Roboto Slab`,
+            variants: [`100`, `300`, `400`, `700`],
+          },
+          {
+            family: `Open Sans`,
+            variants: [`300`, `300i`, `400`, `400i`, `800`],
+          },
+          {
+            family: `Lato`,
+            variants: [`300`, `400`, `700`, `900`],
+          },
+        ],
       },
     },
   ],

@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 import StickyButton from '../../src/components/StickyButton'
 
 describe('<StickyButton />', () => {

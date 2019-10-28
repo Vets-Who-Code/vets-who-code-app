@@ -1,0 +1,37 @@
+/* overide bootstrap mobile nav styles */
+
+/* hamburger menu styles */
+.hamburger {
+  position: absolute;
+  top: 15px;
+  right: 8px;
+}
+
+.hamburger .line {
+  width: 39px;
+  height: 2px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 8px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger:focus {
+  border: 1px dashed #fff;
+}
+
+#hamburger-1.is-active .line:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-1.is-active .line:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+#hamburger-1.is-active .line:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}

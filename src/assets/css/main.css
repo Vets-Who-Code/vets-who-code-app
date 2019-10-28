@@ -1,7 +1,25 @@
 @charset "UTF-8";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,300italic,600,700,800);
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700);
+@font-face {
+  font-family: 'Open Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
 body {
   background-color: white;
   color: #222222;
@@ -561,7 +579,6 @@ h1.bold_404 {
     padding: 20px 10px 15px;
   }
   .main-navigation .navbar-brand {
-    padding: 8px 0 0 15px;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -1472,8 +1489,8 @@ a.list-group-item:hover .media-heading {
   position: relative;
 }
 .gallery-grid .item .img-hover {
-  background: url("../../images/gallery/gallery-hover.png") center center
-  no-repeat rgba(0, 0, 0, 0.6);
+  /* background: url("../../images/gallery/gallery-hover.png") center center
+  no-repeat rgba(0, 0, 0, 0.6);*/
   bottom: 0;
   cursor: pointer;
   left: 0;
@@ -1536,7 +1553,7 @@ label {
   margin-bottom: 45px;
 }
 .contactus-brief > .section-description {
-  color: #999999;
+  color: #000000;
 }
 .contact-us-wiget-section,
 .contact-wigets-description {
@@ -1797,7 +1814,7 @@ uneditable-input:focus {
   padding-right: 0;
 }
 .watch-film-player {
-  background-image: url("../../images/movie/movie.png");
+  /* background-image: url("../../images/movie/movie.png"); */
   background-position: center center;
   background-size: cover;
   color: #FFFFFF;
@@ -2123,7 +2140,7 @@ div.zabuto_calendar tr.calendar-dow td {
   margin-bottom: 10px;
 }
 .footer-widgets .widgets-title {
-  color: #C5203E;
+  color: #BDC3C7;
   font-size: 21px;
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -2236,15 +2253,4 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .red {
   color: #C5203E;
-}
-
-/* SLICK SLIDE STYLES FOR SPONSORS */
-.slick-slide {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-}
-
-.slick-slide img {
-  margin: 0 auto;
 }

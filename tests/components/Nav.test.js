@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../../src/components/Nav'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 
 describe('<Nav />', () => {
   test('should render correctly', () => {

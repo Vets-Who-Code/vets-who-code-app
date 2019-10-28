@@ -2,6 +2,67 @@
   width: 50px;
   height: auto;
 }
+
 .adjust-wrap {
   width: 90%;
+}
+
+.index .fluid-grid:hover h2,
+.index .fluid-grid:hover span {
+  color: #fff;
+  text-decoration: underline;
+}
+/* slider default button overides */
+.slider-control {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+/* overide bootstrap mobile nav styles */
+.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+  padding: 8px;
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
+.main-navigation .navbar-toggle {
+  margin-top: -5px;
+}
+
+
+.main-overlay {
+  height: 80vh;
+}
+
+.light-text {
+  color: #fff;
+}
+
+/* overides for social icons in about page for each user */
+.meet-social i {
+  background-color: #091F40;
+  border-radius: 50%;
+  color: #FFFFFF;
+  display: inline-block;
+  height: 50px;
+  margin-top: 10px;
+  position: relative;
+  transition: all 0.3s;
+  width: 50px;
+}
+
+.meet-social svg {
+  left: 50%;
+  margin-left: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

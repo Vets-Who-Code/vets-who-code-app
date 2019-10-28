@@ -1,6 +1,6 @@
 import React from 'react'
 import SponsorSlider from '../../src/components/SponsorSlider'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 
 describe('<SponsorSlider />', () => {
   test('should render correctly', () => {

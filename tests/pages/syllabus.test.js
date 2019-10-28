@@ -1,6 +1,6 @@
 import React from 'react'
 import Syllabus from '../../src/pages/syllabus'
-import { render } from 'react-testing-library'
+import { render } from '@testing-library/react'
 
 describe('<Syllabus />', () => {
   test('should render correctly', () => {

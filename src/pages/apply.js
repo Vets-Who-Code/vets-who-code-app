@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/Layout'
-import thisIsUs from '../images/this_is_us.png'
+import PageHeader from '../components/PageHeader'
 
 export default class Apply extends Component {
   state = {
@@ -71,7 +69,7 @@ export default class Apply extends Component {
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
-        this.setState({ message, formError: true, formHeading })
+        this.setState({ formError: true, formHeading })
       })
 
     this.setState(this.resetForm)
@@ -82,25 +80,7 @@ export default class Apply extends Component {
 
     return (
       <Layout>
-        <header
-          className="inner-header overlay grey text-center slim-bg "
-          style={{
-            backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">Apply</h2>
-            <div className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/apply" className="page-active">
-                Apply
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PageHeader title="apply" />
         <section id="contact" className="pad-regular section bg-default">
           <div className="container">
             <div className="row">
@@ -251,7 +231,7 @@ export default class Apply extends Component {
                             id="InputInterviewStory"
                             className="form-control"
                             rows="7"
-                            placeholder="Here we focus on aptitude and impact, so tell 
+                            placeholder="Here we focus on aptitude and impact, so tell
                               us about yourself and why you want to join #VetsWhoCode?"
                             name="tell-us-about-yourself"
                             value={this.state['tell-us-about-yourself']}

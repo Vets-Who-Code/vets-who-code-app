@@ -2,7 +2,8 @@
   "parser": "babel-eslint",
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 8,
@@ -13,13 +14,16 @@
     }
   },
   "plugins": [
-    "react"
+    "react",
+    "prettier",
+    "react-hooks"
   ],
   "env": {
     "browser": true,
     "es6": true
   },
   "rules": {
+    "no-useless-catch": "off",
     "no-undef": "off",
     "no-debugger": "off",
     "eqeqeq": [
@@ -94,7 +98,9 @@
     "max-depth": [
       "warn",
       4
-    ]
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   "globals": {
     "expect": true

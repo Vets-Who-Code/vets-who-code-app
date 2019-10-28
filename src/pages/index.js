@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
+import { Link } from 'gatsby'
 import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 import SponsorSlider from '../components/SponsorSlider'
 import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
-
-import TroopsAtGoogle from '../components/TroopsAtGoogle'
+import FluidImage from '../components/FluidImage'
 
 class IndexPage extends Component {
   state = {
@@ -17,7 +16,20 @@ class IndexPage extends Component {
     errorMessage: '',
   }
 
-  subscribeButtonRef = React.createRef()
+  subscribeButtonRef = createRef()
+
+  componentDidMount() {
+    this.onClientEntry()
+  }
+
+  onClientEntry = () => {
+    // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
+    if (window !== undefined) {
+      if (window.IntersectionObserver === undefined) {
+        require(`intersection-observer`)
+      }
+    }
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target
@@ -27,7 +39,6 @@ class IndexPage extends Component {
   handleUserSubscribe = event => {
     event.preventDefault()
     const { email } = this.state
-
     addToMailchimp(email).then(res => {
       if (res.result === 'success') {
         this.setState({
@@ -77,6 +88,45 @@ class IndexPage extends Component {
     return (
       <Layout>
         <Header />
+        <section id="call-to-action" className="section bg-default call-to-action index">
+          <div className="container-fluid">
+            <div className="row no-gutter">
+              <div className="col-md-4">
+                <Link to="/donate">
+                  <div
+                    className="fluid-grid first-grid text-center"
+                    style={{ backgroundColor: '#091f40' }}
+                  >
+                    <span>Help Us Teach More Veterans</span>
+                    <h2>Donate</h2>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-4">
+                <Link to="/apply">
+                  <div
+                    className="fluid-grid second-grid text-center"
+                    style={{ backgroundColor: '#0f356d' }}
+                  >
+                    <span>Learn Javascript</span>
+                    <h2>APPLY</h2>
+                  </div>
+                </Link>
+              </div>
+              <div className="col-md-4">
+                <Link to="/mentor">
+                  <div
+                    className="fluid-grid third-grid text-center"
+                    style={{ backgroundColor: '#123f83' }}
+                  >
+                    <span>Become A Mentor</span>
+                    <h2>Get involved</h2>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
         <section
           id="our_stories"
           className="section pad-regular bg-default our_stories small-top-pad"
@@ -84,7 +134,11 @@ class IndexPage extends Component {
           <div className="container">
             <div className="row bg-dark">
               <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
-                <TroopsAtGoogle className="img-responsive" />
+                <FluidImage
+                  fileName="troops-at-google.jpg"
+                  className="img-responsive"
+                  alt="troops at google"
+                />
               </div>
               <div className="col-md-7 col-sm-12 our_story_content text-center">
                 <div className="featured-heading">
@@ -164,7 +218,9 @@ class IndexPage extends Component {
                 <div className="newsletter_inner_wrapper">
                   <div className="row">
                     <div className="col-md-4">
-                      <h3 className="text-center">JOIN OUR EMAIL LIST</h3>
+                      <h3 className="text-center" style={{ color: '#ECECEC' }}>
+                        JOIN OUR EMAIL LIST
+                      </h3>
                     </div>
                     <div className="col-md-8">
                       <form id="s2do-form" onSubmit={this.handleUserSubscribe}>

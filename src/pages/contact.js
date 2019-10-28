@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-
 import Layout from '../components/Layout'
-
-import thisIsUs from '../images/this_is_us.png'
+import PageHeader from '../components/PageHeader'
+import GoogleMap, { createMarker } from '../components/GoogleMap'
 
 export default class Contact extends Component {
   state = {
@@ -12,46 +10,11 @@ export default class Contact extends Component {
     phone: '',
     message: '',
     description:
-      'Fill out the from below and someone will contact you within 24 hours. Can&apos;t wait to hear from you!',
+      "Fill out the from below and someone will contact you within 24 hours. Can't wait to hear from you!",
     formHeading: 'Contact Us',
     loading: false,
     formSuccess: false,
     formError: false,
-  }
-
-  componentDidMount() {
-    this.initialize()
-  }
-
-  initialize = () => {
-    const mapCanvas = document.getElementById('map-canvas')
-    const mapOptions = {
-      center: new google.maps.LatLng(36.1579519, -86.7708364),
-      scrollwheel: false,
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    }
-    const map = new google.maps.Map(mapCanvas, mapOptions)
-    const contentString = `
-      <div id="content">
-        <h2>#VetsWhoCode</h2>
-        <div id="bodyContent">41 N Peabody st, Nashville Tn, 37120</div>
-      </div>
-    `
-    const myLatLng = { lat: 36.1577981, lng: -86.7707313 }
-    const infowindow = new google.maps.InfoWindow({
-      content: contentString,
-    })
-
-    const marker = new google.maps.Marker({
-      position: myLatLng,
-      map,
-      title: '#VetsWhoCode',
-    })
-
-    marker.addListener('click', () => {
-      infowindow.open(map, marker)
-    })
   }
 
   handleChange = e => {
@@ -90,7 +53,8 @@ export default class Contact extends Component {
       })
       .catch(() => {
         const formHeading = 'OOPS Some thing went wrong'
-        this.setState({ description, formError: true, formHeading })
+        window.scrollTo(0, 0)
+        this.setState({ formError: true, formHeading })
       })
 
     this.setState(this.resetForm)
@@ -101,25 +65,7 @@ export default class Contact extends Component {
 
     return (
       <Layout>
-        <header
-          className="inner-header overlay grey text-center slim-bg "
-          style={{
-            backgroundImage: `url(${thisIsUs})`,
-            backgroundPositionY: 'bottom',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">Contact Us</h2>
-            <div className="breadcrumb">
-              <Link to="/">Home</Link>
-              <span>/</span>
-              <Link to="/contact" className="page-active">
-                Contact Us
-              </Link>
-            </div>
-          </div>
-        </header>
+        <PageHeader title="contact us" />
         <section id="contact" className="pad-regular section bg-default">
           <div className="container">
             <div className="row">
@@ -137,13 +83,11 @@ export default class Contact extends Component {
                 </div>
               </div>
             </div>
-            {!formSuccess && (
-              <div className="row">
-                <div className="col-md-12 clearfix">
-                  <div id="map-canvas" className="map-default-height" />
-                </div>
+            <div className="row">
+              <div className="col-md-12 clearfix">
+                <GoogleMap createMarker={createMarker} />
               </div>
-            )}
+            </div>
           </div>
         </section>
         {!formSuccess && (
