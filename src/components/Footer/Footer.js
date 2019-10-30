@@ -110,13 +110,20 @@ function Footer() {
           <div className="row">
             <div className="col-md-6 col-sm-6">
               <p className="copyright">
-                <span className="fa fa-copyright" /> #VetsWhoCode
+                {/* <span className="fa fa-copyright"> */}
+                <Icon iconName="copyright" />
+                {/* </span>{' '} */}
+                #VetsWhoCode
               </p>
             </div>
             <div className="col-md-6 col-sm-6">
               <ul className="footer-menu">
                 <li>
-                  Made with <span className="fa fa-heart red" /> By #VetsWhoCode.
+                  Made with{' '}
+                  <span className="fa fa-heart red">
+                    <Icon iconName="heart" fill="red" />
+                  </span>{' '}
+                  By #VetsWhoCode.
                 </li>
               </ul>
             </div>
