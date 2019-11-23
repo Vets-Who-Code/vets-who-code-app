@@ -30,7 +30,7 @@ export default class Contact extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/contact'
+    const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/contact'
     const options = {
       method: 'POST',
       body: JSON.stringify({

@@ -145,7 +145,7 @@ export default class Mentor extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    const gatewayUrl = 'https://eec3hqm275.execute-api.us-east-1.amazonaws.com/prod/mentor'
+    const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/mentor'
     const options = {
       method: 'POST',
       body: JSON.stringify({
