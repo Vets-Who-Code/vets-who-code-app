@@ -193,8 +193,32 @@ exports[`<Apply /> should render correctly 1`] = `
                 <p
                   class="section-description"
                 >
-                  Thank you for choosing to apply to Vets Who Code. We work really hard to train our veterans and to maintain an inclusive enviroment so our troops can truly thrive. Please fill out the form below and we will contact you soon.
+                  <span>
+                    Thank you for choosing to apply to Vets Who Code. Your first step in this journey will be to visit our  
+                    <a
+                      href="https://github.com/Vets-Who-Code/prework"
+                    >
+                      prework repository
+                    </a>
+                     on 
+                    <a
+                      href="http://github.com"
+                    >
+                      Github.com
+                    </a>
+                    .
+                    <br />
+                    <br />
+                    We ask that, prior to applying to our program, you complete a small series of tutorial assignments that will introduce you to the basics of HTML, CSS and Javascript.
+                    <br />
+                    <br />
+                    The prework reading assignment will also guide you through setting up your development environment to work with the Vets Who Code program.
+                    <br />
+                    <br />
+                    After finishing the reading, we ask that you complete the capstone project  (a short, one-page website which will allow us to gauge your initial skill-level and help us to assign an appropriate mentor), and fill out the following application form.
+                  </span>
                 </p>
+                <br />
                 <form
                   action="#"
                   id="s2do-form"
@@ -207,18 +231,44 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="name"
+                        for="firstNname"
                       >
-                        Name
+                        First Name
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="name"
-                        name="name"
-                        placeholder="Name"
+                        id="firstName"
+                        name="firstName"
+                        placeholder="First Name"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="lastNname"
+                      >
+                        Last Name
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Last Name"
                         required=""
                         type="text"
                         value=""
@@ -242,7 +292,7 @@ exports[`<Apply /> should render correctly 1`] = `
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="InputEmail"
+                        id="email"
                         name="email"
                         placeholder="Email"
                         required=""
@@ -259,18 +309,18 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="InputService"
+                        for="city"
                       >
-                        Military Branch Of Service
+                        City
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="InputService"
-                        name="branch-of-service"
-                        placeholder="Thank you for your service"
+                        id="city"
+                        name="city"
+                        placeholder="City"
                         required=""
                         type="text"
                         value=""
@@ -285,18 +335,18 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="Experience"
+                        for="state"
                       >
-                        Experience
+                        State
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="Experience"
-                        name="experience"
-                        placeholder="Do you program and if so for how long?"
+                        id="state"
+                        name="state"
+                        placeholder="State"
                         required=""
                         type="text"
                         value=""
@@ -311,18 +361,18 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="InputPortfolio"
+                        for="zipCode"
                       >
-                        Github, Portfolio or Linkedin
+                        Zip Code
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="InputPortfolio"
-                        name="github-portfolio-or-linkedin"
-                        placeholder="Share your work"
+                        id="zipCode"
+                        name="zipCode"
+                        placeholder="Zip Code"
                         required=""
                         type="text"
                         value=""
@@ -337,18 +387,18 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="InputLocation"
+                        for="country"
                       >
-                        Location ( City and State )
+                        Country
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="InputLocation"
-                        name="location"
-                        placeholder="Location"
+                        id="country"
+                        name="country"
+                        placeholder="Country"
                         required=""
                         type="text"
                         value=""
@@ -363,18 +413,93 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="InputMRE"
+                        for="branchOfService"
                       >
-                        Favorite MRE?
+                        Branch of Service
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <select
+                        class="form-control input-lg"
+                        id="branchOfService"
+                        name="branchOfService"
+                        placeholder="Branch Of Service"
+                        required=""
+                      >
+                        <option
+                          value="USA"
+                        >
+                          Army (Active Duty)
+                        </option>
+                        <option
+                          value="USAF"
+                        >
+                          Air Force (Active Duty)
+                        </option>
+                        <option
+                          value="USN"
+                        >
+                          Navy (Active Duty)
+                        </option>
+                        <option
+                          value="USMC"
+                        >
+                          Marine Corps (Active Duty)
+                        </option>
+                        <option
+                          value="USCG"
+                        >
+                          Coast Guard
+                        </option>
+                        <option
+                          value="USAR"
+                        >
+                          Army (Reserves)
+                        </option>
+                        <option
+                          value="USAFR"
+                        >
+                          Air Force (Reserves)
+                        </option>
+                        <option
+                          value="USNR"
+                        >
+                          Navy (Reserves)
+                        </option>
+                        <option
+                          value="USMCR"
+                        >
+                          Marine Corps (Reserves)
+                        </option>
+                        <option
+                          value="USANG"
+                        >
+                          Army (National Guard)
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="yearJoined"
+                      >
+                        Year Joined
                         <sup>
                           *
                         </sup>
                       </label>
                       <input
                         class="form-control input-lg"
-                        id="InputMRE"
-                        name="favorite-mre"
-                        placeholder="Chilli Mac?"
+                        id="yearJoined"
+                        name="yearJoined"
+                        placeholder="Year Joined"
                         required=""
                         type="text"
                         value=""
@@ -389,16 +514,151 @@ exports[`<Apply /> should render correctly 1`] = `
                     >
                       <label
                         class="dark-text"
-                        for="InputInterviewStory"
+                        for="yearSeparated"
                       >
-                        Tell Us About Yourself
+                        Year Separated
+                        <sup>
+                          *
+                        </sup>
                       </label>
-                      <textarea
-                        class="form-control"
-                        id="InputInterviewStory"
-                        name="tell-us-about-yourself"
-                        placeholder="Here we focus on aptitude and impact, so tell us about yourself and why you want to join #VetsWhoCode?"
-                        rows="7"
+                      <input
+                        class="form-control input-lg"
+                        id="yearSeparated"
+                        name="yearSeparated"
+                        placeholder="Year Separated"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="twitterAccountName"
+                      >
+                        Twitter Account Name
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="twitterAccountName"
+                        name="twitterAccountName"
+                        placeholder="Twitter Account Name"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="linkedinAccountName"
+                      >
+                        LinkedIn Account Name
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="linkedinAccountName"
+                        name="linkedinAccountName"
+                        placeholder="LinkedIn Account Name"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="githubAccountName"
+                      >
+                        Github Account Name
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="githubAccountName"
+                        name="githubAccountName"
+                        placeholder="Github Account Name"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="preworkLink"
+                      >
+                        Prework Link (Your hosted Prework Assignment)
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="preworkLink"
+                        name="preworkLink"
+                        placeholder="Prework Link"
+                        required=""
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-8"
+                  >
+                    <div
+                      class="form-group"
+                    >
+                      <label
+                        class="dark-text"
+                        for="preworkRepo"
+                      >
+                        Prework Repo (The github repo in which your code resides)
+                        <sup>
+                          *
+                        </sup>
+                      </label>
+                      <input
+                        class="form-control input-lg"
+                        id="preworkRepo"
+                        name="preworkRepo"
+                        placeholder="Prework Repo"
+                        required=""
+                        type="text"
+                        value=""
                       />
                     </div>
                   </div>

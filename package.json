@@ -4,6 +4,8 @@
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
     "babel-preset-gatsby": "0.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "gatsby": "2.11.7",
     "gatsby-background-image": "0.7.6",
     "gatsby-image": "2.2.3",
@@ -31,7 +33,8 @@
     "slick-carousel": "1.8.1",
     "typeface-lato": "0.0.54",
     "typeface-roboto-slab": "0.0.72",
-    "typeface-source-sans-pro": "0.0.54"
+    "typeface-source-sans-pro": "0.0.54",
+    "validator": "^12.1.0"
   },
   "keywords": [
     "gatsby"
