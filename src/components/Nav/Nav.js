@@ -55,6 +55,7 @@ function Nav() {
                 alt="#VetsWhoCode Logo"
                 className="logo_holder"
               />
+              <div className="homeLink">VetsWhoCode</div>
             </Link>
           </div>
           <button
