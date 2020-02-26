@@ -59,7 +59,9 @@ describe('<Apply />', () => {
       })
     )
     const { container } = render(<Apply />)
-    container.validator = jest.fn().mockImplementation(() => { isValid: true })
+    container.validator = jest.fn().mockImplementation(() => {
+      isValid: true
+    })
 
     const firstName = container.querySelector('#firstName')
     const lastName = container.querySelector('#lastName')
@@ -96,8 +98,7 @@ describe('<Apply />', () => {
 
     try {
       fireEvent.submit(applyForm)
-    }
-    catch(e) {
+    } catch (e) {
       const errorMessage = container.querySelector('.alert-danger')
       expect(e).toMatch('Failed to fetch')
       expect(errorMessage).toBeTruthy()
