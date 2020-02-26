@@ -428,6 +428,13 @@ exports[`<Apply /> should render correctly 1`] = `
                         required=""
                       >
                         <option
+                          disabled=""
+                          selected=""
+                          value="DEFAULT"
+                        >
+                          Select your branch
+                        </option>
+                        <option
                           value="USA"
                         >
                           Army (Active Duty)

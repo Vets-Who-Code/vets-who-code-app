@@ -4,96 +4,92 @@ import PageHeader from '../components/PageHeader'
 import { FormValidator } from '../components/FormValidator'
 
 export default class Apply extends Component {
-  constructor() {
-    super()
-
-    this.validator = new FormValidator([
-      {
-        field: 'firstName',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'First Name is required'
-      },
-      {
-        field: 'lastName',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Last Name is required'
-      },
-      {
-        field: 'email',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Email is required'
-      },
-      {
-        field: 'email',
-        method: 'isEmail',
-        validWhen: true,
-        message: 'Not a valid email.'
-      },
-      {
-        field: 'city',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'City is required'
-      },
-      {
-        field: 'country',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Country is required'
-      },
-      {
-        field: 'branchOfService',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Branch of Service is required'
-      },
-      {
-        field: 'yearJoined',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Year Joined is required'
-      },
-      {
-        field: 'yearSeparated',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Year Separated is required'
-      },
-      {
-        field: 'twitterAccountName',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Twitter account is required'
-      },
-      {
-        field: 'linkedinAccountName',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'LinkedIn account is required'
-      },
-      {
-        field: 'githubAccountName',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Github account is required'
-      },
-      {
-        field: 'preworkLink',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Prework Hosting Link is required'
-      },
-      {
-        field: 'preworkRepo',
-        method: 'isEmpty',
-        validWhen: false,
-        message: 'Prework Repo Link is required'
-      }
-    ])
-  }
+  validator = new FormValidator([
+    {
+      field: 'firstName',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'First Name is required',
+    },
+    {
+      field: 'lastName',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Last Name is required',
+    },
+    {
+      field: 'email',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Email is required',
+    },
+    {
+      field: 'email',
+      method: 'isEmail',
+      validWhen: true,
+      message: 'Not a valid email.',
+    },
+    {
+      field: 'city',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'City is required',
+    },
+    {
+      field: 'country',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Country is required',
+    },
+    {
+      field: 'branchOfService',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Branch of Service is required',
+    },
+    {
+      field: 'yearJoined',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Year Joined is required',
+    },
+    {
+      field: 'yearSeparated',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Year Separated is required',
+    },
+    {
+      field: 'twitterAccountName',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Twitter account is required',
+    },
+    {
+      field: 'linkedinAccountName',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'LinkedIn account is required',
+    },
+    {
+      field: 'githubAccountName',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Github account is required',
+    },
+    {
+      field: 'preworkLink',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Prework Hosting Link is required',
+    },
+    {
+      field: 'preworkRepo',
+      method: 'isEmpty',
+      validWhen: false,
+      message: 'Prework Repo Link is required',
+    },
+  ])
 
   state = {
     firstName: '',
@@ -115,23 +111,26 @@ export default class Apply extends Component {
     loading: false,
     formSuccess: false,
     formError: false,
-    message: (<span>
-      Thank you for choosing to apply to Vets Who Code.
-      Your first step in this journey will be to visit our
-      &nbsp;<a href="https://github.com/Vets-Who-Code/prework">prework repository</a>
-      &nbsp;on <a href="http://github.com">Github.com</a>.<br /><br />
-      We ask that, prior to applying to our program, you complete a small series of
-      tutorial assignments that will introduce you to the basics of HTML, CSS and
-      Javascript.<br /><br />
-      The prework reading assignment will also guide you through setting up your
-      development environment to work with the Vets Who Code program.<br /><br />
-      After finishing the reading, we ask that you complete the capstone project
-      &nbsp;(a short, one-page website which will allow us to gauge your initial
-      skill-level and help us to assign an appropriate mentor), and fill out the
-      following application form.
-    </span>)
+    message: (
+      <span>
+        Thank you for choosing to apply to Vets Who Code. Your first step in this journey will be to
+        visit our &nbsp;<a href="https://github.com/Vets-Who-Code/prework">prework repository</a>
+        &nbsp;on <a href="http://github.com">Github.com</a>.<br />
+        <br />
+        We ask that, prior to applying to our program, you complete a small series of tutorial
+        assignments that will introduce you to the basics of HTML, CSS and Javascript.
+        <br />
+        <br />
+        The prework reading assignment will also guide you through setting up your development
+        environment to work with the Vets Who Code program.
+        <br />
+        <br />
+        After finishing the reading, we ask that you complete the capstone project &nbsp;(a short,
+        one-page website which will allow us to gauge your initial skill-level and help us to assign
+        an appropriate mentor), and fill out the following application form.
+      </span>
+    ),
   }
-
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
@@ -162,7 +161,7 @@ export default class Apply extends Component {
     const validation = this.validator.validate(this.state)
     this.setState({ validation })
     this.setState({ loading: true })
-    if(validation.isValid) {
+    if (validation.isValid) {
       const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/apply'
       const options = {
         method: 'POST',
@@ -182,6 +181,8 @@ export default class Apply extends Component {
           githubAccountName: this.state.githubAccountName,
           preworkLink: this.state.preworkLink,
           preworkRepo: this.state.preworkRepo,
+          // temporary flag until previous API deprecated
+          isUpdatedApplyForm: true,
         }),
       }
 
@@ -219,7 +220,8 @@ export default class Apply extends Component {
                   <h3>{formHeading}</h3>
                   <p className={formSuccess ? 'alert alert-success' : 'section-description'}>
                     {message}
-                  </p><br />
+                  </p>
+                  <br />
                   {formError && (
                     <p className="alert alert-danger fade-in">
                       There was an error trying to submit your application. Please try again.
@@ -360,7 +362,12 @@ export default class Apply extends Component {
                             placeholder="Branch Of Service"
                             name="branchOfService"
                             onChange={this.handleChange}
-                            required>
+                            required
+                            defaultValue="DEFAULT"
+                          >
+                            <option value="DEFAULT" disabled>
+                              Select your branch
+                            </option>
                             <option value="USA">Army (Active Duty)</option>
                             <option value="USAF">Air Force (Active Duty)</option>
                             <option value="USN">Navy (Active Duty)</option>
