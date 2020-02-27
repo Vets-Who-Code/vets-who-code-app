@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 
 import Nav from './Nav'
 import Footer from './Footer'
-import StickyButton from './StickyButton'
 
 import 'react-toastify/dist/ReactToastify.css'
 import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
@@ -57,7 +56,6 @@ const TemplateWrapper = ({ children }) => (
       <ToastContainer />
       <Nav />
       {children}
-      <StickyButton />
       <Footer />
     </main>
   </div>

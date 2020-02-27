@@ -169,7 +169,6 @@ exports[`<Layout /> should render correctly 1`] = `
         </div>
       </div>
     </nav>
-    gatsby-link
     <div>
       <section
         class="footer-widgets pad-extra"

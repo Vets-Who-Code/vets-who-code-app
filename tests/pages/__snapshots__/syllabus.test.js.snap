@@ -432,7 +432,6 @@ exports[`<Syllabus /> should render correctly 1`] = `
         </div>
       </div>
     </section>
-    gatsby-link
     <div>
       <section
         class="footer-widgets pad-extra"
