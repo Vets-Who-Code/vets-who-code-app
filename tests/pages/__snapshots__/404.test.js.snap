@@ -175,7 +175,6 @@ exports[`<NotFoundPage /> should render correctly 1`] = `
     <p>
       You just hit a route that doesn't exist... the sadness.
     </p>
-    gatsby-link
     <div>
       <section
         class="footer-widgets pad-extra"
