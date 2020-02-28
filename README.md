@@ -15,8 +15,8 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Jamstack Applicaton designed more for speed.
-By doing this we can focus on creating a beautiful web experience with a focus on telling the story of Vets Who Code.
+The Vets Who Code Web App is a Jamstack Applicaton designed for speed and to ease the learnign curve of our veterans contributing to open source.
+By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
 
 ## Getting Started
 
@@ -37,7 +37,7 @@ In a terminal window run these commands.
 
 ```sh
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
-$ cd vwc-site
+$ cd vets-who-code-app
 $ nvm install
 $ yarn
 $ yarn develop
@@ -52,7 +52,7 @@ You should be able to view the website locally at `http://localhost:8000/`.
 In a terminal window run these commands to install jest globally and run the jest test suite.
 
 ```sh
-$ cd vwc-site
+$ cd vets-who-code-app
 $ yarn test
 ```
 
@@ -73,16 +73,23 @@ In a terminal window run these commands to run the jest test suite in watch mode
 
 ```sh
 $ npm -i -g jest
-$ cd vwc-site
+$ cd vets-who-code-app
 $ yarn test:watch
 ```
 
 In a terminal window run these commands to view the jest coverage report.
 
 ```sh
-$ cd vwc-site
+$ cd vets-who-code-app
 $ yarn test:coverage
 $ yarn view:coverage
+```
+
+In a terminal window run these commands if you need to update a snapshot.
+
+```sh
+$ cd vets-who-code-app
+$ yarn test --updateSnapshot
 ```
 
 <!-- ## Deployment -->
