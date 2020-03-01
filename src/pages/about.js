@@ -102,7 +102,7 @@ function About() {
                         href="https://www.linkedin.com/in/jeromehardaway/"
                         aria-label="Hardaway Linkedin"
                       >
-                        <Icon iconName="linkedin" height={20} />
+                        <Icon iconName="linkedin-in" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -129,7 +129,7 @@ function About() {
                         href="https://www.linkedin.com/in/witzcreative"
                         aria-label="Lebowitz Linkedin"
                       >
-                        <Icon iconName="linkedin" height={20} />
+                        <Icon iconName="linkedin-in" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">
@@ -153,7 +153,7 @@ function About() {
                         <Icon iconName="github" height={20} />
                       </a>
                       <a href="https://www.linkedin.com/in/mrbernnz" aria-label="Sagaille Linkedin">
-                        <Icon iconName="linkedin" height={20} />
+                        <Icon iconName="linkedin-in" height={20} />
                       </a>
                     </div>
                     <div className="personal-info">

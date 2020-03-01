@@ -47,6 +47,33 @@ $ yarn develop
 
 You should be able to view the website locally at `http://localhost:8000/`.
 
+### Running the Blog
+
+**The bog is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
+
+```sh
+$ git clone git@github.com:Vets-Who-Code/vwc-site.git
+$ cd vets-who-code-app
+$ nvm install
+$ yarn
+```
+
+### Create a new `.evn` file in the root of your project
+
+```sh
+$ touch .env
+```
+
+### Add necessary api keys to your new `.env` file.
+
+**Reference the env.example file for available keys.**
+
+```sh
+$ yarn develop:blog
+```
+
+You should be able to view the website locally at `http://localhost:8000/`.
+
 <!-- ## Tests -->
 
 ### Testing
