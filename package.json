@@ -31,7 +31,8 @@
     "slick-carousel": "1.8.1",
     "typeface-lato": "0.0.54",
     "typeface-roboto-slab": "0.0.72",
-    "typeface-source-sans-pro": "0.0.54"
+    "typeface-source-sans-pro": "0.0.54",
+    "validator": "^12.1.0"
   },
   "keywords": [
     "gatsby"
