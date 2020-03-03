@@ -72,7 +72,6 @@ $ brew reinstall watchman
 In a terminal window run these commands to run the jest test suite in watch mode.
 
 ```sh
-$ npm -i -g jest
 $ cd vets-who-code-app
 $ yarn test:watch
 ```
