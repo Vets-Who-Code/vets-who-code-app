@@ -20,11 +20,15 @@
   font-weight: 400;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   background-color: white;
   color: #222222;
   font-family: "Open Sans", sans-serif;
-  font-size: 15px;
+  font-size: 	0.9375rem; /*15px*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
           font-smoothing: antialiased;
@@ -53,56 +57,56 @@ h6 {
   width: 45px;
 }
 h1 {
-  font-size: 60px;
+  font-size: 3.75rem; /*60px*/
   font-weight: 600;
   margin-top: 0;
 }
 @media only screen and (max-width: 500px) {
   h1 {
-    font-size: 42px;
+    font-size: 	2.625rem; /*42px*/
   }
 }
 h2 {
-  font-size: 42px;
+  font-size: 2.625rem;/*42px*/
 }
 @media only screen and (max-width: 500px) {
   h2 {
-    font-size: 30px;
+    font-size: 1.875rem; /*30px*/
   }
 }
 h3 {
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
 }
 @media only screen and (max-width: 500px) {
   h3 {
-    font-size: 21px;
+    font-size: 1.3125rem; /*21px*/
   }
 }
 h4 {
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
 }
 @media only screen and (max-width: 500px) {
   h4 {
-    font-size: 15px;
+    font-size: 0.9375rem; /*15px*/
   }
 }
 h5 {
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-weight: bold;
 }
 @media only screen and (max-width: 500px) {
   h5 {
-    font-size: 10px;
+    font-size: 0.625rem; /*10px*/
   }
 }
 h6 {
-  font-size: 7.5px;
+  font-size: 0.75rem; /*7.5px*/
 }
 p {
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
 }
 small {
-  font-size: 7.5px;
+  font-size: 0.75rem; /*7.5px*/
 }
 strong {
   font-weight: 700;
@@ -111,15 +115,15 @@ b {
   font-weight: 200 !important;
 }
 .lead {
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-weight: 400;
   line-height: 1.75;
 }
 .lead:first-letter {
   float: left;
-  font-size: 60px;
+  font-size: 	3.75rem; /*60px*/
   font-weight: 800;
-  line-height: 70px;
+  line-height: 4.375rem;
   margin-right: 12px;
 }
 .quote {
@@ -184,9 +188,9 @@ a:hover {
 }
 .featured-heading h2 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
-  line-height: 36px;
+  line-height: 2.25rem; /*36px*/
   margin: 0;
   padding: 0;
 }
@@ -196,9 +200,9 @@ p.featured-content {
 }
 .featured-heading h3 {
   font-family: "Open Sans";
-  font-size: 21px;
+  font-size: 	1.3125rem; /*21px*/
   font-weight: 900;
-  line-height: 36px;
+  line-height: 2.25rem; /*36px*/
   margin: 0;
   padding: 0;
 }
@@ -217,7 +221,7 @@ blockquote {
 }
 blockquote p {
   display: inline;
-  font-size: 21px;
+  font-size: 	1.3125rem; /*21px*/
   font-style: italic;
 }
 .dark_color {
@@ -250,7 +254,7 @@ ul li {
 }
 .icon-preview ul li {
   display: inline-block;
-  font-size: 22px;
+  font-size: 1.375rem; /*22px*/
   padding: 20px 0;
   text-align: center;
   vertical-align: middle;
@@ -269,7 +273,7 @@ ol.plain-list ul {
   margin-left: 20px;
 }
 h1.bold_404 {
-  font-size: 180px;
+  font-size: 11.25rem; /*180px*/
   font-weight: bold;
   margin-top: -30px;
 }
@@ -296,7 +300,7 @@ h1.bold_404 {
 }
 .btn {
   border-radius: 2px;
-  font-size: 14px;
+  font-size: 0.875rem; /*14px*/
   padding: 12px 0;
   text-align: center;
   -webkit-transition: all 0.2s ease-in-out;
@@ -483,7 +487,7 @@ h1.bold_404 {
 .main-navigation .dropdown-toggle:after {
   content: "\f107";
   display: block;
-  font: normal normal normal 14px/1 FontAwesome;
+  font: normal normal normal 0.875rem/1 FontAwesome; /*14px/1*/
   font-size: 9px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -699,13 +703,13 @@ h3 {
 }
 @media (max-width: 767px) {
   .site-header .intro h1.clip {
-    font-size: 21px;
+    font-size: 1.3125rem; /*21px*/
     text-align: center;
   }
 }
 .site-header .intro p.subtitle {
   display: inline-block;
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 400;
   margin-bottom: 0;
 }
@@ -875,7 +879,7 @@ h3 {
   padding: 70px 90px;
 }
 .our_story_content h2 {
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   line-height: 36px;
   margin: 0;
   padding: 0;
@@ -892,7 +896,7 @@ h3 {
 #services h3,
 #process h3 {
   color: #091F40;
-  font-size: 28px;
+  font-size: 1.75rem; /*28px*/
   font-weight: bold;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -918,13 +922,13 @@ h3 {
 #process-wiget .services-wigets-heading,
 #process-wiget .process-wigets-heading {
   color: #091F40;
-  font-size: 20px;
+  font-size: 	1.25rem; /*20px*/
   font-weight: bold;
   margin: 25px 0 15px 0;
   text-transform: uppercase;
 }
 .cause_title {
-  font-size: 24px;
+  font-size: 1.5rem; /*24px*/
 }
 .cause_meta ul {
   list-style: none;
@@ -940,7 +944,7 @@ h3 {
   margin-bottom: 40px;
 }
 .causes-card h3 {
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   margin-bottom: 5px;
 }
 .causes-card h4 {
@@ -953,7 +957,7 @@ h3 {
 .cause_meta ul li {
   color: #999999;
   display: inline;
-  font-size: 14px;
+  font-size: 0.875rem; /*14px*/
   margin-right: 60px;
   padding-right: 15px;
 }
@@ -1005,7 +1009,7 @@ h3 {
 .progress-counter {
   background-color: #323232;
   color: #FFFFFF;
-  font-size: 10px;
+  font-size: 	0.625rem; /*10px*/
   font-weight: 300;
   left: -webkit-calc(76% - 52px);
   left:         calc(76% - 52px);
@@ -1036,7 +1040,7 @@ h3 {
 }
 .cause_single h4 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 800;
 }
 .cause_single .card_image_holder {
@@ -1051,7 +1055,7 @@ h3 {
 .cause_single .small_event_card .event_meta ul li {
   color: #999999;
   font-family: "Open Sans";
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   margin-left: 40px;
 }
 .dg-wrapper a {
@@ -1074,7 +1078,7 @@ h3 {
 .event_meta ul li {
   color: #999999;
   display: inline;
-  font-size: 14px;
+  font-size: 0.875rem; /*14px*/
 }
 .event_meta ul li a {
   -webkit-transition: all 0.3s;
@@ -1094,7 +1098,7 @@ h3 {
 .countdown-box::after {
   color: #FFFFFF;
   content: ":";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   position: absolute;
   right: -25px;
   top: -webkit-calc(50% - 30px);
@@ -1110,7 +1114,7 @@ h3 {
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
   display: block;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   line-height: 2.2;
   width: 75px;
 }
@@ -1122,7 +1126,7 @@ h3 {
   background: #C5203E;
   bottom: 0;
   color: white;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   font-weight: bold;
   height: 120px;
   padding-top: 25px;
@@ -1133,12 +1137,12 @@ h3 {
 .ticket_price i {
   color: #FFFFFF;
   display: block;
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   margin-bottom: 0;
 }
 .event_meta ul li {
   display: inline;
-  font-size: 14px;
+  font-size: 0.875rem; /*14px*/
 }
 .event_meta ul li span {
   color: #999999;
@@ -1149,7 +1153,7 @@ h3 {
 }
 .event_block .event_footer h4 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
 }
 .event_block h2 {
@@ -1159,7 +1163,7 @@ h3 {
   margin-top: 10px;
 }
 .small_event_card .event_meta ul li {
-  font-size: 12px;
+  font-size: 0.75rem; /*12px*/
 }
 #newsletter_card {
   background-image: url("../../images/newsletter-bg.png");
@@ -1215,7 +1219,7 @@ h3 {
 }
 .post .entry-meta {
   color: #091F40;
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
 }
 .post .entry-meta .btn-charity-default {
   margin-left: 0;
@@ -1261,13 +1265,13 @@ h3 {
 }
 .post .entry-title {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: bold;
   margin-bottom: 0;
   margin-top: 30px;
 }
 .entry-meta h2.entry-title {
-  font-size: 36px;
+  font-size: 2.25rem; /*36px*/
 }
 .post .entry-title a:hover {
   color: #091F40;
@@ -1289,7 +1293,7 @@ h3 {
   background: #142E39;
   background: rgba(20, 46, 57, 0.7);
   color: #FFFFFF;
-  font-size: 14px;
+  font-size: 0.875rem; /*14px*/
   font-weight: bold;
   left: 0;
   padding: 20px 28px;
@@ -1309,7 +1313,7 @@ h3 {
 }
 .post .post-thumbnail .post-thumbnail-image span {
   display: block;
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-weight: bold;
   left: 0;
   margin: 0 auto;
@@ -1352,7 +1356,7 @@ h3 {
 }
 .widget h4 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 40px;
   text-transform: uppercase;
@@ -1436,7 +1440,7 @@ a.list-group-item:hover .media-heading {
   border-radius: 5px;
   color: #FFFFFF;
   display: inline-block;
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-style: italic;
   letter-spacing: 1px;
   line-height: 22px;
@@ -1455,7 +1459,7 @@ a.list-group-item:hover .media-heading {
 }
 .blog-intro h2 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
   letter-spacing: 1px;
   margin-bottom: 45px;
@@ -1548,7 +1552,7 @@ label {
 .contactus-brief > h3 {
   color: #091F40;
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 45px;
 }
@@ -1566,7 +1570,7 @@ label {
 }
 .contact-wigets-area h4 {
   font-family: "Open Sans";
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   font-weight: 700;
   margin-bottom: 22px;
 }
@@ -1637,7 +1641,7 @@ uneditable-input:focus {
 
 .vwc-animated-gif i {
   color: #091F40;
-  font-size: 48px;
+  font-size: 	3rem; /*48px*/
   left: 50%;
   margin-left: -20px;
   margin-top: -24px;
@@ -1651,14 +1655,14 @@ uneditable-input:focus {
 }
 .success-story p {
   color: #091F40;
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
 }
 .success-story-img-content p {
   color: #091F40;
 }
 .success-story p:last-child {
   font-family: "lato";
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   font-style: italic;
   margin-bottom: 60px;
 }
@@ -1722,7 +1726,7 @@ uneditable-input:focus {
 }
 .faq h2 {
   font-family: "Open Sans";
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 40px;
 }
@@ -1755,9 +1759,9 @@ uneditable-input:focus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: bold;
-  line-height: 30px;
+  line-height: 1.875rem; /*30px*/
   padding: 10px 15px;
   width: 100%;
 }
@@ -1780,13 +1784,13 @@ uneditable-input:focus {
 .fluid-grid h2 {
   color: #FFFFFF;
   font-family: "Roboto Slab", serif;
-  font-size: 42px;
+  font-size: 2.625rem; /*42px*/
   margin: 0;
 }
 .fluid-grid span {
   color: #FFFFFF;
   font-family: "Roboto Slab", serif;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
 }
 .fluid-grid:hover {
   cursor: pointer;
@@ -1823,7 +1827,7 @@ uneditable-input:focus {
 }
 .watch-film-player h3 {
   color: #FFFFFF;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   margin-top: 170px;
 }
 .trailer-text {
@@ -1856,7 +1860,7 @@ uneditable-input:focus {
 }
 .watch-film-player h1 {
   display: inline-block;
-  font-size: 24px;
+  font-size: 1.5rem; /*24px*/
   font-weight: 700;
   margin-bottom: 30px;
   margin-left: 10px;
@@ -1871,7 +1875,7 @@ uneditable-input:focus {
 }
 .watch-film-player i {
   color: rgba(255, 0, 62, 0.5);
-  font-size: 22px;
+  font-size: 1.375rem; /*22px*/
 }
 .call-to-action-small {
   background-color: #091F40;
@@ -1881,7 +1885,7 @@ uneditable-input:focus {
 .call-to-action-small h3 {
   color: #FFFFFF;
   display: inline-block;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   padding-top: 15px;
 }
 @media (max-width: 767px) {
@@ -1891,7 +1895,7 @@ uneditable-input:focus {
   }
 }
 .call-to-action-small a {
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   height: 54px;
   padding: 16px 0;
   text-transform: uppercase;
@@ -1918,7 +1922,7 @@ uneditable-input:focus {
 }
 .organisations h3 {
   font-family: "Open Sans";
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   font-weight: 900;
   margin-bottom: 10px;
 }
@@ -2015,11 +2019,11 @@ uneditable-input:focus {
 }
 .dg-wrapper div span {
   display: block;
-  font-size: 30px;
+  font-size: 1.875rem; /*30px*/
 }
 .dg-wrapper div span.dg-small {
   font-family: "Open Sans";
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-weight: 300;
   letter-spacing: 1px;
   margin-bottom: 24px;
@@ -2105,14 +2109,14 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .four-o-four p.subtitle {
   color: #FFFFFF;
-  font-size: 42px;
+  font-size: 2.625rem; /*42px*/
   line-height: 1.2;
   margin-bottom: 45px;
 }
 .four-o-four h2 {
   color: #FFFFFF;
   font-family: "Open Sans";
-  font-size: 100px;
+  font-size: 16.25rem; /*100px*/
   font-weight: 900;
   margin-bottom: 42px;
 }
@@ -2125,13 +2129,13 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .footer-widgets h3 {
   font-family: "Open Sans", "Sans Serif";
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   font-weight: 800;
   letter-spacing: 1px;
 }
 .footer-widgets p {
   color: #FFFFFF;
-  font-size: 15px;
+  font-size: 0.9375rem; /*15px*/
   font-weight: 300;
   margin-bottom: 15px;
 }
@@ -2141,7 +2145,7 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .footer-widgets .widgets-title {
   color: #BDC3C7;
-  font-size: 21px;
+  font-size: 1.3125rem; /*21px*/
   margin-bottom: 30px;
   text-transform: uppercase;
 }
