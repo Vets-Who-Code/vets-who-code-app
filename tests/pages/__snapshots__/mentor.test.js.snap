@@ -38,6 +38,11 @@ exports[`<Mentor /> should render correctly 1`] = `
                 href="/"
               >
                 static-query
+                <div
+                  class="homeLink"
+                >
+                  VetsWhoCode
+                </div>
               </a>
             </div>
             <button
