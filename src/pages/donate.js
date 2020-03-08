@@ -24,6 +24,38 @@ function Donate() {
                   hard work and pushing yourself to obtain a goal. Please continue your support by
                   giving a small donation so that we can continue to train more veterans.
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="iframe-container embed-responsive">
+                <iframe
+                  src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
+                  seamless="seamless"
+                  name="donorbox"
+                  scrolling="yes"
+                  allowpaymentrequest="true"
+                  frameBorder={0}
+                  tabIndex={0}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        className="cause_single section bg-default single pad-regular"
+        style={{ paddingTop: '0px' }}
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="cause_section_content">
                 <blockquote>
                   <FluidImage
                     fileName="profile.png"
@@ -39,25 +71,6 @@ function Donate() {
                   </p>
                 </blockquote>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section style={{ display: 'flex' }}>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <iframe
-                src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
-                seamless="seamless"
-                name="donorbox"
-                scrolling="yes"
-                allowpaymentrequest="true"
-                width="100%"
-                height="800px"
-                frameBorder={0}
-                tabIndex={0}
-              />
             </div>
           </div>
         </div>
