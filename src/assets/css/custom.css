@@ -66,3 +66,14 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.iframe-container {
+  height: 620px;
+}
+
+/* Media Queries below are for donorbox iframe */
+@media (max-width: 685px) {
+  .iframe-container {
+    height: 800px;
+  }
+}
