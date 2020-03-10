@@ -56,20 +56,22 @@ function Donate() {
           <div className="row">
             <div className="col-md-12">
               <div className="cause_section_content">
-                <blockquote>
+                <div className="testimonial-row">
                   <FluidImage
                     fileName="profile.png"
                     alt="John Garcia"
                     style={{ height: 200, width: 200 }}
                   />
-                  <br />
-                  <p>
-                    &quot;VWC helped me gain the technical knowledge I needed in order to get the
-                    attention of employers. The guidance, support and experience I had going through
-                    the program continues to help me in my role as a full time web developer.&quot;
-                    <br /> - John Garcia, USAF | Web Developer, Hearst Media
-                  </p>
-                </blockquote>
+                  <blockquote className="testimonial-text">
+                    <p>
+                      &quot;VWC helped me gain the technical knowledge I needed in order to get the
+                      attention of employers. The guidance, support and experience I had going
+                      through the program continues to help me in my role as a full time web
+                      developer.&quot;
+                      <br /> - John Garcia, USAF | Web Developer, Hearst Media
+                    </p>
+                  </blockquote>
+                </div>
               </div>
             </div>
           </div>

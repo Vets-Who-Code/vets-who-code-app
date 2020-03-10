@@ -77,3 +77,33 @@
     height: 800px;
   }
 }
+
+.iframe-container {
+  height: 620px;
+}
+
+/* Media Queries below are for donorbox iframe */
+@media (max-width: 685px) {
+  .iframe-container {
+    height: 800px;
+  }
+}
+
+.testimonial-row {
+  display: flex;
+  flex-direction: 'row';
+  justify-content: center;
+  align-items: center;
+  margin: 85px 10px;
+}
+
+@media only screen and (max-width: 767px) {
+  .testimonial-row {
+    flex-direction: column;
+  }
+}
+
+.testimonial-text {
+  margin: 0;
+  flex: 1;
+}

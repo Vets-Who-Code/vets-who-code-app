@@ -135,9 +135,9 @@ class IndexPage extends Component {
             <div className="row bg-dark">
               <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
                 <FluidImage
-                  fileName="troops-at-google.jpg"
+                  fileName="jerome-schuster.jpg"
                   className="img-responsive"
-                  alt="troops at google"
+                  alt="Schuster and Jerome"
                 />
               </div>
               <div className="col-md-7 col-sm-12 our_story_content text-center">
