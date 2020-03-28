@@ -77,29 +77,29 @@ function Nav() {
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu">
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               {' '}
               <Link to="/about">
                 <span>About</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               {' '}
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <Link to="/mentor">
                 <span>Mentor</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <Link to="/apply">
                 <span>Apply</span>
               </Link>
@@ -109,12 +109,12 @@ function Nav() {
                 <span>Donate</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <Link to="/contact">
                 <span>Contact Us</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <a
                 href="https://medium.com/vets-who-code"
                 without="true"
