@@ -56,3 +56,9 @@
   vertical-align: middle;
   font-size: 0.5em;
 }
+
+/*  */
+.donate:hover{
+  transition: .3s linear;
+  background-color: red;
+}
