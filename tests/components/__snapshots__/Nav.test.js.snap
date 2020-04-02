@@ -128,6 +128,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
+          class="donate"
           role="menuitem"
         >
           <a
