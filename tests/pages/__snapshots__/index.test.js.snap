@@ -329,10 +329,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
+                  aria-label="Link to Google"
                   href="https://www.google.com/"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="Google"
                 >
                   static-query
                 </a>
@@ -343,10 +345,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
+                  aria-label="Link to Github"
                   href="https://github.com/"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="GitHub"
                 >
                   static-query
                 </a>
@@ -357,10 +361,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
+                  aria-label="Link to Replit "
                   href="https://repl.it"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="Repl.it"
                 >
                   static-query
                 </a>
@@ -371,10 +377,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
+                  aria-label="Link to Slack"
                   href="https://slack.com/"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="Slack"
                 >
                   static-query
                 </a>
@@ -385,24 +393,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
-                  href="https://www.digitalocean.com/"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                >
-                  static-query
-                </a>
-              </li>
-              <li
-                class="slider-slide slide-visible"
-                style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
-              >
-                <a
-                  aria-hidden="false"
+                  aria-label="Link to Front End Masters"
                   href="https://frontendmasters.com/"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="Front End Masters"
                 >
                   static-query
                 </a>
@@ -413,24 +409,12 @@ exports[`<IndexPage /> should render correctly 1`] = `
               >
                 <a
                   aria-hidden="false"
-                  href="https://corporate.comcast.com/company/nbcuniversal"
-                  rel="noopener noreferrer"
-                  tabindex="0"
-                  target="_blank"
-                >
-                  static-query
-                </a>
-              </li>
-              <li
-                class="slider-slide slide-visible"
-                style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
-              >
-                <a
-                  aria-hidden="false"
+                  aria-label="Link to Contentful"
                   href="https://www.contentful.com/"
                   rel="noopener noreferrer"
                   tabindex="0"
                   target="_blank"
+                  title="Contentful"
                 >
                   static-query
                 </a>
