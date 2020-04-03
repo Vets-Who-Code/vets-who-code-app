@@ -74,13 +74,6 @@
       "error",
       "never"
     ],
-    "indent": [
-      "warn",
-      2,
-      {
-        "SwitchCase": 1
-      }
-    ],
     "keyword-spacing": [
       "error",
       {

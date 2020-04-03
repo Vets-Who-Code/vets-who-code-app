@@ -466,7 +466,7 @@ h1.bold_404 {
 .main-navigation .navbar-nav li a:hover span,
 .main-navigation .navbar-nav li a:focus span {
   background: transparent;
-  border-bottom: 1px solid #C5203E;
+  border-bottom: 1px solid #F6F6F6;
   color: #F6F6F6;
   padding-bottom: 10px;
 }
