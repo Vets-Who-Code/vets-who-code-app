@@ -60,9 +60,5 @@
 /*  */
 .donate:hover{
   transition: .3s linear;
-<<<<<<< HEAD
-  background-color: red;
-=======
   background-color: #C5203E;
->>>>>>> upstream/master
 }
