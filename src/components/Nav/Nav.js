@@ -104,7 +104,7 @@ function Nav() {
                 <span>Apply</span>
               </Link>
             </li>
-            <li role="menuitem">
+            <li role="menuitem" className="donate">
               <Link to="/donate">
                 <span>Donate</span>
               </Link>
