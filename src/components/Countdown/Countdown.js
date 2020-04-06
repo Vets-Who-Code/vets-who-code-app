@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component, Fragment } from 'react'
 
 class Countdown extends Component {
   state = {
@@ -43,7 +42,7 @@ class Countdown extends Component {
   render() {
     const { days, hours, minutes, seconds } = this.state
     return (
-      <div className="col-sm-6 event_counter_container text-center">
+      <Fragment>
         <div className="container-countdown">
           <div className="countdown-box">
             <span className="counter">{days}</span>
@@ -62,10 +61,7 @@ class Countdown extends Component {
             <h4>Seconds</h4>
           </div>
         </div>
-        <Link className="btn btn-charity-default" to="/apply">
-          Apply
-        </Link>
-      </div>
+      </Fragment>
     )
   }
 }

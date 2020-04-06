@@ -76,6 +76,7 @@ exports[`<Layout /> should render correctly 1`] = `
             role="menu"
           >
             <li
+              class="donate"
               role="menuitem"
             >
               <a
@@ -89,6 +90,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
                
@@ -101,6 +103,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
                
@@ -113,6 +116,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
               <a
@@ -124,6 +128,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
               <a
@@ -147,6 +152,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
               <a
@@ -158,6 +164,7 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
+              class="donate"
               role="menuitem"
             >
               <a
