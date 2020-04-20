@@ -24,11 +24,15 @@
 }
 
 /* overide bootstrap mobile nav styles */
-.container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header {
+.container-fluid > .navbar-collapse,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container > .navbar-header {
   padding: 8px;
 }
 
-.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+.navbar-fixed-bottom .navbar-collapse,
+.navbar-fixed-top .navbar-collapse {
   max-height: 500px;
   overflow-x: hidden;
 }
@@ -36,7 +40,6 @@
 .main-navigation .navbar-toggle {
   margin-top: -5px;
 }
-
 
 .main-overlay {
   height: 80vh;
@@ -48,9 +51,9 @@
 
 /* overides for social icons in about page for each user */
 .meet-social i {
-  background-color: #091F40;
+  background-color: #091f40;
   border-radius: 50%;
-  color: #FFFFFF;
+  color: #ffffff;
   display: inline-block;
   height: 50px;
   margin-top: 10px;
@@ -106,4 +109,9 @@
 .testimonial-text {
   margin: 0;
   flex: 1;
+}
+
+#branchOfService {
+  padding-bottom: inherit;
+  padding-top: inherit;
 }
