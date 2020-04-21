@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-module.exports = {
+const gatsbyConfig = {
   siteMetadata: {
     title: `VetsWhoCode`,
   },
@@ -35,13 +35,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: `${__dirname}/src/images/favicon.png`,
@@ -69,3 +62,17 @@ module.exports = {
   ],
   pathPrefix: `/`,
 }
+
+const contentfulConfig = {
+  resolve: `gatsby-source-contentful`,
+  options: {
+    spaceId: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  },
+}
+
+if (process.env.NODE_ENV === 'production' || process.env.DISPLAY_BLOG) {
+  gatsbyConfig.plugins.push(contentfulConfig)
+}
+
+module.exports = gatsbyConfig

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
 import Layout from '../components/Layout'
@@ -81,11 +81,14 @@ BlogPostLink.propTypes = {
     ),
     nodeType: PropTypes.string,
   }),
-  featureImage: PropTypes.shape({ fixed: PropTypes.shape({ srcSet: PropTypes.string }) }),
+  featureImage: PropTypes.shape({
+    fixed: PropTypes.shape({ srcSet: PropTypes.string }),
+    title: PropTypes.string,
+  }),
 }
 
-const Blog = ({ data, pageContext }) => {
-  const { currentPage, isFirstPage, isLastPage, totalPages } = pageContext
+const Blog = ({ pageContext }) => {
+  const { currentPage, isFirstPage, isLastPage, totalPages, contentfulData } = pageContext
   const nextPage = `/blog/${String(currentPage + 1)}`
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
 
@@ -96,7 +99,7 @@ const Blog = ({ data, pageContext }) => {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              {data.allContentfulBlogPost.nodes.map(post => (
+              {contentfulData.nodes.map(post => (
                 <BlogPostLink
                   key={post.id}
                   title={post.title}
@@ -150,42 +153,7 @@ const Blog = ({ data, pageContext }) => {
   )
 }
 
-export const query = graphql`
-  query($limit: Int!, $skip: Int!) {
-    allContentfulBlogPost(
-      sort: { fields: publishedDate, order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
-      totalCount
-      nodes {
-        author {
-          authorName
-        }
-        id
-        title
-        slug
-        publishedDate(formatString: "MMMM Do, YYYY")
-        body {
-          json
-        }
-        featureImage {
-          title
-          fixed(width: 500) {
-            width
-            height
-            src
-            width
-            srcSet
-          }
-        }
-      }
-    }
-  }
-`
-
 Blog.propTypes = {
-  data: PropTypes.object,
   pageContext: PropTypes.shape({
     limit: PropTypes.number,
     skip: PropTypes.number,
@@ -193,6 +161,7 @@ Blog.propTypes = {
     isLastPage: PropTypes.bool,
     currentPage: PropTypes.number,
     totalPages: PropTypes.number,
+    contentfulData: PropTypes.object,
   }),
 }
 

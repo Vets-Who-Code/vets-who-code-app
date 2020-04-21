@@ -33,7 +33,7 @@ You will need the following properly installed on your computer.
 - [NVM](https://github.com/creationix/nvm)
 - [Gatsby](https://www.gatsbyjs.org/)
 
-### Installing
+## Installing
 
 In a terminal window run these commands.
 
@@ -49,16 +49,17 @@ You should be able to view the website locally at `http://localhost:8000/`.
 
 ### Running the Blog
 
-**The bog is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
+**The blog is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
 
 ```sh
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
 $ cd vets-who-code-app
 $ nvm install
-$ yarn
+$ yarn enable:blog
 ```
+> **Your package.json and node modules will be updated automatically.**
 
-### Create a new `.evn` file in the root of your project
+### Create a new `.env` file in the root of your project
 
 ```sh
 $ touch .env
@@ -66,17 +67,38 @@ $ touch .env
 
 ### Add necessary api keys to your new `.env` file.
 
-**Reference the env.example file for available keys.**
+> **Reference the .env.example file for available keys.**
 
 ```sh
-$ yarn develop:blog
+$ yarn develop
 ```
 
 You should be able to view the website locally at `http://localhost:8000/`.
 
+<details>
+<summary>If you get an error on start up</summary>
+<br>
+
+```
+1. Validate you ran yarn enable:blog
+2. Check that your keys are correct
+3. If you still are facing issues reach out in the #product channel in slack
+```
+</details>
+
+### Once you have completed your edits please run the following command
+
+```sh
+$ yarn disable:blog
+```
+
+> **This will remove the modules needed to run the blog and clean up the lock file. Commit your changes as normal.**
+
+> If you are seeing a ghooks error in the console when commiting and push your code run `node ./scripts/remove-git-hooks.js` in the terminal.
+
 <!-- ## Tests -->
 
-### Testing
+## Testing
 
 In a terminal window run these commands to install jest globally and run the jest test suite.
 

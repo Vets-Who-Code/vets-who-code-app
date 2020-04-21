@@ -21,6 +21,7 @@ Text.propTypes = {
 
 function renderCodepenEmbed(uri) {
   const pathSplit = uri.split('/')
+  // eslint-disable-next-line no-unused-vars
   const [protocol, emptyString, codePen, name] = pathSplit
 
   const slugHash = pathSplit.pop()
@@ -76,7 +77,6 @@ export const options = {
       return <Text>{children}</Text>
     },
     [BLOCKS.EMBEDDED_ASSET]: node => {
-      console.log('node:', node)
       const alt = node?.data?.target?.fields?.title['en-US']
       const url = node?.data?.target?.fields?.file['en-US'].url
       return <img alt={alt} src={url} className="img-responsive" />
