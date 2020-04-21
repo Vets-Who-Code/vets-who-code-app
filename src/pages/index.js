@@ -147,7 +147,9 @@ function IndexPage() {
               </h3>
             </div>
           </div>
-          <SponsorSlider />
+          <div style={{ minHeight: 100, height: 100 }}>
+            <SponsorSlider />
+          </div>
         </div>
       </section>
     </Layout>
