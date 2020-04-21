@@ -42,7 +42,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "node ./scripts/enable-blog.js && yarn && gatsby build",
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "enable:blog": "node ./scripts/enable-blog-modules.js",

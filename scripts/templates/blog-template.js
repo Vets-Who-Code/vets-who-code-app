@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import Image from 'gatsby-image'
 
+/**
+ * DO NOT UPDATE THE PATHS
+ * THEY LOOK INCORRECT WHEN THEY ARE IN THE SCRIPTS DIR
+ * THESES FILES ARE MOVED TO THE CORRECT DIR WHEN
+ * THE BLOG IS ENABLED || PRODUCTION BUILD
+ */
 import Layout from '../components/Layout'
 import Icon from '../components/Icon'
 import PageHeader from '../components/PageHeader'

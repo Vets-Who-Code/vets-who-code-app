@@ -4,6 +4,12 @@ import Image from 'gatsby-image'
 import readingTime from 'reading-time'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+/**
+ * DO NOT UPDATE THE PATHS
+ * THEY LOOK INCORRECT WHEN THEY ARE IN THE SCRIPTS DIR
+ * THESES FILES ARE MOVED TO THE CORRECT DIR WHEN
+ * THE BLOG IS ENABLED || PRODUCTION BUILD
+ */
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import { options } from './blog-helpers'
