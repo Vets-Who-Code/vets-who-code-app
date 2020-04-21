@@ -32,10 +32,8 @@ const PageHeader = ({ title, link }) => {
               <Link to={link === undefined ? '/' : `/${link}`}>
                 {link === undefined ? 'home' : link}
               </Link>
-              <span>/</span>
-              <Link to="/contact" className="page-active">
-                Contact Us
-              </Link>
+              <span> / </span>
+              <Link to="/donate" /*className="page-active"*/>Donate</Link>
             </div>
           </div>
         </header>

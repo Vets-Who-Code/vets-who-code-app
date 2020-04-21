@@ -1,4 +1,4 @@
-// const path = require(`path`)
+require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
@@ -23,15 +23,22 @@ module.exports = {
         anonymize: true,
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-react-helmet',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         // printRejected: true, // Print removed selectors and processed file names
         // develop: true, // Enable while using `gatsby develop`
-        purgeOnly: ['components/', '/main.css', 'bootstrap/', 'css/'], // Purge only these files/folders
+        purgeOnly: [`components/`, `/main.css`, `bootstrap/`, `css/`], // Purge only these files/folders
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {

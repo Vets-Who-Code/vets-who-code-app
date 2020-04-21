@@ -34,7 +34,7 @@ function Panel({ body, title, id }) {
             aria-controls={`collapse-${id}`}
           >
             <div>{typeof title === 'function' ? title() : title}</div>
-            {isOpen ? <Icon iconName="minusIcon" /> : <Icon iconName="plusIcon" fill="#091F40" />}
+            {isOpen ? <Icon iconName="minus" /> : <Icon iconName="plus" fill="#091F40" />}
           </a>
         </h4>
       </div>

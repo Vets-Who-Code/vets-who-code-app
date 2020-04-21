@@ -10,14 +10,9 @@ function Nav() {
   const [opacity, setOpacity] = useState(0.9)
 
   useEffect(() => {
-    let current = true
-    if (current) {
-      document.addEventListener('scroll', handleScroll)
-    }
-    return () => {
-      current = false
-      document.removeEventListener('scroll', handleScroll)
-    }
+    document.addEventListener('scroll', handleScroll)
+
+    return () => document.removeEventListener('scroll', handleScroll)
   })
 
   function handleScroll() {
@@ -115,14 +110,9 @@ function Nav() {
               </Link>
             </li>
             <li role="menuitem" className="donate">
-              <a
-                href="https://medium.com/vets-who-code"
-                without="true"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              <Link to="/blog">
                 <span>Blog</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

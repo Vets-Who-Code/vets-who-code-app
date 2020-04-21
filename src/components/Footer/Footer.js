@@ -17,7 +17,7 @@ function Footer() {
                 </p>
                 <div className="footer-social">
                   <a href="http://bit.ly/vetswhocode-facebook-link" aria-label="Facebook">
-                    <Icon iconName="facebook" />
+                    <Icon iconName="facebook-f" />
                   </a>
                   <a href="http://bit.ly/vets-who-code-twitter" aria-label="Twitter">
                     <Icon iconName="twitter" />
@@ -29,7 +29,7 @@ function Footer() {
                     <Icon iconName="instagram" />
                   </a>
                   <a href="https://bit.ly/2sFKi1u" aria-label="Linkedin">
-                    <Icon iconName="linkedin" />
+                    <Icon iconName="linkedin-in" />
                   </a>
                   <a href="http://bit.ly/vwc-github" aria-label="Github">
                     <Icon iconName="github" />
@@ -110,9 +110,7 @@ function Footer() {
           <div className="row">
             <div className="col-md-6 col-sm-6">
               <p className="copyright">
-                {/* <span className="fa fa-copyright"> */}
                 <Icon iconName="copyright" />
-                {/* </span>{' '} */}
                 #VetsWhoCode
               </p>
             </div>

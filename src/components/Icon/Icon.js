@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { iconMap } from './iconMap'
+import iconMap from './iconMap.json'
 
-function Icon({ height = 14, width = 20, iconName, fill = '#FFF', className }) {
+function Icon({ height = 14, width = 20, iconName, fill = '#FFF', className = '' }) {
   return (
     <i className="fa">
       <svg
