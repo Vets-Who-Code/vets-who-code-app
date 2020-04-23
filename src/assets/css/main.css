@@ -2196,6 +2196,7 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .footer-widgets .widgets-content .widgets-list li a:hover {
   color: #C5203E;
+  text-decoration: underline;
 }
 .footer-widgets .widgets-content .widgets-list li:first-child {
   margin-top: 0;

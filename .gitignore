@@ -72,6 +72,5 @@ public/
 # jest coverage report
 coverage
 
-
 #env
 .env
