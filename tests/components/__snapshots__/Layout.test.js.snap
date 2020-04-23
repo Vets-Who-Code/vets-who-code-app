@@ -457,9 +457,7 @@ exports[`<Layout /> should render correctly 1`] = `
                         </li>
                         <li>
                           <a
-                            href="https://medium.com/vets-who-code"
-                            rel="noopener noreferrer"
-                            target="_blank"
+                            href="/blog"
                           >
                             <span>
                               Blog

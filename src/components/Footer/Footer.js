@@ -74,13 +74,9 @@ function Footer() {
                           <Link to="/contact">Contact Us</Link>
                         </li>
                         <li>
-                          <a
-                            href="https://medium.com/vets-who-code"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
+                          <Link to="/blog">
                             <span>Blog</span>
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </div>
