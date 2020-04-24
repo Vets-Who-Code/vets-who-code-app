@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { useAccordion } from './Accordion'
-import Icon from '../Icon/'
+import { FaMinus, FaPlus } from 'react-icons/fa'
 
 function Panel({ body, title, id }) {
   const { onClick, isOpen, accordionId } = useAccordion(id)
@@ -34,7 +34,7 @@ function Panel({ body, title, id }) {
             aria-controls={`collapse-${id}`}
           >
             <div>{typeof title === 'function' ? title() : title}</div>
-            {isOpen ? <Icon iconName="minus" /> : <Icon iconName="plus" fill="#091F40" />}
+            {isOpen ? <FaMinus /> : <FaPlus color="#091F40" />}
           </a>
         </h4>
       </div>
