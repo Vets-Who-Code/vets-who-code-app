@@ -94,7 +94,7 @@ $ yarn disable:blog
 
 > **This will remove the modules needed to run the blog and clean up the lock file. Commit your changes as normal.**
 
-> If you are seeing a ghooks error in the console when commiting and push your code run `node ./scripts/remove-git-hooks.js` in the terminal.
+> If you are seeing a ghooks error in the console when committing and pushing your code run `node ./scripts/remove-git-hooks.js` in the terminal.
 
 <!-- ## Tests -->
 
