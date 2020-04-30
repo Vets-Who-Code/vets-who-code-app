@@ -1,9 +1,12 @@
-const execa = require('execa')
+const util = require('util')
+const spawn = util.promisify(require('child_process').spawn)
 
 async function install() {
-  const installDeps = await execa('yarn', { stdio: 'inherit' })
-  if (installDeps.failed) {
-    return Promise.reject(new Error('Failed to add package.json'))
+  try {
+    await spawn('yarn', ['install'], { stdio: 'inherit' })
+  } catch (err) {
+    console.log(err.message)
+    process.exit(1)
   }
 }
 
