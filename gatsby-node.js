@@ -14,10 +14,34 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const blogPostTemplate = path.resolve('./src/templates/blog-post-template.js')
     const res = await graphql(`
       query {
-        allContentfulBlogPost {
+        allContentfulBlogPost(limit: 10, sort: { fields: publishedDate, order: DESC }) {
           edges {
             node {
               slug
+              id
+            }
+          }
+          totalCount
+          nodes {
+            author {
+              authorName
+              id
+            }
+            title
+            slug
+            id
+            publishedDate(formatString: "MMMM Do, YYYY")
+            body {
+              json
+            }
+            featureImage {
+              title
+              fixed(width: 500) {
+                width
+                height
+                src
+                srcSet
+              }
             }
           }
         }
@@ -43,18 +67,44 @@ module.exports.createPages = async ({ graphql, actions }) => {
           isLastPage,
           currentPage,
           totalPages,
+          contentfulData: res.data.allContentfulBlogPost,
         },
       })
     })
 
-    res.data.allContentfulBlogPost.edges.forEach(edge => {
+    for (let edge of res.data.allContentfulBlogPost.edges) {
+      const blogPost = await graphql(`
+        query {
+          contentfulBlogPost(slug: { eq: "${edge.node.slug}" }) {
+            id
+            slug
+            publishedDate(formatString: "MMMM Do, YYYY")
+            title
+            body {
+              json
+            }
+            author {
+              authorName
+              authorImage {
+                fixed(width: 100) {
+                  width
+                  height
+                  src
+                  srcSet
+                }
+              }
+            }
+          }
+        }
+      `)
+
       createPage({
         component: blogPostTemplate,
         path: `/blog/${edge.node.slug}`,
         context: {
-          slug: edge.node.slug,
+          contentfulData: blogPost,
         },
       })
-    })
+    }
   }
 }

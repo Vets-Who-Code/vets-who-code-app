@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import readingTime from 'reading-time'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
@@ -10,7 +9,9 @@ import PageHeader from '../components/PageHeader'
 import { options } from './blog-helpers'
 import { useScript } from '../hooks'
 
-const BlogPost = ({ data /*navigate*/ }) => {
+const BlogPost = ({ pageContext }) => {
+  const { contentfulData } = pageContext
+  const { data } = contentfulData
   const src = 'https://assets.codepen.io/assets/embed/ei.js'
   useScript(src)
 
@@ -65,61 +66,48 @@ const BlogPost = ({ data /*navigate*/ }) => {
 }
 
 BlogPost.propTypes = {
-  contentfulBlogPost: PropTypes.shape({
-    id: PropTypes.string,
-    slug: PropTypes.string,
-    publishedDate: PropTypes.string,
-    title: PropTypes.string,
-    body: PropTypes.shape({
-      json: PropTypes.shape({
-        data: PropTypes.object,
-        content: PropTypes.arrayOf(
-          PropTypes.shape({
-            data: PropTypes.object,
-            content: PropTypes.arrayOf(
-              PropTypes.shape({
-                data: PropTypes.object,
-                marks: PropTypes.array,
-                value: PropTypes.string,
-                nodeType: PropTypes.string,
-              })
-            ),
-          })
-        ),
+  pageContext: PropTypes.shape({
+    contentfulData: PropTypes.shape({
+      data: PropTypes.shape({
+        contentfulBlogPost: PropTypes.shape({
+          id: PropTypes.string,
+          slug: PropTypes.string,
+          publishedDate: PropTypes.string,
+          title: PropTypes.string,
+          author: PropTypes.shape({
+            authorName: PropTypes.string,
+            authorImage: PropTypes.shape({
+              fixed: PropTypes.shape({
+                width: PropTypes.number,
+                height: PropTypes.number,
+                src: PropTypes.string,
+                srcSet: PropTypes.string,
+              }),
+            }),
+          }),
+          body: PropTypes.shape({
+            json: PropTypes.shape({
+              data: PropTypes.object,
+              content: PropTypes.arrayOf(
+                PropTypes.shape({
+                  data: PropTypes.object,
+                  content: PropTypes.arrayOf(
+                    PropTypes.shape({
+                      data: PropTypes.object,
+                      marks: PropTypes.array,
+                      value: PropTypes.string,
+                      nodeType: PropTypes.string,
+                    })
+                  ),
+                })
+              ),
+            }),
+          }),
+        }),
       }),
     }),
   }),
   children: PropTypes.oneOf([PropTypes.string, PropTypes.array]),
-}
-
-export const query = graphql`
-  query($slug: String) {
-    contentfulBlogPost(slug: { eq: $slug }) {
-      id
-      slug
-      publishedDate(formatString: "MMMM Do, YYYY")
-      title
-      body {
-        json
-      }
-      author {
-        authorName
-        authorImage {
-          fixed(width: 100) {
-            width
-            height
-            src
-            width
-            srcSet
-          }
-        }
-      }
-    }
-  }
-`
-
-BlogPost.propTypes = {
-  data: PropTypes.object,
 }
 
 export default BlogPost

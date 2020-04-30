@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
-import Typed from "react-typed"
-
+import Typed from 'react-typed'
 
 function Header() {
   const data = useStaticQuery(graphql`
@@ -30,14 +29,9 @@ function Header() {
             <div className="col-md-10 col-md-offset-1">
               <div className="intro text-left" style={{ color: '#fff' }}>
                 <h1>
-
-                    <Typed
+                  <Typed
                     className="typedString"
-                    strings={[
-                      "Learn Javascript",
-                      "Network",
-                      "Get A Job",
-                    ]}
+                    strings={['Learn Javascript', 'Network', 'Get A Job']}
                     typeSpeed={70}
                     backSpeed={80}
                     smartBackspace
