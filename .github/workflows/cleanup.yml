@@ -4,8 +4,9 @@
 name: Node.js CI
 
 on:
-  pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - 'master'
 
 jobs:
   build:
@@ -23,8 +24,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: yarn
-    - run: yarn lint
-    - run: yarn test
+    - run: yarn disable:blog
+
+    - uses: stefanzweifel/git-auto-commit-action@v4.1.5
+      with:
+        commit_user_name: GitHub Actions Bot
+        commit_user_email: my-github-actions-bot@example.org
+        commit_message: "GitHub Actions Bot Cleaning up dependencies"
+
+        branch: ${{ github.head_ref }}
 
       env:
         CI: true
