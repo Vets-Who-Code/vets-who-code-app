@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
-import Icon from '../components/Icon'
+import { FaTwitter, FaGithub, FaLinkedinIn, FaBehance } from 'react-icons/fa'
 
 import vwcGIF from '../images/vwc.gif'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
@@ -93,16 +93,22 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/JeromeHardaway" aria-label="Hardaway Twitter">
-                        <Icon iconName="twitter" height={20} />
+                        <i className="fa">
+                          <FaTwitter color="#fff" />
+                        </i>
                       </a>
                       <a href="https://github.com/jeromehardaway" aria-label="Hardaway Github">
-                        <Icon iconName="github" height={20} />
+                        <i className="fa">
+                          <FaGithub color="#fff" />
+                        </i>
                       </a>
                       <a
                         href="https://www.linkedin.com/in/jeromehardaway/"
                         aria-label="Hardaway Linkedin"
                       >
-                        <Icon iconName="linkedin-in" height={20} />
+                        <i className="fa">
+                          <FaLinkedinIn color="#fff" />
+                        </i>
                       </a>
                     </div>
                     <div className="personal-info">
@@ -120,16 +126,22 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/witzcreative" aria-label="Lebowitz Twitter">
-                        <Icon iconName="twitter" height={20} />
+                        <i className="fa">
+                          <FaTwitter color="#fff" />
+                        </i>
                       </a>
                       <a href="https://www.behance.net/WitzCreative" aria-label="Lebowitz Behance">
-                        <Icon iconName="behance" height={20} />
+                        <i className="fa">
+                          <FaBehance color="#fff" />
+                        </i>
                       </a>
                       <a
                         href="https://www.linkedin.com/in/witzcreative"
                         aria-label="Lebowitz Linkedin"
                       >
-                        <Icon iconName="linkedin-in" height={20} />
+                        <i className="fa">
+                          <FaLinkedinIn color="#fff" />
+                        </i>
                       </a>
                     </div>
                     <div className="personal-info">
@@ -147,13 +159,19 @@ function About() {
                     />
                     <div className="meet-social">
                       <a href="https://twitter.com/MrBernnz" aria-label="Sagaille Twitter">
-                        <Icon iconName="twitter" height={20} />
+                        <i className="fa">
+                          <FaTwitter color="#fff" />
+                        </i>
                       </a>
                       <a href="https://github.com/mrbernnz" aria-label="Sagaille Github">
-                        <Icon iconName="github" height={20} />
+                        <i className="fa">
+                          <FaGithub color="#fff" />
+                        </i>
                       </a>
                       <a href="https://www.linkedin.com/in/mrbernnz" aria-label="Sagaille Linkedin">
-                        <Icon iconName="linkedin-in" height={20} />
+                        <i className="fa">
+                          <FaLinkedinIn color="#fff" />
+                        </i>
                       </a>
                     </div>
                     <div className="personal-info">

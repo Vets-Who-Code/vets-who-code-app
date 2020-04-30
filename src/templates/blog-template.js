@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
+import { FaRegCalendarAlt } from 'react-icons/fa'
 import Image from 'gatsby-image'
 
 import Layout from '../components/Layout'
-import Icon from '../components/Icon'
 import PageHeader from '../components/PageHeader'
 
 function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
@@ -33,7 +33,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
 
               <time className="entry-date" dateTime="">
                 <span className="blog-list-icon">
-                  <Icon iconName="calendar-alt" fill="#999999" />
+                  <FaRegCalendarAlt color="#999999" />
                 </span>
                 {publishedDate}
               </time>

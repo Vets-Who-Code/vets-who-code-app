@@ -1,6 +1,15 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Icon from '../Icon'
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaCodepen,
+  FaGithub,
+  FaHeart,
+  FaRegCopyright,
+} from 'react-icons/fa'
 
 function Footer() {
   return (
@@ -17,22 +26,34 @@ function Footer() {
                 </p>
                 <div className="footer-social">
                   <a href="http://bit.ly/vetswhocode-facebook-link" aria-label="Facebook">
-                    <Icon iconName="facebook-f" />
+                    <i className="fa">
+                      <FaFacebookF />
+                    </i>
                   </a>
                   <a href="http://bit.ly/vets-who-code-twitter" aria-label="Twitter">
-                    <Icon iconName="twitter" />
+                    <i className="fa">
+                      <FaTwitter />
+                    </i>
                   </a>
                   <a href="http://bit.ly/2omsjdX" aria-label="Codepen">
-                    <Icon iconName="codepen" />
+                    <i className="fa">
+                      <FaCodepen />
+                    </i>
                   </a>
                   <a href="https://bit.ly/2sJ6W9f" aria-label="Instagram">
-                    <Icon iconName="instagram" />
+                    <i className="fa">
+                      <FaInstagram />
+                    </i>
                   </a>
                   <a href="https://bit.ly/2sFKi1u" aria-label="Linkedin">
-                    <Icon iconName="linkedin-in" />
+                    <i className="fa">
+                      <FaLinkedinIn />
+                    </i>
                   </a>
                   <a href="http://bit.ly/vwc-github" aria-label="Github">
-                    <Icon iconName="github" />
+                    <i className="fa">
+                      <FaGithub />
+                    </i>
                   </a>
                 </div>
               </div>
@@ -106,7 +127,7 @@ function Footer() {
           <div className="row">
             <div className="col-md-6 col-sm-6">
               <p className="copyright">
-                <Icon iconName="copyright" />
+                <FaRegCopyright color="#fff" />
                 #VetsWhoCode
               </p>
             </div>
@@ -115,7 +136,7 @@ function Footer() {
                 <li>
                   Made with{' '}
                   <span className="fa fa-heart red">
-                    <Icon iconName="heart" fill="red" />
+                    <FaHeart color="red" />
                   </span>{' '}
                   By #VetsWhoCode.
                 </li>
