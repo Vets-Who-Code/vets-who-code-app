@@ -1,5 +1,5 @@
-const fs = require('fs-extra')
-const chalk = require('chalk')
+const fs = require('fs')
+// const chalk = require('chalk')
 const install = require('./install')
 
 const log = (...args) => console.log(...args)
@@ -15,7 +15,7 @@ async function resetConfig() {
     !updatedDependencies.hasOwnProperty(contentfulRichTextRender) &&
     !updatedDependencies.hasOwnProperty(gatsbySourceContentful)
   ) {
-    log(chalk.green('🤖 Dependencies not preset skipping'))
+    log('\x1b[42m\x1b[30m%s\x1b[0m', ' INFO ', '\x1b[32m', '🤖 Dependencies not preset skipping')
     return
   }
 
@@ -28,12 +28,11 @@ async function resetConfig() {
 
   try {
     log()
-    log(`${chalk.green('🤖 Cleaning up!')} `)
+    log('\x1b[42m\x1b[30m%s\x1b[0m', ' INFO ', '\x1b[36m\x1b[0m', '🤖 Cleaning up!')
     await install()
     log()
   } catch (err) {
     console.log('err:', err)
-    log(chalk.red('FAILED to add and commit package.json'))
   }
 }
 
