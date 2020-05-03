@@ -1902,10 +1902,6 @@ uneditable-input:focus {
   color: #fff;
 }
 
-.call-to-action-small a:hover {
-  text-decoration: underline;
-  color: #C5203E;
-}
 .call-to-action-small a.btn-charity-default {
   margin-top: 1px;
 }

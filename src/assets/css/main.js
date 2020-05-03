@@ -2190,10 +2190,6 @@ export default StyleSheet.create({
     'width': [{ 'unit': 'px', 'value': 230 }],
     'color': '#fff'
   },
-  'call-to-action-small a:hover': {
-    'textDecoration': 'underline',
-    'color': '#C5203E'
-  },
   'call-to-action-small abtn-charity-default': {
     'marginTop': [{ 'unit': 'px', 'value': 1 }]
   },
