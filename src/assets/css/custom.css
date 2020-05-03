@@ -116,3 +116,24 @@
   padding-top: inherit;
 }
 
+
+.story h2 {
+  padding: 15px;
+}
+
+.story-last h2 {
+  color: #C5203E;
+}
+
+.lead-in {
+  padding: 25px;
+}
+
+.lead-in h1 {
+  text-align: center;
+}
+
+.lead-in p {
+  text-align: center;
+  color: #C5203E;
+}

@@ -1665,6 +1665,7 @@ uneditable-input:focus {
   font-size: 1.3125rem; /*21px*/
   font-style: italic;
   margin-bottom: 60px;
+  color: #C5203E;
 }
 #team {
   padding: 30px 0 50px 0;
