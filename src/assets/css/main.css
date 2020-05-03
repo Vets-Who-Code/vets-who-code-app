@@ -1895,11 +1895,16 @@ uneditable-input:focus {
   }
 }
 .call-to-action-small a {
-  font-size: 0.9375rem; /*15px*/
   height: 54px;
   padding: 16px 0;
   text-transform: uppercase;
   width: 230px;
+  color: #fff;
+}
+
+.call-to-action-small a:hover {
+  text-decoration: underline;
+  color: #C5203E;
 }
 .call-to-action-small a.btn-charity-default {
   margin-top: 1px;

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react'
 import Layout from '../components/Layout'
 import Accordion, { Panel } from '../components/Accordion'
@@ -77,6 +78,21 @@ export default class Mentor extends Component {
               </div>
             </div>
           </div>
+        </section>
+        < section id = "call-to-action-small" className = "call-to-action-small" >
+          <div className = "container" >
+            <div className="row">
+              <div className = "col-sm-12 text-center" >
+                <h3>
+                  Help Us Teach More Veterans How To Code &nbsp; 
+                  <a className = "btn btn-charity-default" href = "/donate">
+                    DONATE
+                  </a>
+                </h3>
+              </div>
+            </div>
+          </div>
+          {' '}
         </section>
       </Layout>
     )
