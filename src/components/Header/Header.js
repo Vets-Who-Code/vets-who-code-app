@@ -45,8 +45,8 @@ function Header() {
                   </Link>
                   &nbsp;
                   <Link to="/donate" className="btn btn-charity-default">
-                    Donate 
-                    </Link>
+                    Donate
+                  </Link>
                 </div>
               </div>
             </div>

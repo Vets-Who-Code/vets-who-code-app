@@ -83,9 +83,6 @@ function Donate() {
             <div className="col-sm-12 text-center">
               <h3>Help Us Teach More Veterans How To Code</h3>
             </div>
-            <div className="col-md-4">
-              <div className="button-align text-center"> </div>
-            </div>
           </div>
         </div>{' '}
       </section>
