@@ -78,13 +78,16 @@ function Nav() {
               </Link>
             </li>
             <li role="menuitem" className="donate">
-              {' '}
               <Link to="/about">
                 <span>About</span>
               </Link>
             </li>
             <li role="menuitem" className="donate">
-              {' '}
+              <Link to="/testimonials">
+                <span>Testimonials</span>
+              </Link>
+            </li>
+            <li role="menuitem" className="donate">
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
