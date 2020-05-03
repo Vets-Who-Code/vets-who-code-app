@@ -137,3 +137,7 @@
   text-align: center;
   color: #C5203E;
 }
+
+.testimonial-row img {
+  border-radius: 50%;
+}

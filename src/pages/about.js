@@ -56,7 +56,7 @@ function About() {
             <div className="col-md-12">
               <div className="success-story">
                 <p className="story">
-                  <h2>What We Do</h2>
+                  <h2>Who We Are</h2>
                   Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
                   technical skills gap with America’s best. We achieve this by using technology to
                   connect and train veterans remotely in web development in order to close the
