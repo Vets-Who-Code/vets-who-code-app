@@ -106,7 +106,7 @@ function Nav() {
             </li>
             <li role="menuitem" className="donate">
               <Link to="/contact">
-                <span>Contact Us</span>
+                <span>Contact</span>
               </Link>
             </li>
             <li role="menuitem" className="donate">
