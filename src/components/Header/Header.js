@@ -43,6 +43,10 @@ function Header() {
                   <Link to="/apply" className="btn btn-charity-default">
                     Apply
                   </Link>
+                                < Link className = "btn btn-charity-default"
+                                to = "/donate" >
+                                  Donate <
+                                  /Link>
                 </div>
               </div>
             </div>
