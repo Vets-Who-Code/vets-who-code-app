@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 import FluidImage from '../components/FluidImage'
+import { SubscribeForm, onSubmitSuccess, onSubmitError } from '../components/Forms'
 
 function IndexPage() {
   useEffect(() => {
@@ -128,6 +129,26 @@ function IndexPage() {
               <Link className="btn btn-charity-default" to="/apply">
                 Apply
               </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="newsletter_card" className="section bg-light pad-regular newsletter_card">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 newsletter_wrapper">
+              <div className="newsletter_inner_wrapper">
+                <div className="row">
+                  <div className="col-md-4">
+                    <h3 className="text-center" style={{ color: '#ECECEC' }}>
+                      JOIN OUR EMAIL LIST
+                    </h3>
+                  </div>
+                  <div className="col-sm-8">
+                    <SubscribeForm />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

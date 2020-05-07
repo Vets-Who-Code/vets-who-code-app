@@ -107,7 +107,6 @@
     ],
     "collectCoverageFrom": [
       "src/components/**/*.{js,jsx}",
-      "src/pages/**/*.{js,jsx}",
       "!/static/vendor/jquery/dist"
     ],
     "moduleNameMapper": {

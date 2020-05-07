@@ -4,9 +4,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 
 describe('<MentorForm />', () => {
   test('should update inputs, submit and clear inputs', async () => {
-    const { container } = render(
-      <MentorForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')
     const branchOfService = container.querySelector('#branch-of-service')
@@ -41,9 +39,7 @@ describe('<MentorForm />', () => {
   })
 
   test('should handle errors when fetch fails', async () => {
-    const { container } = render(
-      <MentorForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')
     const branchOfService = container.querySelector('#branch-of-service')
@@ -68,9 +64,7 @@ describe('<MentorForm />', () => {
   })
 
   test('should show generic error message for empty fields on submit', async () => {
-    const { container } = render(
-      <MentorForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')
     const branchOfService = container.querySelector('#branch-of-service')
@@ -122,9 +116,7 @@ describe('<MentorForm />', () => {
   })
 
   test.only('should show custom error message for empty fields with validation', async () => {
-    const { container } = render(
-      <MentorForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')
     const branchOfService = container.querySelector('#branch-of-service')

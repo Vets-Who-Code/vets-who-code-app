@@ -86,7 +86,6 @@ exports[`<Nav /> should render correctly 1`] = `
           class="donate"
           role="menuitem"
         >
-           
           <a
             href="/about"
           >
@@ -99,7 +98,18 @@ exports[`<Nav /> should render correctly 1`] = `
           class="donate"
           role="menuitem"
         >
-           
+          <a
+            href="/testimonials"
+          >
+            <span>
+              Testimonials
+            </span>
+          </a>
+        </li>
+        <li
+          class="donate"
+          role="menuitem"
+        >
           <a
             href="/syllabus"
           >
@@ -152,7 +162,7 @@ exports[`<Nav /> should render correctly 1`] = `
             href="/contact"
           >
             <span>
-              Contact Us
+              Contact
             </span>
           </a>
         </li>

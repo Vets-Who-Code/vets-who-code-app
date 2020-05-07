@@ -29,7 +29,7 @@ function Contact() {
         <div className="container">
           <div className="row">
             <div className="contact-form"></div>
-            <ContactForm onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
+            <ContactForm />
           </div>
         </div>
       </section>
