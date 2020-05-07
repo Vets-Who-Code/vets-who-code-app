@@ -4,9 +4,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react'
 
 describe('<ApplyForm />', () => {
   test('should submit form and clear fields', async () => {
-    const { container } = render(
-      <ApplyForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ApplyForm />)
     const firstName = container.querySelector('#firstName')
     const lastName = container.querySelector('#lastName')
     const email = container.querySelector('#email')
@@ -58,9 +56,7 @@ describe('<ApplyForm />', () => {
   })
 
   test('should handle errors when submit form fails', async () => {
-    const { container } = render(
-      <ApplyForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ApplyForm />)
     const firstName = container.querySelector('#firstName')
     const lastName = container.querySelector('#lastName')
     const email = container.querySelector('#email')
@@ -107,9 +103,7 @@ describe('<ApplyForm />', () => {
   })
 
   test('should add error when input is incorrect', async () => {
-    const { container } = render(
-      <ApplyForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ApplyForm />)
 
     const firstName = container.querySelector('#firstName')
     const lastName = container.querySelector('#lastName')
@@ -177,9 +171,7 @@ describe('<ApplyForm />', () => {
   })
 
   test('should throw custom errors based on pattern and show unique message', async () => {
-    const { container } = render(
-      <ApplyForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ApplyForm />)
 
     const firstName = container.querySelector('#firstName')
     const lastName = container.querySelector('#lastName')

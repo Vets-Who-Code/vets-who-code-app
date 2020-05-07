@@ -215,6 +215,13 @@ exports[`<Footer /> should render correctly 1`] = `
                     </li>
                     <li>
                       <a
+                        href="/testimonials"
+                      >
+                        Testimonials
+                      </a>
+                    </li>
+                    <li>
+                      <a
                         href="/mentor"
                       >
                         Mentor

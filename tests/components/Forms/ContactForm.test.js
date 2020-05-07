@@ -9,9 +9,7 @@ describe('<ContactFrom />', () => {
         ok: true,
       })
     )
-    const { container } = render(
-      <ContactForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ContactForm />)
     const applicationForm = container.querySelector('#s2do-form')
     const nameInput = container.querySelector('#InputName')
     const emailInput = container.querySelector('#InputEmail')
@@ -54,9 +52,7 @@ describe('<ContactFrom />', () => {
         status: 200,
       })
     )
-    const { container } = render(
-      <ContactForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ContactForm />)
     const applicationForm = container.querySelector('#s2do-form')
     const nameInput = container.querySelector('#InputName')
     const emailInput = container.querySelector('#InputEmail')
@@ -99,9 +95,7 @@ describe('<ContactFrom />', () => {
       })
     )
 
-    const { container } = render(
-      <ContactForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ContactForm />)
     const applicationForm = container.querySelector('#s2do-form')
     const nameInput = container.querySelector('#InputName')
     const emailInput = container.querySelector('#InputEmail')
@@ -167,9 +161,7 @@ describe('<ContactFrom />', () => {
       })
     )
 
-    const { container } = render(
-      <ContactForm onSubmitSuccess={jest.fn()} onSubmitError={jest.fn()} />
-    )
+    const { container } = render(<ContactForm />)
     const applicationForm = container.querySelector('#s2do-form')
     const nameInput = container.querySelector('#InputName')
     const emailInput = container.querySelector('#InputEmail')

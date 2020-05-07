@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { FormAlert } from '../'
+import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
-function ContactForm({ onSubmitSuccess, onSubmitError }) {
+function ContactForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
 

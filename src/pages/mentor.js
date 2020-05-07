@@ -190,7 +190,7 @@ function Mentor() {
               <div className="col-xs-12">
                 <div className="contactus-brief">
                   <h3>Mentor Application</h3>
-                  <MentorForm onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
+                  <MentorForm />
                 </div>
               </div>
             </div>

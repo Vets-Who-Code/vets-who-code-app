@@ -26,7 +26,7 @@ export default function Apply() {
                   to gauge your initial skill-level and help us to assign an appropriate mentor),
                   and fill out the following application form.
                 </p>
-                <ApplyForm onSubmitSuccess={onSubmitSuccess} onSubmitError={onSubmitError} />
+                <ApplyForm />
               </div>
             </div>
           </div>
