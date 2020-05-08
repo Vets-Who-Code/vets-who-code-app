@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "13.4.0",
     "babel-preset-gatsby": "0.4.1",
     "dotenv": "8.2.0",
     "gatsby": "2.21.20",
@@ -17,7 +16,6 @@
     "gatsby-plugin-prefetch-google-fonts": "1.4.3",
     "gatsby-plugin-react-helmet": "3.3.1",
     "gatsby-plugin-sharp": "2.6.2",
-    "gatsby-source-contentful": "2.3.3",
     "gatsby-source-filesystem": "2.3.1",
     "gatsby-transformer-sharp": "2.5.2",
     "generate": "0.14.0",
