@@ -36,9 +36,7 @@
     "typeface-lato": "0.0.75",
     "typeface-roboto-slab": "1.1.4",
     "typeface-source-sans-pro": "1.1.5",
-    "validator": "^12.1.0",
-    "@contentful/rich-text-react-renderer": "13.4.0",
-    "gatsby-source-contentful": "2.2.10"
+    "validator": "^12.1.0"
   },
   "keywords": [
     "gatsby"
