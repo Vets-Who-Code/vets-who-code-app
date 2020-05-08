@@ -7,10 +7,10 @@ const useScript = url => {
     script.src = url
     script.async = true
 
-    document.head.appendChild(script)
+    document.body.appendChild(script)
 
     return () => {
-      // document.head.removeChild(script)
+      document.body.removeChild(script)
     }
   }, [url])
 }
