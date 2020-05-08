@@ -10,7 +10,7 @@ async function enableBlog() {
   const updatedDependencies = {
     ...parsedPkgJson.dependencies,
     '@contentful/rich-text-react-renderer': '13.4.0',
-    'gatsby-source-contentful': '2.2.10',
+    'gatsby-source-contentful': '2.3.3',
   }
 
   parsedPkgJson.dependencies = updatedDependencies
