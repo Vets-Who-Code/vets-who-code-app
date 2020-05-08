@@ -83,7 +83,10 @@ export const options = {
     },
     [INLINES.HYPERLINK]: (node, children) => {
       if (node?.nodeType === 'hyperlink') {
-        if (node?.data?.uri.indexOf('codepen') > -1) {
+        if (
+          node?.data?.uri.indexOf('codepen') > -1 &&
+          node?.data?.uri !== 'https://codepen.io/vetswhocode'
+        ) {
           return renderCodepenEmbed(node.data.uri)
         }
         if (node?.data?.uri.indexOf('repl') > -1) {
