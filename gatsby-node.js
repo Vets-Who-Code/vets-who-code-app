@@ -48,7 +48,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     `)
 
-    const postPerPage = 2
+    const postPerPage = 3
     const posts = res.data.allContentfulBlogPost.edges
     const totalPages = Math.ceil(posts.length / postPerPage)
 
