@@ -68,7 +68,14 @@ const contentfulConfig = {
   options: {
     spaceId: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-    environment: 'develop',
+    /**
+     * We currently have a master environment and a development environment in contentful.
+     * The master environment is for our production environment that is used on the live app.
+     * The development environment enables the ability to develop features without
+     * interrupting the production environment. Make sure you have set this environment variable
+     * if you need to use the development environment.
+     */
+    environment: process.env.CONTENTFUL_ENVIRONMENT || 'master',
   },
 }
 
