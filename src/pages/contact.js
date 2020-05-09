@@ -38,14 +38,14 @@ function Contact() {
           <div className="row">
             <div className="col-sm-12 text-center">
               <h3>
-                Help Us Teach More Veterans How To Code &nbsp;{' '}
+                Help Us Teach More Veterans How To Code &nbsp;
                 <a className="btn btn-charity-default" href="/donate">
-                  DONATE{' '}
-                </a>{' '}
-              </h3>{' '}
-            </div>{' '}
-          </div>{' '}
-        </div>{' '}
+                  DONATE
+                </a>
+              </h3>
+            </div>
+          </div>
+        </div>
       </section>
     </Layout>
   )

@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
 function ApplyForm() {
+  const subscribeButtonRef = React.useRef()
   const { register, handleSubmit, errors, reset } = useForm()
 
   const onSubmit = async (formData, e) => {
@@ -22,7 +24,10 @@ function ApplyForm() {
       if (response.ok) {
         onSubmitSuccess(message)
         reset()
+      } else if (!response.ok) {
+        onSubmitError('OOPS Something went wrong, please try again later.')
       }
+      subscribeButtonRef.current.blur()
     } catch (error) {
       onSubmitError('OOPS Something went wrong, please try again later.')
     }
@@ -53,7 +58,12 @@ function ApplyForm() {
           </div>
         </div>
         <div className="col-md-3 subscribe-button_box">
-          <button id="subscribe-button" type="submit" className="btn btn-subscribe">
+          <button
+            ref={subscribeButtonRef}
+            id="subscribe-button"
+            type="submit"
+            className="btn btn-subscribe"
+          >
             subscribe
           </button>
         </div>

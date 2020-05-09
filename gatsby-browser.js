@@ -5,7 +5,7 @@ exports.onInitialClientRender = () => {
 }
 
 exports.onClientEntry = () => {
-  const linkedChat = document.createElement('script')
-  linkedChat.setAttribute('src', 'https://linked.chat/web/a9LB63')
-  document.head.appendChild(linkedChat)
+  // const linkedChat = document.createElement('script')
+  // linkedChat.setAttribute('src', 'https://linked.chat/web/a9LB63')
+  // document.body.appendChild(linkedChat)
 }

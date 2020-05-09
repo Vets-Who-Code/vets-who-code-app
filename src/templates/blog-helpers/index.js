@@ -46,7 +46,7 @@ function renderCodepenEmbed(uri) {
       data-pen-title="Heart Flag"
     >
       <span>
-        See the Pen <a href={uri}>Heart Flag</a> VetsWhoCode
+        <a href={uri}>View on CodePen</a>
         <a href="https://codepen.io">CodePen</a>.
       </span>
     </div>
@@ -89,7 +89,7 @@ export const options = {
         ) {
           return renderCodepenEmbed(node.data.uri)
         }
-        if (node?.data?.uri.indexOf('repl') > -1) {
+        if (node?.data?.uri.indexOf('repl') > -1 && node?.data?.uri !== 'https://repl.it') {
           return rendedReplEmbed(node.data.uri)
         }
       }
