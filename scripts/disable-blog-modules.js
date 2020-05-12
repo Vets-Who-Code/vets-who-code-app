@@ -1,8 +1,6 @@
 const fs = require('fs')
-// const chalk = require('chalk')
 const install = require('./install')
-
-const log = (...args) => console.log(...args)
+const { log } = require('./helpers')
 
 async function resetConfig() {
   const contentfulRichTextRender = '@contentful/rich-text-react-renderer'
@@ -12,8 +10,8 @@ async function resetConfig() {
   const updatedDependencies = parsedPkgJson.dependencies
 
   if (
-    !updatedDependencies.hasOwnProperty(contentfulRichTextRender) &&
-    !updatedDependencies.hasOwnProperty(gatsbySourceContentful)
+    !updatedDependencies[contentfulRichTextRender] &&
+    !updatedDependencies[gatsbySourceContentful]
   ) {
     log('\x1b[42m\x1b[30m%s\x1b[0m', ' INFO ', '\x1b[32m', '🤖 Dependencies not preset skipping')
     return

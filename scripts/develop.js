@@ -1,10 +1,12 @@
 const spawn = require('cross-spawn-with-kill')
-const { resetConfig } = require('./disable-blog-modules.js')
 
-const developProcess = spawn('gatsby', ['develop'], { stdio: 'inherit', shell: true })
+async function develop() {
+  try {
+    await spawn('gatsby', ['develop'], { stdio: 'inherit', shell: true })
+  } catch (err) {
+    console.log(err.message)
+    process.exit(1)
+  }
+}
 
-process.on('SIGINT', () => {
-  developProcess.kill()
-  resetConfig()
-  process.exit()
-})
+module.exports = { develop }

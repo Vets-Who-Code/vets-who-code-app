@@ -44,8 +44,8 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
-    "enable:blog": "node ./scripts/enable-blog-modules.js",
+    "develop": "node ./scripts/pre-start",
+    "enable:blog": "node -e 'require(\"./scripts/enable-blog-modules.js\").enableBlog()'",
     "disable:blog": "node -e 'require(\"./scripts/disable-blog-modules.js\").resetConfig()'",
     "format": "npm run format:src && npm run format:test && yarn run format:templates",
     "format:src": "prettier --write \"src/**/*.js\"",
@@ -72,6 +72,7 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "4.0.0",
     "gatsby-plugin-purgecss": "5.0.0",
+    "inquirer": "7.1.0",
     "jest": "26.0.1",
     "lint-staged": "10.2.2",
     "prettier": "2.0.5",
@@ -112,8 +113,5 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
       "\\.(css|scss|sass)$": "<rootDir>/tests/__mocks__/style-mock.js"
     }
-  },
-  "resolutions": {
-    "sharp": "0.23.4"
   }
 }
