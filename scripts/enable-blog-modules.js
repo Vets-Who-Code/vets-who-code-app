@@ -17,7 +17,7 @@ async function enableBlog() {
 
   fs.writeFileSync(`./package.json`, JSON.stringify(parsedPkgJson, null, 2), 'utf-8')
 
-  if (process.env.CI) {
+  if (process.env.CI || process.env.CD) {
     await install()
   }
 }

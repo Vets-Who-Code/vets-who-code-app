@@ -1,11 +1,13 @@
 require('dotenv').config()
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-const { log } = require('./helpers')
-const spawn = require('cross-spawn-with-kill')
+const util = require('util')
+// const spawn = util.promisify(require('cross-spawn-with-kill'))
+const { spawnSync, execSync, execFileSync } = require('child_process')
 
+const { log } = require('./helpers')
 const { enableBlog } = require('./enable-blog-modules')
-// const { develop } = require('./develop')
+const { develop } = require('./develop')
 // const install = require('./install')
 
 const [skipPrompts] = process.argv.slice(2)
@@ -51,8 +53,8 @@ if (skipPrompts === '--skip' || skipPrompts === '-s') {
         log(chalk.green.inverse(' RUNNING WITH WITH SHOP '))
         // enable shopify modules
       }
-      spawn('yarn', { stdio: 'inherit', shell: true })
-      spawn('gatsby', ['develop'], { stdio: 'inherit', shell: true })
+      spawnSync('yarn', ['install'], { stdio: 'inherit', shell: true })
+      spawnSync('gatsby', ['develop'], { stdio: 'inherit', shell: true })
     })
     .catch(error => {
       if (error.isTtyError) {
