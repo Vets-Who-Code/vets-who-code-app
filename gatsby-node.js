@@ -12,36 +12,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
   } else {
     const blogTemplate = path.resolve('./src/templates/blog-template.js')
     const blogPostTemplate = path.resolve('./src/templates/blog-post-template.js')
-    const res = await graphql(`
+    const allBlogPostList = await graphql(`
       query {
-        allContentfulBlogPost(limit: 10, sort: { fields: publishedDate, order: DESC }) {
+        allContentfulBlogPost {
+          totalCount
           edges {
             node {
               slug
-              id
-            }
-          }
-          totalCount
-          nodes {
-            author {
-              authorName
-              id
-            }
-            title
-            slug
-            id
-            publishedDate(formatString: "MMMM Do, YYYY")
-            body {
-              json
-            }
-            featureImage {
-              title
-              fixed(width: 500) {
-                width
-                height
-                src
-                srcSet
-              }
             }
           }
         }
@@ -49,13 +26,43 @@ module.exports.createPages = async ({ graphql, actions }) => {
     `)
 
     const postPerPage = 3
-    const posts = res.data.allContentfulBlogPost.edges
-    const totalPages = Math.ceil(posts.length / postPerPage)
+    const { totalCount } = allBlogPostList.data.allContentfulBlogPost
+    const totalPages = Math.ceil(totalCount / postPerPage)
 
-    Array.from({ length: totalPages }).forEach((_, index) => {
+    let index = 0
+    while (index < totalPages) {
       const currentPage = index + 1
       const isFirstPage = index === 0
       const isLastPage = currentPage === totalPages
+      const skip = index * postPerPage
+      const paginatedBlogPostsList = await graphql(`
+        query paginatedBlogPostsList {
+          allContentfulBlogPost(skip: ${skip}, limit: 3) {
+            nodes {
+              author {
+                authorName
+                id
+              }
+              title
+              slug
+              id
+              publishedDate(formatString: "MMMM Do, YYYY")
+              body {
+                json
+              }
+              featureImage {
+                title
+                fixed(width: 500) {
+                  width
+                  srcSet
+                  src
+                  height
+                }
+              }
+            }
+          }
+        }
+      `)
 
       createPage({
         path: isFirstPage ? '/blog' : `/blog/${currentPage}`,
@@ -67,12 +74,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
           isLastPage,
           currentPage,
           totalPages,
-          contentfulData: res.data.allContentfulBlogPost,
+          contentfulData: paginatedBlogPostsList.data.allContentfulBlogPost,
         },
       })
-    })
 
-    for (let edge of res.data.allContentfulBlogPost.edges) {
+      index++
+    }
+
+    for (let edge of allBlogPostList.data.allContentfulBlogPost.edges) {
       const blogPost = await graphql(`
         query {
           contentfulBlogPost(slug: { eq: "${edge.node.slug}" }) {
