@@ -571,9 +571,6 @@ h1.bold_404 {
 .navbar-solid .navbar-brand {
   padding: 10px 15px 5px 15px;
 }
-.navbar-solid .navbar-nav > li > a {
-  padding: 20px;
-}
 .navbar-solid .dropdown-toggle:after {
   top: 51%;
 }
