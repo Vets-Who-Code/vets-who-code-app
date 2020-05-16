@@ -52,11 +52,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
               }
               featureImage {
                 title
-                fixed(width: 500) {
-                  width
-                  srcSet
+                fluid(maxWidth: 450) {
+                  sizes
                   src
-                  height
+                  srcSet
+                  aspectRatio
                 }
               }
             }

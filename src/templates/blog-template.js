@@ -13,13 +13,14 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
   return (
     <article className="post">
       <div className="row">
-        <div className="col-xs-2" />
+        <div className="col-md-2" />
         <div className="col-md-8">
           <div className="entry-meta">
             <Link to={`/blog/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
               <Image
+                className="img-responsive"
                 alt={featureImage.title}
-                fixed={featureImage.fixed}
+                fluid={featureImage.fluid}
                 style={{ borderRadius: 4 }}
               />
               <h4 className="entry-title">{title}.</h4>
@@ -82,7 +83,12 @@ BlogPostLink.propTypes = {
     nodeType: PropTypes.string,
   }),
   featureImage: PropTypes.shape({
-    fixed: PropTypes.shape({ srcSet: PropTypes.string }),
+    fluid: PropTypes.shape({
+      srcSet: PropTypes.string,
+      src: PropTypes.string,
+      sizes: PropTypes.string,
+      aspectRatio: PropTypes.number,
+    }),
     title: PropTypes.string,
   }),
 }
