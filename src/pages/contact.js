@@ -1,8 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
-import GoogleMap, { createMarker } from '../components/GoogleMap'
-import { ContactForm, onSubmitSuccess, onSubmitError } from '../components/Forms'
+import { ContactForm } from '../components/Forms'
 
 function Contact() {
   return (
@@ -17,22 +16,15 @@ function Contact() {
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-12 clearfix">
-              <GoogleMap createMarker={createMarker} />
+          <div className="container">
+            <div className="row">
+              <div className="contact-form"></div>
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="contact-form" className="section bg-default default-section-padding">
-        <div className="container">
-          <div className="row">
-            <div className="contact-form"></div>
-            <ContactForm />
-          </div>
-        </div>
-      </section>
       <section id="call-to-action-small" className="call-to-action-small">
         <div className="container">
           <div className="row">
