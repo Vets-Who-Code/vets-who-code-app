@@ -40,6 +40,7 @@ const gatsbyConfig = {
         logo: `${__dirname}/src/images/favicon.png`,
       },
     },
+    `gatsby-source-dev`,
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
