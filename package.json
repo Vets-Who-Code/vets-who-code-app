@@ -43,20 +43,23 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:prod": "yarn enable:blog && yarn && gatsby build",
     "clean": "gatsby clean",
     "develop": "node ./scripts/pre-start",
-    "enable:blog": "node -e 'require(\"./scripts/enable-blog-modules.js\").enableBlog()'",
     "disable:blog": "node -e 'require(\"./scripts/disable-blog-modules.js\").resetConfig()'",
+    "enable:blog": "node -e 'require(\"./scripts/enable-blog-modules.js\").enableBlog()'",
     "format": "npm run format:src && npm run format:test && yarn run format:templates",
     "format:src": "prettier --write \"src/**/*.js\"",
     "format:templates": "prettier --write \"templates/**/*.js\"",
     "format:test": "prettier --write \"tests/**/*.js\"",
+    "gatsby:develop": "gatsby develop",
     "heroku-postbuild": "gatsby build",
     "lint": "lint-staged",
     "test": "jest",
     "test:coverage": "jest --env=jsdom --coverage",
     "test:watch": "jest --watch",
-    "view:coverage": "open coverage/lcov-report/index.html"
+    "view:coverage": "open coverage/lcov-report/index.html",
+    "yarn:install": "yarn"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",
@@ -65,6 +68,7 @@
     "babel-eslint": "10.1.0",
     "babel-jest": "26.0.1",
     "babel-preset-gatsby-package": "0.4.1",
+    "cross-spawn": "7.0.2",
     "cross-spawn-with-kill": "1.0.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
@@ -75,6 +79,7 @@
     "inquirer": "7.1.0",
     "jest": "26.0.1",
     "lint-staged": "10.2.2",
+    "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
     "react-test-renderer": "16.13.1"
   },

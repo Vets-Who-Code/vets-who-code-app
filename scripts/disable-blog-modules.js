@@ -6,7 +6,7 @@ async function resetConfig() {
   const contentfulRichTextRender = '@contentful/rich-text-react-renderer'
   const gatsbySourceContentful = 'gatsby-source-contentful'
   const templatePackageJson = fs.readFileSync('./package.json')
-  const parsedPkgJson = JSON.parse(templatePackageJson)
+  const parsedPkgJson = JSON.parse(templatePackageJson.toString())
   const updatedDependencies = parsedPkgJson.dependencies
 
   if (

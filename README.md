@@ -100,7 +100,7 @@ $ yarn disable:blog
 
 ## Testing
 
-In a terminal window run these commands to install jest globally and run the jest test suite.
+In a terminal window run these commands.
 
 ```sh
 $ cd vets-who-code-app
