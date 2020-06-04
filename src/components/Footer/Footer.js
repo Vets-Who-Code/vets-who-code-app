@@ -14,20 +14,18 @@ import {
 function Footer() {
   return (
     <div>
-      {window.location.pathname !== '/donate' && (
-        <section id="call-to-action-small" className="call-to-action-small">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12 text-center">
-                <h3>Help Us Teach More Veterans How To Code &nbsp;</h3>
-                <Link to="/donate" className="btn btn-charity-default">
-                  DONATE
-                </Link>
-              </div>
+      <section id="call-to-action-small" className="call-to-action-small">
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-12 text-center">
+              <h3>Help Us Teach More Veterans How To Code &nbsp;</h3>
+              <Link to="/donate" className="btn btn-charity-default">
+                DONATE
+              </Link>
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
       <section className="footer-widgets pad-extra">
         <div className="container">
           <div className="row">
