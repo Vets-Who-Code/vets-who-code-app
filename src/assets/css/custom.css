@@ -116,13 +116,21 @@
   padding-top: inherit;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .success-story p {
+    text-align: justify;
+  }
+  .success-story h2 {
+    text-align: center;
+  }
+}
 
 .story h2 {
   padding: 15px;
 }
 
 .story-last h2 {
-  color: #C5203E;
+  color: #c5203e;
 }
 
 .lead-in {
@@ -135,7 +143,7 @@
 
 .lead-in p {
   text-align: center;
-  color: #C5203E;
+  color: #c5203e;
 }
 
 .testimonial-row img {
