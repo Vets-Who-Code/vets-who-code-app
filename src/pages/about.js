@@ -60,8 +60,8 @@ function About() {
             </div>
             <div className="col-md-12">
               <div className="success-story">
+                <h2>Who We Are</h2>
                 <p className="story">
-                  <h2>Who We Are</h2>
                   Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
                   technical skills gap with America’s best. We achieve this by using technology to
                   connect and train veterans remotely in web development in order to close the
@@ -81,8 +81,8 @@ function About() {
                   our veterans and military spouses.
                 </p>
 
+                <h2>What We Do</h2>
                 <p className="story">
-                  <h2>What We Do</h2>
                   At Vets Who Code, we take a small cohort of veterans and spouses twice a year and
                   over the course of sixteen weeks train them in programming with a deep focus on
                   Javascript, the language of the web. We do this all remotely using the best tools
@@ -91,11 +91,9 @@ function About() {
                   better programmers.
                 </p>
 
+                <h2>How We Do This</h2>
                 <p className="story">
-                  <h2>How We Do This</h2>
-                  How we accomplish this mission is through a process of <i>
-                    Crawl, Walk, Run
-                  </i>{' '}
+                  How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i>{' '}
                   where as we teach them programming we build upon each lesson in deeper dives so
                   that they become better programmers through each iteration. All this while being
                   lead by instructors who are also veterans, and programmers, and alumni of the
@@ -104,8 +102,8 @@ function About() {
                   on the path of becoming a paid programmer.
                 </p>
 
+                <h2>WE NEED YOUR HELP</h2>
                 <p className="story-last">
-                  <h2>WE NEED YOUR HELP</h2>
                   As our country is going through this unprecedented time with COVID-19, people are
                   wanting to learn the skills of today and tomorrow to future-proof themselves so
                   that they can provide for thier families. Furthermore due to the nature of
@@ -118,20 +116,6 @@ function About() {
                   becoming programmers.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="call-to-action-small" className="call-to-action-small">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 text-center">
-              <h3>
-                Help Us Teach More Veterans How To Code &nbsp;
-                <a className="btn btn-charity-default" href="/donate">
-                  DONATE
-                </a>
-              </h3>
             </div>
           </div>
         </div>

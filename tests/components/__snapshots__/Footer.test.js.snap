@@ -3,6 +3,32 @@
 exports[`<Footer /> should render correctly 1`] = `
 <div>
   <section
+    class="call-to-action-small"
+    id="call-to-action-small"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-12 text-center"
+        >
+          <h3>
+            Help Us Teach More Veterans How To Code  
+          </h3>
+          <a
+            class="btn btn-charity-default"
+            href="/donate"
+          >
+            DONATE
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
     class="footer-widgets pad-extra"
   >
     <div
