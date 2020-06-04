@@ -3,7 +3,7 @@ import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
 import { FaTwitter, FaGithub, FaLinkedinIn, FaBehance } from 'react-icons/fa'
-
+import '../assets/css/custom.css'
 import vwcGIF from '../images/vwc.gif'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
