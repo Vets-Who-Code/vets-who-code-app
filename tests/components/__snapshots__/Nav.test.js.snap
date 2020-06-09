@@ -9,7 +9,7 @@ exports[`<Nav /> should render correctly 1`] = `
   style="opacity: 0.9;"
 >
   <div
-    class="container"
+    class="container-fluid"
   >
     <div
       class="navbar-header"
