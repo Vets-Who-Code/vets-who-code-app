@@ -384,7 +384,7 @@ function ApplyForm() {
             name="submit"
             title=""
             type="submit"
-            value={loading ? 'loading...' : 'submit'}
+            value={loading ? 'loading...' : 'Submit'}
           />
         </div>
       </div>
