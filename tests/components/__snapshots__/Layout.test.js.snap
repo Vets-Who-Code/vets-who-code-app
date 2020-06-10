@@ -16,7 +16,7 @@ exports[`<Layout /> should render correctly 1`] = `
       style="opacity: 0.9;"
     >
       <div
-        class="container"
+        class="container-fluid"
       >
         <div
           class="navbar-header"
@@ -35,6 +35,7 @@ exports[`<Layout /> should render correctly 1`] = `
               aria-current="page"
               class=""
               href="/"
+              id="navbar-brand"
             >
               static-query
               <div
@@ -73,6 +74,7 @@ exports[`<Layout /> should render correctly 1`] = `
         >
           <ul
             class="nav navbar-nav navbar-right"
+            id="navbar-list"
             role="menu"
           >
             <li

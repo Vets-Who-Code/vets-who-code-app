@@ -35,16 +35,16 @@ function Nav() {
       role="navigation"
       style={{ opacity: opacity }}
     >
-      <div className="container">
+      <div className="container-fluid">
         <div className="navbar-header">
           <div
             className="navbar-brand"
             style={{ padding: '5px 15px 5px' }}
             itemScope=""
-            itemType="https://schema.org/Organization"
+            itemType="https://schema.org/Organization" 
           >
             <span className="sr-only">#VetsWhoCode</span>
-            <Link to="/">
+            <Link to="/" id="navbar-brand">
               <FluidImage
                 fileName="hashflag_white.jpg"
                 alt="#VetsWhoCode Logo"
@@ -71,7 +71,7 @@ function Nav() {
           id="main-nav-collapse"
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
-          <ul className="nav navbar-nav navbar-right" role="menu">
+          <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
             <li role="menuitem" className="donate">
               <Link to="/">
                 <span>Home</span>

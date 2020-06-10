@@ -56,9 +56,40 @@
   vertical-align: middle;
   font-size: 0.5em;
 }
+@media only screen and (max-width: 363px) {
+  .navbar-brand {
+    max-width: 200px;
+  }
+}
 
-/*  */
-.donate:hover{
-  transition: .3s linear;
-  background-color: #C5203E;
+.donate:hover {
+  transition: 0.3s linear;
+  background-color: #c5203e;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .container-fluid {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  #navbar-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: linear;
+    margin-top: 0;
+    padding: 0;
+  }
+  .navbar-nav li{
+    padding-top: 0;
+  }
+  #navbar-brand {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: auto;
+  }
 }
