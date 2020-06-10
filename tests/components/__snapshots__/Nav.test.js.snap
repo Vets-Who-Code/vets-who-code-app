@@ -28,6 +28,7 @@ exports[`<Nav /> should render correctly 1`] = `
           aria-current="page"
           class=""
           href="/"
+          id="navbar-brand"
         >
           static-query
           <div
@@ -66,6 +67,7 @@ exports[`<Nav /> should render correctly 1`] = `
     >
       <ul
         class="nav navbar-nav navbar-right"
+        id="navbar-list"
         role="menu"
       >
         <li
