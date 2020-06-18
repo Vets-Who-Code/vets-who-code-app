@@ -12,19 +12,6 @@ function Donate() {
           <div className="row">
             <div className="col-md-12">
               <h4 className="cause_title">Help Us Continue To Train More Veterans</h4>
-              <br />
-              <div className="cause_section_content">
-                <p>
-                  Since 2014 we have been successfully training veterans in web development. From
-                  holding speaking engagements with industry leaders, to curriculum and teaching, to
-                  setting up tours and meetings with top tech companies, we have been on the front
-                  lines getting our troops the training and tools that they need to earn the
-                  opportunities that the tech industry offers. TO do that we need support from
-                  people like you, who not only support veterans but who understand the value of
-                  hard work and pushing yourself to obtain a goal. Please continue your support by
-                  giving a small donation so that we can continue to train more veterans.
-                </p>
-              </div>
             </div>
           </div>
         </div>
