@@ -75,7 +75,7 @@ function IndexPage() {
           <div className="row bg-dark">
             <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
               <FluidImage
-                fileName="jerome-schuster.jpg"
+                fileName="jerome-jsconf.jpg"
                 className="img-responsive"
                 alt="Schuster and Jerome"
               />
