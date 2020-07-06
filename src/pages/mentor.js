@@ -98,7 +98,7 @@ const additionalGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors it
+        <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors may find it
         difficult when they do not have all the answers.
       </Fragment>
     ),
