@@ -124,13 +124,15 @@ function Footer() {
               <div className="widgets-content">
                 <h3 className="widgets-title">Contact Us</h3>
                 <div className="office map">
-                  <p>
-                    <span>Hi, if you have any questions, please drop us a line.</span>
-                    <br />
-                    Email: hello@vetswhocode.io
-                    <br />
-                    Phone: (917) 960-3806
-                  </p>
+                  <p>Hi, if you have any questions, please drop us a line.</p>
+                  <a
+                    aria-label="Email hello@vetswhocode.io"
+                    title="Email Contact"
+                    href="hello@vetswhocode.io"
+                  >
+                    hello@vetswhocode.io
+                  </a>
+                  <p> Phone: (917) 960-3806</p>
                 </div>
               </div>
             </div>
@@ -143,7 +145,16 @@ function Footer() {
             <div className="col-md-6 col-sm-6">
               <p className="copyright">
                 <FaRegCopyright color="#fff" />
-                #VetsWhoCode
+                2020{' '}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Link to Copyright Licence"
+                  title="Copyright"
+                  href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
+                >
+                  #VetsWhoCode
+                </a>
               </p>
             </div>
             <div className="col-md-6 col-sm-6">
@@ -151,7 +162,7 @@ function Footer() {
                 <li>
                   Made with{' '}
                   <span className="fa fa-heart red">
-                    <FaHeart color="red" />
+                    <FaHeart color="#C5203E" />
                   </span>{' '}
                   By #VetsWhoCode.
                 </li>
