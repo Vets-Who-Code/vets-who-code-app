@@ -67,7 +67,7 @@ class Countdown extends Component {
             </div>
           </Fragment>
         ) : (
-          <h3>Class Is In Session</h3>
+          <h3 className="countdown-message">Class Is In Session</h3>
         )}
       </div>
     )
