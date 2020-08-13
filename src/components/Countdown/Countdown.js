@@ -8,6 +8,7 @@ class Countdown extends Component {
     seconds: null,
     interval: null,
     time: null,
+    nextClass: null,
   }
 
   componentDidMount = () => {
@@ -21,7 +22,9 @@ class Countdown extends Component {
 
   getTimeRemaining = () => {
     const deadLine = 'August 13 2020'
+    const nextClass = 'March 01 2021'
     const time = Date.parse(deadLine) - Date.parse(new Date())
+    const nextClassTimeLeft = Date.parse(nextClass) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
@@ -33,6 +36,7 @@ class Countdown extends Component {
       minutes,
       seconds,
       time,
+      nextClass,
     })
   }
 
@@ -42,7 +46,7 @@ class Countdown extends Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds, time } = this.state
+    const { days, hours, minutes, seconds, time, nextClass } = this.state
     return (
       <div>
         {time > 0 ? (
@@ -67,7 +71,10 @@ class Countdown extends Component {
             </div>
           </Fragment>
         ) : (
-          <h3 className="countdown-message">Class Is In Session</h3>
+          <div>
+            <h3 className="countdown-message">Class Is In Session</h3>
+            <p>{`Please apply before ${nextClass} for next cohort`}</p>
+          </div>
         )}
       </div>
     )
