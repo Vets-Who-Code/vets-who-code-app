@@ -7,6 +7,7 @@ class Countdown extends Component {
     minutes: null,
     seconds: null,
     interval: null,
+    time: null,
   }
 
   componentDidMount = () => {
@@ -19,7 +20,7 @@ class Countdown extends Component {
   }
 
   getTimeRemaining = () => {
-    const deadLine = 'March 01 2021'
+    const deadLine = 'August 13 2020'
     const time = Date.parse(deadLine) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
@@ -31,6 +32,7 @@ class Countdown extends Component {
       hours,
       minutes,
       seconds,
+      time,
     })
   }
 
@@ -40,28 +42,34 @@ class Countdown extends Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds } = this.state
+    const { days, hours, minutes, seconds, time } = this.state
     return (
-      <Fragment>
-        <div className="container-countdown">
-          <div className="countdown-box">
-            <span className="counter">{days}</span>
-            <h4>Days</h4>
-          </div>
-          <div className="countdown-box">
-            <span className="counter">{hours}</span>
-            <h4>Hours</h4>
-          </div>
-          <div className="countdown-box">
-            <span className="counter">{minutes}</span>
-            <h4>Minutes</h4>
-          </div>
-          <div className="countdown-box">
-            <span className="counter">{seconds}</span>
-            <h4>Seconds</h4>
-          </div>
-        </div>
-      </Fragment>
+      <div>
+        {time > 0 ? (
+          <Fragment>
+            <div className="container-countdown">
+              <div className="countdown-box">
+                <span className="counter">{days}</span>
+                <h4>Days</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{hours}</span>
+                <h4>Hours</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{minutes}</span>
+                <h4>Minutes</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{seconds}</span>
+                <h4>Seconds</h4>
+              </div>
+            </div>
+          </Fragment>
+        ) : (
+          <h3>Class Is In Session</h3>
+        )}
+      </div>
     )
   }
 }
