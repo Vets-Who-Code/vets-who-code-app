@@ -21,10 +21,9 @@ class Countdown extends Component {
   }
 
   getTimeRemaining = () => {
-    const deadLine = 'August 13 2020'
+    const currentClass = 'August 03 2020'
     const nextClass = 'March 01 2021'
-    const time = Date.parse(deadLine) - Date.parse(new Date())
-    const nextClassTimeLeft = Date.parse(nextClass) - Date.parse(new Date())
+    const time = Date.parse(currentClass) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
