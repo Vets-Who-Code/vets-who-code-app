@@ -98,7 +98,7 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
     }
   }
 } else {
-  if (/DISPLAY_BLOG/.test(envFileConent) && /^#\s?DISPLAY_BLOG/.test(envFileConent)) {
+  if (/^(?!#)DISPLAY_BLOG=true/gm.test(envFileConent)) {
     console.log(
       '\n',
       chalk.red.inverse('[ERROR]'),
