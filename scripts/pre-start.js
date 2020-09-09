@@ -8,6 +8,11 @@ const { log } = require('./helpers')
 
 const args = process.argv.slice(2)
 
+const envFilePath = path.resolve(process.cwd(), '.env')
+const envFile = fs.existsSync(envFilePath)
+const envFileBuffer = fs.readFileSync(envFilePath)
+const envFileConent = envFileBuffer.toString()
+
 function runCommands(commandList) {
   const { stdout, stderr } = process
 
@@ -43,9 +48,6 @@ const options = {
 if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
   options['-h']()
 } else if (args.length > 0) {
-  const envFilePath = path.resolve(process.cwd(), '.env')
-  const envFile = fs.existsSync(envFilePath)
-
   if (!envFile) {
     inquirer
       .prompt([
@@ -85,19 +87,25 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
         }
       })
   } else if (args.indexOf('-b') > -1 || (args.indexOf('--blog') > -1 && envFile)) {
-    let envFileConent = fs.readFileSync(envFilePath)
-    envFileConent = envFileConent.toString()
-
-    if (envFileConent.match(/# DISPLAY_BLOG=true/) || !envFileConent.match(/DISPLAY_BLOG/)) {
+    if (/^#\s?DISPLAY_BLOG/.test(envFileConent) || !/DISPLAY_BLOG/.test(envFileConent)) {
       console.log(
         chalk.red.inverse('[ERROR]'),
         'Please add or enable DISPLAY_BLOG=true to your .env file \n'
       )
       process.exit(1)
+    } else {
+      options['-b']()
     }
-
-    options['-b']()
   }
 } else {
-  runCommands(['gatsby:develop'])
+  if (/DISPLAY_BLOG/.test(envFileConent)) {
+    console.log(
+      '\n',
+      chalk.red.inverse('[ERROR]'),
+      'Please remove or disable DISPLAY_BLOG=true from your .env file \n'
+    )
+    process.exit(1)
+  } else {
+    runCommands(['gatsby:develop'])
+  }
 }
