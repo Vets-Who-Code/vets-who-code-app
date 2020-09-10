@@ -9,23 +9,20 @@ const normalizePhone = (value, previousValue) => {
   const onlyNums = value.replace(/[^\d]/g, '') // only allows 0-9
 
   if (!previousValue || value.length > previousValue.length) {
-    if (onlyNums.length === 3) return `(${onlyNums})`
-    if (onlyNums.length === 6) return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3)}-`
+    if (onlyNums.length === 3) return `${onlyNums}`
+    if (onlyNums.length === 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}-`
 
     if (onlyNums.length <= 3) return onlyNums
-    if (onlyNums.length <= 6) return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3)}`
+    if (onlyNums.length <= 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}`
 
-    return `(${onlyNums.slice(0, 3)}) ${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`
+    return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`
   }
 }
 
 function ContactForm() {
   const [loading, setLoading] = useState(false)
-  const { register, handleSubmit, errors, reset } = useForm({
-    defaultValues: {
-      phone: '',
-    },
-  })
+  const [phone, setPhone] = useState('')
+  const { register, handleSubmit, errors, reset } = useForm()
 
   const onSubmit = async (formData, e) => {
     e.preventDefault()
@@ -109,17 +106,24 @@ function ContactForm() {
             ref={register({
               required: true,
               pattern: {
-                value: /\((\d{3})\)\s(\d{3})-(\d{4})/g,
-                //^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
+                // value: /\((\d{3})\)\s(\d{3})-(\d{4})/g,
+                value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
+                // ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
                 // (?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})
                 message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
             onChange={event => {
               const { value } = event.target
-              console.log(phone)
-              if (value) event.target.value = normalizePhone(value, phone)
+              // console.log(setValue('phone', normalizePhone(value)))
+              if (value) {
+                setPhone(prevPhoneNumber => normalizePhone(value, prevPhoneNumber))
+              }
+
+              // console.log(phone)
+              // if (value) event.target.value = normalizePhone(value, phone)
             }}
+            value={phone}
           />
         </div>
         {errors.phone && errors.phone.type === 'required' && <FormAlert />}
