@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
+const normalizePhone = value => {
+  //console.log(value)
+  return value.replace(/^(\d{3})(\d{3})(\d{4}).*/, '($1) $2-$3').substr(0, 14)
+}
+
 function ContactForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
@@ -26,6 +31,7 @@ function ContactForm() {
     } catch (error) {
       onSubmitError('OOPS Something went wrong, please try again later.')
       setLoading(false)
+      console.log(error);
     }
   }
 
@@ -84,14 +90,22 @@ function ContactForm() {
             className="form-control form-control-dark"
             name="phone"
             id="InputPhoneNumber"
-            placeholder="123-456-789"
+            placeholder="1234567890"
+            type="tel"
+            autoComplete="phone"
             ref={register({
               required: true,
               pattern: {
-                value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
-                message: 'Please input a valid phone number XXX-XXX-XXXX',
+                value: /\(?(\d{3})\)\s?(\d{3})-?(\d{4})/g, 
+                //^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
+                // (?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})
+                message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
+            onChange={event => {
+              const { value } = event.target
+              event.target.value = normalizePhone(value)
+            }}
           />
         </div>
         {errors.phone && errors.phone.type === 'required' && <FormAlert />}
