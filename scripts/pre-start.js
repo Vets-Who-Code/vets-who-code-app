@@ -7,7 +7,6 @@ const runAll = require('npm-run-all')
 const { log } = require('./helpers')
 
 const args = process.argv.slice(2)
-
 const envFilePath = path.resolve(process.cwd(), '.env')
 const envFile = fs.existsSync(envFilePath)
 const envFileBuffer = fs.readFileSync(envFilePath)
@@ -39,10 +38,7 @@ Options:
 
 const options = {
   '-h': printHelp,
-  '-b': () => {
-    log('RUN BLOG BLOCK')
-    runCommands(['enable:blog', 'yarn:install', 'gatsby:develop'])
-  },
+  '-b': () => runCommands(['enable:blog', 'yarn:install', 'gatsby:develop']),
 }
 
 if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
@@ -87,7 +83,7 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
         }
       })
   } else if (args.indexOf('-b') > -1 || (args.indexOf('--blog') > -1 && envFile)) {
-    if (/^#\s?DISPLAY_BLOG/.test(envFileConent) || !/DISPLAY_BLOG/.test(envFileConent)) {
+    if (/^#\s?DISPLAY_BLOG.*/gm.test(envFileConent) || !/DISPLAY_BLOG/gm.test(envFileConent)) {
       console.log(
         chalk.red.inverse('[ERROR]'),
         'Please add or enable DISPLAY_BLOG=true to your .env file \n'
@@ -98,7 +94,7 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
     }
   }
 } else {
-  if (/^(?!#)DISPLAY_BLOG=true/gm.test(envFileConent)) {
+  if (/^(?!#)DISPLAY_BLOG.*/gm.test(envFileConent)) {
     console.log(
       '\n',
       chalk.red.inverse('[ERROR]'),
