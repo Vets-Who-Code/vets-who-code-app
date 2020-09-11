@@ -177,7 +177,7 @@ describe('<ContactFrom />', () => {
     })
 
     fireEvent.input(phoneInput, {
-      target: { value: '555-555-5555' },
+      target: { value: '55555' },
     })
 
     fireEvent.input(messageTextArea, {
@@ -196,11 +196,11 @@ describe('<ContactFrom />', () => {
     }
 
     const errorMessages = container.querySelectorAll('.alert-danger')
-    //expect(errorMessages.length).toBe(2)
+    expect(errorMessages.length).toBe(2)
     expect(errorMessages[0].textContent).toContain(
       'Please enter a valid email address jody@example.com'
     )
-    //expect(errorMessages[1].textContent).toContain('Please input a valid phone number XXX-XXX-XXXX')
+    expect(errorMessages[1].textContent).toContain('Please input a valid phone number XXXXXXXXXX')
 
     await waitFor(() => {
       fireEvent.input(nameInput, {
