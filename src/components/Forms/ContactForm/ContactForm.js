@@ -91,10 +91,7 @@ function ContactForm() {
             ref={register({
               required: true,
               pattern: {
-                // value: /\((\d{3})\)\s(\d{3})-(\d{4})/g,
                 value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
-                // ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$
-                // (?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})
                 message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
