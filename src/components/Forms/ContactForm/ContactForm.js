@@ -83,7 +83,7 @@ function ContactForm() {
             Your Phone Number
           </label>
           <input
-            // type="number"
+            type="tel"
             className="form-control form-control-dark"
             name="phone"
             id="InputPhoneNumber"
