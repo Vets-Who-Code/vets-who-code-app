@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
@@ -14,6 +14,10 @@ function About() {
     videoRef.current.play()
     videoRef.current.onended = end
   }
+
+  useEffect(() => {
+    play()
+  })
 
   function end() {
     document.querySelector('.success-video').style.display = 'none'
