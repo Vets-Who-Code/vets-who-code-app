@@ -34,7 +34,7 @@ describe('<ContactFrom />', () => {
 
     expect(nameInput.value).toBe('Jodi')
     expect(emailInput.value).toBe('jodi@mail.com')
-    expect(phoneInput.value).toBe('(555) 555-5555')
+    expect(phoneInput.value).toBe('555-555-5555')
     expect(messageTextArea.value).toBe('Please Let me Join, I want to be a dev!!!')
 
     await waitFor(() => fireEvent.submit(applicationForm))

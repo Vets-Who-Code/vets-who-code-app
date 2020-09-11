@@ -2,34 +2,19 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
-
-const normalizePhone = (value, previousValue) => {
-  if (!value) return value
-
-  const onlyNums = value.replace(/[^\d]/g, '') // only allows 0-9
-
-  if (!previousValue || value.length > previousValue.length) {
-    if (onlyNums.length === 3) return `${onlyNums}`
-    if (onlyNums.length === 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}-`
-
-    if (onlyNums.length <= 3) return onlyNums
-    if (onlyNums.length <= 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}`
-
-    return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`
-  }
-}
+import { useNormalizePhone } from '../../../hooks'
 
 function ContactForm() {
   const [loading, setLoading] = useState(false)
-  const [phone, setPhone] = useState('')
   const { register, handleSubmit, errors, reset } = useForm()
+  const { phone, setPhone, onChange } = useNormalizePhone('')
 
   const onSubmit = async (formData, e) => {
     e.preventDefault()
     setLoading(true)
 
     try {
-      const gatewayUrl = 'http://localhost:3000/contact' //'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/contact'
+      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/contact'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
@@ -38,12 +23,12 @@ function ContactForm() {
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')
         setLoading(false)
+        setPhone('')
         reset()
       }
     } catch (error) {
       onSubmitError('OOPS Something went wrong, please try again later.')
       setLoading(false)
-      console.log(error)
     }
   }
 
@@ -113,16 +98,7 @@ function ContactForm() {
                 message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
-            onChange={event => {
-              const { value } = event.target
-              // console.log(setValue('phone', normalizePhone(value)))
-              if (value) {
-                setPhone(prevPhoneNumber => normalizePhone(value, prevPhoneNumber))
-              }
-
-              // console.log(phone)
-              // if (value) event.target.value = normalizePhone(value, phone)
-            }}
+            onChange={e => onChange(e)}
             value={phone}
           />
         </div>
