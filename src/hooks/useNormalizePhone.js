@@ -7,9 +7,7 @@ const useNormalizePhone = initialValue => {
     setPhone,
     onChange: event => {
       const { value } = event.target
-      if (value) {
-        setPhone(previousValue => normalizePhone(value, previousValue))
-      }
+      setPhone(previousValue => normalizePhone(value, previousValue))
     },
   }
 }
