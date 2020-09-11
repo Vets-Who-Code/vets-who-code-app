@@ -72,32 +72,32 @@ function Nav() {
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/about">
                 <span>About</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/testimonials">
                 <span>Testimonials</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/mentor">
                 <span>Mentor</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/apply">
                 <span>Apply</span>
               </Link>
@@ -107,12 +107,12 @@ function Nav() {
                 <span>Donate</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/contact">
                 <span>Contact</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="nav">
               <Link to="/blog">
                 <span>Blog</span>
               </Link>
