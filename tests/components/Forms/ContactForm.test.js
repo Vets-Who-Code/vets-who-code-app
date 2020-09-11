@@ -25,7 +25,7 @@ describe('<ContactFrom />', () => {
     })
 
     fireEvent.input(phoneInput, {
-      target: { value: '555-555-5555' },
+      target: { value: '5555555555' },
     })
 
     fireEvent.input(messageTextArea, {
@@ -68,7 +68,7 @@ describe('<ContactFrom />', () => {
     })
 
     fireEvent.input(phoneInput, {
-      target: { value: '555-555-5555' },
+      target: { value: '5555555555' },
     })
 
     fireEvent.input(messageTextArea, {
@@ -142,7 +142,7 @@ describe('<ContactFrom />', () => {
       })
 
       fireEvent.input(phoneInput, {
-        target: { value: '555-555-5555' },
+        target: { value: '(555) 555-5555' },
       })
 
       fireEvent.input(messageTextArea, {
@@ -177,7 +177,7 @@ describe('<ContactFrom />', () => {
     })
 
     fireEvent.input(phoneInput, {
-      target: { value: '5555555555' },
+      target: { value: '55555' },
     })
 
     fireEvent.input(messageTextArea, {
@@ -200,7 +200,7 @@ describe('<ContactFrom />', () => {
     expect(errorMessages[0].textContent).toContain(
       'Please enter a valid email address jody@example.com'
     )
-    expect(errorMessages[1].textContent).toContain('Please input a valid phone number XXX-XXX-XXXX')
+    expect(errorMessages[1].textContent).toContain('Please input a valid phone number XXXXXXXXXX')
 
     await waitFor(() => {
       fireEvent.input(nameInput, {
@@ -212,7 +212,7 @@ describe('<ContactFrom />', () => {
       })
 
       fireEvent.input(phoneInput, {
-        target: { value: '555-555-5555' },
+        target: { value: '(555) 555-5555' },
       })
 
       fireEvent.input(messageTextArea, {

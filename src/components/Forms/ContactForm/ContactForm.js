@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
+import { useNormalizePhone } from '../../../hooks'
 
 function ContactForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
+  const { phone, setPhone, onChange } = useNormalizePhone('')
 
   const onSubmit = async (formData, e) => {
     e.preventDefault()
@@ -21,6 +23,7 @@ function ContactForm() {
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')
         setLoading(false)
+        setPhone('')
         reset()
       }
     } catch (error) {
@@ -80,18 +83,20 @@ function ContactForm() {
             Your Phone Number
           </label>
           <input
-            // type="number"
+            type="tel"
             className="form-control form-control-dark"
             name="phone"
             id="InputPhoneNumber"
-            placeholder="123-456-789"
+            placeholder="1234567890"
             ref={register({
               required: true,
               pattern: {
                 value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
-                message: 'Please input a valid phone number XXX-XXX-XXXX',
+                message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
+            onChange={e => onChange(e)}
+            value={phone}
           />
         </div>
         {errors.phone && errors.phone.type === 'required' && <FormAlert />}
