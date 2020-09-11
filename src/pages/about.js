@@ -63,7 +63,7 @@ function About() {
                 style={{
                   backgroundImage: `url(${vwcGIF})`,
                   backgroundPosition: 'center center',
-                  backgroundSize: 'cover',
+                  backgroundSize: 'auto',
                   display: 'none',
                 }}
               />
