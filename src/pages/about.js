@@ -16,7 +16,13 @@ function About() {
   }
 
   useEffect(() => {
-    play()
+    let current = true
+
+    if (current) {
+      play()
+    }
+
+    return () => (current = false)
   })
 
   function end() {
