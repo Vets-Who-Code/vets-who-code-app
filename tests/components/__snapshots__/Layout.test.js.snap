@@ -152,18 +152,6 @@ exports[`<Layout /> should render correctly 1`] = `
               </a>
             </li>
             <li
-              class="donate"
-              role="menuitem"
-            >
-              <a
-                href="/donate"
-              >
-                <span>
-                  Donate
-                </span>
-              </a>
-            </li>
-            <li
               class="nav"
               role="menuitem"
             >
@@ -184,6 +172,18 @@ exports[`<Layout /> should render correctly 1`] = `
               >
                 <span>
                   Blog
+                </span>
+              </a>
+            </li>
+            <li
+              class="donate"
+              role="menuitem"
+            >
+              <a
+                href="/donate"
+              >
+                <span>
+                  Donate
                 </span>
               </a>
             </li>
