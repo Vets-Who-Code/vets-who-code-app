@@ -62,9 +62,14 @@
   }
 }
 
-.donate:hover {
-  transition: 0.3s linear;
+.donate {
   background-color: #c5203e;
+  font-weight: 600;
+}
+.donate:hover {
+  background-color: #be1635;
+  letter-spacing: 1px;
+  transition: all 0.1 linear;
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -83,7 +88,7 @@
     margin-top: 0;
     padding: 0;
   }
-  .navbar-nav li{
+  .navbar-nav li {
     padding-top: 0;
   }
   #navbar-brand {
