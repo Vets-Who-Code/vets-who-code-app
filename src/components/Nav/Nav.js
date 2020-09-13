@@ -41,7 +41,7 @@ function Nav() {
             className="navbar-brand"
             style={{ padding: '5px 15px 5px' }}
             itemScope=""
-            itemType="https://schema.org/Organization" 
+            itemType="https://schema.org/Organization"
           >
             <span className="sr-only">#VetsWhoCode</span>
             <Link to="/" id="navbar-brand">
@@ -102,11 +102,6 @@ function Nav() {
                 <span>Apply</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
-              <Link to="/donate">
-                <span>Donate</span>
-              </Link>
-            </li>
             <li role="menuitem" className="nav">
               <Link to="/contact">
                 <span>Contact</span>
@@ -115,6 +110,11 @@ function Nav() {
             <li role="menuitem" className="nav">
               <Link to="/blog">
                 <span>Blog</span>
+              </Link>
+            </li>
+            <li role="menuitem" className="donate">
+              <Link to="/donate">
+                <span>Donate</span>
               </Link>
             </li>
           </ul>
