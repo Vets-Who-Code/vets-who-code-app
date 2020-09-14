@@ -11,9 +11,8 @@ class Countdown extends Component {
     time: null,
   }
 
-  nextClass = this.props.nextClass
-
   componentDidMount = () => {
+    this.getTimeRemaining()
     const interval = setInterval(() => this.getTimeRemaining(), 1000)
     this.setState({ interval })
   }
@@ -23,7 +22,8 @@ class Countdown extends Component {
   }
 
   getTimeRemaining = () => {
-    const time = Date.parse(this.nextClass) - Date.parse(new Date())
+    const { nextClass } = this.props
+    const time = Date.parse(nextClass) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24)

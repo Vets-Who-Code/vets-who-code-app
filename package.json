@@ -78,7 +78,6 @@
     "gatsby-plugin-purgecss": "5.0.0",
     "inquirer": "7.1.0",
     "jest": "26.0.1",
-    "jest-date-mock": "^1.0.8",
     "lint-staged": "10.2.2",
     "npm-run-all": "4.1.5",
     "prettier": "2.0.5",
@@ -109,8 +108,7 @@
     },
     "setupFiles": [
       "./tests/jest-preprocess.js",
-      "./tests/loadershim.js",
-      "jest-date-mock"
+      "./tests/loadershim.js"
     ],
     "collectCoverageFrom": [
       "src/components/**/*.{js,jsx}",
