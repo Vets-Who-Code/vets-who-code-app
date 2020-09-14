@@ -73,6 +73,7 @@
     "eslint-plugin-react-hooks": "4.0.0",
     "gatsby-plugin-purgecss": "5.0.0",
     "jest": "26.0.1",
+    "jest-date-mock": "^1.0.8",
     "lint-staged": "10.2.2",
     "prettier": "2.0.5",
     "react-test-renderer": "16.13.1"
@@ -102,7 +103,8 @@
     },
     "setupFiles": [
       "./tests/jest-preprocess.js",
-      "./tests/loadershim.js"
+      "./tests/loadershim.js",
+      "jest-date-mock"
     ],
     "collectCoverageFrom": [
       "src/components/**/*.{js,jsx}",

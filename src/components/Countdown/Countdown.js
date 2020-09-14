@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 class Countdown extends Component {
   state = {
@@ -8,8 +9,9 @@ class Countdown extends Component {
     seconds: null,
     interval: null,
     time: null,
-    nextClass: null,
   }
+
+  nextClass = this.props.nextClass
 
   componentDidMount = () => {
     const interval = setInterval(() => this.getTimeRemaining(), 1000)
@@ -21,9 +23,7 @@ class Countdown extends Component {
   }
 
   getTimeRemaining = () => {
-    const currentClass = 'August 03 2020'
-    const nextClass = 'March 01 2021'
-    const time = Date.parse(currentClass) - Date.parse(new Date())
+    const time = Date.parse(this.nextClass) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
@@ -35,7 +35,6 @@ class Countdown extends Component {
       minutes,
       seconds,
       time,
-      nextClass,
     })
   }
 
@@ -45,7 +44,7 @@ class Countdown extends Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds, time, nextClass } = this.state
+    const { days, hours, minutes, seconds, time } = this.state
     return (
       <div>
         {time > 0 ? (
@@ -72,12 +71,15 @@ class Countdown extends Component {
         ) : (
           <div>
             <h3 className="countdown-message">Class Is In Session</h3>
-            <p>{`Please apply before ${nextClass} for next cohort`}</p>
           </div>
         )}
       </div>
     )
   }
+}
+
+Countdown.propTypes = {
+  nextClass: PropTypes.string.isRequired, // String formatted 'March, 01 2021'
 }
 
 export default Countdown
