@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import PropTypes from 'prop-types'
 
 class Countdown extends Component {
   state = {
@@ -7,9 +8,11 @@ class Countdown extends Component {
     minutes: null,
     seconds: null,
     interval: null,
+    time: null,
   }
 
   componentDidMount = () => {
+    this.getTimeRemaining()
     const interval = setInterval(() => this.getTimeRemaining(), 1000)
     this.setState({ interval })
   }
@@ -19,8 +22,8 @@ class Countdown extends Component {
   }
 
   getTimeRemaining = () => {
-    const deadLine = 'March 01 2021'
-    const time = Date.parse(deadLine) - Date.parse(new Date())
+    const { nextClass } = this.props
+    const time = Date.parse(nextClass) - Date.parse(new Date())
     const seconds = Math.floor((time / 1000) % 60)
     const minutes = Math.floor((time / 1000 / 60) % 60)
     const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
@@ -31,6 +34,7 @@ class Countdown extends Component {
       hours,
       minutes,
       seconds,
+      time,
     })
   }
 
@@ -40,30 +44,42 @@ class Countdown extends Component {
   }
 
   render() {
-    const { days, hours, minutes, seconds } = this.state
+    const { days, hours, minutes, seconds, time } = this.state
     return (
-      <Fragment>
-        <div className="container-countdown">
-          <div className="countdown-box">
-            <span className="counter">{days}</span>
-            <h4>Days</h4>
+      <div>
+        {time > 0 ? (
+          <Fragment>
+            <div className="container-countdown">
+              <div className="countdown-box">
+                <span className="counter">{days}</span>
+                <h4>Days</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{hours}</span>
+                <h4>Hours</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{minutes}</span>
+                <h4>Minutes</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{seconds}</span>
+                <h4>Seconds</h4>
+              </div>
+            </div>
+          </Fragment>
+        ) : (
+          <div>
+            <h3 className="countdown-message">Class Is In Session</h3>
           </div>
-          <div className="countdown-box">
-            <span className="counter">{hours}</span>
-            <h4>Hours</h4>
-          </div>
-          <div className="countdown-box">
-            <span className="counter">{minutes}</span>
-            <h4>Minutes</h4>
-          </div>
-          <div className="countdown-box">
-            <span className="counter">{seconds}</span>
-            <h4>Seconds</h4>
-          </div>
-        </div>
-      </Fragment>
+        )}
+      </div>
     )
   }
+}
+
+Countdown.propTypes = {
+  nextClass: PropTypes.string.isRequired, // String formatted 'March, 01 2021'
 }
 
 export default Countdown
