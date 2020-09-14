@@ -71,7 +71,7 @@ exports[`<Nav /> should render correctly 1`] = `
         role="menu"
       >
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -85,7 +85,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -97,7 +97,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -109,7 +109,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -121,7 +121,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -133,7 +133,7 @@ exports[`<Nav /> should render correctly 1`] = `
           </a>
         </li>
         <li
-          class="donate"
+          class="nav"
           role="menuitem"
         >
           <a
@@ -141,6 +141,30 @@ exports[`<Nav /> should render correctly 1`] = `
           >
             <span>
               Apply
+            </span>
+          </a>
+        </li>
+        <li
+          class="nav"
+          role="menuitem"
+        >
+          <a
+            href="/contact"
+          >
+            <span>
+              Contact
+            </span>
+          </a>
+        </li>
+        <li
+          class="nav"
+          role="menuitem"
+        >
+          <a
+            href="/blog"
+          >
+            <span>
+              Blog
             </span>
           </a>
         </li>
@@ -153,30 +177,6 @@ exports[`<Nav /> should render correctly 1`] = `
           >
             <span>
               Donate
-            </span>
-          </a>
-        </li>
-        <li
-          class="donate"
-          role="menuitem"
-        >
-          <a
-            href="/contact"
-          >
-            <span>
-              Contact
-            </span>
-          </a>
-        </li>
-        <li
-          class="donate"
-          role="menuitem"
-        >
-          <a
-            href="/blog"
-          >
-            <span>
-              Blog
             </span>
           </a>
         </li>

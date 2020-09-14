@@ -14,7 +14,6 @@
   <img src=https://avatars1.githubusercontent.com/u/18350560?s=200&v=4 alt="VWC Logo" />
 </p>
 
-
 # Vets Who Code Web App
 
 The Vets Who Code Web App is a Jamstack Applicaton designed for speed and to ease the learning curve of our veterans contributing to open source.
@@ -55,9 +54,21 @@ You should be able to view the website locally at `http://localhost:8000/`.
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
 $ cd vets-who-code-app
 $ nvm install
-$ yarn enable:blog
+$ yarn develop -b
 ```
+
 > **Your package.json and node modules will be updated automatically.**
+
+<details>
+<summary>yarn develop has a couple of commands configured</summary>
+<br>
+
+```
+1. yarn develop -h | --help will print out available options
+2. yarn develop -b | --blog will enable the blog
+3. If you have not configured a `.env` file yarn develop -b will walk you
+   through the steps to configure this file
+```
 
 ### Create a new `.env` file in the root of your project
 
@@ -69,21 +80,16 @@ $ touch .env
 
 > **Reference the .env.example file for available keys.**
 
-```sh
-$ yarn develop
-```
-
-You should be able to view the website locally at `http://localhost:8000/`.
-
 <details>
 <summary>If you get an error on start up</summary>
 <br>
 
 ```
-1. Validate you ran yarn enable:blog
+1. Validate you ran yarn develop -b
 2. Check that your keys are correct
 3. If you still are facing issues reach out in the #product channel in slack
 ```
+
 </details>
 
 ### Once you have completed your edits please run the following command
@@ -100,7 +106,7 @@ $ yarn disable:blog
 
 ## Testing
 
-In a terminal window run these commands to install jest globally and run the jest test suite.
+In a terminal window run these commands.
 
 ```sh
 $ cd vets-who-code-app
@@ -116,6 +122,7 @@ $ yarn test
 ~ brew update
 ~ brew reinstall watchman
 ```
+
 </details>
 
 <br>
@@ -126,6 +133,7 @@ In a terminal window run these commands to run the jest test suite in watch mode
 $ cd vets-who-code-app
 $ yarn test:watch
 ```
+
 <details>
 <summary>The following options are available when running watch mode</summary>
 <br>

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
@@ -14,6 +14,16 @@ function About() {
     videoRef.current.play()
     videoRef.current.onended = end
   }
+
+  useEffect(() => {
+    let current = true
+
+    if (current) {
+      play()
+    }
+
+    return () => (current = false)
+  })
 
   function end() {
     document.querySelector('.success-video').style.display = 'none'
@@ -53,7 +63,7 @@ function About() {
                 style={{
                   backgroundImage: `url(${vwcGIF})`,
                   backgroundPosition: 'center center',
-                  backgroundSize: 'cover',
+                  backgroundSize: 'auto',
                   display: 'none',
                 }}
               />

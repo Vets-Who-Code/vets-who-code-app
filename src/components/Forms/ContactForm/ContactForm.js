@@ -3,7 +3,26 @@ import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
+// Function for input mask on phone number field
+// Formats XXXXXXXXXX as XXX-XXX-XXXX as you type
+const normalizePhone = (value, previousValue) => {
+  if (!value) return value
+
+  const onlyNums = value.replace(/[^\d]/g, '') // only allows 0-9
+
+  if (!previousValue || value.length > previousValue.length) {
+    if (onlyNums.length === 3) return `${onlyNums}`
+    if (onlyNums.length === 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}-`
+
+    if (onlyNums.length <= 3) return onlyNums
+    if (onlyNums.length <= 6) return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3)}`
+
+    return `${onlyNums.slice(0, 3)}-${onlyNums.slice(3, 6)}-${onlyNums.slice(6, 10)}`
+  }
+}
+
 function ContactForm() {
+  const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
 
@@ -21,6 +40,7 @@ function ContactForm() {
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')
         setLoading(false)
+        setPhone('')
         reset()
       }
     } catch (error) {
@@ -80,18 +100,23 @@ function ContactForm() {
             Your Phone Number
           </label>
           <input
-            // type="number"
+            type="tel"
             className="form-control form-control-dark"
             name="phone"
             id="InputPhoneNumber"
-            placeholder="123-456-789"
+            placeholder="1234567890"
             ref={register({
               required: true,
               pattern: {
                 value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
-                message: 'Please input a valid phone number XXX-XXX-XXXX',
+                message: 'Please input a valid phone number XXXXXXXXXX',
               },
             })}
+            onChange={event => {
+              const { value } = event.target
+              setPhone(previousValue => normalizePhone(value, previousValue))
+            }}
+            value={phone}
           />
         </div>
         {errors.phone && errors.phone.type === 'required' && <FormAlert />}

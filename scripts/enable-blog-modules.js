@@ -3,7 +3,7 @@ const install = require('./install.js')
 
 async function enableBlog() {
   const templatePackageJson = fs.readFileSync(`./package.json`)
-  const parsedPkgJson = JSON.parse(templatePackageJson)
+  const parsedPkgJson = JSON.parse(templatePackageJson.toString())
   /**
    * Update version of dependencies here.
    */
@@ -16,7 +16,10 @@ async function enableBlog() {
   parsedPkgJson.dependencies = updatedDependencies
 
   fs.writeFileSync(`./package.json`, JSON.stringify(parsedPkgJson, null, 2), 'utf-8')
-  await install()
+
+  if (process.env.CI || process.env.CD) {
+    await install()
+  }
 }
 
-enableBlog()
+module.exports = { enableBlog }
