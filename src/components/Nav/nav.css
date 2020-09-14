@@ -65,13 +65,15 @@
 .donate {
   background-color: #c5203e;
   font-weight: 600;
+  border-radius: 2px;
 }
 .donate:hover {
   background-color: #be1635;
-  letter-spacing: 1px;
   transition: all 0.1 linear;
 }
-
+.donate a span {
+  color: #fff;
+}
 @media (min-width: 768px) and (max-width: 1200px) {
   .container-fluid {
     display: flex;
