@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
+import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
 function MentorForm() {
   const [loading, setLoading] = useState(false)
@@ -178,7 +178,7 @@ function MentorForm() {
           <input
             type="submit"
             name="submit"
-            value={loading ? 'loading...' : 'submit'}
+            value={loading ? 'loading...' : 'SUBMIT'}
             href="#"
             className="btn btn-charity-default"
             title=""

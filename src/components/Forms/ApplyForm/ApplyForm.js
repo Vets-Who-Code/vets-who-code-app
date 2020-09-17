@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
+=======
+>>>>>>> master
 import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
+import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
 // Converts zipcode xml to json
 const xml2json = srcDOM => {
@@ -468,7 +472,7 @@ function ApplyForm() {
             name="submit"
             title=""
             type="submit"
-            value={loading ? 'loading...' : 'Submit'}
+            value={loading ? 'loading...' : 'SUBMIT'}
           />
         </div>
       </div>
