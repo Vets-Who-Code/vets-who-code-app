@@ -1,11 +1,84 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
+// Converts zipcode xml to json
+const xml2json = srcDOM => {
+  let children = [...srcDOM.children]
+  // base case for recursion.
+  if (!children.length) {
+    return srcDOM.innerHTML
+  }
+  // initializing object to be returned.
+  let jsonResult = {}
+  for (let child of children) {
+    // checking is child has siblings of same name.
+    let childIsArray =
+      children.filter(eachChild => eachChild.nodeName === child.nodeName).length > 1
+    // if child is array, save the values as array, else as strings.
+    if (childIsArray) {
+      if (jsonResult[child.nodeName] === undefined) {
+        jsonResult[child.nodeName] = [xml2json(child)]
+      } else {
+        jsonResult[child.nodeName].push(xml2json(child))
+      }
+    } else {
+      jsonResult[child.nodeName] = xml2json(child)
+    }
+  }
+  return jsonResult
+}
+
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
+
+  const initialCityState = { city: '', state: '' }
+  const [cityState, setCityState] = useState(initialCityState)
+  const [zipcode, setZipcode] = useState('')
+  const isZipValid = zipcode.length === 5 && zipcode
+
+  // Handles onChange for zipcode to populate city/state
+  // Temporary endpoint
+  useEffect(() => {
+    const fetchCityState = async () => {
+      try {
+        if (isZipValid) {
+          const response = await fetch(
+            `https://citystatelookup.netlify.app/.netlify/functions/getCityState?&zipcode=${zipcode}`,
+            {
+              headers: { accept: 'application/json' },
+              method: 'get',
+            }
+          )
+          const data = await response.text()
+          const srcDOM = parser.parseFromString(data, 'application/xml')
+          console.log(xml2json(srcDOM))
+          const res = xml2json(srcDOM)
+          if (res?.CityStateLookupResponse?.ZipCode?.City) {
+            setLoading(false)
+            setCityState({
+              ...cityState,
+              city: res.CityStateLookupResponse.ZipCode.City,
+              state: res.CityStateLookupResponse.ZipCode.State,
+            })
+          } else if (res?.CityStateLookupResponse?.ZipCode?.Error) {
+            setLoading(false)
+            setCityState({
+              ...cityState,
+              city: `Invalid Zip Code for ${zipcode}`,
+              state: 'Try Again',
+            })
+          }
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    }
+
+    fetchCityState()
+  }, [zipcode])
 
   const onSubmit = async (formData, e) => {
     e.preventDefault()
@@ -105,6 +178,8 @@ function ApplyForm() {
             placeholder="City"
             type="text"
             ref={register({ required: true })}
+            value={cityState.city}
+            disabled
           />
         </div>
         {errors.city && <FormAlert />}
@@ -121,6 +196,8 @@ function ApplyForm() {
             placeholder="State"
             type="text"
             ref={register({ required: true })}
+            value={cityState.state}
+            disabled
           />
         </div>
         {errors.state && <FormAlert />}
@@ -143,6 +220,13 @@ function ApplyForm() {
                 message: 'Please enter a valid zip code XXXXX or XXXXX-XXXX',
               },
             })}
+            value={zipcode || ''}
+            onChange={event => {
+              const { value } = event.target
+              setLoading(true)
+              setCityState(initialCityState)
+              setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
+            }}
           />
         </div>
         {errors.zipCode && errors.zipCode.type === 'required' && <FormAlert />}
