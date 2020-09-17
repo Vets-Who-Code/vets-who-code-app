@@ -1,4 +1,3 @@
-require('dotenv').config()
 const fs = require('fs-extra')
 const path = require('path')
 const chalk = require('chalk')
@@ -9,8 +8,14 @@ const { log } = require('./helpers')
 const args = process.argv.slice(2)
 const envFilePath = path.resolve(process.cwd(), '.env')
 const envFile = fs.existsSync(envFilePath)
-const envFileBuffer = fs.readFileSync(envFilePath)
-const envFileConent = envFileBuffer.toString()
+let envFileBuffer
+let envFileConent
+
+if (envFile) {
+  require('dotenv').config()
+  envFileBuffer = fs.readFileSync(envFilePath)
+  envFileConent = envFileBuffer.toString()
+}
 
 function runCommands(commandList) {
   const { stdout, stderr } = process
@@ -94,7 +99,7 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
     }
   }
 } else {
-  if (/^(?!#)DISPLAY_BLOG.*/gm.test(envFileConent)) {
+  if (envFile && /^(?!#)DISPLAY_BLOG.*/gm.test(envFileConent)) {
     console.log(
       '\n',
       chalk.red.inverse('[ERROR]'),
