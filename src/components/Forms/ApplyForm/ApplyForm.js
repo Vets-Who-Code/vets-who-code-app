@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from 'react'
-=======
->>>>>>> master
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
@@ -42,37 +38,31 @@ function ApplyForm() {
   const [cityState, setCityState] = useState(initialCityState)
   const [zipcode, setZipcode] = useState('')
   const isZipValid = zipcode.length === 5 && zipcode
-
   // Handles onChange for zipcode to populate city/state
   // Temporary endpoint
   useEffect(() => {
     const fetchCityState = async () => {
       try {
         if (isZipValid) {
-          const response = await fetch(
-            `https://citystatelookup.netlify.app/.netlify/functions/getCityState?&zipcode=${zipcode}`,
-            {
-              headers: { accept: 'application/json' },
-              method: 'get',
-            }
-          )
-          const data = await response.text()
-          const srcDOM = parser.parseFromString(data, 'application/xml')
-          console.log(xml2json(srcDOM))
-          const res = xml2json(srcDOM)
-          if (res?.CityStateLookupResponse?.ZipCode?.City) {
+          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, {
+            headers: { accept: 'application/json' },
+            method: 'get',
+          })
+          const data = await response.json()
+          console.log(data.CityStateLookupResponse.ZipCode[0])
+          if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
             setLoading(false)
             setCityState({
               ...cityState,
-              city: res.CityStateLookupResponse.ZipCode.City,
-              state: res.CityStateLookupResponse.ZipCode.State,
+              city: data.CityStateLookupResponse.ZipCode[0].City.join(''),
+              state: data.CityStateLookupResponse.ZipCode[0].State.join(''),
             })
-          } else if (res?.CityStateLookupResponse?.ZipCode?.Error) {
+          } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
             setLoading(false)
             setCityState({
               ...cityState,
               city: `Invalid Zip Code for ${zipcode}`,
-              state: 'Try Again',
+              state: `Invalid Zip Code for ${zipcode}`,
             })
           }
         }
@@ -80,7 +70,6 @@ function ApplyForm() {
         console.log(e)
       }
     }
-
     fetchCityState()
   }, [zipcode])
 
