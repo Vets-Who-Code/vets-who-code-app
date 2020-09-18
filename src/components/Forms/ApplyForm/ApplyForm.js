@@ -18,7 +18,7 @@ function ApplyForm() {
     const fetchCityState = async () => {
       try {
         if (isZipValid) {
-          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, {
+          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, { //Need aws url
             headers: { accept: 'application/json' },
             method: 'get',
           })
@@ -48,7 +48,7 @@ function ApplyForm() {
     setLoading(true)
 
     try {
-      const gatewayUrl = 'http://localhost:3000/apply'
+      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/apply'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
