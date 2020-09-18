@@ -3,41 +3,15 @@ import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
-// Converts zipcode xml to json
-const xml2json = srcDOM => {
-  let children = [...srcDOM.children]
-  // base case for recursion.
-  if (!children.length) {
-    return srcDOM.innerHTML
-  }
-  // initializing object to be returned.
-  let jsonResult = {}
-  for (let child of children) {
-    // checking is child has siblings of same name.
-    let childIsArray =
-      children.filter(eachChild => eachChild.nodeName === child.nodeName).length > 1
-    // if child is array, save the values as array, else as strings.
-    if (childIsArray) {
-      if (jsonResult[child.nodeName] === undefined) {
-        jsonResult[child.nodeName] = [xml2json(child)]
-      } else {
-        jsonResult[child.nodeName].push(xml2json(child))
-      }
-    } else {
-      jsonResult[child.nodeName] = xml2json(child)
-    }
-  }
-  return jsonResult
-}
-
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
 
   const initialCityState = { city: '', state: '' }
+  const [zipError, setZipError] = useState('')
   const [cityState, setCityState] = useState(initialCityState)
   const [zipcode, setZipcode] = useState('')
-  const isZipValid = zipcode.length === 5 && zipcode
+  const isZipValid = zipcode.length === 5
   // Handles onChange for zipcode to populate city/state
   // Temporary endpoint
   useEffect(() => {
@@ -49,9 +23,9 @@ function ApplyForm() {
             method: 'get',
           })
           const data = await response.json()
-          console.log(data.CityStateLookupResponse.ZipCode[0])
           if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
             setLoading(false)
+            setZipError('')
             setCityState({
               ...cityState,
               city: data.CityStateLookupResponse.ZipCode[0].City.join(''),
@@ -59,15 +33,11 @@ function ApplyForm() {
             })
           } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
             setLoading(false)
-            setCityState({
-              ...cityState,
-              city: `Invalid Zip Code for ${zipcode}`,
-              state: `Invalid Zip Code for ${zipcode}`,
-            })
+            setZipError('Invalid zipcode')
           }
         }
       } catch (e) {
-        console.log(e)
+        console.log(e) // Need real error
       }
     }
     fetchCityState()
@@ -78,7 +48,7 @@ function ApplyForm() {
     setLoading(true)
 
     try {
-      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/apply'
+      const gatewayUrl = 'http://localhost:3000/apply'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
@@ -91,6 +61,8 @@ function ApplyForm() {
         onSubmitSuccess(message)
         setLoading(false)
         reset()
+        setCityState(initialCityState)
+        setZipcode('')
       }
     } catch (error) {
       onSubmitError('OOPS Something went wrong, please try again later.')
@@ -161,6 +133,39 @@ function ApplyForm() {
       </div>
       <div className="col-md-8">
         <div className="form-group">
+          <label htmlFor="zipCode" className="dark-text">
+            Zip Code<sup>*</sup>
+          </label>
+          <input
+            className="form-control input-lg"
+            id="zipCode"
+            name="zipCode"
+            placeholder="Zip Code"
+            type="text"
+            ref={register({
+              required: true,
+              pattern: {
+                value: /^\d{5}(?:[-\s]\d{4})?$/,
+                message: 'Please enter a valid zip code XXXXX or XXXXX-XXXX',
+              },
+            })}
+            value={zipcode || ''}
+            onChange={event => {
+              const { value } = event.target
+              setLoading(true)
+              setCityState(initialCityState)
+              setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
+            }}
+          />
+        </div>
+        {errors.zipCode && errors.zipCode.type === 'required' && <FormAlert />}
+        {errors.zipCode && errors.zipCode.type === 'pattern' && (
+          <FormAlert errorMessage={errors.zipCode.message} />
+        )}
+        {zipError && <FormAlert errorMessage={zipError} />}
+      </div>
+      <div className="col-md-8">
+        <div className="form-group">
           <label htmlFor="city" className="dark-text">
             City<sup>*</sup>
           </label>
@@ -195,38 +200,7 @@ function ApplyForm() {
         </div>
         {errors.state && <FormAlert />}
       </div>
-      <div className="col-md-8">
-        <div className="form-group">
-          <label htmlFor="zipCode" className="dark-text">
-            Zip Code<sup>*</sup>
-          </label>
-          <input
-            className="form-control input-lg"
-            id="zipCode"
-            name="zipCode"
-            placeholder="Zip Code"
-            type="text"
-            ref={register({
-              required: true,
-              pattern: {
-                value: /^\d{5}(?:[-\s]\d{4})?$/,
-                message: 'Please enter a valid zip code XXXXX or XXXXX-XXXX',
-              },
-            })}
-            value={zipcode || ''}
-            onChange={event => {
-              const { value } = event.target
-              setLoading(true)
-              setCityState(initialCityState)
-              setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
-            }}
-          />
-        </div>
-        {errors.zipCode && errors.zipCode.type === 'required' && <FormAlert />}
-        {errors.zipCode && errors.zipCode.type === 'pattern' && (
-          <FormAlert errorMessage={errors.zipCode.message} />
-        )}
-      </div>
+
       <div className="col-md-8">
         <div className="form-group">
           <label htmlFor="country" className="dark-text">
