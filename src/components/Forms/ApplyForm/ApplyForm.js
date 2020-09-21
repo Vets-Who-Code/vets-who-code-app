@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
-
+import '../../../assets/css/custom.css'
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
@@ -12,13 +12,15 @@ function ApplyForm() {
   const [cityState, setCityState] = useState(initialCityState)
   const [zipcode, setZipcode] = useState('')
   const isZipValid = zipcode.length === 5
+
   // Handles onChange for zipcode to populate city/state
   // Temporary endpoint
   useEffect(() => {
     const fetchCityState = async () => {
       try {
         if (isZipValid) {
-          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, { //Need aws url
+          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, {
+            //Need aws url
             headers: { accept: 'application/json' },
             method: 'get',
           })
@@ -169,16 +171,21 @@ function ApplyForm() {
           <label htmlFor="city" className="dark-text">
             City<sup>*</sup>
           </label>
-          <input
-            className="form-control input-lg"
-            id="city"
-            name="city"
-            placeholder="City"
-            type="text"
-            ref={register({ required: true })}
-            value={cityState.city}
-            disabled
-          />
+          <div className="input-container">
+            <input
+              className="form-control input-lg"
+              id="city"
+              name="city"
+              placeholder="City"
+              type="text"
+              ref={register({ required: true })}
+              value={cityState.city}
+              disabled
+            />{' '}
+            <div className="icon-container">
+              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+            </div>
+          </div>
         </div>
         {errors.city && <FormAlert />}
       </div>
@@ -187,16 +194,21 @@ function ApplyForm() {
           <label htmlFor="state" className="dark-text">
             State<sup>*</sup>
           </label>
-          <input
-            className="form-control input-lg"
-            id="state"
-            name="state"
-            placeholder="State"
-            type="text"
-            ref={register({ required: true })}
-            value={cityState.state}
-            disabled
-          />
+          <div className="input-container">
+            <input
+              className="form-control input-lg"
+              id="state"
+              name="state"
+              placeholder="State"
+              type="text"
+              ref={register({ required: true })}
+              value={cityState.state}
+              disabled
+            />{' '}
+            <div className="icon-container">
+              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+            </div>
+          </div>
         </div>
         {errors.state && <FormAlert />}
       </div>
