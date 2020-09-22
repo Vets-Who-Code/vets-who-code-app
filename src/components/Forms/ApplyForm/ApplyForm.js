@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
-import '../../../assets/css/custom.css'
+import './applyform.css'
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
@@ -13,17 +13,17 @@ function ApplyForm() {
   const [zipcode, setZipcode] = useState('')
   const isZipValid = zipcode.length === 5
 
-  // Handles onChange for zipcode to populate city/state
-  // Temporary endpoint
   useEffect(() => {
     const fetchCityState = async () => {
       try {
         if (isZipValid) {
-          const response = await fetch(`https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`, {
-            //Need aws url
-            headers: { accept: 'application/json' },
-            method: 'get',
-          })
+          const response = await fetch(
+            `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
+            {
+              headers: { accept: 'application/json' },
+              method: 'get',
+            }
+          )
           const data = await response.json()
           if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
             setLoading(false)
@@ -38,8 +38,9 @@ function ApplyForm() {
             setZipError('Invalid zipcode')
           }
         }
-      } catch (e) {
-        console.log(e) // Need real error
+      } catch (error) {
+        setLoading(false)
+        onSubmitError('OOPS! Something went wrong. Please try again later.')
       }
     }
     fetchCityState()
