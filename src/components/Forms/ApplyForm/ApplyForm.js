@@ -158,7 +158,6 @@ function ApplyForm() {
               const { value } = event.target
               setLoading(true)
               setCityState(initialCityState)
-              console.log(zipcode)
               setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
             }}
           />
