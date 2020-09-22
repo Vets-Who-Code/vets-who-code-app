@@ -182,7 +182,7 @@
 .loader::after,
 .loader::before {
   content: "";
-  background: #d3d3d3 ;
+  background: #eee ;
   position: absolute;
   display: inline-block;
   width: 100%;
