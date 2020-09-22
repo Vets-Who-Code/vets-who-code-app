@@ -140,6 +140,7 @@ function ApplyForm() {
             Zip Code<sup>*</sup>
           </label>
           <input
+            maxLength="5"
             className="form-control input-lg"
             id="zipCode"
             name="zipCode"
@@ -157,6 +158,7 @@ function ApplyForm() {
               const { value } = event.target
               setLoading(true)
               setCityState(initialCityState)
+              console.log(zipcode)
               setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
             }}
           />
