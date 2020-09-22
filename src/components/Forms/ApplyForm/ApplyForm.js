@@ -1,11 +1,50 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
-
+import './applyform.css'
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
+
+  const initialCityState = { city: '', state: '' }
+  const [zipError, setZipError] = useState('')
+  const [cityState, setCityState] = useState(initialCityState)
+  const [zipcode, setZipcode] = useState('')
+  const isZipValid = zipcode.length === 5
+
+  useEffect(() => {
+    const fetchCityState = async () => {
+      try {
+        if (isZipValid) {
+          const response = await fetch(
+            `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
+            {
+              headers: { accept: 'application/json' },
+              method: 'get',
+            }
+          )
+          const data = await response.json()
+          if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
+            setLoading(false)
+            setZipError('')
+            setCityState({
+              ...cityState,
+              city: data.CityStateLookupResponse.ZipCode[0].City.join(''),
+              state: data.CityStateLookupResponse.ZipCode[0].State.join(''),
+            })
+          } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
+            setLoading(false)
+            setZipError('Invalid zipcode')
+          }
+        }
+      } catch (error) {
+        setLoading(false)
+        onSubmitError('OOPS! Something went wrong. Please try again later.')
+      }
+    }
+    fetchCityState()
+  }, [zipcode])
 
   const onSubmit = async (formData, e) => {
     e.preventDefault()
@@ -25,6 +64,8 @@ function ApplyForm() {
         onSubmitSuccess(message)
         setLoading(false)
         reset()
+        setCityState(initialCityState)
+        setZipcode('')
       }
     } catch (error) {
       onSubmitError('OOPS Something went wrong, please try again later.')
@@ -95,42 +136,11 @@ function ApplyForm() {
       </div>
       <div className="col-md-8">
         <div className="form-group">
-          <label htmlFor="city" className="dark-text">
-            City<sup>*</sup>
-          </label>
-          <input
-            className="form-control input-lg"
-            id="city"
-            name="city"
-            placeholder="City"
-            type="text"
-            ref={register({ required: true })}
-          />
-        </div>
-        {errors.city && <FormAlert />}
-      </div>
-      <div className="col-md-8">
-        <div className="form-group">
-          <label htmlFor="state" className="dark-text">
-            State<sup>*</sup>
-          </label>
-          <input
-            className="form-control input-lg"
-            id="state"
-            name="state"
-            placeholder="State"
-            type="text"
-            ref={register({ required: true })}
-          />
-        </div>
-        {errors.state && <FormAlert />}
-      </div>
-      <div className="col-md-8">
-        <div className="form-group">
           <label htmlFor="zipCode" className="dark-text">
             Zip Code<sup>*</sup>
           </label>
           <input
+            maxLength="5"
             className="form-control input-lg"
             id="zipCode"
             name="zipCode"
@@ -143,13 +153,68 @@ function ApplyForm() {
                 message: 'Please enter a valid zip code XXXXX or XXXXX-XXXX',
               },
             })}
+            value={zipcode || ''}
+            onChange={event => {
+              const { value } = event.target
+              setLoading(true)
+              setCityState(initialCityState)
+              setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
+            }}
           />
         </div>
         {errors.zipCode && errors.zipCode.type === 'required' && <FormAlert />}
         {errors.zipCode && errors.zipCode.type === 'pattern' && (
           <FormAlert errorMessage={errors.zipCode.message} />
         )}
+        {zipError && <FormAlert errorMessage={zipError} />}
       </div>
+      <div className="col-md-8">
+        <div className="form-group">
+          <label htmlFor="city" className="dark-text">
+            City<sup>*</sup>
+          </label>
+          <div className="input-container">
+            <input
+              className="form-control input-lg"
+              id="city"
+              name="city"
+              placeholder="City"
+              type="text"
+              ref={register({ required: true })}
+              value={cityState.city}
+              readOnly
+            />{' '}
+            <div className="icon-container">
+              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+            </div>
+          </div>
+        </div>
+        {errors.city && <FormAlert />}
+      </div>
+      <div className="col-md-8">
+        <div className="form-group">
+          <label htmlFor="state" className="dark-text">
+            State<sup>*</sup>
+          </label>
+          <div className="input-container">
+            <input
+              className="form-control input-lg"
+              id="state"
+              name="state"
+              placeholder="State"
+              type="text"
+              ref={register({ required: true })}
+              value={cityState.state}
+              readOnly
+            />{' '}
+            <div className="icon-container">
+              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+            </div>
+          </div>
+        </div>
+        {errors.state && <FormAlert />}
+      </div>
+
       <div className="col-md-8">
         <div className="form-group">
           <label htmlFor="country" className="dark-text">

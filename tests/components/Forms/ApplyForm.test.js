@@ -1,7 +1,9 @@
 import React from 'react'
 import { ApplyForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
-
+/**
+ * 1. Mock
+ */
 describe('<ApplyForm />', () => {
   test('should submit form and clear fields', async () => {
     const { container } = render(<ApplyForm />)
@@ -22,12 +24,20 @@ describe('<ApplyForm />', () => {
     const preworkRepo = container.querySelector('#preworkRepo')
     const applyForm = container.querySelector('form')
 
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            CityStateLookupResponse: { ZipCode: [{ City: ['fakeCity'], State: ['FakeState'] }] },
+          }),
+      })
+    )
+
     fireEvent.input(firstName, { target: { value: 'New' } })
     fireEvent.input(lastName, { target: { value: 'User' } })
     fireEvent.input(email, { target: { value: 'new@user.com' } })
-    fireEvent.input(city, { target: { value: 'fakeCity' } })
-    fireEvent.input(state, { target: { value: 'fakeState' } })
-    fireEvent.input(zipCode, { target: { value: 11111 } })
+    await waitFor(() => fireEvent.input(zipCode, { target: { value: 12345 } }))
     fireEvent.input(country, { target: { value: 'USA' } })
     fireEvent.input(branchOfService, { target: { value: 'USMC' } })
     fireEvent.input(yearJoined, { target: { value: 2000 } })
@@ -39,19 +49,21 @@ describe('<ApplyForm />', () => {
     fireEvent.input(githubAccountName, { target: { value: 'github-username' } })
     fireEvent.input(preworkLink, { target: { value: 'https://fake-url.com' } })
     fireEvent.input(preworkRepo, { target: { value: 'https://github.com/username/reponame' } })
-
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ ok: true }))
     expect(firstName.value).toBe('New')
     expect(githubAccountName.value).toBe('github-username')
 
     try {
+      expect(city.value).toBe('fakeCity')
+      expect(state.value).toBe('FakeState')
       await waitFor(() => fireEvent.submit(applyForm))
+      expect(city.value).toBe('')
+      expect(state.value).toBe('')
     } catch (error) {
       console.log(error)
       expect(error).toBe('')
     }
 
-    expect(window.fetch).toHaveBeenCalledTimes(1)
+    expect(window.fetch).toHaveBeenCalledTimes(2)
     expect(firstName.value).toBe('')
   })
 
@@ -264,5 +276,51 @@ describe('<ApplyForm />', () => {
     })
     const noErrorsAfterUpdatingInputs = container.querySelectorAll('.alert-danger')
     expect(noErrorsAfterUpdatingInputs.length).toBe(0)
+  })
+
+  test('should update city and state on valid zipcode', async () => {
+    const { container } = render(<ApplyForm />)
+    const city = container.querySelector('#city')
+    const state = container.querySelector('#state')
+    const zipCode = container.querySelector('#zipCode')
+
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            CityStateLookupResponse: { ZipCode: [{ City: ['FakeCity'], State: ['FakeState'] }] },
+          }),
+      })
+    )
+    await waitFor(() => fireEvent.input(zipCode, { target: { value: 12345 } }))
+    expect(window.fetch).toHaveBeenCalledTimes(1)
+    expect(city.value).toBe('FakeCity')
+    expect(state.value).toBe('FakeState')
+  })
+  test('should throw an error when incorrect zipcode is provided', async () => {
+    const { container } = render(<ApplyForm />)
+    const city = container.querySelector('#city')
+    const state = container.querySelector('#state')
+    const zipCode = container.querySelector('#zipCode')
+
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            CityStateLookupResponse: {
+              ZipCode: [{ Error: [{ Description: ['Invalid Zip Code'] }] }],
+            },
+          }),
+      })
+    )
+    await waitFor(() => fireEvent.input(zipCode, { target: { value: 99999 } }))
+    expect(window.fetch).toHaveBeenCalledTimes(1)
+    const errorsAfterInput = container.querySelectorAll('.alert-danger')
+    expect(errorsAfterInput.length).toBe(1)
+    expect(errorsAfterInput[0].textContent).toContain('Invalid zipcode')
+    expect(city.value).toBe('')
+    expect(state.value).toBe('')
   })
 })
