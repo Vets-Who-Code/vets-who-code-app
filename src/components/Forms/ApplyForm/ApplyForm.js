@@ -181,7 +181,7 @@ function ApplyForm() {
               type="text"
               ref={register({ required: true })}
               value={cityState.city}
-              disabled
+              readOnly
             />{' '}
             <div className="icon-container">
               <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
@@ -204,7 +204,7 @@ function ApplyForm() {
               type="text"
               ref={register({ required: true })}
               value={cityState.state}
-              disabled
+              readOnly
             />{' '}
             <div className="icon-container">
               <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
