@@ -19,7 +19,7 @@ function ApplyForm() {
     const fetchCityState = async () => {
       try {
         if (isZipValid) {
-          const response = await fetch(`http://localhost:3000/zipcode?&zipcode=${zipcode}`, {
+          const response = await fetch(`https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`, {
             //Need aws url
             headers: { accept: 'application/json' },
             method: 'get',
