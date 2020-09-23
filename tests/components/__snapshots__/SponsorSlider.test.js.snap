@@ -15,14 +15,16 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
       style="box-sizing: border-box; cursor: pointer; display: block; height: 0px; margin: 0px 0px; padding: 0px; width: 0px;"
     >
       <li
-        class="slider-slide slide-visible"
+        class="slider-slide slide-visible slide-current"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Google"
           href="https://www.google.com/"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="Google"
         >
@@ -35,9 +37,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Github"
           href="https://github.com/"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="GitHub"
         >
@@ -50,9 +54,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Replit "
           href="https://repl.it"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="Repl.it"
         >
@@ -65,9 +71,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Slack"
           href="https://slack.com/"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="Slack"
         >
@@ -80,9 +88,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Front End Masters"
           href="https://frontendmasters.com/"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="Front End Masters"
         >
@@ -95,9 +105,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <a
+          aria-hidden="false"
           aria-label="Link to Contentful"
           href="https://www.contentful.com/"
           rel="noopener noreferrer"
+          tabindex="0"
           target="_blank"
           title="Contentful"
         >

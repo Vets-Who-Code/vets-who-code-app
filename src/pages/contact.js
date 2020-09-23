@@ -1,11 +1,10 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import { ContactForm } from '../components/Forms'
 
 function Contact() {
   return (
-    <Layout>
+    <>
       <PageHeader title="contact us" />
       <section id="contact" className="pad-regular section bg-default">
         <div className="container">
@@ -24,7 +23,7 @@ function Contact() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

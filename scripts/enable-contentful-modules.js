@@ -1,7 +1,7 @@
 const fs = require('fs')
 const install = require('./install.js')
 
-async function enableBlog() {
+async function enableContentfulContent() {
   const templatePackageJson = fs.readFileSync(`./package.json`)
   const parsedPkgJson = JSON.parse(templatePackageJson.toString())
   /**
@@ -22,4 +22,4 @@ async function enableBlog() {
   }
 }
 
-module.exports = { enableBlog }
+module.exports = { enableContentfulContent }

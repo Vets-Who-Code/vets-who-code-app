@@ -4,7 +4,6 @@ import Image from 'gatsby-image'
 import readingTime from 'reading-time'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import { options } from './blog-helpers'
 import { useScript } from '../hooks'
@@ -25,7 +24,7 @@ const BlogPost = ({ pageContext }) => {
   const readingStats = readingTime(text)
 
   return (
-    <Layout>
+    <>
       <PageHeader title={data.contentfulBlogPost.title} link={'blog'} />
       <section id="blog-page" className="section  bg-default">
         <div className="container">
@@ -61,7 +60,7 @@ const BlogPost = ({ pageContext }) => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 
