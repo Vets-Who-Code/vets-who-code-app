@@ -83,6 +83,11 @@ function Nav() {
               </Link>
             </li>
             <li role="menuitem" className="nav">
+              <Link to="/board">
+                <span>Board of Directors</span>
+              </Link>
+            </li>
+            <li role="menuitem" className="nav">
               <Link to="/testimonials">
                 <span>Testimonials</span>
               </Link>
