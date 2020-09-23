@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 import { Link } from 'gatsby'
 import SponsorSlider from '../components/SponsorSlider'
-import Layout from '../components/Layout'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 import FluidImage from '../components/FluidImage'
-import { SubscribeForm, onSubmitSuccess, onSubmitError } from '../components/Forms'
+import { SubscribeForm } from '../components/Forms'
 
 function IndexPage() {
   useEffect(() => {
@@ -26,7 +25,7 @@ function IndexPage() {
   }
 
   return (
-    <Layout>
+    <>
       <Header />
       <section id="call-to-action" className="section bg-default call-to-action index">
         <div className="container-fluid">
@@ -173,7 +172,7 @@ function IndexPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

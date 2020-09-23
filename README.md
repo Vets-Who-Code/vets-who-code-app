@@ -48,13 +48,13 @@ You should be able to view the website locally at `http://localhost:8000/`.
 
 ### Running the Blog
 
-**The blog is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
+**All Content from Contentful is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
 
 ```sh
 $ git clone git@github.com:Vets-Who-Code/vwc-site.git
 $ cd vets-who-code-app
 $ nvm install
-$ yarn develop -b
+$ yarn develop -c
 ```
 
 > **Your package.json and node modules will be updated automatically.**
@@ -65,7 +65,7 @@ $ yarn develop -b
 
 ```
 1. yarn develop -h | --help will print out available options
-2. yarn develop -b | --blog will enable the blog
+2. yarn develop -c | --contentful will enable the the contentful content
 3. If you have not configured a `.env` file yarn develop -b will walk you
    through the steps to configure this file
 ```
@@ -85,7 +85,7 @@ $ touch .env
 <br>
 
 ```
-1. Validate you ran yarn develop -b
+1. Validate you ran yarn develop -c
 2. Check that your keys are correct
 3. If you still are facing issues reach out in the #product channel in slack
 ```

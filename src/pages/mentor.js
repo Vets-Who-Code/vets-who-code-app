@@ -1,9 +1,8 @@
 /* eslint-disable react/display-name */
 import React, { Fragment } from 'react'
-import Layout from '../components/Layout'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
-import { MentorForm, onSubmitSuccess, onSubmitError } from '../components/Forms'
+import { MentorForm } from '../components/Forms'
 
 const mainGuidelines = [
   {
@@ -98,8 +97,8 @@ const additionalGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors may find it
-        difficult when they do not have all the answers.
+        <b>Your Role: </b> You will not be the expert on all your mentee’s needs. Many mentors may
+        find it difficult when they do not have all the answers.
       </Fragment>
     ),
     body: () => (
@@ -118,7 +117,7 @@ const additionalGuidelines = [
 
 function Mentor() {
   return (
-    <Layout>
+    <>
       <PageHeader title="mentor" />
       <div className="pad-regular bg-default">
         <section id="contact" className="section bg-default">
@@ -197,7 +196,7 @@ function Mentor() {
           </div>
         </section>
       </div>
-    </Layout>
+    </>
   )
 }
 export default Mentor

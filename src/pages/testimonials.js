@@ -1,24 +1,10 @@
-import React, { useRef } from 'react'
-import Layout from '../components/Layout'
+import React from 'react'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
-import { FaTwitter, FaGithub, FaLinkedinIn, FaBehance } from 'react-icons/fa'
 
 function Testimonial() {
-  const videoRef = useRef()
-
-  function play() {
-    videoRef.current.play()
-    videoRef.current.onended = end
-  }
-
-  function end() {
-    document.querySelector('.success-video').style.display = 'none'
-    document.querySelector('.vwc-animated-gif').style.display = 'block'
-  }
-
   return (
-    <Layout>
+    <>
       <PageHeader title="Testimonials" />
       <section
         className="cause_single section bg-default single pad-regular"
@@ -130,7 +116,7 @@ function Testimonial() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 
