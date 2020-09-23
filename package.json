@@ -35,9 +35,7 @@
     "slick-carousel": "1.8.1",
     "typeface-lato": "0.0.75",
     "typeface-roboto-slab": "1.1.4",
-    "typeface-source-sans-pro": "1.1.5",
-    "@contentful/rich-text-react-renderer": "13.4.0",
-    "gatsby-source-contentful": "2.3.3"
+    "typeface-source-sans-pro": "1.1.5"
   },
   "keywords": [
     "gatsby"
