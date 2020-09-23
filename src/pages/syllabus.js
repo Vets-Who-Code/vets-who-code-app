@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react'
-import Layout from '../components/Layout'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
 
@@ -37,7 +36,7 @@ export default class Mentor extends Component {
   render = () => {
     const { blocks } = this.state
     return (
-      <Layout>
+      <>
         <PageHeader title="syllabus" />
         <section id="faq" className="faq section pad-regular bg-default">
           <div className="container">
@@ -79,7 +78,7 @@ export default class Mentor extends Component {
             </div>
           </div>
         </section>
-      </Layout>
+      </>
     )
   }
 }

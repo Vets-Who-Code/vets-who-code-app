@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql, Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Image from 'gatsby-image'
 
-import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 
 function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
@@ -99,7 +98,7 @@ const Blog = ({ pageContext }) => {
   const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
 
   return (
-    <Layout>
+    <>
       <PageHeader title="blog" />
       <section id="blog-page" className="section  bg-default">
         <div className="container">
@@ -155,7 +154,7 @@ const Blog = ({ pageContext }) => {
           </ul>
         </nav>
       </div>
-    </Layout>
+    </>
   )
 }
 

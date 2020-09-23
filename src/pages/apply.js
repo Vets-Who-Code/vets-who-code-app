@@ -1,11 +1,10 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
-import { ApplyForm, onSubmitSuccess, onSubmitError } from '../components/Forms'
+import { ApplyForm } from '../components/Forms'
 
 export default function Apply() {
   return (
-    <Layout>
+    <>
       <PageHeader title="apply" />
       <section id="contact" className="pad-regular section bg-default">
         <div className="container">
@@ -32,6 +31,6 @@ export default function Apply() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }

@@ -1,8 +1,6 @@
 import React, { useRef, useEffect } from 'react'
-import Layout from '../components/Layout'
-import FluidImage from '../components/FluidImage'
+
 import PageHeader from '../components/PageHeader'
-import { FaTwitter, FaGithub, FaLinkedinIn, FaBehance } from 'react-icons/fa'
 import '../assets/css/custom.css'
 import vwcGIF from '../images/vwc.gif'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
@@ -31,7 +29,7 @@ function About() {
   }
 
   return (
-    <Layout>
+    <>
       <PageHeader title="about" />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
@@ -130,7 +128,7 @@ function About() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 

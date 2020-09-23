@@ -36,14 +36,14 @@ function runCommands(commandList) {
 function printHelp() {
   log(`
 Options:
-  -b, --blog                Enable blog
+  -c, --contentful          Enable Contentful Content
   -h, --help                Show help
   `)
 }
 
 const options = {
   '-h': printHelp,
-  '-b': () => runCommands(['enable:blog', 'yarn:install', 'gatsby:develop']),
+  '-c': () => runCommands(['enable:contentful', 'yarn:install', 'gatsby:develop']),
 }
 
 if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
@@ -80,30 +80,33 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
             },
           ])
 
-          fs.writeFileSync(envFilePath, `\nDISPLAY_BLOG=true`)
+          fs.writeFileSync(envFilePath, `\nDISPLAY_CONTENTFUL_CONTENT=true`)
           fs.appendFileSync(envFilePath, `\nCONTENTFUL_SPACE_ID=${spaceId}`)
           fs.appendFileSync(envFilePath, `\nCONTENTFUL_ACCESS_TOKEN=${accessToken}`)
 
-          options['-b']()
+          options['-c']()
         }
       })
-  } else if (args.indexOf('-b') > -1 || (args.indexOf('--blog') > -1 && envFile)) {
-    if (/^#\s?DISPLAY_BLOG.*/gm.test(envFileConent) || !/DISPLAY_BLOG/gm.test(envFileConent)) {
+  } else if (args.indexOf('-c') > -1 || (args.indexOf('--contentful') > -1 && envFile)) {
+    if (
+      /^#\s?DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileConent) ||
+      !/DISPLAY_CONTENTFUL_CONTENT/gm.test(envFileConent)
+    ) {
       console.log(
         chalk.red.inverse('[ERROR]'),
-        'Please add or enable DISPLAY_BLOG=true to your .env file \n'
+        'Please add or enable DISPLAY_CONTENTFUL_CONTENT=true to your .env file \n'
       )
       process.exit(1)
     } else {
-      options['-b']()
+      options['-c']()
     }
   }
 } else {
-  if (envFile && /^(?!#)DISPLAY_BLOG.*/gm.test(envFileConent)) {
+  if (envFile && /^(?!#)DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileConent)) {
     console.log(
       '\n',
       chalk.red.inverse('[ERROR]'),
-      'Please remove or disable DISPLAY_BLOG=true from your .env file \n'
+      'Please remove or disable DISPLAY_CONTENTFUL_CONTENT=true from your .env file \n'
     )
     process.exit(1)
   } else {
