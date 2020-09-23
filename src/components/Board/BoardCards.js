@@ -5,7 +5,7 @@ import './boardCards.css'
 import { data } from './boardData'
 import FluidImage from '../FluidImage/FluidImage'
 
-const BoardCards = () => {
+function BoardCards() {
   return (
     <div>
       {data.map((data, key) => {
@@ -23,12 +23,12 @@ const BoardCards = () => {
               <p className="bio">{data.bio}</p>
               <hr />
               <div className="board-links">
-                <Link to={data.linkedin}>
+                <a rel="noopener noreferrer" href={data.linkedin} target="_blank">
                   <FaLinkedinIn className="board-icons" size="40" />
-                </Link>
-                <Link to={data.twitter}>
+                </a>
+                <a rel="noopener noreferrer" href={data.twitter} target="_blank">
                   <FaTwitter className="board-icons" size="40" />
-                </Link>
+                </a>
               </div>
             </div>
           </div>
