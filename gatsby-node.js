@@ -3,7 +3,7 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  if (!process.env.DISPLAY_BLOG) {
+  if (!process.env.DISPLAY_CONTENTFUL_CONTENT) {
     const blogDisabledTemplate = path.resolve('./src/templates/blog-disabled-template.js')
     createPage({
       path: '/blog',
