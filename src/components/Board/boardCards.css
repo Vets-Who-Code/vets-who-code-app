@@ -1,0 +1,45 @@
+.user-pic {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 100%;
+  margin: 20px auto 20px;
+  border: 1px solid #091f40;
+}
+
+.card-box {
+  min-height: 40rem;
+  padding: 15px;
+  background-color: #fdfdfd;
+  margin: 20px 0px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0px 0px 8px 0px #d4d4d4;
+  transition: 0.5s;
+}
+
+.card-box:hover {
+  border: 1px solid #091f40;
+}
+
+.card-box p {
+  color: #808080;
+}
+
+.board-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.board-icons {
+  color: #091f40;
+  transition: 0.2s;
+}
+
+.board-icons:hover {
+  color: #c5203e;
+}
+
+.bio {
+  height: 14rem;
+}

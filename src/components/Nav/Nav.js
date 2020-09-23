@@ -84,7 +84,7 @@ function Nav() {
             </li>
             <li role="menuitem" className="nav">
               <Link to="/board">
-                <span>Board of Directors</span>
+                <span>VWC Board</span>
               </Link>
             </li>
             <li role="menuitem" className="nav">
