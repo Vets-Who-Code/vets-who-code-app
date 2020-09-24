@@ -8,7 +8,7 @@ function Header() {
     query {
       codeImage: file(relativePath: { eq: "code.jpg" }) {
         childImageSharp {
-          fluid(quality: 75, maxWidth: 500) {
+          fluid {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
@@ -20,9 +20,10 @@ function Header() {
     <BackgroundImage
       Tag="section"
       className="site-header flexslider classic overlay main-overlay grey"
-      backgroundColor={'#040e18'}
+      backgroundColor="#091f40"
       fluid={data.codeImage.childImageSharp.fluid}
       style={{ height: '80vh' }}
+      loading="eager"
     >
       <div className="header-classic wrapper-table">
         <div className="valign-center">
