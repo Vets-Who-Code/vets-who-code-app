@@ -18,7 +18,7 @@ function BoardCards({ boardMembersList }) {
   })
 
   return (
-    <div>
+    <>
       {sortedBoardMembers.map(({ node }) => {
         return (
           <div key={node.id} className="col-md-6 col-lg-3 col-sm-6">
@@ -30,9 +30,9 @@ function BoardCards({ boardMembersList }) {
                 <h5>{node.name}</h5>
                 <h6>{node.work}</h6>
               </div>
-              <hr />
-              <p className="bio">{node?.bio?.bio}</p>
-              <hr />
+              <div className="bio">
+                <p>{node?.bio?.bio}</p>
+              </div>
               <div className="board-links">
                 {node.linkedin && (
                   <a rel="noopener noreferrer" href={node.linkedin} target="_blank">
@@ -49,7 +49,7 @@ function BoardCards({ boardMembersList }) {
           </div>
         )
       })}
-    </div>
+    </>
   )
 }
 

@@ -16,7 +16,7 @@ function BoardTemplate({ pageContext }) {
             </div>
           </div>
           <div className="container">
-            <div className="row">
+            <div className="row is-flex">
               <BoardCards boardMembersList={boardMembersList} />
             </div>
           </div>
