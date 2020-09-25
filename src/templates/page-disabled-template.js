@@ -13,7 +13,7 @@ function DisabledPage({ pageContext }) {
           <div className="row">
             <div className="featured-heading text-center">
               <h2 className="dark_color">
-                <h2>The {page} is disabled by default</h2>
+                <h2>The {page} page is disabled by default</h2>
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">
