@@ -30,17 +30,19 @@ BoardTemplate.propTypes = {
   pageContext: PropTypes.shape({
     boardMembersList: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string,
-        bio: PropTypes.shape({ bio: PropTypes.string }),
-        linkedin: PropTypes.string,
-        twitter: PropTypes.string,
-        work: PropTypes.string,
-        name: PropTypes.string,
-        fluid: PropTypes.shape({
-          srcSet: PropTypes.string,
-          src: PropTypes.string,
-          sizes: PropTypes.string,
-          aspectRatio: PropTypes.number,
+        node: PropTypes.shape({
+          id: PropTypes.string,
+          bio: PropTypes.shape({ bio: PropTypes.string }),
+          linkedin: PropTypes.string,
+          twitter: PropTypes.string,
+          work: PropTypes.string,
+          name: PropTypes.string,
+          fluid: PropTypes.shape({
+            srcSet: PropTypes.string,
+            src: PropTypes.string,
+            sizes: PropTypes.string,
+            aspectRatio: PropTypes.number,
+          }),
         }),
       })
     ),

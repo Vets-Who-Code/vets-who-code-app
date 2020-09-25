@@ -108,6 +108,18 @@ exports[`<Layout /> should render correctly 1`] = `
               role="menuitem"
             >
               <a
+                href="/board"
+              >
+                <span>
+                  Board
+                </span>
+              </a>
+            </li>
+            <li
+              class="nav"
+              role="menuitem"
+            >
+              <a
                 href="/testimonials"
               >
                 <span>
