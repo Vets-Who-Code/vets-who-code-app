@@ -125,7 +125,8 @@ async function buildBoardOfDirectorsPage({ graphql, createPage, boardOfDirectors
               bio
             }
             linkedin
-            name
+            firstName
+            lastName
             twitter
             work
             image {

@@ -36,7 +36,8 @@ BoardTemplate.propTypes = {
           linkedin: PropTypes.string,
           twitter: PropTypes.string,
           work: PropTypes.string,
-          name: PropTypes.string,
+          firstName: PropTypes.string,
+          lastName: PropTypes.string,
           fluid: PropTypes.shape({
             srcSet: PropTypes.string,
             src: PropTypes.string,

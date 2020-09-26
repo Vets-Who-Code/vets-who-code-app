@@ -15,7 +15,8 @@ describe('<BoardCards />', () => {
           linkedin: 'https://www.linkedin.com/in/jodysmith',
           twitter: 'https://www.twitter.com/jodysmith',
           work: 'My cool Job',
-          name: 'Jody Smith',
+          firstName: 'Jody',
+          lastName: 'Smith',
           image: {
             fluid: {
               src: 'facke src',
@@ -35,7 +36,8 @@ describe('<BoardCards />', () => {
           linkedin: 'https://www.linkedin.com/in/jodyzander',
           twitter: 'https://www.twitter.com/jodyzander',
           work: 'Jody Job',
-          name: 'Jody Zander',
+          firstName: 'Jody',
+          lastName: 'Zander',
           image: {
             fluid: {
               src: 'facke src',
@@ -55,7 +57,8 @@ describe('<BoardCards />', () => {
           linkedin: 'https://www.linkedin.com/in/jodynelson',
           twitter: 'https://www.twitter.com/jodynelson',
           work: 'Fake Job',
-          name: 'Jody Nelson',
+          firstName: 'Jody',
+          lastName: 'Nelson',
           image: {
             fluid: {
               src: 'facke src',

@@ -6,8 +6,8 @@ import './boardCards.css'
 
 function BoardCards({ boardMembersList }) {
   const sortedBoardMembers = boardMembersList.sort((a, b) => {
-    const [, aLastName] = a.node.name.split(' ')
-    const [, bLastName] = b.node.name.split(' ')
+    const aLastName = a.node.lastName
+    const bLastName = b.node.lastName
     if (aLastName < bLastName) {
       return -1
     }
@@ -27,7 +27,9 @@ function BoardCards({ boardMembersList }) {
                 <div className="user-pic">
                   <Image fluid={node.image.fluid} alt={node.name} className="img-fluid" />
                 </div>
-                <h5>{node.name}</h5>
+                <h5>
+                  {node.firstName} {node.lastName}
+                </h5>
                 <h6>{node.work}</h6>
               </div>
               <div className="bio">
@@ -62,7 +64,8 @@ BoardCards.propTypes = {
         linkedin: PropTypes.string,
         twitter: PropTypes.string,
         work: PropTypes.string,
-        name: PropTypes.string,
+        firstName: PropTypes.string,
+        lastName: PropTypes.string,
         fluid: PropTypes.shape({
           srcSet: PropTypes.string,
           src: PropTypes.string,
