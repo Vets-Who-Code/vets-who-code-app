@@ -612,6 +612,7 @@ h1.bold_404 {
 @media only screen and (max-width: 767px) {
   .navbar-collapse {
     background-color: rgba(0, 0, 0, 0.9);
+    width: 100vw;
   }
 }
 .nav-tabs {
