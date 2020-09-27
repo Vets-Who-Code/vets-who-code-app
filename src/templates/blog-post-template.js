@@ -26,7 +26,7 @@ const BlogPost = ({ pageContext }) => {
   return (
     <>
       <PageHeader title={data.contentfulBlogPost.title} link={'blog'} />
-      <section id="blog-page" className="section  bg-default">
+      <section id="blog-page" className="section bg-default">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

@@ -101,7 +101,7 @@ function About() {
 
                 <h2>How We Do This</h2>
                 <p className="story">
-                  How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i>{' '}
+                  How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i>
                   where as we teach them programming we build upon each lesson in deeper dives so
                   that they become better programmers through each iteration. All this while being
                   lead by instructors who are also veterans, and programmers, and alumni of the
@@ -114,9 +114,9 @@ function About() {
                 <p className="story-last">
                   As our country is going through this unprecedented time with COVID-19, people are
                   wanting to learn the skills of today and tomorrow to future-proof themselves so
-                  that they can provide for thier families. Furthermore due to the nature of
+                  that they can provide for their families. Furthermore due to the nature of
                   for-profit code schools many are just now learning how to do the work remotely,
-                  which we have been doing for years. As a result we are having an unprecendented
+                  which we have been doing for years. As a result we are having an unprecedented
                   amount of applicants and are looking to expand our abilities to support more
                   teams. Help us by making a tax-deductible <a href="/donate">donation</a> so that
                   not only can we continue the work we are doing for our troops now, but expand our

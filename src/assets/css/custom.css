@@ -1,3 +1,8 @@
+:root {
+  --main-color: #ffffff;
+  --hash-flag-blue: #091f40;
+  --hash-flag-red: #c5203e;
+}
 .logo_holder {
   width: 50px;
   height: auto;
@@ -9,7 +14,7 @@
 
 .index .fluid-grid:hover h2,
 .index .fluid-grid:hover span {
-  color: #fff;
+  color: var(--main-color);
   text-decoration: underline;
 }
 /* slider default button overides */
@@ -46,14 +51,14 @@
 }
 
 .light-text {
-  color: #fff;
+  color: var(--main-color);
 }
 
 /* overides for social icons in about page for each user */
 .meet-social i {
-  background-color: #091f40;
+  background-color: var(--hash-flag-blue);
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--main-color);
   display: inline-block;
   height: 50px;
   margin-top: 10px;
@@ -141,7 +146,7 @@
 }
 
 .story-last h2 {
-  color: #c5203e;
+  color: var(--hash-flag-red);
 }
 
 .lead-in {
@@ -154,7 +159,7 @@
 
 .lead-in p {
   text-align: center;
-  color: #c5203e;
+  color: var(--hash-flag-red);
 }
 
 .testimonial-row img {

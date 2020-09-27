@@ -7,7 +7,7 @@ function Donate() {
   return (
     <Layout>
       <PageHeader title="donate" />
-      <section id="cause_singe" className="cause_single section bg-default single pad-regular">
+      <section id="cause_single" className="cause_single section bg-default single pad-regular">
         <div className="container">
           <div className="row">
             <div className="col-md-12">

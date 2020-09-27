@@ -1,5 +1,10 @@
 /* overide bootstrap mobile nav styles */
-
+:root {
+  --hamburger-bg: #ecf0f1;
+  --hamburger-focus: #ffffff;
+  --nav-donate: #c5203e;
+  --av-donate-hover: #be1635;
+}
 /* hamburger menu styles */
 .hamburger {
   position: absolute;
@@ -10,7 +15,7 @@
 .hamburger .line {
   width: 39px;
   height: 2px;
-  background-color: #ecf0f1;
+  background-color: var(--hamburger-bg);
   display: block;
   margin: 8px auto;
   transition: all 0.3s ease-in-out;
@@ -21,7 +26,7 @@
 }
 
 .hamburger:focus {
-  border: 1px dashed #fff;
+  border: 1px dashed var(--hamburger-focus);
 }
 
 #hamburger-1.is-active .line:nth-child(2) {
@@ -63,16 +68,16 @@
 }
 
 .donate {
-  background-color: #c5203e;
+  background-color: var(--nav-donate);
   font-weight: 600;
   border-radius: 2px;
 }
 .donate:hover {
-  background-color: #be1635;
+  background-color: var(--av-donate-hover);
   transition: all 0.1 linear;
 }
 .donate a span {
-  color: #fff;
+  color: var(--hamburger-focus);
 }
 @media (min-width: 768px) and (max-width: 1200px) {
   .container-fluid {
