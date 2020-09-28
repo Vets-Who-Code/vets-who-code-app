@@ -391,8 +391,9 @@ h1.bold_404 {
 }
 .main-navigation .navbar-brand a {
   color: #ffffff;
-  font-size: 26px;
-  letter-spacing: 2px;
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
 }
 .main-navigation .navbar-brand a em {
@@ -404,7 +405,7 @@ h1.bold_404 {
   height: 20px;
   letter-spacing: 0;
   margin: 0 5px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   text-transform: lowercase;
   width: 8px;
@@ -413,6 +414,15 @@ h1.bold_404 {
 .main-navigation .navbar-brand a:hover {
   text-decoration: none;
 }
+
+@media only screen and (max-width: 400px) {
+  .main-navigation .navbar-brand a {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 2.2px;
+  }
+}
+
 .main-navigation .navbar-toggle {
   border-radius: 2px;
   color: #ffffff;
@@ -438,8 +448,9 @@ h1.bold_404 {
   }
 }
 .main-navigation .navbar-nav li a {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 11px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: -1px;
   padding: 20px 15px 20px 15px;
@@ -522,7 +533,7 @@ h1.bold_404 {
 }
 .main-navigation .dropdown-menu li a {
   border-bottom: 1px solid rgba(73, 71, 71, 0.15);
-  color: rgba(255, 255, 255, 0.76);
+  color: rgba(255, 255, 255, 0);
   font-size: 11px;
   letter-spacing: 2px;
   line-height: 1px;
@@ -574,17 +585,22 @@ h1.bold_404 {
 .navbar-solid .dropdown-toggle:after {
   top: 51%;
 }
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   .main-navigation .navbar-nav > li > a {
     letter-spacing: 1px;
-    padding: 20px 10px 15px;
+    font-size: 11px;
+    padding: 20px 6px 18px;
   }
-  .main-navigation .navbar-brand {
+}
+@media only screen and (max-width: 767px) {
+  .main-navigation .navbar-nav > li > a {
+    padding: 12px 12px 12px;
   }
 }
 @media only screen and (max-width: 767px) {
   .navbar-collapse {
     background-color: rgba(0, 0, 0, 0.9);
+    width: 100vw;
   }
 }
 .nav-tabs {
