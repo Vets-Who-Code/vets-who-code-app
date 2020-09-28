@@ -6,10 +6,7 @@ function Testimonial() {
   return (
     <>
       <PageHeader title="Testimonials" />
-      <section
-        className="cause_single section bg-default single pad-regular"
-        style={{ paddingTop: '0px' }}
-      >
+      <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
             <div className="col-md-12 lead-in">

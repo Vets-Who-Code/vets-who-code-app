@@ -9,12 +9,12 @@ const args = process.argv.slice(2)
 const envFilePath = path.resolve(process.cwd(), '.env')
 const envFile = fs.existsSync(envFilePath)
 let envFileBuffer
-let envFileConent
+let envFileContent
 
 if (envFile) {
   require('dotenv').config()
   envFileBuffer = fs.readFileSync(envFilePath)
-  envFileConent = envFileBuffer.toString()
+  envFileContent = envFileBuffer.toString()
 }
 
 function runCommands(commandList) {
@@ -89,8 +89,8 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
       })
   } else if (args.indexOf('-c') > -1 || (args.indexOf('--contentful') > -1 && envFile)) {
     if (
-      /^#\s?DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileConent) ||
-      !/DISPLAY_CONTENTFUL_CONTENT/gm.test(envFileConent)
+      /^#\s?DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileContent) ||
+      !/DISPLAY_CONTENTFUL_CONTENT/gm.test(envFileContent)
     ) {
       console.log(
         chalk.red.inverse('[ERROR]'),
@@ -102,7 +102,7 @@ if (args.indexOf('-h') > -1 || args.indexOf('--help') > -1) {
     }
   }
 } else {
-  if (envFile && /^(?!#)DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileConent)) {
+  if (envFile && /^(?!#)DISPLAY_CONTENTFUL_CONTENT.*/gm.test(envFileContent)) {
     console.log(
       '\n',
       chalk.red.inverse('[ERROR]'),

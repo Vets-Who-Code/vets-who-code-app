@@ -105,6 +105,17 @@
     flex-direction: column;
   }
 }
+@media only screen and (max-width: 1200px) {
+  .container-tablet {
+    position: relative;
+  }
+  .text-tablet {
+    top: 50px;
+  }
+  .breadcrumb-tablet {
+    top: 60px;
+  }
+}
 
 .testimonial-text {
   margin: 0;
@@ -153,4 +164,3 @@
 .countdown-message {
   margin-bottom: 1rem;
 }
-

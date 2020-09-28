@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, StaticQuery, graphql } from 'gatsby'
-
+import '../../assets/css/custom.css'
 const PageHeader = ({ title, link }) => {
   return (
     <StaticQuery
@@ -26,9 +26,9 @@ const PageHeader = ({ title, link }) => {
           }}
         >
           <div className="overlay-01" />
-          <div className="container">
-            <h2 className="text-center text-uppercase">{title}</h2>
-            <div className="breadcrumb">
+          <div className="container tablet-container">
+            <h2 className="text-center text-uppercase text-tablet">{title}</h2>
+            <div className="breadcrumb breadcrumb-tablet">
               <Link to={link === undefined ? '/' : `/${link}`}>
                 {link === undefined ? 'home' : link}
               </Link>
