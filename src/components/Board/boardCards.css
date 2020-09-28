@@ -1,11 +1,11 @@
 :root {
-  --main-color: #ffffff;
+  --main-white: #ffffff;
   --hash-flag-blue: #091f40;
   --hash-flag-red: #c5203e;
-  --card-box-bg: #fdfdfd;
-  --card-box-border: #eee;
-  --card-box-shadow: #d4d4d4;
-  --card-box-text: #808080;
+  --off-white: #fdfdfd;
+  --silver: #eeeeee;
+  --light-gray: #d4d4d4;
+  --medium-gray: #808080;
 }
 .row.is-flex {
   display: flex;
@@ -23,11 +23,11 @@
   justify-content: space-between;
   flex: 1;
   padding: 15px;
-  background-color: var(--card-box-bg);
+  background-color: var(--off-white);
   margin: 20px 0px;
   border-radius: 10px;
-  border: 1px solid var(--card-box-border);
-  box-shadow: 0px 0px 8px 0px var(--card-box-shadow);
+  border: 1px solid var(--silver);
+  box-shadow: 0px 0px 8px 0px var(--light-gray);
   transition: 0.5s;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .card-box p {
-  color: var(--card-box-text);
+  color: var(--medium-gray);
 }
 
 .user-pic {
