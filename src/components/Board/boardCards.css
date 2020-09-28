@@ -1,12 +1,3 @@
-:root {
-  --main-white: #ffffff;
-  --hash-flag-blue: #091f40;
-  --hash-flag-red: #c5203e;
-  --off-white: #fdfdfd;
-  --silver: #eeeeee;
-  --light-gray: #d4d4d4;
-  --medium-gray: #808080;
-}
 .row.is-flex {
   display: flex;
   flex-wrap: wrap;
