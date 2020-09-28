@@ -35,7 +35,7 @@ function Nav() {
       role="navigation"
       style={{ opacity: opacity }}
     >
-      <div className="container-fluid topNavContainer">
+      <div className="container-fluid">
         <div className="navbar-header">
           <div
             className="navbar-brand"

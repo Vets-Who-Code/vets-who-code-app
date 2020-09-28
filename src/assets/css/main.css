@@ -405,7 +405,7 @@ h1.bold_404 {
   height: 20px;
   letter-spacing: 0;
   margin: 0 5px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   text-transform: lowercase;
   width: 8px;
@@ -413,21 +413,6 @@ h1.bold_404 {
 .main-navigation .navbar-brand a:focus,
 .main-navigation .navbar-brand a:hover {
   text-decoration: none;
-}
-
-/*Fixes Buggy fomatting behavior between 1284px and 1202px.*/
-@media only screen and (max-width: 1300px) {
-  .topNavContainer {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .topNavContainer {
-    display: inline-block;
-  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -600,13 +585,11 @@ h1.bold_404 {
 .navbar-solid .dropdown-toggle:after {
   top: 51%;
 }
-@media only screen and (max-width: 1025px) {
+@media only screen and (max-width: 1200px) {
   .main-navigation .navbar-nav > li > a {
     letter-spacing: 1px;
     font-size: 11px;
-    padding: 20px 10px 15px;
-  }
-  .main-navigation .navbar-brand {
+    padding: 20px 6px 18px;
   }
 }
 @media only screen and (max-width: 767px) {
