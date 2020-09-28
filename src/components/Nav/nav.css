@@ -3,7 +3,7 @@
   --hamburger-bg: #ecf0f1;
   --hamburger-focus: #ffffff;
   --nav-donate: #c5203e;
-  --av-donate-hover: #be1635;
+  --nav-donate-hover: #be1635;
 }
 /* hamburger menu styles */
 .hamburger {
@@ -73,7 +73,7 @@
   border-radius: 2px;
 }
 .donate:hover {
-  background-color: var(--av-donate-hover);
+  background-color: var(--nav-donate-hover);
   transition: all 0.1 linear;
 }
 .donate a span {
