@@ -9,7 +9,7 @@
 
 .index .fluid-grid:hover h2,
 .index .fluid-grid:hover span {
-  color: var(--main-color);
+  color: var(--main-white);
   text-decoration: underline;
 }
 /* slider default button overides */
@@ -46,14 +46,14 @@
 }
 
 .light-text {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 
 /* overides for social icons in about page for each user */
 .meet-social i {
   background-color: var(--hash-flag-blue);
   border-radius: 50%;
-  color: var(--main-color);
+  color: var(--main-white);
   display: inline-block;
   height: 50px;
   margin-top: 10px;

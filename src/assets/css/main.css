@@ -21,7 +21,7 @@
 }
 :root {
   --transparent-white: rgba(255, 255, 255, 0);
-  --main-color: #ffffff;
+  --main-white: #ffffff;
   --mostly-white: #fafafa;
   --white-smoke: #f6f6f6;
   --snow-white: #f9f9f9;
@@ -69,7 +69,7 @@ html {
 }
 
 body {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
   color: var(--very-dark-gray);
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9375rem; /*15px*/
@@ -95,7 +95,7 @@ h6 {
   font-family: 'Roboto Slab', serif;
 }
 .logo_holder {
-  background: var(--main-color);
+  background: var(--main-white);
   border-radius: 50%;
   height: auto;
   width: 45px;
@@ -182,7 +182,7 @@ a:hover {
   z-index: 5;
 }
 .bg-default {
-  background: var(--main-color);
+  background: var(--main-white);
 }
 .bg-dark {
   background: var(--hash-flag-blue);
@@ -200,7 +200,7 @@ a:hover {
 .bg-dark h5,
 .bg-dark h6,
 .bg-dark p {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .bg-light h1,
 .bg-light h2,
@@ -290,7 +290,7 @@ ul li {
   background-color: var(--hash-flag-blue);
   border: 1px solid var(--hash-flag-blue);
   border-radius: 0;
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .icon-preview ul {
   list-style: none;
@@ -322,7 +322,7 @@ h1.bold_404 {
   margin-top: -30px;
 }
 #loader-wrapper {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -358,21 +358,21 @@ h1.bold_404 {
   background-color: var(--hash-flag-red);
   border: 1px solid var(--hash-flag-blue);
   border-radius: 4px;
-  color: var(--main-color);
+  color: var(--main-white);
   font-weight: 700;
 }
 .btn-charity-default:hover {
   background-color: var(--hash-flag-blue);
   border: 1px solid var(--hash-flag-red);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .btn-charity-default-o {
   background-color: transparent;
   border: 1px solid var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .btn-charity-default-o:hover {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
   color: var(--hash-flag-blue);
 }
 .btn-charity-dark-o {
@@ -382,18 +382,18 @@ h1.bold_404 {
 }
 .btn-charity-dark-o:hover {
   background-color: var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .btn-subscribe {
   background-color: var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
   margin-top: 8px;
   font-weight: 700;
 }
 .btn-subscribe:hover {
   background-color: var(--hash-flag-red);
   border: 1px solid var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .btn.btn-block {
   width: 100%;
@@ -434,7 +434,7 @@ h1.bold_404 {
   transition: all 0.4s ease;
 }
 .main-navigation .navbar-brand a {
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 32px;
   font-weight: bold;
   letter-spacing: 2.5px;
@@ -469,7 +469,7 @@ h1.bold_404 {
 
 .main-navigation .navbar-toggle {
   border-radius: 2px;
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 28px;
   padding: 0 15px;
 }
@@ -483,12 +483,12 @@ h1.bold_404 {
 }
 .main-navigation .navbar-nav > .dropdown.open > a span {
   background: transparent;
-  color: var(--main-color);
+  color: var(--main-white);
 }
 @media only screen and (max-width: 767px) {
   .main-navigation .navbar-nav > .dropdown.open > a span {
     background: transparent;
-    color: var(--main-color);
+    color: var(--main-white);
   }
 }
 .main-navigation .navbar-nav li a {
@@ -529,14 +529,14 @@ h1.bold_404 {
   .main-navigation .navbar-nav li a:hover span,
   .main-navigation .navbar-nav li a:focus span {
     background: transparent;
-    color: var(--main-color);
+    color: var(--main-white);
   }
 }
 .main-navigation .navbar-nav li.active a {
   background-color: var(--transparent-white);
 }
 .main-navigation .navbar-nav li.active a span {
-  background: var(--main-color);
+  background: var(--main-white);
   color: black;
 }
 .main-navigation .dropdown-toggle:after {
@@ -586,14 +586,14 @@ h1.bold_404 {
 .main-navigation .dropdown-menu li a:hover {
   background: var(--main-black);
   border-bottom-color: rgba(73, 71, 71, 0.15);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .main-navigation .dropdown-menu li.open > a {
   background: var(--main-black);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .main-navigation .dropdown-menu li.open > a:hover {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .main-navigation .dropdown-menu.left-side .dropdown-menu {
   border: 0;
@@ -732,7 +732,7 @@ h3 {
   margin-bottom: 20px;
 }
 .site-header .intro {
-  color: var(--main-color);
+  color: var(--main-white);
   text-transform: uppercase;
 }
 .site-header .intro .btn-charity-default {
@@ -751,7 +751,7 @@ h3 {
   padding: 48px 53px;
 }
 .site-header .intro h1 {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'Lato';
   font-weight: 700;
   letter-spacing: 1px;
@@ -800,7 +800,7 @@ h3 {
 .site-header .intro .arrow-down a i {
   -webkit-animation: bounce 2s infinite;
   animation: bounce 2s infinite;
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 2em;
 }
 @-webkit-keyframes bounce {
@@ -848,7 +848,7 @@ h3 {
   text-transform: uppercase;
 }
 .inner-header h2 {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'lato';
   font-weight: 700;
   margin-top: 5px;
@@ -857,7 +857,7 @@ h3 {
 }
 .inner-header .breadcrumb {
   background-color: transparent;
-  color: var(--main-color);
+  color: var(--main-white);
   float: none;
   margin-bottom: 0;
   padding: 0;
@@ -876,7 +876,7 @@ h3 {
 .inner-header .breadcrumb a:hover,
 .inner-header .breadcrumb a:active,
 .inner-header .breadcrumb a:focus {
-  color: var(--main-color);
+  color: var(--main-white);
   text-decoration: none;
 }
 .inner-header .breadcrumb a i {
@@ -898,7 +898,7 @@ h3 {
   }
 }
 .flexslider .flex-direction-nav a::before {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'Ionicons';
   text-shadow: none;
 }
@@ -909,7 +909,7 @@ h3 {
   content: '\f125';
 }
 .flexslider .intro h1 {
-  color: var(--main-color) !important;
+  color: var(--main-white) !important;
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 0;
@@ -1034,7 +1034,7 @@ h3 {
   font-weight: bold;
 }
 .cause_content hr {
-  color: var(--main-color);
+  color: var(--main-white);
   margin: 14px 0;
 }
 .progress {
@@ -1065,7 +1065,7 @@ h3 {
 }
 .progress-counter {
   background-color: var(--night-rider-black);
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 0.625rem; /*10px*/
   font-weight: 300;
   left: -webkit-calc(76% - 52px);
@@ -1145,7 +1145,7 @@ h3 {
   color: var(--hash-flag-red);
 }
 .bg-dark .event_meta ul li {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .countdown-box {
   display: inline-block;
@@ -1153,7 +1153,7 @@ h3 {
   position: relative;
 }
 .countdown-box::after {
-  color: var(--main-color);
+  color: var(--main-white);
   content: ':';
   font-size: 1.875rem; /*30px*/
   position: absolute;
@@ -1168,8 +1168,8 @@ h3 {
   content: ':';
 }
 .countdown-box .counter {
-  border: 1px solid var(--main-color);
-  color: var(--main-color);
+  border: 1px solid var(--main-white);
+  color: var(--main-white);
   display: block;
   font-size: 1.3125rem; /*21px*/
   line-height: 2.2;
@@ -1182,7 +1182,7 @@ h3 {
 .ticket_price {
   background: var(--hash-flag-red);
   bottom: 0;
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 1.3125rem; /*21px*/
   font-weight: bold;
   height: 120px;
@@ -1192,7 +1192,7 @@ h3 {
   width: 100px;
 }
 .ticket_price i {
-  color: var(--main-color);
+  color: var(--main-white);
   display: block;
   font-size: 1.875rem; /*30px*/
   margin-bottom: 0;
@@ -1266,7 +1266,7 @@ h3 {
   margin: 0;
 }
 #get-involved .logos {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
 }
 .post {
   margin: 88px auto;
@@ -1290,7 +1290,7 @@ h3 {
   text-transform: uppercase;
 }
 .post .entry-meta .btn-charity-dark-o:hover {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .post .entry-meta .entry-meta-data {
   margin: 10px 0;
@@ -1349,7 +1349,7 @@ h3 {
 .post .post-thumbnail span {
   background: var(--tangaroa-blue);
   background: var(--transparent-tangaroa-blue);
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 0.875rem; /*14px*/
   font-weight: bold;
   left: 0;
@@ -1359,7 +1359,7 @@ h3 {
 }
 .post .post-thumbnail .post-thumbnail-image {
   background: var(--opaque-dark-blue);
-  color: var(--main-color);
+  color: var(--main-white);
   display: block;
   height: 100%;
   opacity: 0;
@@ -1385,7 +1385,7 @@ h3 {
 }
 .post .post-thumbnail .post-thumbnail-image span:before,
 .post .post-thumbnail .post-thumbnail-image span:after {
-  background: var(--main-color);
+  background: var(--main-white);
   content: '';
   height: 1px;
   left: 0;
@@ -1448,19 +1448,19 @@ h3 {
   background-color: var(--hash-flag-blue);
   border: transparent;
   border-bottom-color: transparent;
-  color: var(--main-color);
+  color: var(--main-white);
   cursor: default;
 }
 .nav-tabs > li > a {
   border: none;
   border-bottom-color: transparent;
   border-radius: 0;
-  color: var(--main-color);
+  color: var(--main-white);
   margin: 0;
   padding: 10px 22px;
 }
 .list-group-item {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
   border: none;
   margin-bottom: -1px;
   padding: 37px 15px;
@@ -1471,11 +1471,11 @@ h3 {
 a.list-group-item:focus,
 a.list-group-item:hover {
   background-color: var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 a.list-group-item:focus,
 a.list-group-item:hover .media-heading {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .list-group {
   margin-bottom: 0;
@@ -1495,7 +1495,7 @@ a.list-group-item:hover .media-heading {
 .tag-widget .tags a {
   background-color: var(--gothic-blue);
   border-radius: 5px;
-  color: var(--main-color);
+  color: var(--main-white);
   display: inline-block;
   font-size: 0.9375rem; /*15px*/
   font-style: italic;
@@ -1508,7 +1508,7 @@ a.list-group-item:hover .media-heading {
 }
 .tag-widget .tags a:hover {
   background-color: var(--hash-flag-blue);
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .align-left {
   float: left;
@@ -1581,7 +1581,7 @@ ul.gallery-filter li {
 }
 ul.gallery-filter li a {
   border-radius: 0;
-  color: var(--main-color);
+  color: var(--main-white);
   font-weight: bold;
   padding: 10px 20px;
 }
@@ -1744,7 +1744,7 @@ uneditable-input:focus {
 .personal-info {
   background-color: var(--hash-flag-blue);
   bottom: 0;
-  color: var(--main-color);
+  color: var(--main-white);
   left: 0;
   padding: 10px 0;
   position: absolute;
@@ -1774,7 +1774,7 @@ uneditable-input:focus {
 .meet-social i {
   background-color: var(--hash-flag-blue);
   border-radius: 50%;
-  color: var(--main-color);
+  color: var(--main-white);
   padding: 20px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -1803,10 +1803,10 @@ uneditable-input:focus {
   background: var(--hash-flag-blue);
 }
 .faq_list .active .panel-heading a {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .faq_list .panel-heading {
-  background: var(--main-color);
+  background: var(--main-white);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -1845,13 +1845,13 @@ uneditable-input:focus {
   padding: 50px;
 }
 .fluid-grid h2 {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'Roboto Slab', serif;
   font-size: 2.625rem; /*42px*/
   margin: 0;
 }
 .fluid-grid span {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'Roboto Slab', serif;
   font-size: 1.3125rem; /*21px*/
 }
@@ -1884,12 +1884,12 @@ uneditable-input:focus {
   /* background-image: url("../../images/movie/movie.png"); */
   background-position: center center;
   background-size: cover;
-  color: var(--main-color);
+  color: var(--main-white);
   height: 436px;
   position: relative;
 }
 .watch-film-player h3 {
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 1.3125rem; /*21px*/
   margin-top: 170px;
 }
@@ -1914,7 +1914,7 @@ uneditable-input:focus {
   stroke: none;
 }
 .watch-film-player svg:hover path {
-  fill: var(--main-color);
+  fill: var(--main-white);
   fill-opacity: 1;
   stroke: none;
 }
@@ -1946,7 +1946,7 @@ uneditable-input:focus {
   padding: 16px 0;
 }
 .call-to-action-small h3 {
-  color: var(--main-color);
+  color: var(--main-white);
   display: inline-block;
   font-size: 1.3125rem; /*21px*/
   padding-top: 15px;
@@ -1962,7 +1962,7 @@ uneditable-input:focus {
   padding: 16px 0;
   text-transform: uppercase;
   width: 230px;
-  color: var(--main-color);
+  color: var(--main-white);
 }
 
 .call-to-action-small a.btn-charity-default {
@@ -2031,11 +2031,11 @@ uneditable-input:focus {
   margin-bottom: 48px;
 }
 .blog-snippet h3 {
-  color: var(--main-color);
+  color: var(--main-white);
   margin: 0;
 }
 .blog-snippet h3 a {
-  color: var(--main-color);
+  color: var(--main-white);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -2048,7 +2048,7 @@ uneditable-input:focus {
   margin-bottom: 55px;
 }
 .blog-snippet .snippet-author a {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .blog-snippet .snippet-author a:hover {
   color: var(--light-yellow);
@@ -2058,7 +2058,7 @@ uneditable-input:focus {
   padding: 30px 33px;
 }
 .blog-snippet .card-snippet span a {
-  color: var(--main-color);
+  color: var(--main-white);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -2117,7 +2117,7 @@ div.zabuto_calendar {
 div.zabuto_calendar .table tr.calendar-month-header th,
 div.zabuto_calendar .table tr.calendar-dow-header th {
   background-color: var(--teal-blue);
-  color: var(--main-color);
+  color: var(--main-white);
   padding-bottom: 30px;
 }
 div.zabuto_calendar tr.calendar-dow td {
@@ -2127,7 +2127,7 @@ div.zabuto_calendar tr.calendar-dow td {
   background-color: var(--snow-white);
 }
 .review-slider .review-wrap {
-  background-color: var(--main-color);
+  background-color: var(--main-white);
   padding: 32px;
 }
 .review-slider i.fa-chevron-left:hover,
@@ -2172,13 +2172,13 @@ div.zabuto_calendar tr.calendar-dow td {
   text-align: center;
 }
 .four-o-four p.subtitle {
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 2.625rem; /*42px*/
   line-height: 1.2;
   margin-bottom: 45px;
 }
 .four-o-four h2 {
-  color: var(--main-color);
+  color: var(--main-white);
   font-family: 'Open Sans';
   font-size: 16.25rem; /*100px*/
   font-weight: 900;
@@ -2198,7 +2198,7 @@ div.zabuto_calendar tr.calendar-dow td {
   letter-spacing: 1px;
 }
 .footer-widgets p {
-  color: var(--main-color);
+  color: var(--main-white);
   font-size: 0.9375rem; /*15px*/
   font-weight: 300;
   margin-bottom: 15px;
@@ -2217,7 +2217,7 @@ div.zabuto_calendar tr.calendar-dow td {
   background-color: transparent;
   border: 1px solid var(--ocean-blue);
   border-radius: 50%;
-  color: var(--main-color);
+  color: var(--main-white);
   margin: 23px 5px 0 0;
   padding: 6px 12px;
   height: 40px;
@@ -2256,7 +2256,7 @@ div.zabuto_calendar tr.calendar-dow td {
   text-transform: uppercase;
 }
 .footer-widgets .widgets-content .widgets-list li a {
-  color: var(--main-color);
+  color: var(--main-white);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -2273,7 +2273,7 @@ div.zabuto_calendar tr.calendar-dow td {
   padding-left: 15px;
 }
 .footer-widgets .widgets-content .office {
-  color: var(--main-color);
+  color: var(--main-white);
   line-height: 22px;
   text-transform: uppercase;
 }
@@ -2294,19 +2294,19 @@ div.zabuto_calendar tr.calendar-dow td {
 .footer {
   background-color: var(--hash-flag-blue);
   border-top: 1px solid var(--teal-blue);
-  color: var(--main-color);
+  color: var(--main-white);
   padding: 40px 0;
 }
 .footer .footer-menu {
   text-align: right;
 }
 .footer .footer-menu li {
-  border-right: 1px solid var(--main-color);
+  border-right: 1px solid var(--main-white);
   display: inline-block;
   padding: 0 10px;
 }
 .footer .footer-menu li a {
-  color: var(--main-color);
+  color: var(--main-white);
 }
 .footer .footer-menu li:last-child {
   border-right: none;
