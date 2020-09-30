@@ -19,52 +19,6 @@
   font-style: normal;
   font-weight: 400;
 }
-:root {
-  /* background-colors */
-  --transparent-white: rgba(255, 255, 255, 0);
-  --main-white: #ffffff;
-  --mostly-white: #fafafa;
-  --white-smoke: #f6f6f6;
-  --snow-white: #f9f9f9;
-  --off-white: #fdfdfd;
-  --silver: #eeeeee;
-  --hash-flag-red: #c5203e;
-  --pink-red: #be1635;
-  --tangerine-yellow: #ffcc00;
-  --light-yellow: #ffc903;
-  --hash-flag-blue: #091f40;
-  --space-blue: #1a3843;
-  --opaque-dark-blue: rgba(20, 46, 57, 0.8);
-  --tangaroa-blue: #142e39;
-  --transparent-tangaroa-blue: rgba(20, 46, 57, 0.7);
-  --dark-greyish-blue-8: rgba(35, 76, 91, 0.8);
-  --dark-greyish-blue-7: rgba(35, 76, 91, 0.75);
-  --dark-greyish-blue-6: rgba(35, 76, 91, 0.6);
-  --teal-blue: #234c5b;
-  --cerluean-blue: #29586a;
-  --dull-blue: #29596b;
-  --ocean-blue: #316b80;
-  --strong-blue: #336f85;
-  --slushy-blue: #4ba3c4;
-  --gothic-blue: #728f98;
-  --light-blue: #79c5f5;
-  --bright-gray: #ecf0f1;
-  --statue-gray: #e0e0e0;
-  --grayish-blue: #bdc3c7;
-  --concrete-gray: #d0d0d0;
-  --gainsboro-gray: #dadada;
-  --medium-gainsboro-gray: #dcdcdc;
-  --light-gray: #d4d4d4;
-  --nobel-gray: #999999;
-  --light-nobel-gray: ##969595;
-  --medium-gray: #808080;
-  --charcoal: #333333;
-  --night-rider-black: #323232;
-  --very-dark-gray: #222222;
-  --transparent-2-black: rgba(0, 0, 0, 0.2);
-  --transparent-5-black: rgba(0, 0, 0, 0.5);
-  --main-black: #000000;
-}
 
 :root /* [color-mode='light'] */ {
   /* Surface colors: background color of body, menus, footers, navigation bars, modals */
@@ -121,6 +75,10 @@
   --tertiary-15: #142e39; /* tangaroa blue */
   --tertiary-16: rgba(20, 46, 57, 0.7); /* transparent tangaroa blue */
   --tertiary-17: #333333; /* charcoal */
+}
+
+:root[color-mode="dark"]{
+  
 }
 html {
   font-size: 16px;
@@ -643,11 +601,11 @@ h1.bold_404 {
 }
 .main-navigation .dropdown-menu li a:hover {
   background: var(--surface-8);
-  border-bottom-color: rgba(73, 71, 71, 0.15);
-  color: var(--main-white);
+  border-bottom-color: var(--element-8);
+  color: var(--element-4);
 }
 .main-navigation .dropdown-menu li.open > a {
-  background: var(--main-black);
+  background: var(--surface-8);
   color: var(--element-4);
 }
 .main-navigation .dropdown-menu li.open > a:hover {
@@ -1010,7 +968,7 @@ h3 {
 }
 #services h3,
 #process h3 {
-  color: var(--hash-flag-blue);
+  color: var(--element-3);
   font-size: 1.75rem; /*28px*/
   font-weight: bold;
   margin-bottom: 20px;
@@ -1105,7 +1063,7 @@ h3 {
 }
 .progress-bar {
   background-color: var(--element-7);
-  color: var(--hash-flag-blue);
+  color: var(--element-3);
   position: relative;
   -webkit-transition: width 3s cubic-bezier(0, 0, 0.2, 1);
   transition: width 3s cubic-bezier(0, 0, 0.2, 1);
@@ -1801,7 +1759,7 @@ uneditable-input:focus {
   position: relative;
 }
 .personal-info {
-  background-color: var(--hash-flag-blue);
+  background-color: var(--surface-6);
   bottom: 0;
   color: var(--element-4);
   left: 0;
