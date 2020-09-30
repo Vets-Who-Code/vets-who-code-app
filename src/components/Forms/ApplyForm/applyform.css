@@ -26,13 +26,13 @@
 .loader::after,
 .loader::before {
   content: '';
-  background: var(--silver);
+  background: var(--element-11);
   position: absolute;
   display: inline-block;
   width: 100%;
   height: 100%;
   border-width: 2px;
-  border-color: var(--charcoal) var(--charcoal) transparent transparent;
+  border-color: var(--tertiary-17) var(--tertiary-17) transparent transparent;
   border-style: solid;
   border-radius: 20px;
   box-sizing: border-box;

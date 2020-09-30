@@ -9,7 +9,7 @@
 .hamburger .line {
   width: 39px;
   height: 2px;
-  background-color: var(--bright-gray);
+  background-color: var(--element-14);
   display: block;
   margin: 8px auto;
   transition: all 0.3s ease-in-out;
@@ -20,7 +20,7 @@
 }
 
 .hamburger:focus {
-  border: 1px dashed var(--main-white);
+  border: 1px dashed var(--element-4);
 }
 
 #hamburger-1.is-active .line:nth-child(2) {
@@ -62,16 +62,16 @@
 }
 
 .donate {
-  background-color: var(--hash-flag-red);
+  background-color: var(--primary-1);
   font-weight: 600;
   border-radius: 2px;
 }
 .donate:hover {
-  background-color: var(--pink-red);
+  background-color: var(--element-15);
   transition: all 0.1 linear;
 }
 .donate a span {
-  color: var(--main-white);
+  color: var(--element-4);
 }
 @media (min-width: 768px) and (max-width: 1400px) {
   .container-fluid {
