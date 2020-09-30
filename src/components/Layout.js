@@ -11,7 +11,6 @@ import metaImage from '../images/meta-image.jpg'
 
 import Nav from './Nav'
 import Footer from './Footer'
-
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet htmlAttributes={{ lang: 'en' }}>

@@ -20,6 +20,7 @@
   font-weight: 400;
 }
 :root {
+  /* background-colors */
   --transparent-white: rgba(255, 255, 255, 0);
   --main-white: #ffffff;
   --mostly-white: #fafafa;
@@ -63,6 +64,37 @@
   --transparent-2-black: rgba(0, 0, 0, 0.2);
   --transparent-5-black: rgba(0, 0, 0, 0.5);
   --main-black: #000000;
+}
+:root[color-mode='dark'] {
+  /* Surface colors: background color of body, menus, footers, navigation bars, modals */
+  --surface-1: #091f40;
+  --surface-2: #031228;
+  --surface-3: #010814;
+  --surface-4: #1a345b;
+  --surface-5: #355078;
+  /* Element colors: font color, horizontal lines, borders, tables */
+  --element-1: #ffffff;
+  --element-1-0: rgba(255, 255, 255, 0);
+  --element-2: #f6f6f6;
+  --element-3: #f9f9f9;
+  --element-4: #fdfdfd; /* Board card bg */
+  --element-6: #eeeeee;
+  --element-7: #728f98;
+  /* Primary colors: buttons */
+  --primary-1: #00533e;
+}
+:root[color-mode='light'] {
+  /* Surface colors: background color of body, menus, footers, navigation bars, modals */
+  --surface-1: #ffffff; /* main body color */
+  --surface-2: #fafafa;
+  --surface-3: #f6f6f6;
+  --surface-4: #f9f9f9;
+  --surface-5: #fdfdfd;
+  --element-1: #000000;
+  --element-1-2: rgba(0, 0, 0, 0.2);
+  --element-1-5: rgba(0, 0, 0, 0.5);
+  --element-2: #222222; /* body fonts */
+  --element-3: #091f40; /* borders */
 }
 html {
   font-size: 16px;
@@ -225,7 +257,7 @@ a:hover {
   padding-top: 45px;
 }
 .featured-heading {
-  color: black;
+  color: var(--main-black);
   margin-bottom: 45px;
   position: relative;
   text-transform: uppercase;
@@ -1223,7 +1255,8 @@ h3 {
   font-size: 0.75rem; /*12px*/
 }
 #newsletter_card {
-  background-image: url('../../images/newsletter-bg.png');
+  /* background-image: url('../../images/newsletter-bg.png'); */
+  background-color: var(--white-smoke);
 }
 .newsletter_wrapper {
   background: var(--hash-flag-red);

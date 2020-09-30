@@ -88,9 +88,11 @@
     transition: linear;
     margin-top: 0;
     padding: 0;
+    position: relative;
   }
   .navbar-nav li {
     padding-top: 0;
+    position: relative;
   }
   #navbar-brand {
     display: flex;
