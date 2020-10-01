@@ -68,6 +68,7 @@
 }
 .donate:hover {
   background-color: var(--element-15);
+  color: var(--element-4);
   transition: all 0.1 linear;
 }
 .donate a span {
