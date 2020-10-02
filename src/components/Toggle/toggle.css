@@ -1,0 +1,8 @@
+.toggle-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.switch {
+  color: var(--element-4);
+}
