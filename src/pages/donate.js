@@ -1,11 +1,10 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
 
 function Donate() {
   return (
-    <Layout>
+    <>
       <PageHeader title="donate" />
       <section id="cause_single" className="cause_single section bg-default single pad-regular">
         <div className="container">
@@ -64,7 +63,7 @@ function Donate() {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   )
 }
 
