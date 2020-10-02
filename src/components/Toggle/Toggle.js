@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './toggle.css'
-import { FaSun, FiMoon } from 'react-icons/fa'
+import { FaSun, FaMoon } from 'react-icons/fa'
 
 function Toggle() {
   const [colorMode, rawSetColorMode] = useState(undefined)
@@ -33,7 +33,7 @@ function Toggle() {
             setColorMode(event.target.checked ? 'dark' : 'light')
           }}
         />
-        Dark Mode
+        {colorMode === 'light' ? <FaMoon size="50" /> : <FaSun size="50" />}
       </label>
     </div>
   )

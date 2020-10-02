@@ -3,6 +3,11 @@
   right: 0;
   top: 0;
 }
+.btn-toggle {
+  display: none;
+}
 .switch {
   color: var(--element-4);
+  width: 5rem;
+  margin: 5px;
 }
