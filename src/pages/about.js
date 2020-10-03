@@ -101,7 +101,7 @@ function About() {
 
                 <h2>How We Do This</h2>
                 <p className="story">
-                  How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i>
+                  How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i> 
                   where as we teach them programming we build upon each lesson in deeper dives so
                   that they become better programmers through each iteration. All this while being
                   lead by instructors who are also veterans, and programmers, and alumni of the
