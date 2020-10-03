@@ -71,7 +71,7 @@ export default class Mentor extends Component {
                     className="btn btn-subscribe"
                     aria-label="Curriculum Github"
                   >
-                    Full Curriculum
+                    FULL CURRICULUM
                   </a>
                 </div>
               </div>

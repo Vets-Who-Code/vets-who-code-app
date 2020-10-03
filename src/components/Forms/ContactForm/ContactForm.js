@@ -144,7 +144,7 @@ function ContactForm() {
           id="cfsubmit"
           type="submit"
           name="submit"
-          value={loading ? 'loading...' : 'Submit Message'}
+          value={loading ? 'loading...' : 'SUBMIT'}
           href="#"
           className="btn btn-charity-default"
           title=""
