@@ -110,7 +110,7 @@ function About() {
                 <p className="story-last">
                   As our country is going through this unprecedented time with COVID-19, people are
                   wanting to learn the skills of today and tomorrow to future-proof themselves, in order to provide for their families. 
-                  Due to the nature of for-profit coding schools, many are now learning how to work remotely,
+                  Due to the nature of for-profit coding schools, many are now learning to work remotely,
                   which we have been doing for years. As a result, we are having an unprecedented
                   amount of applicants and are looking to expand our abilities to support more
                   teams. Help us by making a tax-deductible <a href="/donate">donation</a> so that
