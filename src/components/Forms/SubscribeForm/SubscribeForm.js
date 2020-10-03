@@ -64,7 +64,7 @@ function ApplyForm() {
             type="submit"
             className="btn btn-subscribe"
           >
-            SUBSCRIBE
+            Subscribe
           </button>
         </div>
       </div>

@@ -13,7 +13,7 @@ function Testimonial() {
               <h1 className="story-title">Testimonials</h1>
               <p>
                 <i>
-                  While we are proud of all the veterans we have helped at VetsWhoCode, here are
+                  While we are proud of all the veterans we have helped at #VetsWhoCode, here are
                   just a few of our incredible success stories.
                 </i>
               </p>
@@ -64,7 +64,7 @@ function Testimonial() {
                       helped me become a successful frontend developer in Chicago and have found a
                       group of people in VWC that understand me, and we really work and grow
                       together better than anything I could have imagined.&quot;
-                      <br /> - Carla Kroll, US Air Force| Frontend Developer, J. Walter Thompson
+                      <br /> - Carla Kroll, US Air Force | Frontend Developer, J. Walter Thompson
                       Worldwide
                     </p>
                   </blockquote>

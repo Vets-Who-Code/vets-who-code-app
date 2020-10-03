@@ -44,7 +44,7 @@ function ContactForm() {
         reset()
       }
     } catch (error) {
-      onSubmitError('OOPS Something went wrong, please try again later.')
+      onSubmitError('OOPS! Something went wrong, please try again later.')
       setLoading(false)
     }
   }

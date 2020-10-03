@@ -47,7 +47,7 @@ function IndexPage() {
                   className="fluid-grid second-grid text-center"
                   style={{ backgroundColor: '#0f356d' }}
                 >
-                  <span>Learn Javascript</span>
+                  <span>Learn JavaScript</span>
                   <h2>APPLY</h2>
                 </div>
               </Link>
@@ -59,7 +59,7 @@ function IndexPage() {
                   style={{ backgroundColor: '#123f83' }}
                 >
                   <span>Become A Mentor</span>
-                  <h2>Get involved</h2>
+                  <h2>Get Involved</h2>
                 </div>
               </Link>
             </div>
@@ -86,7 +86,7 @@ function IndexPage() {
               <p>
                 #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
                 focuses on training veterans in web development and software engineering principles
-                free of charge with the focus of starting careers as javascript developers.
+                free of charge with the focus of starting careers as JavaScript developers.
               </p>
             </div>
           </div>
@@ -105,7 +105,7 @@ function IndexPage() {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                  Through training, building projects, mentorship, and opportunities to connect with
+                  Through training, mentorship, building projects, and opportunities to connect with
                   industry experts, we ensure that our troops gain the best knowledge possible in
                   web development and software engineering.
                 </p>
