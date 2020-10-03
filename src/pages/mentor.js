@@ -24,16 +24,16 @@ const mainGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Professional:</b> Mentors will help students understand the professional aspects of
+        <b>Professional:</b> Mentors will help mentees understand the professional aspects of
         working in the field of software development.
       </Fragment>
     ),
     body: () => (
       <ul>
-        <li>What it means to be a member of a team of software developers</li>
+        <li>What it means to be a member in a team of software developers</li>
         <li>
-          Building your virtual resume (GitHub, personal website, social media) and profession
-          network
+          Building your virtual resume (GitHub, personal website, social media) and professional
+          networks
         </li>
         <li>Job application and interviewing</li>
       </ul>
@@ -43,19 +43,19 @@ const mainGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Personal:</b> Get to know students on a personal level.
+        <b>Personal:</b> Get to know mentees on a personal level.
       </Fragment>
     ),
     body: () => (
       <ul>
         <li>
-          Its not just about software and coding. Get to know the student and build a lifelong
+          It's not just about software and coding. Get to know the mentee and build a lifelong
           personal relationship
         </li>
-        <li>Be sensitive to any personal/life needs a student may have</li>
+        <li>Be sensitive to any personal needs a mentee may have</li>
         <li>
           We are not mental health professionals so be prepared to spot issues and involve
-          VetsWhoCode leadership If there are signs a person might be a danger to themselves or
+          #VetsWhoCode leadership if there are signs a person might be a danger to themselves or
           others
         </li>
       </ul>
@@ -67,7 +67,7 @@ const additionalGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Establishing goals: </b> As a mentor, you should understand your assigned mentee’s Talk
+        <b>Establishing goals: </b> As a mentor, you should understand your assigned mentee. Talk
         with them about how you can best help them accomplish those goals.
       </Fragment>
     ),
@@ -82,13 +82,12 @@ const additionalGuidelines = [
           processes and asking thought-provoking questions
         </li>
         <li>
-          Helping her or him gain broader perspectives of the field of software development and what
-          area they might like to work in or focus on (front end, back end, devops ect)
+          Helping them gain broader perspectives of the field of software development and what
+          area they might like to work in or focus on (front end, back end, devops, etc.)
         </li>
         <li>Discussing actions you’ve taken in your career and explaining your rationale</li>
         <li>
-          Introduce him or her to your colleagues who can be additional useful contacts or inspiring
-          models
+          Introduce them to your colleagues who can be inspiring models and additions to their network
         </li>
       </ul>
     ),
@@ -103,11 +102,10 @@ const additionalGuidelines = [
     ),
     body: () => (
       <ul>
-        <li>Your role is that of a learning facilitator early in your relationship.</li>
+        <li>Your role is that of a learning facilitator early in your relationship</li>
         <li>
-          Tell your mentee that you will not have all the answers, and you are looking forward to
-          learning together as well as seeking help from others who are more expert on different
-          topics.
+          Tell your mentee that you will not have all the answers, but you are looking forward to
+          learning together and seeking help from others who have expertise on different topics
         </li>
       </ul>
     ),
@@ -127,15 +125,15 @@ function Mentor() {
                 <div className="contactus-brief">
                   <h3>Become A Mentor</h3>
                   <p className="section-description">
-                    Thank you for your interest in mentoring with VetsWhoCode. This document is
+                    Thank you for your interest in mentoring with #VetsWhoCode. This document is
                     intended to share our philosophy on mentoring. We ask mentors to address the
-                    technical, professional and personal needs of students. Here is more detail on
+                    technical, professional, and personal needs of students. Here is more detail on
                     each of these areas:
                   </p>
                   <div className="container">
                     <h4 className="small-top-pad">Our Philosophy</h4>
                     <p>
-                      We ask mentors to address the technical, professional and personal needs of
+                      We ask mentors to address the technical, professional, and personal needs of
                       students. Here is more detail on each of these areas:
                     </p>
                     <Accordion accordionId="mainGuidelines">
@@ -164,16 +162,16 @@ function Mentor() {
                     </Accordion>
                     <h4 className="small-top-pad">Time Commitment</h4>
                     <p>
-                      After being formally assigned a mentee we ask mentors to set up a time for an
-                      initial chat with their mentee to discuss their needs and generally get to
+                      After being formally assigned a mentee, we ask mentors to set up an
+                      initial chat with their mentee to discuss their needs and to get to
                       know one another. After this initial meeting, we ask that our mentors check in
                       with their mentee at least once a week to inquire about their progress and if
-                      the students have any issues.
+                      the mentees have any issues.
                     </p>
-                    VetsWhoCode is a virtual organization and Slack is the primary vehicle for
-                    communication and activity. We ask mentors to be available in Slack to students
-                    and to use slack as a way to check in with mentees on a weekly basis. Mentors
-                    and students may also use email or video chat to communicate with one another.
+                    #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
+                    communication and activity. We ask mentors to be available on Slack to students
+                    and to use Slack as a way to check in with mentees on a weekly basis. Mentors
+                    and mentees may also use email or video chat to communicate with one another.
                     Please work with your mentee to establish the best frequency and method of
                     communication for you both.
                     <p />

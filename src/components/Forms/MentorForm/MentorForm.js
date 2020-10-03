@@ -114,7 +114,7 @@ function MentorForm() {
       <div className="col-md-8">
         <div className="form-group">
           <label htmlFor="InputPortfolio" className="dark-text">
-            Github, Portfolio or Linkedin
+            Github, Portfolio, or Linkedin
             <sup>*</sup>
           </label>
           <input
@@ -158,7 +158,7 @@ function MentorForm() {
       <div className="col-md-8">
         <div className="form-group">
           <label htmlFor="InputEmployerImplementedRestricted" className="dark-text">
-            Employer Implemented Restrictions, If Any.
+            Employer Implemented Restrictions, if any.
           </label>
           <textarea
             className="form-control"
