@@ -106,7 +106,7 @@ function IndexPage() {
               <blockquote>
                 <p>
                   Through training, building projects, mentorship, and opportunities to connect with
-                  industry experts, we ensure that our troops gain the best knowledge possible in
+                  industry experts, we ensure that our troops gain the best possible knowledge in
                   web development and software engineering.
                 </p>
               </blockquote>
@@ -120,7 +120,7 @@ function IndexPage() {
             <div className="col-sm-6 event_content">
               <h4>Next Cohort</h4>
               <div className="event_excerpt">
-                <p>Countdown until our next #VetsWhoCode Cohort gets started:</p>
+                <p>Countdown until our next #VetsWhoCode Cohort starts:</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">

@@ -32,10 +32,10 @@ const mainGuidelines = [
       <ul>
         <li>What it means to be a member of a team of software developers</li>
         <li>
-          Building your virtual resume (GitHub, personal website, social media) and profession
+          Building your virtual resume (GitHub, personal website, social media) and professional
           network
         </li>
-        <li>Job application and interviewing</li>
+        <li>Job applications and interviewing</li>
       </ul>
     ),
     id: 'Two',
@@ -55,7 +55,7 @@ const mainGuidelines = [
         <li>Be sensitive to any personal/life needs a student may have</li>
         <li>
           We are not mental health professionals so be prepared to spot issues and involve
-          VetsWhoCode leadership If there are signs a person might be a danger to themselves or
+          VetsWhoCode leadership if there are signs a person might be a danger to themselves or
           others
         </li>
       </ul>
@@ -67,7 +67,7 @@ const additionalGuidelines = [
   {
     title: () => (
       <Fragment>
-        <b>Establishing goals: </b> As a mentor, you should understand your assigned mentee’s Talk
+        <b>Establishing goals: </b> As a mentor, you should understand your assigned mentees. Talk
         with them about how you can best help them accomplish those goals.
       </Fragment>
     ),
@@ -128,9 +128,7 @@ function Mentor() {
                   <h3>Become A Mentor</h3>
                   <p className="section-description">
                     Thank you for your interest in mentoring with VetsWhoCode. This document is
-                    intended to share our philosophy on mentoring. We ask mentors to address the
-                    technical, professional and personal needs of students. Here is more detail on
-                    each of these areas:
+                    intended to share our philosophy on mentoring.
                   </p>
                   <div className="container">
                     <h4 className="small-top-pad">Our Philosophy</h4>
@@ -149,7 +147,7 @@ function Mentor() {
                       ))}
                     </Accordion>
                     <p>
-                      In addition to the three areas addressed above here are a few other items to
+                      In addition to the three areas addressed above, here are a few other items to
                       consider.
                     </p>
                     <Accordion accordionId="additionalGuidelines">

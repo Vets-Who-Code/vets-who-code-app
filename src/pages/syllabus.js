@@ -10,7 +10,7 @@ export default class Mentor extends Component {
         title: 'Block 1: The Big Three',
         id: 'b-1',
         body:
-          "Block one is the foundation of our curriculum. We start out teaching how the internet works and how this impacts how we develop for the web. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with API's.",
+          "Block one is the foundation of our curriculum. We start out teaching how the internet works and how this impacts how we develop for the web. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design we give the students the complete story of web development and how it impacts the users directly. Finally, this block closes with adding interaction to the sites using JavaScript along with APIs.",
       },
       {
         title: 'Block 2: Computer Science With JavaScript',

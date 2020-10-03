@@ -18,7 +18,7 @@ export default function Apply() {
                   <a href="https://github.com/Vets-Who-Code/prework">prework repository</a>
                   &nbsp;on <a href="http://github.com">Github.com</a>. We ask that, prior to
                   applying to our program, you complete a small series of tutorial assignments that
-                  will introduce you to the basics of HTML, CSS and Javascript. The prework reading
+                  will introduce you to the basics of HTML, CSS and JavaScript. The prework reading
                   assignment will also guide you through setting up your development environment to
                   work with the Vets Who Code program. After finishing the reading, we ask that you
                   complete the capstone project &nbsp;(a short, one-page website which will allow us
