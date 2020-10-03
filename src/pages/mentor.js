@@ -165,10 +165,10 @@ function Mentor() {
                       After being formally assigned a mentee, we ask mentors to set up an
                       initial chat with their mentee to discuss their needs and to get to
                       know one another. After this initial meeting, we ask that our mentors check in
-                      with their mentee at least once a week to inquire about their progresses and if
+                      with their mentee at least once a week to inquire about their progress and if
                       the mentees have any issues.
                     </p>
-                    #VetsWhoCode is a virtual organization in which Slack is the primary vehicle for
+                    #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
                     communication and activity. We ask mentors to be available on Slack to students
                     and to use Slack as a way to check in with mentees on a weekly basis. Mentors
                     and mentees may also use email or video chat to communicate with one another.

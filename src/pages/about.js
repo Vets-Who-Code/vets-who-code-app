@@ -38,7 +38,7 @@ function About() {
               <h1 className="story-title">About Us</h1>
               <p>
                 <i>
-                  #VetsWhoCode is a Non-ForProfit where veterans teach veterans how to program and
+                  #VetsWhoCode is a Non-For Profit where veterans teach veterans how to program and
                   get jobs.
                 </i>
               </p>
@@ -82,7 +82,7 @@ function About() {
                 <p className="story">
                   Vets Who Code is a reintegration solution for veterans who believe in the
                   principle of &quot;To Teach a Man To Fish&quot; to better prepare early-stage
-                  transitioning veterans who are returning to the workforce. Many veterans are are un- and under-employed. 
+                  transitioning veterans who are returning to the workforce. Many veterans are un- and under-employed. 
                   Some have a deep desire to be independent business owners. Their skill sets are desperately needed to enhance
                   local economies and drive innovation. Vets Who Code serves as a launch pad for
                   our veterans and military spouses.
@@ -91,7 +91,7 @@ function About() {
                 <h2>What We Do</h2>
                 <p className="story">
                   At Vets Who Code, we take a small cohort of veterans and spouses twice a year and
-                  train them in programming with a deep focus on JavaScript, over the course of sixteen weeks. 
+                  train them in programming with a deep focus on JavaScript, the language of the web, over the course of sixteen weeks. 
                   We do this all remotely using the best tools and resources the tech community has to offer. 
                   In addition to contributing and helping each other become better programmers, we do this at zero cost.
                 </p>
@@ -101,7 +101,7 @@ function About() {
                   How we accomplish this mission is through a process of <i>Crawl, Walk, Run </i>
                   where we build upon each lesson in deeper dives so that veterans become better programmers through each iteration. 
                   Instructors leading the program are also veterans, programmers, and alumni of the
-                  program. There are no excuses, the instrcutor has been
+                  program. There are no excuses, the instructor has been
                   through every success and failure you will experience and has ultimately succeeded
                   on the path of becoming a paid programmer.
                 </p>
@@ -109,7 +109,7 @@ function About() {
                 <h2>WE NEED YOUR HELP</h2>
                 <p className="story-last">
                   As our country is going through this unprecedented time with COVID-19, people are
-                  wanting to learn the skills of today and tomorrow to future-proof themselves in order to provide for their families. 
+                  wanting to learn the skills of today and tomorrow to future-proof themselves, in order to provide for their families. 
                   Furthermore, due to the nature of for-profit coding schools, many are now learning how to do the work remotely,
                   of which we have been doing for years. As a result, we are having an unprecedented
                   amount of applicants and are looking to expand our abilities to support more
