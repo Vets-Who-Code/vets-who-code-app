@@ -22,7 +22,7 @@ export default class Mentor extends Component {
         title: 'Block 3: React & JAMstack',
         id: 'b-3',
         body:
-          'Block 3 introduces the JAMstack. Utilizing Gatsby, which relies upon the best technology, such as React and GraphQL, we can make sure our students are getting the best and most sought-after skills in our industry today.',
+          'Block 3 introduces the JAMstack. Utilizing Gatsby, which relies upon the best technology, such as React and GraphQL, we can ensure our students are getting the best and most sought-after skills in our industry today.',
       },
       {
         title: 'Block 4: Official VWC Member: Interview Prep',
@@ -45,11 +45,11 @@ export default class Mentor extends Component {
                 <div className="faq-short-brief">
                   <h2>#VetsWhoCode Syllabus</h2>
                   <p>
-                    Our curriculum is designed using the Agile Methodology with 4 day sprints
+                    Our curriculum is designed using the Agile Methodology with four-day sprints
                     dedicated to the subject. We do it in this manner based on the practice of how
                     veterans &quot;Train How You Fight&quot; in the military, the practice of which is now applied towards working in a software company. 
                     The primary language we will focus on is JavaScript, due to its popularity in the job market, ease of
-                    transition between computer science topics and real world application, and the
+                    transition between computer science topics, practical real world applications, and the
                     scope of industries we can introduce our veterans to, all while keeping language
                     proficiency at the forefront of the program. This way we can introduce Data
                     Visualization, Data Science, Cyber Security, and Internet of Things(IoT) to our
