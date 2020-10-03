@@ -16,7 +16,7 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Jamstack Applicaton designed for speed and to ease the learning curve of our veterans contributing to open source.
+The Vets Who Code Web App is a Jamstack Application designed for speed and to ease the learning curve of our veterans contributing to open source.
 By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
 
 ## Getting Started
@@ -65,7 +65,7 @@ $ yarn develop -c
 
 ```
 1. yarn develop -h | --help will print out available options
-2. yarn develop -c | --contentful will enable the the contentful content
+2. yarn develop -c | --contentful will enable the contentful content
 3. If you have not configured a `.env` file yarn develop -b will walk you
    through the steps to configure this file
 ```
@@ -87,7 +87,7 @@ $ touch .env
 ```
 1. Validate you ran yarn develop -c
 2. Check that your keys are correct
-3. If you still are facing issues reach out in the #product channel in slack
+3. If you still are facing issues reach out to the #product channel in slack
 ```
 
 </details>
@@ -95,7 +95,7 @@ $ touch .env
 ### Once you have completed your edits please run the following command
 
 ```sh
-$ yarn disable:blog
+$ yarn disable: blog
 ```
 
 > **This will remove the modules needed to run the blog and clean up the lock file. Commit your changes as normal.**
@@ -174,4 +174,4 @@ This project is licensed under the MIT License - please see [license](https://gi
 
 ## Roadmap
 
-Please checkout our [roadmap](https://github.com/Vets-Who-Code/vwc-site/blob/update/README/roadmap.md) for details of upcoming features.
+Please check out our [roadmap](https://github.com/Vets-Who-Code/vwc-site/blob/update/README/roadmap.md) for details of upcoming features.
