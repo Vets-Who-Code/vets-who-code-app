@@ -35,7 +35,7 @@ function ApplyForm() {
             })
           } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
             setLoading(false)
-            setZipError('Invalid Zipcode')
+            setZipError('Invalid zipcode')
           }
         }
       } catch (error) {
