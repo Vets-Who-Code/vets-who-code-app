@@ -28,7 +28,10 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
             <div className="entry-meta-data">
               <span className="author" style={{ paddingRight: 4 }}>
                 {' '}
-                by <span style={{ outline: 'none', color: '#C5203E' }}>{author}</span>
+                by{' '}
+                <span className="blog-author" style={{ outline: 'none' }}>
+                  {author}
+                </span>
               </span>
 
               <time className="entry-date" dateTime="">

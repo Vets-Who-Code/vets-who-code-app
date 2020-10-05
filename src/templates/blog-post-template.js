@@ -44,7 +44,7 @@ const BlogPost = ({ pageContext }) => {
                       <span className="author">
                         <p>
                           by{' '}
-                          <span style={{ outline: 'none', color: '#C5203E' }}>
+                          <span className="blog-author" style={{ outline: 'none' }}>
                             {data.contentfulBlogPost.author.authorName}
                           </span>{' '}
                           <span>&middot;</span> {readingStats.text} <span>&middot;</span>{' '}

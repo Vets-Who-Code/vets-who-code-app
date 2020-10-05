@@ -83,9 +83,10 @@
 
 :root[color-mode='dark'] {
   --surface-1: #091f40;
+  --element-1-5: rgba(0, 0, 0, 0.5);
   --surface-2: #1a345b;
   --surface-3: #031228;
-  --surface-4: #999999;
+  --surface-4: #1a345b;
   --surface-5: #f6f6f6; /* white smoke */
   --surface-6: #091f40;
   --surface-11: rgba(20, 46, 57, 0.8); /* opaque-dark-blue */
@@ -93,15 +94,16 @@
   --surface-13: #142744; /* panel active */
   --element-1: #ffffff;
   --element-2: #fafafa;
-  --element-3: #f0e8d9;
-  --element-4: #ffffff;
+  --element-3: #ffffff;
+  --element-4: #eee;
   --element-7: #c5203e; /* hash flag red */
   --element-11: #eeeeee; /*  silver */
-  --element-12: #031228;
+  --element-12: #1a345b;
   --element-13: #f3eded; /* medium gray */
   --element-15: #be1635; /* pink red */
   --element-16: #091f40;
-  --primary-1: #690f1f; /* hash flag red */
+  --element-17: #121212;
+  --primary-1: #203ec5; /* hash flag red */
   --primary-2: #79c5f5; /* light blue */
   --primary-3: ##e9b9c2;
 }
@@ -321,6 +323,7 @@ ul li {
 }
 .form-control {
   background-color: var(--surface-4);
+  color: var(--element-1);
   border: 2px solid var(--element-6);
   border-radius: 0;
   box-shadow: none;
@@ -328,8 +331,11 @@ ul li {
   padding: 12px 24px;
   width: 100% !important;
 }
+.form-control:focus {
+  border: 1px solid var(--surface-1);
+}
 .form-control::placeholder {
-  color: var(--element-4);
+  color: var(--element-1);
 }
 input[type='text']:read-only {
   background-color: var(--surface-4);
@@ -410,7 +416,7 @@ h1.bold_404 {
   font-weight: 700;
 }
 .btn-charity-default:hover {
-  background-color: var(--surface-11);
+  background-color: var(--element-15);
   border: 1px solid var(--element-7);
   color: var(--element-4);
 }
@@ -894,6 +900,7 @@ h3 {
   overflow: hidden;
   padding: 150px 0 100px 0;
   text-transform: uppercase;
+  position: relative;
 }
 .inner-header h2 {
   color: var(--element-4);
@@ -1351,6 +1358,9 @@ h3 {
 .post .author {
   color: var(--element-5);
   padding-right: 20px;
+}
+.author .blog-author {
+  color: var(--element-1);
 }
 .post .author a {
   color: var(--primary-1);
@@ -1879,14 +1889,14 @@ uneditable-input:focus {
   width: 100%;
   background-color: var(--surface-12);
 }
-.panel{
+.panel {
   background-color: var(--surface-12);
 }
-.plus{
+.plus {
   color: var(--element-3);
 }
-.minus{
-  color: var(--element-4)
+.minus {
+  color: var(--element-4);
 }
 .panel-heading {
   padding: 0;
