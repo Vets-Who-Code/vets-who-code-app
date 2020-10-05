@@ -1,6 +1,6 @@
 .toggle-container {
-  right: 0;
-  width: 100%;
+  display: block;
+  margin: 1rem;
 }
 .btn-toggle {
   display: none;
