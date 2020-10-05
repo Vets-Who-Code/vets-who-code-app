@@ -68,7 +68,7 @@ function ApplyForm() {
         setZipcode('')
       }
     } catch (error) {
-      onSubmitError('OOPS Something went wrong, please try again later.')
+      onSubmitError('OOPS! Something went wrong, please try again later.')
       setLoading(false)
     }
   }
@@ -393,7 +393,7 @@ function ApplyForm() {
       <div className="col-md-8">
         <div className="form-group">
           <label htmlFor="preworkLink" className="dark-text">
-            Prework Link (Your hosted Prework Assignment)<sup>*</sup>
+            Prework Link (Your Hosted Prework Assignment)<sup>*</sup>
           </label>
           <input
             className="form-control input-lg"
