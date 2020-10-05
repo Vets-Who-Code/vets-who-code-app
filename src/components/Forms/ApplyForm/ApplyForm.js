@@ -2,7 +2,9 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
+
 import './applyform.css'
+
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
