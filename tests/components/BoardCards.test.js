@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import BoardCards from '../src/components/Board'
+import BoardCards from '../../src/components/Board'
 
 describe('<BoardCards />', () => {
   let mockContentfulContent
