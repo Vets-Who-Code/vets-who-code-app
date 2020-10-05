@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 import Helmet from 'react-helmet'
 
-// import '../assets/lib/bootstrap/dist/css/bootstrap.min.css'
-// import '../assets/css/main.css'
-// import '../assets/css/custom.css'
 import 'react-toastify/dist/ReactToastify.css'
 import metaImage from '../images/meta-image.jpg'
 
