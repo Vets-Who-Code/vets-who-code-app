@@ -65,9 +65,11 @@ const elements = [
     darkElement: <Contentful size={`60`} color="#ffffff" />,
   },
 ]
+
 function SponsorSlider() {
   const [viewport, setViewport] = useState(800)
   const [colorMode, setColorMode] = useState(undefined)
+
   function updateWindowDimensions() {
     setViewport(window.innerWidth)
   }
@@ -82,9 +84,8 @@ function SponsorSlider() {
 
   const isMobile = Boolean(viewport < 800)
 
-  const modeChange = () => {
-    elements.map(data => {
-      console.log(data)
+  const lightElements = () => {
+    return elements.map(data => {
       return (
         <>
           <a
@@ -94,11 +95,25 @@ function SponsorSlider() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {colorMode === 'light' ? (
-              <FluidImage fileName={data.lightElement} alt={data.title} style={alignmentStyles} />
-            ) : (
-              data.darkElement
-            )}
+            <FluidImage fileName={data.lightElement} alt={data.title} style={alignmentStyles} />
+          </a>
+        </>
+      )
+    })
+  }
+
+  const darkElements = () => {
+    return elements.map(data => {
+      return (
+        <>
+          <a
+            href={data.href}
+            aria-label={data.label}
+            title={data.title}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data.darkElement}
           </a>
         </>
       )
@@ -111,7 +126,7 @@ function SponsorSlider() {
       slidesToShow={isMobile ? 4 : 6}
       transitionMode={isMobile ? 'scroll' : 'fade'}
     >
-      {modeChange}
+      {colorMode === 'light' ? lightElements() : darkElements()}
     </Carousel>
   )
 }
