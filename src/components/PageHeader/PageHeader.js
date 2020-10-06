@@ -22,7 +22,7 @@ const PageHeader = ({ title, link }) => {
           style={{
             backgroundImage: `url(${data.file.childImageSharp.fixed.src})`,
             backgroundPositionY: 'bottom',
-            height: '45vh',
+            height: '25vh',
           }}
         >
           <div className="overlay-01" />
