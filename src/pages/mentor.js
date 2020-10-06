@@ -82,12 +82,13 @@ const additionalGuidelines = [
           processes and asking thought-provoking questions
         </li>
         <li>
-          Helping them gain broader perspectives of the field of software development and what
-          area they might like to work in or focus on (front end, back end, devops, etc.)
+          Helping them gain broader perspectives of the field of software development and what area
+          they might like to work in or focus on (front end, back end, devops, etc.)
         </li>
         <li>Discussing actions you’ve taken in your career and explaining your rationale</li>
         <li>
-          Introduce them to your colleagues who can be inspiring models and additions to their network
+          Introduce them to your colleagues who can be inspiring models and additions to their
+          network
         </li>
       </ul>
     ),
@@ -162,11 +163,11 @@ function Mentor() {
                     </Accordion>
                     <h4 className="small-top-pad">Time Commitment</h4>
                     <p>
-                      After being formally assigned a mentee, we ask mentors to set up an
-                      initial chat with their mentee to discuss their needs and to get to
-                      know one another. After this initial meeting, we ask that our mentors check in
-                      with their mentee at least once a week to inquire about their progress and if
-                      the mentees have any issues.
+                      After being formally assigned a mentee, we ask mentors to set up an initial
+                      chat with their mentee to discuss their needs and to get to know one another.
+                      After this initial meeting, we ask that our mentors check in with their mentee
+                      at least once a week to inquire about their progress and if the mentees have
+                      any issues.
                     </p>
                     #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
                     communication and activity. We ask mentors to be available on Slack to students
