@@ -5,21 +5,11 @@ import { FaSun, FaMoon } from 'react-icons/fa'
 function Toggle() {
   const [colorMode, rawSetColorMode] = useState(undefined)
 
-  const closedStyle = {
-    transition: `opacity 300ms linear`,
-    opacity: '0',
-  }
-  const openStyle = {
-    transition: `opacity 300ms linear`,
-    opacity: '0',
-  }
-
   useEffect(() => {
     const root = window.document.documentElement
     const initialColorValue = root.getAttribute('color-mode')
     rawSetColorMode(initialColorValue)
   }, [])
-  console.log(colorMode)
 
   const setColorMode = newValue => {
     const root = window.document.documentElement
@@ -38,7 +28,7 @@ function Toggle() {
           id="toggle"
           checked={colorMode === 'dark'}
           className="btn-toggle"
-          onClick={event => {
+          onChange={event => {
             setColorMode(event.target.checked ? 'dark' : 'light')
           }}
         />

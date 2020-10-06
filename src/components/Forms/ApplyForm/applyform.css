@@ -45,3 +45,30 @@
   animation: around 0.7s ease-in-out 0.1s infinite;
   background: transparent;
 }
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+select:active {
+}
+.select-arrow::after {
+  content: '';
+  margin-right: 1em;
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--primary-1);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+.select-arrow {
+  display: grid;
+  grid-template-areas: 'select';
+  align-items: center;
+}
+select,
+.select-arrow:after {
+  grid-area: select;
+}
+.select-arrow:focus-visible, .select-arrow:focus-within{
+  border: 1px solid var(--surface-13);
+}
