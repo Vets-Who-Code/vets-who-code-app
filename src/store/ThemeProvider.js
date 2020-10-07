@@ -14,10 +14,10 @@ function ThemeProvider({ children }) {
 
   function setColorMode(value) {
     console.log('value:', value)
-    // const root = window.document.documentElement
+    const root = window.document.documentElement
     rawSetColorMode(value)
-    // localStorage.setItem('color-mode', value)
-    // root.setAttribute('color-mode', value === 'light' ? 'light' : 'dark')
+    localStorage.setItem('color-mode', value)
+    root.setAttribute('color-mode', value === 'light' ? 'light' : 'dark')
   }
 
   return (

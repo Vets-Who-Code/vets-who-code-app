@@ -67,7 +67,7 @@ const elements = [
 ]
 function SponsorSlider() {
   const { colorMode } = useContext(ThemeContext)
-  
+
   const [viewport, setViewport] = useState(800)
   //const [colorMode, setColorMode] = useState(undefined)
   function updateWindowDimensions() {
@@ -107,15 +107,18 @@ function SponsorSlider() {
     return elements.map(data => {
       return (
         <>
-          <a key={data.title}
-            href={data.href}
-            aria-label={data.label}
-            title={data.title}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {data.darkElement}
-          </a>
+          <li style={{ textAlign: 'center' }}>
+            <a
+              key={data.title}
+              href={data.href}
+              aria-label={data.label}
+              title={data.title}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {data.darkElement}
+            </a>
+          </li>
         </>
       )
     })
@@ -133,64 +136,3 @@ function SponsorSlider() {
 }
 
 export default SponsorSlider
-
-{
-  /*       <a
-        href="https://www.google.com/"
-        aria-label="Link to Google"
-        title="Google"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {colorMode === 'light' ? (
-          <FluidImage fileName="google.png" alt="google" style={alignmentStyles} />
-        ) : (
-          <Contentful size="60" color="#000" />
-        )}
-      </a>
-      <a
-        href="https://github.com/"
-        aria-label="Link to Github"
-        title="GitHub"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FluidImage fileName="github.png" alt="Github" style={alignmentStyles} />
-      </a>
-      <a
-        href="https://repl.it"
-        aria-label="Link to Replit "
-        title="Repl.it"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FluidImage fileName="repl.it.png" alt="Repl.it" style={alignmentStyles} />
-      </a>
-      <a
-        href="https://slack.com/"
-        aria-label="Link to Slack"
-        title="Slack"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FluidImage fileName="slack.png" alt="Slack" style={alignmentStyles} />
-      </a>
-      <a
-        href="https://frontendmasters.com/"
-        aria-label="Link to Front End Masters"
-        title="Front End Masters"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <FluidImage fileName="fem.png" alt="Front End Masters" style={alignmentStyles} />
-      </a>
-      <a
-        href="https://www.contentful.com/"
-        aria-label="Link to Contentful"
-        title="Contentful"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <FluidImage fileName="contentful.png" alt="Powered by Contentful" style={alignmentStyles} />
-      </a> */
-}
