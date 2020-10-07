@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
-import './toggle.css'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSun, FaMoon } from 'react-icons/fa'
+
+import './toggle.css'
+
 function Toggle() {
   const { colorMode, setColorMode } = useContext(ThemeContext)
 
@@ -24,6 +26,7 @@ function Toggle() {
     </div>
   )
 }
+
 export default Toggle
 
 /*   const [colorMode, rawSetColorMode] = useState(undefined)

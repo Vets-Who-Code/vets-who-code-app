@@ -13,17 +13,20 @@ function ThemeProvider({ children }) {
   }, [])
 
   function setColorMode(value) {
-    const root = window.document.documentElement
+    console.log('value:', value)
+    // const root = window.document.documentElement
     rawSetColorMode(value)
-    localStorage.setItem('color-mode', value)
-    root.setAttribute('color-mode', value === 'light' ? 'light' : 'dark')
+    // localStorage.setItem('color-mode', value)
+    // root.setAttribute('color-mode', value === 'light' ? 'light' : 'dark')
   }
 
   return (
     <ThemeContext.Provider value={{ colorMode, setColorMode }}>{children}</ThemeContext.Provider>
   )
 }
+
 ThemeProvider.propTypes = {
   children: PropTypes.any,
 }
+
 export default ThemeProvider
