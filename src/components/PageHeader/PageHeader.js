@@ -35,7 +35,6 @@ const PageHeader = ({ title, link }) => {
               </Link>
               <span> / </span>
               <Link to="/donate" /*className="page-active"*/>Donate</Link>
-              <Toggle />
             </div>
           </div>
         </header>

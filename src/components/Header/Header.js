@@ -50,7 +50,6 @@ function Header() {
                   <Link to="/donate" className="btn btn-charity-default">
                     Donate
                   </Link>
-                  <Toggle />
                 </div>
               </div>
             </div>

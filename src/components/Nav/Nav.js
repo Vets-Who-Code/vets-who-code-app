@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
 import FluidImage from '../FluidImage'
 import './nav.css'
-
+import Toggle from '../Toggle'
 function Nav() {
   const navRef = useRef()
   const [isNavOpen, setIsNavOpen] = useState(false)
@@ -71,6 +71,11 @@ function Nav() {
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
+            <li role="menuitem" className="nav">
+              <span>
+                <Toggle size={30} />
+              </span>
+            </li>
             <li role="menuitem" className="nav">
               <Link to="/">
                 <span>Home</span>
