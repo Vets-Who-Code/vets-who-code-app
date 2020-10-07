@@ -1,23 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import './toggle.css'
+import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSun, FaMoon } from 'react-icons/fa'
-
 function Toggle() {
-  const [colorMode, rawSetColorMode] = useState(undefined)
+  const { colorMode, setColorMode } = useContext(ThemeContext)
 
-  useEffect(() => {
-    const root = window.document.documentElement
-    const initialColorValue = root.getAttribute('color-mode')
-    rawSetColorMode(initialColorValue)
-  }, [])
-
-  const setColorMode = newValue => {
-    const root = window.document.documentElement
-    rawSetColorMode(newValue)
-    localStorage.setItem('color-mode', newValue)
-
-    root.setAttribute('color-mode', newValue === 'light' ? 'light' : 'dark')
-  }
   if (!colorMode) return null
 
   return (
@@ -38,3 +25,20 @@ function Toggle() {
   )
 }
 export default Toggle
+
+/*   const [colorMode, rawSetColorMode] = useState(undefined)
+  useEffect(() => {
+    const root = window.document.documentElement
+    const initialColorValue = root.getAttribute('color-mode')
+    rawSetColorMode(initialColorValue)
+  }, [])
+
+  const setColorMode = newValue => {
+    const root = window.document.documentElement
+    rawSetColorMode(newValue)
+    localStorage.setItem('color-mode', newValue)
+
+    root.setAttribute('color-mode', newValue === 'light' ? 'light' : 'dark')
+  }
+  if (!colorMode) return null
+ */

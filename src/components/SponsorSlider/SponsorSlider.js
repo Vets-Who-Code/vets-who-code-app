@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import FluidImage from '../FluidImage'
 import Carousel from 'nuka-carousel'
-
+import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplDotIt } from 'react-icons/si'
 import { Contentful, Fem } from '../../icons'
@@ -62,25 +62,25 @@ const elements = [
     label: 'Link to Contentful',
     title: 'Contentful',
     lightElement: 'contentful.png',
-    darkElement: <Contentful size={`60`} color="#ffffff" />,
+    darkElement: <Contentful size={`60`} color="#091f40" />,
   },
 ]
-
 function SponsorSlider() {
+  const { colorMode } = useContext(ThemeContext)
+  
   const [viewport, setViewport] = useState(800)
-  const [colorMode, setColorMode] = useState(undefined)
-
+  //const [colorMode, setColorMode] = useState(undefined)
   function updateWindowDimensions() {
     setViewport(window.innerWidth)
   }
 
   useEffect(() => {
     window.addEventListener('resize', updateWindowDimensions)
-    const root = window.document.documentElement
-    const initialColorMode = root.getAttribute('color-mode')
-    setColorMode(initialColorMode)
+    //const root = window.document.documentElement
+    //const initialColorMode = root.getAttribute('color-mode')
+    //setColorMode(initialColorMode)
     return () => window.removeEventListener('resize', updateWindowDimensions)
-  }, [colorMode])
+  }, [])
 
   const isMobile = Boolean(viewport < 800)
 
@@ -89,6 +89,7 @@ function SponsorSlider() {
       return (
         <>
           <a
+            key={data.title}
             href={data.href}
             aria-label={data.label}
             title={data.title}
@@ -106,7 +107,7 @@ function SponsorSlider() {
     return elements.map(data => {
       return (
         <>
-          <a
+          <a key={data.title}
             href={data.href}
             aria-label={data.label}
             title={data.title}
