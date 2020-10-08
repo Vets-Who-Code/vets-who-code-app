@@ -86,13 +86,13 @@ function Footer() {
                           <Link to="/about">About</Link>
                         </li>
                         <li>
+                          <Link to="/board">Board</Link>
+                        </li>
+                        <li>
                           <Link to="/syllabus">Syllabus</Link>
                         </li>
                         <li>
                           <Link to="/testimonials">Testimonials</Link>
-                        </li>
-                        <li>
-                          <Link to="/mentor">Mentor</Link>
                         </li>
                       </ul>
                     </div>
@@ -100,6 +100,9 @@ function Footer() {
                   <div className="col-md-6">
                     <div className="widgets-content">
                       <ul className="widgets-list">
+                        <li>
+                          <Link to="/mentor">Mentor</Link>
+                        </li>
                         <li>
                           <Link to="/apply">Apply</Link>
                         </li>
@@ -125,13 +128,16 @@ function Footer() {
                 <h3 className="widgets-title">Contact Us</h3>
                 <div className="office map">
                   <p>Hi, if you have any questions, please drop us a line.</p>
-                  <a
-                    aria-label="Email hello@vetswhocode.io"
-                    title="Email Contact"
-                    href="hello@vetswhocode.io"
-                  >
-                    hello@vetswhocode.io
-                  </a>
+                  <span>
+                    <a
+                      className="footer-span"
+                      aria-label="Email hello@vetswhocode.io"
+                      title="Email Contact"
+                      href="hello@vetswhocode.io"
+                    >
+                      hello@vetswhocode.io
+                    </a>
+                  </span>
                   <p> Phone: (917) 960-3806</p>
                 </div>
               </div>
@@ -146,15 +152,18 @@ function Footer() {
               <p className="copyright">
                 <FaRegCopyright color="#fff" />
                 2020{' '}
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Link to Copyright Licence"
-                  title="Copyright"
-                  href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
-                >
-                  #VetsWhoCode
-                </a>
+                <span>
+                  <a
+                    className="footer-span"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Link to Copyright Licence"
+                    title="Copyright"
+                    href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
+                  >
+                    #VetsWhoCode
+                  </a>
+                </span>
               </p>
             </div>
             <div className="col-md-6 col-sm-6">

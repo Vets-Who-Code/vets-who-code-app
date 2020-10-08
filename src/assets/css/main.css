@@ -56,6 +56,7 @@
   --element-14: #ecf0f1; /* bright gray */
   --element-15: #be1635; /* pink red */
   --element-16: #091f40;
+  --element-18: #eba31d;
   --primary-1: #c5203e; /* hash flag red */
   --primary-2: #79c5f5; /* light blue */
   --primary-3: #c5203e; /* hash-flag-red span */
@@ -96,6 +97,7 @@
   --element-2: #fafafa;
   --element-3: #ffffff;
   --element-4: #eee;
+  --element-6: #728f98; /* gothic blue */
   --element-7: #c5203e; /* hash flag red */
   --element-11: #eeeeee; /*  silver */
   --element-12: #1a345b;
@@ -104,9 +106,12 @@
   --element-15: #be1635; /* pink red */
   --element-16: #091f40;
   --element-17: #121212;
+  --element-18: #eba31d;
   --primary-1: #203ec5; /* hash flag red */
   --primary-2: #79c5f5; /* light blue */
   --primary-3: ##e9b9c2;
+  --tertiary-14: #316b80; /* ocean blue */
+  --tertiary-15: #eba31d; /* tangaroa blue */
 }
 
 html {
@@ -202,6 +207,12 @@ strong {
 }
 b {
   font-weight: 200 !important;
+}
+.donate-span {
+  color: var(--tertiary-15);
+}
+.donate-span:hover {
+  color: var(--primary-2);
 }
 .lead {
   font-size: 0.9375rem; /*15px*/
@@ -325,7 +336,7 @@ ul li {
 .form-control {
   background-color: var(--surface-4);
   color: var(--element-1);
-  border: 2px solid var(--element-6);
+  outline: 1px solid var(--element-6);
   border-radius: 0;
   box-shadow: none;
   height: auto;
@@ -333,10 +344,11 @@ ul li {
   width: 100% !important;
 }
 .form-control:focus {
-  border: 1px solid var(--surface-1);
+  outline: 1px solid var(--element-1);
 }
 .form-control::placeholder {
   color: var(--element-1);
+  padding-top: 0.5rem;
 }
 input[type='text']:read-only {
   background-color: var(--surface-4);
@@ -2257,6 +2269,12 @@ div.zabuto_calendar tr.calendar-dow td {
 .four-o-four .btn-charity-default {
   display: inline-block;
   margin: 0 auto;
+}
+.footer-span {
+  color: var(--element-14);
+}
+.footer-span:hover {
+  color: var(--element-18);
 }
 .footer-widgets {
   background-color: var(--surface-6);
