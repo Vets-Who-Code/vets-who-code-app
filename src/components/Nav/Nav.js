@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
 import FluidImage from '../FluidImage'
-import './nav.css'
 import Toggle from '../Toggle'
+import './nav.css'
+
 function Nav() {
   const navRef = useRef()
   const [isNavOpen, setIsNavOpen] = useState(false)

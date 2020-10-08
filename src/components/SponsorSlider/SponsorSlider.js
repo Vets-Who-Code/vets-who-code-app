@@ -65,11 +65,12 @@ const elements = [
     darkElement: <Contentful size={`60`} color="#091f40" />,
   },
 ]
+
 function SponsorSlider() {
   const { colorMode } = useContext(ThemeContext)
 
   const [viewport, setViewport] = useState(800)
-  //const [colorMode, setColorMode] = useState(undefined)
+
   function updateWindowDimensions() {
     setViewport(window.innerWidth)
   }

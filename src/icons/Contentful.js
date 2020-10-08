@@ -1,5 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+
 function SvgContentful({ size, color, style }) {
   const computedSize = size || '1em'
   return (
@@ -23,6 +24,7 @@ function SvgContentful({ size, color, style }) {
     </svg>
   )
 }
+
 SvgContentful.propTypes = {
   size: PropTypes.string || PropTypes.number,
   color: PropTypes.string,

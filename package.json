@@ -54,7 +54,7 @@
     "format:src": "prettier --write \"src/**/*.js\"",
     "format:templates": "prettier --write \"src/templates/**/*.js\"",
     "format:test": "prettier --write \"tests/**/*.js\"",
-    "gatsby:develop": "gatsby develop -H 0.0.0.0",
+    "gatsby:develop": "gatsby develop",
     "heroku-postbuild": "gatsby build",
     "lint": "lint-staged",
     "test": "jest",
