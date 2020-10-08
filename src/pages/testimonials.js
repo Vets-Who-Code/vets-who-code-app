@@ -5,7 +5,7 @@ import PageHeader from '../components/PageHeader'
 function Testimonial() {
   return (
     <>
-      <PageHeader title="Testimonials" />
+      <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
