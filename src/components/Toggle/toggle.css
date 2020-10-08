@@ -3,21 +3,24 @@
   margin-top: 0.5rem;
   text-align: right;
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
   .toggle-container {
     position: absolute;
-    right: -1.5rem;
+    right: -45.5rem;
     top: 2rem;
+  }
+  .switch {
+    color: var(--element-3);
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   .toggle-container {
+    z-index: 1;
     position: absolute;
     right: 1rem;
     top: -1rem;
   }
 }
-
 .btn-toggle {
   display: none;
 }

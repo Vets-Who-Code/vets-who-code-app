@@ -34,7 +34,7 @@ function IndexPage() {
               <Link to="/donate">
                 <div
                   className="fluid-grid first-grid text-center"
-                  style={{ backgroundColor: '#091f40' }}
+                  style={{ backgroundColor: '#031228' }}
                 >
                   <span>Help Us Teach More Veterans</span>
                   <h2>Donate</h2>

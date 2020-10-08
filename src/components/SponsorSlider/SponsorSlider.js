@@ -107,9 +107,8 @@ function SponsorSlider() {
     return elements.map(data => {
       return (
         <>
-          <li style={{ textAlign: 'center' }}>
+          <div key={data.title} style={{ textAlign: 'center' }}>
             <a
-              key={data.title}
               href={data.href}
               aria-label={data.label}
               title={data.title}
@@ -118,7 +117,7 @@ function SponsorSlider() {
             >
               {data.darkElement}
             </a>
-          </li>
+          </div>
         </>
       )
     })
