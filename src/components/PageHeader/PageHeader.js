@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, StaticQuery, graphql } from 'gatsby'
-import Toggle from '../Toggle'
 
 const PageHeader = ({ title, link }) => {
   return (

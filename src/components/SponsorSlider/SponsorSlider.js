@@ -77,9 +77,6 @@ function SponsorSlider() {
 
   useEffect(() => {
     window.addEventListener('resize', updateWindowDimensions)
-    //const root = window.document.documentElement
-    //const initialColorMode = root.getAttribute('color-mode')
-    //setColorMode(initialColorMode)
     return () => window.removeEventListener('resize', updateWindowDimensions)
   }, [])
 
