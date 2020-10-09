@@ -81,6 +81,7 @@
   --tertiary-15: #142e39; /* tangaroa blue */
   --tertiary-16: rgba(20, 46, 57, 0.7); /* transparent tangaroa blue */
   --tertiary-17: #333333; /* charcoal */
+  --tertiary-18: #c5203e;
 }
 
 :root[color-mode='dark'] {
@@ -116,6 +117,7 @@
   --tertiary-11: #eba31d; /* cerulean blue */
   --tertiary-14: #316b80; /* ocean blue */
   --tertiary-15: #eba31d; /* tangaroa blue */
+  --tertiary-18: #eba31d;
 }
 
 html {
@@ -217,6 +219,12 @@ b {
 }
 .donate-span:hover {
   color: var(--primary-2);
+}
+.blog-span {
+  color: var(--tertiary-18)
+}
+.blog-span:hover{
+  color: var(--primary-2)
 }
 .lead {
   font-size: 0.9375rem; /*15px*/
@@ -2401,9 +2409,9 @@ div.zabuto_calendar tr.calendar-dow td {
   color: var(--element-4);
   padding: 40px 0;
 }
-.footer:before{
+.footer:before {
   display: block;
-  content: "";
+  content: '';
   outline: 1px solid var(--tertiary-7);
   margin-bottom: 3rem;
 }
