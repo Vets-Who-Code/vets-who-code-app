@@ -86,22 +86,33 @@
 
 :root[color-mode='dark'] {
   --surface-1: #091f40;
-  --element-1-5: rgba(0, 0, 0, 0.5);
   --surface-2: #1a345b;
   --surface-3: #031228;
   --surface-4: #1a345b;
   --surface-5: #f6f6f6; /* white smoke */
   --surface-6: #091f40;
+  --surface-7: rgba(26, 26, 26, 0.9);
+  --surface-8: #000000; /* black */
+  --surface-9: rgba(0, 0, 0, 0.9);
+  --surface-10: #323232; /* night rider black */
   --surface-11: rgba(20, 46, 57, 0.8); /* opaque-dark-blue */
   --surface-12: #1a345b; /* panel */
   --surface-13: #142744; /* panel active */
   --surface-14: #1a51a3;
   --element-1: #ffffff;
+  --element-1-2: rgba(0, 0, 0, 0.2);
+  --element-1-3: rgba(0, 0, 0, 0.3);
+  --element-1-5: rgba(0, 0, 0, 0.5);
   --element-2: #fafafa;
   --element-3: #ffffff;
   --element-4: #eee;
+  --element-4-0: rgba(255, 255, 255, 0); /* transparent element */
+  --element-5: #999999; /* nobel gray */
   --element-6: #728f98; /* gothic blue */
   --element-7: #c5203e; /* hash flag red */
+  --element-8: rgba(73, 71, 71, 0.15);
+  --element-9: #969595; /* light nobel gray */
+  --element-10: #dadada; /* gainsboro gray */
   --element-11: #eeeeee; /*  silver */
   --element-12: #1a345b;
   --element-13: #f3eded; /* medium gray */
@@ -113,7 +124,19 @@
   --primary-1: #203ec5; /* hash flag red */
   --primary-2: #79c5f5; /* light blue */
   --primary-3: ##e9b9c2;
-  --tertiary-7: #234c5b; /* teal blue */
+  --tertiary-1: #e0e0e0; /* statue gray */
+  --tertiary-2: #d0d0d0; /* concrete gray */
+  --tertiary-3: #4ba3c4; /* slushy blue */
+  --tertiary-4: rgba(0, 0, 0, 0.1);
+  --tertiary-5: #1a3843; /* space blue */
+  --tertiary-6: rgba(35, 76, 91, 1); /* dark greyish blue */
+  --tertiary-6-6: rgba(35, 76, 91, 0.6); /* dark greyish blue */
+  --tertiary-6-7: rgba(35, 76, 91, 0.7); /* dark greyish blue */
+  --tertiary-6-8: rgba(35, 76, 91, 0.8); /* dark greyish blue */
+  --tertiary-7: #e0e0e0; /* teal blue */
+  --tertiary-8: #29596b; /* dull blue */
+  --tertiary-9: #336f85; /* strong blue */
+  --tertiary-10: #ffcc00; /* tangerine yellow */
   --tertiary-11: #eba31d; /* cerulean blue */
   --tertiary-14: #316b80; /* ocean blue */
   --tertiary-15: #eba31d; /* tangaroa blue */
@@ -221,10 +244,10 @@ b {
   color: var(--primary-2);
 }
 .blog-span {
-  color: var(--tertiary-18)
+  color: var(--tertiary-18);
 }
-.blog-span:hover{
-  color: var(--primary-2)
+.blog-span:hover {
+  color: var(--primary-2);
 }
 .lead {
   font-size: 0.9375rem; /*15px*/

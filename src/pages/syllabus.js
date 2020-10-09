@@ -67,7 +67,7 @@ export default class Mentor extends Component {
                   <a
                     href="https://github.com/Vets-Who-Code/Curriculum"
                     type="button"
-                    className="btn btn-subscribe"
+                    className="btn btn-charity-default"
                     aria-label="Curriculum Github"
                   >
                     Full Curriculum
