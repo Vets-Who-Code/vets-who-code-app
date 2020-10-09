@@ -1,5 +1,6 @@
-import * as React from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+
 function SvgFem({ size, color, ...style }) {
   const computedSize = size || '1em'
   return (

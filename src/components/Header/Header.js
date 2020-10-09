@@ -2,8 +2,6 @@ import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import Typed from 'react-typed'
-import Toggle from '../Toggle'
-import '../../assets/css/custom.css'
 
 function Header() {
   const data = useStaticQuery(graphql`
