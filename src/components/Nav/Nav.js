@@ -71,7 +71,12 @@ function Nav() {
           id="main-nav-collapse"
           aria-expanded={isNavOpen ? 'true' : 'false'}
         >
-          <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
+          <ul
+            className="nav navbar-nav navbar-right"
+            role="menu"
+            id="navbar-list"
+            onClick={() => setIsNavOpen(false)}
+          >
             <li role="menuitem" className="nav">
               <Link to="/">
                 <span>Home</span>
