@@ -17,6 +17,7 @@ function PageHeader() {
 
   return (
     <BackgroundImage
+      Tag="header"
       className="inner-header overlay grey text-center slim-bg"
       fluid={data.headerImage.childImageSharp.fluid}
       style={{
