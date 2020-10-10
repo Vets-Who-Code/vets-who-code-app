@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 function PageHeader() {
   const data = useStaticQuery(graphql`
     query {
-      headerImage: file(relativePath: { eq: "this_is_us.jpg" }) {
+      codeImage: file(relativePath: { eq: "this_is_us.jpg" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -17,9 +17,8 @@ function PageHeader() {
 
   return (
     <BackgroundImage
-      Tag="section"
       className="inner-header overlay grey text-center slim-bg"
-      fluid={data.headerImage.childImageSharp.fluid}
+      fluid={data.codeImage.childImageSharp.fluid}
       style={{
         backgroundPositionY: 'bottom',
         height: '25vh',
