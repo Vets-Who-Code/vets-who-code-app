@@ -17,6 +17,7 @@ function Toggle({ size }) {
           type="checkbox"
           id="toggle"
           className="btn-toggle sr-only"
+          checked={colorMode === 'dark'}
           onChange={event => {
             setColorMode(event.target.checked ? 'dark' : 'light')
           }}
