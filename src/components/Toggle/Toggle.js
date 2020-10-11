@@ -13,7 +13,6 @@ function Toggle({ size }) {
     <div className="toggle-container">
       <label htmlFor="toggle" className="switch">
         <input
-          title="Switch to Dark Mode"
           name="mode"
           type="checkbox"
           id="toggle"
@@ -23,9 +22,25 @@ function Toggle({ size }) {
           }}
         />
         {colorMode === 'light' ? (
-          <FaMoon className="moon" title="light mode" size={size} />
+          <FaMoon
+            role="checkbox"
+            aria-checked="false"
+            className="moon"
+            name="dark mode"
+            aria-label="dark mode"
+            title="dark mode"
+            size={size}
+          />
         ) : (
-          <FaSun className="sun" title="dark mode" size={size} />
+          <FaSun
+            role="checkbox"
+            aria-checked="true"
+            className="sun"
+            name="light mode"
+            aria-label="light mode"
+            title="light mode"
+            size={size}
+          />
         )}
       </label>
     </div>
