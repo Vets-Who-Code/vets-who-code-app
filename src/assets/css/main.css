@@ -452,6 +452,7 @@ h1.bold_404 {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   width: 150px;
+  text-transform: capitalize;
 }
 .btn-round {
   border-radius: 30px;
@@ -462,6 +463,7 @@ h1.bold_404 {
   border-radius: 4px;
   color: var(--element-4);
   font-weight: 700;
+  text-transform: capitalize;
 }
 .btn-charity-default:hover {
   background-color: var(--element-15);
@@ -2080,6 +2082,9 @@ uneditable-input:focus {
   display: inline-block;
   font-size: 1.3125rem; /*21px*/
   padding-top: 15px;
+}
+.call-to-action-small a.btn-charity-default {
+  text-transform: capitalize;
 }
 @media (max-width: 767px) {
   .call-to-action-small h3 {

@@ -22,7 +22,7 @@ exports[`<Footer /> should render correctly 1`] = `
             class="btn btn-charity-default"
             href="/donate"
           >
-            DONATE
+            donate
           </a>
         </div>
       </div>
