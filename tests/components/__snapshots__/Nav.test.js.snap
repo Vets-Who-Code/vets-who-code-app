@@ -74,6 +74,12 @@ exports[`<Nav /> should render correctly 1`] = `
           class="nav"
           role="menuitem"
         >
+          <span />
+        </li>
+        <li
+          class="nav"
+          role="menuitem"
+        >
           <a
             aria-current="page"
             class=""

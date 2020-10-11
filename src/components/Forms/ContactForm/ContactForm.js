@@ -59,7 +59,7 @@ function ContactForm() {
           </label>
           <input
             type="text"
-            className="form-control form-control-dark"
+            className="form-control"
             name="name"
             id="InputName"
             placeholder="Jody"
@@ -76,7 +76,7 @@ function ContactForm() {
           </label>
           <input
             type="email"
-            className="form-control form-control-dark"
+            className="form-control"
             name="email"
             id="InputEmail"
             placeholder="jody@example.com"
@@ -101,7 +101,7 @@ function ContactForm() {
           </label>
           <input
             type="tel"
-            className="form-control form-control-dark"
+            className="form-control"
             name="phone"
             id="InputPhoneNumber"
             placeholder="1234567890"
@@ -132,7 +132,7 @@ function ContactForm() {
           </label>
           <textarea
             id="message"
-            className="form-control form-control-dark"
+            className="form-control"
             rows="3"
             name="message"
             placeholder="Your Message Here.."

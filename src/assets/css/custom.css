@@ -9,7 +9,7 @@
 
 .index .fluid-grid:hover h2,
 .index .fluid-grid:hover span {
-  color: var(--main-white);
+  color: var(--element-4);
   text-decoration: underline;
 }
 /* slider default button overides */
@@ -46,14 +46,14 @@
 }
 
 .light-text {
-  color: var(--main-white);
+  color: var(--element-4);
 }
 
 /* overides for social icons in about page for each user */
 .meet-social i {
-  background-color: var(--hash-flag-blue);
+  background-color: var(--surface-6);
   border-radius: 50%;
-  color: var(--main-white);
+  color: var(--element-4);
   display: inline-block;
   height: 50px;
   margin-top: 10px;
@@ -141,7 +141,7 @@
 }
 
 .story-last h2 {
-  color: var(--hash-flag-red);
+  color: var(--primary-1);
 }
 
 .lead-in {
@@ -154,7 +154,7 @@
 
 .lead-in p {
   text-align: center;
-  color: var(--hash-flag-red);
+  color: var(--primary-3);
 }
 
 .testimonial-row img {

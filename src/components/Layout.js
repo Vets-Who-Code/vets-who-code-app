@@ -2,12 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 import Helmet from 'react-helmet'
-
-import 'react-toastify/dist/ReactToastify.css'
-import metaImage from '../images/meta-image.jpg'
-
+import ThemeProvider from '../store/ThemeProvider'
 import Nav from './Nav'
 import Footer from './Footer'
+import metaImage from '../images/meta-image.jpg'
+import 'react-toastify/dist/ReactToastify.css'
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -46,13 +45,14 @@ const TemplateWrapper = ({ children }) => (
       />
       <meta name="twitter:image" content={metaImage} />
     </Helmet>
-
-    <main className="main_container">
-      <ToastContainer />
-      <Nav />
-      {children}
-      <Footer />
-    </main>
+    <ThemeProvider>
+      <main className="main_container">
+        <ToastContainer />
+        <Nav />
+        {children}
+        <Footer />
+      </main>
+    </ThemeProvider>
   </div>
 )
 

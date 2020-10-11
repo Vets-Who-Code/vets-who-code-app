@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
 import FluidImage from '../FluidImage'
-
+import Toggle from '../Toggle'
 import './nav.css'
 
 function Nav() {
@@ -77,6 +77,11 @@ function Nav() {
             id="navbar-list"
             onClick={() => setIsNavOpen(false)}
           >
+            <li role="menuitem" className="nav">
+              <span>
+                <Toggle size={30} />
+              </span>
+            </li>
             <li role="menuitem" className="nav">
               <Link to="/">
                 <span>Home</span>

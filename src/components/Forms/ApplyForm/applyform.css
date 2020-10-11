@@ -26,13 +26,13 @@
 .loader::after,
 .loader::before {
   content: '';
-  background: var(--silver);
+  background: var(--element-11);
   position: absolute;
   display: inline-block;
   width: 100%;
   height: 100%;
   border-width: 2px;
-  border-color: var(--charcoal) var(--charcoal) transparent transparent;
+  border-color: var(--tertiary-17) var(--tertiary-17) transparent transparent;
   border-style: solid;
   border-radius: 20px;
   box-sizing: border-box;
@@ -44,4 +44,31 @@
 .loader::after {
   animation: around 0.7s ease-in-out 0.1s infinite;
   background: transparent;
+}
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+select:active {
+}
+.select-arrow::after {
+  content: '';
+  margin-right: 1em;
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--primary-1);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  justify-self: end;
+}
+.select-arrow {
+  display: grid;
+  grid-template-areas: 'select';
+  align-items: center;
+}
+select,
+.select-arrow:after {
+  grid-area: select;
+}
+.select-arrow:focus-visible, .select-arrow:focus-within{
+  border: 1px solid var(--surface-13);
 }

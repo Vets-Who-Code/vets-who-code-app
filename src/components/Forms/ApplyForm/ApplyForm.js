@@ -238,28 +238,30 @@ function ApplyForm() {
           <label htmlFor="branchOfService" className="dark-text">
             Branch of Service<sup>*</sup>
           </label>
-          <select
-            id="branchOfService"
-            className="form-control input-lg"
-            placeholder="Branch Of Service"
-            name="branchOfService"
-            ref={register({ required: true, validate: value => value !== 'DEFAULT' })}
-            defaultValue="DEFAULT"
-          >
-            <option value="DEFAULT" disabled>
-              Select your branch
-            </option>
-            <option value="USA">Army (Active Duty)</option>
-            <option value="USAF">Air Force (Active Duty)</option>
-            <option value="USN">Navy (Active Duty)</option>
-            <option value="USMC">Marine Corps (Active Duty)</option>
-            <option value="USCG">Coast Guard</option>
-            <option value="USAR">Army (Reserves)</option>
-            <option value="USAFR">Air Force (Reserves)</option>
-            <option value="USNR">Navy (Reserves)</option>
-            <option value="USMCR">Marine Corps (Reserves)</option>
-            <option value="USANG">Army (National Guard)</option>
-          </select>
+          <div className="select-arrow">
+            <select
+              id="branchOfService"
+              className="form-control input-lg standard-select"
+              placeholder="Branch Of Service"
+              name="branchOfService"
+              ref={register({ required: true, validate: value => value !== 'DEFAULT' })}
+              defaultValue="DEFAULT"
+            >
+              <option value="DEFAULT" disabled>
+                Select your branch
+              </option>
+              <option value="USA">Army (Active Duty)</option>
+              <option value="USAF">Air Force (Active Duty)</option>
+              <option value="USN">Navy (Active Duty)</option>
+              <option value="USMC">Marine Corps (Active Duty)</option>
+              <option value="USCG">Coast Guard</option>
+              <option value="USAR">Army (Reserves)</option>
+              <option value="USAFR">Air Force (Reserves)</option>
+              <option value="USNR">Navy (Reserves)</option>
+              <option value="USMCR">Marine Corps (Reserves)</option>
+              <option value="USANG">Army (National Guard)</option>
+            </select>
+          </div>
         </div>
         {errors.branchOfService && <FormAlert errorMessage="Please select a branch" />}
       </div>

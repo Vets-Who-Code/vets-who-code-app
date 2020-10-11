@@ -234,6 +234,13 @@ exports[`<Footer /> should render correctly 1`] = `
                     </li>
                     <li>
                       <a
+                        href="/board"
+                      >
+                        Board
+                      </a>
+                    </li>
+                    <li>
+                      <a
                         href="/syllabus"
                       >
                         Syllabus
@@ -244,13 +251,6 @@ exports[`<Footer /> should render correctly 1`] = `
                         href="/testimonials"
                       >
                         Testimonials
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/mentor"
-                      >
-                        Mentor
                       </a>
                     </li>
                   </ul>
@@ -265,6 +265,13 @@ exports[`<Footer /> should render correctly 1`] = `
                   <ul
                     class="widgets-list"
                   >
+                    <li>
+                      <a
+                        href="/mentor"
+                      >
+                        Mentor
+                      </a>
+                    </li>
                     <li>
                       <a
                         href="/apply"
@@ -318,13 +325,16 @@ exports[`<Footer /> should render correctly 1`] = `
               <p>
                 Hi, if you have any questions, please drop us a line.
               </p>
-              <a
-                aria-label="Email hello@vetswhocode.io"
-                href="hello@vetswhocode.io"
-                title="Email Contact"
-              >
-                hello@vetswhocode.io
-              </a>
+              <span>
+                <a
+                  aria-label="Email hello@vetswhocode.io"
+                  class="footer-span"
+                  href="hello@vetswhocode.io"
+                  title="Email Contact"
+                >
+                  hello@vetswhocode.io
+                </a>
+              </span>
               <p>
                  Phone: (917) 960-3806
               </p>
@@ -367,15 +377,18 @@ exports[`<Footer /> should render correctly 1`] = `
             </svg>
             2020
              
-            <a
-              aria-label="Link to Copyright Licence"
-              href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="Copyright"
-            >
-              #VetsWhoCode
-            </a>
+            <span>
+              <a
+                aria-label="Link to Copyright Licence"
+                class="footer-span"
+                href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="Copyright"
+              >
+                #VetsWhoCode
+              </a>
+            </span>
           </p>
         </div>
         <div

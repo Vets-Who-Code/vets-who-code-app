@@ -95,7 +95,7 @@ export const options = {
       }
 
       return (
-        <a href={node.data.uri} target="_blank" rel="noopener noreferrer">
+        <a href={node.data.uri} className="blog-span" target="_blank" rel="noopener noreferrer">
           {children}
         </a>
       )

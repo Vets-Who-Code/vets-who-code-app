@@ -14,11 +14,11 @@
   justify-content: space-between;
   flex: 1;
   padding: 15px;
-  background-color: var(--off-white);
+  background-color: var(--surface-2);
   margin: 20px 0px;
   border-radius: 10px;
-  border: 1px solid var(--silver);
-  box-shadow: 0px 0px 8px 0px var(--light-gray);
+  border: 1px solid var(--element-12);
+  box-shadow: 0px 0px 8px 0px var(--element-12);
   transition: 0.5s;
 }
 
@@ -27,11 +27,11 @@
 }
 
 .card-box:hover {
-  border: 1px solid var(--hash-flag-blue);
+  border: 1px solid var(--element-3);
 }
 
 .card-box p {
-  color: var(--medium-gray);
+  color: var(--element-13);
 }
 
 .user-pic {
@@ -40,7 +40,7 @@
   overflow: hidden;
   border-radius: 100%;
   margin: 20px auto 20px;
-  border: 1px solid var(--hash-flag-blue);
+  border: 1px solid var(--element-3);
 }
 
 .bio {
@@ -54,10 +54,10 @@
 }
 
 .board-icons {
-  color: var(--hash-flag-blue);
+  color: var(--element-3);
   transition: 0.2s;
 }
 
 .board-icons:hover {
-  color: var(--hash-flag-red);
+  color: var(--primary-1);
 }
