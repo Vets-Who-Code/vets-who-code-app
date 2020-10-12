@@ -164,3 +164,10 @@
 .countdown-message {
   margin-bottom: 1rem;
 }
+.post.after:after {
+  display: block;
+  content: '';
+  width: 100%;
+  margin: 2rem;
+  outline: 1px solid var(--element-5);
+}

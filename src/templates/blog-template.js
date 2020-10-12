@@ -10,7 +10,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
   const excerpt = description.content[0].content[0].value
 
   return (
-    <article className="post">
+    <article className="post after">
       <div className="row">
         <div className="col-md-2" />
         <div className="col-md-8">
