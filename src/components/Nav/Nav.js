@@ -15,6 +15,12 @@ function Nav() {
     return () => document.removeEventListener('scroll', handleScroll)
   })
 
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside)
+
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  })
+
   function handleScroll() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
     if (winScroll === 0) {
@@ -22,6 +28,12 @@ function Nav() {
     }
     if (winScroll > 0) {
       setOpacity(1)
+    }
+  }
+
+  function handleClickOutside(event) {
+    if (!navRef?.current?.contains(event.target)) {
+      setIsNavOpen(false)
     }
   }
 
