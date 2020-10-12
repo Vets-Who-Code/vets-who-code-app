@@ -20,7 +20,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Google"
@@ -54,7 +56,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Github"
@@ -88,7 +92,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Replit "
@@ -124,7 +130,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Slack"
@@ -158,7 +166,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Front End Masters"
@@ -186,7 +196,9 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         tabindex="-1"
       >
         <div
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Contentful"
