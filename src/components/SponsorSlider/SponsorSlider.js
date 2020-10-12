@@ -85,18 +85,16 @@ function SponsorSlider() {
   const lightElements = () => {
     return elements.map(data => {
       return (
-        <>
-          <a
-            key={data.title}
-            href={data.href}
-            aria-label={data.label}
-            title={data.title}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FluidImage fileName={data.lightElement} alt={data.title} style={alignmentStyles} />
-          </a>
-        </>
+        <a
+          key={data.title}
+          href={data.href}
+          aria-label={data.label}
+          title={data.title}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FluidImage fileName={data.lightElement} alt={data.title} style={alignmentStyles} />
+        </a>
       )
     })
   }
@@ -104,19 +102,17 @@ function SponsorSlider() {
   const darkElements = () => {
     return elements.map(data => {
       return (
-        <>
-          <div key={data.title} style={{ textAlign: 'center' }}>
-            <a
-              href={data.href}
-              aria-label={data.label}
-              title={data.title}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {data.darkElement}
-            </a>
-          </div>
-        </>
+        <div key={data.title} style={{ textAlign: 'center' }}>
+          <a
+            href={data.href}
+            aria-label={data.label}
+            title={data.title}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {data.darkElement}
+          </a>
+        </div>
       )
     })
   }
