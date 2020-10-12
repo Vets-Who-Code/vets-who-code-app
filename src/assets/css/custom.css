@@ -165,9 +165,11 @@
   margin-bottom: 1rem;
 }
 .post.after:after {
-  display: block;
+  display: inline-block;
   content: '';
   width: 100%;
-  margin: 2rem;
+  margin-top: 2rem;
+  position: absolute;
+  left: 0;
   outline: 1px solid var(--element-5);
 }
