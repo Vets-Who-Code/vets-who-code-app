@@ -39,6 +39,7 @@ function ApplyForm() {
         <div className="col-md-9">
           <div className="form-group">
             <input
+              aria-label="enter your email address"
               className="form-control"
               id="subscriber-email"
               placeholder="Enter your email address"
