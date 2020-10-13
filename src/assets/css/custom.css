@@ -153,3 +153,19 @@
 .countdown-message {
   margin-bottom: 1rem;
 }
+.post.after:after {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  width: 66.666667%;
+  margin-top: 2rem;
+  outline: 1px solid var(--element-5);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (min-width: 320px) and (max-width: 992px) {
+  .post.after:after {
+    width: 95%;
+  }
+}
