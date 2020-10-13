@@ -1,6 +1,6 @@
 import React from 'react'
-import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
 function PageHeader() {
   const data = useStaticQuery(graphql`
@@ -16,17 +16,16 @@ function PageHeader() {
   `)
 
   return (
-    <BackgroundImage
-      Tag="header"
-      className="inner-header overlay grey text-center slim-bg"
-      fluid={data.headerImage.childImageSharp.fluid}
-      style={{
-        backgroundPositionY: 'bottom',
-        height: '25vh',
-      }}
-    >
-      <div className="overlay-01" />
-    </BackgroundImage>
+    <header className="overlay grey">
+      <BackgroundImage
+        Tag="div"
+        fluid={data.headerImage.childImageSharp.fluid}
+        style={{
+          backgroundPositionY: 'bottom',
+          height: '25vh',
+        }}
+      ></BackgroundImage>
+    </header>
   )
 }
 
