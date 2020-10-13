@@ -1377,6 +1377,9 @@ h3 {
 .post {
   margin: 88px auto;
 }
+.post .after {
+  position: relative;
+}
 .post:first-child {
   margin-top: 30px;
 }
