@@ -1,50 +1,32 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, StaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
+import BackgroundImage from 'gatsby-background-image'
 
-const PageHeader = ({ title, link }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          file(relativePath: { eq: "this_is_us.jpg" }) {
-            childImageSharp {
-              fixed(width: 1200) {
-                ...GatsbyImageSharpFixed_withWebp
-              }
-            }
+function PageHeader() {
+  const data = useStaticQuery(graphql`
+    query {
+      headerImage: file(relativePath: { eq: "this_is_us.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
-      `}
-      render={data => (
-        <header
-          className="inner-header overlay grey text-center slim-bg"
-          style={{
-            backgroundImage: `url(${data.file.childImageSharp.fixed.src})`,
-            backgroundPositionY: 'bottom',
-            height: '45vh',
-          }}
-        >
-          <div className="overlay-01" />
-          <div className="container tablet-container">
-            <h2 className="text-center text-uppercase text-tablet">{title}</h2>
-            <div className="breadcrumb breadcrumb-tablet">
-              <Link to={link === undefined ? '/' : `/${link}`}>
-                {link === undefined ? 'home' : link}
-              </Link>
-              <span> / </span>
-              <Link to="/donate" /*className="page-active"*/>Donate</Link>
-            </div>
-          </div>
-        </header>
-      )}
-    />
-  )
-}
+      }
+    }
+  `)
 
-PageHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  link: PropTypes.string,
+  return (
+    <header className="overlay grey">
+      <BackgroundImage
+        Tag="div"
+        fluid={data.headerImage.childImageSharp.fluid}
+        style={{
+          backgroundPositionY: 'bottom',
+          height: '25vh',
+        }}
+      ></BackgroundImage>
+    </header>
+  )
 }
 
 export default PageHeader

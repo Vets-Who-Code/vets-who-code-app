@@ -5,20 +5,24 @@ import { ContactForm } from '../components/Forms'
 function Contact() {
   return (
     <>
-      <PageHeader title="contact us" />
-      <section id="contact" className="pad-regular section bg-default">
+      <PageHeader />
+      <section id="contact" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
-            <div className="col-xs-12">
-              <div className="contactus-brief">
-                <h3>Contact Us</h3>
-              </div>
+            <div className="col-md-12 lead-in">
+              <h1 className="story-title">Contact Us</h1>
+              <p>
+                <i>Please complete the form for additional information.</i>
+              </p>
             </div>
-          </div>
-          <div className="container">
             <div className="row">
-              <div className="contact-form"></div>
-              <ContactForm />
+              <div className="col-xs-12"></div>
+            </div>
+            <div className="container">
+              <div className="row">
+                <div className="contact-form"></div>
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>

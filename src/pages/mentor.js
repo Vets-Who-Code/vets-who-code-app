@@ -82,12 +82,13 @@ const additionalGuidelines = [
           processes and asking thought-provoking questions
         </li>
         <li>
-          Helping them gain broader perspectives of the field of software development and what
-          area they might like to work in or focus on (front end, back end, devops, etc.)
+          Helping them gain broader perspectives of the field of software development and what area
+          they might like to work in or focus on (front end, back end, devops, etc.)
         </li>
         <li>Discussing actions you’ve taken in your career and explaining your rationale</li>
         <li>
-          Introduce them to your colleagues who can be inspiring models and additions to their network
+          Introduce them to your colleagues who can be inspiring models and additions to their
+          network
         </li>
       </ul>
     ),
@@ -116,14 +117,22 @@ const additionalGuidelines = [
 function Mentor() {
   return (
     <>
-      <PageHeader title="mentor" />
-      <div className="pad-regular bg-default">
-        <section id="contact" className="section bg-default">
-          <div className="container">
+      <PageHeader />
+      <section id="contact" className="small-top-pad section bg-default">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 lead-in">
+              <h1 className="story-title">Become a Mentor</h1>
+              <p>
+                <i>
+                  #VWC mentors are tasked with addressing students' technical, professional and
+                  personal needs.
+                </i>
+              </p>
+            </div>
             <div className="row">
               <div className="col-xs-12">
                 <div className="contactus-brief">
-                  <h3>Become A Mentor</h3>
                   <p className="section-description">
                     Thank you for your interest in mentoring with #VetsWhoCode. This document is
                     intended to share our philosophy on mentoring. We ask mentors to address the
@@ -162,11 +171,11 @@ function Mentor() {
                     </Accordion>
                     <h4 className="small-top-pad">Time Commitment</h4>
                     <p>
-                      After being formally assigned a mentee, we ask mentors to set up an
-                      initial chat with their mentee to discuss their needs and to get to
-                      know one another. After this initial meeting, we ask that our mentors check in
-                      with their mentee at least once a week to inquire about their progress and if
-                      the mentees have any issues.
+                      After being formally assigned a mentee, we ask mentors to set up an initial
+                      chat with their mentee to discuss their needs and to get to know one another.
+                      After this initial meeting, we ask that our mentors check in with their mentee
+                      at least once a week to inquire about their progress and if the mentees have
+                      any issues.
                     </p>
                     #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
                     communication and activity. We ask mentors to be available on Slack to students
@@ -180,20 +189,20 @@ function Mentor() {
               </div>
             </div>
           </div>
-        </section>
-        <section id="mentor-form" className="section bg-default">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <div className="contactus-brief">
-                  <h3>Mentor Application</h3>
-                  <MentorForm />
-                </div>
+        </div>
+      </section>
+      <section id="mentor-form" className="section bg-default">
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <div className="contactus-brief">
+                <h3>Mentor Application</h3>
+                <MentorForm />
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   )
 }
