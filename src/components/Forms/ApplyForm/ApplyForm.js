@@ -96,7 +96,7 @@ function ApplyForm() {
       </div>
       <div className="col-md-8">
         <div className="form-group">
-          <label htmlFor="lastNname" className="dark-text">
+          <label htmlFor="lastName" className="dark-text">
             Last Name
             <sup>*</sup>
           </label>
@@ -113,7 +113,7 @@ function ApplyForm() {
       </div>
       <div className="col-md-8">
         <div className="form-group">
-          <label htmlFor="InputEmail" className="dark-text">
+          <label htmlFor="email" className="dark-text">
             Email
             <sup>*</sup>
           </label>
