@@ -25,7 +25,7 @@ function Panel({ body, title, id }) {
         className="panel-heading"
         tabIndex="0"
       >
-        <h4 className="panel-title">
+        <h3 className="panel-title">
           <a
             className="collapsed"
             data-toggle="collapse"
@@ -36,7 +36,7 @@ function Panel({ body, title, id }) {
             <div>{typeof title === 'function' ? title() : title}</div>
             {isOpen ? <FaMinus className="minus" /> : <FaPlus className="plus" />}
           </a>
-        </h4>
+        </h3>
       </div>
       <div
         style={{
