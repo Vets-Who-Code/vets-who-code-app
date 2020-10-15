@@ -37,6 +37,7 @@ function MentorForm() {
             <sup>*</sup>
           </label>
           <input
+            aria-label="name"
             className="form-control input-lg"
             type="text"
             placeholder="Name"
@@ -54,6 +55,7 @@ function MentorForm() {
             <sup>*</sup>
           </label>
           <input
+            aria-label="email"
             className="form-control input-lg"
             type="email"
             id="email"
@@ -80,6 +82,7 @@ function MentorForm() {
             <sup>*</sup>
           </label>
           <input
+            aria-label="branch of service"
             className="form-control input-lg"
             type="text"
             id="branch-of-service"
@@ -99,6 +102,7 @@ function MentorForm() {
             <sup>*</sup>
           </label>
           <input
+            aria-label="technical expertise"
             className="form-control input-lg"
             type="text"
             id="technical-expertise"
@@ -118,6 +122,7 @@ function MentorForm() {
             <sup>*</sup>
           </label>
           <input
+            aria-label="github portfolio or linkedin"
             className="form-control input-lg"
             type="text"
             id="github-portfolio-or-linkedin"
@@ -145,6 +150,7 @@ function MentorForm() {
             Location ( City and State )<sup>*</sup>
           </label>
           <input
+            aria-label="location"
             className="form-control input-lg"
             type="text"
             id="location"
@@ -161,6 +167,7 @@ function MentorForm() {
             Employer Implemented Restrictions, if any.
           </label>
           <textarea
+            aria-label="employer restrictions"
             className="form-control"
             rows="7"
             placeholder="Please put here any employer restrictions about writing and reading code?"

@@ -125,7 +125,7 @@ function Mentor() {
               <h1 className="story-title">Become a Mentor</h1>
               <p>
                 <i>
-                  #VWC mentors are tasked with addressing students' technical, professional and
+                  #VWC mentors are tasked with addressing students&apos; technical, professional and
                   personal needs.
                 </i>
               </p>
@@ -140,7 +140,7 @@ function Mentor() {
                     each of these areas:
                   </p>
                   <div className="container">
-                    <h4 className="small-top-pad">Our Philosophy</h4>
+                    <h1 className="small-top-pad">Our Philosophy</h1>
                     <p>
                       We ask mentors to address the technical, professional, and personal needs of
                       students. Here is more detail on each of these areas:
@@ -164,12 +164,12 @@ function Mentor() {
                         <Panel
                           key={guideline.id}
                           title={guideline.title}
-                          id={index}
+                          id={guideline.id}
                           body={guideline.body}
                         />
                       ))}
                     </Accordion>
-                    <h4 className="small-top-pad">Time Commitment</h4>
+                    <h1 className="small-top-pad">Time Commitment</h1>
                     <p>
                       After being formally assigned a mentee, we ask mentors to set up an initial
                       chat with their mentee to discuss their needs and to get to know one another.
@@ -196,7 +196,7 @@ function Mentor() {
           <div className="row">
             <div className="col-xs-12">
               <div className="contactus-brief">
-                <h3>Mentor Application</h3>
+                <h2 className="mentor-heading">Mentor Application</h2>
                 <MentorForm />
               </div>
             </div>
