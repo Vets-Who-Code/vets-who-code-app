@@ -34,7 +34,11 @@ function Panel({ body, title, id }) {
             aria-controls={`collapse-${id}`}
           >
             <div>{typeof title === 'function' ? title() : title}</div>
-            {isOpen ? <FaMinus className="minus" /> : <FaPlus className="plus" aria-label="plus" />}
+            {isOpen ? (
+              <FaMinus className="minus" aria-label="close accordion" />
+            ) : (
+              <FaPlus className="plus" aria-label="expand accordion" />
+            )}
           </a>
         </h2>
       </div>
