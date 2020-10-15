@@ -10,7 +10,7 @@ export default class Mentor extends Component {
         title: 'Block 1: The Big Three',
         id: 'b-1',
         body:
-          "Block 1 is the foundation of our curriculum. We start out teaching how the internet works and how it impacts web development. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design, we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with APIs.",
+          'Block 1 is the foundation of our curriculum. We start out teaching how the internet works and how it impacts web development. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design, we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with APIs.',
       },
       {
         title: 'Block 2: Computer Science with JavaScript',
@@ -44,7 +44,10 @@ export default class Mentor extends Component {
               <div className="col-md-12 lead-in">
                 <h1 className="story-title">Syllabus</h1>
                 <p>
-                  <i>Our curriculum is designed to teach our veterans skills needed for today's tech market.</i>
+                  <i>
+                    Our curriculum is designed to teach our veterans skills needed for today's tech
+                    market.
+                  </i>
                 </p>
               </div>
               <div className="row">
@@ -53,27 +56,29 @@ export default class Mentor extends Component {
                     <p>
                       Our curriculum is designed using the Agile Methodology with four-day sprints
                       dedicated to the subject. We do it in this manner based on the practice of how
-                      veterans &quot;Train How You Fight&quot; in the military, the practice of which is now applied towards working in a software company. 
-                      The primary language we will focus on is JavaScript, due to its popularity in the job market, ease of
-                      transition between computer science topics, practical real world applications, and the
-                      scope of industries we can introduce our veterans to, all while keeping language
-                      proficiency at the forefront of the program. This way we can introduce Data
-                      Visualization, Data Science, Cyber Security, and Internet of Things(IoT) to our
-                      veterans, while continuing to have our troops grow in the area of JavaScript.
+                      veterans &quot;Train How You Fight&quot; in the military, the practice of
+                      which is now applied towards working in a software company. The primary
+                      language we will focus on is JavaScript, due to its popularity in the job
+                      market, ease of transition between computer science topics, practical real
+                      world applications, and the scope of industries we can introduce our veterans
+                      to, all while keeping language proficiency at the forefront of the program.
+                      This way we can introduce Data Visualization, Data Science, Cyber Security,
+                      and Internet of Things(IoT) to our veterans, while continuing to have our
+                      troops grow in the area of JavaScript.
                     </p>
                   </div>
                 </div>
                 <div className="col-md-12">
                   <Accordion singlePanel accordionId="syllabus">
-                    {blocks.map((block, index) => (
-                      <Panel key={block.id} title={block.title} body={block.body} id={index} />
+                    {blocks.map(block => (
+                      <Panel key={block.id} title={block.title} body={block.body} id={block.id} />
                     ))}
                   </Accordion>
                   <div className="col-md-12 text-center ">
                     <a
                       href="https://github.com/Vets-Who-Code/Curriculum"
                       type="button"
-                      className="btn btn-subscribe"
+                      className="btn btn-charity-default"
                       aria-label="Curriculum Github"
                     >
                       Full Curriculum

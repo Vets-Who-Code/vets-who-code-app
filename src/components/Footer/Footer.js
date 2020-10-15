@@ -18,7 +18,7 @@ function Footer() {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 text-center">
-              <h3>Help Us Teach More Veterans How To Code &nbsp;</h3>
+              <h2>Help Us Teach More Veterans How To Code &nbsp;</h2>
               <Link to="/donate" className="btn btn-charity-default">
                 donate
               </Link>

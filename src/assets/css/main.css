@@ -2080,7 +2080,7 @@ uneditable-input:focus {
   margin-top: 2rem;
   outline: 1px solid var(--tertiary-11);
 }
-.call-to-action-small h3 {
+.call-to-action-small h2 {
   color: var(--element-4);
   display: inline-block;
   font-size: 1.3125rem; /*21px*/

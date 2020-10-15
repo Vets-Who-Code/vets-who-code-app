@@ -25,7 +25,7 @@ function Panel({ body, title, id }) {
         className="panel-heading"
         tabIndex="0"
       >
-        <h4 className="panel-title">
+        <h2 className="panel-title">
           <a
             className="collapsed"
             data-toggle="collapse"
@@ -34,9 +34,9 @@ function Panel({ body, title, id }) {
             aria-controls={`collapse-${id}`}
           >
             <div>{typeof title === 'function' ? title() : title}</div>
-            {isOpen ? <FaMinus className="minus" /> : <FaPlus className="plus" />}
+            {isOpen ? <FaMinus className="minus" /> : <FaPlus className="plus" aria-label="plus" />}
           </a>
-        </h4>
+        </h2>
       </div>
       <div
         style={{
