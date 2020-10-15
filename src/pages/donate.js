@@ -25,6 +25,7 @@ function Donate() {
             <div className="col-md-12">
               <div className="iframe-container embed-responsive">
                 <iframe
+                  title="#VWC Donorbox"
                   src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
                   seamless="seamless"
                   name="donorbox"
