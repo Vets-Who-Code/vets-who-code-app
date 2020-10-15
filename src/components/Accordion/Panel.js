@@ -35,9 +35,9 @@ function Panel({ body, title, id }) {
           >
             <div>{typeof title === 'function' ? title() : title}</div>
             {isOpen ? (
-              <FaMinus role="button" className="minus" tabIndex="0" aria-label="close accordion" />
+              <FaMinus className="minus" aria-label="close accordion" />
             ) : (
-              <FaPlus role="button" className="plus" tabIndex="0" aria-label="expand accordion" />
+              <FaPlus className="plus" aria-label="expand accordion" />
             )}
           </a>
         </h2>
