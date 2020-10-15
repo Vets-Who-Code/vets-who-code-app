@@ -169,3 +169,13 @@
     width: 95%;
   }
 }
+
+.next-cohort {
+  font-size: 1.3125rem;
+}
+
+#cause-title {
+  font-size: 1.5rem;
+  font-family: Open Sans;
+  font-weight: 800;
+}

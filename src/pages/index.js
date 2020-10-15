@@ -118,7 +118,7 @@ function IndexPage() {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h4>Next Cohort</h4>
+              <h3 className="next-cohort">Next Cohort</h3>
               <div className="event_excerpt">
                 <p>Countdown until our next #VetsWhoCode Cohort gets started:</p>
               </div>
@@ -159,7 +159,8 @@ function IndexPage() {
           </div>
           <div className="row">
             <div className="col-sm-12 cause_content text-center" style={{ marginBottom: 40 }}>
-              <h4 className="cause_title">Thank You For Working With #VetsWhoCode!</h4>
+              {/* eslint-disable-next-line max-len */}
+              <h3 id="cause-title">Thank You For Working With #VetsWhoCode!</h3>
               <hr />
               <h3 className="subtitle">
                 We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
