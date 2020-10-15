@@ -5,13 +5,17 @@ import PageHeader from '../components/PageHeader'
 function Donate() {
   return (
     <>
-      <PageHeader title="donate" />
-      <section id="cause_single" className="cause_single section bg-default single pad-regular">
+      <PageHeader />
+      <section id="cause_single" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <h4 className="cause_title">Help Us Continue To Train More Veterans</h4>
+            <div className="col-md-12 lead-in">
+              <h1 className="story-title">Donate to #VetsWhoCode</h1>
+              <p>
+                <i>Help us continue to train more veterans.</i>
+              </p>
             </div>
+            <div className="row"></div>
           </div>
         </div>
       </section>
@@ -21,6 +25,7 @@ function Donate() {
             <div className="col-md-12">
               <div className="iframe-container embed-responsive">
                 <iframe
+                  title="#VWC Donorbox"
                   src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
                   seamless="seamless"
                   name="donorbox"
