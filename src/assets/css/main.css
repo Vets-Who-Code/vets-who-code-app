@@ -607,11 +607,17 @@ h1.bold_404 {
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: -1px;
-  padding: 20px 15px 20px 15px;
+  padding: 20px 12px 20px 12px;
   position: relative;
   text-transform: uppercase;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+}
+
+@media only screen and (min-width: 1500px) {
+  .main-navigation .navbar-nav li a {
+    padding: 20px 15px 20px 15px;
+  }
 }
 @media only screen and (max-width: 767px) {
   .main-navigation .navbar-nav li a {

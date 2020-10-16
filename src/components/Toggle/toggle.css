@@ -4,11 +4,6 @@
   text-align: right;
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-  .toggle-container {
-    position: absolute;
-    right: -45.5rem;
-    top: 2rem;
-  }
   .switch {
     color: var(--element-3);
   }
@@ -17,8 +12,8 @@
   .toggle-container {
     z-index: 1;
     position: absolute;
-    right: 1rem;
-    top: -1rem;
+    right: 4.2rem;
+    top: -0.88rem;
   }
 }
 .btn-toggle {
