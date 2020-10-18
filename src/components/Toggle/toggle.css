@@ -12,7 +12,7 @@
   .toggle-container {
     z-index: 1;
     position: absolute;
-    right: 4.2rem;
+    right: 1rem;
     top: -0.88rem;
   }
 }
