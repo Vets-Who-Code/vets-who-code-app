@@ -1417,11 +1417,11 @@ h3 {
   margin: 10px 0;
 }
 .post .entry-date {
-  color: var(--element-5);
+  color: var(--element-3);
   margin-right: 20px;
 }
 .post .author {
-  color: var(--element-5);
+  color: var(--element-3);
   padding-right: 20px;
 }
 .author .blog-author {
