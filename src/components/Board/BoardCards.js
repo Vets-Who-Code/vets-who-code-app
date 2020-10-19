@@ -27,22 +27,32 @@ function BoardCards({ boardMembersList }) {
                 <div className="user-pic">
                   <Image fluid={node.image.fluid} alt={node.name} className="img-fluid" />
                 </div>
-                <h5>
+                <h1>
                   {node.firstName} {node.lastName}
-                </h5>
-                <h6>{node.work}</h6>
+                </h1>
+                <h2>{node.work}</h2>
               </div>
               <div className="bio">
-                <p>{node?.bio?.bio}</p>
+                <p className="board-bio">{node?.bio?.bio}</p>
               </div>
               <div className="board-links">
                 {node.linkedin && (
-                  <a rel="noopener noreferrer" href={node.linkedin} target="_blank">
+                  <a
+                    aria-label={`${node.firstName} ${node.lastName} linkedin`}
+                    rel="noopener noreferrer"
+                    href={node.linkedin}
+                    target="_blank"
+                  >
                     <FaLinkedinIn className="board-icons" size="40" />
                   </a>
                 )}
                 {node.twitter && (
-                  <a rel="noopener noreferrer" href={node.twitter} target="_blank">
+                  <a
+                    aria-label={`${node.firstName} ${node.lastName} twitter`}
+                    rel="noopener noreferrer"
+                    href={node.twitter}
+                    target="_blank"
+                  >
                     <FaTwitter className="board-icons" size="40" />
                   </a>
                 )}

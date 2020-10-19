@@ -105,7 +105,7 @@ describe('<BoardCards />', () => {
   test('should sort board members by last name', () => {
     const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
 
-    const nameHeadings = container.querySelectorAll('h5')
+    const nameHeadings = container.querySelectorAll('h1')
 
     expect(nameHeadings[0].textContent).toBe('Jody Nelson')
     expect(nameHeadings[1].textContent).toBe('Jody Smith')
@@ -115,8 +115,8 @@ describe('<BoardCards />', () => {
   test('should render all dyncamic data', () => {
     const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
 
-    const nameHeadings = container.querySelectorAll('h5')
-    const workHeadings = container.querySelectorAll('h6')
+    const nameHeadings = container.querySelectorAll('h1')
+    const workHeadings = container.querySelectorAll('h2')
     const images = container.querySelectorAll('img')
 
     expect(nameHeadings[0].textContent).toBe('Jody Nelson')
