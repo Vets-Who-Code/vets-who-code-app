@@ -1,4 +1,3 @@
-import React from 'react'
 import TemplateWrapper from '../../src/components/Layout'
 import { render } from '@testing-library/react'
 

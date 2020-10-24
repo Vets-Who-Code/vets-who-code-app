@@ -1,4 +1,3 @@
-import React from 'react'
 import Donate from '../../src/pages/donate'
 import { render, screen } from '@testing-library/react'
 

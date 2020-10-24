@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { Component } from 'react'
+import { Component } from 'react'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
 
@@ -45,7 +45,7 @@ export default class Mentor extends Component {
                 <h1 className="story-title">Syllabus</h1>
                 <p>
                   <i>
-                    Our curriculum is designed to teach our veterans skills needed for today's tech
+                    Our curriculum is designed to teach our veterans skills needed for today&apos;s tech
                     market.
                   </i>
                 </p>

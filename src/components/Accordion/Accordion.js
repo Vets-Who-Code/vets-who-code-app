@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext, createContext } from 'react'
+import { useState, useCallback, useContext, createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const propTypes = {

@@ -1,4 +1,3 @@
-import React from 'react'
 import Footer from '../../src/components/Footer'
 import { render } from '@testing-library/react'
 

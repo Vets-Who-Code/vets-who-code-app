@@ -1,6 +1,6 @@
-import React from 'react'
+import { Component } from 'react';
 
-export default class Slider extends React.Component {
+export default class Slider extends Component {
   slickPrev = jest.fn()
 
   slickNext = jest.fn()

@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import PageHeader from '../../src/components/PageHeader'
 import BoardCards from '../../src/components/Board'

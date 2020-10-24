@@ -1,4 +1,3 @@
-import React from 'react'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
 
@@ -60,7 +59,7 @@ function Testimonial() {
                   <blockquote className="testimonial-text">
                     <p>
                       &quot;The course was great! I laughed, I learned, I got mad, I got
-                      excited...then mad again. But in the end, I've developed skills that have
+                      excited...then mad again. But in the end, I&apos;ve developed skills that have
                       helped me become a successful frontend developer in Chicago and have found a
                       group of people in VWC that understand me, and we really work and grow
                       together better than anything I could have imagined.&quot;
@@ -85,8 +84,8 @@ function Testimonial() {
                       transition, and of these three organizations, only one has truly changed my
                       life for the better. Vets Who Code delivered more value to me than 12 of the
                       non-profits combined.&quot;
-                      <br /> -Osvaldo "Ozzie" Vargas, US Army | Fullstack Developer, Application
-                      Lead, Novetta
+                      <br /> -Osvaldo &quot;Ozzie&quot; Vargas, US Army | Fullstack Developer,
+                      Application Lead, Novetta
                     </p>
                   </blockquote>
                 </div>
@@ -98,7 +97,7 @@ function Testimonial() {
                   />
                   <blockquote className="testimonial-text">
                     <p>
-                      &quot;#VetsWhoCode's tenacious focus on language and computer science
+                      &quot;#VetsWhoCode&apos;s tenacious focus on language and computer science
                       fundamentals over frameworks was invaluable in my career transition from being
                       a Radiology Technician in the US Army to building cloud scale infrastructure
                       at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate

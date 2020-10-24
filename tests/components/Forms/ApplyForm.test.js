@@ -1,4 +1,3 @@
-import React from 'react'
 import { ApplyForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 /**
