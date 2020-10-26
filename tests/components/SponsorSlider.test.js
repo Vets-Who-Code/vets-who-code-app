@@ -1,4 +1,3 @@
-import React from 'react'
 import SponsorSlider from '../../src/components/SponsorSlider'
 import { render } from '@testing-library/react'
 

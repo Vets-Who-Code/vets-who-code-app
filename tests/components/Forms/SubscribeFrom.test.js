@@ -1,4 +1,3 @@
-import React from 'react'
 import { SubscribeForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 

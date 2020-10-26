@@ -1,4 +1,3 @@
-import React from 'react'
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
 

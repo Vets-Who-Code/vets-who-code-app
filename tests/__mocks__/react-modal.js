@@ -1,6 +1,6 @@
-import React from 'react'
+import { Component } from 'react';
 
-class Modal extends React.Component {
+class Modal extends Component {
   static setAppElement(element) {}
 
   render() {

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
 import FluidImage from '../FluidImage'
 import Toggle from '../Toggle'

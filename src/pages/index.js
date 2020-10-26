@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { Link } from 'gatsby'
 import SponsorSlider from '../components/SponsorSlider'
 import Countdown from '../components/Countdown'

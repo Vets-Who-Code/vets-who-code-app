@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
 import { MentorForm } from '../components/Forms'
@@ -49,7 +49,7 @@ const mainGuidelines = [
     body: () => (
       <ul>
         <li>
-          It's not just about software and coding. Get to know the mentee and build a lifelong
+          It&apos;s not just about software and coding. Get to know the mentee and build a lifelong
           personal relationship
         </li>
         <li>Be sensitive to any personal needs a mentee may have</li>
@@ -160,7 +160,7 @@ function Mentor() {
                       consider.
                     </p>
                     <Accordion accordionId="additionalGuidelines">
-                      {additionalGuidelines.map((guideline, index) => (
+                      {additionalGuidelines.map(guideline => (
                         <Panel
                           key={guideline.id}
                           title={guideline.title}

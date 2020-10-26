@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
@@ -22,7 +22,7 @@ function ApplyForm() {
           const response = await fetch(
             `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
             {
-              headers: { accept: 'application/json' },
+              headers: { 'Content-Type': 'application/json' },
               method: 'get',
             }
           )
@@ -125,7 +125,7 @@ function ApplyForm() {
             ref={register({
               required: true,
               pattern: {
-                value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 message: 'Please enter a valid email address',
               },
             })}
@@ -408,7 +408,7 @@ function ApplyForm() {
             ref={register({
               required: true,
               pattern: {
-                value: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/,
+                value: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/,
                 message: 'Please enter a valid url',
               },
             })}

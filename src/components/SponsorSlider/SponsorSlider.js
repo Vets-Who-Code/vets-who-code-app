@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import FluidImage from '../FluidImage'
 import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'

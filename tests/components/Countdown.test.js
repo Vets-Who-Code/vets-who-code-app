@@ -1,4 +1,3 @@
-import React from 'react'
 import Countdown from '../../src/components/Countdown'
 import { render } from '@testing-library/react'
 

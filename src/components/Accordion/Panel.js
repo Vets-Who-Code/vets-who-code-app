@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import { useAccordion } from './Accordion'
 import { FaMinus, FaPlus } from 'react-icons/fa'

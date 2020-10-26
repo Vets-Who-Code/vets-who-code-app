@@ -1,10 +1,6 @@
 {
   "parser": "babel-eslint",
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 8,
     "ecmaFeatures": {
@@ -13,23 +9,20 @@
       "classes": true
     }
   },
-  "plugins": [
-    "react",
-    "prettier",
-    "react-hooks"
-  ],
+  "plugins": ["react", "prettier", "react-hooks"],
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true,
+    "node": true
   },
   "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "no-useless-catch": "off",
     "no-undef": "off",
     "no-debugger": "off",
-    "eqeqeq": [
-      "error",
-      "always"
-    ],
+    "eqeqeq": ["error", "always"],
     "getter-return": [
       "error",
       {
@@ -38,14 +31,8 @@
     ],
     "no-template-curly-in-string": "error",
     "semi": "off",
-    "array-bracket-spacing": [
-      "error",
-      "never"
-    ],
-    "block-spacing": [
-      "error",
-      "always"
-    ],
+    "array-bracket-spacing": ["error", "never"],
+    "block-spacing": ["error", "always"],
     "brace-style": [
       "error",
       "1tbs",
@@ -62,18 +49,9 @@
         "after": true
       }
     ],
-    "comma-style": [
-      "error",
-      "last"
-    ],
-    "computed-property-spacing": [
-      "error",
-      "never"
-    ],
-    "func-call-spacing": [
-      "error",
-      "never"
-    ],
+    "comma-style": ["error", "last"],
+    "computed-property-spacing": ["error", "never"],
+    "func-call-spacing": ["error", "never"],
     "keyword-spacing": [
       "error",
       {
@@ -81,21 +59,11 @@
         "after": true
       }
     ],
-    "max-len": [
-      "warn",
-      100
-    ],
     "no-duplicate-imports": "error",
     "id-length": "off",
     "id-blacklist": 0,
-    "max-depth": [
-      "warn",
-      4
-    ],
+    "max-depth": ["warn", 4],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
-  },
-  "globals": {
-    "expect": true
   }
 }

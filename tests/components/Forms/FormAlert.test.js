@@ -1,4 +1,3 @@
-import React from 'react'
 import { FormAlert } from '../../../src/components/Forms'
 import { render } from '@testing-library/react'
 

@@ -1,11 +1,10 @@
-import React from 'react'
+import { useRef } from 'react'
 import PropTypes from 'prop-types'
-import addToMailchimp from 'gatsby-plugin-mailchimp'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
 function ApplyForm() {
-  const subscribeButtonRef = React.useRef()
+  const subscribeButtonRef = useRef()
   const { register, handleSubmit, errors, reset } = useForm()
 
   const onSubmit = async (formData, e) => {

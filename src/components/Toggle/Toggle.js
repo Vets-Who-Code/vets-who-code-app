@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import PropTypes from 'prop-types'

@@ -1,4 +1,3 @@
-import React from 'react'
 import Nav from '../../src/components/Nav'
 import { render } from '@testing-library/react'
 
