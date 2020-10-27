@@ -22,7 +22,7 @@ function ApplyForm() {
           const response = await fetch(
             `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
             {
-              headers: { 'Content-Type': 'application/json' },
+              headers: { accept: 'application/json' },
               method: 'get',
             }
           )
