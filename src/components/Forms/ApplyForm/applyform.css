@@ -26,7 +26,7 @@
 .loader::after,
 .loader::before {
   content: '';
-  background: var(--element-11);
+  background: var(--surface-4);
   position: absolute;
   display: inline-block;
   width: 100%;
