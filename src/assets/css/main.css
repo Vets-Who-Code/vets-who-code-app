@@ -627,7 +627,6 @@ h1.bold_404 {
 }
 .main-navigation .navbar-nav li a span {
   border-radius: 2px;
-  padding: 1px 4px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
