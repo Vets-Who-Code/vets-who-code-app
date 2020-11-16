@@ -45,14 +45,14 @@ export default class Mentor extends Component {
                 <h1 className="story-title">Syllabus</h1>
                 <p>
                   <i>
-                    Our curriculum is designed to teach our veterans skills needed for today&apos;s tech
-                    market.
+                    Our curriculum is designed to teach our veterans skills needed for today&apos;s
+                    tech market.
                   </i>
                 </p>
               </div>
               <div className="row">
                 <div className="col-md-12">
-                  <div className="faq-short-brief">
+                  <div className="faq-short-brief container-fluid">
                     <p>
                       Our curriculum is designed using the Agile Methodology with four-day sprints
                       dedicated to the subject. We do it in this manner based on the practice of how
