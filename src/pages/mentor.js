@@ -170,20 +170,21 @@ function Mentor() {
                       ))}
                     </Accordion>
                     <h1 className="small-top-pad">Time Commitment</h1>
-                    <p>
+                    <p className="text-justify">
                       After being formally assigned a mentee, we ask mentors to set up an initial
                       chat with their mentee to discuss their needs and to get to know one another.
                       After this initial meeting, we ask that our mentors check in with their mentee
                       at least once a week to inquire about their progress and if the mentees have
                       any issues.
                     </p>
-                    #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
-                    communication and activity. We ask mentors to be available on Slack to students
-                    and to use Slack as a way to check in with mentees on a weekly basis. Mentors
-                    and mentees may also use email or video chat to communicate with one another.
-                    Please work with your mentee to establish the best frequency and method of
-                    communication for you both.
-                    <p />
+                    <p className="text-justify">
+                      #VetsWhoCode is a virtual organization where Slack is the primary vehicle for
+                      communication and activity. We ask mentors to be available on Slack to
+                      students and to use Slack as a way to check in with mentees on a weekly basis.
+                      Mentors and mentees may also use email or video chat to communicate with one
+                      another. Please work with your mentee to establish the best frequency and
+                      method of communication for you both.
+                    </p>
                   </div>
                 </div>
               </div>
