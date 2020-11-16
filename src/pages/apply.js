@@ -30,6 +30,17 @@ export default function Apply() {
                     which will allow us to gauge your initial skill levels and help us assign an
                     appropriate mentor), and fill out the following application form.
                   </p>
+                  <div className="container-fluid">
+                    <a
+                      className="btn btn-charity-default col-xs-6"
+                      href="https://github.com/Vets-Who-Code/prework"
+                      role="button"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Required Prework
+                    </a>
+                  </div>
                   <ApplyForm />
                 </div>
               </div>
