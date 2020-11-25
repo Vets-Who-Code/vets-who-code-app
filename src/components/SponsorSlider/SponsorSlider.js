@@ -3,8 +3,8 @@ import FluidImage from '../FluidImage'
 import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
-import { SiNetlify, SiReplDotIt } from 'react-icons/si'
-import { Contentful, Fem } from '../../icons'
+import { SiReplDotIt } from 'react-icons/si'
+import { Contentful, Fem, Netlify } from '../../icons'
 
 const baseSettlings = {
   autoplay: true,
@@ -69,7 +69,7 @@ const elements = [
     label: 'Link to Netlify',
     title: 'Netlify',
     lightElement: 'netlify.png',
-    darkElement: <SiNetlify size={60} color="#ffffff" />,
+    darkElement: <Netlify size={`60`} color="#ffffff" />,
   },
 ]
 
