@@ -69,7 +69,7 @@ const elements = [
     label: 'Link to Netlify',
     title: 'Netlify',
     lightElement: 'netlify.png',
-    darkElement: <SiNetlify size={`60`} color="#ffffff" />,
+    darkElement: <SiNetlify size={60} color="#ffffff" />,
   },
 ]
 
