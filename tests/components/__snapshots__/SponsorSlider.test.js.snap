@@ -246,13 +246,14 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         </div>
       </li>
       <li
-        class="slider-slide"
-        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 0; position: absolute; top: 0px; vertical-align: top; visibility: hidden; width: 0px;"
+        class="slider-slide slide-visible"
+        style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
         <div
-          aria-hidden="true"
+          aria-hidden="false"
           style="text-align: center;"
+          tabindex="0"
         >
           <a
             aria-label="Link to Netlify"
