@@ -127,7 +127,7 @@ function SponsorSlider() {
   return (
     <Carousel
       {...baseSettlings}
-      slidesToShow={isMobile ? 4 : 6}
+      slidesToShow={isMobile ? 4 : 7}
       transitionMode={isMobile ? 'scroll' : 'fade'}
     >
       {colorMode === 'light' ? lightElements() : darkElements()}
