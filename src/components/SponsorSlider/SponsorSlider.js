@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplDotIt } from 'react-icons/si'
-import { Contentful, Fem } from '../../icons'
+import { Contentful, Fem, Netlify } from '../../icons'
 
 const baseSettlings = {
   autoplay: true,
@@ -64,6 +64,13 @@ const elements = [
     lightElement: 'contentful.png',
     darkElement: <Contentful size={`60`} color="#091f40" />,
   },
+  {
+    href: 'https://www.netlify.com/',
+    label: 'Link to Netlify',
+    title: 'Netlify',
+    lightElement: 'netlify.png',
+    darkElement: <Netlify size={`60`} color="#ffffff" />,
+  },
 ]
 
 function SponsorSlider() {
@@ -120,7 +127,7 @@ function SponsorSlider() {
   return (
     <Carousel
       {...baseSettlings}
-      slidesToShow={isMobile ? 4 : 6}
+      slidesToShow={isMobile ? 4 : 7}
       transitionMode={isMobile ? 'scroll' : 'fade'}
     >
       {colorMode === 'light' ? lightElements() : darkElements()}
