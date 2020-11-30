@@ -166,7 +166,7 @@ exports[`<Footer /> should render correctly 1`] = `
               </a>
               <a
                 aria-label="Github"
-                href="http://bit.ly/vwc-github"
+                href="https://bit.ly/2HSojjv"
               >
                 <i
                   class="fa"
