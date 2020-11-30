@@ -61,7 +61,7 @@ function Footer() {
                       <FaLinkedinIn />
                     </i>
                   </a>
-                  <a href="http://bit.ly/vwc-github" aria-label="Github">
+                  <a href="https://bit.ly/2HSojjv" aria-label="Github">
                     <i className="fa">
                       <FaGithub />
                     </i>
