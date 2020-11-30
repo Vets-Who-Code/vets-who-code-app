@@ -40,23 +40,26 @@ const gatsbyConfig = {
         logo: `${__dirname}/src/images/favicon.png`,
       },
     },
+    `gatsby-plugin-preload-fonts`,
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        fonts: [
-          {
-            family: `Roboto Slab`,
-            variants: [`100`, `300`, `400`, `700`],
-          },
-          {
-            family: `Open Sans`,
-            variants: [`300`, `300i`, `400`, `400i`, `800`],
-          },
-          {
-            family: `Lato`,
-            variants: [`300`, `400`, `700`, `900`],
-          },
-        ],
+        fonts: {
+          google: [
+            {
+              family: `Roboto Slab`,
+              variants: [`100`, `300`, `400`, `700`],
+            },
+            {
+              family: `Open Sans`,
+              variants: [`300`, `300i`, `400`, `400i`, `800`],
+            },
+            {
+              family: `Lato`,
+              variants: [`300`, `400`, `700`, `900`],
+            },
+          ],
+        },
       },
     },
   ],
