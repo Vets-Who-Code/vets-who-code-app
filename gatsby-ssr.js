@@ -2,7 +2,7 @@ const React = require('react')
 const Layout = require('./src/components/Layout').default
 
 exports.onRenderBody = ({ setPostBodyComponents, setPreBodyComponents }) => {
-  setPreBodyComponents(<MagicScriptTag />)
+  setPreBodyComponents(<MagicScriptTag key="magic-script-tag" />)
   setPostBodyComponents([
     <script key="https://linked.chat/web/a9LB63" src="https://linked.chat/web/a9LB63" defer />,
   ])
@@ -38,5 +38,5 @@ const MagicScriptTag = () => {
     root.setAttribute("color-mode", colorMode === "light" ? "light" : "dark")
   })()`
   // eslint-disable-next-line react/no-danger
-  return <script key="magic-script-tag" dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
+  return <script dangerouslySetInnerHTML={{ __html: codeToRunOnClient }} />
 }
