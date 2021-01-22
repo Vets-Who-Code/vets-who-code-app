@@ -6,7 +6,10 @@ import Image from 'gatsby-image'
 import PageHeader from '../components/PageHeader'
 
 function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
-  const excerpt = description.content[0].content[0].value
+  const excerpt =
+    description.content[0].content[0].value === ''
+      ? description.content[2].content[0].value
+      : description.content[0].content[0].value
 
   return (
     <article className="post after">
