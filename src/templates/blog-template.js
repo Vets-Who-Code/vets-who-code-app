@@ -5,11 +5,37 @@ import Image from 'gatsby-image'
 
 import PageHeader from '../components/PageHeader'
 
+/**
+ * findDescription returns the first child of a blog post body that is of Type String and is not ""
+ *
+ * @param data - {
+ *   content: [],
+ *   nodeType: "",
+ *   data: {}
+ * }
+ *
+ * @return String
+ */
+function findDescription(data) {
+  console.log('data:', data)
+  let description = null
+
+  for (let node in data) {
+    if (Array.isArray(data[node])) {
+      for (let child of data[node]) {
+        if (child?.content[0]?.value) {
+          description = child.content[0].value
+          return description
+        }
+      }
+    }
+  }
+
+  return description
+}
+
 function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
-  const excerpt =
-    description.content[0].content[0].value === ''
-      ? description.content[2].content[0].value
-      : description.content[0].content[0].value
+  const excerpt = findDescription(description)
 
   return (
     <article className="post after">
