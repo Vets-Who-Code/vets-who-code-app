@@ -6,28 +6,25 @@ import Image from 'gatsby-image'
 import PageHeader from '../components/PageHeader'
 
 /**
- * findDescription returns the first child of a blog post body that is of Type String and is not ""
+ * findDescription
+ * finds the first child of a blog post body
+ * that is of Type String and is not ""
  *
- * @param data - {
- *   content: [],
- *   nodeType: "",
- *   data: {}
- * }
+ * @param blog post body in the form of JSON
+ * @param blog.content Array
+ * @param blog.data Object
+ * @param blog.nodType String
+ * @param  data
  *
  * @return String
  */
 function findDescription(data) {
-  console.log('data:', data)
   let description = null
 
-  for (let node in data) {
-    if (Array.isArray(data[node])) {
-      for (let child of data[node]) {
-        if (child?.content[0]?.value) {
-          description = child.content[0].value
-          return description
-        }
-      }
+  for (let child of data.content) {
+    if (child?.content[0]?.value) {
+      description = child.content[0].value
+      return description
     }
   }
 
