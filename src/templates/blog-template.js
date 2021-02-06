@@ -4,6 +4,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa'
 import Image from 'gatsby-image'
 
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 
 /**
  * findDescription
@@ -127,6 +128,7 @@ const Blog = ({ pageContext }) => {
 
   return (
     <>
+      <SEO title="Blog" />
       <PageHeader title="blog" />
       <section id="blog-page" className="section  bg-default">
         <div className="container">

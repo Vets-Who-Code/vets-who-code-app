@@ -89,6 +89,11 @@ async function buildIndividualBlogPostPage({
             body {
               json
             }
+            featureImage {
+              file {
+                url
+              }
+            }
             author {
               authorName
               authorImage {

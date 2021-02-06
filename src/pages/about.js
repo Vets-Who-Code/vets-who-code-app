@@ -1,6 +1,7 @@
 import { useRef, useEffect } from 'react'
 
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 import '../assets/css/custom.css'
 import vwcGIF from '../images/vwc.gif'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
@@ -30,6 +31,7 @@ function About() {
 
   return (
     <>
+      <SEO title="About Us" />
       <PageHeader title="about" />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">

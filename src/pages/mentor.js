@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 import { MentorForm } from '../components/Forms'
 
 const mainGuidelines = [
@@ -117,6 +118,7 @@ const additionalGuidelines = [
 function Mentor() {
   return (
     <>
+      <SEO title="Become a Mentor" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

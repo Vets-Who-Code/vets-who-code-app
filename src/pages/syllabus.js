@@ -2,6 +2,7 @@
 import { Component } from 'react'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 
 export default class Mentor extends Component {
   state = {
@@ -37,6 +38,7 @@ export default class Mentor extends Component {
     const { blocks } = this.state
     return (
       <>
+        <SEO title="View our Syllabus" />
         <PageHeader />
         <section id="contact" className="small-top-pad section bg-default">
           <div className="container">
