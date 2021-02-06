@@ -4,6 +4,7 @@ import readingTime from 'reading-time'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 import { options } from './blog-helpers'
 import { useScript } from '../hooks'
 
@@ -24,6 +25,10 @@ const BlogPost = ({ pageContext }) => {
 
   return (
     <>
+      <SEO
+        title={data.contentfulBlogPost.title}
+        image={data.contentfulBlogPost.featureImage.file.url}
+      />
       <PageHeader title={data.contentfulBlogPost.title} link={'blog'} />
       <section id="blog-page" className="section bg-default">
         <div className="container">
@@ -72,6 +77,11 @@ BlogPost.propTypes = {
           slug: PropTypes.string,
           publishedDate: PropTypes.string,
           title: PropTypes.string,
+          featureImage: PropTypes.shape({
+            file: PropTypes.shape({
+              url: PropTypes.string,
+            }),
+          }),
           author: PropTypes.shape({
             authorName: PropTypes.string,
             authorImage: PropTypes.shape({

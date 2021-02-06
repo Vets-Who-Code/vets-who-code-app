@@ -114,7 +114,7 @@ describe('<MentorForm />', () => {
     expect(window.fetch).toHaveBeenCalledTimes(1)
   })
 
-  test.only('should show custom error message for empty fields with validation', async () => {
+  test('should show custom error message for empty fields with validation', async () => {
     const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')

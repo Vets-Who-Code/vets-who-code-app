@@ -2,7 +2,12 @@ require('dotenv').config()
 
 const gatsbyConfig = {
   siteMetadata: {
-    title: `VetsWhoCode`,
+    titleTemplate: '%s · The Real Hero',
+    description: `#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service.`,
+    url: `https://www.vetswhocode.io`, // No trailing slash allowed!
+    image: `/images/meta-image.jpg`, // Path to your image you placed in the 'static' folder
+    twitterUsername: `@vetswhocode`,
+    title: `#VetsWhoCode 🇺🇸 `,
   },
   plugins: [
     {
@@ -17,7 +22,7 @@ const gatsbyConfig = {
       options: {
         // your google analytics tracking id
         trackingId: `UA-73856435-2`,
-        // Puts tracking script in the head instead of the body
+
         head: false,
         // enable ip anonymization
         anonymize: true,

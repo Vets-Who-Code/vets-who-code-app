@@ -1,9 +1,11 @@
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 
 function Testimonial() {
   return (
     <>
+      <SEO title="Testimonials" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">

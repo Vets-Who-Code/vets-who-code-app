@@ -1,9 +1,11 @@
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 import { ContactForm } from '../components/Forms'
 
 function Contact() {
   return (
     <>
+      <SEO title="Contact Us" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

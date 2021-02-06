@@ -1,9 +1,11 @@
 import FluidImage from '../components/FluidImage'
 import PageHeader from '../components/PageHeader'
+import SEO from '../components/SEO'
 
 function Donate() {
   return (
     <>
+      <SEO title="Donate" />
       <PageHeader />
       <section id="cause_single" className="small-top-pad section bg-default">
         <div className="container">
