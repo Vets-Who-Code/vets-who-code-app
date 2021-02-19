@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitError, onSubmitSuccess } from '../'
 
@@ -7,48 +7,62 @@ import './applyform.css'
 
 function ApplyForm() {
   const [loading, setLoading] = useState(false)
-  const { register, handleSubmit, errors, reset } = useForm()
+  const { register, handleSubmit, errors, reset, getValues, watch } = useForm({
+    reValidateMode: 'onChange',
+  })
 
   const initialCityState = { city: '', state: '' }
   const [zipError, setZipError] = useState('')
   const [cityState, setCityState] = useState(initialCityState)
-  const [zipcode, setZipcode] = useState('')
-  const isZipValid = zipcode.length === 5
-
-  useEffect(() => {
-    const fetchCityState = async () => {
-      try {
-        if (isZipValid) {
-          const response = await fetch(
-            `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
-            {
-              headers: { accept: 'application/json' },
-              method: 'get',
-            }
-          )
-          const data = await response.json()
-          if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
-            setLoading(false)
-            setZipError('')
-            setCityState({
-              ...cityState,
-              city: data.CityStateLookupResponse.ZipCode[0].City.join(''),
-              state: data.CityStateLookupResponse.ZipCode[0].State.join(''),
-            })
-          } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
-            setLoading(false)
-            setZipError('Invalid zipcode')
-          }
-        }
-      } catch (error) {
-        setLoading(false)
-        onSubmitError('OOPS! Something went wrong. Please try again later.')
-      }
+  const [hasPrewokrUrlError, setHasPrewokrUrlError] = useState(false)
+  const isZipValid = (zip = '') => {
+    return zip.length >= 5
+  }
+  const isZipValidLength = isZipValid()
+  function preWorkLinkError(preworkRepoVal, preworkLinkVal) {
+    const hasGithubInUrl = preworkLink => preworkLink.includes('github.com')
+    if ((preworkRepoVal && preworkRepoVal === preworkLinkVal) || hasGithubInUrl(preworkLinkVal)) {
+      setHasPrewokrUrlError(true)
+    } else {
+      setHasPrewokrUrlError(false)
     }
-    fetchCityState()
-  }, [zipcode])
+  }
+
+  const fetchCityState = async zipcode => {
+    try {
+      const response = await fetch(
+        `https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/zipcode?zipcode=${zipcode}`,
+        {
+          headers: { accept: 'application/json' },
+          method: 'get',
+        }
+      )
+      const data = await response.json()
+      if (data?.CityStateLookupResponse?.ZipCode[0]?.City) {
+        setLoading(false)
+        setZipError('')
+        setCityState({
+          ...cityState,
+          city: data.CityStateLookupResponse.ZipCode[0].City.join(''),
+          state: data.CityStateLookupResponse.ZipCode[0].State.join(''),
+        })
+      } else if (data?.CityStateLookupResponse?.ZipCode[0]?.Error[0]) {
+        setLoading(false)
+        setZipError('Invalid zipcode')
+      }
+    } catch (error) {
+      setLoading(false)
+      onSubmitError('OOPS! Something went wrong. Please try again later.')
+    }
+  }
 
   const onSubmit = async (formData, e) => {
+    if (hasPrewokrUrlError) {
+      onSubmitError(
+        'OOPS! Looks like your Prework Link and Prework Repo are the the same or you are trying to submit a link to a githbu repo. Your hosted prework link should be on service like gitub pages, github.io, or surge.sh.'
+      )
+      return
+    }
     e.preventDefault()
     setLoading(true)
 
@@ -148,6 +162,13 @@ function ApplyForm() {
             name="zipCode"
             placeholder="Zip Code"
             type="text"
+            onChange={() => {
+              const zipcode = watch('zipCode')
+
+              if (isZipValid(zipcode)) {
+                fetchCityState(zipcode)
+              }
+            }}
             ref={register({
               required: true,
               pattern: {
@@ -155,13 +176,6 @@ function ApplyForm() {
                 message: 'Please enter a valid zip code XXXXX or XXXXX-XXXX',
               },
             })}
-            value={zipcode || ''}
-            onChange={event => {
-              const { value } = event.target
-              setLoading(true)
-              setCityState(initialCityState)
-              setZipcode(value.replace(/[^\d{5}]$/, '').substr(0, 5))
-            }}
           />
         </div>
         {errors.zipCode && errors.zipCode.type === 'required' && <FormAlert />}
@@ -187,7 +201,7 @@ function ApplyForm() {
               readOnly
             />{' '}
             <div className="icon-container">
-              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+              <i className={`${loading && isZipValidLength ? 'loader' : ''}`}></i>
             </div>
           </div>
         </div>
@@ -210,7 +224,7 @@ function ApplyForm() {
               readOnly
             />{' '}
             <div className="icon-container">
-              <i className={`${loading && isZipValid ? 'loader' : ''}`}></i>
+              <i className={`${loading && isZipValidLength ? 'loader' : ''}`}></i>
             </div>
           </div>
         </div>
@@ -407,6 +421,9 @@ function ApplyForm() {
             type="text"
             ref={register({
               required: true,
+              validate: preworkLinkVal => {
+                return preWorkLinkError(getValues().preworkRepo, preworkLinkVal)
+              },
               pattern: {
                 value: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([-.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/,
                 message: 'Please enter a valid url',
@@ -417,6 +434,9 @@ function ApplyForm() {
         {errors.preworkLink && errors.preworkLink.type === 'required' && <FormAlert />}
         {errors.preworkLink && errors.preworkLink.type === 'pattern' && (
           <FormAlert errorMessage={errors.preworkLink.message} />
+        )}
+        {hasPrewokrUrlError && (
+          <FormAlert errorMessage="Please add your deployed pre work URL. This should be a different URL than your pre work repository URL. This should be a link to your hosted work on a service such as github pages or surge.sh. " />
         )}
       </div>
       <div className="col-md-8">
@@ -432,6 +452,9 @@ function ApplyForm() {
             type="text"
             ref={register({
               required: true,
+              validate: preworkRepoVal => {
+                return preWorkLinkError(preworkRepoVal, getValues().preworkLink)
+              },
               pattern: {
                 value: /http(s)?:\/\/(www\.)?github.com\/[^/]+\/[^/]+/,
                 message:
