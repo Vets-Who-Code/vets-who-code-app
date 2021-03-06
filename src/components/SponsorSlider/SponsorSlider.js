@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
-import FluidImage from '../FluidImage'
 import Carousel from 'nuka-carousel'
+import { StaticImage } from 'gatsby-plugin-image'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplDotIt } from 'react-icons/si'
@@ -26,49 +26,87 @@ const elements = [
     href: 'https://www.google.com/',
     label: 'Link to Google',
     title: 'Google',
-    lightElement: 'google.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/google.png'}
+        alt="Google"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <FaGoogle size={60} color="#ffffff" />,
   },
   {
     href: 'https://github.com/',
     label: 'Link to Github',
     title: 'GitHub',
-    lightElement: 'github.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/github.png'}
+        alt="GitHub"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <FaGithub size={60} color="#ffffff" />,
   },
   {
     href: 'https://repl.it',
     label: 'Link to Replit ',
     title: 'Repl.it',
-    lightElement: 'repl.it.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/repl.it.png'}
+        alt="Repl.it"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <SiReplDotIt size={60} color="#ffffff" />,
   },
   {
     href: 'https://slack.com/',
     label: 'Link to Slack',
     title: 'Slack',
-    lightElement: 'slack.png',
+    lightElement: (
+      <StaticImage src={'../../images/supporters/slack.png'} alt="Slack" style={alignmentStyles} />
+    ),
     darkElement: <FaSlack size={60} color="#ffffff" />,
   },
   {
     href: 'https://frontendmasters.com/',
     label: 'Link to Front End Masters',
     title: 'Front End Masters',
-    lightElement: 'fem.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/fem.png'}
+        alt="Front End Masters"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <Fem size={`60`} color="#ffffff" />,
   },
   {
     href: 'https://www.contentful.com/',
     label: 'Link to Contentful',
     title: 'Contentful',
-    lightElement: 'contentful.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/contentful.png'}
+        alt="Contentful"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <Contentful size={`60`} color="#091f40" />,
   },
   {
     href: 'https://www.netlify.com/',
     label: 'Link to Netlify',
     title: 'Netlify',
-    lightElement: 'netlify.png',
+    lightElement: (
+      <StaticImage
+        src={'../../images/supporters/netlify.png'}
+        alt="Netlify"
+        style={alignmentStyles}
+      />
+    ),
     darkElement: <Netlify size={`60`} color="#ffffff" />,
   },
 ]
@@ -100,7 +138,7 @@ function SponsorSlider() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FluidImage fileName={data.lightElement} alt={data.title} style={alignmentStyles} />
+          {data.lightElement}
         </a>
       )
     })

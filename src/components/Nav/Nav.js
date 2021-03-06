@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'gatsby-link'
-import FluidImage from '../FluidImage'
+import { StaticImage } from 'gatsby-plugin-image'
 import Toggle from '../Toggle'
 import './nav.css'
 
@@ -57,8 +57,8 @@ function Nav() {
           >
             <span className="sr-only">#VetsWhoCode</span>
             <Link to="/" id="navbar-brand">
-              <FluidImage
-                fileName="hashflag_white.jpg"
+              <StaticImage
+                src="../../images/hashflag_white.jpg"
                 alt="#VetsWhoCode Logo"
                 className="logo_holder"
               />

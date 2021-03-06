@@ -74,3 +74,4 @@ coverage
 
 #env
 .env
+.env.local

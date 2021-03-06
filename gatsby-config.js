@@ -1,4 +1,5 @@
 require('dotenv').config()
+const path = require('path')
 
 const gatsbyConfig = {
   siteMetadata: {
@@ -10,11 +11,12 @@ const gatsbyConfig = {
     title: `#VetsWhoCode 🇺🇸 `,
   },
   plugins: [
+    // THIS PLUG-IN IS NEEDED FOR GATSBY-BACKGROUND-IMAGE
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/images`,
         name: `images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     {
@@ -28,8 +30,9 @@ const gatsbyConfig = {
         anonymize: true,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-purgecss`,
@@ -40,9 +43,17 @@ const gatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-favicon`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        logo: `${__dirname}/src/images/favicon.png`,
+        icon: `${__dirname}/src/images/favicon.png`,
+        name: `The Cool Application`,
+        short_name: `VWC App`,
+        description: `#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service.`,
+        lang: `en`,
+        display: `standalone`,
+        start_url: `/`,
+        background_color: `#1a51a3`,
+        theme_color: `#fff`,
       },
     },
     `gatsby-plugin-preload-fonts`,
@@ -69,6 +80,7 @@ const gatsbyConfig = {
     },
   ],
   pathPrefix: `/`,
+  flags: { PRESERVE_WEBPACK_CACHE: true, FAST_DEV: true },
 }
 
 const contentfulConfig = {

@@ -1,4 +1,4 @@
-import FluidImage from '../components/FluidImage'
+import { StaticImage } from 'gatsby-plugin-image'
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 
@@ -49,8 +49,8 @@ function Donate() {
             <div className="col-md-12">
               <div className="cause_section_content">
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="profile.png"
+                  <StaticImage
+                    src="../images/profile.png"
                     alt="John Garcia"
                     style={{ height: 200, width: 200 }}
                   />
