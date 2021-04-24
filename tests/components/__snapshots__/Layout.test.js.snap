@@ -36,7 +36,6 @@ exports[`<Layout /> should render correctly 1`] = `
             href="/"
             id="navbar-brand"
           >
-            static-query
             <div
               class="homeLink"
             >

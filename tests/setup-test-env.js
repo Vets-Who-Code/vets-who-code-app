@@ -31,6 +31,9 @@ beforeAll(() => {
 
 beforeAll(() => {
   console.warn = (...args) => {
+    // clear test console from warning coming from gatsby-plugin-image tyring to
+    // load a file based on a path
+    if (args.indexOf('Image not loaded') > -1) return
     originalError.call(console, ...args)
   }
 })

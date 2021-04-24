@@ -9,7 +9,7 @@ async function enableContentfulContent() {
    */
   const updatedDependencies = {
     ...parsedPkgJson.dependencies,
-    '@contentful/rich-text-react-renderer': '14.1.1',
+    '@contentful/rich-text-react-renderer': '14.1.2',
     'gatsby-source-contentful': '3.0.3',
   }
 

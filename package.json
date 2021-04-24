@@ -3,37 +3,38 @@
   "version": "1.0.0",
   "repository": "Vets-Who-Code/vwc-site",
   "dependencies": {
-    "@hot-loader/react-dom": "17.0.0",
-    "babel-preset-gatsby": "0.5.14",
+    "@hot-loader/react-dom": "17.0.1",
+    "babel-preset-gatsby": "1.3.0",
     "dotenv": "8.2.0",
-    "gatsby": "2.24.85",
-    "gatsby-background-image": "1.1.2",
-    "gatsby-image": "2.4.21",
-    "gatsby-link": "2.4.16",
-    "gatsby-plugin-create-client-paths": "2.3.13",
-    "gatsby-plugin-favicon": "3.1.6",
+    "gatsby": "3.3.1",
+    "gatsby-background-image": "1.5.2",
+    "gatsby-image": "3.3.0",
+    "gatsby-link": "3.3.0",
+    "gatsby-plugin-create-client-paths": "3.3.0",
     "gatsby-plugin-gtag": "^1.0.13",
+    "gatsby-plugin-image": "1.3.1",
     "gatsby-plugin-mailchimp": "5.2.2",
-    "gatsby-plugin-preload-fonts": "1.4.0",
-    "gatsby-plugin-react-helmet": "3.3.14",
-    "gatsby-plugin-sharp": "2.6.43",
-    "gatsby-plugin-webfonts": "1.1.3",
-    "gatsby-source-filesystem": "2.3.35",
-    "gatsby-transformer-sharp": "2.5.19",
+    "gatsby-plugin-manifest": "3.3.0",
+    "gatsby-plugin-preload-fonts": "2.3.0",
+    "gatsby-plugin-react-helmet": "4.3.0",
+    "gatsby-plugin-sharp": "3.3.1",
+    "gatsby-plugin-webfonts": "2.1.0",
+    "gatsby-source-filesystem": "3.3.0",
+    "gatsby-transformer-sharp": "3.3.0",
     "generate": "0.14.0",
-    "intersection-observer": "0.11.0",
-    "nuka-carousel": "4.7.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
+    "intersection-observer": "0.12.0",
+    "nuka-carousel": "4.7.7",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "react-helmet": "6.1.0",
-    "react-hook-form": "6.9.6",
-    "react-icons": "3.11.0",
-    "react-modal": "3.11.2",
-    "react-slick": "0.27.12",
-    "react-toastify": "6.0.9",
+    "react-hook-form": "6.15.5",
+    "react-icons": "4.2.0",
+    "react-modal": "3.13.1",
+    "react-slick": "0.28.1",
+    "react-toastify": "7.0.4",
     "react-typed": "^1.2.0",
-    "reading-time": "1.2.0",
-    "sharp": "0.26.2",
+    "reading-time": "1.3.0",
+    "sharp": "0.28.1",
     "slick-carousel": "1.8.1",
     "typeface-lato": "1.1.13",
     "typeface-roboto-slab": "1.1.13",
@@ -61,58 +62,29 @@
     "yarn:install": "yarn"
   },
   "devDependencies": {
-    "@babel/core": "7.12.3",
-    "@testing-library/jest-dom": "5.11.9",
-    "@testing-library/react": "11.2.5",
+    "@babel/core": "7.13.16",
+    "@testing-library/jest-dom": "5.12.0",
+    "@testing-library/react": "11.2.6",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
-    "babel-preset-gatsby-package": "0.12.0",
+    "babel-preset-gatsby-package": "1.3.0",
     "cross-spawn": "7.0.3",
     "cross-spawn-with-kill": "1.0.0",
-    "eslint": "7.20.0",
-    "eslint-config-prettier": "7.2.0",
-    "eslint-plugin-prettier": "3.3.1",
-    "eslint-plugin-react": "7.22.0",
+    "eslint": "7.25.0",
+    "eslint-config-prettier": "8.2.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.23.2",
     "eslint-plugin-react-hooks": "4.2.0",
-    "gatsby-plugin-purgecss": "5.0.0",
-    "inquirer": "7.3.3",
+    "gatsby-plugin-purgecss": "6.0.1",
+    "inquirer": "8.0.0",
     "jest": "26.6.3",
     "lint-staged": "10.5.4",
     "npm-run-all": "4.1.5",
     "prettier": "2.2.1",
     "pretty-quick": "3.1.0",
-    "react-test-renderer": "17.0.1"
+    "react-test-renderer": "17.0.2"
   },
   "lint-staged": {
     "*": "yarn format"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "<rootDir>/tests/setup-test-env.js"
-    ],
-    "testPathIgnorePatterns": [
-      "node_modules",
-      ".cache"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "<rootDir>/tests/jest-preprocess.js"
-    },
-    "transformIgnorePatterns": [
-      "node_modules/(?!(gatsby)/)"
-    ],
-    "globals": {
-      "__PATH_PREFIX__": ""
-    },
-    "setupFiles": [
-      "./tests/jest-preprocess.js",
-      "./tests/loadershim.js"
-    ],
-    "collectCoverageFrom": [
-      "src/components/**/*.{js,jsx}"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/tests/__mocks__/image-mock.js",
-      "\\.(css|scss|sass)$": "<rootDir>/tests/__mocks__/style-mock.js"
-    }
   }
 }

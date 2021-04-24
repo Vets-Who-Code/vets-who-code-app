@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Link } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import SponsorSlider from '../components/SponsorSlider'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
-import FluidImage from '../components/FluidImage'
 import { SubscribeForm } from '../components/Forms'
 
 function IndexPage() {
@@ -72,11 +72,11 @@ function IndexPage() {
       >
         <div className="container">
           <div className="row bg-dark">
-            <div className="col-md-5 col-sm-12 no_left_pad no_right_pad">
-              <FluidImage
-                fileName="jerome-jsconf.jpg"
-                className="img-responsive"
-                alt="Schuster and Jerome"
+            <div className="col-md-5 col-sm-12 no_left_pad no_right_pad img-responsive">
+              <StaticImage
+                layout="fullWidth"
+                src="../images/jerome-jsconf.jpg"
+                alt="Jerome at JSConf"
               />
             </div>
             <div className="col-md-7 col-sm-12 our_story_content text-center">

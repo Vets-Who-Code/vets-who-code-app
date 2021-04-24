@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types'
+// CURRENTLY NEW GATSBY-IMAGE-PLUGIN DOES NOT INTEGRATE WITH CONTENTFUL USING
+// GATSBY-IMAGE UNTIL THE API SUPPORTS CONTENTFUL
 import Image from 'gatsby-image'
 import { FaTwitter, FaLinkedinIn } from 'react-icons/fa'
 import './boardCards.css'

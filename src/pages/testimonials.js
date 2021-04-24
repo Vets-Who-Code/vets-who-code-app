@@ -1,4 +1,4 @@
-import FluidImage from '../components/FluidImage'
+import { StaticImage } from 'gatsby-plugin-image'
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 
@@ -22,10 +22,11 @@ function Testimonial() {
             <div className="col-md-12">
               <div className="cause_section_content">
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="schuster.jpg"
+                  <StaticImage
+                    width={200}
+                    height={200}
+                    src="../images/schuster.jpg"
                     alt="Schuster Braun"
-                    style={{ height: 200, width: 200 }}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -37,10 +38,11 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="profile.png"
+                  <StaticImage
+                    width={200}
+                    height={200}
+                    src="../images/profile.png"
                     alt="John Garcia"
-                    style={{ height: 200, width: 200 }}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -53,10 +55,11 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="carla-kroll.jpg"
+                  <StaticImage
+                    width={200}
+                    height={200}
+                    src="../images/carla-kroll.jpg"
                     alt="Carla Kroll"
-                    style={{ height: 200, width: 200 }}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -71,10 +74,11 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="ozzie.png"
+                  <StaticImage
                     alt="Osvaldo Vargas"
-                    style={{ height: 200, width: 200 }}
+                    src="../images/ozzie.png"
+                    width={200}
+                    height={200}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -92,10 +96,11 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <FluidImage
-                    fileName="jeff-martin.JPG"
+                  <StaticImage
+                    width={200}
+                    height={200}
+                    src="../images/jeff-martin.JPG"
                     alt="Jeff Martin"
-                    style={{ height: 200, width: 200 }}
                   />
                   <blockquote className="testimonial-text">
                     <p>
