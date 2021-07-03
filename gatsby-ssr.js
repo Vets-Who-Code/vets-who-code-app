@@ -3,9 +3,6 @@ const Layout = require('./src/components/Layout').default
 
 exports.onRenderBody = ({ setPostBodyComponents, setPreBodyComponents }) => {
   setPreBodyComponents(<MagicScriptTag key="magic-script-tag" />)
-  setPostBodyComponents([
-    <script key="https://linked.chat/web/a9LB63" src="https://linked.chat/web/a9LB63" defer />,
-  ])
 }
 
 exports.wrapPageElement = ({ element, props }) => {
@@ -18,7 +15,7 @@ const MagicScriptTag = () => {
     function getInitialColorMode() {
       const persistedColorPreference = window.localStorage.getItem('color-mode')
       const hasPersistedPreference = typeof persistedColorPreference === 'string'
-      // If the user has explicitly chosen light or dark, let's use it. 
+      // If the user has explicitly chosen light or dark, let's use it.
       // Otherwise, this value will be null.
       if (hasPersistedPreference) {
         return persistedColorPreference

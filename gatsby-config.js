@@ -3,7 +3,7 @@ const path = require('path')
 
 const gatsbyConfig = {
   siteMetadata: {
-    titleTemplate: '%s · The Real Hero',
+    titleTemplate: '%s | The Real Hero &#9733;',
     description: `#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service.`,
     url: `https://www.vetswhocode.io`, // No trailing slash allowed!
     image: `/images/meta-image.jpg`, // Path to your image you placed in the 'static' folder
