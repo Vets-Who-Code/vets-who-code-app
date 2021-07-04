@@ -32,7 +32,12 @@ function Header() {
                 <h1>
                   <Typed
                     className="typedString"
-                    strings={['Learn Javascript', 'Network', 'Get A Job']}
+                    strings={[
+                      'Learn How To Code',
+                      'Build Open Source',
+                      'Network With Peers',
+                      'Get A Job',
+                    ]}
                     typeSpeed={70}
                     backSpeed={80}
                     smartBackspace
