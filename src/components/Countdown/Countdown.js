@@ -1,61 +1,81 @@
-import { useState, useEffect } from 'react'
+import { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 
-const addLeadingZero = time => (time < 10 ? `0${time}` : time)
-
-const calculateTimeLeft = nextClass => {
-  const difference = Date.parse(nextClass) - Date.parse(new Date().toString())
-  let timeLeft = {}
-  if (difference > 0) {
-    timeLeft = {
-      Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      Minutes: Math.floor((difference / 1000 / 60) % 60),
-      Seconds: Math.floor((difference / 1000) % 60),
-    }
+class Countdown extends Component {
+  state = {
+    days: null,
+    hours: null,
+    minutes: null,
+    seconds: null,
+    interval: null,
+    time: null,
   }
-  return timeLeft
-}
 
-const Countdown = ({ nextClass }) => {
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextClass))
+  componentDidMount = () => {
+    this.getTimeRemaining()
+    const interval = setInterval(() => this.getTimeRemaining(), 1000)
+    this.setState({ interval })
+  }
 
-  useEffect(() => {
-    setInterval(() => {
-      setTimeLeft(calculateTimeLeft(nextClass))
-    }, 1000)
-    return () => {
-      clearInterval(timeLeft)
-    }
-  }, [nextClass, timeLeft])
+  componentWillUnmount = () => {
+    this.stopCountDown()
+  }
 
-  const timerComponents = []
+  getTimeRemaining = () => {
+    const { nextClass } = this.props
+    const time = Date.parse(nextClass) - Date.parse(new Date())
+    const seconds = Math.floor((time / 1000) % 60)
+    const minutes = Math.floor((time / 1000 / 60) % 60)
+    const hours = Math.floor((time / (1000 * 60 * 60)) % 24)
+    const days = Math.floor(time / (1000 * 60 * 60 * 24))
 
-  Object.keys(timeLeft).forEach(interval => {
-    if (!timeLeft[interval]) {
-      return
-    }
-    timerComponents.push(
-      <div className="countdown-box" key={interval}>
-        <span className="counter">{addLeadingZero(timeLeft[interval])}</span>
-        <h4>{interval}</h4>
-      </div>
-    )
-  })
+    this.setState({
+      days,
+      hours,
+      minutes,
+      seconds,
+      time,
+    })
+  }
 
-  return (
-    <>
-      <div className="container-countdown">
-        {timerComponents.length ? (
-          timerComponents
+  stopCountDown = () => {
+    const { interval } = this.state
+    clearInterval(interval)
+  }
+
+  render() {
+    const { days, hours, minutes, seconds, time } = this.state
+    return (
+      <div>
+        {time > 0 ? (
+          <Fragment>
+            <div className="container-countdown">
+              <div className="countdown-box">
+                <span className="counter">{days}</span>
+                <h4>Days</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{hours}</span>
+                <h4>Hours</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{minutes}</span>
+                <h4>Minutes</h4>
+              </div>
+              <div className="countdown-box">
+                <span className="counter">{seconds}</span>
+                <h4>Seconds</h4>
+              </div>
+            </div>
+          </Fragment>
         ) : (
           <div>
             <h3 className="countdown-message">Class Is In Session</h3>
           </div>
         )}
       </div>
-    </>
-  )
+    )
+  }
 }
 
 Countdown.propTypes = {

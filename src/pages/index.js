@@ -124,7 +124,7 @@ function IndexPage() {
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
-              <Countdown nextClass="September 01, 2021" />
+              <Countdown nextClass="March 01, 2021" />
               <Link className="btn btn-charity-default" to="/apply">
                 Apply
               </Link>
