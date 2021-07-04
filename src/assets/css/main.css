@@ -1275,8 +1275,8 @@ h3 {
   font-size: 1.875rem; /*30px*/
   position: absolute;
   right: -25px;
-  top: -webkit-calc(50% - 40px);
-  top: calc(50% - 40px);
+  top: -webkit-calc(50% - 30px);
+  top: calc(50% - 30px);
 }
 .countdown-box:last-child::after {
   content: '';
