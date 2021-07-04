@@ -105,8 +105,9 @@ function IndexPage() {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                  Through training, mentorship, building our open source projects, and opportunities to connect with
-                  industry experts, we ensure that our troops gain the best knowledge possible regards to learning software skills that can get them employed.
+                  Through training, mentorship, building our open source projects, and opportunities
+                  industry experts, we ensure that our troops gain the best knowledge possible
+                  regards to learning software skills that can get them employed.
                 </p>
               </blockquote>
             </div>
