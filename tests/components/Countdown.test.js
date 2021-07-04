@@ -5,12 +5,13 @@ describe('<Countdown />', () => {
   jest.useFakeTimers()
   test('should unmount and clear interval to prevent memory leaks', () => {
     const { unmount } = render(<Countdown nextClass="March 21, 5050" />)
-
-    jest.spyOn(console, 'error').mockImplementation(() => {})
-    jest.runOnlyPendingTimers()
-    unmount()
-    // eslint-disable-next-line
-    expect(console.error).not.toHaveBeenCalled()
+    try {
+      jest.spyOn(console, 'error').mockImplementation(() => {})
+      jest.runOnlyPendingTimers()
+      unmount()
+    } catch (error) {
+      expect(console.error).not.toHaveBeenCalled()
+    }
   })
 
   test('should render countdown when class is a future date', () => {

@@ -1,39 +1,33 @@
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
-interface CountdownProps {
-  nextClass: string
-}
+const addLeadingZero = time => (time < 10 ? `0${time}` : time)
 
-type TLeadingZero = string | number
-
-interface ITimeLeft {
-  [key: string]: TLeadingZero
-}
-
-const addLeadingZero = (time: number): TLeadingZero => (time < 10 ? `0${time}` : time)
-
-const calculateTimeLeft = (nextClass: string): ITimeLeft => {
-  const difference: number = Date.parse(nextClass) - Date.parse(new Date().toString())
-  let timeLeft: ITimeLeft = {}
+const calculateTimeLeft = nextClass => {
+  const difference = Date.parse(nextClass) - Date.parse(new Date().toString())
+  let timeLeft = {}
   if (difference > 0) {
     timeLeft = {
       Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      Hours: addLeadingZero(Math.floor((difference / (1000 * 60 * 60)) % 24)),
-      Minutes: addLeadingZero(Math.floor((difference / 1000 / 60) % 60)),
-      Seconds: addLeadingZero(Math.floor((difference / 1000) % 60)),
+      Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      Minutes: Math.floor((difference / 1000 / 60) % 60),
+      Seconds: Math.floor((difference / 1000) % 60),
     }
   }
   return timeLeft
 }
 
-const Countdown = ({ nextClass }: CountdownProps) => {
+const Countdown = ({ nextClass }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextClass))
 
   useEffect(() => {
-    setTimeout(() => {
+    setInterval(() => {
       setTimeLeft(calculateTimeLeft(nextClass))
     }, 1000)
-  })
+    return () => {
+      clearInterval(timeLeft)
+    }
+  }, [nextClass, timeLeft])
 
   const timerComponents = []
 
@@ -43,7 +37,7 @@ const Countdown = ({ nextClass }: CountdownProps) => {
     }
     timerComponents.push(
       <div className="countdown-box" key={interval}>
-        <span className="counter">{timeLeft[interval]}</span>
+        <span className="counter">{addLeadingZero(timeLeft[interval])}</span>
         <h4>{interval}</h4>
       </div>
     )
@@ -63,4 +57,9 @@ const Countdown = ({ nextClass }: CountdownProps) => {
     </>
   )
 }
+
+Countdown.propTypes = {
+  nextClass: PropTypes.string.isRequired, // String formatted 'March, 01 2021'
+}
+
 export default Countdown
