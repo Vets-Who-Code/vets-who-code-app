@@ -85,8 +85,8 @@ function IndexPage() {
               </div>
               <p>
                 #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
-                focuses on training veterans in programming and open source development.
-                free of charge with the focus of starting careers in the technology industry.
+                focuses on training veterans in programming and open source development with the
+                purpose of starting careers in the technology industry.
               </p>
             </div>
           </div>
