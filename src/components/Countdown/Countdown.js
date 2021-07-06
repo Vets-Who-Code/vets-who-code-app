@@ -9,9 +9,9 @@ const calculateTimeLeft = nextClass => {
   if (difference > 0) {
     timeLeft = {
       Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      Minutes: Math.floor((difference / 1000 / 60) % 60),
-      Seconds: Math.floor((difference / 1000) % 60),
+      Hours: addLeadingZero(Math.floor((difference / (1000 * 60 * 60)) % 24)),
+      Minutes: addLeadingZero(Math.floor((difference / 1000 / 60) % 60)),
+      Seconds: addLeadingZero(Math.floor((difference / 1000) % 60)),
     }
   }
   return timeLeft
@@ -19,13 +19,12 @@ const calculateTimeLeft = nextClass => {
 
 const Countdown = ({ nextClass }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextClass))
-
   useEffect(() => {
-    setInterval(() => {
+    const timeOut = setInterval(() => {
       setTimeLeft(calculateTimeLeft(nextClass))
     }, 1000)
     return () => {
-      clearInterval(timeLeft)
+      clearInterval(timeOut)
     }
   }, [nextClass, timeLeft])
 
@@ -37,7 +36,7 @@ const Countdown = ({ nextClass }) => {
     }
     timerComponents.push(
       <div className="countdown-box" key={interval}>
-        <span className="counter">{addLeadingZero(timeLeft[interval])}</span>
+        <span className="counter">{timeLeft[interval]}</span>
         <h4>{interval}</h4>
       </div>
     )
