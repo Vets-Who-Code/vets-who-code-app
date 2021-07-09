@@ -4,11 +4,11 @@ import { render, act } from '@testing-library/react'
 describe('<Countdown />', () => {
   jest.useFakeTimers()
   test('should unmount and clear interval to prevent memory leaks', () => {
-    const wrapper = render(<Countdown nextClass="March 21, 5050" />)
+    const { unmount } = render(<Countdown nextClass="March 21, 5050" />)
 
     jest.spyOn(console, 'error').mockImplementation(() => {})
     act(() => jest.runOnlyPendingTimers())
-    wrapper.unmount()
+    unmount()
     expect(console.error).not.toHaveBeenCalled()
     expect(clearInterval.mock.calls.length).toEqual(2)
   })

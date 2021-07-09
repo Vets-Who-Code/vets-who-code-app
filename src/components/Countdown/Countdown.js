@@ -41,17 +41,15 @@ const Countdown = ({ nextClass }) => {
   })
 
   return (
-    <>
-      <div className="container-countdown">
-        {timerComponents.length ? (
-          timerComponents
-        ) : (
-          <div>
-            <h3 className="countdown-message">Class Is In Session</h3>
-          </div>
-        )}
-      </div>
-    </>
+    <div className="container-countdown">
+      {timerComponents.length ? (
+        timerComponents
+      ) : (
+        <div>
+          <h3 className="countdown-message">Class Is In Session</h3>
+        </div>
+      )}
+    </div>
   )
 }
 
