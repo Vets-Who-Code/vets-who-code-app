@@ -1,5 +1,5 @@
 import Countdown from '../../src/components/Countdown'
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 
 describe('<Countdown />', () => {
   jest.useFakeTimers()
@@ -7,10 +7,10 @@ describe('<Countdown />', () => {
     const { unmount } = render(<Countdown nextClass="March 21, 5050" />)
 
     jest.spyOn(console, 'error').mockImplementation(() => {})
-    jest.runOnlyPendingTimers()
+    act(() => jest.runOnlyPendingTimers())
     unmount()
-    // eslint-disable-next-line
     expect(console.error).not.toHaveBeenCalled()
+    expect(clearInterval.mock.calls.length).toEqual(2)
   })
 
   test('should render countdown when class is a future date', () => {
