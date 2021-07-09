@@ -20,12 +20,10 @@ const calculateTimeLeft = nextClass => {
 const Countdown = ({ nextClass }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextClass))
   useEffect(() => {
-    const timeOut = setInterval(() => {
+    const intervalId = setInterval(() => {
       setTimeLeft(calculateTimeLeft(nextClass))
     }, 1000)
-    return () => {
-      clearInterval(timeOut)
-    }
+    return () => clearInterval(intervalId)
   }, [nextClass, timeLeft])
 
   const timerComponents = []
