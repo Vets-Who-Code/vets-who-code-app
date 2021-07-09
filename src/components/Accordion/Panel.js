@@ -59,7 +59,7 @@ function Panel({ body, title, id }) {
 
 Panel.propTypes = {
   body: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-  id: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
 }
 
