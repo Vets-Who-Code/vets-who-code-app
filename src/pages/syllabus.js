@@ -1,34 +1,32 @@
 /* eslint-disable prettier/prettier */
-import { useState } from 'react'
 import Accordion, { Panel } from '../components/Accordion'
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 
 const BLOCKS = [
-      {
-        title: 'Block 1: The Big Three',
-        id: 1,
-        body: 'Block 1 is the foundation of our curriculum. We start out teaching how the internet works and how it impacts web development. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design, we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with APIs.',
-      },
-      {
-        title: 'Block 2: Computer Science with JavaScript',
-        id: 2,
-        body: 'Block 2 is all about computer science. As real world trends prove to us that web apps are growing in complexity, we need to understand the tools to be able to create efficiencies and faster processes. This begins with the computer science elements learned through JavaScript. ',
-      },
-      {
-        title: 'Block 3: React & JAMstack',
-        id: 3,
-        body: 'Block 3 introduces the JAMstack. Utilizing Gatsby, which relies upon the best technology, such as React and GraphQL, we can ensure our students are getting the best and most sought-after skills in our industry today.',
-      },
-      {
-        title: 'Block 4: Official VWC Member: Interview Prep',
-        id: 4,
-        body: 'By block 4 our students are full VWC members and start the job transitioning process. Through top resources and interview preparation, we make sure VWC members have shown the interviewers they are set for the job before they even walk through the door. ',
-      },
-    ]
+  {
+    title: 'Block 1: The Big Three',
+    id: 1,
+    body: 'Block 1 is the foundation of our curriculum. We start out teaching how the internet works and how it impacts web development. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design, we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with APIs.',
+  },
+  {
+    title: 'Block 2: Computer Science with JavaScript',
+    id: 2,
+    body: 'Block 2 is all about computer science. As real world trends prove to us that web apps are growing in complexity, we need to understand the tools to be able to create efficiencies and faster processes. This begins with the computer science elements learned through JavaScript. ',
+  },
+  {
+    title: 'Block 3: React & JAMstack',
+    id: 3,
+    body: 'Block 3 introduces the JAMstack. Utilizing Gatsby, which relies upon the best technology, such as React and GraphQL, we can ensure our students are getting the best and most sought-after skills in our industry today.',
+  },
+  {
+    title: 'Block 4: Official VWC Member: Interview Prep',
+    id: 4,
+    body: 'By block 4 our students are full VWC members and start the job transitioning process. Through top resources and interview preparation, we make sure VWC members have shown the interviewers they are set for the job before they even walk through the door. ',
+  },
+]
 
 const Syllabus = () => {
-  const [blocks] = useState(BLOCKS)
   return (
     <>
       <SEO title="View our Syllabus" />
@@ -65,7 +63,7 @@ const Syllabus = () => {
               </div>
               <div className="col-md-12">
                 <Accordion singlePanel accordionId="syllabus">
-                  {blocks.map(block => (
+                  {BLOCKS.map(block => (
                     <Panel key={block.id} title={block.title} body={block.body} id={block.id} />
                   ))}
                 </Accordion>

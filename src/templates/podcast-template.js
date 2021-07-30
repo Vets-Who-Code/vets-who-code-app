@@ -7,7 +7,7 @@ import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 import { findDescription } from './helpers'
 
-function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
+function PodcastLink({ title, author, publishedDate, slug, description, featureImage }) {
   const excerpt = findDescription(description)
 
   return (
@@ -16,7 +16,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
         <div className="col-md-2" />
         <div className="col-md-8">
           <div className="entry-meta">
-            <Link to={`/blog/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
+            <Link to={`/podcast/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
               <Image
                 className="img-responsive"
                 alt={featureImage.title}
@@ -50,7 +50,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
 
           <div className="entry-meta clearfix">
             <Link
-              to={`/blog/${slug}`}
+              to={`/podcast/${slug}`}
               className="btn btn-charity-default btn-read-more"
               hidefocus="true"
               style={{ outline: 'none' }}
@@ -64,7 +64,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
   )
 }
 
-BlogPostLink.propTypes = {
+PodcastLink.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   publishedDate: PropTypes.string,
@@ -96,21 +96,21 @@ BlogPostLink.propTypes = {
   }),
 }
 
-const Blog = ({ pageContext }) => {
+const Podcast = ({ pageContext }) => {
   const { currentPage, isFirstPage, isLastPage, totalPages, contentfulData } = pageContext
-  const nextPage = `/blog/${String(currentPage + 1)}`
-  const prevPage = currentPage - 1 === 1 ? '/blog' : `/blog/${String(currentPage - 1)}`
+  const nextPage = `/podcast/${String(currentPage + 1)}`
+  const prevPage = currentPage - 1 === 1 ? '/podcast' : `/podcast/${String(currentPage - 1)}`
 
   return (
     <>
-      <SEO title="Blog" />
-      <PageHeader title="blog" />
+      <SEO title="Podcast" />
+      <PageHeader title="podcast" />
       <section id="blog-page" className="section  bg-default">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
               {contentfulData.nodes.map(post => (
-                <BlogPostLink
+                <PodcastLink
                   key={post.id}
                   title={post.title}
                   author={post.author.authorName}
@@ -145,7 +145,7 @@ const Blog = ({ pageContext }) => {
             )}
             {Array.from({ length: totalPages }, (_, index) => (
               <li key={index}>
-                <Link to={`/blog/${index === 0 ? '' : index + 1}`}>{index + 1}</Link>
+                <Link to={`/podcast/${index === 0 ? '' : index + 1}`}>{index + 1}</Link>
               </li>
             ))}
             {!isLastPage && (
@@ -163,7 +163,7 @@ const Blog = ({ pageContext }) => {
   )
 }
 
-Blog.propTypes = {
+Podcast.propTypes = {
   pageContext: PropTypes.shape({
     limit: PropTypes.number,
     skip: PropTypes.number,
@@ -175,4 +175,4 @@ Blog.propTypes = {
   }),
 }
 
-export default Blog
+export default Podcast

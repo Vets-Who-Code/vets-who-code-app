@@ -52,17 +52,27 @@ function renderCodepenEmbed(uri) {
   )
 }
 
-function rendedReplEmbed(uri) {
+function renderIframeEmbed({
+  uri,
+  sandbox = '',
+  allow = '',
+  height = 400,
+  width = 100,
+  scrolling = 'no',
+  allowtransparency = false,
+  frameBorder = 'no',
+}) {
   return (
     <iframe
-      height="400px"
-      width="100%"
+      height={`${height}px`}
+      width={`${width}%`}
       src={uri}
-      scrolling="no"
-      frameBorder="no"
-      // allowtransparency="true"
+      scrolling={scrolling}
+      frameBorder={frameBorder}
+      allowtransparency={`"${allowtransparency}"`}
       allowFullScreen
-      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+      sandbox={sandbox}
+      allow={allow}
     />
   )
 }
@@ -88,8 +98,23 @@ export const options = {
         ) {
           return renderCodepenEmbed(node.data.uri)
         }
-        if (node?.data?.uri.indexOf('repl') > -1 && node?.data?.uri !== 'https://repl.it') {
-          return rendedReplEmbed(node.data.uri)
+        if (node?.data?.uri.indexOf('repl') > -1 && node?.data?.uri !== 'https://repl.com') {
+          return renderIframeEmbed({
+            uri: node.data.uri,
+            sandbox:
+              'allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals',
+          })
+        }
+        if (node?.data?.uri.indexOf('spotify') > -1 && node?.data?.uri.includes('embed')) {
+          return renderIframeEmbed({
+            uri: node.data.uri,
+            height: 232,
+            frameBorder: 0,
+            allow: 'encrypted-media',
+            allowtransparency: 'true',
+            sandbox:
+              'allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals',
+          })
         }
       }
 
@@ -100,4 +125,30 @@ export const options = {
       )
     },
   },
+}
+
+/**
+ * findDescription
+ * finds the first child of a blog post body
+ * that is of Type String and is not ""
+ *
+ * @param post body in the form of JSON
+ * @param content Array
+ * @param data Object
+ * @param nodType String
+ * @param data
+ *
+ * @return String
+ */
+export function findDescription(data) {
+  let description = null
+
+  for (let child of data.content) {
+    if (child?.content[0]?.value) {
+      description = child.content[0].value
+      return description
+    }
+  }
+
+  return description
 }

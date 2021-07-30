@@ -69,6 +69,7 @@ select,
 .select-arrow:after {
   grid-area: select;
 }
-.select-arrow:focus-visible, .select-arrow:focus-within{
+.select-arrow:focus-visible,
+.select-arrow:focus-within {
   border: 1px solid var(--surface-13);
 }
