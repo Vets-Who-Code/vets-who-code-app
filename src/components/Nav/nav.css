@@ -101,3 +101,26 @@
     width: auto;
   }
 }
+
+/* override for dropdown font */
+.main-navigation .dropdown-menu li a span {
+  color: var(--element-4);
+}
+
+/* override for mobile nav height */
+.navbar-fixed-bottom .navbar-collapse,
+.navbar-fixed-top .navbar-collapse {
+  max-height: 565px !important;
+}
+
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  border-color: none;
+}
+
+/* dropdown-caret styles */
+.dropdown-caret {
+  top: 1.6em;
+  position: absolute;
+}

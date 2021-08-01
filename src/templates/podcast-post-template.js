@@ -1,35 +1,24 @@
 import PropTypes from 'prop-types'
 import Image from 'gatsby-image'
-import readingTime from 'reading-time'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 import { options } from './helpers'
-import { useScript } from '../hooks'
 
-const BlogPost = ({ pageContext }) => {
+const Podcast = ({ pageContext }) => {
   const { contentfulData } = pageContext
   const { data } = contentfulData
-  const src = 'https://assets.codepen.io/assets/embed/ei.js'
-  useScript(src)
 
-  const contentfulBlogContent = documentToReactComponents(
-    data.contentfulBlogPost.body.json,
-    options
-  )
-
-  let text = ''
-  contentfulBlogContent.forEach(reactElement => (text += reactElement.props.children))
-  const readingStats = readingTime(text)
+  const contentfulBlogContent = documentToReactComponents(data.contentfulPodcast.body.json, options)
 
   return (
     <>
       <SEO
-        title={data.contentfulBlogPost.title}
-        image={data.contentfulBlogPost.featureImage.file.url}
+        title={data.contentfulPodcast.title}
+        image={data.contentfulPodcast.featureImage.file.url}
       />
-      <PageHeader title={data.contentfulBlogPost.title} link={'blog'} />
+      <PageHeader title={data.contentfulPodcast.title} link={'blog'} />
       <section id="blog-page" className="section bg-default">
         <div className="container">
           <div className="row">
@@ -38,21 +27,20 @@ const BlogPost = ({ pageContext }) => {
                 <div className="entry-content">
                   <Image
                     className="align-left"
-                    alt={data.contentfulBlogPost.author.authorName}
-                    fixed={data.contentfulBlogPost.author.authorImage.fixed}
+                    alt={data.contentfulPodcast.author.authorName}
+                    fixed={data.contentfulPodcast.author.authorImage.fixed}
                     style={{ width: 50, height: 50, borderRadius: 100 }}
                   />
                   <div className="entry-meta">
-                    <h2 className="entry-title">{data.contentfulBlogPost.title}</h2>
+                    <h2 className="entry-title">{data.contentfulPodcast.title}</h2>
                     <div className="entry-meta-data" style={{ marginBottom: 0 }}>
                       <span className="author">
                         <p>
                           by{' '}
                           <span className="blog-author" style={{ outline: 'none' }}>
-                            {data.contentfulBlogPost.author.authorName}
+                            {data.contentfulPodcast.author.authorName}
                           </span>{' '}
-                          <span>&middot;</span> {readingStats.text} <span>&middot;</span>{' '}
-                          {data.contentfulBlogPost.publishedDate}
+                          {data.contentfulPodcast.publishedDate}
                         </p>
                       </span>
                     </div>
@@ -68,11 +56,11 @@ const BlogPost = ({ pageContext }) => {
   )
 }
 
-BlogPost.propTypes = {
+Podcast.propTypes = {
   pageContext: PropTypes.shape({
     contentfulData: PropTypes.shape({
       data: PropTypes.shape({
-        contentfulBlogPost: PropTypes.shape({
+        contentfulPodcast: PropTypes.shape({
           id: PropTypes.string,
           slug: PropTypes.string,
           publishedDate: PropTypes.string,
@@ -118,4 +106,4 @@ BlogPost.propTypes = {
   children: PropTypes.oneOf([PropTypes.string, PropTypes.array]),
 }
 
-export default BlogPost
+export default Podcast
