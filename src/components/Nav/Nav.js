@@ -5,9 +5,11 @@ import { AiFillCaretDown } from 'react-icons/ai'
 import Toggle from '../Toggle'
 import './nav.css'
 
-const NAV_TYPES = {
-  MOBILE_NAVIGATION: 'MOBILE_NAVIGATION',
-  MEDIA_DROPDOWN: 'MEDIA_DROPDOWN',
+const NAV = {
+  OPEN_MOBILE_NAVIGATION: 'OPEN_MOBILE_NAVIGATION',
+  CLOSE_MOBILE_NAVIGATION: 'CLOSE_MOBILE_NAVIGATION',
+  OPEN_MEDIA_DROPDOWN: 'OPEN_MEDIA_DROPDOWN',
+  CLOSE_MEDIA_DROPDOWN: 'CLOSE_MEDIA_DROPDOWN',
   RESET_NAVIGATION: 'RESET_NAVIGATION',
 }
 
@@ -15,14 +17,18 @@ const initialNavState = { mobileNavOpen: false, mediaDropdownOpen: false }
 
 function navReducer(state, action) {
   switch (action.type) {
-    case NAV_TYPES.MOBILE_NAVIGATION:
-      return { ...state, mobileNavOpen: !state.mobileNavOpen }
-    case NAV_TYPES.MEDIA_DROPDOWN:
-      return { ...state, mediaDropdownOpen: !state.mediaDropdownOpen }
-    case NAV_TYPES.RESET_NAVIGATION:
+    case NAV.OPEN_MOBILE_NAVIGATION:
+      return { ...state, mobileNavOpen: true }
+    case NAV.CLOSE_MOBILE_NAVIGATION:
+      return { ...state, mobileNavOpen: false }
+    case NAV.OPEN_MEDIA_DROPDOWN:
+      return { ...state, mediaDropdownOpen: true }
+    case NAV.CLOSE_MEDIA_DROPDOWN:
+      return { ...state, mediaDropdownOpen: false }
+    case NAV.RESET_NAVIGATION:
       return initialNavState
     default:
-      state
+      return state
   }
 }
 
@@ -57,12 +63,24 @@ function Nav() {
 
   function handleClickOutside(event) {
     if (!navRef?.current?.contains(event.target)) {
-      dispatch({ type: NAV_TYPES.RESET_NAVIGATION })
+      dispatch({ type: NAV.RESET_NAVIGATION })
     }
   }
 
-  function toggleDropdown() {
-    dispatch({ type: NAV_TYPES.MEDIA_DROPDOWN })
+  function toggleMobileNavigation() {
+    if (isMobileNavOpen) {
+      dispatch({ type: NAV.CLOSE_MOBILE_NAVIGATION })
+    } else {
+      dispatch({ type: NAV.OPEN_MOBILE_NAVIGATION })
+    }
+  }
+
+  function toggleMediaDropdown() {
+    if (isMediaDropdownOpen) {
+      dispatch({ type: NAV.CLOSE_MEDIA_DROPDOWN })
+    } else {
+      dispatch({ type: NAV.OPEN_MEDIA_DROPDOWN })
+    }
   }
 
   return (
@@ -96,7 +114,7 @@ function Nav() {
           <button
             type="button"
             id="hamburger-1"
-            onClick={() => dispatch({ type: NAV_TYPES.MOBILE_NAVIGATION })}
+            onClick={toggleMobileNavigation}
             className={`navbar-toggle collapsed hamburger ${isMobileNavOpen ? 'is-active' : ''}`}
             aria-expanded={isMobileNavOpen ? 'true' : 'false'}
           >
@@ -112,17 +130,17 @@ function Nav() {
           aria-expanded={isMobileNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <span>
                 <Toggle size={30} />
               </span>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/about">
                 <span>About</span>
               </Link>
@@ -130,7 +148,7 @@ function Nav() {
             <li
               className={`dropdown nav ${isMediaDropdownOpen ? 'open' : ''}`}
               role="menuitem"
-              onClick={toggleDropdown}
+              onClick={toggleMediaDropdown}
               style={{ marginRight: 10 }}
             >
               <a
@@ -146,13 +164,22 @@ function Nav() {
               </a>
               <ul className="dropdown-menu">
                 <li role="menuitem" className="nav media-dropdown-item">
-                  <Link onClick={() => dispatch({ type: NAV_TYPES.RESET_NAVIGATION })} to="/blog">
+                  <Link
+                    onClick={() => {
+                      toggleMediaDropdown()
+                      toggleMobileNavigation()
+                    }}
+                    to="/blog"
+                  >
                     <span>Blog</span>
                   </Link>
                 </li>
                 <li role="menuitem" className="nav media-dropdown-item">
                   <Link
-                    onClick={() => dispatch({ type: NAV_TYPES.RESET_NAVIGATION })}
+                    onClick={() => {
+                      toggleMediaDropdown()
+                      toggleMobileNavigation()
+                    }}
                     to="/podcast"
                   >
                     <span>Podcast</span>
@@ -160,37 +187,37 @@ function Nav() {
                 </li>
               </ul>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/board">
                 <span>Board</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/testimonials">
                 <span>Testimonials</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/mentor">
                 <span>Mentor</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/apply">
                 <span>Apply</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav">
+            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
               <Link to="/contact">
                 <span>Contact</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate">
+            <li role="menuitem" className="donate" onClick={toggleMobileNavigation}>
               <Link to="/donate">
                 <span>Donate</span>
               </Link>
