@@ -1,14 +1,10 @@
 const path = require('path')
-const {
-  buildBlog,
-  buildPodcast,
-  buildBoardOfDirectorsPage,
-} = require('./gatsby-node-helpers')
+const { buildBlog, buildPodcast, buildBoardOfDirectorsPage } = require('./gatsby-node-helpers')
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  if (!process.env.DISPLAY_CONTENTFUL_CONTENT) {
+  if (process.env.VWC_ACTIVE_ENV !== 'production') {
     const disabledPageTemplate = path.resolve('./src/templates/page-disabled-template.js')
     const disabledPages = ['blog', 'board', 'podcast']
 
@@ -29,7 +25,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const boardOfDirectorsTemplate = path.resolve('./src/templates/board-of-directors-template.js')
 
     await buildBlog({ graphql, createPage, blogPostTemplate, blogTemplate })
-    await buildPodcast({ graphql, createPage, individualPageTemplate: podcastPostTemplate, pageTemplate: podcastsTemplate })
+    await buildPodcast({
+      graphql,
+      createPage,
+      individualPageTemplate: podcastPostTemplate,
+      pageTemplate: podcastsTemplate,
+    })
     await buildBoardOfDirectorsPage({ graphql, createPage, boardOfDirectorsTemplate })
   }
 }

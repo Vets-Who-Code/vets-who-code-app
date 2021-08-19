@@ -37,11 +37,11 @@ You will need the following properly installed on your computer.
 In a terminal window run these commands.
 
 ```sh
-$ git clone git@github.com:Vets-Who-Code/vwc-site.git
-$ cd vets-who-code-app
-$ nvm install
-$ yarn
-$ yarn develop
+git clone git@github.com:Vets-Who-Code/vets-who-code-app.git
+cd vets-who-code-app
+cp .env.example .env
+yarn
+yarn develop
 ```
 
 You should be able to view the website locally at `http://localhost:8000/`.
@@ -51,54 +51,10 @@ You should be able to view the website locally at `http://localhost:8000/`.
 **All Content from Contentful is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
 
 ```sh
-$ git clone git@github.com:Vets-Who-Code/vwc-site.git
-$ cd vets-who-code-app
-$ nvm install
-$ yarn develop -c
+git clone git@github.com:Vets-Who-Code/vwc-site.git
+cd vets-who-code-app
+yarn develop
 ```
-
-> **Your package.json and node modules will be updated automatically.**
-
-<details>
-<summary>yarn develop has a couple of commands configured</summary>
-<br>
-
-```
-1. yarn develop -h | --help will print out available options
-2. yarn develop -c | --contentful will enable the the contentful content
-3. If you have not configured a `.env` file yarn develop -b will walk you
-   through the steps to configure this file
-```
-
-### Create a new `.env` file in the root of your project
-
-```sh
-$ touch .env
-```
-
-### Add necessary api keys to your new `.env` file.
-
-> **Reference the .env.example file for available keys.**
-
-<details>
-<summary>If you get an error on start up</summary>
-<br>
-
-```
-1. Validate you ran yarn develop -c
-2. Check that your keys are correct
-3. If you still are facing issues reach out in the #product channel in slack
-```
-
-</details>
-
-### Once you have completed your edits please run the following command
-
-```sh
-$ yarn disable:blog
-```
-
-> **This will remove the modules needed to run the blog and clean up the lock file. Commit your changes as normal.**
 
 > If you are seeing a ghooks error in the console when committing and pushing your code run `node ./scripts/remove-git-hooks.js` in the terminal.
 
@@ -109,8 +65,8 @@ $ yarn disable:blog
 In a terminal window run these commands.
 
 ```sh
-$ cd vets-who-code-app
-$ yarn test
+cd vets-who-code-app
+yarn test
 ```
 
 <details>
@@ -130,8 +86,8 @@ $ yarn test
 In a terminal window run these commands to run the jest test suite in watch mode.
 
 ```sh
-$ cd vets-who-code-app
-$ yarn test:watch
+cd vets-who-code-app
+yarn test:watch
 ```
 
 <details>
@@ -146,16 +102,16 @@ $ yarn test:watch
 In a terminal window run these commands to view the jest coverage report.
 
 ```sh
-$ cd vets-who-code-app
-$ yarn test:coverage
-$ yarn view:coverage
+cd vets-who-code-app
+yarn test:coverage
+yarn view:coverage
 ```
 
 In a terminal window run these commands if you need to update a snapshot.
 
 ```sh
-$ cd vets-who-code-app
-$ yarn test --updateSnapshot
+cd vets-who-code-app
+yarn test --updateSnapshot
 ```
 
 <!-- ## Deployment -->
