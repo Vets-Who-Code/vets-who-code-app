@@ -99,7 +99,7 @@ const contentfulConfig = {
   },
 }
 
-if (process.env.NODE_ENV === 'production' || process.env.DISPLAY_CONTENTFUL_CONTENT) {
+if (process.env.VWC_ACTIVE_ENV === 'production') {
   gatsbyConfig.plugins.push(contentfulConfig)
 }
 
