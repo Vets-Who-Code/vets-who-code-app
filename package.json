@@ -51,15 +51,13 @@
     "build:prod": "gatsby build",
     "clean": "gatsby clean",
     "preload-fonts": "gatsby-preload-fonts",
-    "develop": "node ./scripts/pre-start",
+    "develop": "gatsby develop",
     "format": "pretty-quick --staged",
-    "gatsby:develop": "gatsby develop",
     "test": "jest",
     "lint": "eslint src",
     "test:coverage": "jest --env=jsdom --coverage",
     "test:watch": "jest --watch",
-    "view:coverage": "open coverage/lcov-report/index.html",
-    "yarn:install": "yarn"
+    "view:coverage": "open coverage/lcov-report/index.html"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
