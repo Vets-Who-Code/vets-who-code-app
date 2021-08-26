@@ -150,7 +150,7 @@ function Footer() {
             <div className="col-md-6 col-sm-6">
               <p className="copyright">
                 <FaRegCopyright color="#fff" />
-                2020{' '}
+                {new Date().getFullYear()}
                 <span>
                   <a
                     className="footer-span"
