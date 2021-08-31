@@ -32,8 +32,8 @@ function Footer() {
               <div className="widgets-content footer-widget-wrap">
                 <h3 className="widgets-title">About #VetsWhoCode</h3>
                 <p>
-                  FRAGO, doing business as #VetsWhoCode, is an exempt organization as described in
-                  Section 501(c)(3) of the Internal Revenue Code. Our EIN is 47-3555231.
+                  Vets Who Code Inc. is an exempt organization as described in
+                  Section 501(c)(3) of the Internal Revenue Code. Our EIN is 86-2122804.
                 </p>
                 <div className="footer-social">
                   <a href="http://bit.ly/vetswhocode-facebook-link" aria-label="Facebook">
