@@ -15,3 +15,4 @@ jobs:
         with:
           output_file: "./codebase-diagram.svg"
           excluded_paths: ".github"
+          should_push: false
