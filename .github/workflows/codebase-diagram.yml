@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
   push:
     branches:
-      - master
+      - gh-action-visualization
 jobs:
   get_data:
     runs-on: ubuntu-latest
