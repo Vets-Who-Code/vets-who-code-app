@@ -2,8 +2,8 @@ name: Create codebase diagram
 on:
   workflow_dispatch: {}
   push:
-    branches:
-      - gh-action-visualization
+    branch: [main]
+
 jobs:
   get_data:
     runs-on: ubuntu-latest
@@ -15,4 +15,3 @@ jobs:
         with:
           output_file: "./codebase-diagram.svg"
           excluded_paths: ".github"
-          should_push: false
