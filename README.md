@@ -131,3 +131,7 @@ This project is licensed under the MIT License - please see [license](https://gi
 ## Roadmap
 
 Please checkout our [roadmap](https://github.com/Vets-Who-Code/vwc-site/blob/update/README/roadmap.md) for details of upcoming features.
+
+## Codebase Visualization
+
+![Visual Representation of Codebase](./codebase-diagram.svg)
