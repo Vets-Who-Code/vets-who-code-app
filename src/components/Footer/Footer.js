@@ -137,7 +137,7 @@ function Footer() {
                       hello@vetswhocode.io
                     </a>
                   </span>
-                  <p> Phone: (917) 960-3806</p>
+                  <p> Phone: (404) 383-4414</p>
                 </div>
               </div>
             </div>
@@ -152,6 +152,7 @@ function Footer() {
                 <FaRegCopyright color="#fff" />
                 {new Date().getFullYear()}
                 <span>
+
                   <a
                     className="footer-span"
                     target="_blank"
