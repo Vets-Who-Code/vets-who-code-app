@@ -152,7 +152,6 @@ function Footer() {
                 <FaRegCopyright color="#fff" />
                 {new Date().getFullYear()}
                 <span>
-
                   <a
                     className="footer-span"
                     target="_blank"
