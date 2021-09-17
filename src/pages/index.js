@@ -84,9 +84,10 @@ function IndexPage() {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-                #VetsWhoCode is a veteran-led and operated 501(c)(3) charitable non-profit that
-                focuses on training veterans in programming and open source development with the
-                purpose of starting careers in the technology industry.
+                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization that
+                focuses on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development 
+                as the primary focus with the
+                goal of starting careers in the technology industry.
               </p>
             </div>
           </div>
@@ -105,9 +106,9 @@ function IndexPage() {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                  Through training, mentorship, building our open source projects, and opportunities
-                  industry experts, we ensure that our troops gain the best knowledge possible
-                  regards to learning software skills that can get them employed.
+                  Through training, mentorship, building new features or enhancing our open-source projects, and opportunities
+                  to interact with industry experts, our goal is to ensure that our troops gain the best knowledge possible
+                  regarding to learning software skills that help them get gainfully employed in the tech sector.
                 </p>
               </blockquote>
             </div>
@@ -118,13 +119,13 @@ function IndexPage() {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Next Cohort</h3>
+              <h3 className="next-cohort">Surprising Update</h3>
               <div className="event_excerpt">
-                <p>Countdown until our next #VetsWhoCode Cohort gets started:</p>
+                <p>Launching something new Veterans Day. Be sure to apply!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
-              <Countdown nextClass="March 01, 2021" />
+              <Countdown nextClass="Novemeber 11, 2021" />
               <Link className="btn btn-charity-default" to="/apply">
                 Apply
               </Link>
@@ -155,15 +156,15 @@ function IndexPage() {
       <section id="causes" className="section bg-default causes-card" style={{ padding: '75px 0' }}>
         <div className="container">
           <div className="normal_heading text-center">
-            <h2>Our Partners</h2>
+            <h2>Technology Partners</h2>
           </div>
           <div className="row">
             <div className="col-sm-12 cause_content text-center" style={{ marginBottom: 40 }}>
               {/* eslint-disable-next-line max-len */}
-              <h3 id="cause-title">Thank You For Working With #VetsWhoCode!</h3>
+              <h3 id="cause-title">Thank You For Supporting #VetsWhoCode!</h3>
               <hr />
               <h3 className="subtitle">
-                We Are Grateful To Have These Companies Partner With Us On Our Journey To Train
+                We Are Grateful To Have These Companies That Support Us On Our Journey To Train
                 Veterans How To Code!
               </h3>
             </div>
