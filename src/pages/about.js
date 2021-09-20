@@ -40,8 +40,10 @@ function About() {
               <h1 className="story-title">About Us</h1>
               <p>
                 <i>
-                  #VetsWhoCode is a Non-For Profit where veterans teach veterans how to program and
-                  get jobs.
+                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization that
+                focuses on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development 
+                as the primary focus with the
+                goal of starting careers in the technology industry.
                 </i>
               </p>
             </div>
@@ -74,9 +76,9 @@ function About() {
                 <p className="story">
                   Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
                   technical skills gap with America’s best. In order to close the digital talent
-                  gap, ease career transition for military veterans, and give military spouses
-                  skills to provide stability, we connect and train veterans remotely in web
-                  development as they move to support their families. We believe that those who
+                  gap, ease career transition for military veterans and spouses
+                  skills to provide stability, we connect and train veterans remotely in various programming practices
+                   as they move to support their families. We believe that those who
                   serve in uniform can be the digital economy’s most productive and innovative. Vets
                   Who Code prepares veterans to enter the civilian work force with tangible skills
                   for new careers.
@@ -101,7 +103,7 @@ function About() {
                 </p>
 
                 <h2>How We Do This</h2>
-                <p className="story">
+                <p className="story-last">
                   How we accomplish this mission is through a process of <i>Crawl, Walk, Run </i>
                   where we build upon each lesson in deeper dives so that veterans become better
                   programmers through each iteration. Instructors leading the program are also

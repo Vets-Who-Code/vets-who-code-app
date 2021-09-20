@@ -84,10 +84,8 @@ function IndexPage() {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization that
-                focuses on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development 
-                as the primary focus with the
-                goal of starting careers in the technology industry.
+              VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization.
+               We focus on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development with the goal of starting careers in the technology industry.
               </p>
             </div>
           </div>
@@ -106,9 +104,9 @@ function IndexPage() {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                  Through training, mentorship, building new features or enhancing our open-source projects, and opportunities
-                  to interact with industry experts, our goal is to ensure that our troops gain the best knowledge possible
-                  regarding to learning software skills that help them get gainfully employed in the tech sector.
+                Through training, mentorship, working with our open-source projects, and opportunities
+to interact with industry experts, our goal is to ensure that our troops gain the best knowledge possible
+while learning software skills that help them become gainfully employed in the technology sector.
                 </p>
               </blockquote>
             </div>
@@ -164,8 +162,7 @@ function IndexPage() {
               <h3 id="cause-title">Thank You For Supporting #VetsWhoCode!</h3>
               <hr />
               <h3 className="subtitle">
-                We Are Grateful To Have These Companies That Support Us On Our Journey To Train
-                Veterans How To Code!
+              We Are Grateful To Have These Companies That Support Us On Our Journey To Train Veterans In The Tech Industry.
               </h3>
             </div>
           </div>
