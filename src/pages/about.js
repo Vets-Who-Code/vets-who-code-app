@@ -75,7 +75,7 @@ function About() {
                 <h2>Who We Are</h2>
                 <p className="story">
                   Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
-                  technical skills gap with America’s best. In order to close the digital talent
+                  technical skills gap with America’s best. As a means to close the digital talent
                   gap, ease career transition for military veterans and spouses
                   skills to provide stability, we connect and train veterans remotely in various programming practices
                    as they move to support their families. We believe that those who
