@@ -91,6 +91,9 @@ function Footer() {
                           <Link to="/syllabus">Syllabus</Link>
                         </li>
                         <li>
+                          <Link to="/podcast">Podcasts</Link>
+                        </li>
+                        <li>
                           <Link to="/testimonials">Testimonials</Link>
                         </li>
                       </ul>

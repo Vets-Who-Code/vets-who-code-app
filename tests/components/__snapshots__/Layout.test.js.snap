@@ -500,6 +500,13 @@ exports[`<Layout /> should render correctly 1`] = `
                       </li>
                       <li>
                         <a
+                          href="/podcast"
+                        >
+                          Podcasts
+                        </a>
+                      </li>
+                      <li>
+                        <a
                           href="/testimonials"
                         >
                           Testimonials
