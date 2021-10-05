@@ -14,7 +14,7 @@ function ApplyForm() {
   const initialCityState = { city: '', state: '' }
   const [zipError, setZipError] = useState('')
   const [cityState, setCityState] = useState(initialCityState)
-  const [hasPreworkUrlError, setHasPreworkUrlError] = useState(false)
+  const [hasPrewokrUrlError, setHasPrewokrUrlError] = useState(false)
   const isZipValid = (zip = '') => {
     return zip.length >= 5
   }
@@ -22,9 +22,9 @@ function ApplyForm() {
   function preWorkLinkError(preworkRepoVal, preworkLinkVal) {
     const hasGithubInUrl = preworkLink => preworkLink.includes('github.com')
     if ((preworkRepoVal && preworkRepoVal === preworkLinkVal) || hasGithubInUrl(preworkLinkVal)) {
-      setHasPreworkUrlError(true)
+      setHasPrewokrUrlError(true)
     } else {
-      setHasPreworkUrlError(false)
+      setHasPrewokrUrlError(false)
     }
   }
 
@@ -57,9 +57,9 @@ function ApplyForm() {
   }
 
   const onSubmit = async (formData, e) => {
-    if (hasPreworkUrlError) {
+    if (hasPrewokrUrlError) {
       onSubmitError(
-        'OOPS! Looks like your Prework Link and Prework Repo are the the same or you are trying to submit a link to a github repo. Your hosted prework link should be on service like github pages, github.io, or surge.sh.'
+        'OOPS! Looks like your Prework Link and Prework Repo are the the same or you are trying to submit a link to a githbu repo. Your hosted prework link should be on service like gitub pages, github.io, or surge.sh.'
       )
       return
     }
@@ -437,7 +437,7 @@ function ApplyForm() {
         {errors.preworkLink && errors.preworkLink.type === 'pattern' && (
           <FormAlert errorMessage={errors.preworkLink.message} />
         )}
-        {hasPreworkUrlError && (
+        {hasPrewokrUrlError && (
           <FormAlert errorMessage="Please add your deployed pre work URL. This should be a different URL than your pre work repository URL. This should be a link to your hosted work on a service such as github pages or surge.sh. " />
         )}
       </div>

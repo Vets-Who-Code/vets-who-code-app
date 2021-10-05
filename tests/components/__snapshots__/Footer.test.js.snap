@@ -248,11 +248,6 @@ exports[`<Footer /> should render correctly 1`] = `
                     </li>
                     <li>
                       <a
-                        href="/jobs"
-                      >
-                        Job Search
-                        </a>
-                        <a
                         href="/podcast"
                       >
                         Podcasts
