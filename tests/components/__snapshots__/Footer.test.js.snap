@@ -251,6 +251,11 @@ exports[`<Footer /> should render correctly 1`] = `
                         href="/jobs"
                       >
                         Job Search
+                        </a>
+                        <a
+                        href="/podcast"
+                      >
+                        Podcasts
                       </a>
                     </li>
                     <li>
@@ -385,7 +390,7 @@ exports[`<Footer /> should render correctly 1`] = `
             2021
             <span>
               <a
-                aria-label="Link to Copyright Licence"
+                aria-label="Link to Copyright License"
                 class="footer-span"
                 href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
                 rel="noopener noreferrer"
