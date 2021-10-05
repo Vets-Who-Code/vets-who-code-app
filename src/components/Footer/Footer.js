@@ -4,7 +4,6 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaCodepen,
   FaGithub,
   FaHeart,
   FaRegCopyright,
