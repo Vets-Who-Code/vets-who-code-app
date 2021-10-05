@@ -40,10 +40,11 @@ function About() {
               <h1 className="story-title">About Us</h1>
               <p>
                 <i>
-                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization that
-                focuses on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development 
-                as the primary focus with the
-                goal of starting careers in the technology industry.
+                  #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
+                  charitable public non-profit organization that focuses on training veterans,
+                  active-duty military, and military spouses in practical programming paradigms by
+                  using mentoring and open-source development as the primary focus with the goal of
+                  starting careers in the technology industry.
                 </i>
               </p>
             </div>
@@ -76,12 +77,12 @@ function About() {
                 <p className="story">
                   Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
                   technical skills gap with America’s best. As a means to close the digital talent
-                  gap, ease career transition for military veterans and spouses
-                  skills to provide stability, we connect and train veterans remotely in various programming practices
-                   as they move to support their families. We believe that those who
-                  serve in uniform can be the digital economy’s most productive and innovative. Vets
-                  Who Code prepares veterans to enter the civilian work force with tangible skills
-                  for new careers.
+                  gap, ease career transition for military veterans and spouses skills to provide
+                  stability, we connect and train veterans remotely in various programming practices
+                  as they move to support their families. We believe that those who serve in uniform
+                  can be the digital economy’s most productive and innovative. Vets Who Code
+                  prepares veterans to enter the civilian work force with tangible skills for new
+                  careers.
                 </p>
                 <p className="story">
                   Vets Who Code is a reintegration solution for veterans who believe in the

@@ -91,6 +91,9 @@ function Footer() {
                           <Link to="/syllabus">Syllabus</Link>
                         </li>
                         <li>
+                          <Link to="/podcast">Podcasts</Link>
+                        </li>
+                        <li>
                           <Link to="/testimonials">Testimonials</Link>
                         </li>
                       </ul>
@@ -152,12 +155,11 @@ function Footer() {
                 <FaRegCopyright color="#fff" />
                 {new Date().getFullYear()}
                 <span>
-
                   <a
                     className="footer-span"
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Link to Copyright Licence"
+                    aria-label="Link to Copyright License"
                     title="Copyright"
                     href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE"
                   >
