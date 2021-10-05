@@ -121,10 +121,10 @@ function About() {
                   schools, many are now learning to work remotely, which we have been doing for
                   years. As a result, we are having an unprecedented amount of applicants and are
                   looking to expand our abilities to support more teams. Help us by making a
-                  tax-deductible &nbsp;
+                  tax-deductible{' '}
                   <a className="donate-span" href="/donate">
                     donation
-                  </a> &nbsp;
+                  </a>{' '}
                   so that not only can we continue the work we are doing for our troops now, but
                   expand our capabilities to help even more veterans and military spouses on the
                   journey of becoming programmers.
