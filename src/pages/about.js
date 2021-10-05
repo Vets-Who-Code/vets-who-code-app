@@ -41,9 +41,8 @@ function About() {
               <p>
                 <i>
                 #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3) charitable public non-profit organization that
-                focuses on training veterans, active duty military, and military spouses in practical programming paradigms by using mentoring and open source development 
-                as the primary focus with the
-                goal of starting careers in the technology industry.
+                focuses on training veterans, active-duty military, and military spouses in practical programming paradigms by using mentoring and open-source development 
+              as the primary focus with the goal of starting careers in the technology industry.
                 </i>
               </p>
             </div>
