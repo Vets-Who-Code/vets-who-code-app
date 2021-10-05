@@ -46,11 +46,6 @@ function Footer() {
                       <FaTwitter />
                     </i>
                   </a>
-                  <a href="http://bit.ly/2omsjdX" aria-label="Codepen">
-                    <i className="fa">
-                      <FaCodepen />
-                    </i>
-                  </a>
                   <a href="https://bit.ly/2sJ6W9f" aria-label="Instagram">
                     <i className="fa">
                       <FaInstagram />
