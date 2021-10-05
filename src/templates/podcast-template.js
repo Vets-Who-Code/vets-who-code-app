@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import Image from 'gatsby-image'
-import Pagination from '../components/Pagination'
+
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 import { findDescription } from './helpers'
@@ -97,6 +97,10 @@ PodcastLink.propTypes = {
 }
 
 const Podcast = ({ pageContext }) => {
+  const { currentPage, isFirstPage, isLastPage, totalPages, contentfulData } = pageContext
+  const nextPage = `/podcast/${String(currentPage + 1)}`
+  const prevPage = currentPage - 1 === 1 ? '/podcast' : `/podcast/${String(currentPage - 1)}`
+
   return (
     <>
       <SEO title="Podcast" />
@@ -105,7 +109,7 @@ const Podcast = ({ pageContext }) => {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              {pageContext.contentfulData.nodes.map(post => (
+              {contentfulData.nodes.map(post => (
                 <PodcastLink
                   key={post.id}
                   title={post.title}
@@ -120,9 +124,41 @@ const Podcast = ({ pageContext }) => {
           </div>
         </div>
       </section>
-      <nav aria-label="Page navigation">
-        <Pagination pageContext={pageContext} type="route" path="podcast" />
-      </nav>
+
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          margin: '0 auto',
+        }}
+      >
+        <nav aria-label="Page navigation">
+          <ul className="pagination">
+            {!isFirstPage && (
+              <li>
+                <Link to={prevPage} rel="prev">
+                  {/* <span aria-hidden="true">&laquo;</span> */}
+                  <span aria-hidden="true">Previous</span>
+                </Link>
+              </li>
+            )}
+            {Array.from({ length: totalPages }, (_, index) => (
+              <li key={index}>
+                <Link to={`/podcast/${index === 0 ? '' : index + 1}`}>{index + 1}</Link>
+              </li>
+            ))}
+            {!isLastPage && (
+              <li>
+                <Link to={nextPage} rel="next">
+                  {/* <span aria-hidden="true">&raquo;</span> */}
+                  <span aria-hidden="true">Next</span>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </div>
     </>
   )
 }
