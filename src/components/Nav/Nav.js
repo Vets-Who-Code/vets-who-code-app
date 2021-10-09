@@ -6,25 +6,45 @@ import Toggle from '../Toggle'
 import './nav.css'
 
 const NAV = {
-  OPEN_MOBILE_NAVIGATION: 'OPEN_MOBILE_NAVIGATION',
-  CLOSE_MOBILE_NAVIGATION: 'CLOSE_MOBILE_NAVIGATION',
-  OPEN_MEDIA_DROPDOWN: 'OPEN_MEDIA_DROPDOWN',
-  CLOSE_MEDIA_DROPDOWN: 'CLOSE_MEDIA_DROPDOWN',
+  TOGGLE_MOBILE_NAVIGATION: 'TOGGLE_MOBILE_NAVIGATION',
+  TOGGLE_MEDIA_DROPDOWN: 'TOGGLE_MEDIA_DROPDOWN',
+  TOGGLE_OUR_STORY_DROPDOWN: 'TOGGLE_OUR_STORY_DROPDOWN',
+  TOGGLE_APPLY_DROPDOWN: 'TOGGLE_APPLY_DROPDOWN',
   RESET_NAVIGATION: 'RESET_NAVIGATION',
 }
 
-const initialNavState = { mobileNavOpen: false, mediaDropdownOpen: false }
+const initialNavState = {
+  mobileNavOpen: false,
+  mediaDropdownOpen: false,
+  ourStoryDropdownOpen: false,
+  applyDropdownOpen: false,
+}
 
 function navReducer(state, action) {
   switch (action.type) {
-    case NAV.OPEN_MOBILE_NAVIGATION:
-      return { ...state, mobileNavOpen: true }
-    case NAV.CLOSE_MOBILE_NAVIGATION:
-      return { ...state, mobileNavOpen: false }
-    case NAV.OPEN_MEDIA_DROPDOWN:
-      return { ...state, mediaDropdownOpen: true }
-    case NAV.CLOSE_MEDIA_DROPDOWN:
-      return { ...state, mediaDropdownOpen: false }
+    case NAV.TOGGLE_MOBILE_NAVIGATION:
+      return { ...state, mobileNavOpen: !state.mobileNavOpen }
+    case NAV.TOGGLE_MEDIA_DROPDOWN:
+      return {
+        ...state,
+        mediaDropdownOpen: !state.mediaDropdownOpen,
+        ourStoryDropdownOpen: initialNavState.ourStoryDropdownOpen,
+        applyDropdownOpen: initialNavState.applyDropdownOpen,
+      }
+    case NAV.TOGGLE_OUR_STORY_DROPDOWN:
+      return {
+        ...state,
+        ourStoryDropdownOpen: !state.ourStoryDropdownOpen,
+        mediaDropdownOpen: initialNavState.mediaDropdownOpen,
+        applyDropdownOpen: initialNavState.applyDropdownOpen,
+      }
+    case NAV.TOGGLE_APPLY_DROPDOWN:
+      return {
+        ...state,
+        applyDropdownOpen: !state.applyDropdownOpen,
+        mediaDropdownOpen: initialNavState.mediaDropdownOpen,
+        ourStoryDropdownOpen: initialNavState.ourStoryDropdownOpen,
+      }
     case NAV.RESET_NAVIGATION:
       return initialNavState
     default:
@@ -38,6 +58,8 @@ function Nav() {
   const [navState, dispatch] = useReducer(navReducer, initialNavState)
   const isMobileNavOpen = navState.mobileNavOpen
   const isMediaDropdownOpen = navState.mediaDropdownOpen
+  const isOurStoryDropDownOpen = navState.ourStoryDropdownOpen
+  const isApplyDropdownOpen = navState.applyDropdownOpen
 
   useEffect(() => {
     document.addEventListener('scroll', handleScroll)
@@ -63,24 +85,16 @@ function Nav() {
 
   function handleClickOutside(event) {
     if (!navRef?.current?.contains(event.target)) {
-      dispatch({ type: NAV.RESET_NAVIGATION })
+      resetNavigation()
     }
   }
 
-  function toggleMobileNavigation() {
-    if (isMobileNavOpen) {
-      dispatch({ type: NAV.CLOSE_MOBILE_NAVIGATION })
-    } else {
-      dispatch({ type: NAV.OPEN_MOBILE_NAVIGATION })
-    }
+  function resetNavigation() {
+    dispatch({ type: NAV.RESET_NAVIGATION })
   }
 
-  function toggleMediaDropdown() {
-    if (isMediaDropdownOpen) {
-      dispatch({ type: NAV.CLOSE_MEDIA_DROPDOWN })
-    } else {
-      dispatch({ type: NAV.OPEN_MEDIA_DROPDOWN })
-    }
+  function toggleMenuItem(type) {
+    dispatch({ type })
   }
 
   return (
@@ -114,7 +128,7 @@ function Nav() {
           <button
             type="button"
             id="hamburger-1"
-            onClick={toggleMobileNavigation}
+            onClick={() => toggleMenuItem(NAV.TOGGLE_MOBILE_NAVIGATION)}
             className={`navbar-toggle collapsed hamburger ${isMobileNavOpen ? 'is-active' : ''}`}
             aria-expanded={isMobileNavOpen ? 'true' : 'false'}
           >
@@ -130,25 +144,59 @@ function Nav() {
           aria-expanded={isMobileNavOpen ? 'true' : 'false'}
         >
           <ul className="nav navbar-nav navbar-right" role="menu" id="navbar-list">
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
+            <li
+              role="menuitem"
+              className="nav"
+              onClick={() => toggleMenuItem(NAV.TOGGLE_MOBILE_NAVIGATION)}
+            >
               <span>
                 <Toggle size={30} />
               </span>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
               <Link to="/">
                 <span>Home</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
-              <Link to="/about">
-                <span>About</span>
-              </Link>
+            <li
+              className={`dropdown nav ${isOurStoryDropDownOpen ? 'open' : ''}`}
+              role="menuitem"
+              onClick={() => toggleMenuItem(NAV.TOGGLE_OUR_STORY_DROPDOWN)}
+              style={{ marginRight: 10 }}
+            >
+              <a
+                aria-expanded={isOurStoryDropDownOpen}
+                aria-haspopup="true"
+                data-toggle="dropdown"
+                className="nav"
+                href="#"
+                role="button"
+              >
+                Our Story
+                <AiFillCaretDown className="dropdown-caret" />
+              </a>
+              <ul className="dropdown-menu">
+                <li role="menuitem" className="nav media-dropdown-item">
+                  <Link onClick={resetNavigation} to="/about">
+                    <span>About</span>
+                  </Link>
+                </li>
+                <li role="menuitem" className="nav media-dropdown-item">
+                  <Link onClick={resetNavigation} to="/board">
+                    <span>Board</span>
+                  </Link>
+                </li>
+                <li role="menuitem" className="nav" onClick={resetNavigation}>
+                  <Link to="/testimonials">
+                    <span>Testimonials</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
             <li
               className={`dropdown nav ${isMediaDropdownOpen ? 'open' : ''}`}
               role="menuitem"
-              onClick={toggleMediaDropdown}
+              onClick={() => toggleMenuItem(NAV.TOGGLE_MEDIA_DROPDOWN)}
               style={{ marginRight: 10 }}
             >
               <a
@@ -164,60 +212,63 @@ function Nav() {
               </a>
               <ul className="dropdown-menu">
                 <li role="menuitem" className="nav media-dropdown-item">
-                  <Link
-                    onClick={() => {
-                      toggleMediaDropdown()
-                      toggleMobileNavigation()
-                    }}
-                    to="/blog"
-                  >
+                  <Link onClick={resetNavigation} to="/blog">
                     <span>Blog</span>
                   </Link>
                 </li>
                 <li role="menuitem" className="nav media-dropdown-item">
-                  <Link
-                    onClick={() => {
-                      toggleMediaDropdown()
-                      toggleMobileNavigation()
-                    }}
-                    to="/podcast"
-                  >
+                  <Link onClick={resetNavigation} to="/podcast">
                     <span>Podcast</span>
                   </Link>
                 </li>
               </ul>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
-              <Link to="/board">
-                <span>Board</span>
-              </Link>
+            <li
+              className={`dropdown nav ${isApplyDropdownOpen ? 'open' : ''}`}
+              role="menuitem"
+              onClick={() => toggleMenuItem(NAV.TOGGLE_APPLY_DROPDOWN)}
+              style={{ marginRight: 10 }}
+            >
+              <a
+                aria-expanded={isApplyDropdownOpen}
+                aria-haspopup="true"
+                data-toggle="dropdown"
+                className="nav"
+                href="#"
+                role="button"
+              >
+                Apply
+                <AiFillCaretDown className="dropdown-caret" />
+              </a>
+              <ul className="dropdown-menu">
+                <li role="menuitem" className="nav" onClick={resetNavigation}>
+                  <Link to="/apply">
+                    <span>Veteran</span>
+                  </Link>
+                </li>
+                <li role="menuitem" className="nav" onClick={resetNavigation}>
+                  <Link to="/mentor">
+                    <span>Mentor</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
-              <Link to="/testimonials">
-                <span>Testimonials</span>
-              </Link>
-            </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
               <Link to="/syllabus">
                 <span>Syllabus</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
-              <Link to="/mentor">
-                <span>Mentor</span>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
+              <Link to="/jobs">
+                <span>Job Search</span>
               </Link>
             </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
-              <Link to="/apply">
-                <span>Apply</span>
-              </Link>
-            </li>
-            <li role="menuitem" className="nav" onClick={toggleMobileNavigation}>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
               <Link to="/contact">
                 <span>Contact</span>
               </Link>
             </li>
-            <li role="menuitem" className="donate" onClick={toggleMobileNavigation}>
+            <li role="menuitem" className="donate" onClick={resetNavigation}>
               <Link to="/donate">
                 <span>Donate</span>
               </Link>

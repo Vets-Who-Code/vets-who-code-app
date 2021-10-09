@@ -54,6 +54,7 @@
   vertical-align: middle;
   font-size: 0.5em;
 }
+
 @media only screen and (max-width: 363px) {
   .navbar-brand {
     max-width: 200px;
@@ -65,41 +66,15 @@
   font-weight: 600;
   border-radius: 2px;
 }
+
 .donate:hover {
   background-color: var(--element-15);
   color: var(--element-4);
   transition: all 0.1 linear;
 }
+
 .donate a span {
   color: var(--element-4);
-}
-@media (min-width: 768px) and (max-width: 1400px) {
-  .container-fluid {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-  }
-  #navbar-list {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    transition: linear;
-    margin-top: 0;
-    padding: 0;
-    position: relative;
-  }
-  .navbar-nav li {
-    padding-top: 0;
-    position: relative;
-  }
-  #navbar-brand {
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    width: auto;
-  }
 }
 
 /* override for dropdown font */
@@ -121,6 +96,49 @@
 
 /* dropdown-caret styles */
 .dropdown-caret {
-  top: 1.6em;
+  top: 1.4rem;
   position: absolute;
+}
+
+@media (max-width: 768px) {
+  .dropdown-caret {
+    top: 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1400px) {
+  .container-fluid {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown-caret {
+    top: 1.5rem;
+  }
+
+  #navbar-list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    transition: linear;
+    margin-top: 0;
+    padding: 0;
+    position: relative;
+    min-width: 100vw;
+  }
+
+  .navbar-nav li {
+    padding-top: 0;
+    position: relative;
+  }
+
+  #navbar-brand {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: auto;
+  }
 }
