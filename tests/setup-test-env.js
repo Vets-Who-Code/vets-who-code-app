@@ -20,6 +20,19 @@ global.MutationObserver = class {
   observe() {}
 }
 
+window.HTMLMediaElement.prototype.play = () => {
+  /* do nothing */
+}
+window.HTMLMediaElement.prototype.load = () => {
+  /* do nothing */
+}
+window.HTMLMediaElement.prototype.pause = () => {
+  /* do nothing */
+}
+window.HTMLMediaElement.prototype.addTextTrack = () => {
+  /* do nothing */
+}
+
 const originalError = console.error
 const originalWarn = console.warn
 
