@@ -565,13 +565,6 @@ exports[`<Layout /> should render correctly 1`] = `
                       </li>
                       <li>
                         <a
-                          href="/podcast"
-                        >
-                          Podcasts
-                        </a>
-                      </li>
-                      <li>
-                        <a
                           href="/testimonials"
                         >
                           Testimonials
@@ -591,9 +584,11 @@ exports[`<Layout /> should render correctly 1`] = `
                     >
                       <li>
                         <a
-                          href="/mentor"
+                          href="/blog"
                         >
-                          Mentor
+                          <span>
+                            Blog
+                          </span>
                         </a>
                       </li>
                       <li>
@@ -612,18 +607,23 @@ exports[`<Layout /> should render correctly 1`] = `
                       </li>
                       <li>
                         <a
-                          href="/contact"
+                          href="/mentor"
                         >
-                          Contact Us
+                          Mentor
                         </a>
                       </li>
                       <li>
                         <a
-                          href="/blog"
+                          href="/podcast"
                         >
-                          <span>
-                            Blog
-                          </span>
+                          Podcasts
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/contact"
+                        >
+                          Contact Us
                         </a>
                       </li>
                     </ul>

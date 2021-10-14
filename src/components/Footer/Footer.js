@@ -88,9 +88,6 @@ function Footer() {
                           <Link to="/jobs">Job Search</Link>
                         </li>
                         <li>
-                          <Link to="/podcast">Podcasts</Link>
-                        </li>
-                        <li>
                           <Link to="/testimonials">Testimonials</Link>
                         </li>
                       </ul>
@@ -100,7 +97,9 @@ function Footer() {
                     <div className="widgets-content">
                       <ul className="widgets-list">
                         <li>
-                          <Link to="/mentor">Mentor</Link>
+                          <Link to="/blog">
+                            <span>Blog</span>
+                          </Link>
                         </li>
                         <li>
                           <Link to="/apply">Apply</Link>
@@ -109,12 +108,13 @@ function Footer() {
                           <Link to="/donate">Donate</Link>
                         </li>
                         <li>
-                          <Link to="/contact">Contact Us</Link>
+                          <Link to="/mentor">Mentor</Link>
                         </li>
                         <li>
-                          <Link to="/blog">
-                            <span>Blog</span>
-                          </Link>
+                          <Link to="/podcast">Podcasts</Link>
+                        </li>
+                        <li>
+                          <Link to="/contact">Contact Us</Link>
                         </li>
                       </ul>
                     </div>
