@@ -161,7 +161,6 @@ function Nav() {
             <li
               className={`dropdown nav ${isOurStoryDropDownOpen ? 'open' : ''}`}
               role="menuitem"
-              onClick={() => toggleMenuItem(NAV.TOGGLE_OUR_STORY_DROPDOWN)}
               style={{ marginRight: 10 }}
             >
               <a
@@ -171,6 +170,7 @@ function Nav() {
                 className="nav"
                 href="#"
                 role="button"
+                onClick={() => toggleMenuItem(NAV.TOGGLE_OUR_STORY_DROPDOWN)}
               >
                 Our Story
                 <AiFillCaretDown className="dropdown-caret" />
@@ -196,7 +196,6 @@ function Nav() {
             <li
               className={`dropdown nav ${isMediaDropdownOpen ? 'open' : ''}`}
               role="menuitem"
-              onClick={() => toggleMenuItem(NAV.TOGGLE_MEDIA_DROPDOWN)}
               style={{ marginRight: 10 }}
             >
               <a
@@ -206,6 +205,7 @@ function Nav() {
                 className="nav"
                 href="#"
                 role="button"
+                onClick={() => toggleMenuItem(NAV.TOGGLE_MEDIA_DROPDOWN)}
               >
                 Media
                 <AiFillCaretDown className="dropdown-caret" />
@@ -226,7 +226,6 @@ function Nav() {
             <li
               className={`dropdown nav ${isApplyDropdownOpen ? 'open' : ''}`}
               role="menuitem"
-              onClick={() => toggleMenuItem(NAV.TOGGLE_APPLY_DROPDOWN)}
               style={{ marginRight: 10 }}
             >
               <a
@@ -236,6 +235,7 @@ function Nav() {
                 className="nav"
                 href="#"
                 role="button"
+                onClick={() => toggleMenuItem(NAV.TOGGLE_APPLY_DROPDOWN)}
               >
                 Apply
                 <AiFillCaretDown className="dropdown-caret" />
