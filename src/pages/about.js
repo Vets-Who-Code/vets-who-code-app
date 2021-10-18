@@ -112,7 +112,6 @@ function About() {
                   instructor has been through every success and failure you will experience and has
                   ultimately succeeded on the path of becoming a paid programmer.
                 </p>
-
               </div>
             </div>
           </div>
