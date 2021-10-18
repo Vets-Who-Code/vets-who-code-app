@@ -112,23 +112,6 @@ function About() {
                   instructor has been through every success and failure you will experience and has
                   ultimately succeeded on the path of becoming a paid programmer.
                 </p>
-
-                <h2>WE NEED YOUR HELP</h2>
-                <p className="story-last">
-                  As our country is going through this unprecedented time with COVID-19, people are
-                  wanting to learn the skills of today and tomorrow to future-proof themselves, in
-                  order to provide for their families. Due to the nature of for-profit coding
-                  schools, many are now learning to work remotely, which we have been doing for
-                  years. As a result, we are having an unprecedented amount of applicants and are
-                  looking to expand our abilities to support more teams. Help us by making a
-                  tax-deductible{' '}
-                  <a className="donate-span" href="/donate">
-                    donation
-                  </a>{' '}
-                  so that not only can we continue the work we are doing for our troops now, but
-                  expand our capabilities to help even more veterans and military spouses on the
-                  journey of becoming programmers.
-                </p>
               </div>
             </div>
           </div>
