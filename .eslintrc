@@ -18,6 +18,7 @@
   },
   "rules": {
     "react/jsx-uses-react": "off",
+    "react/no-unescaped-entities": 0,
     "react/react-in-jsx-scope": "off",
     "no-useless-catch": "off",
     "no-undef": "off",
