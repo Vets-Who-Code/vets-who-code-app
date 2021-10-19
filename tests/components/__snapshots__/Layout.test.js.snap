@@ -638,6 +638,13 @@ exports[`<Layout /> should render correctly 1`] = `
                           Contact Us
                         </a>
                       </li>
+                      <li>
+                        <a
+                          href="/code-of-conduct"
+                        >
+                          Conduct
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>

@@ -116,6 +116,9 @@ function Footer() {
                         <li>
                           <Link to="/contact">Contact Us</Link>
                         </li>
+                        <li>
+                          <Link to="/code-of-conduct">Conduct</Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
