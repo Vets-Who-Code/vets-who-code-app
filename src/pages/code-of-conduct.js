@@ -104,7 +104,7 @@ function CodeOfConduct() {
 
                 <h2>Attribution</h2>
                 <p className="story">
-                  This Code of Conduct is adapted from the {` `}
+                  This Code of Conduct is adapted from the &nbsp;
                   <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct">
                     Contributor Covenant
                   </a>
