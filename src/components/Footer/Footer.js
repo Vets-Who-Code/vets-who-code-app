@@ -5,8 +5,10 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
-  FaHeart,
   FaRegCopyright,
+  FaCoffee,
+  FaCode,
+  FaFlagUsa,
 } from 'react-icons/fa'
 
 function Footer() {
@@ -168,11 +170,8 @@ function Footer() {
             <div className="col-md-6 col-sm-6">
               <ul className="footer-menu">
                 <li>
-                  Made with{' '}
-                  <span className="fa fa-heart red">
-                    <FaHeart color="#C5203E" />
-                  </span>{' '}
-                  By #VetsWhoCode.
+                  Made with <FaCoffee color="#C5203E" />, <FaCode color="#C5203E" />, and{' '}
+                  <FaFlagUsa /> by the veterans of #VetsWhoCode.
                 </li>
               </ul>
             </div>
