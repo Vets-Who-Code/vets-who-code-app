@@ -55,7 +55,7 @@ function Jobs() {
 
   return (
     <>
-      <SEO title="Job Search" />
+      <SEO title="Find a developer job" />
       <PageHeader />
 
       {/* Section Header */}
