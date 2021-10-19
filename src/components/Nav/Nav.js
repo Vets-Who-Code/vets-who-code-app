@@ -269,7 +269,7 @@ function Nav() {
               </Link>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/code-ofconduct">
+              <Link to="/code-of-conduct">
                 <span>Code Of Conduct</span>
               </Link>
             </li>
