@@ -318,6 +318,18 @@ exports[`<Layout /> should render correctly 1`] = `
             </a>
           </li>
           <li
+            class="nav"
+            role="menuitem"
+          >
+            <a
+              href="/code-ofconduct"
+            >
+              <span>
+                Code Of Conduct
+              </span>
+            </a>
+          </li>
+          <li
             class="donate"
             role="menuitem"
           >

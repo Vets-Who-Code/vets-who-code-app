@@ -268,6 +268,11 @@ function Nav() {
                 <span>Contact</span>
               </Link>
             </li>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
+              <Link to="/code-ofconduct">
+                <span>Code Of Conduct</span>
+              </Link>
+            </li>
             <li role="menuitem" className="donate" onClick={resetNavigation}>
               <Link to="/donate">
                 <span>Donate</span>
