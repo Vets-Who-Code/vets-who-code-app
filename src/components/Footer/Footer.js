@@ -5,7 +5,6 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaGithub,
-  FaHeart,
   FaRegCopyright,
   FaCoffee,
   FaCode,
