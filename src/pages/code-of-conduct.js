@@ -1,5 +1,3 @@
-import { useRef, useEffect } from 'react'
-
 import PageHeader from '../components/PageHeader'
 import SEO from '../components/SEO'
 import '../assets/css/custom.css'
