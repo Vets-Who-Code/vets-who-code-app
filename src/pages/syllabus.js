@@ -5,24 +5,25 @@ import SEO from '../components/SEO'
 
 const BLOCKS = [
   {
-    title: 'Block 1: The Big Three',
+    title: 'Block 1: The Core Basics',
     id: 1,
-    body: 'Block 1 is the foundation of our curriculum. We start out teaching how the internet works and how it impacts web development. We then get into HTML5 and CSS3 to start the development process. By incorporating web accessibility and UX design, we give the students the complete story of web development and how it impacts the users directly. Finally this block closes with adding interaction to the sites using JavaScript along with APIs.',
+    body: ' This phase we start in the terminal, then move to git, Github and the Github CLI. We then move into Visual Studio Code, HTML, CSS and Javascript. During this we teach the importance of User Stories, Git Flow, Kanban, UX Basics and Web Accessibility.',
   },
   {
-    title: 'Block 2: Computer Science with JavaScript',
+    title: 'Block 2: Product Development With JavaScript, React And Gatsby',
     id: 2,
-    body: 'Block 2 is all about computer science. As real world trends prove to us that web apps are growing in complexity, we need to understand the tools to be able to create efficiencies and faster processes. This begins with the computer science elements learned through JavaScript. ',
+    body: 'The best way to learn is to do, so in this phase we are going to be writing a lot of Javascript. Rather solving problems in our code challenges channel, or working on your team feature, here you will be focusing on learning how to build impactfully with Javascript, React, and Gatsby.',
   },
   {
-    title: 'Block 3: React & JAMstack',
+    title: 'Block 3: Serverless DevOps and DivOps: Tooling to make your app work at scale',
     id: 3,
-    body: 'Block 3 introduces the JAMstack. Utilizing Gatsby, which relies upon the best technology, such as React and GraphQL, we can ensure our students are getting the best and most sought-after skills in our industry today.',
+    body: 'Modern web apps have complexity based on layers of tooling working together to ensure it works at scale. In this phase we will dive into AWS Lambdas, Github Actions and Netlifly.',
   },
   {
-    title: 'Block 4: Official VWC Member: Interview Prep',
+    title:
+      'Block 4: Becoming a Dev Advocate of You - Mentoring, Networking, Building Social Equity, Interview Prep.',
     id: 4,
-    body: 'By block 4 our students are full VWC members and start the job transitioning process. Through top resources and interview preparation, we make sure VWC members have shown the interviewers they are set for the job before they even walk through the door. ',
+    body: 'As the saying goes, "Getting a Job is a Job", especially the first job in tech. So now that you know how to code, we need to get you into a cycle of building, writing, sharing your work, connecting and networking with people. We have to make you a Dev Advocate Of You.',
   },
 ]
 
@@ -38,8 +39,9 @@ const Syllabus = () => {
               <h1 className="story-title">Syllabus</h1>
               <p>
                 <i>
-                  Our curriculum is designed to teach our veterans skills needed for today&apos;s
-                  tech market.
+                  Our flagship curriculum is designed for two things: to give our veterans skills
+                  needed for today&apos;s tech market, and to be a contributing member of
+                  VetsWhoCode.
                 </i>
               </p>
             </div>
@@ -47,17 +49,15 @@ const Syllabus = () => {
               <div className="col-md-12">
                 <div className="faq-short-brief container-fluid">
                   <p>
-                    Our curriculum is designed using the Agile Methodology with four-day sprints
-                    dedicated to the subject. We do it in this manner based on the practice of how
-                    veterans &quot;Train How You Fight&quot; in the military, the practice of which
-                    is now applied towards working in a software company. The primary language we
-                    will focus on is JavaScript, due to its popularity in the job market, ease of
-                    transition between computer science topics, practical real world applications,
-                    and the scope of industries we can introduce our veterans to, all while keeping
+                    Our curriculum is designed using a blend of Kanban and Scrum. We use the Kanban
+                    methodology to treat each subject like a ticket to be completed. We do this in a
+                    collaborative manner because programming is a team sport. The primary language
+                    we will focus on is JavaScript, due to its popularity in the job market, ease of
+                    transition through out the stack, practical real world applications, and the
+                    scope of tools and resources we can introduce our veterans to, all while keeping
                     language proficiency at the forefront of the program. This way we can introduce
-                    Data Visualization, Data Science, Cyber Security, and Internet of Things (IoT)
-                    to our veterans, while continuing to have our troops grow in the area of
-                    JavaScript.
+                    front end, back end, DevOps and Cloud Computing skills to our veterans, while
+                    continuing to have our troops grow in JavaScript.
                   </p>
                 </div>
               </div>
