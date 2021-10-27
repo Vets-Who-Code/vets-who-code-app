@@ -49,6 +49,8 @@ function Donate() {
                   alt="Corporate Giving"
                   width={1000}
                   height={500}
+                  placeholder="blurred"
+                  layout="constrained"
                 />
                 <p>
                   To ensure ease for those interested in supporting on the corporate level, we have
