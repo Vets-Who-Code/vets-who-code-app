@@ -15,7 +15,7 @@ function Donate() {
               <p>
                 <i>
                   Thank you for choosing to support #VetsWhoCode. Here we have a few ways to support
-                  our organization
+                  our organization.
                 </i>
               </p>
             </div>
