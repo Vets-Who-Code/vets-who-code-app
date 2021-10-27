@@ -29,7 +29,7 @@ function Donate() {
                 <StaticImage
                     src="../images/corporate-giving.jpeg"
                     alt="Corporate Giving"
-                    style={{ height: 200, width: 200 }}
+                    style={{ height: 500, width: 1000 }}
                   />
                 <p>
                   To ensure ease for those interested in supporting on the corporate level, we have created accounts on <a href="https://causes.benevity.org/causes/840-862122804">Benevity</a> and <a href="https://www.brightfunds.org/organizations/vets-who-code-inc">Brightfunds</a> to make it easy for your employees and company to donate to our cause.
