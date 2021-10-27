@@ -76,7 +76,7 @@ function Donate() {
                 </p>
               </div>
               <div className="story col-sm-4">
-                <h3>Amazon Smile</h3>
+                <h3 className="text-center">Amazon Smile</h3>
                 <StaticImage
                   src="../images/amazon-smile.jpeg"
                   alt="Amazon Smile"
