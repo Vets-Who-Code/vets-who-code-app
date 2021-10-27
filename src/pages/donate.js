@@ -26,37 +26,57 @@ function Donate() {
             <div className="col-md-12">
               <div className="story">
                 <h2>Corporate Giving</h2>
+                <StaticImage
+                    src="../images/corporate-giving.jpeg"
+                    alt="Corporate Giving"
+                    style={{ height: 200, width: 200 }}
+                  />
                 <p>
                   To ensure ease for those interested in supporting on the corporate level, we have created accounts on <a href="https://causes.benevity.org/causes/840-862122804">Benevity</a> and <a href="https://www.brightfunds.org/organizations/vets-who-code-inc">Brightfunds</a> to make it easy for your employees and company to donate to our cause.
                 </p>
               </div>
               <div className="story">
                 <h2>Github Sponsors</h2>
+                <StaticImage
+                    src="../images/github-sponsors.jpeg"
+                    alt="Github Sponsors"
+                    style={{ height: 500, width: 1000 }}
+                  />
                 <p>
                   We are an open source project and are a part of the Github Sponsors program. If you would like to sponsor us, please visit our <a href="https://github.com/sponsors/Vets-Who-Code">Github Sponsors page</a> to learn more.
                 </p>
                 </div>
                 <div className="story">
                 <h2>Amazon Smile</h2>
+                <StaticImage
+                    src="../images/amazon-smile.jpeg"
+                    alt="Amazon Smile"
+                    style={{ height: 500, width: 1000 }}
+                  />
                 <p>
                   Looking to give while shopping? We have a <a href="https://smile.amazon.com/ch/86-2122804">Smile</a> account to make it easy for you to give while shopping to your hearts content.
                 </p>
               </div>
               <div className="story">
                 <h2>Individual Contributions</h2>
+                <StaticImage
+                    src="../images/individual-giving.jpeg"
+                    alt="Individual Contributions"
+                    style={{ height: 500, width: 1000 }}
+                  />
                 <div className="iframe-container embed-responsive">
-                <iframe
-                  title="#VWC Donorbox"
-                  src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
-                  seamless="seamless"
-                  name="donorbox"
-                  scrolling="yes"
-                  allowpaymentrequest="true"
-                  frameBorder={0}
-                  tabIndex={0}
-                />
-              </div>
+                  <iframe
+                    title="#VWC Donorbox"
+                    src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
+                    seamless="seamless"
+                    name="donorbox"
+                    scrolling="yes"
+                    allowpaymentrequest="true"
+                    frameBorder={0}
+                    tabIndex={0}
+                  />
                 </div>
+              </div>
 
             </div>
           </div>
