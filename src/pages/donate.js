@@ -43,7 +43,7 @@ function Donate() {
                 </div>
               </div>
               <div className="story col-sm-4">
-                <h3>Corporate Giving</h3>
+                <h3 className="text-center">Corporate Giving</h3>
                 <StaticImage
                   src="../images/corporate-giving.jpeg"
                   alt="Corporate Giving"
