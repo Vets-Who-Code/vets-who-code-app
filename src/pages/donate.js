@@ -67,6 +67,8 @@ function Donate() {
                   alt="Github Sponsors"
                   width={1000}
                   height={500}
+                  placeholder="blurred"
+                  layout="constrained"
                 />
                 <p>
                   We are an open source project and are a part of the Github Sponsors program. If
