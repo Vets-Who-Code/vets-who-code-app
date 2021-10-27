@@ -13,7 +13,7 @@ function Donate() {
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Donate to #VetsWhoCode</h1>
               <p>
-                <i>There are multiple ways to support #VetsWhoCode.</i>
+                <i>Thank you for choosing to support #VetsWhoCode. Here we have a few ways to support our organization</i>
               </p>
             </div>
             <div className="row"></div>
