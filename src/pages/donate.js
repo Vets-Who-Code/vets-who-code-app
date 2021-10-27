@@ -61,7 +61,7 @@ function Donate() {
                 </p>
               </div>
               <div className="story col-sm-4">
-                <h3>Github Sponsors</h3>
+                <h3 className="text-center">Github Sponsors</h3>
                 <StaticImage
                   src="../images/github-sponsors.jpeg"
                   alt="Github Sponsors"
