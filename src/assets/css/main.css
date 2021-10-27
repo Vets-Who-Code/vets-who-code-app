@@ -2472,6 +2472,14 @@ div.zabuto_calendar tr.calendar-dow td {
 .footer .footer-menu li:last-child {
   border-right: none;
 }
+.footer-guidestar {
+  margin-top: 24px;
+}
+@media(width: 768px) {
+  .footer-guidestar {
+    margin-bottom: 30px;
+  }
+}
 @media (max-width: 767px) {
   .footer .footer-menu {
     text-align: center;

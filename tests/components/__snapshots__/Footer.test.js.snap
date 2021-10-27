@@ -165,6 +165,10 @@ exports[`<Footer /> should render correctly 1`] = `
                 </i>
               </a>
             </div>
+            <a
+              aria-label="Guidestar"
+              href="https://www.guidestar.org/profile/86-2122804"
+            />
           </div>
         </div>
         <div
@@ -222,6 +226,13 @@ exports[`<Footer /> should render correctly 1`] = `
                         href="/syllabus"
                       >
                         Syllabus
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="/code-of-conduct"
+                      >
+                        Conduct
                       </a>
                     </li>
                     <li>
@@ -292,13 +303,6 @@ exports[`<Footer /> should render correctly 1`] = `
                         href="/contact"
                       >
                         Contact Us
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="/code-of-conduct"
-                      >
-                        Conduct
                       </a>
                     </li>
                   </ul>
