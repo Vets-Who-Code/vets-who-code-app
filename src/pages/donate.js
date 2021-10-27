@@ -82,6 +82,8 @@ function Donate() {
                   alt="Amazon Smile"
                   width={1000}
                   height={500}
+                  placeholder="blurred"
+                  layout="constrained"
                 />
                 <p>
                   Looking to give while shopping? We have a{' '}
