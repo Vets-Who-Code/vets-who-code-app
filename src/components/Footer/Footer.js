@@ -1,4 +1,5 @@
 import Link from 'gatsby-link'
+import { StaticImage } from 'gatsby-plugin-image'
 import {
   FaFacebookF,
   FaTwitter,
@@ -63,6 +64,16 @@ function Footer() {
                     </i>
                   </a>
                 </div>
+                <a href="https://www.guidestar.org/profile/86-2122804" aria-label="Guidestar">
+                  <StaticImage
+                    className="footer-guidestar"
+                    src="../../images/guidestar.svg"
+                    alt="guidestar seal"
+                    placeholder="tracedSVG"
+                    layout="constrained"
+                    width="96"
+                  />
+                </a>
               </div>
             </div>
             <div className="col-md-4">
@@ -85,6 +96,9 @@ function Footer() {
                         </li>
                         <li>
                           <Link to="/syllabus">Syllabus</Link>
+                        </li>
+                        <li>
+                          <Link to="/code-of-conduct">Conduct</Link>
                         </li>
                         <li>
                           <Link to="/jobs">Job Search</Link>
@@ -117,9 +131,6 @@ function Footer() {
                         </li>
                         <li>
                           <Link to="/contact">Contact Us</Link>
-                        </li>
-                        <li>
-                          <Link to="/code-of-conduct">Conduct</Link>
                         </li>
                       </ul>
                     </div>
