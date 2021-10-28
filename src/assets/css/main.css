@@ -294,6 +294,15 @@ a:hover {
 .bg-dark p {
   color: var(--element-4);
 }
+a {
+  color: var(--element-7);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--primary-2);
+  text-decoration: underline;
+}
+
 .bg-light h1,
 .bg-light h2,
 .bg-light h3,
