@@ -74,6 +74,10 @@
   height: 620px;
 }
 
+.story h3 {
+  margin-bottom: 1rem;
+}
+
 /* Media Queries below are for donorbox iframe */
 @media (max-width: 685px) {
   .iframe-container {
