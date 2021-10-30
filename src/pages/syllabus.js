@@ -30,7 +30,7 @@ const BLOCKS = [
 const Syllabus = () => {
   return (
     <>
-      <SEO title="View our Syllabus" />
+      <SEO title="Syllabus" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">
