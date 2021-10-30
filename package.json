@@ -24,6 +24,7 @@
     "gatsby-source-filesystem": "3.5.0",
     "gatsby-transformer-sharp": "3.5.0",
     "generate": "0.14.0",
+    "husky": "7.0.4",
     "intersection-observer": "0.12.0",
     "nuka-carousel": "4.7.8",
     "react": "17.0.2",
@@ -57,7 +58,8 @@
     "lint": "eslint src",
     "test:coverage": "jest --env=jsdom --coverage",
     "test:watch": "jest --watch",
-    "view:coverage": "open coverage/lcov-report/index.html"
+    "view:coverage": "open coverage/lcov-report/index.html",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
@@ -79,10 +81,12 @@
     "lint-staged": "11.0.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.3.0",
-    "pretty-quick": "3.1.0",
+    "pretty-quick": "3.1.1",
     "react-test-renderer": "17.0.2"
   },
-  "lint-staged": {
-    "*": "yarn format"
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
