@@ -13,7 +13,7 @@ describe('<SEO />', () => {
       </LocationProvider>
     )
     const helmet = Helmet.peek()
-    expect(helmet.title).toBe('#VetsWhoCode')
+    expect(helmet.title).toBe('#VetsWhoCode 🇺🇸 ')
     expect.arrayContaining([
       {
         name: 'image',
@@ -51,7 +51,7 @@ describe('<SEO />', () => {
       </LocationProvider>
     )
     const helmet = Helmet.peek()
-    expect(helmet.title).toBe('#VetsWhoCode')
+    expect(helmet.title).toBe('hello world')
     expect(helmet.metaTags).toEqual([
       {
         name: 'image',

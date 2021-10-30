@@ -71,7 +71,7 @@ function Footer() {
                     alt="guidestar seal"
                     placeholder="tracedSVG"
                     layout="constrained"
-                    width="96"
+                    width={96}
                   />
                 </a>
               </div>

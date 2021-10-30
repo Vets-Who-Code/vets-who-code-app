@@ -5,6 +5,7 @@ import SponsorSlider from '../components/SponsorSlider'
 import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 import { SubscribeForm } from '../components/Forms'
+import SEO from '../components/SEO'
 
 function IndexPage() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function IndexPage() {
 
   return (
     <>
+      <SEO />
       <Header />
       <section id="call-to-action" className="section bg-default call-to-action index">
         <div className="container-fluid">

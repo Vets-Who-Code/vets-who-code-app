@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types'
 import PageHeader from '../../src/components/PageHeader'
 import BoardCards from '../../src/components/Board'
+import SEO from '../../src/components/SEO'
 
 function BoardTemplate({ pageContext }) {
   const { boardMembersList } = pageContext
   return (
     <>
+      <SEO title="Board of Directors" />
       <PageHeader title="Board of Directors" />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container-fluid">

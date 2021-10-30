@@ -22,9 +22,17 @@ const SEO = ({ title, description, image }) => {
     url: `${siteUrl}${pathname}`,
   }
 
+  function isoHomepage() {
+    return pathname === '/'
+  }
+
   return (
-    <Helmet htmlAttributes={{ lang: 'en' }} title={seo.title} titleTemplate={titleTemplate}>
-      <title>#VetsWhoCode</title>
+    <Helmet
+      htmlAttributes={{ lang: 'en' }}
+      title={seo.title}
+      titleTemplate={isoHomepage() ? titleTemplate : seo.title}
+    >
+      <title>{seo.title}</title>
       <meta name="image" content={seo.image} />
       <meta itemProp="name" content="#VetsWhoCode 🇺🇸 " />
 

@@ -5,7 +5,7 @@ import { ApplyForm } from '../components/Forms'
 export default function Apply() {
   return (
     <>
-      <SEO title="Submit an application." />
+      <SEO title="Apply" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">
