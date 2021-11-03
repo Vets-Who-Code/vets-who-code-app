@@ -190,3 +190,8 @@
   margin-bottom: 1rem;
   font-style: italic;
 }
+@media (max-width: 500px) {
+  li {
+    text-align: left;
+  }
+}
