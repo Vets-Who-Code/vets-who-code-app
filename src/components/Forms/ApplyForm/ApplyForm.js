@@ -68,6 +68,7 @@ function ApplyForm() {
 
     try {
       const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/apply'
+
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
@@ -79,9 +80,9 @@ function ApplyForm() {
       if (response.ok) {
         onSubmitSuccess(message)
         setLoading(false)
-        reset()
         setCityState(initialCityState)
-        setZipcode('')
+        setZipError('')
+        reset()
       }
     } catch (error) {
       onSubmitError('OOPS! Something went wrong, please try again later.')
