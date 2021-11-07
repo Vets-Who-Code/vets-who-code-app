@@ -27,7 +27,7 @@ function CodeOfConduct() {
                 <h2>Our Standards</h2>
                 <p className="story">
                   Examples of behavior that contributes to creating a positive environment include:
-                  <ul>
+                  <ul className="text-left">
                     <li>Using welcoming and inclusive language.</li>
                     <li>Being respectful of differing viewpoints and experiences.</li>
                     <li>Gracefully accepting constructive criticism.</li>
@@ -35,7 +35,7 @@ function CodeOfConduct() {
                     <li>Showing empathy towards other community members.</li>
                   </ul>
                   Examples of unacceptable behavior by participants include:
-                  <ul>
+                  <ul className="text-left">
                     <li>
                       The use of sexualized language or imagery and unwelcome sexual attention or
                       advances.
