@@ -1974,6 +1974,7 @@ uneditable-input:focus {
 }
 .panel-heading {
   padding: 0;
+  width: 100%;
 }
 
 .faq_list .panel-title {
