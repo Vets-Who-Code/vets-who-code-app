@@ -5,9 +5,6 @@ async function buildBoardOfDirectorsPage({ graphql, createPage, boardOfDirectors
         edges {
           node {
             id
-            bio {
-              bio
-            }
             linkedin
             firstName
             lastName

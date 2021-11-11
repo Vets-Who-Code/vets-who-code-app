@@ -33,9 +33,6 @@ function BoardCards({ boardMembersList }) {
                 </h1>
                 <h2>{node.work}</h2>
               </div>
-              <div className="bio">
-                <p className="board-bio">{node?.bio?.bio}</p>
-              </div>
               <div className="board-links">
                 {node.linkedin && (
                   <a
@@ -71,7 +68,6 @@ BoardCards.propTypes = {
     PropTypes.shape({
       node: PropTypes.shape({
         id: PropTypes.string,
-        bio: PropTypes.shape({ bio: PropTypes.string }),
         linkedin: PropTypes.string,
         twitter: PropTypes.string,
         work: PropTypes.string,

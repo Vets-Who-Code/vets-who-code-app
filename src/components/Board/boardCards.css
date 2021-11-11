@@ -48,11 +48,6 @@
   border: 1px solid var(--element-3);
 }
 
-.bio {
-  flex-grow: 1;
-  margin-bottom: 1rem;
-}
-
 .board-links {
   display: flex;
   justify-content: space-evenly;

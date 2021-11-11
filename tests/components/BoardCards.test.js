@@ -8,9 +8,6 @@ describe('<BoardCards />', () => {
       {
         node: {
           id: 'new-id-1',
-          bio: {
-            bio: 'First user bio',
-          },
           linkedin: 'https://www.linkedin.com/in/jodysmith',
           twitter: 'https://www.twitter.com/jodysmith',
           work: 'My cool Job',
@@ -29,9 +26,6 @@ describe('<BoardCards />', () => {
       {
         node: {
           id: 'new-id-3',
-          bio: {
-            bio: 'Third user bio',
-          },
           linkedin: 'https://www.linkedin.com/in/jodyzander',
           twitter: 'https://www.twitter.com/jodyzander',
           work: 'Jody Job',
@@ -50,9 +44,6 @@ describe('<BoardCards />', () => {
       {
         node: {
           id: 'new-id-2',
-          bio: {
-            bio: 'Second user bio',
-          },
           linkedin: 'https://www.linkedin.com/in/jodynelson',
           twitter: 'https://www.twitter.com/jodynelson',
           work: 'Fake Job',

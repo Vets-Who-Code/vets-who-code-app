@@ -33,7 +33,6 @@ BoardTemplate.propTypes = {
       PropTypes.shape({
         node: PropTypes.shape({
           id: PropTypes.string,
-          bio: PropTypes.shape({ bio: PropTypes.string }),
           linkedin: PropTypes.string,
           twitter: PropTypes.string,
           work: PropTypes.string,
