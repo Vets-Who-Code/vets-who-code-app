@@ -59,14 +59,21 @@
     "test:coverage": "jest --env=jsdom --coverage",
     "test:watch": "jest --watch",
     "view:coverage": "open coverage/lcov-report/index.html",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",
+    "@storybook/addon-actions": "^6.4.13",
+    "@storybook/addon-essentials": "^6.4.13",
+    "@storybook/addon-links": "^6.4.13",
+    "@storybook/react": "^6.4.13",
     "@testing-library/jest-dom": "5.12.0",
     "@testing-library/react": "11.2.6",
     "babel-eslint": "10.1.0",
     "babel-jest": "26.6.3",
+    "babel-loader": "^8.2.3",
     "babel-preset-gatsby-package": "1.5.0",
     "cross-spawn": "7.0.3",
     "cross-spawn-with-kill": "1.0.0",
