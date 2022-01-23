@@ -6,6 +6,7 @@ import Countdown from '../components/Countdown'
 import Header from '../components/Header'
 import { SubscribeForm } from '../components/Forms'
 import SEO from '../components/SEO'
+import { FaStar } from 'react-icons/fa'
 
 function IndexPage() {
   useEffect(() => {
@@ -101,9 +102,7 @@ function IndexPage() {
           <div className="row">
             <div className="featured-heading text-center">
               <h2 className="dark_color">
-                RETOOL
-                <i className="fa fa-code" aria-hidden="true" /> RETRAIN
-                <i className="fa fa-code" aria-hidden="true" /> RELAUNCH
+                RETOOL <FaStar size={20} /> RETRAIN <FaStar size={20} /> RELAUNCH
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">
