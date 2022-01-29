@@ -123,13 +123,13 @@ function IndexPage() {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Surprising Update</h3>
+              <h3 className="next-cohort">Join Our Next Cohort</h3>
               <div className="event_excerpt">
-                <p>Launching something new Veteran&apos;s Day. Be sure to apply!</p>
+                <p>Our next session will begin soon!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
-              <Countdown nextClass="Novemeber 11, 2021" />
+              <Countdown nextClass="March 07, 2022" />
               <Link className="btn btn-charity-default" to="/apply">
                 Apply
               </Link>
