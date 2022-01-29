@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const { buildBlog, buildPodcast, buildBoardOfDirectorsPage } = require('./gatsby-node-helpers')
 
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -33,4 +34,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     })
     await buildBoardOfDirectorsPage({ graphql, createPage, boardOfDirectorsTemplate })
   }
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      fallback: {
+        stream: require.resolve('stream-browserify'),
+        util: require.resolve('util/'),
+      },
+    },
+  })
 }

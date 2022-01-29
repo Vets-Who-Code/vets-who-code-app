@@ -2,7 +2,6 @@
   "printWidth": 100,
   "singleQuote": true,
   "trailingComma": "es5",
-  "jsxBracketSameLine": false,
   "semi": false,
   "arrowParens": "avoid"
 }

@@ -7,6 +7,7 @@ describe('<Pagination />', () => {
     totalPages: 2,
     minPage: 1,
     maxPage: 100,
+    formData: jest.fn()
   }
 
   test('should render route correctly', () => {

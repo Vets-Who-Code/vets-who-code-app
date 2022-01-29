@@ -41,7 +41,7 @@ function Testimonial() {
                   <StaticImage
                     width={200}
                     height={200}
-                    src="../images/profile.png"
+                    src="../images/john-garcia.png"
                     alt="John Garcia"
                   />
                   <blockquote className="testimonial-text">

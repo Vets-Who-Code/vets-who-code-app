@@ -111,7 +111,7 @@ In a terminal window run these commands if you need to update a snapshot.
 
 ```sh
 cd vets-who-code-app
-yarn test --updateSnapshot
+yarn test:update-snapshots
 ```
 
 <!-- ## Deployment -->

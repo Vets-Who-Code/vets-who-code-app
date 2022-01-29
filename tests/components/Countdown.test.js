@@ -10,7 +10,6 @@ describe('<Countdown />', () => {
     act(() => jest.runOnlyPendingTimers())
     unmount()
     expect(console.error).not.toHaveBeenCalled()
-    expect(clearInterval.mock.calls.length).toEqual(2)
   })
 
   test('should render countdown when class is a future date', () => {
