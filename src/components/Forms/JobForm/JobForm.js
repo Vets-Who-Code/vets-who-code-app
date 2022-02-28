@@ -1,8 +1,8 @@
-import { onSubmitError } from '../'
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
-import { useState } from 'react'
-import './Jobform.css'
+import { FaSearch } from 'react-icons/fa'
+import { onSubmitError } from '../'
 
 function JobForm({ formData, apiError }) {
   const { register, handleSubmit } = useForm()
@@ -80,7 +80,7 @@ function JobForm({ formData, apiError }) {
 
         <div className="search-button">
           <button type="submit" className="btn btn-charity-default">
-            <i className="glyphicon glyphicon-search">&nbsp;Search</i>
+            <FaSearch /> Search
           </button>
         </div>
       </form>

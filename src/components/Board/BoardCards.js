@@ -1,57 +1,53 @@
 import PropTypes from 'prop-types'
-// CURRENTLY NEW GATSBY-IMAGE-PLUGIN DOES NOT INTEGRATE WITH CONTENTFUL USING
-// GATSBY-IMAGE UNTIL THE API SUPPORTS CONTENTFUL
-import Image from 'gatsby-image'
+import Image from 'next/image'
 import { FaTwitter, FaLinkedinIn } from 'react-icons/fa'
-import './boardCards.css'
 
-function BoardCards({ boardMembersList }) {
-  const sortedBoardMembers = boardMembersList.sort((a, b) => {
-    const aLastName = a.node.lastName
-    const bLastName = b.node.lastName
-    if (aLastName < bLastName) {
-      return -1
-    }
-    if (aLastName > bLastName) {
-      return 1
-    }
-    return 0
-  })
-
+function BoardCards({ boardMemberCollection }) {
   return (
     <>
-      {sortedBoardMembers.map(({ node }) => {
+      {boardMemberCollection.map(boardMember => {
+        const { firstName, lastName, work, image, linkedin, twitter, bio } = boardMember.fields
+        const { file } = image.fields
         return (
-          <div key={node.id} className="col-md-6 col-lg-3 col-sm-6">
+          <div key={`${firstName}-${lastName}`} className="col-md-6 col-lg-3 col-sm-6">
             <div className="card-box text-center">
               <div className="upper">
                 <div className="user-pic">
-                  <Image fluid={node.image.fluid} alt={node.name} className="img-fluid" />
+                  <Image
+                    className="user-pic img-fluid"
+                    placeholder="blur"
+                    blurDataURL={file.url}
+                    // layout="fill"
+                    src={`https:${file.url}`}
+                    alt={`${firstName} ${lastName}`}
+                    width={200}
+                    height={200}
+                  />
                 </div>
                 <h1>
-                  {node.firstName} {node.lastName}
+                  {firstName} {lastName}
                 </h1>
-                <h2>{node.work}</h2>
+                <h2>{work}</h2>
               </div>
               <div className="bio">
-                <p className="board-bio">{node?.bio?.bio}</p>
+                <p className="board-bio">{bio}</p>
               </div>
               <div className="board-links">
-                {node.linkedin && (
+                {linkedin && (
                   <a
-                    aria-label={`${node.firstName} ${node.lastName} linkedin`}
+                    aria-label={`${firstName} ${lastName} linkedin`}
                     rel="noopener noreferrer"
-                    href={node.linkedin}
+                    href={linkedin}
                     target="_blank"
                   >
                     <FaLinkedinIn className="board-icons" size="40" />
                   </a>
                 )}
-                {node.twitter && (
+                {twitter && (
                   <a
-                    aria-label={`${node.firstName} ${node.lastName} twitter`}
+                    aria-label={`${firstName} ${lastName} twitter`}
                     rel="noopener noreferrer"
-                    href={node.twitter}
+                    href={twitter}
                     target="_blank"
                   >
                     <FaTwitter className="board-icons" size="40" />
@@ -67,21 +63,28 @@ function BoardCards({ boardMembersList }) {
 }
 
 BoardCards.propTypes = {
-  boardMembersList: PropTypes.arrayOf(
+  boardMemberCollection: PropTypes.arrayOf(
     PropTypes.shape({
-      node: PropTypes.shape({
-        id: PropTypes.string,
-        bio: PropTypes.shape({ bio: PropTypes.string }),
-        linkedin: PropTypes.string,
-        twitter: PropTypes.string,
-        work: PropTypes.string,
+      metadata: PropTypes.shape({
+        tags: PropTypes.array,
+      }),
+      fields: PropTypes.shape({
         firstName: PropTypes.string,
         lastName: PropTypes.string,
-        fluid: PropTypes.shape({
-          srcSet: PropTypes.string,
-          src: PropTypes.string,
-          sizes: PropTypes.string,
-          aspectRatio: PropTypes.number,
+        title: PropTypes.string,
+        bio: PropTypes.string,
+        image: PropTypes.shape({
+          file: PropTypes.shape({
+            url: PropTypes.string,
+            fileName: PropTypes.string,
+            contentType: PropTypes.string,
+            details: PropTypes.shape({
+              image: PropTypes.shape({
+                width: PropTypes.number,
+                height: PropTypes.number,
+              }),
+            }),
+          }),
         }),
       }),
     })

@@ -2,7 +2,6 @@ import { useContext } from 'react'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import PropTypes from 'prop-types'
-import './toggle.css'
 
 function Toggle({ size }) {
   const { colorMode, setColorMode } = useContext(ThemeContext)

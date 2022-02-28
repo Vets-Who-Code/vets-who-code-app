@@ -25,7 +25,7 @@ function SvgContentful({ size, color, style }) {
 }
 
 SvgContentful.propTypes = {
-  size: PropTypes.string || PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,
   style: PropTypes.string,
 }

@@ -1,11 +1,11 @@
-import { StaticImage } from 'gatsby-plugin-image'
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
+import { NextSeo } from 'next-seo'
+import Image from 'next/image'
+import PageHeader from '@/components/PageHeader'
 
 function Donate() {
   return (
     <>
-      <SEO title="Donate" />
+      <NextSeo title="Donate" />
       <PageHeader />
       <section id="cause_single" className="small-top-pad section bg-default">
         <div className="container">
@@ -44,13 +44,13 @@ function Donate() {
               </div>
               <div className="story col-sm-4">
                 <h3 className="text-center">Corporate Giving</h3>
-                <StaticImage
-                  src="../images/corporate-giving.jpeg"
+                <Image
+                  src="/images/corporate-giving.jpeg"
+                  blurDataURL="../images/corporate-giving.jpeg"
                   alt="Corporate Giving"
                   width={1000}
                   height={500}
-                  placeholder="blurred"
-                  layout="constrained"
+                  placeholder="blur"
                 />
                 <p>
                   To ensure ease for those interested in supporting on the corporate level, we have
@@ -64,13 +64,13 @@ function Donate() {
               </div>
               <div className="story col-sm-4">
                 <h3 className="text-center">Github Sponsors</h3>
-                <StaticImage
-                  src="../images/github-sponsors.jpeg"
+                <Image
+                  src="/images/github-sponsors.jpeg"
+                  blurDataURL="../images/github-sponsors.jpeg"
                   alt="Github Sponsors"
                   width={1000}
                   height={500}
-                  placeholder="blurred"
-                  layout="constrained"
+                  placeholder="blur"
                 />
                 <p>
                   We are an open source project and are a part of the Github Sponsors program. If
@@ -81,13 +81,14 @@ function Donate() {
               </div>
               <div className="story col-sm-4">
                 <h3 className="text-center">Amazon Smile</h3>
-                <StaticImage
-                  src="../images/amazon-smile.jpeg"
+                <Image
+                  src="/images/amazon-smile.jpeg"
                   alt="Amazon Smile"
+                  blurDataURL="/images/amazon-smile.jpeg"
                   width={1000}
                   height={500}
-                  placeholder="blurred"
-                  layout="constrained"
+                  placeholder="blur"
+                  // layout="fill"
                 />
                 <p>
                   Looking to give while shopping? We have a{' '}
@@ -108,10 +109,14 @@ function Donate() {
             <div className="col-md-12">
               <div className="cause_section_content">
                 <div className="testimonial-row">
-                  <StaticImage
-                    src="../images/john-garcia.png"
+                  <Image
+                    className="img-responsive"
+                    src="/images/john-garcia.png"
+                    blurDataURL="/images/john-garcia.jpeg"
                     alt="John Garcia"
-                    style={{ height: 200, width: 200 }}
+                    width={256}
+                    height={256}
+                    placeholder="blur"
                   />
                   <blockquote className="testimonial-text">
                     <p>

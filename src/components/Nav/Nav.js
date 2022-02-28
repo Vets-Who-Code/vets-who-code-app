@@ -1,9 +1,10 @@
 import { useReducer, useState, useRef, useEffect } from 'react'
-import Link from 'gatsby-link'
-import { StaticImage } from 'gatsby-plugin-image'
+import Link from 'next/link'
+import Image from 'next/image'
 import { AiFillCaretDown } from 'react-icons/ai'
 import Toggle from '../Toggle'
-import './nav.css'
+
+import hashFlag from '../../images/hashflag_white.jpg'
 
 const NAV = {
   TOGGLE_MOBILE_NAVIGATION: 'TOGGLE_MOBILE_NAVIGATION',
@@ -116,13 +117,17 @@ function Nav() {
             itemType="https://schema.org/Organization"
           >
             <span className="sr-only">#VetsWhoCode</span>
-            <Link to="/" id="navbar-brand">
-              <StaticImage
-                src="../../images/hashflag_white.jpg"
-                alt="#VetsWhoCode Logo"
-                className="logo_holder"
-              />
-              <div className="homeLink">VetsWhoCode</div>
+            <Link href="/">
+              <a id="navbar-brand">
+                <Image
+                  src={hashFlag}
+                  alt="#VetsWhoCode Logo"
+                  className="logo_holder"
+                  height={40}
+                  width={40}
+                />
+                <div className="homeLink">VetsWhoCode</div>
+              </a>
             </Link>
           </div>
           <button
@@ -154,8 +159,10 @@ function Nav() {
               </span>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/">
-                <span>Home</span>
+              <Link href="/">
+                <a>
+                  <span>Home</span>
+                </a>
               </Link>
             </li>
             <li
@@ -176,19 +183,25 @@ function Nav() {
                 <AiFillCaretDown className="dropdown-caret" />
               </a>
               <ul className="dropdown-menu">
-                <li role="menuitem" className="nav media-dropdown-item">
-                  <Link onClick={resetNavigation} to="/about">
-                    <span>About</span>
+                <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
+                  <Link href="/about" passHref>
+                    <a>
+                      <span>About</span>
+                    </a>
                   </Link>
                 </li>
-                <li role="menuitem" className="nav media-dropdown-item">
-                  <Link onClick={resetNavigation} to="/board">
-                    <span>Board</span>
+                <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
+                  <Link href="/board">
+                    <a>
+                      <span>Board</span>
+                    </a>
                   </Link>
                 </li>
                 <li role="menuitem" className="nav" onClick={resetNavigation}>
-                  <Link to="/testimonials">
-                    <span>Testimonials</span>
+                  <Link href="/testimonials">
+                    <a>
+                      <span>Testimonials</span>
+                    </a>
                   </Link>
                 </li>
               </ul>
@@ -211,14 +224,18 @@ function Nav() {
                 <AiFillCaretDown className="dropdown-caret" />
               </a>
               <ul className="dropdown-menu">
-                <li role="menuitem" className="nav media-dropdown-item">
-                  <Link onClick={resetNavigation} to="/blog">
-                    <span>Blog</span>
+                <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
+                  <Link href="/blog/1">
+                    <a>
+                      <span>Blog</span>
+                    </a>
                   </Link>
                 </li>
-                <li role="menuitem" className="nav media-dropdown-item">
-                  <Link onClick={resetNavigation} to="/podcast">
-                    <span>Podcast</span>
+                <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
+                  <Link href="/podcast/1">
+                    <a>
+                      <span>Podcast</span>
+                    </a>
                   </Link>
                 </li>
               </ul>
@@ -242,40 +259,54 @@ function Nav() {
               </a>
               <ul className="dropdown-menu">
                 <li role="menuitem" className="nav" onClick={resetNavigation}>
-                  <Link to="/apply">
-                    <span>Veteran</span>
+                  <Link href="/apply">
+                    <a>
+                      <span>Veteran</span>
+                    </a>
                   </Link>
                 </li>
                 <li role="menuitem" className="nav" onClick={resetNavigation}>
-                  <Link to="/mentor">
-                    <span>Mentor</span>
+                  <Link href="/mentor">
+                    <a>
+                      <span>Mentor</span>
+                    </a>
                   </Link>
                 </li>
               </ul>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/syllabus">
-                <span>Syllabus</span>
+              <Link href="/syllabus">
+                <a>
+                  <span>Syllabus</span>
+                </a>
               </Link>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/jobs">
-                <span>Job Search</span>
+              <Link href="/jobs">
+                <a>
+                  <span>Job Search</span>
+                </a>
               </Link>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/contact">
-                <span>Contact</span>
+              <Link href="/contact">
+                <a>
+                  <span>Contact</span>
+                </a>
               </Link>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
-              <Link to="/code-of-conduct">
-                <span>Code Of Conduct</span>
+              <Link href="/code-of-conduct">
+                <a>
+                  <span>Code Of Conduct</span>
+                </a>
               </Link>
             </li>
             <li role="menuitem" className="donate" onClick={resetNavigation}>
-              <Link to="/donate">
-                <span>Donate</span>
+              <Link href="/donate">
+                <a>
+                  <span>Donate</span>
+                </a>
               </Link>
             </li>
           </ul>

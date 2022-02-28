@@ -1,9 +1,9 @@
 /* eslint-disable react/display-name */
 import { Fragment } from 'react'
-import Accordion, { Panel } from '../components/Accordion'
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
-import { MentorForm } from '../components/Forms'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
+import Accordion, { Panel } from '@/components/Accordion'
+import { MentorForm } from '@/components/Forms'
 
 const mainGuidelines = [
   {
@@ -118,7 +118,7 @@ const additionalGuidelines = [
 function Mentor() {
   return (
     <>
-      <SEO title="Become a Mentor" />
+      <NextSeo title="Mentor" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { useForm } from 'react-hook-form'
 import { FormAlert, onSubmitSuccess, onSubmitError } from '../'
 
-function ApplyForm() {
+function SubscribeForm() {
   const subscribeButtonRef = useRef()
   const { register, handleSubmit, errors, reset } = useForm()
 
@@ -11,13 +11,13 @@ function ApplyForm() {
     e.preventDefault()
 
     try {
-      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/subscribe'
+      const subscribApiEndpoint = '/api/subscribe'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
       }
 
-      const response = await fetch(gatewayUrl, options)
+      const response = await fetch(subscribApiEndpoint, options)
       const message = 'Thanks for subscribing!'
 
       if (response.ok) {
@@ -73,9 +73,9 @@ function ApplyForm() {
   )
 }
 
-ApplyForm.propTypes = {
+SubscribeForm.propTypes = {
   onSubmitSuccess: PropTypes.func,
   onSubmitError: PropTypes.func,
 }
 
-export default ApplyForm
+export default SubscribeForm

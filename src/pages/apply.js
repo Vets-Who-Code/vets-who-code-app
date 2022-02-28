@@ -1,11 +1,11 @@
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
-import { ApplyForm } from '../components/Forms'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
+import { ApplyForm } from '@/components/Forms'
 
 export default function Apply() {
   return (
     <>
-      <SEO title="Apply" />
+      <NextSeo title="Apply" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

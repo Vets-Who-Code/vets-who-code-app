@@ -1,9 +1,10 @@
+import { FaExclamationCircle } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 
 function FormAlert({ errorMessage }) {
   return (
     <div className="alert alert-danger" role="alert">
-      <span className="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <FaExclamationCircle aria-hidden="true" />
       <span className="sr-only">Error:</span> {errorMessage || 'Field is required'}
     </div>
   )

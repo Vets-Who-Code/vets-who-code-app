@@ -31,12 +31,12 @@ function ContactForm() {
     setLoading(true)
 
     try {
-      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/contact'
+      const contactApiEndpoint = '/api/contact'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
       }
-      const response = await fetch(gatewayUrl, options)
+      const response = await fetch(contactApiEndpoint, options)
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')
         setLoading(false)

@@ -1,39 +1,21 @@
-import { useEffect } from 'react'
-import { Link } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
-import SponsorSlider from '../components/SponsorSlider'
-import Countdown from '../components/Countdown'
-import Header from '../components/Header'
-import { SubscribeForm } from '../components/Forms'
-import SEO from '../components/SEO'
+import Link from 'next/link'
+import Image from 'next/image'
+import { FaStar } from 'react-icons/fa'
+import Countdown from '@/components/Countdown'
+import Header from '@/components/Header'
+import SponsorSlider from '@/components/SponsorSlider'
+import { SubscribeForm } from '@/components/Forms'
+import { setupContentfulClient } from '@/utilities/conentful'
 
-function IndexPage() {
-  useEffect(() => {
-    let current = true
-    if (current) {
-      onClientEntry()
-    }
-    return () => (current = false)
-  }, [])
-
-  const onClientEntry = () => {
-    // IntersectionObserver polyfill for gatsby-background-image (Safari, IE)
-    if (window !== undefined) {
-      if (window.IntersectionObserver === undefined) {
-        require('intersection-observer')
-      }
-    }
-  }
-
+function IndexPage({ nextCohortStartDate }) {
   return (
     <>
-      <SEO />
       <Header />
       <section id="call-to-action" className="section bg-default call-to-action index">
         <div className="container-fluid">
           <div className="row no-gutter">
             <div className="col-md-4">
-              <Link to="/donate">
+              <Link href="/donate" passHref>
                 <div
                   className="fluid-grid first-grid text-center"
                   style={{ backgroundColor: '#031228' }}
@@ -44,7 +26,7 @@ function IndexPage() {
               </Link>
             </div>
             <div className="col-md-4">
-              <Link to="/apply">
+              <Link href="/apply" passHref>
                 <div
                   className="fluid-grid second-grid text-center"
                   style={{ backgroundColor: '#0f356d' }}
@@ -55,7 +37,7 @@ function IndexPage() {
               </Link>
             </div>
             <div className="col-md-4">
-              <Link to="/mentor">
+              <Link href="/mentor" passHref>
                 <div
                   className="fluid-grid third-grid text-center"
                   style={{ backgroundColor: '#123f83' }}
@@ -75,10 +57,14 @@ function IndexPage() {
         <div className="container">
           <div className="row bg-dark">
             <div className="col-md-5 col-sm-12 no_left_pad no_right_pad img-responsive">
-              <StaticImage
-                layout="fullWidth"
-                src="../images/jerome-jsconf.jpg"
+              <Image
+                height={500}
+                width={500}
+                placeholder="blur"
+                blurDataURL="/images/jerome-jsconf.jpg"
+                src="/images/jerome-jsconf.jpg"
                 alt="Jerome at JSConf"
+                layout="responsive"
               />
             </div>
             <div className="col-md-7 col-sm-12 our_story_content text-center">
@@ -102,8 +88,10 @@ function IndexPage() {
             <div className="featured-heading text-center">
               <h2 className="dark_color">
                 RETOOL
-                <i className="fa fa-code" aria-hidden="true" /> RETRAIN
-                <i className="fa fa-code" aria-hidden="true" /> RELAUNCH
+                <FaStar height={20} width={20} />
+                RETRAIN
+                <FaStar height={20} width={20} />
+                RELAUNCH
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">
@@ -123,15 +111,15 @@ function IndexPage() {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Join Our Next Cohort</h3>
+              <h3 className="next-cohort">Surprising Update</h3>
               <div className="event_excerpt">
-                <p>Our next session will begin soon!</p>
+                <p>Launching something new Veteran&apos;s Day. Be sure to apply!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
-              <Countdown nextClass="March 07, 2022" />
-              <Link className="btn btn-charity-default" to="/apply">
-                Apply
+              <Countdown nextClass={nextCohortStartDate} />
+              <Link href="/apply" passHref>
+                <button className="btn btn-charity-default">Apply</button>
               </Link>
             </div>
           </div>
@@ -164,7 +152,6 @@ function IndexPage() {
           </div>
           <div className="row">
             <div className="col-sm-12 cause_content text-center" style={{ marginBottom: 40 }}>
-              {/* eslint-disable-next-line max-len */}
               <h3 id="cause-title">Thank You For Supporting #VetsWhoCode!</h3>
               <hr />
               <h3 className="subtitle">
@@ -180,6 +167,20 @@ function IndexPage() {
       </section>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const response = await setupContentfulClient().getEntry({
+    // eslint-disable-next-line
+    content_type: 'nextCohort',
+  })
+  const { nextCohortStartDate } = response.fields
+
+  return {
+    props: {
+      nextCohortStartDate,
+    },
+  }
 }
 
 export default IndexPage

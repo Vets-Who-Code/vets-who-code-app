@@ -1,69 +1,65 @@
 import { render } from '@testing-library/react'
-import BoardCards from '../../src/components/Board'
+import BoardCards from '@/components/Board'
 
 describe('<BoardCards />', () => {
   let mockContentfulContent
   beforeEach(() => {
     mockContentfulContent = [
       {
-        node: {
-          id: 'new-id-1',
-          bio: {
-            bio: 'First user bio',
-          },
-          linkedin: 'https://www.linkedin.com/in/jodysmith',
-          twitter: 'https://www.twitter.com/jodysmith',
-          work: 'My cool Job',
-          firstName: 'Jody',
-          lastName: 'Smith',
-          image: {
-            fluid: {
-              src: 'facke src',
-              sizes: 'fake sizes',
-              srcSet: 'fake srcSet',
-              aspectRatio: 100,
-            },
-          },
-        },
-      },
-      {
-        node: {
-          id: 'new-id-3',
-          bio: {
-            bio: 'Third user bio',
-          },
-          linkedin: 'https://www.linkedin.com/in/jodyzander',
-          twitter: 'https://www.twitter.com/jodyzander',
-          work: 'Jody Job',
-          firstName: 'Jody',
-          lastName: 'Zander',
-          image: {
-            fluid: {
-              src: 'facke src',
-              sizes: 'fake sizes',
-              srcSet: 'fake srcSet',
-              aspectRatio: 100,
-            },
-          },
-        },
-      },
-      {
-        node: {
+        fields: {
           id: 'new-id-2',
-          bio: {
-            bio: 'Second user bio',
-          },
+          bio: 'Second user bio',
           linkedin: 'https://www.linkedin.com/in/jodynelson',
           twitter: 'https://www.twitter.com/jodynelson',
           work: 'Fake Job',
           firstName: 'Jody',
           lastName: 'Nelson',
           image: {
-            fluid: {
-              src: 'facke src',
-              sizes: 'fake sizes',
-              srcSet: 'fake srcSet',
-              aspectRatio: 100,
+            fields: {
+              file: {
+                url: 'facke src',
+                width: 400,
+                height: 400,
+              },
+            },
+          },
+        },
+      },
+      {
+        fields: {
+          bio: 'First user bio',
+          linkedin: 'https://www.linkedin.com/in/jodysmith',
+          twitter: 'https://www.twitter.com/jodysmith',
+          work: 'My cool Job',
+          firstName: 'Jody',
+          lastName: 'Smith',
+          image: {
+            fields: {
+              file: {
+                url: 'facke url',
+                width: 400,
+                height: 400,
+              },
+            },
+          },
+        },
+      },
+      {
+        fields: {
+          id: 'new-id-3',
+          bio: 'Third user bio',
+          linkedin: 'https://www.linkedin.com/in/jodyzander',
+          twitter: 'https://www.twitter.com/jodyzander',
+          work: 'Jody Job',
+          firstName: 'Jody',
+          lastName: 'Zander',
+          image: {
+            fields: {
+              file: {
+                url: 'facke src',
+                width: 400,
+                height: 400,
+              },
             },
           },
         },
@@ -73,9 +69,9 @@ describe('<BoardCards />', () => {
 
   test('should handle case when linkedin url is not present', () => {
     // mutate mock data
-    delete mockContentfulContent[2].node.linkedin
+    delete mockContentfulContent[0].fields.linkedin
 
-    const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
+    const { container } = render(<BoardCards boardMemberCollection={mockContentfulContent} />)
     const linkTags = container.querySelectorAll('a')
 
     expect(linkTags.length).toBe(5)
@@ -88,9 +84,9 @@ describe('<BoardCards />', () => {
 
   test('should handle case when twitter url is not present', () => {
     // mutate mock data
-    delete mockContentfulContent[2].node.twitter
+    delete mockContentfulContent[0].fields.twitter
 
-    const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
+    const { container } = render(<BoardCards boardMemberCollection={mockContentfulContent} />)
     const linkTags = container.querySelectorAll('a')
 
     expect(linkTags.length).toBe(5)
@@ -101,18 +97,8 @@ describe('<BoardCards />', () => {
     expect(linkTags[4].href).toBe('https://www.twitter.com/jodyzander')
   })
 
-  test('should sort board members by last name', () => {
-    const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
-
-    const nameHeadings = container.querySelectorAll('h1')
-
-    expect(nameHeadings[0].textContent).toBe('Jody Nelson')
-    expect(nameHeadings[1].textContent).toBe('Jody Smith')
-    expect(nameHeadings[2].textContent).toBe('Jody Zander')
-  })
-
   test('should render all dyncamic data', () => {
-    const { container } = render(<BoardCards boardMembersList={mockContentfulContent} />)
+    const { container } = render(<BoardCards boardMemberCollection={mockContentfulContent} />)
 
     const nameHeadings = container.querySelectorAll('h1')
     const workHeadings = container.querySelectorAll('h2')

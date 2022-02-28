@@ -1,3 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> should render correctly 1`] = `null`;
+exports[`<Header /> should render correctly 1`] = `
+<section
+  class="site-header flexslider classic overlay main-overlay grey"
+>
+  <img
+    alt="image of code on a computer screen"
+    layout="fill"
+    placeholder="blur"
+    src="/images/code.jpg"
+  />
+  <div
+    class="header-classic wrapper-table"
+  >
+    <div
+      class="valign-center"
+    >
+      <div
+        class="container"
+      >
+        <div
+          class="col-md-10 col-md-offset-1"
+        >
+          <div
+            class="intro text-left"
+            style="color: rgb(255, 255, 255);"
+          >
+            <h1>
+              <span
+                class="typedString"
+              >
+                <span />
+                <span
+                  class="typed-cursor"
+                >
+                  |
+                </span>
+              </span>
+            </h1>
+            <p
+              class="subtitle"
+            >
+              With Vets Who Code.
+            </p>
+            <div
+              class="btn-cal-group"
+            >
+              <a
+                class="btn btn-charity-default"
+                href="/apply"
+              >
+                Apply
+              </a>
+               
+              <a
+                class="btn btn-charity-default"
+                href="/donate"
+              >
+                Donate
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;

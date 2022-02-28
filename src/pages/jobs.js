@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import JobForm from '../components/Forms/JobForm'
-import Card from '../components/Card'
-import Loader from '../components/Loader'
-import Video from '../components/Video'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
+import Card from '@/components/Card'
+import Loader from '@/components/Loader'
+import Video from '@/components/Video'
+import Pagination from '@/components/Pagination'
+import { JobForm } from '@/components/Forms'
 import Adzuna from '../icons/Adzuna'
-import Pagination from '../components/Pagination'
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
 
 function Jobs() {
   const [jobData, setJobData] = useState(null)
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
-  const [pageContext, setPageContext] = useState(false)
+  const [pageContext, setPageContext] = useState({})
   const [apiError, setApiError] = useState(false)
 
   async function formData(formResponse, page = 1) {
@@ -27,7 +27,7 @@ function Jobs() {
     const WHAT = 'javascript reactjs gatsby graphql nodejs node.js jquery bootstrap'
     const EXCLUDE = '0000 senior sr principal lead master'
 
-    const URL = `https://8oi4im0qo3.execute-api.us-east-1.amazonaws.com/prod/jobsearch/${page}?&results_per_page=15&what_or=${WHAT}&where=${
+    const URL = `/api/jobsearch?&page=${page}&results_per_page=15&what_or=${WHAT}&where=${
       formResponse.zipCode
     }&distance=${formResponse.distance}&what_exclude=${EXCLUDE}&sort_by=date&max_days_old=30${
       formResponse.remote === true ? '&what_and=remote' : ''
@@ -53,9 +53,38 @@ function Jobs() {
     }
   }
 
+  const maxPageFn = clicked => {
+    if (clicked === 'More') {
+      if (pageContext.maxPage + 10 > totalPages) {
+        return totalPages
+      } else {
+        return pageContext.maxPage + 10
+      }
+    }
+    return pageContext.maxPage + clicked
+  }
+
+  const handleUpageJobPagination = node => {
+    setPageContext({
+      currentPage: pageContext.currentPage,
+      totalPages: pageContext.totalPages,
+      minPage: pageContext.minPage + node,
+      maxPage: maxPageFn(node),
+      setPageContext: pageContext.setPageContext,
+      formResponse: pageContext.formResponse,
+      formData: pageContext.formData,
+    })
+  }
+
+  const updatePaginationData = value => {
+    if (value !== pageContext.currentPage) {
+      return formData(pageContext.formResponse, value)
+    }
+  }
+
   return (
     <>
-      <SEO title="Find a Developer Job" />
+      <NextSeo title="Find a Developer Job" />
       <PageHeader />
 
       {/* Section Header */}
@@ -162,7 +191,18 @@ function Jobs() {
       {/* Pagination */}
       <div className="container">
         <div className="row">
-          {pageContext && <Pagination pageContext={pageContext} type="api" />}
+          {jobData?.results && (
+            <Pagination
+              minPage={pageContext.minPage ?? 1}
+              maxPage={pageContext.maxPage}
+              totalPages={pageContext.totalPages}
+              isFirstPage={pageContext.isFirstPage}
+              isLastPage={pageContext.isLastPage}
+              updatePaginationData={updatePaginationData}
+              handleUpatePaginationValues={handleUpageJobPagination}
+              type="api"
+            />
+          )}
         </div>
         <div
           style={{

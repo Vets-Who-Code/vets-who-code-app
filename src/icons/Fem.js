@@ -12,7 +12,7 @@ function SvgFem({ size, color, ...style }) {
   )
 }
 SvgFem.propTypes = {
-  size: PropTypes.string || PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,
   style: PropTypes.string,
 }

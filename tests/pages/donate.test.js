@@ -1,5 +1,5 @@
+import { render } from '@testing-library/react'
 import Donate from '../../src/pages/donate'
-import { render, screen } from '@testing-library/react'
 
 describe('<Donate />', () => {
   test('should include donation form iFrame', () => {

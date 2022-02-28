@@ -1,7 +1,6 @@
-/* eslint-disable prettier/prettier */
-import Accordion, { Panel } from '../components/Accordion'
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
+import Accordion, { Panel } from '@/components/Accordion'
 
 const BLOCKS = [
   {
@@ -30,7 +29,7 @@ const BLOCKS = [
 const Syllabus = () => {
   return (
     <>
-      <SEO title="Syllabus" />
+      <NextSeo title="Syllabus" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

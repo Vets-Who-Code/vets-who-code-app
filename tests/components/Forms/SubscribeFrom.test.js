@@ -1,5 +1,5 @@
-import { SubscribeForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
+import { SubscribeForm } from '@/components/Forms'
 
 describe('<SubscribeForm />', () => {
   test('should submit subscription form', async () => {

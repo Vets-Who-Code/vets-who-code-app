@@ -1,9 +1,9 @@
 import { useState, useEffect, useContext } from 'react'
+import Image from 'next/image'
 import Carousel from 'nuka-carousel'
-import { StaticImage } from 'gatsby-plugin-image'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
-import { SiReplDotIt } from 'react-icons/si'
+import { SiReplit } from 'react-icons/si'
 import { Contentful, Fem, Netlify } from '../../icons'
 
 const baseSettlings = {
@@ -16,9 +16,11 @@ const baseSettlings = {
 }
 
 const alignmentStyles = {
+  position: 'relative',
+  overflow: 'hidden',
   height: 60,
   width: 60,
-  margin: '0 auto',
+  margin: '0px auto',
 }
 
 const elements = [
@@ -26,88 +28,99 @@ const elements = [
     href: 'https://www.google.com/',
     label: 'Link to Google',
     title: 'Google',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/google.png'}
-        alt="Google"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <FaGoogle size={60} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/google.png',
+    darkElement: {
+      component: FaGoogle,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
   {
     href: 'https://github.com/',
     label: 'Link to Github',
     title: 'GitHub',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/github.png'}
-        alt="GitHub"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <FaGithub size={60} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/github.png',
+    darkElement: {
+      component: FaGithub,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
   {
     href: 'https://repl.it',
     label: 'Link to Replit ',
     title: 'Repl.it',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/repl.it.png'}
-        alt="Repl.it"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <SiReplDotIt size={60} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/repl.it.png',
+    darkElement: {
+      component: SiReplit,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
   {
     href: 'https://slack.com/',
     label: 'Link to Slack',
     title: 'Slack',
-    lightElement: (
-      <StaticImage src={'../../images/supporters/slack.png'} alt="Slack" style={alignmentStyles} />
-    ),
-    darkElement: <FaSlack size={60} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/slack.png',
+    darkElement: {
+      component: FaSlack,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
   {
     href: 'https://frontendmasters.com/',
     label: 'Link to Front End Masters',
     title: 'Front End Masters',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/fem.png'}
-        alt="Front End Masters"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <Fem size={`60`} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/fem.png',
+    darkElement: {
+      component: Fem,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
   {
     href: 'https://www.contentful.com/',
     label: 'Link to Contentful',
     title: 'Contentful',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/contentful.png'}
-        alt="Contentful"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <Contentful size={`60`} color="#091f40" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/contentful.png',
+    darkElement: {
+      component: Contentful,
+      props: {
+        size: 60,
+        color: '#0191f40',
+      },
+    },
   },
   {
     href: 'https://www.netlify.com/',
     label: 'Link to Netlify',
     title: 'Netlify',
-    lightElement: (
-      <StaticImage
-        src={'../../images/supporters/netlify.png'}
-        alt="Netlify"
-        style={alignmentStyles}
-      />
-    ),
-    darkElement: <Netlify size={`60`} color="#ffffff" />,
+    // /images is in the public folder
+    lightElement: '/images/supporters/netlify.png',
+    darkElement: {
+      component: Netlify,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
   },
 ]
 
@@ -130,22 +143,30 @@ function SponsorSlider() {
   const lightElements = () => {
     return elements.map(data => {
       return (
-        <a
-          key={data.title}
-          href={data.href}
-          aria-label={data.label}
-          title={data.title}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {data.lightElement}
-        </a>
+        <div key={data.title} style={{ textAlign: 'center' }}>
+          <a
+            href={data.href}
+            aria-label={data.label}
+            title={data.title}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={data.lightElement}
+              alt={data.title}
+              height={alignmentStyles.height}
+              width={alignmentStyles.width}
+            />
+          </a>
+        </div>
       )
     })
   }
 
   const darkElements = () => {
     return elements.map(data => {
+      const Icon = data.darkElement.component
+      const IconProps = data.darkElement.props
       return (
         <div key={data.title} style={{ textAlign: 'center' }}>
           <a
@@ -155,7 +176,7 @@ function SponsorSlider() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {data.darkElement}
+            <Icon {...IconProps} />
           </a>
         </div>
       )

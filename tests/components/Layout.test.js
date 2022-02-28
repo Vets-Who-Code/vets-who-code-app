@@ -1,5 +1,5 @@
-import TemplateWrapper from '../../src/components/Layout'
 import { render } from '@testing-library/react'
+import TemplateWrapper from '@/components/Layout'
 
 describe('<Layout />', () => {
   test('should render correctly', () => {

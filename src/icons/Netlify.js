@@ -13,7 +13,7 @@ function SvgNetlify({ size, style }) {
 }
 
 SvgNetlify.propTypes = {
-  size: PropTypes.string || PropTypes.number,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   color: PropTypes.string,
   style: PropTypes.string,
 }

@@ -1,0 +1,41 @@
+.loading {
+  height: 70px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--primary-1);
+  margin: 0 10px;
+}
+
+.first {
+  animation: slide 2s ease-in-out infinite;
+  animation-delay: 0.1s;
+}
+
+.second {
+  animation: slide 2s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.third {
+  animation: slide 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes slide {
+  from {
+    transform: translateY(-30px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+

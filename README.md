@@ -30,33 +30,33 @@ You will need the following properly installed on your computer.
 - [Git](http://git-scm.com/)
 - [Node](http://nodejs.org/)
 - [NVM](https://github.com/creationix/nvm)
-- [Gatsby](https://www.gatsbyjs.org/)
+- [NextJS](https://nextjs.org/)
 
 ## Installing
 
 In a terminal window run these commands.
 
 ```sh
-git clone git@github.com:Vets-Who-Code/vets-who-code-app.git
-cd vets-who-code-app
-cp .env.example .env
-yarn
-yarn develop
+$ git clone git@github.com:Vets-Who-Code/vwc-site.git
+$ cd vets-who-code-app
+$ nvm install
+$ npm install
+$ npm run dev
 ```
 
-You should be able to view the website locally at `http://localhost:8000/`.
+You should be able to view the website locally at `http://localhost:3000/`.
 
 ### Running the Blog
 
-**All Content from Contentful is disabled by default. Please reach out in the `#product` channel in slack to request api keys.**
+**All Content from Contentful is is mocked locally. If you need api keys please reach out in the `#product` channel in slack.**
+
+### Create a new `.env` file in the root of your project
 
 ```sh
-git clone git@github.com:Vets-Who-Code/vwc-site.git
-cd vets-who-code-app
-yarn develop
+cp .env.example .env
 ```
 
-> If you are seeing a ghooks error in the console when committing and pushing your code run `node ./scripts/remove-git-hooks.js` in the terminal.
+### Add necessary api keys to your new `.env` file.
 
 <!-- ## Tests -->
 
@@ -65,53 +65,31 @@ yarn develop
 In a terminal window run these commands.
 
 ```sh
-cd vets-who-code-app
-yarn test
+$ cd vets-who-code-app
+$ npm run test
 ```
-
-<details>
-<summary>If you get a Watchman Error/Warning</summary>
-<br>
-
-```sh
-~ watchman shutdown-server
-~ brew update
-~ brew reinstall watchman
-```
-
-</details>
-
 <br>
 
 In a terminal window run these commands to run the jest test suite in watch mode.
 
 ```sh
-cd vets-who-code-app
-yarn test:watch
+$ cd vets-who-code-app
+$ npm run test:watch
 ```
-
-<details>
-<summary>The following options are available when running watch mode</summary>
-<br>
-
-<p align=center>
-  <img src=./.github/jest-options.png alt="Jest Options" />
-</p>
-</details>
 
 In a terminal window run these commands to view the jest coverage report.
 
 ```sh
-cd vets-who-code-app
-yarn test:coverage
-yarn view:coverage
+$ cd vets-who-code-app
+$ npm run test:coverage
+$ npm run view:coverage
 ```
 
 In a terminal window run these commands if you need to update a snapshot.
 
 ```sh
-cd vets-who-code-app
-yarn test --updateSnapshot
+$ cd vets-who-code-app
+$ npm run test --updateSnapshot
 ```
 
 <!-- ## Deployment -->

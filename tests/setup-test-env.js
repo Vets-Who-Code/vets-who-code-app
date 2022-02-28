@@ -1,18 +1,4 @@
-import '@testing-library/jest-dom'
-
-global.google = {
-  maps: {
-    LatLng: jest.fn(),
-    Map: class {},
-    InfoWindow: jest.fn(),
-    Marker: class {
-      addListener() {}
-    },
-    MapTypeId: {
-      ROADMAP: '',
-    },
-  },
-}
+import '@testing-library/jest-dom/extend-expect'
 
 global.MutationObserver = class {
   constructor() {}
@@ -20,38 +6,20 @@ global.MutationObserver = class {
   observe() {}
 }
 
-window.HTMLMediaElement.prototype.play = () => {
-  /* do nothing */
-}
-window.HTMLMediaElement.prototype.load = () => {
-  /* do nothing */
-}
-window.HTMLMediaElement.prototype.pause = () => {
-  /* do nothing */
-}
-window.HTMLMediaElement.prototype.addTextTrack = () => {
-  /* do nothing */
-}
+// mock next/image globally
+jest.mock('next/image', () => ({
+  // eslint-disable-next-line
+  __esModule: true,
+  default: props => {
+    // eslint-disable-next-line
+    const { blurDataURL, ...rest } = props  // blurDataURL is not used in this mock
+    // eslint-disable-next-line
+    return <img {...rest} />
+  },
+}))
 
-const originalError = console.error
-const originalWarn = console.warn
+import { mswServer } from '../mocks/msw-server'
 
-beforeAll(() => {
-  console.error = (...args) => {
-    originalError.call(console, ...args)
-  }
-})
-
-beforeAll(() => {
-  console.warn = (...args) => {
-    // clear test console from warning coming from gatsby-plugin-image tyring to
-    // load a file based on a path
-    if (args.indexOf('Image not loaded') > -1) return
-    originalError.call(console, ...args)
-  }
-})
-
-afterAll(() => {
-  console.error = originalError
-  console.warn = originalWarn
-})
+beforeAll(() => mswServer.listen())
+afterEach(() => mswServer.resetHandlers())
+afterAll(() => mswServer.close())

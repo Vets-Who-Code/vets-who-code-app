@@ -1,19 +1,28 @@
-module.exports = {
-  setupFilesAfterEnv: ['<rootDir>/tests/setup-test-env.js'],
-  testPathIgnorePatterns: ['node_modules', '.cache'],
+// jest.config.js
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+  dir: './',
+})
+
+// Add any custom config to be passed to Jest
+const customJestConfig = {
+  // Add more setup options before each test is run
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/tests/jest-preprocess.js',
+    '^.+\\.tsx?$': ['@swc/jest'],
   },
-  transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
-  globals: {
-    __PATH_PREFIX__: '',
-  },
-  setupFiles: ['./tests/jest-preprocess.js', './tests/loadershim.js'],
-  collectCoverageFrom: ['src/components/**/*.{js,jsx}'],
   moduleNameMapper: {
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      '<rootDir>/tests/__mocks__/image-mock.js',
-    '\\.(css|scss|sass)$': '<rootDir>/tests/__mocks__/style-mock.js',
-    '^@reach/router(.*)': '<rootDir>/node_modules/@gatsbyjs/reach-router$1',
+    '^@/components/(.*)$': '<rootDir>/src/components/$1',
+    '^@/api/(.*)$': '<rootDir>/src/pages/api/$1',
+    '^@/mocks/(.*)$': '<rootDir>/mocks/$1',
   },
+  setupFilesAfterEnv: ['<rootDir>/tests/setup-test-env.js'],
+  testPathIgnorePatterns: ['<rootDir>/.cache'],
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  collectCoverageFrom: ['src/components/**/*.{js,jsx}'],
+  testEnvironment: 'jest-environment-jsdom',
 }
+
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
+module.exports = createJestConfig(customJestConfig)

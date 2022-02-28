@@ -1,11 +1,17 @@
-import { StaticImage } from 'gatsby-plugin-image'
+import Image from 'next/image'
+import { NextSeo } from 'next-seo'
 import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
+
+import schusterProfile from '../images/schuster.jpg'
+import johnProfile from '../images/profile.png'
+import carlaProfile from '../images/carla-kroll.jpg'
+import ozzieProfile from '../images/ozzie.png'
+import jeffProfile from '../images/jeff-martin.jpg'
 
 function Testimonial() {
   return (
     <>
-      <SEO title="Testimonials" />
+      <NextSeo title="Testimonials" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
@@ -22,11 +28,13 @@ function Testimonial() {
             <div className="col-md-12">
               <div className="cause_section_content">
                 <div className="testimonial-row">
-                  <StaticImage
-                    width={200}
-                    height={200}
-                    src="../images/schuster.jpg"
+                  <Image
+                    src={schusterProfile}
                     alt="Schuster Braun"
+                    height={200}
+                    width={200}
+                    placeholder="blur"
+                    blurDataURL={schusterProfile}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -38,11 +46,13 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <StaticImage
-                    width={200}
-                    height={200}
-                    src="../images/profile.png"
+                  <Image
+                    src={johnProfile}
                     alt="John Garcia"
+                    height={200}
+                    width={200}
+                    placeholder="blur"
+                    blurDataURL={schusterProfile}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -55,11 +65,13 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <StaticImage
-                    width={200}
-                    height={200}
-                    src="../images/carla-kroll.jpg"
+                  <Image
+                    src={carlaProfile}
                     alt="Carla Kroll"
+                    height={200}
+                    width={200}
+                    placeholder="blur"
+                    blurDataURL={carlaProfile}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -74,11 +86,13 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <StaticImage
+                  <Image
+                    src={ozzieProfile}
                     alt="Osvaldo Vargas"
-                    src="../images/ozzie.png"
-                    width={200}
                     height={200}
+                    width={200}
+                    placeholder="blur"
+                    blurDataURL={ozzieProfile}
                   />
                   <blockquote className="testimonial-text">
                     <p>
@@ -96,11 +110,13 @@ function Testimonial() {
                   </blockquote>
                 </div>
                 <div className="testimonial-row">
-                  <StaticImage
-                    width={200}
-                    height={200}
-                    src="../images/jeff-martin.JPG"
+                  <Image
+                    src={jeffProfile}
                     alt="Jeff Martin"
+                    height={200}
+                    width={200}
+                    placeholder="blur"
+                    blurDataURL={jeffProfile}
                   />
                   <blockquote className="testimonial-text">
                     <p>
