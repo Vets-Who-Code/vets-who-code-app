@@ -1,0 +1,3 @@
+[build]
+command = "yarn install && yarn build"
+publish = "public"
