@@ -1,9 +1,6 @@
 import { useRef, useEffect } from 'react'
-
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
-import '../assets/css/custom.css'
-import vwcGIF from '../images/vwc.gif'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
 import facebookVideo from '../video/vwc-facebook-reel.mp4'
 
 function About() {
@@ -31,8 +28,8 @@ function About() {
 
   return (
     <>
-      <SEO title="About Us" />
-      <PageHeader title="about" />
+      <NextSeo title="About Us" />
+      <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
@@ -40,11 +37,8 @@ function About() {
               <h1 className="story-title">About Us</h1>
               <p>
                 <i>
-                  #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
-                  charitable public non-profit organization that focuses on training veterans,
-                  active-duty military, and military spouses in practical programming paradigms by
-                  using mentoring and open-source development as the primary focus with the goal of
-                  starting careers in the technology industry.
+                  #VetsWhoCode is a Non-For Profit where veterans teach veterans how to program and
+                  get jobs.
                 </i>
               </p>
             </div>
@@ -57,6 +51,7 @@ function About() {
                   className="img-responsive"
                   muted
                   controls
+                  style={{ minHeight: 400 }}
                 >
                   <source src={facebookVideo} />
                 </video>
@@ -64,7 +59,7 @@ function About() {
               <div
                 className="vwc-animated-gif"
                 style={{
-                  backgroundImage: `url(${vwcGIF})`,
+                  backgroundImage: 'url("/images/vwc.gif")',
                   backgroundPosition: 'center center',
                   backgroundSize: 'auto',
                   display: 'none',

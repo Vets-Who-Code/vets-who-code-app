@@ -1,11 +1,11 @@
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
-import { ContactForm } from '../components/Forms'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
+import { ContactForm } from '@/components/Forms'
 
 function Contact() {
   return (
     <>
-      <SEO title="Contact Us" />
+      <NextSeo title="Contact" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">

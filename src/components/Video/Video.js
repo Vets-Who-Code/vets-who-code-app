@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import veteranVideo from '../../video/veteran-on-computer.mp4'
-import './video.css'
+import veteranVideo from '../../video/vwc-facebook-reel.mp4'
 
 function Video({ isSubmitted }) {
   const videoRef = useRef()

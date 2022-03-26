@@ -1,0 +1,7 @@
+/* code of conduct styles */
+.story > ul > li {
+  list-style: inside;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+

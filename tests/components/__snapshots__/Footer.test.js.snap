@@ -19,7 +19,6 @@ exports[`<Footer /> should render correctly 1`] = `
             Help Us Teach More Veterans How To Code  
           </h2>
           <a
-            class="btn btn-charity-default"
             href="/donate"
           >
             donate
@@ -53,6 +52,7 @@ exports[`<Footer /> should render correctly 1`] = `
             </p>
             <div
               class="footer-social"
+              style="margin-bottom: 10px;"
             >
               <a
                 aria-label="Facebook"
@@ -168,7 +168,15 @@ exports[`<Footer /> should render correctly 1`] = `
             <a
               aria-label="Guidestar"
               href="https://www.guidestar.org/profile/86-2122804"
-            />
+            >
+              <img
+                alt="guidestar seal"
+                class="footer-guidestar"
+                height="96"
+                src="/images/guidestar.svg"
+                width="96"
+              />
+            </a>
           </div>
         </div>
         <div
@@ -200,8 +208,6 @@ exports[`<Footer /> should render correctly 1`] = `
                   >
                     <li>
                       <a
-                        aria-current="page"
-                        class=""
                         href="/"
                       >
                         Home
@@ -265,9 +271,7 @@ exports[`<Footer /> should render correctly 1`] = `
                       <a
                         href="/blog"
                       >
-                        <span>
-                          Blog
-                        </span>
+                        Blog
                       </a>
                     </li>
                     <li>

@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SponsorSlider /> should render correctly 1`] = `
-<div
+<section
+  aria-label="carousel-slider"
   class="slider"
+  role="region"
   style="box-sizing: border-box; display: block; height: inherit; position: relative; width: 100%;"
   tabindex="0"
 >
@@ -10,12 +12,14 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
     class="slider-frame"
     style="box-sizing: border-box; display: block; height: 100%; margin: 0px; overflow: hidden; padding: 0px; position: relative; transform: translate3d(0, 0, 0);"
   >
-    <ul
+    <div
       class="slider-list"
       style="box-sizing: border-box; cursor: pointer; display: block; height: 0px; margin: 0px 0px; padding: 0px; width: 0px;"
     >
-      <li
+      <div
+        aria-label="slide 1 of 7"
         class="slider-slide slide-visible slide-current"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -48,9 +52,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 2 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -83,9 +89,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 3 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -120,9 +128,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 4 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -155,9 +165,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 5 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -185,9 +197,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 6 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -205,7 +219,7 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
           >
             <svg
               height="60"
-              style="color: rgb(9, 31, 64);"
+              style="color: rgb(1, 145, 244);"
               viewBox="0 0 134 134"
               width="60"
             >
@@ -217,11 +231,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
               />
               <path
                 d="M54.6 82.5c-4-4-6.4-9.4-6.4-15.5 0-6 2.5-11.5 6.4-15.5 3.4-3.4 3.4-8.8 0-12.2-3.4-3.4-8.8-3.4-12.2 0C35.4 46.4 31 56.2 31 67s4.4 20.6 11.5 27.6c3.4 3.4 8.8 3.4 12.2 0 3.3-3.3 3.3-8.7-.1-12.1z"
-                fill="#091f40"
+                fill="#0191f40"
               />
               <path
                 d="M54.6 51.5c4-4 9.4-6.4 15.5-6.4 6 0 11.5 2.5 15.5 6.4 3.4 3.4 8.8 3.4 12.2 0 3.4-3.4 3.4-8.8 0-12.2-7.1-7.1-16.8-11.5-27.6-11.5s-20.6 4.4-27.6 11.5c-3.4 3.4-3.4 8.8 0 12.2 3.2 3.4 8.6 3.4 12 0zM85.6 82.5c-4 4-9.4 6.4-15.5 6.4-6 0-11.5-2.5-15.5-6.4-3.4-3.4-8.8-3.4-12.2 0-3.4 3.4-3.4 8.8 0 12.2 7.1 7.1 16.8 11.5 27.6 11.5s20.6-4.4 27.6-11.5c3.4-3.4 3.4-8.8 0-12.2-3.2-3.4-8.7-3.4-12 0z"
-                fill="#091f40"
+                fill="#0191f40"
               />
               <circle
                 cx="48.5"
@@ -240,9 +254,11 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-      <li
+      </div>
+      <div
+        aria-label="slide 7 of 7"
         class="slider-slide slide-visible"
+        role="group"
         style="box-sizing: border-box; display: block; height: auto; left: 0px; list-style-type: none; margin: auto 0px auto 0px; opacity: 1; position: absolute; top: 0px; vertical-align: top; visibility: inherit; width: 0px;"
         tabindex="-1"
       >
@@ -270,8 +286,8 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
             </svg>
           </a>
         </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
   <style
     type="text/css"
@@ -279,5 +295,5 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
     .slider-slide &gt; img { width: 100%; display: block; }
           .slider-slide &gt; img:focus { margin: auto; }
   </style>
-</div>
+</section>
 `;

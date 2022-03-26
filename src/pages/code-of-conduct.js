@@ -1,12 +1,11 @@
-import PageHeader from '../components/PageHeader'
-import SEO from '../components/SEO'
-import '../assets/css/custom.css'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
 
 function CodeOfConduct() {
   return (
     <>
-      <SEO title="Code Of Conduct" />
-      <PageHeader title="Code Of Conduct" />
+      <NextSeo title="Code Of Conduct" />
+      <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
@@ -51,7 +50,7 @@ function CodeOfConduct() {
                     <li>Unwelcome sexual attention or advances.</li>
                     <li>Advocating for, or encouraging, any of the above behaviors.</li>
                     <li>
-                      Publishing others' private information, such as a physical or electronic
+                      Publishing others&apos; private information, such as a physical or electronic
                       address, without explicit permission.
                     </li>
                     <li>
@@ -99,7 +98,7 @@ function CodeOfConduct() {
                 <p className="story">
                   Project maintainers who do not follow or enforce the Code of Conduct in good faith
                   may face temporary or permanent repercussions as determined by other members of
-                  the project's leadership.
+                  the project&apos;s leadership.
                 </p>
 
                 <h2>Attribution</h2>

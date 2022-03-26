@@ -25,11 +25,16 @@ exports[`<Nav /> should render correctly 1`] = `
           #VetsWhoCode
         </span>
         <a
-          aria-current="page"
-          class=""
           href="/"
           id="navbar-brand"
         >
+          <img
+            alt="#VetsWhoCode Logo"
+            class="logo_holder"
+            height="40"
+            src="test-file-stub"
+            width="40"
+          />
           <div
             class="homeLink"
           >
@@ -80,8 +85,6 @@ exports[`<Nav /> should render correctly 1`] = `
           role="menuitem"
         >
           <a
-            aria-current="page"
-            class=""
             href="/"
           >
             <span>
@@ -196,7 +199,7 @@ exports[`<Nav /> should render correctly 1`] = `
               role="menuitem"
             >
               <a
-                href="/blog"
+                href="/blog/1"
               >
                 <span>
                   Blog
@@ -208,7 +211,7 @@ exports[`<Nav /> should render correctly 1`] = `
               role="menuitem"
             >
               <a
-                href="/podcast"
+                href="/podcast/1"
               >
                 <span>
                   Podcast

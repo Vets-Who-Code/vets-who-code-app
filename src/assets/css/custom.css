@@ -38,7 +38,7 @@
 }
 
 .main-navigation .navbar-toggle {
-  margin-top: -5px;
+  margin-top: -1px;
 }
 
 .main-overlay {
@@ -72,10 +72,6 @@
 
 .iframe-container {
   height: 620px;
-}
-
-.story h3 {
-  margin-bottom: 1rem;
 }
 
 /* Media Queries below are for donorbox iframe */
@@ -184,9 +180,13 @@
   font-weight: 800;
 }
 
-/* code of conduct styles */
-.story > ul > li {
-  list-style: inside;
-  margin-bottom: 1rem;
-  font-style: italic;
+.round {
+  border-radius: 50%;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+}
+
+.border-radius-4 {
+  border-radius: 4px;
 }

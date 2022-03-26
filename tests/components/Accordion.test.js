@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import Accordion, { Panel } from '../../src/components/Accordion'
+import Accordion, { Panel } from '@/components/Accordion'
 
 jest.useFakeTimers()
 

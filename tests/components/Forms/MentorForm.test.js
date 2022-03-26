@@ -1,5 +1,5 @@
-import { MentorForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
+import { MentorForm } from '@/components/Forms'
 
 describe('<MentorForm />', () => {
   test('should update inputs, submit and clear inputs', async () => {
@@ -114,7 +114,7 @@ describe('<MentorForm />', () => {
     expect(window.fetch).toHaveBeenCalledTimes(1)
   })
 
-  test('should show custom error message for empty fields with validation', async () => {
+  test.only('should show custom error message for empty fields with validation', async () => {
     const { container } = render(<MentorForm />)
     const nameInput = container.querySelector('#name')
     const emailInput = container.querySelector('#email')

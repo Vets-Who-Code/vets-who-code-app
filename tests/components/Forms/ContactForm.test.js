@@ -1,5 +1,5 @@
-import { ContactForm } from '../../../src/components/Forms'
 import { render, fireEvent, waitFor } from '@testing-library/react'
+import { ContactForm } from '@/components/Forms'
 
 describe('<ContactFrom />', () => {
   test('should submit subscription form', async () => {

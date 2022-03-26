@@ -3,10 +3,9 @@ import { ToastContainer } from 'react-toastify'
 import ThemeProvider from '../store/ThemeProvider'
 import Nav from './Nav'
 import Footer from './Footer'
-import 'react-toastify/dist/ReactToastify.css'
 
 const TemplateWrapper = ({ children }) => (
-  <>
+  <div>
     <ThemeProvider>
       <main className="main_container">
         <ToastContainer />
@@ -15,11 +14,11 @@ const TemplateWrapper = ({ children }) => (
         <Footer />
       </main>
     </ThemeProvider>
-  </>
+  </div>
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.any,
+  children: PropTypes.node,
 }
 
 export default TemplateWrapper

@@ -10,12 +10,12 @@ function MentorForm() {
   const onSubmit = async (formData, e) => {
     e.preventDefault()
     try {
-      const gatewayUrl = 'https://5z9d0ddzr4.execute-api.us-east-1.amazonaws.com/prod/mentor'
+      const apiEndpoint = '/api/mentor'
       const options = {
         method: 'POST',
         body: JSON.stringify(formData),
       }
-      const response = await fetch(gatewayUrl, options)
+      const response = await fetch(apiEndpoint, options)
 
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')

@@ -1,29 +1,17 @@
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
+import Link from 'next/link'
+import Image from 'next/image'
 import Typed from 'react-typed'
 
 function Header() {
-  const data = useStaticQuery(graphql`
-    query {
-      codeImage: file(relativePath: { eq: "code.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  `)
-
   return (
-    <BackgroundImage
-      Tag="section"
-      className="site-header flexslider classic overlay main-overlay grey"
-      backgroundColor="#091f40"
-      fluid={data.codeImage.childImageSharp.fluid}
-      style={{ height: '80vh' }}
-      loading="eager"
-    >
+    <section className="site-header flexslider classic overlay main-overlay grey">
+      <Image
+        layout="fill"
+        blurDataURL="/images/code.jpg"
+        placeholder="blur"
+        src="/images/code.jpg"
+        alt="image of code on a computer screen"
+      />
       <div className="header-classic wrapper-table">
         <div className="valign-center">
           <div className="container">
@@ -46,12 +34,12 @@ function Header() {
                 </h1>
                 <p className="subtitle">With Vets Who Code.</p>
                 <div className="btn-cal-group">
-                  <Link to="/apply" className="btn btn-charity-default">
-                    Apply
+                  <Link href="/apply" className="btn btn-charity-default">
+                    <a className="btn btn-charity-default">Apply</a>
                   </Link>
                   &nbsp;
-                  <Link to="/donate" className="btn btn-charity-default">
-                    Donate
+                  <Link href="/donate">
+                    <a className="btn btn-charity-default">Donate</a>
                   </Link>
                 </div>
               </div>
@@ -59,7 +47,7 @@ function Header() {
           </div>
         </div>
       </div>
-    </BackgroundImage>
+    </section>
   )
 }
 

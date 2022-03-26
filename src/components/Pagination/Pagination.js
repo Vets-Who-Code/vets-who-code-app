@@ -1,39 +1,29 @@
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import './pagination.css'
+import Link from 'next/link'
 
-function Pagination({ pageContext, type, path }) {
-  let { currentPage, totalPages, minPage, maxPage, formData, formResponse } = pageContext
+function Pagination({
+  currentPage,
+  totalPages,
+  minPage,
+  maxPage,
+  nextPage,
+  prevPage,
+  isFirstPage,
+  isLastPage,
+  type,
+  path,
+  handleUpatePaginationValues,
+  updatePaginationData,
+}) {
   let eachPage = 0
 
   const apiPageChange = value => {
-    if (value !== currentPage) {
-      return formData(formResponse, value)
-    }
-  }
-
-  const maxPageFn = clicked => {
-    if (clicked === 'More') {
-      if (maxPage + 10 > totalPages) {
-        return totalPages
-      } else {
-        return maxPage + 10
-      }
-    }
-    return maxPage + clicked
+    updatePaginationData(value)
   }
 
   const direction = value => {
     const clicked = value.target.innerText === 'More' ? 10 : -10
-    pageContext.setPageContext({
-      currentPage: currentPage,
-      totalPages: totalPages,
-      minPage: minPage + clicked,
-      maxPage: maxPageFn(clicked),
-      setPageContext: pageContext.setPageContext,
-      formResponse: formResponse,
-      formData: formData,
-    })
+    handleUpatePaginationValues(clicked)
   }
 
   if (type === 'route') {
@@ -48,22 +38,29 @@ function Pagination({ pageContext, type, path }) {
       >
         <nav aria-label="Page navigation">
           <ul className="pagination m-20">
-            {currentPage > 1 && (
+            {!isFirstPage && (
               <li>
-                <Link to={`/${path}/${currentPage === 2 ? '' : currentPage - 1}`} rel="prev">
-                  <span aria-hidden="true">Previous</span>
+                <Link href={`${prevPage}`} rel="prev">
+                  <a>
+                    <span aria-hidden="true">Previous</span>
+                  </a>
                 </Link>
               </li>
             )}
-            {Array.from({ length: totalPages }, (_, index) => (
-              <li key={eachPage++}>
-                <Link to={`/${path}/${index === 0 ? '' : index + 1}`}>{index + 1}</Link>
-              </li>
-            ))}
-            {currentPage < totalPages && (
+            {totalPages > 1 &&
+              Array.from({ length: totalPages }, (_, index) => (
+                <li key={eachPage++}>
+                  <Link href={`/${path}/${index + 1}`}>
+                    <a>{index + 1}</a>
+                  </Link>
+                </li>
+              ))}
+            {!isLastPage && (
               <li>
-                <Link to={`/${path}/${currentPage + 1}`} rel="next">
-                  <span aria-hidden="true">Next</span>
+                <Link href={`${nextPage}`} rel="next">
+                  <a>
+                    <span aria-hidden="true">Next</span>
+                  </a>
                 </Link>
               </li>
             )}
@@ -72,6 +69,7 @@ function Pagination({ pageContext, type, path }) {
       </div>
     )
   }
+
   return (
     <div
       style={{
@@ -102,11 +100,11 @@ function Pagination({ pageContext, type, path }) {
               <li
                 key={eachPage++}
                 style={index + 1 + minPage > totalPages ? { display: 'none' } : {}}
+                onClick={() => apiPageChange(index + 1 + minPage)}
+                onKeyPress={() => apiPageChange(index + 1 + minPage)}
               >
                 <span
                   tabIndex="0"
-                  onClick={() => apiPageChange(index + 1 + minPage)}
-                  onKeyPress={() => apiPageChange(index + 1 + minPage)}
                   style={
                     index + 1 + minPage === currentPage
                       ? { background: '#eee' }
@@ -141,22 +139,16 @@ function Pagination({ pageContext, type, path }) {
 }
 
 Pagination.propTypes = {
-  pageContext: PropTypes.shape({
-    limit: PropTypes.number,
-    skip: PropTypes.number,
-    isFirstPage: PropTypes.bool,
-    isLastPage: PropTypes.bool,
-    currentPage: PropTypes.number,
-    totalPages: PropTypes.number,
-    contentfulData: PropTypes.object,
-    minPage: PropTypes.number,
-    maxPage: PropTypes.number,
-    formData: PropTypes.function,
-    formResponse: PropTypes.object,
-    setPageContext: PropTypes.function,
-  }),
+  currentPage: PropTypes.string,
+  isFirstPage: PropTypes.bool,
+  isLastPage: PropTypes.bool,
+  totalPages: PropTypes.number,
+  prevPage: PropTypes.string,
+  nextPage: PropTypes.string,
   type: PropTypes.string,
   path: PropTypes.string,
+  handleUpatePaginationValues: PropTypes.func,
+  updatePaginationData: PropTypes.func,
 }
 
 export default Pagination

@@ -1,5 +1,5 @@
-import { FormAlert } from '../../../src/components/Forms'
 import { render } from '@testing-library/react'
+import { FormAlert } from '@/components/Forms'
 
 describe('<FormAlert>', () => {
   test('should render generic error message for a required field', () => {
