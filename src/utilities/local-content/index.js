@@ -1,4 +1,4 @@
-export const contenfulData = {
+export const mockContentfulData = {
   nextCohort: {
     metadata: {
       tags: [],
@@ -33,7 +33,7 @@ export const contenfulData = {
       locale: 'en-US',
     },
     fields: {
-      nextCohortSartDate: '2022-03-31T00:00-06:00',
+      nextCohortStartDate: '2023-03-31T00:00-06:00',
       nextCohort: 'Next Cohort',
     },
   },

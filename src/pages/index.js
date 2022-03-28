@@ -174,6 +174,7 @@ export async function getStaticProps() {
     // eslint-disable-next-line
     content_type: 'nextCohort',
   })
+
   const { nextCohortStartDate } = response.fields
 
   return {

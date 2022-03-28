@@ -2,21 +2,21 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import { createClient } from 'contentful'
-import { contenfulData } from './local-content'
+import { mockContentfulData } from './local-content'
 
 const space = process.env.CONTENTFUL_SPACE_ID
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
 const contentfulEnvironment = process.env.CONTENTFUL_ENVIRONMENT || 'master'
 const activeEnv = process.env.VWC_ACTIVE_ENV
 
-function mockContenful() {
+function mockContentfulClinent() {
   return {
     getEntry: ({ content_type: contentType }) => {
-      const mockResponse = contenfulData[contentType]
+      const mockResponse = mockContentfulData[contentType]
       return Promise.resolve(mockResponse)
     },
     getEntries: ({ content_type: contentType, ...args }) => {
-      const mockResponse = contenfulData[contentType]
+      const mockResponse = mockContentfulData[contentType]
       if (args?.limit) {
         return Promise.resolve({
           items: mockResponse.items.slice(args.skip, args.limit + args.skip),
@@ -29,22 +29,24 @@ function mockContenful() {
 }
 
 export function setupContentfulClient(options = {}) {
+  let client = null
+
   if (activeEnv === 'local') {
-    return mockContenful()
-  }
+    client = mockContentfulClinent()
+  } else {
+    if (!space || !accessToken) {
+      throw new Error(
+        'You must set the CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN environment variables'
+      )
+    }
 
-  if (!space || !accessToken) {
-    throw new Error(
-      'You must set the CONTENTFUL_SPACE_ID and CONTENTFUL_ACCESS_TOKEN environment variables'
-    )
+    client = createClient({
+      ...options,
+      space,
+      accessToken,
+      contentfulEnvironment,
+    })
   }
-
-  const client = createClient({
-    ...options,
-    space,
-    accessToken,
-    contentfulEnvironment,
-  })
 
   return client
 }

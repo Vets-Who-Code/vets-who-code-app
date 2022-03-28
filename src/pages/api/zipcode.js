@@ -33,7 +33,6 @@ export default async function handler(req, res) {
       },
     })
 
-    // console.log('response:', response.data)
     const result = await parseXml(response.data)
 
     if (result?.CityStateLookupResponse?.ZipCode[0]?.Error) {
