@@ -304,9 +304,7 @@ function Nav() {
             </li>
             <li role="menuitem" className="donate" onClick={resetNavigation}>
               <Link href="/donate">
-                <a>
-                  <span>Donate</span>
-                </a>
+                <a>Donate</a>
               </Link>
             </li>
           </ul>
