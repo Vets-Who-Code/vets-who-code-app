@@ -37,7 +37,7 @@ You will need the following properly installed on your computer.
 In a terminal window run these commands.
 
 ```sh
-$ git clone git@github.com:Vets-Who-Code/vwc-site.git
+$ git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
 $ cd vets-who-code-app
 $ nvm install
 $ npm install
