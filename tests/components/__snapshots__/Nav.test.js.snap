@@ -333,9 +333,7 @@ exports[`<Nav /> should render correctly 1`] = `
           <a
             href="/donate"
           >
-            <span>
-              Donate
-            </span>
+            Donate
           </a>
         </li>
       </ul>
