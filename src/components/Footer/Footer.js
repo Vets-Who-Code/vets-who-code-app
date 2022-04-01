@@ -20,9 +20,11 @@ function Footer() {
           <div className="row">
             <div className="col-sm-12 text-center">
               <h2>Help Us Teach More Veterans How To Code &nbsp;</h2>
-              <Link href="/donate" className="btn btn-charity-default">
+              <button className="donate">
+              <Link href="/donate" className="btn btn-charity-default donate">
                 donate
               </Link>
+              </button>
             </div>
           </div>
         </div>
