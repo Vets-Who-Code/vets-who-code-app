@@ -12,6 +12,9 @@ describe('subscribe handler', () => {
       method: 'POST',
       statusCode: 200,
       body: JSON.stringify(body),
+      headers: {
+        Accept: 'application/json',
+      },
     })
 
     await subscribeApiHandler(req, res)

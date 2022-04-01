@@ -1,6 +1,13 @@
 import axios from 'axios'
 import { checkParams } from './api-helpers'
 
+const isTest = process.env.NODE_ENV === 'test'
+const MAILCHIMP_SUBSCRIBE_URL = 'https://us4.api.mailchimp.com/3.0/lists'
+const baseURL = MAILCHIMP_SUBSCRIBE_URL
+const MAILCHIMP_LIST_ID = isTest ? 'mock-list-id-1111' : process.env.MAILCHIMP_LIST_ID
+const MAILCHIMP_API_KEY = isTest ? 'mock-api-key-2222' : process.env.MAILCHIMP_API_KEY
+const AUTHORIZATION = `Basic ${Buffer.from(`anystring:${MAILCHIMP_API_KEY}`).toString('base64')}`
+
 export default async function handler(req, res) {
   const parsedBody = JSON.parse(req.body)
   const hasErrors = checkParams(parsedBody, ['email'])
@@ -17,18 +24,14 @@ export default async function handler(req, res) {
     status: 'subscribed',
   }
 
-  const baseURL = `${process.env.MAILCHIMP_SUBSCRIBE_URL}`
-
   try {
     await axios({
       method: 'POST',
       baseURL,
-      url: `${process.env.MAILCHIMP_LIST_ID}/members`,
+      url: `/${MAILCHIMP_LIST_ID}/members`,
       headers: {
         Accept: 'application/json',
-        Authorization: `Basic ${Buffer.from(`anystring:${process.env.MAILCHIMP_API_KEY}`).toString(
-          'base64'
-        )}`,
+        Authorization: AUTHORIZATION,
       },
       data: payload,
     }).catch(err => {

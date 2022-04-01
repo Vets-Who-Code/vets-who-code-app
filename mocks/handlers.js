@@ -5,11 +5,11 @@ import { rest } from 'msw'
  * @export handlers[] list of handlers
  */
 export const handlers = [
-  // mock slack reuqests
-  rest.post('https://hooks.slack.com/services/*', (req, res, ctx) => {
+  // mock slack requests
+  rest.post('https://hooks.slack.com/services/*', (_, res, ctx) => {
     return res(ctx.status(200), ctx.json({ ok: true }))
   }),
-  rest.post('https://us4.api.mailchimp.com/3.0/lists/*', (req, res, ctx) => {
+  rest.post('https://us4.api.mailchimp.com/3.0/lists/*/*', (_, res, ctx) => {
     return res(ctx.status(200), ctx.json({ ok: true }))
   }),
   rest.get('https://production.shippingapis.com/*', (req, res, ctx) => {
