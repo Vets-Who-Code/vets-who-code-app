@@ -64,7 +64,7 @@ cd vets-who-code-app
 
 ### 3. Install Node.js
 
-Using `nvm install` will install the version of Node.js the VWC app requires:
+Using `nvm install` will install the version of Node.js required by the VWC app:
 
 ```sh
 nvm install
