@@ -87,15 +87,11 @@ function IndexPage({ nextCohortStartDate }) {
           <div className="row">
             <div className="featured-heading text-center">
               <h2 className="dark_color">
-                RETOOL
-                &nbsp;
+                RETOOL &nbsp;
                 <FaStar height={20} width={20} />
-                &nbsp;
-                RETRAIN
-                &nbsp;
+                &nbsp; RETRAIN &nbsp;
                 <FaStar height={20} width={20} />
-                &nbsp;
-                RELAUNCH
+                &nbsp; RELAUNCH
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">

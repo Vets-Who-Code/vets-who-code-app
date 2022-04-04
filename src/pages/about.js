@@ -38,15 +38,11 @@ function About() {
               <h1 className="story-title">About Us</h1>
               <p>
                 <i>
-                RETOOL
-                &nbsp;
-                <FaStar height={20} width={20} />
-                &nbsp;
-                RETRAIN
-                &nbsp;
-                <FaStar height={20} width={20} />
-                &nbsp;
-                RELAUNCH
+                  RETOOL &nbsp;
+                  <FaStar height={20} width={20} />
+                  &nbsp; RETRAIN &nbsp;
+                  <FaStar height={20} width={20} />
+                  &nbsp; RELAUNCH
                 </i>
               </p>
             </div>
@@ -97,7 +93,6 @@ function About() {
                   innovation. Vets Who Code serves as a launch pad for our veterans and military
                   spouses.
                 </p>
-
                 <h2>What We Do</h2>
                 &nbsp;
                 <p className="story">
@@ -107,14 +102,13 @@ function About() {
                   tools and resources the tech community has to offer. In addition to contributing
                   and helping each other become better programmers, we do this at zero cost.
                 </p>
-
                 <h2>How We Do This</h2>
                 &nbsp;
                 <p className="story">
                   How we accomplish this mission is through a process of <i>Crawl, Walk, Run</i>
-                  &nbsp;where we build upon each lesson in deeper dives so that veterans become better
-                  programmers through each iteration. Instructors leading the program are also
-                  veterans, programmers, and alumni of the program. There are no excuses, the
+                  &nbsp;where we build upon each lesson in deeper dives so that veterans become
+                  better programmers through each iteration. Instructors leading the program are
+                  also veterans, programmers, and alumni of the program. There are no excuses, the
                   instructor has been through every success and failure you will experience and has
                   ultimately succeeded on the path of becoming a paid programmer.
                 </p>
