@@ -34,29 +34,99 @@ You will need the following properly installed on your computer.
 
 ## Installing
 
-In a terminal window run these commands.
+In a terminal window run these commands:
+
+### 1. Clone the Repo
+
+Download the repository from GitHub using `git clone`:
 
 ```sh
-$ git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
-$ cd vets-who-code-app
-$ nvm install
-$ npm install
-$ npm run dev
+git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
 ```
 
-You should be able to view the website locally at `http://localhost:3000/`.
+<p>
+<img src="public/images/readme/clone.jpg" alt="Using git clone" width="800px" />
+</p>
 
-### Running the Blog
+This may take a few minutes.
 
-**All Content from Contentful is is mocked locally. If you need api keys please reach out in the `#product` channel in slack.**
+### 2. Change Directory
 
-### Create a new `.env` file in the root of your project
+Change into the newly cloned directory:
+
+```sh
+cd vets-who-code-app
+```
+
+<p>
+<img src="public/images/readme/cd.jpg" alt="Changing to the app directory" width="800px" />
+</p>
+
+### 3. Install Node.js
+
+Using `nvm install` will install the version of Node.js the VWC app requires:
+
+```sh
+nvm install
+```
+
+<p>
+<img src="public/images/readme/nvm.jpg" alt="Installing Node with NVM" width="800px" />
+</p>
+
+### 4. Install Dependencies
+
+`npm install` is how we install React, Next, Bootstrap, and every other piece of tech that the app requires. This will also take a few minutes.
+
+```sh
+npm install
+```
+
+There will be **a lot** of warnings and other messages that display, but this is normal.
+
+<p>
+<img src="public//images/npm1.jpg" alt="Installing dependencies witn npm" width="800px" />
+</p>
+
+<p>
+<img src="public/images/npm2.jpg" alt="Installing dependencies with npm continued" width="800px" />
+</p>
+
+### 5. Environment Variables
+
+Environment variables hold secret API keys and are needed to run the blog by connecting to the Contentful API.
+
+We can create a default `.env `file that will use mock data for the blog when running it locally. Use the following command from the root of the `vets-who-code-app` directory:
 
 ```sh
 cp .env.example .env
 ```
 
-### Add necessary api keys to your new `.env` file.
+<p>
+<img src="public/images/env.jpg" alt="Creating the .env file" width="800px" />
+</p>
+
+### 6. Run the App
+
+Finally, we can launch the app on our local server:
+
+```shell
+npm run dev
+```
+
+<p>
+<img src="public/images/run.jpg" alt="Run the vwc app locally" width="800px" />
+</p>
+
+You should be able to view the website locally at http://localhost:3000/.
+
+`CTRL` + `Left-Click` on the localhost link in your terminal to launch the app in your browser.
+
+`CTRL` + `C` to close the dev server when you are finished.
+
+### Running the Blog
+
+**All Content from Contentful is is mocked locally. If you need api keys please reach out in the `#product` channel in slack.**
 
 <!-- ## Tests -->
 
@@ -68,6 +138,7 @@ In a terminal window run these commands.
 $ cd vets-who-code-app
 $ npm run test
 ```
+
 <br>
 
 In a terminal window run these commands to run the jest test suite in watch mode.
