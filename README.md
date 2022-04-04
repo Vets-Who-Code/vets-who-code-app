@@ -85,11 +85,11 @@ npm install
 There will be **a lot** of warnings and other messages that display, but this is normal.
 
 <p>
-<img src="public/images/npm1.jpg" alt="Installing dependencies witn npm" width="800px" />
+<img src="public/images/reademe/npm1.jpg" alt="Installing dependencies witn npm" width="800px" />
 </p>
 
 <p>
-<img src="public/images/npm2.jpg" alt="Installing dependencies with npm continued" width="800px" />
+<img src="public/images/readme/npm2.jpg" alt="Installing dependencies with npm continued" width="800px" />
 </p>
 
 ### 5. Environment Variables
@@ -103,7 +103,7 @@ cp .env.example .env
 ```
 
 <p>
-<img src="public/images/env.jpg" alt="Creating the .env file" width="800px" />
+<img src="public/images/readme/env.jpg" alt="Creating the .env file" width="800px" />
 </p>
 
 ### 6. Run the App
@@ -115,7 +115,7 @@ npm run dev
 ```
 
 <p>
-<img src="public/images/run.jpg" alt="Run the vwc app locally" width="800px" />
+<img src="public/images/readme/run.jpg" alt="Run the vwc app locally" width="800px" />
 </p>
 
 You should be able to view the website locally at http://localhost:3000/.
