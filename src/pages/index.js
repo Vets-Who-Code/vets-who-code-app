@@ -72,7 +72,7 @@ function IndexPage({ nextCohortStartDate }) {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-                VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
+                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
                 charitable public non-profit organization. We focus on training veterans, active
                 duty military, and military spouses in practical programming paradigms by using
                 mentoring and open source development with the goal of starting careers in the
@@ -87,11 +87,11 @@ function IndexPage({ nextCohortStartDate }) {
           <div className="row">
             <div className="featured-heading text-center">
               <h2 className="dark_color">
-                RETOOL
+                RETOOL &nbsp;
                 <FaStar height={20} width={20} />
-                RETRAIN
+                &nbsp; RETRAIN &nbsp;
                 <FaStar height={20} width={20} />
-                RELAUNCH
+                &nbsp; RELAUNCH
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">
@@ -111,9 +111,9 @@ function IndexPage({ nextCohortStartDate }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Surprising Update</h3>
+              <h3 className="next-cohort">Sign Up For Cohort</h3>
               <div className="event_excerpt">
-                <p>Sign Up For Our Next Cohort.</p>
+                <p>Our Next Cohort is Starting Soon! Be Sure to Sign Up to learn with us!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
