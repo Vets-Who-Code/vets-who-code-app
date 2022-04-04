@@ -85,7 +85,7 @@ npm install
 There will be **a lot** of warnings and other messages that display, but this is normal.
 
 <p>
-<img src="public/images/reademe/npm1.jpg" alt="Installing dependencies witn npm" width="800px" />
+<img src="public/images/readme/npm1.jpg" alt="Installing dependencies witn npm" width="800px" />
 </p>
 
 <p>
