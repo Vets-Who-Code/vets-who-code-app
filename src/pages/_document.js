@@ -1,4 +1,4 @@
-import Document, { Html, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -10,6 +10,8 @@ export default class CustomDocument extends Document {
     return (
       <>
         <Html lang="en" color-mode="light">
+          <Head>
+          </Head>
           <body>
             <Main />
             <NextScript />
