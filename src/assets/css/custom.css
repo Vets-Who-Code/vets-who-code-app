@@ -8,7 +8,7 @@
 }
 
 .index .fluid-grid:hover h2,
-.index .fluid-grid:hover span {
+.index .fluid-grid:hover h3 {
   color: var(--element-4);
   text-decoration: underline;
 }
