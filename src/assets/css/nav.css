@@ -4,11 +4,12 @@
 /* skip to main link - Accessibility */
 
 #skip-to-main-link {
+  font-size: 1.3rem;
   left: 10px;
   background-color: var(--primary-1);
   border: 1px solid var(--element-3);
   border-radius: 0 0 4px 4px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   color: var(--element-4);
   font-weight: 700;
   text-transform: capitalize;
