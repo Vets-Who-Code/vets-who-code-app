@@ -875,11 +875,7 @@ h3 {
 .site-header .intro h2 {
   color: var(--element-4);
   font-family: 'Gotham';
-<<<<<<< HEAD
-  font-weight: 700;
-=======
   font-weight: 400;
->>>>>>> master
   letter-spacing: 1px;
   margin-top: 22px;
   /* margin-bottom: 1px; */
