@@ -20,7 +20,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid first-grid text-center"
                   style={{ backgroundColor: '#031228' }}
                 >
-                  <span>Help Us Teach More Veterans</span>
+                  <h3>Help Us Teach More Veterans</h3>
                   <h2>Donate</h2>
                 </div>
               </Link>
@@ -31,7 +31,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid second-grid text-center"
                   style={{ backgroundColor: '#0f356d' }}
                 >
-                  <span>Learn Programming</span>
+                  <h3>Learn Programming</h3>
                   <h2>APPLY</h2>
                 </div>
               </Link>
@@ -42,7 +42,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid third-grid text-center"
                   style={{ backgroundColor: '#123f83' }}
                 >
-                  <span>Become A Mentor</span>
+                  <h3>Become A Mentor</h3>
                   <h2>Get Involved</h2>
                 </div>
               </Link>
