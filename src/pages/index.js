@@ -111,15 +111,9 @@ function IndexPage({ nextCohortStartDate }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-<<<<<<< HEAD
-              <h3 className="next-cohort">Sign Up For Cohort</h3>
-              <div className="event_excerpt">
-                <p>Our Next Cohort is Starting Soon! Be Sure to Sign Up to learn with us!</p>
-=======
               <h3 className="next-cohort">Sign Up For Our Next Cohort</h3>
               <div className="event_excerpt">
                 <p>Our Next Cohort is Starting Soon! Sign Up Now and Learn to Code!</p>
->>>>>>> master
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">

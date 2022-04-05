@@ -1,8 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-<<<<<<< HEAD
 npm run format
-=======
-npm test
->>>>>>> master
