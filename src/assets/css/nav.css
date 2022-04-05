@@ -1,5 +1,32 @@
 /* NAV */
 /* overide bootstrap mobile nav styles */
+
+/* skip to main link - Accessibility */
+
+#skip-to-main-link {
+  left: 10px;
+  background-color: var(--primary-1);
+  border: 1px solid var(--element-3);
+  border-radius: 0 0 4px 4px;
+  padding: 10px 20px;
+  color: var(--element-4);
+  font-weight: 700;
+  text-transform: capitalize;
+  text-decoration: none;
+  position: absolute;
+  transform: translateY(-120%);
+  transition: transform 325ms ease-in;
+  z-index: 99;
+}
+
+#skip-to-main-link:hover {
+  text-decoration: underline;
+}
+
+#skip-to-main-link:focus {
+  transform: translateY(0%);
+}
+
 /* hamburger menu styles */
 .hamburger {
   position: absolute;
