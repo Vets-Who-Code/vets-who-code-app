@@ -19,9 +19,10 @@ exports[`<Footer /> should render correctly 1`] = `
             Help Us Teach More Veterans How To Code  
           </h2>
           <a
+            class="btn btn-charity-default"
             href="/donate"
           >
-            donate
+            Donate
           </a>
         </div>
       </div>

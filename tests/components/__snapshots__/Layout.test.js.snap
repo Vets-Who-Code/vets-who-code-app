@@ -15,6 +15,12 @@ exports[`<Layout /> should render correctly 1`] = `
       role="navigation"
       style="opacity: 0.9;"
     >
+      <a
+        href="#our_stories"
+        id="skip-to-main-link"
+      >
+        Skip to main
+      </a>
       <div
         class="container-fluid"
       >
@@ -365,9 +371,10 @@ exports[`<Layout /> should render correctly 1`] = `
                 Help Us Teach More Veterans How To Code  
               </h2>
               <a
+                class="btn btn-charity-default"
                 href="/donate"
               >
-                donate
+                Donate
               </a>
             </div>
           </div>
