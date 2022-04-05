@@ -1,29 +1,29 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Slab:wght@400;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&family=Roboto+Slab:wght@400;600;700&display=swap');
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url("/fonts/Gotham/Gotham-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
 
-/* @font-face { */
-/*   font-family: 'Open Sans'; */
-/*   font-display: swap; */
-/*   font-style: normal; */
-/*   font-weight: 400; */
-/* } */
+@font-face {
+  font-family: 'Gotham Book';
+  src: url("/fonts/Gotham/Gotham-Book.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
-/* @font-face { */
-/*   font-family: 'Roboto Slab'; */
-/*   font-display: swap; */
-/*   font-style: normal; */
-/*   font-weight: 400; */
-/* } */
+@font-face {
+  font-family: 'Gotham Book Italic';
+  src: url("/fonts/Gotham/Gotham-BookItalic.ttf");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
 
-/* @font-face { */
-/*   font-family: 'Lato'; */
-/*   font-display: swap; */
-/*   font-style: normal; */
-/*   font-weight: 400; */
-/* } */
 
 :root[color-mode='light'] {
   /* Surface colors: background color of body, menus, footers, navigation bars, modals */
@@ -156,7 +156,7 @@ html {
 body {
   background-color: var(--surface-1);
   color: var(--element-2);
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 0.9375rem; /*15px*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -174,10 +174,10 @@ h4,
 h5,
 h6 {
   color: var(--element-3);
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Gotham', sans-serif;
 }
 .font-alt {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Gotham', sans-serif;
 }
 .logo_holder {
   background: var(--surface-1);
@@ -334,7 +334,7 @@ h1.small-top-pad {
   text-transform: uppercase;
 }
 .featured-heading h2 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   line-height: 2.25rem; /*36px*/
@@ -346,7 +346,7 @@ p.featured-content {
   margin-bottom: 45px;
 }
 .featured-heading h3 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.3125rem; /*21px*/
   font-weight: 900;
   line-height: 2.25rem; /*36px*/
@@ -361,7 +361,7 @@ p.featured-content {
 }
 blockquote {
   border: 0;
-  font-family: 'Lato';
+  font-family: 'Gotham';
   margin: 85px 10px;
   padding: 0.5em 10px;
   quotes: '“' '”' '‘' '’';
@@ -874,7 +874,7 @@ h3 {
 }
 .site-header .intro h1 {
   color: var(--element-4);
-  font-family: 'Lato';
+  font-family: 'Gotham';
   font-weight: 700;
   letter-spacing: 1px;
   margin-bottom: 17px;
@@ -972,7 +972,7 @@ h3 {
 }
 .inner-header h2 {
   color: var(--element-4);
-  font-family: 'lato';
+  font-family: 'Gotham';
   font-weight: 700;
   margin-top: 5px;
   position: relative;
@@ -992,7 +992,7 @@ h3 {
 }
 .inner-header .breadcrumb a {
   color: inherit;
-  font-family: 'lato';
+  font-family: 'Gotham';
   -webkit-transition: color 0.4s ease-in-out;
   transition: color 0.4s ease-in-out;
 }
@@ -1128,7 +1128,7 @@ h3 {
   margin-bottom: 5px;
 }
 .causes-card h4 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-weight: 800;
 }
 .cause_excerpt p {
@@ -1149,7 +1149,7 @@ h3 {
 }
 .goal_value p {
   color: var(--element-9);
-  font-family: 'Lato';
+  font-family: 'Gotham';
   font-weight: 700;
 }
 .goal_value p span {
@@ -1219,7 +1219,7 @@ h3 {
   margin-bottom: 25px;
 }
 .cause_single h4 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 800;
 }
@@ -1234,7 +1234,7 @@ h3 {
 }
 .cause_single .small_event_card .event_meta ul li {
   color: var(--element-5);
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 0.9375rem; /*15px*/
   margin-left: 40px;
 }
@@ -1332,7 +1332,7 @@ h3 {
   margin-bottom: 100px;
 }
 .event_block .event_footer h4 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
 }
@@ -1451,7 +1451,7 @@ h3 {
   margin-right: 3px;
 }
 .post .entry-title {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: bold;
   margin-bottom: 0;
@@ -1542,7 +1542,7 @@ h3 {
   margin-bottom: 50px;
 }
 .widget h4 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 40px;
@@ -1645,7 +1645,7 @@ a.list-group-item:hover .media-heading {
   margin: 0 20px 20px 0;
 }
 .blog-intro h2 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   letter-spacing: 1px;
@@ -1738,7 +1738,7 @@ label {
 }
 .contactus-brief > h2 {
   color: var(--element-3);
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 45px;
@@ -1762,7 +1762,7 @@ label {
   margin: 0;
 }
 .contact-wigets-area h4 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.3125rem; /*21px*/
   font-weight: 700;
   margin-bottom: 22px;
@@ -1811,7 +1811,7 @@ uneditable-input:focus {
   outline: 0 none;
 }
 .story-title {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-weight: 900;
   margin-bottom: 48px;
   margin-top: 0;
@@ -1852,18 +1852,12 @@ uneditable-input:focus {
 .success-story-img-content p {
   color: var(--element-3);
 }
-.success-story p:last-child {
-  font-family: 'lato';
-  font-size: 1.3125rem; /*21px*/
-  font-style: italic;
-  margin-bottom: 60px;
-  color: var(--primary-3);
-}
+
 #team {
   padding: 30px 0 50px 0;
 }
 .meet-us-heading {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-weight: 900;
   margin-bottom: 35px;
 }
@@ -1918,7 +1912,7 @@ uneditable-input:focus {
   width: 55px;
 }
 .faq h2 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   margin-bottom: 40px;
@@ -1975,7 +1969,7 @@ uneditable-input:focus {
 }
 
 .faq_list .panel-title {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-weight: 800;
 }
 .faq-short-brief {
@@ -1987,13 +1981,13 @@ uneditable-input:focus {
 }
 .fluid-grid h2 {
   color: var(--element-4);
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 2.625rem; /*42px*/
   margin: 0;
 }
 .fluid-grid span {
   color: var(--element-4);
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Gotham', sans-serif;
   font-size: 1.3125rem; /*21px*/
 }
 .fluid-grid:hover {
@@ -2108,6 +2102,22 @@ uneditable-input:focus {
 .call-to-action-small a.btn-charity-default {
   text-transform: capitalize;
 }
+
+.call-to-action-small .donate {
+  background-color: var(--primary-1);
+  font-weight: 600;
+  font-size: 1.3125rem; /*21px*/
+  border-radius: 2px;
+  border: none;
+  padding: 10px 20px;
+}
+
+.call-to-action-small .donate:hover {
+  background-color: var(--element-15);
+  color: var(--element-4);
+  transition: all 0.1 linear;
+}
+
 @media (max-width: 767px) {
   .call-to-action-small h3 {
     margin-bottom: 20px;
@@ -2142,7 +2152,7 @@ uneditable-input:focus {
   margin-bottom: 45px;
 }
 .organisations h3 {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 1.3125rem; /*21px*/
   font-weight: 900;
   margin-bottom: 10px;
@@ -2243,7 +2253,7 @@ uneditable-input:focus {
   font-size: 1.875rem; /*30px*/
 }
 .dg-wrapper div span.dg-small {
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 0.9375rem; /*15px*/
   font-weight: 300;
   letter-spacing: 1px;
@@ -2336,7 +2346,7 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .four-o-four h2 {
   color: var(--element-4);
-  font-family: 'Open Sans';
+  font-family: 'Gotham';
   font-size: 16.25rem; /*100px*/
   font-weight: 900;
   margin-bottom: 42px;
@@ -2355,7 +2365,7 @@ div.zabuto_calendar tr.calendar-dow td {
   background-color: var(--surface-6);
 }
 .footer-widgets h3 {
-  font-family: 'Open Sans', 'Sans Serif';
+  font-family: 'Gotham', 'Sans-Serif';
   font-size: 1.3125rem; /*21px*/
   font-weight: 800;
   letter-spacing: 1px;

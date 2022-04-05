@@ -370,12 +370,15 @@ exports[`<Layout /> should render correctly 1`] = `
               <h2>
                 Help Us Teach More Veterans How To Code  
               </h2>
-              <a
-                class="btn btn-charity-default"
-                href="/donate"
+              <button
+                class="donate"
               >
-                Donate
-              </a>
+                <a
+                  href="/donate"
+                >
+                  donate
+                </a>
+              </button>
             </div>
           </div>
         </div>
