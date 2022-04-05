@@ -20,10 +20,6 @@
   z-index: 99;
 }
 
-#skip-to-main-link:hover {
-  text-decoration: underline;
-}
-
 #skip-to-main-link:focus {
   transform: translateY(0%);
 }

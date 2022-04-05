@@ -109,7 +109,9 @@ function Nav() {
       style={{ opacity: opacity }}
     >
       <Link href="#our_stories">
-        <a id="skip-to-main-link">Skip to main</a>
+        <a id="skip-to-main-link" className="a">
+          Skip to main
+        </a>
       </Link>
       <div className="container-fluid">
         <div className="navbar-header">
