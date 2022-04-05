@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplit } from 'react-icons/si'
-import { Contentful, Fem, Netlify } from '../../icons'
+import { Contentful, Fem, Netlify, Vercel } from '../../icons'
 
 const baseSettlings = {
   autoplay: true,
@@ -122,6 +122,20 @@ const elements = [
       },
     },
   },
+  {
+    href: 'https://www.vercel.com/',
+    label: 'Link to Vercel',
+    title: 'Vercel',
+    // /image is in the public folder
+    lightElement: '/images/supporters/vercel.png',
+    darkElement: {
+      component: Vercel,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
+  },
 ]
 
 function SponsorSlider() {
@@ -186,7 +200,7 @@ function SponsorSlider() {
   return (
     <Carousel
       {...baseSettlings}
-      slidesToShow={isMobile ? 4 : 7}
+      slidesToShow={isMobile ? 4 : 8}
       transitionMode={isMobile ? 'scroll' : 'fade'}
     >
       {colorMode === 'light' ? lightElements() : darkElements()}
