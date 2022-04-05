@@ -9,7 +9,7 @@ exports[`<Nav /> should render correctly 1`] = `
   style="opacity: 0.9;"
 >
   <a
-    href="#our_stories"
+    href="/#our_stories"
     id="skip-to-main-link"
   >
     Skip to main
