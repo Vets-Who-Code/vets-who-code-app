@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplit } from 'react-icons/si'
-import { Contentful, Fem, Netlify } from '../../icons'
+import { Contentful, Fem, Vercel } from '../../icons'
 
 const baseSettlings = {
   autoplay: true,
@@ -109,13 +109,13 @@ const elements = [
     },
   },
   {
-    href: 'https://www.netlify.com/',
-    label: 'Link to Netlify',
-    title: 'Netlify',
-    // /images is in the public folder
-    lightElement: '/images/supporters/netlify.png',
+    href: 'https://www.vercel.com/',
+    label: 'Link to Vercel',
+    title: 'Vercel',
+    // /image is in the public folder
+    lightElement: '/images/supporters/vercel.png',
     darkElement: {
-      component: Netlify,
+      component: Vercel,
       props: {
         size: 60,
         color: '#ffffff',
