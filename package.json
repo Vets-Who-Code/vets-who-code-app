@@ -94,10 +94,7 @@
     "regenerator-runtime": "0.13.9"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add ."
-    ]
+    "*.js": ["eslint --fix", "git add ."]
   },
   "husky": {
     "hooks": {
