@@ -10,9 +10,6 @@ export default class CustomDocument extends Document {
     return (
       <>
         <Html lang="en" color-mode="light">
-          <Head>
-            <link rel="shortcut icon" href="/favicon.png" />
-          </Head>
           <body>
             <Main />
             <NextScript />
