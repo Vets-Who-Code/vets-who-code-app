@@ -10,8 +10,7 @@ export default class CustomDocument extends Document {
     return (
       <>
         <Html lang="en" color-mode="light">
-          <Head>
-          </Head>
+          <Head/>
           <body>
             <Main />
             <NextScript />
