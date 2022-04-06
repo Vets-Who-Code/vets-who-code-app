@@ -72,7 +72,10 @@ function IndexPage({ nextCohortStartDate }) {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-              #VetsWhoCode a veteran founded and operated inclusive 501(c)(3) that provides a streamlined, highly selective software development training program intent on transitioning military veterans into the vacancies of the tech sector free of charge.
+                #VetsWhoCode a veteran founded and operated inclusive 501(c)(3) that provides a
+                streamlined, highly selective software development training program intent on
+                transitioning military veterans into the vacancies of the tech sector free of
+                charge.
               </p>
             </div>
           </div>
