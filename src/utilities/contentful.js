@@ -44,7 +44,7 @@ export function setupContentfulClient(options = {}) {
       ...options,
       space,
       accessToken,
-      contentfulEnvironment,
+      environment: contentfulEnvironment,
     })
   }
 
