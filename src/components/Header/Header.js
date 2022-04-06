@@ -17,22 +17,22 @@ function Header() {
           <div className="container">
             <div className="col-md-10 col-md-offset-1">
               <div className="intro text-left" style={{ color: '#fff' }}>
-                <h1>
+                <h1 className="subtitle">Vets Who Code</h1>
+                <h2>
                   <Typed
                     className="typedString"
                     strings={[
-                      'Learn How To Code',
-                      'Build Open Source',
-                      'Network With Peers',
-                      'Get A Job',
+                      'RESULTS DRIVEN',
+                      '100% ONLINE',
+                      'LEARN PRAGMATICALLY',
+                      'PREPARED FOR THE INDUSTRY',
                     ]}
                     typeSpeed={70}
                     backSpeed={80}
                     smartBackspace
                     loop
                   />
-                </h1>
-                <p className="subtitle">With Vets Who Code.</p>
+                </h2>
                 <div className="btn-cal-group">
                   <Link href="/apply" className="btn btn-charity-default">
                     <a className="btn btn-charity-default">Apply</a>

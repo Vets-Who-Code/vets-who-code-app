@@ -26,7 +26,12 @@ exports[`<Header /> should render correctly 1`] = `
             class="intro text-left"
             style="color: rgb(255, 255, 255);"
           >
-            <h1>
+            <h1
+              class="subtitle"
+            >
+              Vets Who Code
+            </h1>
+            <h2>
               <span
                 class="typedString"
               >
@@ -37,12 +42,7 @@ exports[`<Header /> should render correctly 1`] = `
                   |
                 </span>
               </span>
-            </h1>
-            <p
-              class="subtitle"
-            >
-              With Vets Who Code.
-            </p>
+            </h2>
             <div
               class="btn-cal-group"
             >

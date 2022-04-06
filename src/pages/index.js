@@ -83,11 +83,11 @@ function IndexPage({ nextCohortStartDate }) {
           <div className="row">
             <div className="featured-heading text-center">
               <h2 className="dark_color">
-                RETOOL
+                RETOOL &nbsp;
                 <FaStar height={20} width={20} />
-                RETRAIN
+                &nbsp; RETRAIN &nbsp;
                 <FaStar height={20} width={20} />
-                RELAUNCH
+                &nbsp; RELAUNCH
               </h2>
             </div>
             <div className="col-sm-12 our_mission_content text-center">
@@ -107,9 +107,9 @@ function IndexPage({ nextCohortStartDate }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Surprising Update</h3>
+              <h3 className="next-cohort">Sign Up For Our Next Cohort</h3>
               <div className="event_excerpt">
-                <p>Sign Up For Our Next Cohort.</p>
+                <p>Our Next Cohort is Starting Soon! Sign Up Now and Learn to Code!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
