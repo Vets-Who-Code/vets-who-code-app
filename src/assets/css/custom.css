@@ -191,9 +191,6 @@
   border-radius: 4px;
 }
 
-testimonial-text:focus {
-  border: thin solid black;
-}
 testimonial-row:focus {
   border: thin solid black;
 }
