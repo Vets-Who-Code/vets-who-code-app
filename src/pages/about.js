@@ -68,6 +68,7 @@ function About() {
                   backgroundSize: 'auto',
                   display: 'none',
                 }}
+                role="presentation"
               />
             </div>
             <div className="col-md-12">
