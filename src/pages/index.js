@@ -72,11 +72,10 @@ function IndexPage({ nextCohortStartDate }) {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
-                charitable public non-profit organization. We focus on training veterans, active
-                duty military, and military spouses in practical programming paradigms by using
-                mentoring and open source development with the goal of starting careers in the
-                technology industry.
+                #VetsWhoCode a veteran founded and operated inclusive 501(c)(3) that provides a
+                streamlined, highly selective software development training program intent on
+                transitioning military veterans into the vacancies of the tech sector free of
+                charge.
               </p>
             </div>
           </div>
