@@ -1851,6 +1851,13 @@ uneditable-input:focus {
   color: var(--element-3);
   font-size: 0.9375rem; /*15px*/
 }
+
+.success-story p.story-first {
+  font-weight:700;
+  font-size: 1.125rem;
+  color: var(--element-3);
+}
+
 .success-story-img-content p {
   color: var(--element-3);
 }

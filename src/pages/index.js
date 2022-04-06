@@ -97,8 +97,11 @@ function IndexPage({ nextCohortStartDate }) {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                #VetsWhoCode was founded by vets who themselves faced the realties of transitioning. We don’t focus our energy on marketing ploys, or on how many people we can funnel through a pipeline. Instead, we choose quality over quantity, and tangible results over lofty ideals.
-We are solution-based and action-oriented. If our students can’t make money with it, then we don’t bother teaching it.
+                  #VetsWhoCode was founded by vets who themselves faced the realties of
+                  transitioning. We don’t focus our energy on marketing ploys, or on how many people
+                  we can funnel through a pipeline. Instead, we choose quality over quantity, and
+                  tangible results over lofty ideals. We are solution-based and action-oriented. If
+                  our students can’t make money with it, then we don’t bother teaching it.
                 </p>
               </blockquote>
             </div>

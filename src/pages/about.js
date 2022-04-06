@@ -75,15 +75,9 @@ function About() {
               <div className="success-story">
                 <h2>Who We Are</h2>
                 &nbsp;
-                <p className="story">
-                  Launched in 2014, Vets Who Code is a non-profit dedicated to filling the nations
-                  technical skills gap with America’s best. As a means to close the digital talent
-                  gap, ease career transition for military veterans and spouses skills to provide
-                  stability, we connect and train veterans remotely in various programming practices
-                  as they move to support their families. We believe that those who serve in uniform
-                  can be the digital economy’s most productive and innovative. Vets Who Code
-                  prepares veterans to enter the civilian work force with tangible skills for new
-                  careers.
+                <p className="story-first">
+                  Launched in 2014, #VetsWhoCode is a non- profit dedicated to filling the wide
+                  chasm between technical expertise needed and available with America’s best.
                 </p>
                 <p className="story">
                   Vets Who Code is a reintegration solution for veterans who believe in the
@@ -94,14 +88,43 @@ function About() {
                   innovation. Vets Who Code serves as a launch pad for our veterans and military
                   spouses.
                 </p>
+                <p className="story">
+                  Our vision is to close the digital talent gap and ease career transition for
+                  military veterans, through software development training. We believe that those
+                  who serve in uniform can be the digital economy’s most productive and innovative
+                  assets. #VetsWhoCode prepares them to enter society with new skills for exciting
+                  careers.
+                </p>
+                <p className="story">
+                  Post 9/11 veterans are considered a “vulnerable population.” This is due to the
+                  fact that the majority of Veteran Services aren’t designed for us, but for Vets
+                  from the Vietnam Era. Employment, education, and what we call “ ground zero
+                  issues” are all vastly different from those who came before us
+                </p>
+                <p className="story">
+                  Despite the difference in our generations, the same protocols and policies are
+                  being used—and worse than that—they are being used reactively. Our goal is to
+                  create a suite of digital applications and services that will empower veterans and
+                  guide them through a successful integration back into civilian life. #VetsWhoCode
+                  is a reintegration solution for veterans that believes in the principle of “To
+                  Teach a Man To Fish” to revitalize early stage transitioning veterans. Many
+                  veterans are not homeless, but are un- and under- employed. Some have a deep
+                  desire to be independent business owners. Their skill sets are desperately needed
+                  to enhance local economies and to drive innovation. #VetsWhoCode is a conversion
+                  point and launch pad for these veterans.
+                </p>
                 <h2>What We Do</h2>
                 &nbsp;
                 <p className="story">
-                  At Vets Who Code, we take a small cohort of veterans and spouses twice a year and
-                  train them in programming with a deep focus on JavaScript, the language of the
-                  web, over the course of sixteen weeks. We do this all remotely using the best
-                  tools and resources the tech community has to offer. In addition to contributing
-                  and helping each other become better programmers, we do this at zero cost.
+                  #VetsWhoCode is a streamlined, highly selective software development training
+                  program intent on transitioning military veterans into the vacancies of the tech
+                  sector.
+                </p>
+                <p className="story">
+                  #VetsWhoCode was founded by vets who themselves faced the realties of
+                  transitioning. We don’t focus our energy on marketing ploys, or on how many people
+                  we can funnel through a pipeline. Instead, we choose quality over quantity, and
+                  tangible results over lofty ideals.
                 </p>
                 <h2>How We Do This</h2>
                 &nbsp;
@@ -112,6 +135,10 @@ function About() {
                   also veterans, programmers, and alumni of the program. There are no excuses, the
                   instructor has been through every success and failure you will experience and has
                   ultimately succeeded on the path of becoming a paid programmer.
+                </p>
+                <p className="story">
+                  We are solution-based and action-oriented. If our students can’t make money with
+                  it, then we don’t bother teaching it.
                 </p>
               </div>
             </div>
