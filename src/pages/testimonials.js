@@ -27,7 +27,7 @@ function Testimonial() {
             </div>
             <div className="col-md-12">
               <div className="cause_section_content">
-                <div className="testimonial-row">
+                <div className="testimonial-row" tabindex="1">
                   <Image
                     src={schusterProfile}
                     alt="Schuster Braun"
@@ -36,7 +36,7 @@ function Testimonial() {
                     placeholder="blur"
                     blurDataURL={schusterProfile}
                   />
-                  <blockquote className="testimonial-text">
+                  <blockquote className="testimonial-text" tabindex="2">
                     <p>
                       &quot;#VetsWhoCode on paper is a web development boot camp. In my opinion it
                       is the best transition assistance program out there. I am so grateful for the
@@ -45,7 +45,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row">
+                <div className="testimonial-row" tabindex="3">
                   <Image
                     src={johnProfile}
                     alt="John Garcia"
@@ -54,7 +54,7 @@ function Testimonial() {
                     placeholder="blur"
                     blurDataURL={schusterProfile}
                   />
-                  <blockquote className="testimonial-text">
+                  <blockquote className="testimonial-text" tabindex="4">
                     <p>
                       &quot;VWC helped me gain the technical knowledge I needed in order to get the
                       attention of employers. The guidance, support and experience I had going
@@ -64,7 +64,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row">
+                <div className="testimonial-row" tabindex="5">
                   <Image
                     src={carlaProfile}
                     alt="Carla Kroll"
@@ -73,7 +73,7 @@ function Testimonial() {
                     placeholder="blur"
                     blurDataURL={carlaProfile}
                   />
-                  <blockquote className="testimonial-text">
+                  <blockquote className="testimonial-text" tabindex="6">
                     <p>
                       &quot;The course was great! I laughed, I learned, I got mad, I got
                       excited...then mad again. But in the end, I&apos;ve developed skills that have
@@ -85,7 +85,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row">
+                <div className="testimonial-row" tabindex="7">
                   <Image
                     src={ozzieProfile}
                     alt="Osvaldo Vargas"
@@ -94,7 +94,7 @@ function Testimonial() {
                     placeholder="blur"
                     blurDataURL={ozzieProfile}
                   />
-                  <blockquote className="testimonial-text">
+                  <blockquote className="testimonial-text" tabindex="8">
                     <p>
                       &quot;During my transition, I have signed up for and utilized services from
                       over 14 different Non-Profits, Corporate, and State resources. I attended all
@@ -109,7 +109,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row">
+                <div className="testimonial-row" tabindex="9">
                   <Image
                     src={jeffProfile}
                     alt="Jeff Martin"
@@ -118,7 +118,7 @@ function Testimonial() {
                     placeholder="blur"
                     blurDataURL={jeffProfile}
                   />
-                  <blockquote className="testimonial-text">
+                  <blockquote className="testimonial-text" tabindex="10">
                     <p>
                       &quot;#VetsWhoCode&apos;s tenacious focus on language and computer science
                       fundamentals over frameworks was invaluable in my career transition from being
