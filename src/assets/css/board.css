@@ -42,6 +42,8 @@
 }
 .card-box h3{
   font-size: .8rem;
+  font-weight:bold;
+  padding:10px;
 }
 .user-pic {
   width: 150px;
