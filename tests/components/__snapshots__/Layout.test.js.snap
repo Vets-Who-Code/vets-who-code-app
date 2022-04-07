@@ -16,6 +16,7 @@ exports[`<Layout /> should render correctly 1`] = `
       style="opacity: 0.9;"
     >
       <a
+        class="a"
         href="/#our_stories"
         id="skip-to-main-link"
       >
