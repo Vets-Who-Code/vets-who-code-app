@@ -40,6 +40,9 @@
 .card-box h2 {
   font-size: 1rem;
 }
+.card-box h3{
+  font-size: .8rem;
+}
 .user-pic {
   width: 150px;
   height: 150px;
