@@ -1,0 +1,19 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# From the post-checkout docs https://git-scm.com/docs/githooks#_post_checkout
+# The hook is given three parameters:
+#  - the ref of the previous HEAD
+#  - the ref of the new HEAD (which may or may not have changed)
+#  - a flag indicating whether the checkout was:
+#     - a branch checkout (changing branches, flag=1)
+#     - a file checkout (retrieving a file from the index, flag=0).
+
+# When the third script parameter is "1" we are executing a branch checkout
+if [ "$3" = "1" ]; then
+  # install npm packages
+  npm install
+
+  # or with yarn
+  # yarn install --frozen-lockfile
+fi
