@@ -1851,6 +1851,13 @@ uneditable-input:focus {
   color: var(--element-3);
   font-size: 0.9375rem; /*15px*/
 }
+
+.success-story p.story-first {
+  font-weight:700;
+  font-size: 1.125rem;
+  color: var(--element-3);
+}
+
 .success-story-img-content p {
   color: var(--element-3);
 }
@@ -1987,21 +1994,23 @@ uneditable-input:focus {
   font-size: 2.625rem; /*42px*/
   margin: 0;
 }
-.fluid-grid span {
+.fluid-grid h3 {
   color: var(--element-4);
   font-family: 'Gotham', sans-serif;
   font-size: 1.3125rem; /*21px*/
 }
 .fluid-grid:hover {
   cursor: pointer;
+  color: var(--element-4);
+
 }
 .fluid-grid h2,
-.fluid-grid span {
+.fluid-grid h3 {
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 .fluid-grid:hover h2,
-.fluid-grid:hover span {
+.fluid-grid:hover h3 {
   color: var(--primary-1);
 }
 .first-grid {
