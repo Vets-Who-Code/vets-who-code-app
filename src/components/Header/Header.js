@@ -20,6 +20,7 @@ function Header() {
                 <h1 className="subtitle">Vets Who Code</h1>
                 <h2>
                   <Typed
+                    style={{ fontFamily: 'Gotham, sans-serif' }}
                     className="typedString"
                     strings={[
                       'RESULTS DRIVEN',
