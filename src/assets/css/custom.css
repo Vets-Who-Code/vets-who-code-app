@@ -190,3 +190,7 @@
 .border-radius-4 {
   border-radius: 4px;
 }
+
+testimonial-row:focus {
+  border: thin solid black;
+}
