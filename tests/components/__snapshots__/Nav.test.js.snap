@@ -8,13 +8,6 @@ exports[`<Nav /> should render correctly 1`] = `
   role="navigation"
   style="opacity: 0.9;"
 >
-  <a
-    class="a"
-    href="/#our_stories"
-    id="skip-to-main-link"
-  >
-    Skip to main
-  </a>
   <div
     class="container-fluid"
   >
@@ -47,6 +40,13 @@ exports[`<Nav /> should render correctly 1`] = `
           >
             VetsWhoCode
           </div>
+        </a>
+        <a
+          class="a"
+          href="/#our_stories"
+          id="skip-to-main-link"
+        >
+          Skip to main
         </a>
       </div>
       <button
