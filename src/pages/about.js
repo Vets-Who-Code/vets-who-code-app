@@ -39,9 +39,9 @@ function About() {
               <p>
                 <i>
                   RETOOL &nbsp;
-                  <FaStar height={20} width={20} />
+                  <FaStar height={20} width={20} aria-hidden="true" />
                   &nbsp; RETRAIN &nbsp;
-                  <FaStar height={20} width={20} />
+                  <FaStar height={20} width={20} aria-hidden="true" />
                   &nbsp; RELAUNCH
                 </i>
               </p>
