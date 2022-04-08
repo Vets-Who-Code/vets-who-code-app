@@ -14,7 +14,7 @@ function Testimonial() {
       <NextSeo title="Testimonials" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
-        <div className="container">
+        <div className="container" href="main">
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Testimonials</h1>
@@ -27,7 +27,7 @@ function Testimonial() {
             </div>
             <div className="col-md-12">
               <div className="cause_section_content">
-                <div className="testimonial-row" tabIndex="0">
+                <div className="testimonial-row">
                   <Image
                     src={schusterProfile}
                     alt="Schuster Braun"
