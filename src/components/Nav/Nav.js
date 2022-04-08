@@ -108,11 +108,6 @@ function Nav() {
       role="navigation"
       style={{ opacity: opacity }}
     >
-      <Link href="#our_stories">
-        <a id="skip-to-main-link" className="a">
-          Skip to main
-        </a>
-      </Link>
       <div className="container-fluid">
         <div className="navbar-header">
           <div
@@ -132,6 +127,11 @@ function Nav() {
                   width={40}
                 />
                 <div className="homeLink">VetsWhoCode</div>
+              </a>
+            </Link>
+            <Link href="#our_stories">
+              <a id="skip-to-main-link" className="a">
+                Skip to main
               </a>
             </Link>
           </div>
