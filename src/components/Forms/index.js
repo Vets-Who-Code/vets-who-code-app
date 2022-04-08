@@ -24,6 +24,7 @@ export const onSubmitError = message => {
 
 export { default as ApplyForm } from './ApplyForm'
 export { default as ContactForm } from './ContactForm'
+export { default as ContactFormFooter } from './ContactFormFooter'
 export { default as MentorForm } from './MentorForm'
 export { default as SubscribeForm } from './SubscribeForm'
 export { default as FormAlert } from './FormAlert'
