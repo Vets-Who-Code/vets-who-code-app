@@ -45,7 +45,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row" tabIndex="0">
+                <div className="testimonial-row">
                   <Image
                     src={johnProfile}
                     alt="John Garcia"
@@ -64,7 +64,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row" tabIndex="0">
+                <div className="testimonial-row">
                   <Image
                     src={carlaProfile}
                     alt="Carla Kroll"
@@ -85,7 +85,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row" tabIndex="0">
+                <div className="testimonial-row">
                   <Image
                     src={ozzieProfile}
                     alt="Osvaldo Vargas"
@@ -109,7 +109,7 @@ function Testimonial() {
                     </p>
                   </blockquote>
                 </div>
-                <div className="testimonial-row" tabIndex="0">
+                <div className="testimonial-row">
                   <Image
                     src={jeffProfile}
                     alt="Jeff Martin"
