@@ -592,7 +592,7 @@ h1.bold_404 {
 .main-navigation .navbar-nav > .dropdown.open > a {
   background: transparent;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .navbar-nav > .dropdown.open > a {
     border-bottom: 1px solid var(--element-8);
   }
@@ -601,7 +601,7 @@ h1.bold_404 {
   background: transparent;
   color: var(--element-4);
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .navbar-nav > .dropdown.open > a span {
     background: transparent;
     color: var(--element-4);
@@ -625,7 +625,7 @@ h1.bold_404 {
     padding: 20px 15px 20px 15px;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .navbar-nav li a {
     border-bottom: 1px solid var(--element-8);
   }
@@ -647,7 +647,7 @@ h1.bold_404 {
   color: var(--element-11);
   padding-bottom: 10px;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .navbar-nav li a:hover span,
   .main-navigation .navbar-nav li a:focus span {
     background: transparent;
@@ -676,7 +676,7 @@ h1.bold_404 {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-@media (max-width: 767px) {
+@media (max-width: 833px) {
   .main-navigation .dropdown-toggle:after {
     right: 7px;
   }
@@ -684,7 +684,7 @@ h1.bold_404 {
 .main-navigation .dropdown-toggle.open:after {
   content: '\f106';
 }
-@media (max-width: 767px) {
+@media (max-width: 833px) {
   .main-navigation .open > .dropdown-toggle:after {
     content: '\f106';
   }
@@ -730,12 +730,12 @@ h1.bold_404 {
   right: auto;
   top: 0;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .dropdown-menu .dropdown-menu {
     padding-left: 30px;
   }
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 834px) {
   .main-navigation .dropdown-menu .dropdown-toggle:after {
     content: '\f105';
     right: 8px;
@@ -758,12 +758,12 @@ h1.bold_404 {
     padding: 20px 6px 18px;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .main-navigation .navbar-nav > li > a {
     padding: 12px 12px 12px;
   }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 833px) {
   .navbar-collapse {
     background-color: var(--surface-9);
     width: 100vw;

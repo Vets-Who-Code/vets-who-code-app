@@ -679,22 +679,67 @@ exports[`<Layout /> should render correctly 1`] = `
                 <div
                   class="office map"
                 >
-                  <p>
-                    Hi, if you have any questions, please drop us a line.
-                  </p>
-                  <span>
-                    <a
-                      aria-label="Email hello@vetswhocode.io"
-                      class="footer-span"
-                      href="hello@vetswhocode.io"
-                      title="Email Contact"
+                  <form
+                    id="s2do-form"
+                  >
+                    <div
+                      class="col-md-12"
                     >
-                      hello@vetswhocode.io
-                    </a>
-                  </span>
-                  <p>
-                     Phone: (404) 383-4414
-                  </p>
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="light-text"
+                          for="InputEmail"
+                        >
+                          Email
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <input
+                          class="form-control"
+                          id="InputEmail"
+                          name="email"
+                          placeholder="cam@example.com"
+                          type="email"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      class="col-sm-12"
+                    >
+                      <div
+                        class="form-group"
+                      >
+                        <label
+                          class="light-text"
+                          for="message"
+                        >
+                          Message
+                          <sup>
+                            *
+                          </sup>
+                        </label>
+                        <textarea
+                          class="form-control"
+                          id="message"
+                          name="message"
+                          placeholder="Message.."
+                          rows="3"
+                        />
+                      </div>
+                      <input
+                        class="btn btn-charity-default"
+                        href="#"
+                        id="cfsubmit"
+                        name="submit"
+                        title=""
+                        type="submit"
+                        value="Send"
+                      />
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
