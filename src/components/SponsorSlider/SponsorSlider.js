@@ -109,7 +109,7 @@ const elements = [
     },
   },
   {
-    href: 'https://www.vercel.com/',
+    href: 'https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss',
     label: 'Link to Vercel',
     title: 'Vercel',
     // /image is in the public folder

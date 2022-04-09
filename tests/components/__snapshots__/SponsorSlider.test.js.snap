@@ -269,7 +269,7 @@ exports[`<SponsorSlider /> should render correctly 1`] = `
         >
           <a
             aria-label="Link to Vercel"
-            href="https://www.vercel.com/"
+            href="https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss"
             rel="noopener noreferrer"
             target="_blank"
             title="Vercel"
