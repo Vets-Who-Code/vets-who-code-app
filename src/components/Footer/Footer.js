@@ -189,6 +189,24 @@ function Footer() {
               </ul>
             </div>
           </div>
+          <div className="row">
+            <div className="d-inline-flex p-2">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Vercel Link"
+                href="https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss"
+              >
+                <Image
+                  className="justify-center"
+                  src="/images/powered-by-vercel.svg"
+                  alt="vercel banner"
+                  height={48}
+                  width={196}
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

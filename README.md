@@ -7,7 +7,9 @@
   <a href=https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md>
     <img src=https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square alt="Contributions Welcome" />
   </a>
-  <img src=https://img.shields.io/netlify/bca54b7a-886c-4816-b7dc-1045c7e0abc4?style=flat-square alt="Deployment Status">
+  <a href=https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss>
+    <img src=https://img.shields.io/badge/Powered_by-Vercel-black?style=flat-square alt="Powered by Vercel">
+  </a>
 </p>
 
 <p align=center>
@@ -68,6 +70,7 @@ In a terminal window run these commands.
 $ cd vets-who-code-app
 $ npm run test
 ```
+
 <br>
 
 In a terminal window run these commands to run the jest test suite in watch mode.
