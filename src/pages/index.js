@@ -20,7 +20,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid first-grid text-center"
                   style={{ backgroundColor: '#031228' }}
                 >
-                  <span>Help Us Teach More Veterans</span>
+                  <h3>Help Us Teach More Veterans</h3>
                   <h2>Donate</h2>
                 </div>
               </Link>
@@ -31,7 +31,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid second-grid text-center"
                   style={{ backgroundColor: '#0f356d' }}
                 >
-                  <span>Learn Programming</span>
+                  <h3>Learn Programming</h3>
                   <h2>APPLY</h2>
                 </div>
               </Link>
@@ -42,7 +42,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid third-grid text-center"
                   style={{ backgroundColor: '#123f83' }}
                 >
-                  <span>Become A Mentor</span>
+                  <h3>Become A Mentor</h3>
                   <h2>Get Involved</h2>
                 </div>
               </Link>
@@ -72,11 +72,10 @@ function IndexPage({ nextCohortStartDate }) {
                 <h2>#VetsWhoCode</h2>
               </div>
               <p>
-                #VetsWhoCode is an inclusive, open-source, veteran-led and operated 501(c)(3)
-                charitable public non-profit organization. We focus on training veterans, active
-                duty military, and military spouses in practical programming paradigms by using
-                mentoring and open source development with the goal of starting careers in the
-                technology industry.
+                #VetsWhoCode a veteran founded and operated inclusive 501(c)(3) that provides a
+                streamlined, highly selective software development training program intent on
+                transitioning military veterans into the vacancies of the tech sector free of
+                charge.
               </p>
             </div>
           </div>
@@ -97,10 +96,11 @@ function IndexPage({ nextCohortStartDate }) {
             <div className="col-sm-12 our_mission_content text-center">
               <blockquote>
                 <p>
-                  Through training, mentorship, working with our open-source projects, and
-                  opportunities to interact with industry experts, our goal is to ensure that our
-                  troops gain the best knowledge possible while learning software skills that help
-                  them become gainfully employed in the technology sector.
+                  #VetsWhoCode was founded by vets who themselves faced the realties of
+                  transitioning. We don’t focus our energy on marketing ploys, or on how many people
+                  we can funnel through a pipeline. Instead, we choose quality over quantity, and
+                  tangible results over lofty ideals. We are solution-based and action-oriented. If
+                  our students can’t make money with it, then we don’t bother teaching it.
                 </p>
               </blockquote>
             </div>

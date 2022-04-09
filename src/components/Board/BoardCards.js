@@ -24,10 +24,8 @@ function BoardCards({ boardMemberCollection }) {
                     height={200}
                   />
                 </div>
-                <h1>
-                  {firstName} {lastName}
-                </h1>
-                <h2>{work}</h2>
+                <h2>{`${firstName} ${lastName}`}</h2>
+                <h3>{work}</h3>
               </div>
               <div className="bio">
                 <p className="board-bio">{bio}</p>

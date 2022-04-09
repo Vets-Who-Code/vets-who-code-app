@@ -34,6 +34,7 @@ exports[`<Header /> should render correctly 1`] = `
             <h2>
               <span
                 class="typedString"
+                style="font-family: Gotham, sans-serif;"
               >
                 <span />
                 <span

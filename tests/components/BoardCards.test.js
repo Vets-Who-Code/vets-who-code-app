@@ -100,8 +100,8 @@ describe('<BoardCards />', () => {
   test('should render all dyncamic data', () => {
     const { container } = render(<BoardCards boardMemberCollection={mockContentfulContent} />)
 
-    const nameHeadings = container.querySelectorAll('h1')
-    const workHeadings = container.querySelectorAll('h2')
+    const nameHeadings = container.querySelectorAll('h2')
+    const workHeadings = container.querySelectorAll('h3')
     const images = container.querySelectorAll('img')
 
     expect(nameHeadings[0].textContent).toBe('Jody Nelson')

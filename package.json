@@ -92,14 +92,5 @@
     "pretty-quick": "3.1.2",
     "react-test-renderer": "17.0.2",
     "regenerator-runtime": "0.13.9"
-  },
-  "lint-staged": {
-    "*.js": ["eslint --fix", "git add ."]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "lint-staged && npm test"
-    }
   }
 }
