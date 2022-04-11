@@ -48,6 +48,13 @@ exports[`<Layout /> should render correctly 1`] = `
                 VetsWhoCode
               </div>
             </a>
+            <a
+              class="a"
+              href="/#our_stories"
+              id="skip-to-main-link"
+            >
+              Skip to main
+            </a>
           </div>
           <button
             aria-expanded="false"
