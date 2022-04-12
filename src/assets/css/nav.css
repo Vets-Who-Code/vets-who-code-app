@@ -2,7 +2,6 @@
 /* overide bootstrap mobile nav styles */
 
 /* skip to main link - Accessibility */
-
 #skip-to-main-link {
   display: block;
   font-size: 1.3rem;
@@ -17,7 +16,11 @@
 }
 
 #skip-to-main-link:focus {
-  transform: translateY(-200%);
+  transform: translateY(-210%);
+}
+
+.skip-to-main-link-hide {
+  display: none !important;
 }
 
 /* hamburger menu styles */
