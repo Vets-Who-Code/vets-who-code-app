@@ -42,8 +42,8 @@ exports[`<Nav /> should render correctly 1`] = `
           </div>
         </a>
         <a
-          class="a"
-          href="/#our_stories"
+          class="skip-to-main-link-hide"
+          href="/undefined#our_stories"
           id="skip-to-main-link"
         >
           Skip to main
