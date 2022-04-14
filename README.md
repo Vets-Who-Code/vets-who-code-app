@@ -52,12 +52,6 @@ You should be able to view the website locally at `http://localhost:3000/`.
 
 **All Content from Contentful is is mocked locally. If you need api keys please reach out in the `#product` channel in slack.**
 
-### Create a new `.env` file in the root of your project
-
-```sh
-cp .env.example .env
-```
-
 ### Add necessary api keys to your new `.env` file.
 
 <!-- ## Tests -->
@@ -92,7 +86,7 @@ In a terminal window run these commands if you need to update a snapshot.
 
 ```sh
 $ cd vets-who-code-app
-$ npm run test --updateSnapshot
+$ npm run test -- --updateSnapshot
 ```
 
 <!-- ## Deployment -->

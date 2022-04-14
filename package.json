@@ -51,7 +51,8 @@
     "export": "next export",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s public",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preinstall": "node ./scripts/node-engine-check.js"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
