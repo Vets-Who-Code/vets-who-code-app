@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { AiFillCaretDown } from 'react-icons/ai'
 import Toggle from '../Toggle'
+import { useRouter } from 'next/router'
 
 import hashFlag from '../../images/hashflag_white.jpg'
 
@@ -54,8 +55,10 @@ function navReducer(state, action) {
 }
 
 function Nav() {
+  const router = useRouter()
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
+  const [skipLinkClass, setSkipLinkClass] = useState('skip-to-main-link-hide')
   const [navState, dispatch] = useReducer(navReducer, initialNavState)
   const isMobileNavOpen = navState.mobileNavOpen
   const isMediaDropdownOpen = navState.mediaDropdownOpen
@@ -73,6 +76,14 @@ function Nav() {
 
     return () => document.removeEventListener('mousedown', handleClickOutside)
   })
+
+  useEffect(() => {
+    if (router.pathname === '/') {
+      setSkipLinkClass('')
+    } else {
+      setSkipLinkClass('skip-to-main-link-hide')
+    }
+  }, [router.pathname])
 
   function handleScroll() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
@@ -127,6 +138,11 @@ function Nav() {
                   width={40}
                 />
                 <div className="homeLink">VetsWhoCode</div>
+              </a>
+            </Link>
+            <Link href="#our_stories">
+              <a id="skip-to-main-link" className={skipLinkClass}>
+                Skip to main
               </a>
             </Link>
           </div>

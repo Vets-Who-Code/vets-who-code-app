@@ -1,5 +1,28 @@
 /* NAV */
 /* overide bootstrap mobile nav styles */
+
+/* Accessibility - Skip to main */
+#skip-to-main-link {
+  display: block;
+  font-size: 1.3rem;
+  left: 250px;
+  background-color: var(--element-2);
+  padding: 5px 5px;
+  color: var(--element-4);
+  text-decoration: underline;
+  position: absolute;
+  transform: translateY(-450%);
+  z-index: 99;
+ }
+  
+ #skip-to-main-link:focus {
+  transform: translateY(-210%);
+ }
+  
+ .skip-to-main-link-hide {
+  display: none !important;
+ } 
+
 /* hamburger menu styles */
 .hamburger {
   position: absolute;
