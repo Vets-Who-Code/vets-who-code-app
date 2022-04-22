@@ -1,4 +1,11 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run format
+BRANCH_NAME=$(git branch | grep '*' | sed 's/* //') 
+
+if [[ $BRANCH_NAME != *"no branch"* ]]
+then
+ # your regularly scheduled hook
+ npm run format 
+fi
+

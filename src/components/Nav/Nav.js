@@ -129,6 +129,11 @@ function Nav() {
                 <div className="homeLink">VetsWhoCode</div>
               </a>
             </Link>
+            <Link href="#our_stories">
+              <a id="skip-to-main-link" className="a">
+                Skip to main
+              </a>
+            </Link>
           </div>
           <button
             type="button"

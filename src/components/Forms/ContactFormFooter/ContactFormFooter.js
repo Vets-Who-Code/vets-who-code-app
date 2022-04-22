@@ -21,11 +21,10 @@ function ContactFormFooter() {
       if (response.ok) {
         onSubmitSuccess('Your form was successfully submitted.')
         setLoading(false)
-        setPhone('')
         reset()
       }
     } catch (error) {
-      onSubmitError('OOPS! Something went wrong, please try again later.')
+      onSubmitError('OOPS! Something went wrong, please try again later.' + error)
       setLoading(false)
     }
   }
@@ -43,13 +42,13 @@ function ContactFormFooter() {
             className="form-control"
             name="email"
             id="InputEmail"
-            placeholder="cam@example.com"
+            placeholder="jodi@example.com"
             ref={register({
               required: true,
               pattern: {
                 value:
                   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Please enter a valid email address cam@example.com',
+                message: 'Please enter a valid email address jody@example.com',
               },
             })}
           />

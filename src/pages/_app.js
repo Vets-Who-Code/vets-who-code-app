@@ -1,5 +1,6 @@
 import { DefaultSeo } from 'next-seo'
 import { ToastContainer } from 'react-toastify'
+import Head from 'next/head'
 import ThemeProvider from '../store/ThemeProvider'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
@@ -26,6 +27,9 @@ import '../assets/css/job-form.css'
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <DefaultSeo
         title="#VetsWhoCode 🇺🇸 "
         titleTemplate="%s | Retool - Retrain - Relaunch"
