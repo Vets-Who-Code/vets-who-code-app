@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
           type: 'website',
           locale: 'en_IE',
           url: 'https://vetswhocode.io',
-          image: 'public/favicon.png',
+          image: '/favicon.png',
         }}
         description="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
         twitter={{
