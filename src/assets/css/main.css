@@ -2366,6 +2366,7 @@ div.zabuto_calendar tr.calendar-dow td {
   display: inline-block;
   margin: 0 auto;
 }
+
 .footer-span {
   color: var(--element-14);
 }
@@ -2374,6 +2375,7 @@ div.zabuto_calendar tr.calendar-dow td {
 }
 .footer-widgets {
   background-color: var(--surface-6);
+  font-family: 'Gotham', 'Sans-Serif';
 }
 .footer-widgets h3 {
   font-family: 'Gotham', 'Sans-Serif';
@@ -2479,6 +2481,8 @@ div.zabuto_calendar tr.calendar-dow td {
   background-color: var(--surface-6);
   color: var(--element-4);
   padding: 40px 0;
+  font-family: 'Gotham', 'Sans-Serif';
+
 }
 .footer:before {
   display: block;
