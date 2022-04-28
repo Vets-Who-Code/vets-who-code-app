@@ -6,7 +6,6 @@ import Header from '@/components/Header'
 import SponsorSlider from '@/components/SponsorSlider'
 import { SubscribeForm } from '@/components/Forms'
 import { setupContentfulClient } from '@/utilities/conentful'
-import Script from 'next/script'
 
 function IndexPage({ nextCohortStartDate }) {
   return (
