@@ -4,7 +4,7 @@ import Carousel from 'nuka-carousel'
 import { ThemeContext } from '../../store/ThemeProvider'
 import { FaSlack, FaGoogle, FaGithub } from 'react-icons/fa'
 import { SiReplit } from 'react-icons/si'
-import { Contentful, Fem, Vercel } from '../../icons'
+import { AdzunaLogo, Contentful, Fem, Vercel, Zeplin } from '../../icons'
 
 const baseSettlings = {
   autoplay: true,
@@ -122,6 +122,34 @@ const elements = [
       },
     },
   },
+  {
+    href: 'https://www.adzuna.com/',
+    label: 'Link to Adzuna',
+    title: 'Adzuna',
+    // /image is in the public folder
+    lightElement: '/images/supporters/adzuna.png',
+    darkElement: {
+      component: AdzunaLogo,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
+  },
+  {
+    href: 'https://zeplin.io/',
+    label: 'Link to Zeplin',
+    title: 'Zeplin',
+    // /image is in the public folder
+    lightElement: '/images/supporters/zeplin.png',
+    darkElement: {
+      component: Zeplin,
+      props: {
+        size: 60,
+        color: '#ffffff',
+      },
+    },
+  },
 ]
 
 function SponsorSlider() {
@@ -186,7 +214,7 @@ function SponsorSlider() {
   return (
     <Carousel
       {...baseSettlings}
-      slidesToShow={isMobile ? 4 : 7}
+      slidesToShow={isMobile ? 4 : 9}
       transitionMode={isMobile ? 'scroll' : 'fade'}
     >
       {colorMode === 'light' ? lightElements() : darkElements()}
