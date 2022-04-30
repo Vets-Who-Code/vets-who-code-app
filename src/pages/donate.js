@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
@@ -56,9 +57,9 @@ function Donate() {
                   To ensure ease for those interested in supporting on the corporate level, we have
                   created accounts on{' '}
                   <a href="https://causes.benevity.org/causes/840-862122804">Benevity</a> and{' '}
-                  <a href="https://www.brightfunds.org/organizations/vets-who-code-inc">
-                    Brightfunds
-                  </a>{' '}
+                  <Link href="https://www.brightfunds.org/organizations/vets-who-code-inc">
+                    <a target="_blank">Brightfunds</a>
+                  </Link>{' '}
                   to make it easy for your employees and company to donate to our cause.
                 </p>
               </div>
