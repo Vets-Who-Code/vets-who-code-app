@@ -11,7 +11,7 @@ import {
   FaGithub,
   FaRegCopyright,
 } from 'react-icons/fa'
-import { ContactFormFooter } from '@/components/Forms'
+import { ContactForm } from '@/components/Forms'
 
 function Footer() {
   return (
@@ -141,8 +141,8 @@ function Footer() {
             <div className="col-md-4">
               <div className="widgets-content">
                 <h3 className="widgets-title">Contact Us</h3>
-                <div className="office map">
-                  <ContactFormFooter />
+                <div>
+                  <ContactForm all={true} />
                 </div>
               </div>
             </div>
