@@ -5,6 +5,7 @@ import ThemeProvider from '../store/ThemeProvider'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import { useGoogleTagsManager } from '../hooks'
 
 // libraries
 import 'react-toastify/dist/ReactToastify.css'
@@ -24,8 +25,12 @@ import '../assets/css/board.css'
 import '../assets/css/code-of-conduct.css'
 import '../assets/css/job-form.css'
 
+const G_TAG_KEY = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
+
 // This default export is required in a new `pages/_app.js` file.
 export default function App({ Component, pageProps }) {
+  useGoogleTagsManager(G_TAG_KEY)
+
   return (
     <>
       <Head>
@@ -59,20 +64,18 @@ export default function App({ Component, pageProps }) {
         </main>
       </ThemeProvider>
       <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${G_TAG_KEY}`}
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
-
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
-              page_path: window.location.pathname,
-            });
-                `}
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${G_TAG_KEY}');
+        `}
       </Script>
     </>
   )
 }
+// gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}');
