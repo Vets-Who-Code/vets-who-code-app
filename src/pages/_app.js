@@ -5,6 +5,9 @@ import ThemeProvider from '../store/ThemeProvider'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
+import * as gtag from '../lib/gtag'
 
 // libraries
 import 'react-toastify/dist/ReactToastify.css'
@@ -26,6 +29,16 @@ import '../assets/css/job-form.css'
 
 // This default export is required in a new `pages/_app.js` file.
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = url => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
   return (
     <>
       <Head>
@@ -63,7 +76,7 @@ export default function App({ Component, pageProps }) {
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
 
-      <Script id="google-analytics" strategy="lazyOnload">
+      <Script id="google-analytics" strategy="afterInteractive">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
