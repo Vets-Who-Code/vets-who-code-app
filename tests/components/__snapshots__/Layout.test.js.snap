@@ -50,7 +50,7 @@ exports[`<Layout /> should render correctly 1`] = `
             </a>
             <a
               class="skip-to-main-link-hide"
-              href="#our_stories"
+              href="/undefined#our_stories"
               id="skip-to-main-link"
             >
               Skip to main
