@@ -50,7 +50,7 @@ exports[`<Layout /> should render correctly 1`] = `
             </a>
             <a
               class="skip-to-main-link-hide"
-              href="/undefined#our_stories"
+              href="#our_stories"
               id="skip-to-main-link"
             >
               Skip to main
@@ -811,6 +811,28 @@ exports[`<Layout /> should render correctly 1`] = `
                    by the veterans of #VetsWhoCode.
                 </li>
               </ul>
+            </div>
+          </div>
+          <div
+            class="row"
+          >
+            <div
+              class="d-inline-flex p-2"
+            >
+              <a
+                aria-label="Vercel Link"
+                href="https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="vercel banner"
+                  class="justify-center"
+                  height="48"
+                  src="/images/powered-by-vercel.svg"
+                  width="196"
+                />
+              </a>
             </div>
           </div>
         </div>

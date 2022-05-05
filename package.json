@@ -8,11 +8,9 @@
     "@babel/preset-react": "7.16.0",
     "@contentful/rich-text-react-renderer": "14.1.2",
     "@hot-loader/react-dom": "17.0.1",
-    "@storybook/addon-a11y": "6.4.19",
     "axios": "0.25.0",
     "contentful": "9.1.10",
     "date-fns": "2.26.0",
-    "dotenv": "10.0.0",
     "generate": "0.14.0",
     "intersection-observer": "0.12.0",
     "jimp": "0.16.1",
@@ -34,7 +32,6 @@
     "reading-time": "1.5.0",
     "skeleton-elements": "4.0.0",
     "slick-carousel": "1.8.1",
-    "storybook-dark-mode": "1.0.9",
     "xml2js": "0.4.23"
   },
   "license": "MIT",
@@ -51,13 +48,15 @@
     "export": "next export",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s public",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "preinstall": "node ./scripts/node-engine-check.js"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
     "@babel/eslint-parser": "7.17.0",
     "@babel/preset-env": "7.16.4",
     "@storybook/addon-actions": "^6.4.19",
+    "@storybook/addon-a11y": "6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
@@ -91,6 +90,7 @@
     "prettier": "2.4.1",
     "pretty-quick": "3.1.2",
     "react-test-renderer": "17.0.2",
-    "regenerator-runtime": "0.13.9"
+    "regenerator-runtime": "0.13.9",
+    "storybook-dark-mode": "1.0.9"
   }
 }
