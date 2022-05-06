@@ -21,7 +21,7 @@ const normalizePhone = (value, previousValue) => {
   }
 }
 
-function ContactForm() {
+function ContactForm(props) {
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm()
@@ -48,111 +48,170 @@ function ContactForm() {
       setLoading(false)
     }
   }
-
-  return (
-    <form id="s2do-form" onSubmit={handleSubmit(onSubmit)}>
-      <div className="col-md-4">
-        <div className="form-group">
-          <label htmlFor="InputName" className="dark-text">
-            Your Display Name
-            <sup>*</sup>
-          </label>
+  if (props.emailMessage) {
+    return (
+      <form id="s2do-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="">
+          <div className="form-group">
+            <label htmlFor="InputEmail" className="footer-form-label">
+              Your Email Address
+              <sup>*</sup>
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              id="InputEmail"
+              placeholder="jody@example.com"
+              ref={register({
+                required: true,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: 'Please enter a valid email address jody@example.com',
+                },
+              })}
+            />
+          </div>
+          {errors.email && errors.email.type === 'required' && <FormAlert />}
+          {errors.email && errors.email.type === 'pattern' && (
+            <FormAlert errorMessage={errors.email.message} />
+          )}
+        </div>
+        <div className="">
+          <div className="form-group">
+            <label htmlFor="message" className="footer-form-label">
+              Your Message
+              <sup>*</sup>
+            </label>
+            <textarea
+              id="message"
+              className="form-control"
+              rows="3"
+              name="message"
+              placeholder="Your Message Here.."
+              ref={register({ required: true })}
+            />
+            {errors.message && errors.message.type === 'required' && <FormAlert />}
+          </div>
           <input
-            type="text"
-            className="form-control"
-            name="name"
-            id="InputName"
-            placeholder="Jody"
-            ref={register({ required: true })}
+            id="cfsubmit"
+            type="submit"
+            name="submit"
+            value={loading ? 'loading...' : 'Submit Message'}
+            href="#"
+            className="btn btn-charity-default"
+            title=""
           />
         </div>
-        {errors.name && errors.name.type === 'required' && <FormAlert />}
-      </div>
-      <div className="col-md-4">
-        <div className="form-group">
-          <label htmlFor="InputEmail" className="dark-text">
-            Your Email Address
-            <sup>*</sup>
-          </label>
+      </form>
+    )
+  } else {
+    return (
+      <form id="s2do-form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="col-md-4">
+          <div className="form-group">
+            <label htmlFor="InputName" className="dark-text">
+              Your Display Name
+              <sup>*</sup>
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              name="name"
+              id="InputName"
+              placeholder="Jody"
+              ref={register({ required: true })}
+            />
+          </div>
+          {errors.name && errors.name.type === 'required' && <FormAlert />}
+        </div>
+        <div className="col-md-4">
+          <div className="form-group">
+            <label htmlFor="InputEmail" className="dark-text">
+              Your Email Address
+              <sup>*</sup>
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              id="InputEmail"
+              placeholder="jody@example.com"
+              ref={register({
+                required: true,
+                pattern: {
+                  value:
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: 'Please enter a valid email address jody@example.com',
+                },
+              })}
+            />
+          </div>
+          {errors.email && errors.email.type === 'required' && <FormAlert />}
+          {errors.email && errors.email.type === 'pattern' && (
+            <FormAlert errorMessage={errors.email.message} />
+          )}
+        </div>
+        <div className="col-md-4">
+          <div className="form-group">
+            <label htmlFor="InputPhoneNumber" className="dark-text">
+              Your Phone Number
+            </label>
+            <input
+              type="tel"
+              className="form-control"
+              name="phone"
+              id="InputPhoneNumber"
+              placeholder="1234567890"
+              ref={register({
+                required: true,
+                pattern: {
+                  value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
+                  message: 'Please input a valid phone number XXXXXXXXXX',
+                },
+              })}
+              onChange={event => {
+                const { value } = event.target
+                setPhone(previousValue => normalizePhone(value, previousValue))
+              }}
+              value={phone}
+            />
+          </div>
+          {errors.phone && errors.phone.type === 'required' && <FormAlert />}
+          {errors.phone && errors.phone.type === 'pattern' && (
+            <FormAlert errorMessage={errors.phone.message} />
+          )}
+        </div>
+        <div className="col-sm-12">
+          <div className="form-group">
+            <label htmlFor="message" className="dark-text">
+              Your Message
+              <sup>*</sup>
+            </label>
+            <textarea
+              id="message"
+              className="form-control"
+              rows="3"
+              name="message"
+              placeholder="Your Message Here.."
+              ref={register({ required: true })}
+            />
+            {errors.message && errors.message.type === 'required' && <FormAlert />}
+          </div>
           <input
-            type="email"
-            className="form-control"
-            name="email"
-            id="InputEmail"
-            placeholder="jody@example.com"
-            ref={register({
-              required: true,
-              pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: 'Please enter a valid email address jody@example.com',
-              },
-            })}
+            id="cfsubmit"
+            type="submit"
+            name="submit"
+            value={loading ? 'loading...' : 'Submit Message'}
+            href="#"
+            className="btn btn-charity-default"
+            title=""
           />
         </div>
-        {errors.email && errors.email.type === 'required' && <FormAlert />}
-        {errors.email && errors.email.type === 'pattern' && (
-          <FormAlert errorMessage={errors.email.message} />
-        )}
-      </div>
-      <div className="col-md-4">
-        <div className="form-group">
-          <label htmlFor="InputPhoneNumber" className="dark-text">
-            Your Phone Number
-          </label>
-          <input
-            type="tel"
-            className="form-control"
-            name="phone"
-            id="InputPhoneNumber"
-            placeholder="1234567890"
-            ref={register({
-              required: true,
-              pattern: {
-                value: /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/,
-                message: 'Please input a valid phone number XXXXXXXXXX',
-              },
-            })}
-            onChange={event => {
-              const { value } = event.target
-              setPhone(previousValue => normalizePhone(value, previousValue))
-            }}
-            value={phone}
-          />
-        </div>
-        {errors.phone && errors.phone.type === 'required' && <FormAlert />}
-        {errors.phone && errors.phone.type === 'pattern' && (
-          <FormAlert errorMessage={errors.phone.message} />
-        )}
-      </div>
-      <div className="col-sm-12">
-        <div className="form-group">
-          <label htmlFor="message" className="dark-text">
-            Your Message
-            <sup>*</sup>
-          </label>
-          <textarea
-            id="message"
-            className="form-control"
-            rows="3"
-            name="message"
-            placeholder="Your Message Here.."
-            ref={register({ required: true })}
-          />
-          {errors.message && errors.message.type === 'required' && <FormAlert />}
-        </div>
-        <input
-          id="cfsubmit"
-          type="submit"
-          name="submit"
-          value={loading ? 'loading...' : 'Submit Message'}
-          href="#"
-          className="btn btn-charity-default"
-          title=""
-        />
-      </div>
-    </form>
-  )
+      </form>
+    )
+  }
 }
 
 ContactForm.propTypes = {

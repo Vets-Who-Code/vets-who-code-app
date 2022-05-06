@@ -683,23 +683,21 @@ exports[`<Layout /> should render correctly 1`] = `
                 >
                   Contact Us
                 </h3>
-                <div
-                  class="office map"
-                >
+                <div>
                   <form
                     id="s2do-form"
                   >
                     <div
-                      class="col-md-12"
+                      class=""
                     >
                       <div
                         class="form-group"
                       >
                         <label
-                          class="light-text"
+                          class="footer-form-label"
                           for="InputEmail"
                         >
-                          Email
+                          Your Email Address
                           <sup>
                             *
                           </sup>
@@ -708,22 +706,22 @@ exports[`<Layout /> should render correctly 1`] = `
                           class="form-control"
                           id="InputEmail"
                           name="email"
-                          placeholder="cam@example.com"
+                          placeholder="jody@example.com"
                           type="email"
                         />
                       </div>
                     </div>
                     <div
-                      class="col-sm-12"
+                      class=""
                     >
                       <div
                         class="form-group"
                       >
                         <label
-                          class="light-text"
+                          class="footer-form-label"
                           for="message"
                         >
-                          Message
+                          Your Message
                           <sup>
                             *
                           </sup>
@@ -732,7 +730,7 @@ exports[`<Layout /> should render correctly 1`] = `
                           class="form-control"
                           id="message"
                           name="message"
-                          placeholder="Message.."
+                          placeholder="Your Message Here.."
                           rows="3"
                         />
                       </div>
@@ -743,7 +741,7 @@ exports[`<Layout /> should render correctly 1`] = `
                         name="submit"
                         title=""
                         type="submit"
-                        value="Send"
+                        value="Submit Message"
                       />
                     </div>
                   </form>

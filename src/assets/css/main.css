@@ -296,7 +296,8 @@ a:hover {
 .bg-dark h4,
 .bg-dark h5,
 .bg-dark h6,
-.bg-dark p {
+.bg-dark p,
+.footer-form-label {
   color: var(--element-4);
 }
 .bg-light h1,
