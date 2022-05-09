@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }) {
         twitter={{
           handle: '@vetswhocode',
           site: '@vetswhocode',
-          cardType: 'summary_large_image',
+          card: 'summary_large_image',
           image: 'https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VWC_tad3cl.png',
         }}
       />
