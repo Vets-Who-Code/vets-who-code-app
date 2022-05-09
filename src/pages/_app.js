@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }) {
         twitter={{
           handle: '@vetswhocode',
           site: '@vetswhocode',
-          card: 'summary_large_image',
+          cardType: 'summary_large_image',
           images: [
             {
               url: 'https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VWC_tad3cl.png',
