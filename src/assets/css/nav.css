@@ -4,19 +4,22 @@
 /* Accessibility - Skip to main */
 #skip-to-main-link {
   display: block;
-  font-size: 1.3rem;
-  left: 250px;
-  background-color: var(--element-2);
-  padding: 5px 5px;
-  color: var(--element-4);
-  text-decoration: underline;
   position: absolute;
-  transform: translateY(-450%);
+  width: 190px;
+  padding: 5px 5px;
+  background-color: var(--element-2);
+  color: var(--element-4);
+  font-size: 1.3rem;
+  text-align: center;
+  text-decoration: underline;
+  left: 50%;
+  top: -100px;
+  transform: translateX(-50%);
   z-index: 99;
  }
   
  #skip-to-main-link:focus {
-  transform: translateY(-210%);
+transform: translate(-50%, 100px);
  }
   
  .skip-to-main-link-hide {
@@ -138,6 +141,15 @@
 }
 
 @media (min-width: 768px) {
+  #skip-to-main-link {
+    left: 10%;
+    transform: translateX(-15%);
+  }
+    
+  #skip-to-main-link:focus {
+    transform: translate(-10%, 100px);
+  }
+
   .navbar-right {
       float: right!important;
       margin-right: -15px;
