@@ -46,8 +46,8 @@ export default function App({ Component, pageProps }) {
           images: [
             {
               url: 'https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VWC_tad3cl.png',
-              width: 1200,
-              height: 630,
+              width: 800,
+              height: 420,
               alt: '#VetsWhoCode',
             },
           ],
