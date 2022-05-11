@@ -9,7 +9,11 @@ function BoardCards({ boardMemberCollection }) {
         const { firstName, lastName, work, image, linkedin, twitter, bio } = boardMember.fields
         const { file } = image.fields
         return (
-          <div key={`${firstName}-${lastName}`} className="col-md-6 col-lg-3 col-sm-6">
+          <div
+            tabIndex={'0'}
+            key={`${firstName}-${lastName}`}
+            className="col-md-6 col-lg-3 col-sm-6"
+          >
             <div className="card-box text-center">
               <div className="upper">
                 <div className="user-pic">
