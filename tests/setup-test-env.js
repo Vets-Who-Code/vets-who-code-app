@@ -12,10 +12,16 @@ jest.mock('next/image', () => ({
   __esModule: true,
   default: props => {
     // eslint-disable-next-line
-    const { blurDataURL, ...rest } = props  // blurDataURL is not used in this mock
+    const { blurDataURL, ...rest } = props // blurDataURL is not used in this mock
     // eslint-disable-next-line
     return <img {...rest} />
   },
+}))
+
+// mock next/router globally
+jest.mock('next/router', () => ({
+  __esModule: true,
+  useRouter: jest.fn(),
 }))
 
 import { mswServer } from '../mocks/msw-server'
