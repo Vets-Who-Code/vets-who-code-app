@@ -9,8 +9,8 @@ describe('<Footer />', () => {
     const { container } = render(<Footer />)
     expect(container.firstChild).toMatchSnapshot()
   })
-})
-describe('contact handler', () => {
+
+  // Testing the Contact form in the footer
   test('should return 200 and success message', async () => {
     const body = {
       email: 'jody@mail.com',
