@@ -26,8 +26,8 @@ describe('contact handler', () => {
   test('should return 422 error when parameters missing', async () => {
     const body = {
       name: 'Jody',
-      email: '', // not valid
-      phone_number: '111-111-1111', // not valid
+      email: '',
+      phone_number: '111-111-1111',
       message: 'hello world',
     }
 

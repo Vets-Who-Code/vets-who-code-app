@@ -142,7 +142,7 @@ function Footer() {
               <div className="widgets-content">
                 <h3 className="widgets-title">Contact Us</h3>
                 <div>
-                  <ContactForm emailMessage={true} />
+                  <ContactForm disableNameAndPhone={true} />
                 </div>
               </div>
             </div>

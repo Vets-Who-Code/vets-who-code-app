@@ -48,7 +48,7 @@ function ContactForm(props) {
       setLoading(false)
     }
   }
-  if (props.emailMessage) {
+  if (props.disableNameAndPhone) {
     return (
       <form id="s2do-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="">
