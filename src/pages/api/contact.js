@@ -14,9 +14,9 @@ export default async function handler(req, res) {
   }
 
   const text = [
-    `Name: \`${name || 'Name Not Provided'}\``,
+    `Name: \`${name || 'Sent from footer form.'}\``,
     `\nEmail: \`${email}\``,
-    `\nPhone: \`${phone || 'Phone Not Provided'}\``,
+    `\nPhone: \`${phone || 'Sent from footer form.'}\``,
     `\nMessage: \n\`\`\`${message}\`\`\``,
   ].join()
 
