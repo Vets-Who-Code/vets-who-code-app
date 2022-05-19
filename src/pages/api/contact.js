@@ -4,7 +4,7 @@ import { checkParams } from './api-helpers'
 export default async function handler(req, res) {
   const parsedBody = JSON.parse(req.body)
   const { name, email, phone, message } = parsedBody
-  const requiredParams = ['name', 'email', 'phone', 'message']
+  const requiredParams = ['email', 'message']
   const hasErrors = checkParams(parsedBody, requiredParams)
 
   if (hasErrors) {
@@ -14,9 +14,9 @@ export default async function handler(req, res) {
   }
 
   const text = [
-    `Name: \`${name}\``,
+    `Name: \`${name || 'Sent from footer form.'}\``,
     `\nEmail: \`${email}\``,
-    `\nPhone: \`${phone}\``,
+    `\nPhone: \`${phone || 'Sent from footer form.'}\``,
     `\nMessage: \n\`\`\`${message}\`\`\``,
   ].join()
 
