@@ -2377,7 +2377,7 @@ div.zabuto_calendar tr.calendar-dow td {
   background-color: var(--surface-6);
 }
 .footer-widgets h3 {
-  font-family: 'Gotham', 'Sans-Serif';
+  font-family: 'Gotham', sans-serif;
   font-size: 1.3125rem; /*21px*/
   font-weight: 800;
   letter-spacing: 1px;
