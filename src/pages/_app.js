@@ -43,16 +43,24 @@ export default function App({ Component, pageProps }) {
           type: 'website',
           locale: 'en_IE',
           url: 'https://vetswhocode.io',
-          image:
-            'https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg',
+          images: [
+            {
+              url: 'https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VWC_tad3cl.png',
+              alt: '#VetsWhoCode',
+            },
+          ],
         }}
         description="#VetsWhoCode is a veteran-led 501(c)(3) charitable non-profit that focuses on teaching veterans how to program free of charge so that they may find gainful employment after service."
         twitter={{
           handle: '@vetswhocode',
           site: '@vetswhocode',
           cardType: 'summary_large_image',
-          image:
-            'https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg',
+          images: [
+            {
+              url: 'https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VWC_tad3cl.png',
+              alt: '#VetsWhoCode',
+            },
+          ],
         }}
       />
       <ThemeProvider>
