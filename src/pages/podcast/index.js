@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import Image from 'next/image'
 import { NextSeo } from 'next-seo'
-import format from 'date-fns/format'
 import { FaRegCalendarAlt } from 'react-icons/fa'
+import Image from 'next/image'
+import format from 'date-fns/format'
 import PageHeader from '@/components/PageHeader'
 import Pagination from '@/components/Pagination'
 import { setupContentfulClient, findDescription } from '@/utilities/conentful'
 
-function BlogPostLink({ title, author, publishedDate, slug, description, featureImage }) {
+function PodcastLink({ title, author, publishedDate, slug, description, featureImage }) {
   const excerpt = findDescription(description)
 
   return (
@@ -17,16 +17,16 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
         <div className="col-md-2" />
         <div className="col-md-8">
           <div className="entry-meta">
-            <Link href={`/blog/post/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
+            <Link href={`/podcast/post/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
               <a>
                 <Image
                   className="img-responsive border-radius-4"
-                  alt={featureImage.fields.title}
-                  src={`https:${featureImage.fields.file.url}?w=800&h=600&fit=fill&fm=jpg&q=80`}
+                  alt={featureImage.title}
+                  src={`https:${featureImage.fields.file.url}?w=800&h=700&fit=fill&fm=jpg&q=75`}
                   placeholder="blur"
                   blurDataURL={featureImage.fields.file.url}
                   width={800}
-                  height={600}
+                  height={700}
                 />
                 <h4 className="entry-title">{title}.</h4>
               </a>
@@ -50,10 +50,12 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
             </div>
           </div>
 
-          <div className="entry-content">{<p>{excerpt}</p>}</div>
+          <div className="entry-content">
+            <p>{excerpt}</p>
+          </div>
 
           <div className="entry-meta clearfix">
-            <Link href={`/blog/post/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
+            <Link href={`/podcast/post/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
               <a className="btn btn-charity-default btn-read-more">
                 <span>Read More</span>
               </a>
@@ -65,17 +67,11 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
   )
 }
 
-BlogPostLink.propTypes = {
+PodcastLink.propTypes = {
   title: PropTypes.string,
   author: PropTypes.string,
   publishedDate: PropTypes.string,
   slug: PropTypes.string,
-  featureImage: PropTypes.shape({
-    url: PropTypes.string,
-    height: PropTypes.number,
-    width: PropTypes.number,
-    title: PropTypes.string,
-  }),
   description: PropTypes.shape({
     data: PropTypes.object,
     content: PropTypes.arrayOf(
@@ -90,99 +86,95 @@ BlogPostLink.propTypes = {
         ),
       })
     ),
+    nodeType: PropTypes.string,
+  }),
+  featureImage: PropTypes.shape({
+    url: PropTypes.string,
+    height: PropTypes.number,
+    width: PropTypes.number,
+    title: PropTypes.string,
   }),
 }
 
-const Blog = ({ totalPages, isFirstPage, isLastPage, blogPostCollection, nextPage, prevPage }) => {
+const Podcast = ({
+  podcastCollection,
+  currentPage,
+  nextPage,
+  prevPage,
+  totalPages,
+  isFirstPage,
+  isLastPage,
+}) => {
   return (
     <>
-      <NextSeo title="Blog" />
+      <NextSeo title="Podcast" />
       <PageHeader />
       <section id="blog-page" className="section  bg-default">
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              {blogPostCollection.map(post => (
-                <BlogPostLink
-                  key={post.fields.slug}
-                  title={post.fields.title}
-                  author={post.fields.author.fields.authorName}
-                  publishedDate={post.fields.publishedDate}
-                  slug={post.fields.slug}
-                  description={post.fields.body}
-                  featureImage={post.fields.featureImage}
-                />
-              ))}
+              {podcastCollection.map(podcast => {
+                const { title, author, publishedDate, slug, featureImage, body } = podcast.fields
+                const { authorName } = author.fields
+
+                return (
+                  <PodcastLink
+                    key={podcast.sys.id}
+                    title={title}
+                    author={authorName}
+                    publishedDate={publishedDate}
+                    slug={slug}
+                    description={body}
+                    featureImage={featureImage}
+                  />
+                )
+              })}
             </div>
           </div>
         </div>
       </section>
-
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          margin: '0 auto',
-        }}
-      >
-        <nav aria-label="Page navigation">
-          <Pagination
-            pageContext={{}}
-            totalPages={totalPages}
-            isFirstPage={isFirstPage}
-            isLastPage={isLastPage}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            type="route"
-            path="blog"
-          />
-        </nav>
-      </div>
+      <nav aria-label="Page navigation">
+        <Pagination
+          pageContext={podcastCollection}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          nextPage={nextPage}
+          prevPage={prevPage}
+          isFirstPage={isFirstPage}
+          isLastPage={isLastPage}
+          type="route"
+          path="podcast"
+        />
+      </nav>
     </>
   )
 }
 
-export async function getStaticPaths() {
-  const response = await setupContentfulClient().getEntries({
-    // eslint-disable-next-line
-    content_type: 'blogPost',
-  })
-
-  const { items } = response
-  const paths = Array.from({ length: items.length })
-    .fill({ params: { page: null } })
-    .map((_, i) => ({ params: { page: String(i + 1) } }))
-
-  return {
-    paths,
-    fallback: false,
-  }
-}
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps(ctx) {
   const postPerPage = 3
+  const currentPage = ctx?.query?.page ?? '1'
+
   const response = await setupContentfulClient().getEntries({
     // eslint-disable-next-line
-    content_type: 'blogPost',
+    content_type: 'podcast',
     // order by published date
     order: '-fields.publishedDate',
     // use skip and limit for Pagination
-    skip: Number(params.page) * 3 - 3,
+    skip: Number(currentPage) * 3 - 3,
     limit: postPerPage,
   })
   const { items, total } = response
 
   const totalPages = Math.ceil(total / postPerPage)
-  const currentPage = params?.page ?? '1'
-  const nextPage = `/blog/${String(Number(currentPage) + 1)}`
-  const prevPage = currentPage === '1' ? '/blog/1' : `/blog/${String(Number(currentPage) - 1)}`
+  const nextPage = `/podcast?page=${String(Number(currentPage) + 1)}`
+  const prevPage =
+    currentPage === '1' ? '/podcast' : `/podcast?page=${String(Number(currentPage) - 1)}`
   const isFirstPage = currentPage === '1'
   const isLastPage = currentPage === String(totalPages)
 
   return {
     props: {
-      blogPostCollection: items,
+      podcastCollection: items,
       nextPage,
       prevPage,
       totalPages,
@@ -192,16 +184,16 @@ export async function getStaticProps({ params }) {
   }
 }
 
-Blog.propTypes = {
-  blogPostCollection: PropTypes.array,
-  limit: PropTypes.number,
-  skip: PropTypes.number,
-  isFirstPage: PropTypes.bool,
-  isLastPage: PropTypes.bool,
-  currentPage: PropTypes.number,
-  totalPages: PropTypes.number,
-  nextPage: PropTypes.string,
-  prevPage: PropTypes.string,
+Podcast.propTypes = {
+  pageContext: PropTypes.shape({
+    limit: PropTypes.number,
+    skip: PropTypes.number,
+    isFirstPage: PropTypes.bool,
+    isLastPage: PropTypes.bool,
+    currentPage: PropTypes.number,
+    totalPages: PropTypes.number,
+    contentfulData: PropTypes.object,
+  }),
 }
 
-export default Blog
+export default Podcast

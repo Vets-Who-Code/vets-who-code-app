@@ -40,7 +40,7 @@ function Pagination({
           <ul className="pagination m-20">
             {!isFirstPage && (
               <li>
-                <Link href={`${prevPage}`} rel="prev">
+                <Link href={`${prevPage === '/blog?page=1' ? '' : prevPage}`} rel="prev">
                   <a>
                     <span aria-hidden="true">Previous</span>
                   </a>
@@ -50,7 +50,7 @@ function Pagination({
             {totalPages > 1 &&
               Array.from({ length: totalPages }, (_, index) => (
                 <li key={eachPage++}>
-                  <Link href={`/${path}/${index + 1}`}>
+                  <Link href={`/${path}?page=${index + 1}`}>
                     <a>{index + 1}</a>
                   </Link>
                 </li>

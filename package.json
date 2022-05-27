@@ -34,6 +34,10 @@
     "slick-carousel": "1.8.1",
     "xml2js": "0.4.23"
   },
+  "engines": {
+    "node": ">=14.0.0 <=16.15.0",
+    "npm": ">=8.0.0"
+  },
   "license": "MIT",
   "scripts": {
     "format": "pretty-quick --staged",
@@ -48,8 +52,7 @@
     "export": "next export",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook -s public",
-    "prepare": "husky install",
-    "preinstall": "node ./scripts/node-engine-check.js"
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "7.16.0",
