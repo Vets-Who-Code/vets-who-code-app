@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom/extend-expect'
+import { mswServer } from '../mocks/msw-server'
 
 global.MutationObserver = class {
   constructor() {}
@@ -12,13 +13,11 @@ jest.mock('next/image', () => ({
   __esModule: true,
   default: props => {
     // eslint-disable-next-line
-    const { blurDataURL, ...rest } = props  // blurDataURL is not used in this mock
+    const { blurDataURL, ...rest } = props // blurDataURL is not used in this mock
     // eslint-disable-next-line
     return <img {...rest} />
   },
 }))
-
-import { mswServer } from '../mocks/msw-server'
 
 beforeAll(() => mswServer.listen())
 afterEach(() => mswServer.resetHandlers())

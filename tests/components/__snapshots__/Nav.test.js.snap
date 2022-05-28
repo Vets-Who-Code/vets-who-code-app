@@ -206,7 +206,7 @@ exports[`<Nav /> should render correctly 1`] = `
               role="menuitem"
             >
               <a
-                href="/blog/1"
+                href="/blog"
               >
                 <span>
                   Blog
@@ -218,7 +218,7 @@ exports[`<Nav /> should render correctly 1`] = `
               role="menuitem"
             >
               <a
-                href="/podcast/1"
+                href="/podcast"
               >
                 <span>
                   Podcast

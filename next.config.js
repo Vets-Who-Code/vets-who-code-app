@@ -10,6 +10,7 @@ const purgeCSS = [
     defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
   },
 ]
+
 const postCSSFlexBugsFixes = [
   'postcss-flexbugs-fixes',
   [

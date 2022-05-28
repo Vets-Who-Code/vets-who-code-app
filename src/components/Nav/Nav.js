@@ -230,14 +230,14 @@ function Nav() {
               </a>
               <ul className="dropdown-menu">
                 <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
-                  <Link href="/blog/1">
+                  <Link href="/blog">
                     <a>
                       <span>Blog</span>
                     </a>
                   </Link>
                 </li>
                 <li role="menuitem" className="nav media-dropdown-item" onClick={resetNavigation}>
-                  <Link href="/podcast/1">
+                  <Link href="/podcast">
                     <a>
                       <span>Podcast</span>
                     </a>
