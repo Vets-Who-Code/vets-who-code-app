@@ -90,6 +90,7 @@ function CodeOfConduct() {
                 </p>
 
                 <h2>Enforcement</h2>
+                &nbsp;
                 <p className="story">
                   Instances of abusive, harassing, or otherwise unacceptable behavior may be
                   reported by contacting the project team at [INSERT EMAIL ADDRESS]. All complaints
