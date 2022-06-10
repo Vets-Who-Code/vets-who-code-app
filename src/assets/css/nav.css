@@ -102,7 +102,7 @@
   color: var(--element-4);
 }
 
-@media (min-width: 768px) and (max-width: 1400px) {
+@media (min-width: 821px) and (max-width: 1400px) {
   .container-fluid {
     display: flex;
     flex-flow: column nowrap;
@@ -134,7 +134,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 821px) {
   .navbar-right {
       float: right!important;
       margin-right: -15px;
