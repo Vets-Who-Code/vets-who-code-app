@@ -69,9 +69,9 @@ function Nav() {
   })
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mouseenter', handleClickOutside)
 
-    return () => document.removeEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mouseenter', handleClickOutside)
   })
 
   function handleScroll() {
