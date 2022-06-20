@@ -2488,7 +2488,8 @@ div.zabuto_calendar tr.calendar-dow td {
   margin-bottom: 3rem;
 }
 .footer .footer-menu {
-  text-align: right;
+  display: flex;
+  align-items: center;
 }
 .footer .footer-menu li {
   border-right: 1px solid var(--element-4);
