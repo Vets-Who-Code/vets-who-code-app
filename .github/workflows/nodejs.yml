@@ -5,28 +5,28 @@ name: Node.js CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
 
-    - run: npm install
-    - run: npm run lint
-    - run: npm run test
-      env: # Or as an environment variable
-        MAILCHIMP_SUBSCRIBE_URL: ${{ secrets.MAILCHIMP_SUBSCRIBE_URL }}
-        MAILCHIMP_LIST_ID: ${{ secrets.MAILCHIMP_LIST_ID }}
-        CI: true
+      - run: npm install -g npm@8.5.5
+      - run: npm install --legacy-peer-deps
+      - run: npm run lint
+      - run: npm run test
+        env: # Or as an environment variable
+          MAILCHIMP_SUBSCRIBE_URL: ${{ secrets.MAILCHIMP_SUBSCRIBE_URL }}
+          MAILCHIMP_LIST_ID: ${{ secrets.MAILCHIMP_LIST_ID }}
+          CI: true

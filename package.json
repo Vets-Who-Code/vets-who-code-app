@@ -6,8 +6,8 @@
     "@babel/plugin-proposal-optional-chaining": "7.16.0",
     "@babel/plugin-transform-runtime": "7.16.4",
     "@babel/preset-react": "7.16.0",
-    "@contentful/rich-text-react-renderer": "14.1.2",
-    "@hot-loader/react-dom": "17.0.1",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@hot-loader/react-dom": "^17.0.1",
     "axios": "0.25.0",
     "contentful": "9.1.10",
     "date-fns": "2.26.0",
@@ -22,7 +22,7 @@
     "node": "^16.15.1",
     "nuka-carousel": "4.8.3",
     "react": "^17.0.1",
-    "react-dom": "17.0.1",
+    "react-dom": "^17.0.1",
     "react-helmet": "6.1.0",
     "react-hook-form": "6.15.5",
     "react-icons": "4.3.1",
@@ -36,7 +36,7 @@
     "xml2js": "0.4.23"
   },
   "engines": {
-    "node": ">=14.0.0 <=16.15.0",
+    "node": ">=14.0.0 <=16.15.1",
     "npm": ">=8.0.0"
   },
   "license": "MIT",
