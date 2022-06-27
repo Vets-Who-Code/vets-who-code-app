@@ -9,9 +9,10 @@ function CodeOfConduct() {
       <section id="about" className="small-top-pad section bg-default">
         <div className="container">
           <div className="row">
-            <div className="col-md-12 lead-in">
+            <div className="col-md-12 lead-in success-story">
               <h1 className="story-title">Code Of Conduct</h1>
               <h2>Our Pledge</h2>
+              &nbsp;
               <p>
                 In the interest of fostering an open and welcoming environment, we as contributors
                 and maintainers pledge to making participation in our project and our community a
@@ -24,6 +25,7 @@ function CodeOfConduct() {
             <div className="col-md-12">
               <div className="success-story">
                 <h2>Our Standards</h2>
+                &nbsp;
                 <p className="story">
                   Examples of behavior that contributes to creating a positive environment include:
                   <ul>
@@ -61,6 +63,7 @@ function CodeOfConduct() {
                 </p>
 
                 <h2>Our Responsibilities</h2>
+                &nbsp;
                 <p className="story">
                   Project maintainers are responsible for clarifying the standards of acceptable
                   behavior and are expected to take appropriate and fair corrective action in
@@ -76,6 +79,7 @@ function CodeOfConduct() {
                 </p>
 
                 <h2>Scope</h2>
+                &nbsp;
                 <p className="story">
                   This Code of Conduct applies both within project spaces and in public spaces when
                   an individual is representing the project or its community. Examples of
@@ -86,6 +90,7 @@ function CodeOfConduct() {
                 </p>
 
                 <h2>Enforcement</h2>
+                &nbsp;
                 <p className="story">
                   Instances of abusive, harassing, or otherwise unacceptable behavior may be
                   reported by contacting the project team at [INSERT EMAIL ADDRESS]. All complaints
@@ -102,6 +107,7 @@ function CodeOfConduct() {
                 </p>
 
                 <h2>Attribution</h2>
+                &nbsp;
                 <p className="story">
                   This Code of Conduct is adapted from the &nbsp;
                   <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct">
