@@ -152,8 +152,8 @@ function Footer() {
       <footer id="footer" className="section footer">
         <div className="container">
           <div className="row">
-            <div className="col-md-6 col-sm-6">
-              <p className="copyright">
+            <div className="col-md-3 col-sm-6">
+              <p className="copyright footer-menu">
                 <FaRegCopyright color="#fff" />
                 {new Date().getFullYear()}
                 <span>
@@ -178,17 +178,15 @@ function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className="row">
-            <div className="d-inline-flex p-2">
+            <div className="col-md-3 col-sm-6">
               <a
+                className="footer-menu"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Vercel Link"
                 href="https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss"
               >
                 <Image
-                  className="justify-center"
                   src="/images/powered-by-vercel.svg"
                   alt="vercel banner"
                   height={48}
