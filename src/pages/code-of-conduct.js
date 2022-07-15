@@ -61,7 +61,6 @@ function CodeOfConduct() {
                     </li>
                   </ul>
                 </p>
-
                 <h2>Our Responsibilities</h2>
                 &nbsp;
                 <p className="story">
@@ -69,7 +68,6 @@ function CodeOfConduct() {
                   behavior and are expected to take appropriate and fair corrective action in
                   response to any instances of unacceptable behavior.
                 </p>
-
                 <p className="story">
                   Project maintainers have the right and responsibility to remove, edit, or reject
                   comments, commits, code, wiki edits, issues, and other contributions that are not
@@ -77,7 +75,6 @@ function CodeOfConduct() {
                   contributor for other behaviors that they deem inappropriate, threatening,
                   offensive, or harmful.
                 </p>
-
                 <h2>Scope</h2>
                 &nbsp;
                 <p className="story">
@@ -88,7 +85,6 @@ function CodeOfConduct() {
                   representative at an online or offline event. Representation of a project may be
                   further defined and clarified by project maintainers.
                 </p>
-
                 <h2>Enforcement</h2>
                 &nbsp;
                 <p className="story">
@@ -99,13 +95,11 @@ function CodeOfConduct() {
                   maintain confidentiality with regard to the reporter of an incident. Further
                   details of specific enforcement policies may be posted separately.
                 </p>
-
                 <p className="story">
                   Project maintainers who do not follow or enforce the Code of Conduct in good faith
                   may face temporary or permanent repercussions as determined by other members of
                   the project&apos;s leadership.
                 </p>
-
                 <h2>Attribution</h2>
                 &nbsp;
                 <p className="story">
