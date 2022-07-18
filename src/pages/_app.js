@@ -6,6 +6,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
 import { useGoogleTagsManager } from '../hooks'
+import { useRef } from 'react'
 
 // libraries
 import 'react-toastify/dist/ReactToastify.css'
@@ -30,6 +31,8 @@ const G_TAG_KEY = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 // This default export is required in a new `pages/_app.js` file.
 export default function App({ Component, pageProps }) {
   useGoogleTagsManager(G_TAG_KEY)
+
+  const skipNavRef = useRef()
 
   return (
     <>
@@ -66,8 +69,8 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider>
         <main className="main_container">
           <ToastContainer />
-          <Nav />
-          <Component {...pageProps} />
+          <Nav skipNavRef={skipNavRef} />
+          <Component {...pageProps} skipNavRef={skipNavRef} />
           <Footer />
         </main>
       </ThemeProvider>

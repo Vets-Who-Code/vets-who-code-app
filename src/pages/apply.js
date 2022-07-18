@@ -12,6 +12,7 @@ export default function Apply() {
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Apply</h1>
+              <button id="click-test">click test</button>
               <p>
                 <i>Submit an application to be considered for the next cohort.</i>
               </p>

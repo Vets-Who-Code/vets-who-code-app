@@ -53,7 +53,7 @@ function navReducer(state, action) {
   }
 }
 
-function Nav() {
+function Nav({ skipNavRef }) {
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
   const [navState, dispatch] = useReducer(navReducer, initialNavState)
@@ -98,6 +98,10 @@ function Nav() {
     dispatch({ type })
   }
 
+  const handleSkipNav = () => {
+    skipNavRef.current.focus()
+  }
+
   return (
     <nav
       ref={navRef}
@@ -129,11 +133,9 @@ function Nav() {
                 <div className="homeLink">VetsWhoCode</div>
               </a>
             </Link>
-            <Link href="#our_stories">
-              <a id="skip-to-main-link" className="a">
-                Skip to main
-              </a>
-            </Link>
+            <button id="skip-to-main-link" className="a" onClick={handleSkipNav}>
+              Skip to main
+            </button>
           </div>
           <button
             type="button"
