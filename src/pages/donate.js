@@ -7,7 +7,7 @@ function Donate() {
     <>
       <NextSeo title="Donate" />
       <PageHeader />
-      <section id="cause_single" className="small-top-pad section bg-default">
+      <section id="cause_single" className="small-top-pad section bg-default" tabIndex={0}>
         <div className="container">
           <div className="row">
             <div className="col-md-12 lead-in">

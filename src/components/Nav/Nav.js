@@ -84,8 +84,25 @@ function Nav() {
       setMainContentLink('/#our_stories')
     } else if (router.pathname === '/board') {
       setMainContentLink('/board#board-cards')
+    } else if (router.pathname === '/syllabus') {
+      setMainContentLink('/syllabus#contact')
+    } else if (router.pathname === '/jobs') {
+      setMainContentLink('/jobs#contact')
+    } else if (router.pathname === '/contact') {
+      setMainContentLink('/contact#contact')
+    } else if (router.pathname === '/code-of-conduct') {
+      setMainContentLink('/code-of-conduct#about')
+    } else if (router.pathname === '/donate') {
+      setMainContentLink('/donate#cause_single')
     }
+
+    let focus = mainContentLink.slice(1)
+    console.log(focus)
   }, [router.pathname])
+
+  function handleSkipNav() {
+    console.log(`Hello`)
+  }
 
   function handleScroll() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
@@ -143,7 +160,7 @@ function Nav() {
               </a>
             </Link>
 
-            <Link href={mainContentLink}>
+            <Link href={mainContentLink} onClick={handleSkipNav}>
               <a id="skip-to-main-link" className="a">
                 Skip to main
               </a>

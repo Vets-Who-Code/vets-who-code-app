@@ -53,6 +53,7 @@ function IndexPage({ nextCohortStartDate }) {
       <section
         id="our_stories"
         className="section pad-regular bg-default our_stories small-top-pad"
+        tabIndex={0}
       >
         <div className="container">
           <div className="row bg-dark">

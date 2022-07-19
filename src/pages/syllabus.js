@@ -29,7 +29,7 @@ const BLOCKS = [
 const Syllabus = () => {
   return (
     <>
-      <NextSeo title="Syllabus" />
+      <NextSeo title="Syllabus" id="" tabIndex={0} />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
         <div className="container">
