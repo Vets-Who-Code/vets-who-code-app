@@ -95,13 +95,12 @@ function Nav() {
     } else if (router.pathname === '/donate') {
       setMainContentLink('/donate#cause_single')
     }
-
-    let focus = mainContentLink.slice(1)
-    console.log(focus)
   }, [router.pathname])
 
   function handleSkipNav() {
     console.log(`Hello`)
+    let focus = mainContentLink.slice(1)
+    console.log(focus)
   }
 
   function handleScroll() {
@@ -160,8 +159,8 @@ function Nav() {
               </a>
             </Link>
 
-            <Link href={mainContentLink} onClick={handleSkipNav}>
-              <a id="skip-to-main-link" className="a">
+            <Link href={mainContentLink} passHref>
+              <a id="skip-to-main-link" className="a" onClick={handleSkipNav}>
                 Skip to main
               </a>
             </Link>
