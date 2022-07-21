@@ -18,7 +18,7 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Jamstack Applicaton designed for speed and to ease the learning curve of our veterans contributing to open source.
+The Vets Who Code Web App is a Next.JS Application designed for developer productivity as well as a well thought out app to ease the learning curve of of veterans learning to contribute to open source.
 By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
 
 ## Getting Started
@@ -36,6 +36,7 @@ You will need the following properly installed on your computer.
 
 ## Installing
 
+–
 In a terminal window run these commands.
 
 ```sh
