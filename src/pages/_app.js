@@ -6,7 +6,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
 import { useGoogleTagsManager } from '../hooks'
-import { useRef } from 'react'
+import { useState } from 'react'
 
 // libraries
 import 'react-toastify/dist/ReactToastify.css'
@@ -32,7 +32,9 @@ const G_TAG_KEY = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 export default function App({ Component, pageProps }) {
   useGoogleTagsManager(G_TAG_KEY)
 
-  const skipNavRef = useRef()
+  const [applyTabIndex, setApplyTabIndex] = useState(false)
+
+  pageProps = { ...pageProps, applyTabIndex, setApplyTabIndex }
 
   return (
     <>
@@ -69,8 +71,8 @@ export default function App({ Component, pageProps }) {
       <ThemeProvider>
         <main className="main_container">
           <ToastContainer />
-          <Nav skipNavRef={skipNavRef} />
-          <Component {...pageProps} skipNavRef={skipNavRef} />
+          <Nav {...pageProps} />
+          <Component {...pageProps} />
           <Footer />
         </main>
       </ThemeProvider>

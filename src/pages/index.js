@@ -7,7 +7,7 @@ import SponsorSlider from '@/components/SponsorSlider'
 import { SubscribeForm } from '@/components/Forms'
 import { setupContentfulClient } from '@/utilities/conentful'
 
-function IndexPage({ nextCohortStartDate, skipNavRef }) {
+function IndexPage({ nextCohortStartDate }) {
   return (
     <>
       <Header />
@@ -51,8 +51,6 @@ function IndexPage({ nextCohortStartDate, skipNavRef }) {
         </div>
       </section>
       <section
-        ref={skipNavRef}
-        tabIndex={0}
         id="our_stories"
         className="section pad-regular bg-default our_stories small-top-pad"
       >

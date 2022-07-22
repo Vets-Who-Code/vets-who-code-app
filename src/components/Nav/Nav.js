@@ -5,6 +5,7 @@ import { AiFillCaretDown } from 'react-icons/ai'
 import Toggle from '../Toggle'
 
 import hashFlag from '../../images/hashflag_white.jpg'
+import { useRouter } from 'next/router'
 
 const NAV = {
   TOGGLE_MOBILE_NAVIGATION: 'TOGGLE_MOBILE_NAVIGATION',
@@ -53,10 +54,12 @@ function navReducer(state, action) {
   }
 }
 
-function Nav({ skipNavRef }) {
+function Nav({ setApplyTabIndex, applyTabIndex }) {
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
+  const [mainContentLink, setMainContentLink] = useState('/#our_stories')
   const [navState, dispatch] = useReducer(navReducer, initialNavState)
+  const router = useRouter()
   const isMobileNavOpen = navState.mobileNavOpen
   const isMediaDropdownOpen = navState.mediaDropdownOpen
   const isOurStoryDropDownOpen = navState.ourStoryDropdownOpen
@@ -73,6 +76,42 @@ function Nav({ skipNavRef }) {
 
     return () => document.removeEventListener('mousedown', handleClickOutside)
   })
+
+  useEffect(() => {
+    if (router.pathname === '/') {
+      setMainContentLink('/#our_stories')
+    } else if (router.pathname === '/board') {
+      setMainContentLink('/board#board-cards')
+    } else if (router.pathname === '/syllabus') {
+      setMainContentLink('/syllabus#contact')
+    } else if (router.pathname === '/jobs') {
+      setMainContentLink('/jobs#contact')
+    } else if (router.pathname === '/contact') {
+      setMainContentLink('/contact#contact')
+    } else if (router.pathname === '/code-of-conduct') {
+      setMainContentLink('/code-of-conduct#about')
+    } else if (router.pathname === '/donate') {
+      setMainContentLink('/donate#cause_single')
+    }
+  }, [router.pathname])
+
+  useEffect(() => {
+    if (applyTabIndex) {
+      console.log(`i'm in!`)
+      const elementId = mainContentLink.substring(
+        mainContentLink.length,
+        mainContentLink.indexOf('#') + 1
+      )
+      console.log(elementId)
+      const element = document.getElementById(`our_stories`)
+      element.focus()
+      setApplyTabIndex(false)
+    }
+  }, [applyTabIndex])
+
+  function handleSkipNav() {
+    setApplyTabIndex(true)
+  }
 
   function handleScroll() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop
@@ -96,10 +135,6 @@ function Nav({ skipNavRef }) {
 
   function toggleMenuItem(type) {
     dispatch({ type })
-  }
-
-  const handleSkipNav = () => {
-    skipNavRef.current.focus()
   }
 
   return (

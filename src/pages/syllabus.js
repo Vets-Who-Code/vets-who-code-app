@@ -26,7 +26,7 @@ const BLOCKS = [
   },
 ]
 
-const Syllabus = ({ skipNavRef }) => {
+const Syllabus = () => {
   return (
     <>
       <NextSeo title="Syllabus" />
@@ -46,7 +46,7 @@ const Syllabus = ({ skipNavRef }) => {
             </div>
             <div className="row">
               <div className="col-md-12">
-                <div className="faq-short-brief container-fluid" tabIndex={0} ref={skipNavRef}>
+                <div className="faq-short-brief container-fluid">
                   <p>
                     Our curriculum is designed using a blend of Kanban and Scrum. We use the Kanban
                     methodology to treat each subject like a ticket to be completed. We do this in a
