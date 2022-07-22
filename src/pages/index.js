@@ -7,7 +7,9 @@ import SponsorSlider from '@/components/SponsorSlider'
 import { SubscribeForm } from '@/components/Forms'
 import { setupContentfulClient } from '@/utilities/conentful'
 
-function IndexPage({ nextCohortStartDate }) {
+function IndexPage({ nextCohortStartDate, applyTabIndex }) {
+  const toggleTabIndex = applyTabIndex ? { tabIndex: '0' } : {}
+
   return (
     <>
       <Header />
@@ -53,7 +55,7 @@ function IndexPage({ nextCohortStartDate }) {
       <section
         id="our_stories"
         className="section pad-regular bg-default our_stories small-top-pad"
-        tabIndex={0}
+        {...toggleTabIndex}
       >
         <div className="container">
           <div className="row bg-dark">

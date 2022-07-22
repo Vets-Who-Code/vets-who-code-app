@@ -54,7 +54,7 @@ function navReducer(state, action) {
   }
 }
 
-function Nav() {
+function Nav({ setApplyTabIndex, applyTabIndex }) {
   const router = useRouter()
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
@@ -97,10 +97,16 @@ function Nav() {
     }
   }, [router.pathname])
 
+  useEffect(() => {
+    if (applyTabIndex) {
+      let element = document.getElementById(mainContentLink.slice(2))
+      element.focus()
+      setApplyTabIndex(false)
+    }
+  }, [applyTabIndex])
+
   function handleSkipNav() {
-    console.log(`Hello`)
-    let focus = mainContentLink.slice(1)
-    console.log(focus)
+    setApplyTabIndex(true)
   }
 
   function handleScroll() {
