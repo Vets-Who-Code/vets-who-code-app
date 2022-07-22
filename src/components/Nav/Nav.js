@@ -80,12 +80,24 @@ function Nav({ setApplyTabIndex, applyTabIndex }) {
   useEffect(() => {
     if (router.pathname === '/') {
       setMainContentLink('/#our_stories')
+    } else if (router.pathname === '/about') {
+      setMainContentLink('/about#about')
     } else if (router.pathname === '/board') {
-      setMainContentLink('/board#board-cards')
+      setMainContentLink('/board#about')
+    } else if (router.pathname === '/testimonials') {
+      setMainContentLink('/testimonials#about')
+    } else if (router.pathname === '/blog') {
+      setMainContentLink('/blog#content')
+    } else if (router.pathname === '/podcast') {
+      setMainContentLink('/podcast#content')
+    } else if (router.pathname === '/apply') {
+      setMainContentLink('/apply#contact')
+    } else if (router.pathname === '/mentor') {
+      setMainContentLink('/mentor#contact')
     } else if (router.pathname === '/syllabus') {
       setMainContentLink('/syllabus#contact')
     } else if (router.pathname === '/jobs') {
-      setMainContentLink('/jobs#contact')
+      setMainContentLink('/jobs#jobs')
     } else if (router.pathname === '/contact') {
       setMainContentLink('/contact#contact')
     } else if (router.pathname === '/code-of-conduct') {
@@ -97,14 +109,15 @@ function Nav({ setApplyTabIndex, applyTabIndex }) {
 
   useEffect(() => {
     if (applyTabIndex) {
-      console.log(`i'm in!`)
       const elementId = mainContentLink.substring(
         mainContentLink.length,
         mainContentLink.indexOf('#') + 1
       )
-      console.log(elementId)
-      const element = document.getElementById(`our_stories`)
-      element.focus()
+      const skipToElement = document.getElementById(elementId)
+
+      skipToElement.setAttribute('tabIndex', 0)
+      skipToElement.focus()
+      skipToElement.removeAttribute('tabIndex')
       setApplyTabIndex(false)
     }
   }, [applyTabIndex])
@@ -168,9 +181,11 @@ function Nav({ setApplyTabIndex, applyTabIndex }) {
                 <div className="homeLink">VetsWhoCode</div>
               </a>
             </Link>
-            <button id="skip-to-main-link" className="a" onClick={handleSkipNav}>
-              Skip to main
-            </button>
+            <Link href={mainContentLink} passHref>
+              <a id="skip-to-main-link" className="a" onClick={handleSkipNav}>
+                Skip to main
+              </a>
+            </Link>
           </div>
           <button
             type="button"
