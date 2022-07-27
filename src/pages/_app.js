@@ -6,7 +6,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import Script from 'next/script'
 import { useGoogleTagsManager } from '../hooks'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 // libraries
 import 'react-toastify/dist/ReactToastify.css'
