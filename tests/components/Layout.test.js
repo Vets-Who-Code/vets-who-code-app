@@ -1,11 +1,9 @@
 import { render } from '@testing-library/react'
 import TemplateWrapper from '@/components/Layout'
+import * as nextRouter from 'next/router'
 
 describe('<Layout />', () => {
-  const useRouter = jest.spyOn(require('next/router'), 'useRouter')
-  useRouter.mockImplementation(() => ({
-    pathname: '/',
-  }))
+  nextRouter.useRouter.mockImplementation(() => ({ route: '/' }))
 
   test('should render correctly', () => {
     const { container } = render(<TemplateWrapper />)

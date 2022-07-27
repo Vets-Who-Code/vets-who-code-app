@@ -1,11 +1,11 @@
 import { useReducer, useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { AiFillCaretDown } from 'react-icons/ai'
 import Toggle from '../Toggle'
 
 import hashFlag from '../../images/hashflag_white.jpg'
-import { useRouter } from 'next/router'
 
 const NAV = {
   TOGGLE_MOBILE_NAVIGATION: 'TOGGLE_MOBILE_NAVIGATION',

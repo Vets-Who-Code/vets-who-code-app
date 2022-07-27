@@ -19,6 +19,12 @@ jest.mock('next/image', () => ({
   },
 }))
 
+// mock next/router globally
+jest.mock('next/router', () => ({
+  __esModule: true,
+  useRouter: jest.fn(),
+}))
+
 beforeAll(() => mswServer.listen())
 afterEach(() => mswServer.resetHandlers())
 afterAll(() => mswServer.close())
