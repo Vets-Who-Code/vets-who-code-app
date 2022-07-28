@@ -12,7 +12,7 @@ function BlogPostLink({ title, author, publishedDate, slug, description, feature
   const excerpt = findDescription(description)
 
   return (
-    <article id="content" className="post after">
+    <article id="skip-navigation-blog" className="post after">
       <div className="row">
         <div className="col-md-2" />
         <div className="col-md-8">

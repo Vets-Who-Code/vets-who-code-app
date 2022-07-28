@@ -54,10 +54,11 @@ function navReducer(state, action) {
   }
 }
 
-function Nav({ setApplyTabIndex, applyTabIndex }) {
+function Nav() {
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
   const [mainContentLink, setMainContentLink] = useState('/#our_stories')
+  const [applyTabIndex, setApplyTabIndex] = useState(false)
   const [navState, dispatch] = useReducer(navReducer, initialNavState)
   const router = useRouter()
   const isMobileNavOpen = navState.mobileNavOpen
@@ -87,9 +88,9 @@ function Nav({ setApplyTabIndex, applyTabIndex }) {
     } else if (router.pathname === '/testimonials') {
       setMainContentLink('/testimonials#about')
     } else if (router.pathname === '/blog') {
-      setMainContentLink('/blog#content')
+      setMainContentLink('/blog#skip-navigation-blog')
     } else if (router.pathname === '/podcast') {
-      setMainContentLink('/podcast#content')
+      setMainContentLink('/podcast#skip-navigation-podcast')
     } else if (router.pathname === '/apply') {
       setMainContentLink('/apply#contact')
     } else if (router.pathname === '/mentor') {

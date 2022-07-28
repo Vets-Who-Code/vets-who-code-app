@@ -12,17 +12,12 @@ function PodcastLink({ title, author, publishedDate, slug, description, featureI
   const excerpt = findDescription(description)
 
   return (
-    <article id="content" className="post after">
+    <article id="skip-navigation-podcast" className="post after">
       <div className="row">
         <div className="col-md-2" />
         <div className="col-md-8">
           <div className="entry-meta">
-            <Link
-              id="content"
-              href={`/podcast/post/${slug}`}
-              hidefocus="true"
-              style={{ outline: 'none' }}
-            >
+            <Link href={`/podcast/post/${slug}`} hidefocus="true" style={{ outline: 'none' }}>
               <a>
                 <Image
                   className="img-responsive border-radius-4"
