@@ -54,6 +54,22 @@ function navReducer(state, action) {
   }
 }
 
+const pathNameMap = {
+  '/': '/#our_stories',
+  '/about': '/about#about',
+  '/board': '/board#about',
+  '/testimonials': '/testimonials#about',
+  '/blog': '/blog#skip-navigation-blog',
+  '/podcast': '/podcast#skip-navigation-podcast',
+  '/apply': '/apply#contact',
+  '/mentor': '/mentor#contact',
+  '/syllabus': '/syllabus#contact',
+  '/jobs': '/jobs#jobs',
+  '/contact': '/contact#contact',
+  '/code-of-conduct': '/code-of-conduct#about',
+  '/donate': '/donate#cause_single',
+}
+
 function Nav() {
   const navRef = useRef()
   const [opacity, setOpacity] = useState(0.9)
@@ -79,32 +95,8 @@ function Nav() {
   })
 
   useEffect(() => {
-    if (router.pathname === '/') {
-      setMainContentLink('/#our_stories')
-    } else if (router.pathname === '/about') {
-      setMainContentLink('/about#about')
-    } else if (router.pathname === '/board') {
-      setMainContentLink('/board#about')
-    } else if (router.pathname === '/testimonials') {
-      setMainContentLink('/testimonials#about')
-    } else if (router.pathname === '/blog') {
-      setMainContentLink('/blog#skip-navigation-blog')
-    } else if (router.pathname === '/podcast') {
-      setMainContentLink('/podcast#skip-navigation-podcast')
-    } else if (router.pathname === '/apply') {
-      setMainContentLink('/apply#contact')
-    } else if (router.pathname === '/mentor') {
-      setMainContentLink('/mentor#contact')
-    } else if (router.pathname === '/syllabus') {
-      setMainContentLink('/syllabus#contact')
-    } else if (router.pathname === '/jobs') {
-      setMainContentLink('/jobs#jobs')
-    } else if (router.pathname === '/contact') {
-      setMainContentLink('/contact#contact')
-    } else if (router.pathname === '/code-of-conduct') {
-      setMainContentLink('/code-of-conduct#about')
-    } else if (router.pathname === '/donate') {
-      setMainContentLink('/donate#cause_single')
+    if (pathNameMap[router?.pathname]) {
+      setMainContentLink(pathNameMap[router.pathname])
     }
   }, [router.pathname])
 
