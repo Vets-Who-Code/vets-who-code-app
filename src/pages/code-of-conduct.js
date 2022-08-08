@@ -7,7 +7,7 @@ function CodeOfConduct() {
       <NextSeo title="Code Of Conduct" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
-        <div className="container">
+        <div id="skip_to_content" className="container">
           <div className="row">
             <div className="col-md-12 lead-in success-story">
               <h1 className="story-title">Code Of Conduct</h1>

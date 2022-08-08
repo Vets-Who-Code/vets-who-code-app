@@ -32,7 +32,7 @@ function About() {
       <NextSeo title="About Us" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
-        <div className="container">
+        <div id="skip_to_content" className="container">
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">About Us</h1>

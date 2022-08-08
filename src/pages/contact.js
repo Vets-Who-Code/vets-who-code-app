@@ -8,7 +8,7 @@ function Contact() {
       <NextSeo title="Contact" />
       <PageHeader />
       <section id="contact" className="small-top-pad section bg-default">
-        <div className="container">
+        <div id="skip_to_content" className="container">
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Contact Us</h1>

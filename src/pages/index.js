@@ -12,7 +12,7 @@ function IndexPage({ nextCohortStartDate }) {
     <>
       <Header />
       <section id="call-to-action" className="section bg-default call-to-action index">
-        <div className="container-fluid">
+        <div id="skip_to_content" className="container-fluid">
           <div className="row no-gutter">
             <div className="col-md-4">
               <Link href="/donate" passHref>

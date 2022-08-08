@@ -12,7 +12,7 @@ function PodcastLink({ title, author, publishedDate, slug, description, featureI
   const excerpt = findDescription(description)
 
   return (
-    <article id="skip-navigation-podcast" className="post after">
+    <article id="skip_to_content" className="post after">
       <div className="row">
         <div className="col-md-2" />
         <div className="col-md-8">

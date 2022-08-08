@@ -10,7 +10,7 @@ function BoardTemplate({ boardMemberCollection }) {
       <NextSeo title="Board" />
       <PageHeader />
       <section id="about" className="small-top-pad section bg-default">
-        <div className="container-fluid">
+        <div id="skip_to_content" className="container-fluid">
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Board of Directors</h1>

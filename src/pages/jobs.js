@@ -89,7 +89,7 @@ function Jobs() {
 
       {/* Section Header */}
       <section id="jobs" className="small-top-pad section bg-default" style={{ paddingBottom: 35 }}>
-        <div className="container">
+        <div id="skip_to_content" className="container">
           <div className="row">
             <div className="col-md-12 lead-in">
               <h1 className="story-title">Job Search</h1>

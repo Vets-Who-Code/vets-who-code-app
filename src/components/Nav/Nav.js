@@ -55,19 +55,20 @@ function navReducer(state, action) {
 }
 
 const pathNameMap = {
-  '/': '/#our_stories',
-  '/about': '/about#about',
-  '/board': '/board#about',
-  '/testimonials': '/testimonials#about',
-  '/blog': '/blog#skip-navigation-blog',
-  '/podcast': '/podcast#skip-navigation-podcast',
-  '/apply': '/apply#contact',
-  '/mentor': '/mentor#contact',
-  '/syllabus': '/syllabus#contact',
-  '/jobs': '/jobs#jobs',
-  '/contact': '/contact#contact',
-  '/code-of-conduct': '/code-of-conduct#about',
-  '/donate': '/donate#cause_single',
+  // Accessibility - User can tab to focus and show skip to main link to bypass navigation to the "skip_to_content" id on page.
+  '/': '/#our_stories', // "#our_stories" requested for content to skip to on home page.
+  '/about': '/about#skip_to_content',
+  '/board': '/board#skip_to_content',
+  '/testimonials': '/testimonials#skip_to_content',
+  '/blog': '/blog#skip_to_content',
+  '/podcast': '/podcast#skip_to_content',
+  '/apply': '/apply#skip_to_content',
+  '/mentor': '/mentor#skip_to_content',
+  '/syllabus': '/syllabus#skip_to_content',
+  '/jobs': '/jobs#skip_to_content',
+  '/contact': '/contact#skip_to_content',
+  '/code-of-conduct': '/code-of-conduct#skip_to_content',
+  '/donate': '/donate#skip_to_content',
 }
 
 function Nav() {
