@@ -1,6 +1,5 @@
 import React from 'react'
 import { useRouter } from 'next/router'
-import '../css/Error.css'
 
 const Error = () => {
   const router = useRouter()
