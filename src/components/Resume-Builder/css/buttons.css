@@ -1,0 +1,6 @@
+.btn-gr {
+  width: auto;
+  height: 46px;
+  font-size: 0.875rem;
+  background-color: var(--hashflag-red);
+}
