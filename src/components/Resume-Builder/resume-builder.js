@@ -1,6 +1,9 @@
+/* NOTE: This file name was renamed to resume-builder to make the path name 
+read better when linked from the Nav component */
+
 import React from 'react'
 import { useRouter } from 'next/router'
-import '../css/LandingPage.css'
+import '../../../src/assets/css/resume-builder/landing.css'
 
 const Landing = () => {
   const router = useRouter()

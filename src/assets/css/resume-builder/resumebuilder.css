@@ -1,0 +1,11 @@
+/* import all the different css styling - in total is should be max 4 separate stylesheets
+1 - Landing.css
+2 - ResumeInput.css
+3 - Confirmation.css
+4 - Error.css
+*/
+
+@import './landing.css';
+/* @import './resumeinput.css';
+@import './confirmtion.css';
+@import './error.css'; */

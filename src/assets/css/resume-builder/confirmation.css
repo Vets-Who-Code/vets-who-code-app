@@ -1,0 +1,91 @@
+.container{
+    width:100%;
+    max-width:1300px;
+    margin:0 auto;
+    height:calc(100vh - 72px);
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+
+.rc-response,.dwnld-error{
+    padding:1rem 1.5rem;
+    text-align: center;
+}
+
+
+.rc-response h1{
+    text-transform: uppercase;
+    margin:1rem 0;
+}
+
+.rc-response h3{
+line-height: 1.2;
+}
+
+.rc-response__action{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rc-response__action a{
+    margin:1rem 0;
+}
+
+
+
+.dwnld-error a#dwnld-error__link{
+    color:var(--hashflag-red)
+}
+
+.btn{
+    padding: 12px 12px;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.5s ease-in-out;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hashflag-white);
+  }
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 12px 12px 30px 20px rgba(0,0,0,0.1);
+  
+  }
+/* .btn-ld : add extra link / description */
+
+.btn-ld{
+    height:26px;
+    width:auto;
+    background-color: var(--blue);
+    font-size: 11px;
+    
+  }
+  /* .btn-gr : get started / generate resume */
+  
+  .btn-gr{
+    width:auto;
+    height:46px;
+    font-size: 0.875rem;
+    background-color: var(--hashflag-red); 
+  }
+  /* .btn-cr : create resume */
+  
+  .btn-cr{
+    height:56px;
+    width:120px;
+    font-size: 0.875rem;
+    background-color: var(--hashflag-red);
+    line-height: 1.3;
+  
+  }
