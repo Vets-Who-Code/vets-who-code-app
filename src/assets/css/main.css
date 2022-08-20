@@ -335,7 +335,7 @@ h1.small-top-pad {
   text-transform: uppercase;
 }
 .featured-heading h2 {
-  font-family: 'Gotham';
+  font-family: 'Gotham', sans-serif;
   font-size: 1.875rem; /*30px*/
   font-weight: 900;
   line-height: 2.25rem; /*36px*/
@@ -362,7 +362,7 @@ p.featured-content {
 }
 blockquote {
   border: 0;
-  font-family: 'Gotham';
+  font-family: 'Gotham' sans-serif;
   margin: 85px 10px;
   padding: 0.5em 10px;
   quotes: '“' '”' '‘' '’';
