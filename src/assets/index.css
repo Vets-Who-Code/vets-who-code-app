@@ -13,6 +13,4 @@
 @import 'css/pagination.css';
 @import 'css/toggle.css';
 @import 'css/video.css';
-
-/* Styling for Resume Builder */
-@import 'css/resume-builder/resumebuilder.css'
+@import 'css/resumebuilder.css'

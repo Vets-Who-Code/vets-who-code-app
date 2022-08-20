@@ -3,7 +3,7 @@ read better when linked from the Nav component */
 
 import React from 'react'
 import { useRouter } from 'next/router'
-import '../../../src/assets/css/resume-builder/landing.css'
+import '../../assets/css/resumebuilder.css'
 
 const Landing = () => {
   const router = useRouter()

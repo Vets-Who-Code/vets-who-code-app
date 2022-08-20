@@ -1,5 +1,7 @@
 import React from 'react'
 import { useRouter } from 'next/router'
+import '../../assets/css/resumebuilder.css'
+
 
 const Error = () => {
   const router = useRouter()
