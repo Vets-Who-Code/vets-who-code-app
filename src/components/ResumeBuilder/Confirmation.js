@@ -1,7 +1,6 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import CheckCircle from '../../images/check-circle.png'
-import '../../assets/css/resumebuilder.css'
 
 
 const Confirmation = () => {
