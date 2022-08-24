@@ -18,7 +18,7 @@ const Landing = () => {
           </p>
 
           <p>
-            Custom-tailor resumes for any job within minutes! Build an easily custimizable and
+            Custom-tailor resumes for any job within minutes! Build an easily customizable and
             simple resume in a few clicks!
           </p>
           <div className="landing-btn">
