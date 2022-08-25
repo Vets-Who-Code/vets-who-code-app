@@ -1,13 +1,17 @@
 /* NOTE: This file name was renamed to resume-builder to make the path name 
 read better when linked from the Nav component */
 
-import React from 'react'
+import {NextSeo} from 'next-seo'
 import { useRouter } from 'next/router'
+import PageHeader from '../components/PageHeader'
 
 const Landing = () => {
   const router = useRouter()
   return (
     <>
+    <NextSeo title='Resume Builder'/>
+    <PageHeader />
+    
       <div className="container">
         <div className="landing-text">
           <h1 id="page-title">
@@ -24,7 +28,7 @@ const Landing = () => {
             simple resume in a few clicks!
           </p>
           <div className="landing-btn">
-            <button type="button" onClick={() => router.push('./ResumeInput.js')}>
+            <button type="button" onClick={() => router.push('./resume-input')}>
               Next
             </button>
           </div>

@@ -8,7 +8,7 @@
 
 /* Global Styling between components */
 
-.container {
+.resume-container {
     width:100%;
     max-width:1300px;
     margin:0 auto;
@@ -19,7 +19,7 @@
     align-items: center;
 }
 
-.btn {
+/* .btn {
     padding: 12px 12px;
     text-align: center;
     margin-top: 2rem;
@@ -33,12 +33,12 @@
     justify-content: center;
     align-items: center;
     color: var(--hashflag-white);
-}
+} */
 
-.btn:hover {
+/* .btn:hover {
     transform: scale(1.05);
     box-shadow: 12px 12px 30px 20px rgba(0,0,0,0.1);
-}
+} */
 
 /* .btn-ld : add extra link / description */
 .btn-ld {

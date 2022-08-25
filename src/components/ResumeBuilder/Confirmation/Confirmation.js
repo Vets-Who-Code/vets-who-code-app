@@ -1,4 +1,3 @@
-import React from 'react'
 import { useRouter } from 'next/router'
 import CheckCircle from '../../images/check-circle.png'
 
@@ -7,7 +6,7 @@ const Confirmation = () => {
   const router = useRouter()
   return (
     <>
-    <div className="container">
+    <div className="resume-container">
       
       
       <div className="rc-response">
