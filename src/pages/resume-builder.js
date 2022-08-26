@@ -1,17 +1,15 @@
 /* NOTE: This file name was renamed to resume-builder to make the path name 
 read better when linked from the Nav component */
 
-import {NextSeo} from 'next-seo'
-import { useRouter } from 'next/router'
-import PageHeader from '../components/PageHeader'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
 
-const Landing = () => {
-  const router = useRouter()
+function ResumeBuilder() {
   return (
     <>
-    <NextSeo title='Resume Builder'/>
-    <PageHeader />
-    
+      <NextSeo title="Resume Builder" />
+      <PageHeader />
+
       <div className="container">
         <div className="landing-text">
           <h1 id="page-title">
@@ -24,13 +22,13 @@ const Landing = () => {
           </p>
 
           <p>
-            Custom-tailor resumes for any job within minutes! Build an easily custimizable and
+            Custom-tailor resumes for any job within minutes! Build an easily customizable and
             simple resume in a few clicks!
           </p>
           <div className="landing-btn">
-            <button type="button" onClick={() => router.push('./resume-input')}>
-              Next
-            </button>
+              <a href="/resume-input">
+                <button className="btn ">Next</button>
+                </a>
           </div>
         </div>
         <div className="landing-image">
@@ -44,4 +42,4 @@ const Landing = () => {
   )
 }
 
-export default Landing
+export default ResumeBuilder

@@ -1,18 +1,18 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import PageHeader from '@/components/PageHeader'
+import Link  from 'next/link'
 import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
 
 
 const ResumeInput = () => {
-  const router = useRouter()
   return (
     <>
     <NextSeo title='Resume Information'/>
     <PageHeader />
-    <div>
+    <div className='container'>
       <h1>Contact</h1>
-      <button type="button" onClick={() => router.push('./Confirmation.js')}></button>
+      <Link href="/confirmation" passHref>
+        <button className="btn-className">Next</button>
+</Link>
     </div>
     </>
   )

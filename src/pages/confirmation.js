@@ -1,27 +1,33 @@
-import { useRouter } from 'next/router'
-import CheckCircle from '../../images/check-circle.png'
+import CheckCircle from '../images/check-circle.png'
+import Image from 'next/image'
+import Link  from 'next/link'
+import { NextSeo } from 'next-seo'
+import PageHeader from '@/components/PageHeader'
 
-
-const Confirmation = () => {
-  const router = useRouter()
+function Confirmation () {
   return (
     <>
+    <NextSeo title="Confirmation" />
+    <PageHeader/>
     <div className="resume-container">
       
       
       <div className="rc-response">
-          <img src={CheckCircle} alt="" />
+          <Image 
+          src={CheckCircle} 
+          alt="Green Check"
+          />
             <h1>Here's Your Resume!</h1>
             <h3>
               Now that you have an awesome resume, time to go get that dream job!
             </h3>
             <div className="rc-response__action">
-              <a href=" ">
+              <a href="/resume-builder">
                   <button className="btn btn-cr">
                   Create New Resume
                   </button>
               </a>
-              <a href="https://vetswhocode.io" id="rtrn-vwc">
+              <a href="/" id="rtrn-vwc">
                   Back to VWC
               </a>
             </div>

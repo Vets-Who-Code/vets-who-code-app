@@ -1,9 +1,6 @@
-import React from 'react'
-import { useRouter } from 'next/router'
 
 
-const Error = () => {
-  const router = useRouter()
+function Error(){
   return (
     <div>
       <h1>Error! Page Not Found!</h1>
