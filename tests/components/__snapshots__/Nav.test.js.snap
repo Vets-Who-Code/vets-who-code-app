@@ -314,6 +314,18 @@ exports[`<Nav /> should render correctly 1`] = `
           role="menuitem"
         >
           <a
+            href="/resume-builder"
+          >
+            <span>
+              Resume Builder
+            </span>
+          </a>
+        </li>
+        <li
+          class="nav"
+          role="menuitem"
+        >
+          <a
             href="/contact"
           >
             <span>
