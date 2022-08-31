@@ -111,7 +111,7 @@
 }
 
 @media only screen and (min-width:768px){
-    .container {
+    .resume-wrapper{
     margin-top:72px;
     }
     .landing-image {
@@ -123,14 +123,12 @@
 @media only screen and (min-width:1024px){
     .resume-wrapper{
         flex-direction: row;
+        justify-content: space-between;
     }
     .landing-text h1 {
         text-align: left;
     }
-    .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
+    
     .landing-btn {
         width:100%;
         display: flex;
@@ -142,8 +140,9 @@
     .landing-text h1 span {
         display: inline-block;
     }
-    .container {
+    .resume-wrapper {
         height:calc(100vh - 200px);
+ 
     }
 }
 /*  Landing page end */
