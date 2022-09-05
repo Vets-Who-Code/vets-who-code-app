@@ -1,15 +1,22 @@
 import axios from 'axios'
-import { checkParams } from './api-helpers'
+import { checkParams, checkLength, validateEmail } from './api-helpers'
 
 export default async function handler(req, res) {
   const parsedBody = JSON.parse(req.body)
   const { name, email, phone, message } = parsedBody
   const requiredParams = ['email', 'message']
   const hasErrors = checkParams(parsedBody, requiredParams)
+  const isPossiblySpam = checkLength(message)
 
   if (hasErrors) {
     return res.status(422).json({
       error: 'Missing or incorrect required property',
+    })
+  }
+
+  if (isPossiblySpam) {
+    return res.status(400).json({
+      error: 'Message is too short for submission',
     })
   }
 
