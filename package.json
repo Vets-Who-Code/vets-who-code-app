@@ -10,7 +10,6 @@
     "@babel/plugin-transform-runtime": "7.16.4",
     "@babel/preset-react": "7.16.0",
     "@contentful/rich-text-react-renderer": "^15.12.1",
-    "@fortawesome/fontawesome-pro": "^6.1.2",
     "@hot-loader/react-dom": "^17.0.1",
     "axios": "0.25.0",
     "contentful": "9.1.10",
