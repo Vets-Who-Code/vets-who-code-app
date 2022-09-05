@@ -17,3 +17,8 @@ export const checkLength = message => {
   }
   return false
 }
+
+export const contactErrors = {
+  missingOrRequired: 'Missing or incorrect required property',
+  tooShort: 'Message is too short for submission',
+}
