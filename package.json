@@ -1,7 +1,10 @@
 {
   "name": "vwc-web-app",
   "version": "1.0.0",
-  "repository": "Vets-Who-Code/vwc-site",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vets-Who-Code/vwc-site.git"
+  },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "7.16.0",
     "@babel/plugin-transform-runtime": "7.16.4",
@@ -96,5 +99,16 @@
     "react-test-renderer": "17.0.2",
     "regenerator-runtime": "0.13.9",
     "storybook-dark-mode": "1.0.9"
-  }
+  },
+  "description": "<p align=center>   <img src=https://img.shields.io/badge/node-v10.16.0-brightgreen.svg?style=flat-square alt=\"node\" />   <img src=https://img.shields.io/badge/npm-v5.6.0-blue.svg?style=flat-square alt=\"npm\" />   <a href=https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE>     <img src=https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square alt=\"License: MIT\" />   </a>   <a href=https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md>     <img src=https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square alt=\"Contributions Welcome\" />   </a>   <a href=https://vercel.com?utm_source=vetswhocode.io&utm_campaign=oss>     <img src=https://img.shields.io/badge/Powered_by-Vercel-black?style=flat-square alt=\"Powered by Vercel\">   </a> </p>",
+  "bugs": {
+    "url": "https://github.com/Vets-Who-Code/vwc-site/issues"
+  },
+  "homepage": "https://github.com/Vets-Who-Code/vwc-site#readme",
+  "main": ".eslintrc.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": ""
 }
