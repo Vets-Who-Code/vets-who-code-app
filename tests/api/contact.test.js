@@ -69,4 +69,23 @@ describe('contact handler', () => {
     expect(res._getStatusCode()).toBe(500)
     expect(res._getData()).toBe('{"message":"Failed post to #contact channel"}')
   })
+
+  test('should throw a 400 error when the length of the message is too short', async () => {
+    const body = {
+      name: 'Jody',
+      email: 'fake@email.com',
+      phone_number: '111-111-1111',
+      message: 'nope',
+    }
+    const { req, res } = createMocks({
+      method: 'POST',
+      statusCode: 200,
+      body: JSON.stringify(body),
+    })
+
+    await contactApiHandler(req, res)
+
+    expect(res._getStatusCode()).toBe(400)
+    expect(res._getData()).toBe('{"error":"Message is too short for submission"}')
+  })
 })

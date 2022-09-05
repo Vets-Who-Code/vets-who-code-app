@@ -9,3 +9,16 @@ export function checkParams(eventBody, params) {
 
   return hasError
 }
+
+export const checkLength = message => {
+  const length = message.trim().split(' ').length
+  if (length === 1) {
+    return true
+  }
+  return false
+}
+
+export const contactErrors = {
+  missingOrRequired: 'Missing or incorrect required property',
+  tooShort: 'Message is too short for submission',
+}
