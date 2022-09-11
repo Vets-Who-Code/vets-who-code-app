@@ -35,12 +35,6 @@ module.exports = {
     'no-useless-catch': 'off',
     'no-undef': 'off',
     'no-debugger': 'off',
-    'prettier/prettier': [
-      'warn',
-      {
-        endOfLine: 'auto',
-      },
-    ],
     eqeqeq: ['error', 'always'],
     'getter-return': [
       'error',
@@ -76,6 +70,12 @@ module.exports = {
       {
         before: true,
         after: true,
+      },
+    ],
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
       },
     ],
     'no-duplicate-imports': 'error',

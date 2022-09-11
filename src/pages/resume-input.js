@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { NextSeo } from 'next-seo'
 import PageHeader from '@/components/PageHeader'
 
