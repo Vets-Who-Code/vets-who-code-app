@@ -72,6 +72,12 @@ module.exports = {
         after: true,
       },
     ],
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'no-duplicate-imports': 'error',
     'id-length': 'off',
     'id-blacklist': 0,

@@ -1,6 +1,5 @@
 /* NOTE: This file name was renamed to resume-builder to make the path name 
 read better when linked from the Nav component */
-
 import { NextSeo } from 'next-seo'
 import PageHeader from '@/components/PageHeader'
 import Link from 'next/link'
@@ -12,7 +11,7 @@ function ResumeBuilder() {
       <PageHeader />
 
       <div className="container">
-        <div class="resume-wrapper">
+        <div className="resume-wrapper">
           <div className="landing-text">
             <h1 id="page-title">
               <span>#VetsWhoCode</span> Resume Builder

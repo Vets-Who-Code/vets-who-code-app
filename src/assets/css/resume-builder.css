@@ -9,14 +9,14 @@
 /* Global Styling between components */
 
 .resume-wrapper {
-    width:auto;
-    max-width:1300px;
-    margin:0 auto;
-    height:auto;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: auto;
+  max-width: 1300px;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .btn {
@@ -42,143 +42,180 @@
 
 /* .btn-ld : add extra link / description */
 .btn-ld {
-    height:26px;
-    width:auto;
-    background-color: var(--blue);
-    font-size: 11px;
+  height: 26px;
+  width: auto;
+  background-color: var(--blue);
+  font-size: 11px;
 }
 
 /* .btn-gr : get started / generate resume */
 .btn-gr {
-    color: var(--element-4);
-    text-transform: uppercase;
-    font-weight: 700;
-    border-radius: 4px;
-    background-color: var(--primary-1);
+  color: var(--element-4);
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  background-color: var(--primary-1);
+  margin-left:20px;
 }
 
-/* .btn-cr : create resume */  
+/* .btn-cr : create resume */
 .btn-cr {
-    width:auto;
-    height:auto;
-    padding:6px 12px;
-    text-transform: uppercase;
-    font-weight: 700;
-    border-radius: 4px;
-    color: var(--element-4);
-    background-color: var(--primary-1);
+  width: auto;
+  height: auto;
+  padding: 6px 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border-radius: 4px;
+  color: var(--element-4);
+  background-color: var(--primary-1);
 }
-
 
 /*  Landing Page start */
 
 .landing-text {
-    width:100%;
-    max-width: 800px;
-    padding:1rem 1.5rem;    
+  width: 100%;
+  max-width: 800px;
+  padding: 1rem 1.5rem;
 }
 
 /* .landing-text h1 span{
     display: block;
 } */
 
-
 .landing-text h1 {
-    text-align: center;
-    margin-bottom:2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .landing-text p {
-    font-size: 1.3125rem;
-    margin-bottom:1rem;
-    line-height: 1.3;
+  font-size: 1.3125rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 .landing-image {
-    padding:1rem 1.5rem;
-    width:auto;
-    display:none;
+  padding: 1rem 1.5rem;
+  width: auto;
+  display: none;
 }
 
-.landing-btn{
-    width:auto;
-    height:auto;
+.landing-btn {
+  width: auto;
+  height: auto;
 }
 
 .landing-btn button img#right-arrow {
-    width:15%;
-    margin-left:10px;
+  width: 15%;
+  margin-left: 10px;
 }
 
-@media only screen and (min-width:768px){
-    .resume-wrapper{
-    margin-top:72px;
-    }
-    .landing-image {
-        display: block;  
-    }
-    
+@media only screen and (min-width: 768px) {
+  .resume-wrapper {
+    margin-top: 72px;
+  }
+  .landing-image {
+    display: block;
+  }
 }
 
-@media only screen and (min-width:1024px){
-    .resume-wrapper{
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .landing-text h1 {
-        text-align: left;
-    }
-    
-    .landing-btn {
-        width:100%;
-        display: flex;
-        justify-content: flex-start;
-    }
+@media only screen and (min-width: 1024px) {
+  .resume-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .landing-text h1 {
+    text-align: left;
+  }
+
+  .landing-btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
-@media only screen and (min-width:1440px){
-    .landing-text h1 span {
-        display: inline-block;
-    }
-    .resume-wrapper {
-        height:calc(100vh - 200px);
- 
-    }
+@media only screen and (min-width: 1440px) {
+  .landing-text h1 span {
+    display: inline-block;
+  }
+  .resume-wrapper {
+    height: calc(100vh - 200px);
+  }
 }
 /*  Landing page end */
 
 /*  ResumeInput  start*/
+label {
+  margin-left: 20px;
+}
+
+.rb-section {
+  display: grid;
+  grid-template-columns: 100px 220px 100px 220px 100px 220px;
+}
+input {
+  border-radius: 7px;
+  border-style: solid 1px rgb(195, 189, 189);
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-style: none;
+  border: 2px solid rgb(235, 232, 232);
+}
+.doc {
+  position: relative;
+  top: 60%;
+  right: 300%;
+  width: 600px;
+  height: 800px;
+}
+@media (max-width: 1240px) {
+  /*breakpoint*/
+  .rb-section {
+    grid-template-columns: none;
+  }
+  .doc {
+    position: relative;
+    left: 40%;
+    top: 0%;
+  }
+  button {
+    position: relative;
+    top: 0;
+  }
+}
+
 /*  ResumeInput  end*/
 
 /*  Confirmation start */
 
-.rc-response, .dwnld-error {
-    padding:1rem 1.5rem;
-    text-align: center;
+.rc-response,
+.dwnld-error {
+  padding: 1rem 1.5rem;
+  text-align: center;
 }
 
 .rc-response h1 {
-    text-transform: uppercase;
-    margin:1rem 0;
+  text-transform: uppercase;
+  margin: 1rem 0;
 }
 
 .rc-response h3 {
-line-height: 1.2;
+  line-height: 1.2;
 }
 
 .rc-response__action {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .rc-response__action a {
-    margin:1rem 0;
+  margin: 1rem 0;
 }
 
 .dwnld-error a#dwnld-error__link {
-    color:var(--hashflag-red);
+  color: var(--hashflag-red);
 }
 /*  Confirmation end */
 

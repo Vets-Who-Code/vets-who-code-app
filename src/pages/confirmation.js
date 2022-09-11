@@ -12,7 +12,7 @@ function Confirmation() {
       <div className="resume-container">
         <div className="rc-response">
           <Image src={CheckCircle} alt="Green Check" />
-          <h1>Here's Your Resume!</h1>
+          <h1>Here is your Resume!</h1>
           <h3>Now that you have an awesome resume, time to go get that dream job!</h3>
           <div className="rc-response__action">
             <Link href="/resume-builder" passHref>
