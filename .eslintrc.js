@@ -35,6 +35,12 @@ module.exports = {
     'no-useless-catch': 'off',
     'no-undef': 'off',
     'no-debugger': 'off',
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     eqeqeq: ['error', 'always'],
     'getter-return': [
       'error',

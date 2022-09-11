@@ -17,7 +17,7 @@ const ResumeInput = () => {
       <NextSeo title="Resume Information" />
       <PageHeader />
       <div className="container">
-        <div class="resume-wrapper">
+        <div className="resume-wrapper">
           <h1 className="contact-heading">Contact</h1>
           <form>
             <div className="rb-section">
