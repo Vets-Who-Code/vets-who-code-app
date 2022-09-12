@@ -24,6 +24,7 @@ import '../assets/css/card.css'
 import '../assets/css/board.css'
 import '../assets/css/code-of-conduct.css'
 import '../assets/css/job-form.css'
+import '../assets/css/resume-builder.css'
 
 const G_TAG_KEY = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS
 

@@ -294,6 +294,13 @@ function Nav() {
               </Link>
             </li>
             <li role="menuitem" className="nav" onClick={resetNavigation}>
+              <Link href="/resume-builder">
+                <a>
+                  <span>Resume Builder</span>
+                </a>
+              </Link>
+            </li>
+            <li role="menuitem" className="nav" onClick={resetNavigation}>
               <Link href="/contact">
                 <a>
                   <span>Contact</span>
