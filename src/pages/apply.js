@@ -1,6 +1,5 @@
 import { NextSeo } from 'next-seo'
 import PageHeader from '@/components/PageHeader'
-import { ApplyForm } from '@/components/Forms'
 import Link from 'next/link'
 
 export default function Apply() {
