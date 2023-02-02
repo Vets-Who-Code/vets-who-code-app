@@ -11,7 +11,7 @@ const BLOCKS = [
   {
     title: 'Block 2: Product Development with JavaScript',
     id: 2,
-    body: 'The best way to learn is to do, so in this phase we are going to be writing a lot of Javascript. Students will learn to leverage Javascript in the browser, on the server, and leverage third party APIs.',
+    body: 'The best way to learn is to do, so in this phase we are going to be writing a lot of Javascript. Students will learn to leverage Javascript in the browser, on the server, and connect with third party APIs.',
   },
   {
     title: 'Block 3: Javascript at Scale',
