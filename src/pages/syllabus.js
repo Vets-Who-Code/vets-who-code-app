@@ -4,25 +4,19 @@ import Accordion, { Panel } from '@/components/Accordion'
 
 const BLOCKS = [
   {
-    title: 'Block 1: The Core Basics',
+    title: 'Block 1: Onboarding and fundamentals',
     id: 1,
-    body: ' This phase we start in the terminal, then move to git, Github and the Github CLI. We then move into Visual Studio Code, HTML, CSS and Javascript. During this we teach the importance of User Stories, Git Flow, Kanban, UX Basics and Web Accessibility.',
+    body: ' This phase we start to build out professional workflows using the terminal, git, Github, Netlify, and design. At the end of this block students should be able to build and iterate on HTML/CSS web pages and their designs.',
   },
   {
-    title: 'Block 2: Product Development With JavaScript, React And Gatsby',
+    title: 'Block 2: Product Development with JavaScript',
     id: 2,
-    body: 'The best way to learn is to do, so in this phase we are going to be writing a lot of Javascript. Rather solving problems in our code challenges channel, or working on your team feature, here you will be focusing on learning how to build impactfully with Javascript, React, and Gatsby.',
+    body: 'The best way to learn is to do, so in this phase we are going to be writing a lot of Javascript. Students will learn to leverage Javascript in the browser, on the server, and connect with third party APIs.',
   },
   {
-    title: 'Block 3: Serverless DevOps and DivOps: Tooling to make your app work at scale',
+    title: 'Block 3: Javascript at Scale',
     id: 3,
-    body: 'Modern web apps have complexity based on layers of tooling working together to ensure it works at scale. In this phase we will dive into AWS Lambdas, Github Actions and Netlifly.',
-  },
-  {
-    title:
-      'Block 4: Becoming a Dev Advocate of You - Mentoring, Networking, Building Social Equity, Interview Prep.',
-    id: 4,
-    body: 'As the saying goes, "Getting a Job is a Job", especially the first job in tech. So now that you know how to code, we need to get you into a cycle of building, writing, sharing your work, connecting and networking with people. We have to make you a Dev Advocate Of You.',
+    body: 'Modern web apps have complexity based on layers of tooling working together to ensure it works at scale. In this phase we use industry standard tooling and frameworks to build Javascript apps like React, Typescript, and Next.js.',
   },
 ]
 
