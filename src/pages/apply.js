@@ -1,6 +1,6 @@
 import { NextSeo } from 'next-seo'
 import PageHeader from '@/components/PageHeader'
-import Link from 'next/link'
+import { ApplyForm } from '@/components/Forms'
 
 export default function Apply() {
   return (
@@ -21,41 +21,34 @@ export default function Apply() {
                 <div className="contactus-brief">
                   <div className="container-fluid">
                     <p className="section-description">
-                      Thank you for choosing to apply to Vets Who Code. This application is our
-                      flaship web development course. Here&apos;s a link to the{' '}
-                      <Link href="/syllabus">syllabus</Link>. To apply to the course fill out the
-                      Google form linked below. If you&apos;re already registered to the VetsWhoCode
-                      Slack channel we&apos;ll just ask you for your pre-work url and Slack name.
-                    </p>
-
-                    <p>
-                      If you have any questions about the pre-work, please reach out to us either in
-                      Slack or via the <Link href="/contact">Contact</Link> form.
-                    </p>
-
-                    <p className="section-description">
-                      <a
-                        target="_blank"
-                        rel="noreferrer"
-                        href="https://dev.to/vetswhocode/vets-who-code-pre-work-1gld"
-                      >
-                        Pre-work instructions
-                      </a>
+                      Thank you for choosing to apply to Vets Who Code. Your first step in this
+                      journey will be to visit our&nbsp;
+                      <a href="https://github.com/Vets-Who-Code/prework">prework repository</a>
+                      &nbsp;on <a href="http://github.com">github.com</a>. We ask that, prior to
+                      applying to our program, you complete a small series of tutorial assignments
+                      that will introduce you to the basics of HTML5, CSS3 and JavaScript. The
+                      prework reading assignment will also guide you through setting up your
+                      development environment to work with the Vets Who Code program. After
+                      finishing the reading, we ask that you complete the capstone project&nbsp;(a
+                      short one-page website which will allow us to gauge your initial skill levels
+                      and help us assign an appropriate mentor), and fill out the following
+                      application form.
                     </p>
                   </div>
                   <div className="container-fluid">
                     <div className="text-center">
                       <a
                         className="btn btn-charity-default"
-                        href="https://forms.gle/YJ4c42QBaKo4fWXH9"
+                        href="https://github.com/Vets-Who-Code/prework"
                         role="button"
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Prework Form
+                        Required Prework
                       </a>
                     </div>
                   </div>
+                  <ApplyForm />
                 </div>
               </div>
             </div>
