@@ -317,33 +317,6 @@ function ApplyForm() {
       </div>
       <div className="col-md-8">
         <div className="form-group">
-          <label htmlFor="twitterAccountName" className="dark-text">
-            Twitter Profile URL<sup>*</sup>
-          </label>
-          <input
-            className="form-control input-lg"
-            id="twitterAccountName"
-            name="twitterAccountName"
-            placeholder="Twitter Profile URL"
-            type="text"
-            ref={register({
-              required: true,
-              pattern: {
-                value: /http(s)?:\/\/(.*\.)?twitter\.com\/[A-z0-9_]+\/?/,
-                message: 'Please enter a valid twitter account url',
-              },
-            })}
-          />
-        </div>
-        {errors.twitterAccountName && errors.twitterAccountName.type === 'required' && (
-          <FormAlert />
-        )}
-        {errors.twitterAccountName && errors.twitterAccountName.type === 'pattern' && (
-          <FormAlert errorMessage={errors.twitterAccountName.message} />
-        )}
-      </div>
-      <div className="col-md-8">
-        <div className="form-group">
           <label htmlFor="linkedInAccountName" className="dark-text">
             LinkedIn Profile URL<sup>*</sup>
           </label>

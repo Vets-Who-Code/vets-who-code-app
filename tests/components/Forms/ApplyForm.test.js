@@ -14,7 +14,6 @@ describe('<ApplyForm />', () => {
     const branchOfService = container.querySelector('#branchOfService')
     const yearJoined = container.querySelector('#yearJoined')
     const yearSeparated = container.querySelector('#yearSeparated')
-    const twitterAccountName = container.querySelector('#twitterAccountName')
     const linkedInAccountName = container.querySelector('#linkedInAccountName')
     const githubAccountName = container.querySelector('#githubAccountName')
     const preworkLink = container.querySelector('#preworkLink')
@@ -40,7 +39,6 @@ describe('<ApplyForm />', () => {
     fireEvent.input(branchOfService, { target: { value: 'USMC' } })
     fireEvent.input(yearJoined, { target: { value: 2000 } })
     fireEvent.input(yearSeparated, { target: { value: 2004 } })
-    fireEvent.input(twitterAccountName, { target: { value: 'https://twitter.com/fake-user' } })
     fireEvent.input(linkedInAccountName, {
       target: { value: 'https://linkedin.com/in/fake-user' },
     })
@@ -77,7 +75,6 @@ describe('<ApplyForm />', () => {
     const branchOfService = container.querySelector('#branchOfService')
     const yearJoined = container.querySelector('#yearJoined')
     const yearSeparated = container.querySelector('#yearSeparated')
-    const twitterAccountName = container.querySelector('#twitterAccountName')
     const linkedInAccountName = container.querySelector('#linkedInAccountName')
     const githubAccountName = container.querySelector('#githubAccountName')
     const preworkLink = container.querySelector('#preworkLink')
@@ -94,7 +91,6 @@ describe('<ApplyForm />', () => {
     fireEvent.input(branchOfService, { target: { value: 'USMC' } })
     fireEvent.input(yearJoined, { target: { value: 2000 } })
     fireEvent.input(yearSeparated, { target: { value: 2004 } })
-    fireEvent.input(twitterAccountName, { target: { value: 'https://twitter.com/fake-user' } })
     fireEvent.input(linkedInAccountName, {
       target: { value: 'https://linkedin.com/in/fake-user' },
     })
@@ -125,7 +121,6 @@ describe('<ApplyForm />', () => {
     const branchOfService = container.querySelector('#branchOfService')
     const yearJoined = container.querySelector('#yearJoined')
     const yearSeparated = container.querySelector('#yearSeparated')
-    const twitterAccountName = container.querySelector('#twitterAccountName')
     const linkedInAccountName = container.querySelector('#linkedInAccountName')
     const githubAccountName = container.querySelector('#githubAccountName')
     const preworkLink = container.querySelector('#preworkLink')
@@ -142,7 +137,6 @@ describe('<ApplyForm />', () => {
     fireEvent.input(branchOfService, { target: { value: '' } })
     fireEvent.input(yearJoined, { target: { value: '' } })
     fireEvent.input(yearSeparated, { target: { value: '' } })
-    fireEvent.input(twitterAccountName, { target: { value: '' } })
     fireEvent.input(linkedInAccountName, {
       target: { value: '' },
     })
@@ -154,7 +148,7 @@ describe('<ApplyForm />', () => {
 
     const errorMessages = container.querySelectorAll('.alert-danger')
 
-    expect(errorMessages.length).toBe(15)
+    expect(errorMessages.length).toBe(14)
 
     await waitFor(() => {
       fireEvent.input(firstName, { target: { value: 'New' } })
@@ -167,7 +161,6 @@ describe('<ApplyForm />', () => {
       fireEvent.change(branchOfService, { target: { value: 'USMC' } })
       fireEvent.input(yearJoined, { target: { value: 2000 } })
       fireEvent.input(yearSeparated, { target: { value: 2004 } })
-      fireEvent.input(twitterAccountName, { target: { value: 'https://twitter.com/fake-user' } })
       fireEvent.input(linkedInAccountName, {
         target: { value: 'https://linkedin.com/in/fake-user' },
       })
@@ -193,7 +186,6 @@ describe('<ApplyForm />', () => {
     const branchOfService = container.querySelector('#branchOfService')
     const yearJoined = container.querySelector('#yearJoined')
     const yearSeparated = container.querySelector('#yearSeparated')
-    const twitterAccountName = container.querySelector('#twitterAccountName')
     const linkedInAccountName = container.querySelector('#linkedInAccountName')
     const githubAccountName = container.querySelector('#githubAccountName')
     const preworkLink = container.querySelector('#preworkLink')
@@ -204,7 +196,7 @@ describe('<ApplyForm />', () => {
 
     const errorMessages = container.querySelectorAll('.alert-danger')
 
-    expect(errorMessages.length).toBe(15)
+    expect(errorMessages.length).toBe(14)
 
     await waitFor(() => {
       fireEvent.input(firstName, { target: { value: 'New' } })
@@ -217,7 +209,6 @@ describe('<ApplyForm />', () => {
       fireEvent.change(branchOfService, { target: { value: 'USMC' } })
       fireEvent.input(yearJoined, { target: { value: 200 } })
       fireEvent.input(yearSeparated, { target: { value: 204 } })
-      fireEvent.input(twitterAccountName, { target: { value: 'https ://twitter.com/fake-user' } })
       fireEvent.input(linkedInAccountName, {
         target: { value: 'https ://linkedin.com/in/fake-user' },
       })
@@ -227,7 +218,7 @@ describe('<ApplyForm />', () => {
     })
 
     const errorsAfterSubmit = container.querySelectorAll('.alert-danger')
-    expect(errorsAfterSubmit.length).toBe(9)
+    expect(errorsAfterSubmit.length).toBe(8)
     // valid email
     expect(errorsAfterSubmit[0].textContent).toContain('Please enter a valid email address')
     // zip-code custom error
@@ -238,18 +229,16 @@ describe('<ApplyForm />', () => {
     expect(errorsAfterSubmit[2].textContent).toContain('Please enter year in YYYY format')
     // year separated custom error
     expect(errorsAfterSubmit[3].textContent).toContain('Please enter year in YYYY format')
-    // valid twitter account url
-    expect(errorsAfterSubmit[4].textContent).toContain('Please enter a valid twitter account url')
     // valid linkedin account url
-    expect(errorsAfterSubmit[5].textContent).toContain(
+    expect(errorsAfterSubmit[4].textContent).toContain(
       'Please enter a valid LinkedIn url https://linkedin.com/in/user-name'
     )
     // valid github username
-    expect(errorsAfterSubmit[6].textContent).toContain('Please enter your github username')
+    expect(errorsAfterSubmit[5].textContent).toContain('Please enter your github username')
     // valid prework url
-    expect(errorsAfterSubmit[7].textContent).toContain('Please enter a valid url')
+    expect(errorsAfterSubmit[6].textContent).toContain('Please enter a valid url')
     // valid github url
-    expect(errorsAfterSubmit[8].textContent).toContain(
+    expect(errorsAfterSubmit[7].textContent).toContain(
       'Please enter a GitHub repository url https://github.com/user-name/repo-name'
     )
 
@@ -264,7 +253,6 @@ describe('<ApplyForm />', () => {
       fireEvent.input(branchOfService, { target: { value: 'USMC' } })
       fireEvent.input(yearJoined, { target: { value: 2000 } })
       fireEvent.input(yearSeparated, { target: { value: 2004 } })
-      fireEvent.input(twitterAccountName, { target: { value: 'https://twitter.com/fake-user' } })
       fireEvent.input(linkedInAccountName, {
         target: { value: 'https://linkedin.com/in/fake-user' },
       })
