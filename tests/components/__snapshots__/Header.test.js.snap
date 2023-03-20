@@ -2,13 +2,13 @@
 
 exports[`<Header /> should render correctly 1`] = `
 <section
-  class="site-header flexslider classic overlay main-overlay grey"
+  class="site-header flexslider classic overlay main-overlay"
 >
   <img
     alt="image of code on a computer screen"
     layout="fill"
     placeholder="blur"
-    src="/images/code.jpg"
+    src="https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
   />
   <div
     class="header-classic wrapper-table"
