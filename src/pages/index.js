@@ -111,9 +111,9 @@ function IndexPage({ nextCohortStartDate }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-6 event_content">
-              <h3 className="next-cohort">Sign Up For Our Next Cohort</h3>
+              <h3 className="next-cohort">Apply For Our Updated Program</h3>
               <div className="event_excerpt">
-                <p>Our Next Cohort is Starting Soon! Sign Up Now and Learn to Code!</p>
+                <p>We are opening our new programming cohort to general applicants in July!</p>
               </div>
             </div>
             <div className="col-sm-6 event_counter_container text-center">
