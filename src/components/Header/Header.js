@@ -4,12 +4,12 @@ import Typed from 'react-typed'
 
 function Header() {
   return (
-    <section className="site-header flexslider classic overlay main-overlay grey">
+    <section className="site-header flexslider classic overlay main-overlay">
       <Image
         layout="fill"
-        blurDataURL="/images/code.jpg"
+        blurDataURL="https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
         placeholder="blur"
-        src="/images/code.jpg"
+        src="https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
         alt="image of code on a computer screen"
       />
       <div className="header-classic wrapper-table">
