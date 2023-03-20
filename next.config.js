@@ -30,7 +30,7 @@ const postCSSFlexBugsFixes = [
 const config = {
   swcMinify: true,
   images: {
-    domains: ['images.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'res.cloudinary.com'],
   },
   plugins: [IS_PRODUCTION ? postCSSFlexBugsFixes : [], IS_PRODUCTION ? purgeCSS : []],
 }
