@@ -10,7 +10,7 @@ type TProps = {
 const TextWidget = ({ className, mode }: TProps) => {
     return (
         <div className={clsx(className)}>
-            <WidgetTitle mode={mode}>Address</WidgetTitle>
+            <WidgetTitle mode={mode}>Mailing Address</WidgetTitle>
             <div
                 className={clsx(
                     "content ",
@@ -18,10 +18,7 @@ const TextWidget = ({ className, mode }: TProps) => {
                 )}
             >
                 <p className="tw-mb-[11px]">
-                    382 NE 191st St # 87394 Miami, FL 33179-3899
-                </p>
-                <p className="tw-mb-[11px]">
-                    +1 (305) 547-9909 (9am - 5pm EST, Monday - Friday){" "}
+                    31860 Sandy Plains Road, Ste 204 PMB 206
                 </p>
                 <p className="tw-mb-[11px]">
                     <a
@@ -31,7 +28,7 @@ const TextWidget = ({ className, mode }: TProps) => {
                             mode === "dark" && "tw-text-gray-400"
                         )}
                     >
-                        info@example.com{" "}
+                        hello@vetswhocode.io{" "}
                     </a>
                 </p>
             </div>
