@@ -63,8 +63,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
                         }
                     ],
-                    "title": "Customize Preferences",
-                    "description": "Learners are given the right to arrange and customize their study schedule and timetable based on preferences.",
+                    "title": "Learn Anywhere",
+                    "description": "We are set up so that all you need is a computer and internet connection to learn from anywhere in the world.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -75,8 +75,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
                         }
                     ],
-                    "title": "Cloud Storage",
-                    "description": "You can store online lessons via online cloud or download to your device and revise lessons on the way.",
+                    "title": "Build Modern Skills",
+                    "description": "We provide a modern curriculum that is constantly updated to reflect the latest technologies and trends.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -87,14 +87,14 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
                         }
                     ],
-                    "title": "Multimedia Channels",
-                    "description": "We provide study materials with various formats: video, audio, slides, doc, prints, books and applications.",
+                    "title": "Community Support",
+                    "description": "With 1:1's, mentorship, and a community of peers, you'll never feel alone on your journey.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 }
             ],
             "motto": {
-                "text": "Explore the most appropriate courses and certificate that you desire will be the sweet ultimate reward. ",
+                "text": "Learn More About #VetsWhoCode. ",
                 "path": "/start-here",
                 "pathText": "Let’s get started"
             }
