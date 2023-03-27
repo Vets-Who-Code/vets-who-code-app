@@ -31,12 +31,12 @@
                 {
                     "id":1,
                     "path": "/start-here",
-                    "content":"Free consultation",
+                    "content":"Learn More",
                     "color": "light"
                 },
                 {
                     "id": 2,
-                    "content":"How we work",
+                    "content":"About Us",
                     "icon": "fas fa-play",
                     "variant": "outlined",
                     "color": "light"
@@ -49,7 +49,7 @@
                 }
             ],
             "video": {
-                "videoId": "eS9Qm4AOOBY",
+                "videoId": "S4lpKm9mbVk",
                 "channel": "youtube"
             }
         },
