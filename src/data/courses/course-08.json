@@ -1,0 +1,116 @@
+{
+    "id": 8,
+    "title": "Speed Reading Techniques in University",
+    "thumbnail": {
+        "src": "/images/courses/370/course-8.jpg"
+    },
+    "published_at": "2018-06-01T00:00:00.000Z",
+    "category": "Study",
+    "price": 11.00,
+    "currency": "$",
+    "language": "english",
+    "instructor": 3,
+    "duration": "20 hours",
+    "total_lectures": 25,
+    "total_students": 40,
+    "membership": ["diamond"],
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "curriculum": ["chapter-01", "chapter-03", "chapter-05", "chapter-06", "chapter-07"],
+    "reviews": {
+        "average": 4.5,
+        "count": 2,
+        "rating_details": {
+            "5": 1,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+        },
+        "items": [
+            {
+                "id": 1,
+                "user": {
+                    "name": "Edna Watson",
+                    "avatar": {
+                        "src": "/images/review-author/author1.jpeg"
+                    }
+                },
+                "rating": 5.0,
+                "title": "Cover all my needs",
+                "review": "The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions."
+            },
+            {
+                "id": 2,
+                "user": {
+                    "name": "Owen Christ",
+                    "avatar": {
+                        "src": "/images/review-author/author2.jpeg"
+                    }
+                },
+                "rating": 4.5,
+                "title": "Engaging & Fun",
+                "review": "This is the third course I attend from you, and I absolutely loved all of them. Especially this one on leadership. Your method of explaining the concepts, fun, engaging and with real-world quizples, is excellent. This course will help me a lot in my job, my career, and life in general, and I thank you for that. Thank you for improving the lives of many people with engaging and in-depth courses."
+            }
+        ]
+    },
+    "description": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
+        },
+        {
+            "id": 3,
+            "type": "iframe",
+            "content": {
+                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
+                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
+            }
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "Translate your work on the Canvas to specific charters in IT. Rapidly prototype strategically-aligned processes for implementation within your IT infrastructure. How do you define a customer-centric strategy you can actually execute? To do strategic IT, you’ve got to have a strategy! Ideally, you need one that’s easy to understand and use as a clear basis for action."
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "That’s what you’ll learn in this course."
+        },
+        {
+            "id": 7,
+            "type": "heading",
+            "content": "A Short Description"
+        },
+        {
+            "id": 8,
+            "type": "text",
+            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+        },
+        {
+            "id": 9,
+            "type": "text",
+            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+        },
+        {
+            "id": 10,
+            "type": "text",
+            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
+        },
+        {
+            "id": 11,
+            "type": "text",
+            "content": "Enroll in this course to find out."
+        }
+    ]
+}

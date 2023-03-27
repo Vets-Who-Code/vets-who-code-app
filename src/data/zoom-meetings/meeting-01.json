@@ -1,0 +1,91 @@
+{
+    "id": 1,
+    "title": "Marketing Committee Meeting",
+    "host": "Owen Christ",
+    "thumbnail": {
+        "src": "/images/event/16.jpg"
+    },
+    "date": "2024-12-01T20:30:00.000Z",
+    "timezone": "Atlantic/Azores",
+    "duration": 45,
+    "category": "strategies",
+    "meeting_id": "91169814481",
+    "links": [
+        "https://zoom.us/j/91169814481?pwd=Y1k2RElteDI0ZHNTQm0wTEhsa3B0QT09",
+        "https://zoom.us/j/91169814481?pak=Yld4algwZTc2TjVIYkQ3SXRGTVF3UT09&join=dXUxUFUveWJwTWljd0l6MWE2akcyZz09&type=meeting"
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "h3",
+            "content": "I. Marketing Budget"
+        },
+        {
+            "id": 2,
+            "type": "order-list",
+            "content": [
+                "2013 carry over – 12,000$",
+                "2014 budget – $16,500"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "h3",
+            "content": "II. Marketing Plan"
+        },
+        {
+            "id": 4,
+            "type": "order-list",
+            "content": [
+                {
+                    "text": "Marketing objectives",
+                    "type": "list",
+                    "content": [
+                        "Business recruitment – Incentives/Available Land/Assistance",
+                        "Community name recognition",
+                        "Amenities/Family Recruitment"
+                    ]
+                },
+                {
+                    "text": "Community support/matching grants",
+                    "type": "order-list",
+                    "content": [
+                        {
+                            "text": "Hillsboro Partners in Marketing (PIM) Grant",
+                            "type": "list",
+                            "content": [
+                                "Marketing plan grant $2,500 match for $5,500 total project", 
+                                "Business recruitment grant $2,300 match for $22,000 total project"
+                            ]
+                        },
+                        {
+                            "text": "May-Port PIM Grant",
+                            "type": "list",
+                            "content": [
+                                "Marketing plan grant $2,500 match for $5,500 total project", 
+                                "Business recruitment grant $2,300 match for $22,000 total project"
+                            ]
+                        },
+                        "Other communities?"
+                    ]
+                },
+                {
+                    "text": "County-wide marketing",
+                    "type": "list",
+                    "content": [
+                        "Newman Billboard along I-29 – $19,000 for 1 year contract",
+                        "Constructing/Renting/Printing billboard on I-29 for Buxton and Hillsboro commercial property – $15,000 approx."
+                    ]
+                },
+                {
+                    "text": "Organizational marketing",
+                    "type": "list",
+                    "content": [
+                        "Local advertising describing our organization – $2,500/yr.",
+                        "Quarterly newsletter printed and mailed – $500/yr."
+                    ]
+                }
+            ]
+        }
+    ]
+}

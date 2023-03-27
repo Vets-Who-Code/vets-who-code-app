@@ -1,0 +1,110 @@
+{
+    "id": 13,
+    "title": "2nd Annual Educating Mindfully Conference at MaxCoach office",
+    "thumbnail": {
+        "src": "/images/event/13.jpg"
+    },
+    "start_date": "2024-07-01",
+    "end_date": "2024-07-01",
+    "start_time": "14:30:00",
+    "end_time": "16:30:00",
+    "venue": " 1300 Montgomery Highway, Vestavia Hills, San Francisco, United States",
+    "location": {
+        "city": "San Francisco",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 39.00,
+    "currency": "$",
+    "total_slot": 350,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "The 2nd Annual Educating Mindfully Conference is February 01-March 31 at the 1300 Montgomery Highway, Vestavia Hills, San Francisco, United States. It combines SEL professional development, educator self-care, and mindfulness-based mentorship, training, and resources for school communities."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "There will be over 40 breakout session choices between Friday and Saturday, and over a dozen workshop choices between Thursday and Sunday, including our ISBE-approved Administrator Academy. For details on the line-up, and to register, visit educatingmindfully.org."
+        },
+        {
+            "id": 3,
+            "type": "h4",
+            "content": "Important notes for this conference. "
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "You’ll learn best practices behind the most successful products, and new trends in AI, VR, IoT and Blockchain. You’ll also have the opportunity to interact with all our sponsor companies interested in recruiting PMs. Get ready to level up your product management skills, network with a global community of fellow product leaders and have a ball!"
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "You’ll learn best practices behind the most successful products, and new trends in AI, VR, IoT and Blockchain. You’ll also have the opportunity to interact with all our sponsor companies interested in recruiting PMs. Get ready to level up your product management skills, network with a global community of fellow product leaders and have a ball!"
+        },
+        {
+            "id": 6,
+            "type": "list",
+            "content": [
+                "DuPage Regional Office of Education is providing CPDUs and CEUs for each day.",
+                "Register for each day separately. Lunch is included each day.",
+                "Investment per day for Friday and Saturday is $150 through Feb 1, increasing to $200 from Feb 2-21.",
+                "Friday School Mindfulness Champion Dinner is $50.",
+                "Thursday and Sunday half and full-day workshop prices vary."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,104 @@
+{
+    "id": 2,
+    "title": "Painting Art Contest 2024",
+    "thumbnail": {
+        "src": "/images/event/02.jpg"
+    },
+    "start_date": "2022-05-01",
+    "end_date": "2022-05-01",
+    "start_time": "22:00:00",
+    "end_time": "23:30:00",
+    "venue": "4765 Commercial Drive, New Hartford NY 13413",
+    "location": {
+        "city": "New York",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 24.00,
+    "currency": "$",
+    "total_slot": 60,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Lab.15 art contest, is a call for submissions open to all kind of artists. Works allowed in the art competition are: drawings, paintings, sculptures, photographs, graphics, mix media and video. A great opportunity for the artists, which can win a cash prize, have the chance to exhibit their artworks in a gallery in Milan (Italy) and much more."
+        },
+        {
+            "id": 2,
+            "type": "h5",
+            "content": "PRIZES: 5000,00€"
+        },
+        {
+            "id": 3,
+            "type": "list",
+            "content": [
+                "collaboration award for a new Malamegi collection",
+                "artwork acquisition award",
+                "cash prize",
+                "monographic book prize"
+            ]
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "The following types of works are admitted: Painting, Sculpture, Photography, Mixed media, Digital, Video, Graphics, Net art, other (all visual works that can be reproduced through a picture are allowed)."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "The contest is addressed to professional and amateur artists, graphic designers, painters, photographers, etc. from all over the world."
+        }
+    ]
+}

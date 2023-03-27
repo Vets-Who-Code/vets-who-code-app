@@ -1,0 +1,286 @@
+{
+    "name": "index",
+    "content": [
+        {
+            "section": "hero-area",
+            "headings": [
+                {
+                    "id":1,
+                    "content":"Expand Your Possibilities"
+                },
+                {
+                    "id":2,
+                    "content":"Intensively"
+                },
+                {
+                    "id":3,
+                    "content":"Extensively"
+                },
+                {
+                    "id":4,
+                    "content":"Positively"
+                }
+            ],
+            "texts": [
+                {
+                    "id": 1,
+                    "content": "Reach out to the most competent & passionate mentors"
+                }
+            ],
+            "buttons": [
+                {
+                    "id":1,
+                    "path": "/start-here",
+                    "content":"Free consultation",
+                    "color": "light"
+                },
+                {
+                    "id": 2,
+                    "content":"How we work",
+                    "icon": "fas fa-play",
+                    "variant": "outlined",
+                    "color": "light"
+                }
+            ],
+            "images": [
+                {
+                    "id":1,
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "service-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                        }
+                    ],
+                    "title": "Customize Preferences",
+                    "description": "Learners are given the right to arrange and customize their study schedule and timetable based on preferences.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                        }
+                    ],
+                    "title": "Cloud Storage",
+                    "description": "You can store online lessons via online cloud or download to your device and revise lessons on the way.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
+                        }
+                    ],
+                    "title": "Multimedia Channels",
+                    "description": "We provide study materials with various formats: video, audio, slides, doc, prints, books and applications.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                }
+            ],
+            "motto": {
+                "text": "Explore the most appropriate courses and certificate that you desire will be the sweet ultimate reward. ",
+                "path": "/start-here",
+                "pathText": "Let’s get started"
+            }
+        },
+        {
+            "section": "funfact-area",
+            "section_title": {
+                "title": "We prioritize & embrace the power of <span>Cooperation</span>",
+                "subtitle": "Everything starts with <strong>MaxCoach</strong>",
+                "description": "Get better choice of course, lessons, duration and tutors from our catalog. Free consultation sessions available."
+            },
+            "motto": {
+                "text": "Have questions?​",
+                "path": "/start-here",
+                "pathText": "Get Free Guidbook"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Finished Sessions",
+                    "counter": 1.926
+                },
+                {
+                    "id": 2,
+                    "title": "Online Enrollment",
+                    "suffix": "+",
+                    "counter": 3.092
+                },
+                {
+                    "id": 3,
+                    "title": "Subjects Taught",
+                    "counter": 200
+                },
+                {
+                    "id": 4,
+                    "title": "Satisfaction rate",
+                    "suffix": "%",
+                    "counter": 100
+                }
+            ]
+        }, 
+        {
+            "section": "video-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667455/website-images/vetswhocode-about-us.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "course-area",
+            "section_title": {
+                "title": "Signature <span>Courses</span>",
+                "subtitle":"Begin your journey at Vets Who Code"
+            }
+        },
+        {
+            "section": "testimonial-area",
+            "section_title": {
+                "title": "Enjoy <span>Our Companionship</span>",
+                "subtitle": "TOGETHER EXPAND AND GROW",
+                "description": "As learners, people can enjoy great companionship from MaxCoach mentors and educators. We can help you develop and grow at your best."
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/start-here",
+                    "content": "Get Trial Course"
+                }
+            ],
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Flora Paddington",
+                    "designation": "Freelance Coordinator",
+                    "description": "I love their flexibility. Even when my request is too complicated to handle. they could still suggest something useful for me.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/140/home-4-testimonial-avatar-01.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Best out of the best in the online coaching field ..."
+                },
+                {
+                    "id": 3,
+                    "name": "Fannie Moreno",
+                    "designation": "Developer",
+                    "description": "Excellent guiding instructions. They are all great mentors at life & career",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/100/home-4-testimonial-avatar-02.png"
+                        }
+                    ]
+                }
+            ],
+            "total_reviews": {
+                "heading": "4.9/5.0",
+                "text": "by 700+ Students for 3200+ Sales"
+            }
+        }, 
+        {
+            "section": "event-area",
+            "section_title": {
+                "title": "Upcoming <span>Events</span>",
+                "subtitle": "Stimulated to take part in?"
+            },
+            "motto": {
+                "text": "We love to see you at our events.​",
+                "path": "/events",
+                "pathText": "Check out events"
+            }
+        },
+        {
+            "section": "blog-area",
+            "section_title": {
+                "title": "Trending on <span>Our Blogs</span>",
+                "subtitle":"Consider registering our courses?"
+            }
+        },
+        {
+            "section": "brand-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678669757/slack-1-logo-png-transparent_ywvp8o.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269019/repl.it_y4ln0q.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269014/github_lbuupb.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269012/fem_pdchxc.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269010/contentful_l1vmka.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269007/adzuna_bxt6zd.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "newsletter-area",
+            "section_title": {
+                "title": "Subscribe <span>Newsletters</span>",
+                "description":"Enter your email address to register to our newsletter subscription <br class='tw-hidden md:tw-block'>delivered on a regular basis!"
+            }
+        }
+    ]
+}

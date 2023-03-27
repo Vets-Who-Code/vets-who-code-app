@@ -1,0 +1,94 @@
+{
+    "id": 13,
+    "title": "Creating Futures Through Technology Conference – MaxCoach Tech Center",
+    "thumbnail": {
+        "src": "/images/event/14.jpg"
+    },
+    "start_date": "2024-07-01",
+    "end_date": "2024-07-01",
+    "start_time": "14:30:00",
+    "end_time": "16:30:00",
+    "venue": "4765 Commercial Drive, New Hartford NY 13413, United States",
+    "location": {
+        "city": "New York",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 39.00,
+    "currency": "$",
+    "total_slot": 350,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "The&nbsp;<strong>Creating Futures Through Technology Conference – MaxCoach Tech Center</strong>&nbsp;is sponsored jointly by the Mississippi Community College Board and the Mississippi Universities Board with a goal of promoting collaboration as well as transforming teaching and learning on college campuses.&nbsp;&nbsp;"
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Celebrating our 20th anniversary this year on the gulf coast, the annual conference is designed to be the key venue where the higher education faculty, administrators and IT professionals come to share with one another their strategies, methods, and best practices with their fellow educators."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "With the theme,&nbsp;<em>Reshaping the Future: Artificial Intelligence, Virtual Reality and Augmented Reality,</em> the primary focus for the conference is on EdTech, but there are also sessions on networks, data security, etc.&nbsp;&nbsp;"
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "This is an excellent marketing opportunity to reach C-Suite level administrators and influential educators.&nbsp; Some limited vendor exhibitor spaces and sponsorships may still be available with speaking slots for vendor presentations/breakout sessions."
+        }
+    ]
+}

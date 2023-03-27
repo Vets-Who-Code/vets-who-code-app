@@ -1,0 +1,175 @@
+{
+    "name": "success-story",
+    "content": [
+        {
+            "section": "video-area",
+            "section_title": {
+                "title": "The biggest turning point in my life: <br class='tw-hidden md:tw-block'> Wonderful choice.",
+                "subtitle":"Success story"
+            },
+            "images": [
+                {
+                    "id": 1,
+                    "src": "/images/video/success-story-poster-image.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "quote-area",
+            "headings": [
+                {
+                    "id": 1,
+                    "content": "I learned one thing about online education is that <span>highly motivated individuals</span> always find a way to tackle the challenge in the most creative and flexible way."
+                }
+            ],
+            "texts": [
+                {
+                    "id": 1,
+                    "content": "At MaxCoach, we put ourselves in learners’ shoes to understand what they want and need, to build handy options for their education and guide them to a better version of themselves. We do the hard work to pave the ways for innovative higher education with advanced delivery modalities."
+                },
+                {
+                    "id": 2,
+                    "content": "From high school students, tertiary pupils, graduates or post-graduate learners, learners of any levels can easily find a suitable online program for themselves. It’s now convenient than the past to take an online course for improving the degree, becoming working professionals or pursuing a better job with valid certification… MaxCoach offers a wide range of online options for students around the globe."
+                }
+            ]
+        },
+        {
+            "section": "faq-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "/images/faq/success-story-image-01.jpg"
+                },
+                {
+                    "id": 2,
+                    "src": "/images/faq/success-story-image-02.jpg"
+                }
+            ],
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What are the reasons for learners to choose distant learning (e-learning) over the traditional method?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "FLEXIBILITY – Work, family, degree—it’s all possible."
+                        },
+                        {
+                            "id": 2,
+                            "content": "Convenience – Study on your time schedule, no commute, stackable programs lead to certificates and degrees."
+                        },
+                        {
+                            "id": 3,
+                            "content": "Proven Modality – More than 5 million students take one or more distance education courses each year."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "What makes MaxCoach different from others? Is that the equipment or the tutor?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "New Relationships and Networking Opportunities – Learn alongside students who offer diverse levels of experience and perspective. Students enroll from all corners of the world contributing to a rich classroom environment."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Which kind of opportunities is opened up to me when I take the lead?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Career Advancement and Entrepreneurial Opportunities – Advance your career with additional credentials or degrees. Quality of Instruction – University of Illinois faculty are among the most accomplished scholars in the world. Academic Excellence – Online degree seekers earn the same degree as U of I campus-based degree seeking students."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "course-area",
+            "section_title": {
+                "title": "Related Course"
+            }
+        },
+        {
+            "section": "gallery-area",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Lonnie Marks",
+                    "designation": "Tutor",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-01.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Britney Salker",
+                    "designation": "Educator",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-02.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Bronnies Wallz",
+                    "designation": "Alumnis",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-03.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Mia Paulo",
+                    "designation": "Writer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-04.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Lina Esthers",
+                    "designation": "Author",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-05.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Lorean McPhils",
+                    "designation": "Designer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-06.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "Anna Muray",
+                    "designation": "Writer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-07.jpg"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

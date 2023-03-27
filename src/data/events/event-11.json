@@ -1,0 +1,99 @@
+{
+    "id": 11,
+    "title": "FLA: Design Thinking and Innovation Week 2024",
+    "thumbnail": {
+        "src": "/images/event/11.jpg"
+    },
+    "start_date": "2025-03-01",
+    "end_date": "2025-03-01",
+    "start_time": "14:30:00",
+    "end_time": "17:30:00",
+    "venue": "85 Crooked Hill Road, Commack NY 11725 United States",
+    "location": {
+        "city": "NewYork",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 30.00,
+    "currency": "$",
+    "total_slot": 100,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Created by Future London Academy is a 5-day programme for creative entrepreneurs, designers and business owners – introducing you to London’s most innovative businesses and uncovering the latest approaches to design thinking and innovation."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Every day will consist of lectures, roundtables and visits to the top companies who adopted the human-centred approach, where you will meet the teams behind their latest research and innovation. Some people call our format a ‘design safari’, some say it’s a VIP behind-the-scenes experience or a research trip."
+        },
+        {
+            "id": 3,
+            "type": "h4",
+            "content": "Programme Objectives."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "During the week you will also explore the latest trends and discoveries in virtual reality, artificial intelligence, sustainability and future of technologies. You will learn about the latest approach to creativity, product management and business management – and have the opportunity to ask any questions in an informal atmosphere."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "All lectures and workshops will take place in the actual agencies giving participants a better context of the topic. This programme is designed to give you inspiration for your work, to help you get an expert opinion on your current projects, and keep you up-to-date with the latest trends in the industry."
+        }
+    ]
+}

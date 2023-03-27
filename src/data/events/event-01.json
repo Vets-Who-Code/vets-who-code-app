@@ -1,0 +1,110 @@
+{
+    "id": 1,
+    "title": "Storytelling Workshop",
+    "thumbnail": {
+        "src": "/images/event/01.jpg"
+    },
+    "start_date": "2024-12-01",
+    "end_date": "2024-12-01",
+    "start_time": "20:30:00",
+    "end_time": "22:30:00",
+    "venue": "Betahaus Hamburg Schanze, Eifflerstraße 43",
+    "location": {
+        "city": "New Jersey",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 50.00,
+    "currency": "$",
+    "total_slot": 50,
+    "total_booked": 10,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "International Art Fair is a contemporary art fair that presents collective and solo projects by leading and emerging international artists. The 12th edition will represent a forum for direct exchange of ideas and contacts between collectors, artists, photographers, designers and art professionals. The art fair features paintings, sculptures, photography art, installations, video art and live performance."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "International Art Fair, organized by ITSLIQUID Group in collaboration with Art Events and Ca’ Zanardi, will be held in Venice, at THE ROOM Contemporary Art Space from April 09 to May 10 2020, at Palazzo Ca’ Zanardi from April 10 to May 10 2020 and in other prestigious venues and historical buildings."
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "International Art Fair provides artists and exhibitors with the unique opportunity to present their works to an international audience of professionals as curators, gallerists, collectors, editors and publishers who seek to acquire, publish and encourage the best contemporary art talents."
+        },
+        {
+            "id": 4,
+            "type": "h5",
+            "content": "The participation includes the following services"
+        },
+        {
+            "id": 5,
+            "type": "list",
+            "content": ["exhibition space dedicated to the artist’s works",
+                "assisting with customs formalities, international shipping and local transport",
+                "assisting in finding accommodation for artist",
+                "the design and the printing of invitation cards, posters",
+                "the global and local press office, publicity, press, banners, totem, etc.",
+                "the realization of the exhibition website and dedicated press releases",
+                "mounting and dismounting of the exhibition",
+                "exhibitions opening event with drinks and food",
+                "a one day dedicated presentation, talk or workshop focusing on the artist’s career",
+                "a dedicated interview published on ITSLIQUID website and spread on our social networks",
+                "providing services and drinks for small meetings at the exhibition places for invited guests"]
+        }
+    ]
+}

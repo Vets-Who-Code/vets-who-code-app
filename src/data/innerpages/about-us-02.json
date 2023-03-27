@@ -1,0 +1,219 @@
+{
+    "name": "about-us-02",
+    "content": [
+        {
+            "section": "quote-area",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Florence Themes",
+                    "designation": "Multimedia Admin",
+                    "title": "Let passion and determination be the guide along the way and develop"
+                },
+                {
+                    "id": 2,
+                    "name": "Madley Pondor",
+                    "designation": "IT Specialist",
+                    "title": "Professional team of specialists and passionate mentors at reach"
+                },
+                {
+                    "id": 3,
+                    "name": "Luvic Dubble",
+                    "designation": "Private Tutor",
+                    "title": "I am happy with their arrangement of lessons and subjects."
+                }
+            ]
+        },
+        {
+            "section": "funfact-area",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Finished Sessions",
+                    "counter": 1.926
+                },
+                {
+                    "id": 2,
+                    "title": "Online Enrollment",
+                    "suffix": "+",
+                    "counter": 3.092
+                },
+                {
+                    "id": 3,
+                    "title": "Subjects Taught",
+                    "counter": 200
+                },
+                {
+                    "id": 4,
+                    "title": "Satisfaction rate",
+                    "suffix": "%",
+                    "counter": 100
+                }
+            ]
+        },
+        {
+            "section": "video-area",
+            "images": [
+                {
+                    "src": "/images/about/about-me/video-about-us-2.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "service-area",
+            "section_title": {
+                "title": "Enjoyable <span>Benefits</span> For Our Learners.",
+                "subtitle": "Learn at your Pace"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "/images/learner/learner-01.png"
+                        }
+                    ],
+                    "title": "Customize Freely to Your Preferences",
+                    "description": "Learners are given the right to arrange and customize their study schedule and timetable based on preferences.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "/images/learner/learner-02.png"
+                        }
+                    ],
+                    "title": "Cloud Storage or Download Lessons to Devices",
+                    "description": "You can store online lessons via online cloud or download to your device and revise lessons on the way.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "/images/learner/learner-03.png"
+                        }
+                    ],
+                    "title": "Multimedia Study Materials & Info Channels",
+                    "description": "We provide study materials with various formats: video, audio, slides, doc, prints, books and applications.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                }
+            ]
+        },
+        {
+            "section": "testimonial-area",
+            "section_title": {
+                "title": "Students Enjoy <span>Our Companionship</span> in Teaching.",
+                "subtitle": "TOGETHER EXPAND AND GROW",
+                "description": "As learners, people can enjoy great companionship from MaxCoach mentors and educators. We can help you develop and grow at your best."
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/courses/grid-01",
+                    "content": "Get Trial Course"
+                }
+            ],
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Flora Paddington",
+                    "designation": "Freelance Coordinator",
+                    "description": "I love their flexibility. Even when my request is too complicated to handle. they could still suggest something useful for me.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/140/home-4-testimonial-avatar-01.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Best out of the best in the online coaching field ..."
+                },
+                {
+                    "id": 3,
+                    "name": "Fannie Moreno",
+                    "designation": "Developer",
+                    "description": "Excellent guiding instructions. They are all great mentors at life & career",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/100/home-4-testimonial-avatar-02.png"
+                        }
+                    ]
+                }
+            ],
+            "total_reviews": {
+                "heading": "4.9/5.0",
+                "text": "by 700+ Students for 3200+ Sales"
+            }
+        }, 
+        {
+            "section": "brand-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-01.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-02.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-03.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-04.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-05.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-01.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "newsletter-area",
+            "section_title": {
+                "title": "Subscribe <span>Newsletters</span>",
+                "description":"Enter your email address to register to our newsletter subscription <br class='tw-hidden md:tw-block'>delivered on a regular basis!"
+            }
+        }
+    ]
+}

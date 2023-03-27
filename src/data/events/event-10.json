@@ -1,0 +1,89 @@
+{
+    "id": 10,
+    "title": "10th Annual SXSW EDU Conference and Festival",
+    "thumbnail": {
+        "src": "/images/event/10.jpg"
+    },
+    "start_date": "2022-11-01",
+    "end_date": "2022-11-01",
+    "start_time": "20:45:00",
+    "end_time": "22:45:00",
+    "venue": "250 Hartford Avenue, Bellingham MA 2019, United States",
+    "location": {
+        "city": "Texas",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 250.00,
+    "currency": "$",
+    "total_slot": 60,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Now in its 10th year, the SXSW EDU® Conference and Festival cultivates and empowers a community of engaged stakeholders to advance teaching and learning. The annual four-day event affords registrants open access to engaging sessions, immersive workshops, interactive learning experiences, film screenings, early-stage startups, business opportunities, and networking."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "SXSW EDU is a component of the South by Southwest® family of conferences and festivals that has grown from 800 to over 8,000 registrants in the last decade. Join the passionate and innovative community at SXSW EDU, March 9-12, 2020 in Austin, Texas."
+        },
+        {
+            "id": 3,
+            "type": "blockquote",
+            "content": "An opportunity that only happens once in a lifetime. Don’t miss it "
+        }
+    ]
+}

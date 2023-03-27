@@ -1,0 +1,70 @@
+{
+    "name": "contact-me",
+    "content": [
+        {
+            "section": "contact-info",
+            "section_title": {
+                "title": "Reach me!",
+                "subtitle": "Get excited already?"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Address",
+                    "icon": "fal fa-map-marker-alt",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "1800 Abbot Kinney Blvd. Unit D & E Venice"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Contact",
+                    "icon": "fal fa-phone",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Mobile: <a href='tel:(+88)-1990-6886'><strong>(+88) - 1990 - 6886</strong></a>"
+                        },
+                        {
+                            "id": 2,
+                            "content": "Hotline: <strong>1800 – 1102</strong>"
+                        },
+                        {
+                            "id": 3,
+                            "content": "Mail: <a href='mailto:hello@exmple.com'>hello@exmple.com</a>"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Hour of operation",
+                    "icon": "fal fa-clock",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Monday – Friday : 09:00 – 20:00"
+                        },
+                        {
+                            "id": 2,
+                            "content": "Sunday & Saturday: 10:30 – 22:00"
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "src": "/images/contact/contact.jpg"
+                }
+            ]
+        },
+        {
+            "section": "contact-form",
+            "section_title": {
+                "title": "Or just drop me a line"
+            }
+        }
+    ]
+}

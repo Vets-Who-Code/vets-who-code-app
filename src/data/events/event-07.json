@@ -1,0 +1,119 @@
+{
+    "id": 1,
+    "title": "Dialogue for Action on Cancer Screening and Prevention",
+    "thumbnail": {
+        "src": "/images/event/07.jpg"
+    },
+    "start_date": "2025-02-01",
+    "end_date": "2025-02-01",
+    "start_time": "08:30:00",
+    "end_time": "10:30:00",
+    "venue": "2399 Jefferson Davis Highway Arlington, VA 22202",
+    "location": {
+        "city": "Washington DC",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 40.00,
+    "currency": "$",
+    "total_slot": 65,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Learn about and discuss the real barriers to transformation leading to better and more sustainable schools:"
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "*Get the Digital Learning Experience Standards."
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "*What is Personalized Workflow Learning."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "*VR, AR, CTE Lab Trends- App Selection & App Retirement."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "SCHOOL AND DISTRICT LEADERS have been persuaded that the digital transformation is only about the design of HOW teachers use technology. However, real transformation goes much deeper. And, the implications are much broader to the institution. Confidence in public schools nationally is waning causing enrollment attrition nationwide. This is fueling the choice movement, which continues to grow as certain evidence of confidence erosion."
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "WORKSHOP LEADER&nbsp;<strong>LeiLani Cauthen</strong>, CEO of the Learning Counsel and Author of&nbsp;<strong><em>“The Consumerization of Learning”</em></strong>"
+        },
+        {
+            "id": 7,
+            "type": "text",
+            "content": "*<strong>INTRODUCTION</strong>&nbsp;to the Digital Learning Experience Standards"
+        },
+        {
+            "id": 8,
+            "type": "text",
+            "content": "*<strong>WHAT IS PERSONALIZED WORKFLOW LEARNING</strong>&nbsp;and why does managing student experience matter?"
+        },
+        {
+            "id": 9,
+            "type": "text",
+            "content": "*<strong>WHAT IS “INFINITY LOGIC”</strong>&nbsp;and what does it have to do with how students today think and learn?"
+        }
+    ]
+}

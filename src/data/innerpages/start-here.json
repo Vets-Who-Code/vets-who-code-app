@@ -1,0 +1,315 @@
+{
+    "name": "start-here",
+    "content": [
+        {
+            "section": "hero-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "/images/page-banner/start-here-hero-slide-01-bg.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "AWAKEN <br> YOUR GIFTS <br>NOW"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "INSPIRING CURRICULUM"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Learning with MaxCoach might a turning point in your life when you get communication with a great awakening of born talents."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "/images/page-banner/start-here-hero-slide-02-bg.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "OPEN UP <br>  A BRIGHT <br>SKY"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "life consultancy"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Ever feel drained of ideas and inspiration in life? Lost in no where and have no place to go? Find help and advice from our MaxCoach specialists."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "/images/page-banner/start-here-hero-slide-03-bg.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "write your <br> own life <br>book"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "skill advancement"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Not only your skills are advanced, your inner self can get a new identity as well. You're the one who take the full control of your life book."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "timeline-area",
+            "section_title": {
+                "title": "Best chances for expanding your <br> success to the max",
+                "subtitle": "Four major Steps to Success"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-01.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Broadening"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "#1 Career advancement and hobbies"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Studying online gives you more flexibility. You can work and fit your work schedule around your coursework more easily; even more so if you are taking an asynchronous class: an online class where you can study and interact with your instructor and fellow classmates at your own pace."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-02.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Scheduling"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "#2 Flexible schedule & environment"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Taking an online course also means that you don’t have to commute to class, which means less time spent on the bus and more study time sitting on your couch, the sound of a crackling fireplace in the background. You no longer have to worry about missing an important class!"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-03.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Self-discipline"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "#3 Self-discipline & responsibility"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Who says that having to be more self-disciplined is a disadvantage? It is true that studying online requires more time-management skills, because you will spend a lot of time on your own without someone physically close to keep you focused on deadlines."
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-03.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Investment"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "#4 Investment"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Studying online means that you pay the tuition fee, possibly book supplies, an online application fee, and few other items. You don’t, however, incur the costs of housing (which can range up to $12,000 per year) and transportation, which translates to lower debts and more savings."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "cta-area",
+            "section_title": {
+                "title": "Take your interest and register an online class <br> today to enjoy life fully",
+                "subtitle":"Get yourself a <strong>MaxCoach</strong> ID?"
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/contact-us",
+                    "content": "Get started for free"
+                }
+            ]
+        },
+        {
+            "section": "gallery-area",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Lonnie Marks",
+                    "designation": "Tutor",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-01.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Britney Salker",
+                    "designation": "Educator",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-02.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Bronnies Wallz",
+                    "designation": "Alumnis",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-03.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Mia Paulo",
+                    "designation": "Writer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-04.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Lina Esthers",
+                    "designation": "Author",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-05.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Lorean McPhils",
+                    "designation": "Designer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-06.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "Anna Muray",
+                    "designation": "Writer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-07.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "faq-area",
+            "section_title": {
+                "title": "Best chances for expanding your <br> success to the max",
+                "subtitle":"Four major Steps to Success"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "How to register online?",
+                    "description": "Enrolling in an online class is easy. At MaxCoach, we serve several categories of online learners. Select the student category that you identify with to get started."
+                },
+                {
+                    "id": 2,
+                    "title": "How do I customize my account?",
+                    "description": "In order to customize your account’s information, just log in with the provided passcode and change the info."
+                },
+                {
+                    "id": 3,
+                    "title": "How do you process my information?",
+                    "description": "Your data will be kept private and secure on our database. No illegal use without prior notice."
+                },
+                {
+                    "id": 4,
+                    "title": "How do I contact support?",
+                    "description": "You can contact our help center or any contact method (phone call, email or appear at our office) to get help."
+                },
+                {
+                    "id": 5,
+                    "title": "How to cancel my membership?",
+                    "description": "You just need to submit a membership termination request, we’ll proceed within 24 hours."
+                },
+                {
+                    "id": 6,
+                    "title": "How can I get a discount?",
+                    "description": "Learners can get a discount by coupon or voucher. If you have one, fill in the code box before making any payment."
+                }
+            ]
+        }
+    ]
+}

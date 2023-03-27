@@ -1,0 +1,99 @@
+{
+    "id": 12,
+    "title": "ProductCon San Francisco: The Product Management Conference",
+    "thumbnail": {
+        "src": "/images/event/12.jpg"
+    },
+    "start_date": "2024-05-01",
+    "end_date": "2024-05-01",
+    "start_time": "13:30:00",
+    "end_time": "15:30:00",
+    "venue": "The Palace of Fine Arts 3601 Lyon St, New York, United States",
+    "location": {
+        "city": "New York",
+        "country": "US",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 49.00,
+    "currency": "$",
+    "total_slot": 50,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "ProductCon is the largest product management conference series in the world. It is organized by Product School and takes place five times a year in San Francisco, Los Angeles, New York, Seattle and London. The speaker lineup features product leaders from Google, Slack, Amazon, Airbnb, Netflix, Facebook and more."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "ProductCon is the largest product management conference series in the world. It is organized by Product School and takes place five times a year in San Francisco, Los Angeles, New York, Seattle and London. The speaker lineup features product leaders from Google, Slack, Amazon, Airbnb, Netflix, Facebook and more."
+        },
+        {
+            "id": 3,
+            "type": "h4",
+            "content": "More value from less work."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "You’ll learn best practices behind the most successful products, and new trends in AI, VR, IoT and Blockchain. You’ll also have the opportunity to interact with all our sponsor companies interested in recruiting PMs. Get ready to level up your product management skills, network with a global community of fellow product leaders and have a ball!"
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "You’ll learn best practices behind the most successful products, and new trends in AI, VR, IoT and Blockchain. You’ll also have the opportunity to interact with all our sponsor companies interested in recruiting PMs. Get ready to level up your product management skills, network with a global community of fellow product leaders and have a ball!"
+        }
+    ]
+}

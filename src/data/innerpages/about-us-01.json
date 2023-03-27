@@ -1,0 +1,371 @@
+{
+    "name": "about-us-01",
+    "content": [
+        {
+            "section": "hero-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "/images/page-banner/about-us-01-hero-bg.jpg"
+                }
+            ],
+            "headings": [
+                {
+                    "id": 1,
+                    "content": "Grow strong to take up the challenges of life. The top lessons for getting you back on track."
+                }
+            ]
+        },
+        {
+            "section": "about-area",
+            "section_title": {
+                "title": "Learn about our <span>Work Culture</span> at MaxCoach",
+                "subtitle": "Get to know about <strong>MaxCoach</strong>",
+                "description": "Spend some time to visit our website or head office and discover our current courses, enrollment procedure, and registration deadline. We're opening new classes every beginning of each month."
+            },
+            "motto": {
+                "text": "Have questions?​",
+                "path": "/contact-us",
+                "pathText": "Get Free Form"
+            },
+            "images": [
+                {
+                    "id": 1,
+                    "src": "/images/about/about01/about1.jpg"
+                },
+                {
+                    "id": 2,
+                    "src": "/images/about/about01/about2.jpg"
+                }
+            ]
+        },
+        {
+            "section": "video-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "/images/video/about-video.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            },
+            "section_title": {
+                "title": "Upgrade Your Skills <span>Upgrade Your Life</span>",
+                "subtitle": "how we work",
+                "description": "Spend some time to visit our website or head office and discover our current courses, enrollment procedure, and registration deadline. We're opening new classes every beginning of each month."
+            },
+            "motto": {
+                "path": "/start-here",
+                "pathText": "Download free guidebook "
+            }
+        },
+        {
+            "section": "testimonial-area",
+            "section_title": {
+                "title": "Our <span> top learners'</span> verbatim",
+                "subtitle":"great words about maxcoach"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Florence Themes",
+                    "designation": "Multimedia Admin",
+                    "title": "High level of efficiency and scientific teaching methods",
+                    "description": "I am happy with their arrangement of lessons and subjects. They reflect a scientific investigation into effective methods to adopt for learners.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-1.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Madley Pondor",
+                    "designation": "IT Specialist",
+                    "title": "Professional team of specialists and passionate mentors at reach",
+                    "description": "I need to get a certification for English proficiency and MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-2.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Luvic Dubble",
+                    "designation": "Private Tutor",
+                    "title": "Highly recommend their courses and teaching system",
+                    "description": "I am happy with their arrangement of lessons and subjects. They reflect a scientific investigation into effective methods to adopt for learners.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-3.jpg"
+                        }
+                    ] 
+                }
+            ]
+        },
+        {
+            "section": "cta-area",
+            "section_title": {
+                "title": "You can be your own guiding star with our help!",
+                "subtitle":"Start today for getting <span>Online Certification</span>"
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/start-here",
+                    "content": "Get started for free"
+                }
+            ]
+        },
+        {
+            "section": "team-area",
+            "section_title": {
+                "title": "Whose <span> Inspirations</span> You Love",
+                "subtitle":"The guys behind the curtains"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Merrie Lewis",
+                    "designation": "General Director",
+                    "role": "admin",
+                    "images": [
+                        {
+                            "src": "/images/team/350/team-member-01.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Mariana Buenos",
+                    "designation": "CEO & Chief Manager",
+                    "role": "admin",
+                    "images": [
+                        {
+                            "src": "/images/team/350/team-member-02.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Parks Missie",
+                    "designation": "Course Researcher",
+                    "role": "admin",
+                    "images": [
+                        {
+                            "src": "/images/team/350/team-member-03.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Smiley Fords",
+                    "designation": "Linguistic Mentor",
+                    "role": "employee",                    
+                    "images": [
+                        {
+                            "src": "/images/team/270/team-member-04.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Smoonz Rotley",
+                    "designation": "Lifestyle Inspirer",
+                    "role": "employee",
+                    "images": [
+                        {
+                            "src": "/images/team/270/team-member-05.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Bill Prad",
+                    "designation": "Computer Engineer",
+                    "role": "employee",
+                    "images": [
+                        {
+                            "src": "/images/team/270/team-member-06.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "Dora Floral",
+                    "designation": "raphic Designer",
+                    "role": "employee",
+                    "images": [
+                        {
+                            "src": "/images/team/270/team-member-07.jpg"
+                        }
+                    ],
+                    "socials": [
+                        {
+                            "label": "facebook",
+                            "icon": "fab fa-facebook-f",
+                            "url": "https://www.facebook.com"
+                        },
+                        {
+                            "label": "twitter",
+                            "icon": "fab fa-twitter",
+                            "url": "https://twitter.com"
+                        },
+                        {
+                            "label": "instagram",
+                            "icon": "fab fa-instagram",
+                            "url": "https://www.instagram.com"
+                        },
+                        {
+                            "label": "pinterest",
+                            "icon": "fab fa-pinterest",
+                            "url": "https://www.pinterest.com"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "newsletter-area",
+            "section_title": {
+                "title": "Sign up for our <span>Newsletters</span>",
+                "description":"Enter your email address to register to our newsletter subscription <br class='tw-hidden md:tw-block'>delivered on a regular basis!"
+            }
+        }
+    ]
+}

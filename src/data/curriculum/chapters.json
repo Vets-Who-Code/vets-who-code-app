@@ -1,0 +1,44 @@
+[
+    {
+        "id": "chapter-01",
+        "title": "Change simplification",
+        "description": "General introduction to customer-centric strategies",
+        "lessons": ["lesson-01", "lesson-02", "lesson-03"]
+    },
+    {
+        "id": "chapter-02",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-04", "lesson-05"]
+    },
+    {
+        "id": "chapter-03",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-06", "lesson-07", "lesson-08"]
+    },
+    {
+        "id": "chapter-04",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-09", "lesson-10", "lesson-11"]
+    },
+    {
+        "id": "chapter-05",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-12", "lesson-13", "lesson-14"]
+    },
+    {
+        "id": "chapter-06",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-15", "lesson-16", "lesson-17"]
+    },
+    {
+        "id": "chapter-07",
+        "title": "Customer Advisory Board",
+        "description": "Learn about the basics of Customer Advisory Board",
+        "lessons": ["lesson-18", "lesson-19", "lesson-20"]
+    }
+]

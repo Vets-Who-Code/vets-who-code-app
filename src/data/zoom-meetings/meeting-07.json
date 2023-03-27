@@ -1,0 +1,46 @@
+{
+    "id": 7,
+    "title": "Team member responsibilities",
+    "host": "Owen Christ",
+    "thumbnail": {
+        "src": "/images/event/13.jpg"
+    },
+    "date": "2024-07-01T19:30:00.000Z",
+    "timezone": "Atlantic/Azores",
+    "duration": 30,
+    "category": "strategies",
+    "meeting_id": "99383649933",
+    "links": [
+        "https://zoom.us/j/99383649933?pwd=Y1k2RElteDI0ZHNTQm0wTEhsa3B0QT09",
+        "https://zoom.us/j/99383649933?pak=Yld4algwZTc2TjVIYkQ3SXRGTVF3UT09&join=dXUxUFUveWJwTWljd0l6MWE2akcyZz09&type=meeting"
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Describe the project’s purpose and aims. Document questions to take back to Executive Sponsor."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Discuss the level of participation expected of team members. Cover the following responsibilities of the Change Team:"
+        },
+        {
+            "id": 3,
+            "type": "list",
+            "content": [
+                "Participates in meetings",
+                "Volunteers to carry out the team’s work",
+                "Learns what works and what doesn’t collects data to see if changes are an improvement",
+                "Applies the PDSA Change Cycle",
+                "Communicates with the staff affected by the changes, and assures their input is taken into account",
+                "Communicates with the rest of the organization about both the Team’s successes and its failures."
+            ]
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Present your plan to get the project done. Discuss in general terms what kind of tasks different team members are interested in."
+        }
+    ]
+}

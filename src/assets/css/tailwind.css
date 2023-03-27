@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply tw-font-body tw-text-body tw-leading-body tw-text-base tw-font-normal tw-overflow-x-hidden;
+    }
+    a {
+        @apply tw-transition-colors hover:tw-text-primary;
+    }
+    p {
+        @apply tw-mb-3.8;
+    }
+    p:last-child {
+        @apply tw-mb-0;
+    }
+    p:only-child {
+        @apply tw-mb-0;
+    }
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6 {
+        @apply tw-font-heading tw-text-heading tw-leading-heading tw-font-bold tw-mb-2;
+    }
+    h1,
+    .h1 {
+        @apply tw-text-h1;
+    }
+    h2,
+    .h2 {
+        @apply tw-text-[26px] md:tw-text-h2;
+    }
+    h3,
+    .h3 {
+        @apply tw-text-h4 md:tw-text-h3;
+    }
+    h4,
+    .h4 {
+        @apply tw-text-h4;
+    }
+    h5,
+    .h5 {
+        @apply tw-text-h5;
+    }
+    h6,
+    .h6 {
+        @apply tw-text-h6;
+    }
+    h1 a,
+    h2 a,
+    h3 a,
+    h4 a,
+    h5 a,
+    h6 a {
+        @apply tw-text-current hover:tw-text-primary;
+    }
+    .link-overlay {
+        @apply tw-absolute tw-inset-0 -tw-indent-[99999px] tw-z-10;
+    }
+    .table-responsive {
+        @apply tw-overflow-y-auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    iframe {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+    .tw-rotate-y-180 {
+        transform: rotateY(180deg);
+    }
+    .tw-rotate-y-180-translate-x-half {
+        transform: translateX(-50%) rotateY(180deg);
+    }
+    .tw-no-scroll::-webkit-scrollbar {
+        display: none;
+    }
+    .tw-no-scroll {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}

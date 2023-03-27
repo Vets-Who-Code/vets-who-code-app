@@ -1,38 +1,32 @@
-const withPlugins = require('next-compose-plugins')
-const withVideos = require('next-videos')
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    reactStrictMode: false,
+};
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+const withReactSvg = require("next-react-svg");
+const path = require("path");
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production'
-
-const purgeCSS = [
-  '@fullhuman/postcss-purgecss',
-  {
-    content: ['./pages/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
-    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
-  },
-]
-
-const postCSSFlexBugsFixes = [
-  'postcss-flexbugs-fixes',
-  [
-    'postcss-preset-env',
-    {
-      autoprefixer: {
-        flexbox: 'no-2009',
-      },
-      stage: 3,
-      features: {
-        'custom-properties': false,
-      },
-    },
-  ],
-]
-
-const config = {
-  swcMinify: true,
-  images: {
-    domains: ['images.ctfassets.net', 'res.cloudinary.com'],
-  },
-  plugins: [IS_PRODUCTION ? postCSSFlexBugsFixes : [], IS_PRODUCTION ? purgeCSS : []],
-}
-
-module.exports = withPlugins([withVideos], config)
+module.exports = withPWA(
+    withReactSvg({
+        pwa: {
+            disable: process.env.NODE_ENV === "development",
+            dest: "public",
+            register: true,
+            runtimeCaching,
+            buildExcludes: [
+                /\/*server\/middleware-chunks\/[0-9]*[a-z]*[A-Z]*\.js$/,
+                /middleware-manifest\.json$/,
+                /middleware-runtime\.js$/,
+                /_middleware\.js$/,
+                /^.+\\_middleware\.js$/,
+            ],
+            publicExcludes: ["!robots.txt"],
+        },
+        nextConfig,
+        include: path.resolve(__dirname, "src/assets/svgs"),
+        webpack(config) {
+            return config;
+        },
+    })
+);

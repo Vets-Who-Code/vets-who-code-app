@@ -1,0 +1,89 @@
+{
+    "id": 8,
+    "title": "Workout routine and Longevity Meetup",
+    "thumbnail": {
+        "src": "/images/event/08.jpg"
+    },
+    "start_date": "2022-02-01",
+    "end_date": "2022-02-01",
+    "start_time": "13:30:00",
+    "end_time": "16:30:00",
+    "venue": "Betahaus Hamburg Schanze, Eifflerstraße 43",
+    "location": {
+        "city": "Hamburg",
+        "country": "Germany",
+        "zip": "20099",
+        "latitude": 40.758062,
+        "longitude": -73.9699129
+    },
+    "price": 50.00,
+    "currency": "$",
+    "total_slot": 50,
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        },
+        {
+            "id": 2,
+            "name": "Emerson",
+            "designation": "Developer",
+            "image": {
+                "src": "/images/speaker/speaker-1.jpg"
+            }
+        },
+        {
+            "id": 3,
+            "name": "Bellezza",
+            "designation": "Content Writer",
+            "image": {
+                "src": "/images/speaker/speaker-2.jpg"
+            }
+        },
+        {
+            "id": 4,
+            "name": "Lilybelle",
+            "designation": "Office Manager",
+            "image": {
+                "src": "/images/speaker/speaker-3.jpg"
+            }
+        },
+        {
+            "id": 5,
+            "name": "Lucinda",
+            "designation": "Manager",
+            "image": {
+                "src": "/images/speaker/speaker-4.jpg"
+            }
+        },
+        {
+            "id": 6,
+            "name": "Orabelle",
+            "designation": "Art Director",
+            "image": {
+                "src": "/images/speaker/speaker-5.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "For many of us January is the month of FASTING – reducing calories or eating no sweets. A popular form of fasting is INTERMITTENT FASTING – the IF diet, the 16:8 diet or the 5:2 diet. It is based on alternating intervals of eating and fasting."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "WHY IS IT SO POPULAR? Researchers have shown that it has a positive impact on weight loss, type-2-diabetes, cardiovascular disease and: AGEING: When we fast, exciting things happen in our bodies on the cellular and molecular level: For example our body’s cells change the expression of certain genes and initiate important cellular repair processes."
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "We have invited a nutrition scientist and a startup to take us through the scientific evidence of fasting as well as new solutions available on the market."
+        }
+    ]
+}

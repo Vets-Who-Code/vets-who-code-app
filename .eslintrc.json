@@ -1,0 +1,100 @@
+{
+    "extends": [
+        "next/core-web-vitals", 
+        "airbnb", 
+        "airbnb-typescript", 
+        "airbnb/hooks", 
+        "prettier",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 13,
+      "sourceType": "module"
+    },
+    "rules": {
+      "@typescript-eslint/no-misused-promises": [
+        "error",
+        {
+          "checksConditionals": false,
+          "checksVoidReturn": false
+        }
+      ],
+      "no-underscore-dangle": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react/require-default-props": "off",
+      "react/default-props-match-prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "import/prefer-default-export": "off",
+      "no-param-reassign": "off",
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "import/no-unresolved": "error",
+      "consistent-return": "off",
+      "arrow-body-style": "off",
+      "prefer-arrow-callback": "off",
+      "react/jsx-filename-extension": "off",
+      "react/function-component-definition": [
+        "error",
+        {
+          "namedComponents": "arrow-function",
+          "unnamedComponents": "arrow-function"
+        }
+      ],
+      "prettier/prettier": "warn",
+      "jsx-a11y/anchor-is-valid": [ "error", {
+        "components": [ "Link" ],
+        "specialLink": [ "hrefLeft", "hrefRight" ],
+        "aspects": [ "invalidHref", "preferButton" ]
+      }],
+      "jsx-a11y/label-has-associated-control": [
+        "error",
+        {
+            "required": {
+                "some": ["nesting", "id"]
+            }
+        }
+    ],
+    "jsx-a11y/label-has-for": [
+        "error",
+        {
+            "required": {
+                "some": ["nesting", "id"]
+            }
+        }
+    ],
+      "@next/next/no-img-element": "off",
+      "react/no-danger": "off",
+      "no-void": ["error", { "allowAsStatement": true }]
+    },
+    "overrides": [
+      {
+        "files": ["*.js"],
+        "rules": {
+          "@typescript-eslint/no-unsafe-assignment": "off",
+          "@typescript-eslint/no-var-requires": "off",
+          "@typescript-eslint/no-unsafe-call": "off",
+          "@typescript-eslint/no-unsafe-member-access": "off",
+          "@typescript-eslint/no-unsafe-return": "off"
+        }
+      }
+    ]
+}

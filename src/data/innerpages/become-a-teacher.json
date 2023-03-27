@@ -1,0 +1,83 @@
+{
+    "name": "become-a-teacher",
+    "content": [
+        {
+            "section": "cta-area",
+            "section_title": {
+                "title": "Take your interest and register an online class <br/> today to enjoy life fully",
+                "subtitle":"New horizon is calling"
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/start-here",
+                    "content": "Get started for free"
+                }
+            ]
+        }, 
+        {
+            "section": "funfact-area",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Finished Sessions",
+                    "counter": 1.926
+                },
+                {
+                    "id": 2,
+                    "title": "Online Enrollment",
+                    "counter": 3.092,
+                    "suffix": "+"
+                },
+                {
+                    "id": 3,
+                    "title": "Subjects Taught",
+                    "counter": 200
+                },
+                {
+                    "id": 4,
+                    "title": "Satisfaction rate",
+                    "suffix": "%",
+                    "counter": 100
+                }
+            ]
+        },
+        {
+            "section": "hero-image-area",
+            "images": [
+                {
+                    "src": "/images/hero-image/hero-image.png"
+                }
+            ]
+        },
+        {
+            "section": "gradation-area",
+            "section_title": {
+                "title": "4 Steps to Earn <span> the Honour CFDR <br/> Certification</span> from courses",
+                "subtitle": "Make it <strong>MaxCoach</strong>"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Register for a CFDR preliminary categorized class",
+                    "description": "CFDR preliminary classes whose names are ended with \"101CF\". Finishing these classes will bring you the basic knowledge and skills."
+                },
+                {
+                    "id": 2,
+                    "title": "Finished all obligatory subjects in CFDR program",
+                    "description": "Learners have to finish these subjects within the period of 3 years. Early completion will reward them with a faster certifying process."
+                },
+                {
+                    "id": 3,
+                    "title": "Submit all essential documents & related proof of completion",
+                    "description": "We need to verify your participation in all subjects included and collect all the scores as well as assessment to grade your certificate."
+                },
+                {
+                    "id": 4,
+                    "title": "Receive printed certification via postal & e-version via emails",
+                    "description": "We'll send your certificate by postal line in one week after the verification process and also email an electronic version to your inbox."
+                }
+            ]
+        }
+    ]
+}

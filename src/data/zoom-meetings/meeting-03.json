@@ -1,0 +1,49 @@
+{
+    "id": 3,
+    "title": "Website Renovation Meeting",
+    "host": "Owen Christ",
+    "thumbnail": {
+        "src": "/images/event/11.jpg"
+    },
+    "date": "2024-09-01T17:25:00.000Z",
+    "timezone": "Atlantic/Azores",
+    "duration": 90,
+    "category": "strategies",
+    "meeting_id": "97202032068",
+    "links": [
+        "https://zoom.us/j/97202032068?pwd=Y1k2RElteDI0ZHNTQm0wTEhsa3B0QT09",
+        "https://zoom.us/j/97202032068?pak=Yld4algwZTc2TjVIYkQ3SXRGTVF3UT09&join=dXUxUFUveWJwTWljd0l6MWE2akcyZz09&type=meeting"
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Meeting Objective: Status updates and team tasks for the website project"
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Topics to cover:"
+        },
+        {
+            "id": 3,
+            "type": "list",
+            "content": [
+                "Review metrics data",
+                "Review heat map and usability test – identify next steps on potential improvements",
+                "Discuss whether to proceed with an in-house photoshoot or purchase a stock photo: in-house photoshoot is more cost-effective and customized but 2-4 week lead time, ~$500 to get existing photos from external vendors",
+                "Review website feedback from internal stakeholders – refer to email",
+                "Are there any other case study galleries that people like and think we should model off of?"
+            ]
+        },
+        {
+            "id": 4,
+            "type": "list",
+            "content": [
+                "Michelle to request final approval of navigation structure from Jim.",
+                "David to forward marketing materials and content that we’d like to publish on the site",
+                "Tomasz to run security review and gather requirements"
+            ]
+        }
+    ]
+}

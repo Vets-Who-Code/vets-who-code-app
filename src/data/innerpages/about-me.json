@@ -1,0 +1,190 @@
+{
+    "name": "about-me",
+    "content": [
+        {
+            "section": "service-area",
+            "section_title": {
+                "title": "Online <span>Coaching Lessons</span> For Remote Learning.",
+                "subtitle":"Education for everyone"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "icon": "linea-basic-flag2",
+                    "title": "Life Mentoring",
+                    "description": "Get some soul healing and guidance for your future career and vocational directions.",
+                    "path": "/start-here",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 2,
+                    "icon": "linea-basic-gear",
+                    "title": "Self Development",
+                    "description": "Develop skills for career of various majors including computer science & language competence.",
+                    "path": "/start-here",
+                    "pathText": "Discover now"
+                },
+                {
+                    "id": 3,
+                    "icon": "linea-basic-life-buoy",
+                    "title": "Ask Consultancy",
+                    "description": "Make a reservation with our special consultant to learn what's best for your dream career.",
+                    "path": "/start-here",
+                    "pathText": "Get Free Quote"
+                },
+                {
+                    "id": 4,
+                    "icon": "linea-basic-display",
+                    "title": "Remote Learning",
+                    "description": "Learn from anywhere in the world on desktop, tablet or mobile phone with an Internet connection.",
+                    "path": "/start-here",
+                    "pathText": "Start Now"
+                }
+            ]
+        },
+        {
+            "section": "video-area",
+            "images": [
+                {
+                    "src": "/images/about/about-me/about-me-popup-video-poster.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "testimonial-area",
+            "section_title": {
+                "title": "Learn the secrets to <span>Life Success</span>, <br class='tw-hidden md:tw-block'>these people have got the key.​",
+                "subtitle":"equip yourself with the power of education"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Luvic Dubble",
+                    "designation": "Private Tutor",
+                    "rating": 5,
+                    "description": "I am happy with their arrangement of lessons and subjects. They reflect a scientific investigation into effective methods to adopt for learners.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-1.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Florence Themes",
+                    "designation": "Multimedia Admin",
+                    "rating": 5,
+                    "description": "I'm a very strict person so I require everything to be organized and neat. Then, I'll be able to make things right and shine. MaxCoach guys just got me.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-2.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Mina Hollace",
+                    "designation": "Freelancer",
+                    "rating": 5,
+                    "description": "I am free to learn at my own pace, follow my own schedule and choose the subject I want to learn from the syllabus. Great study portal for people like me.",
+                    "images": [
+                        {
+                            "src": "/images/testimonial/70/testimonial-3.jpg"
+                        }
+                    ]
+                }
+            ]
+        }, 
+        {
+            "section": "brand-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-01.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-02.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-03.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-04.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-05.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "images": [
+                        {
+                            "src": "/images/brand/client-logo-01.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "funfact-area",
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Finished Sessions",
+                    "counter": 1.926
+                },
+                {
+                    "id": 2,
+                    "title": "Online Enrollment",
+                    "counter": 3.092,
+                    "suffix": "+"
+                },
+                {
+                    "id": 3,
+                    "title": "Subjects Taught",
+                    "counter": 200
+                },
+                {
+                    "id": 4,
+                    "title": "Satisfaction rate",
+                    "counter": 100,
+                    "suffix": "%"
+                }
+            ]
+        },
+        {
+            "section": "newsletter-area",
+            "section_title": {
+                "title": "Sign up for our <span>Newsletters</span>",
+                "description":"Enter your email address to register to our newsletter subscription <br class='tw-hidden md:tw-block'>delivered on a regular basis!"
+            }
+        }
+    ]
+}

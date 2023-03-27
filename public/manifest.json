@@ -1,0 +1,30 @@
+{
+    "name": "MaxCoach Education Template",
+    "short_name": "MaxCoach",
+    "theme_color": "#696969",
+    "background_color": "#20AD96",
+    "display": "standalone",
+    "orientation": "portrait",
+    "start_url": "/",
+    "scope": "/",
+    "icons": [
+      {
+        "src": "icons/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "icons/maskable_icon_x512.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "maskable"
+      }
+    ],
+    "splash_pages": null
+  }
+  

@@ -1,0 +1,30 @@
+{
+    "id": 2,
+    "name": "James Scott",
+    "image": {
+        "src": "/images/author/author-02.jpeg"
+    },
+    "bio": "Scott is a self-motivated blogger, educator, and mentor. He's enthusiastic about finding strategies for improving online teaching proficiency and providing more people with access to valuable knowledge sources and materials. He's also an award-winning writer in literature.",
+    "socials": [
+        {
+            "label": "twitter",
+            "icon": "fab fa-twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "label": "facebook",
+            "icon": "fab fa-facebook-f",
+            "url": "https://www.facebook.com"
+        },
+        {
+            "label": "instagram",
+            "icon": "fab fa-instagram",
+            "url": "https://www.instagram.com"
+        },
+        {
+            "label": "pinterest",
+            "icon": "fab fa-pinterest",
+            "url": "https://www.pinterest.com"
+        }
+    ]
+}
