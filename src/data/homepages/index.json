@@ -6,25 +6,25 @@
             "headings": [
                 {
                     "id":1,
-                    "content":"Expand Your Possibilities"
+                    "content":"Learn"
                 },
                 {
                     "id":2,
-                    "content":"Intensively"
+                    "content":"Software Engineering"
                 },
                 {
                     "id":3,
-                    "content":"Extensively"
+                    "content":"With The Best Tools"
                 },
                 {
                     "id":4,
-                    "content":"Positively"
+                    "content":"With Vets Who Code"
                 }
             ],
             "texts": [
                 {
                     "id": 1,
-                    "content": "Reach out to the most competent & passionate mentors"
+                    "content": "#VetsWhoCode a veteran founded and operated inclusive AI-Powered 501(c)(3) that provides a streamlined, highly quality software engineering training program to help veterans and military spouses enter the the tech sector free of charge."
                 }
             ],
             "buttons": [
