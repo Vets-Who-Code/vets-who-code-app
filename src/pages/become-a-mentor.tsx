@@ -27,14 +27,14 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout01;
 };
 
-const BecomeTeacher: PageProps = ({ data }) => {
+const BecomeMentor: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="Become a teacher" />
+            <SEO title="Become a Mentor" />
             <Breadcrumb
                 pages={[{ path: "/", label: "home" }]}
-                currentPage="Become a Teacher"
+                currentPage="Become a Mentor"
                 showTitle={false}
             />
             <Wrapper>
@@ -48,10 +48,10 @@ const BecomeTeacher: PageProps = ({ data }) => {
     );
 };
 
-BecomeTeacher.Layout = Layout01;
+BecomeMentor.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "become-a-teacher");
+    const page = getPageData("inner", "become-a-mentor");
 
     return {
         props: {
@@ -67,4 +67,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default BecomeTeacher;
+export default BecomeMentor;

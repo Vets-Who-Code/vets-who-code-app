@@ -41,7 +41,7 @@ const InstructorForm = ({ className }: TProps) => {
             )}
         >
             <h4 className="tw-text-[28px] tw-mb-5 sm:tw-text-[34px] sm:tw-mb-9 tw-leading-snug tw-text-center">
-                Register to become an Intructor
+                Register to become a Mentor
             </h4>
             <form
                 className="become-teacher-form"
