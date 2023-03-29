@@ -30,12 +30,12 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
-const AboutUs02: PageProps = ({ data }) => {
+const AboutUs: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
 
     return (
         <>
-            <SEO title="About Us 03" />
+            <SEO title="About Us" />
             <Breadcrumb
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="About Us"
@@ -69,10 +69,10 @@ const AboutUs02: PageProps = ({ data }) => {
     );
 };
 
-AboutUs02.Layout = Layout;
+AboutUs.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "about-us-03");
+    const page = getPageData("inner", "about-us");
     return {
         props: {
             data: {
@@ -86,4 +86,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default AboutUs02;
+export default AboutUs;
