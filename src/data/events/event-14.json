@@ -1,6 +1,6 @@
 {
     "id": 13,
-    "title": "Creating Futures Through Technology Conference – MaxCoach Tech Center",
+    "title": "Title",
     "thumbnail": {
         "src": "/images/event/14.jpg"
     },
@@ -73,7 +73,7 @@
         {
             "id": 1,
             "type": "text",
-            "content": "The&nbsp;<strong>Creating Futures Through Technology Conference – MaxCoach Tech Center</strong>&nbsp;is sponsored jointly by the Mississippi Community College Board and the Mississippi Universities Board with a goal of promoting collaboration as well as transforming teaching and learning on college campuses.&nbsp;&nbsp;"
+            "content": "The&nbsp;Body <strongcontent</strong> here&nbsp;.&nbsp;&nbsp;"
         },
         {
             "id": 2,

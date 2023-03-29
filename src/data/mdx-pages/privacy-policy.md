@@ -1,6 +1,6 @@
 ![alt text](/images/purchase-guide/privacy-policy.jpg)
 
-This Privacy Policy is applicabled for any one involves with the registering and course engagement at MaxCoach Online Course Educational center.
+This Privacy Policy is applicabled for any one involves with the registering and course engagement at #VetsWhoCode Online Course Educational center.
 
 ### Availability of Website
 

@@ -19,14 +19,14 @@
         {
             "section": "about-area",
             "section_title": {
-                "title": "Learn about our <span>Work Culture</span> at MaxCoach",
-                "subtitle": "Get to know about <strong>MaxCoach</strong>",
-                "description": "Spend some time to visit our website or head office and discover our current courses, enrollment procedure, and registration deadline. We're opening new classes every beginning of each month."
+                "title": "Learn about our <span>Work Culture</span> at Vets Who Code",
+                "subtitle": "Get to know about <strong>Vets Who Code</strong>",
+                "description": "Spend some time to visit our website or head office and discover our current courses, enrollment procedure, and registration deadline. We're opening new classes every beginning of each month."a
             },
             "motto": {
                 "text": "Have questions?​",
                 "path": "/contact-us",
-                "pathText": "Get Free Form"
+                "pathText": "Contact us"
             },
             "images": [
                 {
@@ -65,7 +65,7 @@
             "section": "testimonial-area",
             "section_title": {
                 "title": "Our <span> top learners'</span> verbatim",
-                "subtitle":"great words about maxcoach"
+                "subtitle":"great words about #VetsWhoCode"
             },
             "items": [
                 {
@@ -85,7 +85,7 @@
                     "name": "Madley Pondor",
                     "designation": "IT Specialist",
                     "title": "Professional team of specialists and passionate mentors at reach",
-                    "description": "I need to get a certification for English proficiency and MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.",
+                    "description": "I need to get a certification for English proficiency and #VetsWhoCode is my best choice. Their tutors are smart and professional when dealing with students.",
                     "images": [
                         {
                             "src": "/images/testimonial/70/testimonial-2.jpg"

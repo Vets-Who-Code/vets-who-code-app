@@ -24,7 +24,7 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Learning with MaxCoach might a turning point in your life when you get communication with a great awakening of born talents."
+                            "content": "Learning with #VetsWhoCode might a turning point in your life when you get communication with a great awakening of born talents."
                         }
                     ]
                 },
@@ -48,7 +48,7 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Ever feel drained of ideas and inspiration in life? Lost in no where and have no place to go? Find help and advice from our MaxCoach specialists."
+                            "content": "Ever feel drained of ideas and inspiration in life? Lost in no where and have no place to go? Find help and advice from our #VetsWhoCode specialists."
                         }
                     ]
                 },
@@ -187,7 +187,7 @@
             "section": "cta-area",
             "section_title": {
                 "title": "Take your interest and register an online class <br> today to enjoy life fully",
-                "subtitle":"Get yourself a <strong>MaxCoach</strong> ID?"
+                "subtitle":"Get yourself a <strong>#VetsWhoCode</strong> ID?"
             },
             "buttons": [
                 {
@@ -282,7 +282,7 @@
                 {
                     "id": 1,
                     "title": "How to register online?",
-                    "description": "Enrolling in an online class is easy. At MaxCoach, we serve several categories of online learners. Select the student category that you identify with to get started."
+                    "description": "Enrolling in an online class is easy. At #VetsWhoCode, we serve several categories of online learners. Select the student category that you identify with to get started."
                 },
                 {
                     "id": 2,

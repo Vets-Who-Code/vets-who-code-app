@@ -8,7 +8,7 @@ Our website address is: https://domain.com
 
 #### Basic terms
 
-These Terms of Service for MaxCoach Online Course Educational Center constitute a binding contract between you (“Member” or “Customer” or “You”) and ThemeMove company, a corporation registered in California, USA (“Company”), regarding the terms under which the Company will provide You with access to online courses (or parts thereof) purchased by You.
+These Terms of Service for #VetsWhoCode Online Course Educational Center constitute a binding contract between you (“Member” or “Customer” or “You”) and ThemeMove company, a corporation registered in California, USA (“Company”), regarding the terms under which the Company will provide You with access to online courses (or parts thereof) purchased by You.
 
 #### Rights & restrictions
 
