@@ -40,7 +40,7 @@ const EventArea = ({
             <div className="tw-container">
                 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
                     <p className="tw-mb-2.5">
-                        We found {count} courses available for you
+                        We found {count} events available for you
                     </p>
                     <NiceSelect
                         className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"

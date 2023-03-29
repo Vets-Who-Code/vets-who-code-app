@@ -29,11 +29,11 @@ const CourseArea = ({ data: { courses } }: TProps) => {
 
     return (
         <Section className="course-area" space="bottom">
-            <h2 className="tw-sr-only">Course Section</h2>
+            <h2 className="tw-sr-only">Subject Section</h2>
             <div className="tw-container">
                 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
                     <p className="tw-mb-2.5">
-                        We found {sortedItems.length} courses available for you
+                        We found {sortedItems.length} subjects available for you
                     </p>
                     <NiceSelect
                         className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"
