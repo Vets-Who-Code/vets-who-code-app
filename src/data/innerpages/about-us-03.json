@@ -1,17 +1,17 @@
 {
-    "name": "about-us",
+    "name": "about-us-03",
     "content": [
         {
             "section": "funfact-area",
             "section_title": {
-                "title": "Learn To Build with <span>#VetsWhoCode</span>",
-                "subtitle": " <strong>Vets Who Code</strong>",
+                "title": "Maximizing Your Potentials with <span>MaxCoach Edu</span>",
+                "subtitle": "Everything is <strong>MaxCoach</strong>",
                 "description": "We love to inspire and guide you through any subject, develop new skills or upgrade your educational background."
             },
             "motto": {
                 "text": "Have questions?​",
                 "path": "/start-here",
-                "pathText": "Learn More Here"
+                "pathText": "Get Free Guidbook"
             },
             "items": [
                 {
@@ -42,23 +42,23 @@
             "section": "faq-area",
             "section_title": {
                 "title": "Construct A <span>Stunning</span> Career Perspective",
-                "subtitle": "Everything <strong>#VetsWhoCode</strong>"
+                "subtitle": "Everything <strong>MaxCoach</strong>"
             },
             "items": [
                 {
                     "id": 1,
                     "title": "Multiple Platforms Supported for Teaching & Studying",
-                    "description": "#VetsWhoCode supports the act of teaching and learning on multiple platforms like online or offline via material downloads. We know things aren’t supposed to be devoured in a short time, you can always access our knowledge base from any device."
+                    "description": "MaxCoach supports the act of teaching and learning on multiple platforms like online or offline via material downloads. We know things aren’t supposed to be devoured in a short time, you can always access our knowledge base from any device."
                 },
                 {
                     "id": 2,
                     "title": "Multiple Course Participation at the Same Time",
-                    "description": "Study for a number of courses at the same time is possible as long as you can afford the fee and time for completing them in the proper time. Learn at your own desired timeline and timetable. Maximum up to 5 course at a time for a learner at #VetsWhoCode."
+                    "description": "Study for a number of courses at the same time is possible as long as you can afford the fee and time for completing them in the proper time. Learn at your own desired timeline and timetable. Maximum up to 5 course at a time for a learner at MaxCoach."
                 },
                 {
                     "id": 3,
                     "title": "Track Study Progress & Deliver Prompt Feedback",
-                    "description": "It’s not just a normal thing to be able to build such a solid online educational system like #VetsWhoCode where your progress is easily tracked and feedback is properly delivered. We promise to keep improving our system for better stability and flexibility."
+                    "description": "It’s not just a normal thing to be able to build such a solid online educational system like MaxCoach where your progress is easily tracked and feedback is properly delivered. We promise to keep improving our system for better stability and flexibility."
                 }
             ],
             "images": [
@@ -70,14 +70,14 @@
         {
             "section": "testimonial-area",
             "section_title": {
-                "title": "Why People Talk About <span>#VetsWhoCode</span>?"
+                "title": "Why People Talk About <span>MaxCoach</span>?"
             },
             "items": [
                 {
                     "id": 1,
                     "name": "Florence Themes",
                     "designation": "Multimedia Admin",
-                    "description": "I'm a very strict person so I require everything to be organized and neat. #VetsWhoCode guys just got me.",
+                    "description": "I'm a very strict person so I require everything to be organized and neat. MaxCoach guys just got me.",
                     "images": [
                         {
                             "src": "/images/testimonial/200/testimonial-avata-02.jpg"
@@ -99,7 +99,7 @@
                     "id": 3,
                     "name": "Madley Pondor",
                     "designation": "IT Specialist",                    
-                    "description": "#VetsWhoCode is my best choice. Their tutors are smart and professional when dealing with students.",
+                    "description": "MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.",
                     "images": [
                         {
                             "src": "/images/testimonial/200/testimonial-avata-04.jpg"
@@ -126,7 +126,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678669757/slack-1-logo-png-transparent_ywvp8o.png"
+                            "src": "/images/brand/client-logo-colored-01.png"
                         }
                     ]
                 },
@@ -134,7 +134,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269025/zeplin_dddvwa.png"
+                            "src": "/images/brand/client-logo-colored-02.png"
                         }
                     ]
                 },
@@ -142,7 +142,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269017/google_fceoon.png"
+                            "src": "/images/brand/client-logo-colored-03.png"
                         }
                     ]
                 },
@@ -150,7 +150,7 @@
                     "id": 4,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269012/fem_pdchxc.png"
+                            "src": "/images/brand/client-logo-colored-04.png"
                         }
                     ]
                 },
@@ -158,7 +158,7 @@
                     "id": 5,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269007/adzuna_bxt6zd.png"
+                            "src": "/images/brand/client-logo-colored-05.png"
                         }
                     ]
                 },
@@ -166,7 +166,7 @@
                     "id": 6,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269014/github_lbuupb.png"
+                            "src": "/images/brand/client-logo-colored-06.png"
                         }
                     ]
                 },
@@ -174,7 +174,7 @@
                     "id": 7,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269019/repl.it_y4ln0q.png"
+                            "src": "/images/brand/client-logo-colored-01.png"
                         }
                     ]
                 }
@@ -190,7 +190,7 @@
                 {
                     "id": 1,
                     "icon": "linea-basic-flag2",
-                    "title": "Mentorship",
+                    "title": "Life Mentoring",
                     "description": "Get some soul healing and guidance for your future career and vocational directions.",
                     "path": "/start-here"
                 },
@@ -204,7 +204,7 @@
                 {
                     "id": 3,
                     "icon": "linea-basic-life-buoy",
-                    "title": "Interview Preparation",
+                    "title": "Ask Consultancy",
                     "description": "Make a reservation with our special consultant to learn what's best for your dream career.",
                     "path": "/start-here"
                 },
@@ -225,8 +225,8 @@
         {
             "section": "cta-area",
             "section_title": {
-                "title": "Vets Who Code can help you reach your goals!",
-                "subtitle":"Start learning <span>TODAY!</span>"
+                "title": "You can be your own guiding star with our help!",
+                "subtitle":"Start today for getting <span>Online Certification</span>"
             },
             "buttons": [
                 {
