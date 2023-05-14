@@ -142,7 +142,14 @@ function Footer() {
               <div className="widgets-content">
                 <h3 className="widgets-title">Contact Us</h3>
                 <div>
-                  <ContactForm disableNameAndPhone={true} />
+                <iframe src="https://forms.monday.com/forms/embed/67987c5cfb98ea9bb4b83c7b8ef8e6c1?r=use1" 
+                  width="400" 
+                  height="500" 
+                  style={{
+                  "border": 0, 
+                  "boxShadow": "5px 5px 56px 0px rgba(0,0,0,0.25)"
+                  }}>
+                  </iframe>
                 </div>
               </div>
             </div>
