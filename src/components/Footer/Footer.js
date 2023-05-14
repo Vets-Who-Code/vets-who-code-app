@@ -11,7 +11,6 @@ import {
   FaGithub,
   FaRegCopyright,
 } from 'react-icons/fa'
-import { ContactForm } from '@/components/Forms'
 
 function Footer() {
   return (
