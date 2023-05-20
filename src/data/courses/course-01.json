@@ -1,16 +1,14 @@
 {
     "id": 1,
-    "title": "Learning to Write as a Professional Author",
+    "title": "Mocking up a scalable web portfolio",
     "thumbnail": {
         "src": "/images/courses/370/course-1.jpg"
     },
     "published_at": "2020-12-01T00:00:00.000Z",
     "category": "Business",
-    "price": 50.00,
-    "currency": "$",
     "language": "english",
     "instructor": 1,
-    "duration": "48 hours",
+    "duration": "4 hours",
     "total_lectures": 24,
     "total_students": 69,
     "membership": [

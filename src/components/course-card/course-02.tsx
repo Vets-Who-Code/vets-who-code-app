@@ -73,7 +73,6 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                     <span className="tw-text-2xl tw-font-extrabold tw-leading-none tw-inline-flex tw-mb-2 tw-text-primary">
                         {currency}
                         {price}
-                        <span className="tw-text-lg tw-self-end">.00</span>
                     </span>
                     <h3 className="tw-text-xl tw-leading-normal tw-mb-0">
                         <Anchor path={path}>{title}</Anchor>

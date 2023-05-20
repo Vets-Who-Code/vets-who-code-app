@@ -82,18 +82,7 @@ Home.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("home", "index");
-    const courses = getallCourses(
-        [
-            "title",
-            "thumbnail",
-            "price",
-            "currency",
-            "total_lectures",
-            "total_students",
-        ],
-        0,
-        6
-    );
+    const courses = getallCourses(["title", "thumbnail"], 0, 6);
     const events = getallEvents(
         ["title", "thumbnail", "start_date", "location"],
         0,

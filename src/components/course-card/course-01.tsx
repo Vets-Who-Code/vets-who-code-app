@@ -7,32 +7,13 @@ import { ICourse } from "@utils/types";
 interface TProps
     extends Pick<
         ICourse,
-        | "thumbnail"
-        | "title"
-        | "path"
-        | "currency"
-        | "price"
-        | "published_at"
-        | "excerpt"
+        "thumbnail" | "title" | "path" | "published_at" | "excerpt"
     > {
     className?: string;
 }
 
 const CourseCard = forwardRef<HTMLDivElement, TProps>(
-    (
-        {
-            className,
-            thumbnail,
-            title,
-            path,
-            price,
-            currency,
-            published_at,
-            excerpt,
-        },
-        ref
-    ) => {
-        const priceConv = price === 0 ? "free" : `${currency}${price}`;
+    ({ className, thumbnail, title, path, published_at, excerpt }, ref) => {
         return (
             <div
                 className={clsx(
@@ -58,9 +39,7 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </figure>
                 <div className="tw-relative tw-px-7.5 tw-pt-7.5 tw-pb-10">
-                    <span className="tw-capitalize tw-font-extrabold tw-bg-primary tw-text-white tw-leading-none tw-rounded-full tw-flex tw-justify-center tw-items-center tw-absolute tw-right-5 -tw-translate-y-1/2 tw-top-0 tw-w-[60px] tw-h-[60px] tw-text-lg md:tw-w-[70px] md:tw-h-[70px] md:tw-text-2xl">
-                        {priceConv}
-                    </span>
+                    <span className="tw-capitalize tw-font-extrabold tw-bg-primary tw-text-white tw-leading-none tw-rounded-full tw-flex tw-justify-center tw-items-center tw-absolute tw-right-5 -tw-translate-y-1/2 tw-top-0 tw-w-[60px] tw-h-[60px] tw-text-lg md:tw-w-[70px] md:tw-h-[70px] md:tw-text-2xl" />
                     <span className="tw-font-medium tw-block tw-uppercase tw-mb-1 tw-tracking-[2px] tw-text-secondary-light">
                         {dayjs(published_at).format("MMM DD, YYYY")}
                     </span>
