@@ -57,7 +57,7 @@ const CourseArea = ({
                 </div>
                 <div className="tw-text-center">
                     <Button path="/courses/grid-03" className="tw-mt-[50px]">
-                        View all courses{" "}
+                        View All Subjects{" "}
                         <i className="far fa-long-arrow-right tw-ml-3" />
                     </Button>
                 </div>
