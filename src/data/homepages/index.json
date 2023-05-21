@@ -102,14 +102,14 @@
         {
             "section": "funfact-area",
             "section_title": {
-                "title": "We prioritize & embrace the power of <span>Cooperation</span>",
-                "subtitle": "Everything starts with <strong>Vets Who Code</strong>",
-                "description": "Get better choice of course, lessons, duration and tutors from our catalog. Free consultation sessions available."
+                "title": "We prioritize & embrace the power of <span>Community</span>",
+                "subtitle": "Learn together at <strong>Vets Who Code</strong>",
+                "description": "We focus on giving our troops the best education for free. We are a community of learners and educators who are passionate about software engineering. We are here to help you learn and grow at your best."
             },
             "motto": {
                 "text": "Have questions?​",
                 "path": "/start-here",
-                "pathText": "Get Free Guidbook"
+                "pathText": "Learn more here"
             },
             "items": [
                 {
