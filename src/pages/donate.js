@@ -42,7 +42,7 @@ function Donate() {
                   />
                 </div>
               </div>
-              <div className="story col-sm-4">
+              <div className="story col-sm-6">
                 <h3 className="text-center">Corporate Giving</h3>
                 <Image
                   src="/images/corporate-giving.jpeg"
@@ -62,7 +62,7 @@ function Donate() {
                   to make it easy for your employees and company to donate to our cause.
                 </p>
               </div>
-              <div className="story col-sm-4">
+              <div className="story col-sm-6">
                 <h3 className="text-center">Github Sponsors</h3>
                 <Image
                   src="/images/github-sponsors.jpeg"
@@ -77,23 +77,6 @@ function Donate() {
                   you would like to sponsor us, please visit our{' '}
                   <a href="https://github.com/sponsors/Vets-Who-Code">Github Sponsors page</a> to
                   learn more.
-                </p>
-              </div>
-              <div className="story col-sm-4">
-                <h3 className="text-center">Amazon Smile</h3>
-                <Image
-                  src="/images/amazon-smile.jpeg"
-                  alt="Amazon Smile"
-                  blurDataURL="/images/amazon-smile.jpeg"
-                  width={1000}
-                  height={500}
-                  placeholder="blur"
-                  // layout="fill"
-                />
-                <p>
-                  Looking to give while shopping? We have a{' '}
-                  <a href="https://smile.amazon.com/ch/86-2122804">Smile</a> account to make it easy
-                  for you to give while shopping to your hearts content.
                 </p>
               </div>
             </div>
