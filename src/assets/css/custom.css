@@ -100,6 +100,11 @@
   margin: 85px 10px;
 }
 
+.slider-slide > .testimonial-row {
+  margin: 10px;
+  padding: 30px;
+}
+
 @media only screen and (max-width: 767px) {
   .testimonial-row {
     flex-direction: column;

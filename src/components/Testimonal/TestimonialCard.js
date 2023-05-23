@@ -8,24 +8,22 @@ const imageLoader = ({ src, width }) => {
 function TestimonialCard({ testimonial }) {
   return (
     <>
-      <div className="cause_section_content">
-        <div className="testimonial-row">
-          <Image
-            src={'/../images/' + testimonial.image}
-            loader={imageLoader}
-            alt={testimonial.name}
-            height={200}
-            width={200}
-            placeholder="blur"
-            blurDataURL={'/../images/' + testimonial.image}
-          />
-          <blockquote className="testimonial-text">
-            <p>
-              &quot;{testimonial.text}&quot;
-              <br /> - {testimonial.signature}
-            </p>
-          </blockquote>
-        </div>
+      <div className="testimonial-row">
+        <Image
+          src={'/../images/' + testimonial.image}
+          loader={imageLoader}
+          alt={testimonial.name}
+          height={200}
+          width={200}
+          placeholder="blur"
+          blurDataURL={'/../images/' + testimonial.image}
+        />
+        <blockquote className="testimonial-text">
+          <p>
+            &quot;{testimonial.text}&quot;
+            <br /> - {testimonial.signature}
+          </p>
+        </blockquote>
       </div>
     </>
   )

@@ -41,8 +41,7 @@ const testimonialData = [
       transition, and of these three organizations, only one has truly changed my
       life for the better. Vets Who Code delivered more value to me than 12 of the
       non-profits combined.`,
-    signature:
-      'Osvaldo &quot;Ozzie&quot; Vargas, US Army | Fullstack Developer, Application Lead, Novetta',
+    signature: "Osvaldo 'Ozzie' Vargas, US Army | Fullstack Developer, Application Lead, Novetta",
   },
   {
     id: 'jeff-martin',
