@@ -1,11 +1,7 @@
-import Image from 'next/image'
 import { NextSeo } from 'next-seo'
 import PageHeader from '../components/PageHeader'
 import { getTestimonials } from '@/utilities/testimonials'
-
-const imageLoader = ({ src, width }) => {
-  return `${src}?w=${width}`
-}
+import TestimonialCard from '@/components/Testimonal/TestimonialCard'
 
 function Testimonial() {
   return (
@@ -25,29 +21,9 @@ function Testimonial() {
               </p>
             </div>
             <div className="col-md-12">
-              <div className="cause_section_content">
-                {getTestimonials().map((testimonial, i) => {
-                  return (
-                    <div key={'testimonial' + i} className="testimonial-row">
-                      <Image
-                        src={'/../images/' + testimonial.image}
-                        loader={imageLoader}
-                        alt={testimonial.name}
-                        height={200}
-                        width={200}
-                        placeholder="blur"
-                        blurDataURL={'/../images/' + testimonial.image}
-                      />
-                      <blockquote className="testimonial-text">
-                        <p>
-                          &quot;{testimonial.text}&quot;
-                          <br /> - {testimonial.signature}
-                        </p>
-                      </blockquote>
-                    </div>
-                  )
-                })}
-              </div>
+              {getTestimonials().map(testimonial => {
+                return <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              })}
             </div>
           </div>
         </div>
