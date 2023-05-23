@@ -11,7 +11,7 @@ const baseSettings = {
   pauseOnHover: true,
   speed: 500,
   wrapAround: true,
-  adaptiveHeight: true,
+  heightMode: 'current',
   height: '100%',
 }
 
