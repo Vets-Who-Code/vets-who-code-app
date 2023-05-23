@@ -23,7 +23,7 @@ const testimonialData = [
     name: 'Carla Kroll',
     image: 'carla-kroll.jpg',
     text: `The course was great! I laughed, I learned, I got mad, I got
-      excited...then mad again. But in the end, I&apos;ve developed skills that have
+      excited...then mad again. But in the end, I've developed skills that have
       helped me become a successful frontend developer in Chicago and have found a
       group of people in VWC that understand me, and we really work and grow
       together better than anything I could have imagined.`,
@@ -47,7 +47,7 @@ const testimonialData = [
     id: 'jeff-martin',
     name: 'Jeff Martin',
     image: 'jeff-martin.jpg',
-    text: `#VetsWhoCode&apos;s tenacious focus on language and computer science
+    text: `#VetsWhoCode's tenacious focus on language and computer science
       fundamentals over frameworks was invaluable in my career transition from being
       a Radiology Technician in the US Army to building cloud scale infrastructure
       at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate
