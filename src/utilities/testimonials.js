@@ -63,9 +63,9 @@ export function getTestimonials() {
 }
 
 export function getTestimonialById(id) {
-  return testimonialData.find(testimonial.id === id)
+  return testimonialData.find(testimonial => testimonial.id === id)
 }
 
 export function getTestimonialByName(name) {
-  return testimonialData.find(testimonial.name === name)
+  return testimonialData.find(testimonial => testimonial.name === name)
 }

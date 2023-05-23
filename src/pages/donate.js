@@ -1,6 +1,8 @@
 import { NextSeo } from 'next-seo'
 import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
+import { getTestimonialByName } from '@/utilities/testimonials'
+import TestimonialCard from '@/components/Testimonal/TestimonialCard'
 
 function Donate() {
   return (
@@ -107,28 +109,7 @@ function Donate() {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="cause_section_content">
-                <div className="testimonial-row">
-                  <Image
-                    className="img-responsive"
-                    src="/images/john-garcia.png"
-                    blurDataURL="/images/john-garcia.jpeg"
-                    alt="John Garcia"
-                    width={256}
-                    height={256}
-                    placeholder="blur"
-                  />
-                  <blockquote className="testimonial-text">
-                    <p>
-                      &quot;VWC helped me gain the technical knowledge I needed in order to get the
-                      attention of employers. The guidance, support and experience I had going
-                      through the program continues to help me in my role as a full time web
-                      developer.&quot;
-                      <br /> - John Garcia, USAF | Web Developer, Hearst Media
-                    </p>
-                  </blockquote>
-                </div>
-              </div>
+              <TestimonialCard testimonial={getTestimonialByName('John Garcia')} />
             </div>
           </div>
         </div>
