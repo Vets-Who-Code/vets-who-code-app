@@ -6,7 +6,7 @@ const imageLoader = ({ src, width }) => {
 }
 
 function TestimonialCard({ testimonial }) {
-  return (
+  return testimonial ? (
     <>
       <div className="testimonial-row">
         <Image
@@ -26,6 +26,8 @@ function TestimonialCard({ testimonial }) {
         </blockquote>
       </div>
     </>
+  ) : (
+    <></>
   )
 }
 
@@ -35,6 +37,6 @@ TestimonialCard.propTypes = PropTypes.shape({
   image: PropTypes.string,
   text: PropTypes.string,
   signature: PropTypes.string,
-})
+}).isRequired
 
 export default TestimonialCard
