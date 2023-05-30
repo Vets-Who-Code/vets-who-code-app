@@ -31,7 +31,10 @@ type PageProps = NextPage<TProps> & {
 };
 
 const AboutUs: PageProps = ({ data }) => {
-    const content = normalizedData<PageContent>(data.page?.content, "section");
+    const content = normalizedData<PageContent>(
+        data.page?.content ?? null,
+        "section"
+    );
 
     return (
         <>
