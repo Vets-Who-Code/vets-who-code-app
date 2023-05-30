@@ -4,8 +4,8 @@
         {
             "section": "funfact-area",
             "section_title": {
-                "title": "Maximizing Your Potentials with <span>MaxCoach Edu</span>",
-                "subtitle": "Everything is <strong>MaxCoach</strong>",
+                "title": "Maximizing Your Potentials with <span>Vets Who Code</span>",
+                "subtitle": "Everything is <strong>Vets Who Code</strong>",
                 "description": "We love to inspire and guide you through any subject, develop new skills or upgrade your educational background."
             },
             "motto": {
@@ -42,23 +42,23 @@
             "section": "faq-area",
             "section_title": {
                 "title": "Construct A <span>Stunning</span> Career Perspective",
-                "subtitle": "Everything <strong>MaxCoach</strong>"
+                "subtitle": "Everything <strong>VetsWhoCode</strong>"
             },
             "items": [
                 {
                     "id": 1,
                     "title": "Multiple Platforms Supported for Teaching & Studying",
-                    "description": "MaxCoach supports the act of teaching and learning on multiple platforms like online or offline via material downloads. We know things aren’t supposed to be devoured in a short time, you can always access our knowledge base from any device."
+                    "description": "VetsWhoCode supports the act of teaching and learning on multiple platforms like online or offline via material downloads. We know things aren’t supposed to be devoured in a short time, you can always access our knowledge base from any device."
                 },
                 {
                     "id": 2,
                     "title": "Multiple Course Participation at the Same Time",
-                    "description": "Study for a number of courses at the same time is possible as long as you can afford the fee and time for completing them in the proper time. Learn at your own desired timeline and timetable. Maximum up to 5 course at a time for a learner at MaxCoach."
+                    "description": "Study for a number of courses at the same time is possible as long as you can afford the fee and time for completing them in the proper time. Learn at your own desired timeline and timetable. Maximum up to 5 course at a time for a learner at VetsWhoCode."
                 },
                 {
                     "id": 3,
                     "title": "Track Study Progress & Deliver Prompt Feedback",
-                    "description": "It’s not just a normal thing to be able to build such a solid online educational system like MaxCoach where your progress is easily tracked and feedback is properly delivered. We promise to keep improving our system for better stability and flexibility."
+                    "description": "It’s not just a normal thing to be able to build such a solid online educational system like VetsWhoCode where your progress is easily tracked and feedback is properly delivered. We promise to keep improving our system for better stability and flexibility."
                 }
             ],
             "images": [
@@ -70,14 +70,14 @@
         {
             "section": "testimonial-area",
             "section_title": {
-                "title": "Why People Talk About <span>MaxCoach</span>?"
+                "title": "Why People Talk About <span>VetsWhoCode</span>?"
             },
             "items": [
                 {
                     "id": 1,
                     "name": "Florence Themes",
                     "designation": "Multimedia Admin",
-                    "description": "I'm a very strict person so I require everything to be organized and neat. MaxCoach guys just got me.",
+                    "description": "I'm a very strict person so I require everything to be organized and neat. VetsWhoCode guys just got me.",
                     "images": [
                         {
                             "src": "/images/testimonial/200/testimonial-avata-02.jpg"
@@ -99,7 +99,7 @@
                     "id": 3,
                     "name": "Madley Pondor",
                     "designation": "IT Specialist",                    
-                    "description": "MaxCoach is my best choice. Their tutors are smart and professional when dealing with students.",
+                    "description": "VetsWhoCode is my best choice. Their tutors are smart and professional when dealing with students.",
                     "images": [
                         {
                             "src": "/images/testimonial/200/testimonial-avata-04.jpg"
