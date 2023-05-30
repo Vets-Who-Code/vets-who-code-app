@@ -42,7 +42,7 @@ function IndexPage({ nextCohortStartDate }) {
                   className="fluid-grid third-grid text-center"
                   style={{ backgroundColor: '#123f83' }}
                 >
-                  <h3>Become A Mentor</h3>
+                  <h3>Volunteer</h3>
                   <h2>Get Involved</h2>
                 </div>
               </Link>
