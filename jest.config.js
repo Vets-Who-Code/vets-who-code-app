@@ -16,6 +16,7 @@ const customJestConfig = {
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/api/(.*)$': '<rootDir>/src/pages/api/$1',
     '^@/mocks/(.*)$': '<rootDir>/mocks/$1',
+    '^@/utilities/(.*)$': '<rootDir>/src/utilities/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/tests/setup-test-env.js'],
   testPathIgnorePatterns: ['<rootDir>/.cache'],

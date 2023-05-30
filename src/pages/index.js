@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import SponsorSlider from '@/components/SponsorSlider'
 import { SubscribeForm } from '@/components/Forms'
 import { setupContentfulClient } from '@/utilities/conentful'
+import TestimonialCarousel from '@/components/Testimonal/TestimonialCarousel'
 
 function IndexPage({ nextCohortStartDate }) {
   return (
@@ -103,6 +104,9 @@ function IndexPage({ nextCohortStartDate }) {
                   our students can’t make money with it, then we don’t bother teaching it.
                 </p>
               </blockquote>
+            </div>
+            <div className="col-sm-12">
+              <TestimonialCarousel />
             </div>
           </div>
         </div>
