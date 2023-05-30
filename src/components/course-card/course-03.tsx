@@ -17,19 +17,7 @@ type TProps = Pick<
 };
 
 const CourseCard = forwardRef<HTMLDivElement, TProps>(
-    (
-        {
-            className,
-            thumbnail,
-            title,
-            path,
-            currency,
-            price,
-            total_lectures,
-            total_students,
-        },
-        ref
-    ) => {
+    ({ className, thumbnail, title, path }, ref) => {
         return (
             <div
                 className={clsx(
@@ -56,30 +44,9 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </div>
                 <div className="info tw-z-1 tw-mt-5 sm:tw-mt-0 sm:tw-pl-7.5">
-                    <span className="tw-text-primary tw-text-xl sm:tw-text-2xl tw-font-extrabold tw-leading-none tw-inline-flex tw-mb-1 sm:tw-mb-2">
-                        {currency}
-                        {price}
-                        <span className="tw-self-end tw-text-[16px] sm:tw-text-lg">
-                            .00
-                        </span>
-                    </span>
                     <h3 className="tw-text-xl tw-leading-normal tw-mb-0">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
-                    <ul className="tw-text-sm sm:tw-text-md tw-flex tw-flex-wrap tw-mt-2.5 ">
-                        {total_lectures && (
-                            <li className="tw-mr-7">
-                                <i className="far fa-file-alt tw-mr-2.5" />
-                                {total_lectures} Lessons
-                            </li>
-                        )}
-                        {total_students && (
-                            <li>
-                                <i className="far fa-file-alt tw-mr-2.5" />
-                                {total_students} Students
-                            </li>
-                        )}
-                    </ul>
                 </div>
             </div>
         );

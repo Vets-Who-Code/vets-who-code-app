@@ -15,11 +15,11 @@ type TProps = {
     published_at: string;
 };
 
-const CourseInfo = ({ lessonLink, slug, price, published_at }: TProps) => {
+const CourseInfo = ({ lessonLink, slug, published_at }: TProps) => {
     const [show, setShow] = useState(false);
     const mounted = useMount();
     const { isLoggedIn, enrolCourse, courseProgress } = useUser();
-    const enrolledCourse = courseProgress.find((cs) => cs.course === slug);
+    /* const enrolledCourse = courseProgress.find((cs) => cs.course === slug); */
 
     const enrollHandler = () => {
         if (isLoggedIn) {
@@ -30,11 +30,11 @@ const CourseInfo = ({ lessonLink, slug, price, published_at }: TProps) => {
         }
     };
 
-    const continueHandler = () => {
+    /*    const continueHandler = () => {
         if (enrolledCourse) {
             void Router.push(enrolledCourse.currentLesson);
         }
-    };
+    }; */
 
     if (!mounted) return null;
 
