@@ -12,6 +12,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import '../assets/lib/bootstrap/dist/css/bootstrap.css'
 import '../assets/lib/bootstrap/dist/css/bootstrap-theme.css'
 
+import '../assets/css/globals.css'
 import '../assets/css/main.css'
 import '../assets/css/custom.css'
 import '../assets/css/nav.css'

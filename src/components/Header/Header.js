@@ -16,8 +16,8 @@ function Header() {
         <div className="valign-center">
           <div className="container">
             <div className="col-md-10 col-md-offset-1">
-              <div className="intro text-left" style={{ color: '#fff' }}>
-                <h1 className="subtitle">Vets Who Code</h1>
+              <div className="intro">
+                <h1 className="subtitle tw-text-left tw-text-6xl tw-font-bold">Vets Who Code</h1>
                 <h2>
                   <Typed
                     style={{ fontFamily: 'Gotham, sans-serif' }}
