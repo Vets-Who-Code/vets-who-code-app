@@ -9,13 +9,6 @@
     "language": "english",
     "instructor": 1,
     "duration": "4 hours",
-    "total_lectures": 24,
-    "total_students": 69,
-    "membership": [
-        "silver",
-        "gold",
-        "diamond"
-    ],
     "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
     "reviews": {
