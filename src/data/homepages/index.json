@@ -173,34 +173,34 @@
             "items": [
                 {
                     "id": 1,
-                    "name": "Flora Paddington",
-                    "designation": "Freelance Coordinator",
-                    "description": "I love their flexibility. Even when my request is too complicated to handle. they could still suggest something useful for me.",
+                    "name": "Osvaldo Vargas, US Army",
+                    "designation": "Senior Software Engineering Manager | Accenture Federal Services",
+                    "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. Vets Who Code delivered more value to me than 12 of the non-profits combined.",
                     "images": [
                         {
-                            "src": "/images/testimonial/140/home-4-testimonial-avatar-01.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258222/Headshots/ozzie_zcaamv.png"
                         }
                     ]
                 },
                 {
                     "id": 3,
-                    "title": "Best out of the best in the online coaching field ..."
+                    "title": "The course was great!"
                 },
                 {
                     "id": 3,
-                    "name": "Fannie Moreno",
-                    "designation": "Developer",
-                    "description": "Excellent guiding instructions. They are all great mentors at life & career",
+                    "name": "Jeff Martin, US Army",
+                    "designation": "DevOps Engineer | Github",
+                    "description": "#VetsWhoCode's tenacious focus on language and computer science fundamentals over frameworks was invaluable in my career transition from being a Radiology Technician in the US Army to building cloud scale infrastructure at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate mentor network proved to be a priceless asset even after graduating. Come ready to learn and you will succeed here.",
                     "images": [
                         {
-                            "src": "/images/testimonial/100/home-4-testimonial-avatar-02.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
                         }
                     ]
                 }
             ],
             "total_reviews": {
                 "heading": "4.9/5.0",
-                "text": "by 700+ Students for 3200+ Sales"
+                "text": "Average Rating By Our Troops"
             }
         }, 
         {
