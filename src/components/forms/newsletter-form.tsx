@@ -1,10 +1,12 @@
-import { forwardRef, useState } from "react";
-import clsx from "clsx";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "@ui/form-elements/input";
-import Feedback from "@ui/form-elements/feedback";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Button from "@ui/button";
+import Feedback from "@ui/form-elements/feedback";
+import Input from "@ui/form-elements/input";
 import { hasKey } from "@utils/methods";
+import handler from "api/subscribe";
+import clsx from "clsx";
+import { forwardRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 type TProps = {
     className?: string;
@@ -23,11 +25,15 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(
             formState: { errors },
         } = useForm<IFormValues>();
 
-        const onSubmit: SubmitHandler<IFormValues> = (data) => {
-            // eslint-disable-next-line no-console
-            console.log(data);
-            setMessage("Thank you for your message!");
+        const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+            try {
+                await handler(data);
+                setMessage("Thank you for your message!");
+            } catch (err) {
+                console.error(err);
+            }
         };
+
         return (
             <form
                 className={clsx(
