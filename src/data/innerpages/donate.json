@@ -1,0 +1,31 @@
+{
+    "name": "donate",
+    "content": [
+        {
+            "section": "service-area",
+            "section_title": "Donate",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                        }
+                    ],
+                    "title": "Corporate Giving",
+                    "description": "To ensure ease for those interested in supporting on the corporate level, we have created accounts on Benevity and Brightfunds to make it easy for your employees and company to donate to our cause."
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                        }
+                    ],
+                    "title": "GitHub Sponsors",
+                    "description": "We are an open source project and are a part of the GitHub Sponsors program. If you would like to sponsor us, please visit our Github Sponsors page to learn more."
+                }
+            ]
+        }
+    ]
+}
