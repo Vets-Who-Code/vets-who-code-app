@@ -1,21 +1,42 @@
 ---
-title: How Stay Calm from the First Time.
-postedAt: "2022-11-20T20:30:00.000Z"
+title: Why I Created a Portfolio Checklist for JavaScript Engineers
+postedAt: "2023-05-03T20:30:00.000Z"
 author: 1
-image: { src: "/images/blog/home-personal-finance-blog-01.jpg" }
-category: business
+image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685585775/checklist_pis3uf.jpg" }
+category: technology
 tags:
-    - finance
-is_featured: false
+    - javascript
+    - portfolio
+    - checklist
+    - career
+    - job
+    - newbie
+is_featured: true
 views: 215
 ---
 
-Artist Adam S. Doyle (previously) is known for his paintings of birds and other animals that call attention to, rather than mask, his brush strokes. In his latest series, “Night Fall Trees,” Doyle shifts his focus to a different living entity. “By putting trees front and center as subjects, instead of relegating them to the background where they usually are, I’m saying these silent sentinels of our planet deserve our full attention and respect,” the artist shares with Colossal.
+## Introduction
 
-Like his other series, “Night Fall Trees” centers on Doyle’s obsession with energy. The swirling tree branches are wound tightly within each other, the tufts of leaves envelop the top branches, and the widespread roots bury themselves into the ground. Inspired by a nighttime glimpse of a well-lit tree last October, Doyle also says this series is about the seasons and the resilience the trees have.
+As someone who has been in the tech industry for a while, I have noticed that many students and new professionals struggle with creating a portfolio that showcases their skills and experience. I have often been approached by students who have questions about how to create a portfolio that stands out and gets noticed by potential employers. This is why I decided to create a portfolio checklist that focuses on the most frequently asked questions that students ask me. My goal was to help newer students ask better questions and get better results.
 
-> Fall is often associated with colorful foliage, which is best seen during the day. But fall is also a season about transition, heading in for the long nights and bone-chilling cold. Winter is a hard time. Trees get through it, though. These paintings reflect on being ready for what’s to come and like the trees knowing we’ll get through it. There will be blossoming once again in the spring.
+## The Importance of a Portfolio
 
-Doyle tells Colossal his creative plans include writing fiction and nonfiction. You can keep up with the artist’s latest energized paintings on Facebook. He even has another site for his children’s projects.
+In the tech industry, a portfolio is crucial for showcasing your skills and experience to potential employers. It's your chance to show what you can do and what you have accomplished. However, many students struggle with creating a portfolio that stands out and accurately represents their skills. With my portfolio checklist, I aim to guide students through the process of creating a portfolio that accurately represents their skills and experience.
 
-Source: [thisiscolossal.com](https://thisiscolossal.com)
+## The Most Frequently Asked Questions
+
+When creating the portfolio checklist, I focused on the most frequently asked questions that I have received from students. These questions include:
+
+- What should I include in my portfolio?
+- How do I showcase my skills?
+- How do I choose the right projects to showcase?
+- How do I make my portfolio stand out?
+- What do I need on my portfolio that I might not think of?
+
+I hope to help students create portfolios that accurately represent their skills and experience by addressing these questions and providing detailed answers.
+
+## Conclusion
+
+Creating a portfolio can be a daunting task, especially for students and new professionals. However, with the right guidance and resources, it can be a great opportunity to showcase your skills and experience to potential employers. By creating a portfolio checklist that focuses on the most frequently asked questions, I hope to guide newer students through the process of creating a portfolio that accurately represents their skills and experience. I encourage all students and new professionals to check out my portfolio checklist and use it as a guide to creating their own successful portfolios.
+
+Check out my portfolio checklist for JavaScript Engineers [here](https://www.notion.so/Portfolio-Checklist-for-Javascript-Engineers-44e9b849bf6d4c5db8273993dfd748c3).

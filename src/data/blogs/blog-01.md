@@ -1,21 +1,36 @@
 ---
-title: Ten Benefits Of Rentals That May Change Your Perspective
-postedAt: "2022-12-01T20:30:00.000Z"
-author: 1
-image: { src: "/images/blog/home-personal-finance-blog-02.jpg" }
-category: business
+title: "Introducing the New and Improved Vets Who Code App: Harnessing the Power of Tailwind, Next.js, Vercel, and Lerna Architecture"
+postedAt: "2023-07-01T20:30:00.000Z"
+author: 0
+image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685583588/sparkling-vwc_vflsiy.gif" }
+category: "technology"
 tags:
-    - finance
-is_featured: false
+    - open-source
+    - nextjs
+    - tailwind
+    - vercel
+    - lerna
+    - monorepo
+    - react
+    - javascript
+    - typescript
+is_featured: true
 views: 12
 ---
+## Introduction
+In the world of technology, innovation is vital to staying relevant and providing the best user experience. With that in mind, Vets Who Code, an organization dedicated to helping veterans transition into careers in software development, is thrilled to announce the launch of their new and improved app. This upgraded version leverages the power of Tailwind CSS, Next.js, Vercel, and a Lerna architecture, replacing the previous framework based on Bootstrap. In this blog post, we will explore this modern tech stack's exciting features and benefits.
 
-Artist Adam S. Doyle (previously) is known for his paintings of birds and other animals that call attention to, rather than mask, his brush strokes. In his latest series, “Night Fall Trees,” Doyle shifts his focus to a different living entity. “By putting trees front and center as subjects, instead of relegating them to the background where they usually are, I’m saying these silent sentinels of our planet deserve our full attention and respect,” the artist shares with Colossal.
+## The Evolution from Bootstrap to Tailwind CSS
+Bootstrap has been a popular front-end framework for years, known for its ease of use and pre-designed components. We needed a more flexible and customizable solution as web development evolved, and that's where Tailwind CSS entered the picture. Tailwind CSS is a utility-first CSS framework that allows developers to compose unique user interfaces quickly by leveraging its utility classes and responsive design system. Vets Who Code can create a consistent and visually appealing app across devices, saving valuable development time.
 
-Like his other series, “Night Fall Trees” centers on Doyle’s obsession with energy. The swirling tree branches are wound tightly within each other, the tufts of leaves envelop the top branches, and the widespread roots bury themselves into the ground. Inspired by a nighttime glimpse of a well-lit tree last October, Doyle also says this series is about the seasons and the resilience the trees have.
+## Next.js for Enhanced Performance and SEO
+One of the critical aspects of any web application is performance and search engine optimization (SEO). Next.js, a React framework, provides Vets Who Code with a powerful toolset to achieve both. With Next.js, the app benefits from server-side rendering (SSR) and static site generation (SSG), resulting in lightning-fast page loads and improved SEO rankings. Additionally, Next.js supports incremental static regeneration, ensuring the app remains dynamic while maintaining high performance.
 
-> Fall is often associated with colorful foliage, which is best seen during the day. But fall is also a season about transition, heading in for the long nights and bone-chilling cold. Winter is a hard time. Trees get through it, though. These paintings reflect on being ready for what’s to come and like the trees knowing we’ll get through it. There will be blossoming once again in the spring.
+## Seamless Deployment with Vercel
+Vets Who Code has chosen Vercel as their hosting platform to ensure a smooth and hassle-free deployment process. Vercel provides a robust and intuitive deployment pipeline, enabling seamless integration with Next.js applications. With its Git-based workflow and built-in CI/CD capabilities, developers can quickly push updates to production, preview changes with each pull request, and benefit from instant deployments. Vercel's global edge network ensures fast and reliable app delivery to users worldwide.
 
-Doyle tells Colossal his creative plans include writing fiction and nonfiction. You can keep up with the artist’s latest energized paintings on Facebook. He even has another site for his children’s projects.
+## Lerna Architecture for Scalability and Maintainability
+Vets Who Code has also embraced the Lerna architecture to enhance the scalability and maintainability of their codebase. Lerna is a tool that optimizes the management of JavaScript projects with multiple packages, making it easier to develop and maintain a mono repo architecture. By organizing their codebase into smaller, independent boxes, Vets Who Code can foster code reuse, improve collaboration, and simplify the testing and deployment process. The Lerna architecture sets the stage for future growth and facilitates adding new features and functionality.
 
-Source: [thisiscolossal.com](https://thisiscolossal.com)
+## Conclusion
+The new and improved Vets Who Code app marks a significant milestone in their commitment to providing an exceptional user experience while supporting veterans in their transition to software development careers. Leveraging the power of Tailwind CSS, Next.js, Vercel, and Lerna architecture, this modern tech stack empowers the organization to create a visually appealing, high-performing, and easily maintainable app. As Vets Who Code continues to evolve and grow, adopting these cutting-edge technologies ensures they remain at the forefront of web development, delivering the best possible experience to their users.
