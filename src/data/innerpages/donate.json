@@ -2,8 +2,15 @@
     "name": "donate",
     "content": [
         {
+            "section": "donorbox-area",
+            "section_title": {
+                "title": "Donate",
+                "subtitle": "Donate"
+            }
+        },
+        {
             "section": "service-area",
-            "section_title": "Donate",
+            "section_title": "Partners",
             "items": [
                 {
                     "id": 1,
