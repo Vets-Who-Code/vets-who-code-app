@@ -24,7 +24,7 @@
             "texts": [
                 {
                     "id": 1,
-                    "content": "#VetsWhoCode a veteran founded and operated inclusive AI-Powered 501(c)(3) that provides a streamlined, highly quality software engineering training program to help veterans and military spouses enter the the tech sector free of charge."
+                    "content": "#VetsWhoCode is a veteran founded and operated inclusive AI-Powered 501(c)(3) that provides a streamlined, high quality software engineering training program to help veterans and military spouses enter the the tech sector free of charge."
                 }
             ],
             "buttons": [
@@ -64,7 +64,7 @@
                         }
                     ],
                     "title": "Learn Anywhere",
-                    "description": "We are set up so that all you need is a computer and internet connection to learn from anywhere in the world.",
+                    "description": "All you need to bring are a computer, internet connection, and a bit of grit.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -76,7 +76,7 @@
                         }
                     ],
                     "title": "Build Modern Skills",
-                    "description": "We provide a modern curriculum that is constantly updated to reflect the latest technologies and trends.",
+                    "description": "Our curriculum is constantly updated to reflect the latest technologies and trends.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -87,14 +87,14 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
                         }
                     ],
-                    "title": "Community Support",
+                    "title": "Community for Life",
                     "description": "With 1:1's, mentorship, and a community of peers, you'll never feel alone on your journey.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 }
             ],
             "motto": {
-                "text": "Learn More About #VetsWhoCode. ",
+                "text": "Learn More About #VetsWhoCode.",
                 "path": "/start-here",
                 "pathText": "Let’s get started"
             }
@@ -159,15 +159,15 @@
         {
             "section": "testimonial-area",
             "section_title": {
-                "title": "Enjoy <span>Our Companionship</span>",
+                "title": "Experience <span>Our Camaraderie</span>",
                 "subtitle": "TOGETHER EXPAND AND GROW",
-                "description": "As learners, people can enjoy great companionship from Vets Who Code mentors and educators. We can help you develop and grow at your best."
+                "description": "As learners, people can enjoy great fellowship from Vets Who Code mentors and educators. We can help you develop and grow at your best."
             },
             "buttons": [
                 {
                     "id": 1,
                     "path": "/start-here",
-                    "content": "Get Trial Course"
+                    "content": "Join our Slack Community"
                 }
             ],
             "items": [
@@ -207,19 +207,19 @@
             "section": "event-area",
             "section_title": {
                 "title": "Upcoming <span>Events</span>",
-                "subtitle": "Stimulated to take part in?"
+                "subtitle": "Join us to network and learn!"
             },
             "motto": {
-                "text": "We love to see you at our events.​",
+                "text": "We'd love to see you at our events.​",
                 "path": "/events",
-                "pathText": "Check out events"
+                "pathText": "Check out our events"
             }
         },
         {
             "section": "blog-area",
             "section_title": {
                 "title": "Trending on <span>Our Blogs</span>",
-                "subtitle":"Consider registering our courses?"
+                "subtitle":"Insights from the #VetsWhoCode community"
             }
         },
         {
@@ -278,8 +278,8 @@
         {
             "section": "newsletter-area",
             "section_title": {
-                "title": "Subscribe <span>Newsletters</span>",
-                "description":"Enter your email address to register to our newsletter subscription <br class='tw-hidden md:tw-block'>delivered on a regular basis!"
+                "title": "Subscribe to Our <span>Newsletter</span>",
+                "description":"Enter your email address to get our monthly newsletter, the SITREP <br class='tw-hidden md:tw-block'>and other exciting updates from our organization!"
             }
         }
     ]
