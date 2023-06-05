@@ -1814,7 +1814,7 @@ uneditable-input:focus {
   outline: 0 none;
 }
 .story-title {
-  font-family: 'Gotham', sans-serifsans-serif;
+  font-family: 'Gotham', sans-serif, sans-serif;
   font-weight: 900;
   margin-bottom: 48px;
   margin-top: 0;
