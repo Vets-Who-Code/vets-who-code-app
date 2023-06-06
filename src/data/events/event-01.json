@@ -1,25 +1,21 @@
 {
     "id": 1,
-    "title": "Storytelling Workshop",
+    "title": "#VetsWhoCode Drill: Shawn Wang",
     "thumbnail": {
         "src": "/images/event/01.jpg"
     },
-    "start_date": "2024-12-01",
-    "end_date": "2024-12-01",
-    "start_time": "20:30:00",
-    "end_time": "22:30:00",
-    "venue": "Betahaus Hamburg Schanze, Eifflerstraße 43",
+    "start_date": "2023-6-29",
+    "end_date": "2023-6-29",
+    "start_time": "19:00:00",
+    "end_time": "20:00:00",
+    "venue": "Remote: United States",
     "location": {
-        "city": "New Jersey",
+        "city": "Atlanta",
         "country": "US",
-        "zip": "20099",
+        "zip": "30066",
         "latitude": 40.758062,
         "longitude": -73.9699129
     },
-    "price": 50.00,
-    "currency": "$",
-    "total_slot": 50,
-    "total_booked": 10,
     "speakers": [
         {
             "id": 1,
@@ -27,46 +23,6 @@
             "designation": "Designer",
             "image": {
                 "src": "/images/speaker/speaker-6.jpg"
-            }
-        },
-        {
-            "id": 2,
-            "name": "Emerson",
-            "designation": "Developer",
-            "image": {
-                "src": "/images/speaker/speaker-1.jpg"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Bellezza",
-            "designation": "Content Writer",
-            "image": {
-                "src": "/images/speaker/speaker-2.jpg"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Lilybelle",
-            "designation": "Office Manager",
-            "image": {
-                "src": "/images/speaker/speaker-3.jpg"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Lucinda",
-            "designation": "Manager",
-            "image": {
-                "src": "/images/speaker/speaker-4.jpg"
-            }
-        },
-        {
-            "id": 6,
-            "name": "Orabelle",
-            "designation": "Art Director",
-            "image": {
-                "src": "/images/speaker/speaker-5.jpg"
             }
         }
     ],

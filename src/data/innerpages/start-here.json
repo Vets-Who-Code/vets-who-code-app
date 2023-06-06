@@ -212,8 +212,8 @@
                 },
                 {
                     "id": 2,
-                    "name": "Schuster Braun",
-                    "designation": "Managing Director",
+                    "name": "Ayumi Bennett",
+                    "designation": "Program Manager",
                     "images": [
                         {
                             "src": "/images/gallery/start-here-gallery-image-02.jpg"
@@ -222,8 +222,8 @@
                 },
                 {
                     "id": 3,
-                    "name": "Ayumi Bennett",
-                    "designation": "Alumnis",
+                    "name": "Schuster Braun",
+                    "designation": "Alumni",
                     "images": [
                         {
                             "src": "/images/gallery/start-here-gallery-image-03.jpg"
@@ -232,8 +232,8 @@
                 },
                 {
                     "id": 4,
-                    "name": "Mia Paulo",
-                    "designation": "Writer",
+                    "name": "Andrew James",
+                    "designation": "Alumni",
                     "images": [
                         {
                             "src": "/images/gallery/start-here-gallery-image-04.jpg"
@@ -242,8 +242,8 @@
                 },
                 {
                     "id": 5,
-                    "name": "Lina Esthers",
-                    "designation": "Author",
+                    "name": "Vanessa Withun",
+                    "designation": "Alumni",
                     "images": [
                         {
                             "src": "/images/gallery/start-here-gallery-image-05.jpg"
