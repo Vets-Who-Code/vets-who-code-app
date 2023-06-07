@@ -13,14 +13,14 @@
         "city": "Atlanta",
         "country": "US",
         "zip": "30066",
-        "latitude": 40.758062,
-        "longitude": -73.9699129
+        "latitude": 34.0199,
+        "longitude": 84.5117
     },
     "speakers": [
         {
             "id": 1,
-            "name": "Solomon",
-            "designation": "Designer",
+            "name": "Shawn Wang",
+            "designation": "Software Engineer",
             "image": {
                 "src": "/images/speaker/speaker-6.jpg"
             }
