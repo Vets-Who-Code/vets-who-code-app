@@ -51,14 +51,6 @@ const MeetingBookingModal = ({
                             >
                                 Quantity
                             </label>
-                            <Input
-                                id="event-count"
-                                name="event-count"
-                                type="number"
-                                min="1"
-                                max={remain_slot.toString()}
-                                className="tw-min-h-[48px] tw-max-w-[110px]"
-                            />
                         </div>
                         <Button
                             fullwidth
