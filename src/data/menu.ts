@@ -2,7 +2,7 @@ export default [
     {
         id: 1,
         label: "Home",
-        path: "#!",
+        path: "/",
         /* megamenu: [
             {
                 id: 11,
