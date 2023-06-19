@@ -114,7 +114,7 @@ export default [
             {
                 id: 22,
                 label: "Syllabus",
-                path: "/courses/grid-01",
+                path: "/courses/syllabus",
             },
             {
                 id: 23,

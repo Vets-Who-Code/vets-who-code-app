@@ -48,7 +48,7 @@ const BlogDetails: PageProps = ({
                     authors: [blog.author.name],
                     tags: tags.map((tag) => tag.title),
                 }}
-                image={`https://maxcoach-react.pages.dev${blog.image.src}`}
+                image={`https://vetswhocode.io-react.pages.dev${blog.image.src}`}
             />
             <Breadcrumb
                 pages={[
