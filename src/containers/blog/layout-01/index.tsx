@@ -33,7 +33,7 @@ const BlogArea = ({
             space={space}
             bg={bg}
         >
-            <div className="tw-absolute tw-inset-0 tw-flex jtw-ustify-center tw-items-center">
+            <div className="tw-absolute tw-inset-0 tw-flex jtw-justify-center tw-items-center">
                 <img
                     src="/images/bg/maxcoach-shape-03.png"
                     alt="shape"

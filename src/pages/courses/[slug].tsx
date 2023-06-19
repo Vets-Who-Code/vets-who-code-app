@@ -38,13 +38,13 @@ const SingleCourse: PageProps = ({
                     type: "website",
                     images: [
                         {
-                            url: `https://maxcoach-react.pages.dev${course.thumbnail.src}`,
+                            url: `https://vetswhocode.io.pages.dev${course.thumbnail.src}`,
                             width: 800,
                             height: 600,
                             alt: course.title,
                         },
                         {
-                            url: `https://maxcoach-react.pages.dev${course.thumbnail.src}`,
+                            url: `https://vetswhocode.io-react.pages.dev${course.thumbnail.src}`,
                             width: 900,
                             height: 800,
                             alt: course.title,
