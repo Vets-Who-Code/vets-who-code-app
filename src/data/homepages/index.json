@@ -63,8 +63,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
                         }
                     ],
-                    "title": "Learn Anywhere",
-                    "description": "All you need to bring are a computer, internet connection, and a bit of grit.",
+                    "title": "Remote-First Learning",
+                    "description": "Learn from anywhere with our remote-first program—just need a computer, internet, and determination.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -75,8 +75,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
                         }
                     ],
-                    "title": "Build Modern Skills",
-                    "description": "Our curriculum is constantly updated to reflect the latest technologies and trends.",
+                    "title": "Develop Cutting-Edge Skills",
+                    "description": "Our evolving curriculum keeps you ahead of the curve with the latest industry trends.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 },
@@ -87,14 +87,14 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
                         }
                     ],
-                    "title": "Community for Life",
-                    "description": "With 1:1's, mentorship, and a community of peers, you'll never feel alone on your journey.",
+                    "title": "A Lifelong Community of Support",
+                    "description": "Personalized sessions, mentorship, and a supportive community ensure you're never alone on your journey.",
                     "path": "/start-here",
                     "pathText": "Start here"
                 }
             ],
             "motto": {
-                "text": "Learn More About #VetsWhoCode.",
+                "text": "Empowering Veterans through Software Engineering.",
                 "path": "/start-here",
                 "pathText": "Let’s get started"
             }
@@ -102,37 +102,38 @@
         {
             "section": "funfact-area",
             "section_title": {
-                "title": "We prioritize & embrace the power of <span>Community</span>",
-                "subtitle": "Learn together at <strong>Vets Who Code</strong>",
-                "description": "We focus on giving our troops the best education for free. We are a community of learners and educators who are passionate about software engineering. We are here to help you learn and grow at your best."
+                "title": "Who We <span> Are</span>",
+                "subtitle": "Veterans Helping <strong>Veterans</strong>",
+                "description": "#VetsWhoCode was established by veterans who personally experienced the challenges of transitioning. Our focus is not on marketing tactics or volume, but on prioritizing quality and tangible outcomes. We are driven by practical solutions and taking action. If a skill doesn't lead to financial opportunities for our students, we don't include it in our curriculum."
             },
             "motto": {
-                "text": "Have questions?​",
+                "text": "Want To Learn More?​",
                 "path": "/start-here",
-                "pathText": "Learn more here"
+                "pathText": "Start here"
             },
             "items": [
                 {
                     "id": 1,
-                    "title": "Finished Sessions",
-                    "counter": 1.926
+                    "title": "Success Rate",
+                    "suffix": "%",
+                    "counter": 90
                 },
                 {
                     "id": 2,
-                    "title": "Online Enrollment",
-                    "suffix": "+",
-                    "counter": 3.092
+                    "title": "Veterans Served",
+                    "counter": 300
                 },
                 {
                     "id": 3,
-                    "title": "Subjects Taught",
-                    "counter": 200
+                    "title": "Average Salary Increase",
+                    "suffix": "%",
+                    "counter": 40
                 },
                 {
                     "id": 4,
-                    "title": "Satisfaction rate",
+                    "title": "Felt Supported for Learning Journey",
                     "suffix": "%",
-                    "counter": 100
+                    "counter": 80
                 }
             ]
         }, 
@@ -161,13 +162,13 @@
             "section_title": {
                 "title": "Experience <span>Our Camaraderie</span>",
                 "subtitle": "TOGETHER EXPAND AND GROW",
-                "description": "As learners, people can enjoy great fellowship from Vets Who Code mentors and educators. We can help you develop and grow at your best."
+                "description": "Experience the power of connection as you join a supportive network of veterans and spouses passionate about coding and personal growth. Together, we'll foster camaraderie, exchange ideas, and provide unwavering support to help each other succeed in the world of technology. Together, let's embark on a transformative journey towards new opportunities and a brighter future."
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/start-here",
-                    "content": "Join our Slack Community"
+                    "path": "/join-our-community",
+                    "content": "Join our Community"
                 }
             ],
             "items": [
