@@ -14,17 +14,17 @@
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris <br> eget mauris<br>eget mauris"
+                            "content": "Results <br> Driven<br>"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget mauris"
+                            "content": "Learn What Matters"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                            "content": "We Focus On The Skills You Need For The Software Industry."
                         }
                     ]
                 },
@@ -32,23 +32,23 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "/images/page-banner/start-here-hero-slide-02-bg.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
                         }
                     ],
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris <br>  eget mauris <br>eget mauris"
+                            "content": "100%<br> ONLINE<br>"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget mauris"
+                            "content": "Learn Where You Are"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                            "content": "Our WorkfLow Ensures That You Can Learn From Anywhere."
                         }
                     ]
                 },
