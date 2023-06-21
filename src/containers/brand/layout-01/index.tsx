@@ -57,6 +57,8 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                     src={item.images?.[0]?.src}
                                     alt={item.images?.[0]?.alt || "logo"}
                                     loading="lazy"
+                                    height="60px"
+                                    width="60px"
                                 />
                             </SwiperSlide>
                         ))}
