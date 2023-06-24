@@ -18,8 +18,7 @@ type TProps = {
 const CourseInfo = ({ lessonLink, slug, published_at }: TProps) => {
     const [show, setShow] = useState(false);
     const mounted = useMount();
-    const { isLoggedIn, enrolCourse, courseProgress } = useUser();
-    /* const enrolledCourse = courseProgress.find((cs) => cs.course === slug); */
+    const { isLoggedIn, enrolCourse } = useUser();
 
     const enrollHandler = () => {
         if (isLoggedIn) {
