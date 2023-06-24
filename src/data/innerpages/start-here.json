@@ -56,23 +56,23 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "/images/page-banner/start-here-hero-slide-03-bg.jpg"
+                            "src": "/https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
                         }
                     ],
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris <br> eget mauris <br>eget mauris"
+                            "content": "LEARN <br>PRAGMATICALLY<br>"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget mauris"
+                            "content": "Practical Coding Proficiency"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                            "content":"Learn To Think And Solve Problems like a Programmer."
                         }
                     ]
                 }
@@ -81,7 +81,7 @@
         {
             "section": "timeline-area",
             "section_title": {
-                "title": "eget mauris <br> seget mauris",
+                "title": "Our story <br> seget mauris",
                 "subtitle": "eget mauris"
             },
             "items": [

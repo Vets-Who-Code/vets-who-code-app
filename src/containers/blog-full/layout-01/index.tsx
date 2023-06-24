@@ -46,7 +46,7 @@ const BlogArea = ({ data: { blogs, pagiData } }: TProps) => {
                         className="tw-mt-[50px]"
                         numberOfPages={pagiData.numberOfPages}
                         currentPage={pagiData.currentPage}
-                        rootPage="blogs/blog-grid"
+                        rootPage="blogs/blog"
                     />
                 )}
             </div>

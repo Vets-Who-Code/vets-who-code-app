@@ -1,11 +1,11 @@
 {
-    "name": "success-story",
+    "name": "faq",
     "content": [
         {
             "section": "video-area",
             "section_title": {
                 "title": "The biggest turning point in my life: <br class='tw-hidden md:tw-block'> Wonderful choice.",
-                "subtitle":"Success story"
+                "subtitle":"FAQ"
             },
             "images": [
                 {

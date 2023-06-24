@@ -34,10 +34,10 @@ const SuccessStory: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="Success Story" />
+            <SEO title="FAQ" />
             <Breadcrumb
                 pages={[{ path: "/", label: "home" }]}
-                currentPage="Success Story"
+                currentPage="FAQ"
                 showTitle={false}
                 className="tw-bg-gray-200"
             />
@@ -58,7 +58,7 @@ const SuccessStory: PageProps = ({ data }) => {
 SuccessStory.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "success-story");
+    const page = getPageData("inner", "faq");
     const courses = getallCourses(
         [
             "title",

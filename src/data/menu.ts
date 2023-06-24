@@ -118,8 +118,8 @@ export default [
             },
             {
                 id: 23,
-                label: "testimonials",
-                path: "/success-story",
+                label: "FAQ",
+                path: "/faq",
             },
         ],
     },
@@ -158,7 +158,7 @@ export default [
     {
         id: 6,
         label: "Blog",
-        path: "/blogs/blog-grid",
+        path: "/blogs/blog",
     },
     {
         id: 7,
