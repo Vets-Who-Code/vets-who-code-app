@@ -60,9 +60,6 @@ const CourseDetails = ({
                         <CourseInfo
                             lessonLink={curriculum[0].lessons[0].path}
                             slug={course.slug}
-                            duration={course.duration}
-                            lectures={course.total_lectures}
-                            language={course.language}
                             published_at={course.published_at}
                         />
                     </div>
