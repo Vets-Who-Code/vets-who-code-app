@@ -1,7 +1,6 @@
 import { useState } from "react";
 import dayjs from "dayjs";
 import { Modal, ModalBody } from "@ui/modal";
-import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { ImageType } from "@utils/types";
 
@@ -20,7 +19,6 @@ const MeetingBookingModal = ({
     date,
     title,
     thumbnail,
-    remain_slot,
 }: TProps) => {
     const [booked, setBooked] = useState(false);
     return (
