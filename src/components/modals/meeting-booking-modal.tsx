@@ -10,7 +10,6 @@ type TProps = {
     date: string;
     title: string;
     thumbnail: ImageType;
-    remain_slot: number;
 };
 
 const MeetingBookingModal = ({
