@@ -46,11 +46,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                             },
                             { label: "Popularity", value: "popular" },
                             { label: "Latest", value: "latest" },
-                            { label: "Price: low to high", value: "price" },
-                            {
-                                label: "Price: high to low",
-                                value: "price-desc",
-                            },
                         ]}
                         setValue={setSortValue}
                         prefix="Sort By:"
