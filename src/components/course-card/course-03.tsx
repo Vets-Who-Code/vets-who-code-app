@@ -5,13 +5,7 @@ import { ICourse } from "@utils/types";
 
 type TProps = Pick<
     ICourse,
-    | "thumbnail"
-    | "title"
-    | "path"
-    | "currency"
-    | "price"
-    | "total_lectures"
-    | "total_students"
+    "thumbnail" | "title" | "path" | "total_lectures"
 > & {
     className?: string;
 };

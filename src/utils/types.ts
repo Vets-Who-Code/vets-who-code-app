@@ -156,10 +156,6 @@ export interface ICourse {
     published_at: string;
     category: string;
     thumbnail: ImageType;
-    price: number;
-    currency: string;
-    total_lectures: number;
-    total_students: number;
     language: string;
     instructor: IDType;
     duration: string;
@@ -239,9 +235,6 @@ export interface IEvent {
     venue: string;
     location: ILocation;
     thumbnail: ImageType;
-    total_slot: number;
-    total_booked: number;
-    price: number;
     currency: string;
     body: IContent[];
     speakers: ISpeaker[];
