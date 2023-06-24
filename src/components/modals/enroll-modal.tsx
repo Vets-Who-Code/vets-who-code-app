@@ -34,7 +34,10 @@ const EnrollModal = ({ show, onClose }: TProps) => {
 
                 <p>
                     Thanks for being with us{" "}
-                    <Anchor className="tw-text-primary" path="/courses/grid-01">
+                    <Anchor
+                        className="tw-text-primary"
+                        path="/courses/syllabus"
+                    >
                         Browse More Course
                     </Anchor>
                 </p>

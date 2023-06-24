@@ -124,49 +124,44 @@ export default [
         ],
     },
     {
-        id: 4,
+        id: 3,
         label: "Apply",
         path: "#!",
         submenu: [
             {
-                id: 35,
+                id: 32,
                 label: "Become a Mentor",
                 path: "/become-a-mentor",
             },
             {
-                id: 34,
+                id: 33,
                 label: "Apply to be a Student",
                 path: "/apply-to-be-a-student",
             },
             {
-                id: 33,
+                id: 34,
                 label: "Join our community",
                 path: "/join-our-community",
-            },
-            {
-                id: 36,
-                label: "Profile",
-                path: "/profile",
             },
         ],
     },
     {
-        id: 5,
+        id: 4,
         label: "Events",
         path: "/events",
     },
     {
-        id: 6,
+        id: 5,
         label: "Blog",
         path: "/blogs/blog",
     },
     {
-        id: 7,
+        id: 6,
         label: "Contact Us",
         path: "/contact-us",
     },
     {
-        id: 8,
+        id: 7,
         label: "Donate",
         path: "/donate",
     },
