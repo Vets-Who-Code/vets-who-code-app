@@ -12,10 +12,6 @@ type TProps = Pick<
     | "start_time"
     | "end_time"
     | "location"
-    | "total_slot"
-    | "price"
-    | "currency"
-    | "total_booked"
     | "venue"
     | "thumbnail"
     | "body"
@@ -27,10 +23,6 @@ const Summary = ({
     end_date,
     start_time,
     end_time,
-    total_slot,
-    price,
-    currency,
-    total_booked,
     venue,
     thumbnail,
     title,
@@ -88,13 +80,9 @@ const Summary = ({
                     </div>
                     <div className="tw-col-span-full lg:tw-col-[3/-1]">
                         <EventInfo
-                            total_slot={total_slot}
-                            total_booked={total_booked}
                             title={title}
                             thumbnail={thumbnail}
                             start_date={start_date}
-                            price={price}
-                            currency={currency}
                         />
                     </div>
                 </div>
