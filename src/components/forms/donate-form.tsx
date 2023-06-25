@@ -7,33 +7,18 @@ type TProps = {
     className?: string;
 };
 
-const content: IContent[] = [
-    {
-        id: "vwc-donorbox",
-        text: "VWC Donorbox",
-        type: "iframe",
-        content: {
-            src: "https://donorbox.org/embed/vetswhocode-donation?show_content=true",
-        },
-    },
-];
-
-const originalIframe = `
-<iframe
-title="#VWC Donorbox"
-src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
-seamless="seamless"
-name="donorbox"
-scrolling="yes"
-allowpaymentrequest="true"
-frameBorder={0}
-tabIndex={0}
-/>`;
-
 const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
     return (
         <div className={clsx(className)} ref={ref}>
-            <HTMLContent body={content} />
+            <iframe
+                title="#VWC Donorbox"
+                src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
+                name="vwc-donorbox"
+                seamless="seamless"
+                scrolling="no"
+                allowpaymentrequest="true"
+                className="tw-overflow-x-hidden tw-min-h-[900px] md:tw-min-h-[700px]"
+            />
         </div>
     );
 });

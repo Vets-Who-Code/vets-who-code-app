@@ -29,7 +29,7 @@ const DonateFormArea = ({ data: { section_title } }: TProps) => {
                 <AnimatedDonateForm
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.4 }}
+                    viewport={{ once: true, amount: "all" }}
                     variants={scrollUpVariants}
                 />
             </div>

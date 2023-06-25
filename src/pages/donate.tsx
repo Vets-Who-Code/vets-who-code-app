@@ -2,9 +2,10 @@ import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
+import Breadcrumb from "@components/breadcrumb";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import DonateFormArea from "@containers/donate-form/layout-01";
-import ServiceArea from "@containers/service/layout-02";
+import ServiceArea from "@containers/service/layout-03";
 
 import { normalizedData } from "@utils/methods";
 
@@ -32,8 +33,13 @@ const Donate: PageProps = ({ data }) => {
     return (
         <>
             <SEO title="Donate" />
+            <Breadcrumb
+                pages={[{ path: "/", label: "home" }]}
+                currentPage="Donate"
+                showTitle={false}
+            />
             <DonateFormArea data={content?.["donorbox-area"]} space="none" />
-            <Wrapper className="tw-mb-[140px]">
+            <Wrapper className="tw-py-15">
                 <ServiceArea data={content?.["service-area"]} space="top" />
             </Wrapper>
         </>
@@ -50,6 +56,8 @@ export const getStaticProps: GetStaticProps = () => {
                 page,
             },
             layout: {
+                headerShadow: true,
+                headerFluid: false,
                 footerMode: "light",
             },
         },
