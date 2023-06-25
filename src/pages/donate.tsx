@@ -36,7 +36,6 @@ const Donate: PageProps = ({ data }) => {
             <Wrapper className="tw-mb-[140px]">
                 <ServiceArea data={content?.["service-area"]} space="top" />
             </Wrapper>
-            
         </>
     );
 };
@@ -48,7 +47,7 @@ export const getStaticProps: GetStaticProps = () => {
     return {
         props: {
             data: {
-                page
+                page,
             },
             layout: {
                 footerMode: "light",
