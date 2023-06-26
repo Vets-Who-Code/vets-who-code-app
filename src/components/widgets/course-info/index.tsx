@@ -29,12 +29,6 @@ const CourseInfo = ({ lessonLink, slug, published_at }: TProps) => {
         }
     };
 
-    /*    const continueHandler = () => {
-        if (enrolledCourse) {
-            void Router.push(enrolledCourse.currentLesson);
-        }
-    }; */
-
     if (!mounted) return null;
 
     return (

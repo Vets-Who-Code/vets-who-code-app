@@ -1,9 +1,8 @@
 import type { GetStaticPaths, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
+import Layout01 from "@layout/layout-02";
 import Breadcrumb from "@components/breadcrumb";
 import CourseDetails from "@containers/course-details";
-import RelatedCourseArea from "@containers/course/layout-02";
 import { ICourse, IInstructor, ICurriculum } from "@utils/types";
 import { getInstructorByID } from "../../lib/instructor";
 import {
@@ -27,7 +26,7 @@ type PageProps = NextPage<TProps> & {
 };
 
 const SingleCourse: PageProps = ({
-    data: { course, curriculum, instructor, relatedCourses },
+    data: { course, curriculum, instructor },
 }) => {
     return (
         <>
@@ -62,14 +61,6 @@ const SingleCourse: PageProps = ({
                 currentPage={course.title}
             />
             <CourseDetails data={{ course, curriculum, instructor }} />
-            {relatedCourses.length > 0 && (
-                <RelatedCourseArea
-                    data={{
-                        section_title: { title: "Related Courses​" },
-                        courses: relatedCourses,
-                    }}
-                />
-            )}
         </>
     );
 };

@@ -3,42 +3,27 @@ import dayjs from "dayjs";
 import Button from "@ui/button";
 import Alert from "@ui/alert";
 import SocialShare from "@components/social-share/layout-02";
-import MeetingBookingModal from "@components/modals/meeting-booking-modal";
 import { IEvent } from "@utils/types";
 import WidgetBox from "./widget-box";
 
-type TProps = Pick<IEvent, "title" | "start_date" | "thumbnail">;
+type TProps = Pick<IEvent, "title" | "start_date">;
 
-const EventInfo = ({ title, start_date, thumbnail }: TProps) => {
-    const [modal, setModal] = useState(false);
+const EventInfo = ({ start_date }: TProps) => {
     const isExpired = dayjs().isAfter(dayjs(start_date));
     return (
-        <>
-            <WidgetBox>
-                {isExpired ? (
-                    <Alert color="warning" className="tw-mt-5">
-                        This event has expired
-                    </Alert>
-                ) : (
-                    <Button
-                        fullwidth
-                        className="tw-mt-5"
-                        onClick={() => setModal(true)}
-                    >
-                        Book Now
-                    </Button>
-                )}
+        <WidgetBox>
+            {isExpired ? (
+                <Alert color="warning" className="tw-mt-5">
+                    This event has expired
+                </Alert>
+            ) : (
+                <Button fullwidth className="tw-mt-5">
+                    Book Now
+                </Button>
+            )}
 
-                <SocialShare className="tw-mt-7 tw-justify-center" />
-            </WidgetBox>
-            <MeetingBookingModal
-                show={modal}
-                onClose={() => setModal(false)}
-                title={title}
-                date={start_date}
-                thumbnail={thumbnail}
-            />
-        </>
+            <SocialShare className="tw-mt-7 tw-justify-center" />
+        </WidgetBox>
     );
 };
 

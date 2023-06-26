@@ -4,7 +4,6 @@ import CourseInfo from "@widgets/course-info";
 import OverviewPanel from "./overview-panel";
 import CurriculamPanel from "./curriculam-panel";
 import InstructorPanel from "./instructor-panel";
-import ReviewPanel from "./review-panel";
 
 type TProps = {
     data: {
@@ -26,7 +25,6 @@ const CourseDetails = ({
                             <TabNav>Overview</TabNav>
                             <TabNav>Curriculam</TabNav>
                             <TabNav>Instructor</TabNav>
-                            <TabNav>Reviews</TabNav>
                         </TabList>
                         <TabContent className="tw-mt-10 lg:tw-mt-[50px]">
                             <TabPane>
@@ -46,11 +44,6 @@ const CourseDetails = ({
                             </TabPane>
                             <TabPane>
                                 <InstructorPanel {...instructor} />
-                            </TabPane>
-                            <TabPane>
-                                {course?.reviews && (
-                                    <ReviewPanel {...course.reviews} />
-                                )}
                             </TabPane>
                         </TabContent>
                     </TabContainer>
