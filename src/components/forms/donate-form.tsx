@@ -1,7 +1,5 @@
 import { forwardRef } from "react";
 import clsx from "clsx";
-import { IContent } from "@utils/types";
-import HTMLContent from "@components/html-content";
 
 type TProps = {
     className?: string;
