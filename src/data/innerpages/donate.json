@@ -1,0 +1,54 @@
+{
+    "name": "donate",
+    "content": [
+        {
+            "section": "donorbox-area",
+            "section_title": {
+                "title": "Donate",
+                "subtitle": "Donate"
+            }
+        },
+        {
+            "section": "service-area",
+            "section_title": "Partners",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                        }
+                    ],
+                    "title": "GitHub Sponsors",
+                    "description": "We are an open source project and are a part of the GitHub Sponsors program. If you would like to sponsor us, please visit our Github Sponsors page to learn more.",
+                    "path": "https://github.com/sponsors/Vets-Who-Code",
+                    "pathText": "Sponsor VWC on GitHub"
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                        }
+                    ],
+                    "title": "Benevity",
+                    "description": "To ensure ease for those interested in supporting on the corporate level, we have created accounts on Benevity and Brightfunds to make it easy for your employees and company to donate to our cause.",
+                    "path": "https://causes.benevity.org/causes/840-862122804",
+                    "pathText": "Visit VWC on Benevity"
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
+                        }
+                    ],
+                    "title": "Brightfunds",
+                    "description": "To ensure ease for those interested in supporting on the corporate level, we have created accounts on Benevity and Brightfunds to make it easy for your employees and company to donate to our cause.",
+                    "path": "https://www.brightfunds.org/organizations/vets-who-code-inc",
+                    "pathText": "Donate to VWC on Brightfunds"
+                }
+            ]
+        }
+    ]
+}
