@@ -3,10 +3,7 @@ import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { ICourse } from "@utils/types";
 
-type TProps = Pick<
-    ICourse,
-    "thumbnail" | "title" | "path" | "total_lectures"
-> & {
+type TProps = Pick<ICourse, "thumbnail" | "title" | "path"> & {
     className?: string;
 };
 
