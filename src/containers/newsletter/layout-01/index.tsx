@@ -12,8 +12,18 @@ type TProps = TSection & {
     };
 };
 
-const NewsletterArea = ({ data: { section_title }, space, bg }: TProps) => {
+const NewsletterArea: React.FC<TProps> = ({
+    data: { section_title },
+    space,
+    bg,
+}) => {
     const { trans1, trans2 } = useUI();
+
+    const handleSubmit = (email: string) => {
+        // Handle the submission logic here
+        console.log(email);
+    };
+
     return (
         <Section className="newsletter-area" space={space} bg={bg}>
             <motion.div
@@ -24,7 +34,10 @@ const NewsletterArea = ({ data: { section_title }, space, bg }: TProps) => {
                 variants={scrollUpVariants}
             >
                 {section_title && <SectionTitle {...section_title} />}
-                <NewsletterForm className="tw-mx-auto tw-mt-[50px]" />
+                <NewsletterForm
+                    className="tw-mx-auto tw-mt-[50px]"
+                    onSubmit={handleSubmit}
+                />
 
                 <motion.div
                     className="tw-absolute tw-bottom-[50px] tw-left-[-3px] md:tw-left-0 tw-z-20"
