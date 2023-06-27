@@ -85,27 +85,6 @@ export const courseSorting = (
             setSort(sorted);
             break;
         }
-        case "popular": {
-            const sorted = cousesCopy.sort((a, b) =>
-                a.total_students > b.total_students ? -1 : 1
-            );
-            setSort(sorted);
-            break;
-        }
-        case "price": {
-            const sorted = cousesCopy.sort((a, b) =>
-                b.price > a.price ? -1 : 1
-            );
-            setSort(sorted);
-            break;
-        }
-        case "price-desc": {
-            const sorted = cousesCopy.sort((a, b) =>
-                a.price > b.price ? -1 : 1
-            );
-            setSort(sorted);
-            break;
-        }
         default: {
             setSort(defaultCourses);
         }
