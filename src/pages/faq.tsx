@@ -7,7 +7,6 @@ import QuoteArea from "@containers/quote/layout-02";
 import FaqArea from "@containers/faq/layout-03";
 import GalleryArea from "@containers/gallery";
 import { normalizedData } from "@utils/methods";
-import { ICourse } from "@utils/types";
 import { getPageData } from "../lib/page";
 
 interface PageContent {
