@@ -5,12 +5,10 @@ import Breadcrumb from "@components/breadcrumb";
 import VideoArea from "@containers/video/layout-05";
 import QuoteArea from "@containers/quote/layout-02";
 import FaqArea from "@containers/faq/layout-03";
-import RelatedCourseArea from "@containers/course/layout-02";
 import GalleryArea from "@containers/gallery";
 import { normalizedData } from "@utils/methods";
 import { ICourse } from "@utils/types";
 import { getPageData } from "../lib/page";
-import { getallCourses } from "../lib/course";
 
 interface PageContent {
     section: string;
@@ -21,7 +19,6 @@ type TProps = {
         page: {
             content: PageContent[];
         };
-        courses: ICourse[];
     };
 };
 
@@ -43,12 +40,6 @@ const Faq: PageProps = ({ data }) => {
             <VideoArea data={content?.["video-area"]} />
             <QuoteArea data={content?.["quote-area"]} />
             <FaqArea data={content?.["faq-area"]} />
-            <RelatedCourseArea
-                data={{
-                    ...content?.["course-area"],
-                    courses: data.courses,
-                }}
-            />
             <GalleryArea data={content?.["gallery-area"]} />
         </>
     );
@@ -58,12 +49,10 @@ Faq.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("inner", "faq");
-    const courses = getallCourses(["title", "thumbnail"], 0, 4);
     return {
         props: {
             data: {
                 page,
-                courses,
             },
             layout: {
                 headerFluid: false,
