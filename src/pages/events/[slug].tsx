@@ -54,10 +54,6 @@ const SingleEvent: PageProps = ({ data: { event } }) => {
                 start_time={event.start_time}
                 end_date={event.end_date}
                 end_time={event.end_time}
-                total_slot={event.total_slot}
-                price={event.price}
-                currency={event.currency}
-                total_booked={event.total_booked}
                 title={event.title}
                 venue={event.venue}
                 thumbnail={event.thumbnail}
