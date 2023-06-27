@@ -34,7 +34,10 @@ const NewsletterArea: React.FC<TProps> = ({
                 variants={scrollUpVariants}
             >
                 {section_title && <SectionTitle {...section_title} />}
-                <NewsletterForm onSubmit={handleSubmit} />
+                <NewsletterForm
+                    className="tw-mx-auto tw-mt-[50px]"
+                    onSubmit={handleSubmit}
+                />
 
                 <motion.div
                     className="tw-absolute tw-bottom-[50px] tw-left-[-3px] md:tw-left-0 tw-z-20"
