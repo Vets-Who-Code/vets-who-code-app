@@ -8,7 +8,6 @@ type TProps = {
     headerShadow?: boolean;
     headerFluid?: boolean;
     headerMode?: "light" | "dark";
-    headerTransparent?: boolean;
     footerMode?: "light" | "dark";
 };
 
@@ -17,7 +16,6 @@ const Layout01 = ({
     headerShadow,
     headerFluid,
     headerMode,
-    headerTransparent,
     footerMode,
 }: TProps) => {
     return (
@@ -25,7 +23,6 @@ const Layout01 = ({
             <Header
                 shadow={headerShadow}
                 fluid={headerFluid}
-                transparent={headerTransparent}
                 mode={headerMode}
             />
             <main className="tw-relative">{children}</main>
