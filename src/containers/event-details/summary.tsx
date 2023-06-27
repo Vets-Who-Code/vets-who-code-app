@@ -24,7 +24,6 @@ const Summary = ({
     start_time,
     end_time,
     venue,
-    thumbnail,
     title,
     body,
 }: TProps) => {
@@ -79,11 +78,7 @@ const Summary = ({
                         </p>
                     </div>
                     <div className="tw-col-span-full lg:tw-col-[3/-1]">
-                        <EventInfo
-                            title={title}
-                            thumbnail={thumbnail}
-                            start_date={start_date}
-                        />
+                        <EventInfo title={title} start_date={start_date} />
                     </div>
                 </div>
                 <HTMLContent body={body} />
