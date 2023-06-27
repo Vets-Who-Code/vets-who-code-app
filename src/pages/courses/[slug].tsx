@@ -91,16 +91,7 @@ export const getStaticProps = ({ params }: Params) => {
     const course = getCourseBySlug(params.slug, "all");
     const instructor = getInstructorByID(course.instructor, "all");
     const relatedCourses = getFilteredCourses(
-        [
-            "category",
-            "title",
-            "slug",
-            "thumbnail",
-            "total_lectures",
-            "total_students",
-            "price",
-            "currency",
-        ],
+        ["category", "title", "slug", "thumbnail"],
         "category",
         course.category
     );
