@@ -7,7 +7,6 @@ type TProps = {
     children: ReactNode;
     headerShadow?: boolean;
     headerFluid?: boolean;
-    headerMode?: "light" | "dark";
     footerMode?: "light" | "dark";
 };
 
@@ -15,16 +14,11 @@ const Layout01 = ({
     children,
     headerShadow,
     headerFluid,
-    headerMode,
     footerMode,
 }: TProps) => {
     return (
         <>
-            <Header
-                shadow={headerShadow}
-                fluid={headerFluid}
-                mode={headerMode}
-            />
+            <Header shadow={headerShadow} fluid={headerFluid} />
             <main className="tw-relative">{children}</main>
             <Footer mode={footerMode} />
             <ScrollToTop />
