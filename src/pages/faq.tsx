@@ -7,7 +7,6 @@ import QuoteArea from "@containers/quote/layout-02";
 import FaqArea from "@containers/faq/layout-03";
 import RelatedCourseArea from "@containers/course/layout-02";
 import GalleryArea from "@containers/gallery";
-
 import { normalizedData } from "@utils/methods";
 import { ICourse } from "@utils/types";
 import { getPageData } from "../lib/page";
@@ -30,7 +29,7 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
-const SuccessStory: PageProps = ({ data }) => {
+const Faq: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
@@ -55,22 +54,11 @@ const SuccessStory: PageProps = ({ data }) => {
     );
 };
 
-SuccessStory.Layout = Layout;
+Faq.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("inner", "faq");
-    const courses = getallCourses(
-        [
-            "title",
-            "thumbnail",
-            "price",
-            "currency",
-            "total_lectures",
-            "total_students",
-        ],
-        0,
-        4
-    );
+    const courses = getallCourses(["title", "thumbnail"], 0, 4);
     return {
         props: {
             data: {
@@ -85,4 +73,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default SuccessStory;
+export default Faq;
