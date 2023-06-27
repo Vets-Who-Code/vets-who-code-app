@@ -97,8 +97,6 @@ const HeroArea = ({
                             title={popularCourse.title}
                             path={popularCourse.path}
                             published_at={popularCourse.published_at}
-                            price={popularCourse.price}
-                            currency={popularCourse.currency}
                             excerpt={popularCourse.excerpt}
                             thumbnail={{
                                 ...popularCourse.thumbnail,
