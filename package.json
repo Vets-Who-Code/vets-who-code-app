@@ -19,12 +19,14 @@
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.4",
     "disqus-react": "^1.1.3",
     "fast-equals": "3.0.3",
     "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
+    "mailchimp-api-v3": "^1.15.0",
     "marked": "^4.0.18",
     "next": "12.2.2",
     "next-pwa": "^5.5.4",
@@ -33,7 +35,7 @@
     "next-sitemap": "^3.1.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.33.1",
+    "react-hook-form": "^7.45.0",
     "react-simple-typewriter": "^3.0.1",
     "swiper": "^8.3.1"
   },
