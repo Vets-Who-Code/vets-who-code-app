@@ -45,11 +45,7 @@ PrivacyPolicy.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageBySlug("privacy-policy");
-    const recentCourses = getallCourses(
-        ["title", "thumbnail", "price", "currency"],
-        0,
-        4
-    );
+    const recentCourses = getallCourses(["title", "thumbnail"], 0, 4);
 
     return {
         props: {
