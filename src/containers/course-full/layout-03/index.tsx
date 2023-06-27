@@ -45,11 +45,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                             },
                             { label: "Popularity", value: "popular" },
                             { label: "Latest", value: "latest" },
-                            { label: "Price: low to high", value: "price" },
-                            {
-                                label: "Price: high to low",
-                                value: "price-desc",
-                            },
                         ]}
                         setValue={setSortValue}
                         prefix="Sort By:"
@@ -63,10 +58,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                             title={course.title}
                             path={course.path}
                             thumbnail={course.thumbnail}
-                            price={course.price}
-                            currency={course.currency}
-                            total_lectures={course.total_lectures}
-                            total_students={course.total_students}
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true, amount: 0.1 }}
