@@ -5,29 +5,59 @@ import Input from "@ui/form-elements/input";
 import Feedback from "@ui/form-elements/feedback";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
+import { ApiResponse, FetchError } from "@utils/types";
 
 type TProps = {
     className?: string;
 };
 
-interface IFormValues {
+type IFormValues = {
     newsletter_email: string;
-}
+};
 
 const NewsletterForm = forwardRef<HTMLFormElement, TProps>(
     ({ className }, ref) => {
         const [message, setMessage] = useState("");
+        const [errorMessage, setErrorMessage] = useState("");
         const {
             register,
             handleSubmit,
             formState: { errors },
+            reset,
         } = useForm<IFormValues>();
 
-        const onSubmit: SubmitHandler<IFormValues> = (data) => {
-            // eslint-disable-next-line no-console
-            console.log(data);
-            setMessage("Thank you for your message!");
+        const onSubmit: SubmitHandler<IFormValues> = async (formData, e) => {
+            e?.preventDefault();
+
+            try {
+                const subscribApiEndpoint = "/api/newsletter";
+                const options = {
+                    method: "POST",
+                    body: JSON.stringify(formData),
+                };
+
+                const response: Response = await fetch(
+                    subscribApiEndpoint,
+                    options
+                );
+                const json = (await response.json()) as ApiResponse;
+
+                if (json.ok) {
+                    setMessage("Thank you for subscribing!");
+                    setErrorMessage("");
+                    reset();
+                } else if (!json.ok) {
+                    setMessage("");
+                    setErrorMessage(json.error || "OOPS Something went wrong");
+                }
+            } catch (error: unknown) {
+                setMessage("");
+                setErrorMessage(
+                    (error as FetchError).message || "OOPS Something went wrong"
+                );
+            }
         };
+
         return (
             <form
                 className={clsx(
@@ -60,6 +90,10 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(
                                 message: "invalid email address",
                             },
                         })}
+                        onChange={() => {
+                            setErrorMessage("");
+                            setMessage("");
+                        }}
                     />
                 </div>
                 <Button
@@ -69,6 +103,9 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(
                     Subscribe
                 </Button>
                 {message && <Feedback state="success">{message}</Feedback>}
+                {errorMessage && (
+                    <Feedback state="error">{errorMessage}</Feedback>
+                )}
             </form>
         );
     }

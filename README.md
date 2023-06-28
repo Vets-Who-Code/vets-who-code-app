@@ -29,10 +29,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 You will need the following properly installed on your computer.
 
-- [Git](http://git-scm.com/)
-- [Node](http://nodejs.org/)
-- [NVM](https://github.com/creationix/nvm)
-- [NextJS](https://nextjs.org/)
+-   [Git](http://git-scm.com/)
+-   [Node](http://nodejs.org/)
+-   [NVM](https://github.com/creationix/nvm)
+-   [NextJS](https://nextjs.org/)
 
 ## Installing
 

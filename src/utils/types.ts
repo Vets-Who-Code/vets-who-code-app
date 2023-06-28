@@ -295,3 +295,15 @@ export type TSection = {
     titleSize?: "default" | "large";
     className?: string;
 };
+
+export type FetchError = Error & {
+    name: "FetchError";
+    code: string;
+    message: string;
+};
+
+export type ApiResponse = {
+    ok: boolean;
+    error?: string;
+    message?: string;
+};
