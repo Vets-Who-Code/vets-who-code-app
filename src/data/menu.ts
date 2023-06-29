@@ -103,11 +103,6 @@ export default [
         submenu: [
             {
                 id: 21,
-                label: "Start Here",
-                path: "/start-here",
-            },
-            {
-                id: 24,
                 label: "About",
                 path: "/about-us",
             },
@@ -129,17 +124,17 @@ export default [
         path: "#!",
         submenu: [
             {
-                id: 32,
+                id: 24,
                 label: "Become a Mentor",
                 path: "/become-a-mentor",
             },
             {
-                id: 33,
+                id: 25,
                 label: "Apply to be a Student",
                 path: "/apply-to-be-a-student",
             },
             {
-                id: 34,
+                id: 26,
                 label: "Join our community",
                 path: "/join-our-community",
             },

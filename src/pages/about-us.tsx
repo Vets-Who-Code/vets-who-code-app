@@ -1,17 +1,13 @@
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import FunfactArea from "@containers/funfact/layout-04";
-import FaqArea from "@containers/faq/layout-04";
-import TestimonialArea from "@containers/testimonial/layout-05";
-import BrandArea from "@containers/brand/layout-02";
-import ServiceArea from "@containers/service/layout-08";
-import CtaArea from "@containers/cta/layout-02";
+import HeroArea from "@containers/hero/layout-07";
+import TimelineArea from "@containers/timeline";
+import CtaArea from "@containers/cta/layout-01";
+import GalleryArea from "@containers/gallery";
+import FaqArea from "@containers/faq/layout-02";
 
 import { normalizedData } from "@utils/methods";
-
 import { getPageData } from "../lib/page";
 
 interface PageContent {
@@ -30,58 +26,33 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
-const AboutUs: PageProps = ({ data }) => {
-    const content = normalizedData<PageContent>(
-        data.page?.content ?? null,
-        "section"
-    );
-
+const StartHere: PageProps = ({ data }) => {
+    const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="About Us" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="About Us"
-                showTitle={false}
-                className="tw-bg-gray-200"
-            />
-            <FunfactArea
-                data={content?.["funfact-area"]}
-                space="bottom"
-                bg="tw-bg-gray-200"
-                titleSize="large"
-            />
-            <FaqArea
-                data={content?.["faq-area"]}
-                bg="tw-bg-white-catskill"
-                titleSize="large"
-            />
-            <TestimonialArea
-                data={content?.["testimonial-area"]}
-                titleSize="large"
-                space="top"
-            />
-            <BrandArea data={content?.["brand-area"]} />
-            <ServiceArea
-                data={content?.["service-area"]}
-                titleSize="large"
-                bg="tw-bg-white-catskill"
-            />
-            <CtaArea data={content?.["cta-area"]} />
+            <SEO title="Start Here" />
+            <h1 className="tw-sr-only">Start Here</h1>
+            <HeroArea data={content?.["hero-area"]} />
+            <TimelineArea data={content?.["timeline-area"]} />
+            <CtaArea data={content?.["cta-area"]} space="bottom" />
+            <GalleryArea data={content?.["gallery-area"]} />
+            <FaqArea data={content?.["faq-area"]} />
         </>
     );
 };
 
-AboutUs.Layout = Layout;
+StartHere.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "about-us");
+    const page = getPageData("inner", "start-here");
+
     return {
         props: {
             data: {
                 page,
             },
             layout: {
+                headerShadow: true,
                 headerFluid: false,
                 footerMode: "light",
             },
@@ -89,4 +60,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default AboutUs;
+export default StartHere;

@@ -6,7 +6,6 @@ import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import Social01 from "@components/socials/social-01";
 import BurgerButton from "@ui/burger-button";
-import Anchor from "@ui/anchor";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
 import menu from "@data/menu";
@@ -15,12 +14,6 @@ import { useSticky } from "@hooks";
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
 });
-const FlyoutSearchForm = dynamic(
-    () => import("../../components/forms/flyout-search-form-02"),
-    {
-        ssr: false,
-    }
-);
 
 type TProps = {
     shadow?: boolean;
@@ -99,10 +92,6 @@ const Header = ({ shadow, fluid }: TProps) => {
                 isOpen={offcanvas}
                 onClose={() => setOffcanvas(false)}
                 menu={menu}
-            />
-            <FlyoutSearchForm
-                show={visibleSearch}
-                onClose={() => setVisibleSearch(false)}
             />
         </>
     );
