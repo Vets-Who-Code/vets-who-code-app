@@ -15,7 +15,7 @@ type TProps = {
 };
 
 const CourseArea = ({ data: { courses } }: TProps) => {
-    const { sortedItems, sortValue } = useSort<ICourse>(courses, courseSorting);
+    const { sortedItems } = useSort<ICourse>(courses, courseSorting);
     const { itemsToShow } = useLoadMore<ICourse>(sortedItems, 8, 2);
 
     return (
