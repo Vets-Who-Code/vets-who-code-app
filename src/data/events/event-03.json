@@ -1,11 +1,11 @@
 {
     "id": 3,
-    "title": "International Art Fair 2024",
+    "title": "#VetsWhoCode Drill:Seattle University MBA Candidates",
     "thumbnail": {
-        "src": "/images/event/03.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/seattleMBA-drill-hiringpartners_fuvc03.jpg"
     },
-    "start_date": "2024-09-01",
-    "end_date": "2024-09-01",
+    "start_date": "2023-02-23",
+    "end_date": "2024-02-23",
     "start_time": "19:00:00",
     "end_time": "21:30:00",
     "venue": "Betahaus Hamburg Schanze, Eifflerstraße 43",
