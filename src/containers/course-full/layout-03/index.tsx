@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Section from "@ui/section";
 import NiceSelect from "@ui/nice-select";
 import CourseCard from "@components/course-card/course-03";
-import Button from "@ui/button";
 import { ICourse } from "@utils/types";
 import { courseSorting } from "@utils/methods";
 import { useSort, useLoadMore } from "@hooks";
