@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import Section from "@ui/section";
-import NiceSelect from "@ui/nice-select";
 import CourseCard from "@components/course-card/course-02";
-import Button from "@ui/button";
 import { ICourse } from "@utils/types";
 import { courseSorting } from "@utils/methods";
 import { useSort, useLoadMore } from "@hooks";
@@ -17,15 +15,8 @@ type TProps = {
 };
 
 const CourseArea = ({ data: { courses } }: TProps) => {
-    const { sortedItems, setSortValue, sortValue } = useSort<ICourse>(
-        courses,
-        courseSorting
-    );
-    const { hasMore, itemsToShow, handlerLoadMore } = useLoadMore<ICourse>(
-        sortedItems,
-        9,
-        3
-    );
+    const { sortedItems } = useSort<ICourse>(courses, courseSorting);
+    const { itemsToShow } = useLoadMore<ICourse>(sortedItems, 9, 3);
 
     return (
         <Section className="course-area" space="bottom">
