@@ -27,21 +27,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                     <p className="tw-mb-2.5">
                         We found {sortedItems.length} subjects available for you
                     </p>
-                    <NiceSelect
-                        className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"
-                        options={[
-                            {
-                                label: "Default",
-                                value: "default",
-                                selected: true,
-                            },
-                            { label: "Popularity", value: "popular" },
-                            { label: "Latest", value: "latest" },
-                        ]}
-                        setValue={setSortValue}
-                        prefix="Sort By:"
-                        defaultValue={sortValue}
-                    />
                 </div>
                 <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5">
                     {itemsToShow?.map((course) => (
