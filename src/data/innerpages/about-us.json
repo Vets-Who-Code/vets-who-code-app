@@ -105,7 +105,7 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Established in 2014, #VetsWhoCode is a non-profit organization working to bridge the noticeable gap between the urgent demand for technical expertise and its availability in America. Our mission, inspired by the principle \"To Teach a Man To Fish,\" is devoted to adequately preparing early-stage transitioning veterans for their return to the workforce.We acknowledge that early-stage transitioning veterans face unique challenges, and society often views them as a \"vulnerable population.\"This perception exists because most Veteran Services have been designed with veterans from prior eras in mind, not for those in the early stages of transition. Despite the changes in generations, the same protocols and policies are used, often in a reactive rather than proactive manner."
+                            "content": "Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise. Inspired by \"To Teach a Man To Fish,\" we prepare early-stage transitioning veterans for the workforce. We acknowledge their unique challenges as a \"vulnerable population\" due to outdated support systems. We proactively focus on empowering our troops for success."
                         }
                     ]
                 },
@@ -119,17 +119,17 @@
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris"
+                            "content": "Why We Do This"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget mauris"
+                            "content": "Our Motivation"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                            "content": "The commitment to address challenges faced by transitioning veterans drives #VetsWhoCode. We transform lives, empowering them for rewarding tech careers. By arming veterans with software skills, we enhance prospects, contribute to economies, and promote innovation. Our passion for sustainable solutions goes beyond traditional programs, equipping students for success."
                         }
                     ]
                 },
@@ -143,17 +143,17 @@
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris"
+                            "content": "What We Do"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget mauris"
+                            "content": "The Work"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.."
+                            "content": "Our approach sets us apart. We provide a streamlined and highly selective software development training program uniquely designed to usher military veterans into opportunities within the tech sector. #VetsWhoCode was established by vets who have personally navigated the challenging transition terrain. We prioritize quality over quantity and tangible results over lofty ideals."
                         }
                     ]
                 },
@@ -167,17 +167,17 @@
                     "headings": [
                         {
                             "id": 1,
-                            "content": "eget mauris"
+                            "content": "How We Do This"
                         }, 
                         {
                             "id": 2,
-                            "content": "eget maurist"
+                            "content": "Accomplishing Our Mission"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                            "content": "We adopt a \"Crawl, Walk, Run\" strategy, ensuring veterans evolve into proficient programmers. Instructors, veterans, programmers, and alums guide with expertise. Our training focuses on income-generating skills. Empowering veterans for successful reintegration and driving innovation in local economies is our goal. #VetsWhoCode reduces the digital talent gap, equipping veterans for gratifying careers in the digital economy."
                         }
                     ]
                 }
@@ -186,128 +186,14 @@
         {
             "section": "cta-area",
             "section_title": {
-                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.",
-                "subtitle":"Get yourself a <strong>#VetsWhoCode</strong> ID?"
+                "title": "You can help change veterans' lives by supporting #VetsWhoCode and empowering their futures in tech. Together, let's bridge the gap and make a lasting impact. Donate today and be the catalyst for positive change.",
+                "subtitle":"How can <strong>YOU</strong> help?"
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/contact-us",
-                    "content": "eget mauris"
-                }
-            ]
-        },
-        {
-            "section": "gallery-area",
-            "items": [
-                {
-                    "id": 1,
-                    "name": "Jerome Hardaway",
-                    "designation": "Executive Director",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-01.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "name": "Ayumi Bennett",
-                    "designation": "Program Manager",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-02.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "name": "Schuster Braun",
-                    "designation": "Alumni",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-03.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "name": "Andrew James",
-                    "designation": "Alumni",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-04.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 5,
-                    "name": "Vanessa Withun",
-                    "designation": "Alumni",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-05.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 6,
-                    "name": "Lorean McPhils",
-                    "designation": "Designer",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-06.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 7,
-                    "name": "Anna Muray",
-                    "designation": "Writer",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-07.jpg"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "section": "faq-area",
-            "section_title": {
-                "title": "Best chances for expanding your <br> success to the max",
-                "subtitle":"Four major Steps to Success"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "title": "eget mauris",
-                    "description": "lorem ipsum"
-                },
-                {
-                    "id": 2,
-                    "title": "eget mauris",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.."
-                },
-                {
-                    "id": 3,
-                    "title": "eget mauris",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
-                },
-                {
-                    "id": 4,
-                    "title": "eget mauris",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
-                },
-                {
-                    "id": 5,
-                    "title": "eget mauris",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
-                },
-                {
-                    "id": 6,
-                    "title": "eget mauris",
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                    "path": "/donate",
+                    "content": "Donate"
                 }
             ]
         }
