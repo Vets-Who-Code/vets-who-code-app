@@ -83,21 +83,6 @@ const Header = ({ shadow, fluid }: TProps) => {
                             />
                             <div className="tw-flex tw-justify-end tw-items-center">
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
-                                <Anchor
-                                    path="/profile"
-                                    className="tw-px-2.5 tw-leading-none"
-                                    aria-label="User Profile"
-                                >
-                                    <i className="far fa-user-circle tw-text-lg tw-text-dark-50" />
-                                </Anchor>
-                                <button
-                                    type="button"
-                                    className="tw-inline-block tw-text-dark-50 tw-px-2.5"
-                                    onClick={() => setVisibleSearch(true)}
-                                    aria-label="Toggle Search"
-                                >
-                                    <i className="far fa-search tw-text-lg" />
-                                </button>
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
