@@ -2,237 +2,312 @@
     "name": "about-us",
     "content": [
         {
-            "section": "funfact-area",
-            "section_title": {
-                "title": "Maximizing Your Potentials with <span>Vets Who Code</span>",
-                "subtitle": "Everything is <strong>Vets Who Code</strong>",
-                "description": "We love to inspire and guide you through any subject, develop new skills or upgrade your educational background."
-            },
-            "motto": {
-                "text": "Have questions?​",
-                "path": "/start-here",
-                "pathText": "Get Free Guidbook"
-            },
+            "section": "hero-area",
             "items": [
                 {
                     "id": 1,
-                    "title": "Finished Sessions",
-                    "counter": 1.926
-                },
-                {
-                    "id": 2,
-                    "title": "Online Enrollment",
-                    "suffix": "+",
-                    "counter": 3.092
-                },
-                {
-                    "id": 3,
-                    "title": "Subjects Taught",
-                    "counter": 200
-                },
-                {
-                    "id": 4,
-                    "title": "Satisfaction rate",
-                    "suffix": "%",
-                    "counter": 100
-                }
-            ]
-        },
-        {
-            "section": "faq-area",
-            "section_title": {
-                "title": "Construct A <span>Stunning</span> Career Perspective",
-                "subtitle": "Everything <strong>VetsWhoCode</strong>"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "title": "Multiple Platforms Supported for Teaching & Studying",
-                    "description": "VetsWhoCode supports the act of teaching and learning on multiple platforms like online or offline via material downloads. We know things aren’t supposed to be devoured in a short time, you can always access our knowledge base from any device."
-                },
-                {
-                    "id": 2,
-                    "title": "Multiple Course Participation at the Same Time",
-                    "description": "Study for a number of courses at the same time is possible as long as you can afford the fee and time for completing them in the proper time. Learn at your own desired timeline and timetable. Maximum up to 5 course at a time for a learner at VetsWhoCode."
-                },
-                {
-                    "id": 3,
-                    "title": "Track Study Progress & Deliver Prompt Feedback",
-                    "description": "It’s not just a normal thing to be able to build such a solid online educational system like VetsWhoCode where your progress is easily tracked and feedback is properly delivered. We promise to keep improving our system for better stability and flexibility."
-                }
-            ],
-            "images": [
-                {
-                    "src": "/images/about/about03/about-us-03-image-01.png"
-                }
-            ]
-        },
-        {
-            "section": "testimonial-area",
-            "section_title": {
-                "title": "Why People Talk About <span>VetsWhoCode</span>?"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "name": "Florence Themes",
-                    "designation": "Multimedia Admin",
-                    "description": "I'm a very strict person so I require everything to be organized and neat. VetsWhoCode guys just got me.",
                     "images": [
                         {
-                            "src": "/images/testimonial/200/testimonial-avata-02.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Results <br> Driven<br>"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "Learn What Matters"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We Focus On The Skills You Need For The Software Industry."
                         }
                     ]
                 },
                 {
                     "id": 2,
-                    "name": "Mina Hollace",
-                    "designation": "Freelancer",
-                    "description": "I am free to learn at my own pace, follow my own schedule and choose the subject I like. Great study portal for people like me.",
                     "images": [
                         {
-                            "src": "/images/testimonial/200/testimonial-avata-03.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "100%<br> ONLINE<br>"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "Learn Where You Are"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Our WorkfLow Ensures That You Can Learn From Anywhere."
                         }
                     ]
                 },
                 {
                     "id": 3,
-                    "name": "Madley Pondor",
-                    "designation": "IT Specialist",                    
-                    "description": "VetsWhoCode is my best choice. Their tutors are smart and professional when dealing with students.",
                     "images": [
                         {
-                            "src": "/images/testimonial/200/testimonial-avata-04.jpg"
+                            "src": "/https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
                         }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "name": "Luvic Dubble",
-                    "designation": "Private Tutor",                    
-                    "description": "I am happy with their arrangement of lessons and subjects. They reflect a scientific investigation.",
-                    "images": [
+                    ],
+                    "headings": [
                         {
-                            "src": "/images/testimonial/200/testimonial-avata-01.jpg"
+                            "id": 1,
+                            "content": "LEARN <br>PRAGMATICALLY<br>"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "Practical Coding Proficiency"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content":"Learn To Think And Solve Problems like a Programmer."
                         }
                     ]
                 }
             ]
         },
         {
-            "section": "brand-area",
-            "items": [
-                {
-                    "id": 1,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-01.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-02.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-03.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-04.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 5,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-05.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 6,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-06.png"
-                        }
-                    ]
-                },
-                {
-                    "id": 7,
-                    "images": [
-                        {
-                            "src": "/images/brand/client-logo-colored-01.png"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "section": "service-area",
+            "section": "timeline-area",
             "section_title": {
-                "title": "Things We <span>Can Help</span> You.",
-                "subtitle":"Maximize your potentials"
+                "title": "About<br> Us",
+                "subtitle": "Our Story"
             },
             "items": [
                 {
                     "id": 1,
-                    "icon": "linea-basic-flag2",
-                    "title": "Life Mentoring",
-                    "description": "Get some soul healing and guidance for your future career and vocational directions.",
-                    "path": "/start-here"
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-01.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "Who We Are"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "The Beginning"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Established in 2014, #VetsWhoCode is a non-profit organization working to bridge the noticeable gap between the urgent demand for technical expertise and its availability in America. Our mission, inspired by the principle \"To Teach a Man To Fish,\" is devoted to adequately preparing early-stage transitioning veterans for their return to the workforce.We acknowledge that early-stage transitioning veterans face unique challenges, and society often views them as a \"vulnerable population.\"This perception exists because most Veteran Services have been designed with veterans from prior eras in mind, not for those in the early stages of transition. Despite the changes in generations, the same protocols and policies are used, often in a reactive rather than proactive manner."
+                        }
+                    ]
                 },
                 {
                     "id": 2,
-                    "icon": "linea-basic-gear",
-                    "title": "Self Development",
-                    "description": "Develop skills for career of various majors including computer science & language competence.",
-                    "path": "/start-here"
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-02.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "eget mauris"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "eget mauris"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                        }
+                    ]
                 },
                 {
                     "id": 3,
-                    "icon": "linea-basic-life-buoy",
-                    "title": "Ask Consultancy",
-                    "description": "Make a reservation with our special consultant to learn what's best for your dream career.",
-                    "path": "/start-here"
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-03.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "eget mauris"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "eget mauris"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.."
+                        }
+                    ]
                 },
                 {
                     "id": 4,
-                    "icon": "linea-basic-display",
-                    "title": "Remote Learning",
-                    "description": "Learn from anywhere in the world on desktop, tablet or mobile phone with an Internet connection.",
-                    "path": "/start-here"
-                }
-            ],
-            "images": [
-                {
-                    "src": "/images/about/about03/about-us-03-image-02.png"
+                    "images": [
+                        {
+                            "src": "/images/timeline/start-here-timeline-photo-03.jpg"
+                        }
+                    ],
+                    "headings": [
+                        {
+                            "id": 1,
+                            "content": "eget mauris"
+                        }, 
+                        {
+                            "id": 2,
+                            "content": "eget maurist"
+                        }
+                    ],
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                        }
+                    ]
                 }
             ]
         },
         {
             "section": "cta-area",
             "section_title": {
-                "title": "You can be your own guiding star with our help!",
-                "subtitle":"Start today for getting <span>#VetsWhoCode</span>"
+                "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.",
+                "subtitle":"Get yourself a <strong>#VetsWhoCode</strong> ID?"
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/start-here",
-                    "content": "Get started for free"
+                    "path": "/contact-us",
+                    "content": "eget mauris"
+                }
+            ]
+        },
+        {
+            "section": "gallery-area",
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Jerome Hardaway",
+                    "designation": "Executive Director",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-01.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Ayumi Bennett",
+                    "designation": "Program Manager",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-02.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Schuster Braun",
+                    "designation": "Alumni",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-03.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "name": "Andrew James",
+                    "designation": "Alumni",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-04.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Vanessa Withun",
+                    "designation": "Alumni",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-05.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Lorean McPhils",
+                    "designation": "Designer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-06.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "name": "Anna Muray",
+                    "designation": "Writer",
+                    "images": [
+                        {
+                            "src": "/images/gallery/start-here-gallery-image-07.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "faq-area",
+            "section_title": {
+                "title": "Best chances for expanding your <br> success to the max",
+                "subtitle":"Four major Steps to Success"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "eget mauris",
+                    "description": "lorem ipsum"
+                },
+                {
+                    "id": 2,
+                    "title": "eget mauris",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus.."
+                },
+                {
+                    "id": 3,
+                    "title": "eget mauris",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                },
+                {
+                    "id": 4,
+                    "title": "eget mauris",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                },
+                {
+                    "id": 5,
+                    "title": "eget mauris",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
+                },
+                {
+                    "id": 6,
+                    "title": "eget mauris",
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur a erat nam at lectus."
                 }
             ]
         }

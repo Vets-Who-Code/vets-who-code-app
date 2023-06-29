@@ -26,7 +26,7 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
-const StartHere: PageProps = ({ data }) => {
+const AboutUs: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
@@ -41,10 +41,10 @@ const StartHere: PageProps = ({ data }) => {
     );
 };
 
-StartHere.Layout = Layout;
+AboutUs.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "start-here");
+    const page = getPageData("inner", "about-us");
 
     return {
         props: {
@@ -60,4 +60,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default StartHere;
+export default AboutUs;
