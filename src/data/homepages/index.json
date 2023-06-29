@@ -65,7 +65,7 @@
                     ],
                     "title": "Remote-First Learning",
                     "description": "Learn from anywhere with our remote-first program—just need a computer, internet, and determination.",
-                    "path": "/start-here",
+                    "path": "/about-us",
                     "pathText": "Start here"
                 },
                 {
@@ -77,7 +77,7 @@
                     ],
                     "title": "Develop Cutting-Edge Skills",
                     "description": "Our evolving curriculum keeps you ahead of the curve with the latest industry trends.",
-                    "path": "/start-here",
+                    "path": "/about-us",
                     "pathText": "Start here"
                 },
                 {
@@ -89,13 +89,13 @@
                     ],
                     "title": "A Lifelong Community of Support",
                     "description": "Personalized sessions, mentorship, and a supportive community ensure you're never alone on your journey.",
-                    "path": "/start-here",
+                    "path": "/about-us",
                     "pathText": "Start here"
                 }
             ],
             "motto": {
                 "text": "Empowering Veterans through Software Engineering.",
-                "path": "/start-here",
+                "path": "/about-us",
                 "pathText": "Let’s get started"
             }
         },
@@ -108,7 +108,7 @@
             },
             "motto": {
                 "text": "Want To Learn More?​",
-                "path": "/start-here",
+                "path": "/about-us",
                 "pathText": "Start here"
             },
             "items": [

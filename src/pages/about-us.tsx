@@ -30,8 +30,8 @@ const StartHere: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="Start Here" />
-            <h1 className="tw-sr-only">Start Here</h1>
+            <SEO title="About Us" />
+            <h1 className="tw-sr-only">About Us</h1>
             <HeroArea data={content?.["hero-area"]} />
             <TimelineArea data={content?.["timeline-area"]} />
             <CtaArea data={content?.["cta-area"]} space="bottom" />
