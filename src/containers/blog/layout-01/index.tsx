@@ -35,7 +35,7 @@ const BlogArea = ({
         >
             <div className="tw-absolute tw-inset-0 tw-flex jtw-justify-center tw-items-center">
                 <img
-                    src="/images/bg/maxcoach-shape-03.png"
+                    src="/images/bg/shape-03.png"
                     alt="shape"
                     loading="lazy"
                     width={1211}
