@@ -22,7 +22,6 @@ type TProps = {
 
 const Header = ({ shadow, fluid }: TProps) => {
     const router = useRouter();
-    const [visibleSearch, setVisibleSearch] = useState(false);
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
 
