@@ -65,19 +65,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                         />
                     ))}
                 </div>
-                <div className="tw-text-center tw-mt-[50px]">
-                    {hasMore ? (
-                        <Button
-                            variant="outlined"
-                            className="tw-min-w-[250px] tw-border-gray-500"
-                            onClick={handlerLoadMore}
-                        >
-                            Load More <i className="fal fa-redo tw-ml-4" />
-                        </Button>
-                    ) : (
-                        <p>No course to show</p>
-                    )}
-                </div>
             </div>
         </Section>
     );

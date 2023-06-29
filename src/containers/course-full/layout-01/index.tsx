@@ -31,27 +31,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
         <Section className="course-area" space="bottom">
             <h2 className="tw-sr-only">Course Section</h2>
             <div className="tw-container">
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
-                    <p className="tw-mb-2.5">
-                        We teach {sortedItems.length} subjects so you can
-                        prepare for the industry.
-                    </p>
-                    <NiceSelect
-                        className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"
-                        options={[
-                            {
-                                label: "Default",
-                                value: "default",
-                                selected: true,
-                            },
-                            { label: "Popularity", value: "popular" },
-                            { label: "Latest", value: "latest" },
-                        ]}
-                        setValue={setSortValue}
-                        prefix="Sort By:"
-                        defaultValue={sortValue}
-                    />
-                </div>
                 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-[30px]">
                     {itemsToShow?.map((course) => (
                         <AnimatedCourseCard
@@ -65,19 +44,6 @@ const CourseArea = ({ data: { courses } }: TProps) => {
                             variants={scrollUpVariants}
                         />
                     ))}
-                </div>
-                <div className="tw-text-center tw-mt-[50px]">
-                    {hasMore ? (
-                        <Button
-                            variant="outlined"
-                            className="tw-min-w-[250px] tw-border-gray-500"
-                            onClick={handlerLoadMore}
-                        >
-                            Load More <i className="fal fa-redo tw-ml-4" />
-                        </Button>
-                    ) : (
-                        <p>No course to show</p>
-                    )}
                 </div>
             </div>
         </Section>
