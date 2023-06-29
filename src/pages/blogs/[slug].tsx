@@ -5,7 +5,6 @@ import Breadcrumb from "@components/breadcrumb";
 import BlogDetailsArea from "@containers/blog-details";
 import BlogAuthor from "@containers/blog-details/blog-author";
 import BlogNavLinks from "@containers/blog-details/nav-links";
-import DisqusComment from "@components/disqus-comment";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
 import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
 import { toCapitalize } from "@utils/methods";
@@ -66,7 +65,6 @@ const BlogDetails: PageProps = ({
                     <BlogDetailsArea {...blog} />
                     <BlogAuthor {...blog.author} />
                     <BlogNavLinks {...prevAndNextPost} />
-                    <DisqusComment id={blog.slug} title={blog.title} />
                 </div>
                 <div className="tw-col-span-full lg:tw-col-[3/-1]">
                     <BlogSidebar recentPosts={recentPosts} tags={tags} />
