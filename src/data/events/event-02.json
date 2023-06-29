@@ -1,16 +1,16 @@
 {
     "id": 2,
-    "title": "Painting Art Contest 2024",
+    "title": "VetsWhoCode Drill: Logan Kilpatrick and OpenAI",
     "thumbnail": {
-        "src": "/images/event/02.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/kilpatrick-drill-openAI_iaz9w2.jpg"
     },
-    "start_date": "2022-05-01",
-    "end_date": "2022-05-01",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue": "4765 Commercial Drive, New Hartford NY 13413",
+    "start_date": "2023-03-30",
+    "end_date": "2023-03-30",
+    "start_time": "19:00:00",
+    "end_time": "20:00:00",
+    "venue": "Virtual",
     "location": {
-        "city": "New York",
+        "city": "Atlanta",
         "country": "US",
         "zip": "20099",
         "latitude": 40.758062,
