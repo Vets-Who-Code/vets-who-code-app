@@ -1,0 +1,41 @@
+{
+    "id": 4,
+    "title": "#VetsWhoCode Drill: Anthony Bartolo",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/bartolo-drill-AI_sovxva.jpg"
+    },
+    "start_date": "2023-01-26",
+    "end_date": "2023-01-26",
+    "start_time": "19:00:00",
+    "end_time": "20:30:00",
+    "venue": "Virtual",
+    "location": {
+        "city": "Atlanta",
+        "country": "US",
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
+    },
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Solomon",
+            "designation": "Designer",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Each year The Old Auction House curates themed group exhibitions for those artists who wish to exhibit but may not have sufficient work to fill a whole gallery."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "No matter if you use it for outline, details, or shading the use of line can bring your art to life. Show us how the element of line enhances your creativity."
+        }
+    ]
+}
