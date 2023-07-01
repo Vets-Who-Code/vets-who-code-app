@@ -262,7 +262,7 @@
                     "id": 5,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269010/contentful_l1vmka.png"
+                            "src": "images/sponsors/contentful-logo-black.png"
                         }
                     ]
                 },
@@ -271,6 +271,22 @@
                     "images": [
                         {
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656269007/adzuna_bxt6zd.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "images": [
+                        {
+                            "src": "images/sponsors/cloudflare-logo-black.svg"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "images": [
+                        {
+                            "src": "images/sponsors/hashicorp-logo-black.svg"
                         }
                     ]
                 }
