@@ -2,10 +2,8 @@ import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import VideoArea from "@containers/video/layout-05";
 import QuoteArea from "@containers/quote/layout-02";
 import FaqArea from "@containers/faq/layout-03";
-import GalleryArea from "@containers/gallery";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
@@ -36,10 +34,8 @@ const Faq: PageProps = ({ data }) => {
                 showTitle={false}
                 className="tw-bg-gray-200"
             />
-            <VideoArea data={content?.["video-area"]} />
             <QuoteArea data={content?.["quote-area"]} />
             <FaqArea data={content?.["faq-area"]} />
-            <GalleryArea data={content?.["gallery-area"]} />
         </>
     );
 };
