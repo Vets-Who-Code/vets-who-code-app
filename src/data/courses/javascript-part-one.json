@@ -1,21 +1,21 @@
 {
-    "id": 6,
-    "title": "Javascript 201",
+    "id": 5,
+    "title": "Javascript 101",
     "thumbnail": {
-        "src": "/images/courses/370/course-6.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/js-101_bwe5bt.jpg"
     },
     "published_at": "2018-04-01T00:00:00.000Z",
     "category": "Programming",
-    "price": 95.00,
+    "price": 35.00,
     "currency": "$",
     "language": "english",
-    "instructor": 1,
-    "duration": "48 hours",
-    "total_lectures": 40,
-    "total_students": 100,
+    "instructor": 2,
+    "duration": "25 hours",
+    "total_lectures": 20,
+    "total_students": 75,
     "membership": ["diamond"],
     "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "curriculum": ["chapter-01", "chapter-02", "chapter-04", "chapter-05", "chapter-06"],
+    "curriculum": ["chapter-01", "chapter-03", "chapter-04", "chapter-06", "chapter-07"],
     "reviews": {
         "average": 4.5,
         "count": 2,

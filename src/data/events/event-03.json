@@ -8,13 +8,13 @@
     "end_date": "2024-02-23",
     "start_time": "19:00:00",
     "end_time": "21:30:00",
-    "venue": "Betahaus Hamburg Schanze, Eifflerstraße 43",
+    "venue": "Virtual",
     "location": {
-        "city": "Hamburg",
-        "country": "Germany",
-        "zip": "20099",
-        "latitude": 40.758062,
-        "longitude": -73.9699129
+        "city": "Atlanta",
+        "country": "US",
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
     },
     "price": 19.00,
     "currency": "$",

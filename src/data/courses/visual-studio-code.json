@@ -1,21 +1,22 @@
 {
-    "id": 5,
-    "title": "Javascript 101",
+    "id": 2,
+    "title": "Visual Studio Code",
     "thumbnail": {
-        "src": "/images/courses/370/course-5.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/vsc_xiqqpc.jpg"
     },
-    "published_at": "2018-04-01T00:00:00.000Z",
-    "category": "Programming",
-    "price": 35.00,
+    "published_at": "2018-01-01T00:00:00.000Z",
+    "category": "Business",
+    "price": 0,
     "currency": "$",
     "language": "english",
     "instructor": 2,
-    "duration": "25 hours",
+    "duration": "45 hours",
     "total_lectures": 20,
-    "total_students": 75,
+    "total_students": 50,
     "membership": ["diamond"],
+    "isPopular": true,
     "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "curriculum": ["chapter-01", "chapter-03", "chapter-04", "chapter-06", "chapter-07"],
+    "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-06", "chapter-07"],
     "reviews": {
         "average": 4.5,
         "count": 2,

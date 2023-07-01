@@ -8,13 +8,13 @@
     "end_date": "2023-01-26",
     "start_time": "19:00:00",
     "end_time": "20:30:00",
-    "venue": "5555 North River Road Rosemont, IL 60018",
+    "venue": "Virtual",
     "location": {
-        "city": "Illinois",
+        "city": "Atlanta",
         "country": "US",
-        "zip": "20099",
-        "latitude": 40.758062,
-        "longitude": -73.9699129
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
     },
     "price": 29.00,
     "currency": "$",

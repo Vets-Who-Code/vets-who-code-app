@@ -1,21 +1,21 @@
 {
-    "id": 3,
-    "title": "GitHub",
+    "id": 4,
+    "title": "Semantic HTML && CSS3",
     "thumbnail": {
-        "src": "/images/courses/370/course-3.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/html-css_fkwetk.jpg"
     },
-    "published_at": "2018-02-01T00:00:00.000Z",
-    "category": "Programming",
-    "price": 55.00,
+    "published_at": "2018-03-01T00:00:00.000Z",
+    "category": "Technology",
+    "price": 85.00,
     "currency": "$",
     "language": "english",
-    "instructor": 3,
-    "duration": "50 hours",
-    "total_lectures": 27,
-    "total_students": 55,
+    "instructor": 1,
+    "duration": "70 hours",
+    "total_lectures": 35,
+    "total_students": 67,
     "membership": ["diamond"],
     "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "curriculum": ["chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07"],
+    "curriculum": ["chapter-02", "chapter-03", "chapter-05", "chapter-06", "chapter-07"],
     "reviews": {
         "average": 4.5,
         "count": 2,
