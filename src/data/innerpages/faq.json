@@ -52,25 +52,17 @@
             "items": [
                 {
                     "id": 1,
-                    "title": "What are the reasons for learners to choose distant learning (e-learning) over the traditional method?",
+                    "title": "Who is eligible to join VetsWhoCode cohort?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "FLEXIBILITY – Work, family, degree—it’s all possible."
-                        },
-                        {
-                            "id": 2,
-                            "content": "Convenience – Study on your time schedule, no commute, stackable programs lead to certificates and degrees."
-                        },
-                        {
-                            "id": 3,
-                            "content": "Proven Modality – More than 5 million students take one or more distance education courses each year."
+                            "content": "Active Duty Troops, Honorable Discharged Veterans and Military spouses."
                         }
                     ]
                 },
                 {
                     "id": 2,
-                    "title": "What makes #VetsWhoCode different from others? Is that the equipment or the tutor?",
+                    "title": "Do I need to show any proof of eligibility?",
                     "texts": [
                         {
                             "id": 1,
@@ -80,7 +72,7 @@
                 },
                 {
                     "id": 3,
-                    "title": "Which kind of opportunities is opened up to me when I take the lead?",
+                    "title": "Where do I need to be currently living?",
                     "texts": [
                         {
                             "id": 1,
