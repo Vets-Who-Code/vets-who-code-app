@@ -66,7 +66,7 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "New Relationships and Networking Opportunities – Learn alongside students who offer diverse levels of experience and perspective. Students enroll from all corners of the world contributing to a rich classroom environment."
+                            "content": "We ask for proof of connection to service during the initial interview process but we don’t ask for copies of it to protect your identity."
                         }
                     ]
                 },
@@ -76,88 +76,67 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Career Advancement and Entrepreneurial Opportunities – Advance your career with additional credentials or degrees. Quality of Instruction – University of Illinois faculty are among the most accomplished scholars in the world. Academic Excellence – Online degree seekers earn the same degree as U of I campus-based degree seeking students."
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "section": "course-area",
-            "section_title": {
-                "title": "Related Course"
-            }
-        },
-        {
-            "section": "gallery-area",
-            "items": [
-                {
-                    "id": 1,
-                    "name": "Lonnie Marks",
-                    "designation": "Tutor",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-01.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "name": "Britney Salker",
-                    "designation": "Educator",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-02.jpg"
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "name": "Bronnies Wallz",
-                    "designation": "Alumnis",
-                    "images": [
-                        {
-                            "src": "/images/gallery/start-here-gallery-image-03.jpg"
+                            "content": "You can live wherever you want because we are a remote program. We have students from all over the world."
                         }
                     ]
                 },
                 {
                     "id": 4,
-                    "name": "Mia Paulo",
-                    "designation": "Writer",
-                    "images": [
+                    "title": "What do I need to do to apply?",
+                    "texts": [
                         {
-                            "src": "/images/gallery/start-here-gallery-image-04.jpg"
+                            "id": 1,
+                            "content": "You have to complete the prework to qualify for an interview."
                         }
                     ]
                 },
                 {
                     "id": 5,
-                    "name": "Lina Esthers",
-                    "designation": "Author",
-                    "images": [
+                    "title": "Oh, there’s prework?  What do I do if I’m stuck on something in the prework?",
+                    "texts": [
                         {
-                            "src": "/images/gallery/start-here-gallery-image-05.jpg"
+                            "id": 1,
+                            "content": "You can always reach out to us our contact form or our Linkedin Group and if you explain your problem during the interview we can give advice so you can resend."
                         }
                     ]
                 },
                 {
                     "id": 6,
-                    "name": "Lorean McPhils",
-                    "designation": "Designer",
-                    "images": [
+                    "title": "What is the application process? When will I know I’m accepted?",
+                    "texts": [
                         {
-                            "src": "/images/gallery/start-here-gallery-image-06.jpg"
+                            "id": 1,
+                            "content": "The process is once you complete the prework we set up the interview as we get closer to acceptance date. Afterwards we let you know that whether you make it or not"
                         }
                     ]
                 },
                 {
                     "id": 7,
-                    "name": "Anna Muray",
-                    "designation": "Writer",
-                    "images": [
+                    "title": "What is the cost to attend the program?",
+                    "texts": [
                         {
-                            "src": "/images/gallery/start-here-gallery-image-07.jpg"
+                            "id": 1,
+                            "content": "It’s absolutely free for everyone that gets in. Here you pay in learning how to build and pairing on web app features."
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "Do you take the GI Bill? Do I need to use the GI Bill?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "There is no need to gather GI Bill resources because you don’t need them with us."
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "title": "What type of computer do I need in order to be able to do the work for VetsWhoCode?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "While we try not to focus on the type of machine you have we ask that your computer be no older than five years old."
                         }
                     ]
                 }
