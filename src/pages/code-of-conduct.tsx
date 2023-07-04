@@ -3,18 +3,7 @@ import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import MarkdownRenderer from "@components/markdown-renderer";
-
-import { ICourse } from "@utils/types";
-
-import { getallCourses } from "../lib/course";
 import { getPageBySlug } from "../lib/mdx-pages";
-
-type TProps = {
-    data: {
-        page: string;
-        recentCourses: ICourse[];
-    };
-};
 
 type PageProps = NextPage<TProps> & {
     Layout: typeof Layout;
@@ -28,7 +17,7 @@ const CodeOfConduct: PageProps = ({ data }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Code Of Conduct"
             />
-            <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-grid-cols-3 tw-gap-7.5 lg:tw-gap-15">
+            <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] w-full tw-gap-7.5 lg:tw-gap-15">
                 <div className="tw-col-span-full tw-order-1 lg:tw-order-2 lg:tw-col-[2/-1]">
                     <MarkdownRenderer content={data.page} />
                 </div>
@@ -41,13 +30,11 @@ CodeOfConduct.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageBySlug("code-of-conduct");
-    const recentCourses = getallCourses(["title", "thumbnail"], 0, 4);
 
     return {
         props: {
             data: {
                 page,
-                recentCourses,
             },
             layout: {
                 headerShadow: true,
