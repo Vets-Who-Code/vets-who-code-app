@@ -139,6 +139,16 @@
                             "content": "While we try not to focus on the type of machine you have we ask that your computer be no older than five years old."
                         }
                     ]
+                },
+                {
+                    "id": 10,
+                    "title": "How does the mentor program work?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We connect you to a mentor within your first month of VWC. We do this so you can have 1:1s that focus on your growth."
+                        }
+                    ]
                 }
             ]
         }
