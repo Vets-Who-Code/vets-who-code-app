@@ -36,13 +36,10 @@ CodeOfConduct.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageBySlug("code-of-conduct");
-    const recentCourses = getallCourses(["title", "thumbnail"], 0, 4);
-
     return {
         props: {
             data: {
                 page,
-                recentCourses,
             },
             layout: {
                 headerShadow: true,
