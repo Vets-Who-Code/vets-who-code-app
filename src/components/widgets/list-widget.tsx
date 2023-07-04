@@ -18,10 +18,7 @@ const ListWidget = ({ className, mode }: TProps) => {
                 )}
             >
                 <li className="tw-pr-5 tw-mb-[11px]">
-                    <Anchor path="/privacy-policy">Privacy policy</Anchor>
-                </li>
-                <li className="tw-pr-5 tw-mb-[11px]">
-                    <Anchor path="/terms-of-service">Terms of service</Anchor>
+                    <Anchor path="/code-of-conduct">Code of Conduct</Anchor>
                 </li>
             </ul>
         </div>
