@@ -4,7 +4,6 @@ import Layout01 from "@layout/layout-01";
 import HeroSection from "@containers/event-details/hero";
 import Summary from "@containers/event-details/summary";
 import Speakers from "@containers/event-details/speakers";
-import Comment from "@containers/event-details/comment";
 import { IEvent } from "@utils/types";
 import { toCapitalize } from "@utils/methods";
 import { getEventeBySlug, getallEvents } from "../../lib/event";
@@ -60,7 +59,6 @@ const SingleEvent: PageProps = ({ data: { event } }) => {
                 body={event.body}
             />
             <Speakers speakers={event.speakers} />
-            <Comment />
         </>
     );
 };
