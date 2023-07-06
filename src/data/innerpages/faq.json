@@ -2,38 +2,21 @@
     "name": "faq",
     "content": [
         {
-            "section": "video-area",
-            "section_title": {
-                "title": "The biggest turning point in my life: <br class='tw-hidden md:tw-block'> Wonderful choice.",
-                "subtitle":"FAQ"
-            },
-            "images": [
-                {
-                    "id": 1,
-                    "src": "/images/video/success-story-poster-image.jpg"
-                }
-            ],
-            "video": {
-                "videoId": "eS9Qm4AOOBY",
-                "channel": "youtube"
-            }
-        },
-        {
             "section": "quote-area",
             "headings": [
                 {
                     "id": 1,
-                    "content": "I learned one thing about online education is that <span>highly motivated individuals</span> always find a way to tackle the challenge in the most creative and flexible way."
+                    "content": "Unlocking answers, one question at a time. Welcome to our FAQs, where we empower veterans who code with knowledge and support. Got questions? We've got you covered. Together, let's conquer the FAQs and embark on a transformative coding journey."
                 }
             ],
             "texts": [
                 {
                     "id": 1,
-                    "content": "At #VetsWhoCode, we put ourselves in learners’ shoes to understand what they want and need, to build handy options for their education and guide them to a better version of themselves. We do the hard work to pave the ways for innovative higher education with advanced delivery modalities."
+                    "content": "Welcome to Vets Who Code FAQs! We're dedicated to understanding your needs and empowering your educational journey. Our goal is to provide innovative higher education options that lead you towards self-improvement. With advanced delivery methods, we pave the way for a better learning experience. Explore our FAQ section for answers to your questions and let us guide you to a brighter future in coding."
                 },
                 {
                     "id": 2,
-                    "content": "From high school students, tertiary pupils, graduates or post-graduate learners, learners of any levels can easily find a suitable online program for themselves. It’s now convenient than the past to take an online course for improving the degree, becoming working professionals or pursuing a better job with valid certification… #VetsWhoCode offers a wide range of online options for students around the globe."
+                    "content": "Enhance your degree, sharpen your skills, or pursue new career opportunities with our training. Join our global community of students and unlock the doors to a brighter future, all from the convenience of your own screen."
                 }
             ]
         },
@@ -42,11 +25,7 @@
             "images": [
                 {
                     "id": 1,
-                    "src": "/images/faq/success-story-image-01.jpg"
-                },
-                {
-                    "id": 2,
-                    "src": "/images/faq/success-story-image-02.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688508040/faq_cjb1hl.jpg"
                 }
             ],
             "items": [

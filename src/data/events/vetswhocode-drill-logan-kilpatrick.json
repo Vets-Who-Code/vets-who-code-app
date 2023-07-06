@@ -19,50 +19,10 @@
     "speakers": [
         {
             "id": 1,
-            "name": "Solomon",
-            "designation": "Designer",
+            "name": "Logan",
+            "designation": "Kilpatrick",
             "image": {
                 "src": "/images/speaker/speaker-6.jpg"
-            }
-        },
-        {
-            "id": 2,
-            "name": "Emerson",
-            "designation": "Developer",
-            "image": {
-                "src": "/images/speaker/speaker-1.jpg"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Bellezza",
-            "designation": "Content Writer",
-            "image": {
-                "src": "/images/speaker/speaker-2.jpg"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Lilybelle",
-            "designation": "Office Manager",
-            "image": {
-                "src": "/images/speaker/speaker-3.jpg"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Lucinda",
-            "designation": "Manager",
-            "image": {
-                "src": "/images/speaker/speaker-4.jpg"
-            }
-        },
-        {
-            "id": 6,
-            "name": "Orabelle",
-            "designation": "Art Director",
-            "image": {
-                "src": "/images/speaker/speaker-5.jpg"
             }
         }
     ],
@@ -70,32 +30,17 @@
         {
             "id": 1,
             "type": "text",
-            "content": "Lab.15 art contest, is a call for submissions open to all kind of artists. Works allowed in the art competition are: drawings, paintings, sculptures, photographs, graphics, mix media and video. A great opportunity for the artists, which can win a cash prize, have the chance to exhibit their artworks in a gallery in Milan (Italy) and much more."
+            "content": "The chat about ChatGPT and other AI tools are at an all-time high, and more people are trying out these GPT-based platforms every day. But as a programmer, how can we maximize our own skills by leveraging what’s now available in this AI space? What better way to learn about building with AI than from someone at OpenAI, the developers of ChatGPT?"
         },
         {
             "id": 2,
-            "type": "h5",
-            "content": "PRIZES: 5000,00€"
+            "type": "text",
+            "content": "Attend this talk by Logan Kilpatrick, a developer relations lead at OpenAI, to learn about how to leverage AI as a programmer and then build impact with OpenAI API. Free and open to the public with registration"
         },
         {
             "id": 3,
-            "type": "list",
-            "content": [
-                "collaboration award for a new Malamegi collection",
-                "artwork acquisition award",
-                "cash prize",
-                "monographic book prize"
-            ]
-        },
-        {
-            "id": 4,
             "type": "text",
-            "content": "The following types of works are admitted: Painting, Sculpture, Photography, Mixed media, Digital, Video, Graphics, Net art, other (all visual works that can be reproduced through a picture are allowed)."
-        },
-        {
-            "id": 5,
-            "type": "text",
-            "content": "The contest is addressed to professional and amateur artists, graphic designers, painters, photographers, etc. from all over the world."
+            "content": "Logan Kilpatrick currently leads developer relations at OpenAI, supporting developers building with DALL-E, the API, and ChatGPT. Outside of OpenAI, Logan is the Lead Developer Community Advocate for the Julia Programming Language, and a Teaching Fellow for Harvard University's Extension School course CSCI E-33A. Logan was previously a Applied Machine Learning Engineer and Software Engineer at Apple as well as the Community Manager for the Julia Programming Language. Additionally, Logan is on the Board of Directors at NumFOCUS and formerly on the board at DEFNA."
         }
     ]
 }
