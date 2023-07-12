@@ -34,7 +34,7 @@ export function getCourseBySlug(
     return {
         ...course,
         published_at: fileContents.published_at,
-        path: `/courses/${realSlug}`,
+        path: `/curriculum/${realSlug}`,
     };
 }
 

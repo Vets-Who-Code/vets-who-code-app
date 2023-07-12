@@ -108,8 +108,8 @@ export default [
             },
             {
                 id: 22,
-                label: "Syllabus",
-                path: "/courses/syllabus",
+                label: "Subjects",
+                path: "/curriculum/subjects",
             },
             {
                 id: 23,

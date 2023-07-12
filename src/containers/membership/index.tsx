@@ -119,13 +119,19 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                             <span className="tw-sr-only">df</span>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/courses/syllabus">Get it now</Button>
+                            <Button path="/curriculum/subjects">
+                                Get it now
+                            </Button>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/courses/syllabus">Get it now</Button>
+                            <Button path="/curriculum/subjects">
+                                Get it now
+                            </Button>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/courses/syllabus">Get it now</Button>
+                            <Button path="/curriculum/subjects">
+                                Get it now
+                            </Button>
                         </td>
                     </tr>
                 </tfoot>

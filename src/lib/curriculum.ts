@@ -45,7 +45,7 @@ export function getLessonBySlug(
     return {
         ...lesson,
         slug: realSlug,
-        path: `/courses/lessons/${coursePath}/${realSlug}`,
+        path: `/curriculum/lessons/${coursePath}/${realSlug}`,
     };
 }
 
