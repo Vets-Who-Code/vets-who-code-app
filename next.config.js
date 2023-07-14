@@ -6,6 +6,7 @@ const withPWA = require("next-pwa");
 const runtimeCaching = require("next-pwa/cache");
 const withReactSvg = require("next-react-svg");
 const path = require("path");
+require("dotenv").config();
 
 module.exports = withPWA(
     withReactSvg({

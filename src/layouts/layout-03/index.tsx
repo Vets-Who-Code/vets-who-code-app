@@ -1,15 +1,3 @@
-import { ReactNode } from "react";
-import ScrollToTop from "@ui/scroll-to-top";
-import Header from "../headers/header";
-import Footer from "../footers/footer-01";
-
-type TProps = {
-    children: ReactNode;
-    headerShadow?: boolean;
-    headerFluid?: boolean;
-    footerMode?: "light" | "dark";
-};
-
 const Layout = ({
     children,
     headerShadow,
@@ -18,6 +6,12 @@ const Layout = ({
 }: TProps) => {
     return (
         <>
+            <Head>
+                <script
+                    src="https://chimpstatic.com/mcjs-connected/js/users/e5c2275b0bdbc424dc0ab4480/9706a936fe91a998a1c6ed3d9.js"
+                    id="mcjs"
+                />
+            </Head>
             <Header shadow={headerShadow} fluid={headerFluid} />
             <main className="tw-relative">{children}</main>
             <Footer mode={footerMode} />
@@ -25,5 +19,3 @@ const Layout = ({
         </>
     );
 };
-
-export default Layout;
