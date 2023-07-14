@@ -3,8 +3,6 @@ import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
-import Head from 'next/head';
-
 import "@assets/css/font-awesome-pro.min.css";
 import "@assets/css/font-linea.css";
 import "@assets/css/fonts.css";
