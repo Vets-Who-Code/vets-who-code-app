@@ -17,9 +17,10 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "./tsconfig.json",
-      "ecmaFeatures": {
-        "jsx": true
-      },
+        "tsconfigRootDir": "__dirname",
+        "ecmaFeatures": {
+            "jsx": true
+        },
       "ecmaVersion": 13,
       "sourceType": "module"
     },
