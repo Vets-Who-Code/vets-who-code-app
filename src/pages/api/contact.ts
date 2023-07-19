@@ -53,9 +53,15 @@ export default async function handler(
     try {
         await axios(axiosConfig);
         return res.status(200).json({ message: "SUCCESS" });
-    } catch (err: Error) {
+    } catch (err: unknown) {
+        // Change type of err to unknown
+        if (err instanceof Error) {
+            return res.status(500).json({
+                message: `Failed post to #contact channel: ${err.message}`,
+            });
+        }
         return res.status(500).json({
-            message: `Failed post to #contact channel: ${err.message}`,
+            message: "An unexpected error occurred.",
         });
     }
 }
