@@ -15,7 +15,7 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    const parsedBody: ParsedBody = req.body as ParsedBody; // Cast to ParsedBody
+    const parsedBody: ParsedBody = req.body as ParsedBody;
     const { name, email, phone, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];
 
@@ -34,11 +34,13 @@ export default async function handler(
         });
     }
 
+    const safeMessage: string = message ?? "No message provided.";
+
     const text: string = [
         `Name: \`${name ?? "Sent from footer form."}\``,
         `\nEmail: \`${email ?? "Not provided."}\``,
         `\nPhone: \`${phone ?? "Not provided."}\``,
-        `\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``,
+        `\nMessage: \n\`\`\`${safeMessage}\`\`\``,
     ].join("");
 
     const payload: string = JSON.stringify({ text });
