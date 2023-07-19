@@ -8,19 +8,19 @@ interface ParsedBody {
     phone?: string;
     subject?: string;
     message?: string;
-    [key: string]: string | undefined; // Updated to be more specific than 'any'.
+    [key: string]: string | undefined;
 }
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-    const parsedBody: ParsedBody = req.body;
+    const parsedBody: ParsedBody = req.body as ParsedBody; // Cast to ParsedBody
     const { name, email, phone, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];
 
     const hasErrors: boolean = checkParams(parsedBody, requiredParams);
-    const isPossiblySpam: boolean = checkLength(message ?? ""); // Use nullish coalescing
+    const isPossiblySpam: boolean = checkLength(message ?? "");
 
     if (hasErrors) {
         return res.status(422).json({
