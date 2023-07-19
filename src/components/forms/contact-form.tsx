@@ -1,4 +1,7 @@
-import { forwardRef, useState } from "react";
+// ContactForm.tsx
+
+import React, { forwardRef, useState } from "react";
+import axios from "axios";
 import clsx from "clsx";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Input from "@ui/form-elements/input";
@@ -7,31 +10,42 @@ import Feedback from "@ui/form-elements/feedback";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 
-type TProps = {
-    className?: string;
-};
-
 interface IFormValues {
     name: string;
+    phone: string;
     email: string;
     subject: string;
     message: string;
 }
 
+interface TProps {
+    className?: string;
+}
+
 const ContactForm = forwardRef<HTMLFormElement, TProps>(
     ({ className }, ref) => {
-        const [message, setMessage] = useState("");
+        const [serverMessage, setServerMessage] = useState<string>("");
         const {
             register,
             handleSubmit,
             formState: { errors },
         } = useForm<IFormValues>();
 
-        const onSubmit: SubmitHandler<IFormValues> = (data) => {
-            // eslint-disable-next-line no-console
-            console.log(data);
-            setMessage("Thank you for your message!");
+        const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+            try {
+                const response = await axios.post("/api/contact", data);
+                if (response.status === 200) {
+                    setServerMessage("Thank you for your message!");
+                } else {
+                    setServerMessage(
+                        "There was an error. Please try again later."
+                    );
+                }
+            } catch (error) {
+                setServerMessage("There was an error. Please try again later.");
+            }
         };
+
         return (
             <form
                 className={clsx(className)}
@@ -56,8 +70,26 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         />
                     </div>
                     <div>
+                        <label htmlFor="phone" className="tw-sr-only">
+                            Phone
+                        </label>
+                        <Input
+                            id="phone"
+                            placeholder="Your Phone *"
+                            bg="light"
+                            feedbackText={errors?.phone?.message}
+                            state={
+                                hasKey(errors, "phone") ? "error" : "success"
+                            }
+                            showState={!!hasKey(errors, "phone")}
+                            {...register("phone", {
+                                required: "Phone is required",
+                            })}
+                        />
+                    </div>
+                    <div>
                         <label htmlFor="email" className="tw-sr-only">
-                            email
+                            Email
                         </label>
                         <Input
                             type="email"
@@ -73,31 +105,33 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                                 required: "Email is required",
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                    message: "invalid email address",
+                                    message: "Invalid email address",
                                 },
+                            })}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="subject" className="tw-sr-only">
+                            Subject
+                        </label>
+                        <Input
+                            id="subject"
+                            placeholder="Subject *"
+                            bg="light"
+                            feedbackText={errors?.subject?.message}
+                            state={
+                                hasKey(errors, "subject") ? "error" : "success"
+                            }
+                            showState={!!hasKey(errors, "subject")}
+                            {...register("subject", {
+                                required: "Subject is required",
                             })}
                         />
                     </div>
                 </div>
                 <div className="tw-mb-5 md:tw-mb-7.5">
-                    <label htmlFor="subject" className="tw-sr-only">
-                        Subject
-                    </label>
-                    <Input
-                        id="subject"
-                        placeholder="Subject *"
-                        bg="light"
-                        feedbackText={errors?.subject?.message}
-                        state={hasKey(errors, "subject") ? "error" : "success"}
-                        showState={!!hasKey(errors, "subject")}
-                        {...register("subject", {
-                            required: "Subject is required",
-                        })}
-                    />
-                </div>
-                <div className="tw-mb-5 md:tw-mb-7.5">
                     <label htmlFor="message" className="tw-sr-only">
-                        comment
+                        Comment
                     </label>
                     <Textarea
                         id="message"
@@ -114,7 +148,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 <Button type="submit" className="tw-w-[180px]">
                     Submit
                 </Button>
-                {message && <Feedback state="success">{message}</Feedback>}
+                {serverMessage && (
+                    <Feedback state="success">{serverMessage}</Feedback>
+                )}
             </form>
         );
     }
