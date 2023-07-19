@@ -58,11 +58,6 @@ const InstructorForm = ({ className }: TProps) => {
                 className="become-teacher-form tw-flex tw-flex-col tw-items-center"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <Alert className="tw-mb-5">
-                    <i className="far fa-exclamation-circle" />
-                    Please <Anchor path="/login-register">login</Anchor> to send
-                    your request!
-                </Alert>
                 <div className="tw-grid md:tw-grid-cols-2 md:tw-gap-7.5 tw-items-center tw-flex-wrap tw-justify-center">
                     <div className="tw-mb-3.8">
                         <label htmlFor="name" className="tw-sr-only">
