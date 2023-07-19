@@ -8,6 +8,7 @@ import Input from "@ui/form-elements/input";
 import Textarea from "@ui/form-elements/textarea";
 import Feedback from "@ui/form-elements/feedback";
 import { hasKey } from "@utils/methods";
+import axios from "axios";
 
 type TProps = {
     className?: string;
@@ -16,8 +17,11 @@ type TProps = {
 interface IFormValues {
     name: string;
     email: string;
-    phone: string;
-    message: string;
+    "branch-of-service": string;
+    "technical-expertise": string;
+    "github-portfolio-or-linkedin": string;
+    location: string;
+    "employer-restrictions": string;
 }
 
 const InstructorForm = ({ className }: TProps) => {
@@ -28,11 +32,18 @@ const InstructorForm = ({ className }: TProps) => {
         formState: { errors },
     } = useForm<IFormValues>();
 
-    const onSubmit: SubmitHandler<IFormValues> = (data) => {
-        // eslint-disable-next-line no-console
-        console.log(data);
-        setMessage("Thank you for your message!");
+    const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+        try {
+            const response = await axios.post("/api/mentor", data);
+            if (response.status === 200) {
+                setMessage("Thank you for your message!");
+            }
+        } catch (error) {
+            console.error(error);
+            setMessage("Failed to submit the form. Please try again.");
+        }
     };
+
     return (
         <div
             className={clsx(
@@ -44,7 +55,7 @@ const InstructorForm = ({ className }: TProps) => {
                 Register to become a Mentor
             </h4>
             <form
-                className="become-teacher-form"
+                className="become-teacher-form tw-flex tw-flex-col tw-items-center"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Alert className="tw-mb-5">
@@ -52,7 +63,7 @@ const InstructorForm = ({ className }: TProps) => {
                     Please <Anchor path="/login-register">login</Anchor> to send
                     your request!
                 </Alert>
-                <div className="tw-grid md:tw-grid-cols-2 md:tw-gap-7.5">
+                <div className="tw-grid md:tw-grid-cols-2 md:tw-gap-7.5 tw-items-center tw-flex-wrap tw-justify-center">
                     <div className="tw-mb-3.8">
                         <label htmlFor="name" className="tw-sr-only">
                             Name
@@ -85,41 +96,130 @@ const InstructorForm = ({ className }: TProps) => {
                                 required: "Email is required",
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                    message: "invalid email address",
+                                    message: "Invalid email address",
                                 },
                             })}
                         />
                     </div>
-                </div>
-                <div className="tw-mb-3.8">
-                    <label htmlFor="phone" className="tw-sr-only">
-                        Phone
-                    </label>
-                    <Input
-                        id="phone"
-                        placeholder="Your phone number"
-                        feedbackText={errors?.phone?.message}
-                        state={hasKey(errors, "phone") ? "error" : "success"}
-                        showState={!!hasKey(errors, "phone")}
-                        {...register("phone", {
-                            required: "Phone is required",
-                        })}
-                    />
-                </div>
-                <div className="tw-mb-5">
-                    <label htmlFor="message" className="tw-sr-only">
-                        Message
-                    </label>
-                    <Textarea
-                        id="message"
-                        placeholder="Your Message"
-                        feedbackText={errors?.message?.message}
-                        state={hasKey(errors, "message") ? "error" : "success"}
-                        showState={!!hasKey(errors, "message")}
-                        {...register("message", {
-                            required: "Message is required",
-                        })}
-                    />
+                    <div className="tw-mb-3.8">
+                        <label
+                            htmlFor="branch-of-service"
+                            className="tw-sr-only"
+                        >
+                            Branch of Service
+                        </label>
+                        <Input
+                            id="branch-of-service"
+                            placeholder="Branch of Service *"
+                            feedbackText={
+                                errors?.["branch-of-service"]?.message
+                            }
+                            state={
+                                hasKey(errors, "branch-of-service")
+                                    ? "error"
+                                    : "success"
+                            }
+                            showState={!!hasKey(errors, "branch-of-service")}
+                            {...register("branch-of-service", {
+                                required: "Branch of Service is required",
+                            })}
+                        />
+                    </div>
+                    <div className="tw-mb-3.8">
+                        <label
+                            htmlFor="technical-expertise"
+                            className="tw-sr-only"
+                        >
+                            Technical Expertise
+                        </label>
+                        <Input
+                            id="technical-expertise"
+                            placeholder="Technical Expertise *"
+                            feedbackText={
+                                errors?.["technical-expertise"]?.message
+                            }
+                            state={
+                                hasKey(errors, "technical-expertise")
+                                    ? "error"
+                                    : "success"
+                            }
+                            showState={!!hasKey(errors, "technical-expertise")}
+                            {...register("technical-expertise", {
+                                required: "Technical Expertise is required",
+                            })}
+                        />
+                    </div>
+                    <div className="tw-mb-3.8">
+                        <label
+                            htmlFor="github-portfolio-or-linkedin"
+                            className="tw-sr-only"
+                        >
+                            GitHub Portfolio or LinkedIn
+                        </label>
+                        <Input
+                            id="github-portfolio-or-linkedin"
+                            placeholder="GitHub Portfolio or LinkedIn *"
+                            feedbackText={
+                                errors?.["github-portfolio-or-linkedin"]
+                                    ?.message
+                            }
+                            state={
+                                hasKey(errors, "github-portfolio-or-linkedin")
+                                    ? "error"
+                                    : "success"
+                            }
+                            showState={
+                                !!hasKey(errors, "github-portfolio-or-linkedin")
+                            }
+                            {...register("github-portfolio-or-linkedin", {
+                                required:
+                                    "GitHub Portfolio or LinkedIn is required",
+                            })}
+                        />
+                    </div>
+                    <div className="tw-mb-3.8">
+                        <label htmlFor="location" className="tw-sr-only">
+                            Location
+                        </label>
+                        <Input
+                            id="location"
+                            placeholder="Location *"
+                            feedbackText={errors?.location?.message}
+                            state={
+                                hasKey(errors, "location") ? "error" : "success"
+                            }
+                            showState={!!hasKey(errors, "location")}
+                            {...register("location", {
+                                required: "Location is required",
+                            })}
+                        />
+                    </div>
+                    <div className="tw-mb-3.8">
+                        <label
+                            htmlFor="employer-restrictions"
+                            className="tw-sr-only"
+                        >
+                            Employer Restrictions
+                        </label>
+                        <Input
+                            id="employer-restrictions"
+                            placeholder="Employer Restrictions *"
+                            feedbackText={
+                                errors?.["employer-restrictions"]?.message
+                            }
+                            state={
+                                hasKey(errors, "employer-restrictions")
+                                    ? "error"
+                                    : "success"
+                            }
+                            showState={
+                                !!hasKey(errors, "employer-restrictions")
+                            }
+                            {...register("employer-restrictions", {
+                                required: "Employer Restrictions is required",
+                            })}
+                        />
+                    </div>
                 </div>
 
                 <div className="tw-text-center">
