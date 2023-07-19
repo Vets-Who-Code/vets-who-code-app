@@ -8,7 +8,7 @@ interface ParsedBody {
     phone?: string;
     subject?: string;
     message?: string;
-    [key: string]: any;
+    [key: string]: string | undefined; // Updated to be more specific than 'any'.
 }
 
 export default async function handler(
@@ -20,7 +20,7 @@ export default async function handler(
     const requiredParams: string[] = ["email", "message"];
 
     const hasErrors: boolean = checkParams(parsedBody, requiredParams);
-    const isPossiblySpam: boolean = checkLength(message || "");
+    const isPossiblySpam: boolean = checkLength(message ?? ""); // Use nullish coalescing
 
     if (hasErrors) {
         return res.status(422).json({
@@ -35,10 +35,10 @@ export default async function handler(
     }
 
     const text: string = [
-        `Name: \`${name || "Sent from footer form."}\``,
-        `\nEmail: \`${email}\``,
-        `\nPhone: \`${phone || "Sent from footer form."}\``,
-        `\nMessage: \n\`\`\`${message}\`\`\``,
+        `Name: \`${name ?? "Sent from footer form."}\``,
+        `\nEmail: \`${email ?? "Not provided."}\``,
+        `\nPhone: \`${phone ?? "Not provided."}\``,
+        `\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``,
     ].join("");
 
     const payload: string = JSON.stringify({ text });
@@ -54,7 +54,6 @@ export default async function handler(
         await axios(axiosConfig);
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err: unknown) {
-        // Change type of err to unknown
         if (err instanceof Error) {
             return res.status(500).json({
                 message: `Failed post to #contact channel: ${err.message}`,
