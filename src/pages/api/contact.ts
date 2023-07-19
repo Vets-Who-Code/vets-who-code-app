@@ -51,7 +51,7 @@ export default async function handler(
     };
 
     try {
-        const response = await axios(axiosConfig);
+        await axios(axiosConfig);
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err: Error) {
         return res.status(500).json({
