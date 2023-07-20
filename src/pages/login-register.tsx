@@ -5,7 +5,7 @@ import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import LoginForm from "@components/forms/login-form";
-import RegisterForm from "@components/forms/register-form";
+import RegisterForm from "@components/forms/apply-form";
 import Spinner from "@ui/spinner";
 import { useUser } from "@contexts/user-context";
 import { useMount } from "@hooks";

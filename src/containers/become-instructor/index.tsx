@@ -1,4 +1,4 @@
-import InstructorForm from "@components/forms/instructor-form";
+import InstructorForm from "@components/forms/mentor-form";
 
 const BecomeInstructor = () => {
     return (

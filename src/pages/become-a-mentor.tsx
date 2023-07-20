@@ -7,7 +7,7 @@ import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
 import GradationArea from "@containers/gradation";
-import InstructorForm from "@components/forms/instructor-form";
+import MentorForm from "@components/forms/mentor-form";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
@@ -42,7 +42,7 @@ const MentorPage: PageProps = ({ data }) => {
                 <FunfactArea data={content["funfact-area"]} />
                 <HeroImageArea data={content["hero-image-area"]} />
             </Wrapper>
-            <InstructorForm />
+            <MentorForm />
             <GradationArea data={content["gradation-area"]} />
         </>
     );
