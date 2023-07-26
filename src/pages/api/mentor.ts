@@ -2,6 +2,17 @@ import axios from "axios";
 import { Request, Response } from "express";
 import { checkParams } from "./api-helpers";
 
+// Define the ParsedBody type
+interface ParsedBody {
+    name: string;
+    email: string;
+    "branch-of-service": string;
+    "technical-expertise": string;
+    "github-portfolio-or-linkedin": string;
+    location: string;
+    "employer-restrictions": string;
+}
+
 export default async function handler(req: Request, res: Response) {
     try {
         const parsedBody: ParsedBody = req.body as ParsedBody;
