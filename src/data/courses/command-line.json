@@ -5,87 +5,37 @@
         "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/command-line_azvdf6.jpg"
     },
     "published_at": "2020-12-01T00:00:00.000Z",
-    "category": "Business",
+    "category": "Fun",
     "language": "english",
     "instructor": 1,
     "duration": "4 hours",
     "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
-    "reviews": {
-        "average": 4.5,
-        "count": 2,
-        "rating_details": {
-            "5": 1,
-            "4": 1,
-            "3": 0,
-            "2": 0,
-            "1": 0
-        },
-        "items": [
-            {
-                "id": 1,
-                "user": {
-                    "name": "Edna Watson",
-                    "avatar": {
-                        "src": "/images/review-author/author1.jpeg"
-                    }
-                },
-                "rating": 5.0,
-                "title": "Cover all my needs",
-                "review": "The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions."
-            },
-            {
-                "id": 2,
-                "user": {
-                    "name": "Owen Christ",
-                    "avatar": {
-                        "src": "/images/review-author/author2.jpeg"
-                    }
-                },
-                "rating": 4.5,
-                "title": "Engaging & Fun",
-                "review": "This is the third course I attend from you, and I absolutely loved all of them. Especially this one on leadership. Your method of explaining the concepts, fun, engaging and with real-world quizples, is excellent. This course will help me a lot in my job, my career, and life in general, and I thank you for that. Thank you for improving the lives of many people with engaging and in-depth courses."
-            }
-        ]
-    },
     "description": [
         {
             "id": 1,
             "type": "text",
-            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+            "content": "A command-line interface (CLI) is a text-based user interface that allows users to interact with a computer system by entering commands as text input. Unlike graphical user interfaces (GUIs) that rely on visual elements like icons and windows, a CLI operates solely through text-based commands and responses."
         },
         {
             "id": 2,
             "type": "text",
-            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
-        },
-        {
-            "id": 3,
-            "type": "iframe",
-            "content": {
-                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
-                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
-            }
+            "content": "In a CLI, users can navigate the system's file structure, execute various programs, and perform a wide range of tasks by typing specific commands and parameters. Each command typically corresponds to a specific action or operation, such as creating, copying, or deleting files, managing processes, configuring system settings, and much more."
         },
         {
             "id": 4,
             "type": "text",
-            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+            "content": "The CLI provides a powerful and efficient way to interact with a computer, especially for experienced users and system administrators. It allows for quick execution of tasks and automation of repetitive actions through scripts. Command-line utilities often come pre-installed with operating systems and are readily available across different platforms, making them accessible and versatile."
         },
         {
             "id": 5,
             "type": "text",
-            "content": "Translate your work on the Canvas to specific charters in IT. Rapidly prototype strategically-aligned processes for implementation within your IT infrastructure. How do you define a customer-centric strategy you can actually execute? To do strategic IT, you’ve got to have a strategy! Ideally, you need one that’s easy to understand and use as a clear basis for action."
+            "content": "Users familiar with the CLI can combine multiple commands and utilize advanced scripting to achieve complex tasks or customize their system to their exact specifications. The ability to chain commands together and redirect input/output provides a level of control that is not always possible in GUI environments."
         },
         {
             "id": 6,
             "type": "text",
-            "content": "That’s what you’ll learn in this course."
-        },
-        {
-            "id": 7,
-            "type": "heading",
-            "content": "A Short Description"
+            "content": "TWhile the command-line interface might seem daunting to beginners due to its reliance on precise syntax and lack of visual cues, it offers unparalleled efficiency and flexibility once users become proficient. Learning the CLI can empower users to become more adept at system administration, programming, and other technical tasks, making it an indispensable skill for anyone working in the computing field."
         },
         {
             "id": 8,
@@ -95,17 +45,17 @@
         {
             "id": 9,
             "type": "text",
-            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+            "content": "Despite the rise of user-friendly graphical interfaces, the CLI remains a fundamental tool for developers, system administrators, and advanced users, who value its directness, speed, and the ability to work efficiently even on remote machines or headless systems."
         },
         {
             "id": 10,
             "type": "text",
-            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
+            "content": "In summary, the command-line interface is a versatile and powerful text-based interface that provides a direct and efficient way for users to interact with computer systems, offering a wealth of possibilities for managing files, executing tasks, and configuring settings in a way that complements and often surpasses traditional graphical interfaces."
         },
         {
             "id": 11,
             "type": "text",
-            "content": "Enroll in this course to find out."
+            "content": "Join us to learn more about the command line and how to use it to your advantage."
         }
     ]
 }

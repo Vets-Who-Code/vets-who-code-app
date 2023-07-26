@@ -21,11 +21,13 @@ const CourseDetails = ({
             <div className="tw-container tw-grid lg:tw-grid-cols-3 tw-gap-12">
                 <div className="lg:tw-col-[1/3]">
                     <TabContainer variant="underline">
-                        <TabList>
+                        {/*
+                      <TabList>
                             <TabNav>Overview</TabNav>
-                            <TabNav>Curriculam</TabNav>
+                            <TabNav>Curriculum</TabNav>
                             <TabNav>Instructor</TabNav>
                         </TabList>
+                        */}
                         <TabContent className="tw-mt-10 lg:tw-mt-[50px]">
                             <TabPane>
                                 {course?.description && (
@@ -47,15 +49,6 @@ const CourseDetails = ({
                             </TabPane>
                         </TabContent>
                     </TabContainer>
-                </div>
-                <div className="lg:tw-col-[3/-1]">
-                    <div className="tw-sticky tw-top-24">
-                        <CourseInfo
-                            lessonLink={curriculum[0].lessons[0].path}
-                            slug={course.slug}
-                            published_at={course.published_at}
-                        />
-                    </div>
                 </div>
             </div>
         </section>
