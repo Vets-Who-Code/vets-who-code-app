@@ -57,25 +57,17 @@
         {
             "id": 1,
             "type": "text",
-            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+            "content": "Welcome to Javascript 101, your gateway to the exciting world of web development and programming! Javascript is a versatile and widely-used scripting language that brings life to websites, enabling dynamic and interactive elements that captivate users and deliver rich user experiences."
         },
         {
             "id": 2,
             "type": "text",
-            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
-        },
-        {
-            "id": 3,
-            "type": "iframe",
-            "content": {
-                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
-                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
-            }
+            "content": "At its core, Javascript is a high-level, interpreted language that allows developers to add functionality and behavior to web pages. As a client-side scripting language, it runs directly in a user's web browser, making it an essential component of front-end web development."
         },
         {
             "id": 4,
             "type": "text",
-            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+            "content": "In this comprehensive course, we'll explore the fundamental concepts of Javascript, starting with the basics. You'll learn how to include Javascript code in HTML documents, understand the structure of a Javascript program, and explore variables, data types, and operators to perform various calculations and manipulations."
         },
         {
             "id": 5,
@@ -85,32 +77,37 @@
         {
             "id": 6,
             "type": "text",
-            "content": "That’s what you’ll learn in this course."
-        },
-        {
-            "id": 7,
-            "type": "heading",
-            "content": "A Short Description"
+            "content": "Through hands-on examples and exercises, you'll discover the power of Javascript's conditional statements and loops, enabling you to make decisions and repeat actions based on specific conditions. As we progress, you'll master functions, the building blocks of reusable code, to efficiently organize and manage complex tasks."
         },
         {
             "id": 8,
             "type": "text",
-            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+            "content": "Javascript also enables interaction with users through alert boxes, prompts, and confirmations, creating personalized and user-friendly interfaces. You'll learn how to handle user input, validate data, and provide instant feedback, enhancing the overall user experience."
         },
         {
             "id": 9,
             "type": "text",
-            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+            "content": "As we delve deeper, you'll explore arrays and objects, essential data structures that allow you to store and organize collections of information. This knowledge will enable you to manage data efficiently and create dynamic content for websites."
         },
         {
             "id": 10,
             "type": "text",
-            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
+            "content": "Moreover, Javascript plays a significant role in modern web development with its integration into APIs (Application Programming Interfaces) that facilitate communication with servers and databases. We'll introduce you to AJAX, the backbone of asynchronous web applications, allowing you to update page content without the need for a full page reload."
         },
         {
             "id": 11,
             "type": "text",
-            "content": "Enroll in this course to find out."
+            "content": "Additionally, you'll gain insights into handling errors and debugging your code, essential skills for any developer to ensure smooth and error-free performance. With Javascript's vast ecosystem and libraries, we'll introduce you to resources that will aid your journey and expand your capabilities."
+        },
+        {
+            "id": 12,
+            "type": "text",
+            "content": "Javascript 101 is designed for beginners, but it sets a solid foundation for your future development endeavors. Whether you aspire to become a front-end developer, work on interactive web projects, or build web applications, this course will empower you with the knowledge and confidence to tackle Javascript challenges head-on."
+        },
+        {
+            "id": 13,
+            "type": "text",
+            "content": "As you progress through Javascript 101, you'll witness your web pages come alive with dynamic content, interactive forms, and seamless user interactions. Prepare to unlock the true potential of web development with Javascript and embark on an exciting journey into the world of coding!"
         }
     ]
 }

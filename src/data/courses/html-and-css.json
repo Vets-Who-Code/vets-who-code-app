@@ -57,60 +57,42 @@
         {
             "id": 1,
             "type": "text",
-            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+            "content": "Welcome to the amazing world of HTML5 and CSS3! In this module, we'll show you how to create modern and captivating websites using the latest standards of HTML and CSS. It's an exciting journey where creativity meets technology to build web experiences that are both visually stunning and responsive on all devices."
         },
         {
             "id": 2,
             "type": "text",
-            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
-        },
-        {
-            "id": 3,
-            "type": "iframe",
-            "content": {
-                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
-                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
-            }
+            "content": "We'll start with HTML5, the foundation of web pages. You'll learn how to structure your content with semantic elements, making your website more accessible and search engine friendly. Then, we'll dive into multimedia integration, so you can add audio and video elements that engage your visitors."
         },
         {
             "id": 4,
             "type": "text",
-            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+            "content": "Next, we'll move on to CSS3, where the real magic happens. With CSS3 styling, you'll have the power to customize fonts, apply gradients, shadows, and animations, giving your website a unique and captivating look. And speaking of responsiveness, we'll cover responsive design principles, ensuring your website looks great on smartphones, tablets, and desktops."
         },
         {
             "id": 5,
             "type": "text",
-            "content": "Translate your work on the Canvas to specific charters in IT. Rapidly prototype strategically-aligned processes for implementation within your IT infrastructure. How do you define a customer-centric strategy you can actually execute? To do strategic IT, you’ve got to have a strategy! Ideally, you need one that’s easy to understand and use as a clear basis for action."
+            "content": "Ever struggled with arranging elements on a page? Not anymore! We'll introduce you to Flexbox and CSS Grid, two layout systems that will make your life so much easier. They allow you to create flexible and multi-dimensional layouts that adapt beautifully to different screen sizes."
         },
         {
             "id": 6,
             "type": "text",
-            "content": "That’s what you’ll learn in this course."
-        },
-        {
-            "id": 7,
-            "type": "heading",
-            "content": "A Short Description"
+            "content": "Take your designs to the next level with advanced CSS3 transitions and transformations. You'll learn how to create smooth animations, impressive hover effects, and interactive elements that'll delight your visitors."
         },
         {
             "id": 8,
             "type": "text",
-            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+            "content": "Web accessibility is crucial, and we'll guide you on how to make your websites inclusive for everyone, including those with disabilities. Plus, we'll explore techniques to optimize web performance, so your pages load quickly and provide a smooth browsing experience"
         },
         {
             "id": 9,
             "type": "text",
-            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+            "content": "Throughout the module, you'll work on fun projects and real-world examples, applying what you learn in a practical way. Our expert instructors will be there to support you every step of the way, ensuring you become a skilled HTML5 and CSS3 developer."
         },
         {
             "id": 10,
             "type": "text",
-            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
-        },
-        {
-            "id": 11,
-            "type": "text",
-            "content": "Enroll in this course to find out."
+            "content": "By the end of this course, you'll have the knowledge and confidence to create beautiful, interactive, and responsive websites that impress visitors and keep them coming back for more. So, let's dive into the world of HTML5 and CSS3 and take your web development skills to new heights!"
         }
     ]
 }

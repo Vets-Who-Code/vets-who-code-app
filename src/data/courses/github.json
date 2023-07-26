@@ -1,5 +1,5 @@
 {
-    "id": 3,
+    "id": 2,
     "title": "GitHub",
     "thumbnail": {
         "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/github_jk1wxq.jpg"
@@ -57,60 +57,47 @@
         {
             "id": 1,
             "type": "text",
-            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+            "content": "Welcome to the world of GitHub, your gateway to collaborative and efficient software development! GitHub is not just a code hosting platform; it's a vibrant community of developers working together to build amazing projects and shape the future of technology."
         },
         {
             "id": 2,
             "type": "text",
-            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
-        },
-        {
-            "id": 3,
-            "type": "iframe",
-            "content": {
-                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
-                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
-            }
+            "content": "Collaboration is at the heart of GitHub, and we'll show you how to work with others through issues and pull requests. You'll learn how to contribute to open-source projects, engage in discussions, and make valuable contributions to the developer community."
         },
         {
             "id": 4,
             "type": "text",
-            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+            "content": "Understanding version control is essential, and GitHub's version control system, Git, will become your best friend. We'll cover branching, merging, and resolving conflicts, empowering you to manage your codebase effectively and efficiently."
         },
         {
             "id": 5,
             "type": "text",
-            "content": "Translate your work on the Canvas to specific charters in IT. Rapidly prototype strategically-aligned processes for implementation within your IT infrastructure. How do you define a customer-centric strategy you can actually execute? To do strategic IT, you’ve got to have a strategy! Ideally, you need one that’s easy to understand and use as a clear basis for action."
+            "content": "GitHub is not just for code; it's a platform for hosting your projects, including documentation, websites, and more. We'll walk you through GitHub Pages, a powerful feature for hosting static websites directly from your repositories."
         },
         {
             "id": 6,
             "type": "text",
-            "content": "That’s what you’ll learn in this course."
-        },
-        {
-            "id": 7,
-            "type": "heading",
-            "content": "A Short Description"
+            "content": "Security is crucial, and GitHub provides features to protect your code and data. We'll explore how to set up permissions, enable two-factor authentication, and use best practices to keep your projects safe."
         },
         {
             "id": 8,
             "type": "text",
-            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+            "content": "Managing projects can be overwhelming, but GitHub's project management tools will keep you organized. We'll cover creating boards, managing issues, and tracking progress, making project management a breeze."
         },
         {
             "id": 9,
             "type": "text",
-            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+            "content": "We'll also delve into GitHub Actions, a powerful automation tool that enables you to build, test, and deploy your projects effortlessly. You'll learn how to set up workflows and automate repetitive tasks, saving you time and effort."
         },
         {
             "id": 10,
             "type": "text",
-            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
+            "content": "Throughout this module, you'll work on hands-on projects and real-world examples, applying what you've learned to real coding scenarios. Our expert instructors will be there to guide you, ensuring you get the most out of this invaluable platform."
         },
         {
             "id": 11,
             "type": "text",
-            "content": "Enroll in this course to find out."
+            "content": "By the end of this module, you'll be a confident GitHub user, equipped with the skills to collaborate effectively, manage your projects efficiently, and contribute to the thriving developer community. Get ready to unleash the full potential of GitHub and take your software development journey to new heights!"
         }
     ]
 }

@@ -57,7 +57,7 @@
         {
             "id": 1,
             "type": "text",
-            "content": "Now more than ever, corporations are investing heavily in IT. The quality of these investments affects the daily work of millions."
+            "content": "Congratulations on completing Javascript 101! Now it's time to take your Javascript skills to the next level with Javascript 201. In this advanced course, we'll dive deeper into the language and explore more sophisticated concepts and techniques that will elevate your coding prowess."
         },
         {
             "id": 2,
@@ -65,52 +65,64 @@
             "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
         },
         {
-            "id": 3,
-            "type": "iframe",
-            "content": {
-                "src": "https://www.youtube.com/embed/m-X1ExlQ9uE?feature=oembed",
-                "alt": "Drive Digital Transformation With Platform Strategies | Info-Tech Analyst Perspective"
-            }
-        },
-        {
             "id": 4,
             "type": "text",
-            "content": "In this two-week course, we’ll step through major challenges within corporate IT and how to address them with the disciplined use of design thinking, Lean Startup, and agile as a team framework."
+            "content": "Are you ready to tackle complex programming challenges and build cutting-edge web applications? Javascript 201 will equip you with the expertise to do just that. Let's embark on this thrilling journey of advanced Javascript development!"
         },
         {
             "id": 5,
             "type": "text",
-            "content": "Translate your work on the Canvas to specific charters in IT. Rapidly prototype strategically-aligned processes for implementation within your IT infrastructure. How do you define a customer-centric strategy you can actually execute? To do strategic IT, you’ve got to have a strategy! Ideally, you need one that’s easy to understand and use as a clear basis for action."
+            "content": "We'll start by delving into object-oriented programming (OOP) in Javascript, a paradigm that promotes code organization and reusability. Learn how to create classes, define constructors, and implement inheritance, enabling you to build robust and scalable applications."
         },
         {
             "id": 6,
             "type": "text",
-            "content": "That’s what you’ll learn in this course."
-        },
-        {
-            "id": 7,
-            "type": "heading",
-            "content": "A Short Description"
+            "content": "Asynchronous programming is crucial for modern web development, and Javascript excels in this area. You'll unravel the mysteries of Promises and explore async/await, mastering techniques to manage and coordinate asynchronous operations effectively."
         },
         {
             "id": 8,
             "type": "text",
-            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+            "content": "To optimize your code and enhance performance, we'll cover essential topics like closures and scope. Understand how they impact memory management and discover best practices for clean and efficient coding."
         },
         {
             "id": 9,
             "type": "text",
-            "content": "But, a customer-centric company is more than a company that offers good service. Both Amazon and Zappos are prime quizples of brands that are customer-centric and have spent years creating a culture around the customer and their needs. Their commitment to delivering customer value is genuine – In fact, Zappos is happy to fire employees if they do not fit within their customer-centric culture!"
+            "content": "Javascript's versatility extends beyond the browser. We'll introduce you to server-side programming with Node.js, enabling you to build full-stack applications and handle server operations with ease. You'll gain insights into working with Express.js, a powerful framework for creating robust and scalable web servers."
         },
         {
             "id": 10,
             "type": "text",
-            "content": "But, how important is being customer-centric? The good news is that’s becoming very important! Econsultancy recently asked what the most important characteristic is in order to establish a truly “digital-native” culture. The answer to that question and leading the responses with 58% was to be customer-centric."
+            "content": "Error handling is a critical aspect of professional development. We'll teach you advanced debugging techniques, including stack traces and error handling strategies, ensuring your code remains resilient and error-free."
         },
         {
             "id": 11,
             "type": "text",
-            "content": "Enroll in this course to find out."
+            "content": "Dive into the world of data manipulation and explore powerful array methods, iterators, and functional programming concepts. Learn how to filter, map, reduce, and transform data efficiently, making your code more expressive and concise."
+        },
+        {
+            "id": 12,
+            "type": "text",
+            "content": "To create dynamic user interfaces, we'll explore the Document Object Model (DOM) and manipulation techniques. You'll master event handling, allowing you to respond to user interactions and create immersive user experiences."
+        },
+        {
+            "id": 13,
+            "type": "text",
+            "content": "Modern web applications often rely on third-party APIs. We'll guide you through handling HTTP requests, authenticating users, and consuming external data to enrich your applications with real-time information."
+        },
+        {
+            "id": 14,
+            "type": "text",
+            "content": "As we near the end of Javascript 201, you'll learn about modularization and how to organize your code into manageable modules. This approach promotes maintainability and encourages collaboration in larger development teams."
+        },
+        {
+            "id": 15,
+            "type": "text",
+            "content": "Throughout the your work, you'll work on challenging projects and real-world exercises that test your understanding and push your skills to new heights. Our hands-on approach ensures you gain practical experience and confidence in tackling complex coding scenarios."
+        },
+        {
+            "id": 16,
+            "type": "text",
+            "content": "Javascript 201 is a transformative journey that empowers you to build advanced web applications, implement best coding practices, and become a proficient Javascript developer. Get ready to level up your programming expertise and unleash the full potential of Javascript in the exciting world of web development!"
         }
     ]
 }
