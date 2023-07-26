@@ -108,7 +108,7 @@ export default [
             },
             {
                 id: 22,
-                label: "Subjects",
+                label: "Modules",
                 path: "/curriculum/subjects",
             },
             {

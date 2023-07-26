@@ -20,11 +20,11 @@ const CourseArea = ({ data: { courses } }: TProps) => {
 
     return (
         <Section className="course-area" space="bottom">
-            <h2 className="tw-sr-only">Subjects Section</h2>
+            <h2 className="tw-sr-only">Module Section</h2>
             <div className="tw-container">
                 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
                     <p className="tw-mb-2.5">
-                        We found {sortedItems.length} subjects available for you
+                        We found {sortedItems.length} Modules available for you
                     </p>
                 </div>
                 <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5">
