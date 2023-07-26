@@ -1,4 +1,8 @@
-import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
+import {
+    TabContainer,
+    /* TabNav, */ TabPane,
+    /* TabList, */ TabContent,
+} from "@ui/tab";
 import { ICourse, ICurriculum, IInstructor } from "@utils/types";
 import CourseInfo from "@widgets/course-info";
 import OverviewPanel from "./overview-panel";
