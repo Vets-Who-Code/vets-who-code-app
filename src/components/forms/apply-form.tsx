@@ -4,7 +4,6 @@ import axios from "axios";
 import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
-import apply from "./api/apply";
 
 interface IFormValues {
     firstName: string;
