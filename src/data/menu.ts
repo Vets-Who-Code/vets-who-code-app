@@ -133,11 +133,12 @@ export default [
                 label: "Apply to be a Student",
                 path: "/apply-to-be-a-student",
             },
-            {
+            /*           {
                 id: 26,
                 label: "Join our community",
                 path: "/join-our-community",
             },
+*/
         ],
     },
     {
