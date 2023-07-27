@@ -14,41 +14,29 @@
                     "texts": [
                         {
                             "id": 1,
-                            "content": "1800 Abbot Kinney Blvd. Unit D & E Venice"
+                            "content": "31860 Sandy Plains Road, Ste 204 PMB 206, Marrietta GA 30066"
                         }
                     ]
                 },
                 {
                     "id": 2,
                     "title": "Contact",
-                    "icon": "fal fa-phone",
+                    "icon": "fal fa-laptop",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Mobile: <a href='tel:(+88)-1990-6886'><strong>(+88) - 1990 - 6886</strong></a>"
-                        },
-                        {
-                            "id": 2,
-                            "content": "Hotline: <strong>1800 – 1102</strong>"
-                        },
-                        {
-                            "id": 3,
-                            "content": "Mail: <a href='mailto:hello@exmple.com'>hello@exmple.com</a>"
+                            "content": "Mail: <a href='mailto:hello@vetswhocode.io'>hello@vetswhocode.io</a>"
                         }
                     ]
                 },
                 {
                     "id": 3,
-                    "title": "Hour of operation",
+                    "title": "Hours of Operation",
                     "icon": "fal fa-clock",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Monday – Friday : 09:00 – 20:00"
-                        },
-                        {
-                            "id": 2,
-                            "content": "Sunday & Saturday: 10:30 – 22:00"
+                            "content": "Monday – Friday : 09:00 – 16:00"
                         }
                     ]
                 }

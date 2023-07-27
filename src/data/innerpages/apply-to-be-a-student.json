@@ -4,41 +4,34 @@
       {
           "section": "cta-area",
           "section_title": {
-              "title": "Take your interest and register an online class <br/> today to enjoy life fully",
-              "subtitle":"New horizon is calling"
-          },
-          "buttons": [
-              {
-                  "id": 1,
-                  "path": "/start-here",
-                  "content": "Get started for free"
-              }
-          ]
+              "title": "Apply To be Train with Vets Who Code",
+              "subtitle":"Veterans helping veterans get into the tech industry"
+          }
       }, 
       {
           "section": "funfact-area",
           "items": [
               {
                   "id": 1,
-                  "title": "Finished Sessions",
-                  "counter": 1.926
+                  "title": "Years Of Experience",
+                  "counter": 10
               },
               {
                   "id": 2,
-                  "title": "Online Enrollment",
-                  "counter": 3.092,
+                  "title": "Trained Veterans",
+                  "counter": 300,
                   "suffix": "+"
               },
               {
                   "id": 3,
                   "title": "Modules Taught",
-                  "counter": 200
+                  "counter": 100
               },
               {
                   "id": 4,
-                  "title": "Satisfaction rate",
+                  "title": "Success Rate",
                   "suffix": "%",
-                  "counter": 100
+                  "counter": 90
               }
           ]
       },
