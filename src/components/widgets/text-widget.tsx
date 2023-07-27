@@ -36,16 +36,28 @@ const TextWidget = ({ className, mode }: TProps) => {
                 color={mode === "dark" ? "white" : "light"}
                 className="tw-gap-6.1 tw-mt-6.1"
             >
-                <SocialLink href="https://facebook.com" label="Facebook lnik">
+                <SocialLink
+                    href="https://www.facebook.com/TheOfficialVetsWhoCode/"
+                    label="Facebook"
+                >
                     <i className="fab fa-facebook-square" />
                 </SocialLink>
-                <SocialLink href="https://twitter.com" label="twitter lnik">
-                    <i className="fab fa-twitter" />
+                <SocialLink
+                    href="https://dev.to/vetswhocode"
+                    label="Practical Dev"
+                >
+                    <i className="fab fa-dev" />
                 </SocialLink>
-                <SocialLink href="https://instagram.com" label="instagram lnik">
-                    <i className="fab fa-instagram" />
+                <SocialLink
+                    href="https://github.com/Vets-Who-Code"
+                    label="Github"
+                >
+                    <i className="fab fa-github" />
                 </SocialLink>
-                <SocialLink href="https://linkedin.com" label="linkedin lnik">
+                <SocialLink
+                    href="https://www.linkedin.com/company/vets-who-code"
+                    label="linkedin"
+                >
                     <i className="fab fa-linkedin" />
                 </SocialLink>
             </Social>
