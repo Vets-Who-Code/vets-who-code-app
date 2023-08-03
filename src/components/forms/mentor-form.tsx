@@ -29,7 +29,6 @@ const MentorForm = () => {
             setMessage("Thank you for your registration!");
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
-            console.error(error);
         }
     };
 

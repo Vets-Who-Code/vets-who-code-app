@@ -36,7 +36,6 @@ const ApplyForm = () => {
             setMessage("Thank you for your application!");
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
-            console.error(error);
         }
     };
 

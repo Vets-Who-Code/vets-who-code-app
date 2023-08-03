@@ -48,7 +48,7 @@ export default async function handler(
     const axiosConfig: AxiosRequestConfig = {
         method: "POST",
         baseURL: "https://hooks.slack.com",
-        url: `/services/${process.env.CONTACT_WEBHOOK_ID}`,
+        url: `/services/${(process.env.CONTACT_WEBHOOK_ID as string) ?? ""}`,
         data: payload,
     };
 

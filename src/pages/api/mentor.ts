@@ -34,24 +34,30 @@ export default async function handler(req: Request, res: Response) {
         }
 
         const text = [
-            `Name \`${parsedBody.name}\``,
-            `\nEmail \`${parsedBody.email}\``,
-            `\nBranch of Service \`${parsedBody["branch-of-service"]}\``,
-            `\nTechnical Expertise \`${parsedBody["technical-expertise"]}\``,
-            `\nGithub, Portfolio or LinkedIn \`${parsedBody["github-portfolio-or-linkedin"]}\``,
-            `\nLocation \`${parsedBody.location}\``,
-            `\nEmployer Restrictions \`${parsedBody["employer-restrictions"]}\``,
-        ].join();
+            `Name \`${parsedBody.name ?? ""}\``,
+            `\nEmail \`${parsedBody.email ?? ""}\``,
+            `\nBranch of Service \`${parsedBody["branch-of-service"] ?? ""}\``,
+            `\nTechnical Expertise \`${
+                parsedBody["technical-expertise"] ?? ""
+            }\``,
+            `\nGithub, Portfolio or LinkedIn \`${
+                parsedBody["github-portfolio-or-linkedin"] ?? ""
+            }\``,
+            `\nLocation \`${parsedBody.location ?? ""}\``,
+            `\nEmployer Restrictions \`${
+                parsedBody["employer-restrictions"] ?? ""
+            }\``,
+        ].join("");
 
         const payload = JSON.stringify({ text });
 
         await axios({
             method: "POST",
             baseURL: "https://hooks.slack.com",
-            url: `/services/${process.env.MENTOR_WEBHOOK_ID}`,
+            url: `/services/${(process.env.MENTOR_WEBHOOK_ID as string) ?? ""}`,
             data: payload,
-        }).catch((err) => {
-            throw new Error(err.message);
+        }).catch((err: unknown) => {
+            throw new Error((err as Error)?.message ?? "undefined");
         });
 
         return res.status(200).json({ message: "SUCCESS" });
