@@ -4,14 +4,14 @@
         {
             "section": "cta-area",
             "section_title": {
-                "title": "Take your interest and register an online class <br/> today to enjoy life fully",
-                "subtitle":"New horizon is calling"
+                "title": "Take your skills and join us <br/> today to serve others",
+                "subtitle":"Help Us Help Veterans"
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/start-here",
-                    "content": "Get started for free"
+                    "path": "/about-us",
+                    "content": "Learn More"
                 }
             ]
         }, 
@@ -25,14 +25,15 @@
                 },
                 {
                     "id": 2,
-                    "title": "Online Enrollment",
-                    "counter": 3.092,
+                    "title": "Veterans Served",
+                    "counter": 300,
                     "suffix": "+"
                 },
                 {
                     "id": 3,
-                    "title": "Subjects Taught",
-                    "counter": 200
+                    "title": "Jobs Earned",
+                    "counter": 300,
+                    "suffix": "+"
                 },
                 {
                     "id": 4,
