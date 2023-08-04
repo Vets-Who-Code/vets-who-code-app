@@ -1,0 +1,36 @@
+{
+    "id": 4,
+    "name": "Steve Ark",
+    "image": {
+        "src": "/images/profile/instructor.jpeg"
+    },
+    "designation": "Advanced Educator",
+    "bio": "Steve is a brilliant educator, whose life was spent for computer science and love of nature. Being a female, she encountered a lot of obstacles and was forbidden to work in this field by her family. With a true spirit and talented gift, she was able to succeed and set an example for others.",
+    "socials": [
+        {
+            "label": "twitter",
+            "icon": "fab fa-twitter",
+            "url": "https://twitter.com"
+        },
+        {
+            "label": "facebook",
+            "icon": "fab fa-facebook-f",
+            "url": "https://www.facebook.com"
+        },
+        {
+            "label": "instagram",
+            "icon": "fab fa-instagram",
+            "url": "https://www.instagram.com"
+        },
+        {
+            "label": "pinterest",
+            "icon": "fab fa-pinterest",
+            "url": "https://www.pinterest.com"
+        },
+        {
+            "label": "youtube",
+            "icon": "fab fa-youtube",
+            "url": "https://www.youtube.com"
+        } 
+    ]
+}

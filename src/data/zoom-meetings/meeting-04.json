@@ -1,0 +1,66 @@
+{
+    "id": 4,
+    "title": "Teacher Leader Team Meeting",
+    "host": "Owen Christ",
+    "thumbnail": {
+        "src": "/images/event/10.jpg"
+    },
+    "date": "2024-09-01T17:45:00.000Z",
+    "timezone": "Atlantic/Azores",
+    "duration": 120,
+    "category": "strategies",
+    "meeting_id": "95165752606",
+    "links": [
+        "https://zoom.us/j/95165752606?pwd=Y1k2RElteDI0ZHNTQm0wTEhsa3B0QT09",
+        "https://zoom.us/j/95165752606?pak=Yld4algwZTc2TjVIYkQ3SXRGTVF3UT09&join=dXUxUFUveWJwTWljd0l6MWE2akcyZz09&type=meeting"
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Session #1: Team Functioning"
+        },
+        {
+            "id": 2,
+            "type": "list",
+            "content": [
+                "Build common language around team functioning using Patrick Lencioni’s Five Dysfunctions of a Team",
+                "Self-assess one of your teams on two dysfunctions: Absence of Trust and Fear of Conflict",
+                "Evaluate resources for building trust and fostering productive conflict",
+                "Apply resources to your school setting"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "Session #2:"
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Quality School Plan (QSP) Progress Check"
+        },
+        {
+            "id": 5,
+            "type": "list",
+            "content": [
+                "Implementation",
+                "Impact"
+            ]
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "Debrief"
+        },
+        {
+            "id": 7,
+            "type": "list",
+            "content": [
+                "Team Reflection",
+                "Public Commitments",
+                "Closing"
+            ]
+        }
+    ]
+}

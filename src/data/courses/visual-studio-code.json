@@ -1,0 +1,109 @@
+{
+    "id": 3,
+    "title": "Visual Studio Code",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/vsc_xiqqpc.jpg"
+    },
+    "published_at": "2018-01-01T00:00:00.000Z",
+    "category": "Business",
+    "price": 0,
+    "currency": "$",
+    "language": "english",
+    "instructor": 2,
+    "duration": "45 hours",
+    "total_lectures": 20,
+    "total_students": 50,
+    "membership": ["diamond"],
+    "isPopular": true,
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-06", "chapter-07"],
+    "reviews": {
+        "average": 4.5,
+        "count": 2,
+        "rating_details": {
+            "5": 1,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+        },
+        "items": [
+            {
+                "id": 1,
+                "user": {
+                    "name": "Edna Watson",
+                    "avatar": {
+                        "src": "/images/review-author/author1.jpeg"
+                    }
+                },
+                "rating": 5.0,
+                "title": "Cover all my needs",
+                "review": "The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions."
+            },
+            {
+                "id": 2,
+                "user": {
+                    "name": "Owen Christ",
+                    "avatar": {
+                        "src": "/images/review-author/author2.jpeg"
+                    }
+                },
+                "rating": 4.5,
+                "title": "Engaging & Fun",
+                "review": "This is the third course I attend from you, and I absolutely loved all of them. Especially this one on leadership. Your method of explaining the concepts, fun, engaging and with real-world quizples, is excellent. This course will help me a lot in my job, my career, and life in general, and I thank you for that. Thank you for improving the lives of many people with engaging and in-depth courses."
+            }
+        ]
+    },
+    "description": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Welcome to Visual Studio Code (VS Code), your ultimate coding companion! Whether you're a seasoned developer or just starting, VS Code is here to revolutionize your coding experience and make your development journey a breeze."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "In this module, we'll start by getting you familiar with VS Code. You'll learn how to install extensions and customize the settings to suit your preferences. Plus, we'll show you essential keyboard shortcuts that will save you time and make coding more efficient."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Coding becomes a joy with VS Code's intellisense features. You'll love the built-in code completion, syntax highlighting, and error checking, helping you write code with confidence and catching mistakes as you go."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "But that's not all! VS Code also comes with an integrated terminal, meaning you can run commands without leaving the editor. And when it comes to debugging, you'll be a pro! Set breakpoints, inspect variables, and step through your code to find and fix issues like a champ."
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "Collaborating with others is a breeze as well. We'll teach you how to integrate Git with VS Code, making version control and resolving conflicts a piece of cake."
+        },
+        {
+            "id": 8,
+            "type": "text",
+            "content": "VS Code's true superpower lies in its vast array of extensions. We'll introduce you to some of the best ones for your favorite programming languages, frameworks, and tools. And if you want to make VS Code truly your own, we've got you covered with customization options."
+        },
+        {
+            "id": 9,
+            "type": "text",
+            "content": "Looking to boost productivity? We've got tips and tricks that will turn you into a VS Code ninja. From multi-cursor editing to split views, you'll navigate and edit code like a pro. And don't forget about snippets – create code templates to reuse and speed up your development process."
+        },
+        {
+            "id": 10,
+            "type": "text",
+            "content": "For web developers, we have a treat! Meet Live Server, an extension that brings instant browser updates as you code. It's a game-changer for front-end development, making testing and refining your web projects a delight."
+        },
+        {
+            "id": 11,
+            "type": "text",
+            "content": "Throughout this module, we'll have hands-on coding exercises, so you can apply what you've learned in real-world scenarios. Our expert instructors will be there to guide you, ensuring you make the most out of this exceptional code editor."
+        },
+        {
+            "id": 12,
+            "type": "text",
+            "content": "By the end of this module, you'll be a confident and efficient VS Code user, equipped with the skills to write clean code, collaborate seamlessly, and elevate your coding experience to new heights. Get ready to unleash the full potential of Visual Studio Code and become the coding champion you were meant to be!"
+        }
+    ]
+}

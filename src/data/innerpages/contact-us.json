@@ -1,0 +1,61 @@
+{
+    "name": "contact-us",
+    "content": [
+        {
+            "section": "contact-info",
+            "section_title": {
+                "title": "Contact Us"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Address",
+                    "icon": "fal fa-map-marker-alt",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "31860 Sandy Plains Road, Ste 204 PMB 206, Marrietta GA 30066"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Contact",
+                    "icon": "fal fa-laptop",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Mail: <a href='mailto:hello@vetswhocode.io'>hello@vetswhocode.io</a>"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Hours of Operation",
+                    "icon": "fal fa-clock",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Monday – Friday : 09:00 – 16:00"
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "src": "/images/contact/contact.jpg"
+                }
+            ],
+            "location": {
+                "latitude": 40.758062,
+                "longitude": -73.9699129
+            }
+        },
+        {
+            "section": "contact-form",
+            "section_title": {
+                "title": "Contact us with this from and we will get back to you as soon as possible"
+            }
+        }
+    ]
+}

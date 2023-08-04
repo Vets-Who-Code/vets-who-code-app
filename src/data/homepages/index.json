@@ -1,0 +1,287 @@
+{
+    "name": "index",
+    "content": [
+        {
+            "section": "hero-area",
+            "headings": [
+                {
+                    "id":1,
+                    "content":"Learn"
+                },
+                {
+                    "id":2,
+                    "content":"Software Engineering"
+                },
+                {
+                    "id":3,
+                    "content":"With The Best Tools"
+                },
+                {
+                    "id":4,
+                    "content":"With Vets Who Code"
+                }
+            ],
+            "texts": [
+                {
+                    "id": 1,
+                    "content": "VetsWhoCode is a veteran-founded and operated inclusive AI-Powered 501(c)(3) organization, passionately dedicated to providing a streamlined, high-quality software engineering training program. Our empathetic approach aims to empower veterans and military spouses, helping them seamlessly enter the tech sector and build successful careers, all at no cost to them."
+                }
+            ],
+            "buttons": [
+                {
+                    "id":1,
+                    "path": "/start-here",
+                    "content":"Learn More",
+                    "color": "light"
+                },
+                {
+                    "id": 2,
+                    "content":"About Us",
+                    "icon": "fas fa-play",
+                    "variant": "outlined",
+                    "color": "light"
+                }
+            ],
+            "images": [
+                {
+                    "id":1,
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "S4lpKm9mbVk",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "service-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                        }
+                    ],
+                    "title": "Remote-First Learning",
+                    "description": "Learn from anywhere with our remote-first program—just need a computer, internet, and determination.",
+                    "path": "/about-us",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                        }
+                    ],
+                    "title": "Develop Cutting-Edge Skills",
+                    "description": "Our evolving curriculum keeps you ahead of the curve with the latest industry trends.",
+                    "path": "/about-us",
+                    "pathText": "Start here"
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
+                        }
+                    ],
+                    "title": "A Lifelong Community of Support",
+                    "description": "Personalized sessions, mentorship, and a supportive community ensure you're never alone on your journey.",
+                    "path": "/about-us",
+                    "pathText": "Start here"
+                }
+            ],
+            "motto": {
+                "text": "Empowering Veterans through Software Engineering.",
+                "path": "/about-us",
+                "pathText": "Let’s get started"
+            }
+        },
+        {
+            "section": "funfact-area",
+            "section_title": {
+                "title": "Who We <span> Are</span>",
+                "subtitle": "Veterans Helping <strong>Veterans</strong>",
+                "description": "#VetsWhoCode was established by veterans who personally experienced the challenges of transitioning. Our focus is not on marketing tactics or volume, but on prioritizing quality and tangible outcomes. We are driven by practical solutions and taking action. If a skill doesn't lead to financial opportunities for our students, we don't include it in our curriculum."
+            },
+            "motto": {
+                "text": "Want To Learn More?​",
+                "path": "/about-us",
+                "pathText": "Start here"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Success Rate",
+                    "suffix": "%",
+                    "counter": 90
+                },
+                {
+                    "id": 2,
+                    "title": "Veterans Served",
+                    "counter": 300
+                },
+                {
+                    "id": 3,
+                    "title": "Average Salary Increase",
+                    "suffix": "%",
+                    "counter": 40
+                },
+                {
+                    "id": 4,
+                    "title": "Felt Supported for Learning Journey",
+                    "suffix": "%",
+                    "counter": 80
+                }
+            ]
+        }, 
+        {
+            "section": "video-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667455/website-images/vetswhocode-about-us.jpg"
+                }
+            ],
+            "video": {
+                "videoId": "eS9Qm4AOOBY",
+                "channel": "youtube"
+            }
+        },
+        {
+            "section": "course-area",
+            "section_title": {
+                "title": "Our <span>Modules</span>",
+                "subtitle":"Learn with us at Vets Who Code"
+            }
+        },
+        {
+            "section": "testimonial-area",
+            "section_title": {
+                "title": "Experience <span>Our Camaraderie</span>",
+                "subtitle": "TOGETHER EXPAND AND GROW",
+                "description": "Experience the power of connection as you join a supportive network of veterans and spouses passionate about coding and personal growth. Together, we'll foster camaraderie, exchange ideas, and provide unwavering support to help each other succeed in the world of technology. Together, let's embark on a transformative journey towards new opportunities and a brighter future."
+            },
+            "buttons": [
+                {
+                    "id": 1,
+                    "path": "/apply-to-be-a-student",
+                    "content": "Join Us"
+                }
+            ],
+            "items": [
+                {
+                    "id": 1,
+                    "name": "Osvaldo Vargas, US Army",
+                    "designation": "Senior Software Engineering Manager | Accenture Federal Services",
+                    "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. Vets Who Code delivered more value to me than 12 of the non-profits combined.",
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258222/Headshots/ozzie_zcaamv.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "The course was great!"
+                },
+                {
+                    "id": 3,
+                    "name": "Jeff Martin, US Army",
+                    "designation": "DevOps Engineer | Github",
+                    "description": "#VetsWhoCode's tenacious focus on language and computer science fundamentals over frameworks was invaluable in my career transition from being a Radiology Technician in the US Army to building cloud scale infrastructure at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate mentor network proved to be a priceless asset even after graduating. Come ready to learn and you will succeed here.",
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
+                        }
+                    ]
+                }
+            ],
+            "total_reviews": {
+                "heading": "4.9/5.0",
+                "text": "Average Rating By Our Troops"
+            }
+        }, 
+        {
+            "section": "event-area",
+            "section_title": {
+                "title": "Upcoming <span>Events</span>",
+                "subtitle": "Join us to network and learn!"
+            },
+            "motto": {
+                "text": "We'd love to see you at our events.​",
+                "path": "/events",
+                "pathText": "Check out our events"
+            }
+        },
+        {
+            "section": "blog-area",
+            "section_title": {
+                "title": "Trending on <span>Our Blogs</span>",
+                "subtitle":"Insights from the #VetsWhoCode community"
+            }
+        },
+        {
+            "section": "brand-area",
+            "items": [
+                {
+                    "id": 1,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/cloudflare-logo-black_ykp638.svg"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/hashicorp-logo-black_to3p7b.svg"
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/slack-logo-black_icrcmh.svg"
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/contentful-logo-black_e0qbr1.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688400679/femasters-logo-black_yzed8u.png"
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688401001/adzuna-logo-black_vtjcr2.png"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "section": "newsletter-area",
+            "section_title": {
+                "title": "Subscribe to Our <span>Newsletter</span>",
+                "description":"Enter your email address to get our monthly newsletter, the SITREP <br class='tw-hidden md:tw-block'>and other exciting updates from our organization!"
+            }
+        }
+    ]
+}

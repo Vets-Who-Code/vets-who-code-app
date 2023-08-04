@@ -1,0 +1,48 @@
+{
+    "id": 2,
+    "title": "Executive Assistant Meeting",
+    "host": "Owen Christ",
+    "thumbnail": {
+        "src": "/images/event/09.jpg"
+    },
+    "date": "2024-10-01T19:45:00.000Z",
+    "timezone": "Atlantic/Azores",
+    "duration": 40,
+    "category": "strategies",
+    "meeting_id": "93009962815",
+    "links": [
+        "https://zoom.us/j/93009962815?pwd=Y1k2RElteDI0ZHNTQm0wTEhsa3B0QT09",
+        "https://zoom.us/j/93009962815?pak=Yld4algwZTc2TjVIYkQ3SXRGTVF3UT09&join=dXUxUFUveWJwTWljd0l6MWE2akcyZz09&type=meeting"
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Welcome to the Special Interest Group (SIG) Executive Assistants & Personal Assistants Meeting"
+        },
+        {
+            "id": 2,
+            "type": "list",
+            "content": [
+                "Introductions",
+                "Welcome to Country",
+                "Housekeeping Rules"
+            ]
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "Presentation by Warwick Winn, Chief Executive Officer, Manningham City Council to speak on his transition from General Manager (CEO) of North Sydney Council to Chief Executive Officer, Manningham City Council, challenges of moving from one council to another in different states, the learning curve on relationship building in his peer group, a new Executive Assistant! The first 12 months!"
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Looking towards the future as the Chief Executive Officer of a large Eastern Region Council"
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "Q & A time available at the end of this presentation"
+        }
+    ]
+}

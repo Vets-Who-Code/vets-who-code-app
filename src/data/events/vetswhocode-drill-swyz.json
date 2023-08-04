@@ -1,0 +1,46 @@
+{
+    "id": 1,
+    "title": "#VetsWhoCode Drill: Shawn Wang",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/swyx-drill-learninpublic_kr1n2a.jpg"
+    },
+    "start_date": "2023-06-29",
+    "end_date": "2023-06-29",
+    "start_time": "19:00:00",
+    "end_time": "20:00:00",
+    "venue": "Remote: United States",
+    "location": {
+        "city": "Atlanta",
+        "country": "US",
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
+    },
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Shawn Wang",
+            "designation": "Software Engineer",
+            "image": {
+                "src": "https://www.swyx.io/swyx-ski.jpeg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Join swyx, a renowned technologist and educator, as he explores the transformative concept of 'Learning in Public.' Discover the benefits of openly sharing knowledge and how it can accelerate your personal and professional growth. Gain insights on leveraging platforms like blogs and social media to establish thought leadership and expand your network. Learn how public learning fosters resilience, creativity, and problem-solving skills. Don't miss this opportunity to unlock the power of collaboration and continuous learning with swyx!"
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "In this immersive talk, swyx will guide you through the principles and practical advantages of learning in public. Drawing inspiration from his popular webpage, 'Learn in Public,' he will demonstrate how sharing your knowledge transparently can expose you to diverse perspectives and insights, propelling your growth in unprecedented ways. Learn how to strategically leverage various platforms to establish thought leadership and connect with like-minded professionals. Discover how public learning nurtures resilience, fuels creativity, and enhances your ability to tackle complex challenges with confidence."
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "Join VetsWhoCode for this thought-provoking session and gain practical strategies, tools, and actionable insights to embark on your own public learning journey. Regardless of your profession or field, this talk is designed to empower anyone seeking to level up their skills and make a meaningful impact. Reserve your spot now and unlock the transformative power of sharing, collaboration, and continuous learning in your personal and professional life.."
+        }
+    ]
+}

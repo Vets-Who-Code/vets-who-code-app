@@ -18,7 +18,7 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Next.JS Application designed for developer productivity as well as a well thought out app to ease the learning curve of of veterans learning to contribute to open source.
+The Vets Who Code Web App is a Next.JS Application designed make a production grade web app as well with a focus of helping or troops by learning to contribute to open source.
 By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
 
 ## Getting Started
@@ -29,10 +29,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 You will need the following properly installed on your computer.
 
-- [Git](http://git-scm.com/)
-- [Node](http://nodejs.org/)
-- [NVM](https://github.com/creationix/nvm)
-- [NextJS](https://nextjs.org/)
+-   [Git](http://git-scm.com/)
+-   [Node](http://nodejs.org/)
+-   [NVM](https://github.com/creationix/nvm)
+-   [NextJS](https://nextjs.org/)
 
 ## Installing
 
@@ -43,15 +43,11 @@ In a terminal window run these commands.
 $ git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
 $ cd vets-who-code-app
 $ nvm install
-$ npm install
+$ yarn add
 $ npm run dev
 ```
 
 You should be able to view the website locally at `http://localhost:3000/`.
-
-### Running the Blog
-
-**All Content from Contentful is is mocked locally. If you need api keys please reach out in the `#product` channel in slack.**
 
 ### Add necessary api keys to your new `.env` file.
 

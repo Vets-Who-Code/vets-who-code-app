@@ -1,0 +1,41 @@
+{
+    "id": 4,
+    "title": "#VetsWhoCode Drill: Anthony Bartolo",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/bartolo-drill-AI_sovxva.jpg"
+    },
+    "start_date": "2023-01-26",
+    "end_date": "2023-01-26",
+    "start_time": "19:00:00",
+    "end_time": "20:30:00",
+    "venue": "Virtual",
+    "location": {
+        "city": "Atlanta",
+        "country": "US",
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
+    },
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Anthony Bartolo",
+            "designation": "Microsoft Principal Cloud Advocate",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "The world is evolving. OpenAI's ChatGPT and Dall-e, as well as GitHub Copilot, have accelerated this change. Our need to always have information at our fingertips leads us to be more informed about our decisions and choices. Artificial intelligence is critical to comprehending all of this data, but where does one begin? Attend this talk to learn how Microsoft cooperated with Indro Robotics and the Canadian Coast Guard on a project to use AI to make drones self-aware to aid in search and rescue missions, as well as other open-source AI implementations."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "As a Microsoft Principal Cloud Advocate, Anthony Bartolo takes great pride in architecting and carrying out 'scientific experiments' that use Microsoft technology and services to solve a customer problem or opportunity. Anthony achieves this through hackathons with industry leaders to test hypotheses and develop Proof of Concepts (PoC) using Microsoft cloud services. Some of the more fascinating Proof of Concepts developed involve teaching drones to recognize items to aid in search and rescue efforts and automating research through Azure. Functions for extracting information from social media to assist law enforcement in the search for missing children. The community as a whole is then made aware of the outcomes and best practices of these and other projects in an effort to help skill everyone."
+        }
+    ]
+}

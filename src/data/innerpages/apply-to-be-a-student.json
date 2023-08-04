@@ -1,0 +1,76 @@
+{
+  "name": "apply-to-be-a-student",
+  "content": [
+      {
+          "section": "cta-area",
+          "section_title": {
+              "title": "Apply To be Train with Vets Who Code",
+              "subtitle":"Veterans helping veterans get into the tech industry"
+          }
+      }, 
+      {
+          "section": "funfact-area",
+          "items": [
+              {
+                  "id": 1,
+                  "title": "Years Of Experience",
+                  "counter": 10
+              },
+              {
+                  "id": 2,
+                  "title": "Trained Veterans",
+                  "counter": 300,
+                  "suffix": "+"
+              },
+              {
+                  "id": 3,
+                  "title": "Modules Taught",
+                  "counter": 100
+              },
+              {
+                  "id": 4,
+                  "title": "Success Rate",
+                  "suffix": "%",
+                  "counter": 90
+              }
+          ]
+      },
+      {
+          "section": "hero-image-area",
+          "images": [
+              {
+                  "src": "/images/hero-image/hero-image.png"
+              }
+          ]
+      },
+      {
+          "section": "gradation-area",
+          "section_title": {
+              "title": "4 Steps to Earn <span> the Honour CFDR <br/> Certification</span> from courses",
+              "subtitle": "Make it <strong>#VetsWhoCode</strong>"
+          },
+          "items": [
+              {
+                  "id": 1,
+                  "title": "Register for a CFDR preliminary categorized class",
+                  "description": "CFDR preliminary classes whose names are ended with \"101CF\". Finishing these classes will bring you the basic knowledge and skills."
+              },
+              {
+                  "id": 2,
+                  "title": "Finished all obligatory subjects in CFDR program",
+                  "description": "Learners have to finish these subjects within the period of 3 years. Early completion will reward them with a faster certifying process."
+              },
+              {
+                  "id": 3,
+                  "title": "Submit all essential documents & related proof of completion",
+                  "description": "We need to verify your participation in all subjects included and collect all the scores as well as assessment to grade your certificate."
+              },
+              {
+                  "id": 4,
+                  "title": "Receive printed certification via postal & e-version via emails",
+                  "description": "We'll send your certificate by postal line in one week after the verification process and also email an electronic version to your inbox."
+              }
+          ]
+      }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+    "id": 2,
+    "title": "#VetsWhoCode Drill:: Logan Kilpatrick",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688002777/kilpatrick-drill-openAI_iaz9w2.jpg"
+    },
+    "start_date": "2023-03-30",
+    "end_date": "2023-03-30",
+    "start_time": "19:00:00",
+    "end_time": "20:00:00",
+    "venue": "Virtual",
+    "location": {
+        "city": "Atlanta",
+        "country": "US",
+        "zip": "30066",
+        "latitude": 33.7488,
+        "longitude": -84.3877
+    },
+    "speakers": [
+        {
+            "id": 1,
+            "name": "Logan",
+            "designation": "Kilpatrick",
+            "image": {
+                "src": "/images/speaker/speaker-6.jpg"
+            }
+        }
+    ],
+    "body": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "The chat about ChatGPT and other AI tools are at an all-time high, and more people are trying out these GPT-based platforms every day. But as a programmer, how can we maximize our own skills by leveraging what’s now available in this AI space? What better way to learn about building with AI than from someone at OpenAI, the developers of ChatGPT?"
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Attend this talk by Logan Kilpatrick, a developer relations lead at OpenAI, to learn about how to leverage AI as a programmer and then build impact with OpenAI API. Free and open to the public with registration"
+        },
+        {
+            "id": 3,
+            "type": "text",
+            "content": "Logan Kilpatrick currently leads developer relations at OpenAI, supporting developers building with DALL-E, the API, and ChatGPT. Outside of OpenAI, Logan is the Lead Developer Community Advocate for the Julia Programming Language, and a Teaching Fellow for Harvard University's Extension School course CSCI E-33A. Logan was previously a Applied Machine Learning Engineer and Software Engineer at Apple as well as the Community Manager for the Julia Programming Language. Additionally, Logan is on the Board of Directors at NumFOCUS and formerly on the board at DEFNA."
+        }
+    ]
+}

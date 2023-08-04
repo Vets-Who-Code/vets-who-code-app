@@ -1,0 +1,103 @@
+{
+    "id": 2,
+    "title": "GitHub",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/github_jk1wxq.jpg"
+    },
+    "published_at": "2018-02-01T00:00:00.000Z",
+    "category": "Programming",
+    "price": 55.00,
+    "currency": "$",
+    "language": "english",
+    "instructor": 3,
+    "duration": "50 hours",
+    "total_lectures": 27,
+    "total_students": 55,
+    "membership": ["diamond"],
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "curriculum": ["chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07"],
+    "reviews": {
+        "average": 4.5,
+        "count": 2,
+        "rating_details": {
+            "5": 1,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+        },
+        "items": [
+            {
+                "id": 1,
+                "user": {
+                    "name": "Edna Watson",
+                    "avatar": {
+                        "src": "/images/review-author/author1.jpeg"
+                    }
+                },
+                "rating": 5.0,
+                "title": "Cover all my needs",
+                "review": "The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions."
+            },
+            {
+                "id": 2,
+                "user": {
+                    "name": "Owen Christ",
+                    "avatar": {
+                        "src": "/images/review-author/author2.jpeg"
+                    }
+                },
+                "rating": 4.5,
+                "title": "Engaging & Fun",
+                "review": "This is the third course I attend from you, and I absolutely loved all of them. Especially this one on leadership. Your method of explaining the concepts, fun, engaging and with real-world quizples, is excellent. This course will help me a lot in my job, my career, and life in general, and I thank you for that. Thank you for improving the lives of many people with engaging and in-depth courses."
+            }
+        ]
+    },
+    "description": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Welcome to the world of GitHub, your gateway to collaborative and efficient software development! GitHub is not just a code hosting platform; it's a vibrant community of developers working together to build amazing projects and shape the future of technology."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Collaboration is at the heart of GitHub, and we'll show you how to work with others through issues and pull requests. You'll learn how to contribute to open-source projects, engage in discussions, and make valuable contributions to the developer community."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Understanding version control is essential, and GitHub's version control system, Git, will become your best friend. We'll cover branching, merging, and resolving conflicts, empowering you to manage your codebase effectively and efficiently."
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "GitHub is not just for code; it's a platform for hosting your projects, including documentation, websites, and more. We'll walk you through GitHub Pages, a powerful feature for hosting static websites directly from your repositories."
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "Security is crucial, and GitHub provides features to protect your code and data. We'll explore how to set up permissions, enable two-factor authentication, and use best practices to keep your projects safe."
+        },
+        {
+            "id": 8,
+            "type": "text",
+            "content": "Managing projects can be overwhelming, but GitHub's project management tools will keep you organized. We'll cover creating boards, managing issues, and tracking progress, making project management a breeze."
+        },
+        {
+            "id": 9,
+            "type": "text",
+            "content": "We'll also delve into GitHub Actions, a powerful automation tool that enables you to build, test, and deploy your projects effortlessly. You'll learn how to set up workflows and automate repetitive tasks, saving you time and effort."
+        },
+        {
+            "id": 10,
+            "type": "text",
+            "content": "Throughout this module, you'll work on hands-on projects and real-world examples, applying what you've learned to real coding scenarios. Our expert instructors will be there to guide you, ensuring you get the most out of this invaluable platform."
+        },
+        {
+            "id": 11,
+            "type": "text",
+            "content": "By the end of this module, you'll be a confident GitHub user, equipped with the skills to collaborate effectively, manage your projects efficiently, and contribute to the thriving developer community. Get ready to unleash the full potential of GitHub and take your software development journey to new heights!"
+        }
+    ]
+}

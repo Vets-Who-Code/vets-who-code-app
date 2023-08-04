@@ -1,0 +1,135 @@
+{
+    "name": "faq",
+    "content": [
+        {
+            "section": "quote-area",
+            "headings": [
+                {
+                    "id": 1,
+                    "content": "Unlocking answers, one question at a time. Welcome to our FAQs, where we empower veterans who code with knowledge and support. Got questions? We've got you covered. Together, let's conquer the FAQs and embark on a transformative coding journey."
+                }
+            ],
+            "texts": [
+                {
+                    "id": 1,
+                    "content": "Welcome to Vets Who Code FAQs! We're dedicated to understanding your needs and empowering your educational journey. Our goal is to provide innovative higher education options that lead you towards self-improvement. With advanced delivery methods, we pave the way for a better learning experience. Explore our FAQ section for answers to your questions and let us guide you to a brighter future in coding."
+                },
+                {
+                    "id": 2,
+                    "content": "Enhance your degree, sharpen your skills, or pursue new career opportunities with our training. Join our global community of students and unlock the doors to a brighter future, all from the convenience of your own screen."
+                }
+            ]
+        },
+        {
+            "section": "faq-area",
+            "images": [
+                {
+                    "id": 1,
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688508040/faq_cjb1hl.jpg"
+                }
+            ],
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Who is eligible to join VetsWhoCode cohort?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Active Duty Troops, Honorable Discharged Veterans and Military spouses."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Do I need to show any proof of eligibility?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We ask for proof of connection to service during the initial interview process but we don’t ask for copies of it to protect your identity."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "title": "Where do I need to be currently living?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "You can live wherever you want because we are a remote program. We have students from all over the world."
+                        }
+                    ]
+                },
+                {
+                    "id": 4,
+                    "title": "What do I need to do to apply?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "You have to complete the prework to qualify for an interview."
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "title": "Oh, there’s prework?  What do I do if I’m stuck on something in the prework?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "You can always reach out to us our contact form or our Linkedin Group and if you explain your problem during the interview we can give advice so you can resend."
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "title": "What is the application process? When will I know I’m accepted?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "The process is once you complete the prework we set up the interview as we get closer to acceptance date. Afterwards we let you know that whether you make it or not"
+                        }
+                    ]
+                },
+                {
+                    "id": 7,
+                    "title": "What is the cost to attend the program?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "It’s absolutely free for everyone that gets in. Here you pay in learning how to build and pairing on web app features."
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "title": "Do you take the GI Bill? Do I need to use the GI Bill?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "There is no need to gather GI Bill resources because you don’t need them with us."
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "title": "What type of computer do I need in order to be able to do the work for VetsWhoCode?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "While we try not to focus on the type of machine you have we ask that your computer be no older than five years old."
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "title": "How does the mentor program work?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We connect you to a mentor within your first month of VWC. We do this so you can have 1:1s that focus on your growth."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

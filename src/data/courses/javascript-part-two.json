@@ -1,0 +1,128 @@
+{
+    "id": 6,
+    "title": "Javascript 201",
+    "thumbnail": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688176572/js-201_oyauss.jpg"
+    },
+    "published_at": "2018-04-01T00:00:00.000Z",
+    "category": "Programming",
+    "price": 95.00,
+    "currency": "$",
+    "language": "english",
+    "instructor": 1,
+    "duration": "48 hours",
+    "total_lectures": 40,
+    "total_students": 100,
+    "membership": ["diamond"],
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "curriculum": ["chapter-01", "chapter-02", "chapter-04", "chapter-05", "chapter-06"],
+    "reviews": {
+        "average": 4.5,
+        "count": 2,
+        "rating_details": {
+            "5": 1,
+            "4": 1,
+            "3": 0,
+            "2": 0,
+            "1": 0
+        },
+        "items": [
+            {
+                "id": 1,
+                "user": {
+                    "name": "Edna Watson",
+                    "avatar": {
+                        "src": "/images/review-author/author1.jpeg"
+                    }
+                },
+                "rating": 5.0,
+                "title": "Cover all my needs",
+                "review": "The course identify things we want to change and then figure out the things that need to be done to create the desired outcome. The course helped me in clearly define problems and generate a wider variety of quality solutions. Support more structures analysis of options leading to better decisions."
+            },
+            {
+                "id": 2,
+                "user": {
+                    "name": "Owen Christ",
+                    "avatar": {
+                        "src": "/images/review-author/author2.jpeg"
+                    }
+                },
+                "rating": 4.5,
+                "title": "Engaging & Fun",
+                "review": "This is the third course I attend from you, and I absolutely loved all of them. Especially this one on leadership. Your method of explaining the concepts, fun, engaging and with real-world quizples, is excellent. This course will help me a lot in my job, my career, and life in general, and I thank you for that. Thank you for improving the lives of many people with engaging and in-depth courses."
+            }
+        ]
+    },
+    "description": [
+        {
+            "id": 1,
+            "type": "text",
+            "content": "Congratulations on completing Javascript 101! Now it's time to take your Javascript skills to the next level with Javascript 201. In this advanced course, we'll dive deeper into the language and explore more sophisticated concepts and techniques that will elevate your coding prowess."
+        },
+        {
+            "id": 2,
+            "type": "text",
+            "content": "Yet it’s not uncommon to see industry surveys where the failure rates for IT projects is over 50%. It’s possible to do better and it’s possible to do so consistently. Use the Business Model Canvas to focus your company strategy and facilitate buy-in from stakeholders."
+        },
+        {
+            "id": 4,
+            "type": "text",
+            "content": "Are you ready to tackle complex programming challenges and build cutting-edge web applications? Javascript 201 will equip you with the expertise to do just that. Let's embark on this thrilling journey of advanced Javascript development!"
+        },
+        {
+            "id": 5,
+            "type": "text",
+            "content": "We'll start by delving into object-oriented programming (OOP) in Javascript, a paradigm that promotes code organization and reusability. Learn how to create classes, define constructors, and implement inheritance, enabling you to build robust and scalable applications."
+        },
+        {
+            "id": 6,
+            "type": "text",
+            "content": "Asynchronous programming is crucial for modern web development, and Javascript excels in this area. You'll unravel the mysteries of Promises and explore async/await, mastering techniques to manage and coordinate asynchronous operations effectively."
+        },
+        {
+            "id": 8,
+            "type": "text",
+            "content": "To optimize your code and enhance performance, we'll cover essential topics like closures and scope. Understand how they impact memory management and discover best practices for clean and efficient coding."
+        },
+        {
+            "id": 9,
+            "type": "text",
+            "content": "Javascript's versatility extends beyond the browser. We'll introduce you to server-side programming with Node.js, enabling you to build full-stack applications and handle server operations with ease. You'll gain insights into working with Express.js, a powerful framework for creating robust and scalable web servers."
+        },
+        {
+            "id": 10,
+            "type": "text",
+            "content": "Error handling is a critical aspect of professional development. We'll teach you advanced debugging techniques, including stack traces and error handling strategies, ensuring your code remains resilient and error-free."
+        },
+        {
+            "id": 11,
+            "type": "text",
+            "content": "Dive into the world of data manipulation and explore powerful array methods, iterators, and functional programming concepts. Learn how to filter, map, reduce, and transform data efficiently, making your code more expressive and concise."
+        },
+        {
+            "id": 12,
+            "type": "text",
+            "content": "To create dynamic user interfaces, we'll explore the Document Object Model (DOM) and manipulation techniques. You'll master event handling, allowing you to respond to user interactions and create immersive user experiences."
+        },
+        {
+            "id": 13,
+            "type": "text",
+            "content": "Modern web applications often rely on third-party APIs. We'll guide you through handling HTTP requests, authenticating users, and consuming external data to enrich your applications with real-time information."
+        },
+        {
+            "id": 14,
+            "type": "text",
+            "content": "As we near the end of Javascript 201, you'll learn about modularization and how to organize your code into manageable modules. This approach promotes maintainability and encourages collaboration in larger development teams."
+        },
+        {
+            "id": 15,
+            "type": "text",
+            "content": "Throughout the your work, you'll work on challenging projects and real-world exercises that test your understanding and push your skills to new heights. Our hands-on approach ensures you gain practical experience and confidence in tackling complex coding scenarios."
+        },
+        {
+            "id": 16,
+            "type": "text",
+            "content": "Javascript 201 is a transformative journey that empowers you to build advanced web applications, implement best coding practices, and become a proficient Javascript developer. Get ready to level up your programming expertise and unleash the full potential of Javascript in the exciting world of web development!"
+        }
+    ]
+}
