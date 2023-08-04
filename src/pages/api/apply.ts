@@ -47,20 +47,20 @@ export default async function handler(req: Request, res: Response) {
         }
 
         const text = [
-            `First Name: \`${parsedBody.firstName}\``,
-            `Last Name: \`${parsedBody.lastName}\``,
-            `Email: \`${parsedBody.email}\``,
-            `City: \`${parsedBody.city}\``,
-            `State: \`${parsedBody.state}\``,
-            `Zip Code: \`${parsedBody.zipCode}\``,
-            `Country: \`${parsedBody.country}\``,
-            `Branch of Service: \`${parsedBody.branchOfService}\``,
-            `Year Joined: \`${parsedBody.yearJoined}\``,
-            `Year Separated: \`${parsedBody.yearSeparated}\``,
-            `LinkedIn Account Name: \`${parsedBody.linkedInAccountName}\``,
-            `GitHub Account Name: \`${parsedBody.githubAccountName}\``,
-            `Prework Link: \`${parsedBody.preworkLink}\``,
-            `Prework Repository: \`${parsedBody.preworkRepo}\``,
+            `First Name: ${parsedBody.firstName ?? ""}`,
+            `Last Name: ${parsedBody.lastName ?? ""}`,
+            `Email: ${parsedBody.email ?? ""}`,
+            `City: ${parsedBody.city ?? ""}`,
+            `State: ${parsedBody.state ?? ""}`,
+            `Zip Code: ${parsedBody.zipCode ?? ""}`,
+            `Country: ${parsedBody.country ?? ""}`,
+            `Branch of Service: ${parsedBody.branchOfService ?? ""}`,
+            `Year Joined: ${parsedBody.yearJoined ?? ""}`,
+            `Year Separated: ${parsedBody.yearSeparated ?? ""}`,
+            `LinkedIn Account Name: ${parsedBody.linkedInAccountName ?? ""}`,
+            `GitHub Account Name: ${parsedBody.githubAccountName ?? ""}`,
+            `Prework Link: ${parsedBody.preworkLink ?? ""}`,
+            `Prework Repository: ${parsedBody.preworkRepo ?? ""}`,
         ].join("\n");
 
         const payload = JSON.stringify({ text });
