@@ -76,6 +76,6 @@ export default async function handler(req: Request, res: Response) {
     } catch (err) {
         return res
             .status(500)
-            .json({ message: "Failed to post to #mentor channel" });
+            .json({ message: "Failed to post to #apply channel" });
     }
 }
