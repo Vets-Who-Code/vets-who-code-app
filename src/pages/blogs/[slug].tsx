@@ -39,7 +39,7 @@ const BlogDetails: PageProps = ({
         <>
             <SEO
                 title={toCapitalize(blog.title)}
-                description="This is a mighty good description of this blog."
+                description="Learn about the latest updates, announcements, and resources from Vets Who Code."
                 jsonLdType="article"
                 article={{
                     publishedTime: blog.postedAt,
