@@ -13,7 +13,6 @@ const BlogDetails = ({
     category,
     author,
     postedAt,
-    views,
     content,
     tags,
 }: IBlog) => {
@@ -45,16 +44,6 @@ const BlogDetails = ({
                         className="tw-pr-5 md:tw-pr-8"
                         text={dayjs(postedAt).format("MMM DD, YYYY")}
                         icon="far fa-calendar"
-                    />
-                    <BlogMetaItem
-                        className="tw-pr-5 md:tw-pr-8"
-                        text={`${views} views`}
-                        icon="far fa-eye"
-                    />
-                    <BlogMetaItem
-                        text="2 commentss"
-                        icon="far fa-comment-alt-lines"
-                        path="#comments"
                     />
                 </div>
             </div>
