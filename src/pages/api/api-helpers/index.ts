@@ -1,3 +1,5 @@
+// src/pages/api/api-helpers/index.ts
+
 type EventBody = {
     [key: string]: any;
 };
@@ -16,7 +18,11 @@ export const checkLength = (message: string): boolean => {
     return false;
 };
 
-export const contactErrors = {
+// Specify the types for the properties of 'contactErrors'
+export const contactErrors: {
+    missingOrRequired: string;
+    tooShort: string;
+} = {
     missingOrRequired: "Missing or incorrect required property",
     tooShort: "Message is too short for submission",
 };
