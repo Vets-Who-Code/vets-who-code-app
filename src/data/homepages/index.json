@@ -167,8 +167,8 @@
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/join-our-community",
-                    "content": "Join our Community"
+                    "path": "/apply-to-be-a-student",
+                    "content": "Join Us"
                 }
             ],
             "items": [
