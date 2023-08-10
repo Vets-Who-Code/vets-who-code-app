@@ -60,9 +60,9 @@ const HeroArea = ({
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white ">
+                        <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white">
                             {headings[0].content}{" "}
-                            <span className="tw-text-primary tw-inline-block smToMd:tw-block">
+                            <span className="tw-text-primary tw-inline-block mobileToTab:tw-block mobileToTab:tw-min-h-[115px]">
                                 {animatedText}
                                 <Cursor />
                             </span>
