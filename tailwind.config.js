@@ -179,7 +179,9 @@ module.exports = {
                 // => @media (max-width: 1199px) { ... }
                 maxLg: { max: "991px" },
                 // => @media (max-width: 991px) { ... }
-                mobileToTab: { min: "390px", max: "767px" },
+                mobileAnimation: { max: "493px" },
+                // => @media (max-width: 495px) { ... }
+                mobileToTab: { min: "375px", max: "767px" },
                 // => @media(min-width: 390px, max-width:767px) { ... }
                 smToMd: { min: "576px", max: "767px" },
                 sm: "576px",
