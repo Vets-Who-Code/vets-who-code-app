@@ -182,7 +182,7 @@ module.exports = {
                 mobileAnimation: { max: "493px" },
                 // => @media (max-width: 495px) { ... }
                 mobileToTab: { max: "767px" },
-                // => @media(min-width: 390px, max-width:767px) { ... }
+                // => @media(max-width:767px) { ... }
                 smToMd: { min: "576px", max: "767px" },
                 sm: "576px",
                 // => @media (min-width: 576px) { ... }
