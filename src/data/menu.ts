@@ -156,4 +156,9 @@ export default [
         label: "Contact Us",
         path: "/contact-us",
     },
+    {
+        id: 7,
+        label: "Donate",
+        path: "/donate",
+    },
 ];
