@@ -1,7 +1,8 @@
 ---
 title: Why I Created a Portfolio Checklist for JavaScript Engineers
 postedAt: "2023-05-03T20:30:00.000Z"
-author: 1
+author: "Jerome Hardaway"
+description: "This article provides key advice for coding bootcamp graduates, highlighting the importance of continuous learning, portfolio building, networking, contributing to open source, and preparing for job applications. It's a concise guide to launching a successful programming career."
 image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685585775/checklist_pis3uf.jpg",
