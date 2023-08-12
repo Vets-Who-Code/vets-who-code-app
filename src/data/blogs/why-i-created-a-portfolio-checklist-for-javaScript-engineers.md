@@ -2,7 +2,7 @@
 title: Why I Created a Portfolio Checklist for JavaScript Engineers
 postedAt: "2023-05-03T20:30:00.000Z"
 author: "Jerome Hardaway"
-description: "This article provides key advice for coding bootcamp graduates, highlighting the importance of continuous learning, portfolio building, networking, contributing to open source, and preparing for job applications. It's a concise guide to launching a successful programming career."
+description: "Jerome Hardaway, Executive Director of Vets Who Code, addresses the common challenges students and new professionals face in creating standout portfolios. By crafting a portfolio checklist focusing on frequently asked questions, he aims to guide individuals through the process, ensuring their portfolios accurately represent their skills and experience. It serves as a valuable tool for JavaScript Engineers looking to create successful portfolios that resonate with potential employers."
 image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685585775/checklist_pis3uf.jpg",
