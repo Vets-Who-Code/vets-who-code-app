@@ -2,7 +2,7 @@
 title: Post-Bootcamp Tips for Rookies
 postedAt: "2023-07-01T20:30:00.000Z"
 author: 0
-description: ""Post-Bootcamp Tips for Rookies" provides key advice for coding bootcamp graduates, covering continuous learning, portfolio building, networking, open source contributions, and job application preparation. It's a quick guide to kick-starting a successful programming career."
+description: "Post-Bootcamp Tips for Rookies" provides key advice for coding bootcamp graduates, covering continuous learning, portfolio building, networking, open source contributions, and job application preparation. It's a quick guide to kick-starting a successful programming career."
 image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685585050/post-bootcamp_phteel.jpg",
