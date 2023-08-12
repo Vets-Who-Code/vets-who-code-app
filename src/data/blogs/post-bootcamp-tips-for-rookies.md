@@ -1,7 +1,7 @@
 ---
 title: Post-Bootcamp Tips for Rookies
 postedAt: "2023-07-01T20:30:00.000Z"
-author: 0
+author: "Jerome Hardaway"
 image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685585050/post-bootcamp_phteel.jpg",
