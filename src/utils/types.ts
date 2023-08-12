@@ -174,6 +174,7 @@ export interface BlogMetaType {
 }
 
 export interface IBlog {
+    description: string | undefined;
     title: string;
     slug: string;
     path: string;
