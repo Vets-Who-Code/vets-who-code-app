@@ -1,6 +1,6 @@
 ---
 title: Post-Bootcamp Tips for Rookies
-pauthor: "Jerome Hardaway"
+author: "Jerome Hardaway"
 description: "This article provides key advice for coding bootcamp graduates, highlighting the importance of continuous learning, portfolio building, networking, contributing to open source, and preparing for job applications. It's a concise guide to launching a successful programming career."
 image:
     {
