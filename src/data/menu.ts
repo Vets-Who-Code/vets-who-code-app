@@ -126,7 +126,7 @@ export default [
             {
                 id: 24,
                 label: "Become a Mentor",
-                path: "/become-a-mentor",
+                path: "/mentor",
             },
             {
                 id: 25,
