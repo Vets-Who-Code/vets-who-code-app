@@ -131,7 +131,7 @@ export default [
             {
                 id: 25,
                 label: "Apply to be a Student",
-                path: "/apply-to-be-a-student",
+                path: "/apply",
             },
             /*           {
                 id: 26,
