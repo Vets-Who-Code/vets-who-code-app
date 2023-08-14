@@ -31,10 +31,10 @@ const ApplyPage: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="Apply to be a Student" />
+            <SEO title="Apply" />
             <Breadcrumb
                 pages={[{ path: "/", label: "Home" }]}
-                currentPage="Apply to be a Student"
+                currentPage="Apply"
                 showTitle={false}
             />
             <Wrapper>
