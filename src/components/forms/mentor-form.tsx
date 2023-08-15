@@ -27,6 +27,7 @@ const MentorForm = () => {
         try {
             await axios.post("/api/mentor", data);
             setMessage("Thank you for your registration!");
+            reset();
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
         }
