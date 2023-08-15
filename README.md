@@ -18,8 +18,7 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Next.JS Application designed make a production grade web app as well with a focus of helping or troops by learning to contribute to open source.
-By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
+The Vets Who Code Web App is a multifaceted application built using Tailwind, Next.js, Playwright, Typescript, MDX, and the Lerna architecture. The purpose of this app is threefold: Firstly, to create a production-grade product that benefits all veterans and military spouses; secondly, to enable the continuous addition of new features that all veterans can utilize; and thirdly, to serve as an open-source app where our troops can learn how to write code. By actively working on this app, pulling tickets, and making changes as needed, our troops can gain practical experience, contributing to a professional, fast, and serverless product designed with their needs in mind.
 
 ## Getting Started
 
