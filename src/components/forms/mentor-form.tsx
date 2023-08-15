@@ -23,11 +23,11 @@ const MentorForm = () => {
         formState: { errors },
     } = useForm<IFormValues>();
 
-    const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+    const onSubmit: SubmitHandler<IFormValues> = async (data, { reset }) => {
         try {
             await axios.post("/api/mentor", data);
             setMessage("Thank you for your registration!");
-            reset();
+            reset?.();
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
         }
