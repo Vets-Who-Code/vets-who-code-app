@@ -4,8 +4,9 @@
       {
           "section": "cta-area",
           "section_title": {
-              "title": "Apply To be Train with Vets Who Code",
-              "subtitle":"Veterans helping veterans get into the tech industry"
+              "title": "Apply To Train with Vets Who Code",
+              "subtitle":"Veterans helping veterans get into the tech industry",
+                "description": "Are you a veteran eager to explore a career in technology? Apply to Vets Who Code by completing two essential steps. First, fill out our prework assignments to lay the groundwork for the technologies you'll encounter, such as JavaScript, TypeScript, React, and more. Next, complete our application form, providing insights into your background and tech aspirations. These two steps are crucial to demonstrating your readiness for our program. Don't wait to embark on a fulfilling software development journey with us. Complete the prework and apply to Vets Who Code today. Our team is here to support you every step of the way."
           }
       }, 
       {
@@ -39,7 +40,7 @@
           "section": "hero-image-area",
           "images": [
               {
-                  "src": "/images/hero-image/hero-image.png"
+                  "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1691979381/apply_c3hnbe.jpg"
               }
           ]
       },
