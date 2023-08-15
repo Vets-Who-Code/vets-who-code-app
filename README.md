@@ -18,8 +18,7 @@
 
 # Vets Who Code Web App
 
-The Vets Who Code Web App is a Next.JS Application designed make a production grade web app as well with a focus of helping or troops by learning to contribute to open source.
-By doing this we can teach our veterans with practical use cases, all the while making a professional product that is fast and serverless.
+The Vets Who Code Web App is a multifaceted application built using Tailwind, Next.js, Playwright, Typescript, MDX, and the Lerna architecture. The purpose of this app is threefold: Firstly, to create a production-grade product that benefits all veterans and military spouses; secondly, to enable the continuous addition of new features that all veterans can utilize; and thirdly, to serve as an open-source app where our troops can learn how to write code. By actively working on this app, pulling tickets, and making changes as needed, our troops can gain practical experience, contributing to a professional, fast, and serverless product designed with their needs in mind.
 
 ## Getting Started
 
@@ -32,6 +31,7 @@ You will need the following properly installed on your computer.
 -   [Git](http://git-scm.com/)
 -   [Node](http://nodejs.org/)
 -   [NVM](https://github.com/creationix/nvm)
+-   [Yarn](https://yarnpkg.com/)
 -   [NextJS](https://nextjs.org/)
 
 ## Installing
@@ -53,39 +53,6 @@ You should be able to view the website locally at `http://localhost:3000/`.
 
 <!-- ## Tests -->
 
-## Testing
-
-In a terminal window run these commands.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test
-```
-
-<br>
-
-In a terminal window run these commands to run the jest test suite in watch mode.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test:watch
-```
-
-In a terminal window run these commands to view the jest coverage report.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test:coverage
-$ npm run view:coverage
-```
-
-In a terminal window run these commands if you need to update a snapshot.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test -- --updateSnapshot
-```
-
 <!-- ## Deployment -->
 
 ## Contributing
@@ -102,4 +69,4 @@ This project is licensed under the MIT License - please see [license](https://gi
 
 ## Roadmap
 
-Please checkout our [roadmap](https://github.com/Vets-Who-Code/vwc-site/blob/update/README/roadmap.md) for details of upcoming features.
+Please checkout our [roadmap](https://github.com/orgs/Vets-Who-Code/projects/48/views/2) for details of upcoming features.
