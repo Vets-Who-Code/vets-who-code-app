@@ -167,8 +167,8 @@
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/apply-to-be-a-student",
-                    "content": "Join Us"
+                    "path": "/apply",
+                    "content": "Apply"
                 }
             ],
             "items": [

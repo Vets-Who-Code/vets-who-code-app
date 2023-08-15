@@ -1,10 +1,11 @@
 ---
 title: "Introducing the New and Improved Vets Who Code App: Harnessing the Power of Tailwind, Next.js, Vercel, and Lerna Architecture"
 postedAt: "2023-07-01T20:30:00.000Z"
-author: 0
+author: "Jerome Hardaway"
+description: "Vets Who Code has introduced a new app, utilizing Tailwind CSS, Next.js, Vercel, and Lerna for improved flexibility, performance, SEO, and deployment. This upgrade underscores the organization's commitment to innovation and supporting veterans in their transition to software development careers."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1685583588/sparkling-vwc_vflsiy.gif",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/VetsWhoCode_dwlu33.png",
     }
 category: "technology"
 tags:

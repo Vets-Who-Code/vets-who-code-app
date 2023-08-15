@@ -39,7 +39,7 @@ const BlogDetails: PageProps = ({
         <>
             <SEO
                 title={toCapitalize(blog.title)}
-                description="Learn about the latest updates, announcements, and resources from Vets Who Code."
+                description={blog.description as string}
                 jsonLdType="article"
                 article={{
                     publishedTime: blog.postedAt,
@@ -47,7 +47,7 @@ const BlogDetails: PageProps = ({
                     authors: [blog.author.name],
                     tags: tags.map((tag) => tag.title),
                 }}
-                image={`https://vetswhocode.io-react.pages.dev${blog.image.src}`}
+                image={blog.image.src}
             />
             <Breadcrumb
                 pages={[
