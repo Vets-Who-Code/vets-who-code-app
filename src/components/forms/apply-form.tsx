@@ -28,12 +28,14 @@ const ApplyForm = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<IFormValues>();
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
             await axios.post("/api/apply", data);
             setMessage("Thank you for your application!");
+            reset();
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
         }

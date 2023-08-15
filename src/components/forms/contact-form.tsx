@@ -1,5 +1,3 @@
-// ContactForm.tsx
-
 import React, { forwardRef, useState } from "react";
 import axios from "axios";
 import clsx from "clsx";
@@ -25,10 +23,12 @@ interface TProps {
 const ContactForm = forwardRef<HTMLFormElement, TProps>(
     ({ className }, ref) => {
         const [serverMessage, setServerMessage] = useState<string>("");
+
         const {
             register,
             handleSubmit,
             formState: { errors },
+            reset,
         } = useForm<IFormValues>();
 
         const onSubmit: SubmitHandler<IFormValues> = async (data) => {
@@ -36,6 +36,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 const response = await axios.post("/api/contact", data);
                 if (response.status === 200) {
                     setServerMessage("Thank you for your message!");
+                    reset();
                 } else {
                     setServerMessage(
                         "There was an error. Please try again later."
