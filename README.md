@@ -31,6 +31,7 @@ You will need the following properly installed on your computer.
 -   [Git](http://git-scm.com/)
 -   [Node](http://nodejs.org/)
 -   [NVM](https://github.com/creationix/nvm)
+-   [Yarn](https://yarnpkg.com/)
 -   [NextJS](https://nextjs.org/)
 
 ## Installing
@@ -52,39 +53,6 @@ You should be able to view the website locally at `http://localhost:3000/`.
 
 <!-- ## Tests -->
 
-## Testing
-
-In a terminal window run these commands.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test
-```
-
-<br>
-
-In a terminal window run these commands to run the jest test suite in watch mode.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test:watch
-```
-
-In a terminal window run these commands to view the jest coverage report.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test:coverage
-$ npm run view:coverage
-```
-
-In a terminal window run these commands if you need to update a snapshot.
-
-```sh
-$ cd vets-who-code-app
-$ npm run test -- --updateSnapshot
-```
-
 <!-- ## Deployment -->
 
 ## Contributing
@@ -101,4 +69,4 @@ This project is licensed under the MIT License - please see [license](https://gi
 
 ## Roadmap
 
-Please checkout our [roadmap](https://github.com/Vets-Who-Code/vwc-site/blob/update/README/roadmap.md) for details of upcoming features.
+Please checkout our [roadmap](https://github.com/orgs/Vets-Who-Code/projects/48/views/2) for details of upcoming features.
