@@ -42,7 +42,7 @@ const ApplyForm = () => {
     };
 
     return (
-        <div className="tw-px-[50px]">
+        <div className="tw-px-[250px]">
             <h3 className="tw-text-h2 tw-mb-5">Apply</h3>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -341,7 +341,11 @@ const ApplyForm = () => {
                     />
                 </div>
 
-                <Button type="submit" fullwidth className="tw-mt-7.5">
+                <Button
+                    type="submit"
+                    fullwidth
+                    className="tw-mx-auto tw-w-[200px] tw-mt-7.5"
+                >
                     Apply
                 </Button>
             </form>
