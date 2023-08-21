@@ -21,6 +21,7 @@ const MentorForm = () => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<IFormValues>();
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
