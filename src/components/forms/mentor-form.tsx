@@ -35,7 +35,7 @@ const MentorForm = () => {
     };
 
     return (
-        <div className="tw-px-[250px]">
+        <div className="tw-px-4 md:tw-px-[250px]">
             <h3 className="tw-text-h2 tw-mb-5">Register</h3>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
@@ -196,7 +196,7 @@ const MentorForm = () => {
                 <Button
                     type="submit"
                     fullwidth
-                    className="tw-mx-auto tw-w-[200px] tw-mt-7.5"
+                    className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
                 >
                     Register
                 </Button>
