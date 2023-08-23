@@ -21,6 +21,7 @@
     "@googlemaps/typescript-guards": "^2.0.1",
     "@radix-ui/themes": "^1.1.0",
     "@types/express": "^4.17.17",
+    "ai": "^2.2.8",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.4",
