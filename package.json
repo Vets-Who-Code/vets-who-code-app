@@ -19,6 +19,7 @@
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
+    "@radix-ui/themes": "^1.1.0",
     "@types/express": "^4.17.17",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
