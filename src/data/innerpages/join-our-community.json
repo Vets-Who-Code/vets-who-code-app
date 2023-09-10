@@ -10,7 +10,7 @@
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/start-here",
+                    "path": "/about-us",
                     "content": "Get started for free"
                 }
             ]
