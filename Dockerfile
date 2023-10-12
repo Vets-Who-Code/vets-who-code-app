@@ -5,7 +5,6 @@ WORKDIR /src
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
 
 # Add node_modules bin to PATH
 ENV PATH /app/node_modules/.bin:$PATH
