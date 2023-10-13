@@ -80,8 +80,8 @@ We have a development container to help you quickly set up your dev environment.
 
 1. **Clone the repository**
     ```sh
-    git clone [your-repository]
-    cd [your-repository]
+    git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
+    cd vets-who-code-app
     ```
 
 2. **Open in VS Code**
