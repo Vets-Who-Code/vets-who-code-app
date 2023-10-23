@@ -66,6 +66,38 @@ $ npm run dev
 
 And boom! Navigate to `http://localhost:3000/` to see the app.
 
+## Development using Dev Container (Optional) 🐳
+
+We have a development container to help you quickly set up your dev environment. This is completely optional but can make getting started easier.
+
+### Requirements
+
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [VS Code](https://code.visualstudio.com/)
+- [Remote - Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+
+### Steps
+
+1. **Clone the repository**
+    ```sh
+    git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
+    cd vets-who-code-app
+    ```
+
+2. **Open in VS Code**
+    - Open the root directory in VS Code.
+    - A notification will appear asking if you would like to reopen the project in a dev container. Choose "Reopen in Container".
+    - If you don't see the notification, open the Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
+
+3. **Wait for the Build**
+    - The dev container will build based on the `Dockerfile` and `devcontainer.json` configuration. This may take a few minutes the first time.
+
+4. **Start Developing**
+    - After the container is built, VS Code will attach to it. You're now developing inside the container!
+
+Remember, this is optional. If you prefer to set up your development environment manually, you can continue to do so.
+
+
 ## Contributing :handshake:
 
 We love contributions! Please read our [Contributing Guidelines](https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md) to get started.
