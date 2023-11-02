@@ -15,7 +15,7 @@ Hello and thank you for your interest in contributing to the Vets Who Code web a
 
 ## Code of Conduct
 
-Our community has a Code of Conduct, and we ask that you read and follow it. This helps ensure a welcoming and inclusive environment for everyone.
+Our community has a [Code of Conduct](code_of_conduct.md), and we ask that you read and follow it. This helps ensure a welcoming and inclusive environment for everyone.
 
 ## Getting Started
 
