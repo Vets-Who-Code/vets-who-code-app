@@ -100,7 +100,7 @@ Remember, this is optional. If you prefer to set up your development environment
 
 ## Contributing :handshake:
 
-We love contributions! Please read our [Contributing Guidelines](https://github.com/Vets-Who-Code/vwc-site/blob/master/.github/contributing.md) to get started.
+We love contributions! Please read our [Contributing Guidelines](contributing.md) to get started.
 
 ## Roadmap 🗺️
 
