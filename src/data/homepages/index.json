@@ -45,7 +45,7 @@
             "images": [
                 {
                     "id":1,
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678667459/website-images/vetswhocode-background.jpg"
                 }
             ],
             "video": {
@@ -60,7 +60,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678667460/website-images/vetswhocode-remote.jpg"
                         }
                     ],
                     "title": "Remote-First Learning",
@@ -72,7 +72,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678667458/website-images/vetswhocode-self-paced.jpg"
                         }
                     ],
                     "title": "Develop Cutting-Edge Skills",
@@ -84,7 +84,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
                         }
                     ],
                     "title": "A Lifelong Community of Support",
@@ -142,7 +142,7 @@
             "images": [
                 {
                     "id": 1,
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667455/website-images/vetswhocode-about-us.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678667455/website-images/vetswhocode-about-us.jpg"
                 }
             ],
             "video": {
@@ -179,7 +179,7 @@
                     "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. Vets Who Code delivered more value to me than 12 of the non-profits combined.",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258222/Headshots/ozzie_zcaamv.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1656258222/Headshots/ozzie_zcaamv.png"
                         }
                     ]
                 },
@@ -194,7 +194,7 @@
                     "description": "#VetsWhoCode's tenacious focus on language and computer science fundamentals over frameworks was invaluable in my career transition from being a Radiology Technician in the US Army to building cloud scale infrastructure at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate mentor network proved to be a priceless asset even after graduating. Come ready to learn and you will succeed here.",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
                         }
                     ]
                 }
@@ -230,7 +230,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/cloudflare-logo-black_ykp638.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688306091/cloudflare-logo-black_ykp638.svg"
                         }
                     ]
                 },
@@ -238,7 +238,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/hashicorp-logo-black_to3p7b.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688306091/hashicorp-logo-black_to3p7b.svg"
                         }
                     ]
                 },
@@ -246,7 +246,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/slack-logo-black_icrcmh.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688306091/slack-logo-black_icrcmh.svg"
                         }
                     ]
                 },
@@ -254,7 +254,7 @@
                     "id": 4,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/contentful-logo-black_e0qbr1.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688306091/contentful-logo-black_e0qbr1.png"
                         }
                     ]
                 },
@@ -262,7 +262,7 @@
                     "id": 5,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688400679/femasters-logo-black_yzed8u.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688400679/femasters-logo-black_yzed8u.png"
                         }
                     ]
                 },
@@ -270,7 +270,7 @@
                     "id": 6,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688401001/adzuna-logo-black_vtjcr2.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688401001/adzuna-logo-black_vtjcr2.png"
                         }
                     ]
                 }
