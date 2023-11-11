@@ -14,7 +14,6 @@ tags:
     - Education
     - Community
 is_featured: true
-views: 0
 ---
 
 ## Introduction
@@ -64,6 +63,10 @@ While Jodie is a powerful tool, it does have limitations. Our human team members
 ## Looking Ahead
 
 We are committed to refining Jodie's capabilities. Ayumi and I are actively utilizing and testing Jodie, ensuring its effectiveness in supporting Vets Who Code operations. We plan to introduce Jodie to our troops in 2024 on a case-by-case basis, allowing us to customize Jodie's assistance based on individual needs.
+
+## Support Our Mission
+
+Your support is vital to our mission. If you're inspired by our work and want to contribute to the empowerment of veterans in the tech industry, consider making a donation. Every contribution, big or small, makes a difference. Donate now at [Vets Who Code Donation Page](https://vetswhocode.io/donate).
 
 ## Conclusion
 
