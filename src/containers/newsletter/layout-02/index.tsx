@@ -21,7 +21,7 @@ const NewsletterArea = ({
         <Section className="tw-relative" space={space} bg={bg}>
             <div className="tw-absolute tw-inset-0 -tw-z-1 child:tw-w-full child:tw-h-full child:tw-object-cover">
                 <img
-                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1678670156/website-images/vetswhocode-newsletter-bg.jpg"
+                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678670156/website-images/vetswhocode-newsletter-bg.jpg"
                     alt="newsletter BG"
                 />
             </div>

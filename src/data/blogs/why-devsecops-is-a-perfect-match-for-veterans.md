@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Unveiling how veterans can seamlessly transition into the tech industry through DevSecOps. This post explores the alignment of military skills with DevSecOps demands and offers a beginner-friendly guide for veterans to embark on this new career journey."
 image:
     {
-        src: "URL to an image showcasing veterans transitioning to tech or a DevSecOps theme",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1701300055/devsecops_mxck8o.png",
     }
 category: "Career Development"
 tags:
