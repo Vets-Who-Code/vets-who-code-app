@@ -54,7 +54,7 @@ const SEO = () => {
             additionalLinkTags={[
                 {
                     rel: "apple-touch-icon",
-                    href: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1656268751/favicon_dpiacy.png",
+                    href: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656268751/favicon_dpiacy.png",
                 },
                 {
                     rel: "manifest",

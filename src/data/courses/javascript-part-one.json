@@ -2,7 +2,7 @@
     "id": 5,
     "title": "Javascript 101",
     "thumbnail": {
-        "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688176572/js-101_bwe5bt.jpg"
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/js-101_bwe5bt.jpg"
     },
     "published_at": "2018-04-01T00:00:00.000Z",
     "category": "Programming",

@@ -1,4 +1,4 @@
-![alt text](https://res.cloudinary.com/vetswhocode/image/upload/f_auto/v1688505546/code-of-conduct_a9g9go.jpg)
+![alt text](https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688505546/code-of-conduct_a9g9go.jpg)
 
 ### Our Pledge
 
