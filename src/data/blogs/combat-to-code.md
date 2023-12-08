@@ -1,3 +1,4 @@
+---
 title: "From Military Precision to Coding Excellence: A Veteran's Journey into Tech"
 postedAt: "2023-12-08T10:00:00.000Z"
 author: "Jerome Hardaway"
@@ -57,3 +58,4 @@ Networking is critical in both military and tech careers. Building a diverse net
 ## Conclusion
 
 The transition from military service to a tech career involves different fields, but the core competencies and principles often overlap. The disciplines practiced in the military are invaluable in coding, paving the way for success in the tech industry for veterans.
+---
