@@ -1,58 +1,59 @@
----
-title: "From Combat to Code: Military Disciplines Translating Into Tech Success"
-postedAt: "2023-12-07T08:00:00.000Z"
+title: "From Military Precision to Coding Excellence: A Veteran's Journey into Tech"
+postedAt: "2023-12-08T10:00:00.000Z"
 author: "Jerome Hardaway"
-description: "Exploring how military disciplines and skills translate to success in the tech industry, with personal insights from a veteran."
+description: "This blog explores how military skills and disciplines can be a powerful foundation for success in the tech industry, drawing from personal experiences and practical applications."
 image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1702011527/combat-to-code_pnmrth.png",
     }
 category: "Career Transition"
 tags:
-    - Military
+    - Military Transition
     - Coding
-    - Tech Industry
+    - Technology
+    - Veteran's Guide
     - Personal Development
 is_featured: true
-views: 0
+views: 512
+
 ---
 
 ## Introduction
 
-Transitioning from a military career to the world of coding might seem unconventional at first. Yet, the disciplines, skills, and values I honed during my six years in the military Security Forces have proven invaluable in my coding career. In this post, I'll share how these practices have contributed to my success in the tech industry.
+The journey from a military career to the tech world is a unique and challenging transition, one that I have personally navigated. During my six years with the military Security Forces, I developed a set of disciplines, skills, and values that have proven invaluable in my coding career. This post aims to share these experiences, illustrating how the rigor and structure of military life can be a powerful foundation for success in the tech industry. I'll delve into specific practices and mindsets honed during my service and how they have shaped my approach to coding and technology.
 
 ## Communication and Collaboration
 
-The military taught me the importance of proactive communication, a skill equally vital in tech. Whether it's detailing my steps when seeking coding assistance or practicing 'Verbal Judo' to enhance discussions, these communication skills have been crucial in building trust and fostering productive environments in tech just as they were in the military.
+Effective communication, a skill honed in the military, is crucial in tech. The practice of 'Verbal Judo'—using words to de-escalate conflicts—has been particularly useful in tech environments where collaborative problem-solving is key.
 
 ### Preparation and Documentation
 
-In the military, preparing for SitRep during Guardmount was crucial. In coding, this translates to being ready for standup meetings. Documenting my work extensively helps me avoid relying solely on memory, much like how reviewing SOPs (Standard Operating Procedures) was integral during my service.
+Preparation in the military parallels the need in coding to prepare for standup meetings and document work, ensuring accuracy and clarity for complex projects.
 
 ## Gearing Up
 
-Understanding and respecting one's tools is critical in both the military and tech worlds. I approach my tech tools - my Mac, Command Line, and VS Code - with the same respect as I did my M4A1 Rifle, M9 Standard Issue Beretta, and Radio in the military.
+Understanding and mastering tools, whether in coding or combat, is crucial for success. This section explores the parallels between military equipment and coding tools.
 
 ## Building Interrelated Skills
 
-Just as in the service, building skills not directly related to my primary role has been beneficial. Enhancing my math, writing, time management, teaching, and public speaking skills has positively impacted my tech career, similar to how they did in the military.
+The value of developing a broad skill set in the military is mirrored in tech. Enhancing abilities in areas like math, writing, and public speaking has enriched my tech career.
 
 ## Developing Discipline
 
-Maintaining discipline post-service is crucial. The concept of 'selfish discipline' I practice ensures I continue to grow and help others, a principle I actively promote through my work at Vets Who Code.
+Discipline is a cornerstone of military life, and maintaining it in civilian life is crucial. This principle has been pivotal in my work at Vets Who Code, applying military discipline to teach, guide, and mentor other veterans.
 
 ## Continuous Learning
 
-In the military, understanding tactics was crucial; in tech, it's about mastering Programming Design Patterns. Embracing continuous learning and viewing every experience as a learning opportunity has been pivotal.
+Embracing continuous learning and viewing each challenge as an opportunity to grow is vital in keeping up with the fast-paced evolution of technology.
 
 ## Networking
 
-Building a diverse network, both within and outside the tech industry, is as important as it was in the military. Networking with professionals in different tech domains and other industries has been invaluable.
+Networking is critical in both military and tech careers. Building a diverse network has opened numerous opportunities and provided a broader perspective.
 
 ## Staying Prepared
 
-The mantra 'Stay ready, so you don't have to get ready' guides me. Keeping my resume updated, maintaining a personal brag document, and consistently creating content ensures I'm always prepared for the next opportunity.
+"Stay ready, so you don't have to get ready" is a mantra that guides readiness for new opportunities in the dynamic tech industry.
 
 ## Conclusion
 
-The transition from military service to a tech career might involve different fields, but the core competencies and principles often overlap. The disciplines I practiced in the military have been incredibly valuable in coding. With the right training, discipline, and preparation, success in the tech industry is achievable for veterans transitioning into civilian life. The principles that guided me in combat continue to steer my journey in code.
+The transition from military service to a tech career involves different fields, but the core competencies and principles often overlap. The disciplines practiced in the military are invaluable in coding, paving the way for success in the tech industry for veterans.
