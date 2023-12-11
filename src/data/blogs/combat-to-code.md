@@ -1,5 +1,5 @@
 ---
-title: "From Military Precision to Coding Excellence: A Veteran's Journey into Tech"
+title: "From Combat To Code: A Veteran's Journey into Tech"
 postedAt: "2023-12-08T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "This blog post delves into the unique journey of transitioning from military service to a successful career in technology. Drawing from personal experiences, it highlights the transferable skills and values that make veterans exceptional in the tech world."
