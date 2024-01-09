@@ -41,7 +41,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                         <li
                             key={id}
                             className={clsx(
-                                "tw-inline-block tw-px-2.5 2xl:tw-px-[17px] tw-py-[29px] tw-group",
+                                "tw-inline-block tw-px-2.5 2xl:tw-px-[15px] tw-py-[29px] tw-group",
                                 submenu && "tw-relative"
                             )}
                             role="none"

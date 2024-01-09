@@ -158,6 +158,11 @@ export default [
     },
     {
         id: 7,
+        label: "Shop",
+        path: "https://hashflag.shop/",
+    },
+    {
+        id: 8,
         label: "Donate",
         path: "/donate",
     },
