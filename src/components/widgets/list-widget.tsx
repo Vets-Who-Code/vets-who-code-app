@@ -2,12 +2,15 @@ import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import WidgetTitle from "./widget-title";
 
+
+
 type TProps = {
     className?: string;
     mode?: "light" | "dark";
+
 };
 
-const ListWidget = ({ className, mode }: TProps) => {
+const ListWidget = ({ className, mode, }: TProps) => {
     return (
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Information</WidgetTitle>
@@ -20,7 +23,7 @@ const ListWidget = ({ className, mode }: TProps) => {
                 <li className="tw-pr-5 tw-mb-[11px]">
                     <Anchor path="/code-of-conduct">Code of Conduct</Anchor>
                 </li>
-            </ul>
+            </ul>        
         </div>
     );
 };
