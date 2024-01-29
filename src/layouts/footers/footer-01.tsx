@@ -34,8 +34,8 @@ const Footer01 = ({ mode }: TProps) => {
                     />
                     <div className="maxSm:tw-col-span-3 sm:tw-col-span-2 xl:tw-col-span-1">
                     <img 
-                                src="/images/others/candid-seal.png"
-                                alt="Not Found"
+                                src="https://res.cloudinary.com/vetswhocode/image/upload/v1705549609/candid-seal-platinum-2024_wexkdk.png"
+                                alt="Candid Seal Platinum Award"
                                 width={150}
                             />
                     </div>
