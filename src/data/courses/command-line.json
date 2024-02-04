@@ -33,7 +33,7 @@
             "id": 1,
             "type": "iframe",
             "content": {
-                "src": "https://v.ftcdn.net/03/71/50/53/700_F_371505316_wTwVU7QoSW4qUmVxk7HEka44ikMMC2My_ST.mp4",
+                "src": "https://res.cloudinary.com/vetswhocode/video/upload/f_auto,q_auto/v1707063739/command-line_virgir.mp4",
                 "alt": "Command Line Interface Video"
             }
         },
