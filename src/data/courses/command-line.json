@@ -5,20 +5,45 @@
         "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg"
     },
     "published_at": "2020-12-01T00:00:00.000Z",
-    "category": "Fun",
+    "category": "programming",
+    "price": null,
+    "currency": null,
     "language": "english",
     "instructor": 1,
     "duration": "4 hours",
-    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "total_lectures": null,
+    "total_students": null,
+    "membership": [],
+    "excerpt": "Unlock the full potential of your computer with our Command Line course. Designed for both beginners and seasoned users, this course demystifies the powerful command-line interface (CLI), guiding you through the essentials of navigating, managing files, and executing tasks efficiently. Discover how to streamline your workflow, automate repetitive tasks, and harness the versatility of CLI commands. Whether you're aiming to enhance your technical skills, delve into system administration, or explore programming, this 4-hour journey offers the foundational knowledge you need to command your computer with confidence.",
     "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+    "reviews": {
+        "average": null,
+        "count": 0,
+        "rating_details": {
+            "5": 0,
+            "4": 0,
+            "3": 0,
+            "2": 0,
+            "1": 0
+        },
+        "items": []
+    },
     "description": [
         {
             "id": 1,
+            "type": "iframe",
+            "content": {
+                "src": "https://res.cloudinary.com/vetswhocode/video/upload/f_auto,q_auto/v1707063739/command-line_virgir.mp4",
+                "alt": "Command Line Interface Video"
+            }
+        },
+        {
+            "id": 2,
             "type": "text",
             "content": "A command-line interface (CLI) is a text-based user interface that allows users to interact with a computer system by entering commands as text input. Unlike graphical user interfaces (GUIs) that rely on visual elements like icons and windows, a CLI operates solely through text-based commands and responses."
         },
         {
-            "id": 2,
+            "id": 3,
             "type": "text",
             "content": "In a CLI, users can navigate the system's file structure, execute various programs, and perform a wide range of tasks by typing specific commands and parameters. Each command typically corresponds to a specific action or operation, such as creating, copying, or deleting files, managing processes, configuring system settings, and much more."
         },
@@ -35,12 +60,12 @@
         {
             "id": 6,
             "type": "text",
-            "content": "TWhile the command-line interface might seem daunting to beginners due to its reliance on precise syntax and lack of visual cues, it offers unparalleled efficiency and flexibility once users become proficient. Learning the CLI can empower users to become more adept at system administration, programming, and other technical tasks, making it an indispensable skill for anyone working in the computing field."
+            "content": "While the command-line interface might seem daunting to beginners due to its reliance on precise syntax and lack of visual cues, it offers unparalleled efficiency and flexibility once users become proficient. Learning the CLI can empower users to become more adept at system administration, programming, and other technical tasks, making it an indispensable skill for anyone working in the computing field."
         },
         {
             "id": 8,
             "type": "text",
-            "content": "A customer-centric way of doing business is a way that provides a positive customer experience before and after the sale in order to drive repeat business, enhance customer loyalty and improve business growth."
+            "content": "Despite the rise of user-friendly graphical interfaces, the CLI remains a fundamental tool for developers, system administrators, and advanced users, who value its directness, speed, and the ability to work efficiently even on remote machines or headless systems."
         },
         {
             "id": 9,
