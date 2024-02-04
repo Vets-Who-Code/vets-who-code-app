@@ -14,7 +14,7 @@
     "total_lectures": null,
     "total_students": null,
     "membership": [],
-    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "excerpt": "Unlock the full potential of your computer with our Command Line course. Designed for both beginners and seasoned users, this course demystifies the powerful command-line interface (CLI), guiding you through the essentials of navigating, managing files, and executing tasks efficiently. Discover how to streamline your workflow, automate repetitive tasks, and harness the versatility of CLI commands. Whether you're aiming to enhance your technical skills, delve into system administration, or explore programming, this 4-hour journey offers the foundational knowledge you need to command your computer with confidence.",
     "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
     "reviews": {
         "average": null,
