@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Router from "next/router";
 import axios from "axios";
 import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
@@ -27,8 +28,9 @@ const MentorForm = () => {
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
             await axios.post("/api/mentor", data);
-            setMessage("Thank you for your registration!");
+            // setMessage("Thank you for your registration!");
             reset();
+            Router.push('/registration-success');
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
         }

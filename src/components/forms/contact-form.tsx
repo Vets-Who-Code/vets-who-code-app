@@ -2,6 +2,7 @@ import React, { forwardRef, useState } from "react";
 import axios from "axios";
 import clsx from "clsx";
 import { useForm, SubmitHandler } from "react-hook-form";
+import Router from "next/router";
 import Input from "@ui/form-elements/input";
 import Textarea from "@ui/form-elements/textarea";
 import Feedback from "@ui/form-elements/feedback";
@@ -35,8 +36,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
             try {
                 const response = await axios.post("/api/contact", data);
                 if (response.status === 200) {
-                    setServerMessage("Thank you for your message!");
+                    // setServerMessage("Thank you for your message!");
                     reset();
+                    Router.push('/success');
                 } else {
                     setServerMessage(
                         "There was an error. Please try again later."
