@@ -15,8 +15,7 @@ interface ParsedBody {
 
 export default async function handler(req: Request, res: Response) {
     try {
-        const parsedBody: ParsedBody = req.body;
-        // Correctly typed requiredParams to leverage TypeScript's type checking
+        const parsedBody = req.body as ParsedBody; // Cast to ensure body matches ParsedBody interface
         const requiredParams: (keyof ParsedBody)[] = [
             "name",
             "email",
@@ -27,8 +26,8 @@ export default async function handler(req: Request, res: Response) {
             "employer-restrictions",
         ];
         
-        // Assuming checkParams is now properly generic
-        const hasErrors = checkParams<ParsedBody>(parsedBody, requiredParams);
+        // Leverage TypeScript's type inference for generic parameters
+        const hasErrors = checkParams(parsedBody, requiredParams);
 
         if (hasErrors) {
             return res.status(422).json({
@@ -36,32 +35,28 @@ export default async function handler(req: Request, res: Response) {
             });
         }
 
+        // Construct the message text
         const text = [
             `Name: \`${parsedBody.name}\``,
-            `\nEmail: \`${parsedBody.email}\``,
-            `\nBranch of Service: \`${parsedBody["branch-of-service"]}\``,
-            `\nTechnical Expertise: \`${parsedBody["technical-expertise"]}\``,
-            `\nGithub, Portfolio or LinkedIn: \`${parsedBody["github-portfolio-or-linkedin"]}\``,
-            `\nLocation: \`${parsedBody.location}\``,
-            `\nEmployer Restrictions: \`${parsedBody["employer-restrictions"]}\``,
-        ].join("");
+            `Email: \`${parsedBody.email}\``,
+            `Branch of Service: \`${parsedBody["branch-of-service"]}\``,
+            `Technical Expertise: \`${parsedBody["technical-expertise"]}\``,
+            `Github, Portfolio or LinkedIn: \`${parsedBody["github-portfolio-or-linkedin"]}\``,
+            `Location: \`${parsedBody.location}\``,
+            `Employer Restrictions: \`${parsedBody["employer-restrictions"]}\``,
+        ].join("\n");
 
-        const payload = JSON.stringify({ text });
+        // Send the constructed message to Slack
+        await axios.post(`https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`, JSON.stringify({ text }))
+            .catch((err) => {
+                console.error("Error posting to Slack:", err);
+                throw new Error("Failed to post to Slack");
+            });
 
-        await axios({
-            method: "POST",
-            baseURL: "https://hooks.slack.com",
-            url: `/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`,
-            data: payload,
-        }).catch((err: unknown) => {
-            // More specific error handling could be applied here
-            console.error("Error posting to Slack:", err);
-            throw new Error("Failed to post to Slack");
-        });
-
+        // Respond with a success message
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
         console.error("Handler error:", err);
-        return res.status(500).json({ message: "Failed post to #mentor channel" });
+        return res.status(500).json({ message: "Failed to post to #mentor channel" });
     }
 }
