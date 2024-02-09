@@ -39,6 +39,7 @@ const ContactUs: NextPage<Props> & { Layout: typeof Layout; } = ({ data }) => {
 ContactUs.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = async () => {
+    // eslint-disable-next-line @typescript-eslint/await-thenable
     const page = await getPageData("inner", "contact-us");
     return {
         props: {
