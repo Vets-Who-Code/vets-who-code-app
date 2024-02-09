@@ -1,9 +1,12 @@
-// Adjusting the EventBody type to be generic
+// Adjusting the EventBody type to be generic and refining the checkParams function
 export function checkParams<T>(eventBody: T, params: (keyof T)[]): boolean {
     return params.some((key) => {
-        // Explicitly handling the indexing with keyof T to ensure type safety
-        const value = eventBody[key as keyof T];
-        return value === undefined || value === null || value === "";
+        const value = eventBody[key];
+        // The condition needs to account for various types of value
+        if (value === undefined || value === null) return true;
+        if (typeof value === 'string' && value.trim() === "") return true;
+        // Further specific checks can be added based on the expected types of values
+        return false; // If none of the conditions are met, assume the value is valid
     });
 }
 
