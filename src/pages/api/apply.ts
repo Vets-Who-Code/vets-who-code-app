@@ -21,8 +21,8 @@ interface ParsedBody {
 
 export default async function handler(req: Request, res: Response) {
     try {
-        const parsedBody: ParsedBody = req.body as ParsedBody;
-        const requiredParams: string[] = [
+        const parsedBody: ParsedBody = req.body;
+        const requiredParams: (keyof ParsedBody)[] = [
             "firstName",
             "lastName",
             "email",
@@ -38,7 +38,7 @@ export default async function handler(req: Request, res: Response) {
             "preworkLink",
             "preworkRepo",
         ];
-        const hasErrors = checkParams(parsedBody, requiredParams);
+        const hasErrors = checkParams<ParsedBody>(parsedBody, requiredParams);
 
         if (hasErrors) {
             return res.status(422).json({
@@ -57,9 +57,7 @@ export default async function handler(req: Request, res: Response) {
             `Branch of Service: \`${parsedBody.branchOfService ?? ""}\``,
             `Year Joined: \`${parsedBody.yearJoined ?? ""}\``,
             `Year Separated: \`${parsedBody.yearSeparated ?? ""}\``,
-            `LinkedIn Account Name: \`${
-                parsedBody.linkedInAccountName ?? ""
-            }\``,
+            `LinkedIn Account Name: \`${parsedBody.linkedInAccountName ?? ""}\``,
             `GitHub Account Name: \`${parsedBody.githubAccountName ?? ""}\``,
             `Prework Link: \`${parsedBody.preworkLink ?? ""}\``,
             `Prework Repository: \`${parsedBody.preworkRepo ?? ""}\``,
@@ -70,14 +68,12 @@ export default async function handler(req: Request, res: Response) {
         await axios({
             method: "POST",
             baseURL: "https://hooks.slack.com",
-            url: `/services/${(process.env.APPLY_WEBHOOK_ID as string) ?? ""}`,
+            url: `/services/${process.env.APPLY_WEBHOOK_ID ?? ""}`,
             data: payload,
         });
 
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
-        return res
-            .status(500)
-            .json({ message: "Failed to post to #mentor channel" });
+        return res.status(500).json({ message: "Failed to post to #mentor channel" });
     }
 }
