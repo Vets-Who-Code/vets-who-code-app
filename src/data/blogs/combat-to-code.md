@@ -16,7 +16,6 @@ tags:
     - Personal Development
 is_featured: true
 views: 512
-
 ---
 
 ## Introduction
@@ -43,7 +42,7 @@ The military service taught me the value of developing a broad skill set. Skills
 
 Discipline is a cornerstone of military life, and maintaining it in civilian life is crucial. Post-service, I've focused on 'selfish discipline,' a concept where personal growth aids in helping others. This principle has been pivotal in my work at Vets Who Code, where I've
 
- applied military discipline to teach, guide, and mentor other veterans. It's about channeling the regimented structure of military life into productive habits in the civilian world. Discipline is not just about following a routine; it's about setting high standards for oneself and consistently striving to meet them. This approach has been essential for continuous growth and success, both personally and professionally.
+applied military discipline to teach, guide, and mentor other veterans. It's about channeling the regimented structure of military life into productive habits in the civilian world. Discipline is not just about following a routine; it's about setting high standards for oneself and consistently striving to meet them. This approach has been essential for continuous growth and success, both personally and professionally.
 
 ## Continuous Learning
 

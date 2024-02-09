@@ -2,6 +2,7 @@ import axios from "axios";
 import { Request, Response } from "express";
 import { checkParams } from "./api-helpers";
 
+// Define the ParsedBody interface to type-check the request body
 interface ParsedBody {
     firstName?: string;
     lastName?: string;
@@ -21,8 +22,8 @@ interface ParsedBody {
 
 export default async function handler(req: Request, res: Response) {
     try {
-        const parsedBody: ParsedBody = req.body as ParsedBody;
-        const requiredParams: string[] = [
+        const parsedBody = req.body as ParsedBody; // Ensure body matches ParsedBody interface
+        const requiredParams: (keyof ParsedBody)[] = [
             "firstName",
             "lastName",
             "email",
@@ -38,14 +39,17 @@ export default async function handler(req: Request, res: Response) {
             "preworkLink",
             "preworkRepo",
         ];
+
+        // Validate required fields in the parsed body
         const hasErrors = checkParams(parsedBody, requiredParams);
 
         if (hasErrors) {
-            return res.status(422).json({
-                error: "Missing or incorrect required property",
-            });
+            return res
+                .status(422)
+                .json({ error: "Missing or incorrect required property" });
         }
 
+        // Construct the text message to be sent
         const text = [
             `First Name: \`${parsedBody.firstName ?? ""}\``,
             `Last Name: \`${parsedBody.lastName ?? ""}\``,
@@ -65,17 +69,19 @@ export default async function handler(req: Request, res: Response) {
             `Prework Repository: \`${parsedBody.preworkRepo ?? ""}\``,
         ].join("\n");
 
-        const payload = JSON.stringify({ text });
+        // Send the payload to the configured Slack webhook URL
+        await axios.post(
+            `https://hooks.slack.com/services/${
+                process.env.APPLY_WEBHOOK_ID ?? ""
+            }`,
+            JSON.stringify({ text })
+        );
 
-        await axios({
-            method: "POST",
-            baseURL: "https://hooks.slack.com",
-            url: `/services/${(process.env.APPLY_WEBHOOK_ID as string) ?? ""}`,
-            data: payload,
-        });
-
+        // Respond with success message
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
+        // Log the error for debugging and respond with an error message
+        console.error("Failed to post to #mentor channel:", err);
         return res
             .status(500)
             .json({ message: "Failed to post to #mentor channel" });

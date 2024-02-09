@@ -1,3 +1,4 @@
+import EmojiRain from "@components/EmojiRain";
 import React, { forwardRef, useState } from "react";
 import axios from "axios";
 import clsx from "clsx";
@@ -23,6 +24,7 @@ interface TProps {
 const ContactForm = forwardRef<HTMLFormElement, TProps>(
     ({ className }, ref) => {
         const [serverMessage, setServerMessage] = useState<string>("");
+        const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
 
         const {
             register,
@@ -36,7 +38,12 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 const response = await axios.post("/api/contact", data);
                 if (response.status === 200) {
                     setServerMessage("Thank you for your message!");
-                    reset();
+                    setShowEmojiRain(true); // Trigger the Emoji Rain on successful submission
+
+                    // Optional: Hide the EmojiRain after a set duration
+                    setTimeout(() => setShowEmojiRain(false), 5000); // Adjust duration as necessary
+
+                    reset(); // Reset the form fields
                 } else {
                     setServerMessage(
                         "There was an error. Please try again later."
@@ -152,6 +159,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 {serverMessage && (
                     <Feedback state="success">{serverMessage}</Feedback>
                 )}
+                {showEmojiRain && <EmojiRain />}
             </form>
         );
     }
