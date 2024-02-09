@@ -1,19 +1,17 @@
 type EventBody = {
-    [key: string]: any;
+    [key: string]: unknown;
 };
 
 export function checkParams(eventBody: EventBody, params: string[]): boolean {
-    return params.some(
-        (k) => typeof eventBody[k] === "undefined" || !eventBody[k]
-    );
+    return params.some((k) => {
+        const value = eventBody[k];
+        return typeof value === "undefined" || value === null || value === "";
+        // Further specific checks can be added based on the expected types of values.
+    });
 }
 
 export const checkLength = (message: string): boolean => {
-    const { length } = message.trim().split(" ");
-    if (length === 1) {
-        return true;
-    }
-    return false;
+    return message.trim().split(/\s+/).length === 1;
 };
 
 export const contactErrors = {
