@@ -38,7 +38,9 @@ export default async function handler(req: Request, res: Response) {
             "preworkLink",
             "preworkRepo",
         ];
-        const hasErrors = checkParams<ParsedBody>(parsedBody, requiredParams);
+        
+        // Note: Type argument removed since TypeScript infers <ParsedBody> from the argument types
+        const hasErrors = checkParams(parsedBody, requiredParams);
 
         if (hasErrors) {
             return res.status(422).json({
