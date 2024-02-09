@@ -6,11 +6,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Regular.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Regular.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Regular.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Regular.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -19,11 +16,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Thin.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Thin.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Thin.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Thin.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Thin.woff") format("woff");
 }
 
 @font-face {
@@ -32,11 +26,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-UltraLight.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-UltraLight.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-UltraLight.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-UltraLight.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-UltraLight.woff") format("woff");
 }
 
 @font-face {
@@ -45,11 +36,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Light.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Light.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Light.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Light.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Light.woff") format("woff");
 }
 
 @font-face {
@@ -58,11 +46,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Medium.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Medium.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Medium.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Medium.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Medium.woff") format("woff");
 }
 
 @font-face {
@@ -71,11 +56,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Semibold.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Semibold.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Semibold.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Semibold.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Semibold.woff") format("woff");
 }
 
 @font-face {
@@ -84,11 +66,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Bold.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Bold.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Bold.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Bold.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Bold.woff") format("woff");
 }
 
 @font-face {
@@ -97,11 +76,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Extrabold.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Extrabold.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Extrabold.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Extrabold.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Extrabold.woff") format("woff");
 }
 
 @font-face {
@@ -110,11 +86,8 @@
     font-style: normal;
     font-display: swap;
     src: url("/fonts/gilroy/Gilroy-Black.woff2");
-    src: local(""),
-        url("/fonts/gilroy/Gilroy-Black.woff2")
-            format("woff2"),
-        url("/fonts/gilroy/Gilroy-Black.woff")
-            format("woff");
+    src: local(""), url("/fonts/gilroy/Gilroy-Black.woff2") format("woff2"),
+        url("/fonts/gilroy/Gilroy-Black.woff") format("woff");
 }
 
 /* Playfair Display */

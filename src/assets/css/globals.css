@@ -1,11 +1,11 @@
 /* styles/globals.css */
 
 @keyframes fall {
-  to {
-    transform: translateY(calc(100vh + 100%));
-  }
+    to {
+        transform: translateY(calc(100vh + 100%));
+    }
 }
 
 .emoji-fall {
-  animation: fall 5s linear forwards;
+    animation: fall 5s linear forwards;
 }

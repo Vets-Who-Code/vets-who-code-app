@@ -44,13 +44,13 @@ Do not manipulate, tweak, or otherwise alter the #VetsWhoCode logo in any way. A
 
 The #VetsWhoCode color palette is based on the exact Pantones used for the American Flag. Make sure to use the approved Pantone CMYK or RGB color values.
 
-- Navy Blue: `R: 9, G: 31, B: 64` - Pantone 282 C
-  - Navy Blue: `#091f40`
-- Red: `R: 197, G: 32, B: 62` - Pantone 193 C
-  - Red: `#c5203e`
-- White: `R: 255, G: 255, B: 255` - Pantone White
-  - White: `#ffffff`
-  
+-   Navy Blue: `R: 9, G: 31, B: 64` - Pantone 282 C
+    -   Navy Blue: `#091f40`
+-   Red: `R: 197, G: 32, B: 62` - Pantone 193 C
+    -   Red: `#c5203e`
+-   White: `R: 255, G: 255, B: 255` - Pantone White
+    -   White: `#ffffff`
+
 ## Typography
 
 #VetsWhoCode uses the typeface Gotham for all of its collateral.
@@ -76,4 +76,3 @@ Retool. Retrain. Relaunch.
 Our vision is to close the digital talent gap and ease career transition for military veterans through software development training.
 
 Visit us online at [vetswhocode.io](https://vetswhocode.io)
-

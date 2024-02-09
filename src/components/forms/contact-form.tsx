@@ -25,8 +25,13 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
     ({ className }, ref) => {
         const [serverMessage, setServerMessage] = useState<string>("");
         const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
-        
-        const { register, handleSubmit, formState: { errors }, reset } = useForm<IFormValues>();
+
+        const {
+            register,
+            handleSubmit,
+            formState: { errors },
+            reset,
+        } = useForm<IFormValues>();
 
         const onSubmit: SubmitHandler<IFormValues> = async (data) => {
             try {
@@ -34,19 +39,20 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 if (response.status === 200) {
                     setServerMessage("Thank you for your message!");
                     setShowEmojiRain(true); // Trigger the Emoji Rain on successful submission
-        
+
                     // Optional: Hide the EmojiRain after a set duration
                     setTimeout(() => setShowEmojiRain(false), 5000); // Adjust duration as necessary
-        
+
                     reset(); // Reset the form fields
                 } else {
-                    setServerMessage("There was an error. Please try again later.");
+                    setServerMessage(
+                        "There was an error. Please try again later."
+                    );
                 }
             } catch (error) {
                 setServerMessage("There was an error. Please try again later.");
             }
         };
-        
 
         return (
             <form

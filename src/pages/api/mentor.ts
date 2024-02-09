@@ -25,7 +25,7 @@ export default async function handler(req: Request, res: Response) {
             "location",
             "employer-restrictions",
         ];
-        
+
         // Leverage TypeScript's type inference for generic parameters
         const hasErrors = checkParams(parsedBody, requiredParams);
 
@@ -47,7 +47,13 @@ export default async function handler(req: Request, res: Response) {
         ].join("\n");
 
         // Send the constructed message to Slack
-        await axios.post(`https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`, JSON.stringify({ text }))
+        await axios
+            .post(
+                `https://hooks.slack.com/services/${
+                    process.env.MENTOR_WEBHOOK_ID ?? ""
+                }`,
+                JSON.stringify({ text })
+            )
             .catch((err) => {
                 console.error("Error posting to Slack:", err);
                 throw new Error("Failed to post to Slack");
@@ -57,6 +63,8 @@ export default async function handler(req: Request, res: Response) {
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
         console.error("Handler error:", err);
-        return res.status(500).json({ message: "Failed to post to #mentor channel" });
+        return res
+            .status(500)
+            .json({ message: "Failed to post to #mentor channel" });
     }
 }

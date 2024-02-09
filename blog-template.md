@@ -3,10 +3,7 @@ title: "Title of the Blog Post Here"
 postedAt: "YYYY-MM-DDTHH:mm:ss.sssZ"
 author: "Author Name Here"
 description: "Brief description of the blog post content."
-image:
-    {
-        src: "URL to the image here",
-    }
+image: { src: "URL to the image here" }
 category: "Specify category"
 tags:
     - List
@@ -36,4 +33,3 @@ Continue with additional sections as required for your blog post structure. Prov
 ## Conclusion
 
 Conclude your post by summarizing the key points discussed. You can also invite readers to take action, leave comments, or explain what they can expect from upcoming posts.
-

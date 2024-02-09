@@ -1,11 +1,11 @@
-import type { NextPage, GetStaticProps } from 'next';
-import SEO from '@components/seo/page-seo';
-import Layout from '@layout/layout-01';
-import Breadcrumb from '@components/breadcrumb';
-import ContactInfo from '@containers/contact-info/layout-02';
-import ContactForm from '@containers/contact-form/layout-02';
-import { normalizedData } from '@utils/methods';
-import { getPageData } from '../lib/page';
+import type { NextPage, GetStaticProps } from "next";
+import SEO from "@components/seo/page-seo";
+import Layout from "@layout/layout-01";
+import Breadcrumb from "@components/breadcrumb";
+import ContactInfo from "@containers/contact-info/layout-02";
+import ContactForm from "@containers/contact-form/layout-02";
+import { normalizedData } from "@utils/methods";
+import { getPageData } from "../lib/page";
 
 interface PageContent {
     section: string;
@@ -19,7 +19,7 @@ interface Props {
     };
 }
 
-const ContactUs: NextPage<Props> & { Layout: typeof Layout; } = ({ data }) => {
+const ContactUs: NextPage<Props> & { Layout: typeof Layout } = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
 
     return (

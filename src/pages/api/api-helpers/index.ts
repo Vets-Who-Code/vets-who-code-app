@@ -4,7 +4,7 @@ export function checkParams<T>(eventBody: T, params: (keyof T)[]): boolean {
         const value = eventBody[key];
         // The condition needs to account for various types of value
         if (value === undefined || value === null) return true;
-        if (typeof value === 'string' && value.trim() === "") return true;
+        if (typeof value === "string" && value.trim() === "") return true;
         // Further specific checks can be added based on the expected types of values
         return false; // If none of the conditions are met, assume the value is valid
     });
