@@ -15,7 +15,7 @@ const EmojiRain = () => {
                     style={{
                         position: "absolute",
                         left: `${Math.random() * 100}vw`,
-                        top: `-${Math.random() * 100}vh`,
+                        top: `${100 + Math.random() * 100}vh`,
                         animation: "fall 5s linear forwards",
                     }}
                 >
