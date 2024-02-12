@@ -34,7 +34,7 @@ const MentorForm = () => {
             setMessage("Thank you for your registration!");
             setShowEmojiRain(true);
 
-            setTimeout(() => setShowEmojiRain(false),5000);
+            setTimeout(() => setShowEmojiRain(false), 5000);
 
             reset();
         } catch (error) {
@@ -45,7 +45,6 @@ const MentorForm = () => {
     return (
         <div className="tw-px-4 md:tw-px-[250px]">
             <h3 className="tw-text-h2 tw-mb-5">Register</h3>
-            {/* {message && <p>{message}</p>} */}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
                     <label
