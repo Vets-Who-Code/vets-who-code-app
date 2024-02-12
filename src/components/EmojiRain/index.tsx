@@ -8,20 +8,22 @@ const EmojiRain = () => {
     }));
 
     return (
+        <div className="relative">
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 overflow-hidden">
             {emojis.map((emojiObj) => (
                 <div
                     key={emojiObj.id} // Using the unique ID as key
                     style={{
                         position: "absolute",
-                        left: `${Math.random() * 100}vw`,
-                        top: `${100 + Math.random() * 100}vh`,
+                        left: `${Math.random() * 100}%`,
+                        top: `${Math.random() * 100}%`,
                         animation: "fall 5s linear forwards",
                     }}
                 >
                     {emojiObj.emoji}
                 </div>
             ))}
+        </div>
         </div>
     );
 };

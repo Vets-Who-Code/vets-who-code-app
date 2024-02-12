@@ -1,11 +1,9 @@
-import EmojiRain from "@components/EmojiRain";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
-import Feedback from "@ui/form-elements/feedback";
 
 interface IFormValues {
     firstName: string;
@@ -26,8 +24,6 @@ interface IFormValues {
 
 const ApplyForm = () => {
     const [message, setMessage] = useState("");
-    const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
-
     const {
         register,
         handleSubmit,
@@ -39,10 +35,6 @@ const ApplyForm = () => {
         try {
             await axios.post("/api/apply", data);
             setMessage("Thank you for your application!");
-            setMessage("Thank you for your message!");
-            setShowEmojiRain(true); 
-
-            setTimeout(() => setShowEmojiRain(false), 5000);
             reset();
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
@@ -52,6 +44,7 @@ const ApplyForm = () => {
     return (
         <div className="tw-px-[250px]">
             <h3 className="tw-px-4 md:tw-px-[250px]">Apply</h3>
+            {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
                     <label
@@ -355,10 +348,6 @@ const ApplyForm = () => {
                 >
                     Apply
                 </Button>
-                {message && (
-                    <Feedback state="success">{message}</Feedback>
-                )}
-                {showEmojiRain && <EmojiRain />}
             </form>
         </div>
     );

@@ -34,7 +34,7 @@ const MentorForm = () => {
             setMessage("Thank you for your registration!");
             setShowEmojiRain(true);
 
-            setTimeout(() => setShowEmojiRain(false), 5000);
+            setTimeout(() => setShowEmojiRain(false),5000);
 
             reset();
         } catch (error) {
