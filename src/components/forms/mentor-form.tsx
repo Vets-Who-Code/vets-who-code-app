@@ -1,3 +1,4 @@
+import EmojiRain from "@components/EmojiRain";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
@@ -17,6 +18,7 @@ interface IFormValues {
 
 const MentorForm = () => {
     const [message, setMessage] = useState("");
+    const [showEmojiRain, setShowEmojiRain] = useState(false); 
     const {
         register,
         handleSubmit,
@@ -25,14 +27,25 @@ const MentorForm = () => {
     } = useForm<IFormValues>();
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
+        setShowEmojiRain(true); // Trigger EmojiRain immediately on submit
         try {
-            await axios.post("/api/mentor", data);
-            setMessage("Thank you for your registration!");
-            reset();
+            const response = await axios.post("/api/mentor", data);
+            if (response.status === 200) {
+                setMessage("Thank you for your registration!");
+                reset(); // Reset form fields after submission
+
+                // Instead of hiding EmojiRain after 5 seconds, wait longer if needed
+                setTimeout(() => setShowEmojiRain(false), 10000); // Hide after 10 seconds for longer visibility
+            } else {
+                setMessage("There was an issue with your submission.");
+                setShowEmojiRain(false); // Consider hiding EmojiRain if there's an issue
+            }
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
+            setShowEmojiRain(false); // Consider hiding EmojiRain on error
         }
     };
+    
 
     return (
         <div className="tw-px-4 md:tw-px-[250px]">
@@ -49,6 +62,7 @@ const MentorForm = () => {
                     <Input
                         id="name"
                         placeholder="Jody Grinder"
+                        bg="light"
                         feedbackText={errors?.name?.message}
                         state={hasKey(errors, "name") ? "error" : "success"}
                         showState={!!hasKey(errors, "name")}
@@ -67,6 +81,7 @@ const MentorForm = () => {
                     <Input
                         id="email"
                         placeholder="jody@civilian.com"
+                        bg="light"
                         feedbackText={errors?.email?.message}
                         state={hasKey(errors, "email") ? "error" : "success"}
                         showState={!!hasKey(errors, "email")}
@@ -89,6 +104,7 @@ const MentorForm = () => {
                     <Input
                         id="branch-of-service"
                         placeholder="Civilian"
+                        bg="light"
                         feedbackText={errors?.["branch-of-service"]?.message}
                         state={
                             hasKey(errors, "branch-of-service")
@@ -111,6 +127,7 @@ const MentorForm = () => {
                     <Input
                         id="technical-expertise"
                         placeholder="Javascript, React, Node, etc."
+                        bg="light"
                         feedbackText={errors?.["technical-expertise"]?.message}
                         state={
                             hasKey(errors, "technical-expertise")
@@ -133,6 +150,7 @@ const MentorForm = () => {
                     <Input
                         id="github-portfolio-or-linkedin"
                         placeholder="github.com/jody-fake-profile"
+                        bg="light"
                         feedbackText={
                             errors?.["github-portfolio-or-linkedin"]?.message
                         }
@@ -160,6 +178,7 @@ const MentorForm = () => {
                     <Input
                         id="location"
                         placeholder="Washington, DC"
+                        bg="light"
                         feedbackText={errors?.location?.message}
                         state={hasKey(errors, "location") ? "error" : "success"}
                         showState={!!hasKey(errors, "location")}
@@ -178,6 +197,7 @@ const MentorForm = () => {
                     <Input
                         id="employer-restrictions"
                         placeholder="None"
+                        bg="light"
                         feedbackText={
                             errors?.["employer-restrictions"]?.message
                         }
@@ -201,6 +221,7 @@ const MentorForm = () => {
                     Register
                 </Button>
             </form>
+            {showEmojiRain && <EmojiRain />}
         </div>
     );
 };
