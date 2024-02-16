@@ -56,6 +56,7 @@ const MentorForm = () => {
                     <Input
                         id="name"
                         placeholder="Jody Grinder"
+                        bg="light"
                         feedbackText={errors?.name?.message}
                         state={hasKey(errors, "name") ? "error" : "success"}
                         showState={!!hasKey(errors, "name")}
@@ -97,6 +98,7 @@ const MentorForm = () => {
                     <Input
                         id="branch-of-service"
                         placeholder="Civilian"
+                        bg="light"
                         feedbackText={errors?.["branch-of-service"]?.message}
                         state={
                             hasKey(errors, "branch-of-service")
@@ -119,6 +121,7 @@ const MentorForm = () => {
                     <Input
                         id="technical-expertise"
                         placeholder="Javascript, React, Node, etc."
+                        bg="light"
                         feedbackText={errors?.["technical-expertise"]?.message}
                         state={
                             hasKey(errors, "technical-expertise")
@@ -141,6 +144,7 @@ const MentorForm = () => {
                     <Input
                         id="github-portfolio-or-linkedin"
                         placeholder="github.com/jody-fake-profile"
+                        bg="light"
                         feedbackText={
                             errors?.["github-portfolio-or-linkedin"]?.message
                         }
@@ -168,6 +172,7 @@ const MentorForm = () => {
                     <Input
                         id="location"
                         placeholder="Washington, DC"
+                        bg="light"
                         feedbackText={errors?.location?.message}
                         state={hasKey(errors, "location") ? "error" : "success"}
                         showState={!!hasKey(errors, "location")}
@@ -186,6 +191,7 @@ const MentorForm = () => {
                     <Input
                         id="employer-restrictions"
                         placeholder="None"
+                        bg="light"
                         feedbackText={
                             errors?.["employer-restrictions"]?.message
                         }
