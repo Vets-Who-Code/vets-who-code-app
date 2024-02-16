@@ -74,6 +74,7 @@ const MentorForm = () => {
                     <Input
                         id="email"
                         placeholder="jody@civilian.com"
+                        bg="light"
                         feedbackText={errors?.email?.message}
                         state={hasKey(errors, "email") ? "error" : "success"}
                         showState={!!hasKey(errors, "email")}
