@@ -8,23 +8,23 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667459/website-images/vetswhocode-background.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
                         }
                     ],
                     "headings": [
                         {
                             "id": 1,
-                            "content": "Results <br> Driven<br>"
+                            "content": "Outcome-Oriented <br> Success<br>"
                         }, 
                         {
                             "id": 2,
-                            "content": "Learn What Matters"
+                            "content": "Focus on Impactful Learning"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "We Focus On The Skills You Need For The Software Industry."
+                            "content": "Tailoring Skills for the Software Industry."
                         }
                     ]
                 },
@@ -32,23 +32,23 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667459/website-images/vetswhocode-background.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
                         }
                     ],
                     "headings": [
                         {
                             "id": 1,
-                            "content": "100%<br> ONLINE<br>"
+                            "content": "FULLY<br> ONLINE<br>"
                         }, 
                         {
                             "id": 2,
-                            "content": "Learn Where You Are"
+                            "content": "Learning Without Limits"
                         }
                     ],
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Our WorkfLow Ensures That You Can Learn From Anywhere."
+                            "content": "Designed for Flexibility: Learn From Anywhere, Anytime."
                         }
                     ]
                 },
@@ -56,7 +56,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "/https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667459/website-images/vetswhocode-background.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
                         }
                     ],
                     "headings": [
@@ -89,7 +89,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489542/speaking_e1fnh7.jpg"
+                            "src": "https://v.ftcdn.net/03/11/93/39/700_F_311933982_ApjAvVB98L1QuX5qxCrmX8zbSvSa8A78_ST.mp4"
                         }
                     ],
                     "headings": [
