@@ -188,6 +188,14 @@ export interface IBlog {
     excerpt: string;
 }
 
+export interface IMedia{
+    title:string;
+    path:string;
+    outlet:string;
+    datePublished:string;
+    image: ImageType;
+}
+
 export interface ISocial {
     label: string;
     icon: string;
@@ -205,6 +213,8 @@ export interface IInstructor {
     bio: string;
     socials: ISocial[];
 }
+
+
 
 export type FieldType<T> = Array<keyof T> | "all";
 
@@ -308,3 +318,5 @@ export type ApiResponse = {
     error?: string;
     message?: string;
 };
+
+

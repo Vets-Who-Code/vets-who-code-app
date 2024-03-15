@@ -112,7 +112,12 @@ export default [
                 path: "/curriculum/subjects",
             },
             {
-                id: 23,
+                id:23,
+                label:"In The Media",
+                path:"/media",
+            },
+            {
+                id: 24,
                 label: "FAQ",
                 path: "/faq",
             },
@@ -124,12 +129,12 @@ export default [
         path: "#!",
         submenu: [
             {
-                id: 24,
+                id: 25,
                 label: "Become a Mentor",
                 path: "/mentor",
             },
             {
-                id: 25,
+                id: 26,
                 label: "Apply to be a Student",
                 path: "/apply",
             },
