@@ -32,6 +32,7 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.env*.production
 
 # vercel
 .vercel
@@ -51,5 +52,4 @@ public/workbox-*.js
 /playwright-report/
 /playwright/.cache/
 
-.env.local
-.env.production
+
