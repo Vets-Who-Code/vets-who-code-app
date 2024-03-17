@@ -1,209 +1,202 @@
 {
     "name": "about-us",
     "content": [
-        {
-            "section": "hero-area",
-            "items": [
-                {
-                    "id": 1,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "Outcome-Oriented <br> Success<br>"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "Focus on Impactful Learning"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            "content": "Tailoring Skills for the Software Industry."
-                        }
-                    ]
-                },
-                {
-                    "id": 2,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "FULLY<br> ONLINE<br>"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "Learning Without Limits"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            "content": "Designed for Flexibility: Learn From Anywhere, Anytime."
-                        }
-                    ]
-                },
-                {
-                    "id": 3,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "LEARN <br>PRAGMATICALLY<br>"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "Practical Coding Proficiency"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            "content":"Learn To Think And Solve Problems like a Programmer."
-                        }
-                    ]
-                }
+      {
+        "section": "hero-area",
+        "items": [
+          {
+            "id": 1,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "Outcome-Oriented <br> Success<br>"
+              },
+              {
+                "id": 2,
+                "content": "Focus on Impactful Learning"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Tailoring Skills for the Software Industry."
+              }
             ]
+          },
+          {
+            "id": 2,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "FULLY<br> ONLINE<br>"
+              },
+              {
+                "id": 2,
+                "content": "Learning Without Limits"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Designed for Flexibility: Learn From Anywhere, Anytime."
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "LEARN <br>PRAGMATICALLY<br>"
+              },
+              {
+                "id": 2,
+                "content": "Practical Coding Proficiency"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Learn To Think And Solve Problems like a Programmer."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "timeline-area",
+        "section_title": {
+          "title": "About<br> Us",
+          "subtitle": "Our Story"
         },
-        {
-            "section": "timeline-area",
-            "section_title": {
-                "title": "About<br> Us",
-                "subtitle": "Our Story"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489542/speaking_e1fnh7.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "Who We Are"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "The Beginning"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "content": "Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise. Inspired by \"To Teach a Man To Fish,\" we prepare transitioning veterans and military spouses for the workforce. We acknowledge their unique challenges as a \"vulnerable population\" due to outdated support systems. We proactively focus on empowering our troops and their families for success."
-                          }
-                          
-                    ]
-                },
-                {
-                    "id": 2,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194680/megan-and-daymond_ignjfa.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "Why We Do This"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "Our Motivation"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            {
-                                "content": "Our Motivation drives us at #VetsWhoCode, where our commitment is deeply rooted in addressing the challenges faced by transitioning veterans and military spouses. We don't just transform lives; we empower them towards rewarding careers in technology. By equipping our veterans with cutting-edge software skills, we're not only enhancing their prospects but also contributing to the economy and fostering innovation. Our passion for creating sustainable solutions extends beyond the scope of traditional programs, ensuring our students are fully equipped for success in the tech industry."
-                              }
-                              
-                    ]
-                },
-                {
-                    "id": 3,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656268447/this_is_us_b8p2xl.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "What We Do"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "The Work"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            {
-                                "content": "Our approach at #VetsWhoCode is distinctively personal and effective. Founded by veterans who have personally navigated the challenging terrain of transitioning from military to civilian life, we offer a streamlined and highly selective software development training program. This program is uniquely designed to usher military veterans and their spouses into rewarding opportunities within the tech sector. Inspired by our own experiences, such as Jerome Hardaway's transformative journey through technology, we prioritize quality over quantity and tangible results over lofty ideals. It's not just about teaching coding; it's about changing lives with every line of code."
-                              }
-                              
-                        }
-                    ]
-                },
-                {
-                    "id": 4,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194682/obama_vz8qup.jpg"
-                        }
-                    ],
-                    "headings": [
-                        {
-                            "id": 1,
-                            "content": "How We Do This"
-                        }, 
-                        {
-                            "id": 2,
-                            "content": "Accomplishing Our Mission"
-                        }
-                    ],
-                    "texts": [
-                        {
-                            "id": 1,
-                            {
-                                "content": "At #VetsWhoCode, we embrace a modernized \"Crawl, Walk, Run\" strategy tailored for today's tech landscape, ensuring that veterans and military spouses evolve into proficient programmers ready for the industry's challenges. Our approach is enriched by AI-driven methodologies and an automation-powered curriculum, designed to simulate real-world tech environments. This hands-on, project-based learning, guided by a network of instructors, veteran programmers, and successful alums, focuses on income-generating skills that directly translate to career success. Our mission extends beyond reintegration; we're dedicated to empowering veterans to drive innovation in local economies and close the digital talent gap. With #VetsWhoCode, veterans are not just prepared for jobs; they're equipped for gratifying careers in the digital economy, setting new standards of excellence and creativity."
-                              }
-                              
-                        }
-                    ]
-                }
+        "items": [
+          {
+            "id": 1,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489542/speaking_e1fnh7.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "Who We Are"
+              },
+              {
+                "id": 2,
+                "content": "The Beginning"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise. Inspired by \"To Teach a Man To Fish,\" we prepare transitioning veterans and military spouses for the workforce. We acknowledge their unique challenges as a \"vulnerable population\" due to outdated support systems. We proactively focus on empowering our troops and their families for success."
+              }
             ]
+          },
+          {
+            "id": 2,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194680/megan-and-daymond_ignjfa.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "Why We Do This"
+              },
+              {
+                "id": 2,
+                "content": "Our Motivation"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Our Motivation drives us at #VetsWhoCode, where our commitment is deeply rooted in addressing the challenges faced by transitioning veterans and military spouses. We don't just transform lives; we empower them towards rewarding careers in technology. By equipping our veterans with cutting-edge software skills, we're not only enhancing their prospects but also contributing to the economy and fostering innovation. Our passion for creating sustainable solutions extends beyond the scope of traditional programs, ensuring our students are fully equipped for success in the tech industry."
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656268447/this_is_us_b8p2xl.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "What We Do"
+              },
+              {
+                "id": 2,
+                "content": "The Work"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Our approach at #VetsWhoCode is distinctively personal and effective. Founded by veterans who have personally navigated the challenging terrain of transitioning from military to civilian life, we offer a streamlined and highly selective software development training program. This program is uniquely designed to usher military veterans and their spouses into rewarding opportunities within the tech sector. Inspired by our own experiences, such as Jerome Hardaway's transformative journey through technology, we prioritize quality over quantity and tangible results over lofty ideals. It's not just about teaching coding; it's about changing lives with every line of code."
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194682/obama_vz8qup.jpg"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "How We Do This"
+              },
+              {
+                "id": 2,
+                "content": "Accomplishing Our Mission"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "At #VetsWhoCode, we embrace a modernized \"Crawl, Walk, Run\" strategy tailored for today's tech landscape, ensuring that veterans and military spouses evolve into proficient programmers ready for the industry's challenges. Our approach is enriched by AI-driven methodologies and an automation-powered curriculum, designed to simulate real-world tech environments. This hands-on, project-based learning, guided by a network of instructors, veteran programmers, and successful alums, focuses on income-generating skills that directly translate to career success. Our mission extends beyond reintegration; we're dedicated to empowering veterans to drive innovation in local economies and close the digital talent gap. With #VetsWhoCode, veterans are not just prepared for jobs; they're equipped for gratifying careers in the digital economy, setting new standards of excellence and creativity."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "section": "cta-area",
+        "section_title": {
+          "title": "Your support can transform lives. By backing #VetsWhoCode, you're investing in the futures of veterans and their spouses, empowering them for success in the tech industry. Together, we can close the educational gap and effect meaningful, lasting change. Donate today and become a catalyst for positive transformation, aiding our heroes in acquiring the tech skills necessary for a thriving career.",
+          "subtitle": "How can <strong>YOU</strong> help?"
         },
-        {
-            "section": "cta-area",
-            "section_title": {
-                "title": "Your support can transform lives. By backing #VetsWhoCode, you're investing in the futures of veterans and their spouses, empowering them for success in the tech industry. Together, we can close the educational gap and effect meaningful, lasting change. Donate today and become a catalyst for positive transformation, aiding our heroes in acquiring the tech skills necessary for a thriving career.",
-                "subtitle":"How can <strong>YOU</strong> help?"
-            },
-            "buttons": [
-                {
-                    "id": 1,
-                    "path": "/donate",
-                    "content": "Donate"
-                }
-            ]
-        }
+        "buttons": [
+          {
+            "id": 1,
+            "path": "/donate",
+            "content": "Donate"
+          }
+        ]
+      }
     ]
-}
+  }
+  
