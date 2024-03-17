@@ -45,7 +45,7 @@
             "images": [
                 {
                     "id":1,
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667459/website-images/vetswhocode-background.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
                 }
             ],
             "video": {
@@ -162,7 +162,7 @@
             "section_title": {
                 "title": "Embrace the Strength of Our <span>Community</span>",
                 "subtitle": "Where Coding Meets Camaraderie",
-                "description": "Dive into a world where connection transcends distance, and shared experiences unite us. By joining VetsWhoCode, you become part of an exclusive network of veterans and spouses bound by a common passion for coding and an unwavering commitment to personal and professional growth. Here, camaraderie is not just a word—it's our foundation. We exchange ideas, challenge each other, and offer the support needed to navigate and succeed in the ever-evolving tech landscape. Embark with us on a transformative journey, forging new paths to opportunities and a brighter future for all."
+                "description": "Experience the power of connection as you join a supportive network of veterans and spouses passionate about coding and personal growth. Together, we'll foster camaraderie, exchange ideas, and provide unwavering support to help each other succeed in the world of technology. Together, let's embark on a transformative journey towards new opportunities and a brighter future."
             },
             "buttons": [
                 {
