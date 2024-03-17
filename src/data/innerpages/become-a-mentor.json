@@ -20,8 +20,8 @@
             "items": [
                 {
                     "id": 1,
-                    "title": "Finished Sessions",
-                    "counter": 1.926
+                    "title": "Years of Experience",
+                    "counter": 10
                 },
                 {
                     "id": 2,
@@ -31,15 +31,15 @@
                 },
                 {
                     "id": 3,
-                    "title": "Jobs Earned",
-                    "counter": 300,
+                    "title": "Modules Taught",
+                    "counter": 100,
                     "suffix": "+"
                 },
                 {
                     "id": 4,
                     "title": "Satisfaction rate",
                     "suffix": "%",
-                    "counter": 100
+                    "counter": 90
                 }
             ]
         },
@@ -47,7 +47,7 @@
             "section": "hero-image-area",
             "images": [
                 {
-                    "src": "/images/hero-image/hero-image.png"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1692643962/mentor_sf2fko.jpg"
                 }
             ]
         },

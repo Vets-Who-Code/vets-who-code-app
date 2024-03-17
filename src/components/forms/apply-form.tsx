@@ -1,9 +1,11 @@
+import EmojiRain from "@components/EmojiRain";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
+import Feedback from "@ui/form-elements/feedback";
 
 interface IFormValues {
     firstName: string;
@@ -24,24 +26,32 @@ interface IFormValues {
 
 const ApplyForm = () => {
     const [message, setMessage] = useState("");
+    const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
+
     const {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<IFormValues>();
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
             await axios.post("/api/apply", data);
             setMessage("Thank you for your application!");
+            setShowEmojiRain(true);
+
+            // Optional: Hide the EmojiRain after a set duration
+            setTimeout(() => setShowEmojiRain(false), 5000); // Adjust duration as necessary
+            reset();
         } catch (error) {
             setMessage("Failed to submit the form. Please try again later.");
         }
     };
 
     return (
-        <div className="tw-px-[50px]">
-            <h3 className="tw-text-h2 tw-mb-5">Apply</h3>
+        <div className="tw-px-[250px]">
+            <h3 className="tw-px-4 md:tw-px-[250px]">Apply</h3>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
@@ -339,9 +349,17 @@ const ApplyForm = () => {
                     />
                 </div>
 
-                <Button type="submit" fullwidth className="tw-mt-7.5">
+                <Button
+                    type="submit"
+                    fullwidth
+                    className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
+                >
                     Apply
                 </Button>
+                {message && (
+                    <Feedback state="success">{message}</Feedback>
+                )}
+                {showEmojiRain && <EmojiRain />}
             </form>
         </div>
     );

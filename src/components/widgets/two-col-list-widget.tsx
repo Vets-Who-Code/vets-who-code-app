@@ -30,7 +30,7 @@ const TwoColumnListWidget = ({ className, mode }: TProps) => {
                     <Anchor path="/curriculum/subjects">Modules</Anchor>
                 </li>
                 <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
-                    <Anchor path="/about-us-01">About us</Anchor>
+                    <Anchor path="/about-us">About us</Anchor>
                 </li>
                 <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
                     <Anchor path="/contact-us">Contact us</Anchor>

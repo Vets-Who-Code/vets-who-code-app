@@ -8,6 +8,7 @@ import "@assets/css/font-linea.css";
 import "@assets/css/fonts.css";
 import "@assets/css/tailwind.css";
 import "@assets/css/swiper.css";
+import "@assets/css/globals.css";
 
 import { UIProvider } from "../contexts/ui-context";
 import { UserProvider } from "../contexts/user-context";

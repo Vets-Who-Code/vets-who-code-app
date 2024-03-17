@@ -65,7 +65,7 @@ const Offcanvas = memo(({ className, onClose, isOpen, children }: TProps) => {
                     >
                         <motion.div
                             className={clsx(
-                                "tw-relative tw-z-30 tw-w-[300px] tw-ml-auto sm:tw-w-[360px] tw-h-full tw-bg-secondary tw-bg-[url('/images/bg/mobile-bg.jpg')] tw-bg-no-repeat tw-bg-top tw-bg-cover",
+                                "tw-relative tw-z-30 tw-w-[300px] tw-ml-auto sm:tw-w-[360px] tw-h-full tw-bg-secondary tw-bg-[url('https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1698904153/mobile-image_ssvugk.png')] tw-bg-no-repeat tw-bg-top tw-bg-cover",
                                 "before:tw-absolute before:tw-content-[''] before:-tw-z-1 before:tw-inset-0 before:tw-bg-secondary/90",
                                 className
                             )}

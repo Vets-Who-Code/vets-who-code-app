@@ -1,7 +1,12 @@
 export default [
-    { id: 1, path: "/about-me", label: "About Me" },
-    { id: 2, path: "/contact-me", label: "Contact Me" },
-    { id: 3, path: "/purchase-guide", label: "Purchase Guide" },
-    { id: 4, path: "/privacy-policy", label: "Privacy Policy" },
-    { id: 5, path: "/terms-of-service", label: "Terms of Service" },
+    { id: 1, path: "/about-us", label: "About Us" },
+    { id: 2, path: "/contact-us", label: "Contact Us" },
+    {
+        id: 3,
+        label: "Shop",
+        path: "https://hashflag.shop/",
+    },
+    { id: 4, path: "/apply", label: "Apply" },
+    { id: 5, path: "/mentor", label: "Mentor" },
+    { id: 6, path: "/code-of-conduct", label: "Code Of Conduct" },
 ];

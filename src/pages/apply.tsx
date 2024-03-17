@@ -5,6 +5,7 @@ import Wrapper from "@ui/wrapper/wrapper-04";
 import Breadcrumb from "@components/breadcrumb";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
+import PreworkButton from "@containers/prework-button";
 import HeroImageArea from "@containers/hero-image";
 // import GradationArea from "@containers/gradation";
 import ApplyForm from "@components/forms/apply-form";
@@ -31,14 +32,15 @@ const ApplyPage: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     return (
         <>
-            <SEO title="Apply to be a Student" />
+            <SEO title="Apply" />
             <Breadcrumb
                 pages={[{ path: "/", label: "Home" }]}
-                currentPage="Apply to be a Student"
+                currentPage="Apply"
                 showTitle={false}
             />
             <Wrapper>
                 <CtaArea data={content["cta-area"]} space="none" />
+                <PreworkButton />
                 <FunfactArea data={content["funfact-area"]} />
                 <HeroImageArea data={content["hero-image-area"]} />
             </Wrapper>

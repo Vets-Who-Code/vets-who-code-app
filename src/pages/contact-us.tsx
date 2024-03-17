@@ -1,5 +1,4 @@
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
+import type { NextPage, GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
@@ -12,19 +11,15 @@ interface PageContent {
     section: string;
 }
 
-type TProps = {
+interface Props {
     data: {
         page: {
             content: PageContent[];
         };
     };
-};
+}
 
-type PageProps = NextPage<TProps> & {
-    Layout: typeof Layout;
-};
-
-const ContactMe: PageProps = ({ data }) => {
+const ContactUs: NextPage<Props> & { Layout: typeof Layout } = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
 
     return (
@@ -41,22 +36,18 @@ const ContactMe: PageProps = ({ data }) => {
     );
 };
 
-ContactMe.Layout = Layout;
+ContactUs.Layout = Layout;
 
-export const getStaticProps: GetStaticProps = () => {
-    const page = getPageData("inner", "contact-us");
+export const getStaticProps: GetStaticProps = async () => {
+    // eslint-disable-next-line @typescript-eslint/await-thenable
+    const page = await getPageData("inner", "contact-us");
     return {
         props: {
             data: {
                 page,
             },
-            layout: {
-                headerShadow: true,
-                headerFluid: false,
-                footerMode: "light",
-            },
         },
     };
 };
 
-export default ContactMe;
+export default ContactUs;

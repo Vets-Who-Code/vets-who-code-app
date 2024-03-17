@@ -1,6 +1,6 @@
 import type { GetStaticPaths, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-02";
+import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import CourseDetails from "@containers/course-details";
 import { ICourse, IInstructor, ICurriculum } from "@utils/types";

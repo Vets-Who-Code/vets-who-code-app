@@ -1,0 +1,22 @@
+{
+  "name": "Vets-Who-Code",
+  "image": "vets-who-code:latest",
+  "workspaceFolder": "/src",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/src,type=bind,consistency=cached",
+    "source=node_modules,target=/src/node_modules,type=volume"
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "ms-vscode.vscode-typescript-tslint-plugin"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install"
+}

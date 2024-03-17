@@ -24,13 +24,13 @@
             "texts": [
                 {
                     "id": 1,
-                    "content": "VetsWhoCode is a veteran-founded and operated inclusive AI-Powered 501(c)(3) organization, passionately dedicated to providing a streamlined, high-quality software engineering training program. Our empathetic approach aims to empower veterans and military spouses, helping them seamlessly enter the tech sector and build successful careers, all at no cost to them."
+                    "content": "VetsWhoCode is a veteran-led 501(c)(3) committed to empowering veterans and military spouses through a high-quality, AI-powered software engineering training program. With over a decade of dedication, we've enabled over 300 veterans and spouses to transition seamlessly into the tech sector, unlocking over $20 million in earnings, at no cost to them. Our approach is not just about coding—it's about building successful careers through an innovative curriculum that mimics real-world challenges, guided by mentors in an engineering manager role to enhance critical thinking. Join us in transforming futures."
                 }
             ],
             "buttons": [
                 {
                     "id":1,
-                    "path": "/start-here",
+                    "path": "/about-us",
                     "content":"Learn More",
                     "color": "light"
                 },
@@ -45,7 +45,7 @@
             "images": [
                 {
                     "id":1,
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667459/website-images/vetswhocode-background.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
                 }
             ],
             "video": {
@@ -60,7 +60,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667460/website-images/vetswhocode-remote.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667460/website-images/vetswhocode-remote.jpg"
                         }
                     ],
                     "title": "Remote-First Learning",
@@ -72,7 +72,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667458/website-images/vetswhocode-self-paced.jpg"
                         }
                     ],
                     "title": "Develop Cutting-Edge Skills",
@@ -84,7 +84,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
                         }
                     ],
                     "title": "A Lifelong Community of Support",
@@ -103,8 +103,8 @@
             "section": "funfact-area",
             "section_title": {
                 "title": "Who We <span> Are</span>",
-                "subtitle": "Veterans Helping <strong>Veterans</strong>",
-                "description": "#VetsWhoCode was established by veterans who personally experienced the challenges of transitioning. Our focus is not on marketing tactics or volume, but on prioritizing quality and tangible outcomes. We are driven by practical solutions and taking action. If a skill doesn't lead to financial opportunities for our students, we don't include it in our curriculum."
+                "subtitle": "Rooted in Experience,<strong>Focused on Outcomes</strong>",
+                "description": "Founded by veterans, for veterans, #VetsWhoCode understands the unique challenges of transitioning to civilian life firsthand. Our mission transcends traditional marketing tactics and the pursuit of volume; we are all about quality, tangible outcomes, and practical solutions. Our curriculum is meticulously crafted with one goal in mind: to ensure every skill we teach opens doors to financial opportunities for our students. If it doesn't lead to a job, it doesn't make the cut. We're committed to action, not just words, empowering our veterans to build successful careers in tech."
             },
             "motto": {
                 "text": "Want To Learn More?​",
@@ -142,7 +142,7 @@
             "images": [
                 {
                     "id": 1,
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1678667455/website-images/vetswhocode-about-us.jpg"
+                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667455/website-images/vetswhocode-about-us.jpg"
                 }
             ],
             "video": {
@@ -160,15 +160,15 @@
         {
             "section": "testimonial-area",
             "section_title": {
-                "title": "Experience <span>Our Camaraderie</span>",
-                "subtitle": "TOGETHER EXPAND AND GROW",
+                "title": "Embrace the Strength of Our <span>Community</span>",
+                "subtitle": "Where Coding Meets Camaraderie",
                 "description": "Experience the power of connection as you join a supportive network of veterans and spouses passionate about coding and personal growth. Together, we'll foster camaraderie, exchange ideas, and provide unwavering support to help each other succeed in the world of technology. Together, let's embark on a transformative journey towards new opportunities and a brighter future."
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/apply-to-be-a-student",
-                    "content": "Join Us"
+                    "path": "/apply",
+                    "content": "Apply"
                 }
             ],
             "items": [
@@ -179,7 +179,7 @@
                     "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. Vets Who Code delivered more value to me than 12 of the non-profits combined.",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258222/Headshots/ozzie_zcaamv.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656258222/Headshots/ozzie_zcaamv.png"
                         }
                     ]
                 },
@@ -194,7 +194,7 @@
                     "description": "#VetsWhoCode's tenacious focus on language and computer science fundamentals over frameworks was invaluable in my career transition from being a Radiology Technician in the US Army to building cloud scale infrastructure at Microsoft. The coaching from the #VetsWhoCode’s talented and passionate mentor network proved to be a priceless asset even after graduating. Come ready to learn and you will succeed here.",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656258228/Headshots/jeff-martin_gufjmm.jpg"
                         }
                     ]
                 }
@@ -230,7 +230,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/cloudflare-logo-black_ykp638.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688306091/cloudflare-logo-black_ykp638.svg"
                         }
                     ]
                 },
@@ -238,7 +238,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/hashicorp-logo-black_to3p7b.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688306091/hashicorp-logo-black_to3p7b.svg"
                         }
                     ]
                 },
@@ -246,7 +246,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/slack-logo-black_icrcmh.svg"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688306091/slack-logo-black_icrcmh.svg"
                         }
                     ]
                 },
@@ -254,7 +254,7 @@
                     "id": 4,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688306091/contentful-logo-black_e0qbr1.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688306091/contentful-logo-black_e0qbr1.png"
                         }
                     ]
                 },
@@ -262,7 +262,7 @@
                     "id": 5,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688400679/femasters-logo-black_yzed8u.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688400679/femasters-logo-black_yzed8u.png"
                         }
                     ]
                 },
@@ -270,7 +270,7 @@
                     "id": 6,
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1688401001/adzuna-logo-black_vtjcr2.png"
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688401001/adzuna-logo-black_vtjcr2.png"
                         }
                     ]
                 }

@@ -57,7 +57,10 @@ const CourseArea = ({
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    <Button path="/courses/grid-03" className="tw-mt-[50px]">
+                    <Button
+                        path="/curriculum/subjects"
+                        className="tw-mt-[50px]"
+                    >
                         View All Modules{" "}
                         <i className="far fa-long-arrow-right tw-ml-3" />
                     </Button>
