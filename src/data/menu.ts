@@ -112,9 +112,9 @@ export default [
                 path: "/curriculum/subjects",
             },
             {
-                id:23,
-                label:"In The Media",
-                path:"/media",
+                id: 23,
+                label: "In The Media",
+                path: "/medias/media",
             },
             {
                 id: 24,

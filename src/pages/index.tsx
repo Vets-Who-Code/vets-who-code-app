@@ -15,12 +15,14 @@ import BrandArea from "@containers/brand/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
 
 import { normalizedData } from "@utils/methods";
-import { IBlog, ICourse, IEvent } from "@utils/types";
+import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
 
 import { getPageData } from "../lib/page";
 import { getAllBlogs } from "../lib/blog";
+import { getAllMedia } from "lib/media";
 import { getallCourses } from "../lib/course";
 import { getallEvents } from "../lib/event";
+import MediaArea from "@containers/media-full/layout-01";
 
 interface PageContent {
     section: string;
@@ -34,6 +36,7 @@ type TProps = {
         courses: ICourse[];
         events: IEvent[];
         blogs: IBlog[];
+        medias: IMedia[];
     };
 };
 
@@ -72,6 +75,9 @@ const Home: PageProps = ({ data }) => {
                 data={{ ...content?.["blog-area"], blogs: data.blogs }}
                 titleSize="large"
             />
+            <MediaArea
+                data={{ ...content?.["media-area"], medias: data.medias }}
+            />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
         </>
@@ -93,6 +99,7 @@ export const getStaticProps: GetStaticProps = () => {
         0,
         3
     );
+    const { medias } = getAllMedia(["title", "image", "datePublished"], 0, 3);
     return {
         props: {
             data: {
@@ -100,6 +107,7 @@ export const getStaticProps: GetStaticProps = () => {
                 courses,
                 events,
                 blogs,
+                medias,
             },
             layout: {
                 footerMode: "light",

@@ -188,12 +188,15 @@ export interface IBlog {
     excerpt: string;
 }
 
-export interface IMedia{
-    title:string;
-    path:string;
-    outlet:string;
-    datePublished:string;
+export interface IMedia {
+    title: string;
+    path: string;
+    outlet: string;
+    datePublished: string;
     image: ImageType;
+    content: string;
+    slug: string;
+    excerpt: string;
 }
 
 export interface ISocial {
@@ -213,8 +216,6 @@ export interface IInstructor {
     bio: string;
     socials: ISocial[];
 }
-
-
 
 export type FieldType<T> = Array<keyof T> | "all";
 
@@ -318,5 +319,3 @@ export type ApiResponse = {
     error?: string;
     message?: string;
 };
-
-

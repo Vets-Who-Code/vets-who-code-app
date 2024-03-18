@@ -2,18 +2,16 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import dayjs from "dayjs";
-import { IBlog, BlogMetaType, IDType } from "@utils/types";
-import { slugify, flatDeep } from "@utils/methods";
+import { IDType, IMedia } from "@utils/types";
 import { getSlugs } from "./util";
-import { getAuthorByID } from "./author";
 
-interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
+interface MediaType extends Omit<IMedia, "category" | "tags" | "author"> {
     category: string;
     tags: string[];
     author: IDType;
 }
 
-const postsDirectory = join(process.cwd(), "src/data/blogs");
+const postsDirectory = join(process.cwd(), "src/data/media");
 
 const makeExcerpt = (str: string, maxLength: number): string => {
     if (str.length <= maxLength) {
@@ -26,174 +24,67 @@ const makeExcerpt = (str: string, maxLength: number): string => {
 
 export function getPostBySlug(
     slug: string,
-    fields: Array<keyof IBlog> | "all" = []
-): IBlog {
+    fields: Array<keyof IMedia> | "all" = []
+): IMedia {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = join(postsDirectory, `${realSlug}.md`);
     const fileContents = JSON.parse(
         JSON.stringify(fs.readFileSync(fullPath, "utf8"))
-    ) as BlogType;
+    ) as MediaType;
     const { data, content } = matter(fileContents);
 
-    const blogData = data as BlogType;
+    const mediaData = data as MediaType;
 
-    let blog: IBlog;
+    let media: IMedia;
 
     if (fields === "all") {
-        blog = {
-            ...blogData,
+        media = {
+            ...mediaData,
             content,
-            category: {
-                title: blogData.category,
-                slug: slugify(blogData.category),
-                path: `/blogs/category/${slugify(blogData.category)}`,
-            },
-            tags: blogData.tags.map((tag) => ({
-                title: tag,
-                slug: slugify(tag),
-                path: `/blogs/tag/${slugify(tag)}`,
-            })),
             slug: realSlug,
             excerpt: makeExcerpt(content, 150),
-            author: getAuthorByID(blogData.author, "all"),
         };
     } else {
-        blog = fields.reduce((acc: IBlog, field: keyof IBlog) => {
-            if (field === "slug") {
-                return { ...acc, slug: realSlug };
-            }
-            if (field === "content") {
-                return { ...acc, [field]: content };
-            }
-            if (field === "excerpt") {
-                return { ...acc, excerpt: makeExcerpt(content, 150) };
-            }
-            if (field === "author") {
-                const author = getAuthorByID(blogData.author, "all");
-                return { ...acc, author };
-            }
-            if (field === "category") {
-                return {
-                    ...acc,
-                    category: {
-                        title: blogData.category,
-                        slug: slugify(blogData.category),
-                        path: `/blogs/category/${slugify(blogData.category)}`,
-                    },
-                };
-            }
-            if (field === "tags") {
-                return {
-                    ...acc,
-                    tags: blogData.tags.map((tag) => ({
-                        title: tag,
-                        slug: slugify(tag),
-                        path: `/blogs/tag/${slugify(tag)}`,
-                    })),
-                };
-            }
+        media = fields.reduce((acc: IMedia, field: keyof IMedia) => {
             if (typeof data[field] !== "undefined") {
-                return { ...acc, [field]: blogData[field] };
+                return { ...acc, [field]: mediaData[field] };
             }
             return acc;
-        }, <IBlog>{});
+        }, <IMedia>{});
     }
 
     return {
-        ...blog,
-        postedAt: dayjs(blogData.postedAt).format("MMM DD, YYYY"),
-        path: `/blogs/${realSlug}`,
+        ...media,
+        datePublished: dayjs(mediaData.datePublished).format("MMM DD, YYYY"),
+        path: `${realSlug}`,
     };
 }
 
 export function getAllMedia(
-    fields: Array<keyof IBlog> | "all" = [],
+    fields: Array<keyof IMedia> | "all" = [],
     skip = 0,
     limit?: number
 ) {
     const slugs = getSlugs(postsDirectory);
-    let blogs = slugs
+    let medias = slugs
         .map((slug) => getPostBySlug(slug, fields))
         .sort((post1, post2) =>
-            new Date(post1.postedAt).getTime() >
-            new Date(post2.postedAt).getTime()
+            new Date(post1.datePublished).getTime() >
+            new Date(post2.datePublished).getTime()
                 ? -1
                 : 1
         );
-    if (limit) blogs = blogs.slice(skip, skip + limit);
-    return { blogs, count: slugs.length };
+    if (limit) medias = medias.slice(skip, skip + limit);
+    return { medias, count: slugs.length };
 }
 
 export function getPrevNextPost(
     currentSlug: string,
-    fields: Array<keyof IBlog> | "all" = []
+    fields: Array<keyof IMedia> | "all" = []
 ) {
-    const { blogs } = getAllBlogs(fields);
-    const currentIndex = blogs.findIndex((post) => post.slug === currentSlug);
-    const prevPost = blogs[currentIndex - 1] || null;
-    const nextPost = blogs[currentIndex + 1] || null;
+    const { medias } = getAllMedia(fields);
+    const currentIndex = medias.findIndex((post) => post.slug === currentSlug);
+    const prevPost = medias[currentIndex - 1] || null;
+    const nextPost = medias[currentIndex + 1] || null;
     return { prevPost, nextPost };
-}
-
-export function getTags() {
-    const { blogs } = getAllBlogs(["tags"]);
-    const tags = flatDeep<BlogMetaType>(blogs.map((post) => post.tags));
-    const result: BlogMetaType[] = [];
-
-    tags.forEach((tag) => {
-        if (!result.find((t) => t.title === tag.title)) {
-            result.push(tag);
-        }
-    });
-
-    return result;
-}
-
-export function getPostsByCategory(
-    category: string,
-    fields: Array<keyof IBlog> | "all" = [],
-    skip = 0,
-    limit?: number
-) {
-    const postFields =
-        fields === "all"
-            ? "all"
-            : ([...fields, "category"] as Array<keyof IBlog>);
-    const { blogs } = getAllBlogs(postFields);
-    let result = blogs.filter((post) => post.category.slug === category);
-    const totalPosts = result.length;
-    if (limit) result = result.slice(skip, skip + limit);
-    return { posts: result, count: totalPosts };
-}
-
-export function getPostsByTag(
-    tag: string,
-    fields: Array<keyof IBlog> | "all" = [],
-    skip = 0,
-    limit?: number
-) {
-    const postFields =
-        fields === "all" ? "all" : ([...fields, "tags"] as Array<keyof IBlog>);
-    const { blogs } = getAllBlogs(postFields);
-    let result = blogs.filter((post) => post.tags.some((t) => t.slug === tag));
-    const totalPosts = result.length;
-    if (limit) result = result.slice(skip, skip + limit);
-    return { posts: result, count: totalPosts };
-}
-
-export function getPostsByAuthor(
-    authorID: IDType,
-    fields: Array<keyof IBlog> | "all" = [],
-    skip = 0,
-    limit?: number
-) {
-    const postFields =
-        fields === "all"
-            ? "all"
-            : ([...fields, "author"] as Array<keyof IBlog>);
-    const { blogs } = getAllBlogs(postFields);
-    let result = blogs.filter((post) => post.author.id === authorID);
-    const totalPosts = result.length;
-    if (limit) result = result.slice(skip, skip + limit);
-    return { posts: result, count: totalPosts };
 }
