@@ -11,18 +11,18 @@ import CourseArea from "@containers/course/layout-05";
 import TestimonialArea from "@containers/testimonial/layout-04";
 import EventArea from "@containers/event/layout-02";
 import BlogArea from "@containers/blog/layout-03";
+import MediaArea from "@containers/media-full/layout-01";
 import BrandArea from "@containers/brand/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
 
 import { normalizedData } from "@utils/methods";
 import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
 
+import { getAllMedia } from "lib/media";
 import { getPageData } from "../lib/page";
 import { getAllBlogs } from "../lib/blog";
-import { getAllMedia } from "lib/media";
 import { getallCourses } from "../lib/course";
 import { getallEvents } from "../lib/event";
-import MediaArea from "@containers/media-full/layout-01";
 
 interface PageContent {
     section: string;

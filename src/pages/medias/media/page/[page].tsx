@@ -10,6 +10,8 @@ import { getAllMedia } from "../../../../lib/media";
 type TProps = {
     data: {
         medias: IMedia[];
+        currentPage: number;
+        numberOfPages: number;
     };
 };
 
@@ -19,10 +21,12 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 9;
 
-const MediaGrid: PageProps = ({ data: { medias } }) => {
+const MediaGrid: PageProps = ({
+    data: { medias, currentPage, numberOfPages },
+}) => {
     return (
         <>
-            <SEO title={`Media Grid - Page - 1`} />
+            <SEO title={`Media Grid - Page - ${currentPage}`} />
             <Breadcrumb
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Blog Grid"
@@ -30,6 +34,7 @@ const MediaGrid: PageProps = ({ data: { medias } }) => {
             <MediaArea
                 data={{
                     medias,
+                    pagiData: { currentPage, numberOfPages },
                 }}
             />
         </>
