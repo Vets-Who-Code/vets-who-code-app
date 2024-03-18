@@ -356,9 +356,7 @@ const ApplyForm = () => {
                 >
                     Apply
                 </Button>
-                {message && (
-                    <Feedback state="success">{message}</Feedback>
-                )}
+                {message && <Feedback state="success">{message}</Feedback>}
                 {showEmojiRain && <EmojiRain />}
             </form>
         </div>

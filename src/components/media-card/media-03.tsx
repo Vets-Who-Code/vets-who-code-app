@@ -5,13 +5,13 @@ import { IMedia } from "@utils/types";
 
 type TProps = Pick<
     IMedia,
-     "path" | "title" | "outlet" | "image"| "datePublished"
+    "path" | "title" | "outlet" | "image" | "datePublished"
 > & {
     className?: string;
 };
 
 const MediaCard = forwardRef<HTMLDivElement, TProps>(
-    ({ className, path, title, image,outlet, datePublished }, ref) => {
+    ({ className, path, title, image, outlet, datePublished }, ref) => {
         return (
             <div className={clsx("blog-card tw-group", className)} ref={ref}>
                 <div className="tw-relative tw-overflow-hidden tw-rounded tw-h-[250px]">
@@ -34,10 +34,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
 
                 <div className="info tw-pt-[26px]">
                     <div className="tw-text-base tw-font-medium tw-uppercase -tw-tracking-tightest tw-leading-[1.4] tw-mb-1.5">
-                        <Anchor
-                            path={path}
-                            className="tw-text-inherit"
-                        >
+                        <Anchor path={path} className="tw-text-inherit">
                             {title}
                         </Anchor>
                     </div>
