@@ -52,10 +52,10 @@ Prompt engineering is an underrated skill, especially in the JavaScript communit
 
 The potential of prompt engineering in JavaScript development is immense. It's about more than just getting answers; it's about enhancing our creativity, productivity, and problem-solving skills. By mastering these techniques, we can push the boundaries of what's possible in our projects and careers.
 
-## Support Our Mission
-
-I'm on a mission to empower JavaScript developers to achieve more with AI. Dive into prompt engineering, share your experiences, and let's revolutionize the way we code together.
-
 ## Conclusion
 
 Prompt engineering is a game-changer for JavaScript developers. By honing this skill, we're not just asking ChatGPT to help us code; we're partnering with it to explore new horizons in web development. Thank you for joining me on this journey. Let's keep pushing the limits and turning our bold ideas into reality.
+
+## Support Our Mission
+
+At Vets Who Code, we are on a mission to empower veterans by teaching them valuable coding skills, enabling their successful transition into the tech industry. By supporting our cause, you're not just helping us; you're providing veterans with the resources and opportunities they need to build meaningful careers in technology. To make a donation, please visit our donation page: [https://vetswhocode.io/donate](https://vetswhocode.io/donate).
