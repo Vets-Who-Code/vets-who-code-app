@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Discover how DevSecOps offers a unique opportunity for veterans transitioning into tech. This article highlights the synergy between military skills and DevSecOps, providing a roadmap for veterans seeking a new career in this dynamic field."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1701300055/devsecops_mxck8o.png",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1701300055/devsecops_mxck8o.png",
     }
 category: "Career Development"
 tags:

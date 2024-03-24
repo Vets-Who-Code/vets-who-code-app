@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Vets Who Code has introduced a new app, utilizing Tailwind CSS, Next.js, Vercel, and Lerna for improved flexibility, performance, SEO, and deployment. This upgrade underscores the organization's commitment to innovation and supporting veterans in their transition to software development careers."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489505/VetsWhoCode_dwlu33.png",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1627489505/VetsWhoCode_dwlu33.png",
     }
 category: "technology"
 tags:

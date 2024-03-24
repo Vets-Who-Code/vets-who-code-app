@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "This blog post delves into the unique journey of transitioning from military service to a successful career in technology. Drawing from personal experiences, it highlights the transferable skills and values that make veterans exceptional in the tech world."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1702011527/combat-to-code_pnmrth.png",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1702011527/combat-to-code_pnmrth.png",
     }
 category: "Career Transition"
 tags:
