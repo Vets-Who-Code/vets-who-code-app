@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Jerome Hardaway, Executive Director of Vets Who Code, addresses the common challenges students and new professionals face in creating standout portfolios. By crafting a portfolio checklist focusing on frequently asked questions, he aims to guide individuals through the process, ensuring their portfolios accurately represent their skills and experience. It serves as a valuable tool for JavaScript Engineers looking to create successful portfolios that resonate with potential employers."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1685585775/checklist_pis3uf.jpg",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1685585775/checklist_pis3uf.jpg",
     }
 category: technology
 tags:

@@ -3,7 +3,7 @@ title: "Elevating JavaScript Development: Mastering Prompt Engineering with Chat
 postedAt: "2024-03-18T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Unlock the power of prompt engineering to supercharge your JavaScript projects. Learn how to craft effective prompts for ChatGPT that enhance code quality, streamline workflows, and unlock innovative solutions."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1710798627/elevating-javascript-development-mastering-prompt-engineering-with-chatGPT_fdj63k.jpg" }
+image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1710798627/elevating-javascript-development-mastering-prompt-engineering-with-chatGPT_fdj63k.jpg" }
 category: "AI in Development"
 tags:
   - JavaScript
