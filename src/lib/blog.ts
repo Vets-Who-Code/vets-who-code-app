@@ -7,6 +7,30 @@ import { slugify, flatDeep } from "@utils/methods";
 import { getSlugs } from "./util";
 import { getAuthorByID } from "./author";
 
+// Function to get the view count for a blog post based on its slug
+const viewsFilePath = join(process.cwd(), "src/data/views.json");
+
+function getViewCount(slug: string): number {
+    try {
+        const viewsData = JSON.parse(fs.readFileSync(viewsFilePath, 'utf8'));
+        return viewsData[slug] || 0; // Return the view count if exists, otherwise 0
+    } catch (error) {
+        console.error("Error reading views file:", error);
+        return 0;  // Return 0 views in case of any error
+    }
+}
+
+
+function updateViewCount(slug: string): number {
+    const viewsData = JSON.parse(fs.readFileSync(viewsFilePath, 'utf8'));
+    if (!viewsData[slug]) {
+        viewsData[slug] = 0; // Initialize if not present
+    }
+    viewsData[slug] += 1; // Increment the view count
+    fs.writeFileSync(viewsFilePath, JSON.stringify(viewsData, null, 2)); // Write back to the file
+    return viewsData[slug];
+}
+
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;
     tags: string[];
@@ -36,6 +60,13 @@ export function getPostBySlug(
     const { data, content } = matter(fileContents);
 
     const blogData = data as BlogType;
+    // Include the view count for the article
+    const views = getViewCount(realSlug);
+
+
+    // Update and get the latest view count for the article
+    // Removed duplicate views definition to correct error.
+
 
     let blog: IBlog;
 

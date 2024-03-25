@@ -12,9 +12,9 @@ tags:
   - GitHub Copilot
   - Azure Open AI
   - Coding Education
-  - Veterans in Tech
+  - Vets Who Code
 is_featured: true
-views: 
+views:
 
 ---
 

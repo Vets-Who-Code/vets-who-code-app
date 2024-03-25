@@ -14,7 +14,7 @@ tags:
     - Career Change
     - Tech Skills
 is_featured: true
-views: 250
+views:
 ---
 
 ## Welcome Aboard

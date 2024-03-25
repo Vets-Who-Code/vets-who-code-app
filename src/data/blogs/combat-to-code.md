@@ -15,7 +15,7 @@ tags:
     - Veteran's Guide
     - Personal Development
 is_featured: true
-views: 512
+views:
 ---
 
 ## Introduction

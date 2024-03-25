@@ -14,6 +14,7 @@ tags:
     - Education
     - Community
 is_featured: true
+views:
 ---
 
 ## Introduction
