@@ -74,13 +74,13 @@ Creating a DSL for software development can streamline communication and impleme
     *"Design a Domain-Specific Language (DSL) for a JavaScript/TypeScript project that focuses on simplifying complex animations within web applications. Your DSL should provide a concise syntax for defining animations, specifying parameters such as duration, easing functions, and animation sequences. Implement this DSL by creating a set of functions or classes in TypeScript that interpret the DSL commands and translate them into CSS animations or JavaScript animation libraries. Include examples of how developers can integrate this DSL into their projects to quickly create complex animations with minimal code."*
 
 - **Next.js/Vue/Angular**: Use custom directives, components, or hooks to encapsulate domain-specific functionalities.
-    -Next.js: 
+    - **Next.js**: 
       *"Develop a set of custom hooks in Next.js that serve as a DSL for managing global state in a Next.js application, particularly for user authentication and theme management. This DSL should offer hooks like useAuth() for handling login, logout, and authentication status, and useTheme() for switching themes and managing theme state. The implementation should utilize Next.js's API routes for authentication processes and Context API for theme management, ensuring seamless integration with Next.js features. Provide documentation on how developers can utilize these hooks in their components to simplify authentication and theme management."*
 
-    -Vue:
+    - **Vue**:
      *"Create a series of custom directives in Vue that act as a DSL for form validation and input masking, aimed at simplifying the way forms are handled in Vue applications. This DSL should include directives that can be applied directly to form elements, specifying rules for validation (e.g., v-validate="email") and input masking (e.g., v-mask="date"). Implement these directives to work with Vue's reactivity system, providing immediate feedback to users and reducing the boilerplate code needed for form handling. Document how to apply these directives within Vue components to enhance form functionality with minimal effort."*
 
-    -Angular: 
+    - **Angular**: 
     *"Design a collection of Angular components that embody a DSL for creating dynamic data dashboards, including widgets like charts, tables, and filters. These components should allow developers to define dashboards in a declarative manner, using attributes and bindings to specify data sources, configurations, and interactions (e.g., <dashboard-chart [data]="salesData" type="bar"></dashboard-chart>). Ensure that these components are modular and easily integrated into larger Angular applications, supporting AOT compilation and lazy loading. Illustrate how developers can use these components to rapidly construct data-driven dashboards, focusing on configurability and ease of use."*
 
 ## 7. Architectural Possibilities Pattern
