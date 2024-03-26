@@ -1,8 +1,24 @@
-Sure, I'll reformat the content of the provided file into Markdown without changing any of the text. Here is the formatted content:
-
+---
+title: "Leveraging Prompt Engineering in Software Development: System Requirements & Architecture Patterns with JavaScript, TypeScript, Next.js, Vue, and Angular"
+postedAt: "2024-03-26T08:00:00.000Z"
+author: "Jerome Hardaway"
+description: "Explore the art of prompt engineering in software development, unlocking innovative patterns for web technologies."
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1711469342/AdobeStock_589267674_pv1cwm.jpg",
+    }
+category: "Software Development and Engineering"
+tags:
+    - Prompt Engineering
+    - JavaScript
+    - Web Development
+    - Software Architecture
+    - Tech Innovation
+is_featured: true
 ---
 
-# Leveraging Prompt Engineering in Software Development: System Requirements & Architecture Patterns with JavaScript, TypeScript, Next.js, Vue, and Angular
+
+# Introduction
 
 Software development is an art form. Composing strings of code towards solving complex issues requires finesse, critical thinking, and a keen understanding of the problem at hand. Adding prompt engineering elements integrates a systematic approach anchored on design techniques, patterns, and strategies to make the task more efficient and far-reaching. This post will explore how you can use prompt engineering in various contexts, specifically with technologies such as JavaScript, TypeScript, Next.js, Vue, and Angular.
 
