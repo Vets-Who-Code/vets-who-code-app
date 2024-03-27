@@ -89,10 +89,44 @@ const HeroArea = ({
                     className="tw-m-2.5"
                     onClick={() => setOpen(true)}
                 >
-                    <i
-                        className={clsx(
-                            buttons[1]?.icon,
-                            "tw-mr-4"
+<496-fix-h1-in-hero-section-on-mobile
+                    {headings?.[0]?.content && (
+                        <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white">
+                            {headings[0].content}{" "}
+                            <span className="tw-text-primary tw-inline-block mobileToTab:tw-block mobileAnimation:tw-min-h-[115px]">
+                                {animatedText}
+                                <Cursor />
+                            </span>
+                        </h1>
+                    )}
+                    {texts?.map((text) => (
+                        <p
+                            key={text.id}
+                            className="tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white tw-mb-5 sm:tw-mb-8"
+                        >
+                            {text.content}
+                        </p>
+                    ))}
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-wrap">
+                        {buttons?.[0] && (
+                            <Button {...buttons[0]} className="tw-m-2.5">
+                                {buttons[0].content}
+                            </Button>
+                        )}
+                        {buttons?.[1] && (
+                            <Button
+                                {...buttons[1]}
+                                className="tw-m-2.5"
+                                onClick={() => setOpen(true)}
+                            >
+                                <i
+                                    className={clsx(
+                                        buttons[1]?.icon,
+                                        "tw-mr-4"
+                                    )}
+                                />
+                                {buttons[1].content}
+                            </Button>
                         )}
                     />
                     {buttons[1].content}
