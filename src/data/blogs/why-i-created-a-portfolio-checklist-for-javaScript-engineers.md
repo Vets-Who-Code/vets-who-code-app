@@ -16,7 +16,7 @@ tags:
     - job
     - newbie
 is_featured: true
-views: 215
+views:
 ---
 
 ## Introduction
