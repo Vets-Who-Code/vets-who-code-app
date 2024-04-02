@@ -19,7 +19,7 @@ tags:
     - javascript
     - typescript
 is_featured: true
-views: 12
+views:
 ---
 
 ## Introduction

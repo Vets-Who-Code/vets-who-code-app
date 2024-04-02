@@ -18,7 +18,7 @@ tags:
     - resume
     - newbie
 is_featured: true
-views: 120
+views:
 ---
 
 Congratulations! You've just completed a coding bootcamp and are now ready to face the world of programming head-on. But what should you do next? Here are some tips to help you succeed in your new career.
