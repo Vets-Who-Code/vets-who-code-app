@@ -9,6 +9,7 @@ import "@assets/css/fonts.css";
 import "@assets/css/tailwind.css";
 import "@assets/css/swiper.css";
 import "@assets/css/globals.css";
+import { Analytics } from '@vercel/analytics/react';
 
 import { UIProvider } from "../contexts/ui-context";
 import { UserProvider } from "../contexts/user-context";
@@ -42,6 +43,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
                 <Layout {...layoutProps}>
                     <SEO />
                     <Component {...pageProps} />
+                    <Analytics/>
                 </Layout>
             </UserProvider>
         </UIProvider>
