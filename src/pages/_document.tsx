@@ -12,7 +12,11 @@ export default class MyDocument extends Document {
                 <Head>
                     {gaId && ( // Only include the script if the GA ID is present
                         <>
-                            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} /> {/* Make self-closing */}
+                            <script
+                                async
+                                src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                            />{" "}
+                            {/* Make self-closing */}
                             <script
                                 dangerouslySetInnerHTML={{
                                     __html: `
@@ -22,7 +26,8 @@ export default class MyDocument extends Document {
                                         gtag('config', '${gaId}');
                                     `,
                                 }}
-                            /> {/* Make self-closing */}
+                            />{" "}
+                            {/* Make self-closing */}
                         </>
                     )}
                 </Head>
