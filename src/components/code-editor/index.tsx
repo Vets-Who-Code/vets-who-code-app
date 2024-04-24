@@ -1,17 +1,24 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 
+// Import the languages and themes you want to use
 import 'ace-builds/src-noconflict/mode-javascript';
 import 'ace-builds/src-noconflict/theme-monokai';
 
-const CodeEditor = ({ code, setCode }) => {
+// Define a type for the props
+type CodeEditorProps = {
+  value: string;
+  onChange: (newValue: string) => void;
+};
+
+const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
   return (
     <AceEditor
       mode="javascript"
       theme="monokai"
-      value={code}
-      onChange={setCode}
-      name="code_editor"
+      value={value}
+      onChange={onChange}
+      name="UNIQUE_ID_OF_DIV"
       editorProps={{ $blockScrolling: true }}
       fontSize={14}
       showPrintMargin={true}
@@ -24,9 +31,8 @@ const CodeEditor = ({ code, setCode }) => {
         showLineNumbers: true,
         tabSize: 2,
       }}
-      style={{ width: '100%', height: '400px' }}
     />
   );
-}
+};
 
 export default CodeEditor;
