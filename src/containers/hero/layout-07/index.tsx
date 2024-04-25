@@ -54,7 +54,12 @@ const HeroArea = ({ data: { items } }: TProps) => {
                                     alt=""
                                     className="tw-w-full tw-h-full tw-object-cover"
                                 />
-                                <div className="tw-absolute tw-inset-0" style={{ backgroundColor: 'rgba(9, 31, 64, 0.5)' }}></div>
+                                <div
+                                    className="tw-absolute tw-inset-0"
+                                    style={{
+                                        backgroundColor: "rgba(9, 31, 64, 0.5)",
+                                    }}
+                                ></div>
                             </div>
                         )}
                         <div className="tw-container tw-relative tw-z-1 tw-grid tw-grid-cols-1 lg:tw-grid-cols-12 tw-gap-7.5 tw-mb-[350px]">
