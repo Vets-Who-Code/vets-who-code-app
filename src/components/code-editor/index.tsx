@@ -21,9 +21,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
             name="UNIQUE_ID_OF_DIV"
             editorProps={{ $blockScrolling: true }}
             fontSize={14}
-            showPrintMargin={true}
-            showGutter={true}
-            highlightActiveLine={true}
+            showPrintMargin
+            showGutter
+            highlightActiveLine
             setOptions={{
                 enableBasicAutocompletion: true,
                 enableLiveAutocompletion: true,
