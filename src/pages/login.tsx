@@ -20,7 +20,7 @@ const Login: NextPage & PageProps = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            router.push("/profile");
+            void router.push("/profile");
         }
     }, [isLoggedIn, router]);
 
@@ -38,7 +38,10 @@ const Login: NextPage & PageProps = () => {
                 <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
                     <div className="tw-p-8 tw-border tw-rounded tw-shadow-lg tw-flex tw-flex-col tw-justify-center tw-text-center">
                         <h2>Welcome Back!</h2>
-                        <p>Please log in to access your account and continue exploring our services.</p>
+                        <p>
+                            Please log in to access your account and continue
+                            exploring our services.
+                        </p>
                     </div>
                     <LoginForm />
                 </div>
