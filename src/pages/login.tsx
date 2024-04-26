@@ -1,20 +1,19 @@
-import { useEffect } from "react";
-import type { GetStaticProps, NextPage } from "next";
+import React, { useEffect } from "react";
+import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-// import LoginForm from "@components/forms/login-form";
-import RegisterForm from "@components/forms/apply-form";
+import LoginForm from "@components/forms/login-form";
 import Spinner from "@ui/spinner";
 import { useUser } from "@contexts/user-context";
 import { useMount } from "@hooks";
 
-type PageProps = NextPage & {
+interface PageProps {
     Layout: typeof Layout;
-};
+}
 
-const LoginRegister: PageProps = () => {
+const Login: NextPage & PageProps = () => {
     const mounted = useMount();
     const { isLoggedIn } = useUser();
     const router = useRouter();
@@ -23,23 +22,28 @@ const LoginRegister: PageProps = () => {
         if (isLoggedIn) {
             void router.push("/profile");
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router]);
+    }, [isLoggedIn, router]);
 
     if (!mounted) return null;
 
     if (!isLoggedIn) {
         return (
             <>
-                <SEO title="Login Register" />
+                <SEO title="Login" />
                 <Breadcrumb
                     pages={[{ path: "/", label: "home" }]}
-                    currentPage="Profile"
+                    currentPage="Login"
                     showTitle={false}
                 />
                 <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
-                    {/* <LoginForm /> */}
-                    <RegisterForm />
+                    <div className="tw-p-8 tw-border tw-rounded tw-shadow-lg tw-flex tw-flex-col tw-justify-center tw-text-center">
+                        <h2>Welcome Back!</h2>
+                        <p>
+                            Please log in to access your account and continue
+                            exploring our services.
+                        </p>
+                    </div>
+                    <LoginForm />
                 </div>
             </>
         );
@@ -52,7 +56,7 @@ const LoginRegister: PageProps = () => {
     );
 };
 
-LoginRegister.Layout = Layout;
+Login.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     return {
@@ -66,4 +70,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default LoginRegister;
+export default Login;
