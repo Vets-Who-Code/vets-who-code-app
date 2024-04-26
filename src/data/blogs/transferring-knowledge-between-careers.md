@@ -3,7 +3,10 @@ title: "Transferring Knowledge Between Careers"
 postedAt: "2021-01-22T00:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Exploring the invaluable transfer of skills from non-tech to tech careers, highlighting the significance of soft skills like process management, critical thinking, and teamwork."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1699756739/knowledge-transfer_wafnfp.webp" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1699756739/knowledge-transfer_wafnfp.webp",
+    }
 category: "Career Development"
 tags:
     - Career Transition

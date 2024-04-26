@@ -41,67 +41,76 @@ const HeroArea = ({
     });
     return (
         <>
-<div className="hero-area tw-relative tw-pt-[100px] tw-pb-[130px] md:tw-py-[170px] xl:tw-pt-[270px] xl:tw-pb-[248px]">
-    {images?.[0]?.src && (
-        <div className="tw-absolute tw-inset-0 -tw-z-10">
-            <img
-                src={images[0].src}
-                alt={images[0]?.alt || "bg"}
-                loading="eager"
-                className="tw-w-full tw-h-full tw-object-cover"
-            />
-            <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(9, 31, 64, 0.5)' }}></div>
-        </div>
-    )}
-    <motion.div
-        className="tw-container tw-text-center"
-        initial="offscreen"
-        whileInView="onscreen"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={scrollUpVariants}
-    >
-        {headings?.[0]?.content && (
-            <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white">
-                {headings[0].content}{" "}
-                <span className="tw-text-primary tw-inline-block">
-                    {animatedText}
-                    <Cursor />
-                </span>
-            </h1>
-        )}
-        {texts?.map((text) => (
-            <p
-                key={text.id}
-                className="tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white tw-mb-5 sm:tw-mb-8"
-            >
-                {text.content}
-            </p>
-        ))}
-        <div className="tw-flex tw-items-center tw-justify-center tw-flex-wrap">
-            {buttons?.[0] && (
-                <Button {...buttons[0]} className="tw-m-2.5">
-                    {buttons[0].content}
-                </Button>
-            )}
-            {buttons?.[1] && (
-                <Button
-                    {...buttons[1]}
-                    className="tw-m-2.5"
-                    onClick={() => setOpen(true)}
+            <div className="hero-area tw-relative tw-pt-[100px] tw-pb-[130px] md:tw-py-[170px] xl:tw-pt-[270px] xl:tw-pb-[248px]">
+                {images?.[0]?.src && (
+                    <div className="tw-absolute tw-inset-0 -tw-z-10">
+                        <img
+                            src={images[0].src}
+                            alt={images[0]?.alt || "bg"}
+                            loading="eager"
+                            className="tw-w-full tw-h-full tw-object-cover"
+                        />
+                        <div
+                            style={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                backgroundColor: "rgba(9, 31, 64, 0.5)",
+                            }}
+                        ></div>
+                    </div>
+                )}
+                <motion.div
+                    className="tw-container tw-text-center"
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.1 }}
+                    variants={scrollUpVariants}
                 >
-                    <i
-                        className={clsx(
-                            buttons[1]?.icon,
-                            "tw-mr-4"
+                    {headings?.[0]?.content && (
+                        <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white">
+                            {headings[0].content}{" "}
+                            <span className="tw-text-primary tw-inline-block">
+                                {animatedText}
+                                <Cursor />
+                            </span>
+                        </h1>
+                    )}
+                    {texts?.map((text) => (
+                        <p
+                            key={text.id}
+                            className="tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white tw-mb-5 sm:tw-mb-8"
+                        >
+                            {text.content}
+                        </p>
+                    ))}
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-wrap">
+                        {buttons?.[0] && (
+                            <Button {...buttons[0]} className="tw-m-2.5">
+                                {buttons[0].content}
+                            </Button>
                         )}
-                    />
-                    {buttons[1].content}
-                </Button>
-            )}
-        </div>
-    </motion.div>
-    <BottomShape color="tw-fill-light-100" />
-</div>
+                        {buttons?.[1] && (
+                            <Button
+                                {...buttons[1]}
+                                className="tw-m-2.5"
+                                onClick={() => setOpen(true)}
+                            >
+                                <i
+                                    className={clsx(
+                                        buttons[1]?.icon,
+                                        "tw-mr-4"
+                                    )}
+                                />
+                                {buttons[1].content}
+                            </Button>
+                        )}
+                    </div>
+                </motion.div>
+                <BottomShape color="tw-fill-light-100" />
+            </div>
 
             {video && (
                 <ModalVideo

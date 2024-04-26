@@ -3,19 +3,19 @@ title: "Harnessing AI to Transform Coding Education for Veterans"
 postedAt: "2024-03-24T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Explore how Vets Who Code integrates GitHub Copilot and Azure Open AI into its curriculum, offering veterans an innovative approach to learning programming and preparing them for the future of tech."
-image: { 
-  src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1711322381/ai-teaching-vetswhocode_gixy7v.jpg" 
-  }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1711322381/ai-teaching-vetswhocode_gixy7v.jpg",
+    }
 category: "AI in Education"
 tags:
-  - AI
-  - GitHub Copilot
-  - Azure Open AI
-  - Coding Education
-  - Veterans in Tech
+    - AI
+    - GitHub Copilot
+    - Azure Open AI
+    - Coding Education
+    - Veterans in Tech
 is_featured: true
-views: 
-
+views:
 ---
 
 Hello, Jerome Hardaway here, Executive Director of Vets Who Code. In our journey to empower veterans transitioning into the tech industry, we've embraced the most cutting-edge tools available—namely GitHub Copilot and Azure Open AI. This blog post sheds light on how these AI technologies are revolutionizing the way we teach coding, moving beyond traditional methods to provide a deeply engaging, highly effective learning experience.
