@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import type { GetStaticProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
@@ -9,11 +9,11 @@ import Spinner from "@ui/spinner";
 import { useUser } from "@contexts/user-context";
 import { useMount } from "@hooks";
 
-interface PageProps extends NextPage {
+interface PageProps {
     Layout: typeof Layout;
 }
 
-const Login: PageProps = () => {
+const Login: NextPage & PageProps = () => {
     const mounted = useMount();
     const { isLoggedIn } = useUser();
     const router = useRouter();

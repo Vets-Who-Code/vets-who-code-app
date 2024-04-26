@@ -37,7 +37,6 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <p className="tw-text-center tw-flex-100 tw-mb-3.8 md:tw-flex-1 md:tw-text-left md:tw-mb-0 md:tw-mr-7.5 tw-font-bold tw-text-primary">
                         Our 10th Anniversary is in
                     </p>
-
                         <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
                             <i className="far fa-clock tw-text-lg tw-text-secondary tw-mr-[5px]" />
                             <CountdownTimer targetDate="2024/05/15" />
