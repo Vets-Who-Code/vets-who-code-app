@@ -36,12 +36,17 @@ const Login: NextPage & PageProps = () => {
                     showTitle={false}
                 />
                 <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
-                    <div className="tw-p-8 tw-border tw-rounded tw-shadow-lg tw-flex tw-flex-col tw-justify-center tw-text-center">
-                        <h2>Welcome Back!</h2>
-                        <p>
-                            Please log in to access your account and continue
-                            exploring our services.
-                        </p>
+                    <div className="tw-p-8 tw-border tw-rounded tw-shadow-lg tw-flex tw-flex-col tw-justify-center tw-text-center tw-space-y-4">
+                        <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                            <img src="https://res.cloudinary.com/vetswhocode/image/upload/v1627489505/vwc_kym0qt.gif" alt="Welcome animation" className="tw-max-w-full tw-h-auto" />
+                        </div>
+                        <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                            <h2>Welcome Back!</h2>
+                            <p>
+                                Please log in to access your account and continue
+                                exploring our services.
+                            </p>
+                        </div>
                     </div>
                     <LoginForm />
                 </div>
