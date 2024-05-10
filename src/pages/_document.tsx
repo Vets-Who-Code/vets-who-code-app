@@ -10,13 +10,18 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <link
+                        rel="stylesheet"
+                        href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
+                        integrity="sha384-rqn26AG5Pj86AF4SO72RK5fyefcQ/x32DNQfChxWvbXIyXFePlEktwD18fEz+kQU"
+                        crossorigin="anonymous"
+                    />
                     {gaId && ( // Only include the script if the GA ID is present
                         <>
                             <script
                                 async
                                 src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-                            />{" "}
-                            {/* Make self-closing */}
+                            />
                             <script
                                 dangerouslySetInnerHTML={{
                                     __html: `
@@ -26,8 +31,7 @@ export default class MyDocument extends Document {
                                         gtag('config', '${gaId}');
                                     `,
                                 }}
-                            />{" "}
-                            {/* Make self-closing */}
+                            />
                         </>
                     )}
                 </Head>
