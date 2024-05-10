@@ -35,7 +35,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                 <div className="header-top tw-py-2.5 tw-bg-gray-200">
                     <div className="tw-container tw-flex tw-justify-center tw-items-center tw-flex-wrap">
                         <p className="tw-text-center tw-flex-100 tw-mb-3.8 md:tw-flex-1 md:tw-text-left md:tw-mb-0 md:tw-mr-7.5">
-                            Our 10th Birthday is in
+                            Our 10th Anniversary Is In
                         </p>
                         <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
                             <i className="far fa-clock tw-text-lg tw-text-secondary tw-mr-[5px]" />

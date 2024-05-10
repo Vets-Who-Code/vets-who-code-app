@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-// import LoginForm from "@components/forms/login-form";
-import RegisterForm from "@components/forms/apply-form";
+import LoginForm from "@components/forms/login-form";
 import Spinner from "@ui/spinner";
 import { useUser } from "@contexts/user-context";
 import { useMount } from "@hooks";
@@ -14,14 +13,14 @@ type PageProps = NextPage & {
     Layout: typeof Layout;
 };
 
-const LoginRegister: PageProps = () => {
+const Login: PageProps = () => {
     const mounted = useMount();
     const { isLoggedIn } = useUser();
     const router = useRouter();
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push("/profile");
+            void router.push("/login");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router]);
@@ -34,12 +33,11 @@ const LoginRegister: PageProps = () => {
                 <SEO title="Login Register" />
                 <Breadcrumb
                     pages={[{ path: "/", label: "home" }]}
-                    currentPage="Profile"
+                    currentPage="Login"
                     showTitle={false}
                 />
                 <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
-                    {/* <LoginForm /> */}
-                    <RegisterForm />
+                    <LoginForm />
                 </div>
             </>
         );
@@ -52,7 +50,7 @@ const LoginRegister: PageProps = () => {
     );
 };
 
-LoginRegister.Layout = Layout;
+Login.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     return {
@@ -66,4 +64,4 @@ export const getStaticProps: GetStaticProps = () => {
     };
 };
 
-export default LoginRegister;
+export default Login;
