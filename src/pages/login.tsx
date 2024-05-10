@@ -20,7 +20,7 @@ const Login: PageProps = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push("/profile");
+            void router.push("/login");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router]);
@@ -33,7 +33,7 @@ const Login: PageProps = () => {
                 <SEO title="Login Register" />
                 <Breadcrumb
                     pages={[{ path: "/", label: "home" }]}
-                    currentPage="Profile"
+                    currentPage="Login"
                     showTitle={false}
                 />
                 <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
