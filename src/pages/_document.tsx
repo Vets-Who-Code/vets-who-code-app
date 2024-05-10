@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
                         rel="stylesheet"
                         href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
                         integrity="sha384-rqn26AG5Pj86AF4SO72RK5fyefcQ/x32DNQfChxWvbXIyXFePlEktwD18fEz+kQU"
-                        crossorigin="anonymous"
+                        crossOrigin="anonymous"
                     />
                     {gaId && ( // Only include the script if the GA ID is present
                         <>
