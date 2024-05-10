@@ -20,7 +20,7 @@ const Login: PageProps = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push("/login");
+            void router.push("/profile");
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [router]);

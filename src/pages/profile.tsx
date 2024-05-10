@@ -1,63 +1,53 @@
-import { useEffect } from "react";
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import { useRouter } from "next/router";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import ProfileBio from "@containers/profile/bio";
-import Spinner from "@ui/spinner";
-import { useUser } from "@contexts/user-context";
-import { useMount } from "@hooks";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Layout from '@layout/layout-01';
+import SEO from '@components/seo/page-seo';
+import ProfileForm from '@components/forms/profile-form'; // Ensure this component is also converted to TypeScript
+import { useUser } from '@contexts/user-context';
+import type { NextPage } from 'next';
 
-type PageProps = NextPage & {
-    Layout: typeof Layout01;
-};
+interface UserProfileData {
+    name: string;
+    email: string;
+    bio: string;
+    profilePicture: File | null;
+}
 
-const Profile: PageProps = () => {
-    const mounted = useMount();
-    const { isLoggedIn } = useUser();
+const Profile: NextPage = () => {
+    const { user, updateUser } = useUser();
     const router = useRouter();
 
-    useEffect(() => {
-        if (!isLoggedIn) {
-            void router.push("/login-register");
+    const handleSubmit = async (profileData: UserProfileData) => {
+        const response = await fetch('/api/updateProfile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData),
+        });
+
+        if (response.ok) {
+            const updatedUser = await response.json();
+            updateUser(updatedUser); // Ensure your context method handles TypeScript types correctly
+            router.push('/dashboard'); // Or any other appropriate page
         }
-    }, [isLoggedIn, router]);
+    };
 
-    if (!mounted) return null;
-
-    if (!isLoggedIn) {
-        return (
-            <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
-                <Spinner />
-            </div>
-        );
+    if (!user) {
+        router.push('/login');
+        return null;
     }
+
     return (
         <>
-            <SEO title="Profile" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Profile"
-                showTitle={false}
-            />
-            <ProfileBio />
+            <SEO title="Edit Profile" />
+            <div className="tw-container tw-py-10">
+                <ProfileForm user={user} onSubmit={handleSubmit} />
+            </div>
         </>
     );
 };
 
-Profile.Layout = Layout01;
-
-export const getStaticProps: GetStaticProps = () => {
-    return {
-        props: {
-            layout: {
-                headerShadow: true,
-                headerFluid: false,
-                footerMode: "light",
-            },
-        },
-    };
-};
+Profile.Layout = Layout;
 
 export default Profile;
