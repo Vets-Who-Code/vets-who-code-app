@@ -6,6 +6,8 @@ tags:
   - "tag3"
   - "tag4"
 date: "2023-06-15"
+sortOrder: 2
+type: "podcast"
 ---
 
 Content for media item 2.

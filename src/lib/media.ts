@@ -33,7 +33,7 @@ export function getMediaBySlug(
         media = {
             ...mediaData,
             content,
-            tags: mediaData.tags.map((tag) => ({
+            tags: mediaData.tags.map((tag: string) => ({
                 title: tag,
                 slug: slugify(tag),
                 path: `/media/tag/${slugify(tag)}`,
@@ -55,7 +55,7 @@ export function getMediaBySlug(
             if (field === "tags") {
                 return {
                     ...acc,
-                    tags: mediaData.tags.map((tag) => ({
+                    tags: mediaData.tags.map((tag: string) => ({
                         title: tag,
                         slug: slugify(tag),
                         path: `/media/tag/${slugify(tag)}`,

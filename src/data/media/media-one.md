@@ -6,6 +6,8 @@ tags:
   - "tag1"
   - "tag2"
 date: "2023-05-01"
+sortOrder: 0
+type: "publication"
+slug: "media-one"
 ---
-
 Content for media item 1.
