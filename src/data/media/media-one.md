@@ -1,6 +1,6 @@
 ---
 title: "Media Title 1"
-image: "https://dummyimage.com/640x4:3/"
+image: "https://res.cloudinary.com/vetswhocode/image/upload/v1716598792/junior-senior-card_sjcshc.jpg"
 description: "Description for media 1"
 tags:
   - "tag1"

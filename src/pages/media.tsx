@@ -2,13 +2,15 @@ import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import MediaGrid from "@components/media-grid";
+import MediaArea from "@containers/media-full/index"; // Assuming the new component is saved here
 import { getAllMedia } from "../lib/media";
 import { IMedia } from "@utils/types";
 
 type TProps = {
     data: {
         media: IMedia[];
+        currentPage: number;
+        numberOfPages: number;
     };
 };
 
@@ -16,12 +18,9 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout01;
 };
 
-const Media: PageProps = ({ data: { media } }) => {
-    const whatWeHaveBuilt = media.filter(item => item.tags.some(tag => tag.title === 'github'));
-    const publications = media.filter(item => item.type === 'publication');
-    const podcasts = media.filter(item => item.type === 'podcast');
-    const courses = media.filter(item => item.type === 'course');
+const POSTS_PER_PAGE = 9;
 
+const Media: PageProps = ({ data: { media, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title="Media" />
@@ -29,12 +28,12 @@ const Media: PageProps = ({ data: { media } }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Media"
             />
-            <div className="tw-container tw-mx-auto tw-my-8">
-                <MediaGrid section="What we have built" data={whatWeHaveBuilt} />
-                <MediaGrid section="Publications" data={publications} />
-                <MediaGrid section="Podcasts" data={podcasts} />
-                <MediaGrid section="Courses" data={courses} />
-            </div>
+            <MediaArea
+                data={{
+                    media,
+                    pagiData: { currentPage, numberOfPages },
+                }}
+            />
         </>
     );
 };
@@ -42,24 +41,9 @@ const Media: PageProps = ({ data: { media } }) => {
 Media.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const { media } = getAllMedia([
+    const { media, count } = getAllMedia([
         "title", "image", "description", "tags", "date", "content", "slug", "excerpt", "sortOrder", "type"
-    ]);
-
-    if (!Array.isArray(media)) {
-        return {
-            props: {
-                data: {
-                    media: [],
-                },
-                layout: {
-                    headerShadow: true,
-                    headerFluid: false,
-                    footerMode: "light",
-                },
-            },
-        };
-    }
+    ], 0, POSTS_PER_PAGE);
 
     // Remove duplicates and sort data by sortOrder
     const uniqueMedia = Array.from(new Set(media.map(item => item.slug)))
@@ -71,6 +55,8 @@ export const getStaticProps: GetStaticProps = () => {
         props: {
             data: {
                 media: uniqueMedia,
+                currentPage: 1,
+                numberOfPages: Math.ceil(count / POSTS_PER_PAGE),
             },
             layout: {
                 headerShadow: true,
