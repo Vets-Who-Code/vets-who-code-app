@@ -1,0 +1,64 @@
+{
+  "media": [
+    {
+      "section": "What we have built",
+      "items": [
+        {
+          "title": "Project 1",
+          "description": "Description of Project 1",
+          "link": "https://example.com/project1"
+        },
+        {
+          "title": "Project 2",
+          "description": "Description of Project 2",
+          "link": "https://example.com/project2"
+        }
+      ]
+    },
+    {
+      "section": "Publications",
+      "items": [
+        {
+          "title": "Publication 1",
+          "description": "Description of Publication 1",
+          "link": "https://example.com/publication1"
+        },
+        {
+          "title": "Publication 2",
+          "description": "Description of Publication 2",
+          "link": "https://example.com/publication2"
+        }
+      ]
+    },
+    {
+      "section": "Podcasts",
+      "items": [
+        {
+          "title": "Podcast 1",
+          "description": "Description of Podcast 1",
+          "link": "https://example.com/podcast1"
+        },
+        {
+          "title": "Podcast 2",
+          "description": "Description of Podcast 2",
+          "link": "https://example.com/podcast2"
+        }
+      ]
+    },
+    {
+      "section": "Courses",
+      "items": [
+        {
+          "title": "Course 1",
+          "description": "Description of Course 1",
+          "link": "https://example.com/course1"
+        },
+        {
+          "title": "Course 2",
+          "description": "Description of Course 2",
+          "link": "https://example.com/course2"
+        }
+      ]
+    }
+  ]
+}

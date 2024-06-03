@@ -14,11 +14,11 @@ interface ButtonProps {
     /**
      * Optional. Default is `contained`.
      */
-    variant?: "contained" | "outlined" | "texted";
+    variant?: "contained" | "outlined" | "texted" | "media";
     /**
      * Optional. Default is `primary`.
      */
-    color?: "primary" | "light";
+    color?: "primary" | "light" | "media";
     /**
      * Optional. Default is `md`.
      */
@@ -164,6 +164,24 @@ const Button = ({
         lightHoverClass,
     ];
 
+    // Media Button
+    const mediaClass = "tw-bg-media tw-border-media tw-text-white";
+    const mediaHoverClass =
+        !disabled &&
+        !active &&
+        hover === "default" &&
+        "hover:tw-bg-media-dark hover:tw-border-media-dark hover:tw-text-white";
+    const mediaActiveClass =
+        !disabled &&
+        active &&
+        "tw-bg-media-dark tw-border-media-dark active:tw-bg-media-dark active:tw-border-media-dark";
+    const mediaBtn = color === "media" && [
+        mediaClass,
+        mediaHoverClass,
+        mediaActiveClass,
+        lightHoverClass,
+    ];
+
     // Buton Sizes
     const mdBtn =
         size === "md" &&
@@ -179,8 +197,8 @@ const Button = ({
     const classnames = clsx(
         variant !== "texted" && baseClass,
         variant !== "texted" && baseNotFullWidthClass,
-        variant === "contained" && [containedPrimaryBtn, containedLightBtn],
-        variant === "outlined" && [outlinedPrimaryBtn, outlinedLightBtn],
+        variant === "contained" && [containedPrimaryBtn, containedLightBtn, mediaBtn],
+        variant === "outlined" && [outlinedPrimaryBtn, outlinedLightBtn, mediaBtn],
         !iconButton && variant !== "texted" && [mdBtn, xsBtn],
         roundedBtn,
         ellipseBtn,

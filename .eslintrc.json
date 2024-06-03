@@ -6,9 +6,11 @@
         "airbnb/hooks", 
         "prettier",
         "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "eslint-config-airbnb",
+        "eslint-config-next"
     ],
-    "plugins": ["react", "@typescript-eslint", "prettier"],
+    "plugins": ["react", "@typescript-eslint", "prettier", "react-hooks"],
     "env": {
       "browser": true,
       "es2021": true,
@@ -24,6 +26,8 @@
       "sourceType": "module"
     },
     "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
       "@typescript-eslint/no-misused-promises": [
         "error",
         {

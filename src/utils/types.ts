@@ -308,3 +308,17 @@ export type ApiResponse = {
     error?: string;
     message?: string;
 };
+
+// utils/types.ts
+
+export interface IMedia {
+    image: string;
+    title: string;
+    description?: string;
+    tags?: { title: string; slug: string; path: string }[];
+    date: string;
+    content: string;
+    slug: string;
+    excerpt: string;
+    path: string;
+}
