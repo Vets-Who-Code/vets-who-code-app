@@ -15,12 +15,12 @@ type PageProps = NextPage & {
 
 const Profile: PageProps = () => {
     const mounted = useMount();
-    const { isLoggedIn } = useUser();
+    const { isLoggedIn, logout } = useUser();
     const router = useRouter();
 
     useEffect(() => {
         if (!isLoggedIn) {
-            void router.push("/login-register");
+            void router.push("/login");
         }
     }, [isLoggedIn, router]);
 
@@ -33,6 +33,12 @@ const Profile: PageProps = () => {
             </div>
         );
     }
+
+    const handleLogout = () => {
+        logout();
+        void router.push("/login");
+    };
+
     return (
         <>
             <SEO title="Profile" />
@@ -42,6 +48,14 @@ const Profile: PageProps = () => {
                 showTitle={false}
             />
             <ProfileBio />
+            <div className="tw-mt-4 tw-flex tw-justify-center">
+                <button
+                    onClick={handleLogout}
+                    className="tw-bg-red-500 tw-text-white tw-px-4 tw-py-2 tw-rounded"
+                >
+                    Logout
+                </button>
+            </div>
         </>
     );
 };

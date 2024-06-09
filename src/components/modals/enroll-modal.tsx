@@ -23,7 +23,7 @@ const EnrollModal = ({ show, onClose }: TProps) => {
                         Please,{" "}
                         <Anchor
                             className="tw-text-primary"
-                            path="/login-register"
+                            path="/login"
                         >
                             log in
                         </Anchor>{" "}

@@ -16,7 +16,7 @@ const Login = () => {
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push("/dashboard"); // Redirect to dashboard if already logged in
+            void router.push("/profile"); // Redirect to dashboard if already logged in
         }
     }, [isLoggedIn, router]);
 
