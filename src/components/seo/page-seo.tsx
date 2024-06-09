@@ -58,8 +58,8 @@ const PageSeo = ({
                 title={title}
                 titleTemplate={
                     template
-                        ? `${title} - ${template}`
-                        : siteConfig.titleTemplate
+                        ? `${title ?? ""} - ${template}`
+                        : `%s - ${siteConfig.titleTemplate}`
                 }
                 description={description}
                 openGraph={{
