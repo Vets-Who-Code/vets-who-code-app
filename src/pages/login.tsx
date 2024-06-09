@@ -8,7 +8,7 @@ import LoginForm from '@components/forms/login-form';
 import Spinner from '@ui/spinner';
 import { useUser } from '@contexts/user-context';
 import { useMount } from '@hooks';
-import WelcomeMessage from '@components/welcome-message'; // Import the new component
+import WelcomeMessage from '@components/welcome-message'; // Import the welcome message component
 
 type PageProps = NextPage & {
     Layout: typeof Layout;
