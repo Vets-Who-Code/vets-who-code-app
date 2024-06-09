@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import PageSeo from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
@@ -25,10 +25,7 @@ const Login = () => {
     if (!isLoggedIn) {
         return (
             <>
-                <PageSeo
-                    title="Login Register"
-                    description="Login to your account"
-                />
+                <PageSeo title="Login Register" description="Login to your account" />
                 <Breadcrumb
                     pages={[{ path: "/", label: "home" }]}
                     currentPage="Login"
@@ -49,9 +46,7 @@ const Login = () => {
     return (
         <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
             <Spinner />
-            <button type="button" onClick={logout}>
-                Logout
-            </button>
+            <button type="button" onClick={logout}>Logout</button>
         </div>
     );
 };
