@@ -18,11 +18,10 @@ type TProps = {
 const CourseInfo = ({ lessonLink, slug, published_at }: TProps) => {
     const [show, setShow] = useState(false);
     const mounted = useMount();
-    const { isLoggedIn, enrolCourse } = useUser();
+    const { isLoggedIn } = useUser();
 
     const enrollHandler = () => {
         if (isLoggedIn) {
-            enrolCourse({ course: slug, lessonLink });
             void Router.push(lessonLink);
         } else {
             void Router.push("/login-register");
