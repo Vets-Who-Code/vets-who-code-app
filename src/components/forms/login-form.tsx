@@ -6,6 +6,7 @@ import Input from "@ui/form-elements/input";
 import Checkbox from "@ui/form-elements/checkbox";
 import FeedbackText from "@ui/form-elements/feedback";
 import Button from "@ui/button";
+import Anchor from "@ui/anchor";
 import { hasKey } from "@utils/methods";
 import { useUser } from "@contexts/user-context";
 
@@ -88,10 +89,14 @@ const LoginForm = () => {
                     <small>Default Password: Admin</small>
                 </div>
                 <Checkbox name="remember" id="remember" label="Remember me" />
+                {serverState && <FeedbackText>{serverState}</FeedbackText>}
                 <Button type="submit" fullwidth className="tw-mt-7.5">
                     Log In
                 </Button>
-                {serverState && <FeedbackText>{serverState}</FeedbackText>}
+                <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-5">
+                    <Anchor path="/forgot-password" className="tw-mb-2">Forgot Password?</Anchor>
+                    <Anchor path="/register">Register New Account</Anchor>
+                </div>
             </form>
         </div>
     );
