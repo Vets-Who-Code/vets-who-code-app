@@ -54,14 +54,14 @@ export default async function handler(req: Request, res: Response) {
                 }`,
                 JSON.stringify({ text })
             )
-            .catch((err) => {
-                // console.error("Error posting to Slack:", err);
+            .catch(() => {
                 throw new Error("Failed to post to Slack");
             });
 
         // Respond with a success message
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
+        // Log the error for debugging and respond with an error message
         // console.error("Handler error:", err);
         return res
             .status(500)
