@@ -59,7 +59,7 @@ const HeroArea = ({
                                 height: "100%",
                                 backgroundColor: "rgba(9, 31, 64, 0.5)",
                             }}
-                        ></div>
+                        />
                     </div>
                 )}
                 <motion.div

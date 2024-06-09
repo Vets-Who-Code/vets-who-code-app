@@ -94,7 +94,9 @@ const LoginForm = () => {
                     Log In
                 </Button>
                 <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-5">
-                    <Anchor path="/forgot-password" className="tw-mb-2">Forgot Password?</Anchor>
+                    <Anchor path="/forgot-password" className="tw-mb-2">
+                        Forgot Password?
+                    </Anchor>
                     <Anchor path="/register">Register New Account</Anchor>
                 </div>
             </form>

@@ -6,14 +6,7 @@ import { ILesson } from "@utils/types";
 
 type IProps = Omit<ILesson, "id" | "chapter" | "slug" | "content">;
 
-const Item = ({
-    title,
-    type,
-    duration,
-    video,
-    access,
-    path,
-}: IProps) => {
+const Item = ({ title, type, duration, video, access, path }: IProps) => {
     const router = useRouter();
     const active = router.asPath === path;
 

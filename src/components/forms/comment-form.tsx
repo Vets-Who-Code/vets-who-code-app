@@ -25,7 +25,6 @@ const CommentForm = ({ className }: { className?: string }) => {
 
     const onSubmit: SubmitHandler<IFormValues> = (data) => {
         // eslint-disable-next-line no-console
-        console.log(data);
         setMessage("Thank you for your message!");
     };
 

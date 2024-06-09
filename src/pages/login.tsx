@@ -1,27 +1,22 @@
-import { useEffect } from 'react';
-import type { GetStaticProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
-import PageSeo from '@components/seo/page-seo';
-import Layout from '@layout/layout-01';
-import Breadcrumb from '@components/breadcrumb';
-import LoginForm from '@components/forms/login-form';
-import Spinner from '@ui/spinner';
-import { useUser } from '@contexts/user-context';
-import { useMount } from '@hooks';
-import WelcomeMessage from '@components/welcome-message'; // Import the welcome message component
+import React from "react";
+import { useRouter } from "next/router";
+import PageSeo from "@components/seo/page-seo";
+import Layout from "@layout/layout-01";
+import Breadcrumb from "@components/breadcrumb";
+import LoginForm from "@components/forms/login-form";
+import Spinner from "@ui/spinner";
+import { useUser } from "@contexts/user-context";
+import { useMount } from "@hooks";
+import WelcomeMessage from "@components/welcome-message";
 
-type PageProps = NextPage & {
-    Layout: typeof Layout;
-};
-
-const Login: PageProps = () => {
+const Login = () => {
     const mounted = useMount();
     const { isLoggedIn, logout } = useUser();
     const router = useRouter();
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push('/dashboard'); // Redirect to dashboard if already logged in
+            void router.push("/dashboard"); // Redirect to dashboard if already logged in
         }
     }, [isLoggedIn, router]);
 
@@ -30,9 +25,12 @@ const Login: PageProps = () => {
     if (!isLoggedIn) {
         return (
             <>
-                <PageSeo title="Login Register" description="Login to your account" />
+                <PageSeo
+                    title="Login Register"
+                    description="Login to your account"
+                />
                 <Breadcrumb
-                    pages={[{ path: '/', label: 'home' }]}
+                    pages={[{ path: "/", label: "home" }]}
                     currentPage="Login"
                     showTitle={false}
                 />
@@ -51,20 +49,22 @@ const Login: PageProps = () => {
     return (
         <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
             <Spinner />
-            <button onClick={logout}>Logout</button>
+            <button type="button" onClick={logout}>
+                Logout
+            </button>
         </div>
     );
 };
 
 Login.Layout = Layout;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps = () => {
     return {
         props: {
             layout: {
                 headerShadow: true,
                 headerFluid: false,
-                footerMode: 'light',
+                footerMode: "light",
             },
         },
     };
