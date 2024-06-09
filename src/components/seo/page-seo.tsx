@@ -33,27 +33,24 @@ const PageSeo = ({
         setHref(window.location.href);
     }, []);
 
-    const articleMeta =
-        jsonLdType === "article" && article
-            ? {
-                  type: "article",
-                  ...article,
-                  images: [
-                      {
-                          url: image as string,
-                          width: 800,
-                          height: 600,
-                          alt: title as string,
-                      },
-                      {
-                          url: image as string,
-                          width: 900,
-                          height: 800,
-                          alt: title as string,
-                      },
-                  ],
-              }
-            : {};
+    const articleMeta = jsonLdType === "article" && {
+        type: "article",
+        ...article,
+        images: [
+            {
+                url: image as string,
+                width: 800,
+                height: 600,
+                alt: title,
+            },
+            {
+                url: image as string,
+                width: 900,
+                height: 800,
+                alt: title,
+            },
+        ],
+    };
 
     return (
         <>
@@ -62,7 +59,7 @@ const PageSeo = ({
                 titleTemplate={
                     template
                         ? `${title} - ${template}`
-                        : `%s - ${siteConfig.titleTemplate}`
+                        : siteConfig.titleTemplate
                 }
                 description={description}
                 openGraph={{
@@ -88,7 +85,7 @@ const PageSeo = ({
             {jsonLdType === "course" && instructor && (
                 <CourseJsonLd
                     courseName={title as string}
-                    description={description as string}
+                    description="Introductory CS course laying out the basics."
                     provider={{
                         name: instructor.name,
                         url: href,
