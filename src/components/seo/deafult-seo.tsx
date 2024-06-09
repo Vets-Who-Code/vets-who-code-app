@@ -1,7 +1,7 @@
 import { DefaultSeo } from 'next-seo';
 import siteConfig from '@data/site-config';
 
-const SEO = () => {
+const DefaultSEO = () => {
     return (
         <DefaultSeo
             title={siteConfig.name}
@@ -64,4 +64,4 @@ const SEO = () => {
     );
 };
 
-export default SEO;
+export default DefaultSEO;
