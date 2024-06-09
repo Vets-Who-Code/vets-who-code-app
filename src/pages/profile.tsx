@@ -20,7 +20,7 @@ const Profile: PageProps = () => {
 
     useEffect(() => {
         if (!isLoggedIn) {
-            void router.push("/login");
+            void router.push("/login-register");
         }
     }, [isLoggedIn, router]);
 
@@ -36,7 +36,7 @@ const Profile: PageProps = () => {
 
     const handleLogout = () => {
         logout();
-        void router.push("/login");
+        void router.push("/login-register");
     };
 
     return (
@@ -51,6 +51,7 @@ const Profile: PageProps = () => {
             <div className="tw-mt-4 tw-flex tw-justify-center">
                 <button
                     onClick={handleLogout}
+                    type="button"
                     className="tw-bg-red-500 tw-text-white tw-px-4 tw-py-2 tw-rounded"
                 >
                     Logout
