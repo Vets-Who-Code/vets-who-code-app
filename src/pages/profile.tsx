@@ -15,7 +15,7 @@ type PageProps = NextPage & {
 
 const Profile: PageProps = () => {
     const mounted = useMount();
-    const { isLoggedIn } = useUser();
+    const { isLoggedIn, logout } = useUser();
     const router = useRouter();
 
     useEffect(() => {
@@ -33,6 +33,12 @@ const Profile: PageProps = () => {
             </div>
         );
     }
+
+    const handleLogout = () => {
+        logout();
+        void router.push("/login-register");
+    };
+
     return (
         <>
             <SEO title="Profile" />
@@ -42,6 +48,15 @@ const Profile: PageProps = () => {
                 showTitle={false}
             />
             <ProfileBio />
+            <div className="tw-mt-4 tw-flex tw-justify-center">
+                <button
+                    onClick={handleLogout}
+                    type="button"
+                    className="tw-bg-red-500 tw-text-white tw-px-4 tw-py-2 tw-rounded"
+                >
+                    Logout
+                </button>
+            </div>
         </>
     );
 };

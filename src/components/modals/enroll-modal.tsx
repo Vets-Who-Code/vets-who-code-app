@@ -21,10 +21,7 @@ const EnrollModal = ({ show, onClose }: TProps) => {
                 {!isLoggedIn && (
                     <p>
                         Please,{" "}
-                        <Anchor
-                            className="tw-text-primary"
-                            path="/login-register"
-                        >
+                        <Anchor className="tw-text-primary" path="/login">
                             log in
                         </Anchor>{" "}
                         to get access to free lesson
