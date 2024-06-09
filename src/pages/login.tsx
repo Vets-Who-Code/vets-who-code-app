@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import type { GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import LoginForm from "@components/forms/login-form";
-import Spinner from "@ui/spinner";
-import { useUser } from "@contexts/user-context";
-import { useMount } from "@hooks";
+import { useEffect } from 'react';
+import type { GetStaticProps, NextPage } from 'next';
+import { useRouter } from 'next/router';
+import PageSeo from '@components/seo/page-seo';
+import Layout from '@layout/layout-01';
+import Breadcrumb from '@components/breadcrumb';
+import LoginForm from '@components/forms/login-form';
+import Spinner from '@ui/spinner';
+import { useUser } from '@contexts/user-context';
+import { useMount } from '@hooks';
+import WelcomeMessage from '@components/welcome-message'; // Import the new component
 
 type PageProps = NextPage & {
     Layout: typeof Layout;
@@ -15,29 +16,33 @@ type PageProps = NextPage & {
 
 const Login: PageProps = () => {
     const mounted = useMount();
-    const { isLoggedIn } = useUser();
+    const { isLoggedIn, logout } = useUser();
     const router = useRouter();
 
     useEffect(() => {
         if (isLoggedIn) {
-            void router.push("/login");
+            void router.push('/dashboard'); // Redirect to dashboard if already logged in
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router]);
+    }, [isLoggedIn, router]);
 
     if (!mounted) return null;
 
     if (!isLoggedIn) {
         return (
             <>
-                <SEO title="Login Register" />
+                <PageSeo title="Login Register" description="Login to your account" />
                 <Breadcrumb
-                    pages={[{ path: "/", label: "home" }]}
+                    pages={[{ path: '/', label: 'home' }]}
                     currentPage="Login"
                     showTitle={false}
                 />
-                <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-items-start lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
-                    <LoginForm />
+                <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
+                    <div className="tw-flex tw-items-center tw-w-full lg:tw-w-3/4 tw-mx-auto">
+                        <WelcomeMessage />
+                    </div>
+                    <div className="tw-flex tw-items-center tw-w-full lg:tw-w-3/4 tw-mx-auto">
+                        <LoginForm />
+                    </div>
                 </div>
             </>
         );
@@ -46,6 +51,7 @@ const Login: PageProps = () => {
     return (
         <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
             <Spinner />
+            <button onClick={logout}>Logout</button>
         </div>
     );
 };
@@ -58,7 +64,7 @@ export const getStaticProps: GetStaticProps = () => {
             layout: {
                 headerShadow: true,
                 headerFluid: false,
-                footerMode: "light",
+                footerMode: 'light',
             },
         },
     };
