@@ -1,65 +1,50 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { createContext, useContext, useMemo, useReducer } from "react";
+import {
+    createContext,
+    useContext,
+    useMemo,
+    useReducer,
+    useEffect,
+} from "react";
 
-const COURSESTORE_KEY = "maxCourse";
-const AUTH_KEY = "maxAuth";
+// Constants for local storage keys
+const AUTH_KEY = "vwcAuth";
 
-// User Context
-
-type CourseType = {
-    course: string;
-    completedLessons: string[];
-    currentLesson: string;
-};
-
-//  Context Type
+// Define the UserContextType
 export type UserContextType = {
-    isLoggedIn: boolean | null;
-    courseProgress: CourseType[];
+    isLoggedIn: boolean;
     setLogin: () => void;
-    enrolCourse: (data: { course: string; lessonLink: string }) => void;
-    lessonComplete: (data: {
-        course: string;
-        lessonLink: string;
-        lesson: string;
-    }) => void;
+    logout: () => void;
 };
 
-export const UserContext = createContext({} as UserContextType);
+// Create the UserContext
+export const UserContext = createContext<UserContextType>(
+    {} as UserContextType
+);
 
-// User Reducer
-
+// Initial state
 const initialState = {
     isLoggedIn: false,
-    courseProgress: [] as CourseType[],
 };
 
+// Initialize state from local storage
 const init = () => {
     if (typeof window === "undefined") return initialState;
     const loginStore = localStorage.getItem(AUTH_KEY);
-    const courseStore = localStorage.getItem(COURSESTORE_KEY);
-
-    const courseParse =
-        courseStore !== null
-            ? (JSON.parse(courseStore) as CourseType[])
-            : ([] as CourseType[]);
     const loginParse =
         loginStore !== null ? (JSON.parse(loginStore) as boolean) : false;
-
     return {
         ...initialState,
         isLoggedIn: loginParse,
-        courseProgress: courseParse,
     };
 };
 
+// Define action types
 interface UserAction {
-    type: "LOGIN" | "ENROLL_COURSE" | "LESSON_COMPLETE";
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: "LOGIN" | "LOGOUT";
     payload?: any;
 }
 
+// Reducer function to handle state changes
 function reducer(state: typeof initialState, action: UserAction) {
     switch (action.type) {
         case "LOGIN": {
@@ -69,46 +54,11 @@ function reducer(state: typeof initialState, action: UserAction) {
                 isLoggedIn: true,
             };
         }
-        case "ENROLL_COURSE": {
-            const courseProgress = [
-                ...state.courseProgress,
-                {
-                    course: action.payload.course,
-                    currentLesson: action.payload.lessonLink,
-                    completedLessons: [],
-                },
-            ];
-            localStorage.setItem(
-                COURSESTORE_KEY,
-                JSON.stringify(courseProgress)
-            );
+        case "LOGOUT": {
+            localStorage.removeItem(AUTH_KEY);
             return {
                 ...state,
-                courseProgress,
-            };
-        }
-        case "LESSON_COMPLETE": {
-            const courseProgress = state.courseProgress.map((cs) => {
-                // console.log(cs, action.payload.course, action.payload.lesson);
-                if (cs.course === action.payload.course) {
-                    return {
-                        ...cs,
-                        completedLessons: [
-                            ...cs.completedLessons,
-                            action.payload.lesson,
-                        ],
-                        currentLesson: action.payload.lessonLink,
-                    };
-                }
-                return cs;
-            });
-            localStorage.setItem(
-                COURSESTORE_KEY,
-                JSON.stringify(courseProgress)
-            );
-            return {
-                ...state,
-                courseProgress,
+                isLoggedIn: false,
             };
         }
         default:
@@ -116,8 +66,7 @@ function reducer(state: typeof initialState, action: UserAction) {
     }
 }
 
-// User Context Provider
-
+// UserContext Provider component
 type TProps = {
     children: React.ReactNode;
 };
@@ -125,29 +74,21 @@ type TProps = {
 export const UserProvider = ({ children }: TProps) => {
     const [state, dispatch] = useReducer(reducer, initialState, init);
 
+    // Ensure user is logged out on initial load if isLoggedIn is incorrect
+    useEffect(() => {
+        if (!state.isLoggedIn) {
+            localStorage.removeItem(AUTH_KEY);
+        }
+    }, [state.isLoggedIn]);
+
     const value = useMemo(
         () => ({
             ...state,
             setLogin: () => {
-                dispatch({
-                    type: "LOGIN",
-                });
+                dispatch({ type: "LOGIN" });
             },
-            enrolCourse: (data: { course: string; lessonLink: string }) => {
-                dispatch({
-                    type: "ENROLL_COURSE",
-                    payload: data,
-                });
-            },
-            lessonComplete: (data: {
-                course: string;
-                lessonLink: string;
-                lesson: string;
-            }) => {
-                dispatch({
-                    type: "LESSON_COMPLETE",
-                    payload: data,
-                });
+            logout: () => {
+                dispatch({ type: "LOGOUT" });
             },
         }),
         [state]
@@ -158,6 +99,5 @@ export const UserProvider = ({ children }: TProps) => {
     );
 };
 
-// User Context Consumer hooks
-
+// Hook to use the UserContext
 export const useUser = () => useContext(UserContext);

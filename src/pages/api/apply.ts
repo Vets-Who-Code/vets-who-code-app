@@ -81,7 +81,7 @@ export default async function handler(req: Request, res: Response) {
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err) {
         // Log the error for debugging and respond with an error message
-        console.error("Failed to post to #mentor channel:", err);
+        // console.error("Failed to post to #mentor channel:", err);
         return res
             .status(500)
             .json({ message: "Failed to post to #mentor channel" });

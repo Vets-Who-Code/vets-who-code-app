@@ -1,27 +1,27 @@
 import { DefaultSeo } from "next-seo";
 import siteConfig from "@data/site-config";
 
-const SEO = () => {
+const DefaultSEO = () => {
     return (
         <DefaultSeo
             title={siteConfig.name}
             titleTemplate={`%s - ${siteConfig.titleTemplate}`}
             defaultTitle={siteConfig.name}
             description={siteConfig.description}
-            canonical=""
+            canonical={siteConfig.url}
             openGraph={{
                 type: "website",
                 locale: "en_IE",
                 site_name: siteConfig.name,
                 images: [
                     {
-                        url: "",
+                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
                         width: 800,
                         height: 600,
                         alt: "Og Image Alt",
                     },
                     {
-                        url: "",
+                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
                         width: 900,
                         height: 800,
                         alt: "Og Image Alt Second",
@@ -40,7 +40,7 @@ const SEO = () => {
                 {
                     name: "viewport",
                     content:
-                        "width=device-width, initial-scale=1 maximum-scale=1",
+                        "width=device-width, initial-scale=1, maximum-scale=1",
                 },
                 {
                     name: "apple-mobile-web-app-capable",
@@ -64,4 +64,5 @@ const SEO = () => {
         />
     );
 };
-export default SEO;
+
+export default DefaultSEO;
