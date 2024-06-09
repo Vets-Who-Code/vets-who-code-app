@@ -4,12 +4,9 @@ import Anchor from "@ui/anchor";
 import Badge from "@ui/badge";
 import { ILesson } from "@utils/types";
 
-type IProps = Omit<ILesson, "id" | "chapter" | "slug" | "content"> & {
-    courseSlug: string;
-};
+type IProps = Omit<ILesson, "id" | "chapter" | "slug" | "content">;
 
 const Item = ({
-    courseSlug,
     title,
     type,
     duration,

@@ -6,10 +6,9 @@ import Item from "./item";
 
 type TProps = {
     open: boolean;
-    courseSlug: string;
 };
 
-const Sidebar = ({ open, courseSlug }: TProps) => {
+const Sidebar = ({ open }: TProps) => {
     const { curriculum } = useCurriculumContext();
     return (
         <div
@@ -41,7 +40,6 @@ const Sidebar = ({ open, courseSlug }: TProps) => {
                                             key={lsn.slug}
                                         >
                                             <Item
-                                                courseSlug={courseSlug}
                                                 title={lsn.title}
                                                 path={lsn.path}
                                                 type={lsn.type}
