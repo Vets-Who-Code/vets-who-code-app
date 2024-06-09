@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Anchor from "@ui/anchor";
 import Badge from "@ui/badge";
 import { ILesson } from "@utils/types";
-import { useUser } from "@contexts/user-context";
 
 type IProps = Omit<ILesson, "id" | "chapter" | "slug" | "content"> & {
     courseSlug: string;
@@ -20,19 +19,13 @@ const Item = ({
 }: IProps) => {
     const router = useRouter();
     const active = router.asPath === path;
-    const { courseProgress } = useUser();
-    const enrolledCourse = courseProgress.find(
-        (cs) => cs.course === courseSlug
-    );
-    const hasAccess = enrolledCourse || access === "free";
 
     return (
         <Anchor
             className={clsx(
                 "tw-px-[22px] tw-min-h-[56px] tw-flex tw-flex-wrap tw-items-center",
                 !active && "group-odd:tw-bg-light-100 group-even:tw-bg-white",
-                active && "tw-bg-primary tw-text-white hover:tw-text-white",
-                !hasAccess && "tw-pointer-events-none"
+                active && "tw-bg-primary tw-text-white hover:tw-text-white"
             )}
             path={path}
         >
@@ -75,4 +68,5 @@ const Item = ({
         </Anchor>
     );
 };
+
 export default Item;
