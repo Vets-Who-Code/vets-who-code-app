@@ -110,3 +110,34 @@ Curious about upcoming features? Check our [Roadmap](https://github.com/orgs/Vet
 ## License :scroll:
 
 This project is under the MIT License - see the [License](https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE) for more details.
+
+## GitHub OAuth Setup Instructions
+
+To authenticate users via GitHub and restrict access to members of the Vets Who Code organization, follow these steps:
+
+1. **Create a GitHub OAuth App**: Go to your GitHub settings, navigate to Developer settings > OAuth Apps, and create a new OAuth app.
+2. **Application Name**: Give your application a name that reflects your project.
+3. **Homepage URL**: Enter the URL of your application.
+4. **Authorization callback URL**: This is critical. Enter `http://localhost:3000/api/auth/callback/github` for development. Adjust the domain accordingly for production.
+5. **Client ID & Client Secret**: Once the application is created, GitHub will provide a Client ID and a Client Secret. Keep these confidential.
+
+Add the Client ID and Client Secret to your `.env.local` file:
+
+```plaintext
+GITHUB_ID=your-github-client-id
+GITHUB_SECRET=your-github-client-secret
+```
+
+## Configuring Access Restrictions
+
+To configure access restrictions based on organization and group membership, follow these steps:
+
+1. **Verify Organization Membership**: Utilize the GitHub API to check if the authenticated user is a member of the Vets Who Code organization.
+2. **Group-Based Access Control**: Further restrict access to users who are part of the "students" group within the Vets Who Code organization.
+3. **Environment Variables**: Ensure you have the Vets Who Code GitHub organization ID in your `.env.local` file:
+
+```plaintext
+GITHUB_ORGANIZATION_ID=vets-who-code
+```
+
+These steps ensure that only authorized members of the Vets Who Code community can access certain parts of the application.
