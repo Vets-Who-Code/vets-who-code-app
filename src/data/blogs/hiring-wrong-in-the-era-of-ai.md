@@ -18,7 +18,7 @@ views: 1532
 ## Introduction
 
 In today's fast-paced tech world, artificial intelligence (AI) has drastically changed how we code, making traditional hiring methods for software engineers obsolete. As someone who's tested hiring practices multiple times this month for Vets Who Code, I can confidently say that if you're still relying on coding challenges in interviews, you're hiring wrong and losing the talent war. Our tests have shown that our recommended approach for software engineers to navigate the old-school process works, but it's not the best use of their talents or time.
-clea
+
 ## The AI Revolution in Coding
 
 AI tools like GitHub Copilot and ChatGPT have revolutionized our approach to software development. For instance, with the proper prompts and some experience, creating fully functional features in less than 90 minutes is a reality. These tools assist in generating code, debugging issues, and optimizing performance, making the development process more efficient and productive.
