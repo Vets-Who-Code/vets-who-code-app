@@ -6,7 +6,7 @@ type TProps = {
     value: string | number;
 };
 
-const CourseInfoItem = ({ icon, label, value }: TProps) => {
+const CourseInfo = ({ icon, label, value }: TProps) => {
     return (
         <div className="tw-flex tw-items-center tw-justify-between tw-py-3.8 tw-border-t tw-border-t-gray-500 first:tw-border-0">
             <h6 className="tw-mb-0">
@@ -23,4 +23,4 @@ const CourseInfoItem = ({ icon, label, value }: TProps) => {
     );
 };
 
-export default CourseInfoItem;
+export default CourseInfo;
