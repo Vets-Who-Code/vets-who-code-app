@@ -109,7 +109,7 @@ export default [
             {
                 id: 22,
                 label: "Modules",
-                path: "/curriculum/subjects",
+                path: "/courses/all",
             },
             {
                 id: 23,

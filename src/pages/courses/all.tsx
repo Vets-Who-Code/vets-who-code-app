@@ -32,15 +32,7 @@ const Coursegrid01: PageProps = ({ data }) => {
 Coursegrid01.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const courses = getallCourses([
-        "slug",
-        "title",
-        "thumbnail",
-        "price",
-        "currency",
-        "total_lectures",
-        "total_students",
-    ]);
+    const courses = getallCourses(["slug", "title", "thumbnail"]);
     return {
         props: {
             data: {

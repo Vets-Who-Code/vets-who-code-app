@@ -57,7 +57,7 @@ const SingleCourse: PageProps = ({
             <Breadcrumb
                 pages={[
                     { path: "/", label: "home" },
-                    { path: "/courses/grid-01", label: "courses" },
+                    { path: "/courses/all", label: "courses" },
                 ]}
                 currentPage={course.title}
             />
