@@ -1,6 +1,5 @@
 import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
 import { ICourse, IInstructor } from "@utils/types";
-import CourseInfo from "@widgets/course-info/item";
 import OverviewPanel from "./overview-panel";
 // import InstructorPanel from "./instructor-panel";
 // import ReviewPanel from "./review-panel";
@@ -52,17 +51,6 @@ const CourseDetails = ({ data: { course, instructor } }: TProps) => {
                             </TabPane> */}
                         </TabContent>
                     </TabContainer>
-                </div>
-                <div className="lg:tw-col-[3/-1]">
-                    <div className="tw-sticky tw-top-24">
-                        <CourseInfo
-                            slug={course.slug}
-                            instructor={instructor.name}
-                            duration={course.duration}
-                            language={course.language}
-                            published_at={course.published_at}
-                        />
-                    </div>
                 </div>
             </div>
         </section>
