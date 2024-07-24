@@ -1,5 +1,5 @@
 import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
-import { ICourse, IInstructor } from "@utils/types";
+import { ICourse } from "@utils/types";
 import OverviewPanel from "./overview-panel";
 // import InstructorPanel from "./instructor-panel";
 // import ReviewPanel from "./review-panel";
