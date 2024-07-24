@@ -1,5 +1,5 @@
 import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
-import { ICourse, ICurriculum, IInstructor } from "@utils/types";
+import { ICourse, IInstructor } from "@utils/types";
 import CourseInfo from "@widgets/course-info/item";
 import OverviewPanel from "./overview-panel";
 // import InstructorPanel from "./instructor-panel";
@@ -8,14 +8,11 @@ import OverviewPanel from "./overview-panel";
 type TProps = {
     data: {
         course: ICourse;
-        curriculum: ICurriculum[];
         instructor: IInstructor;
     };
 };
 
-const CourseDetails = ({
-    data: { course, curriculum, instructor },
-}: TProps) => {
+const CourseDetails = ({ data: { course, instructor } }: TProps) => {
     return (
         <section className="course-details">
             <div className="tw-container tw-grid lg:tw-grid-cols-3 tw-gap-12">
