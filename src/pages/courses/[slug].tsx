@@ -4,21 +4,19 @@ import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import CourseDetails from "@containers/course-details";
 import RelatedCourseArea from "@containers/course/layout-02";
-import { ICourse, IInstructor, ICurriculum } from "@utils/types";
+import { ICourse, IInstructor } from "@utils/types";
 import { getInstructorByID } from "../../lib/instructor";
 import {
     getallCourses,
     getCourseBySlug,
     getFilteredCourses,
 } from "../../lib/course";
-import { getCurriculum } from "../../lib/curriculum";
 
 type TProps = {
     data: {
         course: ICourse;
         instructor: IInstructor;
         relatedCourses: ICourse[];
-        curriculum: ICurriculum[];
     };
 };
 
@@ -27,7 +25,7 @@ type PageProps = NextPage<TProps> & {
 };
 
 const SingleCourse: PageProps = ({
-    data: { course, curriculum, instructor, relatedCourses },
+    data: { course, instructor, relatedCourses },
 }) => {
     return (
         <>
@@ -61,12 +59,11 @@ const SingleCourse: PageProps = ({
                 ]}
                 currentPage={course.title}
             />
-            <CourseDetails data={{ course, curriculum, instructor }} />
+            <CourseDetails data={{ course }} />
             {relatedCourses.length > 0 && (
                 <RelatedCourseArea
                     data={{
                         section_title: { title: "Related Courses​" },
-                        courses: relatedCourses,
                     }}
                 />
             )}
@@ -100,31 +97,15 @@ export const getStaticProps = ({ params }: Params) => {
     const course = getCourseBySlug(params.slug, "all");
     const instructor = getInstructorByID(course.instructor, "all");
     const relatedCourses = getFilteredCourses(
-        [
-            "category",
-            "title",
-            "slug",
-            "thumbnail",
-            "total_lectures",
-            "total_students",
-            "price",
-            "currency",
-        ],
+        ["category", "title", "slug", "thumbnail"],
         "category",
         course.category
-    );
-
-    const curriculum = getCurriculum(
-        course.curriculum,
-        ["id", "title", "type", "access", "video", "duration"],
-        course.slug
     );
 
     return {
         props: {
             data: {
                 course,
-                curriculum,
                 instructor,
                 relatedCourses,
             },
