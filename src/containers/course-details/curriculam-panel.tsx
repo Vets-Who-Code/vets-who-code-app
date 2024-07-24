@@ -9,8 +9,13 @@ type TProps = {
     courseSlug: string;
 };
 
+interface UserContextType {
+    courseProgress?: Array<{ course: string }>;
+}
+
 const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
-    const { courseProgress } = useUser();
+    const user = useUser() as UserContextType;
+    const courseProgress = user?.courseProgress ?? [];
     const enrolledCourse = courseProgress.find(
         (cs) => cs.course === courseSlug
     );
