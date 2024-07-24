@@ -59,14 +59,9 @@ const CourseDetails = ({
                 <div className="lg:tw-col-[3/-1]">
                     <div className="tw-sticky tw-top-24">
                         <CourseInfo
-                            lessonLink={curriculum[0].lessons[0].path}
                             slug={course.slug}
-                            price={course.price}
-                            currency={course.currency}
                             instructor={instructor.name}
                             duration={course.duration}
-                            lectures={course.total_lectures}
-                            students={course.total_students}
                             language={course.language}
                             published_at={course.published_at}
                         />
