@@ -2,8 +2,8 @@ import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
 import { ICourse, ICurriculum, IInstructor } from "@utils/types";
 import CourseInfo from "@widgets/course-info/item";
 import OverviewPanel from "./overview-panel";
-import CurriculamPanel from "./curriculam-panel";
-import InstructorPanel from "./instructor-panel";
+// import InstructorPanel from "./instructor-panel";
+// import ReviewPanel from "./review-panel";
 
 type TProps = {
     data: {
@@ -23,6 +23,10 @@ const CourseDetails = ({
                     <TabContainer variant="underline">
                         <TabList>
                             <TabNav>Overview</TabNav>
+                            {/* Remove unused tabs */}
+                            {/* <TabNav>Curriculum</TabNav>
+                            <TabNav>Instructor</TabNav>
+                            <TabNav>Reviews</TabNav> */}
                         </TabList>
                         <TabContent className="tw-mt-10 lg:tw-mt-[50px]">
                             <TabPane>
@@ -32,7 +36,8 @@ const CourseDetails = ({
                                     />
                                 )}
                             </TabPane>
-                            <TabPane>
+                            {/* Remove unused TabPane components */}
+                            {/* <TabPane>
                                 {curriculum && (
                                     <CurriculamPanel
                                         curriculum={curriculum}
@@ -43,6 +48,11 @@ const CourseDetails = ({
                             <TabPane>
                                 <InstructorPanel {...instructor} />
                             </TabPane>
+                            <TabPane>
+                                {course?.reviews && (
+                                    <ReviewPanel {...course.reviews} />
+                                )}
+                            </TabPane> */}
                         </TabContent>
                     </TabContainer>
                 </div>
