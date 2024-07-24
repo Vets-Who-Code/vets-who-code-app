@@ -7,11 +7,10 @@ import OverviewPanel from "./overview-panel";
 type TProps = {
     data: {
         course: ICourse;
-        instructor: IInstructor;
     };
 };
 
-const CourseDetails = ({ data: { course, instructor } }: TProps) => {
+const CourseDetails = ({ data: { course } }: TProps) => {
     return (
         <section className="course-details">
             <div className="tw-container tw-grid lg:tw-grid-cols-3 tw-gap-12">
