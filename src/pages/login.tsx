@@ -25,10 +25,7 @@ const Login = () => {
     if (!isLoggedIn) {
         return (
             <>
-                <PageSeo
-                    title="Login Register"
-                    description="Login to your account"
-                />
+                <PageSeo title="Login" description="Login to your account" />
                 <Breadcrumb
                     pages={[{ path: "/", label: "home" }]}
                     currentPage="Login"
