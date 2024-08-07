@@ -20,7 +20,7 @@ const Profile: PageProps = () => {
 
     useEffect(() => {
         if (!isLoggedIn) {
-            void router.push("/login-register");
+            void router.push("/login");
         }
     }, [isLoggedIn, router]);
 
@@ -36,7 +36,7 @@ const Profile: PageProps = () => {
 
     const handleLogout = () => {
         logout();
-        void router.push("/login-register");
+        void router.push("/login");
     };
 
     return (
