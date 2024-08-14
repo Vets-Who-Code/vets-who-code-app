@@ -23,7 +23,7 @@ At Vets Who Code, we emphasize the importance of the command line as a fundament
 
 #### Introducing the Command Line Task Project Board
 
-To help you get started, Vets Who Code has developed a Command Line Task Project Board. This board is a practical template designed to walk you through the basics of command line usage. It's a hands-on approach to learning, where you can understand the commands and apply them in real-world scenarios, making your learning experience more practical and effective. 
+To help you get started, Vets Who Code has developed a [Command Line Task Project Board](https://github.com/orgs/Vets-Who-Code/projects/50/views/1). This board is a practical template designed to walk you through the basics of command line usage. It's a hands-on approach to learning, where you can understand the commands and apply them in real-world scenarios, making your learning experience more practical and effective. 
 
 The project board is one of the most underutilized online resources today. Many developers need to pay more attention to the value of creating and using project boards to track their learning and project progress. By turning your tasks into a project board, you organize your learning and make it easier to revisit and refine your skills.
 
