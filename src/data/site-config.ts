@@ -3,5 +3,5 @@ export default {
     titleTemplate: "%s | Vets Who Code",
     description:
         "Vets Who Code is a non-profit organization that provides free technical training to veterans and their spouses.",
-    url: "https://yourwebsite.com", // Add the URL property here
+    url: "https://vetswhocode.io", // Add the URL property here
 };
