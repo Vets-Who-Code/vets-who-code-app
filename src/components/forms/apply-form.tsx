@@ -50,8 +50,8 @@ const ApplyForm = () => {
     };
 
     return (
-        <div className="tw-px-[250px]">
-            <h3 className="tw-px-4 md:tw-px-[250px]">Apply</h3>
+        <div className="tw-px-4 md:tw-px-[250px]">
+            <h3 className="tw-px-4 md:tw-px-0">Apply</h3>
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
