@@ -12,5 +12,9 @@
   "aliases": {
     "utils": "@assets/lib/utils",
     "components": "@assets/components"
+  },
+  "shadcn": {
+    "enabled": true,
+    "config": "shadcn.config.js"
   }
 }

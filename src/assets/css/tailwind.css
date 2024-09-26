@@ -90,3 +90,16 @@
         scrollbar-width: none;
     }
 }
+
+/* shadcn/ui styles */
+@layer components {
+    .shadcn-button {
+        @apply tw-bg-blue-500 tw-text-white tw-px-4 tw-py-2 tw-rounded;
+    }
+    .shadcn-card {
+        @apply tw-bg-white tw-shadow-md tw-rounded-lg tw-p-6;
+    }
+    .shadcn-modal {
+        @apply tw-fixed tw-inset-0 tw-bg-gray-800 tw-bg-opacity-75 tw-flex tw-items-center tw-justify-center;
+    }
+}
