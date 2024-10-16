@@ -6,6 +6,7 @@ import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import Feedback from "@ui/form-elements/feedback";
+import { validateProfileLink } from "@utils/formValidations";
 
 interface IFormValues {
     name: string;
@@ -159,6 +160,7 @@ const MentorForm = () => {
                         {...register("github-portfolio-or-linkedin", {
                             required:
                                 "GitHub Portfolio or LinkedIn is required",
+                            validate: validateProfileLink,
                         })}
                     />
                 </div>

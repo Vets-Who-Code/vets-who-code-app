@@ -6,6 +6,7 @@ import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import Feedback from "@ui/form-elements/feedback";
+import { linkedinRegex, githubRegex } from "@utils/formValidations";
 
 interface IFormValues {
     firstName: string;
@@ -280,6 +281,11 @@ const ApplyForm = () => {
                         showState={!!hasKey(errors, "linkedInAccountName")}
                         {...register("linkedInAccountName", {
                             required: "LinkedIn Account Name is required",
+                            pattern: {
+                                value: linkedinRegex,
+                                message:
+                                    "Please enter your Linkedin profile URL. For example, linkedin.com/in/your-name",
+                            },
                         })}
                     />
                 </div>
@@ -303,6 +309,11 @@ const ApplyForm = () => {
                         showState={!!hasKey(errors, "githubAccountName")}
                         {...register("githubAccountName", {
                             required: "GitHub Account Name is required",
+                            pattern: {
+                                value: githubRegex,
+                                message:
+                                    "Please enter your Github profile URL. For example, github.com/your-name",
+                            },
                         })}
                     />
                 </div>
