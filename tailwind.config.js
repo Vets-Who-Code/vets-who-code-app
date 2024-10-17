@@ -104,6 +104,15 @@ module.exports = {
                 mandy: "#df5b6c",
                 tan: "#d2a98e",
                 mishcka: "#e2e2e8",
+                // Custom styles for the login page
+                login: {
+                    background: "#f5f5f5",
+                    inputBorder: "#e2e8f0",
+                    inputFocusBorder: "#93c5fd",
+                    buttonBackground: "#4f46e5",
+                    buttonHoverBackground: "#4338ca",
+                    buttonText: "#ffffff",
+                },
             },
             typography: ({ theme }) => ({
                 DEFAULT: {
@@ -174,29 +183,15 @@ module.exports = {
             },
             screens: {
                 maxSm: { max: "575px" },
-                // => @media (max-width: 575px) { ... }
                 maxXl: { max: "1199px" },
-                // => @media (max-width: 1199px) { ... }
                 maxLg: { max: "991px" },
-                // => @media (max-width: 991px) { ... }
                 smToMd: { min: "576px", max: "767px" },
                 sm: "576px",
-                // => @media (min-width: 576px) { ... }
-
                 md: "768px",
-                // => @media (min-width: 768px) { ... }
-
                 lg: "992px",
-                // => @media (min-width: 992px) { ... }
-
                 xl: "1200px",
-                // => @media (min-width: 1200px) { ... }
-
                 "2xl": "1400px",
-                // => @media (min-width: 1400px) { ... }
-
                 "3xl": "1600px",
-                // => @media (min-width: 1600px) { ... }
             },
             zIndex: {
                 1: 1,
