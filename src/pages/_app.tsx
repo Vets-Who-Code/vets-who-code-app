@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
@@ -43,6 +44,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
                     <SEO />
                     <Component {...pageProps} />
                 </Layout>
+                <Analytics />
             </UserProvider>
         </UIProvider>
     );
