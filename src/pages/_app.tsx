@@ -1,4 +1,4 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics';
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
