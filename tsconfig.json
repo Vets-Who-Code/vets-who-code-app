@@ -30,7 +30,8 @@
       "@layout/*": ["layouts/*"],
       "@ui/*": ["components/ui/*"],
       "@utils/*": ["utils/*"],
-      "@widgets/*": ["components/widgets/*"]
+      "@widgets/*": ["components/widgets/*"],
+      "@fonts/*": ["public/fonts/*"]
     }
   },
   "include": ["next-env.d.ts", "next.config.js", "src/**/*.ts", "src/**/*.tsx", "tailwind.config.js", "postcss.config.js", "next-sitemap.config.js"],
