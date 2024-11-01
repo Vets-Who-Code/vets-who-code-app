@@ -41,12 +41,6 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
         <UIProvider>
             <UserProvider>
                 <Layout {...layoutProps}>
-                    <Head>
-                        <link
-                            rel="stylesheet"
-                            href="https://gists.rawgit.com/mfd/f3d96ec7f0e8f034cc22ea73b3797b59/raw/856f1dbb8d807aabceb80b6d4f94b464df461b3e/gotham.css"
-                        />
-                    </Head>
                     <SEO />
                     <Component {...pageProps} />
                 </Layout>

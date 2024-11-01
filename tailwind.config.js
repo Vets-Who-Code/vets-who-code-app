@@ -118,10 +118,10 @@ module.exports = {
                 },
             }),
             fontFamily: {
-                body: ["Gilroy", "sans-serif"],
-                heading: ["Gilroy", "sans-serif"],
-                playfair: ["Playfair Display", "serif"],
-                rossela: ["Conv_Rossela-Demo-2", "serif"],
+                body: ["GothamPro", "sans-serif"],
+                heading: ["GothamPro", "sans-serif"],
+                playfair: ["GothamPro", "sans-serif"],
+                rossela: ["GothamPro", "ssans-serif"],
             },
             fontSize: {
                 sm: "0.75rem",
