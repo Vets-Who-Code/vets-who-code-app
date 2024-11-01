@@ -80,7 +80,7 @@ module.exports = {
                 },
                 spring: "#F5F1ED",
                 desert: {
-                    DEFAULT: "#ecc5ab",
+                    DEFAULT: "#c5203e",
                     100: "#e6dcd2",
                 },
                 pearl: "#EAE1D6",
@@ -118,10 +118,10 @@ module.exports = {
                 },
             }),
             fontFamily: {
-                body: ["GothamPro", "sans-serif"],
-                heading: ["GothamPro", "sans-serif"],
-                playfair: ["GothamPro", "sans-serif"],
-                rossela: ["GothamPro", "ssans-serif"],
+                body: ["Gilroy", "sans-serif"],
+                heading: ["Gilroy", "sans-serif"],
+                playfair: ["Playfair Display", "serif"],
+                rossela: ["Conv_Rossela-Demo-2", "serif"],
             },
             fontSize: {
                 sm: "0.75rem",
