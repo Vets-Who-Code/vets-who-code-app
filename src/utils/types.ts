@@ -1,3 +1,21 @@
+/// <reference types="@types/google.maps" />
+
+declare global {
+    interface Window {
+        google: typeof google;
+    }
+}
+
+// Google Maps Types
+export interface MapType extends google.maps.MapOptions {
+    onClick?: (e: google.maps.MapMouseEvent) => void;
+    children?: React.ReactNode;
+}
+
+export interface MarkerType extends google.maps.MarkerOptions {
+    onClick?: () => void;
+}
+
 export type IDType = string | number;
 
 export interface ImageType {

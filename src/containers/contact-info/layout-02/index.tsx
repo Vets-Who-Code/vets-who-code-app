@@ -16,7 +16,13 @@ type TProps = TSection & {
     };
 };
 
-const ContactInfo = ({ data: { section_title, items, location } }: TProps) => {
+const ContactInfo = ({ data: { section_title, items } }: TProps) => {
+    // Hardcoded Atlanta coordinates
+    const atlantaLocation = {
+        latitude: 33.7488,
+        longitude: -84.3877
+    };
+
     return (
         <Section className="contact-info-area" space="none">
             <div className="tw-container">
@@ -61,23 +67,21 @@ const ContactInfo = ({ data: { section_title, items, location } }: TProps) => {
                         </div>
                     ))}
                 </motion.div>
-                {location && (
-                    <motion.div
-                        className="tw-h-[300px] lg:tw-h-[400px]"
-                        initial="offscreen"
-                        whileInView="onscreen"
-                        viewport={{ once: true, amount: 0.4 }}
-                        variants={scrollUpVariants}
-                    >
-                        <GoogleMap
-                            center={{
-                                lat: location.latitude,
-                                lng: location.longitude,
-                            }}
-                            zoom={14}
-                        />
-                    </motion.div>
-                )}
+                <motion.div
+                    className="tw-h-[300px] lg:tw-h-[400px]"
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true, amount: 0.4 }}
+                    variants={scrollUpVariants}
+                >
+                    <GoogleMap
+                        center={{
+                            lat: atlantaLocation.latitude,
+                            lng: atlantaLocation.longitude,
+                        }}
+                        zoom={14}
+                    />
+                </motion.div>
             </div>
         </Section>
     );
