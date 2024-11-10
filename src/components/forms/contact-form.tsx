@@ -38,16 +38,11 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                 const response = await axios.post("/api/contact", data);
                 if (response.status === 200) {
                     setServerMessage("Thank you for your message!");
-                    setShowEmojiRain(true); // Trigger the Emoji Rain on successful submission
-
-                    // Optional: Hide the EmojiRain after a set duration
-                    setTimeout(() => setShowEmojiRain(false), 5000); // Adjust duration as necessary
-
-                    reset(); // Reset the form fields
+                    setShowEmojiRain(true);
+                    setTimeout(() => setShowEmojiRain(false), 5000);
+                    reset();
                 } else {
-                    setServerMessage(
-                        "There was an error. Please try again later."
-                    );
+                    setServerMessage("There was an error. Please try again later.");
                 }
             } catch (error) {
                 setServerMessage("There was an error. Please try again later.");
@@ -56,19 +51,19 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
 
         return (
             <form
-                className={clsx(className)}
+                className={clsx("tw-space-y-6", className)}
                 ref={ref}
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <div className="tw-grid tw-grid-cols-1 tw-gap-5 tw-mb-5 md:tw-grid-cols-2 md:tw-gap-7.5 md:tw-mb-7.5">
-                    <div>
-                        <label htmlFor="name" className="tw-sr-only">
+                <div className="tw-grid tw-grid-cols-1 tw-gap-5 md:tw-grid-cols-2 md:tw-gap-7.5">
+                    <div className="tw-space-y-2">
+                        <label htmlFor="name" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
                             Name
                         </label>
                         <Input
                             id="name"
                             placeholder="Your Name *"
-                            bg="light"
+                            className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.name?.message}
                             state={hasKey(errors, "name") ? "error" : "success"}
                             showState={!!hasKey(errors, "name")}
@@ -77,37 +72,33 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                             })}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="phone" className="tw-sr-only">
+                    <div className="tw-space-y-2">
+                        <label htmlFor="phone" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
                             Phone
                         </label>
                         <Input
                             id="phone"
                             placeholder="Your Phone *"
-                            bg="light"
+                            className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.phone?.message}
-                            state={
-                                hasKey(errors, "phone") ? "error" : "success"
-                            }
+                            state={hasKey(errors, "phone") ? "error" : "success"}
                             showState={!!hasKey(errors, "phone")}
                             {...register("phone", {
                                 required: "Phone is required",
                             })}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="email" className="tw-sr-only">
+                    <div className="tw-space-y-2">
+                        <label htmlFor="email" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
                             Email
                         </label>
                         <Input
                             type="email"
                             id="email"
                             placeholder="Your Email *"
-                            bg="light"
+                            className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.email?.message}
-                            state={
-                                hasKey(errors, "email") ? "error" : "success"
-                            }
+                            state={hasKey(errors, "email") ? "error" : "success"}
                             showState={!!hasKey(errors, "email")}
                             {...register("email", {
                                 required: "Email is required",
@@ -118,18 +109,16 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                             })}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="subject" className="tw-sr-only">
+                    <div className="tw-space-y-2">
+                        <label htmlFor="subject" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
                             Subject
                         </label>
                         <Input
                             id="subject"
                             placeholder="Subject *"
-                            bg="light"
+                            className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.subject?.message}
-                            state={
-                                hasKey(errors, "subject") ? "error" : "success"
-                            }
+                            state={hasKey(errors, "subject") ? "error" : "success"}
                             showState={!!hasKey(errors, "subject")}
                             {...register("subject", {
                                 required: "Subject is required",
@@ -137,14 +126,14 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         />
                     </div>
                 </div>
-                <div className="tw-mb-5 md:tw-mb-7.5">
-                    <label htmlFor="message" className="tw-sr-only">
-                        Comment
+                <div className="tw-space-y-2">
+                    <label htmlFor="message" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                        Message
                     </label>
                     <Textarea
                         id="message"
                         placeholder="Message"
-                        bg="light"
+                        className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200 tw-resize-none"
                         feedbackText={errors?.message?.message}
                         state={hasKey(errors, "message") ? "error" : "success"}
                         showState={!!hasKey(errors, "message")}
@@ -153,9 +142,14 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         })}
                     />
                 </div>
-                <Button type="submit" className="tw-w-[180px]">
-                    Submit
-                </Button>
+                <div className="tw-w-full">
+                    <Button 
+                        type="submit" 
+                        className="tw-w-full tw-bg-[#c5203e] hover:tw-bg-[#a91b35] tw-text-white tw-font-semibold tw-py-4 tw-px-6 tw-rounded-lg focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#c5203e] focus:tw-ring-offset-2 tw-transition tw-duration-200 tw-ease-in-out tw-transform"
+                    >
+                        Submit
+                    </Button>
+                </div>
                 {serverMessage && (
                     <Feedback state="success">{serverMessage}</Feedback>
                 )}
