@@ -11,11 +11,11 @@ type MapProps = google.maps.MapOptions;
 const MyMap: React.FC<MapProps> = ({ ...options }) => {
     return (
         <Wrapper
-            apiKey="AIzaSyB3mMuvl8IUlviRZiizBiX7uhsdIqunx94"
+            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ''}
             render={render}
         >
             <Map {...options}>
-                <Marker position={options.center} />
+                {options.center && <Marker position={options.center} />}
             </Map>
         </Wrapper>
     );
