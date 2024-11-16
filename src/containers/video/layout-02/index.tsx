@@ -66,7 +66,7 @@ const VideoArea = ({
                             y: trans2().y,
                         }}
                     >
-                        <img src="/images/shape-animation/shape-3.png" alt="" />
+                        <img src="/images/shape-animation/medal.svg" alt="" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-z-20 tw-top-0 -tw-right-2.5 md:tw-right-7.5"
@@ -86,7 +86,7 @@ const VideoArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img src="/images/shape-animation/shape-1.png" alt="" />
+                        <img src="/images/shape-animation/code.svg" alt="" />
                     </motion.div>
                 </div>
                 <div className="lg:tw-col-span-4 lg:tw-pl-5 xl:tw-pl-15">

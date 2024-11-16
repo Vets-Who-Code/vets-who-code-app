@@ -71,7 +71,7 @@ const TestimonialArea = ({
                         }}
                     >
                         <img
-                            src="/images/shape-animation/shape-3.png"
+                            src="/images/shape-animation/medal.svg"
                             alt="shape"
                             loading="lazy"
                             width={178}

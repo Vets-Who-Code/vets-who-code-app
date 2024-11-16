@@ -111,7 +111,7 @@ const HeroArea = ({
                             }}
                         >
                             <img
-                                src="/images/shape-animation/shape-1.png"
+                                src="/images/shape-animation/code.svg"
                                 alt=""
                                 width={136}
                                 height={136}
