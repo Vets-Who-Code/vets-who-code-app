@@ -86,7 +86,7 @@ const AppDownloadArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img src="/images/shape-animation/shape-1.png" alt="" />
+                        <img src="/images/shape-animation/code.svg" alt="" />
                     </motion.div>
                 </motion.div>
                 <motion.div

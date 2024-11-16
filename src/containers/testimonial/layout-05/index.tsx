@@ -85,7 +85,7 @@ const TestimonialArea = ({
                         y: trans2().y,
                     }}
                 >
-                    <img src="/images/shape-animation/shape-3.png" alt="" />
+                    <img src="/images/shape-animation/medal.svg" alt="" />
                 </motion.div>
             </div>
         </Section>

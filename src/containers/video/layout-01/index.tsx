@@ -82,7 +82,7 @@ const VideoArea = ({
                     }}
                 >
                     <img
-                        src="/images/shape-animation/shape-3.png"
+                        src="/images/shape-animation/medal.svg"
                         alt="shape"
                         loading="lazy"
                         width={178}
@@ -108,7 +108,7 @@ const VideoArea = ({
                     }}
                 >
                     <img
-                        src="/images/shape-animation/shape-1.png"
+                        src="/images/shape-animation/code.svg"
                         alt=""
                         loading="lazy"
                         width={136}
