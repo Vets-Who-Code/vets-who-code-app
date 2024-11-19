@@ -6,27 +6,25 @@ import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import ProfileBio from "@containers/profile/bio";
 import Spinner from "@ui/spinner";
-import { useUser } from "@contexts/user-context";
-import { useMount } from "@hooks";
+import { useSession, signOut } from "next-auth/react";
 
 type PageProps = NextPage & {
     Layout: typeof Layout01;
 };
 
 const Profile: PageProps = () => {
-    const mounted = useMount();
-    const { isLoggedIn, logout } = useUser();
+    const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
-        if (!isLoggedIn) {
+        if (status === "unauthenticated") {
+            // Redirect to login if not logged in
             void router.push("/login");
         }
-    }, [isLoggedIn, router]);
+    }, [status, router]);
 
-    if (!mounted) return null;
-
-    if (!isLoggedIn) {
+    if (status === "loading") {
+        // Show a spinner while the session is being fetched
         return (
             <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
                 <Spinner />
@@ -34,8 +32,17 @@ const Profile: PageProps = () => {
         );
     }
 
-    const handleLogout = () => {
-        logout();
+    if (!session) {
+        // This shouldn't happen due to the redirect above, but handle the case
+        return (
+            <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+                <p>You are not logged in.</p>
+            </div>
+        );
+    }
+
+    const handleLogout = async () => {
+        await signOut();
         void router.push("/login");
     };
 

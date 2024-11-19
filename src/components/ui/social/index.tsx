@@ -49,7 +49,7 @@ const Social = ({
         return null;
     });
     const flyoutClass =
-        "tw-absolute tw-bottom-full tw-right-0 -tw-translate-y-2.5 tw-w-auto tw-whitespace-nowrap tw-px-1 tw-bg-white tw-rounded tw-shadow-3sm tw-shadow-black/[.06] tw-drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw-z-10 tw-select-none tw-transition-all tw-duration-300 tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] tw-invisible tw-opacity-0";
+        "tw-absolute tw-bottom-full tw-right-0 -tw-translate-y-2.5 tw-w-auto tw-whitespace-nowrap tw-px-1 tw-bg-white tw-rounded tw-shadow-3sm tw-shadow-black/[.06] tw-drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw-z-10 tw-select-none tw-transition-all tw-duration-300 tw-ease-&lsqb;cubic-bezier(.71,1.7,.77,1.24)&rsqb; tw-invisible tw-opacity-0";
     const flyoutBeforeClass =
         "before:tw-absolute before:tw-content-[''] before:tw-top-full before:tw-right-5 before:tw-border-t-8 before:tw-border-t-white before:tw-border-x-[9px] before:tw-border-x-transparent before:tw-invisible before:tw-opacity-0";
     const flyoutAfterClass =

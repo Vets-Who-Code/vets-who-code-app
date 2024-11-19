@@ -28,7 +28,7 @@ const SocialShare = () => {
             <div
                 className={clsx(
                     "tw-absolute tw-bottom-full tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-2.5 tw-w-auto tw-whitespace-nowrap tw-px-1 tw-bg-white tw-rounded tw-shadow-3sm tw-shadow-black/[.06]",
-                    "tw-drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw-z-10 tw-select-none tw-transition-all tw-duration-300 tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] tw-invisible tw-opacity-0",
+                    "tw-drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw-z-10 tw-select-none tw-transition-all tw-duration-300 tw-ease-&lsqb;cubic-bezier(.71,1.7,.77,1.24)&rsqb; tw-invisible tw-opacity-0",
                     "before:tw-absolute before:tw-content-[''] before:tw-top-full before:tw-left-1/2 before:-tw-translate-x-1/2 before:tw-border-t-8 before:tw-border-t-white before:tw-border-x-[9px] before:tw-border-x-transparent before:tw-invisible before:tw-opacity-0",
                     "after:tw-absolute after:tw-content-[''] after:tw-left-0 after:-tw-bottom-6 after:tw-w-full after:tw-h-7",
                     "group-hover:tw-visible group-hover:tw-opacity-100 group-hover:-tw-translate-x-1/2 group-hover:-tw-translate-y-5 group-hover:before:tw-visible group-hover:before:tw-opacity-100"
