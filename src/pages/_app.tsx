@@ -1,7 +1,8 @@
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
-import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react"; // Import SessionProvider
+import type { Session } from "next-auth"; // Import Session type
+import type { AppProps, NextPage } from "next"; // Import NextPage
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
 import "@assets/css/font-awesome-pro.min.css";
@@ -14,11 +15,14 @@ import "@assets/css/globals.css";
 import { UIProvider } from "../contexts/ui-context";
 import { UserProvider } from "../contexts/user-context";
 
-interface CustomAppProps extends Omit<AppProps, "Component"> {
-    Component: AppProps["Component"] & { Layout: ElementType };
+// Extend AppProps with support for a Layout property
+interface CustomAppProps extends AppProps {
+    Component: NextPage & {
+        Layout?: ElementType; // Optional Layout property
+    };
     pageProps: {
+        session?: Session | null; // Explicitly type session
         [key: string]: unknown;
-        session?: unknown; // Add session type for NextAuth
     };
 }
 
@@ -38,7 +42,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
     });
 
     return (
-        <SessionProvider session={pageProps.session}> {/* Wrap everything in SessionProvider */}
+        <SessionProvider session={pageProps.session as Session | null}>
             <UIProvider>
                 <UserProvider>
                     <Layout {...layoutProps}>

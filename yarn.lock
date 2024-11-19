@@ -1949,6 +1949,13 @@
   "resolved" "https://registry.npmjs.org/@types/minimatch/-/minimatch-5.1.2.tgz"
   "version" "5.1.2"
 
+"@types/next-auth@^3.15.0":
+  "integrity" "sha512-ZVfejlu81YiIRX1m0iKAfvZ3nK7K9EyZWhNARNKsFop8kNAgEvMnlKpTpwN59xkK2OhyWLagPuiDAVBYSO9jSA=="
+  "resolved" "https://registry.npmjs.org/@types/next-auth/-/next-auth-3.15.0.tgz"
+  "version" "3.15.0"
+  dependencies:
+    "next-auth" "*"
+
 "@types/node-fetch@^2.6.4":
   "integrity" "sha512-1ZX9fcN4Rvkvgv4E6PAY5WXUFWFcRWxZa3EW83UjycOB9ljJCedb2CupIP4RZMEwF/M3eTcCihbBRgwtGbg5Rg=="
   "resolved" "https://registry.npmjs.org/@types/node-fetch/-/node-fetch-2.6.4.tgz"
@@ -4955,7 +4962,7 @@
   "resolved" "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz"
   "version" "0.6.3"
 
-"next-auth@^4.24.10":
+"next-auth@*", "next-auth@^4.24.10":
   "integrity" "sha512-8NGqiRO1GXBcVfV8tbbGcUgQkAGsX4GRzzXXea4lDikAsJtD5KiEY34bfhUOjHLvr6rT6afpcxw2H8EZqOV6aQ=="
   "resolved" "https://registry.npmjs.org/next-auth/-/next-auth-4.24.10.tgz"
   "version" "4.24.10"

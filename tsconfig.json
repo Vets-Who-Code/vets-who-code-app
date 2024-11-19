@@ -33,15 +33,15 @@
       "@widgets/*": ["components/widgets/*"],
       "@fonts/*": ["public/fonts/*"]
     },
-    "types": ["google.maps"]  // Add this line
+    "types": ["google.maps", "next-auth"] // Add "next-auth" here
   },
   "include": [
-    "next-env.d.ts", 
-    "next.config.js", 
-    "src/**/*.ts", 
-    "src/**/*.tsx", 
-    "tailwind.config.js", 
-    "postcss.config.js", 
+    "next-env.d.ts",
+    "next.config.js",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tailwind.config.js",
+    "postcss.config.js",
     "next-sitemap.config.js"
   ],
   "exclude": ["node_modules"]
