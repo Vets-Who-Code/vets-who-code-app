@@ -5,6 +5,7 @@ import {
     isValidElement,
     cloneElement,
     ReactNode,
+    ReactElement,
 } from "react";
 import clsx from "clsx";
 import { TChildProps, ContainerProps } from "./types";
@@ -31,15 +32,11 @@ const TabContainer = ({
     ): ReactNode => {
         return Children.map(reactChildren, (child, idx) => {
             if (!isValidElement(child)) return child;
-            const childProps: TChildProps = child.props as TChildProps;
-
-            const props = {
-                ...childProps,
-            };
+            const childProps = child.props as TChildProps;
 
             if (parent === "TabList") {
-                return cloneElement(child, {
-                    ...props,
+                return cloneElement(child as ReactElement, {
+                    ...childProps,
                     onClick: () => handleClick(idx),
                     isActive: idx === value,
                     variant,
@@ -51,8 +48,8 @@ const TabContainer = ({
                 });
             }
             if (parent === "TabContent") {
-                return cloneElement(child, {
-                    ...props,
+                return cloneElement(child as ReactElement, {
+                    ...childProps,
                     id: `${idPrefix}-${idx}`,
                     children: iterateOverChildren(
                         childProps.children as ReactNode,
@@ -67,10 +64,7 @@ const TabContainer = ({
 
     const renderChildren = Children.map(children, (child) => {
         if (!isValidElement(child)) return child;
-        const childProps: TChildProps = child.props as TChildProps;
-        const props = {
-            ...childProps,
-        };
+        const childProps = child.props as TChildProps;
 
         const childType =
             (childProps.originalType as FunctionComponent) ||
@@ -78,8 +72,8 @@ const TabContainer = ({
         const name = childType.displayName || childType.name;
 
         if (name === "TabList") {
-            return cloneElement(child, {
-                ...props,
+            return cloneElement(child as ReactElement, {
+                ...childProps,
                 variant,
                 children: iterateOverChildren(
                     childProps.children as ReactNode,
@@ -88,8 +82,8 @@ const TabContainer = ({
             });
         }
         if (name === "TabContent") {
-            return cloneElement(child, {
-                ...props,
+            return cloneElement(child as ReactElement, {
+                ...childProps,
                 activeIdx: value,
                 children: iterateOverChildren(
                     childProps.children as ReactNode,
@@ -97,12 +91,24 @@ const TabContainer = ({
                 ),
             });
         }
-        return cloneElement(child, {
-            ...props,
+        return cloneElement(child as ReactElement, {
+            ...childProps,
             children: childProps.children,
         });
     });
+
     return <div className={clsx("tab", className)}>{renderChildren}</div>;
 };
 
 export { TabContainer, TabList, TabNav, TabContent, TabPane };
+export type {
+    TProps,
+    TChildProps,
+    TVariant,
+    ContainerProps,
+    TabProps,
+    ContentProps,
+    TabPaneProps,
+} from "./types";
+
+export default TabContainer;

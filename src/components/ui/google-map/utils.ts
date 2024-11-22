@@ -1,18 +1,28 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef } from "react";
 import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 
+type LatLngInput =
+    | google.maps.LatLng
+    | google.maps.LatLngLiteral
+    | { lat: number; lng: number };
+
 export const deepCompareEqualsForMaps = createCustomEqual(
-    (deepEqual) => (a: any, b: any) => {
+    (deepEqual) => (a: unknown, b: unknown) => {
         if (
             isLatLngLiteral(a) ||
             a instanceof google.maps.LatLng ||
             isLatLngLiteral(b) ||
             b instanceof google.maps.LatLng
         ) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
+            try {
+                return new google.maps.LatLng(a as LatLngInput).equals(
+                    new google.maps.LatLng(b as LatLngInput)
+                );
+            } catch {
+                return false;
+            }
         }
 
         // TODO extend to other types
@@ -22,21 +32,22 @@ export const deepCompareEqualsForMaps = createCustomEqual(
     }
 );
 
-function useDeepCompareMemoize(value: any) {
-    const ref = useRef();
+function useDeepCompareMemoize<T>(value: T): T {
+    const ref = useRef<T>();
 
     if (!deepCompareEqualsForMaps(value, ref.current)) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         ref.current = value;
     }
 
-    return ref.current;
+    return ref.current as T;
 }
 
 export function useDeepCompareEffectForMaps(
     callback: React.EffectCallback,
-    dependencies: any[]
-) {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(callback, dependencies.map(useDeepCompareMemoize));
+    dependencies: Array<unknown>
+): void {
+    useEffect(
+        () => callback(),
+        [callback, ...dependencies.map(useDeepCompareMemoize)]
+    );
 }

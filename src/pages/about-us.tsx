@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import HeroArea from "@containers/hero/layout-07";
@@ -7,8 +7,13 @@ import CtaArea from "@containers/cta/layout-01";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
-interface PageContent {
+// Base content interface
+interface PageContent extends Record<string, unknown> {
     section: string;
+    title?: string;
+    content?: string;
+    metadata?: Record<string, unknown>;
+    customFields?: Record<string, unknown>;
 }
 
 type TProps = {
@@ -19,12 +24,15 @@ type TProps = {
     };
 };
 
-type PageProps = NextPage<TProps> & {
+// Create a new type that includes both the component and Layout property
+type PageWithLayout = {
+    (props: TProps): JSX.Element;
     Layout: typeof Layout;
 };
 
-const AboutUs: PageProps = ({ data }) => {
+const AboutUs: PageWithLayout = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
+
     return (
         <>
             <SEO title="About Us" />

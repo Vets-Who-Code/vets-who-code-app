@@ -1,33 +1,47 @@
 /** @type {import('next').NextConfig} */
+const withPWA = require("next-pwa")({
+    dest: "public",
+    disable: process.env.NODE_ENV === "development",
+    register: true,
+    runtimeCaching: require("next-pwa/cache"),
+    buildExcludes: [
+        /middleware-manifest\.json$/,
+        /middleware-runtime\.js$/,
+        /_middleware\.js$/,
+        /^.+\\_middleware\.js$/,
+    ],
+    publicExcludes: ["!robots.txt"],
+});
+
 const nextConfig = {
-    reactStrictMode: false,
+    reactStrictMode: true,
+
+    webpack(config, { isServer }) {
+        // Handle SVG files
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ["@svgr/webpack"],
+        });
+
+        // Handle fs fallback for client-side
+        if (!isServer) {
+            config.resolve.fallback = {
+                fs: false,
+            };
+        }
+
+        return config;
+    },
+
+    images: {
+        domains: [],
+        remotePatterns: [],
+    },
+
+    experimental: {},
 };
-const withPWA = require("next-pwa");
-const runtimeCaching = require("next-pwa/cache");
-const withReactSvg = require("next-react-svg");
-const path = require("path");
+
+// Load environment variables
 require("dotenv").config();
 
-module.exports = withPWA(
-    withReactSvg({
-        pwa: {
-            disable: process.env.NODE_ENV === "development",
-            dest: "public",
-            register: true,
-            runtimeCaching,
-            buildExcludes: [
-                /\/*server\/middleware-chunks\/[0-9]*[a-z]*[A-Z]*\.js$/,
-                /middleware-manifest\.json$/,
-                /middleware-runtime\.js$/,
-                /_middleware\.js$/,
-                /^.+\\_middleware\.js$/,
-            ],
-            publicExcludes: ["!robots.txt"],
-        },
-        nextConfig,
-        include: path.resolve(__dirname, "src/assets/svgs"),
-        webpack(config) {
-            return config;
-        },
-    })
-);
+module.exports = withPWA(nextConfig);

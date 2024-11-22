@@ -6,21 +6,23 @@ import Breadcrumb from "@components/breadcrumb";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
-// import GradationArea from "@containers/gradation";
-// import BecomeInstructor from "@containers/become-instructor";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
+// Update the interface to include an index signature
 interface PageContent {
     section: string;
+    [key: string]: unknown; // Add index signature to satisfy Record<string, unknown>
+}
+
+interface PageData {
+    page: {
+        content: PageContent[];
+    };
 }
 
 type TProps = {
-    data: {
-        page: {
-            content: PageContent[];
-        };
-    };
+    data: PageData;
 };
 
 type PageProps = NextPage<TProps> & {
@@ -42,8 +44,6 @@ const JoinCommunity: PageProps = ({ data }) => {
                 <FunfactArea data={content["funfact-area"]} />
                 <HeroImageArea data={content["hero-image-area"]} />
             </Wrapper>
-            {/* <GradationArea data={content["gradation-area"]} /> */}
-            {/* <BecomeInstructor /> */}
         </>
     );
 };

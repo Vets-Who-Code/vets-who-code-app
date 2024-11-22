@@ -6,13 +6,13 @@ import Breadcrumb from "@components/breadcrumb";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
-// import GradationArea from "@containers/gradation";
 import MentorForm from "@components/forms/mentor-form";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
 interface PageContent {
     section: string;
+    [key: string]: unknown; // Add index signature
 }
 
 type TProps = {
@@ -43,7 +43,6 @@ const MentorPage: PageProps = ({ data }) => {
                 <HeroImageArea data={content["hero-image-area"]} />
             </Wrapper>
             <MentorForm />
-            {/* <GradationArea data={content["gradation-area"]} /> */}
         </>
     );
 };

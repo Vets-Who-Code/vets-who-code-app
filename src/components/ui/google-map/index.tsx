@@ -11,7 +11,7 @@ type MapProps = google.maps.MapOptions;
 const MyMap: React.FC<MapProps> = ({ ...options }) => {
     return (
         <Wrapper
-            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ''}
+            apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""}
             render={render}
         >
             <Map {...options}>
