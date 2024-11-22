@@ -12,6 +12,7 @@ import { getPageData } from "../lib/page";
 
 interface PageContent {
     section: string;
+    [key: string]: unknown; // Add index signature to allow string indexing
 }
 
 type TProps = {

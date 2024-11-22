@@ -16,18 +16,26 @@ export type UserContextType = {
     logout: () => void;
 };
 
+// State interface
+interface UserState {
+    isLoggedIn: boolean;
+}
+
+// Define action types more specifically
+type UserAction = { type: "LOGIN" } | { type: "LOGOUT" };
+
 // Create the UserContext
 export const UserContext = createContext<UserContextType>(
     {} as UserContextType
 );
 
 // Initial state
-const initialState = {
+const initialState: UserState = {
     isLoggedIn: false,
 };
 
 // Initialize state from local storage
-const init = () => {
+const init = (): UserState => {
     if (typeof window === "undefined") return initialState;
     const loginStore = localStorage.getItem(AUTH_KEY);
     const loginParse =
@@ -38,14 +46,8 @@ const init = () => {
     };
 };
 
-// Define action types
-interface UserAction {
-    type: "LOGIN" | "LOGOUT";
-    payload?: any;
-}
-
 // Reducer function to handle state changes
-function reducer(state: typeof initialState, action: UserAction) {
+function reducer(state: UserState, action: UserAction): UserState {
     switch (action.type) {
         case "LOGIN": {
             localStorage.setItem(AUTH_KEY, JSON.stringify(true));

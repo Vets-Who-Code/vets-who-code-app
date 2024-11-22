@@ -4,33 +4,30 @@ import type { Dispatch, SetStateAction } from "react";
 import dayjs from "dayjs";
 import { SectionType, ICourse, IEvent } from "./types";
 
-export const normalizedData = <T>(data: T[], identifier: keyof T) => {
-    let allContetnt: { [x: string]: SectionType } = {};
-    data.forEach((item) => {
-        // Remove properties with null value
-        const newObj: T = item;
-        Object.entries(item).reduce((acc, cur: [string, string]) => {
-            const [key, property] = cur;
-            if (property === null) {
-                return acc;
+export const normalizedData = <T extends Record<string, unknown>>(
+    data: T[],
+    identifier: keyof T
+): { [key: string]: SectionType } => {
+    return data.reduce((allContent, item) => {
+        // Remove null properties and create a new object
+        const cleanedObj = Object.entries(item).reduce((acc, [key, value]) => {
+            if (value !== null) {
+                acc[key] = value;
             }
-            return {
-                ...acc,
-                [key]: property,
-            };
-        }, {});
+            return acc;
+        }, {} as Record<string, unknown>);
 
-        // Store All Content
-        const k = newObj[identifier] as unknown as string;
+        // Get the identifier value and ensure it's a string
+        const key = String(item[identifier]);
 
-        allContetnt = {
-            ...allContetnt,
-            [k]: {
-                ...newObj,
+        // Return the accumulated object with the new entry
+        return {
+            ...allContent,
+            [key]: {
+                ...cleanedObj,
             },
         };
-    });
-    return allContetnt;
+    }, {} as { [key: string]: SectionType });
 };
 
 export const slugify = (text: string): string => {
@@ -52,17 +49,18 @@ export const unslugify = (text: string): string => {
         .replace(/^-+/, "") // Trim - from start of text
         .replace(/-+$/, ""); // Trim - from end of text
 };
-export const isObjectEmpty = (object: { [key: string]: unknown }) => {
+
+export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
     return Object.keys(object).length === 0;
 };
 
-export const toCapitalize = (text: string) => {
+export const toCapitalize = (text: string): string => {
     return (
         text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase()
     );
 };
 
-export const normalizePath = (path: string) => {
+export const normalizePath = (path: string): string => {
     return path.startsWith("/") ? path.slice(1) : path;
 };
 
@@ -71,12 +69,12 @@ export const courseSorting = (
     courses: ICourse[],
     defaultCourses: ICourse[],
     setSort: Dispatch<SetStateAction<ICourse[]>>
-) => {
-    const cousesCopy = [...courses];
+): void => {
+    const coursesCopy = [...courses];
 
     switch (sortValue) {
         case "latest": {
-            const sorted = cousesCopy.sort((a, b) =>
+            const sorted = coursesCopy.sort((a, b) =>
                 new Date(a.published_at).getTime() >
                 new Date(b.published_at).getTime()
                     ? -1
@@ -95,31 +93,31 @@ export const eventFilter = (
     filterValue: string,
     events: IEvent[],
     setFilteredEvents: Dispatch<SetStateAction<IEvent[]>>
-) => {
+): void => {
     switch (filterValue) {
         case "all": {
             setFilteredEvents(events);
             break;
         }
         case "happening": {
-            const filterEvnts = events.filter((evnt) => {
-                return dayjs().isSame(evnt.start_date, "day");
+            const filterEvents = events.filter((event) => {
+                return dayjs().isSame(event.start_date, "day");
             });
-            setFilteredEvents(filterEvnts);
+            setFilteredEvents(filterEvents);
             break;
         }
         case "upcoming": {
-            const filterEvnts = events.filter((evnt) => {
-                return dayjs().isBefore(evnt.start_date, "day");
+            const filterEvents = events.filter((event) => {
+                return dayjs().isBefore(event.start_date, "day");
             });
-            setFilteredEvents(filterEvnts);
+            setFilteredEvents(filterEvents);
             break;
         }
         case "expired": {
-            const filterEvnts = events.filter((evnt) => {
-                return dayjs().isAfter(evnt.start_date, "day");
+            const filterEvents = events.filter((event) => {
+                return dayjs().isAfter(event.start_date, "day");
             });
-            setFilteredEvents(filterEvnts);
+            setFilteredEvents(filterEvents);
             break;
         }
         default:
@@ -138,24 +136,20 @@ export const minutesToHours = (minutes: number): string => {
     return `${hoursString}${minutesString}`;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const flatDeep = <T>(arr: any[], d = 1): T[] => {
+export const flatDeep = <T>(arr: unknown[], d = 1): T[] => {
     return d > 0
-        ? arr.reduce((acc, val) => {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        ? arr.reduce((acc: T[], val) => {
               return acc.concat(
-                  Array.isArray(val) ? flatDeep<T>(val, d - 1) : val
+                  Array.isArray(val) ? flatDeep<T>(val, d - 1) : (val as T)
               );
           }, [])
-        : arr.slice();
+        : (arr.slice() as T[]);
 };
 
-// Check object has the key or not
 export const hasKey = (obj: unknown, key: string): boolean => {
     return !!Object.prototype.hasOwnProperty.call(obj, key);
 };
 
-// Get focuseable element
 export const getFocusableElements = (
     parent?: HTMLElement | null
 ): HTMLElement[] => {
@@ -175,8 +169,8 @@ export const getFocusableElements = (
             )
             // sort tabindexes as follows: 1, 2, 3, 4, ..., 0, 0, 0
             .sort((a, b) => {
-                const aIndex = Number(a.getAttribute("tabindex")) ?? 0; // no `tabindex` means `tabindex=0` on a focusable element
-                const bIndex = Number(b.getAttribute("tabindex")) ?? 0;
+                const aIndex = Number(a.getAttribute("tabindex")) || 0;
+                const bIndex = Number(b.getAttribute("tabindex")) || 0;
                 if (aIndex === bIndex) return 0;
                 if (aIndex === 0) return 1;
                 if (bIndex === 0) return -1;
@@ -185,8 +179,7 @@ export const getFocusableElements = (
     );
 };
 
-// Focus on the next focusable element
-export const nextFocus = (elements: HTMLElement[], forward = true) => {
+export const nextFocus = (elements: HTMLElement[], forward = true): void => {
     const currentIndex = elements.findIndex(
         (e) => e === document.activeElement
     );

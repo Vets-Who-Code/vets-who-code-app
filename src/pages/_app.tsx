@@ -1,6 +1,7 @@
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react"; // Changed from /next to /react
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
 import "@assets/css/font-awesome-pro.min.css";
@@ -42,6 +43,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
                 <Layout {...layoutProps}>
                     <SEO />
                     <Component {...pageProps} />
+                    <Analytics />
                 </Layout>
             </UserProvider>
         </UIProvider>

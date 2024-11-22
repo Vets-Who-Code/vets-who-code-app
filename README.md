@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/node-v10.16.0-brightgreen.svg?style=flat-square" alt="node" />
-  <img src="https://img.shields.io/badge/npm-v5.6.0-blue.svg?style=flat-square" alt="npm" />
+  <img src="https://img.shields.io/badge/node-v18.18.0-brightgreen.svg?style=flat-square" alt="node" />
+  <img src="https://img.shields.io/badge/npm-v9.0.0-blue.svg?style=flat-square" alt="npm" />
   <a href="https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License: MIT" />
   </a>
@@ -22,14 +22,16 @@ Hey there, Soldier! Welcome to the **Vets Who Code Web App**. This project serve
 
 ## What's Under The Hood 🧰
 
-This app is built using a jam-packed tech stack including:
+This app is built using a modern tech stack including:
 
--   Tailwind
--   Next.js
--   Playwright
--   Typescript
--   MDX
--   Lerna architecture
+-   Next.js 15
+-   TypeScript
+-   Tailwind CSS
+-   Playwright for testing
+-   MDX for content
+-   shadcn/ui components
+-   Server Actions
+-   Server Components
 
 ### Our Mission :dart:
 
@@ -46,10 +48,9 @@ To get a local copy up and running, you'll need a few things installed on your m
 ### Prerequisites 🛠️
 
 -   [Git](http://git-scm.com/)
--   [Node](http://nodejs.org/)
+-   [Node.js](http://nodejs.org/) (v18.18.0 or higher)
 -   [NVM](https://github.com/creationix/nvm)
--   [Yarn](https://yarnpkg.com/)
--   [NextJS](https://nextjs.org/)
+-   [pnpm](https://pnpm.io/) (recommended) or npm
 
 ### Installation Steps :wrench:
 
@@ -58,16 +59,16 @@ Fire up your terminal and run:
 ```sh
 $ git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
 $ cd vets-who-code-app
-$ nvm install
-$ yarn add
+$ nvm use
+$ npm install
 $ npm run dev
 ```
 
-And boom! Navigate to `http://localhost:3000/` to see the app.
+Navigate to `http://localhost:3000/` to see the app in action.
 
 ## Development using Dev Container (Optional) 🐳
 
-We have a development container to help you quickly set up your dev environment. This is completely optional but can make getting started easier.
+We support development containers for an easier setup experience.
 
 ### Requirements
 
@@ -87,15 +88,11 @@ We have a development container to help you quickly set up your dev environment.
 2. **Open in VS Code**
 
     - Open the root directory in VS Code.
-    - A notification will appear asking if you would like to reopen the project in a dev container. Choose "Reopen in Container".
-    - If you don't see the notification, open the Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
+    - When prompted, choose "Reopen in Container"
+    - Or use Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
 
-3. **Wait for the Build**
-
-    - The dev container will build based on the `Dockerfile` and `devcontainer.json` configuration. This may take a few minutes the first time.
-
-4. **Start Developing**
-    - After the container is built, VS Code will attach to it. You're now developing inside the container!
+3. **Start Developing**
+    - Once the container is built and running, you're ready to code!
 
 Remember, this is optional. If you prefer to set up your development environment manually, you can continue to do so.
 

@@ -1,28 +1,50 @@
-// ^(https?:\/\/)? : Matches an optional "http" or "https" at the start, followed by "://". The "?" makes it optional.
-// (www\.)? : Matches the optional "www." subdomain.
-// github\.com\/ : Matches "github.com/" exactly. The backslash escapes the dot.
-// [A-Za-z0-9_-]+ : Matches one or more alphanumeric characters, underscores, or hyphens (used for GitHub usernames).
-// \/? : Matches an optional trailing forward slash.
-// $ : End of the string, ensuring there are no extra characters after the valid GitHub username.
+// @utils/formValidations.ts
 
-export const githubRegex: RegExp =
-    /^(https?:\/\/)?(www\.)?github\.com\/[A-Za-z0-9_-]+\/?$/;
+export const linkedinRegex =
+    /^https?:\/\/([\w]+\.)?linkedin\.com\/in\/[A-z0-9_-]+\/?$/;
+export const githubRegex = /^https?:\/\/([\w]+\.)?github\.com\/[A-z0-9_-]+\/?$/;
 
-// ^(https?:\/\/)? : Matches an optional "http" or "https" at the start, followed by "://". The "?" makes it optional.
-// (www\.)? : Matches the optional "www." subdomain.
-// linkedin\.com\/in\/ : Matches "linkedin.com/in/" exactly. The backslash escapes the dots.
-// [A-Za-z0-9_-]+ : Matches one or more alphanumeric characters, underscores, or hyphens (used for LinkedIn profile URLs).
-// \/? : Matches an optional trailing forward slash.
-// $ : End of the string, ensuring there are no extra characters after the valid LinkedIn profile URL.
-export const linkedinRegex: RegExp =
-    /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+\/?$/;
-
-export function validateProfileLink(url: string): string | boolean {
-    if (githubRegex.test(url)) {
-        return true;
-    } else if (linkedinRegex.test(url)) {
-        return true;
-    } else {
-        return "The value entered is not a valid Linkedin or Github profile link";
+// Generic URL validation
+export const isValidUrl = (url: string): boolean => {
+    try {
+        const urlObject = new URL(url);
+        return !!urlObject.protocol && !!urlObject.host;
+    } catch {
+        return false;
     }
-}
+};
+
+// Individual platform validations
+export const isValidLinkedIn = (url: string): boolean =>
+    linkedinRegex.test(url);
+export const isValidGithub = (url: string): boolean => githubRegex.test(url);
+
+// Updated validation function for React Hook Form
+export const validateProfileLink = (value: string): boolean | string => {
+    if (!value) return true; // Let required handle empty fields
+    if (!isValidUrl(value)) return "Please enter a valid URL";
+
+    // Check if it's either a valid GitHub or LinkedIn URL
+    if (githubRegex.test(value) || linkedinRegex.test(value)) {
+        return true;
+    }
+
+    return "Please enter a valid GitHub or LinkedIn URL";
+};
+
+// If you need platform-specific validation
+export const validateGithubLink = (value: string): boolean | string => {
+    if (!value) return true; // Let required handle empty fields
+    if (!isValidUrl(value)) return "Please enter a valid URL";
+    if (!githubRegex.test(value))
+        return "Please enter a valid GitHub profile URL";
+    return true;
+};
+
+export const validateLinkedInLink = (value: string): boolean | string => {
+    if (!value) return true; // Let required handle empty fields
+    if (!isValidUrl(value)) return "Please enter a valid URL";
+    if (!linkedinRegex.test(value))
+        return "Please enter a valid LinkedIn profile URL";
+    return true;
+};

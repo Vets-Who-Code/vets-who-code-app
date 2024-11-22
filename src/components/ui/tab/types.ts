@@ -1,13 +1,19 @@
+import type { ReactNode } from "react";
+
+export type TVariant = "underline";
+
 export type TProps = {
     className?: string;
-    children: React.ReactNode;
+    children?: ReactNode;
 };
 
 export type TChildProps = {
-    [x: string]: unknown;
+    [key: string]: unknown;
+    variant?: TVariant;
+    originalType?: React.FunctionComponent;
+    children?: ReactNode;
+    className?: string;
 };
-
-type TVariant = "underline";
 
 export type ContainerProps = TProps & {
     variant?: TVariant;
@@ -20,6 +26,7 @@ export type TabProps = TProps & {
     variant?: TVariant;
     id?: string;
 };
+
 export type ContentProps = TProps & {
     activeIdx?: number;
 };

@@ -8,10 +8,14 @@ import {
 } from "react";
 import { useDeepCompareEffectForMaps } from "./utils";
 
-type MapProps = google.maps.MapOptions & {
+interface MapProps extends google.maps.MapOptions {
     children?: React.ReactNode;
     onClick?: (e: google.maps.MapMouseEvent) => void;
-};
+}
+
+interface ChildComponentProps {
+    map?: google.maps.Map;
+}
 
 const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
     const ref = useRef<HTMLDivElement>(null);
@@ -45,11 +49,14 @@ const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
 
     return (
         <>
-            <div ref={ref} className="tw-w-full tw-h-full" />{" "}
+            <div ref={ref} className="tw-w-full tw-h-full" />
             {Children.map(children, (child) => {
                 if (isValidElement(child)) {
                     // set the map prop on the child component
-                    return cloneElement(child, { map });
+                    return cloneElement(
+                        child as React.ReactElement<ChildComponentProps>,
+                        { map }
+                    );
                 }
                 return null;
             })}

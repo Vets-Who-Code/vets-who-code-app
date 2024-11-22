@@ -24,17 +24,20 @@ import { getallEvents } from "../lib/event";
 
 interface PageContent {
     section: string;
+    [key: string]: unknown; // Add index signature
+}
+
+interface PageData {
+    page: {
+        content: PageContent[];
+    };
+    courses: ICourse[];
+    events: IEvent[];
+    blogs: IBlog[];
 }
 
 type TProps = {
-    data: {
-        page: {
-            content: PageContent[];
-        };
-        courses: ICourse[];
-        events: IEvent[];
-        blogs: IBlog[];
-    };
+    data: PageData;
 };
 
 type PageProps = NextPage<TProps> & {
