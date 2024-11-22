@@ -60,8 +60,8 @@ Fire up your terminal and run:
 $ git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
 $ cd vets-who-code-app
 $ nvm use
-$ pnpm install
-$ pnpm dev
+$ npm install
+$ npm run dev
 ```
 
 Navigate to `http://localhost:3000/` to see the app in action.

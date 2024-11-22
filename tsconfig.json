@@ -31,9 +31,10 @@
       "@ui/*": ["components/ui/*"],
       "@utils/*": ["utils/*"],
       "@widgets/*": ["components/widgets/*"],
-      "@fonts/*": ["public/fonts/*"]
+      "@fonts/*": ["public/fonts/*"],
+      "@vercel/analytics/*": ["../node_modules/@vercel/analytics/*"]
     },
-    "types": ["google.maps"]  // Add this line
+    "types": ["google.maps"]
   },
   "include": [
     "next-env.d.ts", 
