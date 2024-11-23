@@ -31,54 +31,29 @@ const Anchor = ({
     ...rest
 }: TProps) => {
     if (!path) return null;
+
     const internal = /^\/(?!\/)/.test(path);
-    if (!internal) {
-        const isHash = path.startsWith("#");
-        if (isHash) {
-            return (
-                <a
-                    rel={rel}
-                    className={className}
-                    href={path}
-                    onClick={onClick}
-                    onKeyPress={onKeyPress}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    {...rest}
-                >
-                    {children}
-                </a>
-            );
-        }
+
+    const commonProps = {
+        className,
+        onClick,
+        onKeyPress,
+        onFocus,
+        onBlur,
+        ...rest,
+    };
+
+    if (!internal || path.startsWith("#")) {
         return (
-            <a
-                rel={rel}
-                className={className}
-                href={path}
-                target={target}
-                onClick={onClick}
-                onKeyPress={onKeyPress}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                {...rest}
-            >
+            <Link href={path} rel={rel} target={target} {...commonProps}>
                 {children}
-            </a>
+            </Link>
         );
     }
 
     return (
-        <Link href={path} passHref>
-            <a
-                className={className}
-                onClick={onClick}
-                onKeyPress={onKeyPress}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                {...rest}
-            >
-                {children}
-            </a>
+        <Link href={path} {...commonProps}>
+            {children}
         </Link>
     );
 };

@@ -43,9 +43,9 @@ const ProfileBio = () => {
                         and peers through courses on LinkedIn Learning and
                         FrontEnd Masters, as well as through his recognition as
                         a LinkedIn Top Voice, a GitHub Star, and a Twilio
-                        Champion. Jerome's mission is to make the tech industry
-                        more accessible, diverse, and innovative, and he is
-                        always looking for new ways to achieve this goal.
+                        Champion. Jerome&apos;s mission is to make the tech
+                        industry more accessible, diverse, and innovative, and
+                        he is always looking for new ways to achieve this goal.
                     </p>
                     <h4 className="tw-text-h5 tw-mt-9 tw-mb-2.5">Contact</h4>
                     <div className="contact-info-text">

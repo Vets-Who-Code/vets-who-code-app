@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { SessionProvider } from "next-auth/react"; // Import SessionProvider
 import type { Session } from "next-auth"; // Import Session type
 import type { AppProps, NextPage } from "next"; // Import NextPage
+import { Analytics } from "@vercel/analytics/react"; // Changed from /next to /react
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
 import "@assets/css/font-awesome-pro.min.css";
@@ -48,7 +49,8 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
                     <Layout {...layoutProps}>
                         <SEO />
                         <Component {...pageProps} />
-                    </Layout>
+                        <Analytics />
+                </Layout>
                 </UserProvider>
             </UIProvider>
         </SessionProvider>

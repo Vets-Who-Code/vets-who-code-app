@@ -20,7 +20,7 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
     // Hardcoded Atlanta coordinates
     const atlantaLocation = {
         latitude: 33.7488,
-        longitude: -84.3877
+        longitude: -84.3877,
     };
 
     return (

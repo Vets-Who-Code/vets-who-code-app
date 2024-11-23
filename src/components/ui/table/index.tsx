@@ -1,4 +1,10 @@
-import { Children, isValidElement, cloneElement, ReactNode } from "react";
+import {
+    Children,
+    isValidElement,
+    cloneElement,
+    ReactNode,
+    ReactElement,
+} from "react";
 import clsx from "clsx";
 
 interface IProps {
@@ -8,9 +14,14 @@ interface IProps {
     className?: string;
 }
 
-type TChildProps = {
-    [x: string]: unknown;
-};
+// Enhanced type for child props
+interface TChildProps {
+    className?: string;
+    children?: ReactNode;
+    [key: string]: unknown;
+}
+
+type TableSectionType = "thead" | "tbody" | "tfoot";
 
 const BasicTable = ({ children, className, striped, bordered }: IProps) => {
     const baseTHClass = "tw-py-7.5 tw-px-7.5 tw-text-center";
@@ -21,37 +32,35 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
 
     const iterateOverChildren = (
         reactChildren: ReactNode,
-        parent: "thead" | "tbody" | "tfoot"
+        parent: TableSectionType
     ): ReactNode => {
         return Children.map(reactChildren, (child) => {
             if (!isValidElement(child)) return child;
-            const childProps: TChildProps = child.props as TChildProps;
 
-            const props = {
+            const childProps = child.props as TChildProps;
+            const childType = child.type as keyof JSX.IntrinsicElements;
+
+            const baseProps = {
                 ...childProps,
             };
 
-            const childType = child.type;
-
             if (parent === "thead") {
-                return cloneElement(child, {
-                    ...props,
+                return cloneElement(child as ReactElement<TChildProps>, {
+                    ...baseProps,
                     className: clsx(
                         (childType === "th" || childType === "td") && [
                             baseTHClass,
                             borderedClass,
                         ],
-                        childProps.className as string
+                        childProps.className
                     ),
-                    children: iterateOverChildren(
-                        childProps.children as ReactNode,
-                        parent
-                    ),
+                    children: iterateOverChildren(childProps.children, parent),
                 });
             }
+
             if (parent === "tbody" || parent === "tfoot") {
-                return cloneElement(child, {
-                    ...props,
+                return cloneElement(child as ReactElement<TChildProps>, {
+                    ...baseProps,
                     className: clsx(
                         (childType === "th" || childType === "td") && [
                             baseTDClass,
@@ -61,12 +70,9 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
                         childType === "tr" && [
                             striped && "even:tw-bg-black/[0.02]",
                         ],
-                        childProps.className as string
+                        childProps.className
                     ),
-                    children: iterateOverChildren(
-                        childProps.children as ReactNode,
-                        parent
-                    ),
+                    children: iterateOverChildren(childProps.children, parent),
                 });
             }
             return null;
@@ -75,29 +81,28 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
 
     const renderChildren = Children.map(children, (child) => {
         if (!isValidElement(child)) return child;
-        const childProps: TChildProps = child.props as TChildProps;
-        const props = {
+
+        const childProps = child.props as TChildProps;
+        const childType = child.type as keyof JSX.IntrinsicElements;
+
+        const baseProps = {
             ...childProps,
         };
-
-        const childType = child.type;
 
         if (
             childType === "thead" ||
             childType === "tbody" ||
             childType === "tfoot"
         ) {
-            return cloneElement(child, {
-                ...props,
-                children: iterateOverChildren(
-                    childProps.children as ReactNode,
-                    childType
-                ),
+            return cloneElement(child as ReactElement<TChildProps>, {
+                ...baseProps,
+                children: iterateOverChildren(childProps.children, childType),
             });
         }
-        return cloneElement(child, {
-            ...props,
-            children: childProps.children as ReactNode,
+
+        return cloneElement(child as ReactElement<TChildProps>, {
+            ...baseProps,
+            children: childProps.children,
         });
     });
 

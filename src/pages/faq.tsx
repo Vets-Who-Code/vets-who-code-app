@@ -7,7 +7,8 @@ import FaqArea from "@containers/faq/layout-03";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
-interface PageContent {
+// Updated interface to satisfy Record<string, unknown>
+interface PageContent extends Record<string, unknown> {
     section: string;
 }
 

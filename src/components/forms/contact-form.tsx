@@ -42,7 +42,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                     setTimeout(() => setShowEmojiRain(false), 5000);
                     reset();
                 } else {
-                    setServerMessage("There was an error. Please try again later.");
+                    setServerMessage(
+                        "There was an error. Please try again later."
+                    );
                 }
             } catch (error) {
                 setServerMessage("There was an error. Please try again later.");
@@ -57,7 +59,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
             >
                 <div className="tw-grid tw-grid-cols-1 tw-gap-5 md:tw-grid-cols-2 md:tw-gap-7.5">
                     <div className="tw-space-y-2">
-                        <label htmlFor="name" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                        <label
+                            htmlFor="name"
+                            className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
+                        >
                             Name
                         </label>
                         <Input
@@ -73,7 +78,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         />
                     </div>
                     <div className="tw-space-y-2">
-                        <label htmlFor="phone" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                        <label
+                            htmlFor="phone"
+                            className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
+                        >
                             Phone
                         </label>
                         <Input
@@ -81,7 +89,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                             placeholder="Your Phone *"
                             className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.phone?.message}
-                            state={hasKey(errors, "phone") ? "error" : "success"}
+                            state={
+                                hasKey(errors, "phone") ? "error" : "success"
+                            }
                             showState={!!hasKey(errors, "phone")}
                             {...register("phone", {
                                 required: "Phone is required",
@@ -89,7 +99,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         />
                     </div>
                     <div className="tw-space-y-2">
-                        <label htmlFor="email" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                        <label
+                            htmlFor="email"
+                            className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
+                        >
                             Email
                         </label>
                         <Input
@@ -98,7 +111,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                             placeholder="Your Email *"
                             className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.email?.message}
-                            state={hasKey(errors, "email") ? "error" : "success"}
+                            state={
+                                hasKey(errors, "email") ? "error" : "success"
+                            }
                             showState={!!hasKey(errors, "email")}
                             {...register("email", {
                                 required: "Email is required",
@@ -110,7 +125,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                         />
                     </div>
                     <div className="tw-space-y-2">
-                        <label htmlFor="subject" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                        <label
+                            htmlFor="subject"
+                            className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
+                        >
                             Subject
                         </label>
                         <Input
@@ -118,7 +136,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                             placeholder="Subject *"
                             className="tw-w-full tw-px-4 tw-py-3 tw-rounded-lg tw-bg-white tw-border tw-border-[#091f40] tw-text-[#091f40] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] tw-transition tw-duration-200"
                             feedbackText={errors?.subject?.message}
-                            state={hasKey(errors, "subject") ? "error" : "success"}
+                            state={
+                                hasKey(errors, "subject") ? "error" : "success"
+                            }
                             showState={!!hasKey(errors, "subject")}
                             {...register("subject", {
                                 required: "Subject is required",
@@ -127,7 +147,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                     </div>
                 </div>
                 <div className="tw-space-y-2">
-                    <label htmlFor="message" className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]">
+                    <label
+                        htmlFor="message"
+                        className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
+                    >
                         Message
                     </label>
                     <Textarea
@@ -143,8 +166,8 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(
                     />
                 </div>
                 <div className="tw-w-full">
-                    <Button 
-                        type="submit" 
+                    <Button
+                        type="submit"
                         className="tw-w-full tw-bg-[#c5203e] hover:tw-bg-[#a91b35] tw-text-white tw-font-semibold tw-py-4 tw-px-6 tw-rounded-lg focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#c5203e] focus:tw-ring-offset-2 tw-transition tw-duration-200 tw-ease-in-out tw-transform"
                     >
                         Submit

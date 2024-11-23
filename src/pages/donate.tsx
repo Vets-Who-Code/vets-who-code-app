@@ -11,8 +11,10 @@ import { normalizedData } from "@utils/methods";
 
 import { getPageData } from "../lib/page";
 
+// Updated interface with index signature
 interface PageContent {
     section: string;
+    [key: string]: unknown; // Add index signature to allow string indexing
 }
 
 type TProps = {
