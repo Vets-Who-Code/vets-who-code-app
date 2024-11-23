@@ -1,11 +1,12 @@
 import NextAuth from "next-auth";
-import GitHubProvider from "next-auth/providers/github";
+import GithubProvider from "next-auth/providers/github";
+import type { AuthOptions } from "next-auth";
 
-export const authOptions = {
+export const authOptions: AuthOptions = {
     providers: [
-        GitHubProvider({
-            clientId: process.env.GITHUB_CLIENT_ID,
-            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+        GithubProvider({
+            clientId: process.env.GITHUB_CLIENT_ID as string,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET as string,
             authorization: {
                 params: {
                     scope: "read:org",
@@ -14,8 +15,8 @@ export const authOptions = {
         }),
     ],
     callbacks: {
-        async signIn({ account }) {
-            if (account.provider === "github") {
+        async signIn({ account, user }) {
+            if (account?.provider === "github") {
                 try {
                     const res = await fetch(
                         "https://api.github.com/user/orgs",
@@ -59,14 +60,16 @@ export const authOptions = {
                 }
             }
 
-            return true; // Allow login
+            return true;
         },
         async session({ session, token }) {
-            session.user.id = token.id;
+            if (session.user) {
+                session.user.id = token.id as string;
+            }
             return session;
         },
         async jwt({ token, user, account }) {
-            if (account) {
+            if (account && user) {
                 token.id = user.id;
             }
             return token;
@@ -74,5 +77,16 @@ export const authOptions = {
     },
     secret: process.env.NEXTAUTH_SECRET,
 };
+
+declare module "next-auth" {
+    interface Session {
+        user: {
+            id: string;
+            name?: string | null;
+            email?: string | null;
+            image?: string | null;
+        };
+    }
+}
 
 export default NextAuth(authOptions);

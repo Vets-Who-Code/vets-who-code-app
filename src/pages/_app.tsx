@@ -16,7 +16,7 @@ import { UIProvider } from "../contexts/ui-context";
 import { UserProvider } from "../contexts/user-context";
 
 interface CustomAppProps extends Omit<AppProps, "Component"> {
-    Component: AppProps["Component"] & { Layout: ElementType };
+    Component: AppProps["Component"] & { Layout?: ElementType }; // Made Layout optional
     pageProps: {
         session?: any;
         layout?: object;
@@ -28,8 +28,7 @@ interface CustomAppProps extends Omit<AppProps, "Component"> {
 const MyApp = ({ Component, pageProps }: CustomAppProps) => {
     const router = useRouter();
     const Layout = Component.Layout || FallbackLayout;
-    const layoutProps =
-        typeof pageProps.layout === "object" ? pageProps.layout : {};
+    const layoutProps = pageProps.layout || {}; // Simplified this check
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
@@ -38,8 +37,8 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
     }, [router]);
 
     useEffect(() => {
-        document.body.className = (pageProps.className as string) || "";
-    });
+        document.body.className = pageProps.className || ""; // Simplified this
+    }, [pageProps.className]); // Added dependency array to prevent unnecessary updates
 
     return (
         <SessionProvider session={pageProps.session}>

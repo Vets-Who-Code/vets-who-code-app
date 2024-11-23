@@ -1,65 +1,111 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import PageSeo from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
+import { useSession, signIn } from "next-auth/react";
 import Spinner from "@ui/spinner";
 import { useMount } from "@hooks";
-import WelcomeMessage from "@components/welcome-message";
-import { useSession, signIn } from "next-auth/react";
+import type { GetStaticProps, NextPage } from "next";
+import Layout from "@layout/layout-01";
 
-const Login = () => {
+interface LoginProps {
+    layout?: {
+        headerShadow: boolean;
+        headerFluid: boolean;
+        footerMode: string;
+    };
+}
+
+type PageWithLayout = NextPage<LoginProps> & {
+    Layout?: typeof Layout;
+};
+
+const Login: PageWithLayout = () => {
     const mounted = useMount();
     const { status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
         if (status === "authenticated") {
-            router.push("/profile").catch(console.error);
+            router.push("/profile").catch((err) => {
+                console.error("Failed to redirect to profile:", err);
+            });
         }
     }, [status, router]);
 
-    // Show loading state while mounting or checking authentication
     if (!mounted || status === "loading") {
         return (
-            <div className="fixed bg-light-100 top-0 z-50 w-screen h-screen flex justify-center items-center">
+            <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
                 <Spinner />
             </div>
         );
     }
 
-    // Show login page for unauthenticated users
     if (status === "unauthenticated") {
         return (
-            <>
-                <PageSeo title="Login" description="Login to your account" />
-                <Breadcrumb
-                    pages={[{ path: "/", label: "home" }]}
-                    currentPage="Login"
-                    showTitle={false}
-                />
-                <div className="container pb-15 md:pb-20 lg:pb-[100px] grid grid-cols-1 lg:grid-cols-2 gap-7.5 lg:gap-15">
-                    <div className="flex items-center w-full lg:w-3/4 mx-auto">
-                        <WelcomeMessage />
+            // Changed background from gradient to navy blue
+            <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen" style={{ background: '#091f40' }}>
+                <div className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-w-full tw-max-w-md tw-overflow-hidden">
+                    <div className="tw-p-8 tw-space-y-3">
+                        {/* Updated heading text and styling */}
+                        <h1 className="tw-text-2xl tw-font-bold tw-text-center" 
+                            style={{ 
+                                fontFamily: 'Gotham, Arial, sans-serif',
+                                color: '#091f40'
+                            }}>
+                            Retool. Retrain. Relaunch.
+                        </h1>
+                        {/* Updated text color and content */}
+                        <p className="tw-text-center" style={{ color: '#091f40' }}>
+                            Sign in to continue your journey with #VetsWhoCode
+                        </p>
                     </div>
-                    <div className="flex items-center w-full lg:w-3/4 mx-auto">
-                        <button
+                    <div className="tw-p-6">
+                        {/* Updated button styling to use brand red */}
+                        <button 
                             type="button"
-                            onClick={() => signIn("github")}
-                            className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors"
+                            onClick={() => void signIn("github", { 
+                                callbackUrl: "/profile",
+                                redirect: true
+                            })}
+                            className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-rounded-md tw-transition-colors"
+                            style={{ 
+                                backgroundColor: '#c5203e',
+                                fontFamily: 'Gotham, Arial, sans-serif'
+                            }}
                         >
+                            <i className="fa-brands fab fa-github tw-h-4 tw-w-4" aria-hidden="true"></i>
                             Sign in with GitHub
                         </button>
                     </div>
+                    <div className="tw-px-8 tw-pb-8">
+                        {/* Updated link colors to brand red */}
+                        <p className="tw-text-center tw-text-sm" style={{ color: '#091f40' }}>
+                            By clicking continue, you agree to our{" "}
+                            <a 
+                                href="/terms" 
+                                className="tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                                style={{ color: '#c5203e' }}
+                            >
+                                Terms of Service
+                            </a>{" "}
+                            and{" "}
+                            <a 
+                                href="/privacy" 
+                                className="tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                                style={{ color: '#c5203e' }}
+                            >
+                                Privacy Policy
+                            </a>
+                            .
+                        </p>
+                    </div>
                 </div>
-            </>
+            </div>
         );
     }
 
-    // This state should rarely be seen as useEffect should redirect
     return (
-        <div className="fixed bg-light-100 top-0 z-50 w-screen h-screen flex flex-col gap-4 justify-center items-center">
-            <span className="text-gray-600">Redirecting to profile...</span>
+        <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-flex-col tw-gap-4 tw-justify-center tw-items-center">
+            <span style={{ color: '#091f40' }}>Redirecting to profile...</span>
             <Spinner />
         </div>
     );
@@ -67,7 +113,7 @@ const Login = () => {
 
 Login.Layout = Layout;
 
-export const getStaticProps = () => {
+export const getStaticProps: GetStaticProps<LoginProps> = () => {
     return {
         props: {
             layout: {
