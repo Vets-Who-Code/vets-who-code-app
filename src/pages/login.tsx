@@ -6,28 +6,30 @@ import Breadcrumb from "@components/breadcrumb";
 import Spinner from "@ui/spinner";
 import { useMount } from "@hooks";
 import WelcomeMessage from "@components/welcome-message";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 const Login = () => {
     const mounted = useMount();
-    const { data: session, status } = useSession();
+    const { status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
         if (status === "authenticated") {
-            void router.push("/profile"); // Redirect to profile if logged in
+            router.push("/profile").catch(console.error);
         }
     }, [status, router]);
 
+    // Show loading state while mounting or checking authentication
     if (!mounted || status === "loading") {
         return (
-            <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+            <div className="fixed bg-light-100 top-0 z-50 w-screen h-screen flex justify-center items-center">
                 <Spinner />
             </div>
         );
     }
 
-    if (!session) {
+    // Show login page for unauthenticated users
+    if (status === "unauthenticated") {
         return (
             <>
                 <PageSeo title="Login" description="Login to your account" />
@@ -36,14 +38,15 @@ const Login = () => {
                     currentPage="Login"
                     showTitle={false}
                 />
-                <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5 lg:tw-gap-15">
-                    <div className="tw-flex tw-items-center tw-w-full lg:tw-w-3/4 tw-mx-auto">
+                <div className="container pb-15 md:pb-20 lg:pb-[100px] grid grid-cols-1 lg:grid-cols-2 gap-7.5 lg:gap-15">
+                    <div className="flex items-center w-full lg:w-3/4 mx-auto">
                         <WelcomeMessage />
                     </div>
-                    <div className="tw-flex tw-items-center tw-w-full lg:tw-w-3/4 tw-mx-auto">
+                    <div className="flex items-center w-full lg:w-3/4 mx-auto">
                         <button
+                            type="button"
                             onClick={() => signIn("github")}
-                            className="tw-bg-primary tw-text-white tw-py-2 tw-px-4 tw-rounded"
+                            className="bg-primary text-white py-2 px-4 rounded hover:bg-primary-dark transition-colors"
                         >
                             Sign in with GitHub
                         </button>
@@ -53,16 +56,11 @@ const Login = () => {
         );
     }
 
+    // This state should rarely be seen as useEffect should redirect
     return (
-        <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+        <div className="fixed bg-light-100 top-0 z-50 w-screen h-screen flex flex-col gap-4 justify-center items-center">
+            <span className="text-gray-600">Redirecting to profile...</span>
             <Spinner />
-            <button
-                type="button"
-                onClick={() => signOut()}
-                className="tw-bg-red-500 tw-text-white tw-py-2 tw-px-4 tw-rounded"
-            >
-                Logout
-            </button>
         </div>
     );
 };

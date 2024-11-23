@@ -1,7 +1,8 @@
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
 import type { AppProps } from "next/app";
-import { Analytics } from "@vercel/analytics/react"; // Changed from /next to /react
+import { SessionProvider } from "next-auth/react";
+import { Analytics } from "@vercel/analytics/react";
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
 import "@assets/css/font-awesome-pro.min.css";
@@ -17,6 +18,9 @@ import { UserProvider } from "../contexts/user-context";
 interface CustomAppProps extends Omit<AppProps, "Component"> {
     Component: AppProps["Component"] & { Layout: ElementType };
     pageProps: {
+        session?: any;
+        layout?: object;
+        className?: string;
         [key: string]: unknown;
     };
 }
@@ -38,15 +42,17 @@ const MyApp = ({ Component, pageProps }: CustomAppProps) => {
     });
 
     return (
-        <UIProvider>
-            <UserProvider>
-                <Layout {...layoutProps}>
-                    <SEO />
-                    <Component {...pageProps} />
-                    <Analytics />
-                </Layout>
-            </UserProvider>
-        </UIProvider>
+        <SessionProvider session={pageProps.session}>
+            <UIProvider>
+                <UserProvider>
+                    <Layout {...layoutProps}>
+                        <SEO />
+                        <Component {...pageProps} />
+                        <Analytics />
+                    </Layout>
+                </UserProvider>
+            </UIProvider>
+        </SessionProvider>
     );
 };
 
