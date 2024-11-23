@@ -15,7 +15,7 @@ export const authOptions: AuthOptions = {
         }),
     ],
     callbacks: {
-        async signIn({ account, user }) {
+        async signIn({ account }) {
             if (account?.provider === "github") {
                 try {
                     const res = await fetch(
