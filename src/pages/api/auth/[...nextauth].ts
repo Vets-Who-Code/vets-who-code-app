@@ -28,16 +28,12 @@ export const authOptions: AuthOptions = {
                     );
 
                     if (!res.ok) {
-                        console.error(
-                            `GitHub API returned an error: ${res.status} ${res.statusText}`
-                        );
                         return false;
                     }
 
                     const orgs = await res.json();
 
                     if (!Array.isArray(orgs)) {
-                        console.error("Unexpected GitHub API response:", orgs);
                         return false;
                     }
 
@@ -46,16 +42,9 @@ export const authOptions: AuthOptions = {
                     );
 
                     if (!isMember) {
-                        console.log(
-                            `Access denied: Not a member of the organization ${process.env.GITHUB_ORG}`
-                        );
                         return false;
                     }
                 } catch (error) {
-                    console.error(
-                        "Error fetching GitHub organizations:",
-                        error
-                    );
                     return false;
                 }
             }

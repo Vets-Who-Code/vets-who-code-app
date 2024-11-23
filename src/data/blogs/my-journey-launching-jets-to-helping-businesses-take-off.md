@@ -1,10 +1,12 @@
 ---
-
 title: "My Journey: Launching Jets to Helping Businesses Take Off"
 postedAt: "2019-06-13T10:00:00.000Z"
 author: "Brad Hankee"
 description: "From launching jets in the Air Force to launching careers in tech, a veteran's journey through Vets Who Code."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721217567/brad-hankee_hpcklm.avif" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721217567/brad-hankee_hpcklm.avif",
+    }
 category: "Career Journey"
 tags:
     - javascript
@@ -12,7 +14,6 @@ tags:
     - veterans
 is_featured: true
 views: 0
-
 ---
 
 ### My Journey: Launching Jets to Helping Businesses Take Off

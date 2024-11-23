@@ -3,15 +3,18 @@ title: "Bridging the Gap: From Combat Boots to Code – A Journey with Vets Who 
 postedAt: "2024-07-15T00:00:00.000Z"
 author: "Josh Morton"
 description: "Follow the inspiring journey of Josh Morton transitioning from military service to a thriving tech career with the support of Vets Who Code."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg",
+    }
 category: "Specify category"
 tags:
-- Veterans
-- Tech
-- Career Transition
-- Coding
-- Community Support
-- Testimonial
+    - Veterans
+    - Tech
+    - Career Transition
+    - Coding
+    - Community Support
+    - Testimonial
 is_featured: true
 views: 1164
 ---
@@ -56,6 +59,6 @@ My experience with Vets Who Code has been top-notch. The program not only refres
 
 ### Support Vets Who Code
 
-If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference. 
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
 
 [Donate to Vets Who Code](https://vetswhocode.io/donate) | [Sponsor us on GitHub](https://github.com/sponsors/Vets-Who-Code)

@@ -1,10 +1,12 @@
 ---
-
 title: "Using AI to Create a Login Feature"
 postedAt: "2024-06-14T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Learn how to leverage AI tools like GitHub Copilot Workspaces and OpenAI to create a Next.js login feature efficiently."
-image: { src: https://res.cloudinary.com/vetswhocode/image/upload/v1718415884/YouTube_Thumbnail_Scroll_YouTube_Thumbnail_znc4st.png }
+image:
+    {
+        src: https://res.cloudinary.com/vetswhocode/image/upload/v1718415884/YouTube_Thumbnail_Scroll_YouTube_Thumbnail_znc4st.png,
+    }
 category: "AI Development"
 tags:
     - AI
@@ -14,7 +16,6 @@ tags:
     - Coding
 is_featured: true
 views: 0
-
 ---
 
 ## Introduction
@@ -25,10 +26,10 @@ In this post, we'll explore how to use AI tools like GitHub Copilot Workspaces a
 
 By leveraging prompt engineering and existing code bases, the core functionality of a login feature was implemented using Next.js. This feature includes:
 
-- **Login Form**: A simple and user-friendly interface for users to enter their credentials.
-- **Welcome Message**: A personalized greeting displayed upon successful login.
-- **Profile and Bio**: Sections to display user information and a brief biography.
-- **User Context Handling**: Logic to manage user sessions and authentication status.
+-   **Login Form**: A simple and user-friendly interface for users to enter their credentials.
+-   **Welcome Message**: A personalized greeting displayed upon successful login.
+-   **Profile and Bio**: Sections to display user information and a brief biography.
+-   **User Context Handling**: Logic to manage user sessions and authentication status.
 
 The implementation process, completed in just one hour and 28 minutes, demonstrates the power and efficiency of using AI in coding tasks.
 
@@ -41,4 +42,3 @@ For a detailed walkthrough and to see the AI-driven development process in actio
 ## Conclusion
 
 The use of AI tools such as GitHub Copilot Workspaces and OpenAI significantly streamlines the development process, making it quicker and more efficient to create essential features like user authentication. Stay tuned for further enhancements and features in the application.
-

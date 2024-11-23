@@ -52,12 +52,14 @@ const Login: PageWithLayout = () => {
                         </p>
                     </div>
                     <div className="tw-p-6">
-                        <button 
+                        <button
                             type="button"
-                            onClick={() => void signIn("github", { 
-                                callbackUrl: "/profile",
-                                redirect: true
-                            })}
+                            onClick={() =>
+                                void signIn("github", {
+                                    callbackUrl: "/profile",
+                                    redirect: true,
+                                })
+                            }
                             className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-bg-primary tw-rounded-md tw-transition-colors"
                         >
                             <i className="fab fa-github" />
@@ -67,11 +69,17 @@ const Login: PageWithLayout = () => {
                     <div className="tw-px-8 tw-pb-8">
                         <p className="tw-text-center tw-text-sm tw-text-secondary">
                             By clicking continue, you agree to our{" "}
-                            <a href="/terms" className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80">
+                            <a
+                                href="/terms"
+                                className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                            >
                                 Terms of Service
                             </a>{" "}
                             and{" "}
-                            <a href="/privacy" className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80">
+                            <a
+                                href="/privacy"
+                                className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                            >
                                 Privacy Policy
                             </a>
                             .

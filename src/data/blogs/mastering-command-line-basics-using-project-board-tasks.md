@@ -3,7 +3,10 @@ title: "Mastering the Command Line: A Fundamental Skill with Vets Who Code"
 postedAt: "2024-08-13T14:30:00.000Z"
 author: "Jerome Hardaway"
 description: "Explore the importance of command line skills and how Vets Who Code's Command Line Task Project Board can elevate your tech journey."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1723633145/cli-youtube_oi2yv3.png" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1723633145/cli-youtube_oi2yv3.png",
+    }
 category: "Tech Skills"
 tags:
     - Command Line
@@ -23,7 +26,7 @@ At Vets Who Code, we emphasize the importance of the command line as a fundament
 
 #### Introducing the Command Line Task Project Board
 
-To help you get started, Vets Who Code has developed a [Command Line Task Project Board](https://github.com/orgs/Vets-Who-Code/projects/50/views/1). This board is a practical template designed to walk you through the basics of command line usage. It's a hands-on approach to learning, where you can understand the commands and apply them in real-world scenarios, making your learning experience more practical and effective. 
+To help you get started, Vets Who Code has developed a [Command Line Task Project Board](https://github.com/orgs/Vets-Who-Code/projects/50/views/1). This board is a practical template designed to walk you through the basics of command line usage. It's a hands-on approach to learning, where you can understand the commands and apply them in real-world scenarios, making your learning experience more practical and effective.
 
 The project board is one of the most underutilized online resources today. Many developers need to pay more attention to the value of creating and using project boards to track their learning and project progress. By turning your tasks into a project board, you organize your learning and make it easier to revisit and refine your skills.
 
@@ -47,9 +50,8 @@ So, take advantage of this resource, whether you're just starting or looking to 
 
 ## Support Vets Who Code
 
-If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference. 
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
 
 [Donate to Vets Who Code](https://vetswhocode.io/donate) | [Sponsor us on GitHub](https://github.com/sponsors/Vets-Who-Code)
-
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0AYmwrfS1xw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

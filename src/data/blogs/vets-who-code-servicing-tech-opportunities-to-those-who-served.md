@@ -1,10 +1,12 @@
 ---
-
 title: "Vets Who Code — Servicing Tech Opportunities to Those Who Served"
 postedAt: "2019-07-03T10:00:00.000Z"
 author: "Phil Tenteromano"
 description: "How Vets Who Code helped transform my transition from the military to a successful tech career."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721216841/phil_mznw7l.avif" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721216841/phil_mznw7l.avif",
+    }
 category: "Career Journey"
 tags:
     - veterans
@@ -13,7 +15,6 @@ tags:
     - webdev
 is_featured: true
 views: 0
-
 ---
 
 ### Vets Who Code — Servicing Tech Opportunities to Those Who Served
