@@ -3,26 +3,31 @@ import { useRouter } from "next/router";
 import PageSeo from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import LoginForm from "@components/forms/login-form";
 import Spinner from "@ui/spinner";
-import { useUser } from "@contexts/user-context";
 import { useMount } from "@hooks";
 import WelcomeMessage from "@components/welcome-message";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const Login = () => {
     const mounted = useMount();
-    const { isLoggedIn, logout } = useUser();
+    const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
-        if (isLoggedIn) {
-            void router.push("/profile"); // Redirect to dashboard if already logged in
+        if (status === "authenticated") {
+            void router.push("/profile"); // Redirect to profile if logged in
         }
-    }, [isLoggedIn, router]);
+    }, [status, router]);
 
-    if (!mounted) return null;
+    if (!mounted || status === "loading") {
+        return (
+            <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+                <Spinner />
+            </div>
+        );
+    }
 
-    if (!isLoggedIn) {
+    if (!session) {
         return (
             <>
                 <PageSeo title="Login" description="Login to your account" />
@@ -36,7 +41,12 @@ const Login = () => {
                         <WelcomeMessage />
                     </div>
                     <div className="tw-flex tw-items-center tw-w-full lg:tw-w-3/4 tw-mx-auto">
-                        <LoginForm />
+                        <button
+                            onClick={() => signIn("github")}
+                            className="tw-bg-primary tw-text-white tw-py-2 tw-px-4 tw-rounded"
+                        >
+                            Sign in with GitHub
+                        </button>
                     </div>
                 </div>
             </>
@@ -46,7 +56,11 @@ const Login = () => {
     return (
         <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
             <Spinner />
-            <button type="button" onClick={logout}>
+            <button
+                type="button"
+                onClick={() => signOut()}
+                className="tw-bg-red-500 tw-text-white tw-py-2 tw-px-4 tw-rounded"
+            >
                 Logout
             </button>
         </div>
