@@ -6,7 +6,13 @@ import BottomShape from "@ui/bottom-shape/shape-03";
 import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
-import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
+import {
+    ImageType,
+    MottoType,
+    SectionTitleType,
+    TSection,
+    VideoType,
+} from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 const AnimatedVideo = motion(Video);
@@ -68,9 +74,13 @@ const VideoArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block -tw-indent-[99999px] tw-border-[6px] tw-border-desert tw-rounded-full tw-w-[45px] tw-h-[45px] md:tw-border-8 md:tw-w-15 md:tw-h-15">
-                            shape 3
-                        </span>
+                        <img
+                            src="/images/shape-animation/dog-tag.svg"
+                            alt="shape"
+                            loading="lazy"
+                            width={178}
+                            height={178}
+                        />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-z-1 tw-right-0 -tw-bottom-15 tw-w-[85px] md:tw-w-auto"
@@ -90,10 +100,16 @@ const VideoArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
+                        <SectionTitle
+                            {...section_title}
+                            align="left"
+                            titleSize={titleSize}
+                        />
                     )}
 
-                    {motto && <MottoText className="tw-mt-1" size="md" {...motto} />}
+                    {motto && (
+                        <MottoText className="tw-mt-1" size="md" {...motto} />
+                    )}
                 </motion.div>
             </div>
             <BottomShape />

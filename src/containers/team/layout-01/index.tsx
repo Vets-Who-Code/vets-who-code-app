@@ -14,7 +14,12 @@ type TProps = TSection & {
     };
 };
 
-const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TProps) => {
+const TeamArea = ({
+    data: { section_title, buttons },
+    space,
+    bg,
+    titleSize,
+}: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <Section className="team-area" space={space} bg={bg}>
@@ -62,9 +67,13 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block -tw-indent-[99999px] tw-border-desert tw-rounded-full tw-border-[6px] tw-w-[45px] tw-h-[45px] md:tw-border-8 md:tw-w-15 md:tw-h-15">
-                            shape 3
-                        </span>
+                        <img
+                            src="/images/shape-animation/dog-tag.svg"
+                            alt="shape"
+                            loading="lazy"
+                            width={178}
+                            height={178}
+                        />
                     </motion.div>
                     <motion.div
                         className="tw-absolute -tw-z-1 tw-left-1/2 -tw-bottom-5 tw-w-[120px] lg:-tw-bottom-[70px] lg:tw-w-auto"
@@ -88,7 +97,10 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                             y: trans1().y,
                         }}
                     >
-                        <img src="/images/shape-animation/cta-shape-01.png" alt="" />
+                        <img
+                            src="/images/shape-animation/cta-shape-01.png"
+                            alt=""
+                        />
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -99,7 +111,11 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
+                        <SectionTitle
+                            {...section_title}
+                            align="left"
+                            titleSize={titleSize}
+                        />
                     )}
                     {buttons?.map(({ id, content, ...rest }) => (
                         <Button key={id} className="tw-mt-1" {...rest}>

@@ -19,11 +19,20 @@ type TProps = TSection & {
     };
 };
 
-const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize }: TProps) => {
+const BlogArea = ({
+    data: { section_title, motto, blogs },
+    space,
+    bg,
+    titleSize,
+}: TProps) => {
     const { trans1, trans2 } = useUI();
 
     return (
-        <Section className="blog-area tw-relative tw-overflow-hidden" space={space} bg={bg}>
+        <Section
+            className="blog-area tw-relative tw-overflow-hidden"
+            space={space}
+            bg={bg}
+        >
             <div className="tw-absolute tw-inset-0 tw-flex jtw-justify-center tw-items-center">
                 <img
                     src="/images/bg/shape-03.png"
@@ -110,9 +119,13 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block -tw-indent-[99999px] tw-border-desert tw-rounded-full tw-border-[7px] tw-w-[60px] tw-h-[60px] md:tw-border-[12px] md:tw-w-[90px] md:tw-h-[90px]">
-                        shape 3
-                    </span>
+                    <img
+                        src="/images/shape-animation/dog-tag.svg"
+                        alt="shape"
+                        loading="lazy"
+                        width={178}
+                        height={178}
+                    />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-z-1 tw-top-[220px] tw-left-[260px]"

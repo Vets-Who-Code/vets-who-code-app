@@ -18,7 +18,11 @@ type TProps = TSection & {
 const VideoArea = ({ data: { images, video }, space, bg }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
-        <Section className="video-area tw-relative tw-z-10" space={space} bg={bg}>
+        <Section
+            className="video-area tw-relative tw-z-10"
+            space={space}
+            bg={bg}
+        >
             <h2 className="tw-sr-only">Video Section</h2>
             <div className="tw-container -tw-bottom-[140px] -tw-mt-[140px]">
                 {video && images?.[0] && (
@@ -63,9 +67,13 @@ const VideoArea = ({ data: { images, video }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block -tw-indent-[99999px] tw-border-desert tw-rounded-full tw-border-[6px] tw-w-[45px] tw-h-[45px] md:tw-border-[12px] md:tw-w-[90px] md:tw-h-[90px]">
-                        shape 3
-                    </span>
+                    <img
+                        src="/images/shape-animation/dog-tag.svg"
+                        alt="shape"
+                        loading="lazy"
+                        width={178}
+                        height={178}
+                    />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-z-1 -tw-bottom-[45px] tw-right-5 tw-w-[85px] md:tw-w-auto"
