@@ -1,7 +1,8 @@
 import { ElementType, useEffect } from "react";
 import { useRouter } from "next/router";
-import type { AppProps } from "next/app";
+import type { AppProps } from 'next/app';
 import { SessionProvider } from "next-auth/react";
+import type { Session } from "next-auth";
 import { Analytics } from "@vercel/analytics/react";
 import SEO from "@components/seo/deafult-seo";
 import FallbackLayout from "@layout/fallback";
@@ -16,29 +17,31 @@ import { UIProvider } from "../contexts/ui-context";
 import { UserProvider } from "../contexts/user-context";
 
 interface CustomAppProps extends Omit<AppProps, "Component"> {
-    Component: AppProps["Component"] & { Layout?: ElementType }; // Made Layout optional
+    Component: AppProps["Component"] & { Layout?: ElementType };
     pageProps: {
-        session?: any;
-        layout?: object;
+        session?: Session | null;
+        layout?: Record<string, unknown>;
         className?: string;
         [key: string]: unknown;
     };
 }
 
-const MyApp = ({ Component, pageProps }: CustomAppProps) => {
+const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     const router = useRouter();
     const Layout = Component.Layout || FallbackLayout;
-    const layoutProps = pageProps.layout || {}; // Simplified this check
+    const layoutProps = pageProps.layout || {};
 
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        document.activeElement instanceof HTMLElement &&
-            document.activeElement.blur();
+        // Replace the expression with a more explicit check and action
+        const activeElement = document.activeElement;
+        if (activeElement instanceof HTMLElement) {
+            activeElement.blur();
+        }
     }, [router]);
 
     useEffect(() => {
-        document.body.className = pageProps.className || ""; // Simplified this
-    }, [pageProps.className]); // Added dependency array to prevent unnecessary updates
+        document.body.className = pageProps.className || "";
+    }, [pageProps.className]);
 
     return (
         <SessionProvider session={pageProps.session}>

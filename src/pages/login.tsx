@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 import { useSession, signIn } from "next-auth/react";
 import Spinner from "@ui/spinner";
@@ -25,11 +25,35 @@ const Login: PageWithLayout = () => {
 
     useEffect(() => {
         if (status === "authenticated") {
-            router.push("/profile").catch((err) => {
-                console.error("Failed to redirect to profile:", err);
-            });
+            // Using async/await with proper error handling
+            (async () => {
+                try {
+                    await router.push("/profile");
+                } catch (err) {
+                    // Only log in development, consider using a proper error tracking service
+                    if (process.env.NODE_ENV === "development") {
+                        // eslint-disable-next-line no-console
+                        console.error("Failed to redirect to profile:", err);
+                    }
+                }
+            })();
         }
     }, [status, router]);
+
+    const handleSignIn = useCallback(async () => {
+        try {
+            await signIn("github", {
+                callbackUrl: "/profile",
+                redirect: true,
+            });
+        } catch (error) {
+            // Handle sign-in error if needed
+            if (process.env.NODE_ENV === "development") {
+                // eslint-disable-next-line no-console
+                console.error("Sign-in failed:", error);
+            }
+        }
+    }, []);
 
     if (!mounted || status === "loading") {
         return (
@@ -54,12 +78,7 @@ const Login: PageWithLayout = () => {
                     <div className="tw-p-6">
                         <button
                             type="button"
-                            onClick={() =>
-                                void signIn("github", {
-                                    callbackUrl: "/profile",
-                                    redirect: true,
-                                })
-                            }
+                            onClick={handleSignIn}
                             className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-bg-primary tw-rounded-md tw-transition-colors"
                         >
                             <i className="fab fa-github" />
