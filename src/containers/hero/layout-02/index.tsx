@@ -143,7 +143,7 @@ const HeroArea = ({
                         }}
                     >
                         <img
-                            src="/images/shape-animation/nwesletter-shape-2.png"
+                            src="/images/shape-animation/-shape-2.png"
                             alt=""
                         />
                     </motion.div>

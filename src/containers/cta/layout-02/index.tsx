@@ -63,7 +63,10 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <img src="/images/shape-animation/cta-shape-01.png" alt="" />
+                    <img
+                        src="/images/shape-animation/cta-shape-01.png"
+                        alt=""
+                    />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-z-1 tw-w-15 tw-top-5 -tw-right-5 md:tw-w-auto md:tw-top-2.5 md:tw-right-0"
@@ -72,7 +75,13 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <img src="/images/shape-animation/nwesletter-shape-2.png" alt="" />
+                    <img
+                        src="/images/shape-animation/dog-tag.svg"
+                        alt="shape"
+                        loading="lazy"
+                        width={178}
+                        height={178}
+                    />
                 </motion.div>
             </motion.div>
         </Section>

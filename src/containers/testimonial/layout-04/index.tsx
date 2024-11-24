@@ -125,8 +125,8 @@ const TestimonialArea = ({
                         }}
                     >
                         <img
-                            src="/images/shape-animation/nwesletter-shape-2.png"
-                            alt=""
+                            src="/images/shape-animation/code.svg"
+                            alt="ssh montior"
                         />
                     </motion.div>
                 </motion.div>
