@@ -1,100 +1,43 @@
-export default [
+// Types for menu structure
+type MenuStatus = "hot" | "coming soon" | "new";
+
+interface MenuItem {
+    id: number;
+    label: string;
+    path: string;
+    external?: boolean;
+    status?: MenuStatus;
+}
+
+interface SubMenuItem extends MenuItem {
+    submenu?: MenuItem[];
+}
+
+interface MegaMenuGroup {
+    id: number;
+    title: string;
+    submenu: MenuItem[];
+}
+
+interface BannerSection {
+    path: string;
+    image: {
+        src: string;
+        alt?: string;
+    };
+}
+
+interface MegaMenuItem extends MenuItem {
+    megamenu?: (MegaMenuGroup | { id: number; title: string; banner: BannerSection })[];
+}
+
+type NavigationItem = SubMenuItem | MegaMenuItem;
+
+const navigation: NavigationItem[] = [
     {
         id: 1,
         label: "Home",
         path: "/",
-        /* megamenu: [
-            {
-                id: 11,
-                title: "Group 01",
-                submenu: [
-                    {
-                        id: 111,
-                        label: "submenu item 01",
-                        path: "/",
-                        status: "hot",
-                    },
-                    {
-                        id: 112,
-                        label: "submenu item 02",
-                        path: "#",
-                    },
-                    {
-                        id: 113,
-                        label: "submenu item 03",
-                        path: "#",
-                        status: "hot",
-                    },
-                    {
-                        id: 114,
-                        label: "submenu item 04",
-                        path: "#",
-                    },
-                    {
-                        id: 115,
-                        label: "submenu item 05",
-                        path: "#",
-                    },
-                    {
-                        id: 116,
-                        label: "submenu item 06",
-                        path: "#",
-                    },
-                ],
-            },
-            {
-                id: 12,
-                title: "Group 02",
-                submenu: [
-                    {
-                        id: 121,
-                        label: "submenu item 07",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                    {
-                        id: 122,
-                        label: "submenu item 08",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                    {
-                        id: 123,
-                        label: "submenu item 09",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                    {
-                        id: 124,
-                        label: "submenu item 10",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                    {
-                        id: 125,
-                        label: "submenu item 11",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                    {
-                        id: 126,
-                        label: "submenu item 12",
-                        path: "/",
-                        status: "coming soon",
-                    },
-                ],
-            },
-            {
-                id: 13,
-                title: "Banner",
-                banner: {
-                    path: "/",
-                    image: {
-                        src: "/images/menu/mega-menu.jpg",
-                    },
-                },
-            },
-        ], */
     },
     {
         id: 2,
@@ -103,7 +46,7 @@ export default [
         submenu: [
             {
                 id: 21,
-                label: "About",
+                label: "About Us",
                 path: "/about-us",
             },
             {
@@ -124,46 +67,52 @@ export default [
         path: "#!",
         submenu: [
             {
-                id: 24,
+                id: 31,
                 label: "Become a Mentor",
                 path: "/mentor",
             },
             {
-                id: 25,
+                id: 32,
                 label: "Apply to be a Student",
                 path: "/apply",
+                status: "new",
             },
-            /*           {
-                id: 26,
-                label: "Join our community",
-                path: "/join-our-community",
-            },
-*/
         ],
     },
     {
         id: 4,
-        label: "Events",
-        path: "/events",
-    },
-    {
-        id: 5,
         label: "Blog",
         path: "/blogs/blog",
     },
     {
-        id: 6,
+        id: 5,
         label: "Contact Us",
         path: "/contact-us",
     },
     {
-        id: 7,
-        label: "Shop",
-        path: "https://hashflag.shop/",
-    },
-    {
-        id: 8,
-        label: "Donate",
-        path: "/donate",
+        id: 6,
+        label: "Support",
+        path: "#!",
+        submenu: [
+            {
+                id: 61,
+                label: "Events",
+                path: "/events",
+            },
+            {
+                id: 62,
+                label: "Shop",
+                path: "https://hashflag.shop/",
+                external: true,
+            },
+            {
+                id: 63,
+                label: "Donate",
+                path: "/donate",
+                status: "hot",
+            },
+        ],
     },
 ];
+
+export default navigation;
