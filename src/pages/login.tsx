@@ -25,12 +25,10 @@ const Login: PageWithLayout = () => {
 
     useEffect(() => {
         if (status === "authenticated") {
-            // Using async/await with proper error handling
             (async () => {
                 try {
                     await router.push("/profile");
                 } catch (err) {
-                    // Only log in development, consider using a proper error tracking service
                     if (process.env.NODE_ENV === "development") {
                         // eslint-disable-next-line no-console
                         console.error("Failed to redirect to profile:", err);
@@ -47,7 +45,6 @@ const Login: PageWithLayout = () => {
                 redirect: true,
             });
         } catch (error) {
-            // Handle sign-in error if needed
             if (process.env.NODE_ENV === "development") {
                 // eslint-disable-next-line no-console
                 console.error("Sign-in failed:", error);

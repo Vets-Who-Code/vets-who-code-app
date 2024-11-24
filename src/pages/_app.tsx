@@ -29,10 +29,10 @@ interface CustomAppProps extends Omit<AppProps, "Component"> {
 const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     const router = useRouter();
     const Layout = Component.Layout || FallbackLayout;
-    const layoutProps = pageProps.layout || {};
+    const { layout } = pageProps;
+    const layoutProps = layout || {};
 
     useEffect(() => {
-        // Replace the expression with a more explicit check and action
         const activeElement = document.activeElement;
         if (activeElement instanceof HTMLElement) {
             activeElement.blur();
