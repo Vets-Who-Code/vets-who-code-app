@@ -61,11 +61,15 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                             </span>
                                             <div className="tw-text-right tw-flex tw-items-center tw-py-2.5">
                                                 <Badge className="tw-ml-2.5">{item.duration}</Badge>
-                                                {item.type === "lesson" && item.access === "free" && (
-                                                    <Badge className="tw-ml-2.5" color="primary">
-                                                        Preview
-                                                    </Badge>
-                                                )}
+                                                {item.type === "lesson" &&
+                                                    item.access === "free" && (
+                                                        <Badge
+                                                            className="tw-ml-2.5"
+                                                            color="primary"
+                                                        >
+                                                            Preview
+                                                        </Badge>
+                                                    )}
                                                 {item?.video && (
                                                     <span className="tw-ml-2.5 tw-font-medium tw-px-3.8">
                                                         <i className="far fa-video" />

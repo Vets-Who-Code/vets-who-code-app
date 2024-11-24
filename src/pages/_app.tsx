@@ -33,6 +33,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     const layoutProps = layout || {};
 
     useEffect(() => {
+        // eslint-disable-next-line prefer-destructuring
         const activeElement = document.activeElement;
         if (activeElement instanceof HTMLElement) {
             activeElement.blur();
