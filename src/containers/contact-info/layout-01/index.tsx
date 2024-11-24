@@ -136,8 +136,11 @@ const ContactInfo = ({ data: { section_title, items, images } }: TProps) => {
                         }}
                     >
                         <img
-                            src="/images/shape-animation/nwesletter-shape-2.png"
-                            alt=""
+                            src="/images/shape-animation/dog-tag.svg"
+                            alt="shape"
+                            loading="lazy"
+                            width={178}
+                            height={178}
                         />
                     </motion.div>
                 </motion.div>
