@@ -22,24 +22,19 @@ const Login: PageWithLayout = () => {
     const mounted = useMount();
     const { status } = useSession();
     const router = useRouter();
-    const [error, setError] = useState<string | null>(null);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [isRedirecting, setIsRedirecting] = useState(false);
 
     // Handle authenticated state with proper return type
     useEffect((): (() => void) => {
-        const cleanup = (): void => {
-            // Cleanup function
-        };
+        const cleanup = (): void => undefined;
 
         if (status === "authenticated" && !isRedirecting) {
             setIsRedirecting(true);
             const timeout = setTimeout(() => {
-                router.push("/profile").catch((err) => {
-                    setError("Failed to redirect to profile. Please try refreshing the page.");
+                router.push("/profile").catch(() => {
+                    setErrorMessage("Failed to redirect to profile. Please try refreshing the page.");
                     setIsRedirecting(false);
-                    if (process.env.NODE_ENV === "development") {
-                        console.error("Redirect failed:", err);
-                    }
                 });
             }, 100);
 
@@ -53,23 +48,17 @@ const Login: PageWithLayout = () => {
 
     const handleSignIn = useCallback(async () => {
         try {
-            setError(null);
+            setErrorMessage(null);
             const result = await signIn("github", {
                 callbackUrl: "/profile",
                 redirect: true,
             });
             
             if (result?.error) {
-                setError("Failed to sign in with GitHub. Please try again.");
-                if (process.env.NODE_ENV === "development") {
-                    console.error("Sign-in error:", result.error);
-                }
+                setErrorMessage("Failed to sign in with GitHub. Please try again.");
             }
-        } catch (error) {
-            setError("An unexpected error occurred. Please try again.");
-            if (process.env.NODE_ENV === "development") {
-                console.error("Sign-in failed:", error);
-            }
+        } catch {
+            setErrorMessage("An unexpected error occurred. Please try again.");
         }
     }, []);
 
@@ -92,9 +81,9 @@ const Login: PageWithLayout = () => {
                         <p className="tw-text-center tw-text-secondary">
                             Sign in to continue your journey with #VetsWhoCode
                         </p>
-                        {error && (
+                        {errorMessage && (
                             <div className="tw-p-3 tw-text-sm tw-text-red-600 tw-bg-red-50 tw-rounded">
-                                {error}
+                                {errorMessage}
                             </div>
                         )}
                     </div>
@@ -135,9 +124,7 @@ const Login: PageWithLayout = () => {
 
     return (
         <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-flex-col tw-gap-4 tw-justify-center tw-items-center">
-            <span className="tw-text-secondary">
-                {error || "Redirecting to profile..."}
-            </span>
+            <span className="tw-text-secondary">{errorMessage || "Redirecting to profile..."}</span>
             <Spinner />
         </div>
     );
@@ -145,16 +132,14 @@ const Login: PageWithLayout = () => {
 
 Login.Layout = Layout;
 
-export const getStaticProps: GetStaticProps<LoginProps> = () => {
-    return {
-        props: {
-            layout: {
-                headerShadow: true,
-                headerFluid: false,
-                footerMode: "light",
-            },
+export const getStaticProps: GetStaticProps<LoginProps> = () => ({
+    props: {
+        layout: {
+            headerShadow: true,
+            headerFluid: false,
+            footerMode: "light",
         },
-    };
-};
+    },
+});
 
 export default Login;
