@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { useRouter } from "next/router";
 import { useSession, signIn } from "next-auth/react";
 import Spinner from "@ui/spinner";
@@ -22,33 +22,43 @@ const Login: PageWithLayout = () => {
     const mounted = useMount();
     const { status } = useSession();
     const router = useRouter();
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isRedirecting, setIsRedirecting] = useState(false);
 
-    useEffect(() => {
-        if (status === "authenticated") {
-            (async () => {
-                try {
-                    await router.push("/profile");
-                } catch (err) {
-                    if (process.env.NODE_ENV === "development") {
-                        // eslint-disable-next-line no-console
-                        console.error("Failed to redirect to profile:", err);
-                    }
-                }
-            })();
+    // Handle authenticated state with proper return type
+    useEffect((): (() => void) => {
+        const cleanup = (): void => undefined;
+
+        if (status === "authenticated" && !isRedirecting) {
+            setIsRedirecting(true);
+            const timeout = setTimeout(() => {
+                router.push("/profile").catch(() => {
+                    setErrorMessage("Failed to redirect to profile. Please try refreshing the page.");
+                    setIsRedirecting(false);
+                });
+            }, 100);
+
+            return () => {
+                clearTimeout(timeout);
+            };
         }
-    }, [status, router]);
+
+        return cleanup;
+    }, [status, router, isRedirecting]);
 
     const handleSignIn = useCallback(async () => {
         try {
-            await signIn("github", {
+            setErrorMessage(null);
+            const result = await signIn("github", {
                 callbackUrl: "/profile",
                 redirect: true,
             });
-        } catch (error) {
-            if (process.env.NODE_ENV === "development") {
-                // eslint-disable-next-line no-console
-                console.error("Sign-in failed:", error);
+            
+            if (result?.error) {
+                setErrorMessage("Failed to sign in with GitHub. Please try again.");
             }
+        } catch {
+            setErrorMessage("An unexpected error occurred. Please try again.");
         }
     }, []);
 
@@ -71,12 +81,18 @@ const Login: PageWithLayout = () => {
                         <p className="tw-text-center tw-text-secondary">
                             Sign in to continue your journey with #VetsWhoCode
                         </p>
+                        {errorMessage && (
+                            <div className="tw-p-3 tw-text-sm tw-text-red-600 tw-bg-red-50 tw-rounded">
+                                {errorMessage}
+                            </div>
+                        )}
                     </div>
                     <div className="tw-p-6">
                         <button
                             type="button"
                             onClick={handleSignIn}
-                            className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-bg-primary tw-rounded-md tw-transition-colors"
+                            className="tw-w-full tw-flex tw-items-center tw-justify-center tw-gap-2 tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-bg-primary tw-rounded-md tw-transition-colors hover:tw-opacity-90"
+                            disabled={isRedirecting}
                         >
                             <i className="fab fa-github" />
                             Sign in with GitHub
@@ -108,7 +124,7 @@ const Login: PageWithLayout = () => {
 
     return (
         <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-flex-col tw-gap-4 tw-justify-center tw-items-center">
-            <span className="tw-text-secondary">Redirecting to profile...</span>
+            <span className="tw-text-secondary">{errorMessage || "Redirecting to profile..."}</span>
             <Spinner />
         </div>
     );
@@ -116,16 +132,14 @@ const Login: PageWithLayout = () => {
 
 Login.Layout = Layout;
 
-export const getStaticProps: GetStaticProps<LoginProps> = () => {
-    return {
-        props: {
-            layout: {
-                headerShadow: true,
-                headerFluid: false,
-                footerMode: "light",
-            },
+export const getStaticProps: GetStaticProps<LoginProps> = () => ({
+    props: {
+        layout: {
+            headerShadow: true,
+            headerFluid: false,
+            footerMode: "light",
         },
-    };
-};
+    },
+});
 
 export default Login;
