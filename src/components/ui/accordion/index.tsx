@@ -10,14 +10,9 @@ type TProps = {
 };
 
 const Accordion = ({ items, defaultActiveKey, className }: TProps) => {
-    const [expanded, setExpanded] = useState<IDType | undefined>(
-        defaultActiveKey
-    );
+    const [expanded, setExpanded] = useState<IDType | undefined>(defaultActiveKey);
 
-    const handleClick = (
-        _e: React.MouseEvent<HTMLButtonElement>,
-        id: IDType
-    ) => {
+    const handleClick = (_e: React.MouseEvent<HTMLButtonElement>, id: IDType) => {
         if (id === expanded) {
             setExpanded(undefined);
         } else {

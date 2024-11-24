@@ -17,12 +17,7 @@ type TProps = TSection & {
     };
 };
 
-const CourseArea = ({
-    data: { section_title, motto, courses },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const CourseArea = ({ data: { section_title, motto, courses }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="course-area" space={space} bg={bg}>
             <div className="tw-container">

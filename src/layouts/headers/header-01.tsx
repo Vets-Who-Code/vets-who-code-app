@@ -35,8 +35,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                 className={clsx(
                     "header",
                     !transparent && "tw-relative",
-                    transparent &&
-                        "tw-absolute tw-inset-0 tw-bottom-auto tw-bg-transparent"
+                    transparent && "tw-absolute tw-inset-0 tw-bottom-auto tw-bg-transparent"
                 )}
             >
                 <div
@@ -50,10 +49,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                         !transparent && "tw-bg-white",
                         transparent && !sticky && "tw-bg-transparent",
                         transparent && sticky && "tw-bg-white",
-                        transparent &&
-                            sticky &&
-                            mode === "light" &&
-                            "tw-bg-black"
+                        transparent && sticky && mode === "light" && "tw-bg-black"
                     )}
                 >
                     <div
@@ -62,10 +58,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                             fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                         )}
                     >
-                        <Logo
-                            variant={mode}
-                            className="tw-max-w-[120px] sm:tw-max-w-[158px]"
-                        />
+                        <Logo variant={mode} className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
 
                         <MainMenu
                             className="tw-hidden xl:tw-block"
@@ -85,11 +78,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                 </div>
                 <div className="tw-h-20" />
             </header>
-            <MobileMenu
-                isOpen={offcanvas}
-                onClose={() => setOffcanvas(false)}
-                menu={menu}
-            />
+            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
         </>
     );
 };

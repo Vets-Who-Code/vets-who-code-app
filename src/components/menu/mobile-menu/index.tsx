@@ -35,9 +35,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                 <NavLink path={path}>{label}</NavLink>
                                 {(submenu || megamenu) && (
                                     <ExpandButton
-                                        onClick={() =>
-                                            setExpanded(isExpand ? false : id)
-                                        }
+                                        onClick={() => setExpanded(isExpand ? false : id)}
                                     />
                                 )}
                                 {submenu && (
@@ -53,10 +51,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                         }}
                                         aria-expanded={isExpand}
                                     >
-                                        <Submenu
-                                            menu={submenu}
-                                            isExpand={isExpand}
-                                        />
+                                        <Submenu menu={submenu} isExpand={isExpand} />
                                     </motion.div>
                                 )}
                                 {megamenu && (
@@ -72,10 +67,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                         }}
                                         aria-expanded={isExpand}
                                     >
-                                        <Megamenu
-                                            menu={megamenu}
-                                            isExpand={isExpand}
-                                        />
+                                        <Megamenu menu={megamenu} isExpand={isExpand} />
                                     </motion.div>
                                 )}
                             </li>

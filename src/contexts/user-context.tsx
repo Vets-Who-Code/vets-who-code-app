@@ -1,10 +1,4 @@
-import {
-    createContext,
-    useContext,
-    useMemo,
-    useReducer,
-    useEffect,
-} from "react";
+import { createContext, useContext, useMemo, useReducer, useEffect } from "react";
 
 // Constants for local storage keys
 const AUTH_KEY = "vwcAuth";
@@ -25,9 +19,7 @@ interface UserState {
 type UserAction = { type: "LOGIN" } | { type: "LOGOUT" };
 
 // Create the UserContext
-export const UserContext = createContext<UserContextType>(
-    {} as UserContextType
-);
+export const UserContext = createContext<UserContextType>({} as UserContextType);
 
 // Initial state
 const initialState: UserState = {
@@ -38,8 +30,7 @@ const initialState: UserState = {
 const init = (): UserState => {
     if (typeof window === "undefined") return initialState;
     const loginStore = localStorage.getItem(AUTH_KEY);
-    const loginParse =
-        loginStore !== null ? (JSON.parse(loginStore) as boolean) : false;
+    const loginParse = loginStore !== null ? (JSON.parse(loginStore) as boolean) : false;
     return {
         ...initialState,
         isLoggedIn: loginParse,
@@ -96,9 +87,7 @@ export const UserProvider = ({ children }: TProps) => {
         [state]
     );
 
-    return (
-        <UserContext.Provider value={value}>{children}</UserContext.Provider>
-    );
+    return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };
 
 // Hook to use the UserContext

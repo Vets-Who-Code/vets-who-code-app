@@ -22,15 +22,11 @@ const Error404Page = () => {
                             Looks like you are lost.{" "}
                         </h3>
                         <p className="tw-text-white/50 tw-max-w-[560px] tw-mx-auto">
-                            It looks like nothing was found at this location.
-                            You can either go back to the last page or go to
-                            homepage{" "}
+                            It looks like nothing was found at this location. You can either go back
+                            to the last page or go to homepage{" "}
                         </p>
                         <div className="tw-mt-8">
-                            <Button
-                                className="tw-m-2.5"
-                                onClick={() => router.back()}
-                            >
+                            <Button className="tw-m-2.5" onClick={() => router.back()}>
                                 <i className="far fa-history tw-mr-3" /> Go back
                             </Button>
                             <Button className="tw-m-2.5" path="/">

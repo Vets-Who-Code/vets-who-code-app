@@ -52,11 +52,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 hoverStyle={hoverStyle}
                                 color={color}
                                 aria-haspopup={hasSubmenu ? true : undefined}
-                                aria-expanded={
-                                    hasSubmenu
-                                        ? focusId === `nav-${id}`
-                                        : undefined
-                                }
+                                aria-expanded={hasSubmenu ? focusId === `nav-${id}` : undefined}
                                 onFocus={handleFocusEvent}
                                 onBlur={handleBlurEvent}
                             >

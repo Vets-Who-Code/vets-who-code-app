@@ -33,9 +33,7 @@ const NavLink = ({
                 color === "dark" && "tw-text-secondary",
                 hoverStyle === "B" &&
                     "tw-relative before:tw-absolute before:tw-content-[''] before:tw-left-0 before:tw-bottom-0 before:tw-w-0 before:tw-h-px before:tw-transition-all before:tw-duration-300 hover:before:tw-w-full",
-                hoverStyle === "B" &&
-                    color === "dark" &&
-                    "before:tw-bg-primary",
+                hoverStyle === "B" && color === "dark" && "before:tw-bg-primary",
                 hoverStyle === "B" && color === "light" && "before:tw-bg-white"
             )}
             onKeyPress={onKeyPress}

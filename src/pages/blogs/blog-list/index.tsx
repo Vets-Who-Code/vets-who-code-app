@@ -20,16 +20,11 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 4;
 
-const BlogList: PageProps = ({
-    data: { blogs, currentPage, numberOfPages },
-}) => {
+const BlogList: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title="Blog List" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Blog list"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Blog list" />
             <BlogArea
                 data={{
                     blogs,

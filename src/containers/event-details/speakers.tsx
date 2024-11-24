@@ -24,9 +24,7 @@ const sliderOptions = {
 const Speakers = ({ speakers }: { speakers: ISpeaker[] }) => {
     return (
         <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-border-b tw-border-b-gray-650">
-            <h2 className="tw-text-4xl lg:tw-text-5xl tw-text-center tw-mb-11">
-                Our Speaker
-            </h2>
+            <h2 className="tw-text-4xl lg:tw-text-5xl tw-text-center tw-mb-11">Our Speaker</h2>
             {speakers.length > 0 && (
                 <Swiper options={sliderOptions}>
                     {speakers.map((item) => (
@@ -42,8 +40,8 @@ const Speakers = ({ speakers }: { speakers: ISpeaker[] }) => {
             )}
 
             <p className="tw-text-lg tw-max-w-[630px] tw-text-center tw-mx-auto tw-mt-[54px]">
-                Register online, get your ticket, meet up with our inspirational
-                speakers and specialists in the field to share your ideas.
+                Register online, get your ticket, meet up with our inspirational speakers and
+                specialists in the field to share your ideas.
             </p>
         </div>
     );

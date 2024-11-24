@@ -88,9 +88,7 @@ const ServiceArea = ({
                             className="tw-mb-7.5"
                         />
                     )}
-                    {list && (
-                        <ListWithCheck list={list} className="tw-mb-[35px]" />
-                    )}
+                    {list && <ListWithCheck list={list} className="tw-mb-[35px]" />}
                     {buttons?.map(({ id, content, ...rest }) => (
                         <Button key={id} {...rest}>
                             {content}

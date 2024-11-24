@@ -5,15 +5,10 @@ import { getSlugs } from "./util";
 
 const directory = path.join(process.cwd(), "src/data/events");
 
-export function getEventeBySlug(
-    slug: string,
-    fields: Array<keyof IEvent> | "all"
-): IEvent {
+export function getEventeBySlug(slug: string, fields: Array<keyof IEvent> | "all"): IEvent {
     const realSlug = slug.replace(/\.json$/, "");
     const fullPath = path.join(directory, `${realSlug}.json`);
-    const fileContents = JSON.parse(
-        fs.readFileSync(fullPath, "utf8")
-    ) as IEvent;
+    const fileContents = JSON.parse(fs.readFileSync(fullPath, "utf8")) as IEvent;
     let event: IEvent;
     if (fields === "all") {
         event = fileContents;
@@ -35,11 +30,7 @@ export function getEventeBySlug(
     return { ...event, path: `/events/${realSlug}` };
 }
 
-export function getallEvents(
-    fields: Array<keyof IEvent> | "all",
-    skip = 0,
-    limit?: number
-) {
+export function getallEvents(fields: Array<keyof IEvent> | "all", skip = 0, limit?: number) {
     const slugs = getSlugs(directory);
     let events = slugs.map((slug) => getEventeBySlug(slug, fields));
     if (limit) events = events.slice(skip, limit);

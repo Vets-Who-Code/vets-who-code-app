@@ -47,10 +47,7 @@ const ZoomMeetingDetails = ({
                         <HTMLContent body={body} />
                     </div>
                     <div className="tw-col-span-full lg:tw-col-[3/-1]">
-                        <CountdownTimer
-                            targetDate={start_date}
-                            className="tw-mb-[45px]"
-                        />
+                        <CountdownTimer targetDate={start_date} className="tw-mb-[45px]" />
                         <ZoomInfo
                             host={host}
                             date={date}

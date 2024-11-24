@@ -13,14 +13,7 @@ type TOptions = {
     autoHeight?: boolean;
     speed?: number;
     centeredSlides?: boolean;
-    effect?:
-        | "slide"
-        | "fade"
-        | "cube"
-        | "coverflow"
-        | "flip"
-        | "creative"
-        | "cards";
+    effect?: "slide" | "fade" | "cube" | "coverflow" | "flip" | "creative" | "cards";
     navigation?:
         | boolean
         | {
@@ -130,16 +123,10 @@ const SwiperSlider = forwardRef<HTMLDivElement, TProps>(
 
                 {sliderOptions?.navigation && (
                     <>
-                        <button
-                            type="button"
-                            className={`swiper-btn swiper-btn-prev ${prevClass}`}
-                        >
+                        <button type="button" className={`swiper-btn swiper-btn-prev ${prevClass}`}>
                             <i className={cn(prevIcon, "icon")} />
                         </button>
-                        <button
-                            type="button"
-                            className={`swiper-btn swiper-btn-next ${nextClass}`}
-                        >
+                        <button type="button" className={`swiper-btn swiper-btn-next ${nextClass}`}>
                             <i className={cn(nextIcon, "icon")} />
                         </button>
                     </>

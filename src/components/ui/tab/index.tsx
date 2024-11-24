@@ -14,12 +14,7 @@ import TabNav from "./tab-nav";
 import TabContent from "./tab-content";
 import TabPane from "./tab-pane";
 
-const TabContainer = ({
-    className,
-    children,
-    variant,
-    idPrefix = "tab",
-}: ContainerProps) => {
+const TabContainer = ({ className, children, variant, idPrefix = "tab" }: ContainerProps) => {
     const [value, setValue] = useState(0);
 
     const handleClick = (idx: number) => {
@@ -41,20 +36,14 @@ const TabContainer = ({
                     isActive: idx === value,
                     variant,
                     id: `${idPrefix}-${idx}`,
-                    children: iterateOverChildren(
-                        childProps.children as ReactNode,
-                        parent
-                    ),
+                    children: iterateOverChildren(childProps.children as ReactNode, parent),
                 });
             }
             if (parent === "TabContent") {
                 return cloneElement(child as ReactElement, {
                     ...childProps,
                     id: `${idPrefix}-${idx}`,
-                    children: iterateOverChildren(
-                        childProps.children as ReactNode,
-                        parent
-                    ),
+                    children: iterateOverChildren(childProps.children as ReactNode, parent),
                 });
             }
 
@@ -67,28 +56,21 @@ const TabContainer = ({
         const childProps = child.props as TChildProps;
 
         const childType =
-            (childProps.originalType as FunctionComponent) ||
-            (child.type as FunctionComponent);
+            (childProps.originalType as FunctionComponent) || (child.type as FunctionComponent);
         const name = childType.displayName || childType.name;
 
         if (name === "TabList") {
             return cloneElement(child as ReactElement, {
                 ...childProps,
                 variant,
-                children: iterateOverChildren(
-                    childProps.children as ReactNode,
-                    name
-                ),
+                children: iterateOverChildren(childProps.children as ReactNode, name),
             });
         }
         if (name === "TabContent") {
             return cloneElement(child as ReactElement, {
                 ...childProps,
                 activeIdx: value,
-                children: iterateOverChildren(
-                    childProps.children as ReactNode,
-                    name
-                ),
+                children: iterateOverChildren(childProps.children as ReactNode, name),
             });
         }
         return cloneElement(child as ReactElement, {

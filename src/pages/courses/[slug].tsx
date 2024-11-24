@@ -6,11 +6,7 @@ import CourseDetails from "@containers/course-details";
 import RelatedCourseArea from "@containers/course/layout-02";
 import { ICourse, IInstructor } from "@utils/types";
 import { getInstructorByID } from "../../lib/instructor";
-import {
-    getallCourses,
-    getCourseBySlug,
-    getFilteredCourses,
-} from "../../lib/course";
+import { getallCourses, getCourseBySlug, getFilteredCourses } from "../../lib/course";
 
 type TProps = {
     data: {
@@ -24,9 +20,7 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout01;
 };
 
-const SingleCourse: PageProps = ({
-    data: { course, instructor, relatedCourses },
-}) => {
+const SingleCourse: PageProps = ({ data: { course, instructor, relatedCourses } }) => {
     return (
         <>
             <SEO

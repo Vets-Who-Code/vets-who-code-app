@@ -28,10 +28,7 @@ const BlogClassic: PageProps = ({
     return (
         <>
             <SEO title="Blog Classic" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Blog Classic"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Blog Classic" />
             <BlogArea
                 data={{
                     blogs,
@@ -52,15 +49,7 @@ BlogClassic.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
     const { blogs, count } = getAllBlogs(
-        [
-            "title",
-            "image",
-            "category",
-            "postedAt",
-            "views",
-            "author",
-            "excerpt",
-        ],
+        ["title", "image", "category", "postedAt", "views", "author", "excerpt"],
         0,
         POSTS_PER_PAGE
     );

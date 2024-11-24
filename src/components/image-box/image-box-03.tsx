@@ -13,24 +13,14 @@ export type ImageBoxProps = {
 const ImageBox = forwardRef<HTMLDivElement, ImageBoxProps>(
     ({ image, title, description, path, pathText }, ref) => {
         return (
-            <div
-                ref={ref}
-                className="image-box tw-relative tw-group tw-text-center"
-            >
+            <div ref={ref} className="image-box tw-relative tw-group tw-text-center">
                 {image?.src && (
-                    <img
-                        src={image.src}
-                        alt={image?.alt || title}
-                        className="tw-mb-6 tw-mx-auto"
-                    />
+                    <img src={image.src} alt={image?.alt || title} className="tw-mb-6 tw-mx-auto" />
                 )}
                 <h3 className="tw-leading-normal tw-text-xl tw-m-0">{title}</h3>
-                <p className="tw-leading-relaxed tw-mt-2.5 tw-mb-[34px]">
-                    {description}
-                </p>
+                <p className="tw-leading-relaxed tw-mt-2.5 tw-mb-[34px]">{description}</p>
                 <span className="tw-text-md tw-font-bold tw-leading-none tw-flex tw-items-center tw-justify-center tw-px-5 tw-min-h-[40px] tw-bg-transparent tw-rounded tw-text-secondary-light tw-transition group-hover:tw-bg-light-100 group-hover:tw-text-primary">
-                    {pathText}{" "}
-                    <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
+                    {pathText} <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
                 </span>
                 <Anchor className="link-overlay" path={path}>
                     {title}

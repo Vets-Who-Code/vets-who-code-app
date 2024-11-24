@@ -19,10 +19,7 @@ const CodeOfConduct: PageProps = ({ data }) => {
     return (
         <>
             <SEO title="Code Of Conduct" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Code Of Conduct"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Code Of Conduct" />
             <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] w-full tw-gap-7.5 lg:tw-gap-15">
                 <div className="tw-col-span-full tw-order-1 lg:tw-order-2 lg:tw-col-[2/-1]">
                     <MarkdownRenderer content={data.page} />

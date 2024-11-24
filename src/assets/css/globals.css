@@ -5,8 +5,7 @@
         url("/fonts/gotham/GothamPro-Light.woff") format("woff"),
         url("/fonts/gotham/GothamPro-Light.ttf") format("truetype"),
         url("/fonts/gotham/GothamPro-Light.svg#GothamPro-Light") format("svg"),
-        url("/fonts/gotham/GothamPro-Light.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-Light.eot?#iefix") format("embedded-opentype");
     font-weight: 100;
     font-style: normal;
 }
@@ -17,10 +16,8 @@
     src: url("/fonts/gotham/GothamPro-LightItalic.woff2") format("woff2"),
         url("/fonts/gotham/GothamPro-LightItalic.woff") format("woff"),
         url("/fonts/gotham/GothamPro-LightItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-LightItalic.svg#GothamPro-LightItalic")
-            format("svg"),
-        url("/fonts/gotham/GothamPro-LightItalic.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-LightItalic.svg#GothamPro-LightItalic") format("svg"),
+        url("/fonts/gotham/GothamPro-LightItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 100;
     font-style: italic;
 }
@@ -44,8 +41,7 @@
         url("/fonts/gotham/GothamPro-Italic.woff") format("woff"),
         url("/fonts/gotham/GothamPro-Italic.ttf") format("truetype"),
         url("/fonts/gotham/GothamPro-Italic.svg#GothamPro-Italic") format("svg"),
-        url("/fonts/gotham/GothamPro-Italic.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-Italic.eot?#iefix") format("embedded-opentype");
     font-weight: 200;
     font-style: italic;
 }
@@ -57,8 +53,7 @@
         url("/fonts/gotham/GothamPro-Medium.woff") format("woff"),
         url("/fonts/gotham/GothamPro-Medium.ttf") format("truetype"),
         url("/fonts/gotham/GothamPro-Medium.svg#GothamPro-Medium") format("svg"),
-        url("/fonts/gotham/GothamPro-Medium.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-Medium.eot?#iefix") format("embedded-opentype");
     font-weight: 400;
     font-style: normal;
 }
@@ -69,10 +64,8 @@
     src: url("/fonts/gotham/GothamPro-MediumItalic.woff2") format("woff2"),
         url("/fonts/gotham/GothamPro-MediumItalic.woff") format("woff"),
         url("/fonts/gotham/GothamPro-MediumItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-MediumItalic.svg#GothamPro-MediumItalic")
-            format("svg"),
-        url("/fonts/gotham/GothamPro-MediumItalic.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-MediumItalic.svg#GothamPro-MediumItalic") format("svg"),
+        url("/fonts/gotham/GothamPro-MediumItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 400;
     font-style: italic;
 }
@@ -84,8 +77,7 @@
         url("/fonts/gotham/GothamPro-Bold.woff") format("woff"),
         url("/fonts/gotham/GothamPro-Bold.ttf") format("truetype"),
         url("/fonts/gotham/GothamPro-Bold.svg#GothamPro-Bold") format("svg"),
-        url("/fonts/gotham/GothamPro-Bold.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-Bold.eot?#iefix") format("embedded-opentype");
     font-weight: 600;
     font-style: normal;
 }
@@ -96,10 +88,8 @@
     src: url("/fonts/gotham/GothamPro-BoldItalic.woff2") format("woff2"),
         url("/fonts/gotham/GothamPro-BoldItalic.woff") format("woff"),
         url("/fonts/gotham/GothamPro-BoldItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-BoldItalic.svg#GothamPro-BoldItalic")
-            format("svg"),
-        url("/fonts/gotham/GothamPro-BoldItalic.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-BoldItalic.svg#GothamPro-BoldItalic") format("svg"),
+        url("/fonts/gotham/GothamPro-BoldItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 600;
     font-style: italic;
 }
@@ -111,8 +101,7 @@
         url("/fonts/gotham/GothamPro-Black.woff") format("woff"),
         url("/fonts/gotham/GothamPro-Black.ttf") format("truetype"),
         url("/fonts/gotham/GothamPro-Black.svg#GothamPro-Black") format("svg"),
-        url("/fonts/gotham/GothamPro-Black.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-Black.eot?#iefix") format("embedded-opentype");
     font-weight: 800;
     font-style: normal;
 }
@@ -123,10 +112,8 @@
     src: url("/fonts/gotham/GothamPro-BlackItalic.woff2") format("woff2"),
         url("/fonts/gotham/GothamPro-BlackItalic.woff") format("woff"),
         url("/fonts/gotham/GothamPro-BlackItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-BlackItalic.svg#GothamPro-BlackItalic")
-            format("svg"),
-        url("/fonts/gotham/GothamPro-BlackItalic.eot?#iefix")
-            format("embedded-opentype");
+        url("/fonts/gotham/GothamPro-BlackItalic.svg#GothamPro-BlackItalic") format("svg"),
+        url("/fonts/gotham/GothamPro-BlackItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 800;
     font-style: italic;
 }

@@ -38,8 +38,7 @@ module.exports = {
                   "@fullhuman/postcss-purgecss",
                   {
                       content: ["./src/**/*.tsx"],
-                      defaultExtractor: (content) =>
-                          content.match(/[\w-/:]+(?<!:)/g) || [],
+                      defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
                       safelist: {
                           standard: safelist,
                           deep: safelist,

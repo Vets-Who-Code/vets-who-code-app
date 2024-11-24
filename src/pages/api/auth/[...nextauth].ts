@@ -18,14 +18,11 @@ export const authOptions: AuthOptions = {
         async signIn({ account }) {
             if (account?.provider === "github") {
                 try {
-                    const res = await fetch(
-                        "https://api.github.com/user/orgs",
-                        {
-                            headers: {
-                                Authorization: `Bearer ${account.access_token}`,
-                            },
-                        }
-                    );
+                    const res = await fetch("https://api.github.com/user/orgs", {
+                        headers: {
+                            Authorization: `Bearer ${account.access_token}`,
+                        },
+                    });
 
                     if (!res.ok) {
                         return false;
@@ -37,9 +34,7 @@ export const authOptions: AuthOptions = {
                         return false;
                     }
 
-                    const isMember = orgs.some(
-                        (org) => org.login === process.env.GITHUB_ORG
-                    );
+                    const isMember = orgs.some((org) => org.login === process.env.GITHUB_ORG);
 
                     if (!isMember) {
                         return false;

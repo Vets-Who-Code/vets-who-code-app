@@ -39,11 +39,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
 
     return (
         <Portal>
-            <AnimatePresence
-                initial={false}
-                exitBeforeEnter
-                onExitComplete={() => null}
-            >
+            <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => null}>
                 {show && (
                     <>
                         <motion.div

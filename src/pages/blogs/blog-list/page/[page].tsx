@@ -21,16 +21,11 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 4;
 
-const BlogGrid: PageProps = ({
-    data: { blogs, currentPage, numberOfPages },
-}) => {
+const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title={`Blog List - Page - ${currentPage}`} />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Blog List"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Blog List" />
             <BlogArea
                 data={{
                     blogs,
@@ -77,15 +72,7 @@ export const getStaticProps: GetStaticProps<TProps, Params> = ({ params }) => {
     const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
     const skip = (currentPage - 1) * POSTS_PER_PAGE;
     const { blogs, count } = getAllBlogs(
-        [
-            "title",
-            "image",
-            "category",
-            "postedAt",
-            "views",
-            "author",
-            "excerpt",
-        ],
+        ["title", "image", "category", "postedAt", "views", "author", "excerpt"],
         skip,
         POSTS_PER_PAGE
     );

@@ -53,28 +53,19 @@ const Home: PageProps = ({ data }) => {
             <HeroArea data={content?.["hero-area"]} />
             <Wrapper className="tw-mb-[140px]">
                 <ServiceArea data={content?.["service-area"]} space="none" />
-                <FunfactArea
-                    data={content?.["funfact-area"]}
-                    titleSize="large"
-                />
+                <FunfactArea data={content?.["funfact-area"]} titleSize="large" />
                 <VideoArea data={content?.["video-area"]} space="top" />
             </Wrapper>
             <CourseArea
                 data={{ ...content?.["course-area"], courses: data.courses }}
                 titleSize="large"
             />
-            <TestimonialArea
-                data={content?.["testimonial-area"]}
-                titleSize="large"
-            />
+            <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
             <EventArea
                 data={{ ...content?.["event-area"], events: data.events }}
                 titleSize="large"
             />
-            <BlogArea
-                data={{ ...content?.["blog-area"], blogs: data.blogs }}
-                titleSize="large"
-            />
+            <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
         </>
@@ -86,16 +77,8 @@ Home.Layout = Layout;
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("home", "index");
     const courses = getallCourses(["title", "thumbnail"], 0, 6);
-    const events = getallEvents(
-        ["title", "thumbnail", "start_date", "location"],
-        0,
-        6
-    );
-    const { blogs } = getAllBlogs(
-        ["title", "image", "category", "postedAt", "views"],
-        0,
-        3
-    );
+    const events = getallEvents(["title", "thumbnail", "start_date", "location"], 0, 6);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "views"], 0, 3);
     return {
         props: {
             data: {

@@ -10,12 +10,7 @@ type TProps = {
 
 const Submenu = ({ menu, isExpand, className }: TProps) => {
     return (
-        <ul
-            className={clsx(
-                "tw-py-[14px] tw-border-t tw-border-t-white/[.15]",
-                className
-            )}
-        >
+        <ul className={clsx("tw-py-[14px] tw-border-t tw-border-t-white/[.15]", className)}>
             {menu.map(({ id, label, path }) => (
                 <li key={id} className="tw-relative">
                     <Anchor

@@ -1,10 +1,7 @@
 import { useEffect, useRef } from "react";
 import { getFocusableElements, nextFocus } from "@utils/methods";
 
-const useKeyboardFocus = <T extends HTMLElement>(
-    open: boolean,
-    onClose: () => void
-) => {
+const useKeyboardFocus = <T extends HTMLElement>(open: boolean, onClose: () => void) => {
     const ref = useRef<T>(null);
     const previousFocus = useRef<HTMLElement | null>(null);
 
@@ -33,8 +30,7 @@ const useKeyboardFocus = <T extends HTMLElement>(
 
     useEffect(() => {
         if (open) {
-            previousFocus.current =
-                (document.activeElement as HTMLElement) ?? null;
+            previousFocus.current = (document.activeElement as HTMLElement) ?? null;
             nextFocus(getFocusableElements(ref.current));
         } else {
             previousFocus.current?.focus?.();

@@ -42,18 +42,13 @@ const Footer01 = ({ mode }: TProps) => {
                 </div>
                 <p className="copyright tw-text-center tw-text-md tw-text-gray-400 tw-mt-5">
                     &copy; {new Date().getFullYear()} Vets Who Code{" "}
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.vetswhocode.io/"
-                    >
+                    <a target="_blank" rel="noopener noreferrer" href="https://www.vetswhocode.io/">
                         All Rights Reserved
                     </a>
                 </p>
                 <p className="copyright tw-text-center tw-text-md tw-text-gray-400 mt-n5">
-                    Vets Who Code is a registered 501(c)(3) nonprofit under EIN
-                    86-2122804. Donations are tax-deductible to the fullest
-                    extent allowable under the law.
+                    Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
+                    Donations are tax-deductible to the fullest extent allowable under the law.
                 </p>
             </div>
         </footer>

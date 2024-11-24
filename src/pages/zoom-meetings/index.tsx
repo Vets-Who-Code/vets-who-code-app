@@ -20,9 +20,7 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 6;
 
-const ZoomMeetings: PageProps = ({
-    data: { zoomMeetings, currentPage, numberOfPages },
-}) => {
+const ZoomMeetings: PageProps = ({ data: { zoomMeetings, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title="Zoom Meetings" />

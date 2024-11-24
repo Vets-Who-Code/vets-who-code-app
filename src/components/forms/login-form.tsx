@@ -47,10 +47,7 @@ const LoginForm = () => {
             <h3 className="tw-text-h2 tw-mb-5">Login</h3>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="username"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="username" className="tw-text-heading tw-text-md">
                         Username *
                     </label>
                     <Input
@@ -67,10 +64,7 @@ const LoginForm = () => {
                     <small>Default Username: Admin</small>
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="password"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="password" className="tw-text-heading tw-text-md">
                         Password *
                     </label>
                     <Input

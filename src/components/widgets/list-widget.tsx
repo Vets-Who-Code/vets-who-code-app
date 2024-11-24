@@ -12,10 +12,7 @@ const ListWidget = ({ className, mode }: TProps) => {
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Information</WidgetTitle>
             <ul
-                className={clsx(
-                    "tw-text-md tw-font-medium",
-                    mode === "dark" && "tw-text-gray-400"
-                )}
+                className={clsx("tw-text-md tw-font-medium", mode === "dark" && "tw-text-gray-400")}
             >
                 <li className="tw-pr-5 tw-mb-[11px]">
                     <Anchor path="/code-of-conduct">Code of Conduct</Anchor>

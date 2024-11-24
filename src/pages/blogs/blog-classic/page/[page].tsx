@@ -29,10 +29,7 @@ const BlogClassic: PageProps = ({
     return (
         <>
             <SEO title={`Blog Classic - Page - ${currentPage}`} />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Blog Classic"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Blog Classic" />
             <BlogArea
                 data={{
                     blogs,
@@ -81,15 +78,7 @@ export const getStaticProps: GetStaticProps<TProps, Params> = ({ params }) => {
     const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
     const skip = (currentPage - 1) * POSTS_PER_PAGE;
     const { blogs, count } = getAllBlogs(
-        [
-            "title",
-            "image",
-            "category",
-            "postedAt",
-            "views",
-            "author",
-            "excerpt",
-        ],
+        ["title", "image", "category", "postedAt", "views", "author", "excerpt"],
         skip,
         POSTS_PER_PAGE
     );

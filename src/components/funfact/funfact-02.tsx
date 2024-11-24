@@ -37,10 +37,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
         }, [counter, inView]);
 
         return (
-            <div
-                className={clsx("funfact tw-text-center", className)}
-                ref={continerRef}
-            >
+            <div className={clsx("funfact tw-text-center", className)} ref={continerRef}>
                 <h3 className="tw-max-w-[180px] tw-text-h3 tw-leading-snug tw-text-secondary tw-mx-auto">
                     {title}
                 </h3>

@@ -3,13 +3,7 @@ import SectionTitle from "@components/section-title";
 import Anchor from "@ui/anchor";
 import { motion } from "framer-motion";
 import { scrollUpVariants } from "@utils/variants";
-import {
-    SectionTitleType,
-    TextType,
-    AnchorType,
-    ImageType,
-    TSection,
-} from "@utils/types";
+import { SectionTitleType, TextType, AnchorType, ImageType, TSection } from "@utils/types";
 
 type TProps = TSection & {
     data: {

@@ -5,12 +5,7 @@ import ListWithCheck from "@ui/list-with-check";
 import Button from "@ui/button";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
-import {
-    ButtonType,
-    ImageType,
-    SectionTitleType,
-    TSection,
-} from "@utils/types";
+import { ButtonType, ImageType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 const AnimatedSectionTitle = motion(SectionTitle);

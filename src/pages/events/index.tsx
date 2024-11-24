@@ -28,10 +28,7 @@ const Events: PageProps = ({
     return (
         <>
             <SEO title="Events" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Events"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Events" />
             <EventArea
                 data={{
                     events,
@@ -47,13 +44,7 @@ const Events: PageProps = ({
 Events.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const events = getallEvents([
-        "slug",
-        "title",
-        "thumbnail",
-        "start_date",
-        "location",
-    ]);
+    const events = getallEvents(["slug", "title", "thumbnail", "start_date", "location"]);
 
     const { count } = getEventMeta();
     return {

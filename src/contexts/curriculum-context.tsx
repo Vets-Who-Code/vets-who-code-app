@@ -19,10 +19,7 @@ interface CurAction {
     payload?: any;
 }
 
-function reducer(
-    state: Omit<CurriculumContextType, "searchCurriculum">,
-    action: CurAction
-) {
+function reducer(state: Omit<CurriculumContextType, "searchCurriculum">, action: CurAction) {
     switch (action.type) {
         case "SEARCH_LESSON": {
             const search = action.payload as string;
@@ -30,9 +27,7 @@ function reducer(
             const curriculum = state.allCurriculum
                 .map((cc) => {
                     const lessons = cc.lessons.filter((lsn) => {
-                        return lsn.title
-                            .toLowerCase()
-                            .includes(search.toLowerCase());
+                        return lsn.title.toLowerCase().includes(search.toLowerCase());
                     });
                     return {
                         ...cc,
@@ -59,10 +54,7 @@ type TProps = {
 };
 
 export const CurriculumProvider = ({ children, curriculum }: TProps) => {
-    const totalLessons = curriculum.reduce(
-        (acc, cur) => acc + cur.lessons.length,
-        0
-    );
+    const totalLessons = curriculum.reduce((acc, cur) => acc + cur.lessons.length, 0);
     const [state, dispatch] = useReducer(reducer, {
         totalLessons,
         allCurriculum: curriculum,
@@ -82,11 +74,7 @@ export const CurriculumProvider = ({ children, curriculum }: TProps) => {
         [state]
     );
 
-    return (
-        <CurriculumContext.Provider value={value}>
-            {children}
-        </CurriculumContext.Provider>
-    );
+    return <CurriculumContext.Provider value={value}>{children}</CurriculumContext.Provider>;
 };
 
 // Curriculum Context Consumer hooks

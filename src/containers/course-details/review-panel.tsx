@@ -9,9 +9,7 @@ const ReviewPanel = ({ average, count, rating_details, items }: ReviewType) => {
             <h3 className="tw-mt-[13px] tw-mb-[26px]">Reviews</h3>
             <div className="tw-flex tw-flex-wrap">
                 <div className="tw-shrink-0 tw-w-full tw-mb-7.5 sm:tw-mb-0 sm:tw-w-[200px] sm:tw-mr-7.5 md:tw-mr-[70px]">
-                    <p className="tw-text-secondary tw-font-medium tw-mb-3.8">
-                        Average Rating
-                    </p>
+                    <p className="tw-text-secondary tw-font-medium tw-mb-3.8">Average Rating</p>
                     <div className="tw-bg-white tw-text-center tw-pt-[34px] tw-pb-[38px] tw-px-7.5 tw-shadow-2sm tw-shadow-heading/10">
                         <div className="tw-text-[56px] tw-font-semibold tw-leading-none tw-mb-2 tw-text-primary">
                             {average}

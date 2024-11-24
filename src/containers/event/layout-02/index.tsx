@@ -34,12 +34,7 @@ const options = {
     },
 };
 
-const EventArea = ({
-    data: { section_title, motto, events },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="event-area" space={space} bg={bg}>
             <div className="tw-container">

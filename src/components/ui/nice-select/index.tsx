@@ -1,10 +1,4 @@
-import {
-    useState,
-    Dispatch,
-    SetStateAction,
-    useCallback,
-    useEffect,
-} from "react";
+import { useState, Dispatch, SetStateAction, useCallback, useEffect } from "react";
 import clsx from "clsx";
 import { useClickOutside } from "@hooks";
 
@@ -22,13 +16,7 @@ type TProps = {
     defaultValue?: string;
 };
 
-const NiceSelect = ({
-    className,
-    options,
-    setValue,
-    prefix,
-    defaultValue,
-}: TProps) => {
+const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TProps) => {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState<IOption>();
 

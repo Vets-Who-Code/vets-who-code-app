@@ -7,10 +7,7 @@ import { scrollUpVariants } from "@utils/variants";
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedTeamCard = motion(TeamCard);
 
-type Team = Pick<
-    ItemType,
-    "id" | "name" | "designation" | "images" | "role"
-> & {
+type Team = Pick<ItemType, "id" | "name" | "designation" | "images" | "role"> & {
     socials?: ISocial[];
 };
 

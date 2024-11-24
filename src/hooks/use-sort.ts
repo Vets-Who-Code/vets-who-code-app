@@ -39,12 +39,7 @@ function useSort<T>(
     }, [sortHandler]);
 
     useEffect(() => {
-        sortingCB(
-            sortBy as string,
-            allItems,
-            defaultItems.current,
-            setAllItems
-        );
+        sortingCB(sortBy as string, allItems, defaultItems.current, setAllItems);
         setSortValue(sortBy as string);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sortBy]);

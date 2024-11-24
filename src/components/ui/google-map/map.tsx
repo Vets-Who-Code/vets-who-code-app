@@ -1,11 +1,4 @@
-import {
-    Children,
-    cloneElement,
-    isValidElement,
-    useEffect,
-    useRef,
-    useState,
-} from "react";
+import { Children, cloneElement, isValidElement, useEffect, useRef, useState } from "react";
 import { useDeepCompareEffectForMaps } from "./utils";
 
 interface MapProps extends google.maps.MapOptions {
@@ -53,10 +46,7 @@ const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
             {Children.map(children, (child) => {
                 if (isValidElement(child)) {
                     // set the map prop on the child component
-                    return cloneElement(
-                        child as React.ReactElement<ChildComponentProps>,
-                        { map }
-                    );
+                    return cloneElement(child as React.ReactElement<ChildComponentProps>, { map });
                 }
                 return null;
             })}

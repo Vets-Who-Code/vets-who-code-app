@@ -15,12 +15,7 @@ type TProps = TSection & {
     };
 };
 
-const ServiceArea = ({
-    data: { section_title, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const ServiceArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section space={space} bg={bg} className="service-area">
             <div className="tw-container tw-relative tw-z-1">

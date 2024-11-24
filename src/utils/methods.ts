@@ -55,9 +55,7 @@ export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
 };
 
 export const toCapitalize = (text: string): string => {
-    return (
-        text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase()
-    );
+    return text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 };
 
 export const normalizePath = (path: string): string => {
@@ -75,10 +73,7 @@ export const courseSorting = (
     switch (sortValue) {
         case "latest": {
             const sorted = coursesCopy.sort((a, b) =>
-                new Date(a.published_at).getTime() >
-                new Date(b.published_at).getTime()
-                    ? -1
-                    : 1
+                new Date(a.published_at).getTime() > new Date(b.published_at).getTime() ? -1 : 1
             );
             setSort(sorted);
             break;
@@ -139,9 +134,7 @@ export const minutesToHours = (minutes: number): string => {
 export const flatDeep = <T>(arr: unknown[], d = 1): T[] => {
     return d > 0
         ? arr.reduce((acc: T[], val) => {
-              return acc.concat(
-                  Array.isArray(val) ? flatDeep<T>(val, d - 1) : (val as T)
-              );
+              return acc.concat(Array.isArray(val) ? flatDeep<T>(val, d - 1) : (val as T));
           }, [])
         : (arr.slice() as T[]);
 };
@@ -150,16 +143,12 @@ export const hasKey = (obj: unknown, key: string): boolean => {
     return !!Object.prototype.hasOwnProperty.call(obj, key);
 };
 
-export const getFocusableElements = (
-    parent?: HTMLElement | null
-): HTMLElement[] => {
+export const getFocusableElements = (parent?: HTMLElement | null): HTMLElement[] => {
     if (!parent) return [];
 
     return (
         Array.from(
-            parent.querySelectorAll(
-                "a[href], button, input, textarea, select, details,[tabindex]"
-            )
+            parent.querySelectorAll("a[href], button, input, textarea, select, details,[tabindex]")
         )
             .filter(
                 (el) =>
@@ -180,18 +169,14 @@ export const getFocusableElements = (
 };
 
 export const nextFocus = (elements: HTMLElement[], forward = true): void => {
-    const currentIndex = elements.findIndex(
-        (e) => e === document.activeElement
-    );
+    const currentIndex = elements.findIndex((e) => e === document.activeElement);
     let nextIndex = 0;
 
     if (currentIndex > -1) {
         if (forward) {
-            nextIndex =
-                currentIndex < elements.length - 1 ? currentIndex + 1 : 0;
+            nextIndex = currentIndex < elements.length - 1 ? currentIndex + 1 : 0;
         } else {
-            nextIndex =
-                currentIndex > 0 ? currentIndex - 1 : elements.length - 1;
+            nextIndex = currentIndex > 0 ? currentIndex - 1 : elements.length - 1;
         }
     }
 

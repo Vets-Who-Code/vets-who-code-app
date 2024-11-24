@@ -37,10 +37,7 @@ const VideoArea = ({ data: { images, video, section_title } }: TProps) => {
                     variants={scrollUpVariants}
                 >
                     {video && images?.[0] && (
-                        <Video
-                            poster={{ ...images[0], width: 1170, height: 620 }}
-                            video={video}
-                        />
+                        <Video poster={{ ...images[0], width: 1170, height: 620 }} video={video} />
                     )}
                 </motion.div>
             </div>

@@ -20,18 +20,10 @@ type TProps = TSection & {
     };
 };
 
-const VideoArea = ({
-    data: { section_title, images, video },
-    space,
-    bg,
-}: TProps) => {
+const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
-        <Section
-            className={clsx("video-area tw-relative tw-mb-[140px]")}
-            space={space}
-            bg={bg}
-        >
+        <Section className={clsx("video-area tw-relative tw-mb-[140px]")} space={space} bg={bg}>
             <div className="tw-container tw-relative tw-z-10">
                 {section_title && (
                     <AnimatedSectionTitle

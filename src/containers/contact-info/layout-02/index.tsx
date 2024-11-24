@@ -52,9 +52,7 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
                                     "tw-text-[32px] tw-text-primary tw-absolute tw-left-0 tw-top-0"
                                 )}
                             />
-                            <h3 className="tw-text-lg tw-mb-3.8">
-                                {item.title}
-                            </h3>
+                            <h3 className="tw-text-lg tw-mb-3.8">{item.title}</h3>
                             {item.texts?.map((text) => (
                                 <p
                                     key={text.id}

@@ -10,9 +10,7 @@ function useDynamicIconImport(name: string) {
         setLoading(true);
         const importIcon = async (): Promise<void> => {
             try {
-                ImportedIconRef.current = (
-                    await import(`/src/assets/svgs/${name}.svg`)
-                ).default;
+                ImportedIconRef.current = (await import(`/src/assets/svgs/${name}.svg`)).default;
             } catch (err) {
                 setError(err as Error);
             } finally {

@@ -12,13 +12,7 @@ type TProps = {
     title?: string;
 };
 
-const Breadcrumb = ({
-    className,
-    pages,
-    currentPage,
-    showTitle,
-    title,
-}: TProps) => {
+const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps) => {
     return (
         <div
             className={clsx(
@@ -36,9 +30,7 @@ const Breadcrumb = ({
                     </h1>
                 </div>
             )}
-            {!showTitle && (
-                <h1 className="tw-sr-only">{title || currentPage}</h1>
-            )}
+            {!showTitle && <h1 className="tw-sr-only">{title || currentPage}</h1>}
 
             <div
                 className={clsx(

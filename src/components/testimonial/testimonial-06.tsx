@@ -11,14 +11,7 @@ type TProps = {
     className?: string;
 };
 
-const Testimonial = ({
-    name,
-    designation,
-    review,
-    image,
-    rating,
-    className,
-}: TProps) => {
+const Testimonial = ({ name, designation, review, image, rating, className }: TProps) => {
     return (
         <div
             className={clsx(
@@ -40,11 +33,7 @@ const Testimonial = ({
                     </figure>
                 )}
                 <div className="tw-pl-7.5">
-                    <StarRating
-                        rating={rating}
-                        align="left"
-                        className="tw-mb-[11px]"
-                    />
+                    <StarRating rating={rating} align="left" className="tw-mb-[11px]" />
                     <h3 className="tw-mb-0 tw-tracking-wider tw-uppercase tw-inline-block tw-text-h6">
                         {name}
                     </h3>

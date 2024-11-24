@@ -14,12 +14,7 @@ const SearchForm02 = ({ className }: TProps) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [search]);
     return (
-        <form
-            className={clsx(
-                "tw-relative tw-overflow-hidden tw-z-20",
-                className
-            )}
-        >
+        <form className={clsx("tw-relative tw-overflow-hidden tw-z-20", className)}>
             <label htmlFor="search" className="tw-sr-only">
                 Search For Lesson
             </label>

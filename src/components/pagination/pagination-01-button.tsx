@@ -11,8 +11,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
     const router = useRouter();
     const isFirst = currentPage === 1;
     const isLast = currentPage === numberOfPages;
-    const previousPage =
-        currentPage - 1 === 1 ? `` : `${(currentPage - 1).toString()}`;
+    const previousPage = currentPage - 1 === 1 ? `` : `${(currentPage - 1).toString()}`;
     const nextPage = `${(currentPage + 1).toString()}`;
 
     const pagiHandler = (curPage: string) => {
@@ -31,12 +30,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
 
     return (
         <nav aria-label="Page navigation">
-            <ul
-                className={clsx(
-                    "pagination tw-text-[16px] tw-text-center",
-                    className
-                )}
-            >
+            <ul className={clsx("pagination tw-text-[16px] tw-text-center", className)}>
                 <li className="tw-inline-block tw-px-[5px]">
                     <button
                         type="button"
@@ -50,10 +44,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
                     </button>
                 </li>
                 {Array.from({ length: numberOfPages }, (_, i) => (
-                    <li
-                        className="tw-inline-block tw-px-[5px]"
-                        key={`page-number-${i + 1}`}
-                    >
+                    <li className="tw-inline-block tw-px-[5px]" key={`page-number-${i + 1}`}>
                         <button
                             type="button"
                             className={clsx(
@@ -65,9 +56,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
                             onClick={() => pagiHandler(`${i + 1}`)}
                         >
                             {i + 1}{" "}
-                            {i + 1 === currentPage && (
-                                <span className="tw-sr-only">Current</span>
-                            )}
+                            {i + 1 === currentPage && <span className="tw-sr-only">Current</span>}
                         </button>
                     </li>
                 ))}

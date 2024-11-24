@@ -22,26 +22,14 @@ const cloudflareLoader = ({
     return `/cdn-cgi/image/${paramsString}/${normalizeSrc(src)}`;
 };
 
-const myLoader = ({
-    src,
-    width,
-    quality,
-}: {
-    src: string;
-    width: number;
-    quality?: number;
-}) => {
+const myLoader = ({ src, width, quality }: { src: string; width: number; quality?: number }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
 };
 
 const MyImage = (props: ImageProps) => {
     return (
         <Image
-            loader={
-                process.env.NODE_ENV === "production"
-                    ? cloudflareLoader
-                    : myLoader
-            }
+            loader={process.env.NODE_ENV === "production" ? cloudflareLoader : myLoader}
             {...props}
         />
     );

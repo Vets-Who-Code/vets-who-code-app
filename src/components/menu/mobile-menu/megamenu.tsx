@@ -11,12 +11,7 @@ type TProps = {
 
 const Megamenu = ({ menu, isExpand, className }: TProps) => {
     return (
-        <div
-            className={clsx(
-                "tw-py-[14px] tw-border-t tw-border-t-white/[.15]",
-                className
-            )}
-        >
+        <div className={clsx("tw-py-[14px] tw-border-t tw-border-t-white/[.15]", className)}>
             {menu.map(({ id, title, submenu, banner }) => (
                 <div key={id}>
                     <h2 className="tw-sr-only">{title}</h2>
@@ -38,9 +33,7 @@ const Megamenu = ({ menu, isExpand, className }: TProps) => {
                                         {nav.status && (
                                             <Badge
                                                 color={
-                                                    nav.status === "hot"
-                                                        ? "gradient"
-                                                        : "primary"
+                                                    nav.status === "hot" ? "gradient" : "primary"
                                                 }
                                                 size="xs"
                                                 className="tw-ml-2.5 tw-font-bold tw-tracking-wide tw-uppercase"
@@ -56,10 +49,7 @@ const Megamenu = ({ menu, isExpand, className }: TProps) => {
                     {banner && (
                         <Anchor path={banner.path} tabIndex={isExpand ? 0 : -1}>
                             {banner.image?.src && (
-                                <img
-                                    src={banner.image.src}
-                                    alt={banner.image?.alt || "Banner"}
-                                />
+                                <img src={banner.image.src} alt={banner.image?.alt || "Banner"} />
                             )}
                         </Anchor>
                     )}

@@ -50,16 +50,10 @@ const TestimonialArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
 
-                    {motto && (
-                        <MottoText {...motto} size="md" className="tw-mt-4" />
-                    )}
+                    {motto && <MottoText {...motto} size="md" className="tw-mt-4" />}
                 </motion.div>
                 {items && items.length > 0 && (
                     <AnimatedSwiper

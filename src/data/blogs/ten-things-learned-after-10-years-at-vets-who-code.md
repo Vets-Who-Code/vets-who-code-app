@@ -4,9 +4,7 @@ postedAt: "2024-06-03T09:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Reflecting on a decade of leading Vets Who Code, here are ten valuable lessons learned about coding, mentorship, and personal growth."
 image:
-    {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1717373882/ten-years_v9cvdv.jpg",
-    }
+    { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1717373882/ten-years_v9cvdv.jpg" }
 category: "Veteran Support"
 tags:
     - Veterans

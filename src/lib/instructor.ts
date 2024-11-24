@@ -5,15 +5,10 @@ import { getSlugs } from "./util";
 
 const instructorDirectory = path.join(process.cwd(), "src/data/instructors");
 
-export function getInstructorBySlug(
-    slug: string,
-    fields: FieldType<IInstructor>
-): IInstructor {
+export function getInstructorBySlug(slug: string, fields: FieldType<IInstructor>): IInstructor {
     const realSlug = slug.replace(/\.json$/, "");
     const fullPath = path.join(instructorDirectory, `${realSlug}.json`);
-    const fileContents = JSON.parse(
-        fs.readFileSync(fullPath, "utf8")
-    ) as IInstructor;
+    const fileContents = JSON.parse(fs.readFileSync(fullPath, "utf8")) as IInstructor;
     let course: IInstructor;
     if (fields === "all") {
         course = fileContents;
@@ -31,10 +26,7 @@ export function getInstructorBySlug(
     return course;
 }
 
-export function getAllInstructors(
-    fields: FieldType<IInstructor>,
-    limit?: number
-) {
+export function getAllInstructors(fields: FieldType<IInstructor>, limit?: number) {
     const slugs = getSlugs(instructorDirectory);
     let instructors = slugs.map((slug) => getInstructorBySlug(slug, fields));
     if (limit) instructors = instructors.slice(0, limit);

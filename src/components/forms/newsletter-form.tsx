@@ -15,100 +15,84 @@ type IFormValues = {
     newsletter_email: string;
 };
 
-const NewsletterForm = forwardRef<HTMLFormElement, TProps>(
-    ({ className }, ref) => {
-        const [message, setMessage] = useState("");
-        const [errorMessage, setErrorMessage] = useState("");
-        const {
-            register,
-            handleSubmit,
-            formState: { errors },
-            reset,
-        } = useForm<IFormValues>();
+const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => {
+    const [message, setMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<IFormValues>();
 
-        const onSubmit: SubmitHandler<IFormValues> = async (formData, e) => {
-            e?.preventDefault();
+    const onSubmit: SubmitHandler<IFormValues> = async (formData, e) => {
+        e?.preventDefault();
 
-            try {
-                const subscribApiEndpoint = "/api/newsletter";
-                const options = {
-                    method: "POST",
-                    body: JSON.stringify(formData),
-                };
+        try {
+            const subscribApiEndpoint = "/api/newsletter";
+            const options = {
+                method: "POST",
+                body: JSON.stringify(formData),
+            };
 
-                const response: Response = await fetch(
-                    subscribApiEndpoint,
-                    options
-                );
-                const json = (await response.json()) as ApiResponse;
+            const response: Response = await fetch(subscribApiEndpoint, options);
+            const json = (await response.json()) as ApiResponse;
 
-                if (json.ok) {
-                    setMessage("Thank you for subscribing!");
-                    setErrorMessage("");
-                    reset();
-                } else if (!json.ok) {
-                    setMessage("");
-                    setErrorMessage(json.error || "OOPS Something went wrong");
-                }
-            } catch (error: unknown) {
+            if (json.ok) {
+                setMessage("Thank you for subscribing!");
+                setErrorMessage("");
+                reset();
+            } else if (!json.ok) {
                 setMessage("");
-                setErrorMessage(
-                    (error as FetchError).message || "OOPS Something went wrong"
-                );
+                setErrorMessage(json.error || "OOPS Something went wrong");
             }
-        };
+        } catch (error: unknown) {
+            setMessage("");
+            setErrorMessage((error as FetchError).message || "OOPS Something went wrong");
+        }
+    };
 
-        return (
-            <form
-                className={clsx(
-                    "tw-relative tw-max-w-[570px] tw-flex tw-flex-wrap",
-                    className
-                )}
-                onSubmit={handleSubmit(onSubmit)}
-                ref={ref}
+    return (
+        <form
+            className={clsx("tw-relative tw-max-w-[570px] tw-flex tw-flex-wrap", className)}
+            onSubmit={handleSubmit(onSubmit)}
+            ref={ref}
+        >
+            <div className="tw-flex-100 md:tw-flex-auto0">
+                <label htmlFor="newsletter_email" className="tw-sr-only">
+                    Newsletter
+                </label>
+                <Input
+                    id="newsletter_email"
+                    type="email"
+                    placeholder="Your E-mail"
+                    className="tw-max-h-[52px] md:tw-rounded-br-none md:tw-rounded-tr-none md:tw-border-r-0"
+                    feedbackText={errors?.newsletter_email?.message}
+                    state={hasKey(errors, "newsletter_email") ? "error" : "success"}
+                    showState={!!hasKey(errors, "newsletter_email")}
+                    {...register("newsletter_email", {
+                        required: "Email is required",
+                        pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                            message: "invalid email address",
+                        },
+                    })}
+                    onChange={() => {
+                        setErrorMessage("");
+                        setMessage("");
+                    }}
+                />
+            </div>
+            <Button
+                type="submit"
+                className="tw-mt-3.8 md:tw-mt-0 md:tw-rounded-bl-none md:tw-rounded-tl-none"
             >
-                <div className="tw-flex-100 md:tw-flex-auto0">
-                    <label htmlFor="newsletter_email" className="tw-sr-only">
-                        Newsletter
-                    </label>
-                    <Input
-                        id="newsletter_email"
-                        type="email"
-                        placeholder="Your E-mail"
-                        className="tw-max-h-[52px] md:tw-rounded-br-none md:tw-rounded-tr-none md:tw-border-r-0"
-                        feedbackText={errors?.newsletter_email?.message}
-                        state={
-                            hasKey(errors, "newsletter_email")
-                                ? "error"
-                                : "success"
-                        }
-                        showState={!!hasKey(errors, "newsletter_email")}
-                        {...register("newsletter_email", {
-                            required: "Email is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                message: "invalid email address",
-                            },
-                        })}
-                        onChange={() => {
-                            setErrorMessage("");
-                            setMessage("");
-                        }}
-                    />
-                </div>
-                <Button
-                    type="submit"
-                    className="tw-mt-3.8 md:tw-mt-0 md:tw-rounded-bl-none md:tw-rounded-tl-none"
-                >
-                    Subscribe
-                </Button>
-                {message && <Feedback state="success">{message}</Feedback>}
-                {errorMessage && (
-                    <Feedback state="error">{errorMessage}</Feedback>
-                )}
-            </form>
-        );
-    }
-);
+                Subscribe
+            </Button>
+            {message && <Feedback state="success">{message}</Feedback>}
+            {errorMessage && <Feedback state="error">{errorMessage}</Feedback>}
+        </form>
+    );
+});
 
 export default NewsletterForm;

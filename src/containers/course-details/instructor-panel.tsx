@@ -27,12 +27,7 @@ const OverviewPanel = ({ name, image, designation, bio, socials }: TProps) => {
                 </h6>
                 <p className="tw-mt-3.8 tw-mb-0">{bio}</p>
 
-                <Social
-                    shape="circle"
-                    variant="outlined"
-                    color="light"
-                    className="tw-mt-7.5"
-                >
+                <Social shape="circle" variant="outlined" color="light" className="tw-mt-7.5">
                     {socials.map((social) => (
                         <SocialLink
                             key={social.label}

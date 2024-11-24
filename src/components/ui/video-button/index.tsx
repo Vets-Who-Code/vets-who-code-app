@@ -32,11 +32,7 @@ const VideoButton = ({ label, className, videoId }: TProps) => {
                     height={70}
                 />
             </button>
-            <ModalVideo
-                show={isOpen}
-                videoId={videoId}
-                onClose={() => setOpen(false)}
-            />
+            <ModalVideo show={isOpen} videoId={videoId} onClose={() => setOpen(false)} />
         </>
     );
 };

@@ -39,10 +39,7 @@ type Mailchimp =
     | MailchimpMember
     | MailchimpCampaign;
 
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
@@ -63,23 +60,20 @@ export default async function handler(
 
     // Subscribe the email using Mailchimp API
     try {
-        const response = await fetch(
-            `${MAILCHIMP_API_SERVER}/${MAILCHIMP_LIST_ID}/members`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Basic ${Buffer.from(
-                        `apikey:${MAILCHIMP_API_KEY}`
-                    ).toString("base64")}`,
-                },
-                body: JSON.stringify({
-                    // email_address: email,
-                    email_address: email,
-                    status: "subscribed",
-                }),
-            }
-        );
+        const response = await fetch(`${MAILCHIMP_API_SERVER}/${MAILCHIMP_LIST_ID}/members`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Basic ${Buffer.from(`apikey:${MAILCHIMP_API_KEY}`).toString(
+                    "base64"
+                )}`,
+            },
+            body: JSON.stringify({
+                // email_address: email,
+                email_address: email,
+                status: "subscribed",
+            }),
+        });
 
         let data: Mailchimp;
 
@@ -92,9 +86,7 @@ export default async function handler(
 
         if (response.ok) {
             // Successful subscription
-            return res
-                .status(200)
-                .json({ message: "Email subscribed successfully", ok: true });
+            return res.status(200).json({ message: "Email subscribed successfully", ok: true });
         }
 
         // Error from Mailchimp API
@@ -112,15 +104,9 @@ export default async function handler(
     } catch (error: unknown) {
         const errorRes = error as MailchimpErrorResponse;
         // Error handling
-        if (
-            typeof errorRes === "object" &&
-            errorRes !== null &&
-            "status" in errorRes
-        ) {
+        if (typeof errorRes === "object" && errorRes !== null && "status" in errorRes) {
             // Error from Mailchimp API
-            return res
-                .status(errorRes.status)
-                .json({ error: errorRes.message });
+            return res.status(errorRes.status).json({ error: errorRes.message });
         }
         // Other error
         return res.status(500).json({ error: "Internal Server Error" });

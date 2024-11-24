@@ -99,10 +99,8 @@
     font-display: swap;
     src: url("/fonts/playfair-display/playfair-display-v28-latin-regular.woff2");
     src: local(""),
-        url("/fonts/playfair-display/playfair-display-v28-latin-regular.woff2")
-            format("woff2"),
-        url("/fonts/playfair-display/playfair-display-v28-latin-regular.woff")
-            format("woff");
+        url("/fonts/playfair-display/playfair-display-v28-latin-regular.woff2") format("woff2"),
+        url("/fonts/playfair-display/playfair-display-v28-latin-regular.woff") format("woff");
 }
 
 @font-face {
@@ -112,10 +110,8 @@
     font-display: swap;
     src: url("/fonts/playfair-display/playfair-display-v28-latin-600.woff2");
     src: local(""),
-        url("/fonts/playfair-display/playfair-display-v28-latin-600.woff2")
-            format("woff2"),
-        url("/fonts/playfair-display/playfair-display-v28-latin-600.woff")
-            format("woff");
+        url("/fonts/playfair-display/playfair-display-v28-latin-600.woff2") format("woff2"),
+        url("/fonts/playfair-display/playfair-display-v28-latin-600.woff") format("woff");
 }
 
 @font-face {
@@ -125,10 +121,8 @@
     font-display: swap;
     src: url("/fonts/playfair-display/playfair-display-v28-latin-500.woff2");
     src: local(""),
-        url("/fonts/playfair-display/playfair-display-v28-latin-500.woff2")
-            format("woff2"),
-        url("/fonts/playfair-display/playfair-display-v28-latin-500.woff")
-            format("woff");
+        url("/fonts/playfair-display/playfair-display-v28-latin-500.woff2") format("woff2"),
+        url("/fonts/playfair-display/playfair-display-v28-latin-500.woff") format("woff");
 }
 
 @font-face {
@@ -138,10 +132,8 @@
     font-display: swap;
     src: url("/fonts/playfair-display/playfair-display-v28-latin-700.woff2");
     src: local(""),
-        url("/fonts/playfair-display/playfair-display-v28-latin-700.woff2")
-            format("woff2"),
-        url("/fonts/playfair-display/playfair-display-v28-latin-700.woff")
-            format("woff");
+        url("/fonts/playfair-display/playfair-display-v28-latin-700.woff2") format("woff2"),
+        url("/fonts/playfair-display/playfair-display-v28-latin-700.woff") format("woff");
 }
 
 /* Rossela Fonts */

@@ -7,13 +7,7 @@ import BottomShape from "@ui/bottom-shape/shape-03";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
 import { scrollUpVariants } from "@utils/variants";
-import {
-    ImageType,
-    MottoType,
-    SectionTitleType,
-    TSection,
-    VideoType,
-} from "@utils/types";
+import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedMottoText = motion(MottoText);

@@ -13,10 +13,7 @@ const Wrapper = ({ children, className, showBalls }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <div
-            className={clsx(
-                "wrapper tw-relative tw-bg-transparent tw-bg-lightGradient",
-                className
-            )}
+            className={clsx("wrapper tw-relative tw-bg-transparent tw-bg-lightGradient", className)}
         >
             {children}
             {showBalls && (

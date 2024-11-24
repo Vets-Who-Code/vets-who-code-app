@@ -13,9 +13,7 @@ const Testimonial04 = ({ title, className }: TProps) => {
                 className
             )}
         >
-            <h3 className="tw-text-secondary tw-text-xl">
-                &quot;{title}&quot;
-            </h3>
+            <h3 className="tw-text-secondary tw-text-xl">&quot;{title}&quot;</h3>
         </div>
     );
 };

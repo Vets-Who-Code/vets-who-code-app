@@ -20,10 +20,7 @@ const Coursegrid01: PageProps = ({ data }) => {
     return (
         <>
             <SEO title="Courses" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Courses"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Courses" />
             <CourseArea data={{ courses: data.courses }} />
         </>
     );

@@ -14,12 +14,7 @@ type TProps = TSection & {
     };
 };
 
-const TimelineArea = ({
-    data: { section_title, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const TimelineArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="timeline-area" space={space} bg={bg}>
             <div className="tw-container">

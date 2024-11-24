@@ -11,10 +11,7 @@ type TProps = {
 const BASE_RATING = 5;
 
 const StarRating = ({ rating, className, align, size, space }: TProps) => {
-    const unrated = Array.from(
-        new Array(Math.floor(BASE_RATING - rating)),
-        (_x, i) => i
-    );
+    const unrated = Array.from(new Array(Math.floor(BASE_RATING - rating)), (_x, i) => i);
     const rated = Array.from(new Array(Math.floor(rating)), (_x, i) => i + 1);
     const remainder = rating - parseInt(`${rating}`, 10);
 

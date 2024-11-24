@@ -5,11 +5,7 @@ import Breadcrumb from "@components/breadcrumb";
 import BlogArea from "@containers/blog-full/layout-02";
 import { BlogMetaType, IBlog } from "@utils/types";
 import { flatDeep, unslugify, toCapitalize } from "@utils/methods";
-import {
-    getAllBlogs,
-    getPostsByCategory,
-    getTags,
-} from "../../../../../lib/blog";
+import { getAllBlogs, getPostsByCategory, getTags } from "../../../../../lib/blog";
 
 type TProps = {
     data: {
@@ -30,15 +26,7 @@ type PageProps = NextPage<TProps> & {
 const POSTS_PER_PAGE = 8;
 
 const BlogCategoryPage: PageProps = ({
-    data: {
-        blogs,
-        recentPosts,
-        tags,
-        pageTitle,
-        slug,
-        currentPage,
-        numberOfPages,
-    },
+    data: { blogs, recentPosts, tags, pageTitle, slug, currentPage, numberOfPages },
 }) => {
     return (
         <>
