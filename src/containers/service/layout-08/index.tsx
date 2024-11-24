@@ -19,12 +19,7 @@ type TProps = {
     titleSize?: "default" | "large";
 };
 
-const ServiceArea = ({
-    data: { section_title, items, images },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleSize }: TProps) => {
     return (
         <div
             className={clsx(

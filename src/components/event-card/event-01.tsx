@@ -5,11 +5,7 @@ import Anchor from "@ui/anchor";
 import Button from "@ui/button";
 import { IEvent } from "@utils/types";
 
-interface TProps
-    extends Pick<
-        IEvent,
-        "thumbnail" | "title" | "path" | "start_date" | "location"
-    > {
+interface TProps extends Pick<IEvent, "thumbnail" | "title" | "path" | "start_date" | "location"> {
     className?: string;
 }
 
@@ -39,12 +35,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                         </figure>
                     )}
                     <div className="tw-absolute tw-inset-0 tw-bg-secondary/60 tw-transition-opacity tw-duration-300 tw-flex tw-justify-center tw-items-center tw-invisible tw-opacity-0 group-hover:tw-visible group-hover:tw-opacity-100">
-                        <Button
-                            color="light"
-                            hover={false}
-                            className="tw-text-primary"
-                            path={path}
-                        >
+                        <Button color="light" hover={false} className="tw-text-primary" path={path}>
                             Get ticket
                         </Button>
                     </div>

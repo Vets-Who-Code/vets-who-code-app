@@ -21,16 +21,11 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 9;
 
-const BlogGrid: PageProps = ({
-    data: { blogs, currentPage, numberOfPages },
-}) => {
+const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title={`Blog Grid - Page - ${currentPage}`} />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="HashFlag Blog"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="HashFlag Blog" />
             <BlogArea
                 data={{
                     blogs,

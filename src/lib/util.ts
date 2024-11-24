@@ -7,9 +7,7 @@ export const readFiles = <T>(dirPath: string) => {
     const dirContents = fs.readdirSync(dir);
     const files: Array<T> = [];
     dirContents.forEach((val) => {
-        const file: T = JSON.parse(
-            fs.readFileSync(path.join(dir, val), "utf8")
-        ) as T;
+        const file: T = JSON.parse(fs.readFileSync(path.join(dir, val), "utf8")) as T;
         files.push(file);
     });
     return files;

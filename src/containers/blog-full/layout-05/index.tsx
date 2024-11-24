@@ -15,11 +15,7 @@ type TProps = {
 };
 
 const BlogArea = ({ data: { blogs } }: TProps) => {
-    const { hasMore, itemsToShow, handlerLoadMore } = useLoadMore<IBlog>(
-        blogs,
-        6,
-        3
-    );
+    const { hasMore, itemsToShow, handlerLoadMore } = useLoadMore<IBlog>(blogs, 6, 3);
     return (
         <Section className="blog-area" space="bottom">
             <h2 className="tw-sr-only">Blog Section</h2>
@@ -50,8 +46,7 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                                     className="tw-min-w-[250px] tw-border-gray-500"
                                     onClick={handlerLoadMore}
                                 >
-                                    Load More{" "}
-                                    <i className="fal fa-redo tw-ml-4" />
+                                    Load More <i className="fal fa-redo tw-ml-4" />
                                 </Button>
                             ) : (
                                 <p>No course to show</p>

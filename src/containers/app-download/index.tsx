@@ -4,12 +4,7 @@ import SectionTitle from "@components/section-title";
 import Button from "@ui/button";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
-import {
-    ButtonType,
-    ImageType,
-    SectionTitleType,
-    TSection,
-} from "@utils/types";
+import { ButtonType, ImageType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 type TProps = TSection & {
@@ -63,10 +58,7 @@ const AppDownloadArea = ({
                             y: trans2().y,
                         }}
                     >
-                        <img
-                            src="/images/shape-animation/cta-shape-01.png"
-                            alt=""
-                        />
+                        <img src="/images/shape-animation/cta-shape-01.png" alt="" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-z-20 tw-top-0 tw-right-5"
@@ -97,11 +89,7 @@ const AppDownloadArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
                     {buttons?.map(({ id, content, ...rest }) => (
                         <Button key={id} className="tw-mt-10" {...rest}>

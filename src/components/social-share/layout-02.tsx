@@ -22,13 +22,7 @@ const SocialShare = ({ className }: TProps) => {
     };
 
     return (
-        <Social
-            shape="circle"
-            variant="outlined"
-            color="light"
-            tooltip
-            className={className}
-        >
+        <Social shape="circle" variant="outlined" color="light" tooltip className={className}>
             <SocialLink
                 label="Facebook"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${href}`}

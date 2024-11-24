@@ -57,9 +57,7 @@ const PageSeo = ({
             <NextSeo
                 title={title}
                 titleTemplate={
-                    template
-                        ? `${title ?? ""} - ${template}`
-                        : `%s - ${siteConfig.titleTemplate}`
+                    template ? `${title ?? ""} - ${template}` : `%s - ${siteConfig.titleTemplate}`
                 }
                 description={description}
                 openGraph={{

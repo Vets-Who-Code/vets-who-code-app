@@ -3,7 +3,10 @@ title: "Hiring Wrong in the Era of AI: How Outdated Processes Are Costing You To
 postedAt: "2024-06-15T10:00:00.000Z"
 author: "John Doe"
 description: "Explore how traditional hiring methods are failing to attract top talent in the age of AI and what changes need to be made."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1718478746/hiring-era-of-ai_jfj4dm.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1718478746/hiring-era-of-ai_jfj4dm.jpg",
+    }
 category: "Tech Hiring Practices"
 tags:
     - AI

@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useRef, RefObject } from "react";
 
-const useClickOutside = <T extends HTMLElement>(
-    onClose: () => void
-): RefObject<T> => {
+const useClickOutside = <T extends HTMLElement>(onClose: () => void): RefObject<T> => {
     const ref = useRef<T>(null);
     const escapeListener = useCallback(
         (e: KeyboardEvent) => {

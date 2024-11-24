@@ -5,10 +5,7 @@ import Breadcrumb from "@components/breadcrumb";
 import ZoomMeetingDetailsArea from "@containers/zoom-meeting-details";
 import { IZoomMeeting } from "@utils/types";
 import { toCapitalize } from "@utils/methods";
-import {
-    getZoomMeetingBySlug,
-    getAllZoomMeetings,
-} from "../../lib/zoom-meeting";
+import { getZoomMeetingBySlug, getAllZoomMeetings } from "../../lib/zoom-meeting";
 
 type TProps = {
     data: {

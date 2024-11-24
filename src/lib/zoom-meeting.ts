@@ -6,15 +6,10 @@ import { getSlugs } from "./util";
 
 const directory = path.join(process.cwd(), "src/data/zoom-meetings");
 
-export function getZoomMeetingBySlug(
-    slug: string,
-    fields: FieldType<IZoomMeeting>
-): IZoomMeeting {
+export function getZoomMeetingBySlug(slug: string, fields: FieldType<IZoomMeeting>): IZoomMeeting {
     const realSlug = slug.replace(/\.json$/, "");
     const fullPath = path.join(directory, `${realSlug}.json`);
-    const fileContents = JSON.parse(
-        fs.readFileSync(fullPath, "utf8")
-    ) as IZoomMeeting;
+    const fileContents = JSON.parse(fs.readFileSync(fullPath, "utf8")) as IZoomMeeting;
     let event: IZoomMeeting;
     if (fields === "all") {
         event = {
@@ -24,45 +19,36 @@ export function getZoomMeetingBySlug(
             time: dayjs(fileContents.date).format("h:mm a"),
         };
     } else {
-        event = fields.reduce(
-            (acc: IZoomMeeting, field: keyof IZoomMeeting) => {
-                if (field === "slug") {
-                    return { ...acc, [field]: realSlug };
-                }
-                if (field === "date") {
-                    return {
-                        ...acc,
-                        [field]: dayjs(fileContents[field]).format(
-                            "MMMM D, YYYY"
-                        ),
-                    };
-                }
-                if (field === "time") {
-                    return {
-                        ...acc,
-                        [field]: dayjs(fileContents[field]).format("h:mm a"),
-                    };
-                }
-                if (typeof fileContents[field] !== "undefined") {
-                    return {
-                        ...acc,
-                        [field]: fileContents[field],
-                    };
-                }
-                return acc;
-            },
-            <IZoomMeeting>{}
-        );
+        event = fields.reduce((acc: IZoomMeeting, field: keyof IZoomMeeting) => {
+            if (field === "slug") {
+                return { ...acc, [field]: realSlug };
+            }
+            if (field === "date") {
+                return {
+                    ...acc,
+                    [field]: dayjs(fileContents[field]).format("MMMM D, YYYY"),
+                };
+            }
+            if (field === "time") {
+                return {
+                    ...acc,
+                    [field]: dayjs(fileContents[field]).format("h:mm a"),
+                };
+            }
+            if (typeof fileContents[field] !== "undefined") {
+                return {
+                    ...acc,
+                    [field]: fileContents[field],
+                };
+            }
+            return acc;
+        }, <IZoomMeeting>{});
     }
 
     return { ...event, path: `/zoom-meetings/${realSlug}` };
 }
 
-export function getAllZoomMeetings(
-    fields: FieldType<IZoomMeeting>,
-    skip = 0,
-    limit?: number
-) {
+export function getAllZoomMeetings(fields: FieldType<IZoomMeeting>, skip = 0, limit?: number) {
     const slugs = getSlugs(directory);
     let events = slugs.map((slug) => getZoomMeetingBySlug(slug, fields));
     if (limit) events = events.slice(skip, limit);

@@ -16,12 +16,7 @@ type TProps = TSection & {
     };
 };
 
-const CourseArea = ({
-    data: { section_title, courses },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="course-area" space={space} bg={bg}>
             <div className="tw-container">
@@ -58,8 +53,7 @@ const CourseArea = ({
                     variants={scrollUpVariants}
                 >
                     <Button path="/courses/all" className="tw-mt-[50px]">
-                        View All Modules{" "}
-                        <i className="far fa-long-arrow-right tw-ml-3" />
+                        View All Modules <i className="far fa-long-arrow-right tw-ml-3" />
                     </Button>
                 </motion.div>
             </div>

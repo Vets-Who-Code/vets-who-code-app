@@ -4,9 +4,7 @@ import CodeEditor from "@components/code-editor"; // Adjust the import path acco
 
 const EditorPage: React.FC = () => {
     // State to hold the code text
-    const [code, setCode] = useState<string>(
-        "// Write your JavaScript code here\n"
-    );
+    const [code, setCode] = useState<string>("// Write your JavaScript code here\n");
 
     // Function to handle code changes from the CodeEditor
     const handleCodeChange = (newCode: string) => {

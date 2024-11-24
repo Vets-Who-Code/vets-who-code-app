@@ -16,12 +16,7 @@ type TProps = TSection & {
     };
 };
 
-const FunfactArea = ({
-    data: { section_title, motto, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="funfact-area" space={space} bg={bg}>
             <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-[50px] lg:tw-gap-7.5">
@@ -33,15 +28,9 @@ const FunfactArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
-                    {motto && (
-                        <MottoText {...motto} size="md" className="tw-mt-5" />
-                    )}
+                    {motto && <MottoText {...motto} size="md" className="tw-mt-5" />}
                 </motion.div>
                 <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-x-3.8 tw-gap-10 md:tw-gap-y-15 tw-h-min">
                     {items?.map((item) => (

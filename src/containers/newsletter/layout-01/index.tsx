@@ -45,10 +45,7 @@ const NewsletterArea = ({ data: { section_title }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <img
-                        src="/images/shape-animation/nwesletter-shape-1.png"
-                        alt=""
-                    />
+                    <img src="/images/shape-animation/nwesletter-shape-1.png" alt="" />
                 </motion.div>
                 <motion.div
                     className="tw-absolute -tw-z-1 -tw-bottom-[-25px] tw-top-[25px] tw-right-[5px] tw-w-15 md:tw-w-auto md:tw-right-[-35px]"
@@ -57,10 +54,7 @@ const NewsletterArea = ({ data: { section_title }, space, bg }: TProps) => {
                         y: trans2().y,
                     }}
                 >
-                    <img
-                        src="/images/shape-animation/nwesletter-shape-2.png"
-                        alt=""
-                    />
+                    <img src="/images/shape-animation/nwesletter-shape-2.png" alt="" />
                 </motion.div>
             </motion.div>
         </Section>

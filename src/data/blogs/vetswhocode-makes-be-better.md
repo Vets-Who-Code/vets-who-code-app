@@ -1,10 +1,12 @@
 ---
-
 title: "VetsWhoCode Makes Me Better"
 postedAt: "2019-07-15T10:00:00.000Z"
 author: "Carla Kroll"
 description: "How VetsWhoCode transformed my journey from an Air Force mechanic to a successful frontend developer."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721218265/carla-kroll_mojy9c.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721218265/carla-kroll_mojy9c.jpg",
+    }
 category: "Career Journey"
 tags:
     - vetswhocode
@@ -12,7 +14,6 @@ tags:
     - ux
 is_featured: true
 views: 0
-
 ---
 
 ### VetsWhoCode Makes Me Better

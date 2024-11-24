@@ -17,12 +17,7 @@ type TProps = TSection & {
     };
 };
 
-const ServiceArea = ({
-    data: { section_title, items, images },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleSize }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <Section className="service-area" space={space} bg={bg}>

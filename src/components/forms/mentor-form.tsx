@@ -48,10 +48,7 @@ const MentorForm = () => {
             <h3 className="tw-text-h2 tw-mb-5">Register</h3>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="name"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="name" className="tw-text-heading tw-text-md">
                         Name *
                     </label>
                     <Input
@@ -67,10 +64,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="email"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="email" className="tw-text-heading tw-text-md">
                         Email *
                     </label>
                     <Input
@@ -90,10 +84,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="branch-of-service"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="branch-of-service" className="tw-text-heading tw-text-md">
                         Military Branch Affiliation *
                     </label>
                     <Input
@@ -101,11 +92,7 @@ const MentorForm = () => {
                         placeholder="Civilian"
                         bg="light"
                         feedbackText={errors?.["branch-of-service"]?.message}
-                        state={
-                            hasKey(errors, "branch-of-service")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "branch-of-service") ? "error" : "success"}
                         showState={!!hasKey(errors, "branch-of-service")}
                         {...register("branch-of-service", {
                             required: "Branch of Service is required",
@@ -113,10 +100,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="technical-expertise"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="technical-expertise" className="tw-text-heading tw-text-md">
                         Technical Expertise *
                     </label>
                     <Input
@@ -124,11 +108,7 @@ const MentorForm = () => {
                         placeholder="Javascript, React, Node, etc."
                         bg="light"
                         feedbackText={errors?.["technical-expertise"]?.message}
-                        state={
-                            hasKey(errors, "technical-expertise")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "technical-expertise") ? "error" : "success"}
                         showState={!!hasKey(errors, "technical-expertise")}
                         {...register("technical-expertise", {
                             required: "Technical Expertise is required",
@@ -146,29 +126,17 @@ const MentorForm = () => {
                         id="github-portfolio-or-linkedin"
                         placeholder="github.com/jody-fake-profile"
                         bg="light"
-                        feedbackText={
-                            errors?.["github-portfolio-or-linkedin"]?.message
-                        }
-                        state={
-                            hasKey(errors, "github-portfolio-or-linkedin")
-                                ? "error"
-                                : "success"
-                        }
-                        showState={
-                            !!hasKey(errors, "github-portfolio-or-linkedin")
-                        }
+                        feedbackText={errors?.["github-portfolio-or-linkedin"]?.message}
+                        state={hasKey(errors, "github-portfolio-or-linkedin") ? "error" : "success"}
+                        showState={!!hasKey(errors, "github-portfolio-or-linkedin")}
                         {...register("github-portfolio-or-linkedin", {
-                            required:
-                                "GitHub Portfolio or LinkedIn is required",
+                            required: "GitHub Portfolio or LinkedIn is required",
                             validate: validateProfileLink,
                         })}
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="location"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="location" className="tw-text-heading tw-text-md">
                         Location *
                     </label>
                     <Input
@@ -184,24 +152,15 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="employer-restrictions"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="employer-restrictions" className="tw-text-heading tw-text-md">
                         Employer Restrictions *
                     </label>
                     <Input
                         id="employer-restrictions"
                         placeholder="None"
                         bg="light"
-                        feedbackText={
-                            errors?.["employer-restrictions"]?.message
-                        }
-                        state={
-                            hasKey(errors, "employer-restrictions")
-                                ? "error"
-                                : "success"
-                        }
+                        feedbackText={errors?.["employer-restrictions"]?.message}
+                        state={hasKey(errors, "employer-restrictions") ? "error" : "success"}
                         showState={!!hasKey(errors, "employer-restrictions")}
                         {...register("employer-restrictions", {
                             required: "Employer Restrictions is required",

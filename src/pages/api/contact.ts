@@ -11,10 +11,7 @@ interface ParsedBody {
     [key: string]: string | undefined;
 }
 
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const parsedBody: ParsedBody = req.body as ParsedBody;
     const { name, email, phone, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];

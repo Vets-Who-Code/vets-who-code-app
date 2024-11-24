@@ -9,12 +9,7 @@ module.exports = {
         policies: [
             {
                 userAgent: "*",
-                disallow: [
-                    "/profile",
-                    "/blogs/search",
-                    "/blogs/search",
-                    "/courses/search",
-                ],
+                disallow: ["/profile", "/blogs/search", "/blogs/search", "/courses/search"],
             },
             { userAgent: "*", allow: "/" },
         ],

@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-const useLoadMore = <T>(
-    items: T[],
-    initialShow: number,
-    loadPerClick: number
-) => {
+const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) => {
     const router = useRouter();
     const [pageNumb, setPageNumb] = useState("1");
     const [hasMore, setHasMore] = useState(true);

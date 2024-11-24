@@ -29,10 +29,7 @@ const Events: PageProps = ({
     return (
         <>
             <SEO title={`Events - Page - ${currentPage}`} />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage="Events"
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Events" />
             <EventArea
                 data={{
                     events,
@@ -77,13 +74,7 @@ export const getStaticProps: GetStaticProps<TProps, Params> = ({ params }) => {
     const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
 
     const { count } = getEventMeta();
-    const events = getallEvents([
-        "slug",
-        "title",
-        "thumbnail",
-        "start_date",
-        "location",
-    ]);
+    const events = getallEvents(["slug", "title", "thumbnail", "start_date", "location"]);
     const skip = (currentPage - 1) * POSTS_PER_PAGE;
     const limit = currentPage * POSTS_PER_PAGE;
 

@@ -8,12 +8,7 @@ import BlogNavLinks from "@containers/blog-details/nav-links";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
 import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
 import { toCapitalize } from "@utils/methods";
-import {
-    getPostBySlug,
-    getAllBlogs,
-    getPrevNextPost,
-    getTags,
-} from "../../lib/blog";
+import { getPostBySlug, getAllBlogs, getPrevNextPost, getTags } from "../../lib/blog";
 
 type TProps = {
     data: {
@@ -32,9 +27,7 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout01;
 };
 
-const BlogDetails: PageProps = ({
-    data: { blog, prevAndNextPost, recentPosts, tags },
-}) => {
+const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, tags } }) => {
     return (
         <>
             <SEO

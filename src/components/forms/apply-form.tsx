@@ -56,10 +56,7 @@ const ApplyForm = () => {
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="firstName"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="firstName" className="tw-text-heading tw-text-md">
                         First Name *
                     </label>
                     <Input
@@ -67,9 +64,7 @@ const ApplyForm = () => {
                         placeholder="Jody"
                         bg="light"
                         feedbackText={errors?.firstName?.message}
-                        state={
-                            hasKey(errors, "firstName") ? "error" : "success"
-                        }
+                        state={hasKey(errors, "firstName") ? "error" : "success"}
                         showState={!!hasKey(errors, "firstName")}
                         {...register("firstName", {
                             required: "First Name is required",
@@ -77,10 +72,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="lastName"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="lastName" className="tw-text-heading tw-text-md">
                         Last Name *
                     </label>
                     <Input
@@ -96,10 +88,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="email"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="email" className="tw-text-heading tw-text-md">
                         Email *
                     </label>
                     <Input
@@ -119,10 +108,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="city"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="city" className="tw-text-heading tw-text-md">
                         City *
                     </label>
                     <Input
@@ -138,10 +124,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="state"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="state" className="tw-text-heading tw-text-md">
                         State *
                     </label>
                     <Input
@@ -157,10 +140,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="zipCode"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="zipCode" className="tw-text-heading tw-text-md">
                         Zip Code *
                     </label>
                     <Input
@@ -176,10 +156,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="country"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="country" className="tw-text-heading tw-text-md">
                         Country *
                     </label>
                     <Input
@@ -195,10 +172,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="branchOfService"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="branchOfService" className="tw-text-heading tw-text-md">
                         Branch of Service *
                     </label>
                     <Input
@@ -206,11 +180,7 @@ const ApplyForm = () => {
                         placeholder="Civilian Baby!"
                         bg="light"
                         feedbackText={errors?.branchOfService?.message}
-                        state={
-                            hasKey(errors, "branchOfService")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "branchOfService") ? "error" : "success"}
                         showState={!!hasKey(errors, "branchOfService")}
                         {...register("branchOfService", {
                             required: "Branch of Service is required",
@@ -218,10 +188,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="yearJoined"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="yearJoined" className="tw-text-heading tw-text-md">
                         Year Joined *
                     </label>
                     <Input
@@ -229,9 +196,7 @@ const ApplyForm = () => {
                         placeholder="Never!"
                         bg="light"
                         feedbackText={errors?.yearJoined?.message}
-                        state={
-                            hasKey(errors, "yearJoined") ? "error" : "success"
-                        }
+                        state={hasKey(errors, "yearJoined") ? "error" : "success"}
                         showState={!!hasKey(errors, "yearJoined")}
                         {...register("yearJoined", {
                             required: "Year Joined is required",
@@ -239,10 +204,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="yearSeparated"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="yearSeparated" className="tw-text-heading tw-text-md">
                         Year Separated *
                     </label>
                     <Input
@@ -250,11 +212,7 @@ const ApplyForm = () => {
                         placeholder="Never Joined"
                         bg="light"
                         feedbackText={errors?.yearSeparated?.message}
-                        state={
-                            hasKey(errors, "yearSeparated")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "yearSeparated") ? "error" : "success"}
                         showState={!!hasKey(errors, "yearSeparated")}
                         {...register("yearSeparated", {
                             required: "Year Separated is required",
@@ -262,10 +220,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="linkedInAccountName"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="linkedInAccountName" className="tw-text-heading tw-text-md">
                         LinkedIn Account Name *
                     </label>
                     <Input
@@ -273,11 +228,7 @@ const ApplyForm = () => {
                         placeholder="linkedin.com/in/jody-civilian"
                         bg="light"
                         feedbackText={errors?.linkedInAccountName?.message}
-                        state={
-                            hasKey(errors, "linkedInAccountName")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "linkedInAccountName") ? "error" : "success"}
                         showState={!!hasKey(errors, "linkedInAccountName")}
                         {...register("linkedInAccountName", {
                             required: "LinkedIn Account Name is required",
@@ -290,10 +241,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="githubAccountName"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="githubAccountName" className="tw-text-heading tw-text-md">
                         GitHub Account Name *
                     </label>
                     <Input
@@ -301,11 +249,7 @@ const ApplyForm = () => {
                         placeholder="github.com/jody-civilian"
                         bg="light"
                         feedbackText={errors?.githubAccountName?.message}
-                        state={
-                            hasKey(errors, "githubAccountName")
-                                ? "error"
-                                : "success"
-                        }
+                        state={hasKey(errors, "githubAccountName") ? "error" : "success"}
                         showState={!!hasKey(errors, "githubAccountName")}
                         {...register("githubAccountName", {
                             required: "GitHub Account Name is required",
@@ -318,10 +262,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="preworkLink"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="preworkLink" className="tw-text-heading tw-text-md">
                         Prework Link *
                     </label>
                     <Input
@@ -329,9 +270,7 @@ const ApplyForm = () => {
                         placeholder="jody-civilian.github.io/prework"
                         bg="light"
                         feedbackText={errors?.preworkLink?.message}
-                        state={
-                            hasKey(errors, "preworkLink") ? "error" : "success"
-                        }
+                        state={hasKey(errors, "preworkLink") ? "error" : "success"}
                         showState={!!hasKey(errors, "preworkLink")}
                         {...register("preworkLink", {
                             required: "Prework Link is required",
@@ -339,10 +278,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label
-                        htmlFor="preworkRepo"
-                        className="tw-text-heading tw-text-md"
-                    >
+                    <label htmlFor="preworkRepo" className="tw-text-heading tw-text-md">
                         Prework Repository *
                     </label>
                     <Input
@@ -350,9 +286,7 @@ const ApplyForm = () => {
                         placeholder="github.com/jody-civilian/prework"
                         bg="light"
                         feedbackText={errors?.preworkRepo?.message}
-                        state={
-                            hasKey(errors, "preworkRepo") ? "error" : "success"
-                        }
+                        state={hasKey(errors, "preworkRepo") ? "error" : "success"}
                         showState={!!hasKey(errors, "preworkRepo")}
                         {...register("preworkRepo", {
                             required: "Prework Repository is required",

@@ -19,12 +19,7 @@ type TProps = TSection & {
     };
 };
 
-const TestimonialArea = ({
-    data: { section_title, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const TestimonialArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => {
     const { trans1, trans2 } = useUI();
     const options = useMemo(() => {
         return {

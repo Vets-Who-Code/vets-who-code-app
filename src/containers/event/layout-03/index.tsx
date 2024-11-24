@@ -19,12 +19,7 @@ type TProps = TSection & {
     };
 };
 
-const EventArea = ({
-    data: { section_title, motto, events },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="event-area tw-relative" space={space} bg={bg}>
             <div className="tw-container">

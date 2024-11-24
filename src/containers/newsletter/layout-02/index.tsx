@@ -11,12 +11,7 @@ type TProps = TSection & {
     };
 };
 
-const NewsletterArea = ({
-    data: { section_title },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="tw-relative" space={space} bg={bg}>
             <div className="tw-absolute tw-inset-0 -tw-z-1 child:tw-w-full child:tw-h-full child:tw-object-cover">

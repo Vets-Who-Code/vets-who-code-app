@@ -15,12 +15,7 @@ type TProps = TSection & {
     };
 };
 
-const FunfactArea = ({
-    data: { section_title, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => (
+const FunfactArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => (
     <Section space={space} bg={bg} className="funfact-area">
         <div className="tw-container">
             {section_title && (

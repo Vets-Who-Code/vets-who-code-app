@@ -52,10 +52,7 @@ const Summary = ({
                     <div className="tw-mx-3 tw-mb-[5px]">
                         <i className="fal fa-clock tw-text-primary tw-mr-[5px]" />
                         <span>
-                            {dayjs(`${start_date} ${start_time}`).format(
-                                "h:mm a"
-                            )}{" "}
-                            -{" "}
+                            {dayjs(`${start_date} ${start_time}`).format("h:mm a")} -{" "}
                             {dayjs(`${end_date} ${end_time}`).format("h:mm a")}
                         </span>
                     </div>

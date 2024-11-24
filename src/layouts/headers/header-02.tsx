@@ -45,15 +45,8 @@ const Header = ({ shadow, fluid }: TProps) => {
                             fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                         )}
                     >
-                        <MainMenu
-                            menu={menu}
-                            hoverStyle="B"
-                            className="tw-hidden xl:tw-block"
-                        />
-                        <Logo
-                            variant="dark"
-                            className="tw-max-w-[120px] sm:tw-max-w-[158px]"
-                        />
+                        <MainMenu menu={menu} hoverStyle="B" className="tw-hidden xl:tw-block" />
+                        <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
                         <div className="tw-flex tw-justify-end tw-items-center">
                             <BurgerButton
                                 className="tw-pl-5 xl:tw-hidden"
@@ -66,11 +59,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                 </div>
                 <div className="tw-h-20" />
             </header>
-            <MobileMenu
-                isOpen={offcanvas}
-                onClose={() => setOffcanvas(false)}
-                menu={menu}
-            />
+            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
         </>
     );
 };

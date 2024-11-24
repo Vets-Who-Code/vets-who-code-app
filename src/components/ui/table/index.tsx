@@ -1,10 +1,4 @@
-import {
-    Children,
-    isValidElement,
-    cloneElement,
-    ReactNode,
-    ReactElement,
-} from "react";
+import { Children, isValidElement, cloneElement, ReactNode, ReactElement } from "react";
 import clsx from "clsx";
 
 interface IProps {
@@ -27,13 +21,9 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
     const baseTHClass = "tw-py-7.5 tw-px-7.5 tw-text-center";
     const baseTDClass = "tw-py-2.5 tw-px-5 tw-text-center";
     const borderedClass =
-        bordered &&
-        "tw-border tw-border-black/[0.08] tw-border-l-0 first:tw-border-l";
+        bordered && "tw-border tw-border-black/[0.08] tw-border-l-0 first:tw-border-l";
 
-    const iterateOverChildren = (
-        reactChildren: ReactNode,
-        parent: TableSectionType
-    ): ReactNode => {
+    const iterateOverChildren = (reactChildren: ReactNode, parent: TableSectionType): ReactNode => {
         return Children.map(reactChildren, (child) => {
             if (!isValidElement(child)) return child;
 
@@ -48,10 +38,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
                 return cloneElement(child as ReactElement<TChildProps>, {
                     ...baseProps,
                     className: clsx(
-                        (childType === "th" || childType === "td") && [
-                            baseTHClass,
-                            borderedClass,
-                        ],
+                        (childType === "th" || childType === "td") && [baseTHClass, borderedClass],
                         childProps.className
                     ),
                     children: iterateOverChildren(childProps.children, parent),
@@ -62,14 +49,9 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
                 return cloneElement(child as ReactElement<TChildProps>, {
                     ...baseProps,
                     className: clsx(
-                        (childType === "th" || childType === "td") && [
-                            baseTDClass,
-                            borderedClass,
-                        ],
+                        (childType === "th" || childType === "td") && [baseTDClass, borderedClass],
                         childType === "th" && "!text-heading font-medium",
-                        childType === "tr" && [
-                            striped && "even:tw-bg-black/[0.02]",
-                        ],
+                        childType === "tr" && [striped && "even:tw-bg-black/[0.02]"],
                         childProps.className
                     ),
                     children: iterateOverChildren(childProps.children, parent),
@@ -89,11 +71,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
             ...childProps,
         };
 
-        if (
-            childType === "thead" ||
-            childType === "tbody" ||
-            childType === "tfoot"
-        ) {
+        if (childType === "thead" || childType === "tbody" || childType === "tfoot") {
             return cloneElement(child as ReactElement<TChildProps>, {
                 ...baseProps,
                 children: iterateOverChildren(childProps.children, childType),
@@ -108,9 +86,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
 
     return (
         <div className="table-responsive">
-            <table className={clsx("table tw-w-full", className)}>
-                {renderChildren}
-            </table>
+            <table className={clsx("table tw-w-full", className)}>{renderChildren}</table>
         </div>
     );
 };

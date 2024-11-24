@@ -16,10 +16,7 @@ const Review = ({ user, rating, title, review }: TProps) => {
         <div className="review tw-flex tw-flex-wrap">
             {user?.avatar?.src && (
                 <figure className="tw-w-[80px] tw-h-[80px] child:tw-rounded-full">
-                    <img
-                        src={user.avatar.src}
-                        alt={user.avatar?.alt || user.name}
-                    />
+                    <img src={user.avatar.src} alt={user.avatar?.alt || user.name} />
                 </figure>
             )}
 

@@ -63,10 +63,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                             )}
                         >
-                            <Logo
-                                variant="dark"
-                                className="tw-max-w-[120px] sm:tw-max-w-[158px]"
-                            />
+                            <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
                             <MainMenu
                                 className="tw-hidden xl:tw-block"
                                 align="center"
@@ -87,11 +84,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div className="tw-h-20" />
                 </div>
             </header>
-            <MobileMenu
-                isOpen={offcanvas}
-                onClose={() => setOffcanvas(false)}
-                menu={menu}
-            />
+            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
         </>
     );
 };

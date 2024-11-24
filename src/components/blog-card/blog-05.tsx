@@ -9,33 +9,13 @@ import SocialShare from "@components/social-share/layout-03";
 
 type TProps = Pick<
     IBlog,
-    | "image"
-    | "path"
-    | "title"
-    | "postedAt"
-    | "views"
-    | "category"
-    | "author"
-    | "excerpt"
+    "image" | "path" | "title" | "postedAt" | "views" | "category" | "author" | "excerpt"
 > & {
     className?: string;
 };
 
 const BlogCard = forwardRef<HTMLDivElement, TProps>(
-    (
-        {
-            className,
-            image,
-            path,
-            title,
-            postedAt,
-            views,
-            category,
-            author,
-            excerpt,
-        },
-        ref
-    ) => {
+    ({ className, image, path, title, postedAt, views, category, author, excerpt }, ref) => {
         return (
             <div
                 className={clsx(
@@ -74,10 +54,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     </h3>
 
                     <div className="tw-text-md tw-mt-5 tw-text-gray-300 tw-flex tw-items-center tw-flex-wrap">
-                        <AuthorMeta
-                            author={author}
-                            className="tw-pr-5 md:tw-pr-8"
-                        />
+                        <AuthorMeta author={author} className="tw-pr-5 md:tw-pr-8" />
                         <BlogMetaItem
                             className="tw-pr-5 md:tw-pr-8"
                             text={postedAt}
@@ -89,16 +66,11 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             icon="far fa-eye"
                         />
                     </div>
-                    <p
-                        className="tw-mt-4"
-                        dangerouslySetInnerHTML={{ __html: excerpt }}
-                    />
+                    <p className="tw-mt-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
                     <div className="tw-flex tw-items-center tw-justify-between tw-mt-7.5">
                         <Button path={path}>
                             Read More
-                            <span className="tw-sr-only">
-                                About this article
-                            </span>
+                            <span className="tw-sr-only">About this article</span>
                         </Button>
                         <SocialShare label="Share this post" />
                     </div>

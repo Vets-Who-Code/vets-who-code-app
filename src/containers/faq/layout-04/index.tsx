@@ -19,12 +19,7 @@ type TProps = {
     titleSize?: "default" | "large";
 };
 
-const FaqArea = ({
-    data: { section_title, images, items },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize }: TProps) => {
     const { trans1 } = useUI();
 
     return (
@@ -80,10 +75,7 @@ const FaqArea = ({
                         />
                     )}
                     {items && items.length > 0 && (
-                        <Accordion
-                            items={items}
-                            defaultActiveKey={items[0].id}
-                        />
+                        <Accordion items={items} defaultActiveKey={items[0].id} />
                     )}
                 </motion.div>
             </div>

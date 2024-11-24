@@ -21,9 +21,7 @@ const NavItem = ({ title, path, image, variant }: TProps) => {
                     <img
                         src={image.src}
                         alt={
-                            image?.alt || variant === "prev"
-                                ? "Prev Navigation"
-                                : "Next Navigation"
+                            image?.alt || variant === "prev" ? "Prev Navigation" : "Next Navigation"
                         }
                         className="tw-w-full tw-h-full tw-object-cover"
                     />

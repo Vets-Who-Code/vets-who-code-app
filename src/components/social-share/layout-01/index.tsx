@@ -20,9 +20,7 @@ const SocialShare = () => {
 
     return (
         <div className="tw-inline-flex tw-items-center tw-relative tw-cursor-pointer tw-transition-colors tw-text-body tw-group hover:tw-text-primary">
-            <h6 className="tw-text-md tw-mb-0 tw-mr-3.8 tw-text-current">
-                Share this course
-            </h6>
+            <h6 className="tw-text-md tw-mb-0 tw-mr-3.8 tw-text-current">Share this course</h6>
             <i className="far fa-share-alt" />
 
             <div

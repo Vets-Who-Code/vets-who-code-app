@@ -1,22 +1,12 @@
 import clsx from "clsx";
 import { ImageType, ItemType } from "@utils/types";
 
-type TProps = Pick<
-    ItemType,
-    "title" | "description" | "name" | "designation"
-> & {
+type TProps = Pick<ItemType, "title" | "description" | "name" | "designation"> & {
     image: ImageType;
     className?: string;
 };
 
-const Testimonial = ({
-    title,
-    description,
-    name,
-    designation,
-    image,
-    className,
-}: TProps) => {
+const Testimonial = ({ title, description, name, designation, image, className }: TProps) => {
     return (
         <div
             className={clsx(
@@ -25,17 +15,11 @@ const Testimonial = ({
             )}
         >
             <h3 className="tw-text-xl tw-leading-relaxed tw-mb-3.5">{title}</h3>
-            <p className="tw-text-lg tw-font-medium tw-leading-relaxed">
-                {description}
-            </p>
+            <p className="tw-text-lg tw-font-medium tw-leading-relaxed">{description}</p>
             <div className="tw-inline-flex tw-flex-wrap tw-items-center tw-pt-1 md:tw-pt-6">
                 {image?.src && (
                     <div className="tw-shrink-0 tw-mr-5 tw-w-[70px]">
-                        <img
-                            className="tw-rounded-full"
-                            src={image.src}
-                            alt={image?.alt || name}
-                        />
+                        <img className="tw-rounded-full" src={image.src} alt={image?.alt || name} />
                     </div>
                 )}
 
@@ -43,9 +27,7 @@ const Testimonial = ({
                     <h4 className="tw-leading-tight tw-text-h6 tw-mb-1 tw-tracking-wider tw-uppercase">
                         {name}
                     </h4>
-                    <span className="tw-mt-2.5 tw-text-md tw-text-gray-300">
-                        / {designation}
-                    </span>
+                    <span className="tw-mt-2.5 tw-text-md tw-text-gray-300">/ {designation}</span>
                 </div>
             </div>
         </div>

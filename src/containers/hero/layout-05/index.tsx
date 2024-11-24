@@ -52,12 +52,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images } }: TProps) => {
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
-                    {images?.[0]?.src && (
-                        <img
-                            src={images[0].src}
-                            alt={images[0]?.alt || "hero"}
-                        />
-                    )}
+                    {images?.[0]?.src && <img src={images[0].src} alt={images[0]?.alt || "hero"} />}
                 </motion.div>
             </div>
             <BottomShape />

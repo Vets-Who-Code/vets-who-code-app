@@ -5,10 +5,7 @@ import Anchor from "@ui/anchor";
 import { ICourse } from "@utils/types";
 
 interface TProps
-    extends Pick<
-        ICourse,
-        "thumbnail" | "title" | "path" | "published_at" | "excerpt"
-    > {
+    extends Pick<ICourse, "thumbnail" | "title" | "path" | "published_at" | "excerpt"> {
     className?: string;
 }
 

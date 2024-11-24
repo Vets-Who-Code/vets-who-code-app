@@ -24,15 +24,10 @@ const makeExcerpt = (str: string, maxLength: number): string => {
     return `${excerpt} ...`;
 };
 
-export function getPostBySlug(
-    slug: string,
-    fields: Array<keyof IBlog> | "all" = []
-): IBlog {
+export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" = []): IBlog {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = join(postsDirectory, `${realSlug}.md`);
-    const fileContents = JSON.parse(
-        JSON.stringify(fs.readFileSync(fullPath, "utf8"))
-    ) as BlogType;
+    const fileContents = JSON.parse(JSON.stringify(fs.readFileSync(fullPath, "utf8"))) as BlogType;
     const { data, content } = matter(fileContents);
 
     const blogData = data as BlogType;
@@ -106,28 +101,18 @@ export function getPostBySlug(
     };
 }
 
-export function getAllBlogs(
-    fields: Array<keyof IBlog> | "all" = [],
-    skip = 0,
-    limit?: number
-) {
+export function getAllBlogs(fields: Array<keyof IBlog> | "all" = [], skip = 0, limit?: number) {
     const slugs = getSlugs(postsDirectory);
     let blogs = slugs
         .map((slug) => getPostBySlug(slug, fields))
         .sort((post1, post2) =>
-            new Date(post1.postedAt).getTime() >
-            new Date(post2.postedAt).getTime()
-                ? -1
-                : 1
+            new Date(post1.postedAt).getTime() > new Date(post2.postedAt).getTime() ? -1 : 1
         );
     if (limit) blogs = blogs.slice(skip, skip + limit);
     return { blogs, count: slugs.length };
 }
 
-export function getPrevNextPost(
-    currentSlug: string,
-    fields: Array<keyof IBlog> | "all" = []
-) {
+export function getPrevNextPost(currentSlug: string, fields: Array<keyof IBlog> | "all" = []) {
     const { blogs } = getAllBlogs(fields);
     const currentIndex = blogs.findIndex((post) => post.slug === currentSlug);
     const prevPost = blogs[currentIndex - 1] || null;
@@ -155,10 +140,7 @@ export function getPostsByCategory(
     skip = 0,
     limit?: number
 ) {
-    const postFields =
-        fields === "all"
-            ? "all"
-            : ([...fields, "category"] as Array<keyof IBlog>);
+    const postFields = fields === "all" ? "all" : ([...fields, "category"] as Array<keyof IBlog>);
     const { blogs } = getAllBlogs(postFields);
     let result = blogs.filter((post) => post.category.slug === category);
     const totalPosts = result.length;
@@ -172,8 +154,7 @@ export function getPostsByTag(
     skip = 0,
     limit?: number
 ) {
-    const postFields =
-        fields === "all" ? "all" : ([...fields, "tags"] as Array<keyof IBlog>);
+    const postFields = fields === "all" ? "all" : ([...fields, "tags"] as Array<keyof IBlog>);
     const { blogs } = getAllBlogs(postFields);
     let result = blogs.filter((post) => post.tags.some((t) => t.slug === tag));
     const totalPosts = result.length;
@@ -187,10 +168,7 @@ export function getPostsByAuthor(
     skip = 0,
     limit?: number
 ) {
-    const postFields =
-        fields === "all"
-            ? "all"
-            : ([...fields, "author"] as Array<keyof IBlog>);
+    const postFields = fields === "all" ? "all" : ([...fields, "author"] as Array<keyof IBlog>);
     const { blogs } = getAllBlogs(postFields);
     let result = blogs.filter((post) => post.author.id === authorID);
     const totalPosts = result.length;

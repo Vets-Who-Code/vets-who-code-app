@@ -66,9 +66,7 @@ const HeroArea = ({ data: { items } }: TProps) => {
                             {headings?.[0]?.content && (
                                 <motion.h2
                                     initial="hidden"
-                                    animate={
-                                        idx === activeIdx ? "visible" : "exit"
-                                    }
+                                    animate={idx === activeIdx ? "visible" : "exit"}
                                     exit="exit"
                                     variants={fadeInUp}
                                     className="tw-text-white tw-text-[32px] tw-uppercase tw-mb-0 tw-leading-[1.17] md:tw-text-4xl lg:tw-col-span-4 lg:tw-text-5xl lg:tw-text-right"
@@ -81,19 +79,13 @@ const HeroArea = ({ data: { items } }: TProps) => {
                                 {headings?.[1]?.content && (
                                     <motion.h3
                                         initial="hidden"
-                                        animate={
-                                            idx === activeIdx
-                                                ? "visible"
-                                                : "exit"
-                                        }
+                                        animate={idx === activeIdx ? "visible" : "exit"}
                                         exit="exit"
                                         variants={fadeInUp}
                                         className="tw-text-lg -tw-tracking-tightest tw-text-white tw-uppercase tw-mb-[25px]"
                                     >
                                         <span className="tw-text-[34px] tw-leading-none tw-align-middle">
-                                            {(idx + 1)
-                                                .toString()
-                                                .padStart(2, "0")}
+                                            {(idx + 1).toString().padStart(2, "0")}
                                         </span>
                                         <span className="tw-hidden md:tw-inline-block tw-align-middle tw-w-15 tw-h-px tw-bg-white tw-mr-7.5 tw-ml-3.8" />{" "}
                                         {headings[1].content}
@@ -103,11 +95,7 @@ const HeroArea = ({ data: { items } }: TProps) => {
                                     <motion.p
                                         key={text.id}
                                         initial="hidden"
-                                        animate={
-                                            idx === activeIdx
-                                                ? "visible"
-                                                : "exit"
-                                        }
+                                        animate={idx === activeIdx ? "visible" : "exit"}
                                         exit="exit"
                                         variants={fadeInUp}
                                         className="tw-text-[16px] md:tw-text-lg lg:tw-text-2xl lg:tw-leading-normal tw-font-medium tw-text-white"

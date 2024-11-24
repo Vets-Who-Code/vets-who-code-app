@@ -49,9 +49,7 @@ const AccordionItem = ({ id, title, description, onClick, isOpen }: TProps) => {
                     ease: [0.645, 0.045, 0.355, 1],
                 }}
             >
-                <p className="tw-pt-[27px] tw-pb-[39px] tw-px-[25px]">
-                    {description}
-                </p>
+                <p className="tw-pt-[27px] tw-pb-[39px] tw-px-[25px]">{description}</p>
             </motion.div>
         </div>
     );

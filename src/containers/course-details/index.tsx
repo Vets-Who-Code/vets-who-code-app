@@ -26,9 +26,7 @@ const CourseDetails = ({ data: { course } }: TProps) => {
                         <TabContent className="tw-mt-10 lg:tw-mt-[50px]">
                             <TabPane>
                                 {course?.description && (
-                                    <OverviewPanel
-                                        description={course?.description}
-                                    />
+                                    <OverviewPanel description={course?.description} />
                                 )}
                             </TabPane>
                             {/* Remove unused TabPane components */}

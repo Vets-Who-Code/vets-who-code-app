@@ -12,10 +12,7 @@ type TProps = Pick<
 };
 
 const ZoomCard = forwardRef<HTMLDivElement, TProps>(
-    (
-        { className, thumbnail, title, path, meeting_id, date, time, duration },
-        ref
-    ) => {
+    ({ className, thumbnail, title, path, meeting_id, date, time, duration }, ref) => {
         return (
             <div
                 className={clsx(
@@ -61,17 +58,13 @@ const ZoomCard = forwardRef<HTMLDivElement, TProps>(
                     <div className="tw-mt-[11px] tw-text-base tw-text-gray-300 tw-flex tw-flex-wrap tw-items-center">
                         <div className="tw-py-[3px] tw-mr-5">
                             <span className="tw-mr-1 tw-text-body far fa-calendar" />
-                            <span className="meta-value start-date">
-                                {date}
-                            </span>{" "}
+                            <span className="meta-value start-date">{date}</span>{" "}
                             <span className="tw-font-semibold">{time}</span>
                         </div>
 
                         <div className="zvc-meta zvc-loop-duration">
                             <span className="tw-mr-1 tw-text-body far fa-clock" />
-                            <span className="meta-value">
-                                {minutesToHours(duration)}
-                            </span>
+                            <span className="meta-value">{minutesToHours(duration)}</span>
                         </div>
                     </div>
                 </div>

@@ -16,12 +16,7 @@ type TProps = TSection & {
     };
 };
 
-const BlogArea = ({
-    data: { section_title, blogs },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="blog-area" space={space} bg={bg}>
             <div className="tw-container tw-relative">

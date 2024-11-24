@@ -15,11 +15,7 @@ const BlogAuthor = ({ name, image, bio, socials }: IInstructor) => {
                     />
                 )}
                 {socials?.length > 0 && (
-                    <Social
-                        color="dark"
-                        tooltip
-                        className="tw-mt-[13px] tw-mx-[-9px]"
-                    >
+                    <Social color="dark" tooltip className="tw-mt-[13px] tw-mx-[-9px]">
                         {socials.map(({ icon, label, url }) => (
                             <SocialLink
                                 key={label}
@@ -34,9 +30,7 @@ const BlogAuthor = ({ name, image, bio, socials }: IInstructor) => {
                 )}
             </div>
             <div className="md:tw-w-[calc(100%_-_140px)] tw-text-center tw-pt-7.5 md:tw-text-left md:tw-pt-0 md:tw-pl-7.5">
-                <h3 className="tw-mb-[13px] tw-text-base tw-uppercase tw-tracking-wider">
-                    {name}
-                </h3>
+                <h3 className="tw-mb-[13px] tw-text-base tw-uppercase tw-tracking-wider">{name}</h3>
                 <p className="tw-mb-0">{bio}</p>
             </div>
         </div>

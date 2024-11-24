@@ -8,12 +8,7 @@ type TProps = {
     className?: string;
 };
 
-const Pagination = ({
-    currentPage,
-    numberOfPages,
-    rootPage = "blog",
-    className,
-}: TProps) => {
+const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }: TProps) => {
     const isFirst = currentPage === 1;
     const isLast = currentPage === numberOfPages;
     const previousPage =
@@ -30,9 +25,7 @@ const Pagination = ({
             case numberOfPages === 1:
                 break;
             case numberOfPages <= 4:
-                showPagi = [
-                    ...Array.from({ length: numberOfPages }, (_, i) => i + 1),
-                ];
+                showPagi = [...Array.from({ length: numberOfPages }, (_, i) => i + 1)];
                 break;
             case currentPage === 1:
                 showPagi = [1, next, "dots", numberOfPages];
@@ -53,15 +46,7 @@ const Pagination = ({
                 showPagi = [1, "dots", prev, numberOfPages - 1, numberOfPages];
                 break;
             default:
-                showPagi = [
-                    1,
-                    "dots",
-                    prev,
-                    currentPage,
-                    next,
-                    "dots",
-                    numberOfPages,
-                ];
+                showPagi = [1, "dots", prev, currentPage, next, "dots", numberOfPages];
         }
         return null;
     });
@@ -85,10 +70,7 @@ const Pagination = ({
                 )}
 
                 {showPagi.map((pagi) => (
-                    <li
-                        className="tw-inline-block tw-px-[5px]"
-                        key={`page-number-${pagi}`}
-                    >
+                    <li className="tw-inline-block tw-px-[5px]" key={`page-number-${pagi}`}>
                         {pagi === "dots" && <span>...</span>}
                         {pagi !== "dots" && (
                             <Anchor
@@ -99,9 +81,7 @@ const Pagination = ({
                                         "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
                                 )}
                                 path={`${
-                                    pagi === 1
-                                        ? `/${rootPage}`
-                                        : `/${rootPage}/page/${pagi}`
+                                    pagi === 1 ? `/${rootPage}` : `/${rootPage}/page/${pagi}`
                                 }`}
                             >
                                 {pagi}{" "}

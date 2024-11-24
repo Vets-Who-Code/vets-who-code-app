@@ -7,8 +7,7 @@ interface IData {
 type PageType = "home" | "inner";
 
 export function getPageData(page: PageType, pageName: string) {
-    const dirPath =
-        page === "home" ? "src/data/homepages" : "src/data/innerpages";
+    const dirPath = page === "home" ? "src/data/homepages" : "src/data/innerpages";
     const allPages = readFiles<IData>(dirPath);
     return allPages.find((p) => p.name === pageName);
 }

@@ -21,12 +21,7 @@ type TProps = TSection & {
     };
 };
 
-const TestimonialArea = ({
-    data: { items, section_title },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const TestimonialArea = ({ data: { items, section_title }, space, bg, titleSize }: TProps) => {
     const options = useMemo(() => {
         return {
             slidesPerView: 1,
@@ -69,10 +64,7 @@ const TestimonialArea = ({
             {items && items.length > 0 && (
                 <SwiperSlider options={options}>
                     {items.map((item) => (
-                        <SwiperSlide
-                            key={item.id}
-                            className="testimonial-slide"
-                        >
+                        <SwiperSlide key={item.id} className="testimonial-slide">
                             <Testimonial
                                 name={item.name}
                                 designation={item.designation}

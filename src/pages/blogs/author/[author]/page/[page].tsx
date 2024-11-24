@@ -5,11 +5,7 @@ import Breadcrumb from "@components/breadcrumb";
 import BlogArea from "@containers/blog-full/layout-02";
 import { BlogMetaType, IBlog } from "@utils/types";
 import { flatDeep, toCapitalize } from "@utils/methods";
-import {
-    getAllBlogs,
-    getPostsByAuthor,
-    getTags,
-} from "../../../../../lib/blog";
+import { getAllBlogs, getPostsByAuthor, getTags } from "../../../../../lib/blog";
 import { getAllAuthors, getAuthorBySlug } from "../../../../../lib/author";
 
 type TProps = {
@@ -31,15 +27,7 @@ type PageProps = NextPage<TProps> & {
 const POSTS_PER_PAGE = 8;
 
 const BlogAuthorPage: PageProps = ({
-    data: {
-        blogs,
-        recentPosts,
-        tags,
-        pageTitle,
-        slug,
-        currentPage,
-        numberOfPages,
-    },
+    data: { blogs, recentPosts, tags, pageTitle, slug, currentPage, numberOfPages },
 }) => {
     return (
         <>

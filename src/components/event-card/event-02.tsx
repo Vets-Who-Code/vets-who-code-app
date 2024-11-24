@@ -26,9 +26,7 @@ const Event02 = forwardRef<HTMLDivElement, TProps>(
                         <i className="far fa-map-marker-alt tw-mr-[5px]" />
                         {location.city}, {location.country}
                     </div>
-                    <h3 className="tw-text-xl tw-leading-normal tw-mb-0">
-                        {title}
-                    </h3>
+                    <h3 className="tw-text-xl tw-leading-normal tw-mb-0">{title}</h3>
                 </div>
                 <div className="tw-shrink-0">
                     <div className="tw-text-left sm:tw-text-center tw-mb-2.5">

@@ -49,9 +49,7 @@ export default async function handler(req: Request, res: Response) {
         // Send the constructed message to Slack
         await axios
             .post(
-                `https://hooks.slack.com/services/${
-                    process.env.MENTOR_WEBHOOK_ID ?? ""
-                }`,
+                `https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`,
                 JSON.stringify({ text })
             )
             .catch(() => {
@@ -63,8 +61,6 @@ export default async function handler(req: Request, res: Response) {
     } catch (err) {
         // Log the error for debugging and respond with an error message
         // console.error("Handler error:", err);
-        return res
-            .status(500)
-            .json({ message: "Failed to post to #mentor channel" });
+        return res.status(500).json({ message: "Failed to post to #mentor channel" });
     }
 }

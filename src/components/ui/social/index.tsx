@@ -60,12 +60,7 @@ const Social = ({
         <div
             className={cn(
                 "social tw-flex",
-                flyout && [
-                    flyoutClass,
-                    flyoutBeforeClass,
-                    flyoutAfterClass,
-                    flyoutHoverClass,
-                ],
+                flyout && [flyoutClass, flyoutBeforeClass, flyoutAfterClass, flyoutHoverClass],
                 className
             )}
         >

@@ -6,13 +6,7 @@ type TProps = Pick<ItemType, "description" | "name" | "designation"> & {
     className?: string;
 };
 
-const Testimonial03 = ({
-    description,
-    name,
-    designation,
-    image,
-    className,
-}: TProps) => {
+const Testimonial03 = ({ description, name, designation, image, className }: TProps) => {
     return (
         <div
             className={clsx(
@@ -31,12 +25,8 @@ const Testimonial03 = ({
                 </div>
             )}
 
-            <p className="tw-mb-10 tw-text-lg tw-font-medium tw-text-secondary">
-                {description}
-            </p>
-            <h3 className="tw-tracking-wider tw-uppercase tw-text-h6 tw-mb-2.5">
-                {name}
-            </h3>
+            <p className="tw-mb-10 tw-text-lg tw-font-medium tw-text-secondary">{description}</p>
+            <h3 className="tw-tracking-wider tw-uppercase tw-text-h6 tw-mb-2.5">{name}</h3>
             <span className="tw-text-gray-300">/ {designation}</span>
         </div>
     );

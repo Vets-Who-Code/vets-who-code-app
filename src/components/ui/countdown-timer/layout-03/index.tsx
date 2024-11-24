@@ -16,13 +16,7 @@ const CountdownTimer = ({ targetDate, className, align }: TProps) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     return (
-        <div
-            className={clsx(
-                "tw-flex",
-                align === "center" && "tw-mx-auto",
-                className
-            )}
-        >
+        <div className={clsx("tw-flex", align === "center" && "tw-mx-auto", className)}>
             <DateTimeDisplay value={days} />
             <DateTimeDisplay value={hours} />
             <DateTimeDisplay value={minutes} />

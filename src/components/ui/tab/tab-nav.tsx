@@ -2,14 +2,7 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import { TabProps } from "./types";
 
-const TabNav = ({
-    id,
-    children,
-    onClick,
-    isActive,
-    variant,
-    className,
-}: TabProps) => {
+const TabNav = ({ id, children, onClick, isActive, variant, className }: TabProps) => {
     return (
         <button
             className={clsx(

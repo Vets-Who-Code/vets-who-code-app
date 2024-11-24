@@ -12,12 +12,7 @@ type TProps = TSection & {
     };
 };
 
-const CtaArea = ({
-    data: { section_title, buttons },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const CtaArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="cta-area" space={space} bg={bg}>
             <motion.div

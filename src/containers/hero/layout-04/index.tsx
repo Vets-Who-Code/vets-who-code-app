@@ -5,13 +5,7 @@ import dynamic from "next/dynamic";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from "@ui/button";
 import BottomShape from "@components/ui/bottom-shape/shape-02";
-import {
-    ButtonType,
-    HeadingType,
-    ImageType,
-    TextType,
-    VideoType,
-} from "@utils/types";
+import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 const ModalVideo = dynamic(() => import("../../../components/ui/video-modal"), {
@@ -28,13 +22,9 @@ type TProps = {
     };
 };
 
-const HeroArea = ({
-    data: { images, headings, texts, buttons, video },
-}: TProps) => {
+const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps) => {
     const [isOpen, setOpen] = useState(false);
-    const words =
-        headings?.slice(1, headings.length).map((heading) => heading.content) ||
-        [];
+    const words = headings?.slice(1, headings.length).map((heading) => heading.content) || [];
     const { text: animatedText } = useTypewriter({
         words,
         loop: true,
@@ -98,12 +88,7 @@ const HeroArea = ({
                                 className="tw-m-2.5"
                                 onClick={() => setOpen(true)}
                             >
-                                <i
-                                    className={clsx(
-                                        buttons[1]?.icon,
-                                        "tw-mr-4"
-                                    )}
-                                />
+                                <i className={clsx(buttons[1]?.icon, "tw-mr-4")} />
                                 {buttons[1].content}
                             </Button>
                         )}
@@ -113,11 +98,7 @@ const HeroArea = ({
             </div>
 
             {video && (
-                <ModalVideo
-                    show={isOpen}
-                    videoId={video.videoId}
-                    onClose={() => setOpen(false)}
-                />
+                <ModalVideo show={isOpen} videoId={video.videoId} onClose={() => setOpen(false)} />
             )}
         </>
     );

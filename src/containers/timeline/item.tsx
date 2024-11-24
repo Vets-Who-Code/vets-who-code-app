@@ -55,20 +55,10 @@ const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
                 viewport={{ once: true, amount: 0.4 }}
                 variants={isEven ? scrollRightVariants : scrollLeftVariants}
             >
-                <div
-                    className={clsx(
-                        "lg:tw-max-w-[500px]",
-                        isEven && "md:tw-ml-auto"
-                    )}
-                >
-                    {heading?.content && (
-                        <h3 className="tw-mb-[22px]">{heading.content}</h3>
-                    )}
+                <div className={clsx("lg:tw-max-w-[500px]", isEven && "md:tw-ml-auto")}>
+                    {heading?.content && <h3 className="tw-mb-[22px]">{heading.content}</h3>}
                     {texts?.map((text) => (
-                        <p
-                            className="md:tw-text-lg tw-leading-loose"
-                            key={text.id}
-                        >
+                        <p className="md:tw-text-lg tw-leading-loose" key={text.id}>
                             {text.content}
                         </p>
                     ))}

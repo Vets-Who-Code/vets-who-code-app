@@ -5,15 +5,10 @@ import { getSlugs } from "./util";
 
 const instructorDirectory = path.join(process.cwd(), "src/data/authors");
 
-export function getAuthorBySlug(
-    slug: string,
-    fields: FieldType<IInstructor>
-): IInstructor {
+export function getAuthorBySlug(slug: string, fields: FieldType<IInstructor>): IInstructor {
     const realSlug = slug.replace(/\.json$/, "");
     const fullPath = path.join(instructorDirectory, `${realSlug}.json`);
-    const fileContents = JSON.parse(
-        fs.readFileSync(fullPath, "utf8")
-    ) as IInstructor;
+    const fileContents = JSON.parse(fs.readFileSync(fullPath, "utf8")) as IInstructor;
     let author: IInstructor;
     if (fields === "all") {
         author = { ...fileContents, slug: realSlug };

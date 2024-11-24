@@ -10,12 +10,7 @@ type TProps = {
     footerMode?: "light" | "dark";
 };
 
-const Layout = ({
-    children,
-    headerShadow,
-    headerFluid,
-    footerMode,
-}: TProps) => {
+const Layout = ({ children, headerShadow, headerFluid, footerMode }: TProps) => {
     return (
         <>
             <Header shadow={headerShadow} fluid={headerFluid} />

@@ -14,10 +14,8 @@ const Badge = ({ children, className, color, size, variant }: TProps) => {
             className={clsx(
                 "tw-inline-flex tw-justify-center tw-items-center tw-leading-none",
                 variant === "contained" && [
-                    color === "teracotta" &&
-                        "tw-text-teracotta tw-bg-teracotta-light",
-                    color === "scooter" &&
-                        "tw-text-scooter tw-bg-scooter-light",
+                    color === "teracotta" && "tw-text-teracotta tw-bg-teracotta-light",
+                    color === "scooter" && "tw-text-scooter tw-bg-scooter-light",
                     color === "primary" && "tw-text-white tw-bg-primary",
                     color === "gradient" && "tw-text-white tw-bg-strawGradient",
                 ],
@@ -26,11 +24,9 @@ const Badge = ({ children, className, color, size, variant }: TProps) => {
                     color === "white" && "tw-text-white tw-border-white",
                 ],
 
-                size === "xs" &&
-                    "tw-pt-1 tw-px-2 tw-pb-[3px] tw-text-[11px] tw-rounded-sm",
+                size === "xs" && "tw-pt-1 tw-px-2 tw-pb-[3px] tw-text-[11px] tw-rounded-sm",
                 size === "sm" && "tw-p-2 tw-text-xs tw-rounded-[4px]",
-                size === "lg" &&
-                    "tw-h-7.5 tw-px-3.8 tw-text-sm tw-font-medium tw-rounded",
+                size === "lg" && "tw-h-7.5 tw-px-3.8 tw-text-sm tw-font-medium tw-rounded",
                 className
             )}
         >

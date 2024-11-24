@@ -1,10 +1,12 @@
 ---
-
 title: "Finding Vets Who Code"
 postedAt: "2019-07-08T10:00:00.000Z"
 author: "Jacob Oakley"
 description: "Discovering how Vets Who Code transformed my journey into web development."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721215701/jacob_oakley_s4vzb0.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721215701/jacob_oakley_s4vzb0.jpg",
+    }
 category: "Career Journey"
 tags:
     - Web Development
@@ -12,7 +14,6 @@ tags:
     - Vets Who Code
 is_featured: true
 views: 200
-
 ---
 
 ### Finding Vets Who Code

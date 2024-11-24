@@ -21,12 +21,7 @@ const HTMLContent = ({ body, className }: TProps) => {
                     }
                     return (
                         <li key={item.text}>
-                            {item.text}{" "}
-                            {generateList(
-                                item.type,
-                                item.content,
-                                `item-${item.text}`
-                            )}
+                            {item.text} {generateList(item.type, item.content, `item-${item.text}`)}
                         </li>
                     );
                 })}
@@ -42,33 +37,17 @@ const HTMLContent = ({ body, className }: TProps) => {
         >
             {body.map(({ id, type, content }) => {
                 if (type === "text" && typeof content === "string") {
-                    return (
-                        <p
-                            key={id}
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                    );
+                    return <p key={id} dangerouslySetInnerHTML={{ __html: content }} />;
                 }
                 if (
-                    (type === "h3" ||
-                        type === "h4" ||
-                        type === "h5" ||
-                        type === "blockquote") &&
+                    (type === "h3" || type === "h4" || type === "h5" || type === "blockquote") &&
                     typeof content === "string"
                 ) {
                     const Tag = type;
-                    return (
-                        <Tag
-                            key={id}
-                            dangerouslySetInnerHTML={{ __html: content }}
-                        />
-                    );
+                    return <Tag key={id} dangerouslySetInnerHTML={{ __html: content }} />;
                 }
 
-                if (
-                    (type === "order-list" || type === "list") &&
-                    Array.isArray(content)
-                ) {
+                if ((type === "order-list" || type === "list") && Array.isArray(content)) {
                     return generateList(type, content, id);
                 }
                 if (
@@ -77,13 +56,7 @@ const HTMLContent = ({ body, className }: TProps) => {
                     !Array.isArray(content) &&
                     content.src
                 ) {
-                    return (
-                        <iframe
-                            key={id}
-                            title={content?.alt || "Iframe"}
-                            src={content.src}
-                        />
-                    );
+                    return <iframe key={id} title={content?.alt || "Iframe"} src={content.src} />;
                 }
 
                 return null;

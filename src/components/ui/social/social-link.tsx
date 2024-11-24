@@ -28,12 +28,9 @@ const SocialLink = ({
     onClick,
 }: TProps) => {
     // texted variant
-    const textedWhite =
-        color === "white" && hover && "tw-text-white/50 hover:tw-text-white";
-    const textedLight =
-        color === "light" && hover && "tw-text-body/50 hover:tw-text-primary";
-    const textedDark =
-        color === "dark" && hover && "tw-text-body hover:tw-text-primary";
+    const textedWhite = color === "white" && hover && "tw-text-white/50 hover:tw-text-white";
+    const textedLight = color === "light" && hover && "tw-text-body/50 hover:tw-text-primary";
+    const textedDark = color === "dark" && hover && "tw-text-body hover:tw-text-primary";
     const textedXl = size === "xl" && "tw-text-2xl";
     const textedLg = size === "lg" && "tw-text-lg";
 
@@ -49,13 +46,7 @@ const SocialLink = ({
         <a
             className={clsx(
                 "social-link tw-relative tw-leading-none",
-                variant === "texted" && [
-                    textedWhite,
-                    textedLight,
-                    textedDark,
-                    textedXl,
-                    textedLg,
-                ],
+                variant === "texted" && [textedWhite, textedLight, textedDark, textedXl, textedLg],
                 variant !== "texted" && [
                     "tw-text-center",
                     size === "md" && "tw-w-10 tw-h-10 tw-leading-10",
@@ -65,11 +56,7 @@ const SocialLink = ({
                 variant === "outlined" && "tw-bg-transparent tw-border",
                 shape === "rounded" && "tw-rounded",
                 shape === "circle" && "tw-rounded-full",
-                tooltip && [
-                    tooltipBeforeClass,
-                    tooltipAfterClass,
-                    tooltipHoverClass,
-                ],
+                tooltip && [tooltipBeforeClass, tooltipAfterClass, tooltipHoverClass],
                 className
             )}
             href={href}

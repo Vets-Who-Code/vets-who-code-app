@@ -46,9 +46,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className="first:tw-text-left">
-                            Number of courses
-                        </td>
+                        <td className="first:tw-text-left">Number of courses</td>
                         <td>3</td>
                         <td>6</td>
                         <td>21</td>
@@ -60,16 +58,12 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                         return (
                             <tr key={item.path}>
                                 <td className="first:tw-text-left">
-                                    <Anchor path={item.path}>
-                                        {item.title}
-                                    </Anchor>
+                                    <Anchor path={item.path}>{item.title}</Anchor>
                                 </td>
                                 <td
                                     className={clsx(
                                         "tw-text-[16px] ",
-                                        isSilver
-                                            ? "tw-text-success-100"
-                                            : "tw-text-danger-100"
+                                        isSilver ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
                                     <i
@@ -82,9 +76,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                                 <td
                                     className={clsx(
                                         "tw-text-[16px] ",
-                                        isGold
-                                            ? "tw-text-success-100"
-                                            : "tw-text-danger-100"
+                                        isGold ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
                                     <i
@@ -97,9 +89,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                                 <td
                                     className={clsx(
                                         "tw-text-[16px] ",
-                                        isDiamond
-                                            ? "tw-text-success-100"
-                                            : "tw-text-danger-100"
+                                        isDiamond ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
                                     <i
@@ -119,19 +109,13 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                             <span className="tw-sr-only">df</span>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/curriculum/subjects">
-                                Get it now
-                            </Button>
+                            <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/curriculum/subjects">
-                                Get it now
-                            </Button>
+                            <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
                         <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
-                            <Button path="/curriculum/subjects">
-                                Get it now
-                            </Button>
+                            <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
                     </tr>
                 </tfoot>

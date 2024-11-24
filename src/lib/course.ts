@@ -5,15 +5,10 @@ import { getSlugs } from "./util";
 
 const courseDirectory = path.join(process.cwd(), "src/data/courses");
 
-export function getCourseBySlug(
-    slug: string,
-    fields: Array<keyof ICourse> | "all"
-): ICourse {
+export function getCourseBySlug(slug: string, fields: Array<keyof ICourse> | "all"): ICourse {
     const realSlug = slug.replace(/\.json$/, "");
     const fullPath = path.join(courseDirectory, `${realSlug}.json`);
-    const fileContents = JSON.parse(
-        fs.readFileSync(fullPath, "utf8")
-    ) as ICourse;
+    const fileContents = JSON.parse(fs.readFileSync(fullPath, "utf8")) as ICourse;
     let course: ICourse;
     if (fields === "all") {
         course = { ...fileContents, slug: realSlug };
@@ -38,19 +33,12 @@ export function getCourseBySlug(
     };
 }
 
-export function getallCourses(
-    fields: Array<keyof ICourse> | "all",
-    skip = 0,
-    limit?: number
-) {
+export function getallCourses(fields: Array<keyof ICourse> | "all", skip = 0, limit?: number) {
     const slugs = getSlugs(courseDirectory);
     let courses = slugs
         .map((slug) => getCourseBySlug(slug, fields))
         .sort((a, b) =>
-            new Date(a.published_at).getTime() >
-            new Date(b.published_at).getTime()
-                ? -1
-                : 1
+            new Date(a.published_at).getTime() > new Date(b.published_at).getTime() ? -1 : 1
         );
     if (limit) courses = courses.slice(skip, skip + limit);
 
@@ -73,8 +61,6 @@ export function getFilteredCourses(
     filterValue: string | boolean
 ) {
     const courses = getallCourses(fields);
-    const filteredCourses = courses.filter(
-        (item) => item[filterKey] === filterValue
-    );
+    const filteredCourses = courses.filter((item) => item[filterKey] === filterValue);
     return filteredCourses;
 }

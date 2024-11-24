@@ -14,12 +14,7 @@ type TProps = TSection & {
     };
 };
 
-const FaqArea = ({
-    data: { section_title, items = [] },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const FaqArea = ({ data: { section_title, items = [] }, space, bg, titleSize }: TProps) => {
     const mid = Math.floor(items.length / 2);
     const left = items.slice(0, mid);
     const right = items.slice(mid);

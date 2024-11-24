@@ -92,8 +92,7 @@ const Button = ({
         "hover:tw-bg-white hover:tw-border-white hover:tw-text-primary";
 
     // Primary Button
-    const containedPrimaryClass =
-        "tw-bg-primary tw-border-primary tw-text-white";
+    const containedPrimaryClass = "tw-bg-primary tw-border-primary tw-text-white";
     const containedPrimaryHoverClass =
         !disabled &&
         !active &&
@@ -110,13 +109,9 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedPrimaryClass =
-        "tw-bg-transparent tw-border-primary tw-text-primary";
+    const outlinedPrimaryClass = "tw-bg-transparent tw-border-primary tw-text-primary";
     const outlinedPrimaryHoverClass =
-        !disabled &&
-        !active &&
-        hover === "default" &&
-        "hover:tw-bg-primary hover:tw-text-white";
+        !disabled && !active && hover === "default" && "hover:tw-bg-primary hover:tw-text-white";
     const outlinedPrimaryActiveClass =
         !disabled &&
         active &&
@@ -168,8 +163,7 @@ const Button = ({
     const mdBtn =
         size === "md" &&
         "tw-text-md tw-px-7 tw-py-1 tw-min-h-[48px] md:tw-min-h-[52px] md:tw-px-10";
-    const xsBtn =
-        size === "xs" && "tw-text-[13px] tw-px-5 tw-leading-[30px] tw-min-h-8";
+    const xsBtn = size === "xs" && "tw-text-[13px] tw-px-5 tw-leading-[30px] tw-min-h-8";
 
     // Button Shapes
     const roundedBtn = shape === "tw-rounded" && "tw-rounded-md";
@@ -190,24 +184,14 @@ const Button = ({
 
     if (path) {
         return (
-            <Anchor
-                path={path}
-                className={classnames}
-                onClick={onClick}
-                aria-label={label}
-            >
+            <Anchor path={path} className={classnames} onClick={onClick} aria-label={label}>
                 {children}
             </Anchor>
         );
     }
 
     return (
-        <button
-            type={type}
-            className={classnames}
-            onClick={onClick}
-            aria-label={label}
-        >
+        <button type={type} className={classnames} onClick={onClick} aria-label={label}>
             {children}
         </button>
     );

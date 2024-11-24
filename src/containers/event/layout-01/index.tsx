@@ -23,14 +23,8 @@ type TProps = {
     };
 };
 
-const EventArea = ({
-    data: { events, allEvents, totalEvents, pagiData },
-}: TProps) => {
-    const { filterItems, setValue, value } = useFilter<IEvent>(
-        allEvents,
-        eventFilter,
-        "/events"
-    );
+const EventArea = ({ data: { events, allEvents, totalEvents, pagiData } }: TProps) => {
+    const { filterItems, setValue, value } = useFilter<IEvent>(allEvents, eventFilter, "/events");
 
     const count = value ? filterItems.length : totalEvents;
 
@@ -39,9 +33,7 @@ const EventArea = ({
             <h2 className="tw-sr-only">Event Section</h2>
             <div className="tw-container">
                 <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
-                    <p className="tw-mb-2.5">
-                        We found {count} events available for you
-                    </p>
+                    <p className="tw-mb-2.5">We found {count} events available for you</p>
                     <NiceSelect
                         className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"
                         options={[
@@ -59,9 +51,7 @@ const EventArea = ({
                         defaultValue={value}
                     />
                 </div>
-                {!value && (
-                    <OriginalItems events={events} pagiData={pagiData} />
-                )}
+                {!value && <OriginalItems events={events} pagiData={pagiData} />}
                 {value && <FilterItems events={filterItems} />}
             </div>
         </Section>

@@ -9,13 +9,7 @@ type TProps = {
     className?: string;
 };
 
-const Testimonial05 = ({
-    description,
-    name,
-    designation,
-    image,
-    className,
-}: TProps) => {
+const Testimonial05 = ({ description, name, designation, image, className }: TProps) => {
     return (
         <div
             className={clsx(
@@ -39,12 +33,8 @@ const Testimonial05 = ({
                 <h3 className="tw-text-2xl lg:tw-text-[34px] tw-font-medium tw-leading-[1.42] tw-mb-7 lg:tw-mb-10">
                     {description}
                 </h3>
-                <h4 className="tw-mb-0 tw-tracking-wider tw-uppercase tw-text-h6">
-                    {name}
-                </h4>
-                <span className="tw-block tw-mt-2.5 tw-text-md tw-text-300">
-                    / {designation}
-                </span>
+                <h4 className="tw-mb-0 tw-tracking-wider tw-uppercase tw-text-h6">{name}</h4>
+                <span className="tw-block tw-mt-2.5 tw-text-md tw-text-300">/ {designation}</span>
             </div>
         </div>
     );

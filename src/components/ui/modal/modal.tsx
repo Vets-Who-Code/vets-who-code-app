@@ -32,23 +32,12 @@ type TModal = {
     className?: string;
 };
 
-const Modal = ({
-    className,
-    show,
-    size,
-    centered,
-    children,
-    onClose,
-}: TModal) => {
+const Modal = ({ className, show, size, centered, children, onClose }: TModal) => {
     const modalRef = useKeyboardFocus<HTMLDivElement>(show, onClose);
 
     return (
         <Portal>
-            <AnimatePresence
-                initial={false}
-                exitBeforeEnter
-                onExitComplete={() => null}
-            >
+            <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => null}>
                 {show && (
                     <>
                         <motion.div
@@ -80,10 +69,8 @@ const Modal = ({
                                     "modal-dialog tw-relative tw-w-auto tw-m-2 tw-pointer-events-none sm:tw-my-5 sm:tw-mx-auto",
                                     size === "sm" && "sm:tw-max-w-[300px]",
                                     size === "md" && "sm:tw-max-w-[470px]",
-                                    size === "lg" &&
-                                        "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
-                                    size === "xl" &&
-                                        "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
+                                    size === "lg" && "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
+                                    size === "xl" && "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
                                     centered &&
                                         "tw-flex tw-items-center tw-min-h-[calc(100vh_-_1rem)] sm:tw-min-h-[calc(100vh_-_3.5rem)]"
                                 )}

@@ -30,9 +30,7 @@ const SocialShare = ({ label, className }: TProps) => {
                 className
             )}
         >
-            <p className="tw-mb-0 tw-mr-3.8 tw-font-medium tw-hidden sm:tw-block">
-                {label}
-            </p>
+            <p className="tw-mb-0 tw-mr-3.8 tw-font-medium tw-hidden sm:tw-block">{label}</p>
 
             <i className="fas fa-share-alt tw-w-14 tw-h-14 tw-leading-[52px] tw-text-lg tw-text-center tw-text-primary tw-border-2 tw-border-gray-550 tw-rounded-full tw-transition-colors tw-duration-300 group-hover:tw-bg-primary group-hover:tw-border-primary group-hover:tw-text-white" />
             <Social color="light" tooltip flyout>

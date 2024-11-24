@@ -38,17 +38,14 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                                         path={nav.path}
                                         className={clsx(
                                             "tw-leading-relaxed tw-block tw-font-medium tw-py-2 hover:tw-text-heading",
-                                            nav.status === "coming soon" &&
-                                                "tw-pointer-events-none"
+                                            nav.status === "coming soon" && "tw-pointer-events-none"
                                         )}
                                     >
                                         {nav.label}
                                         {nav.status && (
                                             <Badge
                                                 color={
-                                                    nav.status === "hot"
-                                                        ? "gradient"
-                                                        : "primary"
+                                                    nav.status === "hot" ? "gradient" : "primary"
                                                 }
                                                 size="xs"
                                                 className="tw-ml-2.5 tw-font-bold tw-tracking-wide tw-uppercase"
@@ -64,10 +61,7 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                     {banner && (
                         <Anchor path={banner.path}>
                             {banner.image?.src && (
-                                <img
-                                    src={banner.image.src}
-                                    alt={banner.image?.alt || "Banner"}
-                                />
+                                <img src={banner.image.src} alt={banner.image?.alt || "Banner"} />
                             )}
                         </Anchor>
                     )}

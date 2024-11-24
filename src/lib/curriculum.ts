@@ -1,13 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import {
-    IDType,
-    FieldType,
-    ILesson,
-    IChapter,
-    ICurriculum,
-} from "@utils/types";
+import { IDType, FieldType, ILesson, IChapter, ICurriculum } from "@utils/types";
 import { flatDeep } from "@utils/methods";
 import { getSlugs } from "./util";
 
@@ -21,9 +15,7 @@ export function getLessonBySlug(
 ): ILesson {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = path.join(lessonDirectory, `${realSlug}.md`);
-    const fileContents = JSON.parse(
-        JSON.stringify(fs.readFileSync(fullPath, "utf8"))
-    ) as ILesson;
+    const fileContents = JSON.parse(JSON.stringify(fs.readFileSync(fullPath, "utf8"))) as ILesson;
     const { data, content } = matter(fileContents);
 
     const lessonData = data as ILesson;
@@ -49,24 +41,16 @@ export function getLessonBySlug(
     };
 }
 
-export function getAllLessons(
-    fields: FieldType<ILesson>,
-    coursePath: string,
-    ids?: IDType[]
-) {
+export function getAllLessons(fields: FieldType<ILesson>, coursePath: string, ids?: IDType[]) {
     const slugs = getSlugs(lessonDirectory);
-    let lessons = slugs.map((slug) =>
-        getLessonBySlug(slug, fields, coursePath)
-    );
+    let lessons = slugs.map((slug) => getLessonBySlug(slug, fields, coursePath));
     if (ids) lessons = lessons.filter((lesson) => ids.includes(lesson.slug));
     return lessons;
 }
 
 function getChapter(ids: IDType[]): IChapter[] {
     const rawData = JSON.parse(fs.readFileSync(file, "utf8")) as IChapter[];
-    return rawData.filter((chapter: { id: IDType }) =>
-        ids.includes(chapter.id)
-    );
+    return rawData.filter((chapter: { id: IDType }) => ids.includes(chapter.id));
 }
 
 export function getCurriculum(

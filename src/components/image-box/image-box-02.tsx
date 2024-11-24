@@ -25,21 +25,12 @@ const ImageBox = forwardRef<HTMLDivElement, ImageBoxProps>(
                 )}
             >
                 {image?.src && (
-                    <img
-                        src={image.src}
-                        alt={image?.alt || title}
-                        className="tw-mb-6 tw-mx-auto"
-                    />
+                    <img src={image.src} alt={image?.alt || title} className="tw-mb-6 tw-mx-auto" />
                 )}
-                <h3 className="tw-text-secondary tw-leading-normal tw-text-xl tw-m-0">
-                    {title}
-                </h3>
-                <p className="tw-leading-relaxed tw-mt-2.5 tw-mb-[34px]">
-                    {description}
-                </p>
+                <h3 className="tw-text-secondary tw-leading-normal tw-text-xl tw-m-0">{title}</h3>
+                <p className="tw-leading-relaxed tw-mt-2.5 tw-mb-[34px]">{description}</p>
                 <span className="tw-text-md tw-font-bold tw-leading-none tw-inline-flex tw-items-center tw-py-[5px] tw-text-secondary-light tw-transition-colors tw-duration-300 group-hover:tw-text-primary">
-                    {pathText}{" "}
-                    <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
+                    {pathText} <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
                 </span>
                 <Anchor className="link-overlay" path={path}>
                     {title}

@@ -6,13 +6,7 @@ import BottomShape from "@ui/bottom-shape/shape-03";
 import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
-import {
-    ImageType,
-    MottoType,
-    SectionTitleType,
-    TSection,
-    VideoType,
-} from "@utils/types";
+import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 const AnimatedVideo = motion(Video);
@@ -96,16 +90,10 @@ const VideoArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
 
-                    {motto && (
-                        <MottoText className="tw-mt-1" size="md" {...motto} />
-                    )}
+                    {motto && <MottoText className="tw-mt-1" size="md" {...motto} />}
                 </motion.div>
             </div>
             <BottomShape />

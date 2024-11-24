@@ -8,15 +8,7 @@ type TProps = Pick<
     "host" | "date" | "time" | "category" | "duration" | "timezone" | "links"
 >;
 
-const ZoomInfo = ({
-    host,
-    date,
-    time,
-    category,
-    duration,
-    timezone,
-    links,
-}: TProps) => {
+const ZoomInfo = ({ host, date, time, category, duration, timezone, links }: TProps) => {
     return (
         <WidgetBox>
             <h2 className="tw-text-h3">Details</h2>
@@ -27,8 +19,8 @@ const ZoomInfo = ({
             <InfoItem label="Timezone" value={timezone} />
 
             <p className="tw-border-t tw-border-t-gray-500 tw-pt-5">
-                <strong className="tw-text-heading">Note</strong>: Countdown
-                time is shown based on your local timezone.
+                <strong className="tw-text-heading">Note</strong>: Countdown time is shown based on
+                your local timezone.
             </p>
             <div className="tw-mt-5">
                 <Button fullwidth className="!tw-px-6" path={links[0]}>

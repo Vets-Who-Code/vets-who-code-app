@@ -5,13 +5,7 @@ import CourseCard from "@components/course-card/course-01";
 import BottomShape from "@ui/bottom-shape/shape-01";
 import { scrollUpVariants } from "@utils/variants";
 import { useUI } from "@contexts/ui-context";
-import {
-    HeadingType,
-    TextType,
-    ButtonType,
-    ImageType,
-    ICourse,
-} from "@utils/types";
+import { HeadingType, TextType, ButtonType, ImageType, ICourse } from "@utils/types";
 
 type TProps = {
     data: {
@@ -23,9 +17,7 @@ type TProps = {
     };
 };
 
-const HeroArea = ({
-    data: { headings, texts, buttons, images, popularCourse },
-}: TProps) => {
+const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }: TProps) => {
     const { trans1 } = useUI();
 
     return (

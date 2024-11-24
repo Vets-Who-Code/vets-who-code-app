@@ -3,13 +3,7 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import Button from "@ui/button";
 import Video from "@ui/video-with-poster/video-01";
 import BottomShape from "@ui/bottom-shape/shape-05";
-import {
-    ButtonType,
-    HeadingType,
-    ImageType,
-    TextType,
-    VideoType,
-} from "@utils/types";
+import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 type TProps = {
@@ -22,9 +16,7 @@ type TProps = {
     };
 };
 
-const HeroArea = ({
-    data: { headings, texts, buttons, images, video },
-}: TProps) => {
+const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps) => {
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 300], [0, -100]);
 
@@ -73,11 +65,7 @@ const HeroArea = ({
                         )}
                     </motion.div>
                     {video && images?.[1] && (
-                        <Video
-                            poster={images[1]}
-                            video={video}
-                            className="tw-col-span-8"
-                        />
+                        <Video poster={images[1]} video={video} className="tw-col-span-8" />
                     )}
                     <motion.div
                         style={{ y: y1 }}

@@ -56,10 +56,7 @@ const BlogSearch: PageProps = ({ data }) => {
     return (
         <>
             <SEO title={title} />
-            <Breadcrumb
-                pages={[{ path: "/", label: "home" }]}
-                currentPage={title}
-            />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage={title} />
             <BlogArea
                 data={{
                     blogs,
@@ -72,14 +69,7 @@ const BlogSearch: PageProps = ({ data }) => {
 BlogSearch.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const { blogs } = getAllBlogs([
-        "title",
-        "image",
-        "category",
-        "postedAt",
-        "views",
-        "content",
-    ]);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "views", "content"]);
 
     return {
         props: {

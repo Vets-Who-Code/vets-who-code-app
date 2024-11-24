@@ -3,10 +3,7 @@ import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
 
-type TProps = Pick<
-    IBlog,
-    "title" | "path" | "category" | "postedAt" | "image" | "views"
-> & {
+type TProps = Pick<IBlog, "title" | "path" | "category" | "postedAt" | "image" | "views"> & {
     className?: string;
 };
 

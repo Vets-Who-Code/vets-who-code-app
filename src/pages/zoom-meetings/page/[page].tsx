@@ -5,10 +5,7 @@ import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import ZoomMeetingArea from "@containers/zoom-meetings";
 import { IZoomMeeting } from "@utils/types";
-import {
-    getAllZoomMeetings,
-    getZoomMeetingMeta,
-} from "../../../lib/zoom-meeting";
+import { getAllZoomMeetings, getZoomMeetingMeta } from "../../../lib/zoom-meeting";
 
 type TProps = {
     data: {
@@ -24,9 +21,7 @@ type PageProps = NextPage<TProps> & {
 
 const POSTS_PER_PAGE = 6;
 
-const Events: PageProps = ({
-    data: { zoomMeetings, currentPage, numberOfPages },
-}) => {
+const Events: PageProps = ({ data: { zoomMeetings, currentPage, numberOfPages } }) => {
     return (
         <>
             <SEO title={`Zoom Meetings - Page - ${currentPage}`} />

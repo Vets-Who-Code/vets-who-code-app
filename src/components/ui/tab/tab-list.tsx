@@ -6,8 +6,7 @@ const TabList = ({ children, variant, className }: ContainerProps) => {
         <div
             className={clsx(
                 "tab-list tw-flex tw-flex-wrap",
-                variant === "underline" &&
-                    "tw-border-b-2 tw-border-b-gray-500 tw-pb-0.5",
+                variant === "underline" && "tw-border-b-2 tw-border-b-gray-500 tw-pb-0.5",
                 className
             )}
             role="tablist"

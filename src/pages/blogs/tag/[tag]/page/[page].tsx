@@ -26,15 +26,7 @@ type PageProps = NextPage<TProps> & {
 const POSTS_PER_PAGE = 8;
 
 const BlogCategoryPage: PageProps = ({
-    data: {
-        blogs,
-        recentPosts,
-        tags,
-        pageTitle,
-        slug,
-        currentPage,
-        numberOfPages,
-    },
+    data: { blogs, recentPosts, tags, pageTitle, slug, currentPage, numberOfPages },
 }) => {
     return (
         <>

@@ -3,10 +3,7 @@ import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
 
-type TProps = Pick<
-    IBlog,
-    "image" | "path" | "title" | "category" | "postedAt" | "views"
-> & {
+type TProps = Pick<IBlog, "image" | "path" | "title" | "category" | "postedAt" | "views"> & {
     className?: string;
 };
 
@@ -34,10 +31,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
 
                 <div className="info tw-pt-[26px]">
                     <div className="tw-text-base tw-font-medium tw-uppercase -tw-tracking-tightest tw-leading-[1.4] tw-mb-1.5">
-                        <Anchor
-                            path={category.path}
-                            className="tw-text-inherit"
-                        >
+                        <Anchor path={category.path} className="tw-text-inherit">
                             {category.title}
                         </Anchor>
                     </div>
