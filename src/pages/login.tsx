@@ -25,13 +25,15 @@ const Login: PageWithLayout = () => {
     const [error, setError] = useState<string | null>(null);
     const [isRedirecting, setIsRedirecting] = useState(false);
 
-    // Handle authenticated state
-    useEffect(() => {
+    // Handle authenticated state with proper return type
+    useEffect((): (() => void) => {
+        const cleanup = (): void => {
+            // Cleanup function
+        };
+
         if (status === "authenticated" && !isRedirecting) {
             setIsRedirecting(true);
-            
-            // Set a timeout for the redirect
-            const redirectTimeout = setTimeout(() => {
+            const timeout = setTimeout(() => {
                 router.push("/profile").catch((err) => {
                     setError("Failed to redirect to profile. Please try refreshing the page.");
                     setIsRedirecting(false);
@@ -41,8 +43,12 @@ const Login: PageWithLayout = () => {
                 });
             }, 100);
 
-            return () => clearTimeout(redirectTimeout);
+            return () => {
+                clearTimeout(timeout);
+            };
         }
+
+        return cleanup;
     }, [status, router, isRedirecting]);
 
     const handleSignIn = useCallback(async () => {
@@ -53,7 +59,6 @@ const Login: PageWithLayout = () => {
                 redirect: true,
             });
             
-            // Handle failed sign-in
             if (result?.error) {
                 setError("Failed to sign in with GitHub. Please try again.");
                 if (process.env.NODE_ENV === "development") {
@@ -68,7 +73,6 @@ const Login: PageWithLayout = () => {
         }
     }, []);
 
-    // Show loading state
     if (!mounted || status === "loading") {
         return (
             <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
@@ -77,7 +81,6 @@ const Login: PageWithLayout = () => {
         );
     }
 
-    // Show login form for unauthenticated users
     if (status === "unauthenticated") {
         return (
             <div className="tw-flex tw-items-center tw-justify-center tw-min-h-screen tw-bg-secondary">
@@ -130,7 +133,6 @@ const Login: PageWithLayout = () => {
         );
     }
 
-    // Show redirect state
     return (
         <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-flex-col tw-gap-4 tw-justify-center tw-items-center">
             <span className="tw-text-secondary">
