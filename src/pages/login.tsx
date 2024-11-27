@@ -20,44 +20,34 @@ type PageWithLayout = NextPage<LoginProps> & {
 
 const Login: PageWithLayout = () => {
     const mounted = useMount();
-    const { status } = useSession();
+    const { status, data: session } = useSession();
     const router = useRouter();
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [isRedirecting, setIsRedirecting] = useState(false);
 
-    // Handle authenticated state with proper return type
-    useEffect((): (() => void) => {
-        const cleanup = (): void => undefined;
-
-        if (status === "authenticated" && !isRedirecting) {
+    useEffect(() => {
+        if (status === "authenticated" && session && !isRedirecting) {
             setIsRedirecting(true);
-            const timeout = setTimeout(() => {
-                router.push("/profile").catch(() => {
-                    setErrorMessage("Failed to redirect to profile. Please try refreshing the page.");
-                    setIsRedirecting(false);
-                });
-            }, 100);
-
-            return () => {
-                clearTimeout(timeout);
-            };
+            router.replace("/profile").catch((error) => {
+                console.error("Redirect error:", error);
+                setErrorMessage("Failed to redirect to profile. Please try refreshing the page.");
+                setIsRedirecting(false);
+            });
         }
-
-        return cleanup;
-    }, [status, router, isRedirecting]);
+    }, [status, session, router, isRedirecting]);
 
     const handleSignIn = useCallback(async () => {
         try {
             setErrorMessage(null);
             const result = await signIn("github", {
-                callbackUrl: "/profile",
-                redirect: true,
+                redirect: false,
             });
-            
+
             if (result?.error) {
                 setErrorMessage("Failed to sign in with GitHub. Please try again.");
             }
-        } catch {
+        } catch (error) {
+            console.error("Sign in error:", error);
             setErrorMessage("An unexpected error occurred. Please try again.");
         }
     }, []);
