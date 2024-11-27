@@ -6,37 +6,57 @@ import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import ProfileBio from "@containers/profile/bio";
 import Spinner from "@ui/spinner";
-import { useUser } from "@contexts/user-context";
+import { useSession, signOut } from "next-auth/react";
 import { useMount } from "@hooks";
 
-type PageProps = NextPage & {
-    Layout: typeof Layout01;
+type PageProps = {
+    layout?: {
+        headerShadow: boolean;
+        headerFluid: boolean;
+        footerMode: string;
+    };
 };
 
-const Profile: PageProps = () => {
+type PageWithLayout = NextPage<PageProps> & {
+    Layout?: typeof Layout01;
+};
+
+const Profile: PageWithLayout = () => {
     const mounted = useMount();
-    const { isLoggedIn, logout } = useUser();
+    const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
-        if (!isLoggedIn) {
-            void router.push("/login");
+        if (status === "unauthenticated") {
+            router.replace("/login").catch((error) => {
+                console.error("Redirect error:", error);
+            });
         }
-    }, [isLoggedIn, router]);
+    }, [status, router]);
 
-    if (!mounted) return null;
-
-    if (!isLoggedIn) {
+    if (!mounted || status === "loading") {
         return (
-            <div className="tw-fixed tw-bg-light-100 tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+            <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
                 <Spinner />
             </div>
         );
     }
 
-    const handleLogout = () => {
-        logout();
-        void router.push("/login");
+    if (!session) {
+        return (
+            <div className="tw-fixed tw-bg-white tw-top-0 tw-z-50 tw-w-screen tw-h-screen tw-flex tw-justify-center tw-items-center">
+                <Spinner />
+            </div>
+        );
+    }
+
+    const handleLogout = async () => {
+        try {
+            await signOut({ redirect: false });
+            await router.replace("/login");
+        } catch (error) {
+            console.error("Logout error:", error);
+        }
     };
 
     return (
@@ -63,7 +83,7 @@ const Profile: PageProps = () => {
 
 Profile.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps<PageProps> = () => {
     return {
         props: {
             layout: {
