@@ -24,6 +24,8 @@ interface IFormValues {
     yearSeparated: string;
     hasAttendedPreviousCourse: boolean;
     previousCourses: string;
+    willAttendAnotherCourse: boolean;
+    otherCourses: string;
     linkedInAccountName: string;
     githubAccountName: string;
     preworkLink: string;
@@ -43,6 +45,8 @@ const ApplyForm = () => {
     } = useForm<IFormValues>();
 
     const watchHasAttendedPreviousCourses = watch("hasAttendedPreviousCourse", false);
+    const watchWillAttendAnotherCourse = watch("willAttendAnotherCourse", false);
+
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
@@ -241,7 +245,7 @@ const ApplyForm = () => {
                         animate={{ opacity: 1, scale: 1 }}
                     >
                         <label htmlFor="previousCourses" className="tw-text-heading tw-text-md">
-                            Previous Courses *
+                            List previous courses *
                         </label>
                         <TextArea
                             id="previousCourses"
@@ -252,6 +256,37 @@ const ApplyForm = () => {
                             showState={!!hasKey(errors, "previousCourses")}
                             {...register("previousCourses", {
                                 required: "List previous coursework or uncheck the box",
+                            })}
+                        />
+                    </motion.div>
+                )}
+                <motion.div layout>
+                    <Checkbox
+                        label="Will you be attending any other courses or programs concurrently with Vets Who Code?"
+                        id="willAttendAnotherCourse"
+                        {...register("willAttendAnotherCourse")}
+                    />
+                    <br />
+                </motion.div>
+                {watchWillAttendAnotherCourse && (
+                    <motion.div
+                        layout
+                        className="tw-mb-7.5"
+                        initial={{ opacity: 0, scale: 0.4 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                    >
+                        <label htmlFor="otherCourses" className="tw-text-heading tw-text-md">
+                            List concurrent courses/programs *
+                        </label>
+                        <TextArea
+                            id="otherCourses"
+                            placeholder="Fundamentals of Spouse Stealing"
+                            bg="light"
+                            feedbackText={errors?.otherCourses?.message}
+                            state={hasKey(errors, "otherCourses") ? "error" : "success"}
+                            showState={!!hasKey(errors, "otherCourses")}
+                            {...register("otherCourses", {
+                                required: "List concurrent coursework or uncheck the box",
                             })}
                         />
                     </motion.div>
