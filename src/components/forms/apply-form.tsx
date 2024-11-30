@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios";
 import Input from "@ui/form-elements/input";
+import Checkbox from "@ui/form-elements/checkbox";
+import TextArea from "@ui/form-elements/textarea";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import Feedback from "@ui/form-elements/feedback";
 import { linkedinRegex, githubRegex } from "@utils/formValidations";
+import { motion } from "framer-motion";
 
 interface IFormValues {
     firstName: string;
@@ -19,6 +22,8 @@ interface IFormValues {
     branchOfService: string;
     yearJoined: string;
     yearSeparated: string;
+    hasAttendedPreviousCourse: boolean;
+    previousCourses: string;
     linkedInAccountName: string;
     githubAccountName: string;
     preworkLink: string;
@@ -34,7 +39,10 @@ const ApplyForm = () => {
         handleSubmit,
         formState: { errors },
         reset,
+        watch,
     } = useForm<IFormValues>();
+
+    const watchHasAttendedPreviousCourses = watch("hasAttendedPreviousCourse", false);
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
@@ -219,7 +227,36 @@ const ApplyForm = () => {
                         })}
                     />
                 </div>
-                <div className="tw-mb-7.5">
+                <Checkbox
+                    label="Have you previously attended any coding bootcamps or tech education programs?"
+                    id="hasAttendedPreviousCourse"
+                    {...register("hasAttendedPreviousCourse")}
+                />
+                <br />
+                {watchHasAttendedPreviousCourses && (
+                    <motion.div
+                        layout
+                        className="tw-mb-7.5"
+                        initial={{ opacity: 0, scale: 0.4 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                    >
+                        <label htmlFor="previousCourses" className="tw-text-heading tw-text-md">
+                            Previous Courses *
+                        </label>
+                        <TextArea
+                            id="previousCourses"
+                            placeholder="Fundamentals of Spouse Stealing"
+                            bg="light"
+                            feedbackText={errors?.previousCourses?.message}
+                            state={hasKey(errors, "previousCourses") ? "error" : "success"}
+                            showState={!!hasKey(errors, "previousCourses")}
+                            {...register("previousCourses", {
+                                required: "List previous coursework or uncheck the box",
+                            })}
+                        />
+                    </motion.div>
+                )}
+                <motion.div layout className="tw-mb-7.5">
                     <label htmlFor="linkedInAccountName" className="tw-text-heading tw-text-md">
                         LinkedIn Account Name *
                     </label>
@@ -239,8 +276,8 @@ const ApplyForm = () => {
                             },
                         })}
                     />
-                </div>
-                <div className="tw-mb-7.5">
+                </motion.div>
+                <motion.div layout className="tw-mb-7.5">
                     <label htmlFor="githubAccountName" className="tw-text-heading tw-text-md">
                         GitHub Account Name *
                     </label>
@@ -260,8 +297,8 @@ const ApplyForm = () => {
                             },
                         })}
                     />
-                </div>
-                <div className="tw-mb-7.5">
+                </motion.div>
+                <motion.div layout className="tw-mb-7.5">
                     <label htmlFor="preworkLink" className="tw-text-heading tw-text-md">
                         Prework Link *
                     </label>
@@ -276,8 +313,8 @@ const ApplyForm = () => {
                             required: "Prework Link is required",
                         })}
                     />
-                </div>
-                <div className="tw-mb-7.5">
+                </motion.div>
+                <motion.div layout className="tw-mb-7.5">
                     <label htmlFor="preworkRepo" className="tw-text-heading tw-text-md">
                         Prework Repository *
                     </label>
@@ -292,17 +329,19 @@ const ApplyForm = () => {
                             required: "Prework Repository is required",
                         })}
                     />
-                </div>
+                </motion.div>
 
-                <Button
-                    type="submit"
-                    fullwidth
-                    className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
-                >
-                    Apply
-                </Button>
-                {message && <Feedback state="success">{message}</Feedback>}
-                {showEmojiRain && <EmojiRain />}
+                <motion.div layout>
+                    <Button
+                        type="submit"
+                        fullwidth
+                        className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
+                    >
+                        Apply
+                    </Button>
+                    {message && <Feedback state="success">{message}</Feedback>}
+                    {showEmojiRain && <EmojiRain />}
+                </motion.div>
             </form>
         </div>
     );
