@@ -47,7 +47,6 @@ const ApplyForm = () => {
     const watchHasAttendedPreviousCourses = watch("hasAttendedPreviousCourse", false);
     const watchWillAttendAnotherCourse = watch("willAttendAnotherCourse", false);
 
-
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
             await axios.post("/api/apply", data);
@@ -249,7 +248,7 @@ const ApplyForm = () => {
                         </label>
                         <TextArea
                             id="previousCourses"
-                            placeholder="Fundamentals of Spouse Stealing"
+                            placeholder="Javascript 101"
                             bg="light"
                             feedbackText={errors?.previousCourses?.message}
                             state={hasKey(errors, "previousCourses") ? "error" : "success"}
@@ -280,7 +279,7 @@ const ApplyForm = () => {
                         </label>
                         <TextArea
                             id="otherCourses"
-                            placeholder="Fundamentals of Spouse Stealing"
+                            placeholder="Civvies Who Code"
                             bg="light"
                             feedbackText={errors?.otherCourses?.message}
                             state={hasKey(errors, "otherCourses") ? "error" : "success"}
