@@ -9,11 +9,11 @@ interface ParsedBody {
     email?: string;
     city?: string;
     state?: string;
-    zipCode?: string;
+    zipCode?: number;
     country?: string;
     branchOfService?: string;
-    yearJoined?: string;
-    yearSeparated?: string;
+    yearJoined?: number;
+    yearSeparated?: number;
     linkedInAccountName?: string;
     githubAccountName?: string;
     preworkLink?: string;
@@ -76,6 +76,6 @@ export default async function handler(req: Request, res: Response) {
     } catch (err) {
         // Log the error for debugging and respond with an error message
         // console.error("Failed to post to #mentor channel:", err);
-        return res.status(500).json({ message: "Failed to post to #mentor channel" });
+        return res.status(500).json({ message: "Failed to post to #apply channel" });
     }
 }
