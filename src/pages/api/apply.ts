@@ -14,6 +14,10 @@ interface ParsedBody {
     branchOfService?: string;
     yearJoined?: number;
     yearSeparated?: number;
+    hasAttendedPreviousCourse?: boolean;
+    previousCourses?: string;
+    willAttendAnotherCourse?: boolean;
+    otherCourses?: string;
     linkedInAccountName?: string;
     githubAccountName?: string;
     preworkLink?: string;
@@ -34,6 +38,8 @@ export default async function handler(req: Request, res: Response) {
             "branchOfService",
             "yearJoined",
             "yearSeparated",
+            "hasAttendedPreviousCourse",
+            "willAttendAnotherCourse",
             "linkedInAccountName",
             "githubAccountName",
             "preworkLink",
@@ -48,7 +54,7 @@ export default async function handler(req: Request, res: Response) {
         }
 
         // Construct the text message to be sent
-        const text = [
+        const items = [
             `First Name: \`${parsedBody.firstName ?? ""}\``,
             `Last Name: \`${parsedBody.lastName ?? ""}\``,
             `Email: \`${parsedBody.email ?? ""}\``,
@@ -59,11 +65,27 @@ export default async function handler(req: Request, res: Response) {
             `Branch of Service: \`${parsedBody.branchOfService ?? ""}\``,
             `Year Joined: \`${parsedBody.yearJoined ?? ""}\``,
             `Year Separated: \`${parsedBody.yearSeparated ?? ""}\``,
+            `Has attended previous bootcamp/programs: \`${
+                parsedBody.hasAttendedPreviousCourse ? "Yes" : "No"
+            }\``,
+            `Will do other courses/programs concurrently: \`${
+                parsedBody.willAttendAnotherCourse ? "Yes" : "No"
+            }\``,
             `LinkedIn Account Name: \`${parsedBody.linkedInAccountName ?? ""}\``,
             `GitHub Account Name: \`${parsedBody.githubAccountName ?? ""}\``,
             `Prework Link: \`${parsedBody.preworkLink ?? ""}\``,
             `Prework Repository: \`${parsedBody.preworkRepo ?? ""}\``,
-        ].join("\n");
+        ];
+
+        if (parsedBody.willAttendAnotherCourse && parsedBody.otherCourses !== "") {
+            items.splice(12, 0, `\`\`\`${parsedBody.otherCourses}\`\`\``);
+        }
+
+        if (parsedBody.hasAttendedPreviousCourse && parsedBody.previousCourses !== "") {
+            items.splice(11, 0, `\`\`\`${parsedBody.previousCourses}\`\`\``);
+        }
+
+        const text = items.join("\n");
 
         // Send the payload to the configured Slack webhook URL
         await axios.post(
