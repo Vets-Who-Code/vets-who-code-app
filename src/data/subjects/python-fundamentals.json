@@ -1,0 +1,81 @@
+{
+  "id": 6,
+  "title": "Python Fundamentals",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/python-fundamentals.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": null,
+  "total_lectures": null,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Learn the foundations of Python programming with this section by Vets Who Code. Designed for beginners, this section covers core Python concepts, including data types, loops, functions, and object-oriented programming. Build a strong foundation for web development, data analysis, and more.",
+  "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "iframe",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/python-fundamentals.png",
+        "alt": "Python Fundamentals Video"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "The Python Fundamentals section by Vets Who Code provides an introduction to one of the most versatile and beginner-friendly programming languages. Whether you're starting your coding journey or looking to enhance your skillset, Python is a great choice for its simplicity and power."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Understand <b>Python syntax</b> and its clean, readable structure. Learn how to write code that is easy to understand and maintain, a hallmark of Python's popularity among developers."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Explore <b>data types and structures</b>, including strings, lists, dictionaries, and tuples. Understand how to work with and manipulate data to solve real-world problems."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Learn the basics of <b>control flow</b> with if statements, loops, and error handling. Write programs that can make decisions and handle unexpected inputs gracefully."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Master <b>functions and modules</b>: Write reusable and modular code by creating your own functions and using Python's rich standard library. Understand how to organize your code for clarity and scalability."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Dive into <b>object-oriented programming (OOP)</b> concepts, including classes, objects, inheritance, and encapsulation. Learn how to model real-world scenarios and build more complex applications."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Gain hands-on experience with Python’s extensive ecosystem, from <b>web development frameworks</b> to <b>data analysis libraries</b> like Pandas and NumPy. While this section focuses on fundamentals, it sets the stage for more advanced applications in the future."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "By the end of this section, you’ll have a solid understanding of Python’s core features and be prepared to apply your skills to web development, automation, data analysis, or any other field. Build your confidence and start coding with Python today."
+    }
+  ]
+}

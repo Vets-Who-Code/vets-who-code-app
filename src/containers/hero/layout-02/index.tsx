@@ -92,10 +92,7 @@ const HeroArea = ({
                         }}
                     >
                         <span data-depth="3">
-                            <img
-                                src="/images/shape-animation/about-shape-1.png"
-                                alt=""
-                            />
+                            <img src="/images/shape-animation/about-shape-1.png" alt="" />
                         </span>
                     </motion.div>
 

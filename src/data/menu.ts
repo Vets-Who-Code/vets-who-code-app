@@ -51,8 +51,8 @@ const navigation: NavigationItem[] = [
             },
             {
                 id: 22,
-                label: "Modules",
-                path: "/courses/all",
+                label: "Subjects",
+                path: "/subjects/all",
             },
             {
                 id: 23,

@@ -1,0 +1,81 @@
+{
+  "id": 3,
+  "title": "Scalable Code Principles",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/scalable-code-principles.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": null,
+  "total_lectures": null,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Master the core principles of scalable code with this section by Vets Who Code. Learn fundamental coding concepts applicable to any language, with real-world examples in JavaScript and Python. Build a strong foundation for writing efficient, maintainable, and reusable code across projects.",
+  "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "iframe",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/scalable-code-principles.png",
+        "alt": "Scalable Code Principles Video"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "The Scalable Code Principles section by Vets Who Code introduces the essential concepts needed to write efficient, maintainable, and reusable code. Whether you're working on small projects or large-scale systems, these principles will help you produce high-quality code that can adapt to changing requirements and scale seamlessly."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "This section focuses on universal coding principles that apply across languages. By using JavaScript and Python as teaching tools, you'll gain practical experience with core concepts like modular design, clean coding practices, and design patterns."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Understand the importance of **modularity**: breaking down your code into smaller, self-contained pieces that can be reused and tested independently. Learn how to create functions and classes that follow single-responsibility principles, making your code easier to debug and extend."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Explore the art of **clean code**: writing readable, consistent, and well-documented code that other developers can easily understand. Learn best practices for naming variables, structuring files, and maintaining clear logic flow to make your projects scalable and collaborative."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Dive into **design patterns**: reusable solutions to common problems in software design. Understand patterns like MVC (Model-View-Controller), factory methods, and decorators through practical examples in both JavaScript and Python."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Learn to implement **testing and debugging strategies**: gain confidence in building robust applications by writing testable code and leveraging unit testing frameworks like Jest (JavaScript) and PyTest (Python)."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Discover the importance of **documentation**: effectively communicating your code’s purpose and functionality. This section will guide you through creating meaningful README files, docstrings, and inline comments."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "The Scalable Code Principles section is designed to equip you with a universal toolkit for professional-grade development. By mastering these principles, you'll be prepared to write code that is not only functional but also robust and future-proof."
+    }
+  ]
+}
