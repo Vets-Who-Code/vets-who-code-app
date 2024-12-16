@@ -19,8 +19,8 @@ type PageProps = NextPage<TProps> & {
 const Coursegrid01: PageProps = ({ data }) => {
     return (
         <>
-            <SEO title="Courses" />
-            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Courses" />
+            <SEO title="Subjects" />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Subjects" />
             <CourseArea data={{ courses: data.courses }} />
         </>
     );
