@@ -53,7 +53,7 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                     variants={scrollUpVariants}
                 >
                     <Button path="/subjects/all" className="tw-mt-[50px]">
-                        View All Modules <i className="far fa-long-arrow-right tw-ml-3" />
+                        View All Subjects <i className="far fa-long-arrow-right tw-ml-3" />
                     </Button>
                 </motion.div>
             </div>
