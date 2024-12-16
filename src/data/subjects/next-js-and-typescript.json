@@ -1,0 +1,81 @@
+{
+  "id": 4,
+  "title": "Next.js and TypeScript",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/next-js-and-typsecript.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": null,
+  "total_lectures": null,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Learn to build modern, scalable web applications with the power of Next.js and TypeScript in this section by Vets Who Code. Master server-side rendering, static site generation, and type-safe programming to create high-performance, maintainable applications.",
+  "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "iframe",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314663/next-js-and-typsecript.png",
+        "alt": "Next.js and TypeScript Video"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "The Next.js and TypeScript section by Vets Who Code empowers developers to create high-performance web applications using one of the most popular React frameworks and the type-safe power of TypeScript. This section is designed for developers who want to enhance their front-end skills and leverage modern tooling for scalable development."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Learn the fundamentals of <b>Next.js</b>, a React framework for building server-rendered and statically generated applications. Understand concepts like file-based routing, API routes, and data fetching methods such as getServerSideProps and getStaticProps."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Discover how to use <b>TypeScript</b> with Next.js to create type-safe applications. TypeScript enhances your development experience by catching errors early, improving code readability, and ensuring consistent type definitions across your project."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Explore the power of <b>Server-Side Rendering (SSR)</b> and <b>Static Site Generation (SSG)</b> to optimize performance and SEO for your web applications. Learn when to use each method and how to integrate them seamlessly into your Next.js projects."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Integrate <b>API routes</b> directly into your Next.js applications to handle server-side logic without the need for an external backend. Learn how to create RESTful APIs and handle requests within the same project structure."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Leverage modern front-end features like <b>dynamic imports</b> for code-splitting, **image optimization**, and the <b>built-in CSS module system</b> to create responsive, efficient, and maintainable applications."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "This section also covers best practices for deploying your Next.js applications, including setting up hosting on Vercel and integrating CI/CD pipelines for efficient development workflows."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "By the end of this section, you'll have the skills and confidence to build production-ready web applications with Next.js and TypeScript. Whether you're looking to advance your front-end skills or create scalable projects for the modern web, this section is your gateway to success."
+    }
+  ]
+}
