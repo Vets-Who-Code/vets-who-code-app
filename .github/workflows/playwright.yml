@@ -32,7 +32,7 @@ jobs:
             - name: Install dependencies
               run: yarn
 
-            # Added WebKit dependencies installation
+            # Updated WebKit dependencies with correct package versions
             - name: Install WebKit dependencies
               run: |
                   sudo apt-get update
@@ -46,14 +46,14 @@ jobs:
                     libmanette-0.2-0 \
                     libwebpdemux2 \
                     libenchant-2-2 \
-                    libvpx7 \
-                    libwebkit2gtk-4.0-37 \
-                    libicu70 \
+                    libvpx6 \
+                    libwebkit2gtk-4.1-0 \
                     libevent-2.1-7 \
                     libopus0 \
                     libxslt1.1 \
-                    libwpe-1.0-1 \
-                    libwpebackend-fdo-1.0-1
+                    libwpe-1.0-0 \
+                    libwpebackend-fdo-1.0-1 \
+                    libjavascriptcoregtk-4.1-0
             
             - name: Cache Playwright Browsers
               uses: actions/cache@v4
