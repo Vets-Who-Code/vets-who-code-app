@@ -42,10 +42,7 @@ export default defineConfig({
             use: { ...devices["Desktop Firefox"] },
         },
 
-        {
-            name: "webkit",
-            use: { ...devices["Desktop Safari"] },
-        },
+        /* Removed WebKit project */
 
         /* Test against mobile viewports. */
         // {
