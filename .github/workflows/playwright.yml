@@ -32,28 +32,13 @@ jobs:
             - name: Install dependencies
               run: yarn
 
-            # Updated WebKit dependencies with correct package versions
-            - name: Install WebKit dependencies
+            # Let Playwright handle the dependencies
+            - name: Install Playwright and browsers
               run: |
-                  sudo apt-get update
-                  sudo apt-get install -y --no-install-recommends \
-                    libwoff1 \
-                    libharfbuzz-icu0 \
-                    libgstreamer-plugins-base1.0-0 \
-                    libgstreamer-gl1.0-0 \
-                    libgstreamer1.0-0 \
-                    libhyphen0 \
-                    libmanette-0.2-0 \
-                    libwebpdemux2 \
-                    libenchant-2-2 \
-                    libvpx6 \
-                    libwebkit2gtk-4.1-0 \
-                    libevent-2.1-7 \
-                    libopus0 \
-                    libxslt1.1 \
-                    libwpe-1.0-0 \
-                    libwpebackend-fdo-1.0-1 \
-                    libjavascriptcoregtk-4.1-0
+                sudo apt-get update
+                sudo apt-get install -y libgstreamer-plugins-base1.0-0
+                yarn playwright install-deps
+                yarn playwright install
             
             - name: Cache Playwright Browsers
               uses: actions/cache@v4
@@ -63,9 +48,6 @@ jobs:
                   key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-playwright-
-            
-            - name: Install Playwright Browsers
-              run: yarn playwright install --with-deps
             
             - name: Run Playwright tests
               run: yarn playwright test
