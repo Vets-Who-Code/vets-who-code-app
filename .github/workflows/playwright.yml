@@ -35,14 +35,17 @@ jobs:
             - name: Install dependencies
               run: yarn
 
-            # Updated WebKit dependencies installation with correct ICU version
+            # Updated WebKit dependencies installation
             - name: Install WebKit dependencies
               run: |
                   sudo apt-get update
                   sudo apt-get remove -y icu-devtools libicu-dev || true
+                  wget http://security.ubuntu.com/ubuntu/pool/main/i/icu/libicu70_70.1-2_amd64.deb
+                  sudo dpkg -i libicu70_70.1-2_amd64.deb
+                  sudo apt-get install -f
                   sudo apt-get install -y libwoff1 libharfbuzz-icu0 libgstreamer-plugins-base1.0-0 \
                     libgstreamer-gl1.0-0 libgstreamer1.0-0 libhyphen0 libmanette-0.2-0 \
-                    libwebpdemux2 libenchant-2-2 libicu-dev
+                    libwebpdemux2 libenchant-2-2
 
             - name: Clear Playwright cache
               run: |
@@ -59,8 +62,8 @@ jobs:
 
             - name: Install Playwright Browsers
               run: |
-                  yarn playwright install --with-deps --force
-                  yarn playwright install webkit --force
+                  yarn playwright install --with-deps chromium firefox webkit
+                  yarn playwright install-deps webkit
 
             - name: Run Playwright tests
               run: yarn playwright test
