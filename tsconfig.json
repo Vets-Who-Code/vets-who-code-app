@@ -43,7 +43,8 @@
     "src/**/*.tsx", 
     "tailwind.config.js", 
     "postcss.config.js", 
-    "next-sitemap.config.js"
+    "next-sitemap.config.js",
+    "playwright.config.ts"
   ],
   "exclude": ["node_modules"]
 }
