@@ -1,19 +1,16 @@
 name: Playwright Tests
-
 on:
     push:
         branches: [main, master]
     pull_request:
         branches: [main, master]
-
 jobs:
     test:
         timeout-minutes: 60
         runs-on: ubuntu-latest
-
         steps:
             - uses: actions/checkout@v4
-
+            
             - name: Cache node modules
               uses: actions/cache@v4
               env:
@@ -27,15 +24,15 @@ jobs:
                       ${{ runner.os }}-build-${{ env.cache-name }}-
                       ${{ runner.os }}-build-
                       ${{ runner.os }}-
-
+            
             - uses: actions/setup-node@v3
               with:
                   node-version-file: '.nvmrc'
-
+            
             - name: Install dependencies
               run: yarn
 
-            # Updated WebKit dependencies installation with comprehensive dependencies
+            # Added WebKit dependencies installation
             - name: Install WebKit dependencies
               run: |
                   sudo apt-get update
@@ -57,11 +54,7 @@ jobs:
                     libxslt1.1 \
                     libwpe-1.0-1 \
                     libwpebackend-fdo-1.0-1
-
-            - name: Clear Playwright cache
-              run: |
-                  rm -rf ~/.cache/ms-playwright || true
-
+            
             - name: Cache Playwright Browsers
               uses: actions/cache@v4
               with:
@@ -70,15 +63,13 @@ jobs:
                   key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-playwright-
-
+            
             - name: Install Playwright Browsers
-              run: |
-                  npx playwright install --with-deps
-                  npx playwright install webkit
-
+              run: yarn playwright install --with-deps
+            
             - name: Run Playwright tests
               run: yarn playwright test
-
+            
             - uses: actions/upload-artifact@v4
               if: always()
               with:
