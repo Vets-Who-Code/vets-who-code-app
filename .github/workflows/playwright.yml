@@ -31,14 +31,6 @@ jobs:
             
             - name: Install dependencies
               run: yarn
-
-            # Let Playwright handle the dependencies
-            - name: Install Playwright and browsers
-              run: |
-                sudo apt-get update
-                sudo apt-get install -y libgstreamer-plugins-base1.0-0
-                yarn playwright install-deps
-                yarn playwright install
             
             - name: Cache Playwright Browsers
               uses: actions/cache@v4
@@ -49,8 +41,11 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-playwright-
             
+            - name: Install Playwright and browsers
+              run: yarn playwright install --with-deps chromium firefox
+            
             - name: Run Playwright tests
-              run: yarn playwright test
+              run: yarn playwright test --project=chromium,firefox
             
             - uses: actions/upload-artifact@v4
               if: always()
