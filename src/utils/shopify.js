@@ -35,6 +35,22 @@ export async function shopifyFetch({ query, variables }) {
           status: 500,
           error: error.message || 'Error receiving data',
         };
-    }
+    }               
     
 }
+
+export async function getAllProducts() {
+    return shopifyFetch({
+      query: `{
+          products(sortKey: TITLE, first: 100) {
+            edges{
+              node {
+                id
+                title
+                description
+              }
+            }
+          }
+        }`
+    });
+  }
