@@ -1,0 +1,11 @@
+{
+  "title": "Core Fundamentals",
+  "thumbnail": {
+      "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1734314663/core-fundamentals.png",
+      "alt": "Core Fundamentals"
+  },
+  "description": "Unlock the building blocks of modern development with the Core Fundamentals section by Vets Who Code. Covering Command Line, Bash Scripting, Git, GitHub, Markdown, and Visual Studio Code, this section is the perfect introduction to foundational skills every developer must master.",
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "type": "subject",
+  "category": "programming"
+}
