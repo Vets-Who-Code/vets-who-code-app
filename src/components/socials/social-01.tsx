@@ -23,6 +23,13 @@ const Social01 = ({ className }: { className?: string }) => (
         >
             <i className="fab fa-linkedin" />
         </SocialLink>
+        <SocialLink
+            href="https://www.youtube.com/@vetswhocode"
+            label="youtube"
+            className="tw-px-2.5"
+        >
+            <i className="fab fa-youtube" />
+        </SocialLink>
     </Social>
 );
 
