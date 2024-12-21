@@ -58,7 +58,6 @@ const BlogArea = ({
                         image={blog.image}
                         path={blog.path}
                         postedAt={blog.postedAt}
-                        views={blog.views}
                         category={blog.category}
                         initial="offscreen"
                         whileInView="onscreen"

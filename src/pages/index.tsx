@@ -24,7 +24,7 @@ import { getallEvents } from "../lib/event";
 
 interface PageContent {
     section: string;
-    [key: string]: unknown; // Add index signature
+    [key: string]: unknown;
 }
 
 interface PageData {
@@ -78,7 +78,7 @@ export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("home", "index");
     const courses = getallCourses(["title", "thumbnail"], 0, 6);
     const events = getallEvents(["title", "thumbnail", "start_date", "location"], 0, 6);
-    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "views"], 0, 3);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt"], 0, 3);
     return {
         props: {
             data: {

@@ -103,7 +103,7 @@ export const getStaticProps = ({ params }: Params) => {
     const skip = (currentPage - 1) * POSTS_PER_PAGE;
     const { posts, count } = getPostsByTag(
         params.tag,
-        ["title", "image", "category", "postedAt", "views"],
+        ["title", "image", "category", "postedAt"],
         skip,
         POSTS_PER_PAGE
     );
