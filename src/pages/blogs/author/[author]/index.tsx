@@ -82,7 +82,7 @@ export const getStaticProps = ({ params }: Params) => {
     const author = getAuthorBySlug(params.author, ["id", "name", "slug"]);
     const { posts, count } = getPostsByAuthor(
         author.id,
-        ["title", "image", "category", "postedAt", "views"],
+        ["title", "image", "category", "postedAt"],
         0,
         POSTS_PER_PAGE
     );

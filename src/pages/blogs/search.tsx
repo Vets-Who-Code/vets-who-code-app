@@ -69,7 +69,7 @@ const BlogSearch: PageProps = ({ data }) => {
 BlogSearch.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "views", "content"]);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "content"]);
 
     return {
         props: {
