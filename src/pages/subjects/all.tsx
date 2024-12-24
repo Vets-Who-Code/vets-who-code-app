@@ -25,8 +25,8 @@ const Coursegrid01: PageProps = ({ data }) => {
 
     return (
         <>
-            <SEO title="Courses" />
-            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Courses" />
+            <SEO title="Subjects" />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Subjects" />
             <VWCGrid title="Course Section">
                 {sortedItems?.map((course) => (
                     <Anchor path={course.path}>

@@ -3,12 +3,12 @@ import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
 
-type TProps = Pick<IBlog, "image" | "path" | "title" | "category" | "postedAt" | "views"> & {
+type TProps = Pick<IBlog, "image" | "path" | "title" | "category" | "postedAt"> & {
     className?: string;
 };
 
 const BlogCard = forwardRef<HTMLDivElement, TProps>(
-    ({ className, image, path, title, category, postedAt, views }, ref) => {
+    ({ className, image, path, title, category, postedAt }, ref) => {
         return (
             <div className={clsx("blog-card tw-group", className)} ref={ref}>
                 <div className="tw-relative tw-overflow-hidden tw-rounded tw-h-[250px]">
@@ -40,14 +40,10 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
 
-                    <ul className="tw-flex tw-gap-7 tw-text-gray-300 tw-text-md">
+                    <ul className="tw-text-gray-300 tw-text-md">
                         <li className="tw-mt-3.8 tw-mb-0">
                             <i className="far fa-calendar tw-mr-2.5" />
                             {postedAt}
-                        </li>
-                        <li className="tw-mt-3.8">
-                            <i className="far fa-eye tw-mr-2.5" />
-                            {views} views
                         </li>
                     </ul>
                 </div>

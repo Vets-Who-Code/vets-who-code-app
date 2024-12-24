@@ -36,7 +36,6 @@ const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
                                     path={blog.path}
                                     image={blog.image}
                                     postedAt={blog.postedAt}
-                                    views={blog.views}
                                     initial="offscreen"
                                     whileInView="onscreen"
                                     viewport={{ once: true, amount: 0.2 }}

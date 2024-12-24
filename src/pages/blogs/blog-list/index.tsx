@@ -43,7 +43,7 @@ BlogList.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
     const { blogs, count } = getAllBlogs(
-        ["title", "image", "postedAt", "views", "author", "excerpt"],
+        ["title", "image", "postedAt", "author", "excerpt"],
         0,
         POSTS_PER_PAGE
     );

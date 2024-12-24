@@ -3,7 +3,7 @@ import path from "path";
 import { ICourse } from "@utils/types";
 import { getSlugs } from "./util";
 
-const courseDirectory = path.join(process.cwd(), "src/data/courses");
+const courseDirectory = path.join(process.cwd(), "src/data/subjects");
 
 export function getCourseBySlug(slug: string, fields: Array<keyof ICourse> | "all"): ICourse {
     const realSlug = slug.replace(/\.json$/, "");
@@ -29,7 +29,7 @@ export function getCourseBySlug(slug: string, fields: Array<keyof ICourse> | "al
     return {
         ...course,
         published_at: fileContents.published_at,
-        path: `/courses/${realSlug}`,
+        path: `/subjects/${realSlug}`,
     };
 }
 

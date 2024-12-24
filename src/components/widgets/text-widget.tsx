@@ -41,6 +41,9 @@ const TextWidget = ({ className, mode }: TProps) => {
                 <SocialLink href="https://www.linkedin.com/company/vets-who-code" label="linkedin">
                     <i className="fab fa-linkedin" />
                 </SocialLink>
+                <SocialLink href="https://www.youtube.com/@vetswhocode" label="youtube">
+                    <i className="fab fa-youtube" />
+                </SocialLink>
             </Social>
         </div>
     );

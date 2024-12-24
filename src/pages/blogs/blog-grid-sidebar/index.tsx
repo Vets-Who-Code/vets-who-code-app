@@ -49,7 +49,7 @@ BlogGridSidebar.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
     const { blogs, count } = getAllBlogs(
-        ["title", "image", "category", "postedAt", "views"],
+        ["title", "image", "category", "postedAt"],
         0,
         POSTS_PER_PAGE
     );

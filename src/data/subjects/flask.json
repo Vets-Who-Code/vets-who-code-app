@@ -1,0 +1,81 @@
+{
+  "id": 10,
+  "title": "Flask",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314664/10_joiqgn.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": null,
+  "total_lectures": null,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Learn to build lightweight and powerful web applications with Flask in this section by Vets Who Code. This section covers everything from setting up your Flask environment to creating APIs and deploying Flask applications.",
+  "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "iframe",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314664/10_joiqgn.png",
+        "alt": "Flask Introduction Video"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "The Flask section by Vets Who Code introduces developers to one of Python's most popular micro web frameworks. Flask’s lightweight and flexible design makes it ideal for building everything from simple web pages to robust APIs."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Learn to set up your development environment and build your first Flask application. Understand how to create <b>routes</b> and handle HTTP requests to serve dynamic content to users."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Explore <b>template rendering</b> with Jinja2, Flask's built-in templating engine. Learn how to create dynamic, reusable HTML templates that simplify the process of building web pages."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Discover how to use Flask to build <b>RESTful APIs</b>. Learn to handle JSON requests and responses, validate data, and structure your API endpoints efficiently."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Integrate Flask with <b>databases</b>, including SQLite and PostgreSQL. Understand how to use SQLAlchemy, Flask’s powerful ORM (Object-Relational Mapping) tool, to interact with your data."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Understand the basics of <b>middleware</b> and how to extend Flask’s functionality with custom extensions. Learn how to integrate features like user authentication and caching into your applications."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Dive into <b>application deployment</b> with Flask. Learn to deploy your web applications to platforms like Heroku, AWS, or Google Cloud, and understand how to configure your application for production."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "By the end of this section, you’ll have the skills to build, extend, and deploy Flask applications. Whether you're building personal projects, APIs, or scalable web applications, Flask provides the tools and flexibility you need to succeed."
+    }
+  ]
+}

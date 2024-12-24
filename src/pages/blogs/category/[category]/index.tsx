@@ -80,7 +80,7 @@ type Params = {
 export const getStaticProps = ({ params }: Params) => {
     const { posts, count } = getPostsByCategory(
         params.category,
-        ["title", "image", "category", "postedAt", "views"],
+        ["title", "image", "category", "postedAt"],
         0,
         POSTS_PER_PAGE
     );

@@ -1,0 +1,81 @@
+{
+  "id": 12,
+  "title": "Job Preparation",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314664/12_l1y4dn.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "career",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": null,
+  "total_lectures": null,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Prepare for engineering roles in the tech industry with the Job Preparation section by Vets Who Code. From technical resume crafting to advanced coding interviews and engineering project portfolios, this section provides everything you need to land your first engineering job.",
+  "curriculum": ["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05"],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "iframe",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1734314664/12_l1y4dn.png",
+        "alt": "Job Preparation Introduction Video"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "The Job Preparation section by Vets Who Code is engineered to help developers transition into professional engineering roles. From perfecting technical resumes to conquering algorithm-heavy coding interviews, this section provides actionable steps tailored for engineering candidates."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Create a <b>technical resume</b> that showcases your engineering skills, projects, and expertise. Learn to highlight your proficiency in coding languages, frameworks, and technical tools while tailoring your resume to engineering-specific job descriptions."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Build a <b>portfolio of engineering projects</b> that demonstrates your ability to solve complex problems and work with scalable systems. Learn how to present your GitHub repositories, include code walkthroughs, and explain your technical decision-making effectively."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Master <b>coding interviews</b> by practicing algorithms, data structures, and system design problems. This section focuses on engineering-specific challenges, including time complexity analysis, technical whiteboarding, and live coding sessions."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Develop your ability to handle <b>system design interviews</b>. Understand how to architect scalable solutions, build real-world systems, and communicate your thought process effectively to interviewers."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Learn to <b>navigate technical networking</b>: Build connections with engineers, participate in open-source communities, and leverage platforms like LinkedIn and GitHub to showcase your technical expertise and engage with industry professionals."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Gain insight into <b>negotiating engineering offers</b>. Understand how to evaluate compensation packages, assess technical growth opportunities, and maximize your total rewards while preparing for long-term career progression."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "By the end of this section, you’ll have the skills to stand out as an engineering candidate, perform exceptionally in technical interviews, and secure a role in software engineering. Let Vets Who Code help you take the final steps toward your tech career."
+    }
+  ]
+}

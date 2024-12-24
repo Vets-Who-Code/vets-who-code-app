@@ -46,8 +46,8 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    <Button path="/courses/all" className="tw-mt-[50px]">
-                        View All Modules <i className="far fa-long-arrow-right tw-ml-3" />
+                    <Button path="/subjects/all" className="tw-mt-[50px]">
+                        View All Subjects <i className="far fa-long-arrow-right tw-ml-3" />
                     </Button>
                 </motion.div>
             </div>

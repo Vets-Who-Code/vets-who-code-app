@@ -60,7 +60,6 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                             category={blogs[0].category}
                             postedAt={blogs[0].postedAt}
                             image={blogs[0].image}
-                            views={blogs[0].views}
                         />
                     </motion.div>
                     <motion.div
@@ -76,7 +75,6 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                             category={blogs[1].category}
                             postedAt={blogs[1].postedAt}
                             image={blogs[1].image}
-                            views={blogs[1].views}
                         />
                     </motion.div>
                     <motion.div
@@ -92,7 +90,6 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                             category={blogs[2].category}
                             postedAt={blogs[2].postedAt}
                             image={blogs[2].image}
-                            views={blogs[2].views}
                         />
                     </motion.div>
                 </div>

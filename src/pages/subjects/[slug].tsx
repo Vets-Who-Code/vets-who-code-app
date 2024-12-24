@@ -49,7 +49,7 @@ const SingleCourse: PageProps = ({ data: { course, instructor, relatedCourses } 
             <Breadcrumb
                 pages={[
                     { path: "/", label: "home" },
-                    { path: "/courses/all", label: "courses" },
+                    { path: "/subjects/all", label: "subjects" },
                 ]}
                 currentPage={course.title}
             />

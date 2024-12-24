@@ -1,25 +1,21 @@
 name: Playwright Tests
-
 on:
     push:
         branches: [main, master]
     pull_request:
         branches: [main, master]
-
 jobs:
     test:
         timeout-minutes: 60
         runs-on: ubuntu-latest
-
         steps:
-            - uses: actions/checkout@v3
-
+            - uses: actions/checkout@v4
+            
             - name: Cache node modules
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               env:
                   cache-name: cache-node-modules
               with:
-                  # This path is platform dependent; use **/node_modules for Windows
                   path: |
                       node_modules
                       **/node_modules
@@ -28,30 +24,32 @@ jobs:
                       ${{ runner.os }}-build-${{ env.cache-name }}-
                       ${{ runner.os }}-build-
                       ${{ runner.os }}-
-
+            
             - uses: actions/setup-node@v3
               with:
                   node-version-file: '.nvmrc'
-
+            
             - name: Install dependencies
               run: yarn
-
+            
             - name: Cache Playwright Browsers
-              uses: actions/cache@v2
+              uses: actions/cache@v4
               with:
                   path: |
                       ~/.cache/ms-playwright
                   key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-playwright-
-
-            - name: Install Playwright Browsers
-              run: yarn playwright install --with-deps
-
+            
+            - name: Install Playwright and browsers
+              run: yarn playwright install --with-deps chromium firefox
+            
             - name: Run Playwright tests
-              run: yarn playwright test
-
-            - uses: actions/upload-artifact@v3
+              run: |
+                yarn build
+                yarn playwright test --project=chromium --project=firefox
+            
+            - uses: actions/upload-artifact@v4
               if: always()
               with:
                   name: playwright-report

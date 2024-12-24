@@ -49,7 +49,7 @@ BlogClassic.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
     const { blogs, count } = getAllBlogs(
-        ["title", "image", "category", "postedAt", "views", "author", "excerpt"],
+        ["title", "image", "category", "postedAt", "author", "excerpt"],
         0,
         POSTS_PER_PAGE
     );

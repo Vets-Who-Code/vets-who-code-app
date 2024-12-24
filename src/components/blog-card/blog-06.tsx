@@ -7,15 +7,12 @@ import { IBlog } from "@utils/types";
 import Button from "@components/ui/button";
 import SocialShare from "@components/social-share/layout-03";
 
-type TProps = Pick<
-    IBlog,
-    "image" | "path" | "title" | "postedAt" | "views" | "author" | "excerpt"
-> & {
+type TProps = Pick<IBlog, "image" | "path" | "title" | "postedAt" | "author" | "excerpt"> & {
     className?: string;
 };
 
 const BlogCard = forwardRef<HTMLDivElement, TProps>(
-    ({ className, image, path, title, postedAt, views, author, excerpt }, ref) => {
+    ({ className, image, path, title, postedAt, author, excerpt }, ref) => {
         return (
             <div
                 className={clsx(
@@ -53,11 +50,6 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             className="tw-pr-5 md:tw-pr-8"
                             text={postedAt}
                             icon="far fa-calendar"
-                        />
-                        <BlogMetaItem
-                            className="tw-pr-5 md:tw-pr-8"
-                            text={`${views} views`}
-                            icon="far fa-eye"
                         />
                     </div>
                     <p className="tw-mt-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
