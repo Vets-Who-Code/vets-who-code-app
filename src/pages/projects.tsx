@@ -19,8 +19,8 @@ interface ProjectModalProps {
 }
 
 const ProjectDetailModal = ({ project }: ProjectModalProps) => {
-    const duration = 0.3;
-    const xOffset = 15;
+    const duration = 0.35;
+    const xOffset = 25;
     const delay = 0.1;
 
     return (
@@ -43,11 +43,10 @@ const ProjectDetailModal = ({ project }: ProjectModalProps) => {
                     <div className="tw-h-full tw-w-[1.5px] tw-rounded-md tw-bg-secondary" />
                 </motion.div>
                 <div className="tw-col-start-1 tw-row-start-1 tw-w-10 tw-rounded-full tw-bg-white tw-p-0">
-                    <motion.img
+                    <img
                         src="https://res.cloudinary.com/vetswhocode/image/upload/e_bgremoval/f_auto,q_auto/v1609084190/hashflag-white-vscode_n5k5db.jpg"
                         alt=""
                         className="tw-w-10"
-                        // animate={{ scale: [1, 1.5, 1] }}
                     />
                 </div>
             </div>
