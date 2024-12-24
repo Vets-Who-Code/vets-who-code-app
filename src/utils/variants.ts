@@ -1,4 +1,4 @@
-import { Variants } from "motion";
+import { Variants } from "motion/react";
 
 export const scrollUpVariants: Variants = {
     offscreen: {
