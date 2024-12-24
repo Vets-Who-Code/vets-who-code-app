@@ -22,7 +22,6 @@ type PageProps = NextPage<TProps> & {
 
 const Coursegrid01: PageProps = ({ data }) => {
     const { sortedItems } = useSort<ICourse>(data.courses, courseSorting);
-
     return (
         <>
             <SEO title="Subjects" />

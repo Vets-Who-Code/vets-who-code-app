@@ -53,7 +53,6 @@ const navigation: NavigationItem[] = [
                 id: 22,
                 label: "Projects",
                 path: "/projects",
-
             },
             {
                 id: 23,
