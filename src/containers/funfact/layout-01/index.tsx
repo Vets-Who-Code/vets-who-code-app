@@ -1,7 +1,7 @@
 import Section from "@ui/section";
 import FunFact from "@components/funfact/funfact-01";
 import SectionTitle from "@components/section-title";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
 import { SectionTitleType, ItemType, TSection } from "@utils/types";
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import BlogCard01 from "@components/blog-card/blog-01";
 import BlogCard02 from "@components/blog-card/blog-02";
@@ -19,20 +19,11 @@ type TProps = TSection & {
     };
 };
 
-const BlogArea = ({
-    data: { section_title, motto, blogs },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize }: TProps) => {
     const { trans1, trans2 } = useUI();
 
     return (
-        <Section
-            className="blog-area tw-relative tw-overflow-hidden"
-            space={space}
-            bg={bg}
-        >
+        <Section className="blog-area tw-relative tw-overflow-hidden" space={space} bg={bg}>
             <div className="tw-absolute tw-inset-0 tw-flex jtw-justify-center tw-items-center">
                 <img
                     src="/images/bg/shape-03.png"

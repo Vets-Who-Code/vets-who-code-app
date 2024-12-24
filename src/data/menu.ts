@@ -51,11 +51,16 @@ const navigation: NavigationItem[] = [
             },
             {
                 id: 22,
+                label: "Projects",
+                path: "/projects",
+            },
+            {
+                id: 23,
                 label: "Modules",
                 path: "/courses/all",
             },
             {
-                id: 23,
+                id: 24,
                 label: "FAQ",
                 path: "/faq",
             },

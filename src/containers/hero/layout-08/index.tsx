@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ImageType, HeadingType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ItemType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import Item from "./item";

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import { useKeyboardFocus } from "@hooks";
 import { fadeIn02 } from "@utils/variants";
 import Spinner from "../spinner";
@@ -39,7 +39,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
 
     return (
         <Portal>
-            <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => null}>
+            <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
                 {show && (
                     <>
                         <motion.div

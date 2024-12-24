@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import SwiperCore, { EffectFade } from "swiper";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SwiperSlider, { SwiperSlide } from "@components/ui/swiper";
 import { ItemType } from "@utils/types";
 import { fadeInUp } from "@utils/variants";

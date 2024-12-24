@@ -172,6 +172,16 @@ export interface ICourse {
     curriculum: IDType[];
 }
 
+export interface Project {
+    name: string;
+    headline: string;
+    long_description: string[];
+    technologies: string[];
+    github_url: string;
+    live_url?: string;
+    thumbnail: ImageType;
+}
+
 export interface BlogMetaType {
     title: string;
     slug: string;
