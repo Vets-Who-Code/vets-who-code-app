@@ -45,6 +45,6 @@
     "postcss.config.js", 
     "next-sitemap.config.js",
     "playwright.config.ts"
-  ],
+, "src/pages/shop/index.js", "src/utils/shopify.js"  ],
   "exclude": ["node_modules"]
 }

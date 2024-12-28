@@ -1,4 +1,3 @@
-// components/ProductCard.tsx
 import Link from 'next/link';
 
 type ProductCardProps = {
@@ -12,30 +11,24 @@ type ProductCardProps = {
 
 const ProductCard = ({ id, title, description, image, price, path }: ProductCardProps) => {
   return (
-    <div className="tw-w-full tw-max-w-xs tw-rounded-lg tw-bg-white tw-shadow-lg tw-overflow-hidden">
-
-      <div className="tw-relative">
+    <div className="w-full max-w-xs rounded-lg bg-white shadow-lg overflow-hidden">
+      <div className="relative">
         <img
           src={image}
-          alt={title}
-          className="tw-w-full tw-h-60 tw-object-cover tw-rounded-t-lg"
+          alt={title || "Product image"}
+          className="w-full h-60 object-cover rounded-t-lg"
         />
       </div>
 
-  
-      <div className="tw-p-4">
-        <h3 className="tw-text-lg tw-font-semibold tw-truncate">{title}</h3>
-        <p className="tw-text-sm tw-text-gray-600 tw-mt-1 tw-truncate">{description}</p>
-
-   
-        <p className="tw-text-xl tw-font-semibold tw-mt-2 tw-text-primary">{price}</p>
+      <div className="p-4">
+        <h3 className="text-lg font-semibold truncate">{title}</h3>
+        <p className="text-sm text-gray-600 mt-1 truncate">{description}</p>
+        <p className="text-xl font-semibold mt-2 text-primary">{price}</p>
 
         <Link href={path}>
-          <a
-            className="tw-inline-block tw-mt-4 tw-px-4 tw-py-2 tw-bg-blue-600 tw-text-white tw-rounded-lg tw-text-center hover:tw-bg-blue-700"
-          >
+          <button className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-center hover:bg-blue-700">
             View Product
-          </a>
+          </button>
         </Link>
       </div>
     </div>

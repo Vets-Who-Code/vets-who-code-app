@@ -102,7 +102,7 @@ const navigation: NavigationItem[] = [
             {
                 id: 62,
                 label: "Shop",
-                path: "https://hashflag.shop/",
+                path: "/shop",
                 external: true,
             },
             {
