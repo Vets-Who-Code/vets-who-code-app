@@ -35,12 +35,13 @@ export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
                             width={thumbnail?.width || 370}
                             height={thumbnail?.height || 229}
                             loading={thumbnail?.loading || "lazy"}
+                            draggable="false"
                         />
                     )}
                 </figure>
                 <div className="info tw-p-[30px]">
                     <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
-                        <div>{title}</div>
+                        <div className="tw-text-left">{title}</div>
                     </h3>
                 </div>
             </motion.div>

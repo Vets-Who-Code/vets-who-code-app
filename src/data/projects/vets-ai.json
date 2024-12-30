@@ -7,7 +7,8 @@
     "Anim consectetur veniam ullamco laboris eiusmod minim mollit laborum. Dolore irure dolore est dolore. Non in duis nulla aute tempor duis. Magna elit elit ut Lorem occaecat culpa aute culpa amet cillum. Quis veniam culpa nulla amet ea est duis mollit ex nostrud sit nulla. Ad id incididunt id voluptate officia dolore. Ullamco elit nisi amet occaecat elit pariatur eu."
   ],
   "technologies": ["Next.js", "Typescript", "Tailwind CSS", "Playwright"],
-  "github_url": "https://github.com/Vets-Who-Code/vets-who-code-app",
+  "owner": "Vets-Who-Code",
+  "repo": "VetsAI",
   "live_url": "https://vetswhocode.com",
   "thumbnail": {
     "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg"

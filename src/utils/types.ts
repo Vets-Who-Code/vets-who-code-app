@@ -172,14 +172,50 @@ export interface ICourse {
     curriculum: IDType[];
 }
 
-export interface Project {
+export interface VWCProjectDetails {
     name: string;
     headline: string;
     long_description: string[];
     technologies: string[];
-    github_url: string;
+    owner: string;
+    repo: string;
     live_url?: string;
     thumbnail: ImageType;
+}
+
+export interface VWCProject {
+    details: VWCProjectDetails;
+    repo: VWCProjectRepo;
+}
+
+export interface GithubUser {
+    name: string;
+    avatar_url: string;
+    html_url: string;
+}
+
+export interface GithubContributor {
+    login: string;
+    contributions: number;
+}
+
+export interface GithubRepo {
+    html_url: string;
+    stargazers_count: number;
+}
+
+export interface VWCProjectRepo {
+    html_url: string;
+    stargazers_count: number;
+    contributors: VWCContributor[];
+}
+
+export interface VWCContributor {
+    login: string;
+    name: string;
+    avatar_url: string;
+    contributions: number;
+    html_url: string;
 }
 
 export interface BlogMetaType {
