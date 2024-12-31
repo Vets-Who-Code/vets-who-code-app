@@ -1,4 +1,5 @@
 {
+  "index": 0,
   "name": "Vets Who Code Site",
   "headline": "A community for veterans to learn to code",
   "long_description": [
@@ -6,7 +7,7 @@
     "Nostrud amet ex minim ipsum duis proident quis eiusmod fugiat ut. In nisi velit ea nisi nisi. Laborum irure excepteur ea nisi commodo proident occaecat consequat duis voluptate consequat tempor. Ex consectetur excepteur irure et labore ipsum mollit nisi labore.",
     "Anim consectetur veniam ullamco laboris eiusmod minim mollit laborum. Dolore irure dolore est dolore. Non in duis nulla aute tempor duis. Magna elit elit ut Lorem occaecat culpa aute culpa amet cillum. Quis veniam culpa nulla amet ea est duis mollit ex nostrud sit nulla. Ad id incididunt id voluptate officia dolore. Ullamco elit nisi amet occaecat elit pariatur eu."
   ],
-  "technologies": ["Next.js", "Typescript", "Tailwind CSS", "Playwright"],
+  "technologies": ["Next.js", "Typescript", "Tailwind CSS", "Playwright", "React", "Motion for React"],
   "owner": "Vets-Who-Code",
   "repo": "vets-who-code-app",
   "live_url": "https://vetswhocode.com",

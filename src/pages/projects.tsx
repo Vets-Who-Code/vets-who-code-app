@@ -9,9 +9,25 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getProjectData } from "../lib/project";
-import { CircleX, Star } from "lucide-react";
+import { CircleX, Star, CircleDot, Eye, GitFork } from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
+
+interface TechStackProps {
+    techStack: string[];
+}
+
+const TechStack = ({ techStack }: TechStackProps) => {
+    return (
+        <div className="tw-mb-2 tw-flex tw-flex-wrap tw-gap-1">
+            {techStack.map((tech) => (
+                <div className="tw-m-0 tw-p-0 tw-rounded-md tw-bg-secondary tw-bg-opacity-90 tw-px-2 tw-py-1 tw-text-sm tw-text-white">
+                    {tech}
+                </div>
+            ))}
+        </div>
+    );
+};
 
 interface ProjectModalProps {
     project: VWCProject;
@@ -23,10 +39,10 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
     const xOffset = 25;
     const delay = 0.1;
     return (
-        <div className="tw-m-0 tw-py-2 md:tw-flex md:tw-space-x-2 md:tw-px-4">
+        <div className="tw-m-0 tw-max-w-fit tw-py-2 md:tw-flex md:tw-space-x-2 md:tw-px-4">
             <motion.div
                 className={clsx(
-                    "tw-w-full tw-flex-col tw-items-center tw-justify-center tw-space-y-2 tw-py-3 md:tw-w-2/5 md:tw-min-w-56 md:tw-max-w-fit md:tw-items-start md:tw-justify-normal",
+                    "tw-w-full tw-flex-col tw-items-center tw-justify-center tw-space-y-2 tw-py-3 md:tw-w-2/5 md:tw-min-w-80 md:tw-max-w-fit md:tw-items-start md:tw-justify-normal",
                     className
                 )}
                 initial={{ opacity: 0, x: xOffset }}
@@ -37,23 +53,55 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                     src={project.details.thumbnail.src}
                     alt={project.details.thumbnail.alt}
                     draggable="false"
-                    className="tw-w-full"
+                    className="tw-w-full md:tw-w-fit"
                 />
 
                 {/* Repo stats */}
                 <h4>Statistics</h4>
-                <div className="tw-ms-2 tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                <div className="tw-grid tw-min-w-72 tw-grid-cols-2">
                     {/* Github Stars */}
-                    <div className="tw-flex tw-items-center tw-gap-1">
-                        <Star size={16} strokeWidth={3} />
-                        <div>Stars</div>
+                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                            {project.repo.stargazers_count}
+                        </div>
+                        <div className="tw-flex tw-items-center tw-gap-1">
+                            <Star size={16} strokeWidth={3} />
+                            <div className="tw-mt-1">Stars</div>
+                        </div>
                     </div>
-                    <div className="tw-my-1 tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
-                        {project.repo.stargazers_count}
+                    {/* Github Issues */}
+                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                            {project.repo.open_issues_count}
+                        </div>
+                        <div className="tw-flex tw-items-center tw-gap-1">
+                            <CircleDot size={16} strokeWidth={3} />
+                            <div className="tw-mt-1">Issues</div>
+                        </div>
+                    </div>
+                    {/* Github Watching */}
+                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                            {project.repo.subscribers_count}
+                        </div>
+                        <div className="tw-flex tw-items-center tw-gap-1">
+                            <Eye size={16} strokeWidth={3} />
+                            <div className="tw-mt-1">Watching</div>
+                        </div>
+                    </div>
+                    {/* Github Forks */}
+                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                            {project.repo.forks_count}
+                        </div>
+                        <div className="tw-flex tw-items-center tw-gap-1">
+                            <GitFork size={16} strokeWidth={3} />
+                            <div className="tw-mt-1">Forks</div>
+                        </div>
                     </div>
                 </div>
                 <h4>Top Contributors</h4>
-                <div className="tw-ms-2 tw-flex-col tw-space-y-1 tw-text-secondary">
+                <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
                     {project.repo.contributors.map((contributor) => {
                         return (
                             <Link
@@ -107,6 +155,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
             >
                 <h1 className="tw-mb-0 tw-text-secondary">{project.details.name}</h1>
                 <h3 className="tw-text-primary">{project.details.headline}</h3>
+                <TechStack techStack={project.details.technologies} />
                 {project.details.long_description.map((pg) => {
                     return <p className="tw-text-secondary tw-opacity-80">{pg}</p>;
                 })}

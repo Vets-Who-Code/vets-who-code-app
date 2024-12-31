@@ -173,6 +173,7 @@ export interface ICourse {
 }
 
 export interface VWCProjectDetails {
+    index: number;
     name: string;
     headline: string;
     long_description: string[];
@@ -202,21 +203,16 @@ export interface GithubContributor {
 export interface GithubRepo {
     html_url: string;
     stargazers_count: number;
+    open_issues_count: number;
+    forks_count: number;
+    subscribers_count: number;
 }
 
-export interface VWCProjectRepo {
-    html_url: string;
-    stargazers_count: number;
+export interface VWCProjectRepo extends GithubRepo {
     contributors: VWCContributor[];
 }
 
-export interface VWCContributor {
-    login: string;
-    name: string;
-    avatar_url: string;
-    contributions: number;
-    html_url: string;
-}
+export interface VWCContributor extends GithubContributor, GithubUser {}
 
 export interface BlogMetaType {
     title: string;

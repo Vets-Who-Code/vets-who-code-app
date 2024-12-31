@@ -39,21 +39,23 @@ export const getProjectData = async (): Promise<VWCProject[]> => {
             return data;
         })
     );
-    return data;
+    // Sort projects by index
+    return (await data).sort((a, b) => a.details.index - b.details.index);
 };
 
 export const getProjectContributors = async (
     owner: string,
-    repo: string
+    repo: string,
+    top: number = 4
 ): Promise<VWCContributor[]> => {
     const gitContributors = await getGithubRepoContributors(owner, repo);
-    const topContributors = gitContributors.slice(0, 4);
+    const topContributors = gitContributors.slice(0, top);
     const projectContributors = Promise.all(
         topContributors.map(async (contributor) => {
             const user = await getGithubUser(contributor.login);
             return {
                 ...user,
-                ...contributor
+                ...contributor,
             };
         })
     );
