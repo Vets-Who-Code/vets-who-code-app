@@ -12,6 +12,7 @@ import { getProjectData } from "../lib/project";
 import { CircleX, Star, CircleDot, Eye, GitFork } from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
+import MarkdownRenderer from "@components/markdown-renderer";
 
 interface TechStackProps {
     techStack: string[];
@@ -21,7 +22,7 @@ const TechStack = ({ techStack }: TechStackProps) => {
     return (
         <div className="tw-mb-2 tw-flex tw-flex-wrap tw-gap-1">
             {techStack.map((tech) => (
-                <div className="tw-m-0 tw-p-0 tw-rounded-md tw-bg-secondary tw-bg-opacity-90 tw-px-2 tw-py-1 tw-text-sm tw-text-white">
+                <div className="tw-m-0 tw-rounded-md tw-bg-secondary tw-bg-opacity-90 tw-p-0 tw-px-2 tw-py-1 tw-text-sm tw-text-white">
                     {tech}
                 </div>
             ))}
@@ -38,6 +39,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
     const duration = 0.35;
     const xOffset = 25;
     const delay = 0.1;
+
     return (
         <div className="tw-m-0 tw-max-w-fit tw-py-2 md:tw-flex md:tw-space-x-2 md:tw-px-4">
             <motion.div
@@ -115,6 +117,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                                         src={contributor.avatar_url}
                                         alt={contributor.name}
                                         draggable="false"
+                                        loading="eager"
                                     />
                                 </div>
                                 <div className="tw-h-fit tw-w-fit tw-flex-col -tw-space-y-2">
@@ -142,7 +145,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                 <div className="tw-col-start-1 tw-row-start-1 tw-m-0 tw-flex tw-items-center tw-justify-center tw-p-0">
                     <img
                         src="https://res.cloudinary.com/vetswhocode/image/upload/e_bgremoval/f_auto,q_auto/v1609084190/hashflag-white-vscode_n5k5db.jpg"
-                        alt=""
+                        alt={`${project.details.name} screenshot`}
                         className="tw-w-14 tw-rounded-full tw-bg-white"
                     />
                 </div>
@@ -157,7 +160,11 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                 <h3 className="tw-text-primary">{project.details.headline}</h3>
                 <TechStack techStack={project.details.technologies} />
                 {project.details.long_description.map((pg) => {
-                    return <p className="tw-text-secondary tw-opacity-80">{pg}</p>;
+                    return (
+                        <p className="tw-text-secondary">
+                            <MarkdownRenderer content={pg} />
+                        </p>
+                    );
                 })}
             </motion.div>
         </div>
@@ -174,7 +181,11 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <Dialog.Root open={isOpen} onOpenChange={setIsOpen}>
             <Dialog.Trigger>
-                <VWCGridCard title={project.details.name} thumbnail={project.details.thumbnail} />
+                <VWCGridCard
+                    title={project.details.name}
+                    headline={project.details.headline}
+                    thumbnail={project.details.thumbnail}
+                />
             </Dialog.Trigger>
             <AnimatePresence>
                 {isOpen && (

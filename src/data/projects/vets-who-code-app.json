@@ -1,17 +1,27 @@
 {
-  "index": 0,
-  "name": "Vets Who Code Site",
-  "headline": "A community for veterans to learn to code",
+  "index": 1,
+  "name": "Vets Who Code App",
+  "headline": "Empowering Veterans Through a Communal Coding Platform",
   "long_description": [
-    "Qui incididunt commodo aliqua magna laborum. Veniam laboris cillum occaecat voluptate minim minim. Qui culpa voluptate aliquip mollit ea veniam deserunt duis. Nisi voluptate sit sint ad quis veniam duis excepteur commodo officia cillum nisi sunt. Tempor laboris ad deserunt eiusmod. Ex nostrud pariatur incididunt ullamco laborum ad cupidatat voluptate tempor. Amet nulla minim sit duis do cillum.",
-    "Nostrud amet ex minim ipsum duis proident quis eiusmod fugiat ut. In nisi velit ea nisi nisi. Laborum irure excepteur ea nisi commodo proident occaecat consequat duis voluptate consequat tempor. Ex consectetur excepteur irure et labore ipsum mollit nisi labore.",
-    "Anim consectetur veniam ullamco laboris eiusmod minim mollit laborum. Dolore irure dolore est dolore. Non in duis nulla aute tempor duis. Magna elit elit ut Lorem occaecat culpa aute culpa amet cillum. Quis veniam culpa nulla amet ea est duis mollit ex nostrud sit nulla. Ad id incididunt id voluptate officia dolore. Ullamco elit nisi amet occaecat elit pariatur eu."
+    "The Vets Who Code App serves as a communal codebase where military veterans and their spouses can enhance their coding skills. This production-grade application is continuously evolving to address the unique needs of the veteran community.",
+    "Built with a modern tech stack, the app offers hands-on experience in web development, enabling users to learn by doing. It provides valuable tools and features that mimic real-world challenges, fostering an environment of growth and learning.",
+    "The project emphasizes collaboration, mentorship, and practical application of coding skills, preparing veterans for successful careers in the tech industry."
   ],
-  "technologies": ["Next.js", "Typescript", "Tailwind CSS", "Playwright", "React", "Motion for React"],
+  "technologies": [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Playwright",
+    "MDX",
+    "shadcn/ui components",
+    "Server Actions",
+    "Server Components"
+  ],
   "owner": "Vets-Who-Code",
   "repo": "vets-who-code-app",
-  "live_url": "https://vetswhocode.com",
+  "live_url": "https://vetswhocode.io/",
   "thumbnail": {
-    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg"
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg",
+    "alt": "Vets Who Code App Thumbnail"
   }
 }

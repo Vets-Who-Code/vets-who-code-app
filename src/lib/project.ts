@@ -1,15 +1,8 @@
 import path from "path";
-import {
-    GithubContributor,
-    GithubRepo,
-    GithubUser,
-    VWCContributor,
-    VWCProject,
-    VWCProjectDetails,
-} from "@utils/types";
+import { VWCProject, VWCProjectDetails } from "@utils/types";
 import fs from "fs";
 import { getSlugs } from "./util";
-import axios from "axios";
+import { getGithubRepo, getProjectContributors } from "./github";
 
 const projectDirectory = path.join(process.cwd(), "src/data/projects");
 
@@ -41,44 +34,4 @@ export const getProjectData = async (): Promise<VWCProject[]> => {
     );
     // Sort projects by index
     return (await data).sort((a, b) => a.details.index - b.details.index);
-};
-
-export const getProjectContributors = async (
-    owner: string,
-    repo: string,
-    top: number = 4
-): Promise<VWCContributor[]> => {
-    const gitContributors = await getGithubRepoContributors(owner, repo);
-    const topContributors = gitContributors.slice(0, top);
-    const projectContributors = Promise.all(
-        topContributors.map(async (contributor) => {
-            const user = await getGithubUser(contributor.login);
-            return {
-                ...user,
-                ...contributor,
-            };
-        })
-    );
-    return projectContributors;
-};
-
-export const getGithubRepo = async (owner: string, repo: string): Promise<GithubRepo> => {
-    const apiURL = `https://api.github.com/repos/${owner}/${repo}`;
-    const response = await axios.get(apiURL);
-    return response.data;
-};
-
-export const getGithubRepoContributors = async (
-    owner: string,
-    repo: string
-): Promise<GithubContributor[]> => {
-    const apiURL = `https://api.github.com/repos/${owner}/${repo}/contributors`;
-    const response = await axios.get(apiURL);
-    return response.data;
-};
-
-export const getGithubUser = async (username: string): Promise<GithubUser> => {
-    const apiURL = `https://api.github.com/users/${username}`;
-    const response = await axios.get(apiURL);
-    return response.data;
 };

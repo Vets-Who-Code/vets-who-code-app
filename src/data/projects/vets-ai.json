@@ -1,17 +1,26 @@
 {
-  "index": 1,
+  "index": 2,
   "name": "VetsAI",
-  "headline": "AI for veterans",
-  "long_description":  [
-    "Qui incididunt commodo aliqua magna laborum. Veniam laboris cillum occaecat voluptate minim minim. Qui culpa voluptate aliquip mollit ea veniam deserunt duis. Nisi voluptate sit sint ad quis veniam duis excepteur commodo officia cillum nisi sunt. Tempor laboris ad deserunt eiusmod. Ex nostrud pariatur incididunt ullamco laborum ad cupidatat voluptate tempor. Amet nulla minim sit duis do cillum.",
-    "Nostrud amet ex minim ipsum duis proident quis eiusmod fugiat ut. In nisi velit ea nisi nisi. Laborum irure excepteur ea nisi commodo proident occaecat consequat duis voluptate consequat tempor. Ex consectetur excepteur irure et labore ipsum mollit nisi labore.",
-    "Anim consectetur veniam ullamco laboris eiusmod minim mollit laborum. Dolore irure dolore est dolore. Non in duis nulla aute tempor duis. Magna elit elit ut Lorem occaecat culpa aute culpa amet cillum. Quis veniam culpa nulla amet ea est duis mollit ex nostrud sit nulla. Ad id incididunt id voluptate officia dolore. Ullamco elit nisi amet occaecat elit pariatur eu."
+  "headline": "AI-Powered Employment Assistance for Veterans",
+  "long_description": [
+    "VetsAI is an AI-powered virtual assistant designed to help veterans navigate employment transitions and find opportunities in civilian careers. The application allows users to interact via chat, upload resumes in PDF or DOCX format, and receive tailored assistance, such as translating military job codes to civilian job suggestions.",
+    "Key features include:",
+    "- **Chat Assistant**: Ask questions and receive advice on job searching and career transitions.",
+    "- **Military Job Code Translation**: Provide a military job code (e.g., MOS, AFSC) to get suggestions for related civilian careers.",
+    "- **Document Upload**: Upload employment-related documents for personalized feedback and guidance."
   ],
-  "technologies": ["Next.js", "Typescript", "Tailwind CSS", "Playwright"],
+  "technologies": [
+    "Python",
+    "Streamlit",
+    "OpenAI API",
+    "Pandas",
+    "NumPy"
+  ],
   "owner": "Vets-Who-Code",
   "repo": "VetsAI",
-  "live_url": "https://vetswhocode.com",
+  "live_url": null,
   "thumbnail": {
-    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg"
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg",
+    "alt": "VetsAI Project Thumbnail"
   }
 }

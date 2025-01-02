@@ -8,10 +8,11 @@ type TProps = {
     className?: string;
     thumbnail: ImageType;
     title: string;
+    headline?: string;
 };
 
 export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
-    ({ className, thumbnail, title }, ref) => {
+    ({ className, thumbnail, title, headline }, ref) => {
         return (
             <motion.div
                 className={clsx(
@@ -40,9 +41,12 @@ export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
                     )}
                 </figure>
                 <div className="info tw-p-[30px]">
-                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
-                        <div className="tw-text-left">{title}</div>
-                    </h3>
+                    <h3 className="tw-mb-0 tw-text-left tw-text-xl tw-leading-normal">{title}</h3>
+                    {headline && (
+                        <h5 className="tw-mb-0 tw-text-left tw-text-md tw-leading-normal tw-text-primary">
+                            {headline}
+                        </h5>
+                    )}
                 </div>
             </motion.div>
         );

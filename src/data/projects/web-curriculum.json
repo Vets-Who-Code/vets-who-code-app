@@ -1,0 +1,30 @@
+{
+  "index": 4,
+  "name": "Web Curriculum",
+  "headline": "Structured Learning Path for Aspiring Web Developers",
+  "long_description": [
+    "The Web Curriculum is a comprehensive educational resource designed to guide learners through the fundamentals and advanced topics of web development. It offers a structured learning path, starting with foundational concepts and progressing to more complex subjects, ensuring a well-rounded understanding of web technologies.",
+    "The curriculum is divided into two main collections:",
+    "- **Collection I: Web Fundamentals**: Covers essential topics such as command line usage, Git and GitHub for version control, HTML and CSS for web page structure and styling, accessibility considerations, user experience design, and an introduction to JavaScript.",
+    "- **Collection II: JavaScript Engineering**: Focuses on advanced JavaScript topics, including Node.js, TypeScript, React, Next.js, and testing with Playwright, providing learners with the skills needed to build robust and scalable web applications."
+  ],
+  "technologies": [
+    "Git",
+    "GitHub",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Node.js",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Playwright"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "web-curriculum",
+  "live_url": null,
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg",
+    "alt": "Web Curriculum Thumbnail"
+  }
+}
