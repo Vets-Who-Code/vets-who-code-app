@@ -7,7 +7,7 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg",
     }
-category: "Specify category"
+category: "Testimonial"
 tags:
     - Veterans
     - Tech
