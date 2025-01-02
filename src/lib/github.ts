@@ -9,7 +9,7 @@ export const getProjectContributors = async (
     repo: string,
     top: number = 4
 ): Promise<VWCContributor[]> => {
-    const topContributors = await getGithubRepoContributors(owner, repo, 4);
+    const topContributors = await getGithubRepoContributors(owner, repo, top);
     const projectContributors = Promise.all(
         topContributors.map(async (contributor) => {
             const user = await octokit.rest.users.getByUsername({
