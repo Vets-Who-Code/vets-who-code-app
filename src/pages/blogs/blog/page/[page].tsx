@@ -25,7 +25,7 @@ const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) =>
     return (
         <>
             <SEO title={`Blog Grid - Page - ${currentPage}`} />
-            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="HashFlag Blog" />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Vets Who Code Blog" />
             <BlogArea
                 data={{
                     blogs,
