@@ -1,4 +1,4 @@
-import { Octokit } from "octokit";
+import { Octokit } from "@octokit/rest";
 import { VWCContributor, GithubRepo, GithubContributor } from "@utils/types";
 
 const token = process.env.GITHUB_ACCESS_TOKEN || "";
