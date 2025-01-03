@@ -1,7 +1,7 @@
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/image-box/image-box-01";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
 import { SectionTitleType, ItemType, TSection } from "@utils/types";
 

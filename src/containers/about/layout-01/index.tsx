@@ -1,7 +1,7 @@
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import Anchor from "@ui/anchor";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
 import { SectionTitleType, TextType, AnchorType, ImageType, TSection } from "@utils/types";
 

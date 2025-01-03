@@ -1,15 +1,10 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Video from "@ui/video-with-poster/video-02";
 import MottoText from "@ui/motto-text";
 import SectionTitle from "@components/section-title";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
-import {
-    ImageType,
-    MottoType,
-    SectionTitleType,
-    VideoType,
-} from "@utils/types";
+import { ImageType, MottoType, SectionTitleType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 
 const AnimatedVideo = motion(Video);
@@ -24,10 +19,7 @@ type TProps = {
     titleSize?: "default" | "large";
 };
 
-const VideoArea = ({
-    data: { section_title, motto, images, video },
-    titleSize,
-}: TProps) => {
+const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }: TProps) => {
     const { trans1, trans2 } = useUI();
 
     return (
@@ -102,9 +94,7 @@ const VideoArea = ({
                             className="lg:tw-max-w-[420px]"
                         />
                     )}
-                    {motto && (
-                        <MottoText className="tw-mt-4" size="md" {...motto} />
-                    )}
+                    {motto && <MottoText className="tw-mt-4" size="md" {...motto} />}
                 </motion.div>
             </div>
         </div>

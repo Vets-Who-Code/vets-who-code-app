@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import MottoText from "@ui/motto-text";
 import SectionTitle from "@components/section-title";
@@ -14,12 +14,7 @@ type TProps = TSection & {
     };
 };
 
-const AboutArea = ({
-    data: { section_title, motto, images },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const AboutArea = ({ data: { section_title, motto, images }, space, bg, titleSize }: TProps) => {
     const { trans1 } = useUI();
     return (
         <Section className="about-area" space={space} bg={bg}>
@@ -32,15 +27,9 @@ const AboutArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
-                    {motto && (
-                        <MottoText className="tw-mt-4" size="md" {...motto} />
-                    )}
+                    {motto && <MottoText className="tw-mt-4" size="md" {...motto} />}
                 </motion.div>
                 <div className="tw-relative tw-order-1 lg:tw-order-2">
                     {images?.[0]?.src && (
@@ -92,10 +81,7 @@ const AboutArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img
-                            src="/images/shape-animation/about-shape-1.png"
-                            alt=""
-                        />
+                        <img src="/images/shape-animation/about-shape-1.png" alt="" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-z-1 tw-right-2.5 -tw-bottom-10 tw-w-20 lg:tw-w-auto"
@@ -104,10 +90,7 @@ const AboutArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img
-                            src="/images/shape-animation/hashflag.svg"
-                            alt=""
-                        />
+                        <img src="/images/shape-animation/hashflag.svg" alt="" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-z-1 tw-top-[-27px] tw-left-[360px] tw-w-20 lg:tw-w-auto"

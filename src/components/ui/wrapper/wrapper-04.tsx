@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import BottomShape from "@components/ui/bottom-shape/shape-02";
 import { useUI } from "@contexts/ui-context";
 

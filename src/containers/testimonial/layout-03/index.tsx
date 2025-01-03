@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import { EffectCoverflow } from "swiper";
 import SectionTitle from "@components/section-title";

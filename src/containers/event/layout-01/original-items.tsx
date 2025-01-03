@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import EventCard from "@components/event-card/event-01";
 import Pagination from "@components/pagination/pagination-01";
 import { IEvent } from "@utils/types";

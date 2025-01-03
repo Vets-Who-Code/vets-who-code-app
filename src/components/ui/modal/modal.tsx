@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { fadeIn } from "@utils/variants";
@@ -37,7 +37,7 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
 
     return (
         <Portal>
-            <AnimatePresence initial={false} exitBeforeEnter onExitComplete={() => null}>
+            <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
                 {show && (
                     <>
                         <motion.div

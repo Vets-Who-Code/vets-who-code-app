@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import Button from "@ui/button";
@@ -48,12 +48,7 @@ const TestimonialArea = ({
                             className="tw-my-7.5"
                         />
                     )}
-                    {items?.[1] && (
-                        <Testimonial04
-                            title={items[1].title}
-                            className="tw-ml-auto"
-                        />
-                    )}
+                    {items?.[1] && <Testimonial04 title={items[1].title} className="tw-ml-auto" />}
                     <motion.div
                         className="tw-absolute -tw-z-1 tw-left-[-110px] tw-bottom-[130px] tw-w-[166px] tw-h-[-110px]"
                         animate={{
@@ -86,9 +81,7 @@ const TestimonialArea = ({
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    {total_reviews && (
-                        <RatingBox {...total_reviews} className="tw-mb-7.5" />
-                    )}
+                    {total_reviews && <RatingBox {...total_reviews} className="tw-mb-7.5" />}
                     {items?.[2] && (
                         <Testimonial03
                             image={{
@@ -124,10 +117,7 @@ const TestimonialArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img
-                            src="/images/shape-animation/code.svg"
-                            alt="ssh montior"
-                        />
+                        <img src="/images/shape-animation/code.svg" alt="ssh montior" />
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -138,18 +128,11 @@ const TestimonialArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
 
                     {buttons?.[0]?.content && (
-                        <Button
-                            {...buttons[0]}
-                            className="tw-mt-4 lg:tw-mt-7.5"
-                        >
+                        <Button {...buttons[0]} className="tw-mt-4 lg:tw-mt-7.5">
                             {buttons[0].content}
                         </Button>
                     )}

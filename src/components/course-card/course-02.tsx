@@ -2,6 +2,8 @@ import { forwardRef } from "react";
 import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { ICourse } from "@utils/types";
+import { motion } from "motion/react";
+import { scrollUpVariants } from "@utils/variants";
 
 type TProps = Pick<ICourse, "thumbnail" | "title" | "path"> & {
     className?: string;
@@ -10,7 +12,7 @@ type TProps = Pick<ICourse, "thumbnail" | "title" | "path"> & {
 const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
     ({ className, thumbnail, title, path }, ref) => {
         return (
-            <div
+            <motion.div
                 className={clsx(
                     "course tw-h-full tw-rounded tw-bg-white tw-relative",
                     "before:tw-absolute before:tw-content-[''] before:-tw-z-1 before:tw-inset-0 before:tw-shadow-4md before:tw-shadow-black/[0.12] before:tw-rounded-b before:tw-transition-opacity before:tw-opacity-0",
@@ -18,6 +20,10 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                     className
                 )}
                 ref={ref}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={scrollUpVariants}
             >
                 <figure className="tw-relative">
                     {thumbnail?.src && (
@@ -40,7 +46,7 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                 </div>
-            </div>
+            </motion.div>
         );
     }
 );

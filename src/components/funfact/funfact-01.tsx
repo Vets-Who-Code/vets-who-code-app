@@ -1,5 +1,5 @@
 import { forwardRef, useState, useRef, useEffect } from "react";
-import { motion, animate } from "framer-motion";
+import { motion, animate } from "motion/react";
 
 type TProps = {
     counter: number;

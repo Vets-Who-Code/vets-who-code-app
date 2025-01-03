@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useScroll, motion, useTransform } from "framer-motion";
+import { useScroll, motion, useTransform } from "motion/react";
 import Button from "@ui/button";
 import Video from "@ui/video-with-poster/video-01";
 import BottomShape from "@ui/bottom-shape/shape-05";

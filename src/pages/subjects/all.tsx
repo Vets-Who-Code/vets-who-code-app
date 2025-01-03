@@ -2,8 +2,12 @@ import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import CourseArea from "@containers/course-full/layout-01";
+import { VWCGrid } from "@components/vwc-grid";
 import { ICourse } from "@utils/types";
+import { courseSorting } from "@utils/methods";
+import { useSort } from "@hooks";
+import { VWCGridCard } from "@components/vwc-card";
+import Anchor from "@ui/anchor";
 import { getallCourses } from "../../lib/course";
 
 type TProps = {
@@ -17,11 +21,18 @@ type PageProps = NextPage<TProps> & {
 };
 
 const Coursegrid01: PageProps = ({ data }) => {
+    const { sortedItems } = useSort<ICourse>(data.courses, courseSorting);
     return (
         <>
             <SEO title="Subjects" />
             <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Subjects" />
-            <CourseArea data={{ courses: data.courses }} />
+            <VWCGrid title="Course Section">
+                {sortedItems?.map((course) => (
+                    <Anchor path={course.path}>
+                        <VWCGridCard title={course.title} thumbnail={course.thumbnail} />
+                    </Anchor>
+                ))}
+            </VWCGrid>
         </>
     );
 };

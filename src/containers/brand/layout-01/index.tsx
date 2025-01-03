@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import Section from "@ui/section";
 import SwiperSlider, { SwiperSlide } from "@ui/swiper";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
 import { ItemType, TSection } from "@utils/types";
 

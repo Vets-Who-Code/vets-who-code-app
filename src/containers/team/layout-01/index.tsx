@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
@@ -14,12 +14,7 @@ type TProps = TSection & {
     };
 };
 
-const TeamArea = ({
-    data: { section_title, buttons },
-    space,
-    bg,
-    titleSize,
-}: TProps) => {
+const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <Section className="team-area" space={space} bg={bg}>
@@ -97,10 +92,7 @@ const TeamArea = ({
                             y: trans1().y,
                         }}
                     >
-                        <img
-                            src="/images/shape-animation/cta-shape-01.png"
-                            alt=""
-                        />
+                        <img src="/images/shape-animation/cta-shape-01.png" alt="" />
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -111,11 +103,7 @@ const TeamArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle
-                            {...section_title}
-                            align="left"
-                            titleSize={titleSize}
-                        />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
                     {buttons?.map(({ id, content, ...rest }) => (
                         <Button key={id} className="tw-mt-1" {...rest}>

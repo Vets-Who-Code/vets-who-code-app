@@ -1,0 +1,29 @@
+{
+  "index": 6,
+  "name": "Prework",
+  "headline": "Foundational Prework for Prospective Vets Who Code Participants",
+  "long_description": [
+    "The Prework project is a meticulously crafted program designed to introduce prospective Vets Who Code (VWC) participants to essential tools, technologies, and fundamental concepts in software engineering. This preparatory course is structured to ensure that learners are well-equipped for the upcoming VWC curriculum.",
+    "Key components of the Prework include:",
+    "- **Command Line Basics**: Understanding the command line interface and its operations.",
+    "- **Code Editor Setup**: Guidance on setting up and utilizing code editors effectively.",
+    "- **HTML & CSS Fundamentals**: Building and styling web pages using HTML and CSS.",
+    "- **JavaScript Introduction**: Writing and integrating JavaScript to enhance web interactivity.",
+    "- **Capstone Project**: A culminating challenge that allows learners to apply their acquired skills in a practical project."
+  ],
+  "technologies": [
+    "Command Line",
+    "Git",
+    "GitHub",
+    "HTML",
+    "CSS",
+    "JavaScript"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "Prework",
+  "live_url": null,
+  "thumbnail": {
+    "src": "/images/projects/Prework.png",
+    "alt": "Prework Project Thumbnail"
+  }
+}

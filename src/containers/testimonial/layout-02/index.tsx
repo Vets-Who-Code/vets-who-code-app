@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import Section from "@ui/section";
 import { SwiperSlide } from "@ui/swiper";

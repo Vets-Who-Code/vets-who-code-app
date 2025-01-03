@@ -9,7 +9,7 @@ import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import Feedback from "@ui/form-elements/feedback";
 import { linkedinRegex, githubRegex } from "@utils/formValidations";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface IFormValues {
     firstName: string;

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import CourseCard from "@components/course-card/course-02";
@@ -7,8 +7,6 @@ import { scrollUpVariants } from "@utils/variants";
 import { SectionTitleType, ICourse, TSection } from "@utils/types";
 
 const AnimatedSectionTitle = motion(SectionTitle);
-const AnimatedCourseCard = motion(CourseCard);
-
 type TProps = TSection & {
     data: {
         section_title?: SectionTitleType;
@@ -33,15 +31,11 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                 )}
                 <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
                     {courses.map((course) => (
-                        <AnimatedCourseCard
+                        <CourseCard
                             key={course.path}
                             title={course.title}
                             path={course.path}
                             thumbnail={course.thumbnail}
-                            initial="offscreen"
-                            whileInView="onscreen"
-                            viewport={{ once: true, amount: 0.4 }}
-                            variants={scrollUpVariants}
                         />
                     ))}
                 </div>

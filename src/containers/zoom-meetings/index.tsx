@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import { IZoomMeeting } from "@utils/types";
 import Pagination from "@components/pagination/pagination-01";

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Button from "@ui/button";
 import BottomShape from "@ui/bottom-shape/shape-04";
 import { ButtonType, HeadingType, ImageType, TextType } from "@utils/types";

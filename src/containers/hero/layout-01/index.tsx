@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Button from "@ui/button";
 import CourseCard from "@components/course-card/course-01";
 import BottomShape from "@ui/bottom-shape/shape-01";

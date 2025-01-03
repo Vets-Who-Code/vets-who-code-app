@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import clsx from "clsx";
 import Button from "@ui/button";
 import { ButtonType, HeadingType, ImageType } from "@utils/types";

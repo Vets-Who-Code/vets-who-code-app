@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import clsx from "clsx";
 import { HeadingType, ImageType, TextType } from "@utils/types";
 import { scrollLeftVariants, scrollRightVariants } from "@utils/variants";

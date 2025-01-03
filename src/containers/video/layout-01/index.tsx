@@ -4,7 +4,7 @@ import SectionTitle from "@components/section-title";
 import BottomShape from "@ui/bottom-shape/shape-02";
 import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useUI } from "@contexts/ui-context";
 import { scrollUpVariants } from "@utils/variants";
 import { ImageType, SectionTitleType, TSection, VideoType } from "@utils/types";
@@ -20,11 +20,7 @@ type TProps = TSection & {
     };
 };
 
-const VideoArea = ({
-    data: { section_title, images, video },
-    space,
-    bg,
-}: TProps) => {
+const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <Section

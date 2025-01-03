@@ -1,6 +1,6 @@
 import { useState } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import Button from "@ui/button";

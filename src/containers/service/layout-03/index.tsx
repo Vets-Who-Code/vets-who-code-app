@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import ServiceCard from "@components/image-box/image-box-02";
 import MottoText from "@ui/motto-text";

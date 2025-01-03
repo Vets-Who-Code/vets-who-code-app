@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
 import Swiper, { SwiperSlide } from "@ui/swiper";
 import Testimonial from "@components/testimonial/testimonial-06";
