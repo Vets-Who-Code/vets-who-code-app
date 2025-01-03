@@ -2,14 +2,14 @@ import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import { VWCProject } from "@utils/types";
+import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
 import { VWCGrid } from "@components/vwc-grid";
 import { VWCGridCard } from "@components/vwc-card";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getProjectData } from "../lib/project";
-import { CircleX, Star, CircleDot, Eye, GitFork } from "lucide-react";
+import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
 import clsx from "clsx";
 import Link from "next/link";
 import MarkdownRenderer from "@components/markdown-renderer";
@@ -27,6 +27,98 @@ const TechStack = ({ techStack }: TechStackProps) => {
                 </div>
             ))}
         </div>
+    );
+};
+
+interface RepoStatsProps {
+    repo: VWCProjectRepo;
+}
+
+const RepoStats = ({ repo }: RepoStatsProps) => {
+    return (
+        <>
+            {/* Repo stats */}
+            <h4>Statistics</h4>
+            <div className="tw-grid tw-min-w-72 tw-grid-cols-2">
+                {/* Github Stars */}
+                <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                    <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                        {repo.stargazers_count}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-gap-1">
+                        <Star size={16} strokeWidth={3} />
+                        <div className="tw-mt-1">Stars</div>
+                    </div>
+                </div>
+                {/* Github Issues */}
+                <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                    <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                        {repo.open_issues_count}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-gap-1">
+                        <CircleDot size={16} strokeWidth={3} />
+                        <div className="tw-mt-1">Issues</div>
+                    </div>
+                </div>
+                {/* Github Watching */}
+                <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                    <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                        {repo.subscribers_count}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-gap-1">
+                        <Eye size={16} strokeWidth={3} />
+                        <div className="tw-mt-1">Watching</div>
+                    </div>
+                </div>
+                {/* Github Forks */}
+                <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
+                    <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
+                        {repo.forks_count}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-gap-1">
+                        <GitFork size={16} strokeWidth={3} />
+                        <div className="tw-mt-1">Forks</div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+};
+
+interface TopContributorsProps {
+    contributors: VWCContributor[];
+}
+
+const TopContributors = ({ contributors }: TopContributorsProps) => {
+    return (
+        <>
+            <h4>Top Contributors</h4>
+            <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
+                {contributors.map((contributor) => {
+                    return (
+                        <Link
+                            href={contributor.html_url}
+                            target="_blank"
+                            className="tw-flex tw-min-w-56 tw-gap-2 tw-rounded-md tw-border-2 tw-border-secondary tw-border-opacity-35 tw-bg-secondary tw-bg-opacity-20 tw-px-2 tw-pt-1 hover:tw-cursor-pointer hover:tw-bg-opacity-100 hover:tw-text-white"
+                        >
+                            <div className="tw-flex-col tw-items-center tw-justify-center">
+                                <img
+                                    className="tw-aspect-square tw-w-8 tw-min-w-8 tw-rounded-full tw-border-2 tw-border-secondary tw-bg-white"
+                                    src={contributor.avatar_url}
+                                    alt={contributor.name}
+                                    draggable="false"
+                                    loading="eager"
+                                />
+                            </div>
+                            <div className="tw-h-fit tw-w-fit tw-flex-col -tw-space-y-2">
+                                <div className="tw-text-md tw-font-medium">{contributor.name}</div>
+                                <div className="tw-text-sm tw-font-light">@{contributor.login}</div>
+                            </div>
+                        </Link>
+                    );
+                })}
+            </div>
+        </>
     );
 };
 
@@ -55,83 +147,10 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                     src={project.details.thumbnail.src}
                     alt={project.details.thumbnail.alt}
                     draggable="false"
-                    className="tw-w-full md:tw-w-fit"
+                    className="tw-w-full tw-rounded-md tw-drop-shadow-lg"
                 />
-
-                {/* Repo stats */}
-                <h4>Statistics</h4>
-                <div className="tw-grid tw-min-w-72 tw-grid-cols-2">
-                    {/* Github Stars */}
-                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
-                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
-                            {project.repo.stargazers_count}
-                        </div>
-                        <div className="tw-flex tw-items-center tw-gap-1">
-                            <Star size={16} strokeWidth={3} />
-                            <div className="tw-mt-1">Stars</div>
-                        </div>
-                    </div>
-                    {/* Github Issues */}
-                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
-                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
-                            {project.repo.open_issues_count}
-                        </div>
-                        <div className="tw-flex tw-items-center tw-gap-1">
-                            <CircleDot size={16} strokeWidth={3} />
-                            <div className="tw-mt-1">Issues</div>
-                        </div>
-                    </div>
-                    {/* Github Watching */}
-                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
-                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
-                            {project.repo.subscribers_count}
-                        </div>
-                        <div className="tw-flex tw-items-center tw-gap-1">
-                            <Eye size={16} strokeWidth={3} />
-                            <div className="tw-mt-1">Watching</div>
-                        </div>
-                    </div>
-                    {/* Github Forks */}
-                    <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
-                        <div className="tw-my-1 tw-flex tw-min-w-[32px] tw-items-center tw-justify-center tw-rounded-md tw-bg-secondary tw-px-2 tw-text-sm tw-text-white">
-                            {project.repo.forks_count}
-                        </div>
-                        <div className="tw-flex tw-items-center tw-gap-1">
-                            <GitFork size={16} strokeWidth={3} />
-                            <div className="tw-mt-1">Forks</div>
-                        </div>
-                    </div>
-                </div>
-                <h4>Top Contributors</h4>
-                <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
-                    {project.repo.contributors.map((contributor) => {
-                        return (
-                            <Link
-                                href={contributor.html_url}
-                                target="_blank"
-                                className="tw-flex tw-min-w-56 tw-gap-2 tw-rounded-md tw-border-2 tw-border-secondary tw-border-opacity-35 tw-bg-secondary tw-bg-opacity-20 tw-px-2 tw-pt-1 hover:tw-cursor-pointer hover:tw-bg-opacity-100 hover:tw-text-white"
-                            >
-                                <div className="tw-flex-col tw-items-center tw-justify-center">
-                                    <img
-                                        className="tw-aspect-square tw-w-8 tw-min-w-8 tw-rounded-full tw-border-2 tw-border-secondary tw-bg-white"
-                                        src={contributor.avatar_url}
-                                        alt={contributor.name}
-                                        draggable="false"
-                                        loading="eager"
-                                    />
-                                </div>
-                                <div className="tw-h-fit tw-w-fit tw-flex-col -tw-space-y-2">
-                                    <div className="tw-text-md tw-font-medium">
-                                        {contributor.name}
-                                    </div>
-                                    <div className="tw-text-sm tw-font-light">
-                                        @{contributor.login}
-                                    </div>
-                                </div>
-                            </Link>
-                        );
-                    })}
-                </div>
+                <RepoStats repo={project.repo} />
+                <TopContributors contributors={project.repo.contributors} />
             </motion.div>
             <div className="tw-m-0 tw-grid tw-w-full tw-grid-cols-1 tw-grid-rows-1 tw-items-center tw-justify-center tw-p-0 md:tw-w-fit">
                 <motion.div
@@ -202,7 +221,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         <Dialog.Content asChild>
                             <motion.div
                                 key={`${project.details.name}-content`}
-                                className="tw-fixed tw-left-1/2 tw-top-1/2 tw-z-[60] tw-grid tw-max-h-[90vh] tw-w-full tw-items-center tw-justify-center tw-overflow-scroll tw-bg-white tw-p-8 tw-shadow-xl md:tw-w-11/12 md:tw-rounded-3xl lg:tw-w-10/12"
+                                className="tw-fixed tw-left-1/2 tw-top-1/2 tw-z-[60] tw-grid tw-max-h-[90vh] tw-w-full tw-items-center tw-justify-center tw-overflow-scroll tw-bg-white tw-p-8 tw-shadow-xl md:tw-w-11/12 md:tw-rounded-3xl lg:tw-w-10/12 lg:tw-max-w-6xl"
                                 initial={{
                                     opacity: 0,
                                     scale: 0.7,
@@ -223,8 +242,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                 }}
                                 transition={{ bounce: false, duration: 0.3 }}
                             >
-                                <Dialog.Close className="tw-fixed tw-right-0 tw-top-0 tw-m-4 tw-cursor-pointer md:tw-right-5 md:tw-top-5">
-                                    <CircleX className="tw-text-secondary" />
+                                <Dialog.Close className="tw-fixed tw-right-0 tw-top-0 tw-m-4 tw-cursor-pointer tw-rounded-full tw-bg-white tw-p-1 tw-text-secondary tw-shadow-inner tw-drop-shadow-md hover:tw-bg-secondary hover:tw-text-white md:tw-right-5 md:tw-top-5">
+                                    <XIcon className="tw-p-1" />
                                 </Dialog.Close>
                                 <ProjectDetailModal project={project} />
                             </motion.div>

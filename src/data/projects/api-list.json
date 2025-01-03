@@ -1,0 +1,25 @@
+{
+  "index": 5,
+  "name": "API List",
+  "headline": "Curated Collection of Fun and Free APIs for Learning JavaScript",
+  "long_description": [
+    "The API List is a curated collection of interesting and free APIs designed to help learners practice and enhance their JavaScript skills. It offers a diverse range of APIs across various categories, including AI, art, books, code repositories, food, gaming, government data, health, language, open-source projects, and more.",
+    "Key features include:",
+    "- **Diverse Categories**: Explore APIs in categories such as AI, art, books, code repositories, food, gaming, government data, health, language, open-source projects, and miscellaneous collections.",
+    "- **Free Access**: All listed APIs are free to use, providing ample opportunities for hands-on practice.",
+    "- **Learning Resource**: Ideal for beginners and intermediate learners looking to apply JavaScript in real-world scenarios.",
+    "- **Community Contribution**: Open for contributions, allowing users to add new APIs and share valuable resources with the community."
+  ],
+  "technologies": [
+    "JavaScript",
+    "APIs",
+    "Web Development"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "api-list",
+  "live_url": null,
+  "thumbnail": {
+    "src": "/images/projects/APIList.png",
+    "alt": "API List Project Thumbnail"
+  }
+}

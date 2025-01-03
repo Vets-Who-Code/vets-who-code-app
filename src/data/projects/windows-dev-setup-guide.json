@@ -24,7 +24,7 @@
   "repo": "windows-dev-guide",
   "live_url": null,
   "thumbnail": {
-    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1688176572/command-line_azvdf6.jpg",
+    "src": "/images/projects/WindowsDevGuide.png",
     "alt": "Windows Dev Guide Thumbnail"
   }
 }
