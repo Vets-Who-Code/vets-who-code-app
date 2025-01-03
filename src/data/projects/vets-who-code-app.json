@@ -11,13 +11,12 @@
   ],
   "technologies": [
     "Next.js",
+    "React",
     "TypeScript",
-    "Tailwind CSS",
-    "Playwright",
-    "MDX",
-    "shadcn/ui components",
-    "Server Actions",
-    "Server Components"
+    "Node.js",
+    "Jest",
+    "Docker",
+    "GitHub Actions"
   ],
   "owner": "Vets-Who-Code",
   "repo": "vets-who-code-app",
