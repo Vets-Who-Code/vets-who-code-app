@@ -38,7 +38,7 @@ const RepoStats = ({ repo }: RepoStatsProps) => {
     return (
         <>
             {/* Repo stats */}
-            <h4>Statistics</h4>
+            <h4>Repo Statistics</h4>
             <div className="tw-grid tw-min-w-72 tw-grid-cols-2">
                 {/* Github Stars */}
                 <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
@@ -221,7 +221,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         <Dialog.Content asChild>
                             <motion.div
                                 key={`${project.details.name}-content`}
-                                className="tw-fixed tw-left-1/2 tw-top-1/2 tw-z-[60] tw-grid tw-max-h-[90vh] tw-w-full tw-items-center tw-justify-center tw-overflow-scroll tw-bg-white tw-p-8 tw-shadow-xl md:tw-w-11/12 md:tw-rounded-3xl lg:tw-w-10/12 lg:tw-max-w-6xl"
+                                className="tw-fixed tw-left-1/2 tw-top-1/2 tw-z-[60] tw-grid tw-max-h-[90vh] tw-w-full tw-items-center tw-justify-center tw-overflow-scroll tw-bg-white tw-p-8 tw-shadow-xl md:tw-w-11/12 md:tw-rounded-2xl lg:tw-max-w-6xl"
                                 initial={{
                                     opacity: 0,
                                     scale: 0.7,
