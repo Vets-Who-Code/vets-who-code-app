@@ -22,7 +22,7 @@
   "repo": "vets-who-code-app",
   "live_url": "https://vetswhocode.io/",
   "thumbnail": {
-    "src": "/images/projects/VWCApp.png",
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1735960356/projects/VWCApp_zpuui4.png",
     "alt": "Vets Who Code App Thumbnail"
   }
 }

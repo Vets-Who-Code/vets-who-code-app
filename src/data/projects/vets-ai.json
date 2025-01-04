@@ -20,7 +20,7 @@
   "repo": "VetsAI",
   "live_url": null,
   "thumbnail": {
-    "src": "/images/projects/VetsAI.png",
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1735960357/projects/VetsAI_ie8v4u.png",
     "alt": "VetsAI Project Thumbnail"
   }
 }
