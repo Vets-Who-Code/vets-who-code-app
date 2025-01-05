@@ -10,6 +10,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { getProjectData } from "../lib/project";
 import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
+import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import Link from "next/link";
 import MarkdownRenderer from "@components/markdown-renderer";
@@ -30,6 +31,44 @@ const TechStack = ({ techStack }: TechStackProps) => {
     );
 };
 
+interface LinkButtonsProps {
+    github_url: string;
+    live_url?: string;
+}
+
+const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
+    return (
+        <>
+            <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+                <Link
+                    href={github_url}
+                    target="_blank"
+                    title="See the code on GitHub"
+                    className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
+                >
+                    <GitHubLogoIcon />
+                    <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
+                        GitHub
+                    </h6>
+                </Link>
+                {live_url && (
+                    <Link
+                        href={live_url}
+                        target="_blank"
+                        title="See it live"
+                        className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
+                    >
+                        <GlobeIcon />
+                        <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
+                            Live
+                        </h6>
+                    </Link>
+                )}
+            </div>
+        </>
+    );
+};
+
 interface RepoStatsProps {
     repo: VWCProjectRepo;
 }
@@ -38,7 +77,7 @@ const RepoStats = ({ repo }: RepoStatsProps) => {
     return (
         <>
             {/* Repo stats */}
-            <h4>Repo Statistics</h4>
+            <h5>Repo Statistics</h5>
             <div className="tw-grid tw-min-w-72 tw-grid-cols-2">
                 {/* Github Stars */}
                 <div className="tw-flex tw-w-5/12 tw-items-center tw-gap-2 tw-px-1 tw-text-secondary">
@@ -92,7 +131,7 @@ interface TopContributorsProps {
 const TopContributors = ({ contributors }: TopContributorsProps) => {
     return (
         <>
-            <h4>Top Contributors</h4>
+            <h5>Top Contributors</h5>
             <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
                 {contributors.map((contributor) => {
                     return (
@@ -134,6 +173,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
 
     return (
         <div className="tw-m-0 tw-max-w-fit tw-py-2 md:tw-flex md:tw-space-x-2 md:tw-px-4">
+            {/* Left Column */}
             <motion.div
                 className={clsx(
                     "tw-w-full tw-flex-col tw-items-center tw-justify-center tw-space-y-2 tw-py-3 md:tw-w-2/5 md:tw-min-w-80 md:tw-max-w-fit md:tw-items-start md:tw-justify-normal",
@@ -152,6 +192,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                 <RepoStats repo={project.repo} />
                 <TopContributors contributors={project.repo.contributors} />
             </motion.div>
+            {/* Center divider */}
             <div className="tw-m-0 tw-grid tw-w-full tw-grid-cols-1 tw-grid-rows-1 tw-items-center tw-justify-center tw-p-0 md:tw-w-fit">
                 <motion.div
                     className="tw-col-start-1 tw-row-start-1 tw-m-0 tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center"
@@ -169,6 +210,7 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                     />
                 </div>
             </div>
+            {/* Right column */}
             <motion.div
                 className="tw-w-full tw-py-3"
                 initial={{ opacity: 0, x: -xOffset }}
@@ -178,6 +220,10 @@ const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
                 <h1 className="tw-mb-0 tw-text-secondary">{project.details.name}</h1>
                 <h3 className="tw-text-primary">{project.details.headline}</h3>
                 <TechStack techStack={project.details.technologies} />
+                <LinkButtons
+                    github_url={`https://github.com/${project.details.owner}/${project.details.repo}`}
+                    live_url={project.details.live_url}
+                />
                 {project.details.long_description.map((pg) => {
                     return (
                         <p className="tw-text-secondary">
