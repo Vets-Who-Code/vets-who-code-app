@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
 import TeamCard from "@components/team-card";
 import { ISocial, ItemType, SectionTitleType } from "@utils/types";

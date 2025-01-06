@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import Gradation from "@components/gradation";

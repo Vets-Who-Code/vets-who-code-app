@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import CourseCard from "@components/course-card/course-01";

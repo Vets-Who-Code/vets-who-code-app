@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/image-box/image-box-02";
 import { scrollUpVariants } from "@utils/variants";

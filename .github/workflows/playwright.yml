@@ -4,6 +4,8 @@ on:
         branches: [main, master]
     pull_request:
         branches: [main, master]
+env:
+  GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
     test:
         timeout-minutes: 60

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
 import { useKeyboardFocus } from "@hooks";
 

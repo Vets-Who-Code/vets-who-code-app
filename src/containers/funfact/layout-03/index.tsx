@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import FunFact from "@components/funfact/funfact-02";
 import { ItemType, TSection } from "@utils/types";

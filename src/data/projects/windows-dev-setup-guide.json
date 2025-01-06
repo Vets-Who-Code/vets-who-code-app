@@ -1,0 +1,30 @@
+{
+  "index": 3,
+  "name": "Windows Dev Guide",
+  "headline": "Comprehensive Guide to Setting Up a Windows Development Environment",
+  "long_description": [
+    "The Windows Dev Guide provides a step-by-step walkthrough for setting up a development environment on Windows. It covers essential tools and configurations to enhance productivity for developers working on Windows platforms.",
+    "Key sections include:",
+    "- **Prerequisites**: Guidance on system requirements and initial setup.",
+    "- **Installing Windows Subsystem for Linux (WSL)**: Instructions for enabling WSL to run a Linux environment on Windows.",
+    "- **Setting Up Development Tools**: Recommendations for IDEs, text editors, and other essential software.",
+    "- **Configuring Version Control**: Steps to set up Git and GitHub for source code management.",
+    "- **Additional Resources**: Links to further reading and tutorials to deepen your understanding."
+  ],
+  "technologies": [
+    "Windows Subsystem for Linux (WSL)",
+    "Git",
+    "Visual Studio Code",
+    "Windows Terminal",
+    "Docker",
+    "Node.js",
+    "Python"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "windows-dev-guide",
+  "live_url": null,
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1735960356/projects/WindowsDevGuide_otu8mq.png",
+    "alt": "Windows Dev Guide Thumbnail"
+  }
+}

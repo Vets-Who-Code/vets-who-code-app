@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import MottoText from "@ui/motto-text";
@@ -7,13 +7,7 @@ import BottomShape from "@ui/bottom-shape/shape-03";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { useUI } from "@contexts/ui-context";
 import { scrollUpVariants } from "@utils/variants";
-import {
-    ImageType,
-    MottoType,
-    SectionTitleType,
-    TSection,
-    VideoType,
-} from "@utils/types";
+import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedMottoText = motion(MottoText);
