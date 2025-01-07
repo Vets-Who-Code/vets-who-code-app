@@ -12,7 +12,15 @@ const octokit = new Octokit({
 });
 
 function isVWCContributor(c: any): c is VWCContributor {
-    return c !== null && "login" in c && "name" in c;
+    return (
+        c !== null &&
+        "login" in c &&
+        "name" in c &&
+        "id" in c &&
+        "avatar_url" in c &&
+        "html_url" in c &&
+        "contributions" in c
+    );
 }
 
 async function rateLimit() {
