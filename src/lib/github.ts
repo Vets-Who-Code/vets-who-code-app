@@ -11,6 +11,10 @@ const octokit = new Octokit({
     retry: { enabled: true },
 });
 
+function isVWCContributor(c: any): c is VWCContributor {
+    return c !== null && "login" in c && "name" in c;
+}
+
 async function rateLimit() {
     const { data } = await octokit.rest.rateLimit.get();
     if (data.rate.remaining < 10) {
@@ -52,7 +56,7 @@ export async function getProjectContributors(
             })
         );
 
-        return contributorsWithDetails.filter((c): c is VWCContributor => c !== null);
+        return contributorsWithDetails.filter(isVWCContributor);
     } catch (error) {
         throw new Error(
             `Failed to fetch project contributors: ${
