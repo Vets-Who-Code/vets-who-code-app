@@ -1,38 +1,62 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import styles from './ProductCard.module.css';
 
-type ProductCardProps = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  price: string;
-  path: string;
-};
+interface ProductCardProps {
+  product: {
+    node: {
+      id: string;
+      title: string;
+      handle: string;
+      featuredImage?: {
+        url: string;
+        altText?: string;
+      };
+      priceRange: {
+        minVariantPrice: {
+          amount: string;
+        };
+      };
+    };
+  };
+}
 
-const ProductCard = ({ id, title, description, image, price, path }: ProductCardProps) => {
+export default function ProductCard({ product }: ProductCardProps) {
+  
+  const { node } = product;
+
   return (
-    <div className="w-full max-w-xs rounded-lg bg-white shadow-lg overflow-hidden">
-      <div className="relative">
-        <img
-          src={image}
-          alt={title || "Product image"}
-          className="w-full h-60 object-cover rounded-t-lg"
-        />
+    <div className={styles.card}>
+     
+      <div className={styles.image}>
+        {node.featuredImage?.url ? (
+          <Image
+            src={node.featuredImage.url}
+            alt={node.featuredImage.altText || 'Product image'}
+            fill={true}
+          />
+        ) : (
+          <div className={styles.placeholder}>No Image Available</div> 
+        )}
       </div>
 
-      <div className="p-4">
-        <h3 className="text-lg font-semibold truncate">{title}</h3>
-        <p className="text-sm text-gray-600 mt-1 truncate">{description}</p>
-        <p className="text-xl font-semibold mt-2 text-primary">{price}</p>
-
-        <Link href={path}>
-          <button className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg text-center hover:bg-blue-700">
-            View Product
-          </button>
-        </Link>
+     
+      <div className={styles.content}>
+        <small>
+          <Link
+            href={`/products/${node.handle}/?id=${node.id}`}
+            className={styles.action}
+          >
+            {node.title}
+          </Link>
+        </small>
+        <small>
+          {new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'USD',
+          }).format(parseFloat(node.priceRange.minVariantPrice.amount))}
+        </small>
       </div>
     </div>
   );
-};
-
-export default ProductCard;
+}

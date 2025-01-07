@@ -1,0 +1,15 @@
+.card {
+  padding: 1rem 1.2rem;
+}
+
+.image {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  cursor: pointer;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
