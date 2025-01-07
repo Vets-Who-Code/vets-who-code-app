@@ -11,18 +11,6 @@ const octokit = new Octokit({
     retry: { enabled: true },
 });
 
-function isVWCContributor(c: any): c is VWCContributor {
-    return (
-        c !== null &&
-        "login" in c &&
-        "name" in c &&
-        "id" in c &&
-        "avatar_url" in c &&
-        "html_url" in c &&
-        "contributions" in c
-    );
-}
-
 async function rateLimit() {
     const { data } = await octokit.rest.rateLimit.get();
     if (data.rate.remaining < 10) {
@@ -39,32 +27,30 @@ export async function getProjectContributors(
 
     try {
         const contributors = await getGithubRepoContributors(owner, repo, top);
+        const results: VWCContributor[] = [];
 
-        const contributorsWithDetails = await Promise.all(
-            contributors.map(async (contributor) => {
-                try {
-                    const { data: user } = await octokit.rest.users.getByUsername({
-                        username: contributor.login,
-                    });
+        for (const contributor of contributors) {
+            try {
+                const { data: user } = await octokit.rest.users.getByUsername({
+                    username: contributor.login,
+                });
 
-                    if (!user.name) return null;
-
-                    return {
+                if (user.name) {
+                    results.push({
                         ...contributor,
                         name: user.name,
                         bio: user.bio,
                         location: user.location,
                         blog: user.blog,
                         twitter_username: user.twitter_username,
-                    };
-                } catch (error) {
-                    console.error(`Failed to fetch user ${contributor.login}:`, error);
-                    return null;
+                    });
                 }
-            })
-        );
+            } catch (error) {
+                console.error(`Failed to fetch user ${contributor.login}:`, error);
+            }
+        }
 
-        return contributorsWithDetails.filter(isVWCContributor);
+        return results;
     } catch (error) {
         throw new Error(
             `Failed to fetch project contributors: ${
