@@ -1,13 +1,13 @@
 import { Octokit } from "@octokit/rest";
 import { VWCContributor, GithubRepo, GithubContributor } from "@utils/types";
 
-const token = process.env.GITHUB_ACCESS_TOKEN || "";
+const token = process.env.GITHUB_TOKEN || "";
 const octokit = new Octokit({ auth: token });
 
 export const getProjectContributors = async (
     owner: string,
     repo: string,
-    top: number = 4
+    top = 4
 ): Promise<VWCContributor[]> => {
     const topContributors = await getGithubRepoContributors(owner, repo, top);
     const projectContributors = Promise.all(
@@ -22,7 +22,6 @@ export const getProjectContributors = async (
                     name: user.data.name!,
                 };
             }
-            return;
         })
     );
     return (await projectContributors).filter((contributor) => contributor !== undefined);
@@ -30,8 +29,8 @@ export const getProjectContributors = async (
 
 export const getGithubRepo = async (owner: string, repo: string): Promise<GithubRepo> => {
     const response = await octokit.rest.repos.get({
-        owner: owner,
-        repo: repo,
+        owner,
+        repo,
     });
     return response.data;
 };
@@ -39,11 +38,11 @@ export const getGithubRepo = async (owner: string, repo: string): Promise<Github
 export const getGithubRepoContributors = async (
     owner: string,
     repo: string,
-    top: number = 4
+    top = 4
 ): Promise<GithubContributor[]> => {
     const response = await octokit.rest.repos.listContributors({
-        owner: owner,
-        repo: repo,
+        owner,
+        repo,
         per_page: top,
     });
     const contributors = response.data.map((contributor) => {
@@ -53,7 +52,6 @@ export const getGithubRepoContributors = async (
                 login: contributor.login!,
             };
         }
-        return;
     });
     return contributors.filter((contributor) => contributor !== undefined);
 };
