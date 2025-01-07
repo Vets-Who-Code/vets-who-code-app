@@ -95,9 +95,12 @@
             "version": "detect"
         },
         "import/resolver": {
-            "typescript": {},
+            "typescript": {
+                "alwaysTryTypes": true
+            },
             "node": {
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+                "moduleDirectory": ["node_modules", "@types"]
             }
         }
     },
@@ -113,4 +116,4 @@
             }
         }
     ]
-  }
+ }
