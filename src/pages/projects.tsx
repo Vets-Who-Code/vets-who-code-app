@@ -310,11 +310,22 @@ type PageProps = NextPage<TProps> & {
 };
 
 const Projects: PageProps = ({ projects }: TProps) => {
+    const description = [
+        "Welcome to the Vets Who Code project showcase—a space dedicated to highlighting the exceptional work of our veteran developers.",
+        "Here, you'll find innovative applications, tools, and solutions created by our talented community, demonstrating their technical expertise and commitment to excellence. Each project reflects the dedication, creativity, and skills that veterans bring to the tech industry.",
+        "Explore their work and discover how they are making a meaningful impact through code.",
+    ];
+
     return (
         <>
             <SEO title="Projects" />
             <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Projects" />
             <VWCGrid title="Projects">
+                <div className="tw-col-span-full tw-items-center tw-justify-center tw-text-pretty tw-text-secondary">
+                    {description.map((text) => {
+                        return <p>{text}</p>;
+                    })}
+                </div>
                 {projects.map((project) => (
                     <ProjectCard key={project.details.name} project={project} />
                 ))}

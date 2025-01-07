@@ -1,0 +1,26 @@
+{
+  "index": 7,
+  "name": "VS Code Extension Pack",
+  "headline": "Curated VS Code Extensions for Veterans Learning JavaScript",
+  "long_description": [
+    "The Vets Who Code Extension Pack is a thoughtfully curated collection of Visual Studio Code extensions tailored to enhance the learning experience of veterans embarking on their JavaScript development journey. Recognizing the challenges that new developers face in setting up an efficient development environment, this extension pack simplifies the process by providing essential tools in a single, easy-to-install package.",
+    "Key features of the extension pack include:",
+    "- **Comprehensive Toolset**: Integrates a selection of extensions that cover code linting, debugging, version control, and more, ensuring that learners have access to the tools necessary for effective development.",
+    "- **Streamlined Setup**: Eliminates the need for learners to search for and install individual extensions, reducing setup time and allowing them to focus on coding.",
+    "- **Enhanced Learning Experience**: By providing a standardized set of tools, the extension pack fosters a consistent learning environment, enabling veterans to concentrate on mastering JavaScript without the distraction of configuring their development setup."
+  ],
+  "technologies": [
+    "Visual Studio Code",
+    "JavaScript",
+    "ESLint",
+    "Live Server",
+    "GitHub Copilot"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "vetswhocode-extension-pack",
+  "live_url": "https://marketplace.visualstudio.com/items?itemName=VetsWhoCode.vetswhocode-extension-pack",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1736209366/projects/vscode-exension-pack_sops0a.png",
+    "alt": "Vets Who Code Extension Pack Thumbnail"
+  }
+}

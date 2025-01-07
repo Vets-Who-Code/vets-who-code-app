@@ -1,0 +1,26 @@
+{
+  "index": 9,
+  "name": "Engineering SOPs and Field Manual",
+  "headline": "Supplementary Guide for Vets Who Code Engineering Practices",
+  "long_description": [
+    "The Vets Who Code Engineering SOPs and Field Manual serves as a technical and operational guide for the Vets Who Code community. Hosted on GitHub Pages, this platform consolidates best practices, coding standards, and project workflows tailored to support veterans transitioning into software development.",
+    "Key features of the manual include:",
+    "- **Standard Operating Procedures (SOPs)**: Documents standardized workflows, coding practices, and tools to ensure consistency across projects.",
+    "- **Field Manual for Developers**: Provides practical advice, troubleshooting tips, and technical guidelines to navigate common challenges in software development.",
+    "- **Community Focused Content**: Encourages contributions and feedback from the Vets Who Code community, creating a living document that evolves with the organization's needs."
+  ],
+  "technologies": [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Jekyll",
+    "GitHub Pages"
+  ],
+  "owner": "Vets-Who-Code",
+  "repo": "vets-who-code.github.io",
+  "live_url": "https://vets-who-code.github.io/",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/bo_1px_solid_black/v1736209366/projects/Vets_Who_Code_github_page_nrp3bu.png",
+    "alt": "Vets Who Code Engineering SOPs and Field Manual Thumbnail"
+  }
+}
