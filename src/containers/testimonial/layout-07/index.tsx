@@ -49,7 +49,7 @@ const TestimonialArea = ({ data: { items, section_title }, titleSize }: TProps) 
         };
     }, []);
     return (
-        <div className="tw-py-15 md:tw-py-20 lg:tw-py-[100px] tw-bg-light-100 tw-px-3.8">
+        <div className="tw-bg-light-100 tw-px-3.8 tw-py-15 md:tw-py-20 lg:tw-py-[100px]">
             {section_title && (
                 <AnimatedSectionTitle
                     {...section_title}

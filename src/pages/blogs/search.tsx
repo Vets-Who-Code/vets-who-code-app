@@ -47,7 +47,7 @@ const BlogSearch: PageProps = ({ data }) => {
 
     if (loading) {
         return (
-            <div className="tw-w-full tw-h-screen tw-flex tw-justify-center tw-items-center">
+            <div className="tw-flex tw-h-screen tw-w-full tw-items-center tw-justify-center">
                 <Spinner />
             </div>
         );

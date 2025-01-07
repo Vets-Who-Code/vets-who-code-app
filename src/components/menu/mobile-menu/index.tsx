@@ -30,7 +30,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                         return (
                             <li
                                 key={id}
-                                className="tw-relative group tw-border-b tw-border-b-white/[.15] last:tw-border-b-0"
+                                className="group tw-relative tw-border-b tw-border-b-white/[.15] last:tw-border-b-0"
                             >
                                 <NavLink path={path}>{label}</NavLink>
                                 {(submenu || megamenu) && (

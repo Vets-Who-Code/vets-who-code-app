@@ -14,7 +14,7 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "tw-overflow-hidden tw-transition-all tw-bg-gray-100 tw-rounded tw-h-full group hover:tw-bg-white hover:tw-shadow-4xl hover:tw-shadow-black/[0.12]",
+                    "group tw-h-full tw-overflow-hidden tw-rounded tw-bg-gray-100 tw-transition-all hover:tw-bg-white hover:tw-shadow-4xl hover:tw-shadow-black/[0.12]",
                     className
                 )}
                 ref={ref}
@@ -35,12 +35,12 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
                         {title}
                     </Anchor>
                 </figure>
-                <div className="tw-relative tw-px-7.5 tw-pt-7.5 tw-pb-10">
-                    <span className="tw-capitalize tw-font-extrabold tw-bg-primary tw-text-white tw-leading-none tw-rounded-full tw-flex tw-justify-center tw-items-center tw-absolute tw-right-5 -tw-translate-y-1/2 tw-top-0 tw-w-[60px] tw-h-[60px] tw-text-lg md:tw-w-[70px] md:tw-h-[70px] md:tw-text-2xl" />
-                    <span className="tw-font-medium tw-block tw-uppercase tw-mb-1 tw-tracking-[2px] tw-text-secondary-light">
+                <div className="tw-relative tw-px-7.5 tw-pb-10 tw-pt-7.5">
+                    <span className="tw-absolute tw-right-5 tw-top-0 tw-flex tw-h-[60px] tw-w-[60px] -tw-translate-y-1/2 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-text-lg tw-font-extrabold tw-capitalize tw-leading-none tw-text-white md:tw-h-[70px] md:tw-w-[70px] md:tw-text-2xl" />
+                    <span className="tw-mb-1 tw-block tw-font-medium tw-uppercase tw-tracking-[2px] tw-text-secondary-light">
                         {dayjs(published_at).format("MMM DD, YYYY")}
                     </span>
-                    <h3 className="tw-leading-normal tw-text-secondary tw-m-0">
+                    <h3 className="tw-m-0 tw-leading-normal tw-text-secondary">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                     {excerpt && <p className="tw-mt-2.5">{excerpt}</p>}

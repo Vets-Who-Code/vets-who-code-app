@@ -36,7 +36,7 @@ const TeamArea = ({ data: { section_title, items }, titleSize }: TProps) => {
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-grid-cols-1 tw-mb-7.5 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-gap-10 lg:tw-mb-[50px]">
+                <div className="tw-mb-7.5 tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-mb-[50px] lg:tw-grid-cols-3 xl:tw-gap-10">
                     {admins?.map((admin) => (
                         <AnimatedTeamCard
                             key={admin.id}
@@ -51,7 +51,7 @@ const TeamArea = ({ data: { section_title, items }, titleSize }: TProps) => {
                         />
                     ))}
                 </div>
-                <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-7.5">
+                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
                     {employees?.map((employee) => (
                         <AnimatedTeamCard
                             key={employee.id}

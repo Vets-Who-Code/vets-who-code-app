@@ -10,7 +10,7 @@ interface BecomeInstructorProps {
 const BecomeInstructor: React.FC<BecomeInstructorProps> = ({ className }) => {
     return (
         <div
-            className={`tw-py-15 md:tw-py-20 lg:tw-py-[100px] tw-bg-[url('/images/bg/become-a-teache-bg.jpg')] tw-bg-cover tw-bg-fixed ${className}`}
+            className={`tw-bg-[url('/images/bg/become-a-teache-bg.jpg')] tw-bg-cover tw-bg-fixed tw-py-15 md:tw-py-20 lg:tw-py-[100px] ${className}`}
         >
             <div className="tw-container">
                 <div className="tw-flex tw-justify-center">

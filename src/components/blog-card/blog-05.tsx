@@ -19,16 +19,16 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "blog tw-h-full tw-relative tw-border-b tw-border-b-gray-450",
+                    "blog tw-relative tw-h-full tw-border-b tw-border-b-gray-450",
                     className
                 )}
                 ref={ref}
             >
-                <div className="tw-relative tw-group tw-overflow-hidden tw-rounded tw-max-h-[300px] md:tw-max-h-[400px]">
+                <div className="tw-group tw-relative tw-max-h-[300px] tw-overflow-hidden tw-rounded md:tw-max-h-[400px]">
                     {image?.src && (
-                        <figure className="tw-transition-transform tw-duration-1500 tw-h-full group-hover:tw-scale-110">
+                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">
                             <img
-                                className="tw-w-full tw-h-full tw-object-cover"
+                                className="tw-h-full tw-w-full tw-object-cover"
                                 src={image.src}
                                 alt={image?.alt || title}
                                 width={image.width || 770}
@@ -42,18 +42,18 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </div>
 
-                <div className="tw-pt-8 tw-pb-[50px]">
+                <div className="tw-pb-[50px] tw-pt-8">
                     <Anchor
                         path={category.path}
-                        className="tw-block tw-text-body tw-font-medium tw-uppercase -tw-tracking-tightest tw-leading-[1.4] tw-mb-[17px]"
+                        className="tw-mb-[17px] tw-block tw-font-medium tw-uppercase tw-leading-[1.4] -tw-tracking-tightest tw-text-body"
                     >
                         {category.title}
                     </Anchor>
-                    <h3 className="tw-mb-0 tw-text-[26px] xl:tw-text-[34px] tw-leading-[1.42]">
+                    <h3 className="tw-mb-0 tw-text-[26px] tw-leading-[1.42] xl:tw-text-[34px]">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
 
-                    <div className="tw-text-md tw-mt-5 tw-text-gray-300 tw-flex tw-items-center tw-flex-wrap">
+                    <div className="tw-mt-5 tw-flex tw-flex-wrap tw-items-center tw-text-md tw-text-gray-300">
                         <AuthorMeta author={author} className="tw-pr-5 md:tw-pr-8" />
                         <BlogMetaItem
                             className="tw-pr-5 md:tw-pr-8"
@@ -62,7 +62,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                         />
                     </div>
                     <p className="tw-mt-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
-                    <div className="tw-flex tw-items-center tw-justify-between tw-mt-7.5">
+                    <div className="tw-mt-7.5 tw-flex tw-items-center tw-justify-between">
                         <Button path={path}>
                             Read More
                             <span className="tw-sr-only">About this article</span>

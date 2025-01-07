@@ -28,7 +28,7 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
             <div className="tw-container">
                 {section_title && (
                     <motion.h2
-                        className="tw-max-w-[770px] tw-mx-auto tw-text-center tw-leading-none tw-mb-10 md:tw-mb-15"
+                        className="tw-mx-auto tw-mb-10 tw-max-w-[770px] tw-text-center tw-leading-none md:tw-mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -38,7 +38,7 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
                     </motion.h2>
                 )}
                 <motion.div
-                    className="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-x-7.5 tw-gap-y-10 tw-mb-10 md:tw-mb-15"
+                    className="tw-mb-10 tw-grid tw-grid-cols-1 tw-gap-x-7.5 tw-gap-y-10 md:tw-mb-15 md:tw-grid-cols-3"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -49,10 +49,10 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
                             <i
                                 className={clsx(
                                     item.icon,
-                                    "tw-text-[32px] tw-text-primary tw-absolute tw-left-0 tw-top-0"
+                                    "tw-absolute tw-left-0 tw-top-0 tw-text-[32px] tw-text-primary"
                                 )}
                             />
-                            <h3 className="tw-text-lg tw-mb-3.8">{item.title}</h3>
+                            <h3 className="tw-mb-3.8 tw-text-lg">{item.title}</h3>
                             {item.texts?.map((text) => (
                                 <p
                                     key={text.id}

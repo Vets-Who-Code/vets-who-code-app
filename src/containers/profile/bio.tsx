@@ -4,7 +4,7 @@ import Social, { SocialLink } from "@components/ui/social";
 const ProfileBio = () => {
     return (
         <Section className="profile-area" space="bottom">
-            <div className="tw-container tw-grid tw-grid-cols-1 md:tw-grid-cols-12 tw-gap-7.5 tw-items-start lg:tw-items-center">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-items-start tw-gap-7.5 md:tw-grid-cols-12 lg:tw-items-center">
                 <figure className="tw-col-span-full md:tw-col-span-6 xl:tw-col-span-5">
                     <img
                         className="tw-w-full"
@@ -16,7 +16,7 @@ const ProfileBio = () => {
                 </figure>
                 <div className="tw-col-span-full md:tw-col-[7/-1]">
                     <h2 className="tw-mb-0 tw-leading-[1.42]">Jerome Hardaway</h2>
-                    <h3 className="tw-font-normal tw-text-body tw-text-h6 tw-leading-relaxed tw-mb-0">
+                    <h3 className="tw-mb-0 tw-text-h6 tw-font-normal tw-leading-relaxed tw-text-body">
                         Executive Director
                     </h3>
                     <p className="tw-mb-0 tw-mt-3.8">
@@ -40,7 +40,7 @@ const ProfileBio = () => {
                         make the tech industry more accessible, diverse, and innovative, and he is
                         always looking for new ways to achieve this goal.
                     </p>
-                    <h4 className="tw-text-h5 tw-mt-9 tw-mb-2.5">Contact</h4>
+                    <h4 className="tw-mb-2.5 tw-mt-9 tw-text-h5">Contact</h4>
                     <div className="contact-info-text">
                         <br />
                         <span className="email">

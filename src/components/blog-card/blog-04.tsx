@@ -13,16 +13,16 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "blog tw-h-full tw-relative tw-bg-white tw-group tw-rounded tw-shadow-xl tw-shadow-black/5",
+                    "blog tw-group tw-relative tw-h-full tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5",
                     className
                 )}
                 ref={ref}
             >
-                <div className="tw-relative tw-overflow-hidden tw-rounded-t tw-h-[240px] sm:tw-h-64 md:tw-h-[225px] lg:tw-h-[185px] xl:tw-h-[250px]">
+                <div className="tw-relative tw-h-[240px] tw-overflow-hidden tw-rounded-t sm:tw-h-64 md:tw-h-[225px] lg:tw-h-[185px] xl:tw-h-[250px]">
                     {image?.src && (
-                        <div className="tw-transition-transform tw-duration-1500 tw-h-full group-hover:tw-scale-110">
+                        <div className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">
                             <img
-                                className="tw-w-full tw-h-full tw-object-cover"
+                                className="tw-h-full tw-w-full tw-object-cover"
                                 src={image.src}
                                 alt={image?.alt || title}
                                 width={image.width || 370}
@@ -36,11 +36,11 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </div>
 
-                <div className="info tw-py-[26px] tw-px-5">
+                <div className="info tw-px-5 tw-py-[26px]">
                     {category && (
                         <Anchor
                             path={category.path}
-                            className="tw-block tw-text-body tw-font-medium tw-uppercase -tw-tracking-tightest tw-leading-[1.4] tw-mb-[17px]"
+                            className="tw-mb-[17px] tw-block tw-font-medium tw-uppercase tw-leading-[1.4] -tw-tracking-tightest tw-text-body"
                         >
                             {category.title}
                         </Anchor>
@@ -49,8 +49,8 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
 
-                    <ul className="tw-flex tw-text-gray-300 tw-text-md">
-                        <li className="tw-mt-3.8 tw-mb-0">
+                    <ul className="tw-flex tw-text-md tw-text-gray-300">
+                        <li className="tw-mb-0 tw-mt-3.8">
                             <i className="far fa-calendar tw-mr-2.5" />
                             {postedAt}
                         </li>

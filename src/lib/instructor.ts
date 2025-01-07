@@ -13,15 +13,18 @@ export function getInstructorBySlug(slug: string, fields: FieldType<IInstructor>
     if (fields === "all") {
         course = fileContents;
     } else {
-        course = fields.reduce((acc: IInstructor, field: keyof IInstructor) => {
-            if (typeof fileContents[field] !== "undefined") {
-                return {
-                    ...acc,
-                    [field]: fileContents[field],
-                };
-            }
-            return acc;
-        }, <IInstructor>{});
+        course = fields.reduce(
+            (acc: IInstructor, field: keyof IInstructor) => {
+                if (typeof fileContents[field] !== "undefined") {
+                    return {
+                        ...acc,
+                        [field]: fileContents[field],
+                    };
+                }
+                return acc;
+            },
+            <IInstructor>{}
+        );
     }
     return course;
 }

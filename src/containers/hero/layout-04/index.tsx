@@ -31,14 +31,14 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
     });
     return (
         <>
-            <div className="hero-area tw-relative tw-pt-[100px] tw-pb-[130px] md:tw-py-[170px] xl:tw-pt-[270px] xl:tw-pb-[248px]">
+            <div className="hero-area tw-relative tw-pb-[130px] tw-pt-[100px] md:tw-py-[170px] xl:tw-pb-[248px] xl:tw-pt-[270px]">
                 {images?.[0]?.src && (
                     <div className="tw-absolute tw-inset-0 -tw-z-10">
                         <img
                             src={images[0].src}
                             alt={images[0]?.alt || "bg"}
                             loading="eager"
-                            className="tw-w-full tw-h-full tw-object-cover"
+                            className="tw-h-full tw-w-full tw-object-cover"
                         />
                         <div
                             style={{
@@ -60,9 +60,9 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h1 className="tw-text-[46px] lg:tw-text-[56px] tw-leading-tight tw-font-medium tw-text-white">
+                        <h1 className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-white lg:tw-text-[56px]">
                             {headings[0].content}{" "}
-                            <span className="tw-text-primary tw-inline-block">
+                            <span className="tw-inline-block tw-text-primary">
                                 {animatedText}
                                 <Cursor />
                             </span>
@@ -71,12 +71,12 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                     {texts?.map((text) => (
                         <p
                             key={text.id}
-                            className="tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white tw-mb-5 sm:tw-mb-8"
+                            className="tw-mb-5 tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white sm:tw-mb-8"
                         >
                             {text.content}
                         </p>
                     ))}
-                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-wrap">
+                    <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
                         {buttons?.[0] && (
                             <Button {...buttons[0]} className="tw-m-2.5">
                                 {buttons[0].content}

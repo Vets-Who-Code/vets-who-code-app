@@ -11,7 +11,7 @@ const Submenu = ({ menu, className, onFocus, ...rest }: TProps) => {
     return (
         <ul
             className={clsx(
-                "tw-absolute tw-z-20 tw-top-full tw-left-0 tw-w-60 tw-mt-5 tw-py-4 tw-transition-all tw-duration-400 tw-bg-white tw-border-b-4 tw-border-b-primary tw-shadow-2md tw-shadow-black/5 tw-visible tw-opacity-0 tw-pointer-events-none",
+                "tw-pointer-events-none tw-visible tw-absolute tw-left-0 tw-top-full tw-z-20 tw-mt-5 tw-w-60 tw-border-b-4 tw-border-b-primary tw-bg-white tw-py-4 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-400",
                 className
             )}
             {...rest}
@@ -21,7 +21,7 @@ const Submenu = ({ menu, className, onFocus, ...rest }: TProps) => {
                     <Anchor
                         path={path}
                         role="menuitem"
-                        className="tw-flex tw-items-center tw-text-secondary tw-px-7.5 tw-py-2"
+                        className="tw-flex tw-items-center tw-px-7.5 tw-py-2 tw-text-secondary"
                     >
                         {label}
                     </Anchor>

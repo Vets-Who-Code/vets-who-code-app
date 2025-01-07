@@ -20,9 +20,9 @@ const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize 
 
     return (
         <Section className="faq-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-[50px] lg:tw-gap-7.5">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-[50px] lg:tw-grid-cols-2 lg:tw-gap-7.5">
                 <motion.div
-                    className="tw-relative tw-pl-10 tw-z-10"
+                    className="tw-relative tw-z-10 tw-pl-10"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -39,13 +39,13 @@ const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize 
                     )}
 
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-top-[50px] -tw-left-15 tw-w-[200px] tw-h-[200px] sm:tw-left-0 sm:tw-w-[392px] sm:tw-h-[392px] md:tw-w-[392px] md:tw-h-[392px]"
+                        className="tw-absolute -tw-left-15 tw-top-[50px] -tw-z-1 tw-h-[200px] tw-w-[200px] sm:tw-left-0 sm:tw-h-[392px] sm:tw-w-[392px] md:tw-h-[392px] md:tw-w-[392px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-fill-gray-800 tw-w-full tw-h-full" />
+                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-800" />
                     </motion.div>
                 </motion.div>
                 <motion.div

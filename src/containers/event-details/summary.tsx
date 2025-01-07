@@ -30,19 +30,19 @@ const Summary = ({
     return (
         <article className="tw-py-15 md:tw-py-20 lg:tw-py-[100px]">
             <div className="tw-container tw-border-b tw-border-b-gray-650 tw-pb-[50px] md:tw-pb-[70px] lg:tw-pb-[90px]">
-                <h2 className="tw-text-4xl md:tw-text-[42px] lg:tw-text-5xl tw-text-center tw-mb-5">
+                <h2 className="tw-mb-5 tw-text-center tw-text-4xl md:tw-text-[42px] lg:tw-text-5xl">
                     About The Event
                 </h2>
-                <div className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-mb-10 lg:tw-mb-15">
+                <div className="tw-mb-10 tw-flex tw-flex-wrap tw-items-center tw-justify-center lg:tw-mb-15">
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-map-marker-alt tw-text-primary tw-mr-[5px]" />
+                        <i className="fal fa-map-marker-alt tw-mr-[5px] tw-text-primary" />
                         <span>
                             {location.city}, {location.country}
                         </span>
                     </div>
 
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-calendar tw-text-primary tw-mr-[5px]" />
+                        <i className="fal fa-calendar tw-mr-[5px] tw-text-primary" />
                         <span>
                             {dayjs(start_date).format("MMM DD, YYYY")} -{" "}
                             {dayjs(end_date).format("MMM DD, YYYY")}
@@ -50,14 +50,14 @@ const Summary = ({
                     </div>
 
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-clock tw-text-primary tw-mr-[5px]" />
+                        <i className="fal fa-clock tw-mr-[5px] tw-text-primary" />
                         <span>
                             {dayjs(`${start_date} ${start_time}`).format("h:mm a")} -{" "}
                             {dayjs(`${end_date} ${end_time}`).format("h:mm a")}
                         </span>
                     </div>
                 </div>
-                <div className="tw-grid tw-grid-cols-3 tw-gap-10 tw-mb-10 lg:tw-mb-[50px]">
+                <div className="tw-mb-10 tw-grid tw-grid-cols-3 tw-gap-10 lg:tw-mb-[50px]">
                     <div className="tw-col-span-full lg:tw-col-[1/3]">
                         <div className="tw-h-[400px] lg:tw-h-[390px]">
                             <GoogleMap
@@ -70,7 +70,7 @@ const Summary = ({
                         </div>
 
                         <p className="tw-mb-0 tw-mt-5 tw-text-center">
-                            <span className="fal fa-map-marker-alt tw-text-primary tw-mr-1.5" />
+                            <span className="fal fa-map-marker-alt tw-mr-1.5 tw-text-primary" />
                             {venue}
                         </p>
                     </div>

@@ -43,7 +43,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                 {show && (
                     <>
                         <motion.div
-                            className="backdrop tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen tw-bg-black/60 tw-transition-opacity tw-z-50 tw-flex tw-justify-center tw-items-center"
+                            className="backdrop tw-fixed tw-left-0 tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-black/60 tw-transition-opacity"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
@@ -56,7 +56,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
 
                         <motion.div
                             className={clsx(
-                                "tw-fixed tw-inset-0 tw-overflow-hidden tw-outline-0 tw-transition-opacity tw-z-[999]",
+                                "tw-fixed tw-inset-0 tw-z-[999] tw-overflow-hidden tw-outline-0 tw-transition-opacity",
                                 className
                             )}
                             role="button"
@@ -69,23 +69,23 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                             exit="exit"
                             variants={fadeIn02}
                         >
-                            <div className="modal-dialog tw-relative tw-z-50 tw-w-auto tw-m-3 tw-pointer-events-none sm:tw-my-5 sm:tw-mx-auto tw-flex tw-items-center tw-min-h-[calc(100vh_-_1rem)] sm:tw-min-h-[calc(100vh_-_3.5rem)] sm:tw-max-w-[500px] lg:tw-max-w-[1000px]">
+                            <div className="modal-dialog tw-pointer-events-none tw-relative tw-z-50 tw-m-3 tw-flex tw-min-h-[calc(100vh_-_1rem)] tw-w-auto tw-items-center sm:tw-mx-auto sm:tw-my-5 sm:tw-min-h-[calc(100vh_-_3.5rem)] sm:tw-max-w-[500px] lg:tw-max-w-[1000px]">
                                 <div
-                                    className="modal-content tw-relative tw-flex tw-flex-col tw-w-full tw-pointer-events-auto tw-bg-white tw-bg-clip-padding tw-rounded"
+                                    className="modal-content tw-pointer-events-auto tw-relative tw-flex tw-w-full tw-flex-col tw-rounded tw-bg-white tw-bg-clip-padding"
                                     onClick={(e) => e.stopPropagation()}
                                     onKeyPress={(e) => e.stopPropagation()}
                                     role="button"
                                     tabIndex={-1}
                                 >
                                     {videoLoading && (
-                                        <div className="tw-absolute tw-inset-0 tw-flex tw-justify-center tw-items-center">
+                                        <div className="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center">
                                             <Spinner />
                                         </div>
                                     )}
                                     <button
                                         type="button"
                                         onClick={onClose}
-                                        className="tw-absolute tw-right-0 -tw-top-9 tw-w-9 tw-h-9 tw-text-white tw-bg-black tw-flex tw-items-center tw-justify-center"
+                                        className="tw-absolute -tw-top-9 tw-right-0 tw-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-bg-black tw-text-white"
                                     >
                                         <i className="linea-arrows-circle-remove" />
                                     </button>

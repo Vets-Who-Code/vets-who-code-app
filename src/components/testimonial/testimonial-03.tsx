@@ -10,7 +10,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
     return (
         <div
             className={clsx(
-                "testimonial tw-py-11 tw-px-[26px] tw-bg-white tw-rounded tw-shadow-lg tw-shadow-heading/10 tw-text-center",
+                "testimonial tw-rounded tw-bg-white tw-px-[26px] tw-py-11 tw-text-center tw-shadow-lg tw-shadow-heading/10",
                 className
             )}
         >
@@ -26,7 +26,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
             )}
 
             <p className="tw-mb-10 tw-text-lg tw-font-medium tw-text-secondary">{description}</p>
-            <h3 className="tw-tracking-wider tw-uppercase tw-text-h6 tw-mb-2.5">{name}</h3>
+            <h3 className="tw-mb-2.5 tw-text-h6 tw-uppercase tw-tracking-wider">{name}</h3>
             <span className="tw-text-gray-300">/ {designation}</span>
         </div>
     );

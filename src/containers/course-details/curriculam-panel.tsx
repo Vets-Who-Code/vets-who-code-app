@@ -23,12 +23,12 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
             {curriculum.map(({ id, title, description, lessons }) => (
                 <div
                     key={id}
-                    className="tw-border tw-border-alto tw-rounded tw-mt-[50px] first:tw-mt-0"
+                    className="tw-mt-[50px] tw-rounded tw-border tw-border-alto first:tw-mt-0"
                 >
-                    <div className="tw-py-5 tw-px-3.8 md:tw-py-[22px] md:tw-px-12">
-                        <h5 className="tw-text-xl tw-mb-0">{title}</h5>
+                    <div className="tw-px-3.8 tw-py-5 md:tw-px-12 md:tw-py-[22px]">
+                        <h5 className="tw-mb-0 tw-text-xl">{title}</h5>
                         {description && (
-                            <p className="tw-text-md tw-mb-0 tw-mt-[5px] tw-italic">
+                            <p className="tw-mb-0 tw-mt-[5px] tw-text-md tw-italic">
                                 {description}
                             </p>
                         )}
@@ -40,12 +40,12 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                 return (
                                     <li
                                         key={item.slug}
-                                        className="tw-text-md even:tw-bg-light-100 odd:tw-bg-white even:last:tw-rounded-b"
+                                        className="tw-text-md odd:tw-bg-white even:tw-bg-light-100 even:last:tw-rounded-b"
                                     >
                                         <Anchor
                                             path={item.path}
                                             className={clsx(
-                                                "tw-px-3.8 md:tw-pl-12 md:tw-pr-7.5 tw-min-h-[56px] tw-flex tw-flex-wrap tw-items-center",
+                                                "tw-flex tw-min-h-[56px] tw-flex-wrap tw-items-center tw-px-3.8 md:tw-pl-12 md:tw-pr-7.5",
                                                 !hasAccess && "tw-pointer-events-none"
                                             )}
                                         >
@@ -59,7 +59,7 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                                 />
                                                 {item.title}
                                             </span>
-                                            <div className="tw-text-right tw-flex tw-items-center tw-py-2.5">
+                                            <div className="tw-flex tw-items-center tw-py-2.5 tw-text-right">
                                                 <Badge className="tw-ml-2.5">{item.duration}</Badge>
                                                 {item.type === "lesson" &&
                                                     item.access === "free" && (
@@ -71,12 +71,12 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                                         </Badge>
                                                     )}
                                                 {item?.video && (
-                                                    <span className="tw-ml-2.5 tw-font-medium tw-px-3.8">
+                                                    <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
                                                         <i className="far fa-video" />
                                                     </span>
                                                 )}
                                                 {item.access === "paid" && (
-                                                    <span className="tw-ml-2.5 tw-font-medium tw-px-3.8">
+                                                    <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
                                                         <i className="fas fa-lock-alt" />
                                                     </span>
                                                 )}

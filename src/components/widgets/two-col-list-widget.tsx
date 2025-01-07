@@ -17,16 +17,16 @@ const TwoColumnListWidget = ({ className, mode }: TProps) => {
                     mode === "dark" && "tw-text-gray-400"
                 )}
             >
-                <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
+                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
                     <Anchor path="/about-us">Start here</Anchor>
                 </li>
-                <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
+                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
                     <Anchor path="/blogs/blog">Blog</Anchor>
                 </li>
-                <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
+                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
                     <Anchor path="/subjects/all">Subjects</Anchor>
                 </li>
-                <li className="tw-w-1/2 tw-pr-5 tw-mb-[11px]">
+                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
                     <Anchor path="/about-us">About us</Anchor>
                 </li>
             </ul>

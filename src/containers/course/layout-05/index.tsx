@@ -29,7 +29,7 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
+                <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
                     {courses.map((course) => (
                         <CourseCard
                             key={course.path}

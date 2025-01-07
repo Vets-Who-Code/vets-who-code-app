@@ -9,11 +9,11 @@ const Testimonial04 = ({ title, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-max-w-[270px] tw-py-7.5 tw-px-[26px] tw-bg-white tw-rounded tw-shadow-lg tw-shadow-heading/10",
+                "tw-max-w-[270px] tw-rounded tw-bg-white tw-px-[26px] tw-py-7.5 tw-shadow-lg tw-shadow-heading/10",
                 className
             )}
         >
-            <h3 className="tw-text-secondary tw-text-xl">&quot;{title}&quot;</h3>
+            <h3 className="tw-text-xl tw-text-secondary">&quot;{title}&quot;</h3>
         </div>
     );
 };

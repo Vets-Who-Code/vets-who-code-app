@@ -30,12 +30,12 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
 
     return (
         <nav aria-label="Page navigation">
-            <ul className={clsx("pagination tw-text-[16px] tw-text-center", className)}>
+            <ul className={clsx("pagination tw-text-center tw-text-[16px]", className)}>
                 <li className="tw-inline-block tw-px-[5px]">
                     <button
                         type="button"
                         className={clsx(
-                            "tw-font-extrabold tw-uppercase tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full tw-text-gray-400 -tw-tracking-tightest hover:tw-text-heading",
+                            "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-font-extrabold tw-uppercase tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading",
                             isFirst && "tw-pointer-events-none tw-opacity-50"
                         )}
                         onClick={() => pagiHandler(previousPage)}
@@ -48,7 +48,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
                         <button
                             type="button"
                             className={clsx(
-                                "tw-font-extrabold tw-uppercase tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full -tw-tracking-tightest hover:tw-text-heading",
+                                "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-font-extrabold tw-uppercase tw-leading-[48px] -tw-tracking-tightest hover:tw-text-heading",
                                 currentPage !== i + 1 && "tw-text-gray-400",
                                 currentPage === i + 1 &&
                                     "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
@@ -64,7 +64,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
                     <button
                         type="button"
                         className={clsx(
-                            "tw-font-extrabold tw-uppercase tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full tw-text-gray-400 -tw-tracking-tightest hover:tw-text-heading",
+                            "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-font-extrabold tw-uppercase tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading",
                             isLast && "tw-pointer-events-none tw-opacity-50"
                         )}
                         onClick={() => pagiHandler(nextPage)}

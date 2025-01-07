@@ -18,14 +18,14 @@ const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps)
             className={clsx(
                 "page-title-area tw-relative",
                 showTitle &&
-                    "tw-pt-15 tw-pb-10 md:tw-pt-20 md:tw-pb-15 lg:tw-pt-[100px] lg:tw-pb-20",
+                    "tw-pb-10 tw-pt-15 md:tw-pb-15 md:tw-pt-20 lg:tw-pb-20 lg:tw-pt-[100px]",
                 !showTitle && "tw-pb-10 md:tw-pb-15 lg:tw-pb-20",
                 className
             )}
         >
             {showTitle && (
                 <div className="tw-container">
-                    <h1 className="title tw-capitalize tw-mt-5 tw-mb-0 tw-text-3xl md:tw-text-4xl lg:tw-text-5xl tw-text-center">
+                    <h1 className="title tw-mb-0 tw-mt-5 tw-text-center tw-text-3xl tw-capitalize md:tw-text-4xl lg:tw-text-5xl">
                         {title || currentPage}
                     </h1>
                 </div>
@@ -34,7 +34,7 @@ const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps)
 
             <div
                 className={clsx(
-                    "page-breadcrumb tw-top-0 tw-left-0 tw-w-full",
+                    "page-breadcrumb tw-left-0 tw-top-0 tw-w-full",
                     showTitle && "tw-absolute"
                 )}
             >
@@ -43,11 +43,11 @@ const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps)
                         {pages.map(({ path, label }) => (
                             <li
                                 key={label}
-                                className="tw-text-md first:before:tw-hidden before:tw-content-['/'] before:tw-mx-3.8 before:tw-color-body"
+                                className="before:tw-color-body tw-text-md before:tw-mx-3.8 before:tw-content-['/'] first:before:tw-hidden"
                             >
                                 <Anchor
                                     path={path}
-                                    className="tw-text-body tw-capitalize tw-relative before:tw-absolute before:tw-content-[''] before:-tw-bottom-1.5 before:tw-right-0 before:tw-w-0 before:tw-h-px before:tw-transition-all before:tw-bg-heading hover:tw-text-heading hover:before:tw-left-0 hover:before:tw-w-full"
+                                    className="tw-relative tw-capitalize tw-text-body before:tw-absolute before:-tw-bottom-1.5 before:tw-right-0 before:tw-h-px before:tw-w-0 before:tw-bg-heading before:tw-transition-all before:tw-content-[''] hover:tw-text-heading hover:before:tw-left-0 hover:before:tw-w-full"
                                 >
                                     {label}
                                 </Anchor>
@@ -55,7 +55,7 @@ const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps)
                         ))}
 
                         <li
-                            className="tw-text-md tw-capitalize tw-text-heading first:before:tw-hidden before:tw-content-['/'] before:tw-mx-3.8 before:tw-color-body"
+                            className="before:tw-color-body tw-text-md tw-capitalize tw-text-heading before:tw-mx-3.8 before:tw-content-['/'] first:before:tw-hidden"
                             aria-current="page"
                         >
                             {currentPage}

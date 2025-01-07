@@ -7,7 +7,7 @@ type TProps = {
 
 const WidgetTitle = ({ children, mode }: TProps) => {
     return (
-        <h3 className={clsx("tw-text-lg tw-mb-[17px]", mode === "dark" && "tw-text-white")}>
+        <h3 className={clsx("tw-mb-[17px] tw-text-lg", mode === "dark" && "tw-text-white")}>
             {children}
         </h3>
     );

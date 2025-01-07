@@ -13,18 +13,21 @@ export function getAuthorBySlug(slug: string, fields: FieldType<IInstructor>): I
     if (fields === "all") {
         author = { ...fileContents, slug: realSlug };
     } else {
-        author = fields.reduce((acc: IInstructor, field: keyof IInstructor) => {
-            if (field === "slug") {
-                return { ...acc, [field]: realSlug };
-            }
-            if (typeof fileContents[field] !== "undefined") {
-                return {
-                    ...acc,
-                    [field]: fileContents[field],
-                };
-            }
-            return acc;
-        }, <IInstructor>{});
+        author = fields.reduce(
+            (acc: IInstructor, field: keyof IInstructor) => {
+                if (field === "slug") {
+                    return { ...acc, [field]: realSlug };
+                }
+                if (typeof fileContents[field] !== "undefined") {
+                    return {
+                        ...acc,
+                        [field]: fileContents[field],
+                    };
+                }
+                return acc;
+            },
+            <IInstructor>{}
+        );
     }
     return { ...author, path: `/blogs/author/${realSlug}` };
 }

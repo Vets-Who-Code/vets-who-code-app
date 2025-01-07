@@ -43,8 +43,8 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                     />
                 )}
 
-                <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5 tw-items-center">
-                    <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-x-7.5 tw-gap-y-14">
+                <div className="tw-grid tw-grid-cols-1 tw-items-center tw-gap-7.5 lg:tw-grid-cols-2">
+                    <div className="tw-grid tw-grid-cols-1 tw-gap-x-7.5 tw-gap-y-14 sm:tw-grid-cols-2">
                         {items?.map((item) => (
                             <AnimatedServiceCard
                                 key={item.id}

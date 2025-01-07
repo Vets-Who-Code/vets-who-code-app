@@ -24,15 +24,18 @@ export function getLessonBySlug(
     if (fields === "all") {
         lesson = { ...lessonData, content };
     } else {
-        lesson = fields.reduce((acc: ILesson, field: keyof ILesson) => {
-            if (field === "content") {
-                return { ...acc, [field]: content };
-            }
-            if (typeof data[field] !== "undefined") {
-                return { ...acc, [field]: lessonData[field] };
-            }
-            return acc;
-        }, <ILesson>{});
+        lesson = fields.reduce(
+            (acc: ILesson, field: keyof ILesson) => {
+                if (field === "content") {
+                    return { ...acc, [field]: content };
+                }
+                if (typeof data[field] !== "undefined") {
+                    return { ...acc, [field]: lessonData[field] };
+                }
+                return acc;
+            },
+            <ILesson>{}
+        );
     }
     return {
         ...lesson,

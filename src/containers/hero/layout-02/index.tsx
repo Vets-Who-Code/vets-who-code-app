@@ -20,23 +20,23 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
     const { trans1, trans2 } = useUI();
     return (
         <div className="hero-area tw-pt-[65px]">
-            <div className="tw-container tw-grid lg:tw-grid-cols-2 tw-gap-7.5">
+            <div className="tw-container tw-grid tw-gap-7.5 lg:tw-grid-cols-2">
                 <motion.div
-                    className="md:tw-max-w-[460px] tw-text-center md:tw-text-left tw-self-center"
+                    className="tw-self-center tw-text-center md:tw-max-w-[460px] md:tw-text-left"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h1 className="tw-text-3xl sm:tw-text-4xl lg:tw-text-5xl tw-leading-[1.17] tw-text-secondary">
+                        <h1 className="tw-text-3xl tw-leading-[1.17] tw-text-secondary sm:tw-text-4xl lg:tw-text-5xl">
                             {headings[0].content}
                         </h1>
                     )}
                     {texts?.map((text) => (
                         <p
                             key={text.id}
-                            className="tw-text-md sm:tw-text-[16px] lg:tw-text-lg tw-font-medium tw-leading-relaxed tw-text-secondary-light tw-mt-3"
+                            className="tw-mt-3 tw-text-md tw-font-medium tw-leading-relaxed tw-text-secondary-light sm:tw-text-[16px] lg:tw-text-lg"
                         >
                             {text.content}
                         </p>
@@ -54,7 +54,7 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                 <div className="tw-relative tw-z-10">
                     {images?.[0]?.src && (
                         <motion.div
-                            className="tw-rounded-full tw-overflow-hidden"
+                            className="tw-overflow-hidden tw-rounded-full"
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true, amount: 0.1 }}
@@ -65,13 +65,13 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                                 alt={images[0]?.alt || "Hero"}
                                 width={570}
                                 height={570}
-                                className="tw-object-cover tw-w-full tw-h-full tw-mx-auto"
+                                className="tw-mx-auto tw-h-full tw-w-full tw-object-cover"
                             />
                         </motion.div>
                     )}
 
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-w-20 tw-h-20 tw-left-px tw-top-0 sm:tw-w-[100px] sm:tw-h-[100px] sm:tw-top-[124px] md:tw-w-auto md:tw-h-auto md:tw-left-px"
+                        className="tw-absolute tw-left-px tw-top-0 -tw-z-1 tw-h-20 tw-w-20 sm:tw-top-[124px] sm:tw-h-[100px] sm:tw-w-[100px] md:tw-left-px md:tw-h-auto md:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -83,7 +83,7 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                     </motion.div>
 
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-w-20 tw-h-20 tw-left-px tw-top-[70px] sm:tw-w-[100px] sm:tw-h-[100px] sm:tw-top-[262px] md:tw-w-auto md:tw-h-auto md:tw-left-px"
+                        className="tw-absolute tw-left-px tw-top-[70px] -tw-z-1 tw-h-20 tw-w-20 sm:tw-top-[262px] sm:tw-h-[100px] sm:tw-w-[100px] md:tw-left-px md:tw-h-auto md:tw-w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -92,7 +92,7 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                         <img src="/images/shape-animation/about-shape-1.png" alt="" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-top-[255px] tw-left-2 sm:tw-top-[355px] sm:-tw-left-2 tw-z-20"
+                        className="tw-absolute tw-left-2 tw-top-[255px] tw-z-20 sm:-tw-left-2 sm:tw-top-[355px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -107,7 +107,7 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-w-[100px] tw-bottom-3.8 tw-right-5 sm:tw-w-[100px] sm:tw-bottom-[55px] sm:tw-right-[45px] md:tw-w-auto"
+                        className="tw-absolute tw-bottom-3.8 tw-right-5 -tw-z-1 tw-w-[100px] sm:tw-bottom-[55px] sm:tw-right-[45px] sm:tw-w-[100px] md:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -116,7 +116,7 @@ const HeroArea = ({ data: { headings, texts, buttons, motto, images } }: TProps)
                         <img src="/images/shape-animation/code.svg" alt="" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-z-1 tw-w-15 tw-bottom-[140px] tw-right-2.5 sm:tw-bottom-[314px] sm:tw-right-7.5 md:tw-w-auto md:tw-right-[70px]"
+                        className="tw-absolute tw-bottom-[140px] tw-right-2.5 tw-z-1 tw-w-15 sm:tw-bottom-[314px] sm:tw-right-7.5 md:tw-right-[70px] md:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,

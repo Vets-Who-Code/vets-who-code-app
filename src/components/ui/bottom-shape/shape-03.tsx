@@ -10,11 +10,11 @@ const BottomShape = ({ className, color }: TProps) => {
     return (
         <div
             className={clsx(
-                "bottom-shape tw-absolute -tw-bottom-px tw-left-0 tw-w-full tw-h-20 md:tw-h-[310px] -tw-z-1 tw-rotate-180",
+                "bottom-shape tw-absolute -tw-bottom-px tw-left-0 -tw-z-1 tw-h-20 tw-w-full tw-rotate-180 md:tw-h-[310px]",
                 className
             )}
         >
-            <BottomShapeSVG className={clsx("tw-w-full tw-h-full tw-rotate-y-180", color)} />
+            <BottomShapeSVG className={clsx("tw-rotate-y-180 tw-h-full tw-w-full", color)} />
         </div>
     );
 };

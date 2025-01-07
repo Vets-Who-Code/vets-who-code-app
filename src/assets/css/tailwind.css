@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply tw-font-body tw-text-body tw-leading-body tw-text-base tw-font-normal tw-overflow-x-hidden;
+        @apply tw-overflow-x-hidden tw-font-body tw-text-base tw-font-normal tw-leading-body tw-text-body;
     }
     a {
         @apply tw-transition-colors hover:tw-text-primary;
@@ -30,7 +30,7 @@
     .h5,
     h6,
     .h6 {
-        @apply tw-font-heading tw-text-heading tw-leading-heading tw-font-bold tw-mb-2;
+        @apply tw-mb-2 tw-font-heading tw-font-bold tw-leading-heading tw-text-heading;
     }
     h1,
     .h1 {
@@ -65,7 +65,7 @@
         @apply tw-text-current hover:tw-text-primary;
     }
     .link-overlay {
-        @apply tw-absolute tw-inset-0 -tw-indent-[99999px] tw-z-10;
+        @apply tw-absolute tw-inset-0 tw-z-10 -tw-indent-[99999px];
     }
     .table-responsive {
         @apply tw-overflow-y-auto;

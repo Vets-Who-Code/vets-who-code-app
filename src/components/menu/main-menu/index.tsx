@@ -41,7 +41,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                         <li
                             key={id}
                             className={clsx(
-                                "tw-inline-block tw-px-2.5 2xl:tw-px-[15px] tw-py-[29px] tw-group",
+                                "tw-group tw-inline-block tw-px-2.5 tw-py-[29px] 2xl:tw-px-[15px]",
                                 submenu && "tw-relative"
                             )}
                             role="none"
@@ -64,7 +64,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                             {submenu && (
                                 <Submenu
                                     menu={submenu}
-                                    className="group-hover:tw-visible group-hover:tw-opacity-100 group-hover:tw-mt-0 group-hover:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-opacity-100 group-focus-within:tw-mt-0 group-focus-within:tw-pointer-events-auto"
+                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
                                     role="menu"
                                 />
                             )}
@@ -72,7 +72,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 <Megamenu
                                     menu={megamenu}
                                     align={align}
-                                    className="group-hover:tw-visible group-hover:tw-opacity-100 group-hover:tw-mt-0 group-hover:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-opacity-100 group-focus-within:tw-mt-0 group-focus-within:tw-pointer-events-auto"
+                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
                                 />
                             )}
                         </li>

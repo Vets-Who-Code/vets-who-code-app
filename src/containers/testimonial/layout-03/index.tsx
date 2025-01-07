@@ -41,7 +41,7 @@ const TestimonialArea = ({
     }, []);
     return (
         <Section className="testimonial-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-[41.67%_minmax(54%,_1fr)] tw-gap-[50px] lg:tw-gap-7.5">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-[50px] lg:tw-grid-cols-[41.67%_minmax(54%,_1fr)] lg:tw-gap-7.5">
                 <motion.div
                     className="lg:tw-max-w-[420px]"
                     initial="offscreen"
