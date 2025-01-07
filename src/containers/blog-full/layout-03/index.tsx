@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import BlogCard from "@components/blog-card/blog-05";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
@@ -35,7 +35,6 @@ const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
                             path={blog.path}
                             image={blog.image}
                             postedAt={blog.postedAt}
-                            views={blog.views}
                             category={blog.category}
                             author={blog.author}
                             excerpt={blog.excerpt}

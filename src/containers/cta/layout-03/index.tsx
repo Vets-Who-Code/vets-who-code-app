@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import Button from "@ui/button";
 import { ButtonType, SectionTitleType, TSection } from "@utils/types";

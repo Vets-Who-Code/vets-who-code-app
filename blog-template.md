@@ -11,5 +11,5 @@ tags:
     - Tags
     - Here
 is_featured: Boolean value (true or false)
-views: Number of views (if applicable)
+
 ---

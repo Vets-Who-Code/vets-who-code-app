@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
 import Video from "@ui/video-with-poster/video-02";
 import BottomShape from "@components/ui/bottom-shape/shape-02";

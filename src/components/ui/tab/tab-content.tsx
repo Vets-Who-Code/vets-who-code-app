@@ -1,13 +1,13 @@
 import { Children } from "react";
 import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { ContentProps } from "./types";
 
 const TabContent = ({ children, activeIdx, className }: ContentProps) => {
     const childArr = Children.toArray(children);
     const activeChild = childArr.find((_el, i) => i === activeIdx);
     return (
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode="wait">
             <motion.div
                 className={clsx("tab-content", className)}
                 key={activeIdx}

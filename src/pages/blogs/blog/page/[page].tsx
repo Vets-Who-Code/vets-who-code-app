@@ -25,7 +25,7 @@ const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) =>
     return (
         <>
             <SEO title={`Blog Grid - Page - ${currentPage}`} />
-            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="HashFlag Blog" />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Vets Who Code Blog" />
             <BlogArea
                 data={{
                     blogs,
@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = () => {
         .filter(Boolean);
 
     const paths = pagesToGenerate.map((page) => {
-        return { params: { page: String(page) } }; // cast page to string
+        return { params: { page: String(page) } };
     });
     return {
         paths,
@@ -67,7 +67,7 @@ export const getStaticProps: GetStaticProps<TProps, Params> = ({ params }) => {
     const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
     const skip = (currentPage - 1) * POSTS_PER_PAGE;
     const { blogs, count } = getAllBlogs(
-        ["title", "slug", "image", "category", "postedAt", "views"],
+        ["title", "slug", "image", "category", "postedAt"],
         skip,
         POSTS_PER_PAGE
     );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Offcanvas from "@ui/offcanvas";
 import OffcanvasHeader from "@ui/offcanvas/header";
 import OffcanvasBody from "@ui/offcanvas/body";

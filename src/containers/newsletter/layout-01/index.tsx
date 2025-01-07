@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import { useUI } from "@contexts/ui-context";
 import SectionTitle from "@components/section-title";

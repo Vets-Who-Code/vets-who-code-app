@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
@@ -18,11 +18,7 @@ type TProps = TSection & {
 const VideoArea = ({ data: { images, video }, space, bg }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
-        <Section
-            className="video-area tw-relative tw-z-10"
-            space={space}
-            bg={bg}
-        >
+        <Section className="video-area tw-relative tw-z-10" space={space} bg={bg}>
             <h2 className="tw-sr-only">Video Section</h2>
             <div className="tw-container -tw-bottom-[140px] -tw-mt-[140px]">
                 {video && images?.[0] && (

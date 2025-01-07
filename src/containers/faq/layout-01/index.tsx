@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";

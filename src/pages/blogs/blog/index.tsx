@@ -24,7 +24,7 @@ const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) =>
     return (
         <>
             <SEO title="Blog" />
-            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Hashflag Blog" />
+            <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Vets Who Code Blog" />
             <BlogArea
                 data={{
                     blogs,
@@ -39,7 +39,7 @@ BlogGrid.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
     const { blogs, count } = getAllBlogs(
-        ["title", "image", "category", "postedAt", "views"],
+        ["title", "image", "category", "postedAt"],
         0,
         POSTS_PER_PAGE
     );

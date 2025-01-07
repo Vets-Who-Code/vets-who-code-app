@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import ContactForm from "@components/forms/contact-form";
 import { SectionTitleType, TSection } from "@utils/types";

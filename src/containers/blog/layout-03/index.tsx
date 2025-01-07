@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import BlogCard from "@components/blog-card/blog-03";
 import SectionTitle from "@components/section-title";
@@ -41,7 +41,6 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
                             category={blog.category}
                             postedAt={blog.postedAt}
                             image={blog.image}
-                            views={blog.views}
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true, amount: 0.4 }}

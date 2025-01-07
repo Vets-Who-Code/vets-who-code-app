@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import SectionTitle from "@components/section-title";
 import Anchor from "@ui/anchor";
@@ -58,7 +58,6 @@ const BlogArea = ({
                         image={blog.image}
                         path={blog.path}
                         postedAt={blog.postedAt}
-                        views={blog.views}
                         category={blog.category}
                         initial="offscreen"
                         whileInView="onscreen"

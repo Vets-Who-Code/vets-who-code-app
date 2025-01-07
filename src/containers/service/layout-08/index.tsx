@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/icon-box/icon-box-02";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
 import { SectionTitleType, ItemType, ImageType } from "@utils/types";
 

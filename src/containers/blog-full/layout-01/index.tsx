@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import BlogCard from "@components/blog-card/blog-03";
 import Pagination from "@components/pagination/pagination-01";
@@ -32,7 +32,6 @@ const BlogArea = ({ data: { blogs, pagiData } }: TProps) => {
                                 path={blog.path}
                                 category={blog.category}
                                 postedAt={blog.postedAt}
-                                views={blog.views}
                                 initial="offscreen"
                                 whileInView="onscreen"
                                 viewport={{ once: true, amount: 0.2 }}

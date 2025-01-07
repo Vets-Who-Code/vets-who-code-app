@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Section from "@ui/section";
 import BlogCard from "@components/blog-card/blog-04";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
@@ -36,7 +36,6 @@ const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
                                     path={blog.path}
                                     image={blog.image}
                                     postedAt={blog.postedAt}
-                                    views={blog.views}
                                     initial="offscreen"
                                     whileInView="onscreen"
                                     viewport={{ once: true, amount: 0.2 }}
