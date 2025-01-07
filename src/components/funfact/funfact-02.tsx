@@ -38,18 +38,18 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
 
         return (
             <div className={clsx("funfact tw-text-center", className)} ref={continerRef}>
-                <h3 className="tw-max-w-[180px] tw-text-h3 tw-leading-snug tw-text-secondary tw-mx-auto">
+                <h3 className="tw-mx-auto tw-max-w-[180px] tw-text-h3 tw-leading-snug tw-text-secondary">
                     {title}
                 </h3>
                 <motion.div
-                    className="tw-text-5xl md:tw-text-[64px] tw-font-extrabold tw-leading-none tw-text-primary"
+                    className="tw-text-5xl tw-font-extrabold tw-leading-none tw-text-primary md:tw-text-[64px]"
                     onViewportEnter={viewPortHandler}
                 >
                     <span ref={nodeRef} />
                     {suffix}
                 </motion.div>
                 {description && (
-                    <h4 className="tw-text-body tw-mt-3.5 tw-mb-0 -tw-tracking-tightest tw-up-leading-none tw-uppercase tw-text-h6">
+                    <h4 className="tw-up-leading-none tw-mb-0 tw-mt-3.5 tw-text-h6 tw-uppercase -tw-tracking-tightest tw-text-body">
                         {description}
                     </h4>
                 )}

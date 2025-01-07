@@ -49,11 +49,11 @@ const SocialLink = ({
                 variant === "texted" && [textedWhite, textedLight, textedDark, textedXl, textedLg],
                 variant !== "texted" && [
                     "tw-text-center",
-                    size === "md" && "tw-w-10 tw-h-10 tw-leading-10",
+                    size === "md" && "tw-h-10 tw-w-10 tw-leading-10",
                     color === "light" &&
                         "tw-border-gray-550 hover:tw-border-primary hover:tw-bg-primary hover:tw-text-white",
                 ],
-                variant === "outlined" && "tw-bg-transparent tw-border",
+                variant === "outlined" && "tw-border tw-bg-transparent",
                 shape === "rounded" && "tw-rounded",
                 shape === "circle" && "tw-rounded-full",
                 tooltip && [tooltipBeforeClass, tooltipAfterClass, tooltipHoverClass],

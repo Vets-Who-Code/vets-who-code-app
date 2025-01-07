@@ -13,18 +13,21 @@ export function getCourseBySlug(slug: string, fields: Array<keyof ICourse> | "al
     if (fields === "all") {
         course = { ...fileContents, slug: realSlug };
     } else {
-        course = fields.reduce((acc: ICourse, field: keyof ICourse) => {
-            if (field === "slug") {
-                return { ...acc, [field]: realSlug };
-            }
-            if (typeof fileContents[field] !== "undefined") {
-                return {
-                    ...acc,
-                    [field]: fileContents[field],
-                };
-            }
-            return acc;
-        }, <ICourse>{});
+        course = fields.reduce(
+            (acc: ICourse, field: keyof ICourse) => {
+                if (field === "slug") {
+                    return { ...acc, [field]: realSlug };
+                }
+                if (typeof fileContents[field] !== "undefined") {
+                    return {
+                        ...acc,
+                        [field]: fileContents[field],
+                    };
+                }
+                return acc;
+            },
+            <ICourse>{}
+        );
     }
     return {
         ...course,

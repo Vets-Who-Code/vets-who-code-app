@@ -17,7 +17,7 @@ const DonateFormArea = ({ data: { section_title } }: TProps) => {
             <div className="tw-container">
                 {section_title && (
                     <motion.h2
-                        className="tw-leading-none tw-mb-10"
+                        className="tw-mb-10 tw-leading-none"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

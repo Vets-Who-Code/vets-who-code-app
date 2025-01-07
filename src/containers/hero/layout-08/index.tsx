@@ -19,7 +19,7 @@ const HeroArea = ({ data: { images, headings } }: TProps) => {
                         alt={images[0]?.alt || "Hero BG"}
                         width={1903}
                         height={496}
-                        className="tw-w-full tw-h-full tw-object-cover"
+                        className="tw-h-full tw-w-full tw-object-cover"
                     />
                 </div>
             )}
@@ -31,7 +31,7 @@ const HeroArea = ({ data: { images, headings } }: TProps) => {
                 variants={scrollUpVariants}
             >
                 {headings?.[0]?.content && (
-                    <h1 className="tw-max-w-[700px] lg:tw-max-w-[770px] tw-mx-auto tw-text-center tw-text-h3 tw-leading-normal md:tw-text-[32px] lg:tw-text-[34px] lg:tw-leading-[1.4] tw-text-white tw-mb-0">
+                    <h1 className="tw-mx-auto tw-mb-0 tw-max-w-[700px] tw-text-center tw-text-h3 tw-leading-normal tw-text-white md:tw-text-[32px] lg:tw-max-w-[770px] lg:tw-text-[34px] lg:tw-leading-[1.4]">
                         {headings?.[0]?.content}
                     </h1>
                 )}

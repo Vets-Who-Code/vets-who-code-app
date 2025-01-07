@@ -23,7 +23,7 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
             >
                 {section_title?.subtitle && (
                     <h3
-                        className="tw-leading-none tw-mb-2.5 tw-text-secondary child:tw-text-primary child:tw-font-normal"
+                        className="tw-mb-2.5 tw-leading-none tw-text-secondary child:tw-font-normal child:tw-text-primary"
                         dangerouslySetInnerHTML={{
                             __html: section_title.subtitle,
                         }}
@@ -31,7 +31,7 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
                 )}
                 {section_title?.title && (
                     <h2
-                        className="tw-text-[34px] tw-mb-7.5 tw-text-secondary"
+                        className="tw-mb-7.5 tw-text-[34px] tw-text-secondary"
                         dangerouslySetInnerHTML={{
                             __html: section_title.title,
                         }}

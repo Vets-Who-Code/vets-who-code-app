@@ -45,10 +45,10 @@ const MentorForm = () => {
 
     return (
         <div className="tw-px-4 md:tw-px-[250px]">
-            <h3 className="tw-text-h2 tw-mb-5">Register</h3>
+            <h3 className="tw-mb-5 tw-text-h2">Register</h3>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="name" className="tw-text-heading tw-text-md">
+                    <label htmlFor="name" className="tw-text-md tw-text-heading">
                         Name *
                     </label>
                     <Input
@@ -64,7 +64,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="email" className="tw-text-heading tw-text-md">
+                    <label htmlFor="email" className="tw-text-md tw-text-heading">
                         Email *
                     </label>
                     <Input
@@ -84,7 +84,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="branch-of-service" className="tw-text-heading tw-text-md">
+                    <label htmlFor="branch-of-service" className="tw-text-md tw-text-heading">
                         Military Branch Affiliation *
                     </label>
                     <Input
@@ -100,7 +100,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="technical-expertise" className="tw-text-heading tw-text-md">
+                    <label htmlFor="technical-expertise" className="tw-text-md tw-text-heading">
                         Technical Expertise *
                     </label>
                     <Input
@@ -118,7 +118,7 @@ const MentorForm = () => {
                 <div className="tw-mb-7.5">
                     <label
                         htmlFor="github-portfolio-or-linkedin"
-                        className="tw-text-heading tw-text-md"
+                        className="tw-text-md tw-text-heading"
                     >
                         GitHub Portfolio or LinkedIn *
                     </label>
@@ -136,7 +136,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="location" className="tw-text-heading tw-text-md">
+                    <label htmlFor="location" className="tw-text-md tw-text-heading">
                         Location *
                     </label>
                     <Input
@@ -152,7 +152,7 @@ const MentorForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="employer-restrictions" className="tw-text-heading tw-text-md">
+                    <label htmlFor="employer-restrictions" className="tw-text-md tw-text-heading">
                         Employer Restrictions *
                     </label>
                     <Input
@@ -171,7 +171,7 @@ const MentorForm = () => {
                 <Button
                     type="submit"
                     fullwidth
-                    className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
+                    className="tw-mx-auto tw-mt-7.5 tw-w-full sm:tw-w-[200px]"
                 >
                     Register
                 </Button>

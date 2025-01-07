@@ -32,7 +32,7 @@ const CourseArea = ({ data: { section_title, motto, courses }, space, bg, titleS
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-[30px]">
+                <div className="tw-grid tw-gap-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-3">
                     {courses?.map((course) => (
                         <AnimatedCourseCard
                             key={course.path}
@@ -48,7 +48,7 @@ const CourseArea = ({ data: { section_title, motto, courses }, space, bg, titleS
                     ))}
                 </div>
                 {motto && (
-                    <div className="lg:tw-w-7/12 tw-mx-auto tw-text-center tw-mt-[70px]">
+                    <div className="tw-mx-auto tw-mt-[70px] tw-text-center lg:tw-w-7/12">
                         <MottoText {...motto} />
                     </div>
                 )}

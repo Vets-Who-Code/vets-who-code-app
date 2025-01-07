@@ -12,7 +12,7 @@ type TProps = {
 const QuoteArea = ({ data: { headings, texts } }: TProps) => {
     return (
         <div className="quote-area tw-pt-15 md:tw-pt-20 lg:tw-pt-[100px]">
-            <div className="tw-container tw-grid tw-grid-cols-1 md:tw-grid-cols-12 tw-gap-7.5">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-12">
                 <motion.div
                     className="md:tw-col-span-5"
                     initial="offscreen"
@@ -22,7 +22,7 @@ const QuoteArea = ({ data: { headings, texts } }: TProps) => {
                 >
                     {headings?.[0]?.content && (
                         <h3
-                            className="md:tw-max-w-[370px] tw-leading-normal child:tw-text-primary"
+                            className="tw-leading-normal child:tw-text-primary md:tw-max-w-[370px]"
                             dangerouslySetInnerHTML={{
                                 __html: headings[0].content,
                             }}
@@ -36,9 +36,7 @@ const QuoteArea = ({ data: { headings, texts } }: TProps) => {
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
-                    {texts?.map((text) => (
-                        <p key={text.id}>{text.content}</p>
-                    ))}
+                    {texts?.map((text) => <p key={text.id}>{text.content}</p>)}
                 </motion.div>
             </div>
         </div>

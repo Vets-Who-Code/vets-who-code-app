@@ -19,7 +19,7 @@ type TProps = TSection & {
 const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="funfact-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-[50px] lg:tw-gap-7.5">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-[50px] lg:tw-grid-cols-2 lg:tw-gap-7.5">
                 <motion.div
                     className="md:tw-max-w-[470px]"
                     initial="offscreen"
@@ -32,7 +32,7 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
                     )}
                     {motto && <MottoText {...motto} size="md" className="tw-mt-5" />}
                 </motion.div>
-                <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 tw-gap-x-3.8 tw-gap-10 md:tw-gap-y-15 tw-h-min">
+                <div className="tw-grid tw-h-min tw-grid-cols-1 tw-gap-10 tw-gap-x-3.8 sm:tw-grid-cols-2 md:tw-gap-y-15">
                     {items?.map((item) => (
                         <AnimatedFunFact
                             key={item.id}

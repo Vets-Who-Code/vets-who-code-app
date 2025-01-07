@@ -19,30 +19,33 @@ export function getZoomMeetingBySlug(slug: string, fields: FieldType<IZoomMeetin
             time: dayjs(fileContents.date).format("h:mm a"),
         };
     } else {
-        event = fields.reduce((acc: IZoomMeeting, field: keyof IZoomMeeting) => {
-            if (field === "slug") {
-                return { ...acc, [field]: realSlug };
-            }
-            if (field === "date") {
-                return {
-                    ...acc,
-                    [field]: dayjs(fileContents[field]).format("MMMM D, YYYY"),
-                };
-            }
-            if (field === "time") {
-                return {
-                    ...acc,
-                    [field]: dayjs(fileContents[field]).format("h:mm a"),
-                };
-            }
-            if (typeof fileContents[field] !== "undefined") {
-                return {
-                    ...acc,
-                    [field]: fileContents[field],
-                };
-            }
-            return acc;
-        }, <IZoomMeeting>{});
+        event = fields.reduce(
+            (acc: IZoomMeeting, field: keyof IZoomMeeting) => {
+                if (field === "slug") {
+                    return { ...acc, [field]: realSlug };
+                }
+                if (field === "date") {
+                    return {
+                        ...acc,
+                        [field]: dayjs(fileContents[field]).format("MMMM D, YYYY"),
+                    };
+                }
+                if (field === "time") {
+                    return {
+                        ...acc,
+                        [field]: dayjs(fileContents[field]).format("h:mm a"),
+                    };
+                }
+                if (typeof fileContents[field] !== "undefined") {
+                    return {
+                        ...acc,
+                        [field]: fileContents[field],
+                    };
+                }
+                return acc;
+            },
+            <IZoomMeeting>{}
+        );
     }
 
     return { ...event, path: `/zoom-meetings/${realSlug}` };

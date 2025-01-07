@@ -48,13 +48,13 @@ So, who's Jodie? Initially conceived as a modest bot for our Slack channels, Jod
 
 ### Jodie's Roles
 
--   **Administrative Support:** Managing calendars, scheduling meetings, and sending reminders.
--   **Communication:** Drafting newsletters, responding to routine emails, and flagging urgent messages.
--   **Resource Management:** Keeping educational materials, coding resources, and mentorship programs readily accessible.
--   **Data Handling:** Analyzing feedback, compiling success reports, and suggesting improvements.
--   **Technical Support:** Providing troubleshooting assistance for common software issues.
--   **Security and Compliance:** Adherence to strict data privacy regulations.
--   **Learning and Reporting:** Continuous improvement based on interactions and human feedback while providing regular activity updates.
+- **Administrative Support:** Managing calendars, scheduling meetings, and sending reminders.
+- **Communication:** Drafting newsletters, responding to routine emails, and flagging urgent messages.
+- **Resource Management:** Keeping educational materials, coding resources, and mentorship programs readily accessible.
+- **Data Handling:** Analyzing feedback, compiling success reports, and suggesting improvements.
+- **Technical Support:** Providing troubleshooting assistance for common software issues.
+- **Security and Compliance:** Adherence to strict data privacy regulations.
+- **Learning and Reporting:** Continuous improvement based on interactions and human feedback while providing regular activity updates.
 
 ### Jodie's Limitations
 

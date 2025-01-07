@@ -40,7 +40,7 @@ const ZoomMeetingDetails = ({
                                     src={thumbnail.src}
                                     alt={thumbnail?.alt || "zoom meeting"}
                                     width="770"
-                                    className="tw-w-full tw-h-full tw-object-cover tw-rounded"
+                                    className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                                 />
                             </figure>
                         )}

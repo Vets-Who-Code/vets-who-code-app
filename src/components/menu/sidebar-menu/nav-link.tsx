@@ -13,12 +13,12 @@ const NavLink = ({ children, path }: TProps) => {
         <Anchor
             path={path}
             className={clsx(
-                "tw-relative tw-block tw-py-4 tw-px-10 tw-border hover:tw-text-white ",
-                "before:tw-absolute before:tw-content-[''] before:tw-left-4 before:tw-top-1/2 before:-tw-translate-y-1/2 before:tw-w-1.5 before:tw-h-1.5 before:tw-rounded-full before:tw-border",
+                "tw-relative tw-block tw-border tw-px-10 tw-py-4 hover:tw-text-white",
+                "before:tw-absolute before:tw-left-4 before:tw-top-1/2 before:tw-h-1.5 before:tw-w-1.5 before:-tw-translate-y-1/2 before:tw-rounded-full before:tw-border before:tw-content-['']",
                 router.pathname !== path &&
-                    "tw-border-gray-500 hover:tw-bg-primary hover:tw-border-primary before:tw-border-gray-400 hover:before:tw-border-white",
+                    "tw-border-gray-500 before:tw-border-gray-400 hover:tw-border-primary hover:tw-bg-primary hover:before:tw-border-white",
                 router.pathname === path &&
-                    "tw-bg-primary tw-border-primary tw-text-white before:tw-border-white"
+                    "tw-border-primary tw-bg-primary tw-text-white before:tw-border-white"
             )}
         >
             {children}

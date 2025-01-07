@@ -13,7 +13,7 @@ const Sidebar = ({ open }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-fixed tw-inset-0 tw-right-auto tw-z-20 tw-bg-white tw-h-full tw-translate-x-0 tw-shadow-4md tw-shadow-black/10 tw-transition-all tw-duration-300",
+                "tw-fixed tw-inset-0 tw-right-auto tw-z-20 tw-h-full tw-translate-x-0 tw-bg-white tw-shadow-4md tw-shadow-black/10 tw-transition-all tw-duration-300",
                 open && "tw-w-0 md:tw-w-[340px]",
                 !open && "tw-w-[340px] md:tw-w-0"
             )}
@@ -21,11 +21,11 @@ const Sidebar = ({ open }: TProps) => {
             <SearchForm className="tw-h-[90px] md:tw-h-15" />
             <div
                 className={clsx(
-                    "tw-absolute tw-top-[90px] md:tw-top-15 tw-left-0 tw-bottom-0 tw-h-full tw-z-1 tw-overflow-y-auto tw-no-scroll tw-w-[340px] tw-transition-all tw-duration-300",
+                    "tw-no-scroll tw-absolute tw-bottom-0 tw-left-0 tw-top-[90px] tw-z-1 tw-h-full tw-w-[340px] tw-overflow-y-auto tw-transition-all tw-duration-300 md:tw-top-15",
                     !open &&
-                        "tw-delay-100 tw-visible tw-opacity-100 md:tw-invisible md:tw-opacity-0 md:tw-delay-0",
+                        "tw-visible tw-opacity-100 tw-delay-100 md:tw-invisible md:tw-opacity-0 md:tw-delay-0",
                     open &&
-                        "tw-invisible tw-opacity-0 md:tw-delay-100 md:tw-visible md:tw-opacity-100"
+                        "tw-invisible tw-opacity-0 md:tw-visible md:tw-opacity-100 md:tw-delay-100"
                 )}
             >
                 <ul>
@@ -36,7 +36,7 @@ const Sidebar = ({ open }: TProps) => {
                                 <ul className="section-content">
                                     {lessons.map((lsn) => (
                                         <li
-                                            className="tw-relative tw-text-md tw-bg-white tw-group"
+                                            className="tw-group tw-relative tw-bg-white tw-text-md"
                                             key={lsn.slug}
                                         >
                                             <Item

@@ -11,7 +11,7 @@ const TextWidget = ({ className, mode }: TProps) => {
     return (
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Mailing Address</WidgetTitle>
-            <div className={clsx("content ", mode === "dark" && "tw-text-gray-400")}>
+            <div className={clsx("content", mode === "dark" && "tw-text-gray-400")}>
                 <p className="tw-mb-[11px]">31860 Sandy Plains Road, Ste 204 PMB 206</p>
                 <p className="tw-mb-[11px]">
                     <a
@@ -25,7 +25,7 @@ const TextWidget = ({ className, mode }: TProps) => {
                     </a>
                 </p>
             </div>
-            <Social color={mode === "dark" ? "white" : "light"} className="tw-gap-6.1 tw-mt-6.1">
+            <Social color={mode === "dark" ? "white" : "light"} className="tw-mt-6.1 tw-gap-6.1">
                 <SocialLink
                     href="https://www.facebook.com/TheOfficialVetsWhoCode/"
                     label="Facebook"

@@ -1,37 +1,63 @@
 import path from "path";
+import fs from "fs/promises";
 import { VWCProject, VWCProjectDetails } from "@utils/types";
-import fs from "fs";
 import { getSlugs } from "./util";
 import { getGithubRepo, getProjectContributors } from "./github";
 
 const projectDirectory = path.join(process.cwd(), "src/data/projects");
 
-export function getProjectBySlug(slug: string): VWCProjectDetails {
-    const fullPath = path.join(projectDirectory, slug);
-    return JSON.parse(fs.readFileSync(fullPath, "utf8"));
+export async function getProjectBySlug(slug: string): Promise<VWCProjectDetails> {
+    try {
+        const fullPath = path.join(projectDirectory, slug);
+        const content = await fs.readFile(fullPath, "utf8");
+        return JSON.parse(content);
+    } catch (error) {
+        throw new Error(
+            `Failed to load project ${slug}: ${
+                error instanceof Error ? error.message : "Unknown error"
+            }`
+        );
+    }
 }
 
-export const getAllProjects = (): VWCProjectDetails[] => {
-    const slugs = getSlugs(projectDirectory);
-    return slugs.map((slug) => getProjectBySlug(slug));
-};
+export async function getAllProjects(): Promise<VWCProjectDetails[]> {
+    try {
+        const slugs = await getSlugs(projectDirectory);
+        return await Promise.all(slugs.map(getProjectBySlug));
+    } catch (error) {
+        throw new Error(
+            `Failed to load projects: ${error instanceof Error ? error.message : "Unknown error"}`
+        );
+    }
+}
 
-export const getProjectData = async (): Promise<VWCProject[]> => {
-    const projects = getAllProjects();
-    const data = Promise.all(
-        projects.map(async (project) => {
-            const repo = await getGithubRepo(project.owner, project.repo);
-            const contributors = await getProjectContributors(project.owner, project.repo);
-            const data = {
-                details: project,
-                repo: {
-                    ...repo,
-                    contributors: contributors,
-                },
-            };
-            return data;
-        })
-    );
-    // Sort projects by index
-    return (await data).sort((a, b) => a.details.index - b.details.index);
-};
+export async function getProjectData(): Promise<VWCProject[]> {
+    try {
+        const projects = await getAllProjects();
+
+        const projectsWithData = await Promise.all(
+            projects.map(async (project) => {
+                const [repo, contributors] = await Promise.all([
+                    getGithubRepo(project.owner, project.repo),
+                    getProjectContributors(project.owner, project.repo),
+                ]);
+
+                return {
+                    details: project,
+                    repo: {
+                        ...repo,
+                        contributors,
+                    },
+                };
+            })
+        );
+
+        return projectsWithData.sort((a, b) => a.details.index - b.details.index);
+    } catch (error) {
+        throw new Error(
+            `Failed to fetch project data: ${
+                error instanceof Error ? error.message : "Unknown error"
+            }`
+        );
+    }
+}

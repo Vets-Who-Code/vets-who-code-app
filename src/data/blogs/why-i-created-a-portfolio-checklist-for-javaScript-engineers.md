@@ -31,11 +31,11 @@ In the tech industry, a portfolio is crucial for showcasing your skills and expe
 
 When creating the portfolio checklist, I focused on the most frequently asked questions that I have received from students. These questions include:
 
--   What should I include in my portfolio?
--   How do I showcase my skills?
--   How do I choose the right projects to showcase?
--   How do I make my portfolio stand out?
--   What do I need on my portfolio that I might not think of?
+- What should I include in my portfolio?
+- How do I showcase my skills?
+- How do I choose the right projects to showcase?
+- How do I make my portfolio stand out?
+- What do I need on my portfolio that I might not think of?
 
 I hope to help students create portfolios that accurately represent their skills and experience by addressing these questions and providing detailed answers.
 

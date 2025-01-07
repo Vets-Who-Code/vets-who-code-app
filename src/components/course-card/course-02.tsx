@@ -14,8 +14,8 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
         return (
             <motion.div
                 className={clsx(
-                    "course tw-h-full tw-rounded tw-bg-white tw-relative",
-                    "before:tw-absolute before:tw-content-[''] before:-tw-z-1 before:tw-inset-0 before:tw-shadow-4md before:tw-shadow-black/[0.12] before:tw-rounded-b before:tw-transition-opacity before:tw-opacity-0",
+                    "course tw-relative tw-h-full tw-rounded tw-bg-white",
+                    "before:tw-absolute before:tw-inset-0 before:-tw-z-1 before:tw-rounded-b before:tw-opacity-0 before:tw-shadow-4md before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-content-['']",
                     "hover:before:tw-opacity-100",
                     className
                 )}
@@ -42,7 +42,7 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </figure>
                 <div className="info tw-p-[30px]">
-                    <h3 className="tw-text-xl tw-leading-normal tw-mb-0">
+                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                 </div>

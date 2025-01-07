@@ -54,7 +54,7 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
 
     return (
         <form
-            className={clsx("tw-relative tw-max-w-[570px] tw-flex tw-flex-wrap", className)}
+            className={clsx("tw-relative tw-flex tw-max-w-[570px] tw-flex-wrap", className)}
             onSubmit={handleSubmit(onSubmit)}
             ref={ref}
         >

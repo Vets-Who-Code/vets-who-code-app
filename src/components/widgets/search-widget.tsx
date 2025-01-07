@@ -42,7 +42,7 @@ const SearchWidget = ({ className }: TProps) => {
                 <button
                     aria-label="Search"
                     type="submit"
-                    className="tw-absolute tw-right-0 tw-top-0 tw-w-14 tw-h-14 tw-rounded-tr tw-rounded-br tw-transition-colors tw-text-primary tw-flex tw-justify-center tw-items-center hover:tw-bg-primary hover:tw-text-white"
+                    className="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-14 tw-w-14 tw-items-center tw-justify-center tw-rounded-br tw-rounded-tr tw-text-primary tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
                 >
                     <i className="fas fa-search" />
                 </button>

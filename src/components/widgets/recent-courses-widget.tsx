@@ -15,13 +15,13 @@ const RecentCoursesWidget = ({ recentCourses, className }: TProps) => {
             {recentCourses.map(({ title, path, thumbnail }) => (
                 <div
                     key={path}
-                    className="tw-flex tw-items-center tw-mb-5 tw-pb-5 tw-border-b tw-border-b-gray-500 last:tw-mb-0 last:tw-pb-0 last:tw-border-b-0"
+                    className="tw-mb-5 tw-flex tw-items-center tw-border-b tw-border-b-gray-500 tw-pb-5 last:tw-mb-0 last:tw-border-b-0 last:tw-pb-0"
                 >
-                    <div className="tw-max-w-[100px] tw-h-[100px] tw-rounded-full tw-overflow-hidden tw-relative">
+                    <div className="tw-relative tw-h-[100px] tw-max-w-[100px] tw-overflow-hidden tw-rounded-full">
                         {thumbnail?.src && (
                             <>
                                 <img
-                                    className="tw-w-full tw-h-full tw-object-cover"
+                                    className="tw-h-full tw-w-full tw-object-cover"
                                     src={thumbnail.src}
                                     alt={thumbnail?.alt || title}
                                     width={thumbnail?.width || 100}
@@ -34,8 +34,8 @@ const RecentCoursesWidget = ({ recentCourses, className }: TProps) => {
                             </>
                         )}
                     </div>
-                    <div className="tw-pl-5 tw-flex-1">
-                        <h3 className="tw-leading-normal tw-text-h6 tw-mb-0">
+                    <div className="tw-flex-1 tw-pl-5">
+                        <h3 className="tw-mb-0 tw-text-h6 tw-leading-normal">
                             <Anchor path={path}>{title}</Anchor>
                         </h3>
                     </div>

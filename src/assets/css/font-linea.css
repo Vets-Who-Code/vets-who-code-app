@@ -3,7 +3,8 @@
 @font-face {
     font-family: "linea-weather-10";
     src: url("/fonts/linea/linea-weather-10.woff2");
-    src: url("/fonts/linea/linea-weather-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-weather-10.woff2") format("woff2"),
         url("/fonts/linea/linea-weather-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -13,7 +14,8 @@
 @font-face {
     font-family: "linea-software-10";
     src: url("/fonts/linea/linea-software-10.woff2");
-    src: url("/fonts/linea/linea-software-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-software-10.woff2") format("woff2"),
         url("/fonts/linea/linea-software-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -23,7 +25,8 @@
 @font-face {
     font-family: "linea-music-10";
     src: url("/fonts/linea/linea-music-10.woff2");
-    src: url("/fonts/linea/linea-music-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-music-10.woff2") format("woff2"),
         url("/fonts/linea/linea-music-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -33,7 +36,8 @@
 @font-face {
     font-family: "linea-ecommerce-10";
     src: url("/fonts/linea/linea-ecommerce-10.woff2");
-    src: url("/fonts/linea/linea-ecommerce-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-ecommerce-10.woff2") format("woff2"),
         url("/fonts/linea/linea-ecommerce-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -43,7 +47,8 @@
 @font-face {
     font-family: "linea-basic-10";
     src: url("/fonts/linea/linea-basic-10.woff2");
-    src: url("/fonts/linea/linea-basic-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-basic-10.woff2") format("woff2"),
         url("/fonts/linea/linea-basic-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -53,7 +58,8 @@
 @font-face {
     font-family: "linea-basic-elaboration-10";
     src: url("/fonts/linea/linea-basic-elaboration-10.woff2");
-    src: url("/fonts/linea/linea-basic-elaboration-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-basic-elaboration-10.woff2") format("woff2"),
         url("/fonts/linea/linea-basic-elaboration-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;
@@ -63,7 +69,8 @@
 @font-face {
     font-family: "linea-arrows-10";
     src: url("/fonts/linea/linea-arrows-10.woff2");
-    src: url("/fonts/linea/linea-arrows-10.woff2") format("woff2"),
+    src:
+        url("/fonts/linea/linea-arrows-10.woff2") format("woff2"),
         url("/fonts/linea/linea-arrows-10.woff") format("woff");
     font-weight: normal;
     font-style: normal;

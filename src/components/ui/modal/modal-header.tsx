@@ -13,7 +13,7 @@ const ModalHeader = ({ className, children }: TProps) => {
         <div
             className={clsx(
                 className,
-                "modal-header tw-flex tw-items-center tw-justify-between tw-p-4 tw-border-b tw-border-b-gray-400/30 tw-rounded-tl tw-rounded-tr"
+                "modal-header tw-flex tw-items-center tw-justify-between tw-rounded-tl tw-rounded-tr tw-border-b tw-border-b-gray-400/30 tw-p-4"
             )}
         >
             {children}

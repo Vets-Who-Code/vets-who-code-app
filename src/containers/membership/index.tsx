@@ -62,7 +62,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                                 </td>
                                 <td
                                     className={clsx(
-                                        "tw-text-[16px] ",
+                                        "tw-text-[16px]",
                                         isSilver ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
@@ -75,7 +75,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                                 </td>
                                 <td
                                     className={clsx(
-                                        "tw-text-[16px] ",
+                                        "tw-text-[16px]",
                                         isGold ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
@@ -88,7 +88,7 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                                 </td>
                                 <td
                                     className={clsx(
-                                        "tw-text-[16px] ",
+                                        "tw-text-[16px]",
                                         isDiamond ? "tw-text-success-100" : "tw-text-danger-100"
                                     )}
                                 >
@@ -105,16 +105,16 @@ const MembershipArea = ({ membershipLevels }: TProps) => {
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
+                        <td className="tw-px-2.5 tw-pb-10 tw-pt-7.5">
                             <span className="tw-sr-only">df</span>
                         </td>
-                        <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
+                        <td className="tw-px-2.5 tw-pb-10 tw-pt-7.5">
                             <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
-                        <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
+                        <td className="tw-px-2.5 tw-pb-10 tw-pt-7.5">
                             <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
-                        <td className="tw-px-2.5 tw-pt-7.5 tw-pb-10">
+                        <td className="tw-px-2.5 tw-pb-10 tw-pt-7.5">
                             <Button path="/curriculum/subjects">Get it now</Button>
                         </td>
                     </tr>
