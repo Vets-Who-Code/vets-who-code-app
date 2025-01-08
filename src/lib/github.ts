@@ -1,7 +1,7 @@
 import { VWCContributor, GithubRepo, GithubContributor, GithubUser } from "@utils/types";
 import axios from "axios";
 
-const token = process.env.GITHUB_ACCESS_TOKEN || "";
+const token = process.env.GITHUB_TOKEN || "";
 const git_api = axios.create({
     baseURL: "https://api.github.com",
     headers: {
