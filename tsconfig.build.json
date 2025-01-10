@@ -1,9 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": [
-    "__tests__/**/*.tests.*",
-    "jest.setup.ts",
-    "jest.config.ts",
-    "tests/**/*.spec.*"
-  ]
+  "include": [
+    "next-env.d.ts", 
+    "next.config.js", 
+    "src/**/*.ts", 
+    "src/**/*.tsx", 
+    "tailwind.config.js", 
+    "postcss.config.js", 
+    "next-sitemap.config.js",
+  ],
 }
