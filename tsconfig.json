@@ -44,7 +44,11 @@
     "tailwind.config.js", 
     "postcss.config.js", 
     "next-sitemap.config.js",
-    "playwright.config.ts"
+    "playwright.config.ts",
+    "__tests__/**/*.tests.*",
+    "jest.setup.ts",
+    "jest.config.ts",
+    "tests/**/*.spec.*"
   ],
   "exclude": ["node_modules"]
 }

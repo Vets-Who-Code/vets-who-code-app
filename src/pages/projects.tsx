@@ -19,7 +19,7 @@ interface TechStackProps {
     techStack: string[];
 }
 
-const TechStack = ({ techStack }: TechStackProps) => {
+export const TechStack = ({ techStack }: TechStackProps) => {
     return (
         <div className="tw-mb-2 tw-flex tw-flex-wrap tw-gap-1">
             {techStack.map((tech) => (
@@ -36,7 +36,7 @@ interface LinkButtonsProps {
     live_url?: string;
 }
 
-const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
+export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
     return (
         <>
             <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
@@ -73,7 +73,7 @@ interface RepoStatsProps {
     repo: VWCProjectRepo;
 }
 
-const RepoStats = ({ repo }: RepoStatsProps) => {
+export const RepoStats = ({ repo }: RepoStatsProps) => {
     return (
         <>
             {/* Repo stats */}
@@ -128,7 +128,7 @@ interface TopContributorsProps {
     contributors: VWCContributor[];
 }
 
-const TopContributors = ({ contributors }: TopContributorsProps) => {
+export const TopContributors = ({ contributors }: TopContributorsProps) => {
     return (
         <>
             <h5>Top Contributors</h5>
@@ -166,7 +166,7 @@ interface ProjectModalProps {
     className?: string;
 }
 
-const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
+export const ProjectDetailModal = ({ project, className }: ProjectModalProps) => {
     const duration = 0.35;
     const xOffset = 25;
     const delay = 0.1;
@@ -240,7 +240,7 @@ interface ProjectCardProps {
     project: VWCProject;
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project }: ProjectCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -289,7 +289,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                                 transition={{ bounce: false, duration: 0.3 }}
                             >
                                 <Dialog.Close className="tw-fixed tw-right-0 tw-top-0 tw-m-4 tw-cursor-pointer tw-rounded-full tw-bg-white tw-p-1 tw-text-secondary tw-shadow-inner tw-drop-shadow-md hover:tw-bg-secondary hover:tw-text-white md:tw-right-5 md:tw-top-5">
-                                    <XIcon className="tw-p-1" />
+                                    <XIcon className="tw-p-1" data-testid="close-button" />
                                 </Dialog.Close>
                                 <ProjectDetailModal project={project} />
                             </motion.div>
@@ -309,7 +309,7 @@ type PageProps = NextPage<TProps> & {
     Layout: typeof Layout01;
 };
 
-const Projects: PageProps = ({ projects }: TProps) => {
+export const Projects: PageProps = ({ projects }: TProps) => {
     const description = [
         "Welcome to the Vets Who Code project showcase—a space dedicated to highlighting the exceptional work of our veteran developers.",
         "Here, you'll find innovative applications, tools, and solutions created by our talented community, demonstrating their technical expertise and commitment to excellence. Each project reflects the dedication, creativity, and skills that veterans bring to the tech industry.",
