@@ -1,13 +1,5 @@
 import { VWCContributor, GithubRepo, GithubContributor, GithubUser } from "@utils/types";
-import axios from "axios";
-
-const token = process.env.GITHUB_TOKEN || "";
-const git_api = axios.create({
-    baseURL: "https://api.github.com",
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-});
+import { gitAPI } from "./git-api-client";
 
 export const getProjectContributors = async (
     owner: string,
@@ -17,7 +9,7 @@ export const getProjectContributors = async (
     const topContributors = await getGithubRepoContributors(owner, repo, top);
     const projectContributors = Promise.all(
         topContributors.map(async (contributor) => {
-            const response = await git_api.get(`/users/${contributor.login}`);
+            const response = await gitAPI.get(`/users/${contributor.login}`);
             if (response.status == 200) {
                 const user = response.data as GithubUser;
                 return {
@@ -40,7 +32,7 @@ export const getProjectContributors = async (
 };
 
 export const getGithubRepo = async (owner: string, repo: string): Promise<GithubRepo> => {
-    const response = await git_api.get(`/repos/${owner}/${repo}`);
+    const response = await gitAPI.get(`/repos/${owner}/${repo}`);
     if (response.status == 200) {
         return response.data as GithubRepo;
     } else {
@@ -60,7 +52,7 @@ export const getGithubRepoContributors = async (
     repo: string,
     top: number = 4
 ): Promise<GithubContributor[]> => {
-    const response = await git_api.get(`/repos/${owner}/${repo}/contributors`);
+    const response = await gitAPI.get(`/repos/${owner}/${repo}/contributors`);
     if (response.status == 200) {
         return (response.data as GithubContributor[]).slice(0, top);
     } else {
