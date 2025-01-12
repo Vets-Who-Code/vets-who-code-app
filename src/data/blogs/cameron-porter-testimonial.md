@@ -7,11 +7,12 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721086509/Image_from_iOS_pdujsr.jpg",
     }
-category: "Career Transition"
+category: "Testimonial"
 tags:
     - Career Transition
     - Veteran Stories
     - Tech Careers
+    - Testimonial
 is_featured: true
 views: 1500
 ---
