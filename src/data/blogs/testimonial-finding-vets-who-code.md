@@ -7,7 +7,7 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721215701/jacob_oakley_s4vzb0.jpg",
     }
-category: "Career Journey"
+category: "Testimonial"
 tags:
     - Web Development
     - Career
