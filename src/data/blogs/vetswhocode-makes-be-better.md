@@ -7,7 +7,7 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721218265/carla-kroll_mojy9c.jpg",
     }
-category: "Career Journey"
+category: "Testimonial"
 tags:
     - vetswhocode
     - frontend

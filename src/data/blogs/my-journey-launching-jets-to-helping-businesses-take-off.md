@@ -7,7 +7,7 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721217567/brad-hankee_hpcklm.avif",
     }
-category: "Career Journey"
+category: "Testimonial"
 tags:
     - javascript
     - vetswhocode

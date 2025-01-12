@@ -7,7 +7,7 @@ image:
     {
         src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721216841/phil_mznw7l.avif",
     }
-category: "Career Journey"
+category: "Testimonial"
 tags:
     - veterans
     - career
