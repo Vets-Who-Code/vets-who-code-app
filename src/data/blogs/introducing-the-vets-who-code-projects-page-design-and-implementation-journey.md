@@ -20,7 +20,7 @@ Vets Who Code continually seeks innovative ways to showcase our community's work
 
 ## About Me
 
-I'm Jon Onulak, a proud member of the Vets Who Code team and an aspiring developer passionate about creating meaningful tech solutions. Working on the Projects Page allowed me to merge creativity with functionality while contributing to a platform that empowers our community.
+I'm [Jon Onulak](https://www.linkedin.com/in/jononulak/), a proud member of the Vets Who Code team and an aspiring developer passionate about creating meaningful tech solutions. Working on the Projects Page allowed me to merge creativity with functionality while contributing to a platform that empowers our community.
 
 This project leverages Next.js, Tailwind CSS, and the GitHub API to ensure the page was visually engaging, user-friendly, and responsive across devices.
 
