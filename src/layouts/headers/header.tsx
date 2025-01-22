@@ -32,14 +32,14 @@ const Header = ({ shadow, fluid }: TProps) => {
     return (
         <>
             <header className="header tw-relative">
-                <div className="header-top tw-py-2.5 tw-bg-gray-200">
-                    <div className="tw-container tw-flex tw-justify-center tw-items-center tw-flex-wrap">
-                        <p className="tw-text-center tw-flex-100 tw-mb-3.8 md:tw-flex-1 md:tw-text-left md:tw-mb-0 md:tw-mr-7.5">
+                <div className="header-top tw-bg-gray-200 tw-py-2.5">
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
+                        <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
                             Our Next Cohort
                         </p>
                         <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
-                            <i className="far fa-clock tw-text-lg tw-text-secondary tw-mr-[5px]" />
-                            <CountdownTimer targetDate="2025/03/13" />
+                            <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
+                            <CountdownTimer targetDate="2025/03/03" />
                         </div>
                         <Button size="xs" path="/donate">
                             Donate
@@ -50,16 +50,16 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div
                         ref={measuredRef}
                         className={clsx(
-                            "header-inner tw-py-[25px] xl:tw-py-0 tw-z-50 tw-bg-white tw-transition-all tw-left-0 tw-top-0 tw-w-full tw-h-auto",
+                            "header-inner tw-left-0 tw-top-0 tw-z-50 tw-h-auto tw-w-full tw-bg-white tw-py-[25px] tw-transition-all xl:tw-py-0",
                             !sticky && "tw-absolute",
                             sticky &&
-                                "tw-fixed tw-shadow-3md tw-shadow-black/10 tw-animate-headerSlideDown",
+                                "tw-fixed tw-animate-headerSlideDown tw-shadow-3md tw-shadow-black/10",
                             shadow && "tw-shadow-sm tw-shadow-black/5"
                         )}
                     >
                         <div
                             className={clsx(
-                                "tw-container tw-grid tw-grid-flow-col xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%] tw-items-center",
+                                "tw-container tw-grid tw-grid-flow-col tw-items-center xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%]",
                                 fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                             )}
                         >
@@ -70,7 +70,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 menu={menu}
                                 hoverStyle="B"
                             />
-                            <div className="tw-flex tw-justify-end tw-items-center">
+                            <div className="tw-flex tw-items-center tw-justify-end">
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
