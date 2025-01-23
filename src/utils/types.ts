@@ -289,6 +289,10 @@ export interface IEvent {
     speakers: ISpeaker[];
 }
 
+export interface ICurriculum extends Omit<IChapter, "lessons"> {
+    lessons: ILesson[];
+}
+
 export interface IZoomMeeting {
     id: IDType;
     title: string;

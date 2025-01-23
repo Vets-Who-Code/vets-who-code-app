@@ -9,14 +9,11 @@ type TProps = {
     courseSlug: string;
 };
 
-interface UserContextType {
-    courseProgress?: Array<{ course: string }>;
-}
-
 const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
-    const user = useUser() as UserContextType;
-    const courseProgress = user?.courseProgress ?? [];
-    const enrolledCourse = courseProgress.find((cs) => cs.course === courseSlug);
+    const { courseProgress } = useUser();
+    const enrolledCourse = courseProgress.find(
+        (cs) => cs.course === courseSlug
+    );
 
     return (
         <div className="curriculum-sections">
@@ -36,7 +33,8 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                     {lessons.length > 0 && (
                         <ul className="section-content">
                             {lessons.map((item) => {
-                                const hasAccess = enrolledCourse || item.access === "free";
+                                const hasAccess =
+                                    enrolledCourse || item.access === "free";
                                 return (
                                     <li
                                         key={item.slug}
@@ -46,21 +44,27 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                             path={item.path}
                                             className={clsx(
                                                 "tw-px-3.8 md:tw-pl-12 md:tw-pr-7.5 tw-min-h-[56px] tw-flex tw-flex-wrap tw-items-center",
-                                                !hasAccess && "tw-pointer-events-none"
+                                                !hasAccess &&
+                                                    "tw-pointer-events-none"
                                             )}
                                         >
                                             <span className="tw-grow tw-py-2.5">
                                                 <i
                                                     className={clsx(
                                                         "far tw-w-5 tw-text-md",
-                                                        item.type === "lesson" && "fa-file-alt",
-                                                        item.type === "quiz" && "fa-clock"
+                                                        item.type ===
+                                                            "lesson" &&
+                                                            "fa-file-alt",
+                                                        item.type === "quiz" &&
+                                                            "fa-clock"
                                                     )}
                                                 />
                                                 {item.title}
                                             </span>
                                             <div className="tw-text-right tw-flex tw-items-center tw-py-2.5">
-                                                <Badge className="tw-ml-2.5">{item.duration}</Badge>
+                                                <Badge className="tw-ml-2.5">
+                                                    {item.duration}
+                                                </Badge>
                                                 {item.type === "lesson" &&
                                                     item.access === "free" && (
                                                         <Badge
