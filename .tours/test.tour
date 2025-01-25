@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Test",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "open index,tsx"
+    }
+  ],
+  "ref": "master"
+}
