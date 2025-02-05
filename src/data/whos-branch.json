@@ -1,0 +1,79 @@
+{
+  "branches": [
+    {
+      "name": "Army",
+      "questions": [
+        {
+          "question": "What is the primary color of the Army uniform?",
+          "options": ["Green", "Blue", "White", "Black"],
+          "answer": "Green"
+        },
+        {
+          "question": "What is the motto of the Army?",
+          "options": ["Semper Fi", "This We'll Defend", "Aim High", "Always Ready"],
+          "answer": "This We'll Defend"
+        }
+      ]
+    },
+    {
+      "name": "Navy",
+      "questions": [
+        {
+          "question": "What is the primary color of the Navy uniform?",
+          "options": ["Green", "Blue", "White", "Black"],
+          "answer": "Blue"
+        },
+        {
+          "question": "What is the motto of the Navy?",
+          "options": ["Semper Fi", "This We'll Defend", "Aim High", "Semper Fortis"],
+          "answer": "Semper Fortis"
+        }
+      ]
+    },
+    {
+      "name": "Air Force",
+      "questions": [
+        {
+          "question": "What is the primary color of the Air Force uniform?",
+          "options": ["Green", "Blue", "White", "Black"],
+          "answer": "Blue"
+        },
+        {
+          "question": "What is the motto of the Air Force?",
+          "options": ["Semper Fi", "This We'll Defend", "Aim High", "Always Ready"],
+          "answer": "Aim High"
+        }
+      ]
+    },
+    {
+      "name": "Marines",
+      "questions": [
+        {
+          "question": "What is the primary color of the Marines uniform?",
+          "options": ["Green", "Blue", "White", "Black"],
+          "answer": "Blue"
+        },
+        {
+          "question": "What is the motto of the Marines?",
+          "options": ["Semper Fi", "This We'll Defend", "Aim High", "Always Ready"],
+          "answer": "Semper Fi"
+        }
+      ]
+    },
+    {
+      "name": "Coast Guard",
+      "questions": [
+        {
+          "question": "What is the primary color of the Coast Guard uniform?",
+          "options": ["Green", "Blue", "White", "Black"],
+          "answer": "Blue"
+        },
+        {
+          "question": "What is the motto of the Coast Guard?",
+          "options": ["Semper Fi", "This We'll Defend", "Aim High", "Always Ready"],
+          "answer": "Always Ready"
+        }
+      ]
+    }
+  ]
+}

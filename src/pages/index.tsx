@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
+import Link from "next/link";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-03";
 import Wrapper from "@ui/wrapper/wrapper-02";
@@ -68,6 +69,11 @@ const Home: PageProps = ({ data }) => {
             <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
+            <div className="tw-text-center tw-mt-10">
+                <Link href="/whos-branch">
+                    <a className="tw-text-primary tw-underline tw-text-lg">Play "Who's branch is it anyway"</a>
+                </Link>
+            </div>
         </>
     );
 };
