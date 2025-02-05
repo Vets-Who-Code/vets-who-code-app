@@ -1,4 +1,7 @@
-{
+// data/questions.ts
+import { GameData } from '../types';
+
+export const gameData: GameData = {
   "branches": [
     {
       "name": "Army",
@@ -76,4 +79,4 @@
       ]
     }
   ]
-}
+};

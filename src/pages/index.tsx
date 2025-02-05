@@ -69,9 +69,9 @@ const Home: PageProps = ({ data }) => {
             <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
-            <div className="tw-text-center tw-mt-10">
-                <Link href="/whos-branch">
-                    <a className="tw-text-primary tw-underline tw-text-lg">Play "Who's branch is it anyway"</a>
+            <div className="tw-mt-10 tw-text-center">
+                <Link href="/whos-branch" className="tw-text-lg tw-text-primary tw-underline">
+                    Play "Who's branch is it anyway"
                 </Link>
             </div>
         </>
