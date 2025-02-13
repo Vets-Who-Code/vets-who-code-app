@@ -53,4 +53,8 @@ DevSecOps is more than just a technical field; it's a domain that values strateg
 
 As veterans, we bring unique insights and a strong work ethic to the table. Are you ready to embark on this new mission? The tech world awaits your expertise and leadership.
 
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
 ---

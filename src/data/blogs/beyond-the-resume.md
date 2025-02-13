@@ -62,3 +62,9 @@ At Methodist, hiring Adrian was not just about filling a position; it was about 
 We encourage other companies to consider how they can also benefit from veterans' unparalleled work ethic and innovative problem-solving skills. By partnering with Vets Who Code, you can discover candidates who are equipped with cutting-edge tech skills and possess a proven track record of leadership and performance under pressure, giving you the confidence that you're getting the best.
 **Join us in this rewarding journey. Reach out to Vets Who Code today and start transforming your team with the excellence only a veteran can deliver.**
 For more information on how you can hire talented veterans like Adrian and make a meaningful impact on your team and projects, visit [Vets Who Code](https://vetswhocode.io/).
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

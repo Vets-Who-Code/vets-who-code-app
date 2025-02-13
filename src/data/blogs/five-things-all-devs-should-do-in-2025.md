@@ -36,4 +36,6 @@ Pick just one of these to try this month. Launch that personal website, write yo
 
 ### Support Vets Who Code
 
-If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

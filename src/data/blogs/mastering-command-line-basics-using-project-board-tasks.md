@@ -48,10 +48,10 @@ Mastering the command line is not just about typing commands—it's about unders
 
 So, take advantage of this resource, whether you're just starting or looking to refine your command line expertise. It's time to roll up your sleeves, open your terminal, and start mastering one of the most powerful tools in your developer toolkit. Let's get to work!
 
-## Support Vets Who Code
+### Support Vets Who Code
 
-If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. Your donations can make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
 
-[Donate to Vets Who Code](https://vetswhocode.io/donate) | [Sponsor us on GitHub](https://github.com/sponsors/Vets-Who-Code)
+---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0AYmwrfS1xw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

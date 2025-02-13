@@ -71,3 +71,9 @@ Your support is vital to our mission. If you're inspired by our work and want to
 ## Conclusion
 
 Your faith in Vets Who Code enables us to provide high-quality resources to our veterans continually. Thank you once again for being the backbone of our community as we forge ahead in our mission to make the tech industry accessible to veterans.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

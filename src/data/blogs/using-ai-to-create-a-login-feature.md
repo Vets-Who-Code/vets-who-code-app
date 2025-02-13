@@ -42,3 +42,9 @@ For a detailed walkthrough and to see the AI-driven development process in actio
 ## Conclusion
 
 The use of AI tools such as GitHub Copilot Workspaces and OpenAI significantly streamlines the development process, making it quicker and more efficient to create essential features like user authentication. Stay tuned for further enhancements and features in the application.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

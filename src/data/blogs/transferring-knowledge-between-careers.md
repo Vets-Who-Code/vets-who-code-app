@@ -38,6 +38,8 @@ While sounding cliche, showcasing that you know what it feels like to work as a 
 
 These are but a few ways I have learned over time to transfer the skills I had in other jobs to technology interviews. The soft skills, the habit stacking, the methods you use to learn new things, those things still matter. All you have to do is take a hard look at your experiences and pull out the parts that serve you the best.
 
-## Support Vets Who Code
+### Support Vets Who Code
 
-If you've found value in this post or want to support veterans transitioning into tech, consider donating to Vets Who Code. Your contribution helps provide veterans with the education and resources they need to succeed in the tech industry. [Donate here](https://www.vetswh
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

@@ -60,4 +60,8 @@ Networking, a critical aspect of military life, is equally important in tech. Bu
 
 The transition from military service to a tech career might involve different fields, but the core competencies and principles often overlap. The disciplines practiced in the military are invaluable in coding, paving the way for success in the tech industry for veterans. This journey is a testament to the versatility and applicability of the skills and values learned in the military, demonstrating their transformative potential in the tech industry.
 
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
 ---

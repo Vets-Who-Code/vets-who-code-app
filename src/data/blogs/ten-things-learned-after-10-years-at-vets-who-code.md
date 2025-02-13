@@ -67,3 +67,9 @@ My journey with Vets Who Code has been a blend of challenges, triumphs, and cont
 If you believe in the power of coding to transform lives and want to support veterans and military spouses in their journey into tech, consider making a donation to Vets Who Code. Your contribution can help us provide the resources, mentorship, and training necessary to bridge the gap between military service and successful tech careers. [Donate Now](https://vetswhocode.io/donate)
 
 Together, we can continue to empower those who have served our country to achieve their full potential in the tech industry.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

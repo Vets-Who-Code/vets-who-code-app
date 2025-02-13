@@ -25,3 +25,9 @@ I did the work, but things just weren’t clicking. Any other organization would
 As soon as that conversation was over, I was back at it, studying, watching videos, listening to those in the industry, and most importantly, doing. Eventually, I graduated from the program and got my first developer job as a Mid-Level Frontend Web Developer.
 
 Without Vets Who Code taking the time to not only teach me how to code, but also teach me how to learn, I could have been stuck in the realm of mediocrity.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

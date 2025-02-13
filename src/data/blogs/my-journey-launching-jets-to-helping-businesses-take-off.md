@@ -47,3 +47,9 @@ Prioritizing being a caregiver, making sure to transfer my son into a new school
 As a fresh VetsWhoCode grad, I proved myself to be able to tutor other bootcamp students at other bootcamps and honed my instructional skills with over 500 hours.
 
 Wanting a job that I could help build user-facing products, I went to a company that builds software utilized by multinational companies. It was an easy answer when I was given the opportunity to give back and devote personal time instructing students with VetsWhoCode. After all, sharing quality information and growing each other's skills is the best way to stay ahead in the technology and make companies that change the world 🌎.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

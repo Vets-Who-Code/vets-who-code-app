@@ -25,3 +25,9 @@ When I left the military, I knew I wanted to do something with computers, but wa
 The course was great! I laughed, I learned, I got mad, I got excited...then mad again. But in the end, I've developed skills that have helped me become a successful frontend developer in Chicago and have found a group of people in VWC that understand me, and we really work and grow together better than anything I could have imagined. I finished my cohort over 2 years ago, but there is rarely a day that I don't check in to see how things are going. Many of us, including myself, still contribute to the VWC in some way. Currently, I am in the process of becoming the CDO of VetsWhoCode.
 
 If you are a veteran, I would recommend applying to become a part of this community. It's a lot of work, but if you put in the time and effort, it's worth it. And, hey, if you apply and don't get in the first time, apply to the next cohort. Persistence pays off.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

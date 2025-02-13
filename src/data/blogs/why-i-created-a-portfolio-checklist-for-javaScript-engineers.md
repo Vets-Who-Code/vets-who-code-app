@@ -44,3 +44,9 @@ I hope to help students create portfolios that accurately represent their skills
 Creating a portfolio can be a daunting task, especially for students and new professionals. However, with the right guidance and resources, it can be a great opportunity to showcase your skills and experience to potential employers. By creating a portfolio checklist that focuses on the most frequently asked questions, I hope to guide newer students through the process of creating a portfolio that accurately represents their skills and experience. I encourage all students and new professionals to check out my portfolio checklist and use it as a guide to creating their own successful portfolios.
 
 Check out my portfolio checklist for JavaScript Engineers [here](https://www.notion.so/Portfolio-Checklist-for-Javascript-Engineers-44e9b849bf6d4c5db8273993dfd748c3).
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

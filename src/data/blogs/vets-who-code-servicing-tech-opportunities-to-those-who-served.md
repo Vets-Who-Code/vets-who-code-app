@@ -64,3 +64,9 @@ But wait — there's more! VWC doesn’t just offer this free training and send 
 After my offers, Jerome asked me to contribute to teaching in the next cohort. I was given two weeks of teaching an expanded ‘Computer Science’ curriculum that wasn’t fleshed out as much in previous cohorts. Excited and honored, I said yes — I considered it a great way to give back to my fellow veterans and to VWC.
 
 Overall, Vets Who Code was an absolute catalyst to get me out of a slump and propel me to greater heights. It doesn’t matter the extent of technological background either; every single veteran is welcome. We only ask one thing — drive and commitment. Learning to code is a challenging road, but veterans are used to challenging roads. Whether you’re a veteran who has never written a line of code or you’ve been working at Google, we would love to have you on board and help you reach your potential.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

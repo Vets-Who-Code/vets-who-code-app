@@ -45,3 +45,9 @@ Vets Who Code has also embraced the Lerna architecture to enhance the scalabilit
 ## Conclusion
 
 The new and improved Vets Who Code app marks a significant milestone in their commitment to providing an exceptional user experience while supporting veterans in their transition to software development careers. Leveraging the power of Tailwind CSS, Next.js, Vercel, and Lerna architecture, this modern tech stack empowers the organization to create a visually appealing, high-performing, and easily maintainable app. As Vets Who Code continues to evolve and grow, adopting these cutting-edge technologies ensures they remain at the forefront of web development, delivering the best possible experience to their users.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

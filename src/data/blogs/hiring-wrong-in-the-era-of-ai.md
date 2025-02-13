@@ -54,3 +54,9 @@ The tests we've conducted at Vets Who Code have proved this point. Our hiring pr
 ## Conclusion
 
 The future of software development lies in the synergy between human expertise and AI capabilities. By updating our hiring practices to reflect this reality, we can build stronger, more capable development teams ready to tackle tomorrow's challenges. Your role in this evolution is crucial, and your understanding and adoption of these new practices will be instrumental in shaping the future of our industry.
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

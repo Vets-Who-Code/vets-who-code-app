@@ -96,10 +96,8 @@ Simulating change scenarios can provide valuable insights into the potential imp
 
 Prompt engineering is not limited to the realm of AI models. Its principles extend to efficient software design and development. By applying these architecture and design patterns, developers and teams can craft solutions that closely align with user needs while maintaining the capacity to adapt to industry evolutions.
 
-### Join The Mission - Support #VetsWhoCode
+### Support Vets Who Code
 
-Military to Tech sector, your journey is our mission. Your support keeps this mission firing. Every dollar you donate eases a veteran's transition into a tech career, equipping them with not just coding skills, but confidence. Donate to #VetsWhoCode now and write your chapter in a veteran's success story. Every contribution counts. Let's make their future ours. Step up and donate now at [Vets Who Code Donation Page](https://vetswhocode.io/donate).
-
-_Every Contribution Counts. Let's Make It Happen._
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
 
 ---

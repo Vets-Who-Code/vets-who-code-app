@@ -71,10 +71,8 @@ Stay aware of the capabilities and limitations of your chosen Language Learning 
 
 Getting a handle on JavaScript and TypeScript is a significant leap into your new life in tech. With these straightforward, solution-oriented tips to guide you, you're all set to make a tangible impact. Remember, each word written in code is a step towards the solutions of tomorrow. Stand tall, #VetsWhoCode, because the tech sector is all the stronger with you in it.
 
-## Join The Mission - Support #VetsWhoCode
+### Support Vets Who Code
 
-Your journey from the military to the tech sector is our mission. But to keep this mission going, we need your support. Every dollar you donate helps a veteran transition smoothly into a career in tech, armed with not just coding skills, but with confidence to thrive. It's straightforward — your donation makes a direct impact. Let's build a strong community where veterans can secure their future in tech, together. Donate to #VetsWhoCode now and become a part of their success story. Donate now at [Vets Who Code Donation Page](https://vetswhocode.io/donate).
-
-_Every Contribution Counts. Let's Make It Happen._
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
 
 ---

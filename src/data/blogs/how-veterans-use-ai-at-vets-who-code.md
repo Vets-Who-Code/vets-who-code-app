@@ -56,6 +56,8 @@ The integration of GitHub Copilot and Azure Open AI into our curriculum is a tes
 
 At Vets Who Code, we believe in the power of technology to transform lives. By harnessing AI through GitHub Copilot and Azure Open AI, we're opening up new possibilities for our veterans, providing them with an unparalleled coding education that's as innovative as it is impactful. Join us as we continue to explore the frontier of tech education, empowering our veterans to lead the way in the technology sector.
 
-## Support Our Mission
+### Support Vets Who Code
 
-Our mission to equip veterans with the coding skills needed for a successful tech career is more vital now than ever. Your support can help us continue to innovate and expand our impact. Visit [https://vetswhocode.io/donate](https://vetswhocode.io/donate) to contribute to our cause. Together, we can build a brighter future for our veterans in the tech industry.
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---

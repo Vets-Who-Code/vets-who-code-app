@@ -56,3 +56,9 @@ The job search process can be daunting, but don't get discouraged. Stay persiste
 If you're struggling with a coding problem or need advice, don't hesitate to ask for help. Reach out to your bootcamp instructors, classmates, or online communities. There's always someone willing to lend a hand or share their knowledge.
 
 Remember, completing a coding bootcamp is just the beginning of your journey. Stay committed to learning, networking, and improving your skills, and you'll be well on your way to a successful career in programming. Good luck!
+
+### Support Vets Who Code
+
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+
+---
