@@ -5,7 +5,7 @@ author: "Phil Tenteromano"
 description: "How Vets Who Code helped transform my transition from the military to a successful tech career."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721216841/phil_mznw7l.avif",
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/w_1000,ar_16:9,c_fill,g_auto,e_sharpen/v1721216841/phil_mznw7l.avif",
     }
 category: "Testimonial"
 tags:
