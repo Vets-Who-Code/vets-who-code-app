@@ -1,0 +1,1663 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://vetswhocode.io/</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/donate</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/#!</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/about-us</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/projects</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/all</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/faq</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/mentor</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/apply</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/contact-us</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/core-fundamentals</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/devops</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/django</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/fast-api</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/flask</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/job-prep</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-anthony-bartolo</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-logan-kilpatrick</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-seattle-university</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-swyz</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-joins-the-github-global-campus-program</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/announcements</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-joins-the-youtube-nonprofit-program</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/five-things-all-devs-should-do-in-2025</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/career-development</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/code-of-conduct</loc>
+	<lastmod>2025-03-03T06:12:10+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/donate#!</loc>
+	<lastmod>2025-03-03T06:12:11+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/about-us#!</loc>
+	<lastmod>2025-03-03T06:12:12+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/projects#!</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/all#!</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/next-js-and-typescript</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/postgres-with-neon</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/python-fundamentals</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/scalable-coding-principles</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/streamlit</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/web-fundamentals</loc>
+	<lastmod>2025-03-03T06:12:13+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/mentor#!</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/apply#!</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog#!</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/introducing-the-vets-who-code-projects-page-design-and-implementation-journey</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/development-journey</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/in-2025-just-having-a-portfolio-wont-cut-it-show-evidence-of-your-skills</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/reflections-on-the-military-influencer-conference-a-step-toward-inclusion-and-innovation</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/conferences</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/mastering-command-line-basics-using-project-board-tasks</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/tech-skills</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/bridging-the-gap-josh-morton-testimonial</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/testimonial</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/cameron-porter-testimonial</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog/page/2</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog/page/3</loc>
+	<lastmod>2025-03-03T06:12:14+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/faq#!</loc>
+	<lastmod>2025-03-03T06:12:15+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/contact-us#!</loc>
+	<lastmod>2025-03-03T06:12:15+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/core-fundamentals#!</loc>
+	<lastmod>2025-03-03T06:12:15+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events#!</loc>
+	<lastmod>2025-03-03T06:12:16+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/devops#!</loc>
+	<lastmod>2025-03-03T06:12:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/django#!</loc>
+	<lastmod>2025-03-03T06:12:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/fast-api#!</loc>
+	<lastmod>2025-03-03T06:12:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/flask#!</loc>
+	<lastmod>2025-03-03T06:12:16+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/job-prep#!</loc>
+	<lastmod>2025-03-03T06:12:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-seattle-university#!</loc>
+	<lastmod>2025-03-03T06:12:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-logan-kilpatrick#!</loc>
+	<lastmod>2025-03-03T06:12:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-swyz#!</loc>
+	<lastmod>2025-03-03T06:12:17+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/announcements#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/education</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/youtube</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/nonprofit</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-growth</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai-tools</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/networking</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/work-life-balance</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vets-who-code</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/projects-page</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/nextjs</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tailwind-css</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github-api</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-advice</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/skills-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/evidence-based-framework</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/inclusion</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/innovation</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/technology</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/command-line</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-learning</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/terminal</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-transition</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/community-support</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/testimonial</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veteran-stories</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-careers</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/hiring</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/talent-acquisition</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/software-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding-interviews</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github-copilot</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/openai</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/mentorship</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/personal-growth</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military-transition</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military-skills</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/employee-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-innovation</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/resilience</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veteran-transition</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/organizational-growth</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/healthcare-technology</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/success-stories</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-day</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/prompt-engineering</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/javascript</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/web-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/software-architecture</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/azure-open-ai</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding-education</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-in-tech</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/chatgpt</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai-in-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-guide</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/personal-development</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/devsecops</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-change</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-skills</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/community</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/bootcamp</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tips</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/advice</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/job</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/interview</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/resume</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/newbie</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/open-source</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tailwind</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vercel</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/lerna</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/monorepo</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/react</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/typescript</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/portfolio</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/checklist</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/soft-skills</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/programming</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vetswhocode</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/frontend</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ux</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/webdev</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/events/vetswhocode-drill-anthony-bartolo#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-joins-the-github-global-campus-program#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-joins-the-youtube-nonprofit-program#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/five-things-all-devs-should-do-in-2025#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/career-development#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/why-devsecops-is-a-perfect-match-for-veterans</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/transferring-knowledge-between-careers</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/code-of-conduct#!</loc>
+	<lastmod>2025-03-03T06:12:18+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/next-js-and-typescript#!</loc>
+	<lastmod>2025-03-03T06:12:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/postgres-with-neon#!</loc>
+	<lastmod>2025-03-03T06:12:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/python-fundamentals#!</loc>
+	<lastmod>2025-03-03T06:12:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/scalable-coding-principles#!</loc>
+	<lastmod>2025-03-03T06:12:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/streamlit#!</loc>
+	<lastmod>2025-03-03T06:12:19+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/subjects/web-fundamentals#!</loc>
+	<lastmod>2025-03-03T06:12:20+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/development-journey#!</loc>
+	<lastmod>2025-03-03T06:12:20+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/introducing-the-vets-who-code-projects-page-design-and-implementation-journey#!</loc>
+	<lastmod>2025-03-03T06:12:20+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/in-2025-just-having-a-portfolio-wont-cut-it-show-evidence-of-your-skills#!</loc>
+	<lastmod>2025-03-03T06:12:20+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/reflections-on-the-military-influencer-conference-a-step-toward-inclusion-and-innovation#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/conferences#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/tech-skills#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/mastering-command-line-basics-using-project-board-tasks#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/bridging-the-gap-josh-morton-testimonial#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog/page/2#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/hiring-wrong-in-the-era-of-ai</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/tech-hiring-practices</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/using-ai-to-create-a-login-feature</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-development</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/ten-things-learned-after-10-years-at-vets-who-code</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/veteran-support</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/beyond-the-resume</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/career-transition</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/system-requirements-and-architecture-patterns-for-javascript-engineers</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/software-development-and-engineering</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/how-veterans-use-ai-at-vets-who-code</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-in-education</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/prompt-engineering-for-javascript-engineers</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-in-development</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/combat-to-code</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/testimonial#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vetswhocode-makes-be-better</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/testimonial-finding-vets-who-code</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-servicing-tech-opportunities-to-those-who-served</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/my-journey-launching-jets-to-helping-businesses-take-off</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/cameron-porter-testimonial#!</loc>
+	<lastmod>2025-03-03T06:12:21+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog/page/3#!</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/celebrating-progress-on-veterans-day-2023</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/veterans-support</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/post-bootcamp-tips-for-rookies</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/technology</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/introducing-the-new-and-improved-vets-who-code-app</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/why-i-created-a-portfolio-checklist-for-javaScript-engineers</loc>
+	<lastmod>2025-03-03T06:12:22+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github#!</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar#!</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/2</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/3</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/4</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/education#!</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans#!</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans/page/2</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.1</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding#!</loc>
+	<lastmod>2025-03-03T06:12:23+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/youtube#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/nonprofit#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/development#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai-tools#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/networking#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/work-life-balance#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-growth#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/projects-page#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vets-who-code#!</loc>
+	<lastmod>2025-03-03T06:12:24+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tailwind-css#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/nextjs#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github-api#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-advice#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/evidence-based-framework#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/skills-development#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/inclusion#!</loc>
+	<lastmod>2025-03-03T06:12:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/technology#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/innovation#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/command-line#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-learning#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/terminal#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-transition#!</loc>
+	<lastmod>2025-03-03T06:12:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/community-support#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veteran-stories#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/testimonial#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-careers#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/hiring#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/talent-acquisition#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/software-development#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/github-copilot#!</loc>
+	<lastmod>2025-03-03T06:12:27+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/openai#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding-interviews#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/mentorship#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/personal-growth#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military-transition#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/military-skills#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/employee-development#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/resilience#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veteran-transition#!</loc>
+	<lastmod>2025-03-03T06:12:28+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-innovation#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/organizational-growth#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/healthcare-technology#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-day#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/success-stories#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/prompt-engineering#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/javascript#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/software-architecture#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/web-development#!</loc>
+	<lastmod>2025-03-03T06:12:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/azure-open-ai#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/coding-education#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-in-tech#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/chatgpt#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ai-in-development#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/personal-development#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/devsecops#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans-guide#!</loc>
+	<lastmod>2025-03-03T06:12:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career-change#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tech-skills#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/community#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/bootcamp#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tips#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/advice#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/job#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/career#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/resume#!</loc>
+	<lastmod>2025-03-03T06:12:31+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/newbie#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/interview#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/tailwind#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/open-source#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vercel#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/lerna#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/monorepo#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/react#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/typescript#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/portfolio#!</loc>
+	<lastmod>2025-03-03T06:12:32+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/soft-skills#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/programming#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/checklist#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/vetswhocode#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/frontend#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/ux#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/webdev#!</loc>
+	<lastmod>2025-03-03T06:12:33+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/why-devsecops-is-a-perfect-match-for-veterans#!</loc>
+	<lastmod>2025-03-03T06:12:34+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/transferring-knowledge-between-careers#!</loc>
+	<lastmod>2025-03-03T06:12:34+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/hiring-wrong-in-the-era-of-ai#!</loc>
+	<lastmod>2025-03-03T06:12:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/tech-hiring-practices#!</loc>
+	<lastmod>2025-03-03T06:12:36+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-development#!</loc>
+	<lastmod>2025-03-03T06:12:36+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/using-ai-to-create-a-login-feature#!</loc>
+	<lastmod>2025-03-03T06:12:36+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/veteran-support#!</loc>
+	<lastmod>2025-03-03T06:12:36+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/ten-things-learned-after-10-years-at-vets-who-code#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/beyond-the-resume#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/career-transition#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/software-development-and-engineering#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/system-requirements-and-architecture-patterns-for-javascript-engineers#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/how-veterans-use-ai-at-vets-who-code#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-in-education#!</loc>
+	<lastmod>2025-03-03T06:12:37+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/ai-in-development#!</loc>
+	<lastmod>2025-03-03T06:12:38+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/prompt-engineering-for-javascript-engineers#!</loc>
+	<lastmod>2025-03-03T06:12:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/combat-to-code#!</loc>
+	<lastmod>2025-03-03T06:12:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vetswhocode-makes-be-better#!</loc>
+	<lastmod>2025-03-03T06:12:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/testimonial-finding-vets-who-code#!</loc>
+	<lastmod>2025-03-03T06:12:38+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/vets-who-code-servicing-tech-opportunities-to-those-who-served#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/my-journey-launching-jets-to-helping-businesses-take-off#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/celebrating-progress-on-veterans-day-2023#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/veterans-support#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/post-bootcamp-tips-for-rookies#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/category/technology#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/why-i-created-a-portfolio-checklist-for-javaScript-engineers#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/introducing-the-new-and-improved-vets-who-code-app#!</loc>
+	<lastmod>2025-03-03T06:12:39+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/2#!</loc>
+	<lastmod>2025-03-03T06:12:40+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/4#!</loc>
+	<lastmod>2025-03-03T06:12:40+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/blog-grid-sidebar/page/3#!</loc>
+	<lastmod>2025-03-03T06:12:40+01:00</lastmod>
+	<priority>0.4</priority>
+</url>
+<url>
+	<loc>https://vetswhocode.io/blogs/tag/veterans/page/2#!</loc>
+	<lastmod>2025-03-03T06:12:41+01:00</lastmod>
+	<priority>0.2</priority>
+</url>
+</urlset>
