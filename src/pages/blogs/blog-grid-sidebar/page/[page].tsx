@@ -28,7 +28,7 @@ const BlogGridSidebar: PageProps = ({
 }) => {
     return (
         <>
-            <SEO title={`Blog Grid Sidebar - Page - ${currentPage}`} />
+            <SEO title={`Blog G Sidebar - Page - ${currentPage}`} />
             <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Blog Grid Sidebar" />
             <BlogArea
                 data={{
