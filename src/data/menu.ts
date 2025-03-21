@@ -1,4 +1,3 @@
-// Types for menu structure
 type MenuStatus = "hot" | "coming soon" | "new";
 
 interface MenuItem {
@@ -115,6 +114,19 @@ const navigation: NavigationItem[] = [
                 label: "Donate",
                 path: "/donate",
                 status: "hot",
+            },
+        ],
+    },
+    {
+        id: 7,
+        label: "Games",
+        path: "#!",
+        submenu: [
+            {
+                id: 71,
+                label: "Who's branch is it anyway",
+                path: "/whos-branch",
+                status: "new",
             },
         ],
     },

@@ -30,13 +30,13 @@ const SingleCourse: PageProps = ({ data: { course, instructor, relatedCourses } 
                     type: "website",
                     images: [
                         {
-                            url: `https://maxcoach-react.pages.dev${course.thumbnail.src}`,
+                            url: `https://vetswhocode.io${course.thumbnail.src}`,
                             width: 800,
                             height: 600,
                             alt: course.title,
                         },
                         {
-                            url: `https://maxcoach-react.pages.dev${course.thumbnail.src}`,
+                            url: `https://vetswhocode.io${course.thumbnail.src}`,
                             width: 900,
                             height: 800,
                             alt: course.title,
