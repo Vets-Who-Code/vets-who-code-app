@@ -36,85 +36,73 @@ type NavigationItem = SubMenuItem | MegaMenuItem;
 const navigation: NavigationItem[] = [
     {
         id: 1,
-        label: "Home",
-        path: "/",
-    },
-    {
-        id: 2,
-        label: "About",
+        label: "Train",
         path: "#!",
         submenu: [
             {
-                id: 21,
-                label: "About Us",
-                path: "/about-us",
+                id: 11,
+                label: "Start Your Mission",
+                path: "/apply",
             },
             {
-                id: 22,
-                label: "Projects",
-                path: "/projects",
-            },
-            {
-                id: 23,
-                label: "Subjects",
-                path: "/subjects/all",
-            },
-            {
-                id: 24,
+                id: 13,
                 label: "FAQ",
                 path: "/faq",
             },
         ],
     },
     {
-        id: 3,
-        label: "Apply",
+        id: 2,
+        label: "Build",
         path: "#!",
         submenu: [
             {
-                id: 31,
-                label: "Become a Mentor",
-                path: "/mentor",
+                id: 14,
+                label: "Open Source Projects",
+                path: "/projects",
             },
             {
-                id: 32,
-                label: "Apply to be a Student",
-                path: "/apply",
-                status: "new",
+                id: 15,
+                label: "Subjects & Skills",
+                path: "/subjects/all",
             },
         ],
     },
     {
-        id: 4,
-        label: "Blog",
-        path: "/blogs/blog",
-    },
-    {
-        id: 5,
-        label: "Contact Us",
-        path: "/contact-us",
-    },
-    {
-        id: 6,
-        label: "Support",
+        id: 3,
+        label: "Lead",
         path: "#!",
         submenu: [
             {
-                id: 61,
+                id: 16,
+                label: "Become a Mentor",
+                path: "/mentor",
+            },
+            {
+                id: 17,
+                label: "Donate",
+                path: "/donate",
+            },
+            {
+                id: 18,
                 label: "Events",
                 path: "/events",
             },
             {
-                id: 62,
+                id: 19,
+                label: "Stories",
+                path: "/blogs/blog",
+            },
+            {
+                id: 20,
+                label: "Contact",
+                path: "/contact-us",
+            },
+            {
+                id: 21,
                 label: "Shop",
                 path: "https://hashflag.shop/",
                 external: true,
-            },
-            {
-                id: 63,
-                label: "Donate",
-                path: "/donate",
-                status: "hot",
             },
         ],
     },
