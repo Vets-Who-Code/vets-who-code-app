@@ -1,4 +1,3 @@
-// Types for menu structure
 type MenuStatus = "hot" | "coming soon" | "new";
 
 interface MenuItem {
@@ -103,6 +102,19 @@ const navigation: NavigationItem[] = [
                 label: "Shop",
                 path: "https://hashflag.shop/",
                 external: true,
+            },
+        ],
+    },
+    {
+        id: 7,
+        label: "Games",
+        path: "#!",
+        submenu: [
+            {
+                id: 71,
+                label: "Who's branch is it anyway",
+                path: "/whos-branch",
+                status: "new",
             },
         ],
     },
