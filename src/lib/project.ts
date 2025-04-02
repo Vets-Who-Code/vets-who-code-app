@@ -1,6 +1,6 @@
 import path from "path";
-import { VWCProject, VWCProjectDetails } from "@utils/types";
 import fs from "fs";
+import { VWCProject, VWCProjectDetails } from "@utils/types";
 import { getSlugs } from "./util";
 import { getGithubRepo, getProjectContributors } from "./github";
 
@@ -18,20 +18,20 @@ export const getAllProjects = (): VWCProjectDetails[] => {
 
 export const getProjectData = async (): Promise<VWCProject[]> => {
     const projects = getAllProjects();
-    const data = Promise.all(
+    const projectsData = Promise.all(
         projects.map(async (project) => {
             const repo = await getGithubRepo(project.owner, project.repo);
             const contributors = await getProjectContributors(project.owner, project.repo);
-            const data = {
+            // Using object property shorthand
+            return {
                 details: project,
                 repo: {
                     ...repo,
-                    contributors: contributors,
-                },
+                    contributors
+                }
             };
-            return data;
         })
     );
     // Sort projects by index
-    return (await data).sort((a, b) => a.details.index - b.details.index);
+    return (await projectsData).sort((a, b) => a.details.index - b.details.index);
 };

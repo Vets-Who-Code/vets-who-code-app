@@ -1,19 +1,21 @@
 import type { GetStaticProps, NextPage } from "next";
+import { useState } from "react";
+import Link from "next/link";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "motion/react";
+import * as Dialog from "@radix-ui/react-dialog";
+import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
+import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
+// Import components first, then local modules
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
+import MarkdownRenderer from "@components/markdown-renderer";
 import { VWCGrid } from "@components/vwc-grid";
 import { VWCGridCard } from "@components/vwc-card";
-import * as Dialog from "@radix-ui/react-dialog";
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+// Then import local modules
 import { getProjectData } from "../lib/project";
-import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
-import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
-import clsx from "clsx";
-import Link from "next/link";
-import MarkdownRenderer from "@components/markdown-renderer";
+import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
 
 interface TechStackProps {
     techStack: string[];
@@ -22,8 +24,11 @@ interface TechStackProps {
 export const TechStack = ({ techStack }: TechStackProps) => {
     return (
         <div className="tw-mb-2 tw-flex tw-flex-wrap tw-gap-1">
-            {techStack.map((tech) => (
-                <div className="tw-m-0 tw-rounded-md tw-bg-secondary tw-bg-opacity-90 tw-p-0 tw-px-2 tw-py-1 tw-text-sm tw-text-white">
+            {techStack.map((tech, index) => (
+                <div 
+                    key={`tech-${index}`} 
+                    className="tw-m-0 tw-rounded-md tw-bg-secondary tw-bg-opacity-90 tw-p-0 tw-px-2 tw-py-1 tw-text-sm tw-text-white"
+                >
                     {tech}
                 </div>
             ))}
@@ -38,34 +43,32 @@ interface LinkButtonsProps {
 
 export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
     return (
-        <>
-            <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+        <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+            <Link
+                href={github_url}
+                target="_blank"
+                title="See the code on GitHub"
+                className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
+            >
+                <GitHubLogoIcon />
+                <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
+                    GitHub
+                </h6>
+            </Link>
+            {live_url && (
                 <Link
-                    href={github_url}
+                    href={live_url}
                     target="_blank"
-                    title="See the code on GitHub"
+                    title="See it live"
                     className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
                 >
-                    <GitHubLogoIcon />
-                    <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
-                        GitHub
+                    <GlobeIcon />
+                    <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
+                        Live
                     </h6>
                 </Link>
-                {live_url && (
-                    <Link
-                        href={live_url}
-                        target="_blank"
-                        title="See it live"
-                        className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
-                    >
-                        <GlobeIcon />
-                        <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
-                            Live
-                        </h6>
-                    </Link>
-                )}
-            </div>
-        </>
+            )}
+        </div>
     );
 };
 
@@ -133,29 +136,28 @@ export const TopContributors = ({ contributors }: TopContributorsProps) => {
         <>
             <h5>Top Contributors</h5>
             <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
-                {contributors.map((contributor) => {
-                    return (
-                        <Link
-                            href={contributor.html_url}
-                            target="_blank"
-                            className="tw-flex tw-min-w-56 tw-gap-2 tw-rounded-md tw-border-2 tw-border-secondary tw-border-opacity-35 tw-bg-secondary tw-bg-opacity-20 tw-px-2 tw-pt-1 hover:tw-cursor-pointer hover:tw-bg-opacity-100 hover:tw-text-white"
-                        >
-                            <div className="tw-flex-col tw-items-center tw-justify-center">
-                                <img
-                                    className="tw-aspect-square tw-w-8 tw-min-w-8 tw-rounded-full tw-border-2 tw-border-secondary tw-bg-white"
-                                    src={contributor.avatar_url}
-                                    alt={contributor.name}
-                                    draggable="false"
-                                    loading="eager"
-                                />
-                            </div>
-                            <div className="tw-h-fit tw-w-fit tw-flex-col -tw-space-y-2">
-                                <div className="tw-text-md tw-font-medium">{contributor.name}</div>
-                                <div className="tw-text-sm tw-font-light">@{contributor.login}</div>
-                            </div>
-                        </Link>
-                    );
-                })}
+                {contributors.map((contributor) => (
+                    <Link
+                        key={contributor.id}
+                        href={contributor.html_url}
+                        target="_blank"
+                        className="tw-flex tw-min-w-56 tw-gap-2 tw-rounded-md tw-border-2 tw-border-secondary tw-border-opacity-35 tw-bg-secondary tw-bg-opacity-20 tw-px-2 tw-pt-1 hover:tw-cursor-pointer hover:tw-bg-opacity-100 hover:tw-text-white"
+                    >
+                        <div className="tw-flex-col tw-items-center tw-justify-center">
+                            <img
+                                className="tw-aspect-square tw-w-8 tw-min-w-8 tw-rounded-full tw-border-2 tw-border-secondary tw-bg-white"
+                                src={contributor.avatar_url}
+                                alt={contributor.name}
+                                draggable="false"
+                                loading="eager"
+                            />
+                        </div>
+                        <div className="tw-h-fit tw-w-fit tw-flex-col -tw-space-y-2">
+                            <div className="tw-text-md tw-font-medium">{contributor.name}</div>
+                            <div className="tw-text-sm tw-font-light">@{contributor.login}</div>
+                        </div>
+                    </Link>
+                ))}
             </div>
         </>
     );
@@ -224,13 +226,11 @@ export const ProjectDetailModal = ({ project, className }: ProjectModalProps) =>
                     github_url={`https://github.com/${project.details.owner}/${project.details.repo}`}
                     live_url={project.details.live_url}
                 />
-                {project.details.long_description.map((pg) => {
-                    return (
-                        <p className="tw-text-secondary">
-                            <MarkdownRenderer content={pg} />
-                        </p>
-                    );
-                })}
+                {project.details.long_description.map((pg, index) => (
+                    <p key={`desc-${index}`} className="tw-text-secondary">
+                        <MarkdownRenderer content={pg} />
+                    </p>
+                ))}
             </motion.div>
         </div>
     );
@@ -322,13 +322,15 @@ export const Projects: PageProps = ({ projects }: TProps) => {
             <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Projects" />
             <VWCGrid title="Projects">
                 <div className="tw-col-span-full tw-items-center tw-justify-center tw-text-pretty tw-text-secondary">
-                    {description.map((text) => {
-                        return <p>{text}</p>;
-                    })}
+                    {description.map((text, index) => (
+                        <p key={`desc-${index}`}>{text}</p>
+                    ))}
                 </div>
-                {projects.map((project) => (
-                    <ProjectCard key={project.details.name} project={project} />
-                ))}
+                {projects.length > 0 && (
+                    projects.map((project) => (
+                        <ProjectCard key={project.details.name} project={project} />
+                    ))
+                )}
             </VWCGrid>
         </>
     );

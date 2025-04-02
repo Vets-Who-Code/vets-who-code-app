@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
+import React from "react";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
-import React from "react";
 
 interface BenefitCardProps {
     icon: string;
@@ -75,8 +75,13 @@ const SponsorPage: PageWithLayout = () => {
 
                     {/* Benefits Grid */}
                     <div className="tw-grid md:tw-grid-cols-3 tw-gap-8 tw-mb-16">
-                        {benefits.map((benefit, index) => (
-                            <BenefitCard key={index} {...benefit} />
+                        {benefits.map((benefit) => (
+                            <BenefitCard 
+                                key={benefit.title} 
+                                icon={benefit.icon} 
+                                title={benefit.title} 
+                                description={benefit.description} 
+                            />
                         ))}
                     </div>
 
@@ -89,7 +94,7 @@ const SponsorPage: PageWithLayout = () => {
                             <p className="tw-text-lg">
                                 Add top-quality talent with a wealth of technical and soft skills to
                                 your organization today. Only 1/4 of the U.S. population meet the
-                                military's rigorous physical, behavioral and educational
+                                military&apos;s rigorous physical, behavioral and educational
                                 requirements.
                             </p>
                             <p className="tw-text-lg">
