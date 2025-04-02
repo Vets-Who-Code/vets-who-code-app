@@ -94,6 +94,9 @@
         "react": {
             "version": "detect"
         },
+        "prettier": {
+            "usePrettierrc": false
+        },
         "import/resolver": {
             "typescript": {},
             "node": {
