@@ -138,7 +138,7 @@ export const TopContributors = ({ contributors }: TopContributorsProps) => {
             <div className="tw-grid-cols-2 tw-space-y-1 tw-text-secondary md:tw-grid-cols-1">
                 {contributors.map((contributor) => (
                     <Link
-                        key={contributor.id}
+                        key={contributor.login}
                         href={contributor.html_url}
                         target="_blank"
                         className="tw-flex tw-min-w-56 tw-gap-2 tw-rounded-md tw-border-2 tw-border-secondary tw-border-opacity-35 tw-bg-secondary tw-bg-opacity-20 tw-px-2 tw-pt-1 hover:tw-cursor-pointer hover:tw-bg-opacity-100 hover:tw-text-white"
