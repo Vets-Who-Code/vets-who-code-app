@@ -16,6 +16,11 @@ is_featured: true
 
 ## Your Career Go-Bag: Being Ready When Tech Career Emergencies Strike
 
+<audio controls>
+  <source src="/audio/go-bag.wav" type="audio/wav">
+  Your browser does not support the audio element.
+</audio>
+
 Every service member knows the importance of a "go-bag"—that pre-packed kit containing essential gear for rapid deployment. It's a lesson that translates perfectly to civilian career management. Just as military readiness can mean the difference between success and failure in the field, career readiness can determine how well you weather professional challenges.
 
 In today's unpredictable job market, career emergencies happen to everyone. Layoffs, company closures, or sudden changes can catch you off guard. But with your own career go-bag prepared and maintained, you'll face these challenges with confidence rather than panic.
