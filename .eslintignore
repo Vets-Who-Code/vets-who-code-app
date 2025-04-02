@@ -37,3 +37,5 @@ yarn-error.log*
 # PWA
 public/sw.js
 public/workbox-*.js
+
+DISABLE_ESLINT_PLUGIN=true yarn build
