@@ -17,6 +17,24 @@ is_featured: true
 
 ---
 
+<div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
+  <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
+    🎧 <span style="margin-left: 0.5rem;">Beat the Bots Audio Brief</span>
+  </h2>
+  <p style="font-size: 0.875rem; color: #cbd5e1; margin-bottom: 1rem;">
+    Listen to this quick audio rundown on how to outsmart ATS systems and get your résumé seen.
+  </p>
+  <audio controls style="width: 100%; border-radius: 0.5rem;">
+    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1745200712/beat-the-bots_eeqphc.m4a" type="audio/m4a" />
+    Your browser does not support the audio element.
+  </audio>
+  <p style="margin-top: 1rem; font-size: 0.875rem;">
+    <a href="https://res.cloudinary.com/vetswhocode/video/upload/v1745200712/beat-the-bots_eeqphc.m4a" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #cbd5e1;">
+      Or open in new tab
+    </a>
+  </p>
+</div>
+
 **Time to read: 8 minutes**  
 **Key Takeaways:**
 
