@@ -17,6 +17,7 @@ is_featured: true
 
 ---
 
+
 <div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
   <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
     🎧 <span style="margin-left: 0.5rem;">Beat the Bots Audio Brief</span>
