@@ -26,7 +26,7 @@ is_featured: true
     Listen to this quick audio rundown on how to outsmart ATS systems and get your résumé seen.
   </p>
   <audio controls style="width: 100%; border-radius: 0.5rem;">
-    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1745200712/beat-the-bots_eeqphc.m4a" type="audio/m4a" />
+    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1745200712/beat-the-bots_eeqphc.m4a" type="audio/mp4" />
     Your browser does not support the audio element.
   </audio>
   <p style="margin-top: 1rem; font-size: 0.875rem;">
