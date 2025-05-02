@@ -27,14 +27,14 @@ const ZoomMeetingDetails: PageProps = ({ data: { zoomMeeting } }) => {
                     images: [
                         {
                             url: `https://vetswhocode.io${zoomMeeting.thumbnail.src}`,
-                            width: 800,
-                            height: 600,
+                            width: 1230,
+                            height: 630,
                             alt: zoomMeeting.title,
                         },
                         {
                             url: `https://vetswhocode.io${zoomMeeting.thumbnail.src}`,
-                            width: 900,
-                            height: 800,
+                            width: 1230,
+                            height: 630,
                             alt: zoomMeeting.title,
                         },
                     ],

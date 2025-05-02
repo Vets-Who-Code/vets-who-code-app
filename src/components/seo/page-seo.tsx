@@ -39,14 +39,14 @@ const PageSeo = ({
         images: [
             {
                 url: image as string,
-                width: 800,
-                height: 600,
+                width: 1230,
+                height: 630,
                 alt: title,
             },
             {
                 url: image as string,
-                width: 900,
-                height: 800,
+                width: 1230,
+                height: 630,
                 alt: title,
             },
         ],

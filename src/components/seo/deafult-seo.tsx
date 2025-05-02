@@ -16,14 +16,14 @@ const DefaultSEO = () => {
                 images: [
                     {
                         url: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
-                        width: 800,
-                        height: 600,
+                        width: 1200,
+                        height: 630,
                         alt: "Og Image Alt",
                     },
                     {
                         url: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
-                        width: 900,
-                        height: 800,
+                        width: 1230,
+                        height: 630,
                         alt: "Og Image Alt Second",
                     },
                 ],
