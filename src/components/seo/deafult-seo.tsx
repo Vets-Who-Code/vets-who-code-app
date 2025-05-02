@@ -15,15 +15,15 @@ const DefaultSEO = () => {
                 site_name: siteConfig.name,
                 images: [
                     {
-                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
-                        width: 800,
-                        height: 600,
+                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
+                        width: 1200,
+                        height: 630,
                         alt: "Og Image Alt",
                     },
                     {
-                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
-                        width: 900,
-                        height: 800,
+                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
+                        width: 1230,
+                        height: 630,
                         alt: "Og Image Alt Second",
                     },
                 ],
@@ -53,7 +53,7 @@ const DefaultSEO = () => {
             additionalLinkTags={[
                 {
                     rel: "apple-touch-icon",
-                    href: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656268751/favicon_dpiacy.png",
+                    href: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
                 },
                 {
                     rel: "manifest",
