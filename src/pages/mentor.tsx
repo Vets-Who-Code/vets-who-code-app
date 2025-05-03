@@ -7,6 +7,8 @@ import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
 import MentorForm from "@components/forms/mentor-form";
+import TextBlock from "@components/common/text-block";
+import GradationArea from "@containers/gradation";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
@@ -29,6 +31,13 @@ type PageProps = NextPage<TProps> & {
 
 const MentorPage: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
+    const mentorText = [
+        "Our mentorship program creates valuable connections between tech professionals and those seeking to advance their careers, with a special focus on veterans and military spouses from all training backgrounds.",
+        "Whether you're an experienced developer looking to mentor or someone seeking guidance to grow in tech, our program offers a structured path to meaningful professional relationships that benefit both parties.",
+        "Through regular pair programming sessions, weekly check-ins, and personalized guidance, our mentorship program accelerates learning, builds accountability, and fosters lasting professional growth for everyone involved.",
+        "Join our community today by filling out the form below—whether as a mentor sharing expertise or a mentee seeking guidance—and become part of something that makes a lasting impact on the future of our tech community.",
+    ];
+
     return (
         <>
             <SEO title="Become A Mentor" />
@@ -38,11 +47,25 @@ const MentorPage: PageProps = ({ data }) => {
                 showTitle={false}
             />
             <Wrapper>
-                <CtaArea data={content["cta-area"]} space="none" />
-                <FunfactArea data={content["funfact-area"]} />
                 <HeroImageArea data={content["hero-image-area"]} />
+                <div className="tw-container tw-my-8 tw-pt-16">
+                    <TextBlock
+                        content={mentorText}
+                        heading="Join Our Vets Who Code Mentorship Program"
+                        textSize="lg"
+                        spacing="normal"
+                        highlight
+                    />
+                </div>
+                <FunfactArea data={content["funfact-area"]} />
             </Wrapper>
-            <MentorForm />
+            <GradationArea data={content["gradation-area"]} />
+            <div className="tw-mb-16">
+                <MentorForm />
+            </div>
+            <div className="tw-h-16" /> {/* This worked for space after MentorForm */}
+            <CtaArea data={content["cta-area"]} space="none" />
+            <div className="tw-h-16" /> {/* New spacer after CtaArea */}
         </>
     );
 };

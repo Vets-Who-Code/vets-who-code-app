@@ -4,17 +4,17 @@
         {
             "section": "cta-area",
             "section_title": {
-                "title": "Take your skills and join us <br/> today to serve others",
-                "subtitle":"Help Us Help Veterans"
+                "title": "Support veterans & military spouses <br/> on their coding journey",
+                "subtitle": "Your Donation Makes a Difference"
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/about-us",
-                    "content": "Learn More"
+                    "path": "/donate",
+                    "content": "Donate Now"
                 }
-            ] 
-        }, 
+            ]
+        },
         {
             "section": "funfact-area",
             "items": [
@@ -54,29 +54,29 @@
         {
             "section": "gradation-area",
             "section_title": {
-                "title": "4 Steps to Earn <span> the Honour CFDR <br/> Certification</span> from courses",
+                "title": "Become a Mentor or Get Mentored <span>in Our Community <br/> Supporting Military Families</span>",
                 "subtitle": "Make it <strong>#VetsWhoCode</strong>"
             },
             "items": [
                 {
                     "id": 1,
-                    "title": "Register for a CFDR preliminary categorized class",
-                    "description": "CFDR preliminary classes whose names are ended with \"101CF\". Finishing these classes will bring you the basic knowledge and skills."
+                    "title": "Register for our inclusive mentorship program",
+                    "description": "Sign up to connect with veterans and military spouses from any training background. Join as a mentor to share your expertise or as a mentee seeking guidance in your tech career journey."
                 },
                 {
                     "id": 2,
-                    "title": "Finished all obligatory subjects in CFDR program",
-                    "description": "Learners have to finish these subjects within the period of 3 years. Early completion will reward them with a faster certifying process."
+                    "title": "Commit to our proven mentorship structure",
+                    "description": "Our data shows hands-on learners thrive with structure: our program requires at least two meetings weekly, with one dedicated to pair-programming for optimal knowledge transfer and skill development."
                 },
                 {
                     "id": 3,
-                    "title": "Submit all essential documents & related proof of completion",
-                    "description": "We need to verify your participation in all subjects included and collect all the scores as well as assessment to grade your certificate."
+                    "title": "Get matched based on expertise and goals",
+                    "description": "Our matching system connects mentors and mentees based on specific skills and career objectives. Whether sharing knowledge or seeking guidance, you'll be paired with someone who complements your professional journey."
                 },
                 {
                     "id": 4,
-                    "title": "Receive printed certification via postal & e-version via emails",
-                    "description": "We'll send your certificate by postal line in one week after the verification process and also email an electronic version to your inbox."
+                    "title": "Build lasting professional relationships",
+                    "description": "Through regular pair programming sessions, weekly check-ins, and personalized guidance, our mentorship program accelerates learning, builds accountability, and fosters lasting professional growth for everyone involved."
                 }
             ]
         }
