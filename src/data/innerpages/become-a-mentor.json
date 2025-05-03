@@ -1,84 +1,104 @@
 {
-    "name": "become-a-mentor",
-    "content": [
+  "name": "become-a-mentor",
+  "content": [
+    {
+      "section": "cta-area",
+      "section_title": {
+        "title": "Take your skills and join us <br/> today to serve others",
+        "subtitle": "Help Us Help Veterans"
+      },
+      "buttons": [
         {
-            "section": "cta-area",
-            "section_title": {
-                "title": "Support veterans & military spouses <br/> on their coding journey",
-                "subtitle": "Your Donation Makes a Difference"
-            },
-            "buttons": [
-                {
-                    "id": 1,
-                    "path": "/donate",
-                    "content": "Donate Now"
-                }
-            ]
-        },
-        {
-            "section": "funfact-area",
-            "items": [
-                {
-                    "id": 1,
-                    "title": "Years of Experience",
-                    "counter": 10
-                },
-                {
-                    "id": 2,
-                    "title": "Veterans Served",
-                    "counter": 300,
-                    "suffix": "+"
-                },
-                {
-                    "id": 3,
-                    "title": "Subjects Taught",
-                    "counter": 10,
-                    "suffix": "+"
-                },
-                {
-                    "id": 4,
-                    "title": "Satisfaction rate",
-                    "suffix": "%",
-                    "counter": 90
-                }
-            ]
-        },
-        {
-            "section": "hero-image-area",
-            "images": [
-                {
-                    "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1692643962/mentor_sf2fko.jpg"
-                }
-            ]
-        },
-        {
-            "section": "gradation-area",
-            "section_title": {
-                "title": "Become a Mentor or Get Mentored <span>in Our Community <br/> Supporting Military Families</span>",
-                "subtitle": "Make it <strong>#VetsWhoCode</strong>"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "title": "Register for our inclusive mentorship program",
-                    "description": "Sign up to connect with veterans and military spouses from any training background. Join as a mentor to share your expertise or as a mentee seeking guidance in your tech career journey."
-                },
-                {
-                    "id": 2,
-                    "title": "Commit to our proven mentorship structure",
-                    "description": "Our data shows hands-on learners thrive with structure: our program requires at least two meetings weekly, with one dedicated to pair-programming for optimal knowledge transfer and skill development."
-                },
-                {
-                    "id": 3,
-                    "title": "Get matched based on expertise and goals",
-                    "description": "Our matching system connects mentors and mentees based on specific skills and career objectives. Whether sharing knowledge or seeking guidance, you'll be paired with someone who complements your professional journey."
-                },
-                {
-                    "id": 4,
-                    "title": "Build lasting professional relationships",
-                    "description": "Through regular pair programming sessions, weekly check-ins, and personalized guidance, our mentorship program accelerates learning, builds accountability, and fosters lasting professional growth for everyone involved."
-                }
-            ]
+          "id": 1,
+          "path": "/about-us",
+          "content": "Learn More"
         }
-    ]
+      ]
+    },
+    {
+      "section": "funfact-area",
+      "items": [
+        {
+          "id": 1,
+          "title": "Years of Experience",
+          "counter": 10
+        },
+        {
+          "id": 2,
+          "title": "Veterans Served",
+          "counter": 300,
+          "suffix": "+"
+        },
+        {
+          "id": 3,
+          "title": "Subjects Taught",
+          "counter": 10,
+          "suffix": "+"
+        },
+        {
+          "id": 4,
+          "title": "Satisfaction rate",
+          "counter": 90,
+          "suffix": "%"
+        }
+      ]
+    },
+    {
+      "section": "hero-image-area",
+      "images": [
+        {
+          "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1692643962/mentor_sf2fko.jpg"
+        }
+      ]
+    },
+    {
+      "section": "gradation-area",
+      "section_title": {
+        "title": "8 Steps to Join <span> our <br/> Mentorship Program</span> and Level Up",
+        "subtitle": "Make it <strong>#VetsWhoCode</strong>"
+      },
+      "items": [
+        {
+          "id": 1,
+          "title": "Determine Your Role",
+          "description": "Decide whether you want to join as a mentor or a mentee. Mentorship is open to veterans who would have qualified as a troop. Mentors should be within 2 years of experience relative to their mentee."
+        },
+        {
+          "id": 2,
+          "title": "Complete the Mentorship Program Interest Form",
+          "description": "Submit the application form to indicate your interest in participating. This is required for both mentors and mentees. Ensure your GitHub profile is included if you're applying as a mentee."
+        },
+        {
+          "id": 3,
+          "title": "Initial Profile Review",
+          "description": "We review the GitHub portfolio for mentees to gauge current skill level. This helps ensure appropriate matching and mentorship impact."
+        },
+        {
+          "id": 4,
+          "title": "Interview with the VWC Team",
+          "description": "All applicants—both mentors and mentees—will be interviewed. We assess alignment with our goals and values, and verify your readiness to participate effectively."
+        },
+        {
+          "id": 5,
+          "title": "Confirm Eligibility",
+          "description": "For mentees: Must be a veteran eligible to be a troop, not currently employed in a full-time developer role. Paid apprenticeships may still qualify. For mentors: Must be within two years of relevant experience compared to mentees."
+        },
+        {
+          "id": 6,
+          "title": "Skill Level Self-Assessment",
+          "description": "During the form submission or interview, you will be asked to self-assess your skill level. This ensures accurate pairing between mentors and mentees."
+        },
+        {
+          "id": 7,
+          "title": "Mentor/Mentee Matching",
+          "description": "Once reviewed and accepted, you'll be matched based on skill level, experience gap (no more than 2 years), and learning goals. Final approval will follow this stage."
+        },
+        {
+          "id": 8,
+          "title": "Begin Your Mentorship Journey",
+          "description": "After approval and matching, your mentorship officially begins. Expect regular check-ins, progress tracking, and support from the VWC community."
+        }
+      ]
+    }
+  ]
 }
