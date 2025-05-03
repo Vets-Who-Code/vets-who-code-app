@@ -4,17 +4,17 @@
         {
             "section": "cta-area",
             "section_title": {
-                "title": "Connect with veterans & military spouses <br/> regardless of training background",
-                "subtitle":"Expand Your Impact to All Military Families"
+                "title": "Support veterans & military spouses <br/> on their coding journey",
+                "subtitle": "Your Donation Makes a Difference"
             },
             "buttons": [
                 {
                     "id": 1,
-                    "path": "/about-us",
-                    "content": "Learn More"
+                    "path": "/donate",
+                    "content": "Donate Now"
                 }
-            ] 
-        }, 
+            ]
+        },
         {
             "section": "funfact-area",
             "items": [
@@ -54,29 +54,29 @@
         {
             "section": "gradation-area",
             "section_title": {
-                "title": "Become a Mentor for <span>Veterans & Military Spouses <br/> Seeking Guidance</span>",
+                "title": "Become a Mentor or Get Mentored <span>in Our Community <br/> Supporting Military Families</span>",
                 "subtitle": "Make it <strong>#VetsWhoCode</strong>"
             },
             "items": [
                 {
                     "id": 1,
-                    "title": "Register as a mentor in our inclusive program",
-                    "description": "Sign up to connect with veterans and military spouses from any training background who are seeking mentorship in your area of expertise."
+                    "title": "Register for our inclusive mentorship program",
+                    "description": "Sign up to connect with veterans and military spouses from any training background. Join as a mentor to share your expertise or as a mentee seeking guidance in your tech career journey."
                 },
                 {
                     "id": 2,
                     "title": "Commit to our proven mentorship structure",
-                    "description": "Our data shows hands-on learners thrive with structure: mentors must provide at least two meetings weekly, with one dedicated to pair-programming for optimal knowledge transfer."
+                    "description": "Our data shows hands-on learners thrive with structure: our program requires at least two meetings weekly, with one dedicated to pair-programming for optimal knowledge transfer and skill development."
                 },
                 {
                     "id": 3,
-                    "title": "Get matched with those seeking your expertise",
-                    "description": "Our matching system connects you with veterans and military spouses who will benefit most from your specific knowledge and experience."
+                    "title": "Get matched based on expertise and goals",
+                    "description": "Our matching system connects mentors and mentees based on specific skills and career objectives. Whether sharing knowledge or seeking guidance, you'll be paired with someone who complements your professional journey."
                 },
                 {
                     "id": 4,
-                    "title": "Make a lasting impact through hands-on guidance",
-                    "description": "Help veterans and military spouses from diverse backgrounds successfully navigate their career paths through practical pair-programming sessions and regular mentorship meetings."
+                    "title": "Build lasting professional relationships",
+                    "description": "Through regular pair programming sessions, weekly check-ins, and personalized guidance, our mentorship program accelerates learning, builds accountability, and fosters lasting professional growth for everyone involved."
                 }
             ]
         }
