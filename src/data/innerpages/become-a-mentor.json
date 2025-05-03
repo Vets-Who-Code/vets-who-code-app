@@ -10,8 +10,8 @@
       "buttons": [
         {
           "id": 1,
-          "path": "/about-us",
-          "content": "Learn More"
+          "path": "/donate",
+          "content": "Support Our Mission",
         }
       ]
     },
