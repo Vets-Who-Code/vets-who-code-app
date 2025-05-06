@@ -107,7 +107,9 @@ The tech industry doesn't need another feel-good veteran initiative. It needs a 
 This program is about access, accountability, and acceleration. It's where veterans and military spouses find guides who speak their language, understand their challenges, and know exactly how to help them level up—because they just did it themselves.
 
 If you're ready to make tech more inclusive, practical, and purpose-driven—join us.  
-👉 [Apply to the Vets Who Code Mentorship Program](https://vetswhocode.com/mentor)
+👉 [Apply to the Vets Who Code Mentorship Program](https://vetswhocode.io/mentor)
+
+---
 
 ### Support Vets Who Code
 
