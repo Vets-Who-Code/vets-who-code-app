@@ -18,7 +18,7 @@ const VideoButton = ({ label, className, videoId }: TProps) => {
                 type="button"
                 aria-label={label}
                 className={clsx(
-                    "tw-absolute tw-z-30 tw-inset-0 tw-flex tw-justify-center tw-items-center",
+                    "tw-absolute tw-inset-0 tw-z-30 tw-flex tw-items-center tw-justify-center",
                     className
                 )}
                 onClick={() => setOpen(true)}

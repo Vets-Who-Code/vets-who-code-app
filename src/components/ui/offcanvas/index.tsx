@@ -52,7 +52,7 @@ const Offcanvas = memo(({ className, onClose, isOpen, children }: TProps) => {
                 {isOpen && (
                     <motion.div
                         className={clsx(
-                            "tw-fixed tw-inset-0 tw-bg-black tw-z-50 tw-bg-black/70 tw-overflow-hidden"
+                            "tw-fixed tw-inset-0 tw-z-50 tw-overflow-hidden tw-bg-black tw-bg-black/70"
                         )}
                         onClick={onClose}
                         onKeyUp={onClose}
@@ -65,8 +65,8 @@ const Offcanvas = memo(({ className, onClose, isOpen, children }: TProps) => {
                     >
                         <motion.div
                             className={clsx(
-                                "tw-relative tw-z-30 tw-w-[300px] tw-ml-auto sm:tw-w-[360px] tw-h-full tw-bg-secondary tw-bg-[url('https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1698904153/mobile-image_ssvugk.png')] tw-bg-no-repeat tw-bg-top tw-bg-cover",
-                                "before:tw-absolute before:tw-content-[''] before:-tw-z-1 before:tw-inset-0 before:tw-bg-secondary/90",
+                                "tw-relative tw-z-30 tw-ml-auto tw-h-full tw-w-[300px] tw-bg-secondary tw-bg-[url('https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1698904153/mobile-image_ssvugk.png')] tw-bg-cover tw-bg-top tw-bg-no-repeat sm:tw-w-[360px]",
+                                "before:tw-absolute before:tw-inset-0 before:-tw-z-1 before:tw-bg-secondary/90 before:tw-content-['']",
                                 className
                             )}
                             onClick={(e) => e.stopPropagation()}

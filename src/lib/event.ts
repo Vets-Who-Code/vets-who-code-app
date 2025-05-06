@@ -13,18 +13,21 @@ export function getEventeBySlug(slug: string, fields: Array<keyof IEvent> | "all
     if (fields === "all") {
         event = fileContents;
     } else {
-        event = fields.reduce((acc: IEvent, field: keyof IEvent) => {
-            if (field === "slug") {
-                return { ...acc, [field]: realSlug };
-            }
-            if (typeof fileContents[field] !== "undefined") {
-                return {
-                    ...acc,
-                    [field]: fileContents[field],
-                };
-            }
-            return acc;
-        }, <IEvent>{});
+        event = fields.reduce(
+            (acc: IEvent, field: keyof IEvent) => {
+                if (field === "slug") {
+                    return { ...acc, [field]: realSlug };
+                }
+                if (typeof fileContents[field] !== "undefined") {
+                    return {
+                        ...acc,
+                        [field]: fileContents[field],
+                    };
+                }
+                return acc;
+            },
+            <IEvent>{}
+        );
     }
 
     return { ...event, path: `/events/${realSlug}` };

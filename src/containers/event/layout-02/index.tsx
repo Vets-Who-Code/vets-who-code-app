@@ -77,7 +77,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                 {motto && (
                     <AnimatedMottoText
                         {...motto}
-                        className="lg:tw-w-7/12 tw-mx-auto tw-text-center tw-mt-10"
+                        className="tw-mx-auto tw-mt-10 tw-text-center lg:tw-w-7/12"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

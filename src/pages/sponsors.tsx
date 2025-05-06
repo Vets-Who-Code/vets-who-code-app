@@ -15,10 +15,10 @@ type PageWithLayout = NextPage & {
 
 const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description }) => (
     <div className="tw-text-center">
-        <div className="tw-flex tw-justify-center tw-mb-4">
+        <div className="tw-mb-4 tw-flex tw-justify-center">
             <i className={`${icon} tw-text-6xl tw-text-red-700`} />
         </div>
-        <h3 className="tw-text-xl tw-font-bold tw-text-blue-900 tw-mb-2">{title}</h3>
+        <h3 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-blue-900">{title}</h3>
         <p>{description}</p>
     </div>
 );
@@ -49,13 +49,13 @@ const SponsorPage: PageWithLayout = () => {
             <SEO title="Become a Sponsor" />
             <div className="tw-min-h-screen tw-bg-white">
                 {/* Hero Section */}
-                <section className="tw-bg-blue-900 tw-text-white tw-py-16">
+                <section className="tw-bg-blue-900 tw-py-16 tw-text-white">
                     <div className="tw-container tw-mx-auto tw-px-4">
-                        <h1 className="tw-text-5xl tw-font-bold tw-text-center tw-mb-4">
+                        <h1 className="tw-mb-4 tw-text-center tw-text-5xl tw-font-bold">
                             WE WANT YOU
                         </h1>
                         <div className="tw-flex tw-justify-center">
-                            <div className="tw-bg-red-700 tw-p-4 tw--mb-20 tw-relative">
+                            <div className="tw-relative tw--mb-20 tw-bg-red-700 tw-p-4">
                                 <div className="tw-text-2xl tw-font-semibold">#VetsWhoCode</div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ const SponsorPage: PageWithLayout = () => {
 
                 {/* Main Content */}
                 <main className="tw-container tw-mx-auto tw-px-4 tw-py-16">
-                    <div className="tw-text-center tw-max-w-4xl tw-mx-auto tw-mb-16">
+                    <div className="tw-mx-auto tw-mb-16 tw-max-w-4xl tw-text-center">
                         <p className="tw-text-xl tw-text-blue-900">
                             After completing the VWC curriculum, our pool of veterans are able,
                             willing, and highly qualified to enter the civilian workforce. Become a
@@ -74,15 +74,15 @@ const SponsorPage: PageWithLayout = () => {
                     </div>
 
                     {/* Benefits Grid */}
-                    <div className="tw-grid md:tw-grid-cols-3 tw-gap-8 tw-mb-16">
+                    <div className="tw-mb-16 tw-grid tw-gap-8 md:tw-grid-cols-3">
                         {benefits.map((benefit, index) => (
                             <BenefitCard key={index} {...benefit} />
                         ))}
                     </div>
 
                     {/* Benefits Section */}
-                    <section className="tw-bg-blue-800 tw-text-white tw-p-8 tw-rounded-lg tw-mb-16">
-                        <h2 className="tw-text-3xl tw-font-bold tw-text-center tw-mb-8">
+                    <section className="tw-mb-16 tw-rounded-lg tw-bg-blue-800 tw-p-8 tw-text-white">
+                        <h2 className="tw-mb-8 tw-text-center tw-text-3xl tw-font-bold">
                             BENEFITS OF BECOMING A VWC SPONSOR
                         </h2>
                         <div className="tw-space-y-6">
@@ -113,11 +113,11 @@ const SponsorPage: PageWithLayout = () => {
                     </section>
 
                     {/* Contact Section */}
-                    <section className="tw-text-center tw-bg-red-700 tw-text-white tw-p-8 tw-rounded-lg">
-                        <h2 className="tw-text-2xl tw-font-bold tw-mb-4">
+                    <section className="tw-rounded-lg tw-bg-red-700 tw-p-8 tw-text-center tw-text-white">
+                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold">
                             Contact Ayumi Bennett, Technical Program Manager
                         </h2>
-                        <p className="tw-text-xl tw-mb-6">
+                        <p className="tw-mb-6 tw-text-xl">
                             ayumi@vetswhocode.io to learn how you can support a veteran today.
                         </p>
                         <p className="tw-text-sm">
@@ -128,7 +128,7 @@ const SponsorPage: PageWithLayout = () => {
                 </main>
 
                 {/* Footer */}
-                <footer className="tw-bg-blue-900 tw-text-white tw-py-4 tw-text-center">
+                <footer className="tw-bg-blue-900 tw-py-4 tw-text-center tw-text-white">
                     <p>
                         VISIT HTTPS://VETSWHOCODE.IO/SYLLABUS TO LEARN MORE ABOUT OUR FLAGSHIP
                         CURRICULUM.

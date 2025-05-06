@@ -54,14 +54,14 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
         <nav aria-label="Page navigation">
             <ul
                 className={clsx(
-                    "pagination tw-font-extrabold tw-uppercase tw-text-[16px] tw-text-center",
+                    "pagination tw-text-center tw-text-[16px] tw-font-extrabold tw-uppercase",
                     className
                 )}
             >
                 {!isFirst && (
                     <li className="tw-inline-block tw-px-[5px]">
                         <Anchor
-                            className="tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full tw-text-gray-400 -tw-tracking-tightest hover:tw-text-heading"
+                            className="tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading"
                             path={previousPage}
                         >
                             Prev
@@ -75,7 +75,7 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                         {pagi !== "dots" && (
                             <Anchor
                                 className={clsx(
-                                    "tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full -tw-tracking-tightest hover:tw-text-heading",
+                                    "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest hover:tw-text-heading",
                                     currentPage !== pagi && "tw-text-gray-400",
                                     currentPage === pagi &&
                                         "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
@@ -95,7 +95,7 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                 {!isLast && (
                     <li className="tw-inline-block tw-px-[5px]">
                         <Anchor
-                            className="tw-block tw-text-center tw-w-12 tw-h-12 tw-leading-[48px] tw-rounded-full tw-text-gray-400 -tw-tracking-tightest hover:tw-text-heading"
+                            className="tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading"
                             path={nextPage}
                         >
                             Next

@@ -12,21 +12,21 @@ const Badge = ({ children, className, color, size, variant }: TProps) => {
     return (
         <span
             className={clsx(
-                "tw-inline-flex tw-justify-center tw-items-center tw-leading-none",
+                "tw-inline-flex tw-items-center tw-justify-center tw-leading-none",
                 variant === "contained" && [
-                    color === "teracotta" && "tw-text-teracotta tw-bg-teracotta-light",
-                    color === "scooter" && "tw-text-scooter tw-bg-scooter-light",
-                    color === "primary" && "tw-text-white tw-bg-primary",
-                    color === "gradient" && "tw-text-white tw-bg-strawGradient",
+                    color === "teracotta" && "tw-bg-teracotta-light tw-text-teracotta",
+                    color === "scooter" && "tw-bg-scooter-light tw-text-scooter",
+                    color === "primary" && "tw-bg-primary tw-text-white",
+                    color === "gradient" && "tw-bg-strawGradient tw-text-white",
                 ],
                 variant === "outlined" && [
                     "tw-border",
-                    color === "white" && "tw-text-white tw-border-white",
+                    color === "white" && "tw-border-white tw-text-white",
                 ],
 
-                size === "xs" && "tw-pt-1 tw-px-2 tw-pb-[3px] tw-text-[11px] tw-rounded-sm",
-                size === "sm" && "tw-p-2 tw-text-xs tw-rounded-[4px]",
-                size === "lg" && "tw-h-7.5 tw-px-3.8 tw-text-sm tw-font-medium tw-rounded",
+                size === "xs" && "tw-rounded-sm tw-px-2 tw-pb-[3px] tw-pt-1 tw-text-[11px]",
+                size === "sm" && "tw-rounded-[4px] tw-p-2 tw-text-xs",
+                size === "lg" && "tw-h-7.5 tw-rounded tw-px-3.8 tw-text-sm tw-font-medium",
                 className
             )}
         >

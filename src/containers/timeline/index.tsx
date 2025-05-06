@@ -30,8 +30,8 @@ const TimelineArea = ({ data: { section_title, items }, space, bg, titleSize }: 
                     />
                 )}
                 {items && items.length > 0 && (
-                    <ul className="tw-relative tw-pt-8 tw-pb-[65px]">
-                        <li className="tw-absolute tw-top-0 tw-left-3.8 md:tw-left-1/2 -tw-ml-px tw-h-full tw-border-l-2 tw-border-l-mishcka" />
+                    <ul className="tw-relative tw-pb-[65px] tw-pt-8">
+                        <li className="tw-absolute tw-left-3.8 tw-top-0 -tw-ml-px tw-h-full tw-border-l-2 tw-border-l-mishcka md:tw-left-1/2" />
                         {items.map(({ id, headings, images, texts }, idx) => (
                             <TimelineItem
                                 key={id}

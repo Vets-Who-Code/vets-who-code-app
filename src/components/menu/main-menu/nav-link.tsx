@@ -28,11 +28,11 @@ const NavLink = ({
             path={path}
             id={id}
             className={clsx(
-                "tw-font-medium 2xl:tw-text-[16px] tw-flex tw-items-center tw-leading-snug",
+                "tw-flex tw-items-center tw-font-medium tw-leading-snug 2xl:tw-text-[16px]",
                 color === "light" && "tw-text-white hover:tw-text-white",
                 color === "dark" && "tw-text-secondary",
                 hoverStyle === "B" &&
-                    "tw-relative before:tw-absolute before:tw-content-[''] before:tw-left-0 before:tw-bottom-0 before:tw-w-0 before:tw-h-px before:tw-transition-all before:tw-duration-300 hover:before:tw-w-full",
+                    "tw-relative before:tw-absolute before:tw-bottom-0 before:tw-left-0 before:tw-h-px before:tw-w-0 before:tw-transition-all before:tw-duration-300 before:tw-content-[''] hover:before:tw-w-full",
                 hoverStyle === "B" && color === "dark" && "before:tw-bg-primary",
                 hoverStyle === "B" && color === "light" && "before:tw-bg-white"
             )}

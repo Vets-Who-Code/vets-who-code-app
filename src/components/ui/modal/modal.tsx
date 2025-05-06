@@ -42,7 +42,7 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                     <>
                         <motion.div
                             className={clsx(
-                                "backdrop tw-fixed tw-top-0 tw-left-0 tw-w-screen tw-h-screen tw-bg-black/60 tw-transition-opacity tw-z-50"
+                                "backdrop tw-fixed tw-left-0 tw-top-0 tw-z-50 tw-h-screen tw-w-screen tw-bg-black/60 tw-transition-opacity"
                             )}
                             tabIndex={-1}
                             initial={{ opacity: 0 }}
@@ -53,7 +53,7 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                             ref={modalRef}
                             className={clsx(
                                 className,
-                                "tw-fixed tw-inset-0 tw-overflow-hidden tw-outline-0 tw-transition-opacity tw-z-50"
+                                "tw-fixed tw-inset-0 tw-z-50 tw-overflow-hidden tw-outline-0 tw-transition-opacity"
                             )}
                             role="button"
                             tabIndex={-1}
@@ -66,17 +66,17 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                         >
                             <div
                                 className={clsx(
-                                    "modal-dialog tw-relative tw-w-auto tw-m-2 tw-pointer-events-none sm:tw-my-5 sm:tw-mx-auto",
+                                    "modal-dialog tw-pointer-events-none tw-relative tw-m-2 tw-w-auto sm:tw-mx-auto sm:tw-my-5",
                                     size === "sm" && "sm:tw-max-w-[300px]",
                                     size === "md" && "sm:tw-max-w-[470px]",
                                     size === "lg" && "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
                                     size === "xl" && "sm:tw-max-w-[500px] lg:tw-max-w-[800px]",
                                     centered &&
-                                        "tw-flex tw-items-center tw-min-h-[calc(100vh_-_1rem)] sm:tw-min-h-[calc(100vh_-_3.5rem)]"
+                                        "tw-flex tw-min-h-[calc(100vh_-_1rem)] tw-items-center sm:tw-min-h-[calc(100vh_-_3.5rem)]"
                                 )}
                             >
                                 <div
-                                    className="modal-content tw-relative tw-flex tw-flex-col tw-w-full tw-pointer-events-auto tw-bg-white tw-bg-clip-padding tw-rounded"
+                                    className="modal-content tw-pointer-events-auto tw-relative tw-flex tw-w-full tw-flex-col tw-rounded tw-bg-white tw-bg-clip-padding"
                                     onClick={(e) => e.stopPropagation()}
                                     onKeyPress={(e) => e.stopPropagation()}
                                     role="button"

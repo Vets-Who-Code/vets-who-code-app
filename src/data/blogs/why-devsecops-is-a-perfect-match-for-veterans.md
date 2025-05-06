@@ -29,23 +29,23 @@ Think of DevSecOps as the tech equivalent of a Special Operations unit, where se
 
 ### Why DevSecOps Appeals to Veterans
 
--   **Structure and Discipline**: The methodical and disciplined approach vital in the military is equally essential in DevSecOps for maintaining robust software security.
--   **Rapid Problem-Solving**: Just as quick thinking is crucial in the field, DevSecOps demands swift and effective solutions to technological challenges.
--   **Team Collaboration**: In DevSecOps, harmonious collaboration among developers, operations, and security teams echoes the teamwork found in military units.
--   **Detail-Oriented**: The importance of attention to detail in both military operations and DevSecOps cannot be overstated, where small oversights can lead to significant risks.
--   **Continual Adaptation**: The tech world, much like military strategy, is ever-evolving, requiring a commitment to ongoing learning and adaptation.
--   **Security Focus**: Your experience in defending national assets translates well into protecting software systems, client data, and digital networks in DevSecOps.
+- **Structure and Discipline**: The methodical and disciplined approach vital in the military is equally essential in DevSecOps for maintaining robust software security.
+- **Rapid Problem-Solving**: Just as quick thinking is crucial in the field, DevSecOps demands swift and effective solutions to technological challenges.
+- **Team Collaboration**: In DevSecOps, harmonious collaboration among developers, operations, and security teams echoes the teamwork found in military units.
+- **Detail-Oriented**: The importance of attention to detail in both military operations and DevSecOps cannot be overstated, where small oversights can lead to significant risks.
+- **Continual Adaptation**: The tech world, much like military strategy, is ever-evolving, requiring a commitment to ongoing learning and adaptation.
+- **Security Focus**: Your experience in defending national assets translates well into protecting software systems, client data, and digital networks in DevSecOps.
 
 ## Starting Your DevSecOps Journey
 
 Wondering about the skills needed? Here's a beginner's guide:
 
--   **Python**: A versatile and accessible programming language, crucial for various coding tasks.
--   **Git**: Essential for collaborative work, much like coordinating a military operation.
--   **Linux Command Line**: Familiarity with Linux tools is key, akin to adapting to a new operational environment.
--   **Cloud Technologies**: Knowledge of cloud platforms like AWS or Azure is increasingly important.
--   **Docker**: Mastering Docker is like learning to efficiently pack and deploy resources.
--   **Cybersecurity Basics**: Extend your defense expertise to the digital realm by understanding core cybersecurity principles.
+- **Python**: A versatile and accessible programming language, crucial for various coding tasks.
+- **Git**: Essential for collaborative work, much like coordinating a military operation.
+- **Linux Command Line**: Familiarity with Linux tools is key, akin to adapting to a new operational environment.
+- **Cloud Technologies**: Knowledge of cloud platforms like AWS or Azure is increasingly important.
+- **Docker**: Mastering Docker is like learning to efficiently pack and deploy resources.
+- **Cybersecurity Basics**: Extend your defense expertise to the digital realm by understanding core cybersecurity principles.
 
 ## Mission Briefing
 

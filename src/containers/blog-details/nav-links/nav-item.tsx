@@ -12,18 +12,18 @@ const NavItem = ({ title, path, image, variant }: TProps) => {
             path={path}
             rel={variant}
             className={clsx(
-                "tw-relative tw-min-h-[120px] tw-z-1 tw-py-5 tw-px-7.5 tw-rounded tw-bg-white tw-shadow-2xl tw-shadow-heading/10 tw-flex tw-justify-start tw-items-center tw-group",
-                variant === "next" && "tw-text-right tw-flex-row-reverse"
+                "tw-group tw-relative tw-z-1 tw-flex tw-min-h-[120px] tw-items-center tw-justify-start tw-rounded tw-bg-white tw-px-7.5 tw-py-5 tw-shadow-2xl tw-shadow-heading/10",
+                variant === "next" && "tw-flex-row-reverse tw-text-right"
             )}
         >
             {image?.src && (
-                <div className="tw-absolute -tw-z-1 tw-inset-0 tw-opacity-0 tw-rounded tw-transition-opacity tw-duration-300 before:tw-absolute before:tw-content-[''] before:tw-inset-0 before:tw-rounded before:tw-bg-bodyGradient before:tw-opacity-50 group-hover:tw-opacity-100">
+                <div className="tw-absolute tw-inset-0 -tw-z-1 tw-rounded tw-opacity-0 tw-transition-opacity tw-duration-300 before:tw-absolute before:tw-inset-0 before:tw-rounded before:tw-bg-bodyGradient before:tw-opacity-50 before:tw-content-[''] group-hover:tw-opacity-100">
                     <img
                         src={image.src}
                         alt={
                             image?.alt || variant === "prev" ? "Prev Navigation" : "Next Navigation"
                         }
-                        className="tw-w-full tw-h-full tw-object-cover"
+                        className="tw-h-full tw-w-full tw-object-cover"
                     />
                 </div>
             )}
@@ -35,7 +35,7 @@ const NavItem = ({ title, path, image, variant }: TProps) => {
                     variant === "next" && "tw-ml-4 tw-rotate-180"
                 )}
             />
-            <h3 className="tw-mb-0 tw-text-h6 md:tw-text-lg tw-leading-normal tw-transition-colors tw-duration-300 group-hover:tw-text-white">
+            <h3 className="tw-mb-0 tw-text-h6 tw-leading-normal tw-transition-colors tw-duration-300 group-hover:tw-text-white md:tw-text-lg">
                 {title}
             </h3>
         </Anchor>

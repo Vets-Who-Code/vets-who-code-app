@@ -32,7 +32,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
                     />
                 )}
 
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
+                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
                     {blogs?.map((blog) => (
                         <AnimatedBlogCard
                             key={blog.path}

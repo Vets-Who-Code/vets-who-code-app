@@ -15,7 +15,7 @@ const AuthorMeta = ({ author, className }: TProps) => {
                     <img
                         alt={author.image?.alt || "Avatar"}
                         src={author.image.src}
-                        className="tw-w-8 tw-h-8 tw-rounded-full tw-mr-2"
+                        className="tw-mr-2 tw-h-8 tw-w-8 tw-rounded-full"
                         height="96"
                         width="96"
                     />

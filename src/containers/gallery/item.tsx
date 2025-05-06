@@ -19,24 +19,24 @@ const Item = forwardRef<HTMLDivElement, TProps>(({ image, name, designation }, r
     return (
         <div
             className={clsx(
-                "tw-relative tw-group",
+                "tw-group tw-relative",
                 elWidth > 500 && elWidth < 600 && "lg:tw-col-span-1 xl:tw-col-span-2",
                 elWidth > 600 && "lg:tw-col-span-2 xl:tw-col-span-3"
             )}
             ref={ref}
         >
             {image?.src && (
-                <div className="tw-relative tw-w-full tw-h-full before:tw-absolute before:tw-content-[''] before:tw-z-1 before:tw-inset-0 before:tw-transition-all before:tw-duration-500 before:tw-bg-black/50 before:tw-opacity-0 group-hover:before:tw-opacity-100">
+                <div className="tw-relative tw-h-full tw-w-full before:tw-absolute before:tw-inset-0 before:tw-z-1 before:tw-bg-black/50 before:tw-opacity-0 before:tw-transition-all before:tw-duration-500 before:tw-content-[''] group-hover:before:tw-opacity-100">
                     <img
                         src={image.src}
                         alt=""
-                        className="tw-w-full tw-h-full tw-object-cover"
+                        className="tw-h-full tw-w-full tw-object-cover"
                         ref={imgRef}
                     />
                 </div>
             )}
-            <div className="tw-absolute tw-z-10 tw-top-1/2 tw-left-0 tw-w-full tw-p-5 tw-transition-all tw-duration-500 tw-text-center tw-opacity-0 group-hover:tw-opacity-100 group-hover:-tw-translate-y-1/2">
-                <h3 className="tw-text-[34px] tw-text-white tw-mb-0">{name}</h3>
+            <div className="tw-absolute tw-left-0 tw-top-1/2 tw-z-10 tw-w-full tw-p-5 tw-text-center tw-opacity-0 tw-transition-all tw-duration-500 group-hover:-tw-translate-y-1/2 group-hover:tw-opacity-100">
+                <h3 className="tw-mb-0 tw-text-[34px] tw-text-white">{name}</h3>
                 <p className="tw-text-white">{designation}</p>
             </div>
         </div>

@@ -16,7 +16,7 @@ const FunfactArea = ({ data: { items }, space, bg }: TProps) => {
     return (
         <Section className="funfact-area" space={space} bg={bg}>
             <div
-                className="tw-container tw-pt-[99px] tw-pb-[52px] tw-grid sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-bg-[top_center] md:tw-bg-left"
+                className="tw-container tw-grid tw-bg-[top_center] tw-pb-[52px] tw-pt-[99px] sm:tw-grid-cols-2 md:tw-bg-left lg:tw-grid-cols-4"
                 style={{
                     backgroundImage: `url("/images/bg/background-pattern-grid-line-02.png")`,
                 }}

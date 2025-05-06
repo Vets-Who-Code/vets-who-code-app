@@ -16,24 +16,24 @@ type TProps = {
 
 const HeroArea = ({ data: { headings, texts, buttons, images } }: TProps) => {
     return (
-        <div className="hero-area tw-bg-ebb tw-relative tw-flex tw-items-center">
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5 tw-relative tw-z-10">
+        <div className="hero-area tw-relative tw-flex tw-items-center tw-bg-ebb">
+            <div className="tw-container tw-relative tw-z-10 tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-2">
                 <motion.div
-                    className="tw-self-center tw-text-center tw-pt-[140px] tw-pb-10 tw-px-3.8 md:p-0 md:tw-text-left md:tw-max-w-[460px]"
+                    className="md:p-0 tw-self-center tw-px-3.8 tw-pb-10 tw-pt-[140px] tw-text-center md:tw-max-w-[460px] md:tw-text-left"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h1 className="tw-text-3xl sm:tw-text-4xl lg:tw-text-5xl tw-text-secondary lg:tw-leading-[1.17]">
+                        <h1 className="tw-text-3xl tw-text-secondary sm:tw-text-4xl lg:tw-text-5xl lg:tw-leading-[1.17]">
                             {headings[0].content}
                         </h1>
                     )}
                     {texts?.map((text) => (
                         <p
                             key={text.id}
-                            className="tw-text-md sm:tw-text-[16px] md:tw-text-lg tw-font-medium tw-leading-relaxed tw-text-secondary-light"
+                            className="tw-text-md tw-font-medium tw-leading-relaxed tw-text-secondary-light sm:tw-text-[16px] md:tw-text-lg"
                         >
                             {text.content}
                         </p>
@@ -46,7 +46,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images } }: TProps) => {
                     ))}
                 </motion.div>
                 <motion.div
-                    className="lg:tw-pt-[137px] tw-px-3.8 tw-pb-[50px] lg:tw-pb-[55px]"
+                    className="tw-px-3.8 tw-pb-[50px] lg:tw-pb-[55px] lg:tw-pt-[137px]"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}

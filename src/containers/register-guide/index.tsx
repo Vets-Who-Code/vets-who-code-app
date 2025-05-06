@@ -29,7 +29,7 @@ const RegisterGuideArea = ({
     const { trans1, trans2 } = useUI();
     return (
         <Section className="register-guide-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-12 tw-items-center tw-gap-[50px] lg:tw-gap-7.5">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-items-center tw-gap-[50px] lg:tw-grid-cols-12 lg:tw-gap-7.5">
                 <div className="tw-order-2 lg:tw-order-1 lg:tw-col-span-4">
                     {section_title && (
                         <AnimatedSectionTitle
@@ -60,7 +60,7 @@ const RegisterGuideArea = ({
                     ))}
                 </div>
                 <motion.div
-                    className="tw-order-1 lg:tw-order-2 lg:tw-col-span-8 tw-relative tw-z-10"
+                    className="tw-relative tw-z-10 tw-order-1 lg:tw-order-2 lg:tw-col-span-8"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -76,16 +76,16 @@ const RegisterGuideArea = ({
                         />
                     )}
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-left-[14%] tw-top-20 tw-w-[200px] tw-h-[200px] md:tw-w-[446px] md:tw-h-[446px]"
+                        className="tw-absolute tw-left-[14%] tw-top-20 -tw-z-1 tw-h-[200px] tw-w-[200px] md:tw-h-[446px] md:tw-w-[446px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-fill-pampas tw-w-full tw-h-full" />
+                        <Shape2 className="tw-h-full tw-w-full tw-fill-pampas" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-right-[15%] tw-w-20 tw-bottom-5 md:tw-w-auto md:tw-bottom-0"
+                        className="tw-absolute tw-bottom-5 tw-right-[15%] -tw-z-1 tw-w-20 md:tw-bottom-0 md:tw-w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,

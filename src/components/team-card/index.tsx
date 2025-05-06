@@ -29,7 +29,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                             color="dark"
                             size="lg"
                             tooltip
-                            className="tw-absolute tw-justify-center tw-bottom-5 tw-left-5 tw-right-5 tw-py-2.5 tw-opacity-0 tw-bg-white tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
+                            className="tw-absolute tw-bottom-5 tw-left-5 tw-right-5 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
                         >
                             {socials.map((social) => (
                                 <SocialLink

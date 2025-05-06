@@ -17,7 +17,7 @@ const FilterItems = ({ events }: TProps) => {
     const numberOfPages = Math.ceil(events.length / POSTS_PER_PAGE);
     return (
         <>
-            <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
+            <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
                 {events.length > 0 ? (
                     events
                         .slice(skip, limit)

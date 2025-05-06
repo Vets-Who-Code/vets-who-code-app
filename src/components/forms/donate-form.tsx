@@ -13,7 +13,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                 src="https://donorbox.org/embed/vetswhocode-donation?show_content=true"
                 name="vwc-donorbox"
                 seamless
-                className="tw-overflow-x-hidden tw-min-h-[900px] md:tw-min-h-[700px]"
+                className="tw-min-h-[900px] tw-overflow-x-hidden md:tw-min-h-[700px]"
             />
         </div>
     );

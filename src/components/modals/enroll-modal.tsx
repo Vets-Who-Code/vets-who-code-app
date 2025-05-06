@@ -16,7 +16,7 @@ const EnrollModal = ({ show, onClose }: TProps) => {
                 <ModalClose onClose={onClose}>x</ModalClose>
             </ModalHeader>
             <ModalBody className="tw-p-14 tw-text-center">
-                <i className="far fa-lock tw-text-8xl tw-text-primary tw-mb-7.5" />
+                <i className="far fa-lock tw-mb-7.5 tw-text-8xl tw-text-primary" />
                 <h5>You have enrolled in this course.</h5>
                 {!isLoggedIn && (
                     <p>

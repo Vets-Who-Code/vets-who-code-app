@@ -18,7 +18,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
     const { trans1, trans2 } = useUI();
     return (
         <Section className="team-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 lg:tw-grid-cols-[58.33%_minmax(38%,_1fr)] tw-gap-[50px] lg:tw-gap-7.5 tw-items-center">
+            <div className="tw-container tw-grid tw-grid-cols-1 tw-items-center tw-gap-[50px] lg:tw-grid-cols-[58.33%_minmax(38%,_1fr)] lg:tw-gap-7.5">
                 <motion.div
                     className="image-wrap tw-relative"
                     initial="offscreen"
@@ -32,16 +32,16 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         className="tw-mx-auto"
                     />
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-left-0 tw-top-[100px] tw-w-[120px] tw-h-[120px] lg:tw-top-[100px] lg:tw-w-[166px] lg:tw-h-[166px]"
+                        className="tw-absolute tw-left-0 tw-top-[100px] -tw-z-1 tw-h-[120px] tw-w-[120px] lg:tw-top-[100px] lg:tw-h-[166px] lg:tw-w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-fill-primary-light tw-w-full tw-h-full" />
+                        <Shape2 className="tw-h-full tw-w-full tw-fill-primary-light" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-top-[100px] tw-left-0 tw-w-[120px] lg:tw-w-auto"
+                        className="tw-absolute tw-left-0 tw-top-[100px] -tw-z-1 tw-w-[120px] lg:tw-w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -56,7 +56,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-z-10 tw-top-0 tw-right-0"
+                        className="tw-absolute tw-right-0 tw-top-0 tw-z-10"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -71,7 +71,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-left-1/2 -tw-bottom-5 tw-w-[120px] lg:-tw-bottom-[70px] lg:tw-w-auto"
+                        className="tw-absolute -tw-bottom-5 tw-left-1/2 -tw-z-1 tw-w-[120px] lg:-tw-bottom-[70px] lg:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -86,7 +86,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-z-1 tw-bottom-15 tw-left-0 tw-w-[120px] lg:-tw-left-[214px] lg:tw-w-auto"
+                        className="tw-absolute tw-bottom-15 tw-left-0 -tw-z-1 tw-w-[120px] lg:-tw-left-[214px] lg:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,

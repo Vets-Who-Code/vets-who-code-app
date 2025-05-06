@@ -30,7 +30,7 @@ const FunfactArea = ({ data: { section_title, items }, space, bg, titleSize }: T
                 />
             )}
 
-            <div className="tw-grid md:tw-grid-cols-3 lg:tw-w-3/4 tw-mx-auto tw-gap-[30px]">
+            <div className="tw-mx-auto tw-grid tw-gap-[30px] md:tw-grid-cols-3 lg:tw-w-3/4">
                 {items?.map((item) => (
                     <AnimatedFunFact
                         key={item.id}

@@ -50,7 +50,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                         {items.map((item) => (
                             <SwiperSlide
                                 key={item.id}
-                                className="tw-flex tw-justify-center tw-my-auto"
+                                className="tw-my-auto tw-flex tw-justify-center"
                             >
                                 <img
                                     className="tw-transition-all hover:tw-saturate-[1%]"

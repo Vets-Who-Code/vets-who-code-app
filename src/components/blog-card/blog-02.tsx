@@ -11,15 +11,15 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, path, category, postedAt, image, className }, ref) => (
         <div
             className={clsx(
-                "blog-card tw-grid tw-relative tw-overflow-hidden tw-transition-all tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5 tw-group",
+                "blog-card tw-group tw-relative tw-grid tw-overflow-hidden tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5 tw-transition-all",
                 className
             )}
             ref={ref}
         >
             {image?.src ? (
-                <figure className="tw-relative tw-overflow-hidden tw-row-span-full tw-col-span-full after:tw-absolute after:tw-content-[''] after:tw-inset-0 after:tw-bg-darkGradient">
+                <figure className="tw-relative tw-col-span-full tw-row-span-full tw-overflow-hidden after:tw-absolute after:tw-inset-0 after:tw-bg-darkGradient after:tw-content-['']">
                     <img
-                        className="tw-w-full tw-transition-transform tw-duration-1500 tw-h-[680px] tw-object-cover group-hover:tw-scale-110"
+                        className="tw-h-[680px] tw-w-full tw-object-cover tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
                         src={image.src}
                         alt={image?.alt || title}
                         width={image?.width || 500}
@@ -31,23 +31,23 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </figure>
             ) : (
-                <div className="tw-bg-dark/40 tw-row-span-full" />
+                <div className="tw-row-span-full tw-bg-dark/40" />
             )}
 
-            <div className="tw-py-6.1 tw-px-7.5 lg:tw-pt-5 lg:tw-pb-[54px] lg:tw-px-[38px] tw-row-span-full tw-col-span-full tw-z-10 tw-flex tw-flex-col tw-justify-end">
+            <div className="tw-z-10 tw-col-span-full tw-row-span-full tw-flex tw-flex-col tw-justify-end tw-px-7.5 tw-py-6.1 lg:tw-px-[38px] lg:tw-pb-[54px] lg:tw-pt-5">
                 <Anchor
                     path={category.path}
-                    className="tw-font-medium tw-block tw-mb-1 -tw-tracking-tightest tw-uppercase tw-text-white hover:tw-text-white"
+                    className="tw-mb-1 tw-block tw-font-medium tw-uppercase -tw-tracking-tightest tw-text-white hover:tw-text-white"
                 >
                     {category.title}
                 </Anchor>
-                <h3 className="tw-text-xl tw-leading-normal lg:tw-text-[34px] lg:tw-leading-[1.42] tw-text-white tw-mb-0">
+                <h3 className="tw-mb-0 tw-text-xl tw-leading-normal tw-text-white lg:tw-text-[34px] lg:tw-leading-[1.42]">
                     <Anchor className="hover:tw-text-white" path={path}>
                         {title}
                     </Anchor>
                 </h3>
                 <ul>
-                    <li className="tw-text-md tw-mt-3.8 tw-text-white tw-mb-0">
+                    <li className="tw-mb-0 tw-mt-3.8 tw-text-md tw-text-white">
                         <i className="far fa-calendar tw-mr-2.5" />
                         {postedAt}
                     </li>

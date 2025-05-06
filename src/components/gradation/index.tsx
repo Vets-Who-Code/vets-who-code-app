@@ -17,24 +17,24 @@ const Gradation = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "tw-relative tw-flex tw-items-start lg:tw-block tw-group",
+                    "tw-group tw-relative tw-flex tw-items-start lg:tw-block",
                     className
                 )}
                 ref={ref}
             >
-                <div className="tw-absolute tw-bg-gray-550 tw-left-[39px] tw-top-3.8 tw-h-full tw-w-px lg:tw-w-full lg:tw-h-px lg:tw-top-6 lg:tw-left-3.8 group-last:tw-hidden" />
-                <div className="tw-mb-14 tw-inline-block tw-relative">
-                    <div className="mask tw-opacity-0 tw-invisible group-hover:tw-opacity-100 group-hover:tw-visible">
+                <div className="tw-absolute tw-left-[39px] tw-top-3.8 tw-h-full tw-w-px tw-bg-gray-550 group-last:tw-hidden lg:tw-left-3.8 lg:tw-top-6 lg:tw-h-px lg:tw-w-full" />
+                <div className="tw-relative tw-mb-14 tw-inline-block">
+                    <div className="mask tw-invisible tw-opacity-0 group-hover:tw-visible group-hover:tw-opacity-100">
                         <div
                             className={clsx(
-                                "tw-w-px tw-h-0 tw-my-0 tw-x-auto",
+                                "tw-x-auto tw-my-0 tw-h-0 tw-w-px",
                                 beforeClass,
                                 afterClass
                             )}
                         />
                         <div
                             className={clsx(
-                                "tw-w-px tw-h-0 tw-my-0 tw-x-auto",
+                                "tw-x-auto tw-my-0 tw-h-0 tw-w-px",
                                 beforeClass,
                                 afterClass,
                                 "before:tw-animate-[gradationMask_3s_linear__infinite] after:tw-animate-[gradationMask_3s_linear_1.2s_infinite]"
@@ -42,7 +42,7 @@ const Gradation = forwardRef<HTMLDivElement, TProps>(
                         />
                         <div
                             className={clsx(
-                                "tw-w-px tw-h-0 tw-my-0 tw-x-auto",
+                                "tw-x-auto tw-my-0 tw-h-0 tw-w-px",
                                 beforeClass,
                                 afterClass,
                                 "before:tw-animate-[gradationMask_3s_linear_2.4s_infinite] after:tw-animate-[gradationMask_3s_linear_2.4s_infinite]"
@@ -50,14 +50,14 @@ const Gradation = forwardRef<HTMLDivElement, TProps>(
                         />
                     </div>
                     {number && (
-                        <h4 className="tw-relative tw-z-1 tw-w-12 tw-h-12 tw-leading-[44px] tw-text-center tw-border-2 tw-border-gray-600 tw-bg-white tw-rounded-full tw-text-lg tw-mb-0 tw-transition-all group-hover:tw-bg-primary group-hover:tw-border-primary group-hover:tw-text-white">
+                        <h4 className="tw-relative tw-z-1 tw-mb-0 tw-h-12 tw-w-12 tw-rounded-full tw-border-2 tw-border-gray-600 tw-bg-white tw-text-center tw-text-lg tw-leading-[44px] tw-transition-all group-hover:tw-border-primary group-hover:tw-bg-primary group-hover:tw-text-white">
                             {number}
                         </h4>
                     )}
                 </div>
-                <div className="tw-pt-2.5 tw-pb-[50px] tw-pr-0 tw-pl-7.5 group-last:tw-pb-0 lg:tw-p-0">
+                <div className="tw-pb-[50px] tw-pl-7.5 tw-pr-0 tw-pt-2.5 group-last:tw-pb-0 lg:tw-p-0">
                     {title && (
-                        <h3 className="tw-text-lg tw-font-bold tw-leading-relaxed tw-text-secondary tw-mb-[9px]">
+                        <h3 className="tw-mb-[9px] tw-text-lg tw-font-bold tw-leading-relaxed tw-text-secondary">
                             {title}
                         </h3>
                     )}

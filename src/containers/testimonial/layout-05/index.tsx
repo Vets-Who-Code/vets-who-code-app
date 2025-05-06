@@ -65,16 +65,16 @@ const TestimonialArea = ({ data: { section_title, items }, space, bg, titleSize 
                     </AnimatedSwiperSlider>
                 )}
                 <motion.div
-                    className="tw-absolute -tw-z-1 tw-top-24 tw-left-[100] tw-w-[166px] tw-h-[166px]"
+                    className="tw-absolute tw-left-[100] tw-top-24 -tw-z-1 tw-h-[166px] tw-w-[166px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <Shape2 className="tw-fill-tan tw-w-full tw-h-full" />
+                    <Shape2 className="tw-h-full tw-w-full tw-fill-tan" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute -tw-z-1 tw-bottom-0 tw-left-44 tw-w-[124px]"
+                    className="tw-absolute tw-bottom-0 tw-left-44 -tw-z-1 tw-w-[124px]"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,

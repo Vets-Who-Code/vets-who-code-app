@@ -3,7 +3,10 @@ title: "In 2025, Just Having a Portfolio Won't Cut It: Show Evidence of Your Ski
 postedAt: "2025-01-12T12:00:00.000Z"
 author: "Jerome Hardaway"
 description: "In 2025, employers need more than portfolios—they want evidence of your skills, learning, and problem-solving ability. Learn how to showcase your value with an evidence-based framework."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1736709455/evidence-based_j4ucdv.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1736709455/evidence-based_j4ucdv.jpg",
+    }
 category: "Career Development"
 tags:
     - Career Advice
@@ -11,7 +14,6 @@ tags:
     - Networking
     - Evidence-Based Framework
 is_featured: true
-
 ---
 
 ### In 2025, Just Having a Portfolio Won't Cut It: Show Evidence of Your Skills
@@ -30,24 +32,27 @@ Here’s how you can start:
 
 1. **Create Polished Artifacts**
 
-   Build small but impactful pieces that showcase your abilities. This could include:
-   - Code snippets addressing specific problems.
-   - Detailed write-ups about your projects.
-   - Small, polished apps that emphasize quality over quantity.
+    Build small but impactful pieces that showcase your abilities. This could include:
+
+    - Code snippets addressing specific problems.
+    - Detailed write-ups about your projects.
+    - Small, polished apps that emphasize quality over quantity.
 
 2. **Explain Your Decisions**
 
-   Document your work with blogs, videos, or even simple posts on LinkedIn. For example:
-   - If your portfolio has a specific color palette, write about why you chose those colors, the psychology behind them, and how they reflect your branding.
-   - Share how you researched technologies for a project and why you picked specific tools over others.
-   - Discuss design choices, such as where and why you’ve incorporated white space.
+    Document your work with blogs, videos, or even simple posts on LinkedIn. For example:
+
+    - If your portfolio has a specific color palette, write about why you chose those colors, the psychology behind them, and how they reflect your branding.
+    - Share how you researched technologies for a project and why you picked specific tools over others.
+    - Discuss design choices, such as where and why you’ve incorporated white space.
 
 3. **Showcase Your Learning Journey**
 
-   Let’s say you’re learning scripting to solve a workflow problem. Turn that process into an artifact:
-   - Write about the problem you wanted to solve.
-   - Share your first script, explain how it works, and reflect on what you learned.
-   - Make the artifact public, inviting others to learn from or improve your work.
+    Let’s say you’re learning scripting to solve a workflow problem. Turn that process into an artifact:
+
+    - Write about the problem you wanted to solve.
+    - Share your first script, explain how it works, and reflect on what you learned.
+    - Make the artifact public, inviting others to learn from or improve your work.
 
 This approach demonstrates your technical skills and highlights your ability to communicate, collaborate, and learn—all qualities employers value.
 
@@ -63,6 +68,7 @@ Every piece of feedback improves your work and strengthens your professional rel
 #### Proven Success at Vets Who Code
 
 At Vets Who Code, we’ve seen firsthand the power of this evidence-based framework. When we implemented this approach, our success rates soared. The evidence speaks for itself:
+
 - Participants who published weekly blogs or code snippets demonstrated their progress, leading to 40% faster job placement.
 - Those actively sharing these pieces externally grew their networks by an average of 300% in six months.
 - Graduates using this approach landed roles an average of 4 months faster than those who didn’t.

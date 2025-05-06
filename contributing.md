@@ -19,19 +19,19 @@ Our community has a [Code of Conduct](code_of_conduct.md), and we ask that you r
 
 ## Getting Started
 
--   Make sure you have a [GitHub account](https://github.com/).
--   Fork the repository on GitHub.
--   Clone your fork to your local machine.
+- Make sure you have a [GitHub account](https://github.com/).
+- Fork the repository on GitHub.
+- Clone your fork to your local machine.
 
 ## Reporting Bugs
 
--   Ensure the bug hasn't already been reported by searching the Issues.
--   If the bug hasn't been reported, open a new Issue. Be sure to provide a clear title, a detailed description, and steps to reproduce the issue.
+- Ensure the bug hasn't already been reported by searching the Issues.
+- If the bug hasn't been reported, open a new Issue. Be sure to provide a clear title, a detailed description, and steps to reproduce the issue.
 
 ## Feature Requests
 
--   Check if the feature has already been requested.
--   If it hasn't, open a new Issue with a clear title and detailed description of the feature you'd like to see.
+- Check if the feature has already been requested.
+- If it hasn't, open a new Issue with a clear title and detailed description of the feature you'd like to see.
 
 ## Pull Request Process
 
@@ -44,13 +44,13 @@ Our community has a [Code of Conduct](code_of_conduct.md), and we ask that you r
 
 ## Code Style and Linting
 
--   We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
--   Run the linter before submitting a PR to ensure your code passes.
+- We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
+- Run the linter before submitting a PR to ensure your code passes.
 
 ## Testing
 
--   Add tests for any new features or fixes.
--   Ensure all tests pass before submitting a PR.
+- Add tests for any new features or fixes.
+- Ensure all tests pass before submitting a PR.
 
 ## Further Help
 

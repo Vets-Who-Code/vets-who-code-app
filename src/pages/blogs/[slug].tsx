@@ -53,7 +53,7 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                 currentPage={blog.title}
                 title="Blog"
             />
-            <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] tw-grid tw-grid-cols-3 tw-gap-7.5 lg:tw-gap-15">
+            <div className="tw-container tw-grid tw-grid-cols-3 tw-gap-7.5 tw-pb-15 md:tw-pb-20 lg:tw-gap-15 lg:tw-pb-[100px]">
                 <div className="tw-col-span-full lg:tw-col-[1/3]">
                     <BlogDetailsArea {...blog} />
                     <BlogAuthor {...blog.author} />

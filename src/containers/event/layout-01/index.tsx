@@ -32,10 +32,10 @@ const EventArea = ({ data: { events, allEvents, totalEvents, pagiData } }: TProp
         <Section className="events-area" space="bottom">
             <h2 className="tw-sr-only">Event Section</h2>
             <div className="tw-container">
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-items-center tw-mb-5">
+                <div className="tw-mb-5 tw-grid tw-grid-cols-1 tw-items-center md:tw-grid-cols-2">
                     <p className="tw-mb-2.5">We found {count} events available for you</p>
                     <NiceSelect
-                        className="tw-w-[270px] md:tw-ml-auto tw-mb-2.5"
+                        className="tw-mb-2.5 tw-w-[270px] md:tw-ml-auto"
                         options={[
                             {
                                 label: "All",

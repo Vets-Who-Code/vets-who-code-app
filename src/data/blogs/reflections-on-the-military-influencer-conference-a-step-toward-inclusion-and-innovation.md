@@ -12,7 +12,6 @@ tags:
     - Technology
     - Veterans
 is_featured: true
-
 ---
 
 The Military Influencer Conference (MIC) was a dynamic and exciting event that shattered my expectations of what military-focused gatherings could be. Known as the premier gathering for veteran entrepreneurs, creators, military spouses, and community leaders, MIC fosters collaboration, innovation, and professional development across a broad spectrum of industries. Far from the usual military event dominated by a homogeneous group of veterans fitting a predictable mold, MIC was a refreshing departure that set a new standard for inclusion and forward-thinking in military spaces.
