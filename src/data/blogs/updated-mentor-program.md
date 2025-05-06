@@ -17,33 +17,6 @@ tags:
 is_featured: true
 ---
 
-<div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
-  <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
-    🎙️ <span style="margin-left: 0.5rem;">Vets Who Code Mentorship Audio Brief</span>
-  </h2>
-  <p style="font-size: 0.875rem; color: #cbd5e1; margin-bottom: 1rem;">
-    Learn how our Mentorship Program helps veterans and military spouses break into tech with real support, tactical guidance, and a system built for outcomes.
-  </p>
-  <audio controls style="width: 100%; border-radius: 0.5rem;">
-    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1746493982/empowering-veterans-in-2025-the-vets-who-code-mentorship-program_ihomfk.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-  </audio>
-  <p style="margin-top: 1rem; font-size: 0.875rem;">
-    <a href="https://res.cloudinary.com/vetswhocode/video/upload/v1746493982/empowering-veterans-in-2025-the-vets-who-code-mentorship-program_ihomfk.m4a" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #cbd5e1;">
-      Or open in new tab
-    </a>
-  </p>
-</div>
-
-<p><strong>Time to read: 8 minutes</strong></p>  
-<p><strong>Key Takeaways:</strong></p>
-
-<ul>
-  <li>Why most veteran coding programs are broken—and how we fix it</li>
-  <li>The principle behind our mentorship model and how it supports real growth</li>
-  <li>How to join as a mentor or mentee and what to expect from the program</li>
-</ul>
-
 In 2025, most veteran coding programs still follow the same failed playbook: Pack a classroom with transitioning service members, rush through outdated curriculum, and chase VET TEC dollars while ignoring real outcomes. The result? Veterans left holding certificates but lacking the practical skills employers demand.
 
 As Executive Director of Vets Who Code, I've seen what it takes to help people transition successfully into tech; I've trained over 300 veterans and military spouses and watched many grow into senior engineers, engineering managers, and even mentors themselves. Their success came from something most boot camps don't provide: personalized guidance from developers who remember exactly what it's like to be a few steps behind where they are now. Their practical skills are often outdated, and those promises collapse under real-world pressure without a degree or alumni network to fall back on.
