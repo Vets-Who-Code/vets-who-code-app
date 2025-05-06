@@ -5,14 +5,14 @@ on:
     pull_request:
         branches: [main, master]
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
     test:
         timeout-minutes: 60
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            
+
             - name: Cache node modules
               uses: actions/cache@v4
               env:
@@ -26,17 +26,17 @@ jobs:
                       ${{ runner.os }}-build-${{ env.cache-name }}-
                       ${{ runner.os }}-build-
                       ${{ runner.os }}-
-            
+
             - uses: actions/setup-node@v3
               with:
-                  node-version-file: '.nvmrc'
-            
+                  node-version-file: ".nvmrc"
+
             - name: Install dependencies
               run: yarn
 
             - name: Run tests
               run: yarn test
-            
+
             - name: Cache Playwright Browsers
               uses: actions/cache@v4
               with:
@@ -45,15 +45,15 @@ jobs:
                   key: ${{ runner.os }}-playwright-${{ hashFiles('**/yarn.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-playwright-
-            
+
             - name: Install Playwright and browsers
               run: yarn playwright install --with-deps chromium firefox
-            
+
             - name: Run Playwright tests
               run: |
-                yarn build
-                yarn playwright test --project=chromium --project=firefox
-            
+                  yarn build
+                  yarn playwright test --project=chromium --project=firefox
+
             - uses: actions/upload-artifact@v4
               if: always()
               with:

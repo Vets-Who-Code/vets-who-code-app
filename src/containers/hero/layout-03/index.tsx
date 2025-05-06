@@ -21,25 +21,25 @@ const HeroArea = ({ data: { headings, buttons, images } }: TProps) => {
                         src={images[0].src}
                         alt={images[0]?.alt || "bg"}
                         loading="eager"
-                        className="tw-w-full tw-h-full tw-object-cover"
+                        className="tw-h-full tw-w-full tw-object-cover"
                     />
                 )}
             </div>
             <motion.div
-                className="tw-container tw-text-center tw-relative"
+                className="tw-container tw-relative tw-text-center"
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.1 }}
                 variants={scrollUpVariants}
             >
                 {headings?.[0]?.content && (
-                    <span className="tw-text-[26px] -tw-tracking-tightest sm:tw-tracking-[3px] lg:tw-tracking-normal lg:tw-text-[34px] tw-leading-none tw-font-bold tw-text-white tw-block tw-mb-2.5">
+                    <span className="tw-mb-2.5 tw-block tw-text-[26px] tw-font-bold tw-leading-none -tw-tracking-tightest tw-text-white sm:tw-tracking-[3px] lg:tw-text-[34px] lg:tw-tracking-normal">
                         {headings[0].content}
                     </span>
                 )}
                 {headings?.[1]?.content && (
                     <h1
-                        className="tw-text-[34px] sm:tw-text-[46px] lg:tw-text-[54px] xl:tw-text-[64px] tw-leading-none tw-font-normal tw-text-white"
+                        className="tw-text-[34px] tw-font-normal tw-leading-none tw-text-white sm:tw-text-[46px] lg:tw-text-[54px] xl:tw-text-[64px]"
                         dangerouslySetInnerHTML={{
                             __html: headings[1].content,
                         }}

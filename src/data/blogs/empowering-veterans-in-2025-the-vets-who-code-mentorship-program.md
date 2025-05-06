@@ -3,7 +3,10 @@ title: "Empowering Veterans in 2025: The Vets Who Code Mentorship Program"
 postedAt: "2025-05-05T00:00:00.000Z"
 author: "Jerome Hardaway"
 description: "Why Vets Who Code’s new mentorship model is changing the game for veteran developers by focusing on tactical guidance from recently transitioned engineers."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746411634/vwc-mentorship-program_ywhqsa.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746411634/vwc-mentorship-program_ywhqsa.jpg",
+    }
 category: "Mentorship"
 tags:
     - veterans
@@ -57,17 +60,17 @@ Whether you're a veteran who wants to accelerate your transition into tech or a 
 
 Here's what you can expect:
 
-- Structured pair programming sessions focused on growth, not perfection.  
-- Weekly check-ins that drive accountability and progress.  
-- Real mentorship—conversations beyond syntax and into systems thinking, career strategy, and business context.  
-- Matching is based on proximity of experience, not arbitrary titles.  
+- Structured pair programming sessions focused on growth, not perfection.
+- Weekly check-ins that drive accountability and progress.
+- Real mentorship—conversations beyond syntax and into systems thinking, career strategy, and business context.
+- Matching is based on proximity of experience, not arbitrary titles.
 
 ### Our Track Record
 
-- 10 Years of experience supporting veterans in tech.  
-- 300+ Veterans trained and mentored.  
-- 10+ Subjects taught, from frontend engineering to APIs and deployment.  
-- 90% Satisfaction Rate—and we aim higher every year.  
+- 10 Years of experience supporting veterans in tech.
+- 300+ Veterans trained and mentored.
+- 10+ Subjects taught, from frontend engineering to APIs and deployment.
+- 90% Satisfaction Rate—and we aim higher every year.
 
 We've done the work, refined the process, and are now scaling it because every veteran deserves a pathway into tech that doesn't rely on luck, outdated curriculum, or hollow promises.
 

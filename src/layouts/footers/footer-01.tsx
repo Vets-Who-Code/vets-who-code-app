@@ -11,7 +11,7 @@ const Footer01 = ({ mode }: TProps) => {
     return (
         <footer
             className={clsx(
-                "tw-pt-[70px] tw-pb-[50px]",
+                "tw-pb-[50px] tw-pt-[70px]",
                 mode === "dark" && "tw-bg-dark-100",
                 mode === "light" && "tw-bg-light-100"
             )}
@@ -21,18 +21,18 @@ const Footer01 = ({ mode }: TProps) => {
                 <div className="tw-grid tw-grid-cols-12">
                     <TextWidget
                         mode={mode}
-                        className="tw-col-span-12 lg:tw-col-span-5 xl:tw-col-span-5 tw-mb-[43px]"
+                        className="tw-col-span-12 tw-mb-[43px] lg:tw-col-span-5 xl:tw-col-span-5"
                     />
                     <TwoColumnListWidget
                         mode={mode}
-                        className="tw-col-span-12 md:tw-col-span-7 lg:tw-col-span-4 xl:tw-col-span-3 tw-mb-[25px]"
+                        className="tw-col-span-12 tw-mb-[25px] md:tw-col-span-7 lg:tw-col-span-4 xl:tw-col-span-3"
                     />
 
                     <ListWidget
                         mode={mode}
-                        className="tw-col-span-12 md:tw-col-span-5 lg:tw-col-span-3 tw-mb-7.5"
+                        className="tw-col-span-12 tw-mb-7.5 md:tw-col-span-5 lg:tw-col-span-3"
                     />
-                    <div className="maxSm:tw-col-span-3 sm:tw-col-span-2 xl:tw-col-span-1">
+                    <div className="sm:tw-col-span-2 xl:tw-col-span-1 maxSm:tw-col-span-3">
                         <img
                             src="https://res.cloudinary.com/vetswhocode/image/upload/v1705549609/candid-seal-platinum-2024_wexkdk.png"
                             alt="Candid Seal Platinum Award"
@@ -40,13 +40,13 @@ const Footer01 = ({ mode }: TProps) => {
                         />
                     </div>
                 </div>
-                <p className="copyright tw-text-center tw-text-md tw-text-gray-400 tw-mt-5">
+                <p className="copyright tw-mt-5 tw-text-center tw-text-md tw-text-gray-400">
                     &copy; {new Date().getFullYear()} Vets Who Code{" "}
                     <a target="_blank" rel="noopener noreferrer" href="https://www.vetswhocode.io/">
                         All Rights Reserved
                     </a>
                 </p>
-                <p className="copyright tw-text-center tw-text-md tw-text-gray-400 mt-n5">
+                <p className="copyright mt-n5 tw-text-center tw-text-md tw-text-gray-400">
                     Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
                     Donations are tax-deductible to the fullest extent allowable under the law.
                 </p>

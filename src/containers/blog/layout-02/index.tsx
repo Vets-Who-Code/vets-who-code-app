@@ -24,7 +24,7 @@ const BlogArea = ({
 }: TProps) => {
     return (
         <Section className="blog-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
+            <div className="tw-container tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
                 <motion.div
                     initial="offscreen"
                     whileInView="onscreen"
@@ -43,10 +43,10 @@ const BlogArea = ({
                         <Anchor
                             key={path}
                             path={path}
-                            className="tw-block tw-relative tw-font-bold tw-leading-[1.78] tw-pl-7.5 tw-text-secondary tw-mt-5 first:tw-mt-0 tw-group"
+                            className="tw-group tw-relative tw-mt-5 tw-block tw-pl-7.5 tw-font-bold tw-leading-[1.78] tw-text-secondary first:tw-mt-0"
                         >
-                            <i className="fa fa-long-arrow-alt-right tw-text-base tw-absolute tw-left-0 tw-top-[5px] tw-transition-all tw-duration-300 group-hover:tw-opacity-0 group-hover:tw-invisible group-hover:tw-translate-x-full" />
-                            <i className="fa fa-long-arrow-alt-right tw-text-base tw-text-primary tw-absolute tw-left-0 tw-top-[5px] tw-transition-all tw-duration-300 tw-opacity-0 tw-invisible -tw-translate-x-full group-hover:tw-opacity-100 group-hover:tw-visible group-hover:tw-translate-x-0" />
+                            <i className="fa fa-long-arrow-alt-right tw-absolute tw-left-0 tw-top-[5px] tw-text-base tw-transition-all tw-duration-300 group-hover:tw-invisible group-hover:tw-translate-x-full group-hover:tw-opacity-0" />
+                            <i className="fa fa-long-arrow-alt-right tw-invisible tw-absolute tw-left-0 tw-top-[5px] -tw-translate-x-full tw-text-base tw-text-primary tw-opacity-0 tw-transition-all tw-duration-300 group-hover:tw-visible group-hover:tw-translate-x-0 group-hover:tw-opacity-100" />
                             <span>{title}</span>
                         </Anchor>
                     ))}

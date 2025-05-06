@@ -8,26 +8,32 @@ export const normalizedData = <T extends Record<string, unknown>>(
     data: T[],
     identifier: keyof T
 ): { [key: string]: SectionType } => {
-    return data.reduce((allContent, item) => {
-        // Remove null properties and create a new object
-        const cleanedObj = Object.entries(item).reduce((acc, [key, value]) => {
-            if (value !== null) {
-                acc[key] = value;
-            }
-            return acc;
-        }, {} as Record<string, unknown>);
+    return data.reduce(
+        (allContent, item) => {
+            // Remove null properties and create a new object
+            const cleanedObj = Object.entries(item).reduce(
+                (acc, [key, value]) => {
+                    if (value !== null) {
+                        acc[key] = value;
+                    }
+                    return acc;
+                },
+                {} as Record<string, unknown>
+            );
 
-        // Get the identifier value and ensure it's a string
-        const key = String(item[identifier]);
+            // Get the identifier value and ensure it's a string
+            const key = String(item[identifier]);
 
-        // Return the accumulated object with the new entry
-        return {
-            ...allContent,
-            [key]: {
-                ...cleanedObj,
-            },
-        };
-    }, {} as { [key: string]: SectionType });
+            // Return the accumulated object with the new entry
+            return {
+                ...allContent,
+                [key]: {
+                    ...cleanedObj,
+                },
+            };
+        },
+        {} as { [key: string]: SectionType }
+    );
 };
 
 export const slugify = (text: string): string => {

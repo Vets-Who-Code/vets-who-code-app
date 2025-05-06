@@ -17,7 +17,7 @@ type TProps = {
 
 const VideoArea = ({ data: { images, video, section_title } }: TProps) => {
     return (
-        <div className="tw-relative tw-z-10 tw-bg-gray-200 tw-mb-15 md:tw-mb-[140px]">
+        <div className="tw-relative tw-z-10 tw-mb-15 tw-bg-gray-200 md:tw-mb-[140px]">
             <div className="tw-container">
                 {section_title && (
                     <AnimatedSectionTitle
@@ -30,7 +30,7 @@ const VideoArea = ({ data: { images, video, section_title } }: TProps) => {
                     />
                 )}
                 <motion.div
-                    className="tw-relative tw-z-10 -tw-bottom-15 -tw-mt-15 md:-tw-bottom-[140px] md:-tw-mt-[140px]"
+                    className="tw-relative -tw-bottom-15 tw-z-10 -tw-mt-15 md:-tw-bottom-[140px] md:-tw-mt-[140px]"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}

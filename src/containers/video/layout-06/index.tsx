@@ -24,7 +24,7 @@ const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }:
 
     return (
         <div className="about-area tw-relative tw-pb-15 md:tw-pb-15 lg:tw-pb-[100px]">
-            <div className="tw-container tw-grid lg:tw-grid-cols-[62%_minmax(36%,_1fr)] tw-gap-[50px] lg:tw-gap-7.5 tw-items-center">
+            <div className="tw-container tw-grid tw-items-center tw-gap-[50px] lg:tw-grid-cols-[62%_minmax(36%,_1fr)] lg:tw-gap-7.5">
                 <div className="tw-relative">
                     {video && images?.[0] && (
                         <AnimatedVideo
@@ -38,16 +38,16 @@ const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }:
                         />
                     )}
                     <motion.div
-                        className="tw-absolute tw-z-1 tw-w-[120px] tw-h-[130px] tw-top-[-99px] tw-left-[-99px] sm:tw-top-[-90px] md:tw-w-[166px] md:tw-h-[166px] md:tw-top-[-46px]"
+                        className="tw-absolute tw-left-[-99px] tw-top-[-99px] tw-z-1 tw-h-[130px] tw-w-[120px] sm:tw-top-[-90px] md:tw-top-[-46px] md:tw-h-[166px] md:tw-w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-fill-gray-750 tw-w-full tw-h-full" />
+                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-750" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-z-1 tw-top-2 tw-left-[-65px] tw-w-[90px] tw-h-[90px] md:tw-w-auto md:tw-h-auto"
+                        className="tw-absolute tw-left-[-65px] tw-top-2 tw-z-1 tw-h-[90px] tw-w-[90px] md:tw-h-auto md:tw-w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -56,7 +56,7 @@ const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }:
                         <img src="/images/shape-animation/medal.svg" alt="" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-z-20 tw-top-0 -tw-right-2.5 md:tw-right-7.5"
+                        className="tw-absolute -tw-right-2.5 tw-top-0 tw-z-20 md:tw-right-7.5"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -71,7 +71,7 @@ const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }:
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-z-1 tw-right-0 -tw-bottom-15 tw-w-[85px] md:tw-w-auto"
+                        className="tw-absolute -tw-bottom-15 tw-right-0 tw-z-1 tw-w-[85px] md:tw-w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,

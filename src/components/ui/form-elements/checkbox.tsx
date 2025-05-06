@@ -41,7 +41,7 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
             <div className="custom-checkbox">
                 <label
                     className={cn(
-                        "tw-relative tw-block tw-leading-snug tw-pl-7 tw-cursor-pointer tw-max-w-fit",
+                        "tw-relative tw-block tw-max-w-fit tw-cursor-pointer tw-pl-7 tw-leading-snug",
                         className
                     )}
                 >
@@ -57,16 +57,16 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
                         onBlur={onBlur}
                         value={value}
                         ref={ref}
-                        className="tw-sr-only tw-peer"
+                        className="tw-peer tw-sr-only"
                         {...restProps}
                     />
                     <span
                         className={cn(
-                            "tw-leading-[18px] tw-w-[18px] tw-h-[18px] tw-absolute tw-left-0 tw-inline-block",
+                            "tw-absolute tw-left-0 tw-inline-block tw-h-[18px] tw-w-[18px] tw-leading-[18px]",
                             beforeClass,
                             disabledClass,
                             afterClass,
-                            "peer-checked:after:tw-scale-100 peer-checked:before:tw-border-primary peer-checked:before:tw-bg-white peer-hover:before:tw-border-primary"
+                            "peer-checked:before:tw-border-primary peer-checked:before:tw-bg-white peer-checked:after:tw-scale-100 peer-hover:before:tw-border-primary"
                         )}
                     />
                     {label}

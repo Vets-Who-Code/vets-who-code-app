@@ -30,7 +30,7 @@ const ServiceArea = ({ data: { section_title, items }, space, bg, titleSize }: T
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-7.5">
+                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
                     {items?.map((item) => (
                         <AnimatedServiceCard
                             key={item.id}
