@@ -1,4 +1,3 @@
-// Types for menu structure
 type MenuStatus = "hot" | "coming soon" | "new";
 
 interface MenuItem {
@@ -13,98 +12,86 @@ interface SubMenuItem extends MenuItem {
     submenu?: MenuItem[];
 }
 
-interface MegaMenuGroup {
-    id: number;
-    title: string;
-    submenu: MenuItem[];
-}
-
-interface BannerSection {
-    path: string;
-    image: {
-        src: string;
-        alt?: string;
-    };
-}
-
-interface MegaMenuItem extends MenuItem {
-    megamenu?: (MegaMenuGroup | { id: number; title: string; banner: BannerSection })[];
-}
-
-type NavigationItem = SubMenuItem | MegaMenuItem;
+type NavigationItem = SubMenuItem | MenuItem;
 
 const navigation: NavigationItem[] = [
     {
         id: 1,
+        label: "About",
+        path: "/about-us",
+    },
+    {
+        id: 2,
         label: "Train",
         path: "#!",
         submenu: [
             {
-                id: 11,
-                label: "Start Your Mission",
+                id: 101,
+                label: "Apply to Join",
                 path: "/apply",
             },
             {
-                id: 13,
+                id: 102,
                 label: "FAQ",
                 path: "/faq",
             },
         ],
     },
     {
-        id: 2,
+        id: 3,
         label: "Build",
         path: "#!",
         submenu: [
             {
-                id: 14,
+                id: 301,
                 label: "Open Source Projects",
                 path: "/projects",
             },
             {
-                id: 15,
+                id: 302,
                 label: "Subjects & Skills",
                 path: "/subjects/all",
             },
         ],
     },
     {
-        id: 3,
+        id: 4,
         label: "Lead",
         path: "#!",
         submenu: [
             {
-                id: 16,
+                id: 401,
                 label: "Become a Mentor",
                 path: "/mentor",
+                status: "hot",
             },
             {
-                id: 17,
-                label: "Donate",
-                path: "/donate",
-            },
-            {
-                id: 18,
+                id: 402,
                 label: "Events",
                 path: "/events",
             },
             {
-                id: 19,
+                id: 403,
                 label: "Stories",
                 path: "/blogs/blog",
             },
             {
-                id: 20,
+                id: 404,
                 label: "Contact",
                 path: "/contact-us",
             },
             {
-                id: 21,
+                id: 405,
                 label: "Shop",
                 path: "https://hashflag.shop/",
                 external: true,
             },
         ],
+    },
+    {
+        id: 5,
+        label: "Donate",
+        path: "/donate",
     },
 ];
 

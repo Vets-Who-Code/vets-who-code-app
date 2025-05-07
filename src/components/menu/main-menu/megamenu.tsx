@@ -1,7 +1,6 @@
 import { TMegaMenu } from "@utils/types";
 import clsx from "clsx";
 import Anchor from "@ui/anchor";
-import Badge from "@ui/badge";
 
 type TProps = React.HTMLAttributes<HTMLDivElement> & {
     className?: string;
@@ -42,17 +41,15 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                                         )}
                                     >
                                         {nav.label}
-                                        {nav.status && (
-                                            <Badge
-                                                color={
-                                                    nav.status === "hot" ? "gradient" : "primary"
-                                                }
-                                                size="xs"
-                                                variant="contained"
-                                                className="tw-ml-2.5 tw-font-bold tw-uppercase tw-tracking-wide"
+                                        {nav.status === "hot" && (
+                                            <span
+                                                className="tw-ml-2.5 tw-text-lg"
+                                                role="img"
+                                                aria-label="Priority Program"
+                                                title="Priority Program"
                                             >
-                                                {nav.status.toUpperCase()}
-                                            </Badge>
+                                                🎖️
+                                            </span>
                                         )}
                                     </Anchor>
                                 </li>
