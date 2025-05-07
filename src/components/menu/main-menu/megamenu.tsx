@@ -1,7 +1,6 @@
 import { TMegaMenu } from "@utils/types";
 import clsx from "clsx";
 import Anchor from "@ui/anchor";
-import Badge from "@ui/badge";
 
 type TProps = React.HTMLAttributes<HTMLDivElement> & {
     className?: string;
