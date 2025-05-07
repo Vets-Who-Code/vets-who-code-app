@@ -8,7 +8,7 @@
             "id": 1,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746070172/2_zc19qj.png"
               }
             ],
             "headings": [
@@ -32,7 +32,7 @@
             "id": 2,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746583132/14_ogbakk.png"
               }
             ],
             "headings": [
@@ -56,7 +56,7 @@
             "id": 3,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1710539370/vetswhocode-navyblue-banner.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746583127/12_ztvu6t.png"
               }
             ],
             "headings": [
@@ -89,23 +89,23 @@
             "id": 1,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489542/speaking_e1fnh7.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746583122/8_azjgpx.png"
               }
             ],
             "headings": [
               {
                 "id": 1,
-                "content": "Who We Are"
+                "content": "The Ordinary World"
               },
               {
                 "id": 2,
-                "content": "The Beginning"
+                "content": "Where We Started"
               }
             ],
             "texts": [
               {
                 "id": 1,
-                "content": "Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise. Inspired by \"To Teach a Man To Fish,\" we prepare transitioning veterans and military spouses for the workforce. We acknowledge their unique challenges as a \"vulnerable population\" due to outdated support systems. We proactively focus on empowering our troops and their families for success."
+                "content": "For years, veterans like us stepped out of uniform and into a civilian job market that spoke a language we didn't yet understand. Recruiters skimmed past our leadership stories, résumés disappeared into applicant‑tracking systems, and the gap between our disciplined experience and the tech roles we wanted felt wider than the ocean we once crossed. Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise, inspired by 'To Teach a Man To Fish,' we prepare transitioning veterans and military spouses for the workforce."
               }
             ]
           },
@@ -113,23 +113,23 @@
             "id": 2,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194680/megan-and-daymond_ignjfa.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746583127/10_khmgby.png"
               }
             ],
             "headings": [
               {
                 "id": 1,
-                "content": "Why We Do This"
+                "content": "The Call to Adventure"
               },
               {
                 "id": 2,
-                "content": "Our Motivation"
+                "content": "Building Our Bridge"
               }
             ],
             "texts": [
               {
                 "id": 1,
-                "content": "Our Motivation drives us at #VetsWhoCode, where our commitment is deeply rooted in addressing the challenges faced by transitioning veterans and military spouses. We don't just transform lives; we empower them towards rewarding careers in technology. By equipping our veterans with cutting-edge software skills, we're not only enhancing their prospects but also contributing to the economy and fostering innovation. Our passion for creating sustainable solutions extends beyond the scope of traditional programs, ensuring our students are fully equipped for success in the tech industry."
+                "content": "Instead of settling for 'thanks for your service,' a handful of us gathered on late‑night video calls and dared to ask, What if we built our own bridge? That question became Vets Who Code—a mission to transform military grit into world‑class software engineering skill. Doubt tried to ground us. Could a free, fully remote program really move veterans into top tech jobs? We were told it was impossible without massive tuition or fancy campuses. We pushed forward anyway, fueled by stubborn optimism and the knowledge that missions rarely start with perfect resources."
               }
             ]
           },
@@ -137,23 +137,23 @@
             "id": 3,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656268447/this_is_us_b8p2xl.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746583121/6_qi229q.png"
               }
             ],
             "headings": [
               {
                 "id": 1,
-                "content": "What We Do"
+                "content": "Tests and Allies"
               },
               {
                 "id": 2,
-                "content": "The Work"
+                "content": "The Journey"
               }
             ],
             "texts": [
               {
                 "id": 1,
-                "content": "Our approach at #VetsWhoCode is distinctively personal and effective. Founded by veterans who have personally navigated the challenging terrain of transitioning from military to civilian life, we offer a streamlined and highly selective software development training program. This program is uniquely designed to usher military veterans and their spouses into rewarding opportunities within the tech sector. Inspired by our own experiences, such as Jerome Hardaway's transformative journey through technology, we prioritize quality over quantity and tangible results over lofty ideals. It's not just about teaching coding; it's about changing lives with every line of code."
+                "content": "Our mentors emerged from the veteran community itself: senior engineers, tech leads, and hiring managers who had already made the leap. They guided us in translating NATO phonetics into JavaScript functions, after‑action reviews into code reviews, and squad tactics into agile collaboration. Daily pair‑programming sessions, weekend hack‑a‑thons, and live code audits forged our skills. Time‑zone differences, career doubts, and imposter syndrome tried to slow us down, but our ally network grew: mentors from Microsoft, GitHub, Salesforce, JP Morgan Chase, Chewy, Apple, Google, and CBS Interactive volunteered on Slack at zero‑dark‑thirty to keep us moving."
               }
             ]
           },
@@ -161,23 +161,47 @@
             "id": 4,
             "images": [
               {
-                "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1595194682/obama_vz8qup.jpg"
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746590042/4_a79tb5.png"
               }
             ],
             "headings": [
               {
                 "id": 1,
-                "content": "How We Do This"
+                "content": "The Reward and Return"
               },
               {
                 "id": 2,
-                "content": "Accomplishing Our Mission"
+                "content": "Full Circle Impact"
               }
             ],
             "texts": [
               {
                 "id": 1,
-                "content": "At #VetsWhoCode, we embrace a modernized \"Crawl, Walk, Run\" strategy tailored for today's tech landscape, ensuring that veterans and military spouses evolve into proficient programmers ready for the industry's challenges. Our approach is enriched by AI-driven methodologies and an automation-powered curriculum, designed to simulate real-world tech environments. This hands-on, project-based learning, guided by a network of instructors, veteran programmers, and successful alums, focuses on income-generating skills that directly translate to career success. Our mission extends beyond reintegration; we're dedicated to empowering veterans to drive innovation in local economies and close the digital talent gap. With #VetsWhoCode, veterans are not just prepared for jobs; they're equipped for gratifying careers in the digital economy, setting new standards of excellence and creativity."
+                "content": "Every veteran faces a crucible project—building a full‑stack application under real‑world constraints. Graduates emerge with production portfolios, lifelong allies, and offer letters that turn service stripes into six‑figure salaries. Collectively, alumni have earned more than twenty million dollars and injected veteran leadership into some of the most influential engineering teams on Earth. But the journey doesn't end at first employment. Alumni return as mentors and donors, passing on their knowledge and financially supporting those who follow. They prototype new tools—like our AI‑augmented Nonprofit‑as‑a‑Service platform and Mission UI design system—to scale impact beyond borders."
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "images": [
+              {
+                "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746590043/9_ahefah.png"
+              }
+            ],
+            "headings": [
+              {
+                "id": 1,
+                "content": "Return with the Elixir"
+              },
+              {
+                "id": 2,
+                "content": "Our Vision Forward"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "A decade in, Vets Who Code has evolved into a remote‑first, AI‑enabled nonprofit that treats veterans as stakeholders, not charity cases. We blend human mentorship with machine intelligence to personalize learning and keep our Field Manual evergreen.\n\n By 2030 we will arm ten‑thousand veterans with high‑value tech skills, generate a billion dollars in lifetime earnings for alumni, and prove that nonprofits can scale like startups—powered by talent, trust, and tech. If you're a veteran staring at the civilian tech world and wondering where you fit, your call to adventure has arrived. Join us, cross the threshold, and write the next chapter of your mission in code."
               }
             ]
           }
@@ -186,8 +210,8 @@
       {
         "section": "cta-area",
         "section_title": {
-          "title": "Your support can transform lives. By backing #VetsWhoCode, you're investing in the futures of veterans and their spouses, empowering them for success in the tech industry. Together, we can close the educational gap and effect meaningful, lasting change. Donate today and become a catalyst for positive transformation, aiding our heroes in acquiring the tech skills necessary for a thriving career.",
-          "subtitle": "How can <strong>YOU</strong> help?"
+          "title": "Your investment today creates tomorrow's software engineers. Every dollar you contribute to #VetsWhoCode doesn't just fund training—it transforms lives, families, and communities. Veterans who complete our program see an average salary increase of 400%, turning military precision into six-figure careers. When you donate, you're not giving charity; you're fueling a proven system that has already generated over twenty million dollars in collective earnings for those who served our country. Our graduates become mentors and donors themselves, creating a self-sustaining cycle of success that multiplies your impact far beyond your initial contribution.<br></br> By 2030, with your help, we'll equip 10,000 veterans with cutting-edge tech skills, generate one billion dollars in lifetime earnings, and prove that nonprofits can scale like startups while maintaining their soul. Unlike traditional programs with high overhead, we're remote-first and tech-enabled—meaning more of your donation goes directly to veteran success. Our AI-augmented learning platform adapts to each veteran's unique background and learning style, maximizing educational outcomes while minimizing costs. Join our mission to transform military experience into tech excellence, close the digital talent gap, and help those who defended our freedom build America's innovation future. Your donation isn't just appreciated—it's leveraged, maximized, and transformed into sustainable careers that honor service through opportunity.",
+          "subtitle": "How can <strong>YOU</strong> join our mission?"
         },
         "buttons": [
           {
@@ -199,4 +223,3 @@
       }
     ]
   }
-  
