@@ -20,7 +20,7 @@ const ServiceArea = ({ data: { items, motto }, space, bg }: TProps) => {
         <Section className="service-area" space={space} bg={bg}>
             <div className="tw-container">
                 <h2 className="tw-sr-only">Service Section</h2>
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5 tw-relative tw-z-10 tw-top-[-90px] tw-mb-[-90px] xl:tw-top-[-125px] xl:tw-mb-[-125px]">
+                <div className="tw-relative tw-top-[-90px] tw-z-10 tw-mb-[-90px] tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-top-[-125px] xl:tw-mb-[-125px]">
                     {items?.map((item) => (
                         <AnimatedServiceCard
                             key={item.id}
@@ -40,7 +40,7 @@ const ServiceArea = ({ data: { items, motto }, space, bg }: TProps) => {
                 {motto && (
                     <AnimatedMottoText
                         {...motto}
-                        className="lg:tw-w-7/12 tw-mx-auto tw-text-center tw-mt-10"
+                        className="tw-mx-auto tw-mt-10 tw-text-center lg:tw-w-7/12"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
