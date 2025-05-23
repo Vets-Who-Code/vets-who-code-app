@@ -20,6 +20,24 @@ is_featured: true
 
 ## I Asked the Google DeepMind Team a Question—Their Answer Says Everything About the Future of AI and Vets Who Code
 
+<div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
+  <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
+    🎧 <span style="margin-left: 0.5rem;">Google I/O 2025 Audio Brief</span>
+  </h2>
+  <p style="font-size: 0.875rem; color: #cbd5e1; margin-bottom: 1rem;">
+    Listen to the audio version of our recap from Google I/O 2025 and what it means for AI and veteran empowerment.
+  </p>
+  <audio controls style="width: 100%; border-radius: 0.5rem;">
+    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1747973916/google-io-2025_dvdmck.wav" type="audio/wav" />
+    Your browser does not support the audio element.
+  </audio>
+  <p style="margin-top: 1rem; font-size: 0.875rem;">
+    <a href="https://res.cloudinary.com/vetswhocode/video/upload/v1747973916/google-io-2025_dvdmck.wav" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #cbd5e1;">
+      Or open in new tab
+    </a>
+  </p>
+</div>
+
 This week at Google I/O 2025, I had the opportunity to ask a question to the DeepMind leadership team during a private Fireside Chat about veterans reskilling and AI. Their response revealed a fundamental shift in how AI could transform career opportunities for military veterans and military spouses transitioning into software engineering. The implications go far beyond just our community at Vets Who Code—it speaks to how AI is reshaping access to technical careers for everyone.
 
 ### Why This Matters Now
