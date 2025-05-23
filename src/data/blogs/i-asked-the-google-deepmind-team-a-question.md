@@ -1,5 +1,5 @@
 ---
-title: "I Asked the Google DeepMind Team a Question—Their Answer Says Everything About the Future of AI and Vets Who Code"
+title: "My Question for DeepMind—and Their Powerful Answer"
 postedAt: "2025-05-22T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "What the DeepMind team revealed at Google I/O 2025 is shaping how Vets Who Code uses Gemini to empower veterans and military spouses for a future in tech."
@@ -18,7 +18,7 @@ tags:
 is_featured: true
 ---
 
-## I Asked the Google DeepMind Team a Question—Their Answer Says Everything About the Future of AI and Vets Who Code
+## My Question for DeepMind—and Their Powerful Answer
 
 <div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
   <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
