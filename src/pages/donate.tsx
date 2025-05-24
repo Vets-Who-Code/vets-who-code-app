@@ -6,15 +6,13 @@ import Breadcrumb from "@components/breadcrumb";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import DonateFormArea from "@containers/donate-form/layout-01";
 import ServiceArea from "@containers/service/layout-03";
-
+import ThankYouBlock from "@components/common/thank-you-block";
 import { normalizedData } from "@utils/methods";
-
 import { getPageData } from "../lib/page";
 
-// Updated interface with index signature
 interface PageContent {
     section: string;
-    [key: string]: unknown; // Add index signature to allow string indexing
+    [key: string]: unknown;
 }
 
 type TProps = {
@@ -31,16 +29,19 @@ type PageProps = NextPage<TProps> & {
 
 const Donate: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
+    const message =
+        "With your support, we help veterans find meaningful employment in technology while building a stronger tech community.";
 
     return (
         <>
-            <SEO title="Donate" />
+            <SEO title="Donate" description="Support veterans transitioning into tech" />
             <Breadcrumb
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Donate"
                 showTitle={false}
             />
             <DonateFormArea data={content?.["donorbox-area"]} space="none" />
+            <ThankYouBlock message={message} />
             <Wrapper className="tw-py-15">
                 <ServiceArea data={content?.["service-area"]} space="top" />
             </Wrapper>
