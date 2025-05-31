@@ -372,7 +372,7 @@ export interface GameState {
   currentFactIndex: number;
   selectedPlayerIndex: number | null;
   isGameOver: boolean;
-  currentAnswer: string | null; // Stores the player's selected answer for the current question
+  currentAnswer: MilitaryBranch | null; // Stores the player's selected answer for the current question
   showFeedback: boolean; // Whether to show feedback (Correct/Wrong)
 }
 
