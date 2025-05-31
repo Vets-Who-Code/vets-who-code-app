@@ -364,7 +364,7 @@ export interface Player {
 
 export interface Fact {
   fact: string;
-  answer: string; // Should be one of the six military branches
+  answer: MilitaryBranch; // Should be one of the six military branches
 }
 
 export interface GameState {
