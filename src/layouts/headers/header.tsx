@@ -35,11 +35,11 @@ const Header = ({ shadow, fluid }: TProps) => {
                 <div className="header-top tw-bg-gray-200 tw-py-2.5">
                     <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
                         <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
-                            Our Next Cohort
+                            Platform Launch + Vets Who Code Demo Day
                         </p>
                         <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
                             <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
-                            <CountdownTimer targetDate="2025/03/03" />
+                            <CountdownTimer targetDate="2025/11/11" />
                         </div>
                         <Button size="xs" path="/donate">
                             Donate
