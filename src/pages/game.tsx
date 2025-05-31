@@ -25,12 +25,15 @@ const GamePage = () => {
     const [feedbackMessage, setFeedbackMessage] = useState<string | null>(null);
     const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
     const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
+    const emojiRainTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
 
     // Clean up emoji rain effect when component unmounts
     useEffect(() => {
         return () => {
-            // This cleanup function will run when the component unmounts
-            setShowEmojiRain(false);
+            // Clear the timeout to prevent state updates after unmount
+            if (emojiRainTimeoutRef.current) {
+                clearTimeout(emojiRainTimeoutRef.current);
+            }
         };
     }, []);
 
