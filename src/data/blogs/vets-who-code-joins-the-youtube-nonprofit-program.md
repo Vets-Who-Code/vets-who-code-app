@@ -3,14 +3,14 @@ title: "Vets Who Code Joins the YouTube Nonprofit Program!"
 postedAt: "2025-02-13T12:00:00.000Z"
 author: "Vets Who Code"
 description: "Vets Who Code has officially joined the YouTube Nonprofit Program! This new opportunity allows us to expand our reach, provide more free coding education to veterans, and enhance our storytelling and fundraising capabilities."
-image: 
-  src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1739470035/youtube-program-header_zctrxo.jpg"
+image:
+    src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1739470035/youtube-program-header_zctrxo.jpg"
 category: "Announcements"
 tags:
-  - YouTube
-  - Nonprofit
-  - Veterans
-  - Coding
+    - YouTube
+    - Nonprofit
+    - Veterans
+    - Coding
 is_featured: true
 ---
 

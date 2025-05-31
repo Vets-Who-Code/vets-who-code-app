@@ -22,7 +22,7 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
             <div className="tw-container">
                 {blogs.length > 0 ? (
                     <>
-                        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-[30px]">
+                        <div className="tw-grid tw-grid-cols-1 tw-gap-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-3">
                             {itemsToShow?.map((blog) => (
                                 <AnimatedBlogCard
                                     key={blog.path}
@@ -38,7 +38,7 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                                 />
                             ))}
                         </div>
-                        <div className="tw-text-center tw-mt-[50px]">
+                        <div className="tw-mt-[50px] tw-text-center">
                             {hasMore ? (
                                 <Button
                                     variant="outlined"

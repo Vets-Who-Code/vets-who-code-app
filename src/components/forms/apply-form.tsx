@@ -67,7 +67,7 @@ const ApplyForm = () => {
             {message && <p>{message}</p>}
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="firstName" className="tw-text-heading tw-text-md">
+                    <label htmlFor="firstName" className="tw-text-md tw-text-heading">
                         First Name *
                     </label>
                     <Input
@@ -83,7 +83,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="lastName" className="tw-text-heading tw-text-md">
+                    <label htmlFor="lastName" className="tw-text-md tw-text-heading">
                         Last Name *
                     </label>
                     <Input
@@ -99,7 +99,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="email" className="tw-text-heading tw-text-md">
+                    <label htmlFor="email" className="tw-text-md tw-text-heading">
                         Email *
                     </label>
                     <Input
@@ -119,7 +119,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="city" className="tw-text-heading tw-text-md">
+                    <label htmlFor="city" className="tw-text-md tw-text-heading">
                         City *
                     </label>
                     <Input
@@ -135,7 +135,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="state" className="tw-text-heading tw-text-md">
+                    <label htmlFor="state" className="tw-text-md tw-text-heading">
                         State *
                     </label>
                     <Input
@@ -151,7 +151,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="zipCode" className="tw-text-heading tw-text-md">
+                    <label htmlFor="zipCode" className="tw-text-md tw-text-heading">
                         Zip Code *
                     </label>
                     <Input
@@ -167,7 +167,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="country" className="tw-text-heading tw-text-md">
+                    <label htmlFor="country" className="tw-text-md tw-text-heading">
                         Country *
                     </label>
                     <Input
@@ -183,7 +183,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="branchOfService" className="tw-text-heading tw-text-md">
+                    <label htmlFor="branchOfService" className="tw-text-md tw-text-heading">
                         Branch of Service *
                     </label>
                     <Input
@@ -199,7 +199,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="yearJoined" className="tw-text-heading tw-text-md">
+                    <label htmlFor="yearJoined" className="tw-text-md tw-text-heading">
                         Year Joined *
                     </label>
                     <Input
@@ -215,7 +215,7 @@ const ApplyForm = () => {
                     />
                 </div>
                 <div className="tw-mb-7.5">
-                    <label htmlFor="yearSeparated" className="tw-text-heading tw-text-md">
+                    <label htmlFor="yearSeparated" className="tw-text-md tw-text-heading">
                         Year Separated *
                     </label>
                     <Input
@@ -243,7 +243,7 @@ const ApplyForm = () => {
                         initial={{ opacity: 0, scale: 0.4 }}
                         animate={{ opacity: 1, scale: 1 }}
                     >
-                        <label htmlFor="previousCourses" className="tw-text-heading tw-text-md">
+                        <label htmlFor="previousCourses" className="tw-text-md tw-text-heading">
                             List previous courses *
                         </label>
                         <TextArea
@@ -274,7 +274,7 @@ const ApplyForm = () => {
                         initial={{ opacity: 0, scale: 0.4 }}
                         animate={{ opacity: 1, scale: 1 }}
                     >
-                        <label htmlFor="otherCourses" className="tw-text-heading tw-text-md">
+                        <label htmlFor="otherCourses" className="tw-text-md tw-text-heading">
                             List concurrent courses/programs *
                         </label>
                         <TextArea
@@ -291,7 +291,7 @@ const ApplyForm = () => {
                     </motion.div>
                 )}
                 <motion.div layout className="tw-mb-7.5">
-                    <label htmlFor="linkedInAccountName" className="tw-text-heading tw-text-md">
+                    <label htmlFor="linkedInAccountName" className="tw-text-md tw-text-heading">
                         LinkedIn Account Name *
                     </label>
                     <Input
@@ -312,7 +312,7 @@ const ApplyForm = () => {
                     />
                 </motion.div>
                 <motion.div layout className="tw-mb-7.5">
-                    <label htmlFor="githubAccountName" className="tw-text-heading tw-text-md">
+                    <label htmlFor="githubAccountName" className="tw-text-md tw-text-heading">
                         GitHub Account Name *
                     </label>
                     <Input
@@ -333,7 +333,7 @@ const ApplyForm = () => {
                     />
                 </motion.div>
                 <motion.div layout className="tw-mb-7.5">
-                    <label htmlFor="preworkLink" className="tw-text-heading tw-text-md">
+                    <label htmlFor="preworkLink" className="tw-text-md tw-text-heading">
                         Prework Link *
                     </label>
                     <Input
@@ -349,7 +349,7 @@ const ApplyForm = () => {
                     />
                 </motion.div>
                 <motion.div layout className="tw-mb-7.5">
-                    <label htmlFor="preworkRepo" className="tw-text-heading tw-text-md">
+                    <label htmlFor="preworkRepo" className="tw-text-md tw-text-heading">
                         Prework Repository *
                     </label>
                     <Input
@@ -369,7 +369,7 @@ const ApplyForm = () => {
                     <Button
                         type="submit"
                         fullwidth
-                        className="tw-mx-auto tw-w-full sm:tw-w-[200px] tw-mt-7.5"
+                        className="tw-mx-auto tw-mt-7.5 tw-w-full sm:tw-w-[200px]"
                     >
                         Apply
                     </Button>

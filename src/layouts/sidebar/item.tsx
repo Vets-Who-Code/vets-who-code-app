@@ -13,16 +13,16 @@ const Item = ({ title, type, duration, video, access, path }: IProps) => {
     return (
         <Anchor
             className={clsx(
-                "tw-px-[22px] tw-min-h-[56px] tw-flex tw-flex-wrap tw-items-center",
+                "tw-flex tw-min-h-[56px] tw-flex-wrap tw-items-center tw-px-[22px]",
                 !active && "group-odd:tw-bg-light-100 group-even:tw-bg-white",
                 active && "tw-bg-primary tw-text-white hover:tw-text-white"
             )}
             path={path}
         >
-            <div className="tw-flex-1 tw-py-2.5 tw-relative tw-pl-7.5 tw-leading-normal">
+            <div className="tw-relative tw-flex-1 tw-py-2.5 tw-pl-7.5 tw-leading-normal">
                 <i
                     className={clsx(
-                        "far tw-w-5 tw-text-md tw-absolute tw-left-0 tw-top-1/2 -tw-translate-y-1/2",
+                        "far tw-absolute tw-left-0 tw-top-1/2 tw-w-5 -tw-translate-y-1/2 tw-text-md",
                         type === "lesson" && "fa-file-alt",
                         type === "quiz" && "fa-clock"
                     )}
@@ -30,7 +30,7 @@ const Item = ({ title, type, duration, video, access, path }: IProps) => {
                 <span>{title}</span>
             </div>
 
-            <div className="tw-flex tw-justify-end tw-items-center tw-py-2.5 tw-shrink-0">
+            <div className="tw-flex tw-shrink-0 tw-items-center tw-justify-end tw-py-2.5">
                 <Badge
                     className="tw-ml-2.5"
                     size="sm"
@@ -50,7 +50,7 @@ const Item = ({ title, type, duration, video, access, path }: IProps) => {
                     </Badge>
                 )}
                 {access === "paid" && video && (
-                    <span className="tw-ml-2.5 tw-font-medium tw-px-3.8">
+                    <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
                         <i className="far fa-video" />
                     </span>
                 )}

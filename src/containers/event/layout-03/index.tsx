@@ -34,7 +34,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-7.5">
+                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-2">
                     {events.map((event) => (
                         <AnimatedEventCard
                             key={event.path}
@@ -52,7 +52,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                 {motto && (
                     <AnimatedMottoText
                         {...motto}
-                        className="lg:tw-w-7/12 tw-mx-auto tw-text-center tw-mt-[50px] lg:tw-mt-[70px]"
+                        className="tw-mx-auto tw-mt-[50px] tw-text-center lg:tw-mt-[70px] lg:tw-w-7/12"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

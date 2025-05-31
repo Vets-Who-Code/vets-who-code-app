@@ -15,8 +15,7 @@ type ErrorType = {
 const errorMessages: ErrorType = {
     default: {
         title: "Authentication Error",
-        message:
-            "An unexpected error occurred during the authentication process.",
+        message: "An unexpected error occurred during the authentication process.",
         action: "Please try signing in again.",
     },
     configuration: {
@@ -89,14 +88,14 @@ const AuthError: PageWithLayout = () => {
     }, [router]);
 
     return (
-        <div className="tw-min-h-screen tw-bg-gray-50 tw-flex tw-flex-col tw-justify-center tw-py-12 tw-sm:px-6 tw-lg:px-8">
+        <div className="tw-sm:px-6 tw-lg:px-8 tw-flex tw-min-h-screen tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12">
             <div className="tw-sm:mx-auto tw-sm:w-full tw-sm:max-w-md">
-                <div className="tw-bg-white tw-py-8 tw-px-4 tw-shadow tw-sm:rounded-lg tw-sm:px-10">
+                <div className="tw-sm:rounded-lg tw-sm:px-10 tw-bg-white tw-px-4 tw-py-8 tw-shadow">
                     <div className="tw-text-center">
-                        <h2 className="tw-text-2xl tw-font-bold tw-text-gray-900 tw-mb-4">
+                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
                             {error.title}
                         </h2>
-                        <div className="tw-rounded-md tw-bg-red-50 tw-p-4 tw-mb-6">
+                        <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">
                             <div className="tw-flex">
                                 <div className="tw-flex-shrink-0">
                                     <svg
@@ -114,9 +113,7 @@ const AuthError: PageWithLayout = () => {
                                     </svg>
                                 </div>
                                 <div className="tw-ml-3">
-                                    <p className="tw-text-sm tw-text-red-700">
-                                        {error.message}
-                                    </p>
+                                    <p className="tw-text-sm tw-text-red-700">{error.message}</p>
                                     <p className="tw-mt-2 tw-text-sm tw-text-red-700">
                                         {error.action}
                                     </p>
@@ -127,7 +124,7 @@ const AuthError: PageWithLayout = () => {
                         <div className="tw-space-y-4">
                             <Link
                                 href="/"
-                                className="tw-inline-flex tw-items-center tw-px-4 tw-py-2 tw-border tw-border-transparent tw-text-sm tw-font-medium tw-rounded-md tw-shadow-sm tw-text-white tw-bg-primary tw-hover:tw-bg-opacity-90 tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-offset-2 tw-focus:tw-ring-primary"
+                                className="tw-hover:tw-bg-opacity-90 tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-offset-2 tw-focus:tw-ring-primary tw-inline-flex tw-items-center tw-rounded-md tw-border tw-border-transparent tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-shadow-sm"
                             >
                                 Return to Home Page
                             </Link>
@@ -140,7 +137,7 @@ const AuthError: PageWithLayout = () => {
                                 Need help?{" "}
                                 <a
                                     href="mailto:support@vetswhocode.io"
-                                    className="tw-font-medium tw-text-primary tw-hover:tw-text-opacity-90"
+                                    className="tw-hover:tw-text-opacity-90 tw-font-medium tw-text-primary"
                                 >
                                     Contact Support
                                 </a>

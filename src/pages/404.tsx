@@ -8,9 +8,9 @@ const Error404Page = () => {
         <>
             <SEO title="Page Not Found" />
             <div className="error-area">
-                <div className="tw-container tw-h-screen tw-py-[100px] tw-flex tw-justify-center tw-items-center">
+                <div className="tw-container tw-flex tw-h-screen tw-items-center tw-justify-center tw-py-[100px]">
                     <div className="tw-text-center">
-                        <div className="child:tw-mx-auto tw-mb-10">
+                        <div className="tw-mb-10 child:tw-mx-auto">
                             <img
                                 src="/images/others/page-404-image.png"
                                 alt="Not Found"
@@ -18,10 +18,10 @@ const Error404Page = () => {
                                 height={141}
                             />
                         </div>
-                        <h3 className="tw-text-white tw-text-3xl md:tw-text-4xl lg:tw-text-[40px] tw-mb-[23px]">
+                        <h3 className="tw-mb-[23px] tw-text-3xl tw-text-white md:tw-text-4xl lg:tw-text-[40px]">
                             Looks like you are lost.{" "}
                         </h3>
-                        <p className="tw-text-white/50 tw-max-w-[560px] tw-mx-auto">
+                        <p className="tw-mx-auto tw-max-w-[560px] tw-text-white/50">
                             It looks like nothing was found at this location. You can either go back
                             to the last page or go to homepage{" "}
                         </p>

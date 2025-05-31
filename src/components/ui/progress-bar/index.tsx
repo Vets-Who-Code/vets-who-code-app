@@ -61,7 +61,7 @@ const ProgressBar: FC<ProgressProps> = ({
         size === "lg" && "tw-h-5",
     ];
     return (
-        <div className={clsx("progress tw-bg-gray-500 tw-rounded-sm", className)} {...restProps}>
+        <div className={clsx("progress tw-rounded-sm tw-bg-gray-500", className)} {...restProps}>
             <motion.div
                 role="progressbar"
                 aria-valuenow={now}
@@ -83,7 +83,7 @@ const ProgressBar: FC<ProgressProps> = ({
                     size && sizeClass
                 )}
             >
-                <span className={!isLabel ? "tw-sr-only" : "tw-text-white tw-text-[11px]"}>
+                <span className={!isLabel ? "tw-sr-only" : "tw-text-[11px] tw-text-white"}>
                     {now}%
                 </span>
             </motion.div>

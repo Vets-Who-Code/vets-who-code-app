@@ -3,18 +3,21 @@ title: "My Question for DeepMind—and Their Powerful Answer"
 postedAt: "2025-05-22T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "What the DeepMind team revealed at Google I/O 2025 is shaping how Vets Who Code uses Gemini to empower veterans and military spouses for a future in tech."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1747965846/google-deepmind-team_rtepag.jpg" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1747965846/google-deepmind-team_rtepag.jpg",
+    }
 category: "AI & Veterans"
 tags:
-  - AI
-  - Veterans
-  - Software Engineering
-  - DeepMind
-  - Vets Who Code
-  - Google I/O
-  - Gemini
-  - Military Spouses
-  - Reskilling
+    - AI
+    - Veterans
+    - Software Engineering
+    - DeepMind
+    - Vets Who Code
+    - Google I/O
+    - Gemini
+    - Military Spouses
+    - Reskilling
 is_featured: true
 ---
 

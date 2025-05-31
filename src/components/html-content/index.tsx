@@ -31,7 +31,7 @@ const HTMLContent = ({ body, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-prose prose-h2:tw-text-xl sm:prose-h2:tw-text-4xl sm:prose-h3:tw-text-3xl tw-max-w-none",
+                "tw-prose tw-max-w-none prose-h2:tw-text-xl sm:prose-h2:tw-text-4xl sm:prose-h3:tw-text-3xl",
                 className
             )}
         >

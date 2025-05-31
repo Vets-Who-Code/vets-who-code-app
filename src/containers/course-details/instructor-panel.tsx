@@ -22,10 +22,10 @@ const OverviewPanel = ({ name, image, designation, bio, socials }: TProps) => {
                 <h3>
                     <Anchor path="/profile">{name}</Anchor>
                 </h3>
-                <h6 className="tw-font-normal tw-text-body tw-leading-relaxed tw-mb-0">
+                <h6 className="tw-mb-0 tw-font-normal tw-leading-relaxed tw-text-body">
                     /{designation}
                 </h6>
-                <p className="tw-mt-3.8 tw-mb-0">{bio}</p>
+                <p className="tw-mb-0 tw-mt-3.8">{bio}</p>
 
                 <Social shape="circle" variant="outlined" color="light" className="tw-mt-7.5">
                     {socials.map((social) => (

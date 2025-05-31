@@ -3,7 +3,10 @@ title: "Introducing the Vets Who Code Projects Page: Design and Implementation J
 postedAt: "2025-01-18T00:00:00.000Z"
 author: "Jon Onulak"
 description: "A look at how Vets Who Code built a Projects Page to showcase community initiatives, with insights into the design, development, and implementation process."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1737333954/projects-screenshot_nym64x.png" }
+image:
+    {
+        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1737333954/projects-screenshot_nym64x.png",
+    }
 category: "Development Journey"
 tags:
     - Vets Who Code
@@ -24,7 +27,6 @@ I'm [Jon Onulak](https://www.linkedin.com/in/jononulak/), a proud member of the 
 
 This project leverages Next.js, Tailwind CSS, and the GitHub API to ensure the page was visually engaging, user-friendly, and responsive across devices.
 
-
 ## Phase 1: Designing the Projects Page
 
 The project started with three core objectives:
@@ -39,13 +41,11 @@ The Figma wireframes included a grid-based display for project thumbnails, each 
 
 ![Project Details Wireframe](https://a.okmd.dev/md/674fbbb71dc8d.png)
 
-
 ## Phase 2: Code Refactoring for Reusability
 
 Building upon our existing Subjects Page design, I refactored the grid layout into a reusable component. This approach promotes maintainability and ensures that future updates can be implemented seamlessly across multiple pages.
 
 The refactoring resulted in a new `VWCGrid` component, which allows for flexible layouts, and a `VWCGridCard` component to display project details dynamically.
-
 
 ## Phase 3: Dynamic Data Integration
 
@@ -53,18 +53,15 @@ To power the Projects Page, I integrated the GitHub REST API for repository info
 
 I implemented incremental static regeneration (ISR) using Next.js, which allows the page to update periodically without requiring a full rebuild, ensuring visitors see near-real-time information about our projects.
 
-
 ## Phase 4: Building the Interactive Modal
 
 The detailed project modal was created using Radix UI's Dialog component. This feature provides an intuitive and accessible way for users to dive deeper into each project's specifics. To enhance the experience, I added animations using Motion for React. The modal now fades in with a scaling effect, creating a polished and engaging user experience.
-
 
 ## Phase 5: Testing and Deployment
 
 Testing was critical to the success of this feature. Using Jest and React Testing Library, I ensured all components and functions behaved as expected. Mocking the GitHub API allowed me to simulate real-world scenarios and validate the page's performance under various conditions. With these tests complete, the Projects Page is now live and ready to showcase the amazing work of Vets Who Code.
 
 ![Projects Page Screenshot](https://res.cloudinary.com/vetswhocode/image/upload/v1737333954/projects-screenshot_nym64x.png)
-
 
 ## Explore the Finished Feature and Join the Conversation
 
@@ -76,13 +73,11 @@ If you're curious about the journey behind building this feature, you can also e
 
 - **[GitHub Feature Issue](https://github.com/Vets-Who-Code/vets-who-code-app/issues/646)**
 
-
 ## Crafting a Memorable Ending
 
 The Projects Page represents more than just a feature update—it's a testament to the collaborative spirit of Vets Who Code. It provides a platform to highlight the contributions of our community, inspire others, and foster engagement with our mission. I'm grateful for the opportunity to contribute to such an impactful project and look forward to seeing how it grows.
 
 Explore the Projects Page to see the exciting initiatives we're working on, and join us in building a brighter future for Vets Who Code!
-
 
 ### Support Vets Who Code
 

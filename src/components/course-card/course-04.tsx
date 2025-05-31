@@ -12,9 +12,9 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "course tw-h-full tw-rounded tw-bg-gray-100 tw-relative tw-group",
-                    "before:tw-absolute before:tw-content-[''] before:tw-z-1 before:tw-inset-0 before:tw-shadow-4xl before:tw-shadow-black/[0.12] before:tw-rounded-b before:tw-transition-opacity before:tw-duration-300 before:tw-opacity-0",
-                    "hover:before:tw-opacity-100 hover:tw-bg-white",
+                    "course tw-group tw-relative tw-h-full tw-rounded tw-bg-gray-100",
+                    "before:tw-absolute before:tw-inset-0 before:tw-z-1 before:tw-rounded-b before:tw-opacity-0 before:tw-shadow-4xl before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-duration-300 before:tw-content-['']",
+                    "hover:tw-bg-white hover:before:tw-opacity-100",
                     className
                 )}
                 ref={ref}
@@ -36,7 +36,7 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </figure>
                 <div className="info tw-p-[30px]">
-                    <h3 className="tw-text-xl tw-leading-normal tw-mb-0">
+                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                 </div>

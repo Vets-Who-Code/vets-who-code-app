@@ -26,10 +26,10 @@ In this post, we'll explore how to use AI tools like GitHub Copilot Workspaces a
 
 By leveraging prompt engineering and existing code bases, the core functionality of a login feature was implemented using Next.js. This feature includes:
 
--   **Login Form**: A simple and user-friendly interface for users to enter their credentials.
--   **Welcome Message**: A personalized greeting displayed upon successful login.
--   **Profile and Bio**: Sections to display user information and a brief biography.
--   **User Context Handling**: Logic to manage user sessions and authentication status.
+- **Login Form**: A simple and user-friendly interface for users to enter their credentials.
+- **Welcome Message**: A personalized greeting displayed upon successful login.
+- **Profile and Bio**: Sections to display user information and a brief biography.
+- **User Context Handling**: Logic to manage user sessions and authentication status.
 
 The implementation process, completed in just one hour and 28 minutes, demonstrates the power and efficiency of using AI in coding tasks.
 
