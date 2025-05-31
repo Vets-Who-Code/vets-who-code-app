@@ -6,7 +6,7 @@ const ThankYouBlock = ({
     message?: string;
 }) => {
     return (
-        <div className="tw-bg-gray-100 tw-py-16">
+        <div className="tw-bg-white-100 tw-py-16">
             <div className="tw-container tw-text-center">
                 <h2 className="tw-mb-6 tw-text-3xl tw-font-bold">{heading}</h2>
                 <p className="tw-mx-auto tw-max-w-3xl tw-text-lg">{message}</p>

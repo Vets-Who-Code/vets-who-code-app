@@ -81,7 +81,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
 
             {/* Impact information column */}
             <div className="tw-w-full lg:tw-w-5/12">
-                <div className="tw-h-full tw-rounded-lg tw-bg-gray-100 tw-p-8 tw-shadow-sm">
+                <div className="tw-bg-white-100 tw-h-full tw-rounded-lg tw-p-8 tw-shadow-sm">
                     <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-primary">
                         Your Impact
                     </h3>

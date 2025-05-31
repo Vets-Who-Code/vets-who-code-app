@@ -37,9 +37,10 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     >
-                        Your donation helps us provide free coding education and mentorship to
-                        veterans transitioning to civilian careers in technology. Every contribution
-                        makes a difference in a veteran&apos;s journey into the tech industry.
+                        They power the tech resources our veterans rely on, fund our one-of-a-kind
+                        mentorship program, and keep our platform evolving at a pace the rest of the
+                        industry can’t match. Every contribution helps us stay ahead so those we
+                        serve can too.
                     </motion.p>
                 </div>
 
@@ -53,27 +54,29 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                 >
                     <div className="tw-text-center">
                         <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            400+
+                            300+
                         </span>
                         <span className="tw-mt-2 tw-block">Veterans Served</span>
                     </div>
                     <div className="tw-text-center">
                         <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            80%
+                            90%
                         </span>
                         <span className="tw-mt-2 tw-block">Job Placement Rate</span>
                     </div>
                     <div className="tw-text-center">
                         <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            50+
+                            40%
                         </span>
-                        <span className="tw-mt-2 tw-block">Employer Partners</span>
+                        <span className="tw-mt-2 tw-block">Average Salary Increase</span>
                     </div>
                     <div className="tw-text-center">
                         <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            $75K+
+                            80%
                         </span>
-                        <span className="tw-mt-2 tw-block">Avg. Starting Salary</span>
+                        <span className="tw-mt-2 tw-block">
+                            Felt Supported for Learning Journey
+                        </span>
                     </div>
                 </motion.div>
 
@@ -106,15 +109,20 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                     >
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <p className="tw-mb-4 tw-italic">
-                                "Vets Who Code gave me the skills and confidence to transition from
-                                military service to a fulfilling career in tech. The mentorship and
-                                community support were invaluable."
+                                "Participating in Vets Who Code significantly boosted my confidence
+                                and honed my skills. Since completing the program, I have secured a
+                                role as a Staff Software Engineer at Jump, a ticketing startup
+                                focused on live events."
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <div className="tw-h-10 tw-w-10 tw-rounded-full tw-bg-gray-300" />
+                                <img
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg"
+                                    alt="Josh Morton"
+                                    className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
+                                />
                                 <div className="tw-ml-3">
-                                    <p className="tw-font-medium">John D.</p>
-                                    <p className="tw-text-sm tw-text-gray-600">
+                                    <p className="tw-font-medium">Josh Morton</p>
+                                    <p className="tw-text-sm tw-text-[#091f40]">
                                         Army Veteran, Software Developer
                                     </p>
                                 </div>
@@ -122,30 +130,44 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <p className="tw-mb-4 tw-italic">
-                                "As a donor, I've seen firsthand how my contributions help veterans
-                                build new careers. The transparency and impact of this organization
-                                keeps me coming back."
+                                "The impact of VWC on my career has been profound. The knowledge and
+                                skills I gained have greatly enhanced my career. In just two years,
+                                I more than doubled my salary, providing financial security for my
+                                family and allowing my wife to stay home with our kids. But more
+                                than that, I've grown as a person and as a professional, and that's
+                                something no amount of money can buy."
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <div className="tw-h-10 tw-w-10 tw-rounded-full tw-bg-gray-300" />
+                                <img
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/v1721086509/Image_from_iOS_pdujsr.jpg"
+                                    alt="Cameron Porter"
+                                    className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
+                                />
                                 <div className="tw-ml-3">
-                                    <p className="tw-font-medium">Sarah M.</p>
-                                    <p className="tw-text-sm tw-text-gray-600">Recurring Donor</p>
+                                    <p className="tw-font-medium">Cameron Porter.</p>
+                                    <p className="tw-text-sm tw-text-[#091f40]">
+                                        US Army, Software Engineer
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow md:tw-col-span-2 lg:tw-col-span-1">
                             <p className="tw-mb-4 tw-italic">
-                                "Our company has hired multiple VWC graduates and each one brings
-                                exceptional technical skills along with the discipline and
-                                leadership qualities developed in military service."
+                                "Without a doubt, I would hire from Vets Who Code again. The
+                                experience has been overwhelmingly positive, and I believe in
+                                veterans' immense value to our team and our healthcare mission."
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <div className="tw-h-10 tw-w-10 tw-rounded-full tw-bg-gray-300" />
+                                <img
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/v1748652090/AB1_6721_towfh2.jpg"
+                                    alt="Darnell Settles"
+                                    className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
+                                />
                                 <div className="tw-ml-3">
-                                    <p className="tw-font-medium">Michael R.</p>
-                                    <p className="tw-text-sm tw-text-gray-600">
-                                        Tech Company Hiring Manager
+                                    <p className="tw-font-medium">Darnell Settles III</p>
+                                    <p className="tw-text-sm tw-text-[#091f40]">
+                                        Director of Web and Digital Strategy, Methodist Le Bonheur
+                                        Healthcare
                                     </p>
                                 </div>
                             </div>
