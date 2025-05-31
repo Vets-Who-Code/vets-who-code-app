@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import Wrapper from "@ui/wrapper/wrapper-02";
 import DonateFormArea from "@containers/donate-form/layout-01";
 import ThankYouBlock from "@components/common/thank-you-block";
 import { normalizedData } from "@utils/methods";
