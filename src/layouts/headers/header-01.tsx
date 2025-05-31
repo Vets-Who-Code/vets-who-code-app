@@ -41,10 +41,10 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                 <div
                     ref={measuredRef}
                     className={clsx(
-                        "header-inner tw-py-[19px] xl:tw-py-0 tw-z-50 tw-transition-all tw-left-0 tw-top-0 tw-w-full tw-h-auto",
+                        "header-inner tw-left-0 tw-top-0 tw-z-50 tw-h-auto tw-w-full tw-py-[19px] tw-transition-all xl:tw-py-0",
                         !sticky && "tw-absolute",
                         sticky &&
-                            "tw-fixed tw-shadow-3md tw-shadow-black/10 tw-animate-headerSlideDown",
+                            "tw-fixed tw-animate-headerSlideDown tw-shadow-3md tw-shadow-black/10",
                         shadow && "tw-shadow-sm tw-shadow-black/5",
                         !transparent && "tw-bg-white",
                         transparent && !sticky && "tw-bg-transparent",
@@ -54,7 +54,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                 >
                     <div
                         className={clsx(
-                            "tw-container tw-grid tw-grid-flow-col xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%] tw-items-center",
+                            "tw-container tw-grid tw-grid-flow-col tw-items-center xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%]",
                             fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                         )}
                     >
@@ -66,7 +66,7 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                             menu={menu}
                             color={mode}
                         />
-                        <div className="md:tw-hidden tw-overflow-hidden">
+                        <div className="tw-overflow-hidden md:tw-hidden">
                             <BurgerButton
                                 className="tw-pl-5 xl:tw-hidden"
                                 onClick={() => setOffcanvas(true)}

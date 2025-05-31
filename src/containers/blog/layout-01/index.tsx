@@ -24,7 +24,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
 
     return (
         <Section className="blog-area tw-relative tw-overflow-hidden" space={space} bg={bg}>
-            <div className="tw-absolute tw-inset-0 tw-flex jtw-justify-center tw-items-center">
+            <div className="jtw-justify-center tw-absolute tw-inset-0 tw-flex tw-items-center">
                 <img
                     src="/images/bg/shape-03.png"
                     alt="shape"
@@ -46,7 +46,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                     />
                 )}
 
-                <div className="tw-grid tw-grid-cols-1 tw-grid-flow-row md:tw-grid-cols-2 lg:tw-grid-cols-[275px_minmax(275px,_500px)_275px] tw-gap-x-[30px] xl:tw-gap-x-[50px] tw-gap-y-[30px] xl:tw-grid-flow-col xl:tw-justify-between tw-relative tw-z-10">
+                <div className="tw-relative tw-z-10 tw-grid tw-grid-flow-row tw-grid-cols-1 tw-gap-x-[30px] tw-gap-y-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-[275px_minmax(275px,_500px)_275px] xl:tw-grid-flow-col xl:tw-justify-between xl:tw-gap-x-[50px]">
                     <motion.div
                         className="lg:tw-mt-[150px] maxLg:tw-order-1"
                         initial="offscreen"
@@ -63,7 +63,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                         />
                     </motion.div>
                     <motion.div
-                        className="maxLg:tw-order-3 md:tw-col-span-full lg:tw-col-auto"
+                        className="md:tw-col-span-full lg:tw-col-auto maxLg:tw-order-3"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -96,12 +96,12 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                 {motto && (
                     <MottoText
                         {...motto}
-                        className="tw-text-center tw-mt-[100px] tw-relative tw-z-10"
+                        className="tw-relative tw-z-10 tw-mt-[100px] tw-text-center"
                     />
                 )}
 
                 <motion.div
-                    className="tw-absolute tw-z-1 tw-top-[80px] tw-left-[60px] lg:tw-top-[140px]"
+                    className="tw-absolute tw-left-[60px] tw-top-[80px] tw-z-1 lg:tw-top-[140px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
@@ -116,7 +116,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                     />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-z-1 tw-top-[220px] tw-left-[260px]"
+                    className="tw-absolute tw-left-[260px] tw-top-[220px] tw-z-1"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,
@@ -131,13 +131,13 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
                     />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-z-1 tw-bottom-[50px] tw-left-[60%] tw-w-[120px] tw-h-[120px] md:tw-w-[226px] md:tw-h-[226px]"
+                    className="tw-absolute tw-bottom-[50px] tw-left-[60%] tw-z-1 tw-h-[120px] tw-w-[120px] md:tw-h-[226px] md:tw-w-[226px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <Shape2 className="tw-fill-primary-light tw-w-full tw-h-full" />
+                    <Shape2 className="tw-h-full tw-w-full tw-fill-primary-light" />
                 </motion.div>
             </div>
         </Section>

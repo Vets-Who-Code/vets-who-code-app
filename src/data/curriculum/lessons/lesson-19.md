@@ -12,11 +12,11 @@ This lesson will give instructions on how to set achievable goals.
 
 Your goal should be clear and specific, otherwise, you won’t be able to focus your efforts or feel truly motivated to achieve it. When drafting your goal, try to answer the five “W” questions:
 
--   **What** do I want to accomplish?
--   **Why** is this goal important?
--   **Who** is involved?
--   **Where** is it located?
--   **Which** resources or limits are involved?
+- **What** do I want to accomplish?
+- **Why** is this goal important?
+- **Who** is involved?
+- **Where** is it located?
+- **Which** resources or limits are involved?
 
 ### Example
 
@@ -28,9 +28,9 @@ It’s important to have measurable goals so that you can track your progress an
 
 A measurable goal should address questions such as:
 
--   How much?
--   How many?
--   How will I know when it is accomplished?
+- How much?
+- How many?
+- How will I know when it is accomplished?
 
 ### Example
 
@@ -42,8 +42,8 @@ Your goal also needs to be realistic and attainable to be successful. In other w
 
 An achievable goal will usually answer questions such as:
 
--   How can I accomplish this goal?
--   How realistic is the goal, based on other constraints,such as financial factors?
+- How can I accomplish this goal?
+- How realistic is the goal, based on other constraints,such as financial factors?
 
 ### Example
 

@@ -37,10 +37,10 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     >
-                        They power the tech resources our veterans rely on, fund our one-of-a-kind
-                        mentorship program, and keep our platform evolving at a pace the rest of the
-                        industry can’t match. Every contribution helps us stay ahead so those we
-                        serve can too.
+                        Your generosity fuels the technology veterans count on, sustains
+                        life-changing mentorship, and accelerates a platform built to stay ahead of
+                        the industry. Because of you, those who served aren’t just finding their
+                        place in tech — they’re leading it.
                     </motion.p>
                 </div>
 
@@ -109,10 +109,10 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                     >
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <p className="tw-mb-4 tw-italic">
-                                "Participating in Vets Who Code significantly boosted my confidence
-                                and honed my skills. Since completing the program, I have secured a
-                                role as a Staff Software Engineer at Jump, a ticketing startup
-                                focused on live events."
+                                &quot;Participating in Vets Who Code significantly boosted my
+                                confidence confidence and honed my skills. Since completing the
+                                program, I have secured a role as a Staff Software Engineer at Jump,
+                                a ticketing startup focused on live events.&quot;
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img
@@ -134,8 +134,8 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                                 skills I gained have greatly enhanced my career. In just two years,
                                 I more than doubled my salary, providing financial security for my
                                 family and allowing my wife to stay home with our kids. But more
-                                than that, I've grown as a person and as a professional, and that's
-                                something no amount of money can buy."
+                                than that, I&#39;ve grown as a person and as a professional, and
+                                that&#39;s something no amount of money can buy."
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img
@@ -155,7 +155,7 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                             <p className="tw-mb-4 tw-italic">
                                 "Without a doubt, I would hire from Vets Who Code again. The
                                 experience has been overwhelmingly positive, and I believe in
-                                veterans' immense value to our team and our healthcare mission."
+                                veterans&#39; immense value to our team and our healthcare mission."
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img

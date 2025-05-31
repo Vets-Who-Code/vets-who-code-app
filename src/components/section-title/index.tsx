@@ -42,7 +42,7 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                 {subtitle && (
                     <span
                         className={clsx(
-                            "tw-font-medium tw-text-base tw-leading-none -tw-tracking-tightest tw-block tw-mb-2.5 tw-uppercase",
+                            "tw-mb-2.5 tw-block tw-text-base tw-font-medium tw-uppercase tw-leading-none -tw-tracking-tightest",
                             color === "A" && "tw-text-secondary-light",
                             color === "B" && "tw-text-secondary",
                             subtitleClass
@@ -53,11 +53,11 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
 
                 <h2
                     className={clsx(
-                        "title tw-m-0 child:tw-text-primary child:tw-font-normal",
+                        "title tw-m-0 child:tw-font-normal child:tw-text-primary",
                         color === "A" && "tw-text-secondary",
                         color === "C" && "tw-text-white",
                         titleSize === "large" &&
-                            "tw-text-4xl lg:tw-text-5xl tw-leading-heading lg:tw-leading-heading",
+                            "tw-text-4xl tw-leading-heading lg:tw-text-5xl lg:tw-leading-heading",
                         titleClass
                     )}
                     dangerouslySetInnerHTML={{ __html: title }}

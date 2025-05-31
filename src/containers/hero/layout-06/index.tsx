@@ -24,21 +24,21 @@ const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps)
         <div className="hero-area tw-relative tw-bg-gore tw-pt-[120px] md:tw-pt-44 xl:tw-pt-[176px]">
             <div className="tw-container">
                 <motion.div
-                    className="tw-text-center tw-relative tw-z-10 tw-mb-10 md:tw-mb-20"
+                    className="tw-relative tw-z-10 tw-mb-10 tw-text-center md:tw-mb-20"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h1 className="tw-text-[34px] sm:tw-text-[42px] lg:tw-text-5xl tw-text-white lg:tw-leading-[1.17] tw-mb-0">
+                        <h1 className="tw-mb-0 tw-text-[34px] tw-text-white sm:tw-text-[42px] lg:tw-text-5xl lg:tw-leading-[1.17]">
                             {headings[0].content}
                         </h1>
                     )}
                     {texts?.map((text) => (
                         <p
                             key={text.id}
-                            className="tw-text-lg tw-font-medium tw-text-white/70 tw-mb-6"
+                            className="tw-mb-6 tw-text-lg tw-font-medium tw-text-white/70"
                         >
                             {text.content}
                         </p>
@@ -50,10 +50,10 @@ const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps)
                         </Button>
                     ))}
                 </motion.div>
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-12 tw-gap-7.5 tw-items-end tw-relative -tw-bottom-[90px] -tw-mt-[90px] md:-tw-bottom-[50px] md:-tw-mt-[50px]  lg:-tw-bottom-[90px] lg:-tw-mt-[90px]">
+                <div className="tw-relative -tw-bottom-[90px] -tw-mt-[90px] tw-grid tw-grid-cols-1 tw-items-end tw-gap-7.5 md:-tw-bottom-[50px] md:-tw-mt-[50px] md:tw-grid-cols-12 lg:-tw-bottom-[90px] lg:-tw-mt-[90px]">
                     <motion.div
                         style={{ y: y1 }}
-                        className="tw-col-span-2 tw-relative tw-z-1 md:tw-left-0 md:tw-top-0 xl:tw-w-[410px] xl:tw-h-[504px] xl:tw-left-[-168px] xl:tw-bottom-32 tw-hidden md:tw-block"
+                        className="tw-relative tw-z-1 tw-col-span-2 tw-hidden md:tw-left-0 md:tw-top-0 md:tw-block xl:tw-bottom-32 xl:tw-left-[-168px] xl:tw-h-[504px] xl:tw-w-[410px]"
                     >
                         {images?.[0]?.src && (
                             <img
@@ -69,7 +69,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps)
                     )}
                     <motion.div
                         style={{ y: y1 }}
-                        className="tw-col-span-2 tw-relative tw-z-1 md:tw-right-0 md:tw-bottom-0 xl:tw-w-[230px] xl:tw-h-[353px] xl:tw-right-5 xl:-tw-bottom-8 tw-hidden md:tw-block"
+                        className="tw-relative tw-z-1 tw-col-span-2 tw-hidden md:tw-bottom-0 md:tw-right-0 md:tw-block xl:-tw-bottom-8 xl:tw-right-5 xl:tw-h-[353px] xl:tw-w-[230px]"
                     >
                         {images?.[2]?.src && (
                             <img

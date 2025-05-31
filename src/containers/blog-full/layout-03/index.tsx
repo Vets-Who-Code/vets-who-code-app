@@ -26,7 +26,7 @@ const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
         <Section className="blog-area" space="bottom">
             <h2 className="tw-sr-only">Blog Section</h2>
             <div className="tw-container tw-grid tw-grid-cols-3 tw-gap-10 xl:tw-gap-15">
-                <div className="tw-col-span-full lg:tw-col-[2/-1] tw-h-fit">
+                <div className="tw-col-span-full tw-h-fit lg:tw-col-[2/-1]">
                     {blogs?.map((blog) => (
                         <AnimatedBlogCard
                             className="tw-mb-[50px]"

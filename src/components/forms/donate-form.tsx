@@ -91,10 +91,11 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             Where Your Money Goes
                         </h4>
                         <ul className="tw-ml-5 tw-list-disc tw-space-y-2">
-                            <li>Providing training materials and resources for our veterans</li>
-                            <li>Supporting our mentorship program</li>
-                            <li>Maintaining our learning infrastructure</li>
-                            <li>Offering career support and job placement assistance</li>
+                            <li>Supports compute costs</li>
+                            <li>Keeps our platform fast, secure, and accessible</li>
+                            <li>Supports Mentorship Program</li>
+                            <li>Supports Job Placement</li>
+                            <li>Sustains lifelong growth and connection</li>
                         </ul>
                     </div>
 
@@ -106,7 +107,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                                     $50
                                 </span>
                                 <span className="tw-mt-1 tw-block tw-text-sm">
-                                    Learning resources for one veteran
+                                    Supports building our free resources for all.
                                 </span>
                             </div>
                             <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center tw-shadow-sm">
@@ -114,7 +115,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                                     $100
                                 </span>
                                 <span className="tw-mt-1 tw-block tw-text-sm">
-                                    Technical mentorship session
+                                    Support Mentorship Resources
                                 </span>
                             </div>
                             <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center tw-shadow-sm">
@@ -122,7 +123,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                                     $500
                                 </span>
                                 <span className="tw-mt-1 tw-block tw-text-sm">
-                                    Coding bootcamp scholarship
+                                    covers AI compute for a month for one veteran
                                 </span>
                             </div>
                             <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center tw-shadow-sm">
@@ -130,7 +131,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                                     $1000
                                 </span>
                                 <span className="tw-mt-1 tw-block tw-text-sm">
-                                    Complete training for one veteran
+                                    Supports a veteran for an entire year.
                                 </span>
                             </div>
                         </div>
@@ -146,7 +147,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             href="mailto:info@vetswhocode.io"
                             className="tw-font-medium tw-text-primary tw-underline"
                         >
-                            info@vetswhocode.io
+                            jerome@vetswhocode.io
                         </a>
                     </div>
                 </div>

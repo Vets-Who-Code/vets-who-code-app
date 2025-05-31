@@ -22,7 +22,7 @@ const ZoomMeetingArea = ({ data: { zoomMeetings, pagiData } }: TProps) => {
         <Section className="zoom-meeting-area" space="bottom">
             <h2 className="tw-sr-only">Zoom Meetings Section</h2>
             <div className="tw-container">
-                <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5">
+                <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
                     {zoomMeetings?.map((zoomMeeting) => (
                         <AnimatedZoomCard
                             key={zoomMeeting.path}

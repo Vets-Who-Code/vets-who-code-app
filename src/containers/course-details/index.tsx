@@ -13,7 +13,7 @@ type TProps = {
 const CourseDetails = ({ data: { course } }: TProps) => {
     return (
         <section className="course-details">
-            <div className="tw-container tw-grid lg:tw-grid-cols-3 tw-gap-12">
+            <div className="tw-container tw-grid tw-gap-12 lg:tw-grid-cols-3">
                 <div className="lg:tw-col-[1/3]">
                     <TabContainer variant="underline">
                         <TabList>

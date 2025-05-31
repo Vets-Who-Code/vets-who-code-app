@@ -10,7 +10,7 @@ type TProps = {
 const OffcanvasHeader = ({ children, onClose, className }: TProps) => (
     <div
         className={clsx(
-            "tw-flex tw-items-center tw-justify-between tw-h-20 tw-pl-7.5 tw-pr-3.8 tw-bg-white",
+            "tw-flex tw-h-20 tw-items-center tw-justify-between tw-bg-white tw-pl-7.5 tw-pr-3.8",
             className
         )}
     >

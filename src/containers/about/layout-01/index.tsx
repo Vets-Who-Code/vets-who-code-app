@@ -31,7 +31,7 @@ const QuoteArea = ({
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     >
-                        <figure className="tw-relative tw-flex-auto0 tw-w-[270px] -tw-ml-[135px] tw-translate-y-[50px] tw-hidden lg:tw-block">
+                        <figure className="tw-relative -tw-ml-[135px] tw-hidden tw-w-[270px] tw-flex-auto0 tw-translate-y-[50px] lg:tw-block">
                             {images?.[0]?.src && (
                                 <img
                                     src={images[0].src}
@@ -42,7 +42,7 @@ const QuoteArea = ({
                                 />
                             )}
                         </figure>
-                        <div className="tw-px-7.5 tw-pb-10  lg:tw-py-[70px] lg:tw-pl-[50px] lg:tw-pr-[30px]">
+                        <div className="tw-px-7.5 tw-pb-10 lg:tw-py-[70px] lg:tw-pl-[50px] lg:tw-pr-[30px]">
                             {section_title && (
                                 <SectionTitle
                                     {...section_title}
@@ -52,10 +52,10 @@ const QuoteArea = ({
                                 />
                             )}
 
-                            <div className="tw-flex tw-flex-col md:tw-flex-row tw-gap-[30px]">
+                            <div className="tw-flex tw-flex-col tw-gap-[30px] md:tw-flex-row">
                                 <div className="md:tw-w-[64.5%]">
                                     {texts?.[0]?.content && (
-                                        <p className="tw-text-xl xl:tw-text-2xl tw-font-medium tw-leading-normal">
+                                        <p className="tw-text-xl tw-font-medium tw-leading-normal xl:tw-text-2xl">
                                             {texts[0].content}
                                         </p>
                                     )}
@@ -63,21 +63,21 @@ const QuoteArea = ({
                                 <div className="md:tw-w-[35.406%]">
                                     {texts?.[1]?.content && (
                                         <p
-                                            className="tw-mb-0 tw-text-5xl tw-font-extrabold tw-leading-tight tw-text-primary child:tw-text-2xl child:tw-bottom-0 child:tw-ml-1.3"
+                                            className="tw-mb-0 tw-text-5xl tw-font-extrabold tw-leading-tight tw-text-primary child:tw-bottom-0 child:tw-ml-1.3 child:tw-text-2xl"
                                             dangerouslySetInnerHTML={{
                                                 __html: texts[1].content,
                                             }}
                                         />
                                     )}
                                     {texts?.[2]?.content && (
-                                        <p className="tw-text-base tw-leading-loose tw-mb-2.5 -tw-tracking-tightest tw-uppercase tw-font-bold tw-text-secondary">
+                                        <p className="tw-mb-2.5 tw-text-base tw-font-bold tw-uppercase tw-leading-loose -tw-tracking-tightest tw-text-secondary">
                                             {texts[2].content}
                                         </p>
                                     )}
                                     {anchors?.[0].content && (
                                         <Anchor
                                             path={anchors[0]?.path}
-                                            className="tw-text-secondary-light tw-text-md tw-font-bold"
+                                            className="tw-text-md tw-font-bold tw-text-secondary-light"
                                         >
                                             {anchors[0].content}{" "}
                                             <i className="far fa-long-arrow-right" />

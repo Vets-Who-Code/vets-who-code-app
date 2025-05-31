@@ -5,7 +5,6 @@ import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import DonateFormArea from "@containers/donate-form/layout-01";
-import ServiceArea from "@containers/service/layout-03";
 import ThankYouBlock from "@components/common/thank-you-block";
 import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
@@ -42,9 +41,6 @@ const Donate: PageProps = ({ data }) => {
             />
             <DonateFormArea data={content?.["donorbox-area"]} space="none" />
             <ThankYouBlock message={message} />
-            <Wrapper className="tw-py-15">
-                <ServiceArea data={content?.["service-area"]} space="top" />
-            </Wrapper>
         </>
     );
 };

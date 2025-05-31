@@ -3,14 +3,14 @@ title: "Vets Who Code Joins the GitHub Global Campus Program"
 postedAt: "2025-02-13T12:00:00.000Z"
 author: "Vets Who Code"
 description: "Vets Who Code has officially joined the GitHub Global Campus Program! This partnership provides us with powerful tools and resources to enhance our ability to train, mentor, and support veteran developers."
-image: 
-  src: "https://res.cloudinary.com/vetswhocode/image/upload/v1739473043/github-education-program_iomxlj.jpg"
+image:
+    src: "https://res.cloudinary.com/vetswhocode/image/upload/v1739473043/github-education-program_iomxlj.jpg"
 category: "Announcements"
 tags:
-  - GitHub
-  - Education
-  - Veterans
-  - Coding
+    - GitHub
+    - Education
+    - Veterans
+    - Coding
 is_featured: true
 ---
 

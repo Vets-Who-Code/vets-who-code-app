@@ -5,10 +5,10 @@ type TProps = {
 
 const Header = ({ title, description }: TProps) => {
     return (
-        <div className="tw-py-[22px] tw-px-5">
-            <h5 className="tw-text-h6 tw-font-medium tw-leading-snug tw-mb-1">{title}</h5>
+        <div className="tw-px-5 tw-py-[22px]">
+            <h5 className="tw-mb-1 tw-text-h6 tw-font-medium tw-leading-snug">{title}</h5>
             {description && (
-                <p className="tw-mt-[5px] tw-text-md tw-italic tw-mb-0">{description}</p>
+                <p className="tw-mb-0 tw-mt-[5px] tw-text-md tw-italic">{description}</p>
             )}
         </div>
     );

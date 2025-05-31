@@ -24,14 +24,14 @@ Hey there, Soldier! Welcome to the **Vets Who Code Web App**. This project serve
 
 This app is built using a modern tech stack including:
 
--   Next.js 15
--   TypeScript
--   Tailwind CSS
--   Playwright for testing
--   MDX for content
--   shadcn/ui components
--   Server Actions
--   Server Components
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Playwright for testing
+- MDX for content
+- shadcn/ui components
+- Server Actions
+- Server Components
 
 ### Our Mission :dart:
 
@@ -47,10 +47,10 @@ To get a local copy up and running, you'll need a few things installed on your m
 
 ### Prerequisites 🛠️
 
--   [Git](http://git-scm.com/)
--   [Node.js](http://nodejs.org/) (v18.18.0 or higher)
--   [NVM](https://github.com/creationix/nvm)
--   [pnpm](https://pnpm.io/) (recommended) or npm
+- [Git](http://git-scm.com/)
+- [Node.js](http://nodejs.org/) (v18.18.0 or higher)
+- [NVM](https://github.com/creationix/nvm)
+- [pnpm](https://pnpm.io/) (recommended) or npm
 
 ### Installation Steps :wrench:
 
@@ -72,9 +72,9 @@ We support development containers for an easier setup experience.
 
 ### Requirements
 
--   [Docker](https://www.docker.com/products/docker-desktop)
--   [VS Code](https://code.visualstudio.com/)
--   [Remote - Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [VS Code](https://code.visualstudio.com/)
+- [Remote - Containers extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 ### Steps
 
@@ -107,5 +107,3 @@ Curious about upcoming features? Check our [Roadmap](https://github.com/orgs/Vet
 ## License :scroll:
 
 This project is under the MIT License - see the [License](https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE) for more details.
-
-

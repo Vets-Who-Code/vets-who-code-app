@@ -53,45 +53,48 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
             author: getAuthorByID(blogData.author, "all"),
         };
     } else {
-        blog = fields.reduce((acc: IBlog, field: keyof IBlog) => {
-            if (field === "slug") {
-                return { ...acc, slug: realSlug };
-            }
-            if (field === "content") {
-                return { ...acc, [field]: content };
-            }
-            if (field === "excerpt") {
-                return { ...acc, excerpt: makeExcerpt(content, 150) };
-            }
-            if (field === "author") {
-                const author = getAuthorByID(blogData.author, "all");
-                return { ...acc, author };
-            }
-            if (field === "category") {
-                return {
-                    ...acc,
-                    category: {
-                        title: blogData.category,
-                        slug: slugify(blogData.category),
-                        path: `/blogs/category/${slugify(blogData.category)}`,
-                    },
-                };
-            }
-            if (field === "tags") {
-                return {
-                    ...acc,
-                    tags: blogData.tags.map((tag) => ({
-                        title: tag,
-                        slug: slugify(tag),
-                        path: `/blogs/tag/${slugify(tag)}`,
-                    })),
-                };
-            }
-            if (typeof data[field] !== "undefined") {
-                return { ...acc, [field]: blogData[field] };
-            }
-            return acc;
-        }, <IBlog>{});
+        blog = fields.reduce(
+            (acc: IBlog, field: keyof IBlog) => {
+                if (field === "slug") {
+                    return { ...acc, slug: realSlug };
+                }
+                if (field === "content") {
+                    return { ...acc, [field]: content };
+                }
+                if (field === "excerpt") {
+                    return { ...acc, excerpt: makeExcerpt(content, 150) };
+                }
+                if (field === "author") {
+                    const author = getAuthorByID(blogData.author, "all");
+                    return { ...acc, author };
+                }
+                if (field === "category") {
+                    return {
+                        ...acc,
+                        category: {
+                            title: blogData.category,
+                            slug: slugify(blogData.category),
+                            path: `/blogs/category/${slugify(blogData.category)}`,
+                        },
+                    };
+                }
+                if (field === "tags") {
+                    return {
+                        ...acc,
+                        tags: blogData.tags.map((tag) => ({
+                            title: tag,
+                            slug: slugify(tag),
+                            path: `/blogs/tag/${slugify(tag)}`,
+                        })),
+                    };
+                }
+                if (typeof data[field] !== "undefined") {
+                    return { ...acc, [field]: blogData[field] };
+                }
+                return acc;
+            },
+            <IBlog>{}
+        );
     }
 
     return {
