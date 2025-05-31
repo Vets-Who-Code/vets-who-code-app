@@ -29,7 +29,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
             .slice(0, numPlayers)
             .filter((name) => name.trim() !== "");
 
-        if (activePlayerNames.length > 0) {
+        if (activePlayerNames.length === numPlayers) {
             setError(null);
             // Convert names to Player objects with score initialized to 0
             const players = activePlayerNames.map((name) => ({
