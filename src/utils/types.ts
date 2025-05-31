@@ -358,22 +358,28 @@ export type ApiResponse = {
 };
 
 export interface Player {
-  name: string;
-  score: number;
+    name: string;
+    score: number;
 }
 
 export interface Fact {
-  fact: string;
-  answer: MilitaryBranch; // Should be one of the six military branches
+    fact: string;
+    answer: MilitaryBranch; // Should be one of the six military branches
 }
 
 export interface GameState {
-  players: Player[];
-  currentFactIndex: number;
-  selectedPlayerIndex: number | null;
-  isGameOver: boolean;
-  currentAnswer: MilitaryBranch | null; // Stores the player's selected answer for the current question
-  showFeedback: boolean; // Whether to show feedback (Correct/Wrong)
+    players: Player[];
+    currentFactIndex: number;
+    selectedPlayerIndex: number | null;
+    isGameOver: boolean;
+    currentAnswer: MilitaryBranch | null; // Stores the player's selected answer for the current question
+    showFeedback: boolean; // Whether to show feedback (Correct/Wrong)
 }
 
-export type MilitaryBranch = "Army" | "Navy" | "Air Force" | "Marines" | "Coast Guard" | "Space Force";
+export type MilitaryBranch =
+    | "Army"
+    | "Navy"
+    | "Air Force"
+    | "Marines"
+    | "Coast Guard"
+    | "Space Force";

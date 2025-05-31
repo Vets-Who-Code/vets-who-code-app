@@ -45,7 +45,10 @@ const GamePage = () => {
         "Coast Guard",
         "Space Force",
     ];
-    const facts: Fact[] = factsData;
+    const facts: Fact[] = factsData.map(fact => ({
+        ...fact,
+        answer: fact.answer as MilitaryBranch,
+    }));
 
     const handlePlayerSetupComplete = (newPlayers: Player[]) => {
         setGameState((prev) => ({

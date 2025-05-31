@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
 interface FactDisplayProps {
-  fact: string;
+    fact: string;
 }
 
 const FactDisplay: React.FC<FactDisplayProps> = ({ fact }) => {
-  return (
-    <div className="tw-p-6 tw-bg-secondary tw-text-white tw-rounded-lg tw-mb-6 tw-min-h-[100px] tw-flex tw-items-center tw-justify-center">
-      <p className="tw-text-xl tw-text-center">{fact}</p>
-    </div>
-  );
+    return (
+        <div className="tw-mb-6 tw-flex tw-min-h-[100px] tw-items-center tw-justify-center tw-rounded-lg tw-bg-secondary tw-p-6 tw-text-white">
+            <p className="tw-text-center tw-text-xl">{fact}</p>
+        </div>
+    );
 };
 
 export default FactDisplay;
