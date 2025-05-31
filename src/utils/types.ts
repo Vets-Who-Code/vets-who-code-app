@@ -356,3 +356,24 @@ export type ApiResponse = {
     error?: string;
     message?: string;
 };
+
+export interface Player {
+  name: string;
+  score: number;
+}
+
+export interface Fact {
+  fact: string;
+  answer: string; // Should be one of the six military branches
+}
+
+export interface GameState {
+  players: Player[];
+  currentFactIndex: number;
+  selectedPlayerIndex: number | null;
+  isGameOver: boolean;
+  currentAnswer: string | null; // Stores the player's selected answer for the current question
+  showFeedback: boolean; // Whether to show feedback (Correct/Wrong)
+}
+
+export type MilitaryBranch = "Army" | "Navy" | "Air Force" | "Marines" | "Coast Guard" | "Space Force";
