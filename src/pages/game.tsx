@@ -45,7 +45,7 @@ const GamePage = () => {
         "Coast Guard",
         "Space Force",
     ];
-    const facts: Fact[] = factsData.map(fact => ({
+    const facts: Fact[] = factsData.map((fact) => ({
         ...fact,
         answer: fact.answer as MilitaryBranch,
     }));
@@ -203,12 +203,12 @@ const GamePage = () => {
 
     return (
         <>
-            <SEO title="Military Trivia Game" />
+            <SEO title="Who's Branch Is It Anyway?" />
             {showEmojiRain && <EmojiRain />}
             <div className="tw-container tw-mx-auto tw-min-h-screen tw-max-w-3xl tw-bg-white tw-p-4 tw-text-secondary">
                 <header className="tw-my-8 tw-text-center">
                     <h1 className="tw-text-5xl tw-font-bold tw-text-secondary">
-                        Military Trivia Game
+                        Who's Branch Is It Anyway?
                     </h1>
                 </header>
 
@@ -217,9 +217,21 @@ const GamePage = () => {
                         Test Your Military Knowledge!
                     </h2>
                     <p className="tw-mb-3 tw-text-lg tw-text-secondary">
-                        Welcome to the Vets Who Code Military Trivia Game. Challenge yourself or
-                        compete with friends to see who knows the most about U.S. military history,
-                        branches, and traditions.
+                        Welcome to <em>Who’s Branch Is It Anyway!?</em>, the show where the points
+                        don’t matter. Just like PowerPoint in a field brief. That’s right, the
+                        points are like getting a perfectly pressed uniform before a rain-filled
+                        ruck march. Completely useless.
+                    </p>
+                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                        Brought to you by Vets Who Code, this is the military trivia game where you
+                        can challenge yourself or compete with friends to see who knows the most
+                        about U.S. military history, branches, and traditions.
+                    </p>
+                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                        So grab your MREs, tighten those boot laces, and let’s see if you’ve got
+                        what it takes to guess the right branch. Army, Navy, Air Force, Marine
+                        Corps, Space Force, or Coast Guard. Based on real facts, legends, and
+                        straight-up weirdness only a veteran could love.
                     </p>
                     <p className="tw-mb-3 tw-text-lg tw-text-secondary">
                         Each correct answer earns you a point. Do you have what it takes to achieve
