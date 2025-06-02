@@ -217,10 +217,10 @@ const GamePage = () => {
                         Test Your Military Knowledge!
                     </h2>
                     <p className="tw-mb-3 tw-text-lg tw-text-secondary">
-                        Welcome to <em>Who's Branch Is It Anyway?'</em>, the show where the points
-                        don’t matter. Just like PowerPoint in a field brief. That’s right, the
-                        points are like getting a perfectly pressed uniform before a rain-filled
-                        ruck march. Completely useless.
+                        Welcome to <em>Whose Branch Is It Anyway?&#39;</em>, the show where points
+                        don’t matter. Just like PowerPoint in a field brief. That’s right, are like
+                        getting a perfectly pressed uniform before a rain-filled ruck march.
+                        Completely useless.
                     </p>
                     <p className="tw-mb-3 tw-text-lg tw-text-secondary">
                         Brought to you by Vets Who Code, this is the military trivia game where you
