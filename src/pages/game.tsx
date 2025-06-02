@@ -208,7 +208,7 @@ const GamePage = () => {
             <div className="tw-container tw-mx-auto tw-min-h-screen tw-max-w-3xl tw-bg-white tw-p-4 tw-text-secondary">
                 <header className="tw-my-8 tw-text-center">
                     <h1 className="tw-text-5xl tw-font-bold tw-text-secondary">
-                        Who's Branch Is It Anyway?
+                        Who&#39;s Branch Is It Anyway?
                     </h1>
                 </header>
 
