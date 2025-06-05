@@ -18,70 +18,63 @@ const navigation: NavigationItem[] = [
     {
         id: 1,
         label: "About",
-        path: "/about-us",
-    },
-    {
-        id: 2,
-        label: "Train",
         path: "#!",
         submenu: [
             {
                 id: 101,
-                label: "Apply to Join",
-                path: "/apply",
+                label: "About Page",
+                path: "/about-us",
             },
             {
                 id: 102,
-                label: "FAQ",
-                path: "/faq",
-            },
-        ],
-    },
-    {
-        id: 3,
-        label: "Build",
-        path: "#!",
-        submenu: [
-            {
-                id: 301,
-                label: "Open Source Projects",
-                path: "/projects",
-            },
-            {
-                id: 302,
                 label: "Subjects & Skills",
                 path: "/subjects/all",
             },
+            {
+                id: 103,
+                label: "FAQ",
+                path: "/faq",
+            },
+            {
+                id: 104,
+                label: "Open Source Projects",
+                path: "/projects",
+            },
         ],
     },
     {
+        id: 2,
+        label: "Apply",
+        path: "/apply",
+    },
+    {
+        id: 3,
+        label: "Mentor",
+        path: "/mentor",
+        status: "hot",
+    },
+    {
         id: 4,
-        label: "Lead",
+        label: "Engage",
         path: "#!",
         submenu: [
             {
-                id: 401,
-                label: "Become a Mentor",
-                path: "/mentor",
-                status: "hot",
+                id: 701,
+                label: "Game",
+                path: "/game",
             },
             {
-                id: 402,
+                id: 702,
                 label: "Events",
                 path: "/events",
             },
             {
-                id: 403,
-                label: "Stories",
+                id: 703,
+                label: "Blog",
                 path: "/blogs/blog",
             },
             {
-                id: 404,
-                label: "Contact",
-                path: "/contact-us",
-            },
-            {
-                id: 405,
+                id: 704,
                 label: "Shop",
                 path: "https://hashflag.shop/",
                 external: true,
@@ -90,6 +83,11 @@ const navigation: NavigationItem[] = [
     },
     {
         id: 5,
+        label: "Contact",
+        path: "/contact-us",
+    },
+    {
+        id: 6,
         label: "Donate",
         path: "/donate",
     },
