@@ -1,0 +1,270 @@
+{
+  "name": "theory-of-change",
+  "content": [
+    {
+      "section": "hero-area",
+      "items": [
+        {
+          "id": 1,
+          "images": [
+            {
+              "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746590043/9_ahefah.png"
+            }
+          ],
+          "headings": [
+            {
+              "id": 1,
+              "content": "Our Theory <br>of Change"
+            },
+            {
+              "id": 2,
+              "content": "Blueprint for Impact"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "How we transform military experience into software engineering excellence."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "theory-of-change-area",
+      "section_title": {
+        "title": "Vets Who Code — Theory of Change",
+        "subtitle": "A Structured Path from Service to Software"
+      },
+      "items": [
+        {
+          "id": 1,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Core Belief"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "We believe that military experience instills a unique blend of grit, discipline, and adaptive thinking that—when paired with cutting-edge technical training and real-world software development opportunities—produces exceptional software engineers. Our mission is to channel that potential through a proven, product-focused learning ecosystem designed for impact."
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Inputs"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "We start by identifying highly motivated U.S. military veterans and military spouses ready to transition into tech. Our key inputs include:"
+            },
+            {
+              "id": 2,
+              "content": "A curated selection of veteran learners with high aptitude and drive"
+            },
+            {
+              "id": 3,
+              "content": "The Vets Who Code learning platform, housing our open-source curriculum, projects, and blog"
+            },
+            {
+              "id": 4,
+              "content": "A network of experienced mentors, industry veterans, and alumni coaches"
+            },
+            {
+              "id": 5,
+              "content": "Community infrastructure for remote collaboration and code reviews"
+            },
+            {
+              "id": 6,
+              "content": "Access to development tools, GitHub repositories, and cloud environments"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Activities"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "We immerse our learners in a 100% remote-first, product-driven experience that mirrors real software engineering workflows. Our core activities include:"
+            },
+            {
+              "id": 2,
+              "content": "Platform-Based Learning: Learners progress through a rigorous 12-module open-source curriculum hosted on our custom platform, covering everything from core web fundamentals to backend APIs and DevOps."
+            },
+            {
+              "id": 3,
+              "content": "Mentorship & Pair Programming: Each veteran is paired with mentors from our alumni and industry network who guide them through weekly check-ins, code reviews, and career strategy."
+            },
+            {
+              "id": 4,
+              "content": "Open Source Collaboration: Learners contribute to internal and external open-source projects, learning how to write scalable, readable code that integrates into production environments."
+            },
+            {
+              "id": 5,
+              "content": "Product Development: Veterans work on real nonprofit apps, tools, and features—like the PTSD Toolkit and AEGIS—designed to be used by real users. This gives them portfolio-ready projects with real-world scope and impact."
+            },
+            {
+              "id": 6,
+              "content": "Career Development: Weekly resume reviews, GitHub audits, behavioral interview training, and asynchronous job prep help troops present themselves as polished professionals."
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Outputs"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "By the end of the program, graduates leave with:"
+            },
+            {
+              "id": 2,
+              "content": "A strong GitHub profile reflecting open-source and production-level contributions"
+            },
+            {
+              "id": 3,
+              "content": "Completed software products deployed or used by actual users"
+            },
+            {
+              "id": 4,
+              "content": "Job-ready skills in tools like TypeScript, React, Next.js, Python, FastAPI, Git, and CI/CD workflows"
+            },
+            {
+              "id": 5,
+              "content": "Direct mentorship and professional guidance from engineers already in the field"
+            },
+            {
+              "id": 6,
+              "content": "The confidence and social proof to break into the tech industry"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Short- to Medium-Term Outcomes"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "Within 6–12 months, we see:"
+            },
+            {
+              "id": 2,
+              "content": "Veterans hired into six-figure tech roles in software engineering, DevOps, or data roles"
+            },
+            {
+              "id": 3,
+              "content": "Alumni re-engagement as mentors, speakers, and open-source contributors"
+            },
+            {
+              "id": 4,
+              "content": "Economic mobility, especially among underrepresented and minority veterans"
+            },
+            {
+              "id": 5,
+              "content": "Product impact as the tools and apps they've built are used in the real world"
+            },
+            {
+              "id": 6,
+              "content": "Portfolio visibility, helping them stand out in competitive hiring pipelines"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Long-Term Impact"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "Over time, our model creates:"
+            },
+            {
+              "id": 2,
+              "content": "A visible, high-performing ecosystem of veteran technologists whose skills are rooted in service and real-world engineering"
+            },
+            {
+              "id": 3,
+              "content": "Generational wealth creation and stability for veteran families"
+            },
+            {
+              "id": 4,
+              "content": "A transformed narrative in tech: veterans aren't just potential hires—they're builders, maintainers, and innovators"
+            },
+            {
+              "id": 5,
+              "content": "A proven, replicable nonprofit model that blends product-based learning with mentorship and community leadership"
+            },
+            {
+              "id": 6,
+              "content": "A more diverse and mission-driven U.S. tech workforce that reflects the values of service, resilience, and contribution"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "headings": [
+            {
+              "id": 1,
+              "content": "Vision"
+            }
+          ],
+          "texts": [
+            {
+              "id": 1,
+              "content": "We envision a future where every veteran who wants a career in tech has access to the platform, mentorship, and tools they need to succeed. Our platform is not just a curriculum—it's a launchpad. By continuing to build open-source tools that matter, develop products people use, and uplift our own through mentoring and advocacy, Vets Who Code will remain a blueprint for what's possible when service meets software."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": "cta-area",
+      "section_title": {
+        "title": "",
+        "subtitle": ""
+      },
+      "items": [
+        {
+          "id": 1,
+          "texts": [
+            {
+              "id": 1,
+              "content": "Your contribution fuels a proven system that has already generated over twenty million dollars in collective earnings for those who served our country. Our graduates become mentors and donors themselves, creating a self-sustaining cycle of success that multiplies your impact far beyond your initial contribution."
+            },
+            {
+              "id": 2,
+              "content": "Unlike traditional programs with high overhead, we're remote-first and tech-enabled—meaning more of your donation goes directly to veteran success. Our AI-augmented learning platform adapts to each veteran's unique background and learning style, maximizing educational outcomes while minimizing costs."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
