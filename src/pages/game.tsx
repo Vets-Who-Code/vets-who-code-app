@@ -29,10 +29,11 @@ const GamePage = () => {
 
     // Clean up emoji rain effect when component unmounts
     useEffect(() => {
+        const timeoutRefValue = emojiRainTimeoutRef.current;
         return () => {
             // Clear the timeout to prevent state updates after unmount
-            if (emojiRainTimeoutRef.current) {
-                clearTimeout(emojiRainTimeoutRef.current);
+            if (timeoutRefValue) {
+                clearTimeout(timeoutRefValue);
             }
         };
     }, []);
@@ -75,18 +76,28 @@ const GamePage = () => {
         let message = "";
         let correct = false;
 
-        if (answer === currentFact.answer) {
+        const acceptedAnswers = Array.isArray(currentFact.answer)
+            ? currentFact.answer
+            : [currentFact.answer];
+
+        if (acceptedAnswers.includes(answer)) {
             newScore += 1;
             message = "Correct!";
             correct = true;
-            // Show emoji rain for correct answers
             setShowEmojiRain(true);
-            // Hide emoji rain after 3 seconds
             setTimeout(() => {
                 setShowEmojiRain(false);
             }, 3000);
         } else {
-            message = `Wrong! The correct answer is ${currentFact.answer}.`;
+            if (acceptedAnswers.length === 1) {
+                message = `Wrong! The correct answer is ${acceptedAnswers[0]}.`;
+            } else if (acceptedAnswers.length === 2) {
+                message = `Wrong! The correct answer was either ${acceptedAnswers[0]} or ${acceptedAnswers[1]}.`;
+            } else {
+                const allButLast = acceptedAnswers.slice(0, -1).join(", ");
+                const last = acceptedAnswers[acceptedAnswers.length - 1];
+                message = `Wrong! The correct answers were: ${allButLast}, or ${last}.`;
+            }
             correct = false;
         }
 

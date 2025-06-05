@@ -364,7 +364,7 @@ export interface Player {
 
 export interface Fact {
     fact: string;
-    answer: MilitaryBranch; // Should be one of the six military branches
+    answer: MilitaryBranch | MilitaryBranch[];
 }
 
 export interface GameState {
@@ -372,8 +372,8 @@ export interface GameState {
     currentFactIndex: number;
     selectedPlayerIndex: number | null;
     isGameOver: boolean;
-    currentAnswer: MilitaryBranch | null; // Stores the player's selected answer for the current question
-    showFeedback: boolean; // Whether to show feedback (Correct/Wrong)
+    currentAnswer: MilitaryBranch | null;
+    showFeedback: boolean;
 }
 
 export type MilitaryBranch =
