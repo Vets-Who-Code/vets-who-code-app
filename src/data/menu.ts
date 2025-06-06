@@ -22,7 +22,7 @@ const navigation: NavigationItem[] = [
         submenu: [
             {
                 id: 101,
-                label: "About Page",
+                label: "About Us",
                 path: "/about-us",
             },
             {
@@ -39,6 +39,11 @@ const navigation: NavigationItem[] = [
                 id: 104,
                 label: "Open Source Projects",
                 path: "/projects",
+            },
+            {
+                id: 105,
+                label: "Theory of Change",
+                path: "/theory-of-change",
             },
         ],
     },
