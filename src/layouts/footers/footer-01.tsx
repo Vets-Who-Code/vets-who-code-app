@@ -36,7 +36,7 @@ const Footer01 = ({ mode }: TProps) => {
                         <a
                             href="https://app.candid.org/profile/9981881/vets-who-code-86-2122804"
                             target="_blank"
-                            rel="noreferrer"
+                            rel="noopener noreferrer"
                         >
                             <img
                                 src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
