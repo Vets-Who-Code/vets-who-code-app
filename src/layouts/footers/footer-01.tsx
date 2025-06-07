@@ -33,11 +33,17 @@ const Footer01 = ({ mode }: TProps) => {
                         className="tw-col-span-12 tw-mb-7.5 md:tw-col-span-5 lg:tw-col-span-3"
                     />
                     <div className="sm:tw-col-span-2 xl:tw-col-span-1 maxSm:tw-col-span-3">
-                        <img
-                            src="https://res.cloudinary.com/vetswhocode/image/upload/v1705549609/candid-seal-platinum-2024_wexkdk.png"
-                            alt="Candid Seal Platinum Award"
-                            width={150}
-                        />
+                        <a
+                            href="https://app.candid.org/profile/9981881/vets-who-code-86-2122804"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
+                                alt="Candid/Guidestar Transparency Seal"
+                                title="Candid/Guidestar Transparency Seal"
+                            />{" "}
+                        </a>
                     </div>
                 </div>
                 <p className="copyright tw-mt-5 tw-text-center tw-text-md tw-text-gray-400">
