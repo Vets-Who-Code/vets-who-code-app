@@ -79,7 +79,12 @@ const navigation: NavigationItem[] = [
                 path: "/blogs/blog",
             },
             {
-                id: 704,
+                id: 704, // New ID for Media
+                label: "Media",
+                path: "/media",
+            },
+            {
+                id: 705, // Existing Shop, ID adjusted (was 704)
                 label: "Shop",
                 path: "https://hashflag.shop/",
                 external: true,
