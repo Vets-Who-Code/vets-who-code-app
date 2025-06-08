@@ -8,20 +8,7 @@ type TProps = IMedia & {
 };
 
 const MediaCard = forwardRef<HTMLDivElement, TProps>(
-    (
-        {
-            title,
-            slug, // slug might not be used for an external link card, but good to have
-            mediaType,
-            url,
-            publication,
-            date,
-            image,
-            description,
-            className,
-        },
-        ref
-    ) => (
+    ({ title, mediaType, url, publication, date, image, description, className }, ref) => (
         <div
             className={clsx(
                 "media-card tw-group tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-lg tw-transition-all hover:tw-shadow-xl",
@@ -37,15 +24,17 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                         alt={image?.alt || title}
                         width={image?.width || 300}
                         height={image?.height || 210} // Adjusted height to match h-52 (approx 13rem)
-                        loading={"lazy"}
+                        loading="lazy"
                     />
                 </figure>
             )}
-            <div className="tw-flex tw-flex-grow tw-flex-col tw-p-6"> {/* Changed from tw-p-5 */}
+            <div className="tw-flex tw-flex-grow tw-flex-col tw-p-6">
+                {" "}
+                {/* Changed from tw-p-5 */}
                 {mediaType && (
                     <p className="tw-mb-1 tw-text-xs tw-font-medium tw-uppercase tw-text-secondary-light">
                         {mediaType}
-                        {publication && <span className="tw-text-gray-500"> - {publication}</span>}
+                        {publication && <span className="tw-text-secondary"> - {publication}</span>}
                     </p>
                 )}
                 <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-leading-snug">
@@ -60,13 +49,13 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                     </a>
                 </h3>
                 {description && (
-                    <p className="tw-mb-3 tw-text-sm tw-text-gray-700 tw-flex-grow">
+                    <p className="tw-mb-3 tw-flex-grow tw-text-sm tw-text-gray-700">
                         {description}
                     </p>
                 )}
                 <div className="tw-mt-auto">
                     {date && (
-                        <p className="tw-text-xs tw-text-gray-500">
+                        <p className="tw-text-xs tw-text-secondary">
                             <i className="far fa-calendar tw-mr-1.5" />
                             {new Date(date).toLocaleDateString("en-US", {
                                 year: "numeric",
@@ -79,9 +68,9 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                         path={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="tw-mt-3 tw-inline-block tw-font-medium tw-text-primary hover:tw-text-primary-dark"
+                        className="hover:tw-text-primary-dark tw-mt-3 tw-inline-block tw-font-medium tw-text-primary"
                     >
-                        View Media <i className="fas fa-external-link-alt tw-ml-1"></i>
+                        View Media <i className="fas fa-external-link-alt tw-ml-1" />
                     </Anchor>
                 </div>
             </div>
