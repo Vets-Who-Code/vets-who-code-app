@@ -40,4 +40,4 @@ jobs:
           plato -r -d plato-report . || true
 
       - name: Score the code
-        run: node .github/scripts/score-code.js
+        run: node .github/scripts/scoreCode.js
