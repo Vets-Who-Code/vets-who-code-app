@@ -1,6 +1,6 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import MediaPage from "@/pages/media"; // Adjust if path is different, e.g., src/pages/media
+import { render, screen, fireEvent } from "@testing-library/react";
 import { IMedia } from "@utils/types"; // Adjust path if needed
+import MediaPage from "../../pages/media.tsx"; // Adjust if path is different, e.g., src/pages/media
 
 // Mock dependencies
 jest.mock("@components/seo/page-seo", () => ({

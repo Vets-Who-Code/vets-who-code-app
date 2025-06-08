@@ -1,0 +1,43 @@
+name: Code Quality Scoring
+
+on:
+  pull_request:
+    paths:
+      - '**/*.ts'
+      - '**/*.tsx'
+      - '**/*.js'
+      - '**/*.jsx'
+    types: [opened, synchronize]
+
+jobs:
+  score-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: |
+          npx eslint . -f json -o eslint-report.json || true
+
+      - name: Run complexity and metrics analysis
+        run: |
+          npm install -g complexity-report
+          cr -f json -o complexity-report.json .
+
+      - name: Run Maintainability Check (Plato)
+        run: |
+          npm install -g plato
+          plato -r -d plato-report . || true
+
+      - name: Score the code
+        run: node .github/scripts/score-code.js
