@@ -27,7 +27,7 @@ jobs:
 
       - name: Run ESLint
         run: |
-          npx eslint . -f json -o eslint-report.json || true
+          npx eslint . --ext .js,.ts,.jsx,.tsx -f json -o eslint-report.json || true
 
       - name: Run complexity and metrics analysis
         run: |
