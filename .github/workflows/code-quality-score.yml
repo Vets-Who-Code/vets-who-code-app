@@ -2,19 +2,21 @@ name: Code Quality Scoring
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     paths:
-      - '**/*.ts'
-      - '**/*.tsx'
-      - '**/*.js'
-      - '**/*.jsx'
-    types: [opened, synchronize]
+      - 'src/**.ts'
+      - 'src/**.tsx'
+      - '.github/scripts/**'
+      - '.eslintrc*'
+      - 'package.json'
+      - 'tsconfig.json'
 
 jobs:
-  score-code:
+  score-code-quality:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -23,21 +25,24 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run ESLint
-        run: |
-          npx eslint . --ext .js,.ts,.jsx,.tsx -f json -o eslint-report.json || true
-
-      - name: Run complexity and metrics analysis
-        run: |
-          npm install -g complexity-report
-          cr -f json -o complexity-report.json src/pages src/components src/lib
-
-      - name: Run Maintainability Check (Plato)
-        run: |
-          npm install -g plato
-          plato -r -d plato-report . || true
+      - name: Run ESLint and generate report
+        run: npx eslint src --ext .ts,.tsx -f json -o eslint-report.json || true
 
       - name: Score the code
         run: node .github/scripts/scoreCode.js
+
+      - name: Comment Code Score on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('score-output.md', 'utf8');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });
