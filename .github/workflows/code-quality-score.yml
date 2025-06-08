@@ -32,7 +32,7 @@ jobs:
       - name: Run complexity and metrics analysis
         run: |
           npm install -g complexity-report
-          cr -f json -o complexity-report.json src pages components
+          cr -f json -o complexity-report.json pages components lib utils
 
       - name: Run Maintainability Check (Plato)
         run: |
