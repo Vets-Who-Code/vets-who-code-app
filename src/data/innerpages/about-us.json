@@ -206,18 +206,34 @@
             ]
           }
         ]
-      },
-      {
+      },      {
         "section": "cta-area",
         "section_title": {
-          "title": "Your investment today creates tomorrow's software engineers. Every dollar you contribute to #VetsWhoCode doesn't just fund training—it transforms lives, families, and communities. Veterans who complete our program see an average salary increase of 400%, turning military precision into six-figure careers. When you donate, you're not giving charity; you're fueling a proven system that has already generated over twenty million dollars in collective earnings for those who served our country. Our graduates become mentors and donors themselves, creating a self-sustaining cycle of success that multiplies your impact far beyond your initial contribution.<br></br> By 2030, with your help, we'll equip 10,000 veterans with cutting-edge tech skills, generate one billion dollars in lifetime earnings, and prove that nonprofits can scale like startups while maintaining their soul. Unlike traditional programs with high overhead, we're remote-first and tech-enabled—meaning more of your donation goes directly to veteran success. Our AI-augmented learning platform adapts to each veteran's unique background and learning style, maximizing educational outcomes while minimizing costs. Join our mission to transform military experience into tech excellence, close the digital talent gap, and help those who defended our freedom build America's innovation future. Your donation isn't just appreciated—it's leveraged, maximized, and transformed into sustainable careers that honor service through opportunity.",
-          "subtitle": "How can <strong>YOU</strong> join our mission?"
+          "title": "",
+          "subtitle": "Support Vets Who Code"
         },
-        "buttons": [
+        "items": [
           {
             "id": 1,
-            "path": "/donate",
-            "content": "Donate"
+            "headings": [
+              {
+                "id": 1,
+                "content": "Transform Lives Through Technology"
+              }
+            ],
+            "texts": [
+              {
+                "id": 1,
+                "content": "Your contribution directly empowers veterans to build new careers in tech. With your support, we can provide free, high-quality software engineering education that turns military experience into valuable technical skills."
+              },              {
+                "id": 2,
+                "content": "Vets Who Code graduates see an average 400% salary increase, creating lasting financial stability for veterans and their families. By 2030, we aim to equip 10,000 veterans with cutting-edge tech skills and generate $1 billion in lifetime earnings."
+              },
+              {
+                "id": 3,
+                "content": "Whether you donate, volunteer as a mentor, or help spread our mission, you're not just saying 'thank you for your service' — you're investing in veterans' futures and strengthening America's tech workforce."
+              }
+            ]
           }
         ]
       }

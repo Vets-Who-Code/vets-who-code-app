@@ -33,7 +33,7 @@
   },
   {
     "fact": "This branch's core values are 'Honor, Courage, and Commitment'.",
-    "answer": "Navy"
+    "answer": ["Navy", "Marines"]
   },
   {
     "fact": "This branch was part of the Army until it became a separate service in 1947.",
