@@ -53,3 +53,5 @@ public/workbox-*.js
 /playwright/.cache/
 
 
+
+/src/generated/prisma

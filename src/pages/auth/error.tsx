@@ -57,7 +57,7 @@ const errorMessages: ErrorType = {
 };
 
 type PageWithLayout = NextPage & {
-    Layout?: typeof Layout;
+    Layout: typeof Layout;
 };
 
 const AuthError: PageWithLayout = () => {
@@ -67,8 +67,8 @@ const AuthError: PageWithLayout = () => {
 
     useEffect(() => {
         const errorType = router.query.error as string;
-        if (errorType && errorMessages[errorType]) {
-            setError(errorMessages[errorType]);
+        if (errorType && errorMessages[errorType.toLowerCase()]) {
+            setError(errorMessages[errorType.toLowerCase()]);
         }
     }, [router.query]);
 
@@ -88,7 +88,7 @@ const AuthError: PageWithLayout = () => {
     }, [router]);
 
     return (
-        <div className="tw-sm:px-6 tw-lg:px-8 tw-flex tw-min-h-screen tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12">
+        <div className="tw-sm:px-6 tw-lg:px-8 tw-flex tw-min-h-[75vh] tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12">
             <div className="tw-sm:mx-auto tw-sm:w-full tw-sm:max-w-md">
                 <div className="tw-sm:rounded-lg tw-sm:px-10 tw-bg-white tw-px-4 tw-py-8 tw-shadow">
                     <div className="tw-text-center">
@@ -96,7 +96,7 @@ const AuthError: PageWithLayout = () => {
                             {error.title}
                         </h2>
                         <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">
-                            <div className="tw-flex">
+                            <div className="tw-flex tw-justify-center">
                                 <div className="tw-flex-shrink-0">
                                     <svg
                                         className="tw-h-5 tw-w-5 tw-text-red-400"
@@ -124,16 +124,16 @@ const AuthError: PageWithLayout = () => {
                         <div className="tw-space-y-4">
                             <Link
                                 href="/"
-                                className="tw-hover:tw-bg-opacity-90 tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-offset-2 tw-focus:tw-ring-primary tw-inline-flex tw-items-center tw-rounded-md tw-border tw-border-transparent tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-shadow-sm"
+                                className="tw-inline-flex tw-items-center tw-rounded-md tw-border tw-border-transparent tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-shadow-sm hover:tw-bg-opacity-90 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2"
                             >
                                 Return to Home Page
                             </Link>
 
-                            <p className="tw-text-sm tw-text-gray-500">
+                            <p className="tw-text-sm tw-text-secondary">
                                 Redirecting in {countdown} seconds...
                             </p>
 
-                            <div className="tw-mt-4 tw-text-sm tw-text-gray-500">
+                            <div className="tw-mt-4 tw-text-sm tw-text-secondary">
                                 Need help?{" "}
                                 <a
                                     href="mailto:support@vetswhocode.io"
