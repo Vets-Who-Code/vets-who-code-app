@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,34 +25,72 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./src",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@containers/*": ["containers/*"],
-      "@contexts/*": ["contexts/*"],
-      "@data/*": ["data/*"],
-      "@hooks": ["hooks"],
-      "@layout/*": ["layouts/*"],
-      "@ui/*": ["components/ui/*"],
-      "@utils/*": ["utils/*"],
-      "@widgets/*": ["components/widgets/*"],
-      "@fonts/*": ["public/fonts/*"],
-      "@vercel/analytics/*": ["../node_modules/@vercel/analytics/*"]
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@containers/*": [
+        "containers/*"
+      ],
+      "@contexts/*": [
+        "contexts/*"
+      ],
+      "@data/*": [
+        "data/*"
+      ],
+      "@hooks": [
+        "hooks"
+      ],
+      "@layout/*": [
+        "layouts/*"
+      ],
+      "@ui/*": [
+        "components/ui/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@widgets/*": [
+        "components/widgets/*"
+      ],
+      "@fonts/*": [
+        "public/fonts/*"
+      ],
+      "@vercel/analytics/*": [
+        "../node_modules/@vercel/analytics/*"
+      ],
+      "@/*": [
+        "*"
+      ]
     },
-    "types": ["google.maps"]
+    "types": [
+      "google.maps",
+      "@types/node"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
-    "next-env.d.ts", 
-    "next.config.js", 
-    "src/**/*.ts", 
-    "src/**/*.tsx", 
-    "tailwind.config.js", 
-    "postcss.config.js", 
-    "next-sitemap.config.js",
-    "playwright.config.ts",
     "__tests__/**/*.tests.*",
-    "jest.setup.ts",
     "jest.config.ts",
-    "tests/**/*.spec.*"
+    "jest.setup.ts",
+    "next-env.d.ts",
+    "next-sitemap.config.js",
+    "next.config.js",
+    "playwright.config.ts",
+    "postcss.config.js",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "tailwind.config.js",
+    "tests/**/*.spec.*",
+    ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
