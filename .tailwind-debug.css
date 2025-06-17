@@ -3132,24 +3132,6 @@ iframe {
   animation: tw-headerSlideDown .95s ease forwards;
 }
 
-@keyframes tw-wiggle {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(5deg);
-  }
-
-  100% {
-    transform: rotate(-5deg);
-  }
-}
-
-.tw-animate-wiggle {
-  animation: tw-wiggle 0.5s ease-in-out;
-}
-
 .tw-cursor-pointer {
   cursor: pointer;
 }
