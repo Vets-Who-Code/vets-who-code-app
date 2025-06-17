@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
     "export": "next build && next export",
     "format": "prettier --ignore-path .prettierignore --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
@@ -15,7 +16,6 @@
     "lint:fix": "yarn typecheck & yarn format & yarn lint --fix",
     "prepare": "husky install",
     "postbuild": "next-sitemap",
-    "postinstall": "prisma generate && prisma migrate deploy",
     "test": "jest"
   },
   "dependencies": {
