@@ -67,8 +67,9 @@ const AuthError: PageWithLayout = () => {
 
     useEffect(() => {
         const errorType = router.query.error as string;
-        if (errorType && errorMessages[errorType.toLowerCase()]) {
-            setError(errorMessages[errorType.toLowerCase()]);
+        const normalizedErrorType = errorType.toLowerCase();
+        if (errorType && errorMessages[normalizedErrorType]) {
+            setError(errorMessages[normalizedErrorType]);
         }
     }, [router.query]);
 

@@ -1,6 +1,5 @@
 import { NextAuthOptions } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
-import { GithubProfile } from "next-auth/providers/github";
+import GithubProvider, { GithubProfile } from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "@/lib/prisma";
 
@@ -61,7 +60,6 @@ export const options: NextAuthOptions = {
                         },
                         5000 // 5 second timeout
                     );
-                    console.log(JSON.stringify(res.status));
 
                     // Handle rate limiting
                     if (res.status === 403) {
