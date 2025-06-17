@@ -28,8 +28,13 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
 }) => {
     const [open, setOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
-    // Add a ref to track if modal has been shown this session
-    const hasInitialized = useRef(false);
+    // DEBUG: Log mount and open state
+    useEffect(() => {
+        console.log("[EngagementModal] mounted, forceShow:", forceShow);
+    }, []);
+    useEffect(() => {
+        console.log("[EngagementModal] open state:", open);
+    }, [open]);
 
     // Expose method to manually open modal for debugging
     // This can be called from browser console: window.openEngagementModal()
@@ -43,10 +48,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
     }, []);
 
     useEffect(() => {
-        if (typeof window === "undefined" || hasInitialized.current) return;
-
-        // Mark that we've initialized
-        hasInitialized.current = true;
+        if (typeof window === "undefined") return;
 
         if (forceShow) {
             const timer = setTimeout(() => setOpen(true), 3000);

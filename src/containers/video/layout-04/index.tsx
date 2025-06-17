@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import { scrollUpVariants } from "@utils/variants";

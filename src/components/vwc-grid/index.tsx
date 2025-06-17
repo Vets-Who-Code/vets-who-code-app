@@ -1,4 +1,4 @@
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { PropsWithChildren } from "react";
 
 interface TProps {

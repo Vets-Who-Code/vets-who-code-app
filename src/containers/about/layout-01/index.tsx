@@ -1,4 +1,4 @@
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import SectionTitle from "@components/section-title";
 import Anchor from "@ui/anchor";
 import { motion } from "motion/react";

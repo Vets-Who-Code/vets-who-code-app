@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import Testimonial from "@components/testimonial/testimonial-05";
 import SectionTitle from "@components/section-title";

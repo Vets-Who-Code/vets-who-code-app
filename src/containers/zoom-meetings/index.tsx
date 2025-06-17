@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { IZoomMeeting } from "@utils/types";
 import Pagination from "@components/pagination/pagination-01";
 import ZoomCard from "@components/zoom-card";

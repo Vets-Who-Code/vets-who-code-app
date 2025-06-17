@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import SectionTitle from "@components/section-title";
 import BottomShape from "@ui/bottom-shape/shape-02";
 import Video from "@ui/video-with-poster/video-02";

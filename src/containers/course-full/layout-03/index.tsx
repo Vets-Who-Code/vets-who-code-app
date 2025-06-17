@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import CourseCard from "@components/course-card/course-03";
 import { ICourse } from "@utils/types";
 import { courseSorting } from "@utils/methods";

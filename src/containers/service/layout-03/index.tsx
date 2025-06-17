@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import ServiceCard from "@components/image-box/image-box-02";
 import MottoText from "@ui/motto-text";
 import { ItemType, MottoType, TSection } from "@utils/types";
