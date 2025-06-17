@@ -1,10 +1,57 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
+    safelist: ["group-hover:tw-animate-wiggle"],
     content: ["./src/**/*.tsx"],
     prefix: "tw-",
     theme: {
         extend: {
+            animation: {
+                wiggle: "wiggle 0.5s ease-in-out",
+                headerSlideDown: "headerSlideDown .95s ease forwards",
+                gradationMask: "gradationMask 3s linear infinite",
+                rotatePlane: "rotatePlane 1.2s infinite ease-in-out",
+            },
+            keyframes: {
+                wiggle: {
+                    "0%": { transform: "rotate(0deg)" },
+                    "50%": { transform: "rotate(5deg)" },
+                    "100%": { transform: "rotate(-5deg)" },
+                },
+                headerSlideDown: {
+                    "0%": {
+                        transform: "translateY(-100%)",
+                    },
+                    "100%": {
+                        transform: "translateY(0)",
+                    },
+                },
+                gradationMask: {
+                    "0%": {
+                        transform: "translate(-50%, -50%) scale(0)",
+                        opacity: 1,
+                    },
+                    "90%": {
+                        opacity: 1,
+                    },
+                    "100%": {
+                        transform: "translate(-50%, -50%) scale(1)",
+                        opacity: 0,
+                        borderColor: "transparent",
+                    },
+                },
+                rotatePlane: {
+                    "0%": {
+                        transform: "perspective(120px) rotateX(0deg) rotateY(0deg)",
+                    },
+                    "50%": {
+                        transform: "perspective(120px) rotateX(-180.1deg) rotateY(0deg)",
+                    },
+                    "100%": {
+                        transform: "perspective(120px) rotateX(-180deg) rotateY(-179.9deg)",
+                    },
+                },
+            },
             colors: {
                 transparent: "transparent",
                 current: "currentColor",
@@ -217,46 +264,7 @@ module.exports = {
             transitionDelay: {
                 0: "0ms",
             },
-            keyframes: {
-                headerSlideDown: {
-                    "0%": {
-                        transform: "translateY(-100%)",
-                    },
-                    "100%": {
-                        transform: "translateY(0)",
-                    },
-                },
-                gradationMask: {
-                    "0%": {
-                        transform: "translate(-50%, -50%) scale(0)",
-                        opacity: 1,
-                    },
-                    "90%": {
-                        opacity: 1,
-                    },
-                    "100%": {
-                        transform: "translate(-50%, -50%) scale(1)",
-                        opacity: 0,
-                        borderColor: "transparent",
-                    },
-                },
-                rotatePlane: {
-                    "0%": {
-                        transform: "perspective(120px) rotateX(0deg) rotateY(0deg)",
-                    },
-                    "50%": {
-                        transform: "perspective(120px) rotateX(-180.1deg) rotateY(0deg)",
-                    },
-                    "100%": {
-                        transform: "perspective(120px) rotateX(-180deg) rotateY(-179.9deg)",
-                    },
-                },
-            },
-            animation: {
-                headerSlideDown: "headerSlideDown .95s ease forwards",
-                gradationMask: "gradationMask 3s linear infinite",
-                rotatePlane: "rotatePlane 1.2s infinite ease-in-out",
-            },
+            // (Removed duplicate keyframes and animation blocks to prevent overwriting 'wiggle')
             backgroundImage: {
                 darkGradient: "linear-gradient(-180deg,transparent 0,rgba(0,0,0,.3) 100%)",
                 lightGradient: "linear-gradient(180deg, #FFFFFF 0%, #F5F5F5 100%)",
@@ -267,6 +275,11 @@ module.exports = {
     },
     corePlugins: {
         container: false,
+    },
+    variants: {
+        extend: {
+            animation: ["group-hover"],
+        },
     },
     plugins: [
         function addVariantFunc({ addVariant }) {
