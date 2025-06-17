@@ -5814,6 +5814,15 @@ framer-motion@^11.13.3:
     motion-utils "^11.13.0"
     tslib "^2.4.0"
 
+framer-motion@^12.18.1:
+  version "12.18.1"
+  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-12.18.1.tgz"
+  integrity sha512-6o4EDuRPLk4LSZ1kRnnEOurbQ86MklVk+Y1rFBUKiF+d2pCdvMjWVu0ZkyMVCTwl5UyTH2n/zJEJx+jvTYuxow==
+  dependencies:
+    motion-dom "^12.18.1"
+    motion-utils "^12.18.1"
+    tslib "^2.4.0"
+
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
@@ -7843,10 +7852,22 @@ motion-dom@^11.13.0:
   resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-11.13.0.tgz"
   integrity sha512-Oc1MLGJQ6nrvXccXA89lXtOqFyBmvHtaDcTRGT66o8Czl7nuA8BeHAd9MQV1pQKX0d2RHFBFaw5g3k23hQJt0w==
 
+motion-dom@^12.18.1:
+  version "12.18.1"
+  resolved "https://registry.npmjs.org/motion-dom/-/motion-dom-12.18.1.tgz"
+  integrity sha512-dR/4EYT23Snd+eUSLrde63Ws3oXQtJNw/krgautvTfwrN/2cHfCZMdu6CeTxVfRRWREW3Fy1f5vobRDiBb/q+w==
+  dependencies:
+    motion-utils "^12.18.1"
+
 motion-utils@^11.13.0:
   version "11.13.0"
   resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-11.13.0.tgz"
   integrity sha512-lq6TzXkH5c/ysJQBxgLXgM01qwBH1b4goTPh57VvZWJbVJZF/0SB31UWEn4EIqbVPf3au88n2rvK17SpDTja1A==
+
+motion-utils@^12.18.1:
+  version "12.18.1"
+  resolved "https://registry.npmjs.org/motion-utils/-/motion-utils-12.18.1.tgz"
+  integrity sha512-az26YDU4WoDP0ueAkUtABLk2BIxe28d8NH1qWT8jPGhPyf44XTdDUh8pDk9OPphaSrR9McgpcJlgwSOIw/sfkA==
 
 motion@^11.13.3:
   version "11.13.3"

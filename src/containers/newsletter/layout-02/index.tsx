@@ -13,7 +13,7 @@ type TProps = TSection & {
 
 const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProps) => {
     return (
-        <Section className="tw-relative" space={space} bg={bg}>
+        <Section className="tw-relative" space={space} bg={bg} id="newsletter">
             <div className="tw-absolute tw-inset-0 -tw-z-1 child:tw-h-full child:tw-w-full child:tw-object-cover">
                 <img
                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678670156/website-images/vetswhocode-newsletter-bg.jpg"
