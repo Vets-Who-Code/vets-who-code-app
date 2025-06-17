@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { motion } from "motion/react";
 import { useUI } from "@contexts/ui-context";
 import { ImageType, ItemType, SectionTitleType, TSection } from "@utils/types";

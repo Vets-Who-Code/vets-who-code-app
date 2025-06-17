@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import Button from "@ui/button";
 import { useUI } from "@contexts/ui-context";
 import { ButtonType, SectionTitleType, TSection } from "@utils/types";

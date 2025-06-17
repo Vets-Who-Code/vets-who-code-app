@@ -13,7 +13,7 @@ import EventArea from "@containers/event/layout-02";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
-import { EngagementModal } from "@components/EngagementModal";
+import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 
 import { normalizedData } from "@utils/methods";
 import { IBlog, ICourse, IEvent } from "@utils/types";

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { EffectCoverflow } from "swiper";
 import SectionTitle from "@components/section-title";
 import Testimonial from "@components/testimonial/testimonial-02";

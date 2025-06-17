@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import FunFact from "@components/funfact/funfact-02";
 import { ItemType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
