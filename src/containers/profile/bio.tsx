@@ -1,4 +1,4 @@
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import Social, { SocialLink } from "@components/ui/social";
 
 const ProfileBio = () => {

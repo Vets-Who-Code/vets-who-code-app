@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
 import SectionTitle from "@components/section-title";
 import NewsletterForm from "@components/forms/newsletter-form";

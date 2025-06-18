@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import { SwiperSlide } from "@ui/swiper";
 import Testimonial from "@components/testimonial/testimonial-02";
 import SectionTitle from "@components/section-title";

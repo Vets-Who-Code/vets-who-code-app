@@ -4,9 +4,10 @@ import { TSection } from "@utils/types";
 type TProps = Exclude<TSection, "titleSize"> & {
     children: React.ReactNode;
     style?: React.CSSProperties;
+    id?: string; // Add id prop to type definition
 };
 
-const Section = ({ space, bg, className, style, children }: TProps) => {
+const Section = ({ space, bg, className, style, children, id }: TProps) => {
     return (
         <section
             className={clsx(
@@ -23,6 +24,7 @@ const Section = ({ space, bg, className, style, children }: TProps) => {
                 bg
             )}
             style={style}
+            id={id} // Pass the id prop to the section element
         >
             {children}
         </section>

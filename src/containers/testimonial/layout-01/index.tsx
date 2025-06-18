@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import Swiper, { SwiperSlide } from "@ui/swiper";
 import Testimonial from "@components/testimonial/testimonial-01";
 import { motion } from "motion/react";

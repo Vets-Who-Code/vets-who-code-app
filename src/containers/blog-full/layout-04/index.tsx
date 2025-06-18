@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import BlogCard from "@components/blog-card/blog-06";
 import Pagination from "@components/pagination/pagination-01";
 import { IBlog } from "@utils/types";

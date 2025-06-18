@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/icon-box/icon-box-02";
 import { scrollUpVariants } from "@utils/variants";

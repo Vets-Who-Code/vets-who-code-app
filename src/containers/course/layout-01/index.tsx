@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import SectionTitle from "@components/section-title";
 import CourseCard from "@components/course-card/course-01";
 import MottoText from "@components/ui/motto-text";

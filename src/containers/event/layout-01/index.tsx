@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import Section from "@ui/section";
+import Section from "@components/ui/engagement-modal";
 import NiceSelect from "@ui/nice-select";
 import { IEvent } from "@utils/types";
 import { eventFilter } from "@utils/methods";

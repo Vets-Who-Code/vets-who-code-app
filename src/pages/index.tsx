@@ -13,6 +13,7 @@ import EventArea from "@containers/event/layout-02";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
+import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 
 import { normalizedData } from "@utils/methods";
 import { IBlog, ICourse, IEvent } from "@utils/types";
@@ -68,6 +69,13 @@ const Home: PageProps = ({ data }) => {
             <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
+            {/* For production, remove forceShow prop entirely */}
+            <EngagementModal
+                headline="Your Next Mission Starts Here."
+                body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
+                cta1={{ label: "Donate Now", href: "/donate" }}
+                cta2={{ label: "Join the Mission", href: "#newsletter" }}
+            />
         </>
     );
 };
