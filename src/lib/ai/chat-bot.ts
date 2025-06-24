@@ -1,5 +1,4 @@
-import { type LanguageModel, streamText, type CoreMessage, generateObject } from "ai";
-import { type ZodType, type ZodTypeDef } from "zod";
+import { type LanguageModel, streamText, type CoreMessage } from "ai";
 import { mosLookup } from "./tools/mos-lookup";
 
 const baseContext = `

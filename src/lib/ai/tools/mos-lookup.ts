@@ -2,7 +2,6 @@ import { tool } from "ai";
 import { z } from "zod";
 import axios from "axios";
 import { chromium } from "@playwright/test";
-import { gemini } from "../gemini";
 
 const { ONET_USER } = process.env;
 const { ONET_PASSWORD } = process.env;
