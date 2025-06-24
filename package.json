@@ -118,5 +118,8 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*": "prettier --write --ignore-unknown"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.9"
   }
 }
