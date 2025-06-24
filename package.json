@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "@ai-sdk/azure": "^1.0.7",
+    "@ai-sdk/google": "^1.2.19",
+    "@ai-sdk/react": "^1.2.12",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
     "@neondatabase/serverless": "^1.0.1",
@@ -33,7 +35,7 @@
     "@types/express": "^4.17.17",
     "@vercel/analytics": "^1.4.1",
     "ace-builds": "^1.33.1",
-    "ai": "^2.2.37",
+    "ai": "^4.3.16",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^1.2.1",
@@ -64,7 +66,8 @@
     "swiper": "^8.3.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "ws": "^8.18.2"
+    "ws": "^8.18.2",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
