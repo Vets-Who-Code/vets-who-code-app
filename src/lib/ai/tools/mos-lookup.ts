@@ -64,10 +64,13 @@ const onetAPI = axios.create({
     },
 });
 
+const chrome = chromium.launch({
+    headless: true,
+});
+
 const fetchExternalData = async (urls: string[]) => {
-    const browser = await chromium.launch({
-        headless: true,
-    });
+    const browser = await chrome;
+
     const context = await browser.newContext({
         userAgent:
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
@@ -80,8 +83,6 @@ const fetchExternalData = async (urls: string[]) => {
             return page.innerHTML("body");
         })
     );
-
-    await browser.close();
 
     return responses;
 };
@@ -115,15 +116,21 @@ export const mosLookup = tool({
             const match = data.military_matches.match[0];
 
             // Fetch additional external data if available
-            const externalURLs = match.external_info?.map((info) => info.href) || [];
-            const externalData = await fetchExternalData(externalURLs);
-            console.log("External data fetched:", externalData);
+            try {
+                const externalURLs = match.external_info?.map((info) => info.href) || [];
+                const externalData = await fetchExternalData(externalURLs);
 
-            return {
-                mos: match,
-                similar_careers: data.career,
-                mos_descriptions: externalData,
-            };
+                return {
+                    mos: match,
+                    similar_careers: data.career,
+                    mos_descriptions: externalData,
+                };
+            } catch (error) {
+                return {
+                    mos: match,
+                    similar_careers: data.career,
+                };
+            }
         } catch (error) {
             return { error: `Failed to parse MOS data for code: ${code}` };
         }

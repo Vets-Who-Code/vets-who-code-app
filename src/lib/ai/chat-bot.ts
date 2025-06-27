@@ -55,7 +55,6 @@ export class ChatBot {
         }
         includedMessages.push(...messages);
 
-        console.log("Sending messages to AI model:", includedMessages);
         const response = streamText({
             model: this.model,
             messages: includedMessages,
@@ -76,8 +75,6 @@ export class ChatBot {
             },
             maxSteps: 5,
         });
-        console.log("Chat response stream initialized");
-
         return response;
     }
 }
