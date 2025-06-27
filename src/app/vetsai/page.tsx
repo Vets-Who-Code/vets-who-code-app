@@ -14,8 +14,9 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/vetsai/ui/breadcrumb";
+import "@assets/css/vetsai.css";
 
-export const Assistant = () => {
+export default function Assistant() {
     const runtime = useChatRuntime({
         api: "/api/chat",
     });
@@ -47,6 +48,4 @@ export const Assistant = () => {
             </SidebarProvider>
         </AssistantRuntimeProvider>
     );
-};
-
-export default Assistant;
+}
