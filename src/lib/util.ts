@@ -1,5 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 // read json file from directory
 export const readFiles = <T>(dirPath: string) => {
@@ -29,4 +31,8 @@ export function getSlugsAsync(dirPath: string): Promise<string[]> {
             }
         });
     });
+}
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs));
 }

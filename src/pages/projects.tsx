@@ -8,12 +8,12 @@ import { VWCGridCard } from "@components/vwc-card";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { getProjectData } from "../lib/project";
 import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
 import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import Link from "next/link";
 import MarkdownRenderer from "@components/markdown-renderer";
+import { getProjectData } from "../lib/project";
 
 interface TechStackProps {
     techStack: string[];
@@ -38,34 +38,32 @@ interface LinkButtonsProps {
 
 export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
     return (
-        <>
-            <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+        <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+            <Link
+                href={github_url}
+                target="_blank"
+                title="See the code on GitHub"
+                className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
+            >
+                <GitHubLogoIcon />
+                <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
+                    GitHub
+                </h6>
+            </Link>
+            {live_url && (
                 <Link
-                    href={github_url}
+                    href={live_url}
                     target="_blank"
-                    title="See the code on GitHub"
+                    title="See it live"
                     className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
                 >
-                    <GitHubLogoIcon />
-                    <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
-                        GitHub
+                    <GlobeIcon />
+                    <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
+                        Live
                     </h6>
                 </Link>
-                {live_url && (
-                    <Link
-                        href={live_url}
-                        target="_blank"
-                        title="See it live"
-                        className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
-                    >
-                        <GlobeIcon />
-                        <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
-                            Live
-                        </h6>
-                    </Link>
-                )}
-            </div>
-        </>
+            )}
+        </div>
     );
 };
 
