@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "vercel-build": "prisma generate && prisma migrate deploy && next build",
+    "vercel-build": "prisma generate && prisma migrate deploy && yarn playwright install --with-deps --only-shell && next build",
     "start": "next start",
     "export": "next build && next export",
     "format": "prettier --ignore-path .prettierignore --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
