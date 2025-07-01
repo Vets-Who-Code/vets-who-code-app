@@ -8,12 +8,12 @@ import { VWCGridCard } from "@components/vwc-card";
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { getProjectData } from "../lib/project";
 import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
 import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
 import clsx from "clsx";
 import Link from "next/link";
 import MarkdownRenderer from "@components/markdown-renderer";
+import { getProjectData } from "../lib/project";
 
 interface TechStackProps {
     techStack: string[];
@@ -38,8 +38,7 @@ interface LinkButtonsProps {
 
 export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
     return (
-        <>
-            <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+        <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
                 <Link
                     href={github_url}
                     target="_blank"
@@ -65,7 +64,6 @@ export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
                     </Link>
                 )}
             </div>
-        </>
     );
 };
 
