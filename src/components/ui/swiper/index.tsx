@@ -1,9 +1,8 @@
 import { forwardRef } from "react";
 import cn from "clsx";
-import { Navigation, Pagination, Autoplay, A11y } from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay, A11y } from "swiper";
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
-import type { Swiper as SwiperInstance } from "swiper/types";
 
 type TOptions = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -38,9 +37,9 @@ type TOptions = {
             [x: string]: number | string;
         };
     };
-    onSlideChange?: (swiper: SwiperInstance) => void;
-    onSlideChangeTransitionStart?: (swiper: SwiperInstance) => void;
-    onSlideChangeTransitionEnd?: (swiper: SwiperInstance) => void;
+    onSlideChange?: (swiper: SwiperCore) => void;
+    onSlideChangeTransitionStart?: (swiper: SwiperCore) => void;
+    onSlideChangeTransitionEnd?: (swiper: SwiperCore) => void;
 };
 
 type TProps = {
@@ -55,9 +54,9 @@ type TProps = {
     children: React.ReactNode;
     className?: string;
     navClass?: string;
-    onSlideChange?: (swiper: SwiperInstance) => void;
-    onSlideChangeTransitionStart?: (swiper: SwiperInstance) => void;
-    onSlideChangeTransitionEnd?: (swiper: SwiperInstance) => void;
+    onSlideChange?: (swiper: SwiperCore) => void;
+    onSlideChangeTransitionStart?: (swiper: SwiperCore) => void;
+    onSlideChangeTransitionEnd?: (swiper: SwiperCore) => void;
 };
 
 const SwiperSlider = forwardRef<HTMLDivElement, TProps>(

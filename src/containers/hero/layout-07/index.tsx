@@ -1,6 +1,5 @@
 import { useMemo, useState } from "react";
-import { EffectFade } from "swiper";
-import type { Swiper as SwiperInstance } from "swiper/types";
+import SwiperCore, { EffectFade } from "swiper";
 import { motion } from "motion/react";
 import SwiperSlider, { SwiperSlide } from "@components/ui/swiper";
 import { ItemType } from "@utils/types";
@@ -14,7 +13,7 @@ type TProps = {
 
 const HeroArea = ({ data: { items } }: TProps) => {
     const [activeIdx, setActiveId] = useState(0);
-    const onSlideChange = (swiper: SwiperInstance) => {
+    const onSlideChange = (swiper: SwiperCore) => {
         const { activeIndex } = swiper;
         setActiveId(activeIndex);
     };
@@ -23,7 +22,7 @@ const HeroArea = ({ data: { items } }: TProps) => {
         setActiveId(-1);
     };
 
-    const onSlideChangeTransitionEnd = (swiper: SwiperInstance) => {
+    const onSlideChangeTransitionEnd = (swiper: SwiperCore) => {
         const { activeIndex } = swiper;
         setActiveId(activeIndex);
     };
