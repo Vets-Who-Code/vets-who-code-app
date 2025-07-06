@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import path from "path";
 import fs from "fs";
-import { branch, personnelcategory, Prisma } from "@prisma/client";
+import { branch, personnelcategory } from "@prisma/client";
 import semver from "semver";
 
 interface CoolMOSData {
