@@ -280,7 +280,7 @@
             "section": "newsletter-area",
             "section_title": {
                 "title": "Subscribe to Our <span>Newsletter</span>",
-                "description":"Enter your email address to get our monthly newsletter, the SITREP <br class='tw-hidden md:tw-block'>and other exciting updates from our organization!"
+                "description":"Enter your email address to get our monthly newsletter, the SITREP <br class='tw:hidden tw:md:block'>and other exciting updates from our organization!"
             }
         }
     ]

@@ -10,7 +10,7 @@ type TProps = {
 
 const ModalBody = ({ className, children }: TProps) => {
     return (
-        <div className={clsx(className, "modal-body tw-relative tw-flex-auto tw-p-4")}>
+        <div className={clsx(className, "modal-body tw:relative tw:flex-auto tw:p-4")}>
             {children}
         </div>
     );

@@ -49,12 +49,12 @@ const TestimonialArea = ({ data: { items, section_title }, space, bg, titleSize 
         };
     }, []);
     return (
-        <Section className="testimonial-area tw-px-3.8" space={space} bg={bg}>
+        <Section className="testimonial-area tw:px-3.8" space={space} bg={bg}>
             {section_title && (
                 <AnimatedSectionTitle
                     {...section_title}
                     titleSize={titleSize}
-                    className="tw-pb-7.5 md:tw-pb-15"
+                    className="tw:pb-7.5 tw:md:pb-15"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -71,7 +71,7 @@ const TestimonialArea = ({ data: { items, section_title }, space, bg, titleSize 
                                 title={item.title}
                                 description={item.description}
                                 image={item.images?.[0]}
-                                className="tw-mb-7.5"
+                                className="tw:mb-7.5"
                             />
                         </SwiperSlide>
                     ))}
@@ -82,7 +82,7 @@ const TestimonialArea = ({ data: { items, section_title }, space, bg, titleSize 
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-light-100",
+    bg: "tw:bg-light-100",
 };
 
 export default TestimonialArea;

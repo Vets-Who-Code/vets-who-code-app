@@ -24,18 +24,18 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
     const { trans1, trans2 } = useUI();
     return (
         <Section
-            className={clsx("video-area tw-relative tw-mb-[140px]")}
+            className={clsx("video-area tw:relative tw:-mb-[140px]")}
             space={space}
             bg={bg}
             style={{
                 backgroundImage: `url("/images/bg/background-pattern-grid-line.png")`,
             }}
         >
-            <div className="tw-container tw-relative tw-z-10">
+            <div className="tw-container tw:relative tw:z-10">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw-mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -52,9 +52,7 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
                     <AnimatedVideo
                         poster={{ ...images[0], width: 970, height: 569 }}
                         video={video}
-                        className={clsx(
-                            "-tw-bottom-[140px] tw-mx-auto -tw-mt-[140px] tw-max-w-[970px]"
-                        )}
+                        className={clsx("tw:-mb-[140px] tw:mx-auto tw:max-w-[970px]")}
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -62,16 +60,16 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
                     />
                 )}
                 <motion.div
-                    className="tw-absolute -tw-top-[90px] tw-left-0 tw-z-1 tw-h-[130px] tw-w-[120px] md:-tw-top-[120px] md:tw-h-[226px] md:tw-w-[226px]"
+                    className="tw-absolute tw:-top-[90px] tw:left-0 tw:z-1 tw:h-[130px] tw:w-[120px] tw:md:-top-[120px] tw:md:h-[226px] tw:md:w-[226px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <Shape2 className="tw-h-full tw-w-full tw-fill-putty" />
+                    <Shape2 className="tw-h-full tw:w-full tw:fill-putty" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-left-5 tw-top-0 tw-z-1 tw-h-[90px] tw-w-[90px] md:tw-h-auto md:tw-w-auto"
+                    className="tw-absolute tw:left-5 tw:top-0 tw:z-1 tw:h-[90px] tw:w-[90px] tw:md:h-auto tw:md:w-auto"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,
@@ -86,7 +84,7 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
                     />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-right-0 tw-top-10 tw-z-10"
+                    className="tw-absolute tw:right-0 tw:top-10 tw:z-10"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
@@ -101,7 +99,7 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
                     />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute -tw-bottom-[45px] tw-right-5 tw-z-1 tw-w-[85px] md:tw-w-auto"
+                    className="tw-absolute tw:-bottom-[45px] tw:right-5 tw:z-1 tw:w-[85px] tw:md:w-auto"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
@@ -122,7 +120,7 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
 };
 
 VideoArea.defaultProps = {
-    bg: "tw-bg-spring",
+    bg: "tw:bg-spring",
     space: "top-bottom",
 };
 

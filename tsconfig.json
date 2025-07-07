@@ -83,7 +83,7 @@
     "next-sitemap.config.js",
     "next.config.js",
     "playwright.config.ts",
-    "postcss.config.js",
+    "postcss.config.mjs",
     "src/**/*.ts",
     "src/**/*.tsx",
     "tailwind.config.js",

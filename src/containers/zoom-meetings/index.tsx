@@ -20,9 +20,9 @@ type TProps = {
 const ZoomMeetingArea = ({ data: { zoomMeetings, pagiData } }: TProps) => {
     return (
         <Section className="zoom-meeting-area" space="bottom">
-            <h2 className="tw-sr-only">Zoom Meetings Section</h2>
-            <div className="tw-container">
-                <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+            <h2 className="tw:sr-only">Zoom Meetings Section</h2>
+            <div className="tw:container">
+                <div className="tw:grid tw:gap-7.5 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                     {zoomMeetings?.map((zoomMeeting) => (
                         <AnimatedZoomCard
                             key={zoomMeeting.path}
@@ -43,7 +43,7 @@ const ZoomMeetingArea = ({ data: { zoomMeetings, pagiData } }: TProps) => {
 
                 {pagiData && pagiData.numberOfPages > 1 && (
                     <Pagination
-                        className="tw-mt-[50px]"
+                        className="tw:mt-[50px]"
                         numberOfPages={pagiData.numberOfPages}
                         currentPage={pagiData.currentPage}
                         rootPage="zoom-meetings"

@@ -53,13 +53,13 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                 currentPage={blog.title}
                 title="Blog"
             />
-            <div className="tw-container tw-grid tw-grid-cols-3 tw-gap-7.5 tw-pb-15 md:tw-pb-20 lg:tw-gap-15 lg:tw-pb-[100px]">
-                <div className="tw-col-span-full lg:tw-col-[1/3]">
+            <div className="tw:container tw:grid tw:grid-cols-3 tw:gap-7.5 tw:pb-15 tw:md:pb-20 tw:lg:gap-15 tw:lg:pb-[100px]">
+                <div className="tw:col-span-full tw:lg:col-[1/3]">
                     <BlogDetailsArea {...blog} />
                     <BlogAuthor {...blog.author} />
                     <BlogNavLinks {...prevAndNextPost} />
                 </div>
-                <div className="tw-col-span-full lg:tw-col-[3/-1]">
+                <div className="tw:col-span-full tw:lg:col-[3/-1]">
                     <BlogSidebar recentPosts={recentPosts} tags={tags} />
                 </div>
             </div>

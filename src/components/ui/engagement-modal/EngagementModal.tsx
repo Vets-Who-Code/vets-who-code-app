@@ -96,7 +96,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                 <div className={styles.testModalButtonContainer}>
                     <button
                         type="button"
-                        className="tw-rounded tw-bg-secondary tw-px-4 tw-py-2 tw-text-white tw-shadow-lg"
+                        className="tw:rounded-sm tw:bg-secondary tw:px-4 tw:py-2 tw:text-white tw:shadow-lg"
                         onClick={() => setOpen(true)}
                     >
                         Test Modal
@@ -107,7 +107,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black/50 tw-p-2 sm:tw-p-6"
+                        className="tw:fixed tw:inset-0 tw:z-50 tw:flex tw:items-center tw:justify-center tw:bg-black/50 tw:p-2 tw:sm:p-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -117,7 +117,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                     >
                         <motion.div
                             ref={modalRef}
-                            className="tw-relative tw-flex tw-max-h-[95vh] tw-min-h-[520px] tw-w-full tw-max-w-2xl tw-flex-col tw-items-center tw-gap-6 tw-overflow-y-auto tw-rounded-2xl tw-border-4 tw-border-secondary tw-bg-white tw-p-6 tw-shadow-2xl tw-outline-none sm:tw-min-h-[600px] sm:tw-max-w-3xl sm:tw-p-16"
+                            className="tw:relative tw:flex tw:max-h-[95vh] tw:min-h-[520px] tw:w-full tw:max-w-2xl tw:flex-col tw:items-center tw:gap-6 tw:overflow-y-auto tw:rounded-2xl tw:border-4 tw:border-secondary tw:bg-white tw:p-6 tw:shadow-2xl tw:outline-hidden tw:sm:min-h-[600px] tw:sm:max-w-3xl tw:sm:p-16"
                             initial={{ scale: 0.95, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.95, opacity: 0 }}
@@ -126,35 +126,35 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                             <button
                                 type="button"
                                 aria-label="Close"
-                                className="tw-absolute tw-right-6 tw-top-6 tw-text-4xl tw-text-secondary hover:tw-text-primary focus:tw-outline-none"
+                                className="tw:absolute tw:right-6 tw:top-6 tw:text-4xl tw:text-secondary tw:hover:text-primary tw:focus:outline-hidden"
                                 onClick={() => setOpen(false)}
                             >
                                 &times;
                             </button>
-                            <h2 className="tw-mb-2 tw-mt-4 tw-text-center tw-text-4xl tw-font-extrabold tw-text-primary sm:tw-text-5xl">
+                            <h2 className="tw:mb-2 tw:mt-4 tw:text-center tw:text-4xl tw:font-extrabold tw:text-primary tw:sm:text-5xl">
                                 {headline}
                             </h2>
-                            <div className="tw-mb-2 tw-flex tw-justify-center">
+                            <div className="tw:mb-2 tw:flex tw:justify-center">
                                 <Link
                                     href="/"
-                                    className="tw-inline-block tw-h-48 tw-w-auto sm:tw-h-64"
+                                    className="tw:inline-block tw:h-48 tw:w-auto tw:sm:h-64"
                                 >
                                     <img
                                         src="https://res.cloudinary.com/vetswhocode/image/upload/v1627489569/flag_ohssvk.gif"
                                         alt="Animated Flag Logo"
-                                        className="tw-h-full tw-w-auto"
+                                        className="tw:h-full tw:w-auto"
                                     />
                                 </Link>
                             </div>
-                            <p className="tw-mb-4 tw-text-center tw-text-xl tw-text-secondary sm:tw-text-2xl">
+                            <p className="tw:mb-4 tw:text-center tw:text-xl tw:text-secondary tw:sm:text-2xl">
                                 {body}
                             </p>
-                            <div className="tw-mt-4 tw-flex tw-w-full tw-flex-col tw-gap-4 sm:tw-flex-row">
+                            <div className="tw:mt-4 tw:flex tw:w-full tw:flex-col tw:gap-4 tw:sm:flex-row">
                                 <a
                                     href={cta1.href}
-                                    className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-primary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-secondary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-primary`}
+                                    className={`${styles.button} tw:group tw:w-full tw:rounded-sm tw:bg-primary tw:px-8 tw:py-4 tw:text-center tw:text-lg tw:font-semibold tw:text-white tw:transition tw:hover:bg-secondary tw:hover:text-white tw:focus:ring-2 tw:focus:ring-primary`}
                                 >
-                                    <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
+                                    <span className="tw:group-hover:mr-2 tw:inline-block tw:transition-all">
                                         {cta1.label}
                                     </span>
                                     <span className={`${styles.emoji}`} aria-hidden="true">
@@ -164,7 +164,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 {cta2.href.startsWith("#") ? (
                                     <Link
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-primary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw:group tw:w-full tw:rounded-sm tw:bg-secondary tw:px-8 tw:py-4 tw:text-center tw:text-lg tw:font-semibold tw:text-white tw:transition tw:hover:bg-primary tw:hover:text-white tw:focus:ring-2 tw:focus:ring-secondary`}
                                         passHref
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -181,7 +181,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                             }
                                         }}
                                     >
-                                        <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
+                                        <span className="tw:group-hover:mr-2 tw:inline-block tw:transition-all">
                                             {cta2.label}
                                         </span>
                                         <span className={`${styles.emoji}`} aria-hidden="true">
@@ -191,9 +191,9 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 ) : (
                                     <a
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-primary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw:group tw:w-full tw:rounded-sm tw:bg-secondary tw:px-8 tw:py-4 tw:text-center tw:text-lg tw:font-semibold tw:text-white tw:transition tw:hover:bg-primary tw:hover:text-white tw:focus:ring-2 tw:focus:ring-secondary`}
                                     >
-                                        <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
+                                        <span className="tw:group-hover:mr-2 tw:inline-block tw:transition-all">
                                             {cta2.label}
                                         </span>
                                         <span className={`${styles.emoji}`} aria-hidden="true">

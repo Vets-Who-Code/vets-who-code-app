@@ -7,9 +7,9 @@ type TProps = {
 };
 
 const HeroImageArea = ({ data: { images } }: TProps) => (
-    <div className="hero-image-section md:tw-mb-[240px]">
+    <div className="hero-image-section tw:md:mb-[240px]">
         {images?.[0]?.src && (
-            <div className="tw-relative tw-z-10 tw-mx-auto tw-max-w-[970px] tw-rounded child:tw-mx-auto md:-tw-bottom-[240px] md:-tw-mt-[240px]">
+            <div className="tw:relative tw:z-10 tw:mx-auto tw:max-w-[970px] tw:rounded-sm tw:child:mx-auto tw:md:-bottom-[240px] tw:md:-mt-[240px]">
                 <img
                     className="image"
                     src={images[0].src}

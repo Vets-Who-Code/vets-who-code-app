@@ -18,19 +18,19 @@ type TProps = TSection & {
 const ServiceArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="service-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 lg:tw-mb-15"
+                        className="tw:mb-7.5 tw:lg:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
+                <div className="tw:grid tw:grid-cols-1 tw:gap-7.5 tw:sm:grid-cols-2 tw:lg:grid-cols-4">
                     {items?.map((item) => (
                         <AnimatedServiceCard
                             key={item.id}

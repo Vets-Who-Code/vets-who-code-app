@@ -8,7 +8,7 @@ type TProps = {
 
 const NavLinks = ({ prevPost, nextPost }: TProps) => {
     return (
-        <div className="tw-mt-[34px] tw-grid tw-gap-7.5 md:tw-grid-cols-2">
+        <div className="tw:mt-[34px] tw:grid tw:gap-7.5 tw:md:grid-cols-2">
             {prevPost && (
                 <NavItem
                     title={prevPost.title}

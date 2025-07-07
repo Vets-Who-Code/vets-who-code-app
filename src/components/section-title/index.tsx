@@ -33,8 +33,8 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "section-title tw-relative tw-z-20",
-                    align === "center" && "tw-text-center",
+                    "section-title tw:relative tw:z-20",
+                    align === "center" && "tw:text-center",
                     className
                 )}
                 ref={ref}
@@ -42,9 +42,9 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                 {subtitle && (
                     <span
                         className={clsx(
-                            "tw-mb-2.5 tw-block tw-text-base tw-font-medium tw-uppercase tw-leading-none -tw-tracking-tightest",
-                            color === "A" && "tw-text-secondary-light",
-                            color === "B" && "tw-text-secondary",
+                            "tw:mb-2.5 tw:block tw:text-base tw:font-medium tw:uppercase tw:leading-none tw:-tracking-tightest",
+                            color === "A" && "tw:text-secondary-light",
+                            color === "B" && "tw:text-secondary",
                             subtitleClass
                         )}
                         dangerouslySetInnerHTML={{ __html: subtitle }}
@@ -53,11 +53,11 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
 
                 <h2
                     className={clsx(
-                        "title tw-m-0 child:tw-font-normal child:tw-text-primary",
-                        color === "A" && "tw-text-secondary",
-                        color === "C" && "tw-text-white",
+                        "title tw:m-0 tw:child:font-normal tw:child:text-primary",
+                        color === "A" && "tw:text-secondary",
+                        color === "C" && "tw:text-white",
                         titleSize === "large" &&
-                            "tw-text-4xl tw-leading-heading lg:tw-text-5xl lg:tw-leading-heading",
+                            "tw:text-4xl tw:leading-heading tw:lg:text-5xl tw:lg:leading-heading",
                         titleClass
                     )}
                     dangerouslySetInnerHTML={{ __html: title }}
@@ -65,9 +65,9 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                 {description && (
                     <p
                         className={clsx(
-                            "tw-mb-0 tw-mt-[25px] tw-font-medium",
+                            "tw:mb-0 tw:mt-[25px] tw:font-medium",
                             descClass,
-                            color === "C" && "tw-text-white"
+                            color === "C" && "tw:text-white"
                         )}
                         dangerouslySetInnerHTML={{ __html: description }}
                     />

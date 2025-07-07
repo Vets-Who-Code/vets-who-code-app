@@ -24,9 +24,9 @@ interface ButtonProps {
      */
     size?: "xs" | "sm" | "md" | "lg";
     /**
-     * Optional. Default is `tw-rounded`.
+     * Optional. Default is `tw:rounded`.
      */
-    shape?: "tw-rounded" | "square" | "ellipse";
+    shape?: "rounded" | "square" | "ellipse";
     /**
      * Pass fullwidth to make button fullwidth.
      */
@@ -83,25 +83,25 @@ const Button = ({
     hover,
 }: ButtonProps) => {
     const baseClass =
-        "tw-font-bold tw-justify-center tw-items-center tw-border tw-border-solid tw-rounded-md tw-transition-colors tw-min-w-max";
-    const baseNotFullWidthClass = !fullwidth && "tw-inline-flex";
+        "tw:font-bold tw:justify-center tw:items-center tw:border tw:border-solid tw:rounded-md tw:transition-colors tw:min-w-max";
+    const baseNotFullWidthClass = !fullwidth && "tw:inline-flex";
     const lightHoverClass =
         !disabled &&
         !active &&
         hover === "light" &&
-        "hover:tw-bg-white hover:tw-border-white hover:tw-text-primary";
+        "tw:hover:bg-white tw:hover:border-white tw:hover:text-primary";
 
     // Primary Button
-    const containedPrimaryClass = "tw-bg-primary tw-border-primary tw-text-white";
+    const containedPrimaryClass = "tw:bg-primary tw:border-primary tw:text-white";
     const containedPrimaryHoverClass =
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-secondary hover:tw-border-secondary hover:tw-text-white";
+        "tw:hover:bg-secondary tw:hover:border-secondary tw:hover:text-white";
     const containedPrimaryActiveClass =
         !disabled &&
         active &&
-        "tw-bg-secondary tw-border-secondary active:tw-bg-secondary active:tw-border-secondary";
+        "tw:bg-secondary tw:border-secondary tw:active:bg-secondary tw:active:border-secondary";
     const containedPrimaryBtn = color === "primary" && [
         containedPrimaryClass,
         containedPrimaryHoverClass,
@@ -109,14 +109,14 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedPrimaryClass = "tw-bg-transparent tw-border-primary tw-text-primary";
+    const outlinedPrimaryClass = "tw:bg-transparent tw:border-primary tw:text-primary";
     const outlinedPrimaryHoverClass =
-        !disabled && !active && hover === "default" && "hover:tw-bg-primary hover:tw-text-white";
+        !disabled && !active && hover === "default" && "tw:hover:bg-primary tw:hover:text-white";
     const outlinedPrimaryActiveClass =
         !disabled &&
         active &&
         hover === "default" &&
-        "tw-bg-primary tw-border-primary tw-text-white active:tw-bg-primary active:tw-bg-primary";
+        "tw:bg-primary tw:border-primary tw:text-white tw:active:bg-primary tw:active:bg-primary";
     const outlinedPrimaryBtn = color === "primary" && [
         outlinedPrimaryClass,
         outlinedPrimaryHoverClass,
@@ -125,16 +125,16 @@ const Button = ({
     ];
 
     // Light Button
-    const containedLightClass = "tw-bg-light tw-border-light tw-text-heading";
+    const containedLightClass = "tw:bg-light tw:border-light tw:text-heading";
     const containedLightHoverClass =
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-primary hover:tw-border-primary hover:tw-text-white";
+        "tw:hover:bg-primary tw:hover:border-primary tw:hover:text-white";
     const containedLightActiveClass =
         !disabled &&
         active &&
-        "tw-bg-primary tw-border-primary active:tw-bg-primary active:tw-border-primary";
+        "tw:bg-primary tw:border-primary tw:active:bg-primary tw:active:border-primary";
     const containedLightBtn = color === "light" && [
         containedLightClass,
         containedLightHoverClass,
@@ -142,16 +142,16 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedLightClass = "tw-border-light tw-text-light";
+    const outlinedLightClass = "tw:border-light tw:text-light";
     const outlinedLightHoverClass =
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-primary hover:tw-border-primary hover:tw-text-white";
+        "tw:hover:bg-primary tw:hover:border-primary tw:hover:text-white";
     const outlinedLightActiveClass =
         !disabled &&
         active &&
-        "tw-bg-primary tw-border-primary active:tw-bg-primary active:tw-border-primary";
+        "tw:bg-primary tw:border-primary tw:active:bg-primary tw:active:border-primary";
     const outlinedLightBtn = color === "light" && [
         outlinedLightClass,
         outlinedLightHoverClass,
@@ -162,13 +162,13 @@ const Button = ({
     // Buton Sizes
     const mdBtn =
         size === "md" &&
-        "tw-text-md tw-px-7 tw-py-1 tw-min-h-[48px] md:tw-min-h-[52px] md:tw-px-10";
-    const xsBtn = size === "xs" && "tw-text-[13px] tw-px-5 tw-leading-[30px] tw-min-h-8";
+        "tw:text-md tw:px-7 tw:py-1 tw:min-h-[48px] tw:md:min-h-[52px] tw:md:px-10";
+    const xsBtn = size === "xs" && "tw:text-[13px] tw:px-5 tw:leading-[30px] tw:min-h-8";
 
     // Button Shapes
-    const roundedBtn = shape === "tw-rounded" && "tw-rounded-md";
-    const ellipseBtn = shape === "ellipse" && "tw-rounded-full";
-    const fullBtn = fullwidth && "tw-flex tw-w-full";
+    const roundedBtn = shape === "rounded" && "tw:rounded-md";
+    const ellipseBtn = shape === "ellipse" && "tw:rounded-full";
+    const fullBtn = fullwidth && "tw:flex tw:w-full";
 
     const classnames = clsx(
         variant !== "texted" && baseClass,

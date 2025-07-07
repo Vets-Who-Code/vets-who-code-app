@@ -21,20 +21,20 @@ type TProps = TSection & {
 
 const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSize }: TProps) => {
     return (
-        <Section className="event-area tw-relative" space={space} bg={bg}>
-            <div className="tw-container">
+        <Section className="event-area tw:relative" space={space} bg={bg}>
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 lg:tw-mb-15"
+                        className="tw:mb-7.5 tw:lg:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-2">
+                <div className="tw:grid tw:grid-cols-1 tw:gap-7.5 tw:lg:grid-cols-2">
                     {events.map((event) => (
                         <AnimatedEventCard
                             key={event.path}
@@ -52,7 +52,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                 {motto && (
                     <AnimatedMottoText
                         {...motto}
-                        className="tw-mx-auto tw-mt-[50px] tw-text-center lg:tw-mt-[70px] lg:tw-w-7/12"
+                        className="tw:mx-auto tw:mt-[50px] tw:text-center tw:lg:mt-[70px] tw:lg:w-7/12"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

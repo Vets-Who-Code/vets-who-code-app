@@ -51,16 +51,16 @@ const AboutUs: PageWithLayout = ({ data }) => {
     return (
         <>
             <SEO title="About Us | Vets Who Code" />
-            <h1 className="tw-sr-only">About Us</h1>
+            <h1 className="tw:sr-only">About Us</h1>
             <HeroArea data={content?.["hero-area"]} />
             <TimelineArea data={content?.["timeline-area"]} />
 
             {/* Theory of Change Link */}
-            <div className="tw-container tw-my-10 tw-text-center">
-                <p className="tw-mb-4 tw-text-lg">Want to understand our methodology in depth?</p>
+            <div className="tw:container tw:my-10 tw:text-center">
+                <p className="tw:mb-4 tw:text-lg">Want to understand our methodology in depth?</p>
                 <Link
                     href="/theory-of-change"
-                    className="tw-inline-block tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-secondary"
+                    className="tw:inline-block tw:rounded-md tw:bg-primary tw:px-6 tw:py-3 tw:font-medium tw:text-white tw:transition-colors tw:hover:bg-secondary"
                 >
                     View Our Theory of Change
                 </Link>
