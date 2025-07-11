@@ -1,0 +1,72 @@
+---
+title: Our Programs
+description: Discover Vets Who Code's workforce development programs designed to equip veterans with technical skills for new careers.
+slug: /programs
+---
+
+import Link from 'next/link';
+
+<div className="tw-container tw-mx-auto tw-px-4 tw-py-8 md:tw-py-12">
+  <header className="tw-mb-8 md:tw-mb-12">
+    <h1 className="tw-text-4xl tw-font-bold tw-text-center tw-mb-4">Empowering Veterans Through Technology</h1>
+    <p className="tw-text-lg tw-text-center tw-text-gray-700">
+      Vets Who Code offers a suite of programs meticulously designed to transition veterans into the tech industry. Explore how we can help you launch your next mission.
+    </p>
+  </header>
+
+  <nav aria-label="Programs Navigation">
+    <ul className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-6">
+      {/* Program Card 1: Mission-Ready Learning Platform */}
+      <li className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-overflow-hidden hover:tw-shadow-xl tw-transition-shadow tw-duration-300">
+        <div className="tw-p-6">
+          <h2 className="tw-text-2xl tw-font-semibold tw-mb-3">Mission-Ready Learning Platform</h2>
+          <p className="tw-text-gray-600 tw-mb-4 tw-min-h-[4.5rem]">
+            Our interactive platform provides on-demand training in today's most sought-after technologies, allowing you to learn at your own pace.
+          </p>
+          <Link href="/programs/mission-ready" className="tw-inline-block tw-bg-blue-600 tw-text-white tw-font-semibold tw-py-2 tw-px-4 tw-rounded hover:tw-bg-blue-700 tw-transition-colors tw-duration-300">
+            Learn More
+          </Link>
+        </div>
+      </li>
+
+      {/* Program Card 2: Mentorship Program */}
+      <li className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-overflow-hidden hover:tw-shadow-xl tw-transition-shadow tw-duration-300">
+        <div className="tw-p-6">
+          <h2 className="tw-text-2xl tw-font-semibold tw-mb-3">Mentorship Program</h2>
+          <p className="tw-text-gray-600 tw-mb-4 tw-min-h-[4.5rem]">
+            Connect with industry veterans and experienced software engineers who provide guidance, support, and career advice.
+          </p>
+          <Link href="/programs/mentorship" className="tw-inline-block tw-bg-blue-600 tw-text-white tw-font-semibold tw-py-2 tw-px-4 tw-rounded hover:tw-bg-blue-700 tw-transition-colors tw-duration-300">
+            Discover Mentorship
+          </Link>
+        </div>
+      </li>
+
+      {/* Program Card 3: Core Curriculum */}
+      <li className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-overflow-hidden hover:tw-shadow-xl tw-transition-shadow tw-duration-300">
+        <div className="tw-p-6">
+          <h2 className="tw-text-2xl tw-font-semibold tw-mb-3">Core Curriculum</h2>
+          <p className="tw-text-gray-600 tw-mb-4 tw-min-h-[4.5rem]">
+            A comprehensive, cohort-based training program covering full-stack web development fundamentals and advanced concepts.
+          </p>
+          <Link href="/programs/core-curriculum" className="tw-inline-block tw-bg-blue-600 tw-text-white tw-font-semibold tw-py-2 tw-px-4 tw-rounded hover:tw-bg-blue-700 tw-transition-colors tw-duration-300">
+            Explore Curriculum
+          </Link>
+        </div>
+      </li>
+
+      {/* Program Card 4: VWC Studio */}
+      <li className="tw-bg-white tw-rounded-lg tw-shadow-lg tw-overflow-hidden hover:tw-shadow-xl tw-transition-shadow tw-duration-300">
+        <div className="tw-p-6">
+          <h2 className="tw-text-2xl tw-font-semibold tw-mb-3">VWC Studio</h2>
+          <p className="tw-text-gray-600 tw-mb-4 tw-min-h-[4.5rem]">
+            Gain real-world experience by contributing to open-source projects and building applications for veteran-led initiatives.
+          </p>
+          <Link href="/programs/studio" className="tw-inline-block tw-bg-blue-600 tw-text-white tw-font-semibold tw-py-2 tw-px-4 tw-rounded hover:tw-bg-blue-700 tw-transition-colors tw-duration-300">
+            Join the Studio
+          </Link>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</div>
