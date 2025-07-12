@@ -1,7 +1,9 @@
-import { GetStaticProps, NextPage } from "next";
-import Link from "next/link";
+import { NextPage, GetStaticProps } from "next";
 import Layout from "@layout/layout-01";
 import SEO from "@components/seo/page-seo";
+import ProgramCard from "@components/program-card";
+import HeroArea from "@containers/hero/layout-07";
+
 import { getAllMediaPosts } from "../lib/mdx-pages";
 
 type Program = {
@@ -21,33 +23,47 @@ type PageWithLayout = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
+const heroData = {
+    items: [
+        {
+            id: 1,
+            images: [
+                {
+                    src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746590043/9_ahefah.png",
+                },
+            ],
+            headings: [
+                { id: 1, content: "Our Programs" },
+                { id: 2, content: "What we do to be the tech arm of veteran support" },
+            ],
+            texts: [],
+        },
+    ],
+};
+
 const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
     return (
         <>
             <SEO title={`${page.title} | Vets Who Code`} />
-            <div className="tw-container tw-py-10 md:tw-py-15">
-                <h1 className="tw-mb-10 tw-text-center tw-text-3xl md:tw-text-4xl">{page.title}</h1>
-                <div className="tw-grid tw-grid-cols-1 tw-gap-8 md:tw-grid-cols-2 lg:tw-grid-cols-2">
-                    {allPrograms.map((program) => (
-                        <div
-                            key={program.slug}
-                            className="tw-hover:tw-scale-105 tw-flex tw-h-full tw-transform tw-flex-col tw-justify-between tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-p-8 tw-shadow-md tw-transition"
-                        >
-                            <h2 className="tw-mb-2 tw-text-2xl tw-font-semibold">
-                                {program.title}
-                            </h2>
-                            <p className="tw-mb-4 tw-text-gray-700">{program.description}</p>
-                            <Link
-                                href={`/programs/${program.slug}`}
-                                className="tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-blue-400 tw-mt-auto tw-inline-block tw-font-medium tw-text-blue-700 tw-underline"
-                                aria-label={`Learn more about ${program.title}`}
-                            >
-                                Learn more
-                            </Link>
-                        </div>
-                    ))}
+            <HeroArea data={heroData} />
+            <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
+                <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
+                    <p className="tw-text-center tw-text-lg tw-text-gray-700">
+                        Our programs are designed to empower veterans with real-world skills,
+                        mentorship, and a supportive community—helping you transition, grow, and
+                        lead in tech.
+                    </p>
                 </div>
-            </div>
+                {/* Program Cards Grid - project card style */}
+                <section className="tw-mb-16">
+                    <div className="tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
+                        {allPrograms.map((program) => (
+                            <ProgramCard key={program.slug} program={program} />
+                        ))}
+                    </div>
+                </section>
+                <hr className="tw-my-12 tw-border-t tw-border-gray-200" />
+            </main>
         </>
     );
 };
@@ -60,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             allPrograms,
             page: {
-                title: "Programs",
+                title: "Our Programs",
             },
             layout: {
                 headerShadow: true,
