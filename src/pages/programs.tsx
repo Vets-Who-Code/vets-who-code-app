@@ -1,10 +1,10 @@
-import { GetStaticProps, NextPage } from "next";
+import { NextPage, GetStaticProps } from "next";
 import Layout from "@layout/layout-01";
 import SEO from "@components/seo/page-seo";
-import { getAllMediaPosts } from "../lib/mdx-pages";
-import Hero from "@components/hero";
 import ProgramCard from "@components/program-card";
-import CTA from "@components/cta";
+import HeroArea from "@containers/hero/layout-07";
+
+import { getAllMediaPosts } from "../lib/mdx-pages";
 
 type Program = {
     slug: string;
@@ -23,21 +23,47 @@ type PageWithLayout = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
+const heroData = {
+    items: [
+        {
+            id: 1,
+            images: [
+                {
+                    src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746590043/9_ahefah.png",
+                },
+            ],
+            headings: [
+                { id: 1, content: "Our Programs" },
+                { id: 2, content: "What we do to be the tech arm of veteran support" },
+            ],
+            texts: [],
+        },
+    ],
+};
+
 const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
     return (
         <>
             <SEO title={`${page.title} | Vets Who Code`} />
-            <Hero />
-            <main className="tw-container tw-py-10 md:tw-py-15">
-                <div className="tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
-                    {allPrograms.map((program) => (
-                        <ProgramCard key={program.slug} program={program} />
-                    ))}
+            <HeroArea data={heroData} />
+            <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
+                <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
+                    <p className="tw-text-center tw-text-lg tw-text-gray-700">
+                        Our programs are designed to empower veterans with real-world skills,
+                        mentorship, and a supportive community—helping you transition, grow, and
+                        lead in tech.
+                    </p>
                 </div>
+                {/* Program Cards Grid - project card style */}
+                <section className="tw-mb-16">
+                    <div className="tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
+                        {allPrograms.map((program) => (
+                            <ProgramCard key={program.slug} program={program} />
+                        ))}
+                    </div>
+                </section>
+                <hr className="tw-my-12 tw-border-t tw-border-gray-200" />
             </main>
-            <div className="tw-container tw-py-10 md:tw-py-15">
-                <CTA />
-            </div>
         </>
     );
 };
@@ -50,7 +76,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
             allPrograms,
             page: {
-                title: "Our Program", // Updated page title
+                title: "Our Programs",
             },
             layout: {
                 headerShadow: true,
