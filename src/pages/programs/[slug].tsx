@@ -52,6 +52,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params?.slug as string;
     const filePath = path.join(process.cwd(), "src/data/programs", `${slug}.mdx`);
+    if (!fs.existsSync(filePath)) {
+        return { notFound: true };
+    }
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data: frontmatter, content: mdxContent } = matter(fileContents);
     const mdxSource = await serialize(mdxContent, { scope: frontmatter });
