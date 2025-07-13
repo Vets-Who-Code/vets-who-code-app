@@ -16,7 +16,7 @@ const safelist = [
     /^hover:/,
     /^focus:/,
     /^group/,
-    /^group-hover:tw-/,
+    /^tw:group-hover/,
     /^last:/,
     /^first:/,
     /^even:/,

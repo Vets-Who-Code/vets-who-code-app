@@ -46,23 +46,23 @@ const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
         <>
             <SEO title={`${page.title} | Vets Who Code`} />
             <HeroArea data={heroData} />
-            <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
-                <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
-                    <p className="tw-text-center tw-text-lg tw-text-gray-700">
+            <main className="tw:container tw:mx-auto tw:max-w-6xl tw:px-4">
+                <div className="tw:mx-auto tw:mb-12 tw:mt-16 tw:max-w-4xl">
+                    <p className="tw:text-center tw:text-lg tw:text-gray-700">
                         Our programs are designed to empower veterans with real-world skills,
                         mentorship, and a supportive community—helping you transition, grow, and
                         lead in tech.
                     </p>
                 </div>
                 {/* Program Cards Grid - project card style */}
-                <section className="tw-mb-16">
-                    <div className="tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
+                <section className="tw:mb-16">
+                    <div className="tw:grid tw:gap-8 tw:sm:grid-cols-2 tw:lg:grid-cols-3">
                         {allPrograms.map((program) => (
                             <ProgramCard key={program.slug} program={program} />
                         ))}
                     </div>
                 </section>
-                <hr className="tw-my-12 tw-border-t tw-border-gray-200" />
+                <hr className="tw:my-12 tw:border-t tw:border-gray-200" />
             </main>
         </>
     );

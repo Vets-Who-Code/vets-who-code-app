@@ -8757,7 +8757,7 @@ next-auth@*, next-auth@^4.24.11:
 
 next-mdx-remote@^5.0.0:
   version "5.0.0"
-  resolved "https://registry.npmjs.org/next-mdx-remote/-/next-mdx-remote-5.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/next-mdx-remote/-/next-mdx-remote-5.0.0.tgz#028a2cf5cf7f814d988d7ab11a401bed0f31b4ee"
   integrity sha512-RNNbqRpK9/dcIFZs/esQhuLA8jANqlH694yqoDBK8hkVdJUndzzGmnPHa2nyi90N4Z9VmzuSWNRpr5ItT3M7xQ==
   dependencies:
     "@babel/code-frame" "^7.23.5"
