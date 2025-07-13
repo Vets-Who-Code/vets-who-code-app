@@ -21,6 +21,16 @@
 }
 
 @layer base {
+    /* Adds cursor-pointer for buttons by default, tailwind v4 defaults to cursor pointer for buttons */
+    button,
+    [role='button'] {
+    cursor: pointer;
+    }
+    button:disabled,
+    [role='button']:disabled {
+    cursor: default;
+    }
+
     body {
         @apply tw:overflow-x-hidden tw:font-body tw:text-base tw:font-normal tw:leading-body tw:text-body;
     }
