@@ -136,6 +136,7 @@ const loadMOSDataFromJSON = async () => {
             },
         }),
     ]);
+    await prisma.$disconnect;
 };
 
 const shouldSeedDatabase = async () => {

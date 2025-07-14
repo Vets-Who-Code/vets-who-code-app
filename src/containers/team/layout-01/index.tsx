@@ -18,9 +18,9 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
     const { trans1, trans2 } = useUI();
     return (
         <Section className="team-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 tw-items-center tw-gap-[50px] lg:tw-grid-cols-[58.33%_minmax(38%,_1fr)] lg:tw-gap-7.5">
+            <div className="tw:container tw:grid tw:grid-cols-1 tw:items-center tw:gap-[50px] tw:lg:grid-cols-[58.33%_minmax(38%,1fr)] tw:lg:gap-7.5">
                 <motion.div
-                    className="image-wrap tw-relative"
+                    className="image-wrap tw:relative"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -29,19 +29,19 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                     <img
                         src="/images/team/home-3-team-image.png"
                         alt="team"
-                        className="tw-mx-auto"
+                        className="tw:mx-auto"
                     />
                     <motion.div
-                        className="tw-absolute tw-left-0 tw-top-[100px] -tw-z-1 tw-h-[120px] tw-w-[120px] lg:tw-top-[100px] lg:tw-h-[166px] lg:tw-w-[166px]"
+                        className="tw:absolute tw:left-0 tw:top-[100px] tw:-z-1 tw:h-[120px] tw:w-[120px] tw:lg:top-[100px] tw:lg:h-[166px] tw:lg:w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-h-full tw-w-full tw-fill-primary-light" />
+                        <Shape2 className="tw:h-full tw:w-full tw:fill-primary-light" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-left-0 tw-top-[100px] -tw-z-1 tw-w-[120px] lg:tw-w-auto"
+                        className="tw:absolute tw:left-0 tw:top-[100px] tw:-z-1 tw:w-[120px] tw:lg:w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -56,7 +56,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-right-0 tw-top-0 tw-z-10"
+                        className="tw:absolute tw:right-0 tw:top-0 tw:z-10"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -71,7 +71,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-bottom-5 tw-left-1/2 -tw-z-1 tw-w-[120px] lg:-tw-bottom-[70px] lg:tw-w-auto"
+                        className="tw:absolute tw:-bottom-5 tw:left-1/2 tw:-z-1 tw:w-[120px] tw:lg:-bottom-[70px] tw:lg:w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -86,7 +86,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-bottom-15 tw-left-0 -tw-z-1 tw-w-[120px] lg:-tw-left-[214px] lg:tw-w-auto"
+                        className="tw:absolute tw:bottom-15 tw:left-0 tw:-z-1 tw:w-[120px] tw:lg:-left-[214px] tw:lg:w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -96,7 +96,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                     </motion.div>
                 </motion.div>
                 <motion.div
-                    className="lg:tw-max-w-[420px]"
+                    className="tw:lg:max-w-[420px]"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -106,7 +106,7 @@ const TeamArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TP
                         <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
                     {buttons?.map(({ id, content, ...rest }) => (
-                        <Button key={id} className="tw-mt-1" {...rest}>
+                        <Button key={id} className="tw:mt-1" {...rest}>
                             {content}
                         </Button>
                     ))}

@@ -15,7 +15,7 @@ const ModalClose = ({ className, children, onClose }: TProps) => {
             type="button"
             className={clsx(
                 className,
-                "close tw-cursor-pointer tw-appearance-none tw-border-0 tw-bg-transparent tw-text-3xl tw-font-light tw-leading-none tw-text-heading"
+                "close tw:cursor-pointer tw:appearance-none tw:border-0 tw:bg-transparent tw:text-3xl tw:font-light tw:leading-none tw:text-heading"
             )}
             onClick={onClose}
             data-dismiss="modal"

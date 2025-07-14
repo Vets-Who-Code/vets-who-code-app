@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/heading-has-content */
 
 "use client";
@@ -14,8 +15,8 @@ import remarkGfm from "remark-gfm";
 import { FC, memo, useState } from "react";
 import { CheckIcon, CopyIcon } from "lucide-react";
 
-import { TooltipIconButton } from "@/components/vetsai/assistant-ui/tooltip-icon-button";
 import { cn } from "@/lib/util";
+import { TooltipIconButton } from "@/components/vetsai/assistant-ui/tooltip-icon-button";
 
 const useCopyToClipboard = ({
     copiedDuration = 3000,
@@ -44,8 +45,8 @@ const CodeHeader: FC<CodeHeaderProps> = ({ language, code }) => {
     };
 
     return (
-        <div className="bg-zinc-900 tw-flex tw-items-center tw-justify-between tw-gap-4 tw-rounded-t-lg tw-px-4 tw-py-2 tw-text-sm tw-font-semibold tw-text-white">
-            <span className="tw-lowercase [&>span]:tw-text-xs">{language}</span>
+        <div className="flex items-center justify-between gap-4 rounded-t-lg bg-zinc-900 px-4 py-2 text-sm font-semibold text-white">
+            <span className="lowercase [&>span]:text-xs">{language}</span>
             <TooltipIconButton tooltip="Copy" onClick={onCopy}>
                 {!isCopied && <CopyIcon />}
                 {isCopied && <CheckIcon />}
@@ -58,7 +59,7 @@ const defaultComponents = memoizeMarkdownComponents({
     h1: ({ className, ...props }) => (
         <h1
             className={cn(
-                "scroll-m-20 tw-mb-8 tw-text-4xl tw-font-extrabold tw-tracking-tight last:tw-mb-0",
+                "mb-8 scroll-m-20 text-4xl font-extrabold tracking-tight last:mb-0",
                 className
             )}
             {...props}
@@ -67,7 +68,7 @@ const defaultComponents = memoizeMarkdownComponents({
     h2: ({ className, ...props }) => (
         <h2
             className={cn(
-                "scroll-m-20 tw-mb-4 tw-mt-8 tw-text-3xl tw-font-semibold tw-tracking-tight first:tw-mt-0 last:tw-mb-0",
+                "mt-8 mb-4 scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 last:mb-0",
                 className
             )}
             {...props}
@@ -76,7 +77,7 @@ const defaultComponents = memoizeMarkdownComponents({
     h3: ({ className, ...props }) => (
         <h3
             className={cn(
-                "scroll-m-20 tw-mb-4 tw-mt-6 tw-text-2xl tw-font-semibold tw-tracking-tight first:tw-mt-0 last:tw-mb-0",
+                "mt-6 mb-4 scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 last:mb-0",
                 className
             )}
             {...props}
@@ -85,7 +86,7 @@ const defaultComponents = memoizeMarkdownComponents({
     h4: ({ className, ...props }) => (
         <h4
             className={cn(
-                "tw-mb-4 tw-mt-6 tw-scroll-m-20 tw-text-xl tw-font-semibold tw-tracking-tight first:tw-mt-0 last:tw-mb-0",
+                "mt-6 mb-4 scroll-m-20 text-xl font-semibold tracking-tight first:mt-0 last:mb-0",
                 className
             )}
             {...props}
@@ -93,54 +94,36 @@ const defaultComponents = memoizeMarkdownComponents({
     ),
     h5: ({ className, ...props }) => (
         <h5
-            className={cn(
-                "tw-my-4 tw-text-lg tw-font-semibold first:tw-mt-0 last:tw-mb-0",
-                className
-            )}
+            className={cn("my-4 text-lg font-semibold first:mt-0 last:mb-0", className)}
             {...props}
         />
     ),
     h6: ({ className, ...props }) => (
-        <h6
-            className={cn("tw-my-4 tw-font-semibold first:tw-mt-0 last:tw-mb-0", className)}
-            {...props}
-        />
+        <h6 className={cn("my-4 font-semibold first:mt-0 last:mb-0", className)} {...props} />
     ),
     p: ({ className, ...props }) => (
-        <p
-            className={cn("tw-mb-5 tw-mt-5 tw-leading-7 first:tw-mt-0 last:tw-mb-0", className)}
-            {...props}
-        />
+        <p className={cn("mt-5 mb-5 leading-7 first:mt-0 last:mb-0", className)} {...props} />
     ),
     a: ({ className, ...props }) => (
-        // eslint-disable-next-line jsx-a11y/anchor-has-content
         <a
-            className={cn(
-                "tw-font-medium tw-text-primary tw-underline tw-underline-offset-4",
-                className
-            )}
+            className={cn("text-primary font-medium underline underline-offset-4", className)}
             {...props}
         />
     ),
     blockquote: ({ className, ...props }) => (
-        <blockquote className={cn("tw-border-l-2 tw-pl-6 tw-italic", className)} {...props} />
+        <blockquote className={cn("border-l-2 pl-6 italic", className)} {...props} />
     ),
     ul: ({ className, ...props }) => (
-        <ul className={cn("tw-my-5 tw-ml-6 tw-list-disc [&>li]:tw-mt-2", className)} {...props} />
+        <ul className={cn("my-5 ml-6 list-disc [&>li]:mt-2", className)} {...props} />
     ),
     ol: ({ className, ...props }) => (
-        <ol
-            className={cn("tw-my-5 tw-ml-6 tw-list-decimal [&>li]:tw-mt-2", className)}
-            {...props}
-        />
+        <ol className={cn("my-5 ml-6 list-decimal [&>li]:mt-2", className)} {...props} />
     ),
-    hr: ({ className, ...props }) => (
-        <hr className={cn("tw-my-5 tw-border-b", className)} {...props} />
-    ),
+    hr: ({ className, ...props }) => <hr className={cn("my-5 border-b", className)} {...props} />,
     table: ({ className, ...props }) => (
         <table
             className={cn(
-                "tw-my-5 tw-w-full tw-border-separate tw-border-spacing-0 tw-overflow-y-auto",
+                "my-5 w-full border-separate border-spacing-0 overflow-y-auto",
                 className
             )}
             {...props}
@@ -149,7 +132,7 @@ const defaultComponents = memoizeMarkdownComponents({
     th: ({ className, ...props }) => (
         <th
             className={cn(
-                "tw-bg-muted tw-px-4 tw-py-2 tw-text-left tw-font-bold first:tw-rounded-tl-lg last:tw-rounded-tr-lg [&[align=center]]:tw-text-center [&[align=right]]:tw-text-right",
+                "bg-muted px-4 py-2 text-left font-bold first:rounded-tl-lg last:rounded-tr-lg [&[align=center]]:text-center [&[align=right]]:text-right",
                 className
             )}
             {...props}
@@ -158,7 +141,7 @@ const defaultComponents = memoizeMarkdownComponents({
     td: ({ className, ...props }) => (
         <td
             className={cn(
-                "tw-border-b tw-border-l tw-px-4 tw-py-2 tw-text-left last:tw-border-r [&[align=center]]:tw-text-center [&[align=right]]:tw-text-right",
+                "border-b border-l px-4 py-2 text-left last:border-r [&[align=center]]:text-center [&[align=right]]:text-right",
                 className
             )}
             {...props}
@@ -167,21 +150,18 @@ const defaultComponents = memoizeMarkdownComponents({
     tr: ({ className, ...props }) => (
         <tr
             className={cn(
-                "tw-m-0 tw-border-b tw-p-0 first:tw-border-t [&:last-child>td:first-child]:tw-rounded-bl-lg [&:last-child>td:last-child]:tw-rounded-br-lg",
+                "m-0 border-b p-0 first:border-t [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg",
                 className
             )}
             {...props}
         />
     ),
     sup: ({ className, ...props }) => (
-        <sup className={cn("[&>a]:tw-text-xs [&>a]:tw-no-underline", className)} {...props} />
+        <sup className={cn("[&>a]:text-xs [&>a]:no-underline", className)} {...props} />
     ),
     pre: ({ className, ...props }) => (
         <pre
-            className={cn(
-                "tw-overflow-x-auto tw-rounded-b-lg tw-bg-black tw-p-4 tw-text-white",
-                className
-            )}
+            className={cn("overflow-x-auto rounded-b-lg bg-black p-4 text-white", className)}
             {...props}
         />
     ),
@@ -189,10 +169,7 @@ const defaultComponents = memoizeMarkdownComponents({
         const isCodeBlock = useIsMarkdownCodeBlock();
         return (
             <code
-                className={cn(
-                    !isCodeBlock && "tw-bg-muted tw-rounded tw-border tw-font-semibold",
-                    className
-                )}
+                className={cn(!isCodeBlock && "bg-muted rounded border font-semibold", className)}
                 {...props}
             />
         );

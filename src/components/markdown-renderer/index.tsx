@@ -17,7 +17,7 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-prose tw-max-w-none tw-text-base prose-blockquote:tw-border-l-primary prose-blockquote:tw-text-lg prose-blockquote:tw-not-italic prose-blockquote:tw-leading-relaxed prose-strong:tw-font-bold first:prose-img:tw-mt-0 md:prose-h3:tw-text-3xl md:prose-blockquote:tw-mb-11 md:prose-blockquote:tw-ml-12 md:prose-blockquote:tw-mt-[50px]",
+                "tw:prose tw:max-w-none tw:text-base tw:prose-blockquote:border-l-primary tw:prose-blockquote:text-lg tw:prose-blockquote:not-italic tw:prose-blockquote:leading-relaxed tw:prose-strong:font-bold tw:prose-img:first:mt-0 tw:md:prose-h3:text-3xl tw:md:prose-blockquote:mb-11 tw:md:prose-blockquote:ml-12 tw:md:prose-blockquote:mt-[50px]",
                 className
             )}
             dangerouslySetInnerHTML={{

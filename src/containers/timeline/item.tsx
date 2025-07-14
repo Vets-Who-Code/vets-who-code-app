@@ -13,24 +13,24 @@ type TProps = {
 
 const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
     return (
-        <li className="tw-relative tw-mb-10 tw-grid tw-w-full tw-grid-cols-1 tw-pl-[45px] last:tw-mb-0 md:tw-grid-cols-2 md:tw-pl-0 lg:tw-mb-[68px]">
-            <div className="tw-absolute tw-left-0 tw-top-0.5 tw-h-7.5 tw-w-7.5 tw-text-primary before:tw-absolute before:tw-inset-0 before:tw-rounded-full before:tw-border before:tw-border-current before:tw-opacity-20 before:tw-content-[''] md:tw-left-1/2 md:-tw-translate-x-1/2">
-                <div className="tw-absolute tw-left-1/2 tw-right-1/2 tw-z-10 tw-h-[14px] tw-w-[14px] -tw-translate-x-1/2 tw-translate-y-1/2 tw-rounded-full tw-border-[3px] tw-border-current tw-bg-white" />
+        <li className="tw:relative tw:mb-10 tw:grid tw:w-full tw:grid-cols-1 tw:pl-[45px] tw:last:mb-0 tw:md:grid-cols-2 tw:md:pl-0 tw:lg:mb-[68px]">
+            <div className="tw:absolute tw:left-0 tw:top-0.5 tw:h-7.5 tw:w-7.5 tw:text-primary tw:before:absolute tw:before:inset-0 tw:before:rounded-full tw:before:border tw:before:border-current tw:before:opacity-20 tw:before:content-[''] tw:md:left-1/2 tw:md:-translate-x-1/2">
+                <div className="tw:absolute tw:left-1/2 tw:right-1/2 tw:z-10 tw:h-[14px] tw:w-[14px] tw:-translate-x-1/2 tw:translate-y-1/2 tw:rounded-full tw:border-[3px] tw:border-current tw:bg-white" />
             </div>
             <motion.div
                 className={clsx(
-                    "md:tw-mx-7.5",
-                    !isEven && "md:tw-order-last xl:tw-ml-auto",
-                    isEven && "md:tw-text-right"
+                    "tw:md:mx-7.5",
+                    !isEven && "tw:md:order-last tw:xl:ml-auto",
+                    isEven && "tw:md:text-right"
                 )}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.4 }}
                 variants={isEven ? scrollLeftVariants : scrollRightVariants}
             >
-                <div className="lg:tw-max-w-[500px]">
+                <div className="tw:lg:max-w-[500px]">
                     {title?.content && (
-                        <h3 className="tw-mb-7.5 tw-uppercase tw-tracking-[3px] tw-text-primary lg:tw-mb-14">
+                        <h3 className="tw:mb-7.5 tw:uppercase tw:tracking-[3px] tw:text-primary tw:lg:mb-14">
                             {title.content}
                         </h3>
                     )}
@@ -39,7 +39,7 @@ const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
                             <img
                                 src={image.src}
                                 alt={image?.alt || ""}
-                                className="tw-h-full tw-w-full tw-rounded tw-object-cover"
+                                className="tw:h-full tw:w-full tw:rounded-sm tw:object-cover"
                             />
                         </figure>
                     )}
@@ -47,18 +47,18 @@ const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
             </motion.div>
             <motion.div
                 className={clsx(
-                    "tw-mt-7.5 md:tw-mx-7.5 md:tw-mt-0 md:tw-pt-15 lg:tw-pt-[130px]",
-                    !isEven && "md:tw-order-first md:tw-text-right"
+                    "tw:mt-7.5 tw:md:mx-7.5 tw:md:mt-0 tw:md:pt-15 tw:lg:pt-[130px]",
+                    !isEven && "tw:md:order-first tw:md:text-right"
                 )}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.4 }}
                 variants={isEven ? scrollRightVariants : scrollLeftVariants}
             >
-                <div className={clsx("lg:tw-max-w-[500px]", isEven && "md:tw-ml-auto")}>
-                    {heading?.content && <h3 className="tw-mb-[22px]">{heading.content}</h3>}
+                <div className={clsx("tw:lg:max-w-[500px]", isEven && "tw:md:ml-auto")}>
+                    {heading?.content && <h3 className="tw:mb-[22px]">{heading.content}</h3>}
                     {texts?.map((text) => (
-                        <p className="tw-leading-loose md:tw-text-lg" key={text.id}>
+                        <p className="tw:leading-loose tw:md:text-lg" key={text.id}>
                             {text.content}
                         </p>
                     ))}

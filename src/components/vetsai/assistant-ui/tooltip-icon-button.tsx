@@ -2,14 +2,9 @@
 
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 
-import { Button } from "@/components/vetsai/ui/button";
-import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/vetsai/ui/tooltip";
 import { cn } from "@/lib/util";
+import { Button } from "../ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../ui/tooltip";
 
 export type TooltipIconButtonProps = ComponentPropsWithoutRef<typeof Button> & {
     tooltip: string;
@@ -26,11 +21,11 @@ export const TooltipIconButton = forwardRef<HTMLButtonElement, TooltipIconButton
                             variant="ghost"
                             size="icon"
                             {...rest}
-                            className={cn("tw-size-6 tw-p-1", className)}
+                            className={cn("size-6 p-1", className)}
                             ref={ref}
                         >
                             {children}
-                            <span className="tw-sr-only">{tooltip}</span>
+                            <span className="sr-only">{tooltip}</span>
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent side={side}>{tooltip}</TooltipContent>

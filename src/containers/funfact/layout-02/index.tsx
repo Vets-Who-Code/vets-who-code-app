@@ -14,7 +14,7 @@ type TProps = TSection & {
 
 const FunfactArea = ({ data: { items }, space, bg }: TProps) => (
     <Section className="funfact-area" space={space} bg={bg}>
-        <div className="tw-container tw-relative tw-z-20 tw-grid tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
+        <div className="tw:container tw:relative tw:z-20 tw:grid tw:gap-7.5 tw:sm:grid-cols-2 tw:lg:grid-cols-4">
             {items?.map((item) => (
                 <AnimatedFunFact
                     key={item.id}

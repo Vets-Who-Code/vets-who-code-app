@@ -13,7 +13,7 @@ const BreadcrumbList = ({ className, ...props }: React.ComponentProps<"ol">) => 
         <ol
             data-slot="breadcrumb-list"
             className={cn(
-                "tw-text-muted-foreground tw-flex tw-flex-wrap tw-items-center tw-gap-1.5 tw-break-words tw-text-sm sm:tw-gap-2.5",
+                "text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5",
                 className
             )}
             {...props}
@@ -25,7 +25,7 @@ const BreadcrumbItem = ({ className, ...props }: React.ComponentProps<"li">) => 
     return (
         <li
             data-slot="breadcrumb-item"
-            className={cn("tw-inline-flex tw-items-center tw-gap-1.5", className)}
+            className={cn("inline-flex items-center gap-1.5", className)}
             {...props}
         />
     );
@@ -43,7 +43,7 @@ const BreadcrumbLink = ({
     return (
         <Comp
             data-slot="breadcrumb-link"
-            className={cn("hover:tw-text-foreground tw-transition-colors", className)}
+            className={cn("hover:text-foreground transition-colors", className)}
             {...props}
         />
     );
@@ -56,7 +56,7 @@ const BreadcrumbPage = ({ className, ...props }: React.ComponentProps<"span">) =
             role="link"
             aria-disabled="true"
             aria-current="page"
-            className={cn("tw-text-foreground tw-font-normal", className)}
+            className={cn("text-foreground font-normal", className)}
             {...props}
         />
     );
@@ -68,7 +68,7 @@ const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentP
             data-slot="breadcrumb-separator"
             role="presentation"
             aria-hidden="true"
-            className={cn("[&>svg]:tw-size-3.5", className)}
+            className={cn("[&>svg]:size-3.5", className)}
             {...props}
         >
             {children ?? <ChevronRight />}
@@ -82,11 +82,11 @@ const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<"span"
             data-slot="breadcrumb-ellipsis"
             role="presentation"
             aria-hidden="true"
-            className={cn("tw-flex tw-size-9 tw-items-center tw-justify-center", className)}
+            className={cn("flex size-9 items-center justify-center", className)}
             {...props}
         >
             <MoreHorizontal className="size-4" />
-            <span className="tw-sr-only">More</span>
+            <span className="sr-only">More</span>
         </span>
     );
 };

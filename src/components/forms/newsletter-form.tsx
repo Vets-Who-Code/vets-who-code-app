@@ -54,19 +54,19 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
 
     return (
         <form
-            className={clsx("tw-relative tw-flex tw-max-w-[570px] tw-flex-wrap", className)}
+            className={clsx("tw:relative tw:flex tw:max-w-[570px] tw:flex-wrap", className)}
             onSubmit={handleSubmit(onSubmit)}
             ref={ref}
         >
-            <div className="tw-flex-100 md:tw-flex-auto0">
-                <label htmlFor="newsletter_email" className="tw-sr-only">
+            <div className="tw:flex-100 tw:md:flex-auto0">
+                <label htmlFor="newsletter_email" className="tw:sr-only">
                     Newsletter
                 </label>
                 <Input
                     id="newsletter_email"
                     type="email"
                     placeholder="Your E-mail"
-                    className="tw-max-h-[52px] md:tw-rounded-br-none md:tw-rounded-tr-none md:tw-border-r-0"
+                    className="tw:max-h-[52px] tw:md:rounded-br-none tw:md:rounded-tr-none tw:md:border-r-0"
                     feedbackText={errors?.newsletter_email?.message}
                     state={hasKey(errors, "newsletter_email") ? "error" : "success"}
                     showState={!!hasKey(errors, "newsletter_email")}
@@ -85,7 +85,7 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
             </div>
             <Button
                 type="submit"
-                className="tw-mt-3.8 md:tw-mt-0 md:tw-rounded-bl-none md:tw-rounded-tl-none"
+                className="tw:mt-3.8 tw:md:mt-0 tw:md:rounded-bl-none tw:md:rounded-tl-none"
             >
                 Subscribe
             </Button>

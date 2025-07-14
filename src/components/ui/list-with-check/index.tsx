@@ -9,8 +9,8 @@ const ListWithCheck = forwardRef<HTMLUListElement, TProps>(({ className, list },
     return (
         <ul className={className} ref={ref}>
             {list.map((item) => (
-                <li className="tw-mt-2.5 tw-flex tw-items-center first:tw-mt-0" key={item}>
-                    <i className="fas fa-check tw-mr-[19px] tw-text-base tw-text-primary" />
+                <li className="tw:mt-2.5 tw:flex tw:items-center tw:first:mt-0" key={item}>
+                    <i className="fas fa-check tw:mr-[19px] tw:text-base tw:text-primary" />
                     {item}
                 </li>
             ))}

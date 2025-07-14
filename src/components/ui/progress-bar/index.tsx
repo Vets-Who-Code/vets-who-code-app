@@ -49,19 +49,19 @@ const ProgressBar: FC<ProgressProps> = ({
     ...restProps
 }) => {
     const colorClass = [
-        color === "primary" && "tw-bg-primary",
-        color === "success" && "tw-bg-success",
-        color === "danger" && "tw-bg-danger",
+        color === "primary" && "tw:bg-primary",
+        color === "success" && "tw:bg-success",
+        color === "danger" && "tw:bg-danger",
     ];
     const sizeClass = [
-        size === "xxs" && "tw-h-0.5",
-        size === "xs" && "tw-h-1.5",
-        size === "sm" && "tw-h-2.5",
-        size === "md" && "tw-h-3.8",
-        size === "lg" && "tw-h-5",
+        size === "xxs" && "tw:h-0.5",
+        size === "xs" && "tw:h-1.5",
+        size === "sm" && "tw:h-2.5",
+        size === "md" && "tw:h-3.8",
+        size === "lg" && "tw:h-5",
     ];
     return (
-        <div className={clsx("progress tw-rounded-sm tw-bg-gray-500", className)} {...restProps}>
+        <div className={clsx("progress tw:rounded-xs tw:bg-gray-500", className)} {...restProps}>
             <motion.div
                 role="progressbar"
                 aria-valuenow={now}
@@ -78,12 +78,12 @@ const ProgressBar: FC<ProgressProps> = ({
                     delay: 0.5,
                 }}
                 className={clsx(
-                    "progress-bar tw-flex tw-items-center tw-justify-center tw-rounded-l-sm",
+                    "progress-bar tw:flex tw:items-center tw:justify-center tw:rounded-l-sm",
                     color && colorClass,
                     size && sizeClass
                 )}
             >
-                <span className={!isLabel ? "tw-sr-only" : "tw-text-[11px] tw-text-white"}>
+                <span className={!isLabel ? "tw:sr-only" : "tw:text-[11px] tw:text-white"}>
                     {now}%
                 </span>
             </motion.div>

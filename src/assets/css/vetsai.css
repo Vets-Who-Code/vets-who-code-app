@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source("../../components/vetsai");
+@source "../../app/\(vetsai\)/vetsai";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -115,9 +115,9 @@
 
 @layer base {
     * {
-        @apply tw-border-[var(--border)] tw-outline-[var(--ring)];
+        @apply border-[var(--border)] outline-[var(--ring)];
     }
     body {
-        @apply tw-bg-[var(--background)] tw-text-[var(--foreground)];
+        @apply bg-[var(--background)] text-[var(--foreground)];
     }
 }

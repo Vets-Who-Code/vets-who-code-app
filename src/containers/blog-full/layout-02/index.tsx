@@ -24,11 +24,11 @@ type TProps = {
 const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
     return (
         <Section className="blog-area" space="bottom">
-            <h2 className="tw-sr-only">Blog Section</h2>
-            <div className="tw-container tw-grid tw-grid-cols-3 tw-gap-10 xl:tw-gap-15">
-                <div className="tw-col-span-full lg:tw-col-[1/3]">
+            <h2 className="tw:sr-only">Blog Section</h2>
+            <div className="tw:container tw:grid tw:grid-cols-3 tw:gap-10 tw:xl:gap-15">
+                <div className="tw:col-span-full tw:lg:col-[1/3]">
                     {blogs.length > 0 && (
-                        <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2">
+                        <div className="tw:grid tw:gap-7.5 tw:md:grid-cols-2">
                             {blogs.map((blog) => (
                                 <AnimatedBlogCard
                                     key={blog.path}
@@ -46,14 +46,14 @@ const BlogArea = ({ data: { blogs, recentPosts, tags, pagiData } }: TProps) => {
                     )}
                     {pagiData && pagiData.numberOfPages > 1 && (
                         <Pagination
-                            className="tw-mt-[50px]"
+                            className="tw:mt-[50px]"
                             numberOfPages={pagiData.numberOfPages}
                             currentPage={pagiData.currentPage}
                             rootPage={pagiData.rootPage}
                         />
                     )}
                 </div>
-                <aside className="tw-col-span-full lg:tw-col-[3/-1]">
+                <aside className="tw:col-span-full tw:lg:col-[3/-1]">
                     <BlogSidebar recentPosts={recentPosts} tags={tags} />
                 </aside>
             </div>

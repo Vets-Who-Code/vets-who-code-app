@@ -17,7 +17,7 @@ const Separator = ({
             decorative={decorative}
             orientation={orientation}
             className={cn(
-                "tw-bg-border tw-shrink-0 data-[orientation=horizontal]:tw-h-px data-[orientation=vertical]:tw-h-full data-[orientation=horizontal]:tw-w-full data-[orientation=vertical]:tw-w-px",
+                "bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px",
                 className
             )}
             {...props}

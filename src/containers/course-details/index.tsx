@@ -13,8 +13,8 @@ type TProps = {
 const CourseDetails = ({ data: { course } }: TProps) => {
     return (
         <section className="course-details">
-            <div className="tw-container tw-grid tw-gap-12 lg:tw-grid-cols-3">
-                <div className="lg:tw-col-[1/3]">
+            <div className="tw:container tw:grid tw:gap-12 tw:lg:grid-cols-3">
+                <div className="tw:lg:col-[1/3]">
                     <TabContainer variant="underline">
                         <TabList>
                             <TabNav>Overview</TabNav>
@@ -23,7 +23,7 @@ const CourseDetails = ({ data: { course } }: TProps) => {
                             <TabNav>Instructor</TabNav>
                             <TabNav>Reviews</TabNav> */}
                         </TabList>
-                        <TabContent className="tw-mt-10 lg:tw-mt-[50px]">
+                        <TabContent className="tw:mt-10 tw:lg:mt-[50px]">
                             <TabPane>
                                 {course?.description && (
                                     <OverviewPanel description={course?.description} />

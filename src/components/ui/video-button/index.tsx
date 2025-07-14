@@ -18,13 +18,13 @@ const VideoButton = ({ label, className, videoId }: TProps) => {
                 type="button"
                 aria-label={label}
                 className={clsx(
-                    "tw-absolute tw-inset-0 tw-z-30 tw-flex tw-items-center tw-justify-center",
+                    "tw:absolute tw:inset-0 tw:z-30 tw:flex tw:items-center tw:justify-center",
                     className
                 )}
                 onClick={() => setOpen(true)}
             >
                 <img
-                    className="icon tw-w-16 md:tw-w-auto"
+                    className="icon tw:w-16 tw:md:w-auto"
                     src="/images/icons/icon-youtube-play.png"
                     alt="youtube play"
                     loading="lazy"

@@ -1,4 +1,4 @@
-import "@assets/css/tailwind.css";
+import "@assets/css/vetsai.css";
 
 export const metadata = {
     title: "Next.js",

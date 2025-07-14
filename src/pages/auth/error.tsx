@@ -89,18 +89,18 @@ const AuthError: PageWithLayout = () => {
     }, [router]);
 
     return (
-        <div className="tw-sm:px-6 tw-lg:px-8 tw-flex tw-min-h-[75vh] tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12">
-            <div className="tw-sm:mx-auto tw-sm:w-full tw-sm:max-w-md">
-                <div className="tw-sm:rounded-lg tw-sm:px-10 tw-bg-white tw-px-4 tw-py-8 tw-shadow">
-                    <div className="tw-text-center">
-                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+        <div className="tw:sm:px-6 tw:lg:px-8 tw:flex tw:min-h-[75vh] tw:flex-col tw:justify-center tw:bg-gray-50 tw:py-12">
+            <div className="tw:sm:mx-auto tw:sm:w-full tw:sm:max-w-md">
+                <div className="tw:sm:rounded-lg tw:sm:px-10 tw:bg-white tw:px-4 tw:py-8 tw:shadow-sm">
+                    <div className="tw:text-center">
+                        <h2 className="tw:mb-4 tw:text-2xl tw:font-bold tw:text-gray-900">
                             {error.title}
                         </h2>
-                        <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">
-                            <div className="tw-flex tw-justify-center">
-                                <div className="tw-flex-shrink-0">
+                        <div className="tw:mb-6 tw:rounded-md tw:bg-red-50 tw:p-4">
+                            <div className="tw:flex tw:justify-center">
+                                <div className="tw:shrink-0">
                                     <svg
-                                        className="tw-h-5 tw-w-5 tw-text-red-400"
+                                        className="tw:h-5 tw:w-5 tw:text-red-400"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
@@ -113,32 +113,32 @@ const AuthError: PageWithLayout = () => {
                                         />
                                     </svg>
                                 </div>
-                                <div className="tw-ml-3">
-                                    <p className="tw-text-sm tw-text-red-700">{error.message}</p>
-                                    <p className="tw-mt-2 tw-text-sm tw-text-red-700">
+                                <div className="tw:ml-3">
+                                    <p className="tw:text-sm tw:text-red-700">{error.message}</p>
+                                    <p className="tw:mt-2 tw:text-sm tw:text-red-700">
                                         {error.action}
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="tw-space-y-4">
+                        <div className="tw:space-y-4">
                             <Link
                                 href="/"
-                                className="tw-inline-flex tw-items-center tw-rounded-md tw-border tw-border-transparent tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-shadow-sm hover:tw-bg-opacity-90 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2"
+                                className="tw:inline-flex tw:items-center tw:rounded-md tw:border tw:border-transparent tw:bg-primary tw:px-4 tw:py-2 tw:text-sm tw:font-medium tw:text-white tw:shadow-xs tw:hover:bg-primary/90 tw:hover:text-white tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2"
                             >
                                 Return to Home Page
                             </Link>
 
-                            <p className="tw-text-sm tw-text-secondary">
+                            <p className="tw:text-sm tw:text-secondary">
                                 Redirecting in {countdown} seconds...
                             </p>
 
-                            <div className="tw-mt-4 tw-text-sm tw-text-secondary">
+                            <div className="tw:mt-4 tw:text-sm tw:text-secondary">
                                 Need help?{" "}
                                 <a
                                     href="mailto:support@vetswhocode.io"
-                                    className="tw-hover:tw-text-opacity-90 tw-font-medium tw-text-primary"
+                                    className="tw:hover:text-opacity-90 tw:font-medium tw:text-primary"
                                 >
                                     Contact Support
                                 </a>

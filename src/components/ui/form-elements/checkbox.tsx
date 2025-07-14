@@ -32,16 +32,16 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
         ref
     ) => {
         const beforeClass =
-            "before:tw-absolute before:tw-content[''] before:tw-w-full before:tw-h-full before:tw-top-px before:tw-left-0 before:tw-transition-colors before:tw-duration-300 before:tw-bg-gray-200 before:tw-border before:tw-border-gray-200 before:tw-rounded-sm";
-        const disabledClass = disabled && "tw-opacity-50 before:tw-opacity-50 after:tw-opacity-50";
+            "tw:before:absolute tw:before:content[''] tw:before:w-full tw:before:h-full tw:before:top-px tw:before:left-0 tw:before:transition-colors tw:before:duration-300 tw:before:bg-gray-200 tw:before:border tw:before:border-gray-200 tw:before:rounded-xs";
+        const disabledClass = disabled && "tw:opacity-50 tw:before:opacity-50 tw:after:opacity-50";
         const afterClass =
-            "after:tw-absolute after:tw-content[''] after:tw-block after:tw-bg-primary after:tw-w-2 after:tw-h-2 after:tw-top-1/2 after:tw-left-1/2 after:-tw-translate-x-1/2 after:-tw-translate-y-1/2 after:tw-scale-0 after:tw-transition-transform after:tw-duration-300 after:tw-rounded-sm after:z-10";
+            "tw:after:absolute tw:after:content[''] tw:after:block tw:after:bg-primary tw:after:w-2 tw:after:h-2 tw:after:top-1/2 tw:after:left-1/2 tw:after:-translate-x-1/2 tw:after:-translate-y-1/2 tw:after:scale-0 tw:after:transition-transform tw:after:duration-300 tw:after:rounded-xs after:z-10";
 
         return (
             <div className="custom-checkbox">
                 <label
                     className={cn(
-                        "tw-relative tw-block tw-max-w-fit tw-cursor-pointer tw-pl-7 tw-leading-snug",
+                        "tw:relative tw:block tw:max-w-fit tw:cursor-pointer tw:pl-7 tw:leading-snug",
                         className
                     )}
                 >
@@ -57,16 +57,16 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
                         onBlur={onBlur}
                         value={value}
                         ref={ref}
-                        className="tw-peer tw-sr-only"
+                        className="tw:peer tw:sr-only"
                         {...restProps}
                     />
                     <span
                         className={cn(
-                            "tw-absolute tw-left-0 tw-inline-block tw-h-[18px] tw-w-[18px] tw-leading-[18px]",
+                            "tw:absolute tw:left-0 tw:inline-block tw:h-[18px] tw:w-[18px] tw:leading-[18px]",
                             beforeClass,
                             disabledClass,
                             afterClass,
-                            "peer-checked:before:tw-border-primary peer-checked:before:tw-bg-white peer-checked:after:tw-scale-100 peer-hover:before:tw-border-primary"
+                            "tw:peer-checked:before:border-primary tw:peer-checked:before:bg-white tw:peer-checked:after:scale-100 tw:peer-hover:before:border-primary"
                         )}
                     />
                     {label}

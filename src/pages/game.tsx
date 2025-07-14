@@ -168,15 +168,15 @@ const GamePage = () => {
         }
         if (gameState.isGameOver) {
             return (
-                <div className="tw-text-center">
-                    <h2 className="tw-mb-8 tw-text-4xl tw-font-semibold tw-text-secondary">
+                <div className="tw:text-center">
+                    <h2 className="tw:mb-8 tw:text-4xl tw:font-semibold tw:text-secondary">
                         Final Scores
                     </h2>
                     <ScoreBoard players={gameState.players} />
                     <button
                         type="button"
                         onClick={handlePlayAgain}
-                        className="tw-mt-8 tw-rounded-lg tw-bg-primary tw-px-8 tw-py-3 tw-text-lg tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-opacity-80"
+                        className="tw:mt-8 tw:rounded-lg tw:bg-primary tw:px-8 tw:py-3 tw:text-lg tw:font-semibold tw:text-white tw:transition-colors tw:hover:bg-primary/80"
                     >
                         Play Again?
                     </button>
@@ -196,11 +196,11 @@ const GamePage = () => {
                     selectedPlayerName={selectedPlayer ? selectedPlayer.name : null}
                 />
                 {gameState.showFeedback && (
-                    <div className="tw-mt-6 tw-text-center">
+                    <div className="tw:mt-6 tw:text-center">
                         <button
                             type="button"
                             onClick={handleNextQuestion}
-                            className="tw-rounded-lg tw-bg-secondary tw-px-7 tw-py-3 tw-text-lg tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-opacity-80"
+                            className="tw:rounded-lg tw:bg-secondary tw:px-7 tw:py-3 tw:text-lg tw:font-semibold tw:text-white tw:transition-colors tw:hover:bg-secondary/80"
                         >
                             {gameState.currentFactIndex + 1 >= facts.length
                                 ? "Show Final Scores"
@@ -216,43 +216,43 @@ const GamePage = () => {
         <>
             <SEO title="Who's Branch Is It Anyway?" />
             {showEmojiRain && <EmojiRain />}
-            <div className="tw-container tw-mx-auto tw-min-h-screen tw-max-w-3xl tw-bg-white tw-p-4 tw-text-secondary">
-                <header className="tw-my-8 tw-text-center">
-                    <h1 className="tw-text-5xl tw-font-bold tw-text-secondary">
+            <div className="tw:container tw:mx-auto tw:min-h-screen tw:max-w-3xl tw:bg-white tw:p-4 tw:text-secondary">
+                <header className="tw:my-8 tw:text-center">
+                    <h1 className="tw:text-5xl tw:font-bold tw:text-secondary">
                         Who&#39;s Branch Is It Anyway?
                     </h1>
                 </header>
 
-                <div className="tw-mb-8 tw-rounded-lg tw-bg-primary tw-bg-opacity-10 tw-p-6 tw-text-center tw-shadow-md">
-                    <h2 className="tw-mb-4 tw-text-2xl tw-font-semibold tw-text-primary">
+                <div className="tw:mb-8 tw:rounded-lg tw:bg-primary/10 tw:p-6 tw:text-center tw:shadow-md">
+                    <h2 className="tw:mb-4 tw:text-2xl tw:font-semibold tw:text-primary">
                         Test Your Military Knowledge!
                     </h2>
-                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                    <p className="tw:mb-3 tw:text-lg tw:text-secondary">
                         Welcome to <em>Whose Branch Is It Anyway?&#39;</em>, the show where points
                         don’t matter. Just like PowerPoint in a field brief. That’s right, are like
                         getting a perfectly pressed uniform before a rain-filled ruck march.
                         Completely useless.
                     </p>
-                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                    <p className="tw:mb-3 tw:text-lg tw:text-secondary">
                         Brought to you by Vets Who Code, this is the military trivia game where you
                         can challenge yourself or compete with friends to see who knows the most
                         about U.S. military history, branches, and traditions.
                     </p>
-                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                    <p className="tw:mb-3 tw:text-lg tw:text-secondary">
                         So grab your MREs, tighten those boot laces, and let’s see if you’ve got
                         what it takes to guess the right branch. Army, Navy, Air Force, Marine
                         Corps, Space Force, or Coast Guard. Based on real facts, legends, and
                         straight-up weirdness only a veteran could love.
                     </p>
-                    <p className="tw-mb-3 tw-text-lg tw-text-secondary">
+                    <p className="tw:mb-3 tw:text-lg tw:text-secondary">
                         Each correct answer earns you a point. Do you have what it takes to achieve
                         a perfect score?
                     </p>
-                    <div className="tw-mt-4 tw-flex tw-flex-wrap tw-justify-center tw-gap-2">
+                    <div className="tw:mt-4 tw:flex tw:flex-wrap tw:justify-center tw:gap-2">
                         {militaryBranches.map((branch) => (
                             <span
                                 key={branch}
-                                className="tw-inline-block tw-rounded-full tw-bg-secondary tw-px-4 tw-py-1 tw-text-sm tw-font-semibold tw-text-white"
+                                className="tw:inline-block tw:rounded-full tw:bg-secondary tw:px-4 tw:py-1 tw:text-sm tw:font-semibold tw:text-white"
                             >
                                 {branch}
                             </span>
@@ -260,7 +260,7 @@ const GamePage = () => {
                     </div>
                 </div>
 
-                <main className="tw-rounded-lg tw-bg-gray-100 tw-p-6 tw-shadow-xl">
+                <main className="tw:rounded-lg tw:bg-gray-100 tw:p-6 tw:shadow-xl">
                     {renderMainContent()}
                 </main>
             </div>

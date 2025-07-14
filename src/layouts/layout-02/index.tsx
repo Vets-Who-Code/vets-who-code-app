@@ -14,7 +14,7 @@ const Layout02 = ({ children, headerShadow, headerFluid, footerMode }: TProps) =
     return (
         <>
             <Header shadow={headerShadow} fluid={headerFluid} />
-            <main className="tw-relative">{children}</main>
+            <main className="tw:relative">{children}</main>
             <Footer mode={footerMode} />
             <ScrollToTop />
         </>

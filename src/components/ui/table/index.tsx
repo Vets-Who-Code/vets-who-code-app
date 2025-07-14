@@ -18,10 +18,10 @@ interface TChildProps {
 type TableSectionType = "thead" | "tbody" | "tfoot";
 
 const BasicTable = ({ children, className, striped, bordered }: IProps) => {
-    const baseTHClass = "tw-py-7.5 tw-px-7.5 tw-text-center";
-    const baseTDClass = "tw-py-2.5 tw-px-5 tw-text-center";
+    const baseTHClass = "tw:py-7.5 tw:px-7.5 tw:text-center";
+    const baseTDClass = "tw:py-2.5 tw:px-5 tw:text-center";
     const borderedClass =
-        bordered && "tw-border tw-border-black/[0.08] tw-border-l-0 first:tw-border-l";
+        bordered && "tw:border tw:border-black/8 tw:border-l-0 tw:first:border-l";
 
     const iterateOverChildren = (reactChildren: ReactNode, parent: TableSectionType): ReactNode => {
         return Children.map(reactChildren, (child) => {
@@ -51,7 +51,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
                     className: clsx(
                         (childType === "th" || childType === "td") && [baseTDClass, borderedClass],
                         childType === "th" && "!text-heading font-medium",
-                        childType === "tr" && [striped && "even:tw-bg-black/[0.02]"],
+                        childType === "tr" && [striped && "tw:even:bg-black/2"],
                         childProps.className
                     ),
                     children: iterateOverChildren(childProps.children, parent),
@@ -86,7 +86,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
 
     return (
         <div className="table-responsive">
-            <table className={clsx("table tw-w-full", className)}>{renderChildren}</table>
+            <table className={clsx("table tw:w-full", className)}>{renderChildren}</table>
         </div>
     );
 };

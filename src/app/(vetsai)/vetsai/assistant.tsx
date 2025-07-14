@@ -4,7 +4,6 @@ import { AssistantRuntimeProvider } from "@assistant-ui/react";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
 import { Thread } from "@/components/vetsai/assistant-ui/thread";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/vetsai/ui/sidebar";
-import { AppSidebar } from "@/components/vetsai/app-sidebar";
 import { Separator } from "@/components/vetsai/ui/separator";
 import {
     Breadcrumb,
@@ -14,9 +13,9 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/vetsai/ui/breadcrumb";
-import "@assets/css/vetsai.css";
+import { AppSidebar } from "@/components/vetsai/app-sidebar";
 
-const Assistant = () => {
+export const Assistant = () => {
     const runtime = useChatRuntime({
         api: "/api/chat",
     });
@@ -26,17 +25,17 @@ const Assistant = () => {
             <SidebarProvider>
                 <AppSidebar />
                 <SidebarInset>
-                    <header className="tw-flex tw-h-16 tw-shrink-0 tw-items-center tw-gap-2 tw-border-b tw-px-4">
+                    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
                         <SidebarTrigger />
-                        <Separator orientation="vertical" className="tw-mr-2 tw-h-4" />
+                        <Separator orientation="vertical" className="mr-2 h-4" />
                         <Breadcrumb>
                             <BreadcrumbList>
-                                <BreadcrumbItem className="tw-hidden md:tw-block">
+                                <BreadcrumbItem className="hidden md:block">
                                     <BreadcrumbLink href="#">
                                         Build Your Own ChatGPT UX
                                     </BreadcrumbLink>
                                 </BreadcrumbItem>
-                                <BreadcrumbSeparator className="tw-hidden md:tw-block" />
+                                <BreadcrumbSeparator className="hidden md:block" />
                                 <BreadcrumbItem>
                                     <BreadcrumbPage>Starter Template</BreadcrumbPage>
                                 </BreadcrumbItem>
@@ -49,5 +48,3 @@ const Assistant = () => {
         </AssistantRuntimeProvider>
     );
 };
-
-export default Assistant;

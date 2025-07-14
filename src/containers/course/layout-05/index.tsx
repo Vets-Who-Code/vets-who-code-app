@@ -17,19 +17,19 @@ type TProps = TSection & {
 const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="course-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                <div className="tw:grid tw:gap-7.5 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                     {courses.map((course) => (
                         <CourseCard
                             key={course.path}
@@ -40,14 +40,14 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                     ))}
                 </div>
                 <motion.div
-                    className="tw-text-center"
+                    className="tw:text-center"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    <Button path="/subjects/all" className="tw-mt-[50px]">
-                        View All Subjects <i className="far fa-long-arrow-right tw-ml-3" />
+                    <Button path="/subjects/all" className="tw:mt-[50px]">
+                        View All Subjects <i className="far fa-long-arrow-right tw:ml-3" />
                     </Button>
                 </motion.div>
             </div>

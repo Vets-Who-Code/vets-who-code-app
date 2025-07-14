@@ -54,23 +54,23 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
     return (
         <>
             <SEO title={`${page.title} | Vets Who Code`} />
-            <div className="tw-container tw-py-10 md:tw-py-15">
-                <h1 className="tw-mb-10 tw-text-center tw-text-3xl md:tw-text-4xl">{page.title}</h1>
+            <div className="tw:container tw:py-10 tw:md:py-15">
+                <h1 className="tw:mb-10 tw:text-center tw:text-3xl tw:md:text-4xl">{page.title}</h1>
 
                 {/* Filter and Search Controls */}
-                <div className="tw-mb-8 tw-rounded-lg tw-border tw-border-gray-200 tw-bg-gray-50 tw-p-4 md:tw-p-6">
-                    <div className="tw-flex tw-flex-col tw-gap-4 sm:tw-flex-row md:tw-items-end">
-                        <div className="tw-flex-1">
+                <div className="tw:mb-8 tw:rounded-lg tw:border tw:border-gray-200 tw:bg-gray-50 tw:p-4 tw:md:p-6">
+                    <div className="tw:flex tw:flex-col tw:gap-4 tw:sm:flex-row tw:md:items-end">
+                        <div className="tw:flex-1">
                             <label
                                 htmlFor="mediaTypeFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw:block tw:text-sm tw:font-medium tw:text-gray-700"
                             >
                                 Filter by Type
                             </label>
                             <select
                                 id="mediaTypeFilter"
                                 name="mediaTypeFilter"
-                                className="h-12 tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw:mt-1 tw:block tw:w-full tw:rounded-md tw:border-gray-300 tw:py-3 tw:pl-3 tw:pr-10 tw:text-base tw:focus:border-primary tw:focus:outline-hidden tw:focus:ring-primary tw:sm:text-sm h-12"
                                 value={mediaTypeFilter}
                                 onChange={(e) => setMediaTypeFilter(e.target.value)}
                             >
@@ -83,17 +83,17 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                             </select>
                         </div>
 
-                        <div className="tw-flex-1">
+                        <div className="tw:flex-1">
                             <label
                                 htmlFor="yearFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw:block tw:text-sm tw:font-medium tw:text-gray-700"
                             >
                                 Filter by Year
                             </label>
                             <select
                                 id="yearFilter"
                                 name="yearFilter"
-                                className="h-12 tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw:mt-1 tw:block tw:w-full tw:rounded-md tw:border-gray-300 tw:py-3 tw:pl-3 tw:pr-10 tw:text-base tw:focus:border-primary tw:focus:outline-hidden tw:focus:ring-primary tw:sm:text-sm h-12"
                                 value={yearFilter}
                                 onChange={(e) => setYearFilter(e.target.value)}
                             >
@@ -106,10 +106,10 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                             </select>
                         </div>
 
-                        <div className="tw-flex-1">
+                        <div className="tw:flex-1">
                             <label
                                 htmlFor="searchTerm"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw:block tw:text-sm tw:font-medium tw:text-gray-700"
                             >
                                 Search
                             </label>
@@ -117,7 +117,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                 type="text"
                                 id="searchTerm"
                                 name="searchTerm"
-                                className="appearance-none h-12 py-3 text-base tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw:mt-1 tw:block tw:w-full tw:rounded-md tw:border-gray-300 tw:py-3 tw:pl-3 tw:pr-10 tw:focus:border-primary tw:focus:outline-hidden tw:focus:ring-primary tw:sm:text-sm h-12 appearance-none py-3 text-base"
                                 placeholder="Keywords..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -125,7 +125,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         </div>
 
                         {/* Optional: Add a Reset button */}
-                        <div className="sm:tw-ml-auto">
+                        <div className="tw:sm:ml-auto">
                             {" "}
                             {/* Pushes to the right on sm screens if items-end is used */}
                             <button
@@ -135,7 +135,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                     setYearFilter("");
                                     setSearchTerm("");
                                 }}
-                                className="h-12 tw-mt-1 tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-gray-700 tw-shadow-sm hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 sm:tw-mt-0 sm:tw-w-auto"
+                                className="tw:mt-1 tw:w-full tw:rounded-md tw:border tw:border-gray-300 tw:bg-white tw:px-4 tw:py-3 tw:text-sm tw:font-medium tw:text-gray-700 tw:shadow-xs tw:hover:bg-gray-50 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2 tw:sm:mt-0 tw:sm:w-auto h-12"
                             >
                                 Reset
                             </button>
@@ -144,13 +144,13 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                 </div>
 
                 {filteredMediaItems && filteredMediaItems.length > 0 ? (
-                    <div className="tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                    <div className="tw:grid tw:grid-cols-1 tw:gap-6 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                         {filteredMediaItems.map((item) => (
                             <MediaCard key={item.slug} {...item} />
                         ))}
                     </div>
                 ) : (
-                    <p className="tw-py-10 tw-text-center">
+                    <p className="tw:py-10 tw:text-center">
                         No media items found matching your criteria. Try adjusting your filters or
                         search term.
                     </p>

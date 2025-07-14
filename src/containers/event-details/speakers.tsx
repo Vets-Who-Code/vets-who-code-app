@@ -23,8 +23,8 @@ const sliderOptions = {
 
 const Speakers = ({ speakers }: { speakers: ISpeaker[] }) => {
     return (
-        <div className="tw-container tw-border-b tw-border-b-gray-650 tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px]">
-            <h2 className="tw-mb-11 tw-text-center tw-text-4xl lg:tw-text-5xl">Our Speaker</h2>
+        <div className="tw:container tw:border-b tw:border-b-gray-650 tw:pb-15 tw:md:pb-20 tw:lg:pb-[100px]">
+            <h2 className="tw:mb-11 tw:text-center tw:text-4xl tw:lg:text-5xl">Our Speaker</h2>
             {speakers.length > 0 && (
                 <Swiper options={sliderOptions}>
                     {speakers.map((item) => (
@@ -39,7 +39,7 @@ const Speakers = ({ speakers }: { speakers: ISpeaker[] }) => {
                 </Swiper>
             )}
 
-            <p className="tw-mx-auto tw-mt-[54px] tw-max-w-[630px] tw-text-center tw-text-lg">
+            <p className="tw:mx-auto tw:mt-[54px] tw:max-w-[630px] tw:text-center tw:text-lg">
                 Register online, get your ticket, meet up with our inspirational speakers and
                 specialists in the field to share your ideas.
             </p>

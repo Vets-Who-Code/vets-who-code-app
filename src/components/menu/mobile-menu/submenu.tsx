@@ -10,13 +10,13 @@ type TProps = {
 
 const Submenu = ({ menu, isExpand, className }: TProps) => {
     return (
-        <ul className={clsx("tw-border-t tw-border-t-white/[.15] tw-py-[14px]", className)}>
+        <ul className={clsx("tw:border-t tw:border-t-white/15 tw:py-[14px]", className)}>
             {menu.map(({ id, label, path }) => (
-                <li key={id} className="tw-relative">
+                <li key={id} className="tw:relative">
                     <Anchor
                         path={path}
                         className={clsx(
-                            "tw-inline-block tw-py-2.5 tw-text-base tw-font-medium tw-leading-normal tw-text-white/[0.7] hover:tw-text-white",
+                            "tw:inline-block tw:py-2.5 tw:text-base tw:font-medium tw:leading-normal tw:text-white/70 tw:hover:text-white",
                             className
                         )}
                         tabIndex={isExpand ? 0 : -1}

@@ -10,7 +10,7 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
     SidebarRail,
-} from "@/components/vetsai/ui/sidebar";
+} from "./ui/sidebar";
 import { ThreadList } from "./assistant-ui/thread-list";
 
 export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
@@ -21,11 +21,11 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
                             <Link href="https://assistant-ui.com" target="_blank">
-                                <div className="tw-bg-sidebar-primary tw-text-sidebar-primary-foreground tw-flex tw-aspect-square tw-size-8 tw-items-center tw-justify-center tw-rounded-lg">
+                                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                                     <MessagesSquare className="size-4" />
                                 </div>
-                                <div className="tw-flex tw-flex-col tw-gap-0.5 tw-leading-none">
-                                    <span className="tw-font-semibold">assistant-ui</span>
+                                <div className="flex flex-col gap-0.5 leading-none">
+                                    <span className="font-semibold">assistant-ui</span>
                                 </div>
                             </Link>
                         </SidebarMenuButton>
@@ -45,11 +45,11 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
                                 href="https://github.com/assistant-ui/assistant-ui"
                                 target="_blank"
                             >
-                                <div className="tw-bg-sidebar-primary text-sidebar-primary-foreground tw-flex tw-aspect-square tw-size-8 tw-items-center tw-justify-center tw-rounded-lg">
+                                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
                                     <Github className="size-4" />
                                 </div>
-                                <div className="tw-flex tw-flex-col tw-gap-0.5 tw-leading-none">
-                                    <span className="tw-font-semibold">GitHub</span>
+                                <div className="flex flex-col gap-0.5 leading-none">
+                                    <span className="font-semibold">GitHub</span>
                                     <span className="">View Source</span>
                                 </div>
                             </Link>

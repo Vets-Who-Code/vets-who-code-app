@@ -4,22 +4,22 @@ import Social, { SocialLink } from "@components/ui/social";
 const ProfileBio = () => {
     return (
         <Section className="profile-area" space="bottom">
-            <div className="tw-container tw-grid tw-grid-cols-1 tw-items-start tw-gap-7.5 md:tw-grid-cols-12 lg:tw-items-center">
-                <figure className="tw-col-span-full md:tw-col-span-6 xl:tw-col-span-5">
+            <div className="tw:container tw:grid tw:grid-cols-1 tw:items-start tw:gap-7.5 tw:md:grid-cols-12 tw:lg:items-center">
+                <figure className="tw:col-span-full tw:md:col-span-6 tw:xl:col-span-5">
                     <img
-                        className="tw-w-full"
+                        className="tw:w-full"
                         src="https://res.cloudinary.com/vetswhocode/image/upload/v1683429329/jerome-headshot-bw-3900.jpg"
                         alt="profile"
                         width={470}
                         height={470}
                     />
                 </figure>
-                <div className="tw-col-span-full md:tw-col-[7/-1]">
-                    <h2 className="tw-mb-0 tw-leading-[1.42]">Jerome Hardaway</h2>
-                    <h3 className="tw-mb-0 tw-text-h6 tw-font-normal tw-leading-relaxed tw-text-body">
+                <div className="tw:col-span-full tw:md:col-[7/-1]">
+                    <h2 className="tw:mb-0 tw:leading-[1.42]">Jerome Hardaway</h2>
+                    <h3 className="tw:mb-0 tw:text-h6 tw:font-normal tw:leading-relaxed tw:text-body">
                         Executive Director
                     </h3>
-                    <p className="tw-mb-0 tw-mt-3.8">
+                    <p className="tw:mb-0 tw:mt-3.8">
                         With over 10 years of software engineering experience, Jerome is a leader in
                         developing and delivering AI products that enhance the user experience and
                         empower millions of customers worldwide. He currently works as a Senior
@@ -28,7 +28,7 @@ const ProfileBio = () => {
                         technologies for various platforms and domains.
                     </p>
 
-                    <p className="tw-mb-0 tw-mt-3.8">
+                    <p className="tw:mb-0 tw:mt-3.8">
                         Jerome is also passionate about teaching and mentoring diverse and
                         underrepresented communities in the tech industry. He is the Founder and
                         Executive Director of Vets Who Code, a nonprofit organization that teaches
@@ -40,47 +40,47 @@ const ProfileBio = () => {
                         make the tech industry more accessible, diverse, and innovative, and he is
                         always looking for new ways to achieve this goal.
                     </p>
-                    <h4 className="tw-mb-2.5 tw-mt-9 tw-text-h5">Contact</h4>
+                    <h4 className="tw:mb-2.5 tw:mt-9 tw:text-h5">Contact</h4>
                     <div className="contact-info-text">
                         <br />
                         <span className="email">
                             Email:{" "}
-                            <strong className="tw-text-heading">jerome@vetswhocode.io</strong>
+                            <strong className="tw:text-heading">jerome@vetswhocode.io</strong>
                         </span>
                     </div>
-                    <Social shape="circle" variant="outlined" color="light" className="tw-mt-7.5">
+                    <Social shape="circle" variant="outlined" color="light" className="tw:mt-7.5">
                         <SocialLink
                             href="https://twitter.com"
                             label="twitter link"
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className="fab fa-twitter" />
                         </SocialLink>
                         <SocialLink
                             href="https://facebook.com"
                             label="facebook link"
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className="fab fa-facebook-f" />
                         </SocialLink>
                         <SocialLink
                             href="https://instagram.com"
                             label="instagram link"
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className="fab fa-instagram" />
                         </SocialLink>
                         <SocialLink
                             href="https://pinterest.com"
                             label="pinterest link"
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className="fab fa-pinterest" />
                         </SocialLink>
                         <SocialLink
                             href="https://youtube.com"
                             label="youtube link"
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className="fab fa-youtube" />
                         </SocialLink>

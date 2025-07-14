@@ -19,11 +19,11 @@ const StarRating = ({ rating, className, align, size, space }: TProps) => {
         <div
             title={`${rating} out of ${BASE_RATING}`}
             className={clsx(
-                size === "md" && "tw-text-md",
-                size === "sm" && "tw-text-sm",
-                align === "center" && "tw-text-center",
-                align === "left" && "tw-text-left",
-                align === "right" && "tw-text-right",
+                size === "md" && "tw:text-md",
+                size === "sm" && "tw:text-sm",
+                align === "center" && "tw:text-center",
+                align === "left" && "tw:text-left",
+                align === "right" && "tw:text-right",
                 className
             )}
         >
@@ -31,18 +31,18 @@ const StarRating = ({ rating, className, align, size, space }: TProps) => {
                 <i
                     key={item}
                     className={clsx(
-                        "fas fa-star tw-text-yellow first:tw-ml-0",
-                        space === "xs" && "tw-mx-px",
-                        space === "sm" && "tw-mx-0.5"
+                        "fas fa-star tw:text-yellow tw:first:ml-0",
+                        space === "xs" && "tw:mx-px",
+                        space === "sm" && "tw:mx-0.5"
                     )}
                 />
             ))}
             {remainder > 0 && (
                 <i
                     className={clsx(
-                        "fas fa-star-half-alt tw-text-yellow first:tw-ml-0",
-                        space === "xs" && "tw-mx-px",
-                        space === "sm" && "tw-mx-0.5"
+                        "fas fa-star-half-alt tw:text-yellow tw:first:ml-0",
+                        space === "xs" && "tw:mx-px",
+                        space === "sm" && "tw:mx-0.5"
                     )}
                 />
             )}
@@ -50,9 +50,9 @@ const StarRating = ({ rating, className, align, size, space }: TProps) => {
                 <i
                     key={item}
                     className={clsx(
-                        "far fa-star tw-text-gray-400 first:tw-ml-0",
-                        space === "xs" && "tw-mx-px",
-                        space === "sm" && "tw-mx-0.5"
+                        "far fa-star tw:text-gray-400 tw:first:ml-0",
+                        space === "xs" && "tw:mx-px",
+                        space === "sm" && "tw:mx-0.5"
                     )}
                 />
             ))}

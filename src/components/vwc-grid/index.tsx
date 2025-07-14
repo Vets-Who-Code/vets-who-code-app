@@ -10,9 +10,9 @@ export const VWCGrid = ({ title, children }: PropsWithChildren<TProps>) => {
 
     return (
         <Section className="course-area" space="bottom">
-            <h2 className="tw-sr-only">{title}</h2>
-            <div className="tw-container">
-                <div className="tw-grid tw-grid-cols-1 tw-gap-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-3">
+            <h2 className="tw:sr-only">{title}</h2>
+            <div className="tw:container">
+                <div className="tw:grid tw:grid-cols-1 tw:gap-[30px] tw:md:grid-cols-2 tw:lg:grid-cols-3">
                     {children}
                 </div>
             </div>

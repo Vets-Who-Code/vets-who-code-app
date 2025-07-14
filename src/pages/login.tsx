@@ -54,7 +54,7 @@ const Login: PageWithLayout = () => {
 
     if (!mounted || status === "loading") {
         return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
+            <div className="tw:fixed tw:top-0 tw:z-50 tw:flex tw:h-screen tw:w-screen tw:items-center tw:justify-center tw:bg-white">
                 <Spinner />
             </div>
         );
@@ -62,45 +62,45 @@ const Login: PageWithLayout = () => {
 
     if (status === "unauthenticated") {
         return (
-            <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center tw-bg-secondary">
-                <div className="tw-w-full tw-max-w-md tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-lg">
-                    <div className="tw-space-y-3 tw-p-8">
-                        <h1 className="tw-text-center tw-text-2xl tw-font-bold tw-text-secondary">
+            <div className="tw:flex tw:min-h-screen tw:items-center tw:justify-center tw:bg-secondary">
+                <div className="tw:w-full tw:max-w-md tw:overflow-hidden tw:rounded-lg tw:bg-white tw:shadow-lg">
+                    <div className="tw:space-y-3 tw:p-8">
+                        <h1 className="tw:text-center tw:text-2xl tw:font-bold tw:text-secondary">
                             Retool. Retrain. Relaunch.
                         </h1>
-                        <p className="tw-text-center tw-text-secondary">
+                        <p className="tw:text-center tw:text-secondary">
                             Sign in to continue your journey with #VetsWhoCode
                         </p>
                         {errorMessage && (
-                            <div className="tw-rounded tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-600">
+                            <div className="tw:rounded-sm tw:bg-red-50 tw:p-3 tw:text-sm tw:text-red-600">
                                 {errorMessage}
                             </div>
                         )}
                     </div>
-                    <div className="tw-p-6">
+                    <div className="tw:p-6">
                         <button
                             type="button"
                             onClick={handleSignIn}
-                            className="tw-flex tw-w-full tw-items-center tw-justify-center tw-gap-2 tw-rounded-md tw-bg-primary tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-transition-colors hover:tw-opacity-90"
+                            className="tw:flex tw:w-full tw:items-center tw:justify-center tw:gap-2 tw:rounded-md tw:bg-primary tw:px-4 tw:py-3 tw:text-sm tw:font-medium tw:text-white tw:transition-colors tw:hover:opacity-90"
                             disabled={isRedirecting}
                         >
                             <i className="fab fa-github" />
                             Sign in with GitHub
                         </button>
                     </div>
-                    <div className="tw-px-8 tw-pb-8">
-                        <p className="tw-text-center tw-text-sm tw-text-secondary">
+                    <div className="tw:px-8 tw:pb-8">
+                        <p className="tw:text-center tw:text-sm tw:text-secondary">
                             By clicking continue, you agree to our{" "}
                             <a
                                 href="/terms"
-                                className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                                className="tw:text-primary tw:underline tw:underline-offset-4 tw:hover:opacity-80"
                             >
                                 Terms of Service
                             </a>{" "}
                             and{" "}
                             <a
                                 href="/privacy"
-                                className="tw-text-primary tw-underline tw-underline-offset-4 hover:tw-opacity-80"
+                                className="tw:text-primary tw:underline tw:underline-offset-4 tw:hover:opacity-80"
                             >
                                 Privacy Policy
                             </a>
@@ -113,8 +113,8 @@ const Login: PageWithLayout = () => {
     }
 
     return (
-        <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-flex-col tw-items-center tw-justify-center tw-gap-4 tw-bg-white">
-            <span className="tw-text-secondary">{errorMessage || "Redirecting to profile..."}</span>
+        <div className="tw:fixed tw:top-0 tw:z-50 tw:flex tw:h-screen tw:w-screen tw:flex-col tw:items-center tw:justify-center tw:gap-4 tw:bg-white">
+            <span className="tw:text-secondary">{errorMessage || "Redirecting to profile..."}</span>
             <Spinner />
         </div>
     );
