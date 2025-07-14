@@ -43,15 +43,15 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
     };
 
     return (
-        <div className="tw-mx-auto tw-max-w-md tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-            <h2 className="tw-mb-6 tw-text-center tw-text-2xl tw-font-bold tw-text-secondary">
+        <div className="tw:mx-auto tw:max-w-md tw:rounded-lg tw:bg-white tw:p-6 tw:shadow-md">
+            <h2 className="tw:mb-6 tw:text-center tw:text-2xl tw:font-bold tw:text-secondary">
                 Player Setup
             </h2>
-            <form onSubmit={handleSubmit} className="tw-space-y-5">
+            <form onSubmit={handleSubmit} className="tw:space-y-5">
                 <div>
                     <label
                         htmlFor="numPlayers"
-                        className="tw-block tw-text-sm tw-font-medium tw-text-secondary"
+                        className="tw:block tw:text-sm tw:font-medium tw:text-secondary"
                     >
                         Number of Players (1-4):
                     </label>
@@ -59,7 +59,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                         id="numPlayers"
                         value={numPlayers}
                         onChange={(e) => setNumPlayers(parseInt(e.target.value, 10))}
-                        className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary"
+                        className="tw:mt-1 tw:block tw:w-full tw:rounded-md tw:border tw:border-gray-300 tw:p-3 tw:shadow-xs tw:focus:border-primary tw:focus:outline-hidden tw:focus:ring-primary"
                     >
                         {[1, 2, 3, 4].map((n) => (
                             <option key={n} value={n}>
@@ -72,7 +72,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                             <div key={playerIds[index]}>
                                 <label
                                     htmlFor={`playerName${index}`}
-                                    className="tw-block tw-text-sm tw-font-medium tw-text-secondary"
+                                    className="tw:block tw:text-sm tw:font-medium tw:text-secondary"
                                 >
                                     Player {index + 1} Name:
                                 </label>
@@ -81,7 +81,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                                     id={`playerName${index}`}
                                     value={playerNames[index] || ""}
                                     onChange={(e) => handleNameChange(index, e.target.value)}
-                                    className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary"
+                                    className="tw:mt-1 tw:block tw:w-full tw:rounded-md tw:border tw:border-gray-300 tw:p-3 tw:shadow-xs tw:focus:border-primary tw:focus:outline-hidden tw:focus:ring-primary"
                                     placeholder={`Enter Player ${index + 1} Name`}
                                     autoComplete="off"
                                 />
@@ -89,10 +89,10 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                         );
                     })}
                 </div>
-                {error && <div className="tw-mb-2 tw-text-center tw-text-red-600">{error}</div>}
+                {error && <div className="tw:mb-2 tw:text-center tw:text-red-600">{error}</div>}
                 <button
                     type="submit"
-                    className="tw-w-full tw-rounded-lg tw-bg-primary tw-px-4 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-opacity-80 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2"
+                    className="tw:w-full tw:rounded-lg tw:bg-primary tw:px-4 tw:py-3 tw:font-semibold tw:text-white tw:transition-colors tw:hover:bg-primary/80 tw:focus:outline-hidden tw:focus:ring-2 tw:focus:ring-primary tw:focus:ring-offset-2"
                 >
                     Start Game
                 </button>

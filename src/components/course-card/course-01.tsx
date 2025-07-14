@@ -14,12 +14,12 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "group tw-h-full tw-overflow-hidden tw-rounded tw-bg-gray-100 tw-transition-all hover:tw-bg-white hover:tw-shadow-4xl hover:tw-shadow-black/[0.12]",
+                    "group tw:h-full tw:overflow-hidden tw:rounded-sm tw:bg-gray-100 tw:transition-all tw:hover:bg-white tw:hover:shadow-4xl tw:hover:shadow-black/12",
                     className
                 )}
                 ref={ref}
             >
-                <figure className="tw-relative tw-overflow-hidden">
+                <figure className="tw:relative tw:overflow-hidden">
                     {thumbnail?.src && (
                         <img
                             src={thumbnail.src}
@@ -27,7 +27,7 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
                             width={thumbnail?.width || 370}
                             height={thumbnail?.height || 229}
                             loading={thumbnail?.loading || "lazy"}
-                            className="tw-w-full tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
+                            className="tw:w-full tw:transition-transform tw:duration-1000 tw:ease-out tw:group-hover:scale-110"
                         />
                     )}
 
@@ -35,15 +35,15 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
                         {title}
                     </Anchor>
                 </figure>
-                <div className="tw-relative tw-px-7.5 tw-pb-10 tw-pt-7.5">
-                    <span className="tw-absolute tw-right-5 tw-top-0 tw-flex tw-h-[60px] tw-w-[60px] -tw-translate-y-1/2 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-text-lg tw-font-extrabold tw-capitalize tw-leading-none tw-text-white md:tw-h-[70px] md:tw-w-[70px] md:tw-text-2xl" />
-                    <span className="tw-mb-1 tw-block tw-font-medium tw-uppercase tw-tracking-[2px] tw-text-secondary-light">
+                <div className="tw:relative tw:px-7.5 tw:pb-10 tw:pt-7.5">
+                    <span className="tw:absolute tw:right-5 tw:top-0 tw:flex tw:h-[60px] tw:w-[60px] tw:-translate-y-1/2 tw:items-center tw:justify-center tw:rounded-full tw:bg-primary tw:text-lg tw:font-extrabold tw:capitalize tw:leading-none tw:text-white tw:md:h-[70px] tw:md:w-[70px] tw:md:text-2xl" />
+                    <span className="tw:mb-1 tw:block tw:font-medium tw:uppercase tw:tracking-[2px] tw:text-secondary-light">
                         {dayjs(published_at).format("MMM DD, YYYY")}
                     </span>
-                    <h3 className="tw-m-0 tw-leading-normal tw-text-secondary">
+                    <h3 className="tw:m-0 tw:leading-normal tw:text-secondary">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
-                    {excerpt && <p className="tw-mt-2.5">{excerpt}</p>}
+                    {excerpt && <p className="tw:mt-2.5">{excerpt}</p>}
                 </div>
             </div>
         );

@@ -1,0 +1,1172 @@
+[
+  {
+    "id": 7,
+    "code": "1A0X1",
+    "description": "In-Flight Refueling",
+    "remarks": "Performs in-flight refueling aircrew functions and activities according to flight manuals, checklists, and Unites States Air Force publications."
+  },
+  {
+    "id": 8,
+    "code": "1A1X1",
+    "description": "Flight Engineer",
+    "remarks": "Performs aircraft visual inspections and in-flight duties. Operates and monitors engine and aircraft systems controls, panels, indicators and devices. Manages flight engineer functions and activities."
+  },
+  {
+    "id": 202,
+    "code": "1A1X2",
+    "description": "Mobility Force Aviators",
+    "remarks": "Plans and prepares for mission. Reviews mission tasking, intelligence, and weather information. Supervises mission planning, equipment configuration, and crew briefing. Ensures ground station and aircraft are preflight, inspected, loaded, and equipped for mission."
+  },
+  {
+    "id": 205,
+    "code": "1A1X2A",
+    "description": "MOBILITY FORCE AVIATOR, C-5 Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, C-5 Flight Engineer"
+  },
+  {
+    "id": 206,
+    "code": "1A1X2B",
+    "description": "MOBILITY FORCE AVIATOR, C-5 Loadmaster",
+    "remarks": "MOBILITY FORCE AVIATOR, C-5 Loadmaster"
+  },
+  {
+    "id": 207,
+    "code": "1A1X2C",
+    "description": "MOBILITY FORCE AVIATOR, C-17 Loadmaster",
+    "remarks": "MOBILITY FORCE AVIATOR, C-17 Loadmaster"
+  },
+  {
+    "id": 208,
+    "code": "1A1X2D",
+    "description": "MOBILITY FORCE AVIATOR, C-130J Loadmaster",
+    "remarks": "MOBILITY FORCE AVIATOR, C-130J Loadmaster"
+  },
+  {
+    "id": 209,
+    "code": "1A1X2E",
+    "description": "MOBILITY FORCE AVIATOR, WC-130J Loadmaster",
+    "remarks": "MOBILITY FORCE AVIATOR, WC-130J Loadmaster"
+  },
+  {
+    "id": 210,
+    "code": "1A1X2F",
+    "description": "MOBILITY FORCE AVIATOR, E-3 Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, E-3 Flight Engineer"
+  },
+  {
+    "id": 211,
+    "code": "1A1X2G",
+    "description": "MOBILITY FORCE AVIATOR, KC-46 Boom Operator",
+    "remarks": "MOBILITY FORCE AVIATOR, KC-46 Boom Operator"
+  },
+  {
+    "id": 212,
+    "code": "1A1X2H",
+    "description": "MOBILITY FORCE AVIATOR, KC-135 Boom Operator",
+    "remarks": "MOBILITY FORCE AVIATOR, KC-135 Boom Operator"
+  },
+  {
+    "id": 213,
+    "code": "1A1X2I",
+    "description": "MOBILITY FORCE AVIATOR, KC-10 Boom Operator",
+    "remarks": "MOBILITY FORCE AVIATOR, KC-10 Boom Operator"
+  },
+  {
+    "id": 214,
+    "code": "1A1X2J",
+    "description": "MOBILITY FORCE AVIATOR, KC-10 Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, KC-10 Flight Engineer"
+  },
+  {
+    "id": 215,
+    "code": "1A1X2K",
+    "description": "MOBILITY FORCE AVIATOR, E-8 Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, E-8 Flight Engineer"
+  },
+  {
+    "id": 216,
+    "code": "1A1X2L",
+    "description": "MOBILITY FORCE AVIATOR, C-130H Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, C-130H Flight Engineer"
+  },
+  {
+    "id": 217,
+    "code": "1A1X2N",
+    "description": "MOBILITY FORCE AVIATOR, CEM Mobility Force Aviator",
+    "remarks": "MOBILITY FORCE AVIATOR, CEM Mobility Force Aviator"
+  },
+  {
+    "id": 218,
+    "code": "1A1X2O",
+    "description": "MOBILITY FORCE AVIATOR, EC-130H Flight Engineer",
+    "remarks": "MOBILITY FORCE AVIATOR, EC-130H Flight Engineer"
+  },
+  {
+    "id": 203,
+    "code": "1A1X3",
+    "description": "Special Mission Aviators",
+    "remarks": "Responsible for operating the radar, communications and electronic equipment, Airborne Mission Systems Specialists help manage the battle space during tactical and strategic missions. Coordinating all of the necessary data received on airborne command centers, these specialists provide critical information to pilots and ground units during missions and operations all over the world."
+  },
+  {
+    "id": 204,
+    "code": "1A1X8",
+    "description": "Executive Mission Aviators",
+    "remarks": "Performs aircrew functions aboard various Executive Airlift platforms. Performs aircraft visual inspections, in-flight duties, employs aircraft equipment and information systems in direct support of the National Command Authority and Senior Advisors. Computes aircraft take-off and landing data/weight and balance. Some missions require non-standard configurations and operations into geopolitical contentious environments and are responsible for handling and safety of mission customers."
+  },
+  {
+    "id": 9,
+    "code": "1A2X1",
+    "description": "Aircraft Loadmaster",
+    "remarks": "Accomplishes preflight and post-flight of aircraft and aircraft systems. Receives cargo/passenger load briefings, checks placement of cargo/passengers against aircraft limitations/restrictions, determines adequacy of cargo documentation. If required, load plans cargo/passenger loads. Supervises cargo/passenger loading and offloading activities. Determines cargo placement and restraint requirements and directs and checks the placement of restraint equipment. Computes aircraft weight and balance. Demonstrates use of life support equipment. Accomplishes passenger comfort activities during flight. Performs aircrew functions and other mission specific qualification duties to include the airdrop of personnel and equipment/cargo."
+  },
+  {
+    "id": 10,
+    "code": "1A3X1",
+    "description": "Airborne Mission Systems Operator",
+    "remarks": "Performs aircrew duties on numerous airborne platforms. Operates, maintains, repairs, and tests airborne communications, electro optical sensor, radar, computer, electronic protection (EP) systems, and electronic warfare (EW) systems. Gathers, records, displays, and distributes mission information. Interprets computer generated displays and alarms. Performs preflight, in-flight, and post flight duties. Supervises and instructs personnel in operation, maintenance, repair, and test procedures. Establishes, manages and supervises airborne mission system operation and directs aircrew training."
+  },
+  {
+    "id": 11,
+    "code": "1A6X1",
+    "description": "Flight Attendant",
+    "remarks": "Provides for safety of passengers. Plans, coordinates, and manages cabin duties. Performs aircrew functions. Manages flight attendant activities and related duties."
+  },
+  {
+    "id": 12,
+    "code": "1A7X1",
+    "description": "Aerial Gunner",
+    "remarks": "N/A"
+  },
+  {
+    "id": 13,
+    "code": "1A8X1",
+    "description": "Airborne Cryptologic Language Analyst",
+    "remarks": "Operates, evaluates, and manages airborne signals intelligence information systems and operations activities and related ground processing activities. Performs identification, acquisition, recording, translating, analyzing, and reporting of assigned voice communications. Provides signals intelligence threat warning support and interfaces with other units. Performs and assists in mission planning. Maintains publications and currency items. Maintains and supervises communication nets. Transcribes, processes, and conducts follow-up analysis of assigned communications."
+  },
+  {
+    "id": 14,
+    "code": "1A8X2",
+    "description": "Airborne Intelligence, Surveillance and Reconnaissance (ISR) Operator",
+    "remarks": "Flies as primary aircrew onboard a wide variety of aircraft to operate, evaluate and manage airborne ISR information and related ground processing systems. Performs identification, acquisition, recording, analysis and reporting of assigned ISR tasks. Provides ISR threat warning support and interfaces with other units. Performs and assists with mission planning. Maintains assigned publications and currency items. Participates in theater and tactical-level ISR coordination networks. Processes, analyzes and disseminates ISR information obtained from onboard sensors during missions in progress."
+  },
+  {
+    "id": 15,
+    "code": "1A9X1",
+    "description": "Special Missions Aviation",
+    "remarks": "Performs aircraft visual inspections and in-flight duties. Operates and monitors engine and aircraft systems controls, panels, indicators and devices. Supervises cargo/passenger loading and offloading activities. Determines cargo placement and restraint requirements and directs and checks the placement of restraint equipment. Computes aircraft weight and balance and performs functions including airdrop of personnel and equipment/cargo. Inspects, operates, and secures armament systems and subsystems. Assists in planning and execution of mission taskings through employment of Full Motion Video (FMV) systems and associated equipment. Operates operations mission equipment, systems, electro-optical sensor systems as well as airborne weapons systems by employing combat procedures and tactics. Performs special missions aviation functions under training and operational conditions. Manages, supervises, trains, provides expertise, and evaluates activities. Performs staff functions."
+  },
+  {
+    "id": 16,
+    "code": "1B4X1",
+    "description": "Cyber Warfare Operations",
+    "remarks": "Performs duties to develop, sustain, and enhance cyberspace capabilities to defend national interests from attack and to create effects in cyberspace to achieve national objectives. Conduct Offensive Cyberspace Operations (OCO) and Defensive Cyberspace Operations (DCO) using established tactics, techniques, and procedures to achieve Service, COCOM and national objectives. Executes command and control (C2) of assigned cyberspace forces and de-conflict cyberspace operations across the kinetic and non-kinetic spectrum. Supports cyberspace capability development, testing and implementation. Partners with DoD, interagency and Coalition Forces to detect, deny, disrupt, deceive, and mitigate adversarial access to sovereign national cyberspace systems."
+  },
+  {
+    "id": 17,
+    "code": "1C0X2",
+    "description": "Aviation Resource Management",
+    "remarks": "Performs and manages aviation and parachutist Host Aviation Resource Management (HARM) and Squadron Aviation Resource Management (SARM) functions related to scheduling, standardization and evaluation, flying and ground training, aviation flight records, parachutist jump records and squadron operations. Operates and maintains the Aviation Resource Management System (ARMS)."
+  },
+  {
+    "id": 18,
+    "code": "1C1X1",
+    "description": "Air Traffic Control",
+    "remarks": "Controls en route and terminal air traffic by use of visual, radar, and non-radar means. Supervises and manages air traffic control (ATC) facilities."
+  },
+  {
+    "id": 20,
+    "code": "1C3X1",
+    "description": "Command and Control Operations",
+    "remarks": "Manages and performs activities within fixed ground, mobile and airborne command and control (C2) facilities such as installation and expeditionary command posts (CP), operations centers, rescue coordination centers, and Combatant Command and Major Command (COCOM/MAJCOM) command centers. Provides command, control, communications, and information support throughout the full spectrum of operations to include peacetime, emergency and disaster situations, crisis, contingency and war. Receives and relays C2 instructions and records; collects, processes, and submits manual and automated data products. Disseminates time-sensitive critical information to senior leaders and support agencies. Establishes procedures for operational reports and defense readiness reporting systems. Reports international treaty compliance information. Uses communications systems and consoles to affect positive control of assigned forces and weapons systems. Supports chemical, biological, radiological, nuclear, and explosive (CBRNE), and conventional warning and reporting activities.  Ensures compliance with operations center and C2 Operations policies and procedures."
+  },
+  {
+    "id": 22,
+    "code": "1C5X1",
+    "description": "Command and Control Battle Management Operations",
+    "remarks": "Manages and operates Command and Control (C2) Battle Management Systems. Performs surveillance, combat identification, weapons control, tactical data link management, communications and computer system management. Counters electronic attack (EA) with electronic protection (EP) actions. Provides radar control and monitoring of air weapons during offensive and defensive air operations. Makes decisions in the conduct of battle management air operations and in system equipment management at the Tactical and Operational level of war."
+  },
+  {
+    "id": 23,
+    "code": "1C6X1",
+    "description": "Space Systems Operations",
+    "remarks": "Manages or performs duties in space control, space force enhancement, and space force support."
+  },
+  {
+    "id": 24,
+    "code": "1C7X1",
+    "description": "Airfield Management",
+    "remarks": "Manages airfield operations, coordinates with civil engineering, safety, air traffic control and various other base agencies to ensure safe aircraft operations within the airfield environment and through the national and international airspace systems."
+  },
+  {
+    "id": 25,
+    "code": "1C8X1",
+    "description": "Ground Radar Systems",
+    "remarks": "Installs, maintains, and repairs fixed or mobile air traffic control, weather, ground aircraft control and warning radar systems, related radar operator training devices, aircraft identification equipment, remoting systems, video mappers, computerized processors, and communications subsystems. Operates and relocates related support and communications equipment. Uses electronic test equipment."
+  },
+  {
+    "id": 26,
+    "code": "1C8X2",
+    "description": "Airfield Systems",
+    "remarks": "Installs, removes, relocates, modifies, deploys, and maintains fixed and mobile meteorological, navigation and air traffic control ground-to-air radio systems. Accomplishes flight inspection duties for navigational aids. Analyzes equipment performance trends. Supervises Airfield Systems maintenance activities."
+  },
+  {
+    "id": 27,
+    "code": "1C8X3",
+    "description": "Radar, Airfield & Weather Systems (RAWS)",
+    "remarks": "Deploys, installs, maintains, and repairs fixed or mobile air traffic control, weather, ground aircraft control and early warning radar systems, related radar operator training devices, aircraft identification equipment, remoting systems, video mappers, computerized processors, meteorological, navigation and air traffic control ground-to-air radio systems. Operates and relocates related support and communications equipment, uses test equipment, analyzes performance trends, and supervises maintenance activities. RAWS may be required to maintain entire facilities, subsystems, or individual services or equipment that assist in the safe and expedient movement of air traffic throughout the National Airspace System (NAS) as well as providing support to the National Weather Service (NWS)."
+  },
+  {
+    "id": 180,
+    "code": "1D7X1",
+    "description": "Cyber Defense Operations",
+    "remarks": "Cyber Defense Operations"
+  },
+  {
+    "id": 220,
+    "code": "1D7X1Q",
+    "description": "Enterprise Operations",
+    "remarks": ""
+  },
+  {
+    "id": 181,
+    "code": "1D7X2F",
+    "description": "Spectrum Operations, Cyber Spectrum Defense Operations",
+    "remarks": "Spectrum Operations, Cyber Spectrum Defense Operations"
+  },
+  {
+    "id": 182,
+    "code": "1D7X3C",
+    "description": "Cable and Antennae Defense Operations, Cable and Antennae Operations",
+    "remarks": "Cable and Antennae Defense Operations Operations"
+  },
+  {
+    "id": 183,
+    "code": "1H0X1",
+    "description": "Aerospace Physiology",
+    "remarks": "Aerospace Physiology"
+  },
+  {
+    "id": 28,
+    "code": "1N0X1",
+    "description": "All Source Intelligence Analyst",
+    "remarks": "Performs/manages intelligence activities/functions including discovering, developing, evaluating, and providing intelligence information."
+  },
+  {
+    "id": 29,
+    "code": "1N1X1",
+    "description": "Geospatial Intelligence",
+    "remarks": "Manages, supervises, and performs intelligence activities and functions including planning, collection, analysis, exploitation, development, and dissemination of multi-sensor geospatial and target intelligence products to support war fighting operations and other activities."
+  },
+  {
+    "id": 30,
+    "code": "1N2X1",
+    "description": "Signals Intelligence",
+    "remarks": "Acquires, processes, identifies, analyzes, and reports on electromagnetic emissions. Operates electronic equipment and computer systems to exploit signals intelligence production efforts."
+  },
+  {
+    "id": 31,
+    "code": "1N3X1",
+    "description": "Cryptologic Language Analyst",
+    "remarks": "Employs foreign language skills to collect, transcribe, translate, analyze, and report intelligence information."
+  },
+  {
+    "id": 32,
+    "code": "1N4X1",
+    "description": "Cyber Intelligence",
+    "remarks": "Performs and manages intelligence analysis activities/functions in all domains. Analyzes and exploits intelligence information, develops targets, and provides situational awareness for operations personnel and key leadership. Conducts research and develops assessments of adversarial actions and intentions. Drafts and disseminates long-term and time-sensitive intelligence reports to consumers worldwide."
+  },
+  {
+    "id": 197,
+    "code": "1N4X2",
+    "description": "Cryptologic Analyst & Reporter",
+    "remarks": ""
+  },
+  {
+    "id": 33,
+    "code": "1N7X1",
+    "description": "Human Intelligence Specialist",
+    "remarks": "Collects and reports intelligence information obtained from human sources in response to requirements. Screens documents and open source materials to identify potential source leads. Assesses, debriefs, and interrogates sources in English. Provides oversight of and supervises interviews, debriefings, and interrogations conducted in foreign languages. Performs controlled operations officer duties."
+  },
+  {
+    "id": 34,
+    "code": "1N8X1",
+    "description": "Targeting Analyst",
+    "remarks": "Manages, supervises, and performs targeting intelligence activities and functions including analyzing targets. In addition, develops targeting solutions and evaluates effects in support of planning and execution of an effects based approach to operations that achieves the commander’s objectives."
+  },
+  {
+    "id": 35,
+    "code": "1P0X1",
+    "description": "Aircrew Flight Equipment",
+    "remarks": "Manages, performs, and schedules inspections, maintenance, and adjustments of assigned aircrew flight equipment (AFE), aircrew chemical defense equipment (ACDE), and associated supplies, and inventories assets. Prepares, maintains, and monitors AFE operations. Disassembles, assembles, inspects, fabricates, cleans, repairs, and packs aerospace weapon system components such as protective clothing, flotation equipment, emergency evacuation systems, and parachutes. Schedules, supervises, and conducts aircrew chemical defense and aircrew continuation training. Prepares for response to use of chemical, biological, radiological, and nuclear weapons contamination and supervises and conducts contamination control area processing."
+  },
+  {
+    "id": 36,
+    "code": "1S0X1",
+    "description": "Safety",
+    "remarks": "Manages and conducts safety programs. Plans, organizes, directs, and controls safety activities. Analyzes mishap causes and trends, and assesses risk. Evaluates, inspects, and surveys areas and activities to eliminate mishap potentials. Conducts mishap investigations. Provides risk management consultation. Conducts safety education."
+  },
+  {
+    "id": 37,
+    "code": "1T0X1",
+    "description": "Survival, Evasion, Resistance, and Escape (SERE)",
+    "remarks": "Develops, plans, manages and conducts Air Force Survival, Evasion, Resistance, and Escape (SERE) programs. Develops, conducts, manages, and evaluates Initial SERE training and SERE Refresher Training. Provides direct support to Combatant Commanders in Personnel Recovery (PR) programs through preparation, planning, execution, and adaptation. Operates in the eight geographic disciplines of Temperate, Arctic, Desert, Tropic, Coastal, Open Sea, Urban and Captivity, day or night, to include friendly, denied, hostile, or sensitive areas. Conducts foreign internal defense (FID) and Building Partnership Capacity (BPC). Conducts developmental and operational testing on and instructs the use of SERE related equipment. Performs and instructs basic, advanced, and emergency military parachuting. Coordinates SERE activities and conducts observer, controller/trainer (OC/T) duties to promote safety and tactics improvement during PR exercises."
+  },
+  {
+    "id": 39,
+    "code": "1U0X1",
+    "description": "Remotely Piloted Aircraft (RPA) Sensor Operator",
+    "remarks": "Performs duties as a mission crew member on Remotely Piloted Aircraft (RPA). RPA Sensor Operators employs airborne sensors in manual or computer-assisted modes to actively and/or passively acquire, track, and monitor airborne, maritime and ground objects. Operates mission equipment, systems, and electronic protection (EP) equipment. Personnel conduct operations and procedures IAW Special Instructions (SPINS), Air Tasking Orders (ATO) and Rules of Engagement (ROE). Sensor Operators continually monitor aircraft and weapons systems status to ensure lethal and non-lethal application of airpower."
+  },
+  {
+    "id": 40,
+    "code": "1U1X1",
+    "description": "Remotely Piloted Aircraft (RPA) Pilot",
+    "remarks": "Operates specialized mission aircraft and commands flight crews to accomplish reconnaissance, surveillance, and other missions. Operates mission equipment, systems, and electronic protection (EP) equipment. Pilots conduct operations and procedures IAW Special Instructions (SPINS), Air Tasking Orders (ATO) and Rules of Engagement (ROE). Pilots continually monitor aircraft and weapons systems status to ensure lethal and non-lethal application of airpower."
+  },
+  {
+    "id": 41,
+    "code": "1W0X1",
+    "description": "Weather",
+    "remarks": "Performs and manages the collection, analysis, and forecast of atmospheric weather and space environmental conditions to enable decision superiority and application of land, air, space and cyberspace power across the full spectrum of military operations."
+  },
+  {
+    "id": 42,
+    "code": "1W0X2",
+    "description": "Special Operations Weather",
+    "remarks": "Performs, plans, leads, supervises, instructs, and evaluates Special Operations Weather Teams. May be employed alone or as part of an Air Force, joint, interagency or coalition force, to support Combatant Commander's objectives and may operate under austere conditions for extended periods. Capable of operating in the six geographic disciplines: mountain, desert, arctic, urban, jungle and water, day or night, to include friendly, denied, hostile, or sensitive areas. Provides tactical-level intelligence, surveillance and reconnaissance to enable decision superiority and application of airpower across the full spectrum of military operations. Performs and manages the collection, analysis, and forecast of meteorological, oceanographic and space environmental conditions. Tailors forecast information for integration into military decision-making and intelligence preparation of the battlespace activities."
+  },
+  {
+    "id": 38,
+    "code": "1Z1X1",
+    "description": "Pararescue",
+    "remarks": "Performs, plans, leads, supervises, instructs, and evaluates pararescue activities. Performs as the essential surface, air link in Personnel Recovery (PR) and materiel recovery by functioning as the rescue and recovery specialist on flying status as mission crew or as surface elements. Provides rapid response capability and operates in the six geographic disciplines: mountain, desert, arctic, urban, jungle and water, day or night, to include friendly, denied, hostile, or sensitive areas. Provides assistance in and performs survival, evasion, resistance, and escape (SERE). Provides emergency trauma and field medical care, and security. Moves recovered personnel and materiel to safety or friendly control when recovery by aircraft is not possible."
+  },
+  {
+    "id": 19,
+    "code": "1Z2X1",
+    "description": "Combat Control",
+    "remarks": "Provides command, control, communications, intelligence, surveillance and reconnaissance (C3ISR) to assist, control and enable the application of manned and unmanned, lethal and non-lethal airpower in all geographic and environmental conditions across the full spectrum of military operations. Includes terminal control (air traffic control [ATC]) and targeting, and control of air strikes (including close air support [CAS]) and use of visual and electronic aids to control airheads and enable precision navigation. Provides long-range voice and data command and control and communications. Performs tactical level surveillance and reconnaissance functions, fusing organic and remote controlled technologies and manned platforms to build the common operating picture (COP)."
+  },
+  {
+    "id": 21,
+    "code": "1Z3X1",
+    "description": "Tactical Air Control Party (TACP)",
+    "remarks": "Finds, fixes, tracks, targets, and engages enemy forces in close proximity to friendly forces and assesses strike results. Plans, coordinates and directs manned and unmanned, lethal and non-leathal air power utilizing advanced command, control communications (C3) technologies and weapon systems in direct ground combat. Controls and executes air, space and cyber power across the full spectrum of military operations.  Provides airspace deconfliction, artillery, naval gunfire, intelligence, surveillance, and reconnaissance (ISR) and terminal control of close air support to shape the battlefield. Operates in austere combat environments independent of an established airbase or its perimeter defenses. Employed as part of a joint, interagency or coalition force, aligned with conventional or special operations combat maneuver units to support Combatant Commander objectives. Primarily assigned to U.S. Army Installations. Member of Battlefield Airman grouping."
+  },
+  {
+    "id": 179,
+    "code": "1Z4X1",
+    "description": "Special Reconnaissance",
+    "remarks": "Special Reconnaissance"
+  },
+  {
+    "id": 43,
+    "code": "2A0X1",
+    "description": "Avionics Test Station And Components",
+    "remarks": "Performs and manages avionics test station functions and activities. Operates, inspects, maintains, programs, and calibrates computer and manually operated avionics test equipment, support equipment (SE), and aircraft avionics systems components."
+  },
+  {
+    "id": 219,
+    "code": "2A353E",
+    "description": "A-10/U-2 Tactical Aircraft Maintenance",
+    "remarks": ""
+  },
+  {
+    "id": 47,
+    "code": "2A3X3",
+    "description": "Tactical Aircraft Maintenance",
+    "remarks": "Maintains tactical aircraft, support equipment, and forms and records. Performs and supervises flight chief, expediter, crew chief, repair and reclamation, quality assurance, and maintenance support functions."
+  },
+  {
+    "id": 48,
+    "code": "2A3X4",
+    "description": "Fighter Aircraft Integrated Avionics",
+    "remarks": " Isolates malfunctions and repairs and inspects A-10/U-2, F-15, and F-16/CV-22 integrated avionics systems at organizational levels. Troubleshoots, inspects, removes, installs, repairs, modifies, and operates aircraft avionic systems, components, and associated support equipment. Performs and supervises general aircraft servicing and handling procedures. "
+  },
+  {
+    "id": 49,
+    "code": "2A3X5",
+    "description": "Advanced Fighter Aircraft Integrated Avionics",
+    "remarks": "Maintains F-22, F-35, and MQ-1/MQ-9/RQ-4 avionics and electrical & environmental (A&E) systems at the organizational level. Troubleshoots, inspects, removes, installs, repairs, modifies, and operates aircraft A&E systems, components, and associated support equipment. Performs and supervises general aircraft servicing and handling procedures."
+  },
+  {
+    "id": 50,
+    "code": "2A3X7",
+    "description": "Tactical Aircraft Maintenance (5th Generation)",
+    "remarks": "Maintains aircraft, support equipment, forms and records. Performs and supervises flight chief, expediter, crew chief, repair and reclamation, quality assurance, and maintenance support functions."
+  },
+  {
+    "id": 51,
+    "code": "2A3X8",
+    "description": "Remotely Piloted Aircraft Maintenance",
+    "remarks": "Maintains aircraft, support equipment, forms and records. Performs and supervises flight chief, expediter, crew chief, repair and reclamation, quality assurance, and maintenance support functions."
+  },
+  {
+    "id": 52,
+    "code": "2A5X1",
+    "description": "Airlift/Special Mission Aircraft Maintenance",
+    "remarks": "Maintains aircraft, support equipment, forms and records. Performs and supervises flight chief, expediter, crew chief, repair and reclamation, quality assurance and maintenance support functions."
+  },
+  {
+    "id": 53,
+    "code": "2A5X2",
+    "description": "Helicopter/Tiltrotor Aircraft Maintenance",
+    "remarks": "Maintains helicopter/tiltrotor aircraft, support equipment, forms and records. Performs and supervises flight chief, expediter, crew chief, quality assurance and maintenance support functions."
+  },
+  {
+    "id": 54,
+    "code": "2A5X3",
+    "description": "Mobility Air Forces Electronic Warfare System",
+    "remarks": "Analyzes malfunctions, inspects, removes, maintains, and installs integrated avionics systems. Performs and supervises avionics maintenance and general aircraft servicing and handling."
+  },
+  {
+    "id": 55,
+    "code": "2A5X4",
+    "description": "Refuel/Bomber Aircraft Maintenance",
+    "remarks": "Maintains aircraft, support equipment, and forms and records. Performs and supervises flight chief, expediter, crew chief, repair and reclamation, quality assurance, and maintenance support functions."
+  },
+  {
+    "id": 56,
+    "code": "2A6X1",
+    "description": "Aerospace Propulsion",
+    "remarks": "Inspects, maintains, modifies, tests, and repairs propellers, turboprop and turboshaft engines, jet engines, small gas turbine engines, and engine ground support equipment (SE). Manages aerospace propulsion functions and activities."
+  },
+  {
+    "id": 57,
+    "code": "2A6X2",
+    "description": "Aerospace Ground Equipment",
+    "remarks": "Maintains aerospace ground equipment (AGE) to support aircraft systems or subsystems. Manages AGE functions and activities."
+  },
+  {
+    "id": 58,
+    "code": "2A6X3",
+    "description": "Aircrew Egress Systems",
+    "remarks": "Maintains aircraft egress systems with ejection seats, canopies, and hatches; explosive components; electro-explosive devices (EED); subsystems; and related support equipment (SE)."
+  },
+  {
+    "id": 59,
+    "code": "2A6X4",
+    "description": "Aircraft Fuel Systems",
+    "remarks": "Removes, repairs, inspects, installs, and modifies aircraft fuel systems including integral fuel tanks, bladder cells, and external tanks. Maintains associated hardware and equipment."
+  },
+  {
+    "id": 60,
+    "code": "2A6X5",
+    "description": "Aircraft Hydraulic Systems",
+    "remarks": "Troubleshoots, removes, repairs, overhauls, inspects, adjusts, installs, and tests aircraft hydraulic and IFR systems and components, including support equipment (SE)."
+  },
+  {
+    "id": 61,
+    "code": "2A6X6",
+    "description": "Aircraft Electrical And Environmental Systems",
+    "remarks": "Performs and supervises aircraft electrical and environmental (E &  E) functions and activities. Troubleshoots, inspects, removes, installs, repairs, modifies, overhauls, and operates integrated E & E systems, components, and associated support equipment."
+  },
+  {
+    "id": 62,
+    "code": "2A7X1",
+    "description": "Aircraft Metals Technology",
+    "remarks": "Designs, welds, heat treats, fabricates, and machines precision tools, components, and assemblies for aerospace weapon systems and related support equipment (SE)."
+  },
+  {
+    "id": 63,
+    "code": "2A7X2",
+    "description": "Nondestructive Inspection",
+    "remarks": "Inspects aerospace weapon systems components and support equipment for structural integrity using nondestructive inspection methods and performs fluid analysis."
+  },
+  {
+    "id": 64,
+    "code": "2A7X3",
+    "description": "Aircraft Structural Maintenance",
+    "remarks": "Designs, repairs, modifies and fabricates aircraft, metal, plastic, composite, advanced composite, low observables, and bonded structural parts and components. Applies preservative treatments to aircraft, missiles, and support equipment (SE). Related DoD Occupational Subgroup: 603."
+  },
+  {
+    "id": 65,
+    "code": "2A7X5",
+    "description": "Low Observable Aircraft Structural Maintenance",
+    "remarks": "Evaluates, installs, removes and repairs low observable coatings. Designs, repairs, modifies and fabricates aircraft, metal, plastic, composite, advanced composite, LO, and bonded structural parts and components. Applies preservative treatments to aircraft, aerospace ground equipment (AGE), and support equipment (SE)."
+  },
+  {
+    "id": 201,
+    "code": "2A9X4",
+    "description": "Heavy Aircraft Integrated Avionics",
+    "remarks": "N/A"
+  },
+  {
+    "id": 71,
+    "code": "2F0X1",
+    "description": "Fuels",
+    "remarks": "Maintains and operates fuels and cryogenic facilities and equipment.  Inventories, receives, stores, transfers, and issues petroleum, cryogenics, and alternative fuel products. Performs quality analysis on petroleum and cryogenics products. Performs preventive and operator maintenance on fuel dispensing vehicles and handling equipment, fuel dispensing systems, and conducts operator inspection and maintenance on facilities. Prepares receipt, inventory, and issue documents to support fuel and cryogenic product accountability. Operates specialized fuels vehicles and support equipment"
+  },
+  {
+    "id": 72,
+    "code": "2G0X1",
+    "description": "Logistics Plans",
+    "remarks": "Develops, evaluates, monitors, and supervises logistics plans and programs including war readiness materiel (WRM), deployments, employment, and support planning and agreements."
+  },
+  {
+    "id": 73,
+    "code": "2M0X1",
+    "description": "Missile And Space Systems Electronic Maintenance",
+    "remarks": "Maintains, operates, and supervises maintenance on ground and air missiles, spacelift boosters, payloads, guidance and control systems, and subsystems. Monitors, analyzes, and compiles system performance data. Performs and supervises maintenance on automated and manual electronic test, launch control, checkout, and support equipment (SE). Designs and supervises assembly, calibration, operation, troubleshooting, and testing of research and development (R&D) systems and SE."
+  },
+  {
+    "id": 74,
+    "code": "2M0X2",
+    "description": "Missile And Space Systems Maintenance",
+    "remarks": "Services and maintains, or supervises these actions, on missiles, spacelift boosters, payloads, research and development (R&D) systems, environmental blast doors and valves, associated subsystems, components, and support equipment (SE). Operates and maintains related equipment. Designs R&D systems. Performs acquisition and activation activities."
+  },
+  {
+    "id": 75,
+    "code": "2M0X3",
+    "description": "Missile And Space Facilities",
+    "remarks": "Maintains, operates, services, and repairs power generation and distribution systems, and environmental control and associated support systems and equipment for missile, spacelift, and research and development (R&D) facilities."
+  },
+  {
+    "id": 76,
+    "code": "2P0X1",
+    "description": "Precision Measurement Equipment Laboratory",
+    "remarks": "Performs and manages repair, calibration, and modification of test, measurement, and diagnostic equipment (TMDE), including precision measurement equipment laboratory (PMEL) standards and automatic test equipment. Supervises the process or use of TMDE to perform voltage, current, power, impedance, frequency, microwave, temperature, physical-dimensional, and radiac measurements."
+  },
+  {
+    "id": 77,
+    "code": "2R0X1",
+    "description": "Maintenance Management Analysis",
+    "remarks": "Analyze, monitor, collect, assemble, and audit data for reports and briefings. Initiates special studies and investigations, and performs statistical and trend analysis. Reports findings to managers with recommendations. Informs managers of significant factors affecting the mission and unit readiness. Manages and operates maintenance management information systems (MIS), and performs functional system administrator (FSA) duties."
+  },
+  {
+    "id": 78,
+    "code": "2R1X1",
+    "description": "Maintenance Management Production",
+    "remarks": "Plans, schedules, and organizes use and maintenance of aerospace vehicles (to include A-type equipment), engines, munitions, missiles, space systems, aerospace ground equipment (AGE), and associated support systems. Documents and maintains aerospace vehicles, engines, missiles, munitions, AGE, and associated support systems records. Maintains generation flow plans for units required to meet emergency war order and wartime taskings. Determines maintenance capabilities to aid in developing maintenance and operational schedules."
+  },
+  {
+    "id": 79,
+    "code": "2S0X1",
+    "description": "Materiel Management",
+    "remarks": "Directs materiel management activities involved in developing, operating, implementing and analyzing manual and automated integrated logistics systems. Manages item and monetary accounting, inventory control, financial planning and warehousing functions. Monitors and operates the Integrated Logistics Systems-Supply (ILS-S)and associated logistics systems interfaces. When assigned to combat support or enabler organizations, provides materiel management expertise as related to ILS-S processes, accountable officer, responsible officer, and responsible person obligations."
+  },
+  {
+    "id": 80,
+    "code": "2T0X1",
+    "description": "Traffic Management",
+    "remarks": "Performs and manages traffic management activities. Uses military and commercial transportation to move personnel, eligible dependents, material, and property. Packages, classifies, and arranges personal property and cargo for shipment or storage."
+  },
+  {
+    "id": 81,
+    "code": "2T1X1",
+    "description": "Vehicle Operations",
+    "remarks": "Advances the Air Force mission by providing centralized, efficient, and economical organic ground transportation capabilities for movement of personnel and cargo. Plans, organizes and directs ground transportation support to operational missions. Operates and manages light and heavy-duty vehicles such as buses, truck and semi-trailer combinations, forklifts, and wrecker/recovery vehicles. Administers the Department of Defense Official Use program, provides examination and licensing of installation motor vehicle operators, manages the installation’s pooled vehicle fleet, provides the efficient planning and use of equipment and resources, and performs preventative maintenance of the pooled vehicle fleet."
+  },
+  {
+    "id": 82,
+    "code": "2T2X1",
+    "description": "Air Transportation",
+    "remarks": "Performs and manages air transportation activities. Plans, schedules and processes eligible passengers and cargo for air movement. Loads and unloads passengers, cargo, and baggage moved on military and commercial-contract aircraft. Prepares and maintains air movement records and reports. Performs aircraft cleaning services and delivers meals and comfort item supplies to aircraft. Operates forklifts and aircraft loading equipment. Uses computer systems to provide in-transit visibility over passenger and cargo movement operations."
+  },
+  {
+    "id": 83,
+    "code": "2T3X1",
+    "description": "Vehicle And Vehicular Equipment Maintenance",
+    "remarks": "Supervises and performs vehicle maintenance activities on military and commercial design general and special purpose, base maintenance, aircraft and equipment towing vehicles, fire fighting vehicles or Material Handling Equipment (MHE) and vehicular equipment. Activities include inspection, diagnostics, repair, rebuild of components and assemblies, fabrication of parts, weld metals and repair vehicle glass. Ensures compliance with vehicle maintenance policies, directives, and procedures."
+  },
+  {
+    "id": 84,
+    "code": "2T3X2",
+    "description": "Special Vehicle Maintenance",
+    "remarks": "Performs vehicle maintenance activities on military and commercial design fire fighting vehicles and equipment. Activities include inspection, diagnostics, repair, and rebuild of components and assemblies."
+  },
+  {
+    "id": 85,
+    "code": "2T3X7",
+    "description": "Vehicle Management and Analysis",
+    "remarks": "Supervises and performs the scheduling and analysis of maintenance performed on vehicles and equipment. Oversees fleet management and accounts for vehicle fleet. Uses a computer to manage the vehicle data collection system and develops local retrievals to obtain specific data. Performs materiel control functions. Files historical data and maintains vehicle records."
+  },
+  {
+    "id": 86,
+    "code": "2W0X1",
+    "description": "Munitions Systems",
+    "remarks": "Responsible for safety, security, and accountability of all nonnuclear munitions and related components. Performs and manages munitions production and materiel tasks and activities. Identifies munitions and equipment requirements. Operates and maintains automated data processing equipment (ADPE) to perform inspection, testing, and stockpile management activities. Stores, maintains, assembles, issues, and delivers assembled nonnuclear munitions. Routinely demilitarizes nonhazardous munitions. Operates and maintains munitions materiel handling equipment (MMHE). Develops and implements munitions materiel management concepts and procedures. Complies with explosive, missile, and ground safety, security, and environmental directives and practices. Identifies munitions by filler, color code, marking, or physical characteristics. Receives, stores, handles, and transports nuclear weapons."
+  },
+  {
+    "id": 87,
+    "code": "2W1X1",
+    "description": "Aircraft Armament Systems",
+    "remarks": "Loads and unloads nuclear and nonnuclear munitions, explosives, and propellant devices on aircraft. Manages, controls, maintains, and installs aircraft bomb, rocket, and missile release, launch, suspension, and monitor systems; guns and gun mounts; and related munitions handing, loading, and test equipment."
+  },
+  {
+    "id": 88,
+    "code": "2W2X1",
+    "description": "Nuclear Weapons",
+    "remarks": "Performs and manages maintenance, inspection, storage, handling, modification, accountability and repair of nuclear weapons, weapon components, associated equipment, and general or specialized test and handling equipment."
+  },
+  {
+    "id": 89,
+    "code": "3A1X1",
+    "description": "Administration",
+    "remarks": "Provides administrative support to Air Force, Department of Defense (DoD), and joint organizations. Coordinates, performs, and manages a variety of tasks and activities in direct support of organizational commanders, directors, and senior leaders to include office management, human resources, executive staff support, postal, official mail, and a variety of other services and duties."
+  },
+  {
+    "id": 97,
+    "code": "3D1X4",
+    "description": "Spectrum Operations",
+    "remarks": "The Spectrum Operations technician analyzes requirements and requests frequencies to support terrestrial, aircraft, and space systems and coordinate radio, radar, land, and other electromagnetic radiating or receiving requirements. They possess a solid understanding of wireless communications systems technologies and Electronic Warfare (EW) tactics, techniques, and procedures, and serves as counsel to commanders and combatant commanders on all spectrum issues. They also provide guidance to program offices, developers, and potential users of spectrum dependent equipment planned for purchase or modification before being introduced into the Air Force inventory."
+  },
+  {
+    "id": 98,
+    "code": "3D1X6",
+    "description": "Airfield Systems",
+    "remarks": "Installs, removes, relocates, modifies, deploys, and maintains fixed and mobile meteorological, navigation and air traffic control ground-to-air radio systems. Accomplishes flight inspection duties for navigational aids. Analyzes equipment performance trends. Supervises Airfield Systems maintenance activities."
+  },
+  {
+    "id": 100,
+    "code": "3E0X1",
+    "description": "Electrical Systems",
+    "remarks": "Installs, inspects, maintains, troubleshoots, repairs, and modifies electrical distribution systems and components above and below 600 volts; airfield lighting systems; and fire alarms, and complies with environmental and safety regulations and practices."
+  },
+  {
+    "id": 101,
+    "code": "3E0X2",
+    "description": "Electrical Power Production",
+    "remarks": "Installs, removes, operates, maintains, and repairs electrical power generating and control systems, aircraft arresting systems, and associated equipment."
+  },
+  {
+    "id": 102,
+    "code": "3E1X1",
+    "description": "Heating, Ventilation, Air Conditioning, and Refrigeration",
+    "remarks": "Installs, operates, maintains, and repairs heating, ventilation, air conditioning and refrigeration (HVAC/R) systems, combustion equipment, and industrial air compressors. Manages HVAC/R functions and activities."
+  },
+  {
+    "id": 103,
+    "code": "3E2X1",
+    "description": "Pavements and Construction Equipment",
+    "remarks": "Constructs and maintains concrete and asphalt runways, aircraft parking aprons, and roads. Operates and maintains heavy construction equipment, such as, loaders, graders, dozers, backhoes, and dump trucks. Operates tractor-trailer combinations, transporting construction equipment, and materials. Ensures compliance with all safety and environmental regulations."
+  },
+  {
+    "id": 104,
+    "code": "3E3X1",
+    "description": "Structural",
+    "remarks": "Manages, constructs, repairs, and modifies structural systems and wooden, masonry, metal, and concrete buildings. Fabricates and repairs components of buildings, utility systems, and real property equipment. Ensures compliance with environmental regulations."
+  },
+  {
+    "id": 105,
+    "code": "3E4X1",
+    "description": "Water and Fuel Systems Maintenance",
+    "remarks": "Installs, inspects, maintains, troubleshoots, modifies, repairs, and manages plumbing, water distribution, wastewater collection systems, water and wastewater treatment systems, fire suppression, backflow prevention systems, natural gas distribution systems, liquid fuel storage, distribution, and dispensing systems. Complies with environmental and safety regulations."
+  },
+  {
+    "id": 106,
+    "code": "3E4X3",
+    "description": "Pest Management",
+    "remarks": "Manages, evaluates, and executes pest management techniques and associated pest management environmental compliance."
+  },
+  {
+    "id": 107,
+    "code": "3E5X1",
+    "description": "Engineering",
+    "remarks": "Directs and performs civil engineering design, drafting, surveying, and contract surveillance to support Air Force facility construction and maintenance programs. Prepares Computer Aided Design (CAD) drawings, Building Information Modeling (BIM) solutions, construction contract specifications, and cost estimates. Operates, and maintains Geographic Information Systems (GIS). Utilizes surveying technology to include Global Positioning System (GPS). Evaluates potential construction sites and performs field tests on soils, asphalt, and concrete."
+  },
+  {
+    "id": 108,
+    "code": "3E6X1",
+    "description": "Operations Management",
+    "remarks": "Responsible for activating and managing Civil Engineer (CE) command and control centers during peacetime, wartime, and contingency operations. Processes and controls work requirements and manages CE Material Acquisitions in contingency, wartime, and peacetime situations for work performed by CE work forces. Maintains accountability of resources, such as equipment, personnel, Class IV materials and facilities."
+  },
+  {
+    "id": 109,
+    "code": "3E7X1",
+    "description": "Fire Protection",
+    "remarks": "Protects people, property, and the environment from fires and disasters. Provides fire prevention, fire fighting, rescue, and hazardous material responses."
+  },
+  {
+    "id": 110,
+    "code": "3E8X1",
+    "description": "Explosive Ordnance Disposal",
+    "remarks": "Performs explosive ordnance disposal (EOD) operations to protect personnel, resources, and the environment from the effects of hazardous explosive ordnance (EO), improvised explosive devices (IED) and weapons of mass destruction (WMD) which may include; incendiary, chemical, biological, radiological, and nuclear (CBRN) hazards. Employs specialized tools, techniques and personal protective equipment to detect/identify EOD objectives and to accomplish diagnostics, monitoring, evaluation, interrogation, mitigation, render safe, recovery, and disposal operations on ordnance/devices delivered, placed, or made dangerous by accident/incident or other circumstance. Utilizes and maintains advanced equipment, such as, robotics, x-ray, landmine and CBRN detection equipment. Transports demolition explosives and equipment to authorized disposal areas, fabricates explosive demolition charges, and disposes of hazardous devices, ordnance and explosives. EOD may be employed alone or as part of an AF, Joint, Interagency, or Coalition force, to support Combatant Commander and/or Air Force objectives. Provides rapid response capability and operates in five geographic disciplines: mountain, desert, arctic, urban and jungle, day or night, to include austere combat environments independent of an established airbase or its perimeter defenses in mounted, dismounted and limited airborne/aerial insertion operations. EOD at the five, seven, and nine level plan, organize, and direct EOD operations."
+  },
+  {
+    "id": 111,
+    "code": "3E9X1",
+    "description": "Emergency Management",
+    "remarks": "Administers MAJCOM and Installation Emergency Management Programs. Prepares, plans, trains, educates, and equips personnel and installation leaders on ways to prepare for, prevent, respond to, maintain mission capability and recover from threat events including major accidents, natural disasters, weapons of mass destruction and wartime chemical, biological, radiological, nuclear and high-yield explosive (CBRNE) attacks. Performs detection, monitoring, sampling, warning and reporting of chemical, biological, radiological, nuclear (CBRN) events. Provides expert advice for commanders to make risk-based decisions during all phases of emergency response operations. Related DoD Occupational Subgroup: 149400."
+  },
+  {
+    "id": 112,
+    "code": "3F0X1",
+    "description": "Personnel",
+    "remarks": "Manages, supervises, and leads military personnel and human resource programs.  Analyzes Air Force policy and provides recommendations to commanders, supervisors, and Airmen on benefits, entitlements, career progression, retention, and relocation programs.   Updates and maintains personnel data systems, analyzes data mismatches, and provides Air Force leadership with accurate data points to make force management decisions."
+  },
+  {
+    "id": 113,
+    "code": "3F1X1",
+    "description": "Services",
+    "remarks": "Manages and directs Force Support programs, operations, and retail operations.  Supervises and works in appropriated fund (APF) food service activities; lodging activities; recreation, fitness and sports programs; laundry operations; mortuary affairs programs; honor guard teams; protocol operations, missile alert facilities, and Force Support readiness programs.  Operates and supervises automated information management systems."
+  },
+  {
+    "id": 114,
+    "code": "3F2X1",
+    "description": "Education and Training",
+    "remarks": "Conducts education and training tasks for maintenance, operations, and support training; education services; curriculum development; and instructor activities. Develops, delivers, and evaluates Education and Training programs and oversees Education and Training activities."
+  },
+  {
+    "id": 115,
+    "code": "3F3X1",
+    "description": "Manpower",
+    "remarks": "Performs the following manpower core competencies: Organization Structure, Requirements Determination, Program Allocation and Control, and Performance Management. Manages manpower and organization (MO) functions including: Air Force organization structure, organizational and manpower standards and determinants, manpower resources, military grades, manpower data systems, peacetime and wartime manpower requirements and utilization, and commercial services to include strategic sourcing. Manages process reengineering, Continuous Process Improvement (CPI) initiatives, and management consulting services. Supports operational planning and execution."
+  },
+  {
+    "id": 116,
+    "code": "3F4X1",
+    "description": "Equal Opportunity",
+    "remarks": "Performs, supervises, and manages equal opportunity (EO) and human relations education (HRE) programs. Conducts administrative functions to support EO programs."
+  },
+  {
+    "id": 117,
+    "code": "3F5X1",
+    "description": "Administration",
+    "remarks": "Provides administrative support to Air Force, Department of Defense (DoD), and joint organizations. Coordinates, performs, and manages a variety of tasks and activities in direct support of organizational commanders, directors, and senior leaders to include office management, human resources, executive staff support, postal, official mail, and a variety of other services and duties."
+  },
+  {
+    "id": 118,
+    "code": "3H0X1",
+    "description": "Historian",
+    "remarks": "Performs and manages historical activities, programs, and functions. Provides historical research and reference services. Performs research, interviews personnel, and prepares analytical historical publications. Assembles and maintains historical document repositories for reference and research."
+  },
+  {
+    "id": 119,
+    "code": "3M0X1",
+    "description": "Services",
+    "remarks": "Manages and directs Force Support programs, operations, and retail operations. Supervises and works in appropriated fund (APF) food service activities; lodging activities; recreation, fitness, and sports programs; linen exchange operations; mortuary affairs programs; honor guard teams; and services readiness programs. Operates and supervises automated information management systems."
+  },
+  {
+    "id": 120,
+    "code": "3N0X1",
+    "description": "Public Affairs",
+    "remarks": "N/A"
+  },
+  {
+    "id": 121,
+    "code": "3N0X2",
+    "description": "Broadcast Journalist",
+    "remarks": "Plans, organizes, coordinates, and conducts command information, civic engagement, and media operations communications activities. Provides operational war fighting documentation; supports strategic communication by preparing informational material for use by internal and external audiences, and conducts broadcast and production operations. Supports base-level, technical, contingency, reconnaissance, special mission production and Air Force educational, training, operational and combat requirements. Transmits video via satellite, computer networks, telephone, or secure transmission systems."
+  },
+  {
+    "id": 122,
+    "code": "3N0X5",
+    "description": "Photojournalist",
+    "remarks": "Plans, organizes, coordinates, and conducts command information, civic outreach, and media relations communications activities. Engages in web-based, print and broadcast journalism, to include writing, editing and managing content for base websites and other social media platforms, periodicals, guides, pamphlets, fact sheets, and radio and television scripts. Prepares and releases news for internal audiences and civilian media, arranges and conducts tours, and conducts other civic outreach activities. Researches and writes speeches. Accomplishes, digitally processes, or supervises still photography. Supports base-level, technical, contingency, reconnaissance, special mission production, or combat requirements. Captures, stores, enhances, crops, captions, prints, or transmits images via satellite, computer networks, telephone, or secure transmission systems."
+  },
+  {
+    "id": 196,
+    "code": "3N0X6",
+    "description": "Public Affairs",
+    "remarks": "N/A"
+  },
+  {
+    "id": 123,
+    "code": "3N1X1",
+    "description": "Regional Band",
+    "remarks": "Manages, supervises, and performs as an instrumentalist, music arranger, vocalist, military band support technician, or audio and lighting engineer in military band activities."
+  },
+  {
+    "id": 124,
+    "code": "3N2X1",
+    "description": "Premier Band - The USAF Band",
+    "remarks": "Manages, supervises, and performs as an instrumentalist, music arranger or copyist, vocalist, or audio and lighting engineer in the USAF Band or the USAF Band of the Rockies."
+  },
+  {
+    "id": 125,
+    "code": "3P0X1",
+    "description": "Security Forces",
+    "remarks": "Leads, manages, supervises, and performs security force (SF) activities, including installation, weapon system, and resource security; antiterrorism; law enforcement and investigations; military working dog function; air base defense; armament and equipment; training; pass and registration; information security; and combat arms."
+  },
+  {
+    "id": 126,
+    "code": "3S0X1",
+    "description": "Personnel",
+    "remarks": " Supervises and performs personnel activities and functions, including personnel action requests; source documents; unit, field, and master personnel records; and Commander's Support Staff (CSS) tasks. Interviews and classifies enlisted and officers. Advises on career progression. Updates military personnel data system (PDS) records. Manages Air Force retention programs, assists military personnel in making career decisions, and advises on benefit programs. Ensures compliance with personnel policies, directives, and procedures. "
+  },
+  {
+    "id": 127,
+    "code": "3S1X1",
+    "description": "Equal Opportunity",
+    "remarks": "Performs, supervises, and manages equal opportunity (EO) and human relations education (HRE) programs. Conducts administrative functions to support EO programs."
+  },
+  {
+    "id": 128,
+    "code": "3S2X1",
+    "description": "Education and Training",
+    "remarks": "Conducts education and training (E&T) tasks for maintenance, operations, and support training; education services; curriculum development; and instructor activities. Develops, delivers, and evaluates E&T programs and oversees E&T activities."
+  },
+  {
+    "id": 129,
+    "code": "3S3X3",
+    "description": "Manpower",
+    "remarks": "Performs core competencies in organization structure, manpower requirements determination, program allocation and control, and performance management. Manages manpower and organization (MO) functions including Air Force organization structure; organizational and manpower standards; manpower resources, military grades, manpower data systems, and peacetime and wartime manpower requirements and utilization; A-76 commercial activities and competitive sourcing and privatization studies. Manages process reengineering, continuous improvement initiatives, and management consulting services. Supports operational planning and execution."
+  },
+  {
+    "id": 130,
+    "code": "4A0X1",
+    "description": "Health Services Management",
+    "remarks": "Manages health services activities. Plans, develops, manages, and performs health services activities."
+  },
+  {
+    "id": 131,
+    "code": "4A1X1",
+    "description": "Medical Materiel",
+    "remarks": "Performs and manages preparation and maintenance of manual and mechanized accountable medical materiel records, and requisitioning, receiving, storing, issuing, safeguarding and accounting for supplies and equipment. Processes and monitors requests for contracts. Implements and directs medical materiel activities for inventory control, accounting, financial planning, and management of supplies and equipment. Performs and monitors computer operations."
+  },
+  {
+    "id": 132,
+    "code": "4A2X1",
+    "description": "Biomedical Equipment",
+    "remarks": "Installs, inspects, repairs, and modifies biomedical equipment and support systems. Performs pre-purchase evaluations of medical devices and advises on operational theory, underlying physiological principles, and safe clinical applications of biomedical equipment. Implements organizational maintenance support for all medical devices used within the medical treatment facility (MTF), medical research laboratories, air transportable hospitals and clinics, and contingency hospitals. Provides technical guidance and intermediate maintenance support on medical equipment systems when assigned to a regional Medical Equipment Repair Center (MERC). Directs the facility management program when assigned."
+  },
+  {
+    "id": 133,
+    "code": "4B0X1",
+    "description": "Bioenvironmental Engineering",
+    "remarks": "Perform and manage occupational and environmental health-related activities to include anticipating, recognizing, evaluating, and controlling exposure(s) to chemical, biological, and radiological hazards in garrison and deployed settings. Perform health risk assessments by monitoring and sampling to identify and quantify chemical, biological, radiological, and nuclear hazards. Provide expert health risk communication to support commander's decision making and to prevent short and long term health effects to all personnel residing and/or working on the installation."
+  },
+  {
+    "id": 134,
+    "code": "4C0X1",
+    "description": "Mental Health Service",
+    "remarks": "Supports mental health services in psychiatry, psychology, social work, family advocacy, substance abuse prevention, treatment and aftercare, integrated operational support, and other mental health programs. Manages mental health service resources and activities. Assists mental health professional staff with developing and implementing treatment plans. Performs specified mental health counseling. Reports and documents patient care."
+  },
+  {
+    "id": 135,
+    "code": "4D0X1",
+    "description": "Diet Therapy",
+    "remarks": "Performs duties in Nutritional Medicine Service to include procuring, storing, preparing, cooking, baking and serving regular and therapeutic diets and nourishment. Performs clinical dietetics tasks and procures equipment. Maintains established sanitation, safety, and security standards. Accomplishes supply and subsistence management control and other duties as assigned. When no dietitian is assigned, consults command dietitian."
+  },
+  {
+    "id": 136,
+    "code": "4E0X1",
+    "description": "Public Health",
+    "remarks": " Manages and performs public health activities and programs in support of the Aerospace Medicine Program. There are two major divisions within Public Health: Community Health Management and Force Health Management. Included within Community Health Management are communicable disease control and prevention, food safety and defense, medical entomology, sanitary compliance, and public health contingency response. Included within Force Health Management are management of medical deployment clearance processing, Preventive Health Assessment (PHA) and Individual Medical Readiness in Aeromedical Services Information Management Systems (ASIMS), administrative oversight of occupational health examinations (including performing audiograms). "
+  },
+  {
+    "id": 137,
+    "code": "4H0X1",
+    "description": "Cardiopulmonary Laboratory",
+    "remarks": "Performs and manages cardiopulmonary laboratory functions and activities for noninvasive diagnostic cardiac procedures, invasive diagnostic and interventional cardiac procedures, pulmonary function testing, diagnostic and therapeutic bronchoscopies, and respiratory therapy."
+  },
+  {
+    "id": 138,
+    "code": "4J0X2",
+    "description": "Physical Medicine",
+    "remarks": "Manages and directs personnel, materiel, and equipment. Administers patient care activities in physical theraphy, occupational therapy, and orthotic services. Implements treatment plans and coordinates activities to ensure efficient and effective programs associated with patient care delivery programs."
+  },
+  {
+    "id": 139,
+    "code": "4M0X1",
+    "description": "Aerospace and Operational Physiology",
+    "remarks": "Operates and maintains aerospace physiology training devices including altitude chambers and related training equipment. Instructs and observes on simulated flights to altitude, instructs in a classroom, and manages aerospace and operational physiology facility/facilities. Trains flying/non-flying personnel in subjects such as aircraft pressurization, night vision, emergency first aid, oxygen equipment, physiological effects of altitude, human performance, spatial disorientation, sensory phenomena, noise/vibration, cockpit/crew/maintenance resource management, situational awareness, acceleration, and emergency escape from aircraft. Other areas of responsibility include high altitude airdrop mission support (HAAMS), personal parachute program participation when assigned to the \"J\" prefix manning position; parachute familiarization training, Aerospace and Operational Physiology team training, high altitude reconnaissance mission support (HARMS), fighter aircrew acceleration training, and limited hyperbaric chamber operations. Manages associated aerospace and operational physiology programs."
+  },
+  {
+    "id": 140,
+    "code": "4N0X1",
+    "description": "Aerospace Medical Service",
+    "remarks": "Plans, provides, and evaluates routine patient care and treatment of beneficiaries to include flying and special operational duty personnel. Organizes the medical environment, performs and directs support activities for patient care situations, including contingency operations and disasters. Performs duty as Independent Duty Medical Technician (IDMT), Aeromedical Evacuation Technician (AET), Hyperbaric Medical Technician (HBMT); Allergy and/or Immunization Technician (AIT), Special Operations Command (SOC) Medic, Dialysis Medical Technician (DMT), Critical Care Technician (CCT), Neurodiagnostic Technologist (NT), or Flight and Operational Medicine Technician (FOMT)."
+  },
+  {
+    "id": 141,
+    "code": "4N1X1",
+    "description": "Surgical Service",
+    "remarks": "Participates in, and manages planning, providing, and evaluating surgical patient care activities and related training programs. Organizes the medical environment, performs and directs support activities in patient care situations, including contingency operations and disasters. Assists professional staff in providing patient care for the surgical patient before, during, and after surgery. Performs scrub and circulating duties in the operating room (OR). Assists with post-anesthesia recovery of patients. Processes, stores, and distributes sterile supplies. Participates in planning, implementing, and evaluating management activities related to the OR and Sterile Processing and Distribution (SPD). Performs duties in and supervises the urology, orthopedic, and otorhinolaryngology surgical specialties."
+  },
+  {
+    "id": 142,
+    "code": "4P0X1",
+    "description": "Pharmacy",
+    "remarks": "Manages administrative and technical pharmacy activities. Requisitions, stocks, compounds, and dispenses pharmaceuticals. Safeguards controlled drugs. Maintains and operates pharmacy information systems."
+  },
+  {
+    "id": 143,
+    "code": "4R0X1",
+    "description": "Diagnostic Imaging",
+    "remarks": "Operates equipment to produce diagnostic images and assists radiologist or physician with special procedures. Prepares equipment and patients for diagnostic studies and therapeutic procedures. Performs technical and administrative imaging activities. Ensures health protective measures such as standard and transmission-based precautions and radiation protection are established and employed. Assists the radiation oncologist. Manages diagnostic imaging functions and activities."
+  },
+  {
+    "id": 144,
+    "code": "4T0X1",
+    "description": "Medical Laboratory",
+    "remarks": "Tests and analyzes specimens of human origin and other substances by established scientific laboratory techniques to aid in diagnosing, treating, and preventing diseases or to support medical research; and supervises medical laboratory activities."
+  },
+  {
+    "id": 145,
+    "code": "4T0X2",
+    "description": "Histopathology",
+    "remarks": "Performs subprofessional duties at autopsies, prepares autopsy and surgical specimens, and supervises histopathology activities."
+  },
+  {
+    "id": 146,
+    "code": "4V0X1",
+    "description": "Ophthalmic",
+    "remarks": "Performs and manages visual screening tests and assists in patient treatment. Processes prescriptions for military eyewear. Performs and manages optometry and ophthalmology clinic activities. Manages and directs ophthalmic service personnel, materiel, equipment and programs. Supervises technical and administrative activities of ophthalmic services."
+  },
+  {
+    "id": 147,
+    "code": "4Y0X1",
+    "description": "Dental Assistant",
+    "remarks": "Performs paraprofessional tasks and oral hygiene duties. Supervises dental assistant functions."
+  },
+  {
+    "id": 148,
+    "code": "4Y0X2",
+    "description": "Dental Laboratory",
+    "remarks": "Fabricates and repairs dental and maxillofacial prostheses and appliances. Inspects dental laboratory equipment and supervises dental laboratory activities."
+  },
+  {
+    "id": 193,
+    "code": "5C0X1N",
+    "description": "Cyber Operations, Network Operations",
+    "remarks": "Cyber Operations, Network Operations"
+  },
+  {
+    "id": 194,
+    "code": "5C0X1R",
+    "description": "Cyber Operations, RF Operations",
+    "remarks": "Cyber Operations, RF Operations"
+  },
+  {
+    "id": 192,
+    "code": "5C0X1S",
+    "description": "Cyber Operations, Systems Operations",
+    "remarks": "Cyber Operations, Systems Operations"
+  },
+  {
+    "id": 185,
+    "code": "5I0X1",
+    "description": "All Source Intelligence Analyst",
+    "remarks": "All Source Intelligence Analyst"
+  },
+  {
+    "id": 186,
+    "code": "5I1X1",
+    "description": "Geospatial Intelligence Analyst",
+    "remarks": "Geospatial Intelligence Analyst"
+  },
+  {
+    "id": 187,
+    "code": "5I2X1A",
+    "description": "Signals Intelligence Analyst, Electronic",
+    "remarks": "Signals Intelligence Analyst, Electronic"
+  },
+  {
+    "id": 188,
+    "code": "5I2X1C",
+    "description": "Signals Intelligence Analyst, Communications",
+    "remarks": "Signals Intelligence Analyst, Communications"
+  },
+  {
+    "id": 189,
+    "code": "5I4X1A",
+    "description": "Intelligence Analyst, Cyber Intelligence Analyst",
+    "remarks": "Intelligence Analyst, Cyber Intelligence Analyst"
+  },
+  {
+    "id": 190,
+    "code": "5I4X1B",
+    "description": "Intelligence Analyst, Cryptologic Analysis and Reporting",
+    "remarks": "Intelligence Analyst"
+  },
+  {
+    "id": 191,
+    "code": "5I8X1",
+    "description": "Targeting Analyst",
+    "remarks": "Targeting Analyst"
+  },
+  {
+    "id": 149,
+    "code": "5J0X1",
+    "description": "Paralegal",
+    "remarks": "Manages and performs legal functions within statutory guidelines and the Air Force Rules of Professional Conduct. Under the supervision of an attorney, performs paraprofessional tasks including, but not limited to, legal research, writing, interviewing and discovery management in the areas of administrative law, military justice, operational law, claims, and office management. Supervises the administration of legal services and court-reporting."
+  },
+  {
+    "id": 150,
+    "code": "5R0X1",
+    "description": "Religious Affairs",
+    "remarks": "The Religious Affairs Career Field builds a culture of spiritual care and facilitates the free exercise of religion for Air Force members, their families and other authorized personnel. As experts in principles of religious diversity, religious accommodation, major faith group requisites, privileged communication and religious program management, Religious Affairs advise leaders at all levels on religious accommodation, ethical, moral and morale issues, especially for the enlisted force. As the enlisted component of Religious Support Teams (RST), Religious Affairs are uniquely trained in crisis intervention to include intervention counseling in moments of crisis, response to crises and suicide prevention and intervention. In addition, Religious Affairs are actively engaged and intentionally integrated into unit engagement plans to include unit meetings, commander calls, training with the unit and other unit activities. They also are trained in religious support to hospitals and mortuaries. Religious Affairs meet the diverse needs of military communities by managing religious programs, administrative, financial, and facility support. They recruit, train and organize volunteers for specific religious ministries. Religious Affairs conduct themselves in a manner that brings credit, pride and honorable distinction to the United States Air Force and its Chaplain Corps."
+  },
+  {
+    "id": 184,
+    "code": "5S0X1",
+    "description": "Space System Operations",
+    "remarks": "Space System Operations"
+  },
+  {
+    "id": 151,
+    "code": "6C0X1",
+    "description": "Contracting",
+    "remarks": "Manages, performs, and administers contracting functions for commodities, services, and construction using simplified acquisition procedures, negotiation, and other approved methods. Uses automated contracting systems to prepare, process, and analyze transactions and products. Acts as business advisor, buyer, negotiator, administrator, and contracting officer. Supports all functions of contingency operations."
+  },
+  {
+    "id": 152,
+    "code": "6F0X1",
+    "description": "Financial Management and Comptroller",
+    "remarks": "Provides financial decision support, services, and resources to support the Air Force's war-fighting mission. Performs, supervises, manages and directs financial management activities both at home station and deployed locations. Provides customer service. Maintains financial records for pay and travel transactions. Maintains accounting records and prepares reports. Determines fund availability and propriety of claims. Accounts for and safeguards cash, checks, and other negotiable instruments. Processes commitments and obligations, payments, and collections. Serves as financial advisor to commanders and resource managers. Compiles, analyzes, and summarizes data. Prepares and executes budget execution plans. Performs audits and implements fraud prevention measures."
+  },
+  {
+    "id": 153,
+    "code": "7S0X1",
+    "description": "Special Investigations",
+    "remarks": "Conducts criminal, economic crime, counterintelligence, force protection, personnel suitability, computer crime, technical services investigations and special inquiries. Manages special investigations activities."
+  },
+  {
+    "id": 154,
+    "code": "8A100",
+    "description": "Career Assistance Advisor",
+    "remarks": ""
+  },
+  {
+    "id": 155,
+    "code": "8A200",
+    "description": "Enlisted Aide",
+    "remarks": "N/A"
+  },
+  {
+    "id": 156,
+    "code": "8B000",
+    "description": "Military Training Instructor",
+    "remarks": ""
+  },
+  {
+    "id": 157,
+    "code": "8B100",
+    "description": "Military Training Leader",
+    "remarks": "N/A"
+  },
+  {
+    "id": 158,
+    "code": "8B200",
+    "description": "Academy Military Training NCO",
+    "remarks": ""
+  },
+  {
+    "id": 195,
+    "code": "8B300",
+    "description": "AFROTC Training Instructor",
+    "remarks": "AFROTC Training Instructor"
+  },
+  {
+    "id": 159,
+    "code": "8C000",
+    "description": "Airman and Family Readiness Center Readiness Noncommissioned Officer (RNCO)",
+    "remarks": "N/A"
+  },
+  {
+    "id": 160,
+    "code": "8D000",
+    "description": "Strategic Debriefer",
+    "remarks": "N/A"
+  },
+  {
+    "id": 161,
+    "code": "8D100",
+    "description": "Language & Culture Advisor",
+    "remarks": ""
+  },
+  {
+    "id": 162,
+    "code": "8E000",
+    "description": "Research Analysis and Lessons Learned",
+    "remarks": ""
+  },
+  {
+    "id": 163,
+    "code": "8F000",
+    "description": "First Sergeant",
+    "remarks": "Serves as the commander's advisor and critical link for matters concerning Airmen. Supports the mission through interaction, support and management of Airmen and families.   Remains vigilant for, and moves quickly to resolve issues that, if left unchecked, would adversely impact Airmen readiness. Prepares personnel of the organization to deploy in support of mission requirements. Exercise the necessary leadership to provide and sustain a mission-ready workforce for the commander.  Maintains liaison with base support agencies to ensure availability of services for unit members. Ensures training is provided on matters of leadership, customs and courtesies, dress and personal appearance, self-discipline, adherence to standards, drill and ceremony, safety and sanitation. Supports and promotes profession military education activities. Corrects conduct prejudicial to good order and discipline.  "
+  },
+  {
+    "id": 164,
+    "code": "8G000",
+    "description": "USAF Honor Guard",
+    "remarks": ""
+  },
+  {
+    "id": 165,
+    "code": "8H000",
+    "description": "Airmen Dorm Leader",
+    "remarks": ""
+  },
+  {
+    "id": 166,
+    "code": "8I000",
+    "description": "\"Superintendent, Wing Inspections\"",
+    "remarks": ""
+  },
+  {
+    "id": 167,
+    "code": "8M000",
+    "description": "Postal",
+    "remarks": "N/A"
+  },
+  {
+    "id": 168,
+    "code": "8P000",
+    "description": "Courier",
+    "remarks": ""
+  },
+  {
+    "id": 169,
+    "code": "8P100",
+    "description": "Defense Attaché",
+    "remarks": "N/A"
+  },
+  {
+    "id": 170,
+    "code": "8R000",
+    "description": "Enlisted Accessions Recruiter",
+    "remarks": "Organizes and conducts programs to recruit sufficient personnel to satisfy the requirements of the United States Air Force. Responsible for interviewing, screening, testing and evaluating applicants from civilian sources to achieve recruiting goals."
+  },
+  {
+    "id": 171,
+    "code": "8R200",
+    "description": "Second Tier Recruiter",
+    "remarks": "Organizes and conducts programs to recruit sufficient personnel to satisfy the requirements of the United States Air Force.  Related duties include Health Professions Recruiter, Line Officer Accessions Recruiter, Military Entrance Processing Station (MEPS) Liaison NCO, Squadron Trainer, MEPS Liaison Supervisor, HQ Air Force (National) Recruiting staff or Recruiting Group (Regional) level staff and Air Force Recruiting School Schoolhouse Instructor.   "
+  },
+  {
+    "id": 172,
+    "code": "8R300",
+    "description": "Third Tier Recruiter",
+    "remarks": "Manages and supervises programs to recruit sufficient personnel to satisfy the requirements of the United States Air Force.  Positions might include: Headquarters Air Force Personnel Center (AFPC) Superintendent of Enlisted Accessions Policy; Chief, Enlisted Accessions Policy/Career Field Manger; Air Staff (Pentagon) Enlisted Accession Flight Chief; Officer Health Professions Flight Chief; Operation Supervisor, Senior Trainer, HQ Air Force Recruiting (national level) or Recruiting Group (regional level) Trainer; AF Recruiting Service (AFRS) Inspector General; HQ AFRS Recruiter Screening Team; Squadron Superintendent, Group Superintendent, HQ AFRS Superintendent, AFRS Inspector General Superintendent, Air Force Recruiting School Schoolhouse Commandant, and AFPC Accessions Superintendent. "
+  },
+  {
+    "id": 173,
+    "code": "8S000",
+    "description": "Missile Facility Manager",
+    "remarks": ""
+  },
+  {
+    "id": 174,
+    "code": "8T000",
+    "description": "Professional Military Education Instructor",
+    "remarks": "Develops and conducts professional military education (PME) programs for airmen, noncommissioned officers (NCO), and senior NCOs; provides management consultant services."
+  },
+  {
+    "id": 175,
+    "code": "8U000",
+    "description": "Unit Deployment Manager",
+    "remarks": ""
+  },
+  {
+    "id": 176,
+    "code": "9F000",
+    "description": "First Term Airmen Center (FTAC) NCOIC",
+    "remarks": ""
+  },
+  {
+    "id": 177,
+    "code": "9L000",
+    "description": "Interpreter/Translator",
+    "remarks": "N/A"
+  },
+  {
+    "id": 178,
+    "code": "9S100",
+    "description": "Scientific Applications Specialist",
+    "remarks": "This occupational identifier is awarded to enlisted Airmen that apply leading edge physical sciences in performance of data collection, analysis, observation, study, experimentation, acquisition, maintenance, research and development, fielding of prototype and operational active and passive sensors and systems on (including, but not limited to) specialized geophysical, nuclear radiation, chemical, electro-optic, radio-frequency, infrared, radar, and rapidly deployable and fixed airborne collection platforms; and process and analyze scientific data; derive, develop, integrate and report information to customers."
+  }
+]

@@ -11,20 +11,20 @@ type TProps = {
 
 const Megamenu = ({ menu, isExpand, className }: TProps) => {
     return (
-        <div className={clsx("tw-border-t tw-border-t-white/[.15] tw-py-[14px]", className)}>
+        <div className={clsx("tw:border-t tw:border-t-white/15 tw:py-[14px]", className)}>
             {menu.map(({ id, title, submenu, banner }) => (
                 <div key={id}>
-                    <h2 className="tw-sr-only">{title}</h2>
+                    <h2 className="tw:sr-only">{title}</h2>
                     {submenu && (
                         <ul>
                             {submenu?.map((nav) => (
-                                <li key={nav.id} className="tw-relative">
+                                <li key={nav.id} className="tw:relative">
                                     <Anchor
                                         path={nav.path}
                                         className={clsx(
-                                            "tw-inline-block tw-py-2.5 tw-text-base tw-font-medium tw-leading-normal tw-text-white/[0.7] hover:tw-text-white",
+                                            "tw:inline-block tw:py-2.5 tw:text-base tw:font-medium tw:leading-normal tw:text-white/70 tw:hover:text-white",
                                             nav.status === "coming soon" &&
-                                                "tw-pointer-events-none",
+                                                "tw:pointer-events-none",
                                             className
                                         )}
                                         tabIndex={isExpand ? 0 : -1}
@@ -36,7 +36,7 @@ const Megamenu = ({ menu, isExpand, className }: TProps) => {
                                                     nav.status === "hot" ? "gradient" : "primary"
                                                 }
                                                 size="xs"
-                                                className="tw-ml-2.5 tw-font-bold tw-uppercase tw-tracking-wide"
+                                                className="tw:ml-2.5 tw:font-bold tw:uppercase tw:tracking-wide"
                                             >
                                                 {nav.status}
                                             </Badge>

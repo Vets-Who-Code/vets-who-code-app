@@ -23,20 +23,20 @@ const TeamArea = ({ data: { section_title, items }, titleSize }: TProps) => {
     const admins = items?.filter((item) => item.role === "admin");
     const employees = items?.filter((item) => item.role === "employee");
     return (
-        <section className="team-area tw-pt-15 md:tw-pt-20 lg:tw-pt-[100px]">
-            <div className="tw-container">
+        <section className="team-area tw:pt-15 tw:md:pt-20 tw:lg:pt-[100px]">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-mb-7.5 tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-mb-[50px] lg:tw-grid-cols-3 xl:tw-gap-10">
+                <div className="tw:mb-7.5 tw:grid tw:grid-cols-1 tw:gap-7.5 tw:sm:grid-cols-2 tw:lg:mb-[50px] tw:lg:grid-cols-3 tw:xl:gap-10">
                     {admins?.map((admin) => (
                         <AnimatedTeamCard
                             key={admin.id}
@@ -51,7 +51,7 @@ const TeamArea = ({ data: { section_title, items }, titleSize }: TProps) => {
                         />
                     ))}
                 </div>
-                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
+                <div className="tw:grid tw:grid-cols-1 tw:gap-7.5 tw:sm:grid-cols-2 tw:lg:grid-cols-4">
                     {employees?.map((employee) => (
                         <AnimatedTeamCard
                             key={employee.id}

@@ -1,0 +1,4 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "yarn install && yarn prisma generate && yarn prisma migrate deploy && npx tsx src/scripts/mos-data-import.ts"
+}

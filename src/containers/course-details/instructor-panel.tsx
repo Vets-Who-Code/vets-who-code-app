@@ -6,8 +6,8 @@ type TProps = IInstructor;
 
 const OverviewPanel = ({ name, image, designation, bio, socials }: TProps) => {
     return (
-        <div className="instructor tw-grid tw-gap-7.5 md:tw-grid-cols-3 lg:tw-gap-[50px]">
-            <figure className="md:tw-col-[1/1]">
+        <div className="instructor tw:grid tw:gap-7.5 tw:md:grid-cols-3 tw:lg:gap-[50px]">
+            <figure className="tw:md:col-[1/1]">
                 {image.src && (
                     <img
                         src={image.src}
@@ -18,22 +18,22 @@ const OverviewPanel = ({ name, image, designation, bio, socials }: TProps) => {
                     />
                 )}
             </figure>
-            <div className="md:tw-col-[2/-1]">
+            <div className="tw:md:col-[2/-1]">
                 <h3>
                     <Anchor path="/profile">{name}</Anchor>
                 </h3>
-                <h6 className="tw-mb-0 tw-font-normal tw-leading-relaxed tw-text-body">
+                <h6 className="tw:mb-0 tw:font-normal tw:leading-relaxed tw:text-body">
                     /{designation}
                 </h6>
-                <p className="tw-mb-0 tw-mt-3.8">{bio}</p>
+                <p className="tw:mb-0 tw:mt-3.8">{bio}</p>
 
-                <Social shape="circle" variant="outlined" color="light" className="tw-mt-7.5">
+                <Social shape="circle" variant="outlined" color="light" className="tw:mt-7.5">
                     {socials.map((social) => (
                         <SocialLink
                             key={social.label}
                             href={social.url}
                             label={social.label}
-                            className="tw-mr-3"
+                            className="tw:mr-3"
                         >
                             <i className={social.icon} />
                         </SocialLink>

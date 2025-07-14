@@ -25,16 +25,16 @@ const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize 
     return (
         <div
             className={clsx(
-                "faq-area tw-relative",
-                space === "default" && "tw-py-15 md:tw-py-20 lg:tw-py-[100px]",
-                space === "top" && "tw-pt-15 md:tw-pt-20 lg:tw-pt-[100px]",
-                space === "bottom" && "tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px]",
+                "faq-area tw:relative",
+                space === "default" && "tw:py-15 tw:md:py-20 tw:lg:py-[100px]",
+                space === "top" && "tw:pt-15 tw:md:pt-20 tw:lg:pt-[100px]",
+                space === "bottom" && "tw:pb-15 tw:md:pb-20 tw:lg:pb-[100px]",
                 bg
             )}
         >
-            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-[50px] lg:tw-grid-cols-2 lg:tw-gap-7.5">
+            <div className="tw:container tw:grid tw:grid-cols-1 tw:gap-[50px] tw:lg:grid-cols-2 tw:lg:gap-7.5">
                 <motion.div
-                    className="tw-relative tw-z-10 tw-pl-10"
+                    className="tw:relative tw:z-10 tw:pl-10"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
@@ -51,13 +51,13 @@ const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize 
                     )}
 
                     <motion.div
-                        className="tw-absolute -tw-left-15 tw-top-[50px] -tw-z-1 tw-h-[200px] tw-w-[200px] sm:tw-left-0 sm:tw-h-[392px] sm:tw-w-[392px] md:tw-h-[392px] md:tw-w-[392px]"
+                        className="tw:absolute tw:-left-15 tw:top-[50px] tw:-z-1 tw:h-[200px] tw:w-[200px] tw:sm:left-0 tw:sm:h-[392px] tw:sm:w-[392px] tw:md:h-[392px] tw:md:w-[392px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-800" />
+                        <Shape2 className="tw:h-full tw:w-full tw:fill-gray-800" />
                     </motion.div>
                 </motion.div>
                 <motion.div
@@ -71,7 +71,7 @@ const FaqArea = ({ data: { section_title, images, items }, space, bg, titleSize 
                             {...section_title}
                             align="left"
                             titleSize={titleSize}
-                            className="tw-mb-[50px]"
+                            className="tw:mb-[50px]"
                         />
                     )}
                     {items && items.length > 0 && (

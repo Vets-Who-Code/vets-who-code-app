@@ -31,9 +31,9 @@ const VideoArea = ({
     const { trans1, trans2 } = useUI();
 
     return (
-        <Section className="video-area tw-relative" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-items-center tw-gap-7.5 lg:tw-grid-cols-12">
-                <div className="tw-relative lg:tw-col-span-7">
+        <Section className="video-area tw:relative" space={space} bg={bg}>
+            <div className="tw:container tw:grid tw:items-center tw:gap-7.5 tw:lg:grid-cols-12">
+                <div className="tw:relative tw:lg:col-span-7">
                     {video && images?.[0] && (
                         <AnimatedVideo
                             poster={{ ...images[0], width: 970, height: 569 }}
@@ -45,16 +45,16 @@ const VideoArea = ({
                         />
                     )}
                     <motion.div
-                        className="tw-absolute tw-left-[-99px] tw-top-[-99px] tw-z-1 tw-h-[130px] tw-w-[120px] sm:tw-top-[-90px] md:tw-top-[-46px] md:tw-h-[166px] md:tw-w-[166px]"
+                        className="tw:absolute tw:left-[-99px] tw:top-[-99px] tw:z-1 tw:h-[130px] tw:w-[120px] tw:sm:top-[-90px] tw:md:top-[-46px] tw:md:h-[166px] tw:md:w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-750" />
+                        <Shape2 className="tw:h-full tw:w-full tw:fill-gray-750" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-left-[-65px] tw-top-2 tw-z-1 tw-h-[90px] tw-w-[90px] md:tw-h-auto md:tw-w-auto"
+                        className="tw:absolute tw:left-[-65px] tw:top-2 tw:z-1 tw:h-[90px] tw:w-[90px] tw:md:h-auto tw:md:w-auto"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -63,7 +63,7 @@ const VideoArea = ({
                         <img src="/images/shape-animation/medal.svg" alt="" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-right-2.5 tw-top-0 tw-z-20 md:tw-right-7.5"
+                        className="tw:absolute tw:-right-2.5 tw:top-0 tw:z-20 tw:md:right-7.5"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -78,7 +78,7 @@ const VideoArea = ({
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-bottom-15 tw-right-0 tw-z-1 tw-w-[85px] md:tw-w-auto"
+                        className="tw:absolute tw:-bottom-15 tw:right-0 tw:z-1 tw:w-[85px] tw:md:w-auto"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -87,7 +87,7 @@ const VideoArea = ({
                         <img src="/images/shape-animation/code.svg" alt="" />
                     </motion.div>
                 </div>
-                <div className="lg:tw-col-span-4 lg:tw-pl-5 xl:tw-pl-15">
+                <div className="tw:lg:col-span-4 tw:lg:pl-5 tw:xl:pl-15">
                     {section_title && (
                         <AnimatedSectionTitle
                             {...section_title}
@@ -104,7 +104,7 @@ const VideoArea = ({
                             path={motto.path}
                             pathText={motto.pathText}
                             size="md"
-                            className="tw-mt-5"
+                            className="tw:mt-5"
                             initial="offscreen"
                             whileInView="onscreen"
                             viewport={{ once: true, amount: 0.4 }}

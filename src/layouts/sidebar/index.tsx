@@ -13,30 +13,30 @@ const Sidebar = ({ open }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-fixed tw-inset-0 tw-right-auto tw-z-20 tw-h-full tw-translate-x-0 tw-bg-white tw-shadow-4md tw-shadow-black/10 tw-transition-all tw-duration-300",
-                open && "tw-w-0 md:tw-w-[340px]",
-                !open && "tw-w-[340px] md:tw-w-0"
+                "tw:fixed tw:inset-0 tw:right-auto tw:z-20 tw:h-full tw:translate-x-0 tw:bg-white tw:shadow-4md tw:shadow-black/10 tw:transition-all tw:duration-300",
+                open && "tw:w-0 tw:md:w-[340px]",
+                !open && "tw:w-[340px] tw:md:w-0"
             )}
         >
-            <SearchForm className="tw-h-[90px] md:tw-h-15" />
+            <SearchForm className="tw:h-[90px] tw:md:h-15" />
             <div
                 className={clsx(
-                    "tw-no-scroll tw-absolute tw-bottom-0 tw-left-0 tw-top-[90px] tw-z-1 tw-h-full tw-w-[340px] tw-overflow-y-auto tw-transition-all tw-duration-300 md:tw-top-15",
+                    "tw:no-scroll tw:absolute tw:bottom-0 tw:left-0 tw:top-[90px] tw:z-1 tw:h-full tw:w-[340px] tw:overflow-y-auto tw:transition-all tw:duration-300 tw:md:top-15",
                     !open &&
-                        "tw-visible tw-opacity-100 tw-delay-100 md:tw-invisible md:tw-opacity-0 md:tw-delay-0",
+                        "tw:visible tw:opacity-100 tw:delay-100 tw:md:invisible tw:md:opacity-0 tw:md:delay-0",
                     open &&
-                        "tw-invisible tw-opacity-0 md:tw-visible md:tw-opacity-100 md:tw-delay-100"
+                        "tw:invisible tw:opacity-0 tw:md:visible tw:md:opacity-100 tw:md:delay-100"
                 )}
             >
                 <ul>
                     {curriculum?.map(({ id, title, description, lessons }) => (
-                        <li className="tw-mt-5 first:tw-mt-0" key={id}>
+                        <li className="tw:mt-5 tw:first:mt-0" key={id}>
                             <Header title={title} description={description} />
                             {lessons.length > 0 && (
                                 <ul className="section-content">
                                     {lessons.map((lsn) => (
                                         <li
-                                            className="tw-group tw-relative tw-bg-white tw-text-md"
+                                            className="tw:group tw:relative tw:bg-white tw:text-md"
                                             key={lsn.slug}
                                         >
                                             <Item

@@ -71,20 +71,20 @@ const MentorMenteeForm = () => {
     };
 
     return (
-        <div className="tw-px-4 md:tw-px-[250px]">
-            <h3 className="tw-mb-5 tw-text-h2">Register</h3>
+        <div className="tw:px-4 tw:md:px-[250px]">
+            <h3 className="tw:mb-5 tw:text-h2">Register</h3>
 
             {/* Role selection */}
-            <div className="tw-mb-7.5 tw-flex tw-gap-4">
+            <div className="tw:mb-7.5 tw:flex tw:gap-4">
                 <Button
                     onClick={() => handleRoleChange("mentor")}
-                    className={`tw-flex-1 ${role === "mentor" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw:flex-1 ${role === "mentor" ? "" : "tw:bg-gray-300 tw:text-gray-700"}`}
                 >
                     Register as Mentor
                 </Button>
                 <Button
                     onClick={() => handleRoleChange("mentee")}
-                    className={`tw-flex-1 ${role === "mentee" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw:flex-1 ${role === "mentee" ? "" : "tw:bg-gray-300 tw:text-gray-700"}`}
                 >
                     Register as Mentee
                 </Button>
@@ -92,8 +92,8 @@ const MentorMenteeForm = () => {
 
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 {/* Common Fields for Both Roles */}
-                <div className="tw-mb-7.5">
-                    <label htmlFor="name" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="name" className="tw:text-md tw:text-heading">
                         Name *
                     </label>
                     <Input
@@ -108,8 +108,8 @@ const MentorMenteeForm = () => {
                         })}
                     />
                 </div>
-                <div className="tw-mb-7.5">
-                    <label htmlFor="email" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="email" className="tw:text-md tw:text-heading">
                         Email *
                     </label>
                     <Input
@@ -128,8 +128,8 @@ const MentorMenteeForm = () => {
                         })}
                     />
                 </div>
-                <div className="tw-mb-7.5">
-                    <label htmlFor="branch-of-service" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="branch-of-service" className="tw:text-md tw:text-heading">
                         Military Branch Affiliation *
                     </label>
                     <Input
@@ -144,10 +144,10 @@ const MentorMenteeForm = () => {
                         })}
                     />
                 </div>
-                <div className="tw-mb-7.5">
+                <div className="tw:mb-7.5">
                     <label
                         htmlFor="github-portfolio-or-linkedin"
-                        className="tw-text-md tw-text-heading"
+                        className="tw:text-md tw:text-heading"
                     >
                         GitHub Portfolio or LinkedIn *
                     </label>
@@ -164,8 +164,8 @@ const MentorMenteeForm = () => {
                         })}
                     />
                 </div>
-                <div className="tw-mb-7.5">
-                    <label htmlFor="location" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="location" className="tw:text-md tw:text-heading">
                         Location *
                     </label>
                     <Input
@@ -184,10 +184,10 @@ const MentorMenteeForm = () => {
                 {/* Mentor-Specific Fields */}
                 {role === "mentor" && (
                     <>
-                        <div className="tw-mb-7.5">
+                        <div className="tw:mb-7.5">
                             <label
                                 htmlFor="technical-expertise"
-                                className="tw-text-md tw-text-heading"
+                                className="tw:text-md tw:text-heading"
                             >
                                 Technical Expertise *
                             </label>
@@ -207,10 +207,10 @@ const MentorMenteeForm = () => {
                                 })}
                             />
                         </div>
-                        <div className="tw-mb-7.5">
+                        <div className="tw:mb-7.5">
                             <label
                                 htmlFor="employer-restrictions"
-                                className="tw-text-md tw-text-heading"
+                                className="tw:text-md tw:text-heading"
                             >
                                 Employer Restrictions *
                             </label>
@@ -238,8 +238,8 @@ const MentorMenteeForm = () => {
                 {/* Mentee-Specific Fields */}
                 {role === "mentee" && (
                     <>
-                        <div className="tw-mb-7.5">
-                            <label htmlFor="desired-skills" className="tw-text-md tw-text-heading">
+                        <div className="tw:mb-7.5">
+                            <label htmlFor="desired-skills" className="tw:text-md tw:text-heading">
                                 Desired Skills to Learn *
                             </label>
                             <Input
@@ -257,8 +257,8 @@ const MentorMenteeForm = () => {
                                 })}
                             />
                         </div>
-                        <div className="tw-mb-7.5">
-                            <label htmlFor="career-goals" className="tw-text-md tw-text-heading">
+                        <div className="tw:mb-7.5">
+                            <label htmlFor="career-goals" className="tw:text-md tw:text-heading">
                                 Career Goals *
                             </label>
                             <Input
@@ -276,8 +276,8 @@ const MentorMenteeForm = () => {
                                 })}
                             />
                         </div>
-                        <div className="tw-mb-7.5">
-                            <label htmlFor="availability" className="tw-text-md tw-text-heading">
+                        <div className="tw:mb-7.5">
+                            <label htmlFor="availability" className="tw:text-md tw:text-heading">
                                 Availability *
                             </label>
                             <Input
@@ -302,7 +302,7 @@ const MentorMenteeForm = () => {
                 <Button
                     type="submit"
                     fullwidth
-                    className="tw-mx-auto tw-mt-7.5 tw-w-full sm:tw-w-[200px]"
+                    className="tw:mx-auto tw:mt-7.5 tw:w-full tw:sm:w-[200px]"
                 >
                     Register as {role === "mentor" ? "Mentor" : "Mentee"}
                 </Button>

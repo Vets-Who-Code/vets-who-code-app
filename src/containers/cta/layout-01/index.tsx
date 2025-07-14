@@ -16,7 +16,7 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TPr
     return (
         <Section className="cta-area" space={space} bg={bg}>
             <motion.div
-                className="tw-container tw-text-center"
+                className="tw:container tw:text-center"
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.4 }}
@@ -27,11 +27,11 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg, titleSize }: TPr
                         {...section_title}
                         color="B"
                         titleSize={titleSize}
-                        subtitleClass="tw-mb-8"
+                        subtitleClass="tw:mb-8"
                     />
                 )}
                 {buttons?.map(({ id, content, ...rest }) => (
-                    <Button key={id} className="tw-mt-7" {...rest}>
+                    <Button key={id} className="tw:mt-7" {...rest}>
                         {content}
                     </Button>
                 ))}

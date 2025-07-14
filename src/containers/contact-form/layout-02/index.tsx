@@ -14,11 +14,11 @@ type TProps = TSection & {
 
 const ContactFormArea = ({ data: { section_title } }: TProps) => {
     return (
-        <Section className="contact-form-area tw-flex tw-min-h-screen tw-items-center tw-justify-center tw-bg-white tw-p-4 sm:tw-p-6 lg:tw-p-8">
-            <div className="tw-container">
+        <Section className="contact-form-area tw:flex tw:min-h-screen tw:items-center tw:justify-center tw:bg-white tw:p-4 tw:sm:p-6 tw:lg:p-8">
+            <div className="tw:container">
                 {section_title && (
                     <motion.h2
-                        className="tw-mb-6 tw-text-center tw-text-3xl tw-font-bold tw-text-[#091f40] sm:tw-mb-8 sm:tw-text-4xl"
+                        className="tw:mb-6 tw:text-center tw:text-3xl tw:font-bold tw:text-[#091f40] tw:sm:mb-8 tw:sm:text-4xl"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -28,7 +28,7 @@ const ContactFormArea = ({ data: { section_title } }: TProps) => {
                     </motion.h2>
                 )}
                 <AnimatedContactForm
-                    className="tw-mx-auto tw-w-full tw-max-w-4xl tw-bg-white tw-p-8 sm:tw-p-10"
+                    className="tw:mx-auto tw:w-full tw:max-w-4xl tw:bg-white tw:p-8 tw:sm:p-10"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}

@@ -32,12 +32,12 @@ const TestimonialArea = ({ data: { section_title, items }, space, bg, titleSize 
     }, []);
     return (
         <Section className="testimonial-area" space={space} bg={bg}>
-            <div className="tw-container tw-relative tw-z-10">
+            <div className="tw:container tw:relative tw:z-10">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -65,16 +65,16 @@ const TestimonialArea = ({ data: { section_title, items }, space, bg, titleSize 
                     </AnimatedSwiperSlider>
                 )}
                 <motion.div
-                    className="tw-absolute tw-left-[100] tw-top-24 -tw-z-1 tw-h-[166px] tw-w-[166px]"
+                    className="tw:absolute tw:left-[100] tw:top-24 tw:-z-1 tw:h-[166px] tw:w-[166px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <Shape2 className="tw-h-full tw-w-full tw-fill-tan" />
+                    <Shape2 className="tw:h-full tw:w-full tw:fill-tan" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-bottom-0 tw-left-44 -tw-z-1 tw-w-[124px]"
+                    className="tw:absolute tw:bottom-0 tw:left-44 tw:-z-1 tw:w-[124px]"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,

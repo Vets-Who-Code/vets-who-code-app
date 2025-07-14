@@ -9,13 +9,13 @@ type TProps = {
 
 const TagMeta = ({ className, tags }: TProps) => {
     return (
-        <div className={clsx("tags tw-inline-flex", className)}>
-            <span className="far fa-tags tw-mr-1 tw-text-lg" />
+        <div className={clsx("tags tw:inline-flex", className)}>
+            <span className="far fa-tags tw:mr-1 tw:text-lg" />
             {tags.map((tag, i, arr) => (
                 <Anchor
                     key={tag.slug}
                     path={tag.path}
-                    className="tw-ml-1 tw-inline-block tw-font-medium tw-text-gray-400"
+                    className="tw:ml-1 tw:inline-block tw:font-medium tw:text-gray-400"
                 >
                     {tag.title}
                     {i !== arr.length - 1 && ", "}

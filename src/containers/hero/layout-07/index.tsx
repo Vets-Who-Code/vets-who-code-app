@@ -46,48 +46,48 @@ const HeroArea = ({ data: { items } }: TProps) => {
         <SwiperSlider options={options} navClass="hero">
             {items.map(({ id, images, headings, texts }, idx) => (
                 <SwiperSlide key={id}>
-                    <div className="tw-relative tw-z-1 tw-flex tw-h-[450px] tw-w-full tw-items-end md:tw-h-[500px] lg:tw-h-[600px] xl:tw-h-[700px]">
+                    <div className="tw:relative tw:z-1 tw:flex tw:h-[450px] tw:w-full tw:items-end tw:md:h-[500px] tw:lg:h-[600px] tw:xl:h-[700px]">
                         {images?.[0]?.src && (
-                            <div className="tw-absolute tw-inset-0 tw-object-cover">
+                            <div className="tw:absolute tw:inset-0 tw:object-cover">
                                 <img
                                     src={images[0].src}
                                     alt=""
-                                    className="tw-h-full tw-w-full tw-object-cover"
+                                    className="tw:h-full tw:w-full tw:object-cover"
                                 />
                                 <div
-                                    className="tw-absolute tw-inset-0"
+                                    className="tw:absolute tw:inset-0"
                                     style={{
                                         backgroundColor: "rgba(9, 31, 64, 0.5)",
                                     }}
                                 />
                             </div>
                         )}
-                        <div className="tw-container tw-relative tw-z-1 tw-mb-[350px] tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-12">
+                        <div className="tw:container tw:relative tw:z-1 tw:mb-[350px] tw:grid tw:grid-cols-1 tw:gap-7.5 tw:lg:grid-cols-12">
                             {headings?.[0]?.content && (
                                 <motion.h2
                                     initial="hidden"
                                     animate={idx === activeIdx ? "visible" : "exit"}
                                     exit="exit"
                                     variants={fadeInUp}
-                                    className="tw-mb-0 tw-text-[32px] tw-uppercase tw-leading-[1.17] tw-text-white md:tw-text-4xl lg:tw-col-span-4 lg:tw-text-right lg:tw-text-5xl"
+                                    className="tw:mb-0 tw:text-[32px] tw:uppercase tw:leading-[1.17] tw:text-white tw:md:text-4xl tw:lg:col-span-4 tw:lg:text-right tw:lg:text-5xl"
                                     dangerouslySetInnerHTML={{
                                         __html: headings[0].content,
                                     }}
                                 />
                             )}
-                            <div className="lg:tw-col-span-8">
+                            <div className="tw:lg:col-span-8">
                                 {headings?.[1]?.content && (
                                     <motion.h3
                                         initial="hidden"
                                         animate={idx === activeIdx ? "visible" : "exit"}
                                         exit="exit"
                                         variants={fadeInUp}
-                                        className="tw-mb-[25px] tw-text-lg tw-uppercase -tw-tracking-tightest tw-text-white"
+                                        className="tw:mb-[25px] tw:text-lg tw:uppercase tw:-tracking-tightest tw:text-white"
                                     >
-                                        <span className="tw-align-middle tw-text-[34px] tw-leading-none">
+                                        <span className="tw:align-middle tw:text-[34px] tw:leading-none">
                                             {(idx + 1).toString().padStart(2, "0")}
                                         </span>
-                                        <span className="tw-ml-3.8 tw-mr-7.5 tw-hidden tw-h-px tw-w-15 tw-bg-white tw-align-middle md:tw-inline-block" />{" "}
+                                        <span className="tw:ml-3.8 tw:mr-7.5 tw:hidden tw:h-px tw:w-15 tw:bg-white tw:align-middle tw:md:inline-block" />{" "}
                                         {headings[1].content}
                                     </motion.h3>
                                 )}
@@ -98,7 +98,7 @@ const HeroArea = ({ data: { items } }: TProps) => {
                                         animate={idx === activeIdx ? "visible" : "exit"}
                                         exit="exit"
                                         variants={fadeInUp}
-                                        className="tw-text-[16px] tw-font-medium tw-text-white md:tw-text-lg lg:tw-text-2xl lg:tw-leading-normal"
+                                        className="tw:text-[16px] tw:font-medium tw:text-white tw:md:text-lg tw:lg:text-2xl tw:lg:leading-normal"
                                     >
                                         {text.content}
                                     </motion.p>

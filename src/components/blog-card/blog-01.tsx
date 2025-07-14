@@ -11,15 +11,15 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, path, category, postedAt, image, className }, ref) => (
         <div
             className={clsx(
-                "blog-card tw-group tw-relative tw-overflow-hidden tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5 tw-transition-all",
+                "blog-card tw:group tw:relative tw:overflow-hidden tw:rounded-sm tw:bg-white tw:shadow-xl tw:shadow-black/5 tw:transition-all",
                 className
             )}
             ref={ref}
         >
             {image?.src && (
-                <figure className="tw-relative tw-overflow-hidden">
+                <figure className="tw:relative tw:overflow-hidden">
                     <img
-                        className="tw-h-60 tw-w-full tw-object-cover tw-transition-transform tw-duration-1500 group-hover:tw-scale-110 sm:tw-h-80 xl:tw-h-[200px]"
+                        className="tw:h-60 tw:w-full tw:object-cover tw:transition-transform tw:duration-1500 tw:group-hover:scale-110 tw:sm:h-80 tw:xl:h-[200px]"
                         src={image.src}
                         alt={image?.alt || title}
                         width={image?.width || 270}
@@ -32,19 +32,19 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                 </figure>
             )}
 
-            <div className="tw-px-[30px] tw-py-[25px]">
+            <div className="tw:px-[30px] tw:py-[25px]">
                 <Anchor
                     path={category.path}
-                    className="tw-mb-1 tw-block tw-font-medium tw-uppercase -tw-tracking-tightest tw-text-secondary-light"
+                    className="tw:mb-1 tw:block tw:font-medium tw:uppercase tw:-tracking-tightest tw:text-secondary-light"
                 >
                     {category.title}
                 </Anchor>
-                <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
+                <h3 className="tw:mb-0 tw:text-xl tw:leading-normal">
                     <Anchor path={path}>{title}</Anchor>
                 </h3>
                 <ul>
-                    <li className="tw-mt-3.8 tw-text-md">
-                        <i className="far fa-calendar tw-mr-2.5" />
+                    <li className="tw:mt-3.8 tw:text-md">
+                        <i className="far fa-calendar tw:mr-2.5" />
                         {postedAt}
                     </li>
                 </ul>

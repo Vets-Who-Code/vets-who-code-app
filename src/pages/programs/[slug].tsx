@@ -27,8 +27,8 @@ const ProgramPage: NextPage<ProgramPageProps> & { Layout: typeof Layout } = ({
                 title={`${frontmatter.title} | Vets Who Code`}
                 description={frontmatter.description}
             />
-            <div className="tw-container tw-py-10 md:tw-py-15">
-                <h1 className="tw-mb-6 tw-text-3xl tw-font-bold md:tw-text-4xl">
+            <div className="tw:container tw:py-10 tw:md:py-15">
+                <h1 className="tw:mb-6 tw:text-3xl tw:font-bold tw:md:text-4xl">
                     {frontmatter.title}
                 </h1>
                 <div className="prose md:prose-lg max-w-none">

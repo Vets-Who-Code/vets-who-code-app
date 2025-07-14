@@ -8,9 +8,9 @@ const TabNav = ({ id, children, onClick, isActive, variant, className }: TabProp
             className={clsx(
                 "tab-nav",
                 variant === "underline" &&
-                    "tw-relative tw-px-[14px] tw-py-[9px] tw-text-base tw-font-semibold tw-leading-snug sm:tw-text-xl sm:tw-font-bold lg:tw-px-6.1 lg:tw-py-[9px]",
-                !isActive && "tw-text-gray-400",
-                isActive && "tw-text-heading",
+                    "tw:relative tw:px-[14px] tw:py-[9px] tw:text-base tw:font-semibold tw:leading-snug tw:sm:text-xl tw:sm:font-bold tw:lg:px-6.1 tw:lg:py-[9px]",
+                !isActive && "tw:text-gray-400",
+                isActive && "tw:text-heading",
                 className
             )}
             type="button"
@@ -23,7 +23,7 @@ const TabNav = ({ id, children, onClick, isActive, variant, className }: TabProp
             {children}
             {isActive && variant === "underline" ? (
                 <motion.span
-                    className="tw-absolute -tw-bottom-1 tw-left-0 tw-z-1 tw-block tw-h-0.5 tw-w-full tw-bg-primary"
+                    className="tw:absolute tw:-bottom-1 tw:left-0 tw:z-1 tw:block tw:h-0.5 tw:w-full tw:bg-primary"
                     layoutId="underline"
                 />
             ) : null}

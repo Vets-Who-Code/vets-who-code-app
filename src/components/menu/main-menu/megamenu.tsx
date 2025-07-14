@@ -12,9 +12,9 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-invisible tw-absolute tw-top-full tw-z-20 tw-mt-5 tw-flex tw-w-[1170px] tw-flex-wrap tw-border-b-4 tw-border-b-primary tw-bg-white tw-px-3.8 tw-pb-[34px] tw-pt-7.5 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-300",
-                align === "left" && "tw-left-0",
-                align === "center" && "tw-left-1/2 -tw-translate-x-1/2",
+                "tw:invisible tw:absolute tw:top-full tw:z-20 tw:mt-5 tw:flex tw:w-[1170px] tw:flex-wrap tw:border-b-4 tw:border-b-primary tw:bg-white tw:px-3.8 tw:pb-[34px] tw:pt-7.5 tw:opacity-0 tw:shadow-2md tw:shadow-black/5 tw:transition-all tw:duration-300",
+                align === "left" && "tw:left-0",
+                align === "center" && "tw:left-1/2 tw:-translate-x-1/2",
                 className
             )}
             {...rest}
@@ -23,27 +23,27 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                 <div
                     key={id}
                     className={clsx(
-                        "tw-shrink-0 tw-grow-0 tw-px-3.8",
-                        submenu && "tw-w-1/4 tw-basis-1/4",
-                        banner && "tw-w-1/2 tw-basis-1/2"
+                        "tw:shrink-0 tw:grow-0 tw:px-3.8",
+                        submenu && "tw:w-1/4 tw:basis-1/4",
+                        banner && "tw:w-1/2 tw:basis-1/2"
                     )}
                 >
-                    <h2 className="tw-sr-only">{title}</h2>
+                    <h2 className="tw:sr-only">{title}</h2>
                     {submenu && (
                         <ul>
                             {submenu?.map((nav) => (
-                                <li key={nav.id} className="tw-relative">
+                                <li key={nav.id} className="tw:relative">
                                     <Anchor
                                         path={nav.path}
                                         className={clsx(
-                                            "tw-block tw-py-2 tw-font-medium tw-leading-relaxed hover:tw-text-heading",
-                                            nav.status === "coming soon" && "tw-pointer-events-none"
+                                            "tw:block tw:py-2 tw:font-medium tw:leading-relaxed tw:hover:text-heading",
+                                            nav.status === "coming soon" && "tw:pointer-events-none"
                                         )}
                                     >
                                         {nav.label}
                                         {nav.status === "hot" && (
                                             <span
-                                                className="tw-ml-2.5 tw-text-lg"
+                                                className="tw:ml-2.5 tw:text-lg"
                                                 role="img"
                                                 aria-label="Priority Program"
                                                 title="Priority Program"

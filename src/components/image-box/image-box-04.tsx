@@ -15,15 +15,15 @@ const ImageBox = forwardRef<HTMLDivElement, ImageBoxProps>(
             <div
                 ref={ref}
                 className={clsx(
-                    "image-box tw-relative tw-bg-white tw-bg-no-repeat tw-px-[24px] tw-pt-[35px] tw-shadow-lg tw-shadow-heading/10",
+                    "image-box tw:relative tw:bg-white tw:bg-no-repeat tw:px-[24px] tw:pt-[35px] tw:shadow-lg tw:shadow-heading/10",
                     className
                 )}
                 style={{ backgroundImage: `url(${image?.src})` }}
             >
-                <h3 className="tw-mb-0 tw-text-lg tw-leading-normal tw-text-secondary md:tw-text-xl">
+                <h3 className="tw:mb-0 tw:text-lg tw:leading-normal tw:text-secondary tw:md:text-xl">
                     {title}
                 </h3>
-                <p className="tw-mt-[5px]">{description}</p>
+                <p className="tw:mt-[5px]">{description}</p>
             </div>
         );
     }

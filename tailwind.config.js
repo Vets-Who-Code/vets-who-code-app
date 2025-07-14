@@ -1,9 +1,8 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
-    safelist: ["group-hover:tw-animate-wiggle"],
-    content: ["./src/**/*.tsx"],
-    prefix: "tw-",
+    safelist: ["tw:group-hover:animate-wiggle"],
+    // content: ["./src/**/*.tsx"],
     theme: {
         extend: {
             animation: {
@@ -155,8 +154,8 @@ module.exports = {
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
-                        "--tw-prose-body": theme("colors.body"),
-                        "--tw-prose-headings": theme("colors.heading"),
+                        "--tw:prose-body": theme("colors.body"),
+                        "--tw:prose-headings": theme("colors.heading"),
                         iframe: {
                             "margin-top": "2.5rem",
                             "margin-bottom": "2.5rem",
@@ -245,6 +244,16 @@ module.exports = {
                 "3xl": "1600px",
                 // => @media (min-width: 1600px) { ... }
             },
+            container: {
+                center: true,
+                padding: "1rem", // or 15px if you prefer
+                screens: {
+                    sm: "576px",
+                    md: "768px",
+                    lg: "992px",
+                    xl: "1230px",
+                },
+            },
             zIndex: {
                 1: 1,
             },
@@ -289,31 +298,30 @@ module.exports = {
             addVariant("second", "&:nth-child(2)");
             addVariant("third", "&:nth-child(3)");
         },
-        require("@tailwindcss/typography"),
-        function addComponentsFunc({ addComponents }) {
-            addComponents({
-                ".container": {
-                    maxWidth: "100%",
-                    marginInline: "auto",
-                    paddingInline: "15px",
-                    position: "relative",
-                    zIndex: 20,
-                    "@screen sm": {
-                        maxWidth: "576px",
-                    },
-                    "@screen md": {
-                        maxWidth: "768px",
-                    },
-                    "@screen lg": {
-                        maxWidth: "992px",
-                    },
-                    "@screen xl": {
-                        maxWidth: "1230px",
-                    },
-                },
-            });
-        },
-        require("tailwindcss-animate"),
-        require("tailwindcss-animate"),
+        // require("@tailwindcss/typography"),
+        // function addComponentsFunc({ addComponents }) {
+        //     addComponents({
+        //         ".container": {
+        //             maxWidth: "100%",
+        //             marginInline: "auto",
+        //             paddingInline: "15px",
+        //             position: "relative",
+        //             zIndex: 20,
+        //             "@screen sm": {
+        //                 maxWidth: "576px",
+        //             },
+        //             "@screen md": {
+        //                 maxWidth: "768px",
+        //             },
+        //             "@screen lg": {
+        //                 maxWidth: "992px",
+        //             },
+        //             "@screen xl": {
+        //                 maxWidth: "1230px",
+        //             },
+        //         },
+        //     });
+        // },
+        // require("tailwindcss-animate"),
     ],
 };

@@ -43,11 +43,11 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="tw-max-w-[470px] tw-bg-white tw-px-[50px] tw-pb-[50px] tw-pt-7.5 tw-shadow-2xs tw-shadow-heading/10">
-            <h3 className="tw-mb-5 tw-text-h2">Login</h3>
+        <div className="tw:max-w-[470px] tw:bg-white tw:px-[50px] tw:pb-[50px] tw:pt-7.5 tw:shadow-2xs tw:shadow-heading/10">
+            <h3 className="tw:mb-5 tw:text-h2">Login</h3>
             <form onSubmit={handleSubmit(onSubmit)} noValidate>
-                <div className="tw-mb-7.5">
-                    <label htmlFor="username" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="username" className="tw:text-md tw:text-heading">
                         Username *
                     </label>
                     <Input
@@ -63,8 +63,8 @@ const LoginForm = () => {
                     />
                     <small>Default Username: Admin</small>
                 </div>
-                <div className="tw-mb-7.5">
-                    <label htmlFor="password" className="tw-text-md tw-text-heading">
+                <div className="tw:mb-7.5">
+                    <label htmlFor="password" className="tw:text-md tw:text-heading">
                         Password *
                     </label>
                     <Input
@@ -84,11 +84,11 @@ const LoginForm = () => {
                 </div>
                 <Checkbox name="remember" id="remember" label="Remember me" />
                 {serverState && <FeedbackText>{serverState}</FeedbackText>}
-                <Button type="submit" fullwidth className="tw-mt-7.5">
+                <Button type="submit" fullwidth className="tw:mt-7.5">
                     Log In
                 </Button>
-                <div className="tw-mt-5 tw-flex tw-flex-col tw-items-center tw-justify-center">
-                    <Anchor path="/forgot-password" className="tw-mb-2">
+                <div className="tw:mt-5 tw:flex tw:flex-col tw:items-center tw:justify-center">
+                    <Anchor path="/forgot-password" className="tw:mb-2">
                         Forgot Password?
                     </Anchor>
                     <Anchor path="/register">Register New Account</Anchor>

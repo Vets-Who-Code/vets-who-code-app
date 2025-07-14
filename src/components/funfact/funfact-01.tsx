@@ -33,15 +33,15 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(({ counter, suffix, title }, 
     }, [counter, inView]);
 
     return (
-        <div className="funfact tw-text-center" ref={continerRef}>
+        <div className="funfact tw:text-center" ref={continerRef}>
             <motion.div
-                className="tw-text-4xl tw-font-extrabold tw-leading-none tw-text-primary md:tw-text-5xl"
+                className="tw:text-4xl tw:font-extrabold tw:leading-none tw:text-primary tw:md:text-5xl"
                 onViewportEnter={viewPortHandler}
             >
                 <span ref={nodeRef} />
                 {suffix}
             </motion.div>
-            <h3 className="tw-mb-0 tw-mt-2.5 tw-text-md tw-font-bold tw-uppercase -tw-tracking-tightest tw-text-secondary md:tw-mt-[14px] md:tw-text-base">
+            <h3 className="tw:mb-0 tw:mt-2.5 tw:text-md tw:font-bold tw:uppercase tw:-tracking-tightest tw:text-secondary tw:md:mt-[14px] tw:md:text-base">
                 {title}
             </h3>
         </div>

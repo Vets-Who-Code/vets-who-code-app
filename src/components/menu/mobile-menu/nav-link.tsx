@@ -9,7 +9,7 @@ const NavLink = ({ children, path }: TProps) => {
     return (
         <Anchor
             path={path}
-            className="tw-block tw-py-[19px] tw-text-[16px] tw-font-medium tw-leading-normal tw-text-white hover:tw-text-white"
+            className="tw:block tw:py-[19px] tw:text-[16px] tw:font-medium tw:leading-normal tw:text-white tw:hover:text-white"
         >
             {children}
         </Anchor>

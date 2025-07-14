@@ -16,7 +16,7 @@ const FunfactArea = ({ data: { items }, space, bg }: TProps) => {
     return (
         <Section className="funfact-area" space={space} bg={bg}>
             <div
-                className="tw-container tw-grid tw-bg-[top_center] tw-pb-[52px] tw-pt-[99px] sm:tw-grid-cols-2 md:tw-bg-left lg:tw-grid-cols-4"
+                className="tw:container tw:grid tw:bg-position-[top_center] tw:pb-[52px] tw:pt-[99px] tw:sm:grid-cols-2 tw:md:bg-left tw:lg:grid-cols-4"
                 style={{
                     backgroundImage: `url("/images/bg/background-pattern-grid-line-02.png")`,
                 }}
@@ -28,7 +28,7 @@ const FunfactArea = ({ data: { items }, space, bg }: TProps) => {
                         title={item.title}
                         suffix={item.suffix}
                         description={item.description}
-                        className="tw-mb-[50px]"
+                        className="tw:mb-[50px]"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

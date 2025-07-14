@@ -23,14 +23,14 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
             <OffcanvasHeader onClose={onClose}>
                 <Logo variant="dark" />
             </OffcanvasHeader>
-            <OffcanvasBody className="tw-no-scroll">
+            <OffcanvasBody className="tw:no-scroll">
                 <ul>
                     {menu.map(({ id, label, path, submenu, megamenu }) => {
                         const isExpand = id === expanded;
                         return (
                             <li
                                 key={id}
-                                className="group tw-relative tw-border-b tw-border-b-white/[.15] last:tw-border-b-0"
+                                className="group tw:relative tw:border-b tw:border-b-white/15 tw:last:border-b-0"
                             >
                                 <NavLink path={path}>{label}</NavLink>
                                 {(submenu || megamenu) && (
@@ -40,7 +40,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                 )}
                                 {submenu && (
                                     <motion.div
-                                        className="tw-overflow-hidden"
+                                        className="tw:overflow-hidden"
                                         initial={{ height: 0 }}
                                         animate={{
                                             height: isExpand ? "100%" : "0",
@@ -56,7 +56,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                 )}
                                 {megamenu && (
                                     <motion.div
-                                        className="tw-overflow-hidden"
+                                        className="tw:overflow-hidden"
                                         initial={{ height: 0 }}
                                         animate={{
                                             height: isExpand ? "100%" : "0",

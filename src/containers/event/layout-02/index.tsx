@@ -37,12 +37,12 @@ const options = {
 const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="event-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -67,7 +67,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                                     thumbnail={event.thumbnail}
                                     start_date={event.start_date}
                                     location={event.location}
-                                    className="tw-mb-7.5"
+                                    className="tw:mb-7.5"
                                 />
                             </SwiperSlide>
                         ))}
@@ -77,7 +77,7 @@ const EventArea = ({ data: { section_title, motto, events }, space, bg, titleSiz
                 {motto && (
                     <AnimatedMottoText
                         {...motto}
-                        className="tw-mx-auto tw-mt-10 tw-text-center lg:tw-w-7/12"
+                        className="tw:mx-auto tw:mt-10 tw:text-center tw:lg:w-7/12"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

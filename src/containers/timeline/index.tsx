@@ -17,12 +17,12 @@ type TProps = TSection & {
 const TimelineArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="timeline-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -30,8 +30,8 @@ const TimelineArea = ({ data: { section_title, items }, space, bg, titleSize }: 
                     />
                 )}
                 {items && items.length > 0 && (
-                    <ul className="tw-relative tw-pb-[65px] tw-pt-8">
-                        <li className="tw-absolute tw-left-3.8 tw-top-0 -tw-ml-px tw-h-full tw-border-l-2 tw-border-l-mishcka md:tw-left-1/2" />
+                    <ul className="tw:relative tw:pb-[65px] tw:pt-8">
+                        <li className="tw:absolute tw:left-3.8 tw:top-0 tw:-ml-px tw:h-full tw:border-l-2 tw:border-l-mishcka tw:md:left-1/2" />
                         {items.map(({ id, headings, images, texts }, idx) => (
                             <TimelineItem
                                 key={id}

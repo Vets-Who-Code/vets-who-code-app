@@ -12,17 +12,17 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "course tw-group tw-relative tw-h-full tw-rounded tw-bg-gray-100",
-                    "before:tw-absolute before:tw-inset-0 before:tw-z-1 before:tw-rounded-b before:tw-opacity-0 before:tw-shadow-4xl before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-duration-300 before:tw-content-['']",
-                    "hover:tw-bg-white hover:before:tw-opacity-100",
+                    "course tw:group tw:relative tw:h-full tw:rounded-sm tw:bg-gray-100",
+                    "tw:before:absolute tw:before:inset-0 tw:before:z-1 tw:before:rounded-b tw:before:opacity-0 tw:before:shadow-4xl tw:before:shadow-black/12 tw:before:transition-opacity tw:before:duration-300 tw:before:content-['']",
+                    "tw:hover:bg-white tw:hover:before:opacity-100",
                     className
                 )}
                 ref={ref}
             >
-                <figure className="tw-relative tw-overflow-hidden">
+                <figure className="tw:relative tw:overflow-hidden">
                     {thumbnail?.src && (
                         <img
-                            className="tw-w-full tw-rounded-t tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
+                            className="tw:w-full tw:rounded-t tw:transition-transform tw:duration-1000 tw:ease-out tw:group-hover:scale-110"
                             src={thumbnail.src}
                             alt={thumbnail?.alt || "Course"}
                             width={thumbnail?.width || 370}
@@ -35,8 +35,8 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                         {title}
                     </Anchor>
                 </figure>
-                <div className="info tw-p-[30px]">
-                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
+                <div className="info tw:p-[30px]">
+                    <h3 className="tw:mb-0 tw:text-xl tw:leading-normal">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                 </div>
