@@ -15,7 +15,6 @@
     "lint": "next lint",
     "lint:fix": "yarn typecheck & yarn format & yarn lint --fix",
     "prepare": "husky install",
-    "postinstall": "prisma generate && prisma migrate deploy && npx tsx src/scripts/mos-data-import.ts",
     "postbuild": "next-sitemap",
     "test": "jest"
   },
