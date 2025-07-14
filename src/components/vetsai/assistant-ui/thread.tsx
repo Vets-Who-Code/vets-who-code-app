@@ -250,12 +250,7 @@ const AssistantMessage: FC = () => {
 
 export const Thread: FC = () => {
     return (
-        <ThreadPrimitive.Root
-            className="bg-background box-border flex h-full flex-col overflow-hidden"
-            style={{
-                ["--thread-max-width" as string]: "42rem",
-            }}
-        >
+        <ThreadPrimitive.Root className="bg-background box-border flex h-full flex-col overflow-hidden">
             <ThreadPrimitive.Viewport className="flex h-full flex-col items-center overflow-y-scroll scroll-smooth bg-inherit px-4 pt-8">
                 <ThreadWelcome />
 
