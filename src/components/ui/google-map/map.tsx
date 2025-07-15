@@ -42,7 +42,7 @@ const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
 
     return (
         <>
-            <div ref={ref} className="tw-h-full tw-w-full" />
+            <div ref={ref} className="tw:h-full tw:w-full" />
             {Children.map(children, (child) => {
                 if (isValidElement(child)) {
                     // set the map prop on the child component

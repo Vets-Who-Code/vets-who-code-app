@@ -32,14 +32,14 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
 
     return (
         <>
-            <div className="hero-area tw-relative tw-pb-[130px] tw-pt-[100px] md:tw-py-[170px] xl:tw-pb-[248px] xl:tw-pt-[270px]">
+            <div className="hero-area tw:relative tw:pb-[130px] tw:pt-[100px] tw:md:py-[170px] tw:xl:pb-[248px] tw:xl:pt-[270px]">
                 {images?.[0]?.src && (
-                    <div className="tw-absolute tw-inset-0 -tw-z-10">
+                    <div className="tw:absolute tw:inset-0 tw:-z-10">
                         <img
                             src={images[0].src}
                             alt={images[0]?.alt || "bg"}
                             loading="eager"
-                            className="tw-h-full tw-w-full tw-object-cover"
+                            className="tw:h-full tw:w-full tw:object-cover"
                         />
                         <div
                             style={{
@@ -54,20 +54,20 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                     </div>
                 )}
                 <motion.div
-                    className="tw-container tw-text-center"
+                    className="tw:container tw:text-center"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
-                    <div className="tw-flex tw-flex-col tw-items-center">
+                    <div className="tw:flex tw:flex-col tw:items-center">
                         {headings?.[0]?.content && (
-                            <div className="md:tw-mb-4">
-                                <h1 className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-white lg:tw-text-[56px]">
+                            <div className="tw:md:mb-4">
+                                <h1 className="tw:text-[46px] tw:font-medium tw:leading-tight tw:text-white tw:lg:text-[56px]">
                                     {headings[0].content}
                                 </h1>
-                                <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
-                                    <span className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-primary lg:tw-text-[56px]">
+                                <div className="tw:flex tw:min-h-[60px] tw:items-center tw:justify-center tw:md:min-h-[70px]">
+                                    <span className="tw:text-[46px] tw:font-medium tw:leading-tight tw:text-primary tw:lg:text-[56px]">
                                         {animatedText}
                                         <Cursor />
                                     </span>
@@ -77,31 +77,31 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                         {texts?.map((text) => (
                             <p
                                 key={text.id}
-                                className="tw-mb-5 tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white sm:tw-mb-8"
+                                className="tw:mb-5 tw:text-lg tw:font-medium tw:leading-relaxed tw:text-white tw:sm:mb-8"
                             >
                                 {text.content}
                             </p>
                         ))}
-                        <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
+                        <div className="tw:flex tw:flex-wrap tw:items-center tw:justify-center">
                             {buttons?.[0] && (
-                                <Button {...buttons[0]} className="tw-m-2.5">
+                                <Button {...buttons[0]} className="tw:m-2.5">
                                     {buttons[0].content}
                                 </Button>
                             )}
                             {buttons?.[1] && (
                                 <Button
                                     {...buttons[1]}
-                                    className="tw-m-2.5"
+                                    className="tw:m-2.5"
                                     onClick={() => setOpen(true)}
                                 >
-                                    <i className={clsx(buttons[1]?.icon, "tw-mr-4")} />
+                                    <i className={clsx(buttons[1]?.icon, "tw:mr-4")} />
                                     {buttons[1].content}
                                 </Button>
                             )}
                         </div>
                     </div>
                 </motion.div>
-                <BottomShape color="tw-fill-light-100" />
+                <BottomShape color="tw:fill-light-100" />
             </div>
 
             {video && (

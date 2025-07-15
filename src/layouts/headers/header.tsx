@@ -31,14 +31,14 @@ const Header = ({ shadow, fluid }: TProps) => {
 
     return (
         <>
-            <header className="header tw-relative">
-                <div className="header-top tw-bg-gray-200 tw-py-2.5">
-                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
-                        <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
+            <header className="header tw:relative">
+                <div className="header-top tw:bg-gray-200 tw:py-2.5">
+                    <div className="tw:container tw:flex tw:flex-wrap tw:items-center tw:justify-center">
+                        <p className="tw:mb-3.8 tw:flex-100 tw:text-center tw:md:mb-0 tw:md:mr-7.5 tw:md:flex-1 tw:md:text-left">
                             Platform Launch + Vets Who Code Demo Day
                         </p>
-                        <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
-                            <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
+                        <div className="tw:flex tw:items-center tw:sm:mr-[45px] tw:md:mr-5 tw:lg:mr-[45px]">
+                            <i className="far fa-clock tw:mr-[5px] tw:text-lg tw:text-secondary" />
                             <CountdownTimer targetDate="2025/11/11" />
                         </div>
                         <Button size="xs" path="/donate">
@@ -46,34 +46,34 @@ const Header = ({ shadow, fluid }: TProps) => {
                         </Button>
                     </div>
                 </div>
-                <div className="header-bottom tw-relative">
+                <div className="header-bottom tw:relative">
                     <div
                         ref={measuredRef}
                         className={clsx(
-                            "header-inner tw-left-0 tw-top-0 tw-z-50 tw-h-auto tw-w-full tw-bg-white tw-py-[25px] tw-transition-all xl:tw-py-0",
-                            !sticky && "tw-absolute",
+                            "header-inner tw:left-0 tw:top-0 tw:z-50 tw:h-auto tw:w-full tw:bg-white tw:py-[25px] tw:transition-all tw:xl:py-0",
+                            !sticky && "tw:absolute",
                             sticky &&
-                                "tw-fixed tw-animate-headerSlideDown tw-shadow-3md tw-shadow-black/10",
-                            shadow && "tw-shadow-sm tw-shadow-black/5"
+                                "tw:fixed tw:animate-header-slide-down tw:shadow-3md tw:shadow-black/10",
+                            shadow && "tw:shadow-xs tw:shadow-black/5"
                         )}
                     >
                         <div
                             className={clsx(
-                                "tw-container tw-grid tw-grid-flow-col tw-items-center xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%]",
-                                fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
+                                "tw:container tw:grid tw:grid-flow-col tw:items-center tw:xl:grid-cols-[22%_minmax(56%,1fr)_22%]",
+                                fluid && "tw:max-w-full tw:px-3.8 tw:3xl:px-37"
                             )}
                         >
-                            <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
+                            <Logo variant="dark" className="tw:max-w-[120px] tw:sm:max-w-[158px]" />
                             <MainMenu
-                                className="tw-hidden xl:tw-block"
+                                className="tw:hidden tw:xl:block"
                                 align="center"
                                 menu={menu}
                                 hoverStyle="B"
                             />
-                            <div className="tw-flex tw-items-center tw-justify-end">
-                                <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                            <div className="tw:flex tw:items-center tw:justify-end">
+                                <Social01 className="tw:hidden tw:md:flex tw:md:items-center" />
                                 <BurgerButton
-                                    className="tw-pl-2 xl:tw-hidden"
+                                    className="tw:pl-2 tw:xl:hidden tw:hover:cursor-pointer"
                                     color="dark"
                                     onClick={() => setOffcanvas(true)}
                                     label="Toggle Search"
@@ -81,7 +81,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                             </div>
                         </div>
                     </div>
-                    <div className="tw-h-20" />
+                    <div className="tw:h-20" />
                 </div>
             </header>
             <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />

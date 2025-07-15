@@ -41,9 +41,9 @@ const TestimonialArea = ({
     }, []);
     return (
         <Section className="testimonial-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-[50px] lg:tw-grid-cols-[41.67%_minmax(54%,_1fr)] lg:tw-gap-7.5">
+            <div className="tw:container tw:grid tw:grid-cols-1 tw:gap-[50px] tw:lg:grid-cols-[41.67%_minmax(54%,1fr)] tw:lg:gap-7.5">
                 <motion.div
-                    className="lg:tw-max-w-[420px]"
+                    className="tw:lg:max-w-[420px]"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -53,7 +53,7 @@ const TestimonialArea = ({
                         <SectionTitle {...section_title} align="left" titleSize={titleSize} />
                     )}
 
-                    {motto && <MottoText {...motto} size="md" className="tw-mt-4" />}
+                    {motto && <MottoText {...motto} size="md" className="tw:mt-4" />}
                 </motion.div>
                 {items && items.length > 0 && (
                     <AnimatedSwiper
@@ -66,7 +66,7 @@ const TestimonialArea = ({
                         {items.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <Testimonial
-                                    className="!tw-bg-gray-200 tw-shadow-[0_16px_40px_-40px]"
+                                    className="!tw:bg-gray-200 tw:shadow-2lg"
                                     name={item.name}
                                     designation={item.designation}
                                     title={item.title}

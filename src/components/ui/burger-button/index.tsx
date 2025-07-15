@@ -8,28 +8,28 @@ type TProps = {
 };
 
 const BurgerButton = ({ className, onClick, color, label }: TProps) => {
-    const baseClass = "tw-relative tw-block tw-overflow-hidden tw-w-6 tw-h-0.5";
+    const baseClass = "tw:relative tw:block tw:overflow-hidden tw:w-6 tw:h-0.5";
     const beforeClass =
-        "before:tw-absolute before:tw-content-[''] before:tw-top-0 before:tw-left-0 before:tw-flex-100 before:tw-w-full before:tw-h-full before:tw-scale-x-[1px] before:tw-transition-transform before:tw-duration-600 before:tw-ease-in-expo";
+        "tw:before:absolute tw:before:content-[''] tw:before:top-0 tw:before:left-0 tw:before:flex-100 tw:before:w-full tw:before:h-full tw:before:scale-x-[1px] tw:before:transition-transform tw:before:duration-600 tw:before:ease-in-expo";
     const afterClass =
-        "after:tw-absolute after:tw-content-[''] after:tw-top-0 after:tw-left-0 after:tw-flex-100 after:tw-w-full after:tw-h-full after:tw-scale-x-0 after:tw-transition-transform after:tw-duration-600 after:tw-ease-in-expo";
+        "tw:after:absolute tw:after:content-[''] tw:after:top-0 tw:after:left-0 tw:after:flex-100 tw:after:w-full tw:after:h-full tw:after:scale-x-0 tw:after:transition-transform tw:after:duration-600 tw:after:ease-in-expo";
     const hoverBeforeClass =
-        "group-hover:before:tw-scale-x-0 group-hover:before:tw-transition-transform group-hover:before:tw-duration-600 group-hover:before:tw-ease-in-expo";
+        "tw:group-hover:before:scale-x-0 tw:group-hover:before:transition-transform tw:group-hover:before:duration-600 tw:group-hover:before:ease-in-expo";
     const hoverAfterClass =
-        "group-hover:after:tw-scale-x-[1px] group-hover:after:tw-transition-transform group-hover:after:tw-duration-600 group-hover:after:tw-delay-200 group-hover:after:tw-ease-in-expo";
+        "tw:group-hover:after:scale-x-[1px] tw:group-hover:after:transition-transform tw:group-hover:after:duration-600 tw:group-hover:after:delay-200 tw:group-hover:after:ease-in-expo";
     const darkColor =
         color === "dark" &&
-        "before:tw-bg-dark group-hover:before:tw-bg-primary after:tw-bg-dark group-hover:before:tw-bg-primary";
+        "tw:before:bg-dark tw:group-hover:before:bg-primary tw:after:bg-dark tw:group-hover:before:bg-primary";
     const lightColor =
         color === "light" &&
-        "before:tw-bg-white group-hover:before:tw-bg-white after:tw-bg-white group-hover:before:tw-bg-white";
+        "tw:before:bg-white tw:group-hover:before:bg-white tw:after:bg-white tw:group-hover:before:bg-white";
 
     return (
         <button
             aria-label={label}
             type="button"
             onClick={onClick}
-            className={clsx("toggle tw-group", className)}
+            className={clsx("toggle tw:group", className)}
         >
             <i
                 className={clsx(
@@ -37,8 +37,8 @@ const BurgerButton = ({ className, onClick, color, label }: TProps) => {
                     baseClass,
                     beforeClass,
                     afterClass,
-                    "before:tw-origin-right",
-                    "after:tw-origin-left",
+                    "tw:before:origin-right",
+                    "tw:after:origin-left",
                     hoverBeforeClass,
                     hoverAfterClass,
                     darkColor,
@@ -47,12 +47,12 @@ const BurgerButton = ({ className, onClick, color, label }: TProps) => {
             />
             <i
                 className={clsx(
-                    "icon-middle tw-mt-1.5",
+                    "icon-middle tw:mt-1.5",
                     baseClass,
                     beforeClass,
                     afterClass,
-                    "before:tw-origin-left",
-                    "after:tw-origin-right",
+                    "tw:before:origin-left",
+                    "tw:after:origin-right",
                     hoverBeforeClass,
                     hoverAfterClass,
                     darkColor,
@@ -61,12 +61,12 @@ const BurgerButton = ({ className, onClick, color, label }: TProps) => {
             />
             <i
                 className={clsx(
-                    "icon-bottom tw-mt-1.5",
+                    "icon-bottom tw:mt-1.5",
                     baseClass,
                     beforeClass,
                     afterClass,
-                    "before:tw-origin-right",
-                    "after:tw-origin-left",
+                    "tw:before:origin-right",
+                    "tw:after:origin-left",
                     hoverBeforeClass,
                     hoverAfterClass,
                     darkColor,

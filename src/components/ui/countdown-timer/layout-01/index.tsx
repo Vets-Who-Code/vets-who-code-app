@@ -18,8 +18,8 @@ const CountdownTimer = ({ targetDate, className, align }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-grid tw-grid-cols-2 sm:tw-grid-cols-4",
-                align === "center" && "tw-mx-auto",
+                "tw:grid tw:grid-cols-2 tw:sm:grid-cols-4",
+                align === "center" && "tw:mx-auto",
                 className
             )}
         >

@@ -48,7 +48,7 @@ const MentorPage: PageProps = ({ data }) => {
             />
             <Wrapper>
                 <HeroImageArea data={content["hero-image-area"]} />
-                <div className="tw-container tw-my-8 tw-pt-16">
+                <div className="tw:container tw:my-8 tw:pt-16">
                     <TextBlock
                         content={mentorText}
                         heading="Join Our Vets Who Code Mentorship Program"
@@ -60,12 +60,12 @@ const MentorPage: PageProps = ({ data }) => {
                 <FunfactArea data={content["funfact-area"]} />
             </Wrapper>
             <GradationArea data={content["gradation-area"]} />
-            <div className="tw-mb-16">
+            <div className="tw:mb-16">
                 <MentorForm />
             </div>
-            <div className="tw-h-16" /> {/* This worked for space after MentorForm */}
+            <div className="tw:h-16" /> {/* This worked for space after MentorForm */}
             <CtaArea data={content["cta-area"]} space="none" />
-            <div className="tw-h-16" /> {/* New spacer after CtaArea */}
+            <div className="tw:h-16" /> {/* New spacer after CtaArea */}
         </>
     );
 };

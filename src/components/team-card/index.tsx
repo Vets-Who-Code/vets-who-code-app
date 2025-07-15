@@ -12,11 +12,11 @@ type TProps = {
 const TeamCard = forwardRef<HTMLDivElement, TProps>(
     ({ image, name, designation, socials }, ref) => {
         return (
-            <div className="team-member tw-group" ref={ref}>
-                <figure className="tw-relative tw-overflow-hidden">
+            <div className="team-member tw:group" ref={ref}>
+                <figure className="tw:relative tw:overflow-hidden">
                     {image?.src && (
                         <img
-                            className="tw-w-full tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
+                            className="tw:w-full tw:transition-transform tw:duration-1000 tw:ease-out tw:group-hover:scale-110"
                             src={image.src}
                             alt={image?.alt || name}
                             width={image?.width || 350}
@@ -29,14 +29,14 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                             color="dark"
                             size="lg"
                             tooltip
-                            className="tw-absolute tw-bottom-5 tw-left-5 tw-right-5 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
+                            className="tw:absolute tw:bottom-5 tw:left-5 tw:right-5 tw:justify-center tw:bg-white tw:py-2.5 tw:opacity-0 tw:transition-opacity tw:duration-300 tw:group-hover:opacity-100"
                         >
                             {socials.map((social) => (
                                 <SocialLink
                                     key={social.label}
                                     href={social.url}
                                     label={social.label}
-                                    className="tw-px-3.5"
+                                    className="tw:px-3.5"
                                 >
                                     <i className={social.icon} />
                                 </SocialLink>
@@ -44,7 +44,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                         </Social>
                     )}
                 </figure>
-                <div className="tw-mt-5 tw-text-center">
+                <div className="tw:mt-5 tw:text-center">
                     <h3>{name}</h3>
                     <p>{designation}</p>
                 </div>

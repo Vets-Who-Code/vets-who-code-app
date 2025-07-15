@@ -49,17 +49,17 @@ const Social = ({
         return null;
     });
     const flyoutClass =
-        "tw-absolute tw-bottom-full tw-right-0 -tw-translate-y-2.5 tw-w-auto tw-whitespace-nowrap tw-px-1 tw-bg-white tw-rounded tw-shadow-3sm tw-shadow-black/[.06] tw-drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw-z-10 tw-select-none tw-transition-all tw-duration-300 tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] tw-invisible tw-opacity-0";
+        "tw:absolute tw:bottom-full tw:right-0 tw:-translate-y-2.5 tw:w-auto tw:whitespace-nowrap tw:px-1 tw:bg-white tw:rounded-sm tw:shadow-3sm tw:shadow-black/6 tw:drop-shadow-[0_2px_20px_rgba(0,0,0,0.06)] tw:z-10 tw:select-none tw:transition-all tw:duration-300 tw:ease-[cubic-bezier(.71,1.7,.77,1.24)] tw:invisible tw:opacity-0";
     const flyoutBeforeClass =
-        "before:tw-absolute before:tw-content-[''] before:tw-top-full before:tw-right-5 before:tw-border-t-8 before:tw-border-t-white before:tw-border-x-[9px] before:tw-border-x-transparent before:tw-invisible before:tw-opacity-0";
+        "tw:before:absolute tw:before:content-[''] tw:before:top-full tw:before:right-5 tw:before:border-t-8 tw:before:border-t-white tw:before:border-x-[9px] tw:before:border-x-transparent tw:before:invisible tw:before:opacity-0";
     const flyoutAfterClass =
-        "after:tw-absolute after:tw-content-[''] after:tw-left-0 after:-tw-bottom-6 after:tw-w-full after:tw-h-7";
+        "tw:after:absolute tw:after:content-[''] tw:after:left-0 tw:after:-bottom-6 tw:after:w-full tw:after:h-7";
     const flyoutHoverClass =
-        "group-hover:tw-visible group-hover:tw-opacity-100 group-hover:-tw-translate-y-5 group-hover:before:tw-visible group-hover:before:tw-opacity-100";
+        "tw:group-hover:visible tw:group-hover:opacity-100 tw:group-hover:-translate-y-5 tw:group-hover:before:visible tw:group-hover:before:opacity-100";
     return (
         <div
             className={cn(
-                "social tw-flex",
+                "social tw:flex",
                 flyout && [flyoutClass, flyoutBeforeClass, flyoutAfterClass, flyoutHoverClass],
                 className
             )}

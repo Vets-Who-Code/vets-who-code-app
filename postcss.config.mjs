@@ -1,8 +1,7 @@
 const safelist = [
     /html/,
     /body/,
-    /^-tw-/,
-    /^tw-/,
+    /^tw:/,
     /^maxSm:/,
     /^maxXl:/,
     /^maxLg:/,
@@ -17,7 +16,7 @@ const safelist = [
     /^hover:/,
     /^focus:/,
     /^group/,
-    /^group-hover:tw-/,
+    /^tw:group-hover/,
     /^last:/,
     /^first:/,
     /^even:/,
@@ -29,14 +28,12 @@ const safelist = [
     /^react-tabs/,
 ];
 
-module.exports = {
-    plugins: [
-        "tailwindcss",
-        "autoprefixer",
-        process.env.NODE_ENV === "production"
-            ? [
-                  "@fullhuman/postcss-purgecss",
-                  {
+export default {
+    plugins: {
+        "@tailwindcss/postcss": {},
+        ...(process.env.NODE_ENV === "production"
+            ? {
+                  "@fullhuman/postcss-purgecss": {
                       content: ["./src/**/*.tsx"],
                       defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
                       safelist: {
@@ -45,7 +42,7 @@ module.exports = {
                           greedy: safelist,
                       },
                   },
-              ]
-            : null,
-    ],
+              }
+            : {}),
+    },
 };

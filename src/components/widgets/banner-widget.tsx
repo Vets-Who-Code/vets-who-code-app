@@ -1,6 +1,6 @@
 const BannerWidget = () => {
     return (
-        <div className="banner-widget tw-mt-[45px]">
+        <div className="banner-widget tw:mt-[45px]">
             <img
                 width="340"
                 height="318"

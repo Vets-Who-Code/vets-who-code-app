@@ -9,11 +9,11 @@ type TProps = Pick<IEvent, "thumbnail" | "title" | "start_date" | "start_time">;
 
 const HeroSection = ({ thumbnail, title, start_date, start_time }: TProps) => {
     return (
-        <div className="tw-relative tw-max-h-[760px] tw-bg-heading tw-py-[100px] md:tw-pb-[184px] md:tw-pt-[232px]">
-            <div className="tw-absolute tw-inset-0 after:tw-absolute after:tw-inset-0 after:tw-bg-black/40 after:tw-content-['']">
+        <div className="tw:relative tw:max-h-[760px] tw:bg-heading tw:py-[100px] tw:md:pb-[184px] tw:md:pt-[232px]">
+            <div className="tw:absolute tw:inset-0 tw:after:absolute tw:after:inset-0 tw:after:bg-black/40 tw:after:content-['']">
                 {thumbnail?.src && (
                     <img
-                        className="tw-h-full tw-w-full tw-object-cover"
+                        className="tw:h-full tw:w-full tw:object-cover"
                         src={thumbnail.src}
                         alt={thumbnail?.alt || title}
                         width="1920"
@@ -21,16 +21,16 @@ const HeroSection = ({ thumbnail, title, start_date, start_time }: TProps) => {
                 )}
             </div>
 
-            <div className="tw-container tw-relative tw-z-1 tw-text-center tw-text-white">
-                <p className="tw-mb-7 tw-font-bold tw-uppercase tw-tracking-[4px]">
+            <div className="tw:container tw:relative tw:z-1 tw:text-center tw:text-white">
+                <p className="tw:mb-7 tw:font-bold tw:uppercase tw:tracking-[4px]">
                     {dayjs(start_date).format("MMMM YY")}{" "}
                 </p>
 
-                <h1 className="tw-mb-0 tw-text-[40px] tw-leading-[1.15] tw-text-white md:tw-text-5xl lg:tw-text-[56px]">
+                <h1 className="tw:mb-0 tw:text-[40px] tw:leading-[1.15] tw:text-white tw:md:text-5xl tw:lg:text-[56px]">
                     {title}
                 </h1>
                 <CountdownTimer
-                    className="tw-mt-[54px] tw-max-w-[470px]"
+                    className="tw:mt-[54px] tw:max-w-[470px]"
                     targetDate={`${start_date} ${start_time}`}
                 />
             </div>

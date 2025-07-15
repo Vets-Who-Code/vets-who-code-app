@@ -36,12 +36,12 @@ const TestimonialArea = ({ data: { section_title, items } }: TProps) => {
         };
     }, []);
     return (
-        <section className="testimonial-area tw-py-15 md:tw-py-20 lg:tw-py-[100px]">
-            <div className="tw-container">
+        <section className="testimonial-area tw:py-15 tw:md:py-20 tw:lg:py-[100px]">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
-                        className="tw-pb-7.5 md:tw-pb-15"
+                        className="tw:pb-7.5 tw:md:pb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}

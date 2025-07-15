@@ -12,10 +12,10 @@ const SocialLink = ({ children, href, label, onClick }: TProps) => {
     return (
         <a
             className={clsx(
-                "tw-relative tw-inline-block tw-px-3.8 tw-py-2.5 tw-text-base tw-text-gray-400",
-                "before:left-[calc(50%_-_7px) before:tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] before:tw-pointer-events-none before:tw-invisible before:tw-absolute before:tw-bottom-full before:tw-z-20 before:tw-mb-[-13px] before:tw-border-[7px] before:tw-border-transparent before:tw-border-t-primary before:tw-opacity-0 before:tw-transition-all before:tw-duration-300 before:tw-content-['']",
-                "after:tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] after:tw-pointer-events-none after:tw-invisible after:tw-absolute after:tw-bottom-full after:tw-left-1/2 after:tw-z-10 after:-tw-translate-x-1/2 after:tw-whitespace-nowrap after:tw-rounded after:tw-bg-primary after:tw-px-2.5 after:tw-py-2 after:tw-leading-none after:tw-text-white after:tw-opacity-0 after:tw-shadow-xs after:tw-shadow-black/30 after:tw-transition-all after:tw-duration-300 after:tw-content-[attr(aria-label)]",
-                "hover:before:tw-visible hover:before:-tw-translate-y-2 hover:before:tw-opacity-100 hover:before:tw-delay-100 hover:after:tw-visible hover:after:-tw-translate-y-2 hover:after:tw-opacity-100 hover:after:tw-delay-100"
+                "tw:relative tw:inline-block tw:px-3.8 tw:py-2.5 tw:text-base tw:text-gray-400",
+                "before:left-[calc(50%_-_7px) tw:before:ease-[cubic-bezier(.71,1.7,.77,1.24)] tw:before:pointer-events-none tw:before:invisible tw:before:absolute tw:before:bottom-full tw:before:z-20 tw:before:mb-[-13px] tw:before:border-[7px] tw:before:border-transparent tw:before:border-t-primary tw:before:opacity-0 tw:before:transition-all tw:before:duration-300 tw:before:content-['']",
+                "tw:after:ease-[cubic-bezier(.71,1.7,.77,1.24)] tw:after:pointer-events-none tw:after:invisible tw:after:absolute tw:after:bottom-full tw:after:left-1/2 tw:after:z-10 tw:after:-translate-x-1/2 tw:after:whitespace-nowrap tw:after:rounded tw:after:bg-primary tw:after:px-2.5 tw:after:py-2 tw:after:leading-none tw:after:text-white tw:after:opacity-0 tw:after:shadow-xs tw:after:shadow-black/30 tw:after:transition-all tw:after:duration-300 tw:after:content-[attr(aria-label)]",
+                "tw:hover:before:visible tw:hover:before:-translate-y-2 tw:hover:before:opacity-100 tw:hover:before:delay-100 tw:hover:after:visible tw:hover:after:-translate-y-2 tw:hover:after:opacity-100 tw:hover:after:delay-100"
             )}
             href={href}
             target="_blank"

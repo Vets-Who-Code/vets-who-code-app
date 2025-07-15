@@ -5,7 +5,7 @@ type TProps = {
 };
 
 const FallbackLayout = ({ children }: TProps) => {
-    return <div className="tw-relative">{children}</div>;
+    return <div className="tw:relative">{children}</div>;
 };
 
 export default FallbackLayout;

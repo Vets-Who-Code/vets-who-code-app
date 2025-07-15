@@ -8,8 +8,8 @@ type TProps = {
 
 const OverviewPanel = ({ description }: TProps) => {
     return (
-        <div className="course-overview tw-prose tw-max-w-none prose-h2:tw-text-xl sm:prose-h2:tw-text-3xl">
-            <h2 className="title tw-mb-5">Course Description</h2>
+        <div className="course-overview tw:prose tw:max-w-none tw:prose-h2:text-xl tw:sm:prose-h2:text-3xl">
+            <h2 className="title tw:mb-5">Course Description</h2>
             <HTMLContent body={description} />
         </div>
     );

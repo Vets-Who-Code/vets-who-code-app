@@ -17,7 +17,7 @@ type TProps = {
 const OriginalItems = ({ events, pagiData }: TProps) => {
     return (
         <>
-            <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+            <div className="tw:grid tw:gap-7.5 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                 {events.map((event) => (
                     <AnimatedEventCard
                         key={event.path}
@@ -35,7 +35,7 @@ const OriginalItems = ({ events, pagiData }: TProps) => {
             </div>
             {pagiData && pagiData.numberOfPages > 1 && (
                 <Pagination
-                    className="tw-mt-[50px]"
+                    className="tw:mt-[50px]"
                     numberOfPages={pagiData.numberOfPages}
                     currentPage={pagiData.currentPage}
                     rootPage="events"

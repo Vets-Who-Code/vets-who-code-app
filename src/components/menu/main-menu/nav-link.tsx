@@ -28,13 +28,13 @@ const NavLink = ({
             path={path}
             id={id}
             className={clsx(
-                "tw-flex tw-items-center tw-font-medium tw-leading-snug 2xl:tw-text-[16px]",
-                color === "light" && "tw-text-white hover:tw-text-white",
-                color === "dark" && "tw-text-secondary",
+                "tw:flex tw:items-center tw:font-medium tw:leading-snug tw:2xl:text-[16px]",
+                color === "light" && "tw:text-white tw:hover:text-white",
+                color === "dark" && "tw:text-secondary tw:hover:text-primary",
                 hoverStyle === "B" &&
-                    "tw-relative before:tw-absolute before:tw-bottom-0 before:tw-left-0 before:tw-h-px before:tw-w-0 before:tw-transition-all before:tw-duration-300 before:tw-content-[''] hover:before:tw-w-full",
-                hoverStyle === "B" && color === "dark" && "before:tw-bg-primary",
-                hoverStyle === "B" && color === "light" && "before:tw-bg-white"
+                    "tw:relative tw:before:absolute tw:before:bottom-0 tw:before:left-0 tw:before:h-px tw:before:w-0 tw:before:transition-all tw:before:duration-300 tw:before:content-[''] tw:hover:before:w-full",
+                hoverStyle === "B" && color === "dark" && "tw:before:bg-primary",
+                hoverStyle === "B" && color === "light" && "tw:before:bg-white"
             )}
             onKeyPress={onKeyPress}
             onFocus={onFocus}

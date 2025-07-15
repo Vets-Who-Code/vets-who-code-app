@@ -20,12 +20,12 @@ const FaqArea = ({ data: { section_title, items = [] }, space, bg, titleSize }: 
     const right = items.slice(mid);
     return (
         <Section className="faq-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -33,7 +33,7 @@ const FaqArea = ({ data: { section_title, items = [] }, space, bg, titleSize }: 
                     />
                 )}
                 <motion.div
-                    className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 lg:tw-gap-7.5"
+                    className="tw:grid tw:grid-cols-1 tw:lg:grid-cols-2 tw:lg:gap-7.5"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}

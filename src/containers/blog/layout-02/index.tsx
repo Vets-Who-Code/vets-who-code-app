@@ -24,7 +24,7 @@ const BlogArea = ({
 }: TProps) => {
     return (
         <Section className="blog-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+            <div className="tw:container tw:grid tw:gap-7.5 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                 <motion.div
                     initial="offscreen"
                     whileInView="onscreen"
@@ -36,17 +36,17 @@ const BlogArea = ({
                             {...section_title}
                             align="left"
                             titleSize={titleSize}
-                            className="tw-my-[25px]"
+                            className="tw:my-[25px]"
                         />
                     )}
                     {recentPosts.map(({ title, path }) => (
                         <Anchor
                             key={path}
                             path={path}
-                            className="tw-group tw-relative tw-mt-5 tw-block tw-pl-7.5 tw-font-bold tw-leading-[1.78] tw-text-secondary first:tw-mt-0"
+                            className="tw:group tw:relative tw:mt-5 tw:block tw:pl-7.5 tw:font-bold tw:leading-[1.78] tw:text-secondary tw:first:mt-0"
                         >
-                            <i className="fa fa-long-arrow-alt-right tw-absolute tw-left-0 tw-top-[5px] tw-text-base tw-transition-all tw-duration-300 group-hover:tw-invisible group-hover:tw-translate-x-full group-hover:tw-opacity-0" />
-                            <i className="fa fa-long-arrow-alt-right tw-invisible tw-absolute tw-left-0 tw-top-[5px] -tw-translate-x-full tw-text-base tw-text-primary tw-opacity-0 tw-transition-all tw-duration-300 group-hover:tw-visible group-hover:tw-translate-x-0 group-hover:tw-opacity-100" />
+                            <i className="fa fa-long-arrow-alt-right tw:absolute tw:left-0 tw:top-[5px] tw:text-base tw:transition-all tw:duration-300 tw:group-hover:invisible tw:group-hover:translate-x-full tw:group-hover:opacity-0" />
+                            <i className="fa fa-long-arrow-alt-right tw:invisible tw:absolute tw:left-0 tw:top-[5px] tw:-translate-x-full tw:text-base tw:text-primary tw:opacity-0 tw:transition-all tw:duration-300 tw:group-hover:visible tw:group-hover:translate-x-0 tw:group-hover:opacity-100" />
                             <span>{title}</span>
                         </Anchor>
                     ))}
@@ -71,7 +71,7 @@ const BlogArea = ({
 };
 
 BlogArea.defaultProps = {
-    bg: "tw-bg-spring",
+    bg: "tw:bg-spring",
 };
 
 export default BlogArea;

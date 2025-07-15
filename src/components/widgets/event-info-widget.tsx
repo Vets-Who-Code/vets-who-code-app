@@ -12,16 +12,16 @@ const EventInfo = ({ start_date }: TProps) => {
     return (
         <WidgetBox>
             {isExpired ? (
-                <Alert color="warning" className="tw-mt-5">
+                <Alert color="warning" className="tw:mt-5">
                     This event has expired
                 </Alert>
             ) : (
-                <Button fullwidth className="tw-mt-5">
+                <Button fullwidth className="tw:mt-5">
                     Book Now
                 </Button>
             )}
 
-            <SocialShare className="tw-mt-7 tw-justify-center" />
+            <SocialShare className="tw:mt-7 tw:justify-center" />
         </WidgetBox>
     );
 };

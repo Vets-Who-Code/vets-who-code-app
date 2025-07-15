@@ -13,16 +13,16 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "blog tw-group tw-relative tw-h-full tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5",
+                    "blog tw:group tw:relative tw:h-full tw:rounded-sm tw:bg-white tw:shadow-xl tw:shadow-black/5",
                     className
                 )}
                 ref={ref}
             >
-                <div className="tw-relative tw-h-[240px] tw-overflow-hidden tw-rounded-t sm:tw-h-64 md:tw-h-[225px] lg:tw-h-[185px] xl:tw-h-[250px]">
+                <div className="tw:relative tw:h-[240px] tw:overflow-hidden tw:rounded-t tw:sm:h-64 tw:md:h-[225px] tw:lg:h-[185px] tw:xl:h-[250px]">
                     {image?.src && (
-                        <div className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">
+                        <div className="tw:h-full tw:transition-transform tw:duration-1500 tw:group-hover:scale-110">
                             <img
-                                className="tw-h-full tw-w-full tw-object-cover"
+                                className="tw:h-full tw:w-full tw:object-cover"
                                 src={image.src}
                                 alt={image?.alt || title}
                                 width={image.width || 370}
@@ -36,22 +36,22 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </div>
 
-                <div className="info tw-px-5 tw-py-[26px]">
+                <div className="info tw:px-5 tw:py-[26px]">
                     {category && (
                         <Anchor
                             path={category.path}
-                            className="tw-mb-[17px] tw-block tw-font-medium tw-uppercase tw-leading-[1.4] -tw-tracking-tightest tw-text-body"
+                            className="tw:mb-[17px] tw:block tw:font-medium tw:uppercase tw:leading-[1.4] tw:-tracking-tightest tw:text-body"
                         >
                             {category.title}
                         </Anchor>
                     )}
-                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
+                    <h3 className="tw:mb-0 tw:text-xl tw:leading-normal">
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
 
-                    <ul className="tw-flex tw-text-md tw-text-gray-300">
-                        <li className="tw-mb-0 tw-mt-3.8">
-                            <i className="far fa-calendar tw-mr-2.5" />
+                    <ul className="tw:flex tw:text-md tw:text-gray-300">
+                        <li className="tw:mb-0 tw:mt-3.8">
+                            <i className="far fa-calendar tw:mr-2.5" />
                             {postedAt}
                         </li>
                     </ul>

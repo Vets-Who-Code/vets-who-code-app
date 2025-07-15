@@ -52,7 +52,7 @@ const Home: PageProps = ({ data }) => {
         <>
             <SEO title="Home" />
             <HeroArea data={content?.["hero-area"]} />
-            <Wrapper className="tw-mb-[140px]">
+            <Wrapper className="tw:mb-[140px]">
                 <ServiceArea data={content?.["service-area"]} space="none" />
                 <FunfactArea data={content?.["funfact-area"]} titleSize="large" />
                 <VideoArea data={content?.["video-area"]} space="top" />

@@ -8,7 +8,7 @@ type TProps = {
 
 const Logo = ({ variant = "dark", className }: TProps) => {
     return (
-        <Link href="/" className={clsx("tw-inline-block", className)}>
+        <Link href="/" className={clsx("tw:inline-block", className)}>
             {variant === "dark" ? (
                 <img
                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489505/VWC_Logo_Horizontal_gsxn3h.png"

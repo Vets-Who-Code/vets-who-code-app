@@ -37,10 +37,10 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
 
     return (
         <Section className="brand-area" space={space} bg={bg}>
-            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-primary">
+            <h2 className="tw:m-20 tw:flex tw:justify-center tw:text-primary">
                 We Are Thankful for our Corporate Donors and Sponsors
             </h2>
-            <div className="tw-container">
+            <div className="tw:container">
                 {items && (
                     <AnimatedSwiper
                         options={options}
@@ -52,10 +52,10 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                         {items.map((item) => (
                             <SwiperSlide
                                 key={item.id}
-                                className="tw-my-auto tw-flex tw-justify-center"
+                                className="tw:my-auto tw:flex tw:justify-center"
                             >
                                 <img
-                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100"
+                                    className="tw:opacity-50 tw:transition-opacity tw:hover:opacity-100"
                                     src={item.images?.[0]?.src}
                                     alt={item.images?.[0]?.alt || "logo"}
                                     loading="lazy"

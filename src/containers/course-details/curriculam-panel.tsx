@@ -23,12 +23,12 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
             {curriculum.map(({ id, title, description, lessons }) => (
                 <div
                     key={id}
-                    className="tw-mt-[50px] tw-rounded tw-border tw-border-alto first:tw-mt-0"
+                    className="tw:mt-[50px] tw:rounded-sm tw:border tw:border-alto tw:first:mt-0"
                 >
-                    <div className="tw-px-3.8 tw-py-5 md:tw-px-12 md:tw-py-[22px]">
-                        <h5 className="tw-mb-0 tw-text-xl">{title}</h5>
+                    <div className="tw:px-3.8 tw:py-5 tw:md:px-12 tw:md:py-[22px]">
+                        <h5 className="tw:mb-0 tw:text-xl">{title}</h5>
                         {description && (
-                            <p className="tw-mb-0 tw-mt-[5px] tw-text-md tw-italic">
+                            <p className="tw:mb-0 tw:mt-[5px] tw:text-md tw:italic">
                                 {description}
                             </p>
                         )}
@@ -40,43 +40,43 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
                                 return (
                                     <li
                                         key={item.slug}
-                                        className="tw-text-md odd:tw-bg-white even:tw-bg-light-100 even:last:tw-rounded-b"
+                                        className="tw:text-md tw:odd:bg-white tw:even:bg-light-100 tw:even:last:rounded-b"
                                     >
                                         <Anchor
                                             path={item.path}
                                             className={clsx(
-                                                "tw-flex tw-min-h-[56px] tw-flex-wrap tw-items-center tw-px-3.8 md:tw-pl-12 md:tw-pr-7.5",
-                                                !hasAccess && "tw-pointer-events-none"
+                                                "tw:flex tw:min-h-[56px] tw:flex-wrap tw:items-center tw:px-3.8 tw:md:pl-12 tw:md:pr-7.5",
+                                                !hasAccess && "tw:pointer-events-none"
                                             )}
                                         >
-                                            <span className="tw-grow tw-py-2.5">
+                                            <span className="tw:grow tw:py-2.5">
                                                 <i
                                                     className={clsx(
-                                                        "far tw-w-5 tw-text-md",
+                                                        "far tw:w-5 tw:text-md",
                                                         item.type === "lesson" && "fa-file-alt",
                                                         item.type === "quiz" && "fa-clock"
                                                     )}
                                                 />
                                                 {item.title}
                                             </span>
-                                            <div className="tw-flex tw-items-center tw-py-2.5 tw-text-right">
-                                                <Badge className="tw-ml-2.5">{item.duration}</Badge>
+                                            <div className="tw:flex tw:items-center tw:py-2.5 tw:text-right">
+                                                <Badge className="tw:ml-2.5">{item.duration}</Badge>
                                                 {item.type === "lesson" &&
                                                     item.access === "free" && (
                                                         <Badge
-                                                            className="tw-ml-2.5"
+                                                            className="tw:ml-2.5"
                                                             color="primary"
                                                         >
                                                             Preview
                                                         </Badge>
                                                     )}
                                                 {item?.video && (
-                                                    <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
+                                                    <span className="tw:ml-2.5 tw:px-3.8 tw:font-medium">
                                                         <i className="far fa-video" />
                                                     </span>
                                                 )}
                                                 {item.access === "paid" && (
-                                                    <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
+                                                    <span className="tw:ml-2.5 tw:px-3.8 tw:font-medium">
                                                         <i className="fas fa-lock-alt" />
                                                     </span>
                                                 )}

@@ -13,9 +13,9 @@ type TProps = TSection & {
 
 const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
     return (
-        <Section className="cta-area tw-relative tw-z-10" space={space} bg={bg}>
+        <Section className="cta-area tw:relative tw:z-10" space={space} bg={bg}>
             <motion.div
-                className="tw-container tw-text-center"
+                className="tw:container tw:text-center"
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true, amount: 0.4 }}
@@ -23,7 +23,7 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
             >
                 {section_title?.subtitle && (
                     <h3
-                        className="tw-mb-2.5 tw-leading-none tw-text-secondary child:tw-font-normal child:tw-text-primary"
+                        className="tw:mb-2.5 tw:leading-none tw:text-secondary tw:child:font-normal tw:child:text-primary"
                         dangerouslySetInnerHTML={{
                             __html: section_title.subtitle,
                         }}
@@ -31,7 +31,7 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
                 )}
                 {section_title?.title && (
                     <h2
-                        className="tw-mb-7.5 tw-text-[34px] tw-text-secondary"
+                        className="tw:mb-7.5 tw:text-[34px] tw:text-secondary"
                         dangerouslySetInnerHTML={{
                             __html: section_title.title,
                         }}
@@ -39,7 +39,7 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
                 )}
 
                 {buttons?.map(({ id, content, ...rest }) => (
-                    <Button key={id} {...rest} className="tw-w-[260px]">
+                    <Button key={id} {...rest} className="tw:w-[260px]">
                         {content}
                     </Button>
                 ))}

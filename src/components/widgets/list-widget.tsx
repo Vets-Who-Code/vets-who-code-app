@@ -12,15 +12,15 @@ const ListWidget = ({ className, mode }: TProps) => {
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Information</WidgetTitle>
             <ul
-                className={clsx("tw-text-md tw-font-medium", mode === "dark" && "tw-text-gray-400")}
+                className={clsx("tw:text-md tw:font-medium", mode === "dark" && "tw:text-gray-400")}
             >
-                <li className="tw-mb-[11px] tw-pr-5">
+                <li className="tw:mb-[11px] tw:pr-5">
                     <Anchor path="/code-of-conduct">Code of Conduct</Anchor>
                 </li>
-                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
+                <li className="tw:mb-[11px] tw:w-1/2 tw:pr-5">
                     <Anchor path="/faq">FAQ</Anchor>
                 </li>
-                <li className="tw-mb-[11px] tw-w-1/2 tw-pr-5">
+                <li className="tw:mb-[11px] tw:w-1/2 tw:pr-5">
                     <Anchor path="/contact-us">Contact us</Anchor>
                 </li>
             </ul>

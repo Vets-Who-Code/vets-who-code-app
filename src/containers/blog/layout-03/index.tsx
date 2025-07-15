@@ -19,12 +19,12 @@ type TProps = TSection & {
 const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="blog-area" space={space} bg={bg}>
-            <div className="tw-container tw-relative">
+            <div className="tw:container tw:relative">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -32,7 +32,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
                     />
                 )}
 
-                <div className="tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                <div className="tw:grid tw:grid-cols-1 tw:gap-7.5 tw:md:grid-cols-2 tw:lg:grid-cols-3">
                     {blogs?.map((blog) => (
                         <AnimatedBlogCard
                             key={blog.path}
@@ -54,7 +54,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
 };
 
 BlogArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw:bg-gray-200",
 };
 
 export default BlogArea;

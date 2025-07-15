@@ -36,7 +36,7 @@ const Profile: PageWithLayout = () => {
 
     if (!mounted || status === "loading") {
         return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
+            <div className="tw:fixed tw:top-0 tw:z-50 tw:flex tw:h-screen tw:w-screen tw:items-center tw:justify-center tw:bg-white">
                 <Spinner />
             </div>
         );
@@ -44,7 +44,7 @@ const Profile: PageWithLayout = () => {
 
     if (!session) {
         return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
+            <div className="tw:fixed tw:top-0 tw:z-50 tw:flex tw:h-screen tw:w-screen tw:items-center tw:justify-center tw:bg-white">
                 <Spinner />
             </div>
         );
@@ -68,11 +68,11 @@ const Profile: PageWithLayout = () => {
                 showTitle={false}
             />
             <ProfileBio />
-            <div className="tw-mt-4 tw-flex tw-justify-center">
+            <div className="tw:mt-4 tw:flex tw:justify-center">
                 <button
                     onClick={handleLogout}
                     type="button"
-                    className="tw-rounded tw-bg-red-500 tw-px-4 tw-py-2 tw-text-white"
+                    className="tw:rounded-sm tw:bg-red-500 tw:px-4 tw:py-2 tw:text-white"
                 >
                     Logout
                 </button>

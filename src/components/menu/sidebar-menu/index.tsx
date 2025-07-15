@@ -14,7 +14,7 @@ const SidebarMenu = ({ menu, className }: TProps) => {
     return (
         <ul className={clsx("sidebar-widget-menu", className)}>
             {menu?.map(({ id, label, path }) => (
-                <li key={id} className="-tw-mt-px first:tw-mt-0">
+                <li key={id} className="-tw:mt-px tw:first:mt-0">
                     <NavLink path={path}>{label}</NavLink>
                 </li>
             ))}
