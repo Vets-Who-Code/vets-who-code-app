@@ -16,7 +16,7 @@ import { FC, memo, useState } from "react";
 import { CheckIcon, CopyIcon } from "lucide-react";
 
 import { cn } from "@/lib/util";
-import { TooltipIconButton } from "@/components/vetsai/assistant-ui/tooltip-icon-button";
+import { TooltipIconButton } from "@assets/components/assistant-ui/tooltip-icon-button";
 
 const useCopyToClipboard = ({
     copiedDuration = 3000,

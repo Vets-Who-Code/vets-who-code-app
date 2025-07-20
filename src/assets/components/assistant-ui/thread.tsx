@@ -17,10 +17,15 @@ import {
     SendHorizontalIcon,
 } from "lucide-react";
 import { cn } from "@/lib/util";
+import {
+    UserMessageAttachments,
+    ComposerAttachments,
+    ComposerAddAttachment,
+} from "@/assets/components/assistant-ui/attachment";
 
-import { Button } from "@/components/vetsai/ui/button";
-import { MarkdownText } from "@/components/vetsai/assistant-ui/markdown-text";
-import { TooltipIconButton } from "@/components/vetsai/assistant-ui/tooltip-icon-button";
+import { Button } from "@/assets/components/ui/button";
+import { TooltipIconButton } from "@assets/components/assistant-ui/tooltip-icon-button";
+import { MarkdownText } from "@/assets/components/assistant-ui/markdown-text";
 import { ToolFallback } from "./tool-fallback";
 
 const ThreadScrollToBottom: FC = () => {
@@ -29,7 +34,7 @@ const ThreadScrollToBottom: FC = () => {
             <TooltipIconButton
                 tooltip="Scroll to bottom"
                 variant="outline"
-                className="absolute -top-8 rounded-full disabled:invisible"
+                className="absolute -top-8 rounded-full disabled:hidden"
             >
                 <ArrowDownIcon />
             </TooltipIconButton>
@@ -37,41 +42,41 @@ const ThreadScrollToBottom: FC = () => {
     );
 };
 
-const ThreadWelcomeSuggestions: FC = () => {
-    return (
-        <div className="mt-3 flex w-full items-stretch justify-center gap-4">
-            <ThreadPrimitive.Suggestion
-                className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-                prompt="What is the weather in Tokyo?"
-                method="replace"
-                autoSend
-            >
-                <span className="line-clamp-2 text-sm font-semibold text-ellipsis">
-                    What is the weather in Tokyo?
-                </span>
-            </ThreadPrimitive.Suggestion>
-            <ThreadPrimitive.Suggestion
-                className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
-                prompt="What is assistant-ui?"
-                method="replace"
-                autoSend
-            >
-                <span className="line-clamp-2 text-sm font-semibold text-ellipsis">
-                    What is assistant-ui?
-                </span>
-            </ThreadPrimitive.Suggestion>
-        </div>
-    );
-};
+// const ThreadWelcomeSuggestions: FC = () => {
+//     return (
+//         <div className="mt-3 flex w-full items-stretch justify-center gap-4">
+//             <ThreadPrimitive.Suggestion
+//                 className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+//                 prompt="What is the weather in Tokyo?"
+//                 method="replace"
+//                 autoSend
+//             >
+//                 <span className="line-clamp-2 text-sm font-semibold text-ellipsis">
+//                     What is the weather in Tokyo?
+//                 </span>
+//             </ThreadPrimitive.Suggestion>
+//             <ThreadPrimitive.Suggestion
+//                 className="hover:bg-muted/80 flex max-w-sm grow basis-0 flex-col items-center justify-center rounded-lg border p-3 transition-colors ease-in"
+//                 prompt="What is assistant-ui?"
+//                 method="replace"
+//                 autoSend
+//             >
+//                 <span className="line-clamp-2 text-sm font-semibold text-ellipsis">
+//                     What is assistant-ui?
+//                 </span>
+//             </ThreadPrimitive.Suggestion>
+//         </div>
+//     );
+// };
 
 const ThreadWelcome: FC = () => {
     return (
         <ThreadPrimitive.Empty>
             <div className="flex w-full max-w-[var(--thread-max-width)] flex-grow flex-col">
                 <div className="flex w-full flex-grow flex-col items-center justify-center">
-                    <p className="mt-4 font-medium">How can I help you today?</p>
+                    <p className="mt-4 font-medium">Welcome to VetsAI</p>
                 </div>
-                <ThreadWelcomeSuggestions />
+                {/* <ThreadWelcomeSuggestions /> */}
             </div>
         </ThreadPrimitive.Empty>
     );
@@ -123,6 +128,8 @@ const ComposerAction: FC = () => {
 const Composer: FC = () => {
     return (
         <ComposerPrimitive.Root className="focus-within:border-ring/20 flex w-full flex-wrap items-end rounded-lg border bg-inherit px-2.5 shadow-sm transition-colors ease-in">
+            <ComposerAttachments />
+            <ComposerAddAttachment />
             <ComposerPrimitive.Input
                 rows={1}
                 autoFocus
@@ -177,6 +184,7 @@ const UserActionBar: FC = () => {
 const UserMessage: FC = () => {
     return (
         <MessagePrimitive.Root className="grid w-full max-w-[var(--thread-max-width)] auto-rows-auto grid-cols-[minmax(72px,1fr)_auto] gap-y-2 py-4 [&:where(>*)]:col-start-2">
+            <UserMessageAttachments />
             <UserActionBar />
 
             <div className="bg-muted text-foreground col-start-2 row-start-2 max-w-[calc(var(--thread-max-width)*0.8)] rounded-3xl px-5 py-2.5 break-words">
@@ -250,8 +258,8 @@ const AssistantMessage: FC = () => {
 
 export const Thread: FC = () => {
     return (
-        <ThreadPrimitive.Root className="bg-background box-border flex h-full flex-col overflow-hidden">
-            <ThreadPrimitive.Viewport className="flex h-full flex-col items-center overflow-y-scroll scroll-smooth bg-inherit px-4 pt-8">
+        <ThreadPrimitive.Root className="bg-background box-border flex h-full flex-col">
+            <ThreadPrimitive.Viewport className="flex h-full flex-col items-center scroll-smooth bg-inherit px-4 pt-8">
                 <ThreadWelcome />
 
                 <ThreadPrimitive.Messages

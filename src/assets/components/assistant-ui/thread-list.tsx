@@ -2,8 +2,8 @@ import type { FC } from "react";
 import { ThreadListItemPrimitive, ThreadListPrimitive } from "@assistant-ui/react";
 import { ArchiveIcon, PlusIcon } from "lucide-react";
 
-import { Button } from "@/components/vetsai/ui/button";
-import { TooltipIconButton } from "@/components/vetsai/assistant-ui/tooltip-icon-button";
+import { Button } from "@/assets/components/ui/button";
+import { TooltipIconButton } from "@assets/components/assistant-ui/tooltip-icon-button";
 
 const ThreadListNew: FC = () => {
     return (

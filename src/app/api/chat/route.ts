@@ -9,8 +9,12 @@ export async function POST(req: NextRequest) {
     if (!session) {
         return NextResponse.json({ error: "You must be logged in to access this API route." });
     }
-    console.log(session);
     const { messages }: { messages: CoreMessage[] } = await req.json();
+
+    messages.forEach((msg) => {
+        console.log(msg.content);
+    });
+
     const response = gemini.chat(messages);
     return response.toDataStreamResponse();
 }

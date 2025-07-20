@@ -2,43 +2,51 @@
 
 import { AssistantRuntimeProvider } from "@assistant-ui/react";
 import { useChatRuntime } from "@assistant-ui/react-ai-sdk";
-import { Thread } from "@/components/vetsai/assistant-ui/thread";
-import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/vetsai/ui/sidebar";
-import { Separator } from "@/components/vetsai/ui/separator";
+import { Thread } from "@assets/components/assistant-ui/thread";
+import { AppSidebar } from "@assets/components/app-sidebar";
+import { Session } from "next-auth";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/assets/components/ui/sidebar";
+import { Separator } from "@assets/components/ui/separator";
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
+    // BreadcrumbLink,
     BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/vetsai/ui/breadcrumb";
-import { AppSidebar } from "@/components/vetsai/app-sidebar";
+    // BreadcrumbPage,
+    // BreadcrumbSeparator,
+} from "@/assets/components/ui/breadcrumb";
+import { PDFAttachmentAdapter } from "@/lib/ai/pdf-attachment-adapter";
 
-export const Assistant = () => {
+interface AssistantProps {
+    user: Session["user"];
+}
+
+export const Assistant = ({ user }: AssistantProps) => {
     const runtime = useChatRuntime({
         api: "/api/chat",
+        adapters: {
+            attachments: new PDFAttachmentAdapter(),
+        },
     });
 
     return (
         <AssistantRuntimeProvider runtime={runtime}>
             <SidebarProvider>
-                <AppSidebar />
+                <AppSidebar user={user} />
                 <SidebarInset>
-                    <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+                    <header className="bg-background sticky top-0 z-1 flex h-16 shrink-0 items-center gap-2 border-b px-4">
                         <SidebarTrigger />
                         <Separator orientation="vertical" className="mr-2 h-4" />
                         <Breadcrumb>
                             <BreadcrumbList>
                                 <BreadcrumbItem className="hidden md:block">
-                                    <BreadcrumbLink href="#">
-                                        Build Your Own ChatGPT UX
-                                    </BreadcrumbLink>
+                                    VetsAI
+                                    {/* <BreadcrumbLink href="#">VetsAI</BreadcrumbLink> */}
                                 </BreadcrumbItem>
-                                <BreadcrumbSeparator className="hidden md:block" />
+                                {/* <BreadcrumbSeparator className="hidden md:block" />
                                 <BreadcrumbItem>
                                     <BreadcrumbPage>Starter Template</BreadcrumbPage>
-                                </BreadcrumbItem>
+                                </BreadcrumbItem> */}
                             </BreadcrumbList>
                         </Breadcrumb>
                     </header>

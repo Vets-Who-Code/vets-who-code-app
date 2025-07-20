@@ -10,7 +10,7 @@ const VetsAI = async () => {
         redirect("/login");
     }
 
-    return <Assistant />;
+    return <Assistant user={session.user} />;
 };
 
 export default VetsAI;

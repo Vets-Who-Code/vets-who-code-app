@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Github, MessagesSquare } from "lucide-react";
 import Link from "next/link";
+import { Session } from "next-auth";
 import {
     Sidebar,
     SidebarContent,
@@ -13,19 +13,29 @@ import {
 } from "./ui/sidebar";
 import { ThreadList } from "./assistant-ui/thread-list";
 
-export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) => {
+interface AppSidebarProps {
+    user: Session["user"];
+}
+
+export const AppSidebar = ({
+    user,
+    ...props
+}: AppSidebarProps & React.ComponentProps<typeof Sidebar>) => {
     return (
         <Sidebar {...props}>
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link href="https://assistant-ui.com" target="_blank">
+                            <Link href="https://vetswhocode.io" target="_blank">
                                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                                    <MessagesSquare className="size-4" />
+                                    <img
+                                        src="https://res.cloudinary.com/vetswhocode/image/upload/e_bgremoval/f_auto,q_auto/v1609084190/hashflag-white-vscode_n5k5db.jpg"
+                                        alt="Vets Who Code Hashflag"
+                                    />
                                 </div>
                                 <div className="flex flex-col gap-0.5 leading-none">
-                                    <span className="font-semibold">assistant-ui</span>
+                                    <span className="font-semibold">VetsAI</span>
                                 </div>
                             </Link>
                         </SidebarMenuButton>
@@ -41,18 +51,16 @@ export const AppSidebar = ({ ...props }: React.ComponentProps<typeof Sidebar>) =
                 <SidebarMenu>
                     <SidebarMenuItem>
                         <SidebarMenuButton size="lg" asChild>
-                            <Link
-                                href="https://github.com/assistant-ui/assistant-ui"
-                                target="_blank"
-                            >
-                                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                                    <Github className="size-4" />
-                                </div>
-                                <div className="flex flex-col gap-0.5 leading-none">
-                                    <span className="font-semibold">GitHub</span>
-                                    <span className="">View Source</span>
-                                </div>
-                            </Link>
+                            <div className="flex">
+                                {user.image && (
+                                    <img
+                                        src={user.image}
+                                        alt={user.name || user.id}
+                                        className="aspect-square h-[36px] rounded-lg object-contain"
+                                    />
+                                )}
+                                {user.name || user.id}
+                            </div>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
