@@ -4,6 +4,8 @@ import { getServerSession } from "next-auth/next";
 import { NextRequest, NextResponse } from "next/server";
 import { options } from "@/pages/api/auth/options";
 
+export const maxDuration = 45; // Extend max duration for route on vercel to 45 seconds
+
 export async function POST(req: NextRequest) {
     const session = await getServerSession(options);
     if (!session) {
