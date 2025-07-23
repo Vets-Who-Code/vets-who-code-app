@@ -28,8 +28,8 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
 
     return (
         <Section className="quote-area" space={space} bg={bg}>
-            <h2 className="tw-sr-only">Quote Section</h2>
-            <div className="tw-container">
+            <h2 className="tw:sr-only">Quote Section</h2>
+            <div className="tw:container">
                 {items && items.length > 0 && (
                     <AnimatedSwiperSlider
                         options={options}
@@ -50,67 +50,67 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                     </AnimatedSwiperSlider>
                 )}
                 <motion.div
-                    className="tw-absolute tw-left-1/2 tw-top-[-100px] tw-z-20"
+                    className="tw:absolute tw:left-1/2 tw:top-[-100px] tw:z-20"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-primary-light" />
+                    <span className="tw:block tw:h-[35px] tw:w-[35px] tw:rounded-full tw:bg-primary-light" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-left-0 tw-top-[-35px] tw-z-20 lg:-tw-left-12"
+                    className="tw:absolute tw:left-0 tw:top-[-35px] tw:z-20 tw:lg:-left-12"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[52px] tw-w-[52px] tw-rounded-full tw-border-[6px] tw-border-primary/50" />
+                    <span className="tw:block tw:h-[52px] tw:w-[52px] tw:rounded-full tw:border-[6px] tw:border-primary/50" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-left-[50px] tw-top-[100px] tw-z-20 lg:tw-left-[70px] lg:tw-top-[164px]"
+                    className="tw:absolute tw:left-[50px] tw:top-[100px] tw:z-20 tw:lg:left-[70px] tw:lg:top-[164px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-orange-200" />
+                    <span className="tw:block tw:h-[35px] tw:w-[35px] tw:rounded-full tw:bg-orange-200" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-left-0 tw-top-[155px] tw-z-20 lg:tw-left-5 lg:tw-top-[300px]"
+                    className="tw:absolute tw:left-0 tw:top-[155px] tw:z-20 tw:lg:left-5 tw:lg:top-[300px]"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[54px] tw-w-[54px] tw-rounded-full tw-bg-porsche" />
+                    <span className="tw:block tw:h-[54px] tw:w-[54px] tw:rounded-full tw:bg-porsche" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-right-0 tw-top-[-100px] tw-z-20 lg:-tw-right-5"
+                    className="tw:absolute tw:right-0 tw:top-[-100px] tw:z-20 tw:lg:-right-5"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-jagged" />
+                    <span className="tw:block tw:h-[46px] tw:w-[46px] tw:rounded-full tw:bg-jagged" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-right-7.5 tw-top-0 tw-z-20"
+                    className="tw:absolute tw:right-7.5 tw:top-0 tw:z-20"
                     animate={{
                         x: trans1().x,
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-9 tw-w-9 tw-rounded-full tw-bg-blue-100/60" />
+                    <span className="tw:block tw:h-9 tw:w-9 tw:rounded-full tw:bg-blue-100/60" />
                 </motion.div>
                 <motion.div
-                    className="tw-absolute tw-right-0 tw-top-[155px] tw-z-20 lg:tw-right-12 lg:tw-top-[233px]"
+                    className="tw:absolute tw:right-0 tw:top-[155px] tw:z-20 tw:lg:right-12 tw:lg:top-[233px]"
                     animate={{
                         x: trans2().x,
                         y: trans2().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[38px] tw-w-[38px] tw-rounded-full tw-bg-mandy/70" />
+                    <span className="tw:block tw:h-[38px] tw:w-[38px] tw:rounded-full tw:bg-mandy/70" />
                 </motion.div>
             </div>
         </Section>
@@ -118,7 +118,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
 };
 
 QuoteArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw:bg-gray-200",
 };
 
 export default QuoteArea;

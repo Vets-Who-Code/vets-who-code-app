@@ -13,27 +13,30 @@ const Wrapper = ({ children, className, showBalls }: TProps) => {
     const { trans1, trans2 } = useUI();
     return (
         <div
-            className={clsx("wrapper tw-relative tw-bg-transparent tw-bg-lightGradient", className)}
+            className={clsx(
+                "wrapper tw:relative tw:bg-transparent tw:bg-light-gradient",
+                className
+            )}
         >
             {children}
             {showBalls && (
                 <>
                     <motion.div
-                        className="tw-absolute tw-left-[70px] tw-top-[164px] tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-orange-100/70"
+                        className="tw:absolute tw:left-[70px] tw:top-[164px] tw:h-[35px] tw:w-[35px] tw:rounded-full tw:bg-orange-100/70"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     />
                     <motion.div
-                        className="tw-absolute tw-right-32 tw-top-[70px] tw-h-9 tw-w-9 tw-rounded-full tw-bg-blue-100/70"
+                        className="tw:absolute tw:right-32 tw:top-[70px] tw:h-9 tw:w-9 tw:rounded-full tw:bg-blue-100/70"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     />
                     <motion.div
-                        className="tw-absolute -tw-right-6 -tw-top-[120px] tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-jagged"
+                        className="tw:absolute tw:-right-6 tw:-top-[120px] tw:h-[46px] tw:w-[46px] tw:rounded-full tw:bg-jagged"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -42,7 +45,7 @@ const Wrapper = ({ children, className, showBalls }: TProps) => {
                 </>
             )}
 
-            <BottomShape className="tw-hidden md:tw-block" />
+            <BottomShape className="tw:hidden tw:md:block" />
         </div>
     );
 };

@@ -18,11 +18,11 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
     const { hasMore, itemsToShow, handlerLoadMore } = useLoadMore<IBlog>(blogs, 6, 3);
     return (
         <Section className="blog-area" space="bottom">
-            <h2 className="tw-sr-only">Blog Section</h2>
-            <div className="tw-container">
+            <h2 className="tw:sr-only">Blog Section</h2>
+            <div className="tw:container">
                 {blogs.length > 0 ? (
                     <>
-                        <div className="tw-grid tw-grid-cols-1 tw-gap-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                        <div className="tw:grid tw:grid-cols-1 tw:gap-[30px] tw:md:grid-cols-2 tw:lg:grid-cols-3">
                             {itemsToShow?.map((blog) => (
                                 <AnimatedBlogCard
                                     key={blog.path}
@@ -38,14 +38,14 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                                 />
                             ))}
                         </div>
-                        <div className="tw-mt-[50px] tw-text-center">
+                        <div className="tw:mt-[50px] tw:text-center">
                             {hasMore ? (
                                 <Button
                                     variant="outlined"
-                                    className="tw-min-w-[250px] tw-border-gray-500"
+                                    className="tw:min-w-[250px] tw:border-gray-500"
                                     onClick={handlerLoadMore}
                                 >
-                                    Load More <i className="fal fa-redo tw-ml-4" />
+                                    Load More <i className="fal fa-redo tw:ml-4" />
                                 </Button>
                             ) : (
                                 <p>No course to show</p>

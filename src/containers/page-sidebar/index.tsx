@@ -10,7 +10,7 @@ type TProps = {
 const PageSidebar = ({ recentCourses }: TProps) => {
     return (
         <>
-            <SidebarMenu menu={menu} className="tw-mb-[45px]" />
+            <SidebarMenu menu={menu} className="tw:mb-[45px]" />
             <RecentCoursesWidget recentCourses={recentCourses} />
         </>
     );

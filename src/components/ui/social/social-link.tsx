@@ -28,34 +28,34 @@ const SocialLink = ({
     onClick,
 }: TProps) => {
     // texted variant
-    const textedWhite = color === "white" && hover && "tw-text-white/50 hover:tw-text-white";
-    const textedLight = color === "light" && hover && "tw-text-body/50 hover:tw-text-primary";
-    const textedDark = color === "dark" && hover && "tw-text-body hover:tw-text-primary";
-    const textedXl = size === "xl" && "tw-text-2xl";
-    const textedLg = size === "lg" && "tw-text-lg";
+    const textedWhite = color === "white" && hover && "tw:text-white/50 tw:hover:text-white";
+    const textedLight = color === "light" && hover && "tw:text-body/50 tw:hover:text-primary";
+    const textedDark = color === "dark" && hover && "tw:text-body tw:hover:text-primary";
+    const textedXl = size === "xl" && "tw:text-2xl";
+    const textedLg = size === "lg" && "tw:text-lg";
 
     // Toopltip
     const tooltipBeforeClass =
-        "before:tw-absolute before:tw-content-[''] before:tw-border-[7px] before:tw-border-transparent before:tw-border-t-primary before:tw-bottom-full before:left-[calc(50%_-_7px) before:tw-transition-all before:tw-duration-300 before:tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] before:tw-pointer-events-none before:tw-z-20 before:tw-mb-[-13px] before:tw-invisible before:tw-opacity-0";
+        "tw:before:absolute tw:before:content-[''] tw:before:border-[7px] tw:before:border-transparent tw:before:border-t-primary tw:before:bottom-full before:left-[calc(50%_-_7px) tw:before:transition-all tw:before:duration-300 tw:before:ease-[cubic-bezier(.71,1.7,.77,1.24)] tw:before:pointer-events-none tw:before:z-20 tw:before:mb-[-13px] tw:before:invisible tw:before:opacity-0";
     const tooltipAfterClass =
-        "after:tw-absolute after:tw-content-[attr(aria-label)] after:tw-bg-primary after:tw-text-white after:tw-py-2 after:tw-px-2.5 after:tw-leading-none after:tw-whitespace-nowrap after:tw-rounded after:tw-shadow-xs after:tw-shadow-black/30 after:tw-bottom-full after:tw-left-1/2 after:-tw-translate-x-1/2 after:tw-transition-all after:tw-duration-300 after:tw-ease-[cubic-bezier(.71,1.7,.77,1.24)] after:tw-pointer-events-none after:tw-z-10 after:tw-invisible after:tw-opacity-0";
+        "tw:after:absolute tw:after:content-[attr(aria-label)] tw:after:bg-primary tw:after:text-white tw:after:py-2 tw:after:px-2.5 tw:after:leading-none tw:after:whitespace-nowrap tw:after:rounded tw:after:shadow-xs tw:after:shadow-black/30 tw:after:bottom-full tw:after:left-1/2 tw:after:-translate-x-1/2 tw:after:transition-all tw:after:duration-300 tw:after:ease-[cubic-bezier(.71,1.7,.77,1.24)] tw:after:pointer-events-none tw:after:z-10 tw:after:invisible tw:after:opacity-0";
     const tooltipHoverClass =
-        "hover:before:tw-visible hover:before:tw-opacity-100 hover:before:tw-delay-100 hover:before:-tw-translate-y-2 hover:after:tw-visible hover:after:tw-opacity-100 hover:after:tw-delay-100 hover:after:-tw-translate-y-2";
+        "tw:hover:before:visible tw:hover:before:opacity-100 tw:hover:before:delay-100 tw:hover:before:-translate-y-2 tw:hover:after:visible tw:hover:after:opacity-100 tw:hover:after:delay-100 tw:hover:after:-translate-y-2";
 
     return (
         <a
             className={clsx(
-                "social-link tw-relative tw-leading-none",
+                "social-link tw:relative tw:leading-none",
                 variant === "texted" && [textedWhite, textedLight, textedDark, textedXl, textedLg],
                 variant !== "texted" && [
-                    "tw-text-center",
-                    size === "md" && "tw-h-10 tw-w-10 tw-leading-10",
+                    "tw:text-center",
+                    size === "md" && "tw:h-10 tw:w-10 tw:leading-10",
                     color === "light" &&
-                        "tw-border-gray-550 hover:tw-border-primary hover:tw-bg-primary hover:tw-text-white",
+                        "tw:border-gray-550 tw:hover:border-primary tw:hover:bg-primary tw:hover:text-white",
                 ],
-                variant === "outlined" && "tw-border tw-bg-transparent",
-                shape === "rounded" && "tw-rounded",
-                shape === "circle" && "tw-rounded-full",
+                variant === "outlined" && "tw:border tw:bg-transparent",
+                shape === "rounded" && "tw:rounded-sm",
+                shape === "circle" && "tw:rounded-full",
                 tooltip && [tooltipBeforeClass, tooltipAfterClass, tooltipHoverClass],
                 className
             )}

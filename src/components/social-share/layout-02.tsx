@@ -27,7 +27,7 @@ const SocialShare = ({ className }: TProps) => {
                 label="Facebook"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${href}`}
                 onClick={clickHandler}
-                className="tw-mr-2.5"
+                className="tw:mr-2.5"
             >
                 <i className="fab fa-facebook-f" />
             </SocialLink>
@@ -35,7 +35,7 @@ const SocialShare = ({ className }: TProps) => {
                 label="Twitter"
                 href={`https://twitter.com/intent/tweet?url=${href}`}
                 onClick={clickHandler}
-                className="tw-mr-2.5"
+                className="tw:mr-2.5"
             >
                 <i className="fab fa-twitter" />
             </SocialLink>
@@ -43,7 +43,7 @@ const SocialShare = ({ className }: TProps) => {
                 label="Linkedin"
                 href={`https://www.linkedin.com/shareArticle?url=${href}`}
                 onClick={clickHandler}
-                className="tw-mr-2.5"
+                className="tw:mr-2.5"
             >
                 <i className="fab fa-linkedin" />
             </SocialLink>

@@ -28,9 +28,9 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
         <nav
             aria-label="Main Menu"
             className={clsx(
-                "tw-relative",
-                align === "center" && "tw-mx-auto",
-                align === "right" && "tw-ml-auto",
+                "tw:relative",
+                align === "center" && "tw:mx-auto",
+                align === "right" && "tw:ml-auto",
                 className
             )}
         >
@@ -41,8 +41,8 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                         <li
                             key={id}
                             className={clsx(
-                                "tw-group tw-inline-block tw-px-2.5 tw-py-[29px] 2xl:tw-px-[15px]",
-                                submenu && "tw-relative"
+                                "tw:group tw:inline-block tw:px-2.5 tw:py-[29px] tw:2xl:px-[15px]",
+                                submenu && "tw:relative"
                             )}
                             role="none"
                         >
@@ -58,13 +58,13 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                             >
                                 {label}
                                 {hasSubmenu && (
-                                    <i className="fa fa-chevron-down tw-ml-2 tw-text-xs" />
+                                    <i className="fa fa-chevron-down tw:ml-2 tw:text-xs" />
                                 )}
                             </NavLink>
                             {submenu && (
                                 <Submenu
                                     menu={submenu}
-                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
+                                    className="tw:group-focus-within:pointer-events-auto tw:group-focus-within:visible tw:group-focus-within:mt-0 tw:group-focus-within:opacity-100 tw:group-hover:pointer-events-auto tw:group-hover:visible tw:group-hover:mt-0 tw:group-hover:opacity-100"
                                     role="menu"
                                 />
                             )}
@@ -72,7 +72,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 <Megamenu
                                     menu={megamenu}
                                     align={align}
-                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
+                                    className="tw:group-focus-within:pointer-events-auto tw:group-focus-within:visible tw:group-focus-within:mt-0 tw:group-focus-within:opacity-100 tw:group-hover:pointer-events-auto tw:group-hover:visible tw:group-hover:mt-0 tw:group-hover:opacity-100"
                                 />
                             )}
                         </li>

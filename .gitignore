@@ -55,3 +55,8 @@ public/workbox-*.js
 
 
 /src/generated/prisma
+.neon
+
+# Playwright
+node_modules/
+/blob-report/

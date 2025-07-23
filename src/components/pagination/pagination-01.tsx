@@ -54,14 +54,14 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
         <nav aria-label="Page navigation">
             <ul
                 className={clsx(
-                    "pagination tw-text-center tw-text-[16px] tw-font-extrabold tw-uppercase",
+                    "pagination tw:text-center tw:text-[16px] tw:font-extrabold tw:uppercase",
                     className
                 )}
             >
                 {!isFirst && (
-                    <li className="tw-inline-block tw-px-[5px]">
+                    <li className="tw:inline-block tw:px-[5px]">
                         <Anchor
-                            className="tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading"
+                            className="tw:block tw:h-12 tw:w-12 tw:rounded-full tw:text-center tw:leading-[48px] tw:-tracking-tightest tw:text-gray-400 tw:hover:text-heading"
                             path={previousPage}
                         >
                             Prev
@@ -70,15 +70,15 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                 )}
 
                 {showPagi.map((pagi) => (
-                    <li className="tw-inline-block tw-px-[5px]" key={`page-number-${pagi}`}>
+                    <li className="tw:inline-block tw:px-[5px]" key={`page-number-${pagi}`}>
                         {pagi === "dots" && <span>...</span>}
                         {pagi !== "dots" && (
                             <Anchor
                                 className={clsx(
-                                    "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest hover:tw-text-heading",
-                                    currentPage !== pagi && "tw-text-gray-400",
+                                    "tw:block tw:h-12 tw:w-12 tw:rounded-full tw:text-center tw:leading-[48px] tw:-tracking-tightest tw:hover:text-heading",
+                                    currentPage !== pagi && "tw:text-gray-400",
                                     currentPage === pagi &&
-                                        "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
+                                        "tw:pointer-events-none tw:bg-gray-500 tw:text-heading"
                                 )}
                                 path={`${
                                     pagi === 1 ? `/${rootPage}` : `/${rootPage}/page/${pagi}`
@@ -86,16 +86,16 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                             >
                                 {pagi}{" "}
                                 {pagi === currentPage && (
-                                    <span className="tw-sr-only">Current</span>
+                                    <span className="tw:sr-only">Current</span>
                                 )}
                             </Anchor>
                         )}
                     </li>
                 ))}
                 {!isLast && (
-                    <li className="tw-inline-block tw-px-[5px]">
+                    <li className="tw:inline-block tw:px-[5px]">
                         <Anchor
-                            className="tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest tw-text-gray-400 hover:tw-text-heading"
+                            className="tw:block tw:h-12 tw:w-12 tw:rounded-full tw:text-center tw:leading-[48px] tw:-tracking-tightest tw:text-gray-400 tw:hover:text-heading"
                             path={nextPage}
                         >
                             Next

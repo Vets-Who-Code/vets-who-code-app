@@ -14,9 +14,9 @@ const MottoText = forwardRef<HTMLParagraphElement, TProps>(
     ({ text, pathText, path, className, size }, ref) => (
         <p
             className={clsx(
-                "tw-font-medium tw-leading-relaxed tw-text-secondary-light",
-                size === "md" && "tw-text-base",
-                size === "lg" && "tw-text-lg",
+                "tw:font-medium tw:leading-relaxed tw:text-secondary-light",
+                size === "md" && "tw:text-base",
+                size === "lg" && "tw:text-lg",
                 className
             )}
             ref={ref}
@@ -25,10 +25,10 @@ const MottoText = forwardRef<HTMLParagraphElement, TProps>(
             <Anchor
                 path={path}
                 className={clsx(
-                    "tw-relative tw-py-[3px] tw-font-bold tw-leading-none tw-text-primary",
-                    "before:tw-absolute before:tw-bottom-0 before:tw-left-0 before:tw-h-px before:tw-w-full before:tw-origin-right before:tw-scale-x-100 before:tw-bg-gray-350 before:tw-transition-transform before:tw-delay-300 before:tw-duration-600 before:tw-ease-in-expo before:tw-content-['']",
-                    "after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-h-px after:tw-w-full after:tw-origin-left after:tw-scale-x-0 after:tw-bg-primary after:tw-transition-transform after:tw-delay-75 after:tw-duration-600 after:tw-ease-in-expo after:tw-content-['']",
-                    "hover:before:tw-scale-x-0 hover:before:tw-delay-75 hover:after:tw-scale-x-100 hover:after:tw-delay-300"
+                    "tw:relative tw:py-[3px] tw:font-bold tw:leading-none tw:text-primary",
+                    "tw:before:absolute tw:before:bottom-0 tw:before:left-0 tw:before:h-px tw:before:w-full tw:before:origin-right tw:before:scale-x-100 tw:before:bg-gray-350 tw:before:transition-transform tw:before:delay-300 tw:before:duration-600 tw:before:ease-in-expo tw:before:content-['']",
+                    "tw:after:absolute tw:after:bottom-0 tw:after:left-0 tw:after:h-px tw:after:w-full tw:after:origin-left tw:after:scale-x-0 tw:after:bg-primary tw:after:transition-transform tw:after:delay-75 tw:after:duration-600 tw:after:ease-in-expo tw:after:content-['']",
+                    "tw:hover:before:scale-x-0 tw:hover:before:delay-75 tw:hover:after:scale-x-100 tw:hover:after:delay-300"
                 )}
             >
                 {pathText} <i className="far fa-long-arrow-right" />

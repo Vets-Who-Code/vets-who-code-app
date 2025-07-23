@@ -26,19 +26,19 @@ const SocialShare = ({ label, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-group tw-relative tw-inline-flex tw-cursor-pointer tw-items-center",
+                "tw:group tw:relative tw:inline-flex tw:cursor-pointer tw:items-center",
                 className
             )}
         >
-            <p className="tw-mb-0 tw-mr-3.8 tw-hidden tw-font-medium sm:tw-block">{label}</p>
+            <p className="tw:mb-0 tw:mr-3.8 tw:hidden tw:font-medium tw:sm:block">{label}</p>
 
-            <i className="fas fa-share-alt tw-h-14 tw-w-14 tw-rounded-full tw-border-2 tw-border-gray-550 tw-text-center tw-text-lg tw-leading-[52px] tw-text-primary tw-transition-colors tw-duration-300 group-hover:tw-border-primary group-hover:tw-bg-primary group-hover:tw-text-white" />
+            <i className="fas fa-share-alt tw:h-14 tw:w-14 tw:rounded-full tw:border-2 tw:border-gray-550 tw:text-center tw:text-lg tw:leading-[52px] tw:text-primary tw:transition-colors tw:duration-300 tw:group-hover:border-primary tw:group-hover:bg-primary tw:group-hover:text-white" />
             <Social color="light" tooltip flyout>
                 <SocialLink
                     label="Facebook"
                     href={`https://www.facebook.com/sharer/sharer.php?u=${href}`}
                     onClick={clickHandler}
-                    className="tw-px-3 tw-py-2.5"
+                    className="tw:px-3 tw:py-2.5"
                 >
                     <i className="fab fa-facebook-f" />
                 </SocialLink>
@@ -46,7 +46,7 @@ const SocialShare = ({ label, className }: TProps) => {
                     label="Twitter"
                     href={`https://twitter.com/intent/tweet?url=${href}`}
                     onClick={clickHandler}
-                    className="tw-px-3 tw-py-2.5"
+                    className="tw:px-3 tw:py-2.5"
                 >
                     <i className="fab fa-twitter" />
                 </SocialLink>
@@ -54,7 +54,7 @@ const SocialShare = ({ label, className }: TProps) => {
                     label="Linkedin"
                     href={`https://www.linkedin.com/shareArticle?url=${href}`}
                     onClick={clickHandler}
-                    className="tw-px-3 tw-py-2.5"
+                    className="tw:px-3 tw:py-2.5"
                 >
                     <i className="fab fa-linkedin" />
                 </SocialLink>

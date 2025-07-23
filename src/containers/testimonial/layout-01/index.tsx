@@ -35,7 +35,7 @@ const TestimonialArea = ({ data: { items }, space, bg }: TProps) => {
 
     return (
         <Section space={space} bg={bg} className="testimonial-area">
-            <div className="tw-container">
+            <div className="tw:container">
                 <AnimatedSwiper
                     options={options}
                     shadowSize="small"

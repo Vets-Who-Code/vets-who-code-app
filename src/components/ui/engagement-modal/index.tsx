@@ -12,15 +12,15 @@ const Section = ({ space, bg, className, style, children, id }: TProps) => {
         <section
             className={clsx(
                 className,
-                space === "top-bottom" && "tw-py-15 md:tw-py-20 lg:tw-py-[100px]",
-                space === "top-bottom-2" && "tw-py-15 md:tw-py-20 lg:tw-pb-40 lg:tw-pt-[100px]",
+                space === "top-bottom" && "tw:py-15 tw:md:py-20 tw:lg:py-[100px]",
+                space === "top-bottom-2" && "tw:py-15 tw:md:py-20 tw:lg:pb-40 tw:lg:pt-[100px]",
                 space === "top-bottom-3" &&
-                    "tw-pb-15 tw-pt-[150px] md:tw-pb-20 md:tw-pt-[170px] lg:tw-pb-[100px] lg:tw-pt-[190px]",
-                space === "top" && "tw-pt-15 md:tw-pt-20 lg:tw-pt-[100px]",
-                space === "top-2" && "tw-pt-[150px] md:tw-pt-[170px] lg:tw-pt-[320px]",
-                space === "bottom" && "tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px]",
-                space === "bottom-2" && "tw-mb-[70px]",
-                space === "bottom-3" && "tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px] xl:tw-pb-[160px]",
+                    "tw:pb-15 tw:pt-[150px] tw:md:pb-20 tw:md:pt-[170px] tw:lg:pb-[100px] tw:lg:pt-[190px]",
+                space === "top" && "tw:pt-15 tw:md:pt-20 tw:lg:pt-[100px]",
+                space === "top-2" && "tw:pt-[150px] tw:md:pt-[170px] tw:lg:pt-[320px]",
+                space === "bottom" && "tw:pb-15 tw:md:pb-20 tw:lg:pb-[100px]",
+                space === "bottom-2" && "tw:mb-[70px]",
+                space === "bottom-3" && "tw:pb-15 tw:md:pb-20 tw:lg:pb-[100px] tw:xl:pb-[160px]",
                 bg
             )}
             style={style}

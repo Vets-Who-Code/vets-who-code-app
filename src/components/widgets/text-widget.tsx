@@ -11,21 +11,21 @@ const TextWidget = ({ className, mode }: TProps) => {
     return (
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Mailing Address</WidgetTitle>
-            <div className={clsx("content", mode === "dark" && "tw-text-gray-400")}>
-                <p className="tw-mb-[11px]">31860 Sandy Plains Road, Ste 204 PMB 206</p>
-                <p className="tw-mb-[11px]">
+            <div className={clsx("content", mode === "dark" && "tw:text-gray-400")}>
+                <p className="tw:mb-[11px]">31860 Sandy Plains Road, Ste 204 PMB 206</p>
+                <p className="tw:mb-[11px]">
                     <a
                         href="#!"
                         className={clsx(
-                            "hover:tw-text-primary",
-                            mode === "dark" && "tw-text-gray-400"
+                            "tw:hover:text-primary",
+                            mode === "dark" && "tw:text-gray-400"
                         )}
                     >
                         hello@vetswhocode.io{" "}
                     </a>
                 </p>
             </div>
-            <Social color={mode === "dark" ? "white" : "light"} className="tw-mt-6.1 tw-gap-6.1">
+            <Social color={mode === "dark" ? "white" : "light"} className="tw:mt-6.1 tw:gap-6.1">
                 <SocialLink
                     href="https://www.facebook.com/TheOfficialVetsWhoCode/"
                     label="Facebook"

@@ -21,11 +21,11 @@ type TProps = {
 const BlogArea = ({ data: { blogs, pagiData } }: TProps) => {
     return (
         <Section className="blog-area" space="bottom">
-            <h2 className="tw-sr-only">Blog Section</h2>
-            <div className="tw-px-3.8 lg:tw-container">
+            <h2 className="tw:sr-only">Blog Section</h2>
+            <div className="tw:px-3.8 tw:lg:container">
                 {blogs?.map((blog) => (
                     <AnimatedBlogCard
-                        className="tw-mb-[50px]"
+                        className="tw:mb-[50px]"
                         key={blog.path}
                         title={blog.title}
                         path={blog.path}
@@ -41,7 +41,7 @@ const BlogArea = ({ data: { blogs, pagiData } }: TProps) => {
                 ))}
                 {pagiData && pagiData.numberOfPages > 1 && (
                     <Pagination
-                        className="tw-mt-[50px]"
+                        className="tw:mt-[50px]"
                         numberOfPages={pagiData.numberOfPages}
                         currentPage={pagiData.currentPage}
                         rootPage={pagiData.rootPage}

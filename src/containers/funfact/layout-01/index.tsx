@@ -17,12 +17,12 @@ type TProps = TSection & {
 
 const FunfactArea = ({ data: { section_title, items }, space, bg, titleSize }: TProps) => (
     <Section space={space} bg={bg} className="funfact-area">
-        <div className="tw-container">
+        <div className="tw:container">
             {section_title && (
                 <AnimatedSectionTitle
                     {...section_title}
                     titleSize={titleSize}
-                    className="tw-mb-7.5 md:tw-mb-15"
+                    className="tw:mb-7.5 tw:md:mb-15"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -30,7 +30,7 @@ const FunfactArea = ({ data: { section_title, items }, space, bg, titleSize }: T
                 />
             )}
 
-            <div className="tw-mx-auto tw-grid tw-gap-[30px] md:tw-grid-cols-3 lg:tw-w-3/4">
+            <div className="tw:mx-auto tw:grid tw:gap-[30px] tw:md:grid-cols-3 tw:lg:w-3/4">
                 {items?.map((item) => (
                     <AnimatedFunFact
                         key={item.id}

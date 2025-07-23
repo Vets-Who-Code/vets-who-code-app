@@ -19,17 +19,17 @@ const TextBlock: React.FC<TextBlockProps> = ({
     spacing = "normal",
     highlight = false,
 }) => {
-    // Dynamic class generation based on props with tw- prefix
+    // Dynamic class generation based on props with tw: prefix
     const textSizeClass = {
-        sm: "tw-text-sm",
-        md: "tw-text-base",
-        lg: "tw-text-lg tw-leading-relaxed",
+        sm: "tw:text-sm",
+        md: "tw:text-base",
+        lg: "tw:text-lg tw:leading-relaxed",
     }[textSize];
 
     const spacingClass = {
-        compact: "tw-mb-2",
-        normal: "tw-mb-4",
-        wide: "tw-mb-6",
+        compact: "tw:mb-2",
+        normal: "tw:mb-4",
+        wide: "tw:mb-6",
     }[spacing];
 
     // Determine which heading element to use
@@ -37,10 +37,10 @@ const TextBlock: React.FC<TextBlockProps> = ({
 
     return (
         <div
-            className={`tw-text-block ${highlight ? "tw-border-l-4 tw-border-primary tw-pl-4" : ""} ${className}`}
+            className={`tw:text-block ${highlight ? "tw:border-l-4 tw:border-primary tw:pl-4" : ""} ${className}`}
         >
             {heading && (
-                <HeadingTag className="tw-mb-4 tw-font-bold tw-text-heading">{heading}</HeadingTag>
+                <HeadingTag className="tw:mb-4 tw:font-bold tw:text-heading">{heading}</HeadingTag>
             )}
             {content.map((paragraph, index) => (
                 // eslint-disable-next-line react/no-array-index-key

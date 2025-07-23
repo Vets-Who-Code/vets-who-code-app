@@ -31,9 +31,9 @@ const TestimonialArea = ({
     const { trans1, trans2 } = useUI();
     return (
         <Section className="testimonial-area" space={space} bg={bg}>
-            <div className="tw-container tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-12 md:tw-gap-y-[50px]">
+            <div className="tw:container tw:grid tw:grid-cols-1 tw:gap-7.5 tw:md:grid-cols-12 tw:md:gap-y-[50px]">
                 <motion.div
-                    className="tw-relative tw-z-1 md:tw-col-span-6 xl:tw-col-span-4"
+                    className="tw:relative tw:z-1 tw:md:col-span-6 tw:xl:col-span-4"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -45,21 +45,21 @@ const TestimonialArea = ({
                             description={items[0].description}
                             name={items[0].name}
                             designation={items[0].designation}
-                            className="tw-my-7.5"
+                            className="tw:my-7.5"
                         />
                     )}
-                    {items?.[1] && <Testimonial04 title={items[1].title} className="tw-ml-auto" />}
+                    {items?.[1] && <Testimonial04 title={items[1].title} className="tw:ml-auto" />}
                     <motion.div
-                        className="tw-absolute tw-bottom-[130px] tw-left-[-110px] -tw-z-1 tw-h-[-110px] tw-w-[166px]"
+                        className="tw:absolute tw:bottom-[130px] tw:left-[-110px] tw:-z-1 tw:h-[-110px] tw:w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-h-full tw-w-full tw-fill-primary-light" />
+                        <Shape2 className="tw:h-full tw:w-full tw:fill-primary-light" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-bottom-20 tw-left-[-70px] -tw-z-1"
+                        className="tw:absolute tw:bottom-20 tw:left-[-70px] tw:-z-1"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,
@@ -75,13 +75,13 @@ const TestimonialArea = ({
                     </motion.div>
                 </motion.div>
                 <motion.div
-                    className="tw-relative tw-z-1 md:tw-col-span-6 xl:tw-col-span-4 xl:tw-pr-[100px]"
+                    className="tw:relative tw:z-1 tw:md:col-span-6 tw:xl:col-span-4 tw:xl:pr-[100px]"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    {total_reviews && <RatingBox {...total_reviews} className="tw-mb-7.5" />}
+                    {total_reviews && <RatingBox {...total_reviews} className="tw:mb-7.5" />}
                     {items?.[2] && (
                         <Testimonial03
                             image={{
@@ -92,11 +92,11 @@ const TestimonialArea = ({
                             description={items[2].description}
                             name={items[2].name}
                             designation={items[2].designation}
-                            className="tw-mb-7.5"
+                            className="tw:mb-7.5"
                         />
                     )}
                     <motion.div
-                        className="tw-absolute tw-right-[50px] tw-top-[100px] tw-z-10"
+                        className="tw:absolute tw:right-[50px] tw:top-[100px] tw:z-10"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -111,7 +111,7 @@ const TestimonialArea = ({
                         />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute -tw-right-2.5 tw-bottom-15 -tw-z-1"
+                        className="tw:absolute tw:-right-2.5 tw:bottom-15 tw:-z-1"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -121,7 +121,7 @@ const TestimonialArea = ({
                     </motion.div>
                 </motion.div>
                 <motion.div
-                    className="tw-self-center md:tw-col-span-12 xl:tw-col-span-4"
+                    className="tw:self-center tw:md:col-span-12 tw:xl:col-span-4"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -132,7 +132,7 @@ const TestimonialArea = ({
                     )}
 
                     {buttons?.[0]?.content && (
-                        <Button {...buttons[0]} className="tw-mt-4 lg:tw-mt-7.5">
+                        <Button {...buttons[0]} className="tw:mt-4 tw:lg:mt-7.5">
                             {buttons[0].content}
                         </Button>
                     )}
@@ -143,7 +143,7 @@ const TestimonialArea = ({
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw:bg-gray-200",
 };
 
 export default TestimonialArea;

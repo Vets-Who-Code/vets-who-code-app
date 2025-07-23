@@ -20,19 +20,19 @@ type TProps = TSection & {
 const CourseArea = ({ data: { section_title, motto, courses }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="course-area" space={space} bg={bg}>
-            <div className="tw-container">
+            <div className="tw:container">
                 {section_title && (
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        className="tw-mb-7.5 md:tw-mb-15"
+                        className="tw:mb-7.5 tw:md:mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     />
                 )}
-                <div className="tw-grid tw-gap-[30px] md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                <div className="tw:grid tw:gap-[30px] tw:md:grid-cols-2 tw:lg:grid-cols-3">
                     {courses?.map((course) => (
                         <AnimatedCourseCard
                             key={course.path}
@@ -48,7 +48,7 @@ const CourseArea = ({ data: { section_title, motto, courses }, space, bg, titleS
                     ))}
                 </div>
                 {motto && (
-                    <div className="tw-mx-auto tw-mt-[70px] tw-text-center lg:tw-w-7/12">
+                    <div className="tw:mx-auto tw:mt-[70px] tw:text-center tw:lg:w-7/12">
                         <MottoText {...motto} />
                     </div>
                 )}

@@ -30,24 +30,24 @@ const ZoomMeetingDetails = ({
     body,
 }: TProps) => {
     return (
-        <div className="zoom-meeting-details tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px]">
-            <div className="tw-container">
-                <div className="tw-grid tw-grid-cols-3 tw-gap-10">
-                    <div className="tw-col-span-full lg:tw-col-[1/3]">
+        <div className="zoom-meeting-details tw:pb-15 tw:md:pb-20 tw:lg:pb-[100px]">
+            <div className="tw:container">
+                <div className="tw:grid tw:grid-cols-3 tw:gap-10">
+                    <div className="tw:col-span-full tw:lg:col-[1/3]">
                         {thumbnail?.src && (
-                            <figure className="tw-mb-7.5 tw-h-[400px]">
+                            <figure className="tw:mb-7.5 tw:h-[400px]">
                                 <img
                                     src={thumbnail.src}
                                     alt={thumbnail?.alt || "zoom meeting"}
                                     width="770"
-                                    className="tw-h-full tw-w-full tw-rounded tw-object-cover"
+                                    className="tw:h-full tw:w-full tw:rounded-sm tw:object-cover"
                                 />
                             </figure>
                         )}
                         <HTMLContent body={body} />
                     </div>
-                    <div className="tw-col-span-full lg:tw-col-[3/-1]">
-                        <CountdownTimer targetDate={start_date} className="tw-mb-[45px]" />
+                    <div className="tw:col-span-full tw:lg:col-[3/-1]">
+                        <CountdownTimer targetDate={start_date} className="tw:mb-[45px]" />
                         <ZoomInfo
                             host={host}
                             date={date}

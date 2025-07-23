@@ -110,7 +110,7 @@ const SwiperSlider = forwardRef<HTMLDivElement, TProps>(
             <div
                 className={cn(
                     className,
-                    "swiper-wrap tw-relative",
+                    "swiper-wrap tw:relative",
                     navStyle && `nav-style-${navStyle}`,
                     navPosition && `nav-position-${navPosition}`,
                     dotStyle && `dot-style-${dotStyle}`,

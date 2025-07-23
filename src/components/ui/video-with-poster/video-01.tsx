@@ -12,13 +12,13 @@ const Video01 = ({ poster, video, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-group tw-relative tw-z-20 tw-overflow-hidden tw-rounded-[20px] tw-border-[20px] tw-border-white tw-shadow-3lg tw-shadow-black/[15%]",
+                "tw:group tw:relative tw:z-20 tw:overflow-hidden tw:rounded-[20px] tw:border-20 tw:border-white tw:shadow-3lg tw:shadow-black/15",
                 className
             )}
         >
             {poster?.src && (
                 <img
-                    className="tw-w-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
+                    className="tw:w-full tw:transition-transform tw:duration-1500 tw:group-hover:scale-110"
                     src={poster.src}
                     alt={poster?.alt || "video poster"}
                     width={poster?.width || 970}
