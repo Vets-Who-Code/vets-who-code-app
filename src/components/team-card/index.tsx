@@ -14,7 +14,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div className="team-member tw-group" ref={ref}>
                 <figure className="tw-relative tw-overflow-hidden">
-                    {image?.src && (
+                    {image?.src ? (
                         <img
                             className="tw-w-full tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
                             src={image.src}
@@ -22,9 +22,19 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                             width={image?.width || 350}
                             height={image?.height || 430}
                             loading="lazy"
+                            onError={(e) => {
+                                // Fallback to a placeholder if image fails to load
+                                const target = e.target as HTMLImageElement;
+                                target.onerror = null; // Prevent infinite loop
+                                target.src = "/images/profile/placeholder-profile.jpg";
+                            }}
                         />
+                    ) : (
+                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-200">
+                            <span className="tw-text-gray-500">No Image</span>
+                        </div>
                     )}
-                    {socials && (
+                    {socials && Array.isArray(socials) && socials.length > 0 && (
                         <Social
                             color="dark"
                             size="lg"

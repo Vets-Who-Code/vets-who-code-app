@@ -1,1 +1,56 @@
-[]
+[
+    {
+        "id": 1,
+        "name": "John Smith",
+        "slug": "john-smith",
+        "path": "/team/john-smith",
+        "url": "",
+        "image": {
+            "src": "/images/team/350/board-placeholder-1.jpg",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member Placeholder"
+        },
+        "designation": "Board Chair",
+        "bio": "John Smith is the Board Chair of Vets Who Code. He is a veteran of the United States Marine Corps and has over 15 years of experience in the technology industry. As Board Chair, John provides strategic leadership and governance oversight, ensuring that Vets Who Code fulfills its mission of helping veterans transition into the tech industry. With a background in software engineering and executive leadership, John brings valuable insights and connections to the organization. He is passionate about supporting fellow veterans and creating pathways for their success in civilian careers.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com"
+            },
+            {
+                "label": "Twitter",
+                "icon": "fab fa-twitter",
+                "url": "https://twitter.com"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "slug": "jane-doe",
+        "path": "/team/jane-doe",
+        "url": "",
+        "image": {
+            "src": "/images/team/350/board-placeholder-2.jpg",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member Placeholder"
+        },
+        "designation": "Board Secretary",
+        "bio": "Jane Doe serves as the Board Secretary for Vets Who Code. As a veteran of the United States Army and a successful software engineer, Jane is uniquely positioned to understand the challenges and opportunities facing veterans transitioning into tech careers. With a Master's degree in Computer Science and extensive experience in both startup and enterprise environments, she provides valuable guidance on curriculum development and industry partnerships. Jane is responsible for maintaining board records, documenting decisions, and ensuring organizational compliance. Her dedication to mentoring and supporting underrepresented groups in tech extends beyond her board role, as she regularly volunteers as a mentor for program participants.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com"
+            }
+        ]
+    }
+]

@@ -22,38 +22,92 @@ const Team: PageWithLayout = ({ data }) => {
     return (
         <>
             <SEO title="Team | Vets Who Code" />
-            <Breadcrumb
-                pages={[{ path: "/", label: "Home" }]}
-                currentPage="Our Team"
-            />
+            <h1 className="tw-sr-only">Our Team</h1>
+
+            {/* Custom Hero Area with original size */}
+            <div className="tw-relative tw-z-1 tw-overflow-hidden tw-bg-pearl">
+                <div className="tw-relative tw-z-1 tw-flex tw-h-[450px] tw-w-full tw-items-end md:tw-h-[500px] lg:tw-h-[600px] xl:tw-h-[700px]">
+                    <div className="tw-absolute tw-inset-0 tw-object-cover">
+                        <img
+                            src="https://res.cloudinary.com/vetswhocode/image/upload/v1746583132/14_ogbakk.png"
+                            alt="Vets Who Code Team"
+                            className="tw-h-full tw-w-full tw-object-cover"
+                        />
+                        <div className="tw-absolute tw-inset-0 tw-bg-[rgba(9,31,64,0.3)]" />
+                    </div>
+
+                    {/* Text Overlay */}
+                    <div className="tw-container tw-relative tw-z-1 tw-flex tw-h-full tw-items-center tw-justify-center">
+                        <div className="tw-text-center">
+                            <h2 className="tw-text-5xl tw-font-bold tw-uppercase tw-tracking-wider tw-text-white tw-drop-shadow-lg md:tw-text-6xl lg:tw-text-7xl">
+                                Our Team
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <Breadcrumb pages={[{ path: "/", label: "Home" }]} currentPage="Our Team" />
             <div className="tw-container tw-py-15 md:tw-py-20 lg:tw-py-[100px]">
                 <div className="tw-text-center">
                     <h2 className="tw-text-3xl tw-font-bold">Team Members</h2>
                 </div>
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5 tw-mt-10">
-                    {data.teamMembers.map((member) => (
-                        <a key={member.slug} href={`/team/${member.slug}`}>
-                            <TeamCard
-                                name={member.name}
-                                designation={member.designation}
-                                image={member.image}
-                            />
-                        </a>
-                    ))}
+                <div className="tw-mx-auto tw-mt-10 tw-grid tw-max-w-4xl tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-2">
+                    {data.teamMembers.map((member) => {
+                        // Ensure member.socials is defined and is an array
+                        const memberWithSafeSocials = {
+                            ...member,
+                            socials: Array.isArray(member.socials) ? member.socials : [],
+                        };
+
+                        return (
+                            <div key={member.slug} className="tw-group">
+                                <a
+                                    href={`/team/${member.slug}`}
+                                    aria-label={`View ${member.name}'s profile`}
+                                    title={`View ${member.name}'s profile`}
+                                    className="tw-block"
+                                >
+                                    <TeamCard
+                                        name={member.name}
+                                        designation={member.designation}
+                                        image={member.image}
+                                        socials={memberWithSafeSocials.socials}
+                                    />
+                                </a>
+                            </div>
+                        );
+                    })}
                 </div>
-                <div className="tw-text-center tw-mt-20">
+                <div className="tw-mt-20 tw-text-center">
                     <h2 className="tw-text-3xl tw-font-bold">Board Members</h2>
                 </div>
-                <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-7.5 tw-mt-10">
-                    {data.boardMembers.map((member) => (
-                        <a key={member.slug} href={`/team/${member.slug}`}>
-                            <TeamCard
-                                name={member.name}
-                                designation={member.designation}
-                                image={member.image}
-                            />
-                        </a>
-                    ))}
+                <div className="tw-mx-auto tw-mt-10 tw-grid tw-max-w-4xl tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-2">
+                    {data.boardMembers.map((member) => {
+                        // Ensure member.socials is defined and is an array
+                        const memberWithSafeSocials = {
+                            ...member,
+                            socials: Array.isArray(member.socials) ? member.socials : [],
+                        };
+
+                        return (
+                            <div key={member.slug} className="tw-group">
+                                <a
+                                    href={`/team/${member.slug}`}
+                                    aria-label={`View ${member.name}'s profile`}
+                                    title={`View ${member.name}'s profile`}
+                                    className="tw-block"
+                                >
+                                    <TeamCard
+                                        name={member.name}
+                                        designation={member.designation}
+                                        image={member.image}
+                                        socials={memberWithSafeSocials.socials}
+                                    />
+                                </a>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </>
