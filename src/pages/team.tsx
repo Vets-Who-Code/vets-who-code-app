@@ -37,11 +37,14 @@ const Team: PageWithLayout = ({ data }) => {
                     </div>
 
                     {/* Text Overlay */}
-                    <div className="tw-container tw-relative tw-z-1 tw-flex tw-h-full tw-items-center tw-justify-center">
+                    <div className="tw-container tw-relative tw-z-1 tw-flex tw-h-full tw-items-center tw-justify-center tw-pt-16">
                         <div className="tw-text-center">
                             <h2 className="tw-text-5xl tw-font-bold tw-uppercase tw-tracking-wider tw-text-white tw-drop-shadow-lg md:tw-text-6xl lg:tw-text-7xl">
                                 Our Team
                             </h2>
+                            <p className="tw-mt-4 tw-text-lg tw-font-light tw-tracking-wide tw-text-white tw-drop-shadow-md md:tw-text-xl lg:tw-text-2xl">
+                                Meet the people behind #VetsWhoCode
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -61,20 +64,22 @@ const Team: PageWithLayout = ({ data }) => {
                         };
 
                         return (
-                            <div key={member.slug} className="tw-group">
-                                <a
-                                    href={`/team/${member.slug}`}
-                                    aria-label={`View ${member.name}'s profile`}
-                                    title={`View ${member.name}'s profile`}
-                                    className="tw-block"
-                                >
-                                    <TeamCard
-                                        name={member.name}
-                                        designation={member.designation}
-                                        image={member.image}
-                                        socials={memberWithSafeSocials.socials}
-                                    />
-                                </a>
+                            <div key={member.slug} className="tw-block">
+                                <div className="tw-group">
+                                    <a
+                                        href={`/team/${member.slug}`}
+                                        aria-label={`View ${member.name}'s profile`}
+                                        title={`View ${member.name}'s profile`}
+                                        className="tw-block"
+                                    >
+                                        <TeamCard
+                                            name={member.name}
+                                            designation={member.designation}
+                                            image={member.image}
+                                            socials={memberWithSafeSocials.socials}
+                                        />
+                                    </a>
+                                </div>
                             </div>
                         );
                     })}
@@ -91,20 +96,22 @@ const Team: PageWithLayout = ({ data }) => {
                         };
 
                         return (
-                            <div key={member.slug} className="tw-group">
-                                <a
-                                    href={`/team/${member.slug}`}
-                                    aria-label={`View ${member.name}'s profile`}
-                                    title={`View ${member.name}'s profile`}
-                                    className="tw-block"
-                                >
-                                    <TeamCard
-                                        name={member.name}
-                                        designation={member.designation}
-                                        image={member.image}
-                                        socials={memberWithSafeSocials.socials}
-                                    />
-                                </a>
+                            <div key={member.slug} className="tw-block">
+                                <div className="tw-group">
+                                    <a
+                                        href={`/team/${member.slug}`}
+                                        aria-label={`View ${member.name}'s profile`}
+                                        title={`View ${member.name}'s profile`}
+                                        className="tw-block"
+                                    >
+                                        <TeamCard
+                                            name={member.name}
+                                            designation={member.designation}
+                                            image={member.image}
+                                            socials={memberWithSafeSocials.socials}
+                                        />
+                                    </a>
+                                </div>
                             </div>
                         );
                     })}
