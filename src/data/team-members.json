@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Jerome Hardaway",
+        "slug": "jerome-hardaway",
+        "path": "/team/jerome-hardaway",
+        "url": "",
+        "image": {
+            "src": "/images/author/author-01.jpg",
+            "width": 350,
+            "height": 430
+        },
+        "designation": "Executive Director",
+        "bio": "Jerome Hardaway is the Executive Director of Vets Who Code.",
+        "socials": []
+    },
+    {
+        "id": 2,
+        "name": "Ayumi Bennett",
+        "slug": "ayumi-bennett",
+        "path": "/team/ayumi-bennett",
+        "url": "",
+        "image": {
+            "src": "/images/author/author-02.jpeg",
+            "width": 350,
+            "height": 430
+        },
+        "designation": "Director of Engineering",
+        "bio": "Ayumi Bennett is the Director of Engineering at Vets Who Code.",
+        "socials": []
+    }
+]
