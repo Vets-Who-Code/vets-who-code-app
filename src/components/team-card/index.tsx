@@ -37,7 +37,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                     {socials && Array.isArray(socials) && socials.length > 0 && (
                         <Social
                             color="dark"
-                            size="lg"
+                            size="xl"
                             tooltip
                             className="tw-absolute tw-bottom-5 tw-left-5 tw-right-5 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
                         >

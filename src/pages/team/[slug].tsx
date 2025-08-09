@@ -49,7 +49,7 @@ const MemberProfile: PageProps = ({ data: { member } }) => {
                                 />
                             </div>
                             {member.socials && member.socials.length > 0 && (
-                                <div className="tw-mt-6 tw-flex tw-justify-center tw-space-x-4">
+                                <div className="tw-mt-6 tw-flex tw-justify-center tw-space-x-6">
                                     {member.socials.map((social) => (
                                         <a
                                             key={social.label}
@@ -60,7 +60,7 @@ const MemberProfile: PageProps = ({ data: { member } }) => {
                                             title={social.label}
                                             className="tw-text-primary tw-transition-colors hover:tw-text-secondary"
                                         >
-                                            <i className={social.icon} />
+                                            <i className={`${social.icon} tw-text-3xl`} />
                                         </a>
                                     ))}
                                 </div>
@@ -68,7 +68,7 @@ const MemberProfile: PageProps = ({ data: { member } }) => {
                         </div>
                         <div className="md:tw-col-span-2">
                             <h1 className="tw-mb-2 tw-text-3xl tw-font-bold">{member.name}</h1>
-                            <p className="tw-mb-6 tw-text-xl tw-text-gray-600">
+                            <p className="tw-mb-6 tw-text-xl tw-font-medium tw-text-secondary">
                                 {member.designation}
                             </p>
                             <div className="tw-prose tw-max-w-none">

@@ -57,29 +57,26 @@ const Team: PageWithLayout = ({ data }) => {
                 </div>
                 <div className="tw-mx-auto tw-mt-10 tw-grid tw-max-w-4xl tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-2">
                     {data.teamMembers.map((member) => {
-                        // Ensure member.socials is defined and is an array
                         const memberWithSafeSocials = {
                             ...member,
                             socials: Array.isArray(member.socials) ? member.socials : [],
                         };
 
                         return (
-                            <div key={member.slug} className="tw-block">
-                                <div className="tw-group">
-                                    <a
-                                        href={`/team/${member.slug}`}
-                                        aria-label={`View ${member.name}'s profile`}
-                                        title={`View ${member.name}'s profile`}
-                                        className="tw-block"
-                                    >
-                                        <TeamCard
-                                            name={member.name}
-                                            designation={member.designation}
-                                            image={member.image}
-                                            socials={memberWithSafeSocials.socials}
-                                        />
-                                    </a>
-                                </div>
+                            <div key={member.slug} className="tw-group">
+                                <a
+                                    href={`/team/${member.slug}`}
+                                    aria-label={`View ${member.name}'s profile`}
+                                    title={`View ${member.name}'s profile`}
+                                    className="tw-block"
+                                >
+                                    <TeamCard
+                                        name={member.name}
+                                        designation={member.designation}
+                                        image={member.image}
+                                        socials={memberWithSafeSocials.socials}
+                                    />
+                                </a>
                             </div>
                         );
                     })}
@@ -96,22 +93,20 @@ const Team: PageWithLayout = ({ data }) => {
                         };
 
                         return (
-                            <div key={member.slug} className="tw-block">
-                                <div className="tw-group">
-                                    <a
-                                        href={`/team/${member.slug}`}
-                                        aria-label={`View ${member.name}'s profile`}
-                                        title={`View ${member.name}'s profile`}
-                                        className="tw-block"
-                                    >
-                                        <TeamCard
-                                            name={member.name}
-                                            designation={member.designation}
-                                            image={member.image}
-                                            socials={memberWithSafeSocials.socials}
-                                        />
-                                    </a>
-                                </div>
+                            <div key={member.slug} className="tw-group">
+                                <a
+                                    href={`/team/${member.slug}`}
+                                    aria-label={`View ${member.name}'s profile`}
+                                    title={`View ${member.name}'s profile`}
+                                    className="tw-block"
+                                >
+                                    <TeamCard
+                                        name={member.name}
+                                        designation={member.designation}
+                                        image={member.image}
+                                        socials={memberWithSafeSocials.socials}
+                                    />
+                                </a>
                             </div>
                         );
                     })}
