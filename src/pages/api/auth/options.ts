@@ -39,56 +39,60 @@ export const options: NextAuthOptions = {
     adapter: PrismaAdapter(prisma),
     callbacks: {
         async signIn({ account, profile }) {
-            if (account?.provider === "github" && account.access_token) {
-                try {
-                    const githubOrg = process.env.GITHUB_ORG;
-                    if (!githubOrg) {
-                        console.error("GITHUB_ORG environment variable not set");
-                        return false;
-                    }
+            if (account?.provider === "github") {
+                const githubProfile = profile as GithubProfile;
 
-                    const githubProfile = profile as GithubProfile;
-                    // Add timeout protection to the GitHub API call
-                    const res = await fetchWithTimeout(
-                        `https://api.github.com/orgs/${githubOrg}/members/${githubProfile.login}`,
-                        {
-                            headers: {
-                                Accept: "application/vnd.github.v3+json",
-                                Authorization: `Bearer ${account.access_token}`,
-                                "User-Agent": "NextAuth.js",
-                            },
-                        },
-                        5000 // 5 second timeout
-                    );
-
-                    // Handle rate limiting
-                    if (res.status === 403) {
-                        console.error("GitHub API rate limit exceeded");
-                        return false;
-                    }
-
-                    if (!res.ok) {
-                        console.error(`GitHub API error: ${res.status}`);
-                        return false;
-                    }
-
-                    const isMember = res.status === 204;
-
-                    if (!isMember) {
-                        console.error("User is not a member of the required organization");
-                        return false;
-                    }
-
+                // For development, allow any GitHub user to sign in
+                // In production, you'd want to restrict this
+                if (process.env.NODE_ENV === "development") {
                     return true;
-                } catch (error) {
-                    if (error instanceof Error) {
-                        if (error.name === "AbortError") {
-                            console.error("GitHub API request timed out");
-                        } else {
-                            console.error("Error checking GitHub organization membership:", error);
+                }
+
+                // Allow jeromehardaway to login as admin
+                if (githubProfile.login === "jeromehardaway") {
+                    return true;
+                }
+
+                // For other users in production, check organization membership
+                if (account.access_token) {
+                    try {
+                        const githubOrg = process.env.GITHUB_ORG;
+                        if (!githubOrg) {
+                            return false;
                         }
+
+                        // Add timeout protection to the GitHub API call
+                        const res = await fetchWithTimeout(
+                            `https://api.github.com/orgs/${githubOrg}/members/${githubProfile.login}`,
+                            {
+                                headers: {
+                                    Accept: "application/vnd.github.v3+json",
+                                    Authorization: `Bearer ${account.access_token}`,
+                                    "User-Agent": "NextAuth.js",
+                                },
+                            },
+                            5000 // 5 second timeout
+                        );
+
+                        // Handle rate limiting
+                        if (res.status === 403) {
+                            return false;
+                        }
+
+                        if (!res.ok) {
+                            return false;
+                        }
+
+                        const isMember = res.status === 204;
+
+                        if (!isMember) {
+                            return false;
+                        }
+
+                        return true;
+                    } catch (error) {
+                        return false;
                     }
-                    return false;
                 }
             }
 
