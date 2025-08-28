@@ -32,11 +32,11 @@
         "path": "/team/ayumi-bennett",
         "url": "",
         "image": {
-            "src": "/images/author/author-02.jpeg",
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1671657545/Headshots/ayumi_m1hc2r.png",
             "width": 350,
             "height": 430
         },
-        "designation": "Director of Engineering",
+        "designation": "Chief of Staff",
         "bio": "Ayumi Bennett is the Director of Engineering at Vets Who Code.",
         "socials": []
     }
