@@ -10,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -24,9 +24,43 @@ model User {
   sessions      Session[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
- 
+  
+  // Platform profile fields
+  bio           String?
+  title         String?         // Job title or role
+  location      String?
+  githubUrl     String?
+  linkedinUrl   String?
+  websiteUrl    String?
+  skills        String?         // JSON string of programming skills array
+  
+  // Military background
+  branch        String?         // Army, Navy, Air Force, Marines, Coast Guard, Space Force
+  rank          String?         // Former military rank
+  yearsServed   Int?           // Years of service
+  mos           String?         // Military Occupational Specialty
+  deployments   String?        // JSON string of deployment locations/operations
+  
+  // Platform metadata
+  role          UserRole        @default(STUDENT)
+  isActive      Boolean         @default(true)
+  cohort        String?         // Which cohort they belong to
+  graduationDate DateTime?      // When they graduated/completed program
+  
+  // Learning relationships
+  enrollments   Enrollment[]
+  submissions   Submission[]
+  progress      Progress[]
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum UserRole {
+  STUDENT
+  INSTRUCTOR
+  ADMIN
+  MENTOR
 }
  
 model Account {
@@ -82,4 +116,192 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@id([userId, credentialID])
+}
+
+// Learning Management System Models
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  imageUrl    String?
+  difficulty  Difficulty @default(BEGINNER)
+  category    String   // "Web Development", "DevOps", "Data Science", etc.
+  
+  // Course structure
+  modules     Module[]
+  
+  // Metadata
+  isPublished Boolean  @default(false)
+  duration    Int?     // Estimated duration in hours
+  prerequisites String? // JSON string of prerequisite skills/courses
+  
+  // Relationships
+  enrollments Enrollment[]
+  assignments Assignment[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Difficulty {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+model Module {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  order       Int      // Order within the course
+  
+  // Relationships
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons     Lesson[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([courseId, order])
+}
+
+model Lesson {
+  id          String     @id @default(cuid())
+  title       String
+  content     String     // Markdown content
+  videoUrl    String?    // YouTube, Vimeo, or other video URL
+  duration    Int?       // Duration in minutes
+  order       Int        // Order within the module
+  
+  // Lesson type and content
+  type        LessonType @default(CONTENT)
+  codeExample String?    // Code snippets or examples
+  resources   String?    // JSON string of additional resource URLs
+  
+  // Relationships
+  moduleId    String
+  module      Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  progress    Progress[]
+  
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  
+  @@unique([moduleId, order])
+}
+
+enum LessonType {
+  CONTENT    // Regular lesson content
+  VIDEO      // Video lesson
+  EXERCISE   // Hands-on exercise
+  QUIZ       // Quiz or assessment
+  PROJECT    // Project work
+}
+
+model Enrollment {
+  id         String           @id @default(cuid())
+  userId     String
+  courseId   String
+  status     EnrollmentStatus @default(ACTIVE)
+  progress   Float            @default(0) // Percentage complete (0-100)
+  
+  // Dates
+  enrolledAt   DateTime       @default(now())
+  completedAt  DateTime?
+  lastActivity DateTime       @default(now())
+  
+  // Relationships
+  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course     Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, courseId])
+}
+
+enum EnrollmentStatus {
+  ACTIVE
+  COMPLETED
+  DROPPED
+  PAUSED
+}
+
+model Progress {
+  id         String   @id @default(cuid())
+  userId     String
+  lessonId   String
+  completed  Boolean  @default(false)
+  timeSpent  Int      @default(0) // Time spent in minutes
+  
+  // Timestamps
+  startedAt  DateTime @default(now())
+  completedAt DateTime?
+  
+  // Relationships
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson     Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, lessonId])
+}
+
+model Assignment {
+  id          String         @id @default(cuid())
+  title       String
+  description String
+  instructions String        // Detailed assignment instructions
+  dueDate     DateTime?
+  maxPoints   Int            @default(100)
+  
+  // Assignment type and requirements
+  type        AssignmentType @default(PROJECT)
+  githubRepo  Boolean        @default(false) // Requires GitHub repo submission
+  liveDemo    Boolean        @default(false) // Requires live demo URL
+  
+  // Relationships
+  courseId    String
+  course      Course         @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+  
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+}
+
+enum AssignmentType {
+  PROJECT     // Coding project
+  HOMEWORK    // Practice exercises
+  CAPSTONE    // Final project
+  QUIZ        // Assessment
+}
+
+model Submission {
+  id           String           @id @default(cuid())
+  userId       String
+  assignmentId String
+  
+  // Submission content
+  githubUrl    String?          // GitHub repository URL
+  liveUrl      String?          // Live demo URL
+  notes        String?          // Student notes
+  files        String?          // JSON string of uploaded file URLs
+  
+  // Grading
+  status       SubmissionStatus @default(SUBMITTED)
+  score        Int?             // Points earned
+  feedback     String?          // Instructor feedback
+  
+  // Timestamps
+  submittedAt  DateTime         @default(now())
+  gradedAt     DateTime?
+  
+  // Relationships
+  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignment   Assignment       @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, assignmentId])
+}
+
+enum SubmissionStatus {
+  DRAFT
+  SUBMITTED
+  GRADED
+  NEEDS_REVISION
 }

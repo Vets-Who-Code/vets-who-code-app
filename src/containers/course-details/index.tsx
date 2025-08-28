@@ -1,6 +1,7 @@
 import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
 import { ICourse } from "@utils/types";
 import OverviewPanel from "./overview-panel";
+import EnrollmentSidebar from "./enrollment-sidebar";
 // import InstructorPanel from "./instructor-panel";
 // import ReviewPanel from "./review-panel";
 
@@ -48,6 +49,11 @@ const CourseDetails = ({ data: { course } }: TProps) => {
                             </TabPane> */}
                         </TabContent>
                     </TabContainer>
+                </div>
+
+                {/* Enrollment Sidebar */}
+                <div className="lg:tw-col-[3/4]">
+                    <EnrollmentSidebar course={course} />
                 </div>
             </div>
         </section>
