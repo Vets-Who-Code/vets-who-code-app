@@ -37,7 +37,18 @@
             "height": 430
         },
         "designation": "Chief of Staff",
-        "bio": "Ayumi Bennett is the Director of Engineering at Vets Who Code.",
-        "socials": []
+        "bio": "Ayumi Bennett is the Chief of Staff at Vets Who Code, where she supports organizational strategy, operations, and product development. Based in Nashville, Tennessee, Ayumi draws on her background as a business and technology journalist and her expertise as an information illustrator. She combines visual thinking with strategic execution, helping transform complex ideas into clear actions that advance the mission of equipping veterans for careers in technology. In her role, Ayumi partners closely with leadership to streamline operations, guide initiatives, and ensure alignment across teams. With a passion for amplifying ideas and preventing “information evaporation,” she plays a key role in turning vision into impact while keeping organizational focus sharp and effective.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com/in/ayumibennett"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/ayumibennett"
+            }
+        ]
     }
 ]
