@@ -125,7 +125,7 @@ const AdminDashboard: PageWithLayout = () => {
                             <div className="tw-flex tw-items-center tw-space-x-2">
                                 <Link
                                     href="/courses"
-                                    className="tw-rounded-md tw-bg-blue-100 tw-px-4 tw-py-2 tw-text-blue-700 tw-transition-colors hover:tw-bg-blue-200"
+                                    className="tw-rounded-md tw-bg-secondary/10 tw-px-4 tw-py-2 tw-text-secondary tw-transition-colors hover:tw-bg-secondary/20"
                                     title="Switch to Student View"
                                 >
                                     <i className="fas fa-eye tw-mr-2" />
@@ -133,16 +133,16 @@ const AdminDashboard: PageWithLayout = () => {
                                 </Link>
                                 <Link
                                     href="/dashboard"
-                                    className="tw-rounded-md tw-bg-purple-100 tw-px-4 tw-py-2 tw-text-purple-700 tw-transition-colors hover:tw-bg-purple-200"
+                                    className="tw-rounded-md tw-bg-primary/10 tw-px-4 tw-py-2 tw-text-primary tw-transition-colors hover:tw-bg-primary/20"
                                     title="User Dashboard"
                                 >
                                     <i className="fas fa-tachometer-alt tw-mr-2" />
                                     Dashboard
                                 </Link>
                             </div>
-                            <div className="tw-flex tw-items-center tw-space-x-2 tw-rounded-lg tw-bg-green-100 tw-px-4 tw-py-2">
-                                <i className="fas fa-crown tw-text-green-600" />
-                                <span className="tw-font-medium tw-text-green-800">
+                            <div className="tw-flex tw-items-center tw-space-x-2 tw-rounded-lg tw-bg-success/10 tw-px-4 tw-py-2">
+                                <i className="fas fa-crown tw-text-success" />
+                                <span className="tw-font-medium tw-text-success">
                                     Administrator
                                 </span>
                             </div>

@@ -21,6 +21,28 @@ type PageWithLayout = NextPage<PageProps> & {
 const CoursesIndex: PageWithLayout = () => {
     const { data: session, status } = useSession();
 
+    // Check for dev session as fallback
+    const [devSession, setDevSession] = React.useState<{
+        user: { id: string; name: string; email: string; image: string };
+    } | null>(null);
+
+    React.useEffect(() => {
+        if (typeof window !== "undefined") {
+            const stored = localStorage.getItem("dev-session");
+            if (stored) {
+                try {
+                    const user = JSON.parse(stored);
+                    setDevSession({ user });
+                } catch {
+                    localStorage.removeItem("dev-session");
+                }
+            }
+        }
+    }, []);
+
+    // Use either real session or dev session
+    const currentSession = session || devSession;
+
     if (status === "loading") {
         return (
             <div className="tw-container tw-py-16">
@@ -32,7 +54,8 @@ const CoursesIndex: PageWithLayout = () => {
         );
     }
 
-    if (!session) {
+    // Require authentication to access courses
+    if (!currentSession) {
         return (
             <>
                 <SEO title="Courses - Sign In Required" />
@@ -55,7 +78,7 @@ const CoursesIndex: PageWithLayout = () => {
                             </p>
                         </div>
 
-                        <div className="tw-to-primary-dark tw-mb-8 tw-rounded-lg tw-bg-gradient-to-r tw-from-primary tw-p-8 tw-text-white">
+                        <div className="tw-mb-8 tw-rounded-lg tw-bg-gradient-to-r tw-from-primary tw-to-primary tw-p-8 tw-text-white">
                             <h2 className="tw-mb-4 tw-text-2xl tw-font-bold">
                                 What You&apos;ll Get Access To:
                             </h2>
@@ -106,18 +129,27 @@ const CoursesIndex: PageWithLayout = () => {
                         </div>
 
                         <div className="tw-space-y-4">
-                            <Link
-                                href="/login"
-                                className="hover:tw-bg-primary-dark tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors"
-                            >
-                                <i className="fas fa-sign-in-alt tw-mr-2" />
-                                Sign In to Access Courses
-                            </Link>
+                            <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-justify-center">
+                                <Link
+                                    href="/login"
+                                    className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
+                                >
+                                    <i className="fas fa-sign-in-alt tw-mr-2" />
+                                    Sign In to Access Courses
+                                </Link>
+                                <Link
+                                    href="/dev-login"
+                                    className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-gray-600 tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-gray-500"
+                                >
+                                    <i className="fas fa-code tw-mr-2" />
+                                    Dev Login (Testing)
+                                </Link>
+                            </div>
                             <div className="tw-text-gray-600">
                                 <p>Want to explore course topics first?</p>
                                 <Link
                                     href="/subjects/all"
-                                    className="hover:tw-text-primary-dark tw-text-primary tw-transition-colors"
+                                    className="tw-text-primary tw-transition-colors hover:tw-text-primary/80"
                                 >
                                     Browse our subjects page →
                                 </Link>
@@ -139,346 +171,220 @@ const CoursesIndex: PageWithLayout = () => {
             />
 
             <div className="tw-container tw-py-16">
-                {/* Admin Access Button (only for jeromehardaway) */}
-                {session?.user?.email === "jeromehardaway@users.noreply.github.com" && (
-                    <div className="tw-mb-6 tw-flex tw-justify-end">
-                        <Link
-                            href="/admin"
-                            className="tw-rounded-md tw-bg-red-100 tw-px-4 tw-py-2 tw-text-red-700 tw-transition-colors hover:tw-bg-red-200"
-                            title="Switch to Admin Mode"
-                        >
-                            <i className="fas fa-crown tw-mr-2" />
-                            Admin Dashboard
-                        </Link>
+                {/* Header with Admin and User Menu */}
+                <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                    <div>
+                        {/* Admin Access Button (only for jeromehardaway) */}
+                        {currentSession?.user?.email ===
+                            "jeromehardaway@users.noreply.github.com" && (
+                            <Link
+                                href="/admin"
+                                className="tw-rounded-md tw-bg-primary/10 tw-px-4 tw-py-2 tw-text-primary tw-transition-colors hover:tw-bg-primary/20"
+                                title="Switch to Admin Mode"
+                            >
+                                <i className="fas fa-crown tw-mr-2" />
+                                Admin Dashboard
+                            </Link>
+                        )}
                     </div>
-                )}
 
-                <div className="tw-mb-12 tw-text-center">
-                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
-                        Learning Tracks
-                    </h1>
-                    <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-text-gray-600">
+                    {/* User Menu */}
+                    <div className="tw-flex tw-items-center tw-space-x-4">
+                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-600">
+                            {currentSession?.user?.image && (
+                                <img
+                                    src={currentSession.user.image}
+                                    alt={currentSession.user.name || "User"}
+                                    className="tw-h-8 tw-w-8 tw-rounded-full"
+                                />
+                            )}
+                            <span>
+                                Welcome, {currentSession?.user?.name?.split(" ")[0] || "User"}
+                            </span>
+                        </div>
+                        <div className="tw-flex tw-space-x-2">
+                            <Link
+                                href="/profile"
+                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                                title="View Profile"
+                            >
+                                <i className="fas fa-user tw-mr-1" />
+                                Profile
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="tw-mb-16 tw-text-center">
+                    <div className="tw-mb-6">
+                        <h1 className="tw-mb-6 tw-text-5xl tw-font-bold tw-text-secondary md:tw-text-6xl">
+                            VWC Engineering Verticals
+                        </h1>
+                        <div className="tw-mx-auto tw-mb-4 tw-h-1 tw-w-24 tw-rounded tw-bg-primary" />
+                    </div>
+                    <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-leading-relaxed tw-text-black md:tw-text-2xl">
                         Master the skills you need for a successful career in tech. Our
-                        comprehensive courses are designed specifically for veterans and military
+                        comprehensive verticals are designed specifically for veterans and military
                         spouses.
                     </p>
                 </div>
 
-                {/* Course Categories */}
+                {/* Engineering Verticals */}
                 <div className="tw-mb-16 tw-grid tw-grid-cols-1 tw-gap-8 md:tw-grid-cols-2 lg:tw-grid-cols-3">
-                    {/* Web Development Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-blue-500 tw-to-blue-600 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fab fa-html5 tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    Web Development
+                    {/* Software Engineering Vertical */}
+                    <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
+                        <div className="tw-bg-gradient-to-br tw-from-primary tw-via-primary tw-to-primary/80 tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center">
+                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                    <i className="fas fa-code tw-text-3xl tw-text-white" />
+                                </div>
+                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                    Software Engineering
                                 </h3>
                             </div>
-                            <p className="tw-text-blue-100">
-                                Learn HTML, CSS, JavaScript, React, and Node.js to build modern web
-                                applications.
+                            <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
+                                Master full-stack development, system design, and software
+                                architecture to build scalable applications.
                             </p>
                         </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
-                                    <span>12-16 weeks</span>
-                                </div>
-                                <span className="tw-rounded-full tw-bg-green-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-green-800">
-                                    Beginner
-                                </span>
-                            </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        HTML
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        CSS
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        JavaScript
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        React
-                                    </span>
-                                </div>
-                            </div>
-                            <Link
-                                href="/courses/web-development"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
-                            >
-                                View Course
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* DevOps Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-green-500 tw-to-green-600 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fas fa-server tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    DevOps & Cloud
-                                </h3>
-                            </div>
-                            <p className="tw-text-green-100">
-                                Master Docker, Kubernetes, AWS, CI/CD pipelines, and infrastructure
-                                as code.
-                            </p>
-                        </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
+                        <div className="tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                    <i className="fas fa-clock tw-mr-2 tw-text-primary" />
                                     <span>16-20 weeks</span>
                                 </div>
-                                <span className="tw-rounded-full tw-bg-yellow-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-yellow-800">
-                                    Intermediate
+                                <span className="tw-rounded-full tw-bg-success/10 tw-px-4 tw-py-2 tw-text-sm tw-font-semibold tw-text-success">
+                                    Comprehensive
                                 </span>
                             </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Docker
+                            <div className="tw-mb-6">
+                                <div className="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span className="tw-rounded-lg tw-bg-primary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-primary">
+                                        JavaScript
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        AWS
+                                    <span className="tw-rounded-lg tw-bg-primary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-primary">
+                                        React
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Kubernetes
+                                    <span className="tw-rounded-lg tw-bg-primary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-primary">
+                                        Node.js
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        CI/CD
+                                    <span className="tw-rounded-lg tw-bg-primary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-primary">
+                                        System Design
                                     </span>
                                 </div>
                             </div>
                             <Link
-                                href="/courses/devops"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
+                                href="/courses/software-engineering"
+                                className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-primary tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-primary/90 hover:tw-shadow-lg"
                             >
-                                View Course
+                                <span>View Vertical</span>
+                                <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
                     </div>
 
-                    {/* Data Science Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-purple-500 tw-to-purple-600 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fas fa-chart-line tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    Data Science
+                    {/* Data Engineering Vertical */}
+                    <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
+                        <div className="tw-bg-gradient-to-br tw-from-secondary tw-via-secondary tw-to-secondary/80 tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center">
+                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                    <i className="fas fa-database tw-text-3xl tw-text-white" />
+                                </div>
+                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                    Data Engineering
                                 </h3>
                             </div>
-                            <p className="tw-text-purple-100">
-                                Learn Python, SQL, machine learning, and data visualization
-                                techniques.
+                            <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
+                                Build data pipelines, work with big data technologies, and create
+                                robust data infrastructure systems.
                             </p>
                         </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
-                                    <span>14-18 weeks</span>
+                        <div className="tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                    <i className="fas fa-clock tw-mr-2 tw-text-secondary" />
+                                    <span>18-22 weeks</span>
                                 </div>
-                                <span className="tw-rounded-full tw-bg-yellow-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-yellow-800">
-                                    Intermediate
-                                </span>
-                            </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Python
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        SQL
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Pandas
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Machine Learning
-                                    </span>
-                                </div>
-                            </div>
-                            <Link
-                                href="/courses/data-science"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
-                            >
-                                View Course
-                            </Link>
-                        </div>
-                    </div>
-
-                    {/* Cybersecurity Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-red-500 tw-to-red-600 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fas fa-shield-alt tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    Cybersecurity
-                                </h3>
-                            </div>
-                            <p className="tw-text-red-100">
-                                Learn ethical hacking, network security, incident response, and
-                                compliance.
-                            </p>
-                        </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
-                                    <span>18-24 weeks</span>
-                                </div>
-                                <span className="tw-rounded-full tw-bg-red-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-red-800">
+                                <span className="tw-rounded-full tw-bg-warning/10 tw-px-4 tw-py-2 tw-text-sm tw-font-semibold tw-text-warning">
                                     Advanced
                                 </span>
                             </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Penetration Testing
+                            <div className="tw-mb-6">
+                                <div className="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span className="tw-rounded-lg tw-bg-secondary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-secondary">
+                                        Python
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        NIST
+                                    <span className="tw-rounded-lg tw-bg-secondary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-secondary">
+                                        SQL
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Incident Response
+                                    <span className="tw-rounded-lg tw-bg-secondary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-secondary">
+                                        Apache Spark
+                                    </span>
+                                    <span className="tw-rounded-lg tw-bg-secondary/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-secondary">
+                                        AWS/GCP
                                     </span>
                                 </div>
                             </div>
                             <Link
-                                href="/courses/cybersecurity"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
+                                href="/courses/data-engineering"
+                                className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-secondary tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-secondary/90 hover:tw-shadow-lg"
                             >
-                                View Course
+                                <span>View Vertical</span>
+                                <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
                     </div>
 
-                    {/* Mobile Development Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-orange-500 tw-to-orange-600 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fas fa-mobile-alt tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    Mobile Development
+                    {/* AI Engineering Vertical */}
+                    <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
+                        <div className="tw-bg-gradient-to-br tw-from-success tw-via-success tw-to-success/80 tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center">
+                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                    <i className="fas fa-brain tw-text-3xl tw-text-white" />
+                                </div>
+                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                    AI Engineering
                                 </h3>
                             </div>
-                            <p className="tw-text-orange-100">
-                                Build iOS and Android apps using React Native, Swift, and Kotlin.
+                            <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
+                                Develop AI/ML models, work with neural networks, and build
+                                intelligent systems for real-world applications.
                             </p>
                         </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
-                                    <span>16-20 weeks</span>
+                        <div className="tw-p-8">
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                    <i className="fas fa-clock tw-mr-2 tw-text-success" />
+                                    <span>20-24 weeks</span>
                                 </div>
-                                <span className="tw-rounded-full tw-bg-yellow-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-yellow-800">
-                                    Intermediate
+                                <span className="tw-rounded-full tw-bg-danger/10 tw-px-4 tw-py-2 tw-text-sm tw-font-semibold tw-text-danger">
+                                    Expert
                                 </span>
                             </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        React Native
+                            <div className="tw-mb-6">
+                                <div className="tw-flex tw-flex-wrap tw-gap-3">
+                                    <span className="tw-rounded-lg tw-bg-success/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-success">
+                                        Python
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Swift
+                                    <span className="tw-rounded-lg tw-bg-success/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-success">
+                                        TensorFlow
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Kotlin
+                                    <span className="tw-rounded-lg tw-bg-success/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-success">
+                                        PyTorch
                                     </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Flutter
+                                    <span className="tw-rounded-lg tw-bg-success/10 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-success">
+                                        MLOps
                                     </span>
                                 </div>
                             </div>
                             <Link
-                                href="/courses/mobile-development"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
+                                href="/courses/ai-engineering"
+                                className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-success tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-success/90 hover:tw-shadow-lg"
                             >
-                                View Course
+                                <span>View Vertical</span>
+                                <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
-                    </div>
-
-                    {/* Career Prep Track */}
-                    <div className="tw-overflow-hidden tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-shadow-md tw-transition-shadow hover:tw-shadow-lg">
-                        <div className="tw-bg-gradient-to-r tw-from-gray-700 tw-to-gray-800 tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center">
-                                <i className="fas fa-briefcase tw-mr-3 tw-text-3xl tw-text-white" />
-                                <h3 className="tw-text-xl tw-font-semibold tw-text-white">
-                                    Career Preparation
-                                </h3>
-                            </div>
-                            <p className="tw-text-gray-100">
-                                Resume building, interview prep, networking, and job search
-                                strategies.
-                            </p>
-                        </div>
-                        <div className="tw-p-6">
-                            <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-600">
-                                    <i className="fas fa-clock tw-mr-2" />
-                                    <span>4-6 weeks</span>
-                                </div>
-                                <span className="tw-rounded-full tw-bg-green-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-green-800">
-                                    All Levels
-                                </span>
-                            </div>
-                            <div className="tw-mb-4">
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Resume
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Interviews
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Networking
-                                    </span>
-                                    <span className="tw-rounded tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-text-gray-700">
-                                        Job Search
-                                    </span>
-                                </div>
-                            </div>
-                            <Link
-                                href="/courses/career-prep"
-                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-center tw-font-medium tw-text-white tw-transition-colors"
-                            >
-                                View Course
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Call to Action */}
-                <div className="tw-to-primary-dark tw-rounded-lg tw-bg-gradient-to-r tw-from-primary tw-p-8 tw-text-center tw-text-white">
-                    <h2 className="tw-mb-4 tw-text-3xl tw-font-bold">
-                        Ready to Start Your Tech Career?
-                    </h2>
-                    <p className="tw-mb-6 tw-text-xl tw-opacity-90">
-                        Join thousands of veterans who have successfully transitioned to tech
-                        careers through our programs.
-                    </p>
-                    <div className="tw-flex tw-flex-col tw-justify-center tw-gap-4 sm:tw-flex-row">
-                        <Link
-                            href="/apply"
-                            className="tw-rounded-md tw-bg-white tw-px-8 tw-py-3 tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100"
-                        >
-                            Apply Now
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="tw-rounded-md tw-border tw-border-white tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-white hover:tw-text-primary"
-                        >
-                            Learn More
-                        </Link>
                     </div>
                 </div>
             </div>
