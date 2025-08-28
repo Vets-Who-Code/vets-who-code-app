@@ -57,8 +57,8 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                     )}
                 </figure>
                 <div className="tw-mt-5 tw-text-center">
-                    <h3>{name}</h3>
-                    <p>{designation}</p>
+                    <h3 className="tw-text-primary">{name}</h3>
+                    <p className="tw-text-secondary">{designation}</p>
                 </div>
             </div>
         );

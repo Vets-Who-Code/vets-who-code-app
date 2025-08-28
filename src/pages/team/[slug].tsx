@@ -72,7 +72,7 @@ const MemberProfile: PageProps = ({ data: { member } }) => {
                                 {member.designation}
                             </p>
                             <div className="tw-prose tw-max-w-none">
-                                <p className="tw-text-lg">{member.bio}</p>
+                                <p className="tw-text-lg tw-text-black">{member.bio}</p>
                             </div>
                         </div>
                     </div>
