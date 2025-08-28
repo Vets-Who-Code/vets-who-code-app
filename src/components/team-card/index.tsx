@@ -14,22 +14,34 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div className="team-member tw-group" ref={ref}>
                 <figure className="tw-relative tw-overflow-hidden">
-                    {image?.src && (
-                        <img
-                            className="tw-w-full tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
-                            src={image.src}
-                            alt={image?.alt || name}
-                            width={image?.width || 350}
-                            height={image?.height || 430}
-                            loading="lazy"
-                        />
+                    {image?.src ? (
+                        <div className="tw-relative">
+                            <img
+                                className="tw-h-[430px] tw-w-[350px] tw-object-cover tw-grayscale tw-transition-all tw-duration-1000 tw-ease-out group-hover:tw-scale-110 group-hover:tw-grayscale-0"
+                                src={image.src}
+                                alt={image?.alt || name}
+                                width={image?.width || 350}
+                                height={image?.height || 430}
+                                loading="lazy"
+                                onError={(e) => {
+                                    // Fallback to a placeholder if image fails to load
+                                    const target = e.target as HTMLImageElement;
+                                    target.onerror = null; // Prevent infinite loop
+                                    target.src = "/images/profile/placeholder-profile.jpg";
+                                }}
+                            />
+                        </div>
+                    ) : (
+                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-200">
+                            <span className="tw-text-gray-500">No Image</span>
+                        </div>
                     )}
-                    {socials && (
+                    {socials && Array.isArray(socials) && socials.length > 0 && (
                         <Social
                             color="dark"
-                            size="lg"
+                            size="xl"
                             tooltip
-                            className="tw-absolute tw-bottom-5 tw-left-5 tw-right-5 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
+                            className="tw-absolute tw-bottom-3 tw-left-3 tw-right-3 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
                         >
                             {socials.map((social) => (
                                 <SocialLink

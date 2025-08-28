@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "name": "Jerome Hardaway",
+        "slug": "jerome-hardaway",
+        "path": "/team/jerome-hardaway",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1683429329/jerome-headshot-bw-3900.jpg",
+            "width": 350,
+            "height": 430
+        },
+        "designation": "Executive Director",
+        "bio": "Jerome Hardaway is an Air Force veteran and the Founder and Executive Director of Vets Who Code, a nonprofit that trains U.S. military veterans and military spouses in coding to launch careers in technology. Since 2014, he has led the organization in preparing over 500 veterans for roles in the tech industry, generating more than $20 million in combined economic impact. A self-taught software engineer, he built Vets Who Code as a fully remote, open-source program focused on modern web development and AI-powered tools, blending hands-on projects with a structured, mission-driven approach to learning  .Jerome is passionate about empowering veterans and military spouses to succeed in tech careers and is dedicated to fostering a supportive community for lifelong learning and growth.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com/in/jeromehardaway"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/jeromehardaway"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Ayumi Bennett",
+        "slug": "ayumi-bennett",
+        "path": "/team/ayumi-bennett",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1671657545/Headshots/ayumi_m1hc2r.png",
+            "width": 350,
+            "height": 430
+        },
+        "designation": "Chief of Staff",
+        "bio": "Ayumi Bennett is the Chief of Staff at Vets Who Code, where she supports organizational strategy, operations, and product development. Based in Nashville, Tennessee, Ayumi draws on her background as a business and technology journalist and her expertise as an information illustrator. She combines visual thinking with strategic execution, helping transform complex ideas into clear actions that advance the mission of equipping veterans for careers in technology. In her role, Ayumi partners closely with leadership to streamline operations, guide initiatives, and ensure alignment across teams. With a passion for amplifying ideas and preventing “information evaporation,” she plays a key role in turning vision into impact while keeping organizational focus sharp and effective.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://linkedin.com/in/ayumibennett"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/ayumibennett"
+            }
+        ]
+    }
+]

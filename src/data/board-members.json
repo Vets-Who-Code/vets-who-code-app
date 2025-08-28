@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Addy Osmani",
+        "slug": "addy-osmani",
+        "path": "/team/addy-osmani",
+        "url": "",
+        "image": {
+            "src": "https://addyosmani.com/press/img/55.jpg",
+            "width": 350,
+            "height": 430,
+            "alt": "Engineering Leader, Google Chrome & Author"
+        },
+        "designation": "Board Member",
+        "bio": "Addy Osmani is an Engineering Leader at Google, where he heads the Chrome Developer Experience team and contributes to Gemini with Google DeepMind. He is an Irish software engineer with more than 25 years of development experience and has been at Google for over thirteen years. In his role, Addy focuses on reducing friction for users and web developers, shaping the future of the web through performance, usability, and developer tools. With a background in large-scale systems, open-source projects, and web platform innovation, he brings deep technical expertise and strategic insight to his work. He is passionate about advancing the web ecosystem, empowering developers worldwide, and making technology more accessible and reliable for everyone.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/addyosmani/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/addyosmani"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Brian Holt",
+        "slug": "brian-holt",
+        "path": "/team/brian-holt",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1756348115/brian2022_fpbsyq.jpg",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Brian Holt is a senior product leader at Databricks and a renowned instructor at Frontend Masters, where he has taught workshops viewed for over a century of human-hours by developers worldwide. With over a decade of experience in tech, Brian has held senior product and engineering roles at companies including Stripe, Microsoft, Netflix, and Reddit, focusing on developer tools and experiences that help engineers write effective, secure, and performant code. As a college dropout who navigated his own non-traditional path into technology, Brian understands firsthand the challenges of breaking into the industry without a conventional background. Growing up as the son of a veteran, he has deep appreciation for the military community and is passionate about helping veterans translate their unique skills and discipline into successful tech careers. Through his work with Vets Who Code, Brian combines his expertise in developer education and his understanding of alternative pathways into technology to support veterans in their transition to meaningful careers in software development.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/btholt/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/btholt"
+            }
+        ]
+    }
+]
