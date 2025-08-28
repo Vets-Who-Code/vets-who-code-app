@@ -52,5 +52,54 @@
                 "url": "https://github.com/btholt"
             }
         ]
+    },
+    {
+        "id": 3,
+        "name": "Jarrad Turner",
+        "slug": "jarrad-turner",
+        "path": "/team/jarrad-turner",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1756403937/jarrad-turner-headshot_upzz2v.png",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Jarrad Turner Sr. has built a career defined by purpose, resilience, and results from the battlefield to the boardroom. A decorated U.S. Army Combat Medic who distinguished himself in Operation Iraqi Freedom, Jarrad has turned his lived experience into a leadership philosophy—utilizing innovation, empathy, and mission-driven execution to address some of the toughest challenges facing the healthcare, government, and enterprise sectors today. After his medical retirement, Jarrad transitioned from military service to national advocacy. As a Senior National Service Officer for the Wounded Warrior Project, he covered Alabama, Georgia, Tennessee, and South Carolina. He worked to secure critical care and benefits for thousands of veterans. In 2018, he co-founded The Warrior Alliance, serving as Vice President and helping build one of the country's most respected nonprofit coalitions focused on veteran reintegration, behavioral health, and coordinated resource delivery. He was pivotal in The Warrior Alliance securing a partnership with the Atlanta Braves Foundation. Currently, the Warrior Alliance covers seven states in what Major League Baseball has designated as Braves Country. Jarrad's expertise also extends into clinical and neurological care. His work with the Shepherd Center's SHARE Military Initiative, a nationally acclaimed program for traumatic brain injury and PTSD treatment, has influenced best practices in holistic veteran care. His continued leadership led to his appointment to the Shepherd's Center Board of Directors in 2022. The Shepherd's Men is a grassroots movement addressing veteran suicide, demonstrating his enduring commitment to advocacy and awareness. The group has raised $10 million to support the treatment of service members, veterans, and first responders at the SHARE Military Initiative. As a member of the Shepherd Center Board of Directors, Jarrad helped guide strategic growth in rehabilitation and military care. This role led to his federal appointment to the U.S. Department of Veterans Affairs Advisory Committee on Disability Compensation, where he advises on national policy impacting millions of veterans. Most recently, in 2026, he will be named to the Advisory Board for Morehouse School of Medicine, helping shape the future of healthcare equity and innovation. Jarrad served as the CEO of Veterans Technology Solutions USA, a veteran-led, mission-focused IT and cybersecurity firm specializing in AI-powered solutions, secure data infrastructure, and digital transformation. Under his leadership, VTS-USA partnered with government agencies, healthcare systems, and Fortune 500 companies to deliver tailored, high-impact technology strategies that improve outcomes, enhance resilience, and drive operational efficiency. Seeing a need, Jarrad founded Pioneer AI Health in early 2025. Pioneer AI Health has developed an app called Pioneer Vitals, which addresses the mental health needs of Veterans and First Responders who have been exposed to prolonged trauma as a result of their occupation. This app partners with national medical providers to ensure the mental health needs of the brave men and women who protect us daily are always met. Renowned for bringing together high-performing, cross-functional teams, Jarrad has a proven track record of aligning people, process, and purpose to solve complex challenges at scale. He holds an Executive Nonprofit Leadership Certificate from the University of Georgia and an Executive Entrepreneurial Certificate from Babson College, reflecting his deep commitment to strategic leadership and sustainable impact. Jarrad Turner Sr. brings executive expertise and an unwavering sense of purpose to every partnership, earning the trust of organizations that share his conviction that the right team can achieve the extraordinary through innovative processes and measured impact.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/jarrad-turner-sr-9959b2b/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Christina Morillo",
+        "slug": "christina-morillo",
+        "path": "/team/christina-morillo",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1756404227/ChristinaMorillo_lfnwgo.jpg",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Christina Morillo is a seasoned cybersecurity and technology executive with over 20 years of cross-domain experience leading enterprise security, cloud architecture, and identity programs. As a CISO and trusted advisor, she blends technical depth with strategic leadership to drive resilience, regulatory alignment, and business impact. Her career spans diverse industries, including financial services, big tech, and professional sports, bringing a unique perspective to every challenge. Christina is also a published O’Reilly author (Zero Trust Networks: Second Edition, 97 Things Every Information Security Professional Should Know) and is passionate about making security and technology accessible, inclusive, and actionable for all.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/christinamorillo/"
+            },
+            {
+                "label": "Website",
+                "icon": "fas fa-globe",
+                "url": "https://www.christinamorillo.com/"
+            }
+        ]
     }
 ]
