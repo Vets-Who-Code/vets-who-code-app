@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { signIn } from "next-auth/react";
+import Link from "next/link";
 import Layout from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 
@@ -73,12 +73,12 @@ const DevLogin: PageWithLayout = () => {
                     </button>
 
                     <div className="tw-text-center">
-                        <a
+                        <Link
                             href="/login"
                             className="tw-text-sm tw-text-secondary tw-underline hover:tw-opacity-80"
                         >
                             Use GitHub OAuth instead
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
