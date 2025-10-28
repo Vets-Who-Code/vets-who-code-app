@@ -52,6 +52,33 @@ const Login: PageWithLayout = () => {
         }
     }, []);
 
+    // Dev-only login for Jerome
+    const handleDevLogin = useCallback(async () => {
+        if (typeof window !== "undefined") {
+            try {
+                const devUser = {
+                    id: "dev-jerome",
+                    name: "Jerome Hardaway",
+                    email: "jerome@vetswhocode.io",
+                    image: "https://github.com/jeromehardaway.png",
+                };
+
+                // Initialize user in database
+                await fetch("/api/dev/init-user", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(devUser),
+                });
+
+                localStorage.setItem("dev-session", JSON.stringify(devUser));
+                router.replace("/profile");
+            } catch (error) {
+                console.error("Dev login error:", error);
+                setErrorMessage("Failed to initialize dev session");
+            }
+        }
+    }, [router]);
+
     if (!mounted || status === "loading") {
         return (
             <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
@@ -77,7 +104,7 @@ const Login: PageWithLayout = () => {
                             </div>
                         )}
                     </div>
-                    <div className="tw-p-6">
+                    <div className="tw-p-6 tw-space-y-3">
                         <button
                             type="button"
                             onClick={handleSignIn}
@@ -86,6 +113,27 @@ const Login: PageWithLayout = () => {
                         >
                             <i className="fab fa-github" />
                             Sign in with GitHub
+                        </button>
+
+                        {/* Dev Login - Only for local development */}
+                        <div className="tw-relative">
+                            <div className="tw-absolute tw-inset-0 tw-flex tw-items-center">
+                                <div className="tw-w-full tw-border-t tw-border-gray-300" />
+                            </div>
+                            <div className="tw-relative tw-flex tw-justify-center tw-text-sm">
+                                <span className="tw-bg-white tw-px-2 tw-text-gray-500">
+                                    Dev Mode
+                                </span>
+                            </div>
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={handleDevLogin}
+                            className="tw-flex tw-w-full tw-items-center tw-justify-center tw-gap-2 tw-rounded-md tw-bg-secondary tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-transition-colors hover:tw-opacity-90"
+                        >
+                            <i className="fas fa-user-shield" />
+                            Dev Login (Jerome Only)
                         </button>
                     </div>
                     <div className="tw-px-8 tw-pb-8">
