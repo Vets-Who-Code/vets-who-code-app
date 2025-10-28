@@ -46,6 +46,11 @@ model User {
   isActive      Boolean         @default(true)
   cohort        String?         // Which cohort they belong to
   graduationDate DateTime?      // When they graduated/completed program
+
+  // Assessment and skill level
+  skillLevel    SkillLevel?     // Assessed coding skill level
+  assessmentDate DateTime?      // When last assessed
+  assessmentScore Int?          // Score from last assessment (0-100)
   
   // Learning relationships
   enrollments   Enrollment[]
@@ -61,6 +66,14 @@ enum UserRole {
   INSTRUCTOR
   ADMIN
   MENTOR
+}
+
+enum SkillLevel {
+  NEWBIE      // No prior coding experience
+  BEGINNER    // Basic understanding of programming concepts
+  JUNIOR      // Can write functional code with some guidance
+  MID         // Independent developer with solid fundamentals
+  SENIOR      // Advanced skills and problem-solving abilities
 }
  
 model Account {

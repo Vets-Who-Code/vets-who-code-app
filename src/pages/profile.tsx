@@ -385,6 +385,7 @@ const Profile: PageWithLayout = () => {
                                 icon: "fas fa-graduation-cap",
                             },
                             { id: "achievements", label: "Achievements", icon: "fas fa-trophy" },
+                            { id: "assessment", label: "Skill Assessment", icon: "fas fa-code" },
                             { id: "settings", label: "Settings", icon: "fas fa-cog" },
                         ].map((tab) => (
                             <button
@@ -714,6 +715,89 @@ const Profile: PageWithLayout = () => {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {activeTab === "assessment" && (
+                        <div className="tw-col-span-1 tw-space-y-6 lg:tw-col-span-3">
+                            <div className="tw-rounded-lg tw-bg-gradient-to-br tw-from-primary/10 tw-to-primary/5 tw-p-8 tw-shadow-md">
+                                <div className="tw-mb-6 tw-text-center">
+                                    <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-16 tw-w-16 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-text-white">
+                                        <i className="fas fa-code tw-text-2xl" />
+                                    </div>
+                                    <h3 className="tw-mb-2 tw-text-2xl tw-font-bold tw-text-gray-900">
+                                        Coding Skill Assessment
+                                    </h3>
+                                    <p className="tw-text-gray-600">
+                                        Take our comprehensive assessment to determine your current skill level
+                                    </p>
+                                </div>
+
+                                <div className="tw-mb-6 tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-3">
+                                    <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">10</div>
+                                        <div className="tw-text-sm tw-text-gray-600">Questions</div>
+                                    </div>
+                                    <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">~30</div>
+                                        <div className="tw-text-sm tw-text-gray-600">Minutes</div>
+                                    </div>
+                                    <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">5</div>
+                                        <div className="tw-text-sm tw-text-gray-600">Skill Levels</div>
+                                    </div>
+                                </div>
+
+                                <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6">
+                                    <h4 className="tw-mb-4 tw-font-semibold tw-text-gray-900">What You&apos;ll Be Tested On:</h4>
+                                    <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-2">
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">Basic Syntax & Variables</span>
+                                        </div>
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">Functions & Conditionals</span>
+                                        </div>
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">Arrays & Loops</span>
+                                        </div>
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">String Manipulation</span>
+                                        </div>
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">Problem Solving</span>
+                                        </div>
+                                        <div className="tw-flex tw-items-center tw-space-x-2">
+                                            <i className="fas fa-check-circle tw-text-success" />
+                                            <span className="tw-text-sm tw-text-gray-700">Algorithms</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="tw-mb-6 tw-rounded-lg tw-border-l-4 tw-border-primary tw-bg-blue-50 tw-p-4">
+                                    <div className="tw-flex tw-items-start tw-space-x-3">
+                                        <i className="fas fa-info-circle tw-mt-1 tw-text-primary" />
+                                        <div className="tw-text-sm tw-text-gray-700">
+                                            <strong>Note:</strong> This assessment uses our built-in code editor. You&apos;ll write actual JavaScript code to solve programming challenges. Your skill level will be determined based on your performance: Newbie, Beginner, Junior, Mid, or Senior.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="tw-text-center">
+                                    <button
+                                        type="button"
+                                        onClick={() => router.push("/assessment")}
+                                        className="tw-inline-flex tw-items-center tw-rounded-lg tw-bg-primary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-shadow-lg tw-transition-all hover:tw-bg-primary/90 hover:tw-shadow-xl"
+                                    >
+                                        <i className="fas fa-play-circle tw-mr-2" />
+                                        Start Assessment
+                                    </button>
                                 </div>
                             </div>
                         </div>
