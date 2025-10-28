@@ -10,6 +10,17 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    {/* PWA Meta Tags */}
+                    <meta name="mobile-web-app-capable" content="yes" />
+                    <meta name="apple-mobile-web-app-capable" content="yes" />
+                    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+                    <meta name="apple-mobile-web-app-title" content="Vets Who Code" />
+                    <meta name="theme-color" content="#c5203e" />
+
+                    {/* Favicon and Icons */}
+                    <link rel="icon" href="/favicon.ico" />
+                    <link rel="apple-touch-icon" href="/images/favicon.png" />
+
                     <link
                         rel="stylesheet"
                         href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"

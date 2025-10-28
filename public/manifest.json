@@ -1,25 +1,30 @@
 {
     "name": "Vets Who Code",
     "short_name": "Vets Who Code",
-    "theme_color": "#696969",
-    "background_color": "#20AD96",
+    "theme_color": "#c5203e",
+    "background_color": "#091f40",
     "display": "standalone",
     "orientation": "portrait",
     "start_url": "/",
     "scope": "/",
     "icons": [
       {
-        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
+        "src": "/favicon.ico",
+        "sizes": "48x48",
+        "type": "image/x-icon"
+      },
+      {
+        "src": "/images/favicon.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
+        "src": "/images/favicon.png",
         "sizes": "512x512",
         "type": "image/png"
       },
       {
-        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1656268751/favicon_dpiacy.png",
+        "src": "/images/favicon.png",
         "sizes": "512x512",
         "type": "image/png",
         "purpose": "maskable"

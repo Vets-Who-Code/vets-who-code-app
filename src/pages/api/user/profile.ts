@@ -94,11 +94,20 @@ async function handleUpdateProfile(userId: string, body: UpdateProfileBody, res:
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await getSession({ req });
 
-    if (!session?.user?.id) {
+    // Support dev mode: check for dev-user-id header
+    const devUserId = req.headers["x-dev-user-id"] as string;
+
+    let userId: string;
+
+    if (devUserId) {
+        // Dev mode - use the provided dev user ID
+        userId = devUserId;
+    } else if (session?.user?.id) {
+        // Production mode - use NextAuth session
+        userId = session.user.id;
+    } else {
         return res.status(401).json({ error: "Unauthorized" });
     }
-
-    const userId = session.user.id;
 
     if (req.method === "GET") {
         return handleGetProfile(userId, res);
