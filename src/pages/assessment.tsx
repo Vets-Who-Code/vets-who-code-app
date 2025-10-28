@@ -76,7 +76,7 @@ const Assessment: PageWithLayout = () => {
         }
     }, [status, router, devSession, devSessionLoaded]);
 
-    const currentQuestion = assessmentQuestions[currentQuestionIndex];
+    const currentQuestion: AssessmentQuestion = assessmentQuestions[currentQuestionIndex];
 
     // Initialize code with starter code when question changes
     useEffect(() => {
@@ -342,12 +342,12 @@ const Assessment: PageWithLayout = () => {
             {/* Notification */}
             {notification && (
                 <div
-                    className={`tw-fixed tw-top-4 tw-right-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-animate-in tw-fade-in tw-slide-in-from-top-5 tw-duration-300 ${
+                    className={`tw-fixed tw-right-4 tw-top-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-duration-300 tw-animate-in tw-fade-in tw-slide-in-from-top-5 ${
                         notification.type === "success"
-                            ? "tw-bg-green-50 tw-text-green-800 tw-border tw-border-green-200"
+                            ? "tw-border tw-border-green-200 tw-bg-green-50 tw-text-green-800"
                             : notification.type === "error"
-                              ? "tw-bg-red-50 tw-text-red-800 tw-border tw-border-red-200"
-                              : "tw-bg-blue-50 tw-text-blue-800 tw-border tw-border-blue-200"
+                              ? "tw-border tw-border-red-200 tw-bg-red-50 tw-text-red-800"
+                              : "tw-border tw-border-blue-200 tw-bg-blue-50 tw-text-blue-800"
                     }`}
                 >
                     <div className="tw-flex tw-items-center tw-space-x-2">
@@ -401,7 +401,7 @@ const Assessment: PageWithLayout = () => {
                 <div className="tw-grid tw-grid-cols-1 tw-gap-6 lg:tw-grid-cols-2">
                     {/* Question Panel */}
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                        <div className="tw-mb-4 tw-inline-block tw-rounded tw-bg-primary/10 tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-text-primary tw-uppercase">
+                        <div className="tw-mb-4 tw-inline-block tw-rounded tw-bg-primary/10 tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-uppercase tw-text-primary">
                             {currentQuestion.level}
                         </div>
                         <h2 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-gray-900">
@@ -448,8 +448,8 @@ const Assessment: PageWithLayout = () => {
                             <div
                                 className={`tw-rounded-lg tw-p-4 ${
                                     testResults.passed === testResults.total
-                                        ? "tw-bg-green-50 tw-border tw-border-green-200"
-                                        : "tw-bg-red-50 tw-border tw-border-red-200"
+                                        ? "tw-border tw-border-green-200 tw-bg-green-50"
+                                        : "tw-border tw-border-red-200 tw-bg-red-50"
                                 }`}
                             >
                                 <div className="tw-flex tw-items-center tw-space-x-2">
@@ -517,12 +517,18 @@ const Assessment: PageWithLayout = () => {
                                 <button
                                     type="button"
                                     onClick={handleNext}
-                                    className="tw-flex-1 tw-rounded-lg tw-bg-primary tw-px-4 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
+                                    disabled={
+                                        isSaving &&
+                                        currentQuestionIndex === assessmentQuestions.length - 1
+                                    }
+                                    className="tw-flex-1 tw-rounded-lg tw-bg-primary tw-px-4 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                 >
                                     {currentQuestionIndex === assessmentQuestions.length - 1 ? (
                                         <>
-                                            <i className="fas fa-check tw-mr-2" />
-                                            Finish
+                                            <i
+                                                className={`fas ${isSaving ? "fa-spinner fa-spin" : "fa-check"} tw-mr-2`}
+                                            />
+                                            {isSaving ? "Saving..." : "Finish"}
                                         </>
                                     ) : (
                                         <>
