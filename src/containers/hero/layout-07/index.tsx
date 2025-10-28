@@ -57,7 +57,8 @@ const HeroArea = ({ data: { items } }: TProps) => {
                                 <div
                                     className="tw-absolute tw-inset-0"
                                     style={{
-                                        backgroundColor: "rgba(9, 31, 64, 0.5)",
+                                        background:
+                                            "linear-gradient(135deg, rgba(9, 31, 64, 0.85) 0%, rgba(197, 32, 62, 0.75) 100%)",
                                     }}
                                 />
                             </div>
