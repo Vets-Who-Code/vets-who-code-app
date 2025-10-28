@@ -11,6 +11,10 @@ module.exports = {
                 headerSlideDown: "headerSlideDown .95s ease forwards",
                 gradationMask: "gradationMask 3s linear infinite",
                 rotatePlane: "rotatePlane 1.2s infinite ease-in-out",
+                "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
+                "pulse-soft": "pulse-soft 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "slide-up": "slide-up 0.5s ease-out",
+                "fade-in": "fade-in 0.6s ease-out",
             },
             keyframes: {
                 wiggle: {
@@ -51,16 +55,52 @@ module.exports = {
                         transform: "perspective(120px) rotateX(-180deg) rotateY(-179.9deg)",
                     },
                 },
+                "bounce-subtle": {
+                    "0%, 100%": { transform: "translateY(0)" },
+                    "50%": { transform: "translateY(-5px)" },
+                },
+                "pulse-soft": {
+                    "0%, 100%": { opacity: "1" },
+                    "50%": { opacity: "0.8" },
+                },
+                "slide-up": {
+                    "0%": { transform: "translateY(20px)", opacity: "0" },
+                    "100%": { transform: "translateY(0)", opacity: "1" },
+                },
+                "fade-in": {
+                    "0%": { opacity: "0" },
+                    "100%": { opacity: "1" },
+                },
             },
             colors: {
                 transparent: "transparent",
                 current: "currentColor",
                 primary: {
                     DEFAULT: "#c5203e", // hashflag red
+                    50: "#fef2f4",
+                    100: "#fde6ea",
+                    200: "#fbd0d9",
+                    300: "#f7a6b9",
+                    400: "#f27293",
+                    500: "#e8446f",
+                    600: "#c5203e",
+                    700: "#b11a36",
+                    800: "#931733",
+                    900: "#7d1630",
                     light: "#8fd6ca",
                 },
                 secondary: {
                     DEFAULT: "#091f40", // hashflag blue
+                    50: "#f3f6fc",
+                    100: "#e6edf8",
+                    200: "#c8d9ef",
+                    300: "#97bbe1",
+                    400: "#5f97ce",
+                    500: "#3b79b8",
+                    600: "#2a609c",
+                    700: "#224d7f",
+                    800: "#1f436a",
+                    900: "#091f40",
                     light: "#8C89A2",
                 },
                 body: "#696969",
@@ -212,12 +252,22 @@ module.exports = {
                 DEFAULT: "0.313rem",
             },
             spacing: {
+                // Legacy spacing (keep for backwards compatibility)
                 1.3: "0.313rem",
                 3.8: "0.938rem",
                 6.1: "1.5625rem",
                 7.5: "1.875rem",
                 15: "3.75rem",
                 37: "9.375rem",
+                // Modern 8px grid spacing
+                xs: "0.5rem",    // 8px
+                sm: "0.75rem",   // 12px
+                md: "1rem",      // 16px
+                lg: "1.5rem",    // 24px
+                xl: "2rem",      // 32px
+                "2xl": "3rem",   // 48px
+                "3xl": "4rem",   // 64px
+                "4xl": "6rem",   // 96px
             },
             screens: {
                 maxSm: { max: "575px" },

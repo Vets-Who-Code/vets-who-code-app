@@ -48,7 +48,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 left: 0,
                                 width: "100%",
                                 height: "100%",
-                                backgroundColor: "rgba(9, 31, 64, 0.5)",
+                                background: "linear-gradient(135deg, rgba(9, 31, 64, 0.85) 0%, rgba(197, 32, 62, 0.75) 100%)",
                             }}
                         />
                     </div>

@@ -11,7 +11,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, path, category, postedAt, image, className }, ref) => (
         <div
             className={clsx(
-                "blog-card tw-group tw-relative tw-overflow-hidden tw-rounded tw-bg-white tw-shadow-xl tw-shadow-black/5 tw-transition-all",
+                "blog-card tw-group tw-relative tw-overflow-hidden tw-rounded-2xl tw-bg-white tw-border tw-border-gray-200/50 tw-shadow-md tw-shadow-black/5 tw-transition-all tw-duration-500 hover:tw-shadow-2xl hover:tw-shadow-primary/10 hover:-tw-translate-y-2",
                 className
             )}
             ref={ref}

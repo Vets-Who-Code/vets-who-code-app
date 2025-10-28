@@ -14,7 +14,7 @@ const CourseCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "group tw-h-full tw-overflow-hidden tw-rounded tw-bg-gray-100 tw-transition-all hover:tw-bg-white hover:tw-shadow-4xl hover:tw-shadow-black/[0.12]",
+                    "group tw-h-full tw-overflow-hidden tw-rounded-2xl tw-bg-white tw-border tw-border-gray-200/50 tw-transition-all tw-duration-500 hover:tw-bg-white hover:tw-shadow-2xl hover:tw-shadow-primary/10 hover:-tw-translate-y-2",
                     className
                 )}
                 ref={ref}
