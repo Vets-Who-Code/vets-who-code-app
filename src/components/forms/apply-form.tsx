@@ -61,7 +61,7 @@ const ApplyForm = () => {
 
     const nextStep = async () => {
         const currentFields = STEPS[currentStep - 1].fields;
-        const isValid = await trigger(currentFields as (keyof IFormValues)[]);
+        const isValid = await trigger(currentFields as unknown as (keyof IFormValues)[]);
 
         if (isValid && currentStep < STEPS.length) {
             setCurrentStep(currentStep + 1);
