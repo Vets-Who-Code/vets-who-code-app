@@ -153,7 +153,7 @@
 /* Global body styling */
 
 body {
-    font-family: "GothamPro", "Gilroy", system-ui, -apple-system, sans-serif;
+    font-family: "GothamPro", system-ui, -apple-system, sans-serif;
     font-weight: 400;
     font-size: 16px; /* Improved from 15px for better readability */
     line-height: 1.7; /* Increased from 1.74 for better readability */
