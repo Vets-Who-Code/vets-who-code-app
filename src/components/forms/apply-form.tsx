@@ -85,11 +85,15 @@ const ApplyForm = () => {
             setIsSubmitting(true);
 
             // Transform data to match API expectations
+            const parseOrNull = (value: string) => {
+                const parsed = parseInt(value, 10);
+                return isNaN(parsed) ? null : parsed;
+            };
             const formData = {
                 ...data,
-                zipCode: parseInt(data.zipCode, 10),
-                yearJoined: parseInt(data.yearJoined, 10),
-                yearSeparated: parseInt(data.yearSeparated, 10),
+                zipCode: parseOrNull(data.zipCode),
+                yearJoined: parseOrNull(data.yearJoined),
+                yearSeparated: parseOrNull(data.yearSeparated),
             };
 
             await axios.post("/api/apply", formData);
