@@ -7,7 +7,7 @@ import Checkbox from "@ui/form-elements/checkbox";
 import TextArea from "@ui/form-elements/textarea";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
-import { linkedinRegex, githubRegex, isValidUrl } from "@utils/formValidations";
+import { linkedinRegex, githubRegex } from "@utils/formValidations";
 import { motion, AnimatePresence } from "motion/react";
 
 interface IFormValues {
@@ -61,7 +61,7 @@ const ApplyForm = () => {
 
     const nextStep = async () => {
         const currentFields = STEPS[currentStep - 1].fields;
-        const isValid = await trigger([...currentFields] as (keyof IFormValues)[]);
+        const isValid = await trigger(currentFields as unknown as (keyof IFormValues)[]);
 
         if (isValid && currentStep < STEPS.length) {
             setCurrentStep(currentStep + 1);
@@ -85,11 +85,15 @@ const ApplyForm = () => {
             setIsSubmitting(true);
 
             // Transform data to match API expectations
+            const parseOrNull = (value: string) => {
+                const parsed = parseInt(value, 10);
+                return isNaN(parsed) ? null : parsed;
+            };
             const formData = {
                 ...data,
-                zipCode: parseInt(data.zipCode, 10),
-                yearJoined: parseInt(data.yearJoined, 10),
-                yearSeparated: parseInt(data.yearSeparated, 10),
+                zipCode: parseOrNull(data.zipCode),
+                yearJoined: parseOrNull(data.yearJoined),
+                yearSeparated: parseOrNull(data.yearSeparated),
             };
 
             await axios.post("/api/apply", formData);
@@ -627,8 +631,10 @@ const ApplyForm = () => {
                                                             showState={!!hasKey(errors, "preworkLink")}
                                                             {...register("preworkLink", {
                                                                 required: "Prework live link is required",
-                                                                validate: (value) => 
-                                                                    isValidUrl(value) || "Please enter a valid URL (starting with http:// or https://)",
+                                                                pattern: {
+                                                                    value: /^https?:\/\/.+/,
+                                                                    message: "Please enter a valid URL (starting with http:// or https://)",
+                                                                },
                                                             })}
                                                         />
                                                     </div>
