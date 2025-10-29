@@ -17,7 +17,7 @@ const Footer01 = ({ mode }: TProps) => {
             )}
         >
             {mode === "dark" && (
-                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-primary-500 tw-to-transparent tw-opacity-50" />
+                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-primary tw-to-transparent tw-opacity-50" />
             )}
             <h2 className="tw-sr-only">Footer</h2>
             <div className="tw-container">
