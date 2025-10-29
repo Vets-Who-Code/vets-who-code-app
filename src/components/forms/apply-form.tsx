@@ -7,7 +7,7 @@ import Checkbox from "@ui/form-elements/checkbox";
 import TextArea from "@ui/form-elements/textarea";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
-import { linkedinRegex, githubRegex } from "@utils/formValidations";
+import { linkedinRegex, githubRegex, isValidUrl } from "@utils/formValidations";
 import { motion, AnimatePresence } from "motion/react";
 
 interface IFormValues {
@@ -61,7 +61,7 @@ const ApplyForm = () => {
 
     const nextStep = async () => {
         const currentFields = STEPS[currentStep - 1].fields;
-        const isValid = await trigger(currentFields as (keyof IFormValues)[]);
+        const isValid = await trigger([...currentFields] as (keyof IFormValues)[]);
 
         if (isValid && currentStep < STEPS.length) {
             setCurrentStep(currentStep + 1);
@@ -627,10 +627,8 @@ const ApplyForm = () => {
                                                             showState={!!hasKey(errors, "preworkLink")}
                                                             {...register("preworkLink", {
                                                                 required: "Prework live link is required",
-                                                                pattern: {
-                                                                    value: /^https?:\/\/.+/,
-                                                                    message: "Please enter a valid URL (starting with http:// or https://)",
-                                                                },
+                                                                validate: (value) => 
+                                                                    isValidUrl(value) || "Please enter a valid URL (starting with http:// or https://)",
                                                             })}
                                                         />
                                                     </div>
