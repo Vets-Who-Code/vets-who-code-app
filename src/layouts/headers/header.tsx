@@ -41,7 +41,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                             <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
                             <CountdownTimer targetDate="2025/11/11" />
                         </div>
-                        <Button size="xs" path="/donate">
+                        <Button size="sm" path="/donate" className="tw-shadow-lg tw-shadow-primary/25">
                             Donate
                         </Button>
                     </div>
@@ -50,10 +50,10 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div
                         ref={measuredRef}
                         className={clsx(
-                            "header-inner tw-left-0 tw-top-0 tw-z-50 tw-h-auto tw-w-full tw-bg-white tw-py-[25px] tw-transition-all xl:tw-py-0",
-                            !sticky && "tw-absolute",
+                            "header-inner tw-left-0 tw-top-0 tw-z-50 tw-h-auto tw-w-full tw-py-[25px] tw-transition-all xl:tw-py-0",
+                            !sticky && "tw-absolute tw-bg-white",
                             sticky &&
-                                "tw-fixed tw-animate-headerSlideDown tw-shadow-3md tw-shadow-black/10",
+                                "tw-fixed tw-animate-headerSlideDown tw-backdrop-blur-lg tw-bg-white/90 tw-border-b tw-border-gray-200/50 tw-shadow-lg tw-shadow-black/5",
                             shadow && "tw-shadow-sm tw-shadow-black/5"
                         )}
                     >

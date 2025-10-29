@@ -14,8 +14,8 @@ type TProps = {
 const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
     return (
         <li className="tw-relative tw-mb-10 tw-grid tw-w-full tw-grid-cols-1 tw-pl-[45px] last:tw-mb-0 md:tw-grid-cols-2 md:tw-pl-0 lg:tw-mb-[68px]">
-            <div className="tw-absolute tw-left-0 tw-top-0.5 tw-h-7.5 tw-w-7.5 tw-text-primary before:tw-absolute before:tw-inset-0 before:tw-rounded-full before:tw-border before:tw-border-current before:tw-opacity-20 before:tw-content-[''] md:tw-left-1/2 md:-tw-translate-x-1/2">
-                <div className="tw-absolute tw-left-1/2 tw-right-1/2 tw-z-10 tw-h-[14px] tw-w-[14px] -tw-translate-x-1/2 tw-translate-y-1/2 tw-rounded-full tw-border-[3px] tw-border-current tw-bg-white" />
+            <div className="tw-absolute tw-left-0 tw-top-0.5 tw-h-7.5 tw-w-7.5 tw-text-primary before:tw-absolute before:tw-inset-0 before:tw-animate-pulse-soft before:tw-rounded-full before:tw-border-2 before:tw-border-current before:tw-opacity-30 before:tw-shadow-lg before:tw-shadow-primary/20 before:tw-content-[''] md:tw-left-1/2 md:-tw-translate-x-1/2">
+                <div className="tw-absolute tw-left-1/2 tw-right-1/2 tw-z-10 tw-h-[16px] tw-w-[16px] -tw-translate-x-1/2 tw-translate-y-1/2 tw-rounded-full tw-border-[3px] tw-border-current tw-bg-white tw-shadow-md tw-shadow-primary/30" />
             </div>
             <motion.div
                 className={clsx(
@@ -35,11 +35,11 @@ const TimelineItem = ({ isEven, title, image, heading, texts }: TProps) => {
                         </h3>
                     )}
                     {image?.src && (
-                        <figure>
+                        <figure className="tw-group/img tw-overflow-hidden tw-rounded-2xl tw-border tw-border-gray-200/50 tw-shadow-lg tw-shadow-black/5 tw-transition-all tw-duration-500 hover:tw-shadow-2xl hover:tw-shadow-primary/10">
                             <img
                                 src={image.src}
                                 alt={image?.alt || ""}
-                                className="tw-h-full tw-w-full tw-rounded tw-object-cover"
+                                className="tw-h-full tw-w-full tw-object-cover tw-transition-transform tw-duration-700 group-hover/img:tw-scale-110"
                             />
                         </figure>
                     )}

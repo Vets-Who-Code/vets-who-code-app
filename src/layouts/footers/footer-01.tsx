@@ -11,11 +11,14 @@ const Footer01 = ({ mode }: TProps) => {
     return (
         <footer
             className={clsx(
-                "tw-pb-[50px] tw-pt-[70px]",
-                mode === "dark" && "tw-bg-dark-100",
+                "tw-pb-[50px] tw-pt-[70px] tw-relative",
+                mode === "dark" && "tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-950 tw-text-gray-300",
                 mode === "light" && "tw-bg-light-100"
             )}
         >
+            {mode === "dark" && (
+                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-primary tw-to-transparent tw-opacity-50" />
+            )}
             <h2 className="tw-sr-only">Footer</h2>
             <div className="tw-container">
                 <div className="tw-grid tw-grid-cols-12">
@@ -46,13 +49,18 @@ const Footer01 = ({ mode }: TProps) => {
                         </a>
                     </div>
                 </div>
-                <p className="copyright tw-mt-5 tw-text-center tw-text-md tw-text-gray-400">
+                <p className="copyright tw-mt-5 tw-text-center tw-text-base tw-text-gray-400">
                     &copy; {new Date().getFullYear()} Vets Who Code{" "}
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.vetswhocode.io/">
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.vetswhocode.io/"
+                        className="tw-transition-colors hover:tw-text-primary"
+                    >
                         All Rights Reserved
                     </a>
                 </p>
-                <p className="copyright mt-n5 tw-text-center tw-text-md tw-text-gray-400">
+                <p className="copyright tw-mt-2 tw-text-center tw-text-base tw-text-gray-400">
                     Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
                     Donations are tax-deductible to the fullest extent allowable under the law.
                 </p>

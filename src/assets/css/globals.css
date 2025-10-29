@@ -9,6 +9,7 @@
         url("/fonts/gotham/GothamPro-Light.eot?#iefix") format("embedded-opentype");
     font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -22,6 +23,7 @@
         url("/fonts/gotham/GothamPro-LightItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 100;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -35,6 +37,7 @@
         url("/fonts/gotham/GothamPro.eot?#iefix") format("embedded-opentype");
     font-weight: 200;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -48,6 +51,7 @@
         url("/fonts/gotham/GothamPro-Italic.eot?#iefix") format("embedded-opentype");
     font-weight: 200;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -61,6 +65,7 @@
         url("/fonts/gotham/GothamPro-Medium.eot?#iefix") format("embedded-opentype");
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -74,6 +79,7 @@
         url("/fonts/gotham/GothamPro-MediumItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -87,6 +93,7 @@
         url("/fonts/gotham/GothamPro-Bold.eot?#iefix") format("embedded-opentype");
     font-weight: 600;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -100,6 +107,7 @@
         url("/fonts/gotham/GothamPro-BoldItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 600;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -113,6 +121,7 @@
         url("/fonts/gotham/GothamPro-Black.eot?#iefix") format("embedded-opentype");
     font-weight: 800;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -126,6 +135,7 @@
         url("/fonts/gotham/GothamPro-BlackItalic.eot?#iefix") format("embedded-opentype");
     font-weight: 800;
     font-style: italic;
+    font-display: swap;
 }
 
 /* Keyframes and animations */
@@ -143,6 +153,43 @@
 /* Global body styling */
 
 body {
-    font-family: "GothamPro", sans-serif;
-    font-weight: 400; /* Default weight */
+    font-family: "GothamPro", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 16px; /* Improved from 15px for better readability */
+    line-height: 1.7; /* Increased from 1.74 for better readability */
+}
+
+/* Improved focus states for accessibility */
+*:focus-visible {
+    outline: 3px solid #c5203e;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    body {
+        color: #000;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improved heading scale with fluid typography */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.25;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.3;
 }
