@@ -117,18 +117,58 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
     const [showAssignment, setShowAssignment] = useState(false);
 
     useEffect(() => {
-        // TODO: Check if lesson is completed from database
-        // For now, check localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        setCompleted(localStorage.getItem(lessonKey) === "true");
-    }, [lesson.id]);
+        if (session && lesson.id) {
+            // Check lesson completion from database
+            fetch(`/api/progress?lessonId=${lesson.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.progress && data.progress.completed) {
+                        setCompleted(true);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error checking lesson progress:", error);
+                    // Fallback to localStorage
+                    const lessonKey = `lesson_${lesson.id}_completed`;
+                    setCompleted(localStorage.getItem(lessonKey) === "true");
+                });
+        }
+    }, [lesson.id, session]);
 
-    const markAsCompleted = () => {
-        // TODO: Update database with lesson completion
-        // For now, use localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        localStorage.setItem(lessonKey, "true");
-        setCompleted(true);
+    const markAsCompleted = async () => {
+        if (!session) return;
+
+        try {
+            const response = await fetch("/api/progress", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    lessonId: lesson.id,
+                    completed: true,
+                }),
+            });
+
+            if (response.ok) {
+                setCompleted(true);
+                // Also save to localStorage as backup
+                const lessonKey = `lesson_${lesson.id}_completed`;
+                localStorage.setItem(lessonKey, "true");
+            } else {
+                console.error("Failed to mark lesson as completed");
+                // Fallback to localStorage only
+                const lessonKey = `lesson_${lesson.id}_completed`;
+                localStorage.setItem(lessonKey, "true");
+                setCompleted(true);
+            }
+        } catch (error) {
+            console.error("Error marking lesson as completed:", error);
+            // Fallback to localStorage only
+            const lessonKey = `lesson_${lesson.id}_completed`;
+            localStorage.setItem(lessonKey, "true");
+            setCompleted(true);
+        }
     };
 
     if (status === "loading") {
@@ -142,7 +182,13 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         );
     }
 
-    if (!session) {
+    // Check if dev bypass is enabled (only works in development)
+    const devBypassEnabled = typeof window !== "undefined" &&
+                            process.env.NODE_ENV === "development" &&
+                            process.env.LMS_DEV_BYPASS === "true";
+
+    // Require authentication (unless dev bypass is enabled)
+    if (!session && !devBypassEnabled) {
         router.push("/courses");
         return null;
     }

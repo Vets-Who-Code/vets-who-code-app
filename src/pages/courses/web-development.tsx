@@ -98,6 +98,20 @@ const WebDevelopmentCourse: PageWithLayout = () => {
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [enrolling, setEnrolling] = useState(false);
 
+    // Check enrollment status on mount
+    React.useEffect(() => {
+        if (session) {
+            fetch("/api/enrollment/status?courseId=web-development")
+                .then(res => res.json())
+                .then(data => {
+                    setIsEnrolled(data.enrolled);
+                })
+                .catch(error => {
+                    console.error("Error checking enrollment:", error);
+                });
+        }
+    }, [session]);
+
     if (status === "loading") {
         return (
             <div className="tw-container tw-py-16">
@@ -109,7 +123,12 @@ const WebDevelopmentCourse: PageWithLayout = () => {
         );
     }
 
-    if (!session) {
+    // Check if dev bypass is enabled (only works in development)
+    const devBypassEnabled = process.env.NODE_ENV === "development" &&
+                            process.env.LMS_DEV_BYPASS === "true";
+
+    // Require authentication (unless dev bypass is enabled)
+    if (!session && !devBypassEnabled) {
         return (
             <>
                 <SEO title="Web Development Course - Sign In Required" />
@@ -159,20 +178,35 @@ const WebDevelopmentCourse: PageWithLayout = () => {
 
     const handleEnroll = async () => {
         if (!session) {
-            // Redirect to login
             window.location.href = "/login";
             return;
         }
 
         setEnrolling(true);
         try {
-            // TODO: Implement enrollment API
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 1000);
-            }); // Simulate API call
-            setIsEnrolled(true);
+            const response = await fetch("/api/enrollment/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ courseId: "web-development" }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setIsEnrolled(true);
+            } else {
+                console.error("Enrollment failed:", data.error);
+                if (data.error !== "Already enrolled in this course") {
+                    alert(`Enrollment failed: ${data.error}`);
+                } else {
+                    setIsEnrolled(true);
+                }
+            }
         } catch (error) {
-            // Handle error silently for now
+            console.error("Error enrolling:", error);
+            alert("An error occurred while enrolling. Please try again.");
         } finally {
             setEnrolling(false);
         }
@@ -211,19 +245,19 @@ const WebDevelopmentCourse: PageWithLayout = () => {
                             <div className="tw-mb-6 tw-grid tw-grid-cols-2 tw-gap-6 md:tw-grid-cols-4">
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">12-16</div>
-                                    <div className="tw-text-blue-100">weeks</div>
+                                    <div className="tw-text-white/90">weeks</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">158</div>
-                                    <div className="tw-text-blue-100">hours</div>
+                                    <div className="tw-text-white/90">hours</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">176</div>
-                                    <div className="tw-text-blue-100">lessons</div>
+                                    <div className="tw-text-white/90">lessons</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">9</div>
-                                    <div className="tw-text-blue-100">modules</div>
+                                    <div className="tw-text-white/90">modules</div>
                                 </div>
                             </div>
 
@@ -251,10 +285,13 @@ const WebDevelopmentCourse: PageWithLayout = () => {
 
                         <div className="tw-min-w-[300px] tw-rounded-lg tw-bg-white tw-p-6 tw-text-gray-900">
                             <div className="tw-mb-4 tw-text-center">
-                                <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-green-600">
-                                    FREE
+                                <div className="tw-mb-2 tw-flex tw-items-center tw-justify-center">
+                                    <i className="fas fa-flag-usa tw-mr-2 tw-text-2xl tw-text-blue-600" />
+                                    <span className="tw-text-xl tw-font-bold tw-text-gray-900">
+                                        Veterans & Military Spouses
+                                    </span>
                                 </div>
-                                <p className="tw-text-gray-600">For veterans & military spouses</p>
+                                <p className="tw-text-sm tw-text-gray-600">Serving those who served</p>
                             </div>
 
                             {session ? (
