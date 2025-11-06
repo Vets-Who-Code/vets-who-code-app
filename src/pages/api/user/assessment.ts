@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
 import prisma from "@/lib/prisma";
+import { requireAuth } from "@/lib/rbac";
 
 interface SaveAssessmentBody {
     score: number;
@@ -76,29 +76,18 @@ async function handleSaveAssessment(
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
-
-    // Support dev mode: check for dev-user-id header
-    const devUserId = req.headers["x-dev-user-id"] as string;
-
-    let userId: string;
-
-    if (devUserId) {
-        // Dev mode - use the provided dev user ID
-        userId = devUserId;
-    } else if (session?.user?.id) {
-        // Production mode - use NextAuth session
-        userId = session.user.id;
-    } else {
-        return res.status(401).json({ error: "Unauthorized" });
+    // Require authentication (supports dev headers in development only)
+    const user = await requireAuth(req, res);
+    if (!user) {
+        return; // Response already sent by requireAuth
     }
 
     if (req.method === "GET") {
-        return handleGetAssessment(userId, res);
+        return handleGetAssessment(user.id, res);
     }
 
     if (req.method === "POST") {
-        return handleSaveAssessment(userId, req.body, res);
+        return handleSaveAssessment(user.id, req.body, res);
     }
 
     res.setHeader("Allow", ["GET", "POST"]);

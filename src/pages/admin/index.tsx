@@ -74,7 +74,8 @@ const AdminDashboard: PageWithLayout = () => {
                         </p>
                     </div>
 
-                    <div className="tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2 lg:tw-grid-cols-4">
+                    {/* Stats Grid */}
+                    <div className="tw-mb-8 tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2 lg:tw-grid-cols-4">
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
                                 Total Students
@@ -102,6 +103,65 @@ const AdminDashboard: PageWithLayout = () => {
                             </h3>
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">$45,2K</p>
                             <p className="tw-text-sm tw-text-green-600">+18% growth</p>
+                        </div>
+                    </div>
+
+                    {/* Quick Actions */}
+                    <div className="tw-mb-8">
+                        <h2 className="tw-mb-4 tw-text-xl tw-font-bold tw-text-gray-900">
+                            Quick Actions
+                        </h2>
+                        <div className="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2 lg:tw-grid-cols-3">
+                            <a
+                                href="/admin/users"
+                                className="tw-flex tw-items-center tw-rounded-lg tw-bg-white tw-p-6 tw-shadow tw-transition-shadow hover:tw-shadow-lg"
+                            >
+                                <div className="tw-flex tw-h-12 tw-w-12 tw-items-center tw-justify-center tw-rounded-lg tw-bg-blue-100">
+                                    <i className="fas fa-users tw-text-xl tw-text-blue-600" />
+                                </div>
+                                <div className="tw-ml-4">
+                                    <h3 className="tw-font-semibold tw-text-gray-900">
+                                        Manage Users
+                                    </h3>
+                                    <p className="tw-text-sm tw-text-gray-600">
+                                        View and edit student profiles
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a
+                                href="/admin/courses"
+                                className="tw-flex tw-items-center tw-rounded-lg tw-bg-white tw-p-6 tw-shadow tw-transition-shadow hover:tw-shadow-lg"
+                            >
+                                <div className="tw-flex tw-h-12 tw-w-12 tw-items-center tw-justify-center tw-rounded-lg tw-bg-purple-100">
+                                    <i className="fas fa-book tw-text-xl tw-text-purple-600" />
+                                </div>
+                                <div className="tw-ml-4">
+                                    <h3 className="tw-font-semibold tw-text-gray-900">
+                                        Course Management
+                                    </h3>
+                                    <p className="tw-text-sm tw-text-gray-600">
+                                        Create and edit courses
+                                    </p>
+                                </div>
+                            </a>
+
+                            <a
+                                href="/admin/grading"
+                                className="tw-flex tw-items-center tw-rounded-lg tw-bg-white tw-p-6 tw-shadow tw-transition-shadow hover:tw-shadow-lg"
+                            >
+                                <div className="tw-flex tw-h-12 tw-w-12 tw-items-center tw-justify-center tw-rounded-lg tw-bg-green-100">
+                                    <i className="fas fa-clipboard-check tw-text-xl tw-text-green-600" />
+                                </div>
+                                <div className="tw-ml-4">
+                                    <h3 className="tw-font-semibold tw-text-gray-900">
+                                        Grade Submissions
+                                    </h3>
+                                    <p className="tw-text-sm tw-text-gray-600">
+                                        Review and grade assignments
+                                    </p>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

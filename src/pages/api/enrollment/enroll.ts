@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
 import { getServerSession } from "next-auth/next";
 import { options as authOptions } from "../auth/options";
+import { sendEmail, enrollmentConfirmationEmail } from "@/lib/email";
 
 const prisma = new PrismaClient();
 
@@ -46,6 +47,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(400).json({ error: "Already enrolled in this course" });
         }
 
+        // Fetch course details for email
+        const course = await prisma.course.findUnique({
+            where: { id: courseId },
+            select: { title: true },
+        });
+
+        if (!course) {
+            return res.status(404).json({ error: "Course not found" });
+        }
+
         // Create enrollment
         const enrollment = await prisma.enrollment.create({
             data: {
@@ -56,6 +67,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 enrolledAt: new Date(),
             },
         });
+
+        // Send enrollment confirmation email (async, don't block response)
+        if (user.email) {
+            const emailTemplate = enrollmentConfirmationEmail(
+                user.name || "Student",
+                course.title,
+                courseId
+            );
+
+            sendEmail({
+                to: user.email,
+                subject: emailTemplate.subject,
+                html: emailTemplate.html,
+            }).catch((error) => {
+                console.error("Failed to send enrollment email:", error);
+                // Don't fail the request if email fails
+            });
+        }
 
         res.status(201).json({
             success: true,

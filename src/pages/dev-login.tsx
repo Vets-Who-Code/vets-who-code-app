@@ -19,23 +19,42 @@ type PageWithLayout = NextPage<DevLoginProps> & {
 const DevLogin: PageWithLayout = () => {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const [name, setName] = useState("Dev User");
+    const [email, setEmail] = useState("dev@vetswhocode.io");
+    const [role, setRole] = useState<"STUDENT" | "INSTRUCTOR" | "ADMIN">("ADMIN");
+    const [error, setError] = useState("");
 
-    const handleDevLogin = async () => {
+    const handleDevLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
         setIsLoading(true);
+        setError("");
 
-        // Set a fake session in localStorage for development
-        const fakeUser = {
-            id: "dev-user-1",
-            name: "Jerome Hardaway",
-            email: "jeromehardaway@users.noreply.github.com",
-            image: "https://github.com/jeromehardaway.png",
-            login: "jeromehardaway",
-        };
+        try {
+            const response = await fetch("/api/auth/dev-login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, email, role }),
+            });
 
-        localStorage.setItem("dev-session", JSON.stringify(fakeUser));
+            const data = await response.json();
 
-        // Redirect to courses page
-        router.push("/courses");
+            if (response.ok) {
+                // Set the session cookie
+                document.cookie = `next-auth.session-token=${data.sessionToken}; path=/; max-age=${30 * 24 * 60 * 60}`;
+
+                // Redirect to courses page
+                router.push("/courses");
+            } else {
+                setError(data.error || "Failed to login");
+            }
+        } catch (err) {
+            console.error("Dev login error:", err);
+            setError("Failed to login");
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -52,11 +71,62 @@ const DevLogin: PageWithLayout = () => {
                         ⚠️ This is for development only - bypasses GitHub OAuth
                     </div>
                 </div>
-                <div className="tw-space-y-4 tw-p-6">
+                <form onSubmit={handleDevLogin} className="tw-space-y-4 tw-p-6">
+                    {error && (
+                        <div className="tw-rounded tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-600">
+                            {error}
+                        </div>
+                    )}
+
+                    <div>
+                        <label htmlFor="name" className="tw-mb-1 tw-block tw-text-sm tw-font-medium tw-text-secondary">
+                            Name
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            className="tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                            placeholder="Enter your name"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="email" className="tw-mb-1 tw-block tw-text-sm tw-font-medium tw-text-secondary">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                            placeholder="Enter your email"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="role" className="tw-mb-1 tw-block tw-text-sm tw-font-medium tw-text-secondary">
+                            Role
+                        </label>
+                        <select
+                            id="role"
+                            value={role}
+                            onChange={(e) => setRole(e.target.value as "STUDENT" | "INSTRUCTOR" | "ADMIN")}
+                            className="tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                        >
+                            <option value="STUDENT">Student</option>
+                            <option value="INSTRUCTOR">Instructor</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+
                     <button
-                        type="button"
-                        onClick={handleDevLogin}
-                        className="tw-flex tw-w-full tw-items-center tw-justify-center tw-gap-2 tw-rounded-md tw-bg-primary tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-transition-colors hover:tw-opacity-90"
+                        type="submit"
+                        className="tw-flex tw-w-full tw-items-center tw-justify-center tw-gap-2 tw-rounded-md tw-bg-primary tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-white tw-transition-colors hover:tw-opacity-90 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                         disabled={isLoading}
                     >
                         {isLoading ? (
@@ -67,7 +137,7 @@ const DevLogin: PageWithLayout = () => {
                         ) : (
                             <>
                                 <i className="fas fa-code" />
-                                Login as Admin (Dev)
+                                Login as {role.charAt(0) + role.slice(1).toLowerCase()}
                             </>
                         )}
                     </button>
@@ -80,7 +150,7 @@ const DevLogin: PageWithLayout = () => {
                             Use GitHub OAuth instead
                         </Link>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );

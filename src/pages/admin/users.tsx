@@ -35,7 +35,7 @@ type PageWithLayout = NextPage<PageProps> & {
 const ADMIN_GITHUB_USERNAME = "jeromehardaway";
 
 const AdminUsersPage: PageWithLayout = () => {
-    const { data: session, status } = useSession();
+    const { data: session, status: sessionStatus } = useSession();
     const [users, setUsers] = useState<User[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState<"all" | "active" | "inactive" | "suspended">(
@@ -102,7 +102,7 @@ const AdminUsersPage: PageWithLayout = () => {
         setUsers(mockUsers);
     }, []);
 
-    if (status === "loading") {
+    if (sessionStatus === "loading") {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -114,7 +114,11 @@ const AdminUsersPage: PageWithLayout = () => {
     }
 
     // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
+    // In development mode, allow access (DEV_MODE)
+    const isDevelopment = process.env.NODE_ENV === "development";
+    const hasAccess = isDevelopment || (session && session.user?.email === `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`);
+
+    if (!hasAccess && (sessionStatus as string) !== "loading") {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">

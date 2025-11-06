@@ -37,11 +37,18 @@ const EnrollmentSidebar = ({ course }: TProps) => {
     useEffect(() => {
         if (session && courseId) {
             setCheckingEnrollment(true);
-            // TODO: Check enrollment status via API
-            // For now, simulate the check
-            setTimeout(() => {
-                setCheckingEnrollment(false);
-            }, 500);
+
+            fetch(`/api/enrollment/status?courseId=${courseId}`)
+                .then(res => res.json())
+                .then(data => {
+                    setIsEnrolled(data.enrolled);
+                })
+                .catch(error => {
+                    console.error("Error checking enrollment:", error);
+                })
+                .finally(() => {
+                    setCheckingEnrollment(false);
+                });
         }
     }, [session, courseId]);
 
@@ -59,13 +66,27 @@ const EnrollmentSidebar = ({ course }: TProps) => {
 
         setEnrolling(true);
         try {
-            // TODO: Implement enrollment API call
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 1000);
+            const response = await fetch("/api/enrollment/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ courseId }),
             });
-            setIsEnrolled(true);
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setIsEnrolled(true);
+                // Redirect to course page
+                window.location.href = `/courses/${courseId}`;
+            } else {
+                console.error("Enrollment failed:", data.error);
+                alert(`Enrollment failed: ${data.error}`);
+            }
         } catch (error) {
-            // Handle error silently for now
+            console.error("Error enrolling:", error);
+            alert("An error occurred while enrolling. Please try again.");
         } finally {
             setEnrolling(false);
         }
@@ -85,8 +106,13 @@ const EnrollmentSidebar = ({ course }: TProps) => {
             {/* Enrollment Card */}
             <div className="tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-p-6 tw-shadow-lg">
                 <div className="tw-mb-6 tw-text-center">
-                    <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-green-600">FREE</div>
-                    <p className="tw-text-gray-600">For veterans & military spouses</p>
+                    <div className="tw-mb-3 tw-flex tw-items-center tw-justify-center">
+                        <i className="fas fa-flag-usa tw-mr-2 tw-text-xl tw-text-blue-600" />
+                        <span className="tw-text-lg tw-font-bold tw-text-gray-900">
+                            For Our Veterans
+                        </span>
+                    </div>
+                    <p className="tw-text-sm tw-text-gray-600">Supporting military families in tech careers</p>
                 </div>
 
                 {checkingEnrollment ? (

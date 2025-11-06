@@ -1,56 +1,126 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
+import { getServerSession } from "next-auth";
+import { options as authOptions } from "../auth/options";
 
 const prisma = new PrismaClient();
 
-// Course data that matches our UI
-const courseData = {
-    "web-development": {
-        id: "web-development",
-        title: "Web Development",
-        description: "Build modern, responsive web applications from frontend to backend",
-        imageUrl: "/images/courses/web-development.jpg",
-        difficulty: "BEGINNER" as const,
-        category: "Web Development",
-        isPublished: true,
-        duration: 158,
-        prerequisites: JSON.stringify(["Basic computer literacy", "Willingness to learn"]),
-    },
-};
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === "GET") {
-        const { courseId } = req.query;
+    const { courseId } = req.query;
 
-        if (!courseId || typeof courseId !== "string") {
-            return res.status(400).json({ error: "Course ID is required" });
-        }
-
-        try {
-            // Find or create the course
-            const courseInfo = courseData[courseId as keyof typeof courseData];
-            if (!courseInfo) {
-                return res.status(404).json({ error: "Course not found" });
-            }
-
-            let course = await prisma.course.findUnique({
-                where: { id: courseId },
-            });
-
-            if (!course) {
-                // Create the course if it doesn't exist
-                course = await prisma.course.create({
-                    data: courseInfo,
-                });
-            }
-
-            res.status(200).json({ course });
-        } catch (error) {
-            res.status(500).json({ error: "Internal server error" });
-        } finally {
-            await prisma.$disconnect();
-        }
-    } else {
-        res.status(405).json({ error: "Method not allowed" });
+    if (!courseId || typeof courseId !== "string") {
+        return res.status(400).json({ error: "Course ID is required" });
     }
+
+    try {
+        switch (req.method) {
+            case "GET":
+                await handleGet(courseId, res);
+                break;
+            case "PUT":
+                await handlePut(courseId, req, res);
+                break;
+            case "DELETE":
+                await handleDelete(courseId, req, res);
+                break;
+            default:
+                res.status(405).json({ error: "Method not allowed" });
+        }
+    } catch (error) {
+        console.error("Course API error:", error);
+        res.status(500).json({ error: "Internal server error" });
+    } finally {
+        await prisma.$disconnect();
+    }
+}
+
+async function handleGet(courseId: string, res: NextApiResponse) {
+    const course = await prisma.course.findUnique({
+        where: { id: courseId },
+        include: {
+            modules: {
+                orderBy: { order: "asc" },
+                include: {
+                    lessons: {
+                        orderBy: { order: "asc" },
+                    },
+                },
+            },
+            _count: {
+                select: {
+                    enrollments: true,
+                    assignments: true,
+                },
+            },
+        },
+    });
+
+    if (!course) {
+        return res.status(404).json({ error: "Course not found" });
+    }
+
+    res.status(200).json({ course });
+}
+
+async function handlePut(courseId: string, req: NextApiRequest, res: NextApiResponse) {
+    const session = await getServerSession(req, res, authOptions);
+
+    if (!session?.user) {
+        return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    // Check if user is admin or instructor
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email! },
+    });
+
+    if (!user || (user.role !== "ADMIN" && user.role !== "INSTRUCTOR")) {
+        return res.status(403).json({ error: "Forbidden: Admin or Instructor role required" });
+    }
+
+    const { title, description, imageUrl, difficulty, category, isPublished, duration, prerequisites } = req.body;
+
+    const course = await prisma.course.update({
+        where: { id: courseId },
+        data: {
+            ...(title && { title }),
+            ...(description !== undefined && { description }),
+            ...(imageUrl !== undefined && { imageUrl }),
+            ...(difficulty && { difficulty }),
+            ...(category && { category }),
+            ...(isPublished !== undefined && { isPublished }),
+            ...(duration !== undefined && { duration }),
+            ...(prerequisites !== undefined && { prerequisites }),
+        },
+        include: {
+            modules: {
+                orderBy: { order: "asc" },
+            },
+        },
+    });
+
+    res.status(200).json({ course });
+}
+
+async function handleDelete(courseId: string, req: NextApiRequest, res: NextApiResponse) {
+    const session = await getServerSession(req, res, authOptions);
+
+    if (!session?.user) {
+        return res.status(401).json({ error: "Unauthorized" });
+    }
+
+    // Check if user is admin
+    const user = await prisma.user.findUnique({
+        where: { email: session.user.email! },
+    });
+
+    if (!user || user.role !== "ADMIN") {
+        return res.status(403).json({ error: "Forbidden: Admin role required" });
+    }
+
+    await prisma.course.delete({
+        where: { id: courseId },
+    });
+
+    res.status(200).json({ message: "Course deleted successfully" });
 }

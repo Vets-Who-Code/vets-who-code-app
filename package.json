@@ -63,6 +63,7 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.45.0",
     "react-simple-typewriter": "^3.0.1",
+    "resend": "^6.4.0",
     "swiper": "^8.3.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
@@ -118,5 +119,8 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
     "*": "prettier --write --ignore-unknown"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
   }
 }
