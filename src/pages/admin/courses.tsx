@@ -36,7 +36,7 @@ type PageWithLayout = NextPage<PageProps> & {
 const ADMIN_GITHUB_USERNAME = "jeromehardaway";
 
 const AdminCoursesPage: PageWithLayout = () => {
-    const { data: session, status } = useSession();
+    const { data: session, status: sessionStatus } = useSession();
     const [courses, setCourses] = useState<Course[]>([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft" | "archived">(
@@ -110,7 +110,7 @@ const AdminCoursesPage: PageWithLayout = () => {
         setCourses(mockCourses);
     }, []);
 
-    if (status === "loading") {
+    if (sessionStatus === "loading") {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -122,7 +122,11 @@ const AdminCoursesPage: PageWithLayout = () => {
     }
 
     // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
+    // In development mode, allow access (DEV_MODE)
+    const isDevelopment = process.env.NODE_ENV === "development";
+    const hasAccess = isDevelopment || (session && session.user?.email === `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`);
+
+    if (!hasAccess && (sessionStatus as string) !== "loading") {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -201,13 +205,13 @@ const AdminCoursesPage: PageWithLayout = () => {
                         <p className="tw-text-gray-600">Create and manage learning content</p>
                     </div>
                     <div className="tw-flex tw-space-x-3">
-                        <button
-                            type="button"
+                        <Link
+                            href="/admin/courses/create"
                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-white tw-transition-colors"
                         >
                             <i className="fas fa-plus tw-mr-2" />
                             New Course
-                        </button>
+                        </Link>
                         <Link
                             href="/admin"
                             className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"

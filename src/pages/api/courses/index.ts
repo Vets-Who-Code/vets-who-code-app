@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { PrismaClient } from "@prisma/client";
-import { getServerSession } from "next-auth";
-import { options as authOptions } from "../auth/options";
+import { requireInstructor } from "@/lib/rbac";
 
 const prisma = new PrismaClient();
 
@@ -62,19 +61,10 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
 }
 
 async function handlePost(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getServerSession(req, res, authOptions);
-
-    if (!session?.user) {
-        return res.status(401).json({ error: "Unauthorized" });
-    }
-
-    // Check if user is admin or instructor
-    const user = await prisma.user.findUnique({
-        where: { email: session.user.email! },
-    });
-
-    if (!user || (user.role !== "ADMIN" && user.role !== "INSTRUCTOR")) {
-        return res.status(403).json({ error: "Forbidden: Admin or Instructor role required" });
+    // Require ADMIN or INSTRUCTOR role
+    const user = await requireInstructor(req, res);
+    if (!user) {
+        return; // Response already sent by requireInstructor
     }
 
     const { id, title, description, imageUrl, difficulty, category, isPublished, duration, prerequisites } = req.body;

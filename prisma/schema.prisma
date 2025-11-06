@@ -24,7 +24,7 @@ model User {
   sessions      Session[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
-  
+
   // Platform profile fields
   bio           String?
   title         String?         // Job title or role
@@ -33,30 +33,36 @@ model User {
   linkedinUrl   String?
   websiteUrl    String?
   skills        String?         // JSON string of programming skills array
-  
+
   // Military background
   branch        String?         // Army, Navy, Air Force, Marines, Coast Guard, Space Force
   rank          String?         // Former military rank
   yearsServed   Int?           // Years of service
   mos           String?         // Military Occupational Specialty
   deployments   String?        // JSON string of deployment locations/operations
-  
+
   // Platform metadata
   role          UserRole        @default(STUDENT)
   isActive      Boolean         @default(true)
-  cohort        String?         // Which cohort they belong to
+  cohort        String?         // DEPRECATED: Use cohortId instead
+  cohortId      String?         // Elite cohort membership
   graduationDate DateTime?      // When they graduated/completed program
 
   // Assessment and skill level
   skillLevel    SkillLevel?     // Assessed coding skill level
   assessmentDate DateTime?      // When last assessed
   assessmentScore Int?          // Score from last assessment (0-100)
-  
+
   // Learning relationships
   enrollments   Enrollment[]
   submissions   Submission[]
   progress      Progress[]
-  
+  certificates  Certificate[]
+  bookmarks     Bookmark[]
+  notes         Note[]
+  quizAttempts  QuizAttempt[]
+  cohortMembership Cohort?      @relation(fields: [cohortId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -140,19 +146,26 @@ model Course {
   imageUrl    String?
   difficulty  Difficulty @default(BEGINNER)
   category    String   // "Web Development", "DevOps", "Data Science", etc.
-  
+
+  // 17-Week Elite Cohort Structure
+  phase       CoursePhase? // Software, Data, or AI Engineering
+  weekNumber  Int?         // Which week this course starts (1-17)
+  weekDuration Int?        // How many weeks this course spans
+  order       Int?         // Order within the 17-week program
+
   // Course structure
   modules     Module[]
-  
+
   // Metadata
   isPublished Boolean  @default(false)
   duration    Int?     // Estimated duration in hours
   prerequisites String? // JSON string of prerequisite skills/courses
-  
+
   // Relationships
   enrollments Enrollment[]
   assignments Assignment[]
-  
+  certificates Certificate[]
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -161,6 +174,12 @@ enum Difficulty {
   BEGINNER
   INTERMEDIATE
   ADVANCED
+}
+
+enum CoursePhase {
+  SOFTWARE_ENGINEERING // Weeks 1-8: Next.js, React, TypeScript, PostgreSQL
+  DATA_ENGINEERING     // Weeks 9-13: Python, SQL, Azure, ETL pipelines
+  AI_ENGINEERING       // Weeks 14-17: FastAPI, Gemini, Azure OpenAI, Presidio
 }
 
 model Module {
@@ -197,10 +216,13 @@ model Lesson {
   moduleId    String
   module      Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   progress    Progress[]
-  
+  bookmarks   Bookmark[]
+  notes       Note[]
+  quizzes     Quiz[]
+
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
-  
+
   @@unique([moduleId, order])
 }
 
@@ -225,9 +247,10 @@ model Enrollment {
   lastActivity DateTime       @default(now())
   
   // Relationships
-  user       User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  course     Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course           @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  certificate Certificate?
+
   @@unique([userId, courseId])
 }
 
@@ -317,4 +340,187 @@ enum SubmissionStatus {
   SUBMITTED
   GRADED
   NEEDS_REVISION
+}
+
+model Certificate {
+  id           String   @id @default(cuid())
+  userId       String
+  courseId     String
+  enrollmentId String   @unique
+
+  // Certificate details
+  certificateNumber String @unique // e.g., "VWC-2025-001234"
+  issuedAt     DateTime @default(now())
+
+  // Course completion info
+  completedAt  DateTime
+  finalGrade   Float?   // Optional final grade percentage
+
+  // Certificate metadata
+  verified     Boolean  @default(true)
+  pdfUrl       String?  // URL to generated PDF certificate
+  shareableUrl String?  // Public URL for verification
+
+  // Relationships
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course       Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  enrollment   Enrollment @relation(fields: [enrollmentId], references: [id], onDelete: Cascade)
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ============================================
+// NEW FEATURES: Bookmarks, Notes, Quizzes
+// ============================================
+
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+  note      String?  // Optional note about why bookmarked
+
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, lessonId])
+}
+
+model Note {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+  content   String   // Rich text content (stored as HTML or Markdown)
+  position  Int?     // Position in lesson (for timestamp notes)
+
+  // Note metadata
+  isPrivate Boolean  @default(true)
+  tags      String?  // JSON array of tags
+
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Quiz {
+  id          String       @id @default(cuid())
+  title       String
+  description String?
+  lessonId    String
+
+  // Quiz settings
+  timeLimit   Int?         // Time limit in minutes
+  passingScore Int         @default(70) // Percentage needed to pass
+  maxAttempts Int?         // Max attempts allowed (null = unlimited)
+
+  // Relationships
+  lesson      Lesson       @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  questions   QuizQuestion[]
+  attempts    QuizAttempt[]
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model QuizQuestion {
+  id            String              @id @default(cuid())
+  quizId        String
+  question      String
+  type          QuestionType        @default(MULTIPLE_CHOICE)
+  order         Int
+  points        Int                 @default(1)
+
+  // Question content
+  options       String              // JSON array of answer options
+  correctAnswer String              // Correct answer(s) - JSON for multiple correct answers
+  explanation   String?             // Explanation shown after answering
+
+  // Relationships
+  quiz          Quiz                @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+
+  @@unique([quizId, order])
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE  // Single correct answer
+  MULTIPLE_SELECT  // Multiple correct answers
+  TRUE_FALSE       // True or False
+  SHORT_ANSWER     // Text input
+  CODE             // Code snippet answer
+}
+
+model QuizAttempt {
+  id          String   @id @default(cuid())
+  userId      String
+  quizId      String
+
+  // Attempt details
+  score       Float    // Percentage score
+  answers     String   // JSON object of user's answers
+  passed      Boolean
+  timeSpent   Int?     // Time spent in seconds
+
+  // Relationships
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quiz        Quiz     @relation(fields: [quizId], references: [id], onDelete: Cascade)
+
+  createdAt   DateTime @default(now())
+  completedAt DateTime @default(now())
+}
+
+// ============================================
+// ELITE COHORT MODEL
+// ============================================
+
+model Cohort {
+  id          String   @id @default(cuid())
+  name        String   @unique // "2026-Elite", "2027-Elite"
+  displayName String              // "Elite Cohort 2026"
+
+  // Timeline
+  startDate   DateTime            // April 7, 2026
+  endDate     DateTime            // August 7, 2026
+
+  // Cohort Status
+  status      CohortStatus @default(PLANNING)
+  isActive    Boolean      @default(false)
+
+  // Program tracking
+  currentWeek Int          @default(1) // Current week (1-17)
+  currentPhase CoursePhase @default(SOFTWARE_ENGINEERING)
+
+  // Elite cohort details
+  maxStudents Int          @default(30) // Cap at 20-30 students
+  description String?                   // Cohort description
+
+  // Application and selection
+  applicationOpenDate  DateTime?
+  applicationCloseDate DateTime?
+  selectionComplete    Boolean   @default(false)
+
+  // Students in this cohort
+  students    User[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum CohortStatus {
+  PLANNING      // Pre-launch planning phase
+  APPLICATIONS  // Applications open
+  SELECTION     // Reviewing applications
+  PREWORK       // Accepted students doing pre-work
+  ACTIVE        // Cohort in progress
+  COMPLETED     // Cohort graduated
+  ARCHIVED      // Historical record
 }
