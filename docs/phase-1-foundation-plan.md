@@ -45,7 +45,7 @@ This phase establishes the foundational database structure and authentication sy
 ### Required Tools
 
 - Node.js 18+ installed
-- SQLite (default) or PostgreSQL
+- PostgreSQL (default) or SQLite
 - Git for version control
 - VS Code (recommended) with Prisma extension
 
