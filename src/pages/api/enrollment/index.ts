@@ -41,6 +41,11 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
               },
             },
           },
+        },
+      },
+      orderBy: { enrolledAt: 'desc' },
+    });
+
     // Aggregate total lessons for all relevant courses
     const courseIds = enrollments.map(e => e.courseId);
 
