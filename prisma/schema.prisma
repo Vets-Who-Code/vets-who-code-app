@@ -10,7 +10,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -44,19 +44,23 @@ model User {
   // Platform metadata
   role          UserRole        @default(STUDENT)
   isActive      Boolean         @default(true)
-  cohort        String?         // Which cohort they belong to
+  cohortId      String?         // Which cohort they belong to
+  cohort        Cohort?         @relation(fields: [cohortId], references: [id])
   graduationDate DateTime?      // When they graduated/completed program
 
   // Assessment and skill level
   skillLevel    SkillLevel?     // Assessed coding skill level
   assessmentDate DateTime?      // When last assessed
   assessmentScore Int?          // Score from last assessment (0-100)
-  
+
   // Learning relationships
   enrollments   Enrollment[]
   submissions   Submission[]
   progress      Progress[]
-  
+  certificates  Certificate[]
+  bookmarks     Bookmark[]
+  notes         Note[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -140,19 +144,21 @@ model Course {
   imageUrl    String?
   difficulty  Difficulty @default(BEGINNER)
   category    String   // "Web Development", "DevOps", "Data Science", etc.
-  
+
   // Course structure
   modules     Module[]
-  
+
   // Metadata
   isPublished Boolean  @default(false)
-  duration    Int?     // Estimated duration in hours
-  prerequisites String? // JSON string of prerequisite skills/courses
-  
+  estimatedHours Int?  // Estimated duration in hours
+  prerequisites String[] // Array of prerequisite skills/courses
+  tags        String[] // Array of tags for categorization and search
+
   // Relationships
   enrollments Enrollment[]
   assignments Assignment[]
-  
+  certificates Certificate[]
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
@@ -197,10 +203,12 @@ model Lesson {
   moduleId    String
   module      Module     @relation(fields: [moduleId], references: [id], onDelete: Cascade)
   progress    Progress[]
-  
+  bookmarks   Bookmark[]
+  notes       Note[]
+
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
-  
+
   @@unique([moduleId, order])
 }
 
@@ -317,4 +325,69 @@ enum SubmissionStatus {
   SUBMITTED
   GRADED
   NEEDS_REVISION
+}
+
+// Cohort Model - Groups of students learning together
+model Cohort {
+  id          String    @id @default(cuid())
+  name        String    // e.g., "Class #13", "Spring 2025 Cohort"
+  description String?   // Description of the cohort
+  startDate   DateTime  // When the cohort starts
+  endDate     DateTime? // When the cohort ends (optional for ongoing)
+  isElite     Boolean   @default(false) // Elite/advanced cohort designation
+
+  // Relationships
+  members     User[]    // Students in this cohort
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Certificate Model - Course completion certificates
+model Certificate {
+  id             String   @id @default(cuid())
+  userId         String
+  courseId       String
+  certificateUrl String?  // URL to the certificate image/PDF
+
+  // Timestamps
+  issuedAt       DateTime @default(now())
+
+  // Relationships
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course         Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+}
+
+// Bookmark Model - Students can bookmark lessons for quick access
+model Bookmark {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+
+  // Timestamps
+  createdAt DateTime @default(now())
+
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+}
+
+// Note Model - Students can take notes on lessons
+model Note {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+  content   String   // The note content
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 }
