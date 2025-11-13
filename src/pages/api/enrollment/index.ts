@@ -41,41 +41,74 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
               },
             },
           },
+    // Aggregate total lessons for all relevant courses
+    const courseIds = enrollments.map(e => e.courseId);
+
+    // Get total lessons per courseId
+    const lessons = await prisma.lesson.findMany({
+      where: {
+        module: {
+          courseId: { in: courseIds },
         },
       },
-      orderBy: { enrolledAt: 'desc' },
+      select: {
+        id: true,
+        module: {
+          select: {
+            courseId: true,
+          },
+        },
+      },
     });
+    const totalLessonsByCourse: Record<string, number> = {};
+    for (const lesson of lessons) {
+      const courseId = lesson.module.courseId;
+      totalLessonsByCourse[courseId] = (totalLessonsByCourse[courseId] || 0) + 1;
+    }
 
-    // Calculate total lessons for each course
-    const enrollmentsWithProgress = await Promise.all(
-      enrollments.map(async (enrollment) => {
-        const totalLessons = await prisma.lesson.count({
-          where: {
+    // Get completed lessons per courseId for this user
+    const progresses = await prisma.progress.findMany({
+      where: {
+        userId,
+        completed: true,
+        lesson: {
+          module: {
+            courseId: { in: courseIds },
+          },
+        },
+      },
+      select: {
+        lesson: {
+          select: {
             module: {
-              courseId: enrollment.courseId,
+              select: {
+                courseId: true,
+              },
             },
           },
-        });
+        },
+      },
+    });
+    const completedLessonsByCourse: Record<string, number> = {};
+    for (const progress of progresses) {
+      const courseId = progress.lesson.module.courseId;
+      completedLessonsByCourse[courseId] = (completedLessonsByCourse[courseId] || 0) + 1;
+    }
 
-        // Get completed lessons for this user
-        const completedLessons = await prisma.progress.count({
-          where: {
-            enrollmentId: enrollment.id,
-            completed: true,
-          },
-        });
-
-        return {
-          ...enrollment,
-          stats: {
-            totalLessons,
-            completedLessons,
-            progressPercentage:
-              totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
-          },
-        };
-      })
-    );
+    // Merge stats into enrollments
+    const enrollmentsWithProgress = enrollments.map(enrollment => {
+      const totalLessons = totalLessonsByCourse[enrollment.courseId] || 0;
+      const completedLessons = completedLessonsByCourse[enrollment.courseId] || 0;
+      return {
+        ...enrollment,
+        stats: {
+          totalLessons,
+          completedLessons,
+          progressPercentage:
+            totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0,
+        },
+      };
+    });
 
     res.json({ enrollments: enrollmentsWithProgress });
   } catch (error) {
