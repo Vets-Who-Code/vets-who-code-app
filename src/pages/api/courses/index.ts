@@ -67,27 +67,38 @@ async function handleGet(req: AuthenticatedRequest, res: NextApiResponse) {
       prisma.course.count({ where }),
     ]);
 
-    // Calculate total lessons for each course
-    const coursesWithCounts = await Promise.all(
-      courses.map(async (course) => {
-        const lessonCount = await prisma.lesson.count({
-          where: {
-            module: {
-              courseId: course.id,
-            },
-          },
-        });
-
-        return {
-          ...course,
-          _count: {
-            ...course._count,
-            lessons: lessonCount,
-          },
-        };
-      })
-    );
-
+    // Calculate total lessons for each course using a single groupBy query to avoid N+1 problem
+    const courseIds = courses.map((course) => course.id);
+    const lessonCounts = await prisma.lesson.groupBy({
+      by: ['moduleId'],
+      _count: { _all: true },
+      where: {
+        module: {
+          courseId: { in: courseIds },
+        },
+      },
+    });
+    // Map moduleId to courseId
+    const moduleCourseMap = await prisma.module.findMany({
+      where: { courseId: { in: courseIds } },
+      select: { id: true, courseId: true },
+    });
+    const moduleIdToCourseId = Object.fromEntries(moduleCourseMap.map(m => [m.id, m.courseId]));
+    // Aggregate lesson counts per course
+    const courseIdToLessonCount: Record<string, number> = {};
+    for (const lc of lessonCounts) {
+      const courseId = moduleIdToCourseId[lc.moduleId];
+      if (courseId) {
+        courseIdToLessonCount[courseId] = (courseIdToLessonCount[courseId] || 0) + lc._count._all;
+      }
+    }
+    const coursesWithCounts = courses.map((course) => ({
+      ...course,
+      _count: {
+        ...course._count,
+        lessons: courseIdToLessonCount[course.id] || 0,
+      },
+    }));
     res.json({
       courses: coursesWithCounts,
       pagination: {
