@@ -180,13 +180,8 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
 
     const completedLessons = await prisma.progress.count({
       where: {
-        userId,
+        enrollmentId,
         completed: true,
-        lesson: {
-          module: {
-            courseId: enrollment.courseId,
-          },
-        },
       },
     });
 
