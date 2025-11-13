@@ -60,13 +60,8 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
         // Get completed lessons for this user
         const completedLessons = await prisma.progress.count({
           where: {
-            userId,
+            enrollmentId: enrollment.id,
             completed: true,
-            lesson: {
-              module: {
-                courseId: enrollment.courseId,
-              },
-            },
           },
         });
 
