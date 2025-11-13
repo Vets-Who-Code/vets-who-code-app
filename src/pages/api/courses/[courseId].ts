@@ -13,8 +13,9 @@ const courseData = {
         difficulty: "BEGINNER" as const,
         category: "Web Development",
         isPublished: true,
-        duration: 158,
-        prerequisites: JSON.stringify(["Basic computer literacy", "Willingness to learn"]),
+        estimatedHours: 158,
+        prerequisites: ["Basic computer literacy", "Willingness to learn"],
+        tags: ["web", "frontend", "backend", "beginner"],
     },
 };
 

@@ -102,6 +102,12 @@ export const options: NextAuthOptions = {
             try {
                 if (session.user) {
                     session.user.id = user.id as string;
+                    // Fetch user role from database
+                    const dbUser = await prisma.user.findUnique({
+                        where: { id: user.id },
+                        select: { role: true },
+                    });
+                    session.user.role = dbUser?.role || 'STUDENT';
                 }
                 return session;
             } catch (error) {
