@@ -453,7 +453,7 @@ async function main() {
       estimatedHours: webDevCourse.estimatedHours,
     },
     modules: 5,
-    lessons: 19,
+    lessons: 21,
     assignments: assignments.length,
     enrollments: 1,
     progressRecords: 2,
