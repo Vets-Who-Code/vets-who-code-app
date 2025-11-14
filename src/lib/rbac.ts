@@ -7,6 +7,7 @@ export type Role = 'STUDENT' | 'INSTRUCTOR' | 'ADMIN' | 'MENTOR';
 export interface AuthenticatedRequest extends NextApiRequest {
   user?: {
     id: string;
+    name: string | null;
     email: string;
     role: Role;
   };
@@ -33,6 +34,7 @@ export function requireAuth(
 
     req.user = {
       id: session.user.id,
+      name: session.user.name || null,
       email: session.user.email || '',
       role: (session.user.role as Role) || 'STUDENT',
     };
