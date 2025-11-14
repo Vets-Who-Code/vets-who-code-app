@@ -145,7 +145,7 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
       message: 'Submission graded successfully',
       gradedBy: {
         id: req.user!.id,
-        name: req.user!.email,
+        name: req.user!.name,
         role: req.user!.role,
       },
     });
