@@ -1,7 +1,21 @@
-import { pipeline, env } from '@xenova/transformers';
+// Dynamic import to avoid bundling in serverless functions
+let transformersModule: any = null;
 
-// Disable local model loading in browser environments
-env.allowLocalModels = false;
+// Lazy load transformers only when needed in browser
+async function loadTransformers() {
+  if (typeof window === 'undefined') {
+    // Don't load on server-side
+    return null;
+  }
+
+  if (!transformersModule) {
+    const { pipeline, env } = await import('@xenova/transformers');
+    env.allowLocalModels = false;
+    transformersModule = { pipeline, env };
+  }
+
+  return transformersModule;
+}
 
 /**
  * Military-to-civilian terminology mappings
@@ -117,10 +131,16 @@ export interface TranslatedProfile {
 let translatorPipeline: any = null;
 
 async function getTranslatorPipeline() {
+  const transformers = await loadTransformers();
+
+  if (!transformers) {
+    throw new Error('Transformers library not available on server-side');
+  }
+
   if (!translatorPipeline) {
     try {
       // Use a smaller, faster model for paraphrasing/translation
-      translatorPipeline = await pipeline(
+      translatorPipeline = await transformers.pipeline(
         'text2text-generation',
         'Xenova/LaMini-Flan-T5-783M'
       );
