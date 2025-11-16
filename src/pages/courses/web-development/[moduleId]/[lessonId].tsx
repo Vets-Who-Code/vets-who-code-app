@@ -130,7 +130,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         const handleKeyPress = (e: KeyboardEvent) => {
             // Only trigger if not typing in an input field
             if (
-                e.key === 'a' &&
+                e.key.toLowerCase() === 'a' &&
                 !e.ctrlKey &&
                 !e.metaKey &&
                 !e.altKey &&
