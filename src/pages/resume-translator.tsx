@@ -203,7 +203,7 @@ const ResumeTranslatorPage: PageWithLayout = () => {
                 </div>
 
                 {/* Resume Translator Component */}
-                <ResumeTranslator className="tw-max-w-5xl tw-mx-auto" />
+                <ResumeTranslator className="tw-mx-auto tw-max-w-5xl" />
 
                 {/* Additional Resources */}
                 <div className="tw-mt-16 tw-max-w-5xl tw-mx-auto">
