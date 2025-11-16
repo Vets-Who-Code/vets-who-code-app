@@ -154,8 +154,13 @@ export default function AITeachingAssistant({
     } catch (err) {
       console.error('Chat error:', err);
       setError(err instanceof Error ? err.message : 'An error occurred');
-      // Remove the empty assistant message if there was an error
-      setMessages((prev) => prev.filter((msg) => msg.content !== ''));
+      // Remove the last assistant message if there was an error
+      setMessages((prev) => {
+        if (prev.length > 0 && prev[prev.length - 1].role === 'assistant') {
+          return prev.slice(0, -1);
+        }
+        return prev;
+      });
     } finally {
       setIsLoading(false);
     }
