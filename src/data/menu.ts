@@ -50,6 +50,12 @@ const navigation: NavigationItem[] = [
                 label: "Team",
                 path: "/team",
             },
+            {
+                id: 107,
+                label: "Military Resume Translator",
+                path: "/resume-translator",
+                status: "new",
+            },
         ],
     },
     {
