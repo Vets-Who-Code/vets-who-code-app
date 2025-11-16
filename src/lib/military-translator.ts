@@ -197,7 +197,7 @@ export async function translateDuty(duty: string): Promise<TranslationResult> {
 
     return {
       original: duty,
-      translated: preliminaryTranslation,
+      translated: suggestions[0] || preliminaryTranslation,
       suggestions: suggestions,
       confidence: 0.85,
     };
