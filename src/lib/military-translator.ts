@@ -1,21 +1,8 @@
-// Dynamic import to avoid bundling in serverless functions
-let transformersModule: any = null;
-
-// Lazy load transformers only when needed in browser
-async function loadTransformers() {
-  if (typeof window === 'undefined') {
-    // Don't load on server-side
-    return null;
-  }
-
-  if (!transformersModule) {
-    const { pipeline, env } = await import('@xenova/transformers');
-    env.allowLocalModels = false;
-    transformersModule = { pipeline, env };
-  }
-
-  return transformersModule;
-}
+/**
+ * Military Resume Translator
+ * Lightweight dictionary-based translation (no AI dependencies)
+ * Fast, reliable, and bundle-size friendly
+ */
 
 /**
  * Military-to-civilian terminology mappings
@@ -126,33 +113,6 @@ export interface TranslatedProfile {
 }
 
 /**
- * Initialize the transformer pipeline for text generation
- */
-let translatorPipeline: any = null;
-
-async function getTranslatorPipeline() {
-  const transformers = await loadTransformers();
-
-  if (!transformers) {
-    throw new Error('Transformers library not available on server-side');
-  }
-
-  if (!translatorPipeline) {
-    try {
-      // Use a smaller, faster model for paraphrasing/translation
-      translatorPipeline = await transformers.pipeline(
-        'text2text-generation',
-        'Xenova/LaMini-Flan-T5-783M'
-      );
-    } catch (error) {
-      console.error('Failed to load translator pipeline:', error);
-      throw new Error('Failed to initialize military translator');
-    }
-  }
-  return translatorPipeline;
-}
-
-/**
  * Replace military terminology with civilian equivalents
  */
 function replaceTerminology(text: string): string {
@@ -196,42 +156,20 @@ export function translateJobTitle(militaryTitle: string): string {
 
 /**
  * Translate a single military duty/responsibility to civilian language
+ * Uses dictionary-based translation for instant, reliable results
  */
 export async function translateDuty(duty: string): Promise<TranslationResult> {
-  try {
-    // First, apply terminology replacement
-    const preliminaryTranslation = replaceTerminology(duty);
+  const translated = replaceTerminology(duty);
 
-    // Generate alternative phrasings using the AI model
-    const pipeline = await getTranslatorPipeline();
+  // Generate simple suggestions based on the translation
+  const suggestions = getSuggestions(translated);
 
-    const prompt = `Rewrite this military duty in civilian professional language: "${preliminaryTranslation}"`;
-
-    const result = await pipeline(prompt, {
-      max_length: 100,
-      num_return_sequences: 3,
-      temperature: 0.7,
-    });
-
-    const suggestions = result.map((r: any) => r.generated_text);
-
-    return {
-      original: duty,
-      translated: preliminaryTranslation,
-      suggestions: suggestions,
-      confidence: 0.85,
-    };
-  } catch (error) {
-    console.error('Translation error:', error);
-
-    // Fallback to terminology replacement only
-    return {
-      original: duty,
-      translated: replaceTerminology(duty),
-      suggestions: [],
-      confidence: 0.6,
-    };
-  }
+  return {
+    original: duty,
+    translated: translated,
+    suggestions: suggestions,
+    confidence: 0.95, // High confidence with dictionary-based approach
+  };
 }
 
 /**

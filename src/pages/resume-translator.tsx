@@ -1,27 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
-
-// Dynamically import ResumeTranslator with no SSR to avoid bundling @xenova/transformers in serverless functions
-const ResumeTranslator = dynamic(
-    () => import("@components/translator/ResumeTranslator"),
-    {
-        ssr: false,
-        loading: () => (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading translator...</p>
-                </div>
-            </div>
-        ),
-    }
-);
+import ResumeTranslator from "@components/translator/ResumeTranslator";
 
 type PageProps = {
     layout?: {
