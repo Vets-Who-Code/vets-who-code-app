@@ -24,6 +24,8 @@ const nextConfig = {
         ignoreDuringBuilds: true, // ✅ This prevents ESLint errors from failing `next build`
     },
 
+    experimental: {},
+
     webpack(config, { isServer }) {
         config.module.rules.push({
             test: /\.svg$/,
@@ -43,8 +45,6 @@ const nextConfig = {
         domains: [],
         remotePatterns: [],
     },
-
-    experimental: {},
 };
 
 require("dotenv").config();
