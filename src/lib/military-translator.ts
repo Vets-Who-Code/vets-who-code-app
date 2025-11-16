@@ -110,6 +110,7 @@ export interface TranslatedProfile {
   summary: string;
   keyResponsibilities: string[];
   achievements: string[];
+  suggestions?: string[];
 }
 
 /**
@@ -173,56 +174,87 @@ export async function translateDuty(duty: string): Promise<TranslationResult> {
 }
 
 /**
- * Translate entire military profile to civilian resume format
+ * Translate entire military profile to civilian resume format using AI
  */
 export async function translateMilitaryProfile(
   profile: MilitaryProfile
 ): Promise<TranslatedProfile> {
   try {
-    // Translate job title
-    const civilianTitle = profile.jobTitle
-      ? translateJobTitle(profile.jobTitle)
-      : 'Professional';
+    // Call API endpoint for AI-powered translation
+    const response = await fetch('/api/military-resume/translate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        jobTitle: profile.jobTitle || '',
+        rank: profile.rank || '',
+        branch: profile.branch || '',
+        duties: profile.duties || '',
+        achievements: profile.achievements || '',
+      }),
+    });
 
-    // Create professional summary
-    const summaryParts: string[] = [];
-    if (profile.rank) {
-      summaryParts.push(`Experienced professional with ${profile.rank} level responsibilities`);
+    if (!response.ok) {
+      // Fallback to dictionary-based translation
+      console.warn('AI translation failed, using fallback');
+      return fallbackTranslation(profile);
     }
-    if (profile.branch) {
-      summaryParts.push(`in ${replaceTerminology(profile.branch)}`);
-    }
 
-    const summary = summaryParts.length > 0
-      ? summaryParts.join(' ')
-      : 'Dedicated professional with proven leadership and operational experience';
+    const translated = await response.json();
+    return translated;
 
-    // Translate duties/responsibilities
-    const duties = profile.duties
-      ? profile.duties.split('\n').filter((d) => d.trim())
-      : [];
-
-    const translatedDuties = duties.map((duty) => replaceTerminology(duty));
-
-    // Translate achievements
-    const achievements = profile.achievements
-      ? profile.achievements.split('\n').filter((a) => a.trim())
-      : [];
-
-    const translatedAchievements = achievements.map((achievement) =>
-      replaceTerminology(achievement)
-    );
-
-    return {
-      jobTitle: civilianTitle,
-      summary,
-      keyResponsibilities: translatedDuties,
-      achievements: translatedAchievements,
-    };
   } catch (error) {
     console.error('Profile translation error:', error);
-    throw new Error('Failed to translate military profile');
+    // Fallback to dictionary-based translation
+    return fallbackTranslation(profile);
   }
+}
+
+/**
+ * Fallback translation using dictionary-based approach
+ */
+function fallbackTranslation(profile: MilitaryProfile): TranslatedProfile {
+  // Translate job title
+  const civilianTitle = profile.jobTitle
+    ? translateJobTitle(profile.jobTitle)
+    : 'Professional';
+
+  // Create professional summary
+  const summaryParts: string[] = [];
+  if (profile.rank) {
+    summaryParts.push(`Experienced professional with ${profile.rank} level responsibilities`);
+  }
+  if (profile.branch) {
+    summaryParts.push(`in ${replaceTerminology(profile.branch)}`);
+  }
+
+  const summary = summaryParts.length > 0
+    ? summaryParts.join(' ')
+    : 'Dedicated professional with proven leadership and operational experience';
+
+  // Translate duties/responsibilities
+  const duties = profile.duties
+    ? profile.duties.split('\n').filter((d) => d.trim())
+    : [];
+
+  const translatedDuties = duties.map((duty) => replaceTerminology(duty));
+
+  // Translate achievements
+  const achievements = profile.achievements
+    ? profile.achievements.split('\n').filter((a) => a.trim())
+    : [];
+
+  const translatedAchievements = achievements.map((achievement) =>
+    replaceTerminology(achievement)
+  );
+
+  return {
+    jobTitle: civilianTitle,
+    summary,
+    keyResponsibilities: translatedDuties,
+    achievements: translatedAchievements,
+  };
 }
 
 /**

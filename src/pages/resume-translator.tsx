@@ -73,8 +73,11 @@ const ResumeTranslatorPage: PageWithLayout = () => {
                                 Military Resume Translator
                             </h1>
                             <p className="tw-mx-auto tw-max-w-2xl tw-text-xl tw-text-gray-600">
-                                This powerful tool helps veterans translate their military experience
-                                into civilian-friendly resume language. Sign in to get started.
+                                This exclusive tool helps <strong>veterans and military members</strong> translate
+                                their military experience into civilian-friendly resume language.
+                            </p>
+                            <p className="tw-mx-auto tw-max-w-2xl tw-text-lg tw-text-gray-500 tw-mt-2">
+                                Sign in with your VetsWhoCode account to access this feature.
                             </p>
                         </div>
 
@@ -129,13 +132,27 @@ const ResumeTranslatorPage: PageWithLayout = () => {
                         </div>
 
                         <div className="tw-space-y-4">
+                            <div className="tw-bg-yellow-50 tw-border-l-4 tw-border-yellow-400 tw-p-4 tw-mb-6 tw-max-w-2xl tw-mx-auto">
+                                <div className="tw-flex">
+                                    <div className="tw-flex-shrink-0">
+                                        <i className="fas fa-shield-alt tw-text-yellow-400 tw-text-xl" />
+                                    </div>
+                                    <div className="tw-ml-3">
+                                        <p className="tw-text-sm tw-text-yellow-700">
+                                            <strong>Exclusive Feature:</strong> This military resume translator is available
+                                            only to verified veterans and military members who are part of VetsWhoCode.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-justify-center">
                                 <Link
                                     href="/login"
                                     className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
                                 >
                                     <i className="fas fa-sign-in-alt tw-mr-2" />
-                                    Sign In to Use Translator
+                                    Sign In (Veterans Only)
                                 </Link>
                                 <Link
                                     href="/dev-login"
@@ -146,12 +163,12 @@ const ResumeTranslatorPage: PageWithLayout = () => {
                                 </Link>
                             </div>
                             <div className="tw-text-gray-600">
-                                <p>Need help with your resume first?</p>
+                                <p className="tw-font-semibold">Not a member yet?</p>
                                 <Link
                                     href="/apply"
                                     className="tw-text-primary tw-transition-colors hover:tw-text-primary/80"
                                 >
-                                    Learn more about applying to VetsWhoCode →
+                                    Apply to VetsWhoCode to get access →
                                 </Link>
                             </div>
                         </div>
