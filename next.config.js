@@ -24,6 +24,20 @@ const nextConfig = {
         ignoreDuringBuilds: true, // ✅ This prevents ESLint errors from failing `next build`
     },
 
+    // Exclude heavy AI/ML packages from server-side bundles
+    serverComponentsExternalPackages: ['@xenova/transformers', 'sharp', 'onnxruntime-node'],
+
+    // Exclude @xenova/transformers from server-side file tracing
+    experimental: {
+        outputFileTracingExcludes: {
+            '*': [
+                'node_modules/@xenova/transformers/**/*',
+                'node_modules/onnxruntime-node/**/*',
+                'node_modules/onnxruntime-web/**/*',
+            ],
+        },
+    },
+
     webpack(config, { isServer }) {
         config.module.rules.push({
             test: /\.svg$/,
@@ -36,6 +50,16 @@ const nextConfig = {
             };
         }
 
+        // Explicitly mark @xenova/transformers as external for server builds
+        if (isServer) {
+            config.externals = config.externals || [];
+            config.externals.push({
+                '@xenova/transformers': 'commonjs @xenova/transformers',
+                'sharp': 'commonjs sharp',
+                'onnxruntime-node': 'commonjs onnxruntime-node',
+            });
+        }
+
         return config;
     },
 
@@ -43,8 +67,6 @@ const nextConfig = {
         domains: [],
         remotePatterns: [],
     },
-
-    experimental: {},
 };
 
 require("dotenv").config();
