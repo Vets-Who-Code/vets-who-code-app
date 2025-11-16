@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next';
 import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
 import { streamText } from 'ai';
-import { getAIModelWithFallback, JODIE_SYSTEM_PROMPT } from '@/lib/ai-provider';
+import { getAIModelWithFallback, JODIE_SYSTEM_PROMPT, MAX_LESSON_CONTEXT_LENGTH } from '@/lib/ai-provider';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30; // 30 seconds max for streaming responses
@@ -74,7 +74,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
 - Course: ${lessonContext.courseTitle}
 - Module: ${lessonContext.moduleTitle}
 - Lesson: ${lessonContext.lessonTitle}
-${lessonContext.content ? `\nLesson Content Summary:\n${lessonContext.content.slice(0, 1000)}...` : ''}
+${lessonContext.content ? `\nLesson Content Summary:\n${lessonContext.content.slice(0, MAX_LESSON_CONTEXT_LENGTH)}...` : ''}
 
 Use this context to provide relevant, specific help to the student.`;
     }

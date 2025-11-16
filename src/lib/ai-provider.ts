@@ -186,6 +186,12 @@ export async function tryProvidersWithFallback<T>(
 }
 
 /**
+ * Maximum length of lesson content to include in AI context
+ * Used to truncate lesson content to avoid token limits
+ */
+export const MAX_LESSON_CONTEXT_LENGTH = 1000;
+
+/**
  * System prompt for J0d!e Teaching Assistant
  */
 export const JODIE_SYSTEM_PROMPT = `You are J0d!e, an AI teaching assistant for #VetsWhoCode, a coding bootcamp for military veterans.

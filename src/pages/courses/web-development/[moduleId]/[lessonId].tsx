@@ -7,6 +7,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 import { AITeachingAssistant } from "@components/ai-assistant";
+import { MAX_LESSON_CONTEXT_LENGTH } from "@/lib/ai-provider";
 
 type LessonData = {
     id: string;
@@ -406,7 +407,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     lessonTitle: lesson.title,
                     moduleTitle: module.title,
                     courseTitle: "Web Development",
-                    content: lesson.content.replace(/<[^>]*>/g, '').slice(0, 1000),
+                    content: lesson.content.replace(/<[^>]*>/g, '').slice(0, MAX_LESSON_CONTEXT_LENGTH),
                 }}
             />
         </>
