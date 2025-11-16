@@ -206,7 +206,7 @@ const ResumeTranslatorPage: PageWithLayout = () => {
                 <ResumeTranslator className="tw-mx-auto tw-max-w-5xl" />
 
                 {/* Additional Resources */}
-                <div className="tw-mt-16 tw-max-w-5xl tw-mx-auto">
+                <div className="tw-mt-16 tw-mx-auto tw-max-w-5xl">
                     <div className="tw-bg-gray-50 tw-rounded-lg tw-p-8">
                         <h2 className="tw-text-2xl tw-font-bold tw-text-[#091f40] tw-mb-4">
                             Resume Writing Tips
