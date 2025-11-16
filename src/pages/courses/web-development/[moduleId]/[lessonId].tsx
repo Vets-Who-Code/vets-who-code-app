@@ -6,6 +6,7 @@ import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+import { AITeachingAssistant } from "@components/ai-assistant";
 
 type LessonData = {
     id: string;
@@ -115,6 +116,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
     const router = useRouter();
     const [completed, setCompleted] = useState(false);
     const [showAssignment, setShowAssignment] = useState(false);
+    const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
 
     useEffect(() => {
         // TODO: Check if lesson is completed from database
@@ -122,6 +124,26 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         const lessonKey = `lesson_${lesson.id}_completed`;
         setCompleted(localStorage.getItem(lessonKey) === "true");
     }, [lesson.id]);
+
+    // Keyboard shortcut for AI Assistant ('A' key)
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            // Only trigger if not typing in an input field
+            if (
+                e.key === 'a' &&
+                !e.ctrlKey &&
+                !e.metaKey &&
+                !e.altKey &&
+                document.activeElement?.tagName !== 'INPUT' &&
+                document.activeElement?.tagName !== 'TEXTAREA'
+            ) {
+                setIsAIAssistantOpen((prev) => !prev);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyPress);
+        return () => window.removeEventListener('keydown', handleKeyPress);
+    }, []);
 
     const markAsCompleted = () => {
         // TODO: Update database with lesson completion
@@ -320,6 +342,28 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             </div>
                         </div>
 
+                        {/* AI Teaching Assistant */}
+                        <div className="tw-mb-6 tw-rounded-lg tw-bg-gradient-to-br tw-from-purple-50 tw-to-blue-50 tw-p-6 tw-shadow-md tw-border tw-border-purple-200">
+                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <i className="fas fa-robot tw-mr-2 tw-text-purple-600" />
+                                AI Teaching Assistant
+                            </h3>
+                            <p className="tw-mb-4 tw-text-sm tw-text-gray-600">
+                                Need help? Ask J0d!e for explanations and guidance!
+                            </p>
+                            <button
+                                type="button"
+                                onClick={() => setIsAIAssistantOpen(true)}
+                                className="tw-w-full tw-rounded-md tw-bg-purple-600 tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-purple-700"
+                            >
+                                <i className="fas fa-comment-dots tw-mr-2" />
+                                Ask J0d!e
+                            </button>
+                            <p className="tw-mt-2 tw-text-xs tw-text-center tw-text-gray-500">
+                                Keyboard shortcut: Press &apos;A&apos;
+                            </p>
+                        </div>
+
                         {/* Resources */}
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
                             <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
@@ -352,6 +396,19 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     </div>
                 </div>
             </div>
+
+            {/* AI Teaching Assistant Modal */}
+            <AITeachingAssistant
+                isOpen={isAIAssistantOpen}
+                onClose={() => setIsAIAssistantOpen(false)}
+                lessonContext={{
+                    lessonId: lesson.id,
+                    lessonTitle: lesson.title,
+                    moduleTitle: module.title,
+                    courseTitle: "Web Development",
+                    content: lesson.content.replace(/<[^>]*>/g, '').slice(0, 1000),
+                }}
+            />
         </>
     );
 };
