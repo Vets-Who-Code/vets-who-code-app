@@ -106,11 +106,6 @@ const navigation: NavigationItem[] = [
         label: "Contact",
         path: "/contact-us",
     },
-    {
-        id: 7,
-        label: "Donate",
-        path: "/donate",
-    },
 ];
 
 export default navigation;
