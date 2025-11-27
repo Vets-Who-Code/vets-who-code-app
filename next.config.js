@@ -26,26 +26,6 @@ const nextConfig = {
 
     experimental: {},
 
-    // Exclude heavy dependencies from functions that don't need them
-    outputFileTracingExcludes: {
-        // Exclude @vercel/og from specific API routes that don't use it
-        '/api/ai/**': ['node_modules/@vercel/og/**/*'],
-        '/api/auth/**': ['node_modules/@vercel/og/**/*'],
-        '/api/certificates/**': ['node_modules/@vercel/og/**/*'],
-        '/api/contact': ['node_modules/@vercel/og/**/*'],
-        '/api/courses/**': ['node_modules/@vercel/og/**/*'],
-        '/api/enrollment/**': ['node_modules/@vercel/og/**/*'],
-        '/api/lms/**': ['node_modules/@vercel/og/**/*'],
-        '/api/mentee': ['node_modules/@vercel/og/**/*'],
-        '/api/mentor': ['node_modules/@vercel/og/**/*'],
-        '/api/military-resume/**': ['node_modules/@vercel/og/**/*'],
-        '/api/newsletter': ['node_modules/@vercel/og/**/*'],
-        '/api/og/fetch': ['node_modules/@vercel/og/**/*'],
-        '/api/progress': ['node_modules/@vercel/og/**/*'],
-        '/api/shopify/**': ['node_modules/@vercel/og/**/*'],
-        '/api/user/**': ['node_modules/@vercel/og/**/*'],
-    },
-
     // Ensure MDX and data files are included for all pages
     outputFileTracingIncludes: {
         '/**': ['src/data/**/*'],

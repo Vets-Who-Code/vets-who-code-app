@@ -50,16 +50,13 @@ Content-Type: application/json
 }
 ```
 
-#### `/api/og/generate`
-Generates a fallback Open Graph image for URLs that don't have their own OG image.
-
-**Request:**
-```
-GET /api/og/generate?url=https://example.com
-```
-
-**Response:**
-Returns a 1200x630 PNG image with the URL's hostname and a link icon.
+#### Fallback Image Generation
+For URLs without OG images, the component automatically generates a unique SVG image client-side using the `generateFallbackImage()` utility function. This approach:
+- Creates unique colors based on hostname (same site = same colors)
+- Shows the first letter of the domain
+- Includes VWC branding
+- **No API calls required** - fully client-side generation
+- **Zero bundle size impact** - just inline SVG generation
 
 ### 3. Components
 
@@ -179,11 +176,11 @@ export default function CustomCard() {
 
 1. **User provides a URL**: The URL is passed to the `URLPreviewCard` component
 2. **Fetch metadata**: The component calls `/api/og/fetch` with the URL
-3. **Parse HTML**: The API route fetches the URL and parses the HTML with Cheerio
+3. **Parse HTML**: The API route fetches the URL and parses the HTML with node-html-parser
 4. **Extract metadata**: Open Graph tags, Twitter Card data, and fallback metadata are extracted
 5. **Return data**: The metadata is returned to the component
 6. **Display card**: The component renders a card with the title, description, and image
-7. **Fallback image**: If no image is found, `/api/og/generate` creates one on the fly
+7. **Fallback image**: If no image is found, a unique SVG is generated client-side based on the hostname
 
 ## Customization
 
@@ -194,10 +191,11 @@ The component uses Tailwind CSS with the `tw-` prefix. You can customize the app
 - Updating the Tailwind config
 
 ### Image Generation
-Customize the fallback OG image appearance in `/src/pages/api/og/generate.tsx`:
-- Change colors, gradients, typography
-- Add your logo or branding
-- Modify the layout
+Customize the fallback OG image appearance in the `generateFallbackImage()` function in `/src/components/url-preview-card/index.tsx`:
+- Change colors, gradients, typography (lines 22-42)
+- Modify the SVG layout and design
+- Add your logo or different branding
+- Adjust the hash function for different color schemes
 
 ### Metadata Extraction
 Enhance metadata extraction in `/src/pages/api/og/fetch.ts`:
@@ -246,7 +244,7 @@ Try these example URLs:
 ## Dependencies
 
 - `node-html-parser`: Lightweight HTML parsing library for Node.js
-- `@vercel/og`: OG image generation library
+- **No additional dependencies** for image generation - uses inline SVG generation
 
 ## Browser Support
 

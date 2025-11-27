@@ -1,10 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Image from 'next/image';
 import type { URLMetadata } from '@/types/url-metadata';
 
 interface URLPreviewCardProps {
   url: string;
   className?: string;
+}
+
+// Generate a unique fallback image as an SVG data URL
+function generateFallbackImage(hostname: string): string {
+  // Hash function to generate consistent colors
+  const hashCode = (str: string) => {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    return hash;
+  };
+
+  const hash = Math.abs(hashCode(hostname));
+  const hue1 = hash % 360;
+  const hue2 = (hash + 60) % 360;
+
+  const firstLetter = hostname.replace('www.', '').charAt(0).toUpperCase();
+
+  const svg = `
+    <svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:hsl(${hue1}, 70%, 50%);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:hsl(${hue2}, 70%, 35%);stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="630" fill="url(#grad)"/>
+      <circle cx="1000" cy="100" r="200" fill="rgba(255,255,255,0.1)"/>
+      <circle cx="200" cy="530" r="250" fill="rgba(0,0,0,0.1)"/>
+      <rect x="500" y="215" width="200" height="200" rx="30" fill="rgba(255,255,255,0.95)"/>
+      <text x="600" y="350" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="hsl(${hue2}, 70%, 35%)" text-anchor="middle">${firstLetter}</text>
+      <text x="600" y="450" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">${hostname}</text>
+      <text x="600" y="510" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)" text-anchor="middle">Shared from Vets Who Code</text>
+    </svg>
+  `;
+
+  // Use btoa for browser compatibility (or encodeURIComponent for simpler approach)
+  return `data:image/svg+xml,${encodeURIComponent(svg)}`;
 }
 
 export default function URLPreviewCard({ url, className = '' }: URLPreviewCardProps) {
@@ -87,7 +126,10 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
   }
 
   const hostname = new URL(metadata.url).hostname;
-  const displayImage = metadata.image || `/api/og/generate?url=${encodeURIComponent(url)}`;
+
+  // Generate fallback image using useMemo to avoid regenerating on every render
+  const fallbackImage = useMemo(() => generateFallbackImage(hostname), [hostname]);
+  const displayImage = metadata.image || fallbackImage;
 
   return (
     <a
@@ -102,7 +144,7 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
           alt={metadata.title || 'Preview image'}
           fill
           className="tw-object-cover group-hover:tw-scale-105 tw-transition-transform tw-duration-300"
-          unoptimized={!metadata.image}
+          unoptimized
         />
       </div>
       <div className="tw-p-4">

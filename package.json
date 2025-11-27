@@ -36,7 +36,6 @@
     "@shopify/shopify-api": "^12.1.2",
     "@types/express": "^4.17.17",
     "@vercel/analytics": "^1.4.1",
-    "@vercel/og": "^0.8.5",
     "ace-builds": "^1.33.1",
     "ai": "^5.0.93",
     "axios": "^1.4.0",
