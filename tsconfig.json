@@ -40,11 +40,17 @@
       "@data/*": [
         "data/*"
       ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
       "@hooks": [
         "hooks"
       ],
       "@layout/*": [
         "layouts/*"
+      ],
+      "@lib/*": [
+        "lib/*"
       ],
       "@ui/*": [
         "components/ui/*"
