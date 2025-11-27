@@ -88,7 +88,7 @@
             "alt": "Board Member"
         },
         "designation": "Board Member",
-        "bio": "Christina Morillo is a seasoned cybersecurity and technology executive with over 20 years of cross-domain experience leading enterprise security, cloud architecture, and identity programs. As a CISO and trusted advisor, she blends technical depth with strategic leadership to drive resilience, regulatory alignment, and business impact. Her career spans diverse industries, including financial services, big tech, and professional sports, bringing a unique perspective to every challenge. Christina is also a published O’Reilly author (Zero Trust Networks: Second Edition, 97 Things Every Information Security Professional Should Know) and is passionate about making security and technology accessible, inclusive, and actionable for all.",
+        "bio": "Christina Morillo is a seasoned cybersecurity and technology executive with over 20 years of cross-domain experience leading enterprise security, cloud architecture, and identity programs. As a CISO and trusted advisor, she blends technical depth with strategic leadership to drive resilience, regulatory alignment, and business impact. Her career spans diverse industries, including financial services, big tech, and professional sports, bringing a unique perspective to every challenge. Christina is also a published O'Reilly author (Zero Trust Networks: Second Edition, 97 Things Every Information Security Professional Should Know) and is passionate about making security and technology accessible, inclusive, and actionable for all.",
         "socials": [
             {
                 "label": "LinkedIn",
@@ -99,6 +99,28 @@
                 "label": "Website",
                 "icon": "fas fa-globe",
                 "url": "https://www.christinamorillo.com/"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Alex Reyes",
+        "slug": "alex-reyes",
+        "path": "/team/alex-reyes",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1764282207/2025_02_10_TA_Headshots_015_vxexmt.png",
+            "width": 350,
+            "height": 430,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Alex Reyes is a seasoned Recruiting Leader and Career Coach with nearly 20 years of experience in Talent Acquisition and 13 years of distinguished Military Service. Currently leading talent acquisition at UC Davis Campus, Alex specializes in delivering both technical and non-technical staffing solutions, while building scalable infrastructure that enhances efficiency and empowers high-performing teams.\n\nAs a Career Coach, Alex has a proven track record of mentoring professionals across diverse fields—including Product Management, Data Analytics, and Software Engineering (Full Stack, Infrastructure, Machine Learning, Mobile, and Front End). Since 2023, Alex has helped candidates land roles at top-tier companies such as TikTok, Apple, Meta, and Microsoft.\n\nDriven by a deep commitment to helping others succeed, Alex equips clients with actionable strategies for career advancement through targeted interview preparation and communication skills training. His coaching fosters self-confidence and prepares individuals to navigate career transitions successfully, excel in job searches, and achieve their professional goals.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/alexreyes27/"
             }
         ]
     }
