@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import * as cheerio from 'cheerio';
+import { parse } from 'node-html-parser';
 import type { OGFetchResponse, URLMetadata } from '@/types/url-metadata';
 
 export default async function handler(
@@ -20,14 +20,18 @@ export default async function handler(
     // Validate URL format
     const urlObj = new URL(url);
 
-    // Fetch the URL content
+    // Fetch the URL content with timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
     const response = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (compatible; VetsWhoCodeBot/1.0; +https://vetswhocode.io)',
       },
-      // Set timeout to 10 seconds
-      signal: AbortSignal.timeout(10000),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       return res.status(400).json({
@@ -37,35 +41,40 @@ export default async function handler(
     }
 
     const html = await response.text();
-    const $ = cheerio.load(html);
+    const root = parse(html);
+
+    // Helper function to get meta content
+    const getMeta = (selector: string): string | undefined => {
+      return root.querySelector(selector)?.getAttribute('content') || undefined;
+    };
 
     // Extract Open Graph metadata
     const metadata: URLMetadata = {
       url: url,
       title:
-        $('meta[property="og:title"]').attr('content') ||
-        $('meta[name="twitter:title"]').attr('content') ||
-        $('title').text() ||
+        getMeta('meta[property="og:title"]') ||
+        getMeta('meta[name="twitter:title"]') ||
+        root.querySelector('title')?.text ||
         urlObj.hostname,
       description:
-        $('meta[property="og:description"]').attr('content') ||
-        $('meta[name="twitter:description"]').attr('content') ||
-        $('meta[name="description"]').attr('content') ||
+        getMeta('meta[property="og:description"]') ||
+        getMeta('meta[name="twitter:description"]') ||
+        getMeta('meta[name="description"]') ||
         undefined,
       image:
-        $('meta[property="og:image"]').attr('content') ||
-        $('meta[name="twitter:image"]').attr('content') ||
-        $('meta[property="og:image:url"]').attr('content') ||
+        getMeta('meta[property="og:image"]') ||
+        getMeta('meta[name="twitter:image"]') ||
+        getMeta('meta[property="og:image:url"]') ||
         undefined,
       siteName:
-        $('meta[property="og:site_name"]').attr('content') ||
+        getMeta('meta[property="og:site_name"]') ||
         urlObj.hostname,
       favicon:
-        $('link[rel="icon"]').attr('href') ||
-        $('link[rel="shortcut icon"]').attr('href') ||
+        root.querySelector('link[rel="icon"]')?.getAttribute('href') ||
+        root.querySelector('link[rel="shortcut icon"]')?.getAttribute('href') ||
         `${urlObj.origin}/favicon.ico`,
       type:
-        $('meta[property="og:type"]').attr('content') ||
+        getMeta('meta[property="og:type"]') ||
         'website',
     };
 
@@ -83,6 +92,10 @@ export default async function handler(
 
     if (error instanceof TypeError && error.message.includes('Invalid URL')) {
       return res.status(400).json({ success: false, error: 'Invalid URL format' });
+    }
+
+    if (error instanceof Error && error.name === 'AbortError') {
+      return res.status(408).json({ success: false, error: 'Request timeout' });
     }
 
     return res.status(500).json({

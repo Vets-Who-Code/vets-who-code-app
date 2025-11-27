@@ -43,7 +43,13 @@ const nextConfig = {
 
     images: {
         domains: [],
-        remotePatterns: [],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+        ],
+        unoptimized: false,
     },
 };
 

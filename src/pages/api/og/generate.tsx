@@ -17,6 +17,25 @@ export default async function handler(req: NextRequest) {
     const urlObj = new URL(url);
     const hostname = urlObj.hostname;
 
+    // Generate unique colors based on hostname
+    const hashCode = (str: string) => {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      return hash;
+    };
+
+    const hash = Math.abs(hashCode(hostname));
+    const hue1 = hash % 360;
+    const hue2 = (hash + 60) % 360;
+
+    const gradient1 = `hsl(${hue1}, 70%, 50%)`;
+    const gradient2 = `hsl(${hue2}, 70%, 35%)`;
+
+    // Get first letter of hostname for the icon
+    const firstLetter = hostname.replace('www.', '').charAt(0).toUpperCase();
+
     return new ImageResponse(
       (
         <div
@@ -27,67 +46,122 @@ export default async function handler(req: NextRequest) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#1a202c',
-            backgroundImage: 'linear-gradient(135deg, #1a202c 0%, #2d3748 100%)',
+            background: `linear-gradient(135deg, ${gradient1} 0%, ${gradient2} 100%)`,
+            position: 'relative',
           }}
         >
+          {/* Decorative circles in background */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '-100px',
+              right: '-100px',
+              width: '400px',
+              height: '400px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              display: 'flex',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '-150px',
+              left: '-150px',
+              width: '500px',
+              height: '500px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(0, 0, 0, 0.1)',
+              display: 'flex',
+            }}
+          />
+
+          {/* Main content */}
           <div
             style={{
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '40px',
+              padding: '60px',
+              position: 'relative',
+              zIndex: 1,
             }}
           >
+            {/* Letter icon */}
             <div
               style={{
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '120px',
-                height: '120px',
-                borderRadius: '50%',
-                backgroundColor: '#4a5568',
-                marginBottom: '30px',
+                width: '200px',
+                height: '200px',
+                borderRadius: '30px',
+                backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                marginBottom: '40px',
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: '120px',
+                  fontWeight: 'bold',
+                  color: gradient2,
+                }}
+              >
+                {firstLetter}
+              </div>
+            </div>
+
+            {/* Hostname */}
+            <div
+              style={{
+                fontSize: '48px',
+                fontWeight: 'bold',
+                color: '#ffffff',
+                textAlign: 'center',
+                marginBottom: '16px',
+                maxWidth: '900px',
+                textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)',
+              }}
+            >
+              {hostname}
+            </div>
+
+            {/* Subtitle */}
+            <div
+              style={{
+                fontSize: '24px',
+                color: 'rgba(255, 255, 255, 0.9)',
+                textAlign: 'center',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '10px',
               }}
             >
               <svg
-                width="60"
-                height="60"
+                width="24"
+                height="24"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M13.5 2c-5.629 0-10.212 4.436-10.475 10h-3.025l4.537 5.917 4.463-5.917h-2.975c.26-3.902 3.508-7 7.475-7 4.136 0 7.5 3.364 7.5 7.5s-3.364 7.5-7.5 7.5c-2.381 0-4.502-1.119-5.876-2.854l-1.847 2.449c1.919 2.088 4.664 3.405 7.723 3.405 5.798 0 10.5-4.702 10.5-10.5s-4.702-10.5-10.5-10.5z"
-                  fill="#cbd5e0"
+                  d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  stroke="rgba(255, 255, 255, 0.9)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  stroke="rgba(255, 255, 255, 0.9)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
               </svg>
-            </div>
-            <div
-              style={{
-                fontSize: '32px',
-                fontWeight: 'bold',
-                color: '#f7fafc',
-                textAlign: 'center',
-                marginBottom: '16px',
-                maxWidth: '600px',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {hostname}
-            </div>
-            <div
-              style={{
-                fontSize: '20px',
-                color: '#a0aec0',
-                textAlign: 'center',
-              }}
-            >
-              Shared Link
+              Shared from Vets Who Code
             </div>
           </div>
         </div>

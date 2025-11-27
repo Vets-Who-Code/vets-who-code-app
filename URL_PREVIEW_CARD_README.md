@@ -245,7 +245,7 @@ Try these example URLs:
 
 ## Dependencies
 
-- `cheerio`: HTML parsing library (server-side jQuery)
+- `node-html-parser`: Lightweight HTML parsing library for Node.js
 - `@vercel/og`: OG image generation library
 
 ## Browser Support

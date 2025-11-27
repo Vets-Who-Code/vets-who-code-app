@@ -26,6 +26,15 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
           body: JSON.stringify({ url }),
         });
 
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          const text = await response.text();
+          console.error('Non-JSON response:', text);
+          setError('Server returned an error. Check console for details.');
+          return;
+        }
+
         const data = await response.json();
 
         if (data.success && data.data) {
@@ -34,6 +43,7 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
           setError(data.error || 'Failed to fetch URL metadata');
         }
       } catch (err) {
+        console.error('Fetch error:', err);
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
         setLoading(false);

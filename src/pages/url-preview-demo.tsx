@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import URLPreviewCard from '@/components/url-preview-card';
 
-export default function URLPreviewDemo() {
+const URLPreviewDemo = () => {
   const [url, setUrl] = useState('');
   const [submittedUrl, setSubmittedUrl] = useState('');
 
@@ -55,6 +55,7 @@ export default function URLPreviewDemo() {
               {exampleUrls.map((exampleUrl) => (
                 <button
                   key={exampleUrl}
+                  type="button"
                   onClick={() => {
                     setUrl(exampleUrl);
                     setSubmittedUrl(exampleUrl);
@@ -100,4 +101,6 @@ function MyComponent() {
       </div>
     </div>
   );
-}
+};
+
+export default URLPreviewDemo;
