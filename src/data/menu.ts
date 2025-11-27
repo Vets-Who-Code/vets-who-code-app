@@ -94,21 +94,20 @@ const navigation: NavigationItem[] = [
                 label: "Media",
                 path: "/media",
             },
-            {
-                id: 705, // Existing Shop, ID adjusted (was 704)
-                label: "Shop",
-                path: "https://hashflag.shop/",
-                external: true,
-            },
         ],
     },
     {
         id: 5,
+        label: "Shop",
+        path: "/store",
+    },
+    {
+        id: 6,
         label: "Contact",
         path: "/contact-us",
     },
     {
-        id: 6,
+        id: 7,
         label: "Donate",
         path: "/donate",
     },
