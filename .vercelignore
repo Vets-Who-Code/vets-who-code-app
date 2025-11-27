@@ -1,3 +1,39 @@
+# Git and version control
 .git
-reports
+.github
+
+# Build cache
 .next/cache
+.cache
+
+# Reports and testing
+reports
+coverage
+__tests__
+
+# Documentation (except README)
+docs/
+*.md
+!README.md
+
+# Development files
+.vscode
+.idea
+
+# Logs
+*.log
+logs
+
+# Temporary files
+tmp
+temp
+
+# Test files
+*.test.ts
+*.test.tsx
+*.test.js
+*.test.jsx
+*.spec.ts
+*.spec.tsx
+*.spec.js
+*.spec.jsx

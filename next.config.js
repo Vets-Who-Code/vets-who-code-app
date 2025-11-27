@@ -26,6 +26,18 @@ const nextConfig = {
 
     experimental: {},
 
+    // Exclude heavy dependencies from functions that don't need them
+    outputFileTracingExcludes: {
+        // Exclude @vercel/og from all API routes except /api/og/generate
+        '/api/!(og)/**': ['node_modules/@vercel/og/**/*'],
+        '/api/og/fetch': ['node_modules/@vercel/og/**/*'],
+    },
+
+    // Include only necessary files for specific routes
+    outputFileTracingIncludes: {
+        '/api/og/generate': [],
+    },
+
     webpack(config, { isServer }) {
         config.module.rules.push({
             test: /\.svg$/,
@@ -35,6 +47,16 @@ const nextConfig = {
         if (!isServer) {
             config.resolve.fallback = {
                 fs: false,
+            };
+        }
+
+        // Optimize for serverless functions
+        if (isServer) {
+            // Enable tree-shaking for server bundles
+            config.optimization = {
+                ...config.optimization,
+                usedExports: true,
+                sideEffects: false,
             };
         }
 
