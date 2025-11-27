@@ -6,7 +6,6 @@ import ProductGrid from "@components/product-grid";
 import ShoppingCart from "@components/shopping-cart";
 import { getProducts, ShopifyProduct, isShopifyConfigured } from "@lib/shopify";
 import { useCart } from "@hooks";
-import clsx from "clsx";
 
 interface StorePageProps {
     products: ShopifyProduct[];
