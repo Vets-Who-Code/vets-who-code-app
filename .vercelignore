@@ -11,10 +11,12 @@ reports
 coverage
 __tests__
 
-# Documentation (except README)
+# Documentation (except README and data files)
 docs/
 *.md
 !README.md
+!src/data/**/*.md
+!src/data/**/*.mdx
 
 # Development files
 .vscode
