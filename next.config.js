@@ -26,6 +26,11 @@ const nextConfig = {
 
     experimental: {},
 
+    // Ensure MDX and data files are included for all pages
+    outputFileTracingIncludes: {
+        '/**': ['src/data/**/*'],
+    },
+
     webpack(config, { isServer }) {
         config.module.rules.push({
             test: /\.svg$/,
@@ -38,12 +43,28 @@ const nextConfig = {
             };
         }
 
+        // Optimize for serverless functions
+        if (isServer) {
+            // Enable tree-shaking for server bundles
+            config.optimization = {
+                ...config.optimization,
+                usedExports: true,
+                sideEffects: false,
+            };
+        }
+
         return config;
     },
 
     images: {
         domains: [],
-        remotePatterns: [],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+        ],
+        unoptimized: false,
     },
 };
 
