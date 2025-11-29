@@ -5104,6 +5104,11 @@ entities@^2.0.0:
   resolved "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
   integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
 
+entities@^2.0.3:
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
+  integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
+
 entities@^4.2.0, entities@^4.4.0, entities@^4.5.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
@@ -10186,6 +10191,14 @@ rollup-plugin-terser@^7.0.0:
   optionalDependencies:
     fsevents "~2.3.2"
 
+rss-parser@^3.13.0:
+  version "3.13.0"
+  resolved "https://registry.npmjs.org/rss-parser/-/rss-parser-3.13.0.tgz"
+  integrity sha512-7jWUBV5yGN3rqMMj7CZufl/291QAhvrrGpDNE4k/02ZchL0npisiYYqULF71jCEKoIiHvK/Q2e6IkDwPziT7+w==
+  dependencies:
+    entities "^2.0.3"
+    xml2js "^0.5.0"
+
 run-async@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/run-async/-/run-async-0.1.0.tgz"
@@ -12199,6 +12212,22 @@ xml-name-validator@^4.0.0:
   resolved "https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-4.0.0.tgz"
   integrity sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw==
 
+xml2js@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.5.0.tgz"
+  integrity sha512-drPFnkQJik/O+uPKpqSgr22mpuFHqKdbS835iAQrUC73L2F5WkboIRd63ai/2Yg6I1jzifPFKH2NTK+cfglkIA==
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~11.0.0"
+
+xml2js@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.6.2.tgz"
+  integrity sha512-T4rieHaC1EXcES0Kxxj4JWgaUQHDk+qwHcYOCFHfiwKz7tOVPLq7Hjq9dM1WCMhylqMEfP7hMcOIChvotiZegA==
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~11.0.0"
+
 xml2js@0.4.17:
   version "0.4.17"
   resolved "https://registry.npmjs.org/xml2js/-/xml2js-0.4.17.tgz"
@@ -12213,6 +12242,11 @@ xmlbuilder@^4.1.0:
   integrity sha512-oEePiEefhQhAeUnwRnIBLBWmk/fsWWbQ53EEWsRuzECbQ3m5o/Esmq6H47CYYwSLW+Ynt0rS9hd0pd2ogMAWjg==
   dependencies:
     lodash "^4.0.0"
+
+xmlbuilder@~11.0.0:
+  version "11.0.1"
+  resolved "https://registry.npmjs.org/xmlbuilder/-/xmlbuilder-11.0.1.tgz"
+  integrity sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==
 
 xmlchars@^2.2.0:
   version "2.2.0"
