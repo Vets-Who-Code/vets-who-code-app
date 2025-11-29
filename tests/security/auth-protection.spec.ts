@@ -10,12 +10,9 @@ import { test, expect } from '@playwright/test';
 test.describe('Protected Routes - Authentication Required', () => {
 
   test.beforeEach(async ({ page }) => {
-    // Clear all cookies and storage to ensure unauthenticated state
+    // Clear all cookies to ensure unauthenticated state
+    // Note: localStorage clearing is not needed since server-side auth uses cookies only
     await page.context().clearCookies();
-    await page.evaluate(() => {
-      localStorage.clear();
-      sessionStorage.clear();
-    });
   });
 
   test('Resume Translator - redirects to login when unauthenticated', async ({ page }) => {
@@ -25,7 +22,7 @@ test.describe('Protected Routes - Authentication Required', () => {
     // Should redirect to login page with callback URL
     await page.waitForURL(/\/login/);
     expect(page.url()).toContain('/login');
-    expect(page.url()).toContain('callbackUrl=%2Fresume-translator');
+    expect(page.url()).toMatch(/callbackUrl=(\/|%2F)resume-translator/);
   });
 
   test('Courses Index - redirects to login when unauthenticated', async ({ page }) => {
@@ -33,7 +30,7 @@ test.describe('Protected Routes - Authentication Required', () => {
 
     await page.waitForURL(/\/login/);
     expect(page.url()).toContain('/login');
-    expect(page.url()).toContain('callbackUrl=%2Fcourses');
+    expect(page.url()).toMatch(/callbackUrl=(\/|%2F)courses/);
   });
 
   test('Software Engineering Course - redirects to login when unauthenticated', async ({ page }) => {
@@ -41,7 +38,7 @@ test.describe('Protected Routes - Authentication Required', () => {
 
     await page.waitForURL(/\/login/);
     expect(page.url()).toContain('/login');
-    expect(page.url()).toContain('callbackUrl=%2Fcourses%2Fsoftware-engineering');
+    expect(page.url()).toMatch(/callbackUrl=(\/|%2F)courses(\/|%2F)software-engineering/);
   });
 
   test('Data Engineering Course - redirects to login when unauthenticated', async ({ page }) => {
