@@ -48,7 +48,7 @@ const nextConfig = {
             // Enable tree-shaking for server bundles
             config.optimization = {
                 ...config.optimization,
-                usedExports: true,
+                // Note: usedExports removed for Next.js 15 compatibility
                 sideEffects: false,
             };
         }

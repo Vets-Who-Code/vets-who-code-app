@@ -227,6 +227,13 @@ const Dashboard: PageWithLayout = () => {
                             </h3>
                             <div className="tw-space-y-2">
                                 <Link
+                                    href="/jobs"
+                                    className="hover:tw-text-primary-dark tw-block tw-text-primary tw-transition-colors"
+                                >
+                                    <i className="fas fa-briefcase tw-mr-2" />
+                                    Browse Jobs
+                                </Link>
+                                <Link
                                     href="/profile"
                                     className="hover:tw-text-primary-dark tw-block tw-text-primary tw-transition-colors"
                                 >

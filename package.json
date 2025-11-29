@@ -68,10 +68,12 @@
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.45.0",
     "react-simple-typewriter": "^3.0.1",
+    "rss-parser": "^3.13.0",
     "swiper": "^8.3.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "ws": "^8.18.2"
+    "ws": "^8.18.2",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
