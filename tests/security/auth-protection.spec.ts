@@ -87,33 +87,18 @@ test.describe('Protected Routes - Authentication Required', () => {
 test.describe('Dev Login Protection', () => {
 
   test('Dev login page should not be accessible in production', async ({ page }) => {
-    // This test assumes NODE_ENV=production
+    // Playwright webServer runs in production mode (npm run build && npm run start)
     // In production, /dev-login should redirect to homepage
 
-    // Note: This test needs to be run with NODE_ENV=production
-    // In development, it will show the dev login page (expected behavior)
+    await page.goto('/dev-login');
 
-    const response = await page.goto('/dev-login');
-
-    // Check if we're in production mode by checking environment
-    // If in production, should redirect to home
-    // If in development, should show dev login page
-
-    const isProduction = process.env.NODE_ENV === 'production';
-
-    if (isProduction) {
-      // Should redirect to homepage in production
-      expect(page.url()).toBe(new URL('/', page.url()).href);
-    } else {
-      // In development, should show dev login page
-      expect(response?.status()).toBe(200);
-      await expect(page.locator('h1')).toContainText('Development Login');
-    }
+    // Should redirect to homepage in production
+    expect(page.url()).toBe(new URL('/', page.url()).href);
   });
 
   test('Dev session API should return 403 in production', async ({ request }) => {
-    // This test verifies the API endpoint protection
-    const isProduction = process.env.NODE_ENV === 'production';
+    // Playwright webServer runs in production mode (npm run build && npm run start)
+    // Dev session API should return 403 in production
 
     const response = await request.post('/api/auth/dev-session', {
       data: {
@@ -121,15 +106,10 @@ test.describe('Dev Login Protection', () => {
       }
     });
 
-    if (isProduction) {
-      // Should return 403 in production
-      expect(response.status()).toBe(403);
-      const data = await response.json();
-      expect(data.error).toBe('Not available in production');
-    } else {
-      // In development, should work
-      expect(response.status()).toBeLessThan(500);
-    }
+    // Should return 403 in production
+    expect(response.status()).toBe(403);
+    const data = await response.json();
+    expect(data.error).toBe('Not available in production');
   });
 });
 
