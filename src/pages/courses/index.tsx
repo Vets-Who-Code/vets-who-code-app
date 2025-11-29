@@ -137,13 +137,15 @@ const CoursesIndex: PageWithLayout = () => {
                                     <i className="fas fa-sign-in-alt tw-mr-2" />
                                     Sign In to Access Courses
                                 </Link>
-                                <Link
-                                    href="/dev-login"
-                                    className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-gray-600 tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-gray-500"
-                                >
-                                    <i className="fas fa-code tw-mr-2" />
-                                    Dev Login (Testing)
-                                </Link>
+                                {process.env.NODE_ENV === "development" && (
+                                    <Link
+                                        href="/dev-login"
+                                        className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-gray-600 tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-gray-500"
+                                    >
+                                        <i className="fas fa-code tw-mr-2" />
+                                        Dev Login (Testing)
+                                    </Link>
+                                )}
                             </div>
                             <div className="tw-text-gray-600">
                                 <p>Want to explore course topics first?</p>

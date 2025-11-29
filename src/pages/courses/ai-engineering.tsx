@@ -143,7 +143,7 @@ const AIEngineeringCourse: PageWithLayout = () => {
                             Please sign in to access the AI Engineering vertical.
                         </p>
                         <Link
-                            href="/dev-login"
+                            href="/login"
                             className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-success tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-success/90"
                         >
                             Sign In

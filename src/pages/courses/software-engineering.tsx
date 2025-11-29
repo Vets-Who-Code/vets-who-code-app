@@ -143,7 +143,7 @@ const SoftwareEngineeringCourse: PageWithLayout = () => {
                             Please sign in to access the Software Engineering vertical.
                         </p>
                         <Link
-                            href="/dev-login"
+                            href="/login"
                             className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
                         >
                             Sign In
