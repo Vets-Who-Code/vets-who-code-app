@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Layout from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 
 interface DevLoginProps {
     layout?: {
@@ -88,14 +88,26 @@ const DevLogin: PageWithLayout = () => {
 
 DevLogin.Layout = Layout;
 
-export const getStaticProps: GetStaticProps<DevLoginProps> = () => ({
-    props: {
-        layout: {
-            headerShadow: true,
-            headerFluid: false,
-            footerMode: "light",
+export const getServerSideProps: GetServerSideProps<DevLoginProps> = async () => {
+    // Redirect to home page if not in development
+    if (process.env.NODE_ENV !== "development") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false,
+            },
+        };
+    }
+
+    return {
+        props: {
+            layout: {
+                headerShadow: true,
+                headerFluid: false,
+                footerMode: "light",
+            },
         },
-    },
-});
+    };
+};
 
 export default DevLogin;
