@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import { useRouter } from "next/router";
 import Layout01 from "@layout/layout-01";
@@ -9,6 +11,12 @@ import { useSession, signOut } from "next-auth/react";
 import { useMount } from "@hooks";
 
 type PageProps = {
+    user: {
+        id: string;
+        name: string | null;
+        email: string;
+        image: string | null;
+    };
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -46,9 +54,9 @@ const mockProgress = {
     ],
 };
 
-const Profile: PageWithLayout = () => {
+const Profile: PageWithLayout = ({ user }) => {
     const mounted = useMount();
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const router = useRouter();
     const [isEditing, setIsEditing] = useState(false);
     const [activeTab, setActiveTab] = useState("overview");
@@ -76,46 +84,16 @@ const Profile: PageWithLayout = () => {
     // Store original data to restore on cancel
     const [originalFormData, setOriginalFormData] = useState(formData);
 
-    // Check for dev session as fallback
-    const [devSession, setDevSession] = React.useState<{
-        user: { id: string; name: string; email: string; image: string };
-    } | null>(null);
-    const [devSessionLoaded, setDevSessionLoaded] = React.useState(false);
-
-    React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            const stored = localStorage.getItem("dev-session");
-            if (stored) {
-                try {
-                    const user = JSON.parse(stored);
-                    setDevSession({ user });
-                } catch {
-                    localStorage.removeItem("dev-session");
-                }
-            }
-            setDevSessionLoaded(true);
-        }
-    }, []);
-
-    // Use either real session or dev session
-    const currentSession = session || devSession;
-
     // Initialize form data when session loads - fetch from database
     useEffect(() => {
         const fetchProfile = async () => {
-            if (currentSession?.user) {
+            if (session?.user) {
                 try {
-                    // Add dev user ID header for dev mode
-                    const headers: HeadersInit = {};
-                    if (devSession) {
-                        headers["x-dev-user-id"] = devSession.user.id;
-                    }
-
-                    const response = await fetch("/api/user/profile", { headers });
+                    const response = await fetch("/api/user/profile");
                     if (response.ok) {
                         const userData = await response.json();
                         const profileData = {
-                            name: userData.name || currentSession.user.name || "",
+                            name: userData.name || user.name || "",
                             bio: userData.bio || "",
                             title: userData.title || "",
                             location: userData.location || "",
@@ -132,7 +110,7 @@ const Profile: PageWithLayout = () => {
                     } else {
                         // Fallback to session data if API fails
                         const fallbackData = {
-                            name: currentSession.user.name || "",
+                            name: user.name || "",
                             bio: "",
                             title: "",
                             location: "",
@@ -151,7 +129,7 @@ const Profile: PageWithLayout = () => {
                     console.error("Error fetching profile:", error);
                     // Fallback to session data on error
                     const fallbackData = {
-                        name: currentSession.user.name || "",
+                        name: user.name || "",
                         bio: "",
                         title: "",
                         location: "",
@@ -169,24 +147,9 @@ const Profile: PageWithLayout = () => {
             }
         };
         fetchProfile();
-    }, [currentSession]);
+    }, [session, user]);
 
-    useEffect(() => {
-        // Only redirect if we've loaded dev session and there's no session at all
-        if (devSessionLoaded && status === "unauthenticated" && !devSession) {
-            router.replace("/login");
-        }
-    }, [status, router, devSession, devSessionLoaded]);
-
-    if (!mounted || (!devSessionLoaded && status === "loading")) {
-        return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
-                <Spinner />
-            </div>
-        );
-    }
-
-    if (!currentSession) {
+    if (!mounted) {
         return (
             <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
                 <Spinner />
@@ -196,13 +159,6 @@ const Profile: PageWithLayout = () => {
 
     const handleLogout = async () => {
         try {
-            // Handle dev session logout
-            if (devSession && !session) {
-                localStorage.removeItem("dev-session");
-                setDevSession(null);
-                await router.replace("/login");
-                return;
-            }
 
             // Handle real session logout
             await signOut({ redirect: false });
@@ -225,15 +181,9 @@ const Profile: PageWithLayout = () => {
     const handleSaveProfile = async () => {
         setIsSaving(true);
         try {
-            // Add dev user ID header for dev mode
-            const headers: HeadersInit = { "Content-Type": "application/json" };
-            if (devSession) {
-                headers["x-dev-user-id"] = devSession.user.id;
-            }
-
             const response = await fetch("/api/user/profile", {
                 method: "PUT",
-                headers,
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
             });
 
@@ -315,10 +265,10 @@ const Profile: PageWithLayout = () => {
                 <div className="tw-mb-8 tw-rounded-xl tw-bg-gradient-to-r tw-from-primary tw-to-primary/80 tw-p-8 tw-text-white">
                     <div className="tw-flex tw-flex-col tw-items-start tw-space-y-4 md:tw-flex-row md:tw-items-center md:tw-space-x-6 md:tw-space-y-0">
                         <div className="tw-relative">
-                            {currentSession.user?.image ? (
+                            {user.image ? (
                                 <img
-                                    src={currentSession.user.image}
-                                    alt={currentSession.user.name || "User"}
+                                    src={user.image}
+                                    alt={user.name || "User"}
                                     className="tw-h-24 tw-w-24 tw-rounded-full tw-border-4 tw-border-white/20"
                                 />
                             ) : (
@@ -338,15 +288,10 @@ const Profile: PageWithLayout = () => {
                         <div className="tw-flex-1">
                             <div className="tw-mb-2 tw-flex tw-items-center tw-space-x-2">
                                 <h1 className="tw-text-3xl tw-font-bold">
-                                    {currentSession.user?.name || "User"}
+                                    {user.name || "User"}
                                 </h1>
-                                {devSession && (
-                                    <span className="tw-rounded tw-bg-yellow-100 tw-px-2 tw-py-1 tw-text-xs tw-text-yellow-800">
-                                        Dev Mode
-                                    </span>
-                                )}
                             </div>
-                            <p className="tw-text-lg tw-opacity-90">{currentSession.user?.email}</p>
+                            <p className="tw-text-lg tw-opacity-90">{user.email}</p>
                             <p className="tw-opacity-75">
                                 {formData.title || "Software Engineering Student"}{" "}
                                 {formData.branch ? `• ${formData.branch} Veteran` : "• Army Veteran"}
@@ -875,9 +820,27 @@ const Profile: PageWithLayout = () => {
 
 Profile.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/profile",
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
+            user: {
+                id: session.user.id,
+                name: session.user.name || null,
+                email: session.user.email || "",
+                image: session.user.image || null,
+            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,
