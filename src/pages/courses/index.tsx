@@ -1,12 +1,19 @@
 import React from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
 type PageProps = {
+    user: {
+        id: string;
+        name: string | null;
+        email: string;
+        image: string | null;
+    };
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -18,150 +25,7 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-const CoursesIndex: PageWithLayout = () => {
-    const { data: session, status } = useSession();
-
-    // Check for dev session as fallback
-    const [devSession, setDevSession] = React.useState<{
-        user: { id: string; name: string; email: string; image: string };
-    } | null>(null);
-
-    React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            const stored = localStorage.getItem("dev-session");
-            if (stored) {
-                try {
-                    const user = JSON.parse(stored);
-                    setDevSession({ user });
-                } catch {
-                    localStorage.removeItem("dev-session");
-                }
-            }
-        }
-    }, []);
-
-    // Use either real session or dev session
-    const currentSession = session || devSession;
-
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading courses...</p>
-                </div>
-            </div>
-        );
-    }
-
-    // Require authentication to access courses
-    if (!currentSession) {
-        return (
-            <>
-                <SEO title="Courses - Sign In Required" />
-                <Breadcrumb
-                    pages={[{ path: "/", label: "home" }]}
-                    currentPage="Courses"
-                    showTitle={false}
-                />
-                <div className="tw-container tw-py-16">
-                    <div className="tw-text-center">
-                        <div className="tw-mb-8">
-                            <i className="fas fa-lock tw-mb-4 tw-text-6xl tw-text-gray-400" />
-                            <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
-                                Learning Platform Access
-                            </h1>
-                            <p className="tw-mx-auto tw-max-w-2xl tw-text-xl tw-text-gray-600">
-                                Our interactive learning platform with courses, progress tracking,
-                                and mentorship is exclusively available to signed-in veterans and
-                                military spouses.
-                            </p>
-                        </div>
-
-                        <div className="tw-mb-8 tw-rounded-lg tw-bg-gradient-to-r tw-from-primary tw-to-primary tw-p-8 tw-text-white">
-                            <h2 className="tw-mb-4 tw-text-2xl tw-font-bold">
-                                What You&apos;ll Get Access To:
-                            </h2>
-                            <div className="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2 lg:tw-grid-cols-3">
-                                <div className="tw-text-center">
-                                    <i className="fas fa-graduation-cap tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">Interactive Courses</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Hands-on learning with real projects
-                                    </div>
-                                </div>
-                                <div className="tw-text-center">
-                                    <i className="fas fa-chart-line tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">Progress Tracking</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Monitor your learning journey
-                                    </div>
-                                </div>
-                                <div className="tw-text-center">
-                                    <i className="fas fa-users tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">1:1 Mentorship</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Personalized guidance from experts
-                                    </div>
-                                </div>
-                                <div className="tw-text-center">
-                                    <i className="fas fa-certificate tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">Certificates</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Industry-recognized completion certificates
-                                    </div>
-                                </div>
-                                <div className="tw-text-center">
-                                    <i className="fas fa-briefcase tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">Career Support</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Job placement assistance
-                                    </div>
-                                </div>
-                                <div className="tw-text-center">
-                                    <i className="fas fa-clock tw-mb-2 tw-text-3xl" />
-                                    <div className="tw-font-semibold">Lifetime Access</div>
-                                    <div className="tw-text-sm tw-opacity-90">
-                                        Learn at your own pace, forever
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="tw-space-y-4">
-                            <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-justify-center">
-                                <Link
-                                    href="/login"
-                                    className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
-                                >
-                                    <i className="fas fa-sign-in-alt tw-mr-2" />
-                                    Sign In to Access Courses
-                                </Link>
-                                {process.env.NODE_ENV === "development" && (
-                                    <Link
-                                        href="/dev-login"
-                                        className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-gray-600 tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-gray-500"
-                                    >
-                                        <i className="fas fa-code tw-mr-2" />
-                                        Dev Login (Testing)
-                                    </Link>
-                                )}
-                            </div>
-                            <div className="tw-text-gray-600">
-                                <p>Want to explore course topics first?</p>
-                                <Link
-                                    href="/subjects/all"
-                                    className="tw-text-primary tw-transition-colors hover:tw-text-primary/80"
-                                >
-                                    Browse our subjects page →
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </>
-        );
-    }
+const CoursesIndex: PageWithLayout = ({ user }) => {
 
     return (
         <>
@@ -177,8 +41,7 @@ const CoursesIndex: PageWithLayout = () => {
                 <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
                     <div>
                         {/* Admin Access Button (only for jeromehardaway) */}
-                        {currentSession?.user?.email ===
-                            "jeromehardaway@users.noreply.github.com" && (
+                        {user.email === "jeromehardaway@users.noreply.github.com" && (
                             <Link
                                 href="/admin"
                                 className="tw-rounded-md tw-bg-primary/10 tw-px-4 tw-py-2 tw-text-primary tw-transition-colors hover:tw-bg-primary/20"
@@ -193,15 +56,15 @@ const CoursesIndex: PageWithLayout = () => {
                     {/* User Menu */}
                     <div className="tw-flex tw-items-center tw-space-x-4">
                         <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-600">
-                            {currentSession?.user?.image && (
+                            {user.image && (
                                 <img
-                                    src={currentSession.user.image}
-                                    alt={currentSession.user.name || "User"}
+                                    src={user.image}
+                                    alt={user.name || "User"}
                                     className="tw-h-8 tw-w-8 tw-rounded-full"
                                 />
                             )}
                             <span>
-                                Welcome, {currentSession?.user?.name?.split(" ")[0] || "User"}
+                                Welcome, {user.name?.split(" ")[0] || "User"}
                             </span>
                         </div>
                         <div className="tw-flex tw-space-x-2">
@@ -396,9 +259,27 @@ const CoursesIndex: PageWithLayout = () => {
 
 CoursesIndex.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/courses",
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
+            user: {
+                id: session.user.id,
+                name: session.user.name || null,
+                email: session.user.email || "",
+                image: session.user.image || null,
+            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,
