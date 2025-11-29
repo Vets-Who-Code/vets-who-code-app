@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
 type PageProps = {
+    user: {
+        id: string;
+        name: string | null;
+        email: string;
+        image: string | null;
+    };
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -93,66 +100,8 @@ const modules = [
     },
 ];
 
-const AIEngineeringCourse: PageWithLayout = () => {
-    const { data: session, status } = useSession();
+const AIEngineeringCourse: PageWithLayout = ({ user: _user }) => {
     const [selectedModule, setSelectedModule] = useState<number | null>(null);
-
-    // Check for dev session as fallback
-    const [devSession, setDevSession] = React.useState<{
-        user: { id: string; name: string; email: string; image: string };
-    } | null>(null);
-
-    React.useEffect(() => {
-        if (typeof window !== "undefined") {
-            const stored = localStorage.getItem("dev-session");
-            if (stored) {
-                try {
-                    const user = JSON.parse(stored);
-                    setDevSession({ user });
-                } catch {
-                    localStorage.removeItem("dev-session");
-                }
-            }
-        }
-    }, []);
-
-    // Use either real session or dev session
-    const currentSession = session || devSession;
-
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-success" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading course...</p>
-                </div>
-            </div>
-        );
-    }
-
-    if (!currentSession) {
-        return (
-            <>
-                <SEO title="AI Engineering - Sign In Required" />
-                <div className="tw-container tw-py-16">
-                    <div className="tw-text-center">
-                        <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
-                            Authentication Required
-                        </h1>
-                        <p className="tw-mb-8 tw-text-xl tw-text-gray-600">
-                            Please sign in to access the AI Engineering vertical.
-                        </p>
-                        <Link
-                            href="/login"
-                            className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-success tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-success/90"
-                        >
-                            Sign In
-                        </Link>
-                    </div>
-                </div>
-            </>
-        );
-    }
 
     return (
         <>
@@ -350,9 +299,27 @@ const AIEngineeringCourse: PageWithLayout = () => {
 
 AIEngineeringCourse.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/courses/ai-engineering",
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
+            user: {
+                id: session.user.id,
+                name: session.user.name || null,
+                email: session.user.email || "",
+                image: session.user.image || null,
+            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,

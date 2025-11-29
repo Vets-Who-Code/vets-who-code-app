@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
 type PageProps = {
+    user: {
+        id: string;
+        name: string | null;
+        email: string;
+        image: string | null;
+    };
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -101,76 +108,11 @@ const modules = [
     },
 ];
 
-const DevOpsCourse: PageWithLayout = () => {
-    const { data: session, status } = useSession();
+const DevOpsCourse: PageWithLayout = ({ user: _user }) => {
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [enrolling, setEnrolling] = useState(false);
 
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading course...</p>
-                </div>
-            </div>
-        );
-    }
-
-    if (!session) {
-        return (
-            <>
-                <SEO title="DevOps Course - Sign In Required" />
-                <Breadcrumb
-                    pages={[
-                        { path: "/", label: "home" },
-                        { path: "/courses", label: "courses" },
-                    ]}
-                    currentPage="DevOps Engineering"
-                    showTitle={false}
-                />
-                <div className="tw-container tw-py-16">
-                    <div className="tw-text-center">
-                        <div className="tw-mb-8">
-                            <i className="fas fa-lock tw-mb-4 tw-text-6xl tw-text-gray-400" />
-                            <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
-                                Course Access Restricted
-                            </h1>
-                            <p className="tw-mx-auto tw-max-w-2xl tw-text-xl tw-text-gray-600">
-                                Please sign in to access the DevOps Engineering course content and
-                                enrollment.
-                            </p>
-                        </div>
-
-                        <Link
-                            href="/login"
-                            className="hover:tw-bg-primary-dark tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors"
-                        >
-                            <i className="fas fa-sign-in-alt tw-mr-2" />
-                            Sign In to Access Course
-                        </Link>
-
-                        <div className="tw-mt-6 tw-text-gray-600">
-                            <p>Want to explore course topics first?</p>
-                            <Link
-                                href="/subjects/all"
-                                className="hover:tw-text-primary-dark tw-text-primary tw-transition-colors"
-                            >
-                                Browse our subjects page →
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </>
-        );
-    }
-
     const handleEnroll = async () => {
-        if (!session) {
-            window.location.href = "/login";
-            return;
-        }
-
         setEnrolling(true);
         try {
             await new Promise<void>((resolve) => {
@@ -263,38 +205,27 @@ const DevOpsCourse: PageWithLayout = () => {
                                 <p className="tw-text-gray-600">For veterans & military spouses</p>
                             </div>
 
-                            {session ? (
-                                <div>
-                                    {isEnrolled ? (
-                                        <div className="tw-text-center">
-                                            <div className="tw-mb-4 tw-rounded-md tw-bg-green-100 tw-px-4 tw-py-2 tw-text-green-800">
-                                                ✓ Enrolled
-                                            </div>
-                                            <Link
-                                                href="/dashboard"
-                                                className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors"
-                                            >
-                                                Go to Dashboard
-                                            </Link>
-                                        </div>
-                                    ) : (
-                                        <button
-                                            type="button"
-                                            onClick={handleEnroll}
-                                            disabled={enrolling}
-                                            className="hover:tw-bg-primary-dark tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors disabled:tw-opacity-50"
-                                        >
-                                            {enrolling ? "Enrolling..." : "Enroll Now"}
-                                        </button>
-                                    )}
+                            {isEnrolled ? (
+                                <div className="tw-text-center">
+                                    <div className="tw-mb-4 tw-rounded-md tw-bg-green-100 tw-px-4 tw-py-2 tw-text-green-800">
+                                        ✓ Enrolled
+                                    </div>
+                                    <Link
+                                        href="/dashboard"
+                                        className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors"
+                                    >
+                                        Go to Dashboard
+                                    </Link>
                                 </div>
                             ) : (
-                                <Link
-                                    href="/login"
-                                    className="hover:tw-bg-primary-dark tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-text-center tw-font-semibold tw-text-white tw-transition-colors"
+                                <button
+                                    type="button"
+                                    onClick={handleEnroll}
+                                    disabled={enrolling}
+                                    className="hover:tw-bg-primary-dark tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors disabled:tw-opacity-50"
                                 >
-                                    Sign In to Enroll
-                                </Link>
+                                    {enrolling ? "Enrolling..." : "Enroll Now"}
+                                </button>
                             )}
 
                             <div className="tw-mt-4 tw-text-center tw-text-sm tw-text-gray-600">
@@ -469,23 +400,14 @@ const DevOpsCourse: PageWithLayout = () => {
                             Join veterans who have transitioned into high-paying DevOps roles with
                             our comprehensive training.
                         </p>
-                        {session ? (
-                            <button
-                                type="button"
-                                onClick={handleEnroll}
-                                disabled={enrolling}
-                                className="tw-rounded-md tw-bg-white tw-px-8 tw-py-3 tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100 disabled:tw-opacity-50"
-                            >
-                                {enrolling ? "Enrolling..." : "Enroll for Free"}
-                            </button>
-                        ) : (
-                            <Link
-                                href="/login"
-                                className="tw-inline-block tw-rounded-md tw-bg-white tw-px-8 tw-py-3 tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100"
-                            >
-                                Sign In to Enroll
-                            </Link>
-                        )}
+                        <button
+                            type="button"
+                            onClick={handleEnroll}
+                            disabled={enrolling}
+                            className="tw-rounded-md tw-bg-white tw-px-8 tw-py-3 tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100 disabled:tw-opacity-50"
+                        >
+                            {enrolling ? "Enrolling..." : "Enroll for Free"}
+                        </button>
                     </div>
                 )}
             </div>
@@ -495,9 +417,27 @@ const DevOpsCourse: PageWithLayout = () => {
 
 DevOpsCourse.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/courses/devops",
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
+            user: {
+                id: session.user.id,
+                name: session.user.name || null,
+                email: session.user.email || "",
+                image: session.user.image || null,
+            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 import { AITeachingAssistant } from "@components/ai-assistant";
@@ -112,8 +112,6 @@ const AssignmentSection: React.FC<{
 };
 
 const LessonPage: PageWithLayout = ({ lesson, module }) => {
-    const { data: session, status } = useSession();
-    const router = useRouter();
     const [completed, setCompleted] = useState(false);
     const [showAssignment, setShowAssignment] = useState(false);
     const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
@@ -152,22 +150,6 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         localStorage.setItem(lessonKey, "true");
         setCompleted(true);
     };
-
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading lesson...</p>
-                </div>
-            </div>
-        );
-    }
-
-    if (!session) {
-        router.push("/courses");
-        return null;
-    }
 
     return (
         <>
@@ -415,8 +397,20 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
 LessonPage.Layout = Layout01;
 
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({ params }) => {
-    const { moduleId, lessonId } = params as { moduleId: string; lessonId: string };
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=" + encodeURIComponent(context.resolvedUrl),
+                permanent: false,
+            },
+        };
+    }
+
+    const { moduleId, lessonId} = context.params as { moduleId: string; lessonId: string };
 
     // Mock data - in real implementation, fetch from database
     const mockLessons: Record<string, Record<string, LessonData>> = {
