@@ -39,20 +39,45 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
     const [submitted, setSubmitted] = useState(false);
     const [files, setFiles] = useState<FileList | null>(null);
     const [githubUrl, setGithubUrl] = useState("");
+    const [liveUrl, setLiveUrl] = useState("");
     const [notes, setNotes] = useState("");
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitting(true);
+        setError(null);
 
         try {
-            // TODO: Implement actual submission to API
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 2000);
-            }); // Simulate API call
-            setSubmitted(true);
-        } catch (error) {
-            // Handle submission error silently for now
+            // Prepare submission data
+            // Note: File upload to cloud storage (S3, Cloudinary) not implemented
+            // Files would need to be uploaded first, then URLs passed to API
+            const submissionData = {
+                assignmentId: assignment.id,
+                githubUrl: githubUrl || undefined,
+                liveUrl: liveUrl || undefined,
+                notes: notes || undefined,
+                // files: would contain array of uploaded file URLs
+            };
+
+            const response = await fetch("/api/lms/submissions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(submissionData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                setError(data.error || "Failed to submit assignment. Please try again.");
+            }
+        } catch (err) {
+            console.error("Error submitting assignment:", err);
+            setError("An unexpected error occurred. Please try again.");
         } finally {
             setSubmitting(false);
         }
@@ -218,6 +243,12 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                         {/* Submission Form */}
                         <div className="lg:tw-col-span-2">
                             <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
+                                {error && (
+                                    <div className="tw-mb-6 tw-rounded-md tw-bg-red-100 tw-px-4 tw-py-3 tw-text-sm tw-text-red-800">
+                                        <i className="fas fa-exclamation-circle tw-mr-2" />
+                                        {error}
+                                    </div>
+                                )}
                                 <form onSubmit={handleSubmit} className="tw-space-y-6">
                                     {/* GitHub Repository URL */}
                                     <div>
@@ -238,6 +269,27 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                         <p className="tw-mt-1 tw-text-sm tw-text-gray-500">
                                             Share your code via GitHub for easy review and
                                             collaboration
+                                        </p>
+                                    </div>
+
+                                    {/* Live Demo URL */}
+                                    <div>
+                                        <label
+                                            htmlFor="live-url"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                        >
+                                            Live Demo URL (Optional)
+                                        </label>
+                                        <input
+                                            type="url"
+                                            id="live-url"
+                                            value={liveUrl}
+                                            onChange={(e) => setLiveUrl(e.target.value)}
+                                            placeholder="https://your-project.vercel.app"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-gray-900 tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                        />
+                                        <p className="tw-mt-1 tw-text-sm tw-text-gray-500">
+                                            Provide a link to your deployed application
                                         </p>
                                     </div>
 
@@ -334,7 +386,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             type="submit"
                                             disabled={
                                                 submitting ||
-                                                (!githubUrl && (!files || files.length === 0))
+                                                (!githubUrl && !liveUrl)
                                             }
                                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-colors disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                         >

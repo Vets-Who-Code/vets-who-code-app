@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
@@ -17,6 +17,10 @@ type PageProps = {
 type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
+
+// Course ID for Web Development course
+// Note: This should match the course ID in the database
+const WEB_DEVELOPMENT_COURSE_ID = "web-development-course";
 
 const modules = [
     {
@@ -97,8 +101,39 @@ const WebDevelopmentCourse: PageWithLayout = () => {
     const { data: session, status } = useSession();
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [enrolling, setEnrolling] = useState(false);
+    const [checkingEnrollment, setCheckingEnrollment] = useState(true);
+    const [enrollmentError, setEnrollmentError] = useState<string | null>(null);
 
-    if (status === "loading") {
+    // Check enrollment status on mount
+    useEffect(() => {
+        const checkEnrollment = async () => {
+            if (!session) {
+                setCheckingEnrollment(false);
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `/api/enrollment/status?courseId=${WEB_DEVELOPMENT_COURSE_ID}`
+                );
+                const data = await response.json();
+
+                if (response.ok) {
+                    setIsEnrolled(data.isEnrolled);
+                }
+            } catch (error) {
+                console.error("Error checking enrollment status:", error);
+            } finally {
+                setCheckingEnrollment(false);
+            }
+        };
+
+        if (status !== "loading") {
+            checkEnrollment();
+        }
+    }, [session, status]);
+
+    if (status === "loading" || checkingEnrollment) {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -165,14 +200,37 @@ const WebDevelopmentCourse: PageWithLayout = () => {
         }
 
         setEnrolling(true);
+        setEnrollmentError(null);
+
         try {
-            // TODO: Implement enrollment API
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 1000);
-            }); // Simulate API call
-            setIsEnrolled(true);
+            const response = await fetch("/api/enrollment/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    courseId: WEB_DEVELOPMENT_COURSE_ID,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setIsEnrolled(true);
+                setEnrollmentError(null);
+            } else {
+                // Handle enrollment error
+                if (data.error === "Already enrolled in this course") {
+                    setIsEnrolled(true);
+                } else {
+                    setEnrollmentError(
+                        data.error || "Failed to enroll in course. Please try again."
+                    );
+                }
+            }
         } catch (error) {
-            // Handle error silently for now
+            console.error("Error enrolling in course:", error);
+            setEnrollmentError("An unexpected error occurred. Please try again.");
         } finally {
             setEnrolling(false);
         }
@@ -259,6 +317,11 @@ const WebDevelopmentCourse: PageWithLayout = () => {
 
                             {session ? (
                                 <div>
+                                    {enrollmentError && (
+                                        <div className="tw-mb-4 tw-rounded-md tw-bg-red-100 tw-px-4 tw-py-2 tw-text-sm tw-text-red-800">
+                                            {enrollmentError}
+                                        </div>
+                                    )}
                                     {isEnrolled ? (
                                         <div className="tw-text-center">
                                             <div className="tw-mb-4 tw-rounded-md tw-bg-green-100 tw-px-4 tw-py-2 tw-text-green-800">

@@ -5,6 +5,7 @@ import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+import type { Role } from "@/lib/rbac";
 
 type Course = {
     id: string;
@@ -33,11 +34,10 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-const ADMIN_GITHUB_USERNAME = "jeromehardaway";
-
 const AdminCoursesPage: PageWithLayout = () => {
     const { data: session, status } = useSession();
     const [courses, setCourses] = useState<Course[]>([]);
+    const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft" | "archived">(
         "all"
@@ -47,70 +47,51 @@ const AdminCoursesPage: PageWithLayout = () => {
     >("all");
 
     useEffect(() => {
-        // TODO: Fetch real course data from API
-        // Mock data for demonstration
-        const mockCourses: Course[] = [
-            {
-                id: "1",
-                title: "Introduction to Web Development",
-                description: "Learn the basics of HTML, CSS, and JavaScript",
-                instructor: "Jerome Hardaway",
-                duration: "8 weeks",
-                level: "Beginner",
-                enrollments: 47,
-                status: "published",
-                createdAt: "2025-07-01",
-                updatedAt: "2025-08-15",
-                modules: 4,
-                lessons: 24,
-            },
-            {
-                id: "2",
-                title: "JavaScript Fundamentals",
-                description: "Deep dive into JavaScript programming concepts",
-                instructor: "Alex Thompson",
-                duration: "6 weeks",
-                level: "Intermediate",
-                enrollments: 32,
-                status: "published",
-                createdAt: "2025-07-15",
-                updatedAt: "2025-08-10",
-                modules: 3,
-                lessons: 18,
-            },
-            {
-                id: "3",
-                title: "React Development Bootcamp",
-                description: "Build modern web applications with React",
-                instructor: "Sarah Chen",
-                duration: "12 weeks",
-                level: "Advanced",
-                enrollments: 23,
-                status: "draft",
-                createdAt: "2025-08-01",
-                updatedAt: "2025-08-28",
-                modules: 6,
-                lessons: 36,
-            },
-            {
-                id: "4",
-                title: "Python for Veterans",
-                description: "Programming fundamentals with Python",
-                instructor: "Mike Rodriguez",
-                duration: "10 weeks",
-                level: "Beginner",
-                enrollments: 15,
-                status: "published",
-                createdAt: "2025-06-15",
-                updatedAt: "2025-08-20",
-                modules: 5,
-                lessons: 30,
-            },
-        ];
-        setCourses(mockCourses);
-    }, []);
+        const fetchCourses = async () => {
+            try {
+                setLoading(true);
+                // Fetch all courses (no limit for admin view)
+                const response = await fetch("/api/courses?limit=100");
+                const data = await response.json();
 
-    if (status === "loading") {
+                if (response.ok && data.courses) {
+                    // Map API data to Course type
+                    const mappedCourses: Course[] = data.courses.map((course: any) => ({
+                        id: course.id,
+                        title: course.title,
+                        description: course.description,
+                        instructor: "N/A", // TODO: Add instructor field to course schema
+                        duration: course.estimatedHours
+                            ? `${course.estimatedHours} hours`
+                            : "N/A",
+                        level:
+                            course.difficulty === "BEGINNER"
+                                ? "Beginner"
+                                : course.difficulty === "INTERMEDIATE"
+                                  ? "Intermediate"
+                                  : "Advanced",
+                        enrollments: course._count?.enrollments || 0,
+                        status: course.isPublished ? "published" : "draft",
+                        createdAt: new Date(course.createdAt).toISOString().split("T")[0],
+                        updatedAt: new Date(course.updatedAt).toISOString().split("T")[0],
+                        modules: course._count?.modules || 0,
+                        lessons: course._count?.lessons || 0,
+                    }));
+                    setCourses(mappedCourses);
+                }
+            } catch (error) {
+                console.error("Error fetching courses:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        if (status !== "loading") {
+            fetchCourses();
+        }
+    }, [status]);
+
+    if (status === "loading" || loading) {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -121,8 +102,9 @@ const AdminCoursesPage: PageWithLayout = () => {
         );
     }
 
-    // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
+    // Check admin access using RBAC
+    const userRole = (session?.user as any)?.role as Role | undefined;
+    if (!session || userRole !== 'ADMIN') {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -201,13 +183,13 @@ const AdminCoursesPage: PageWithLayout = () => {
                         <p className="tw-text-gray-600">Create and manage learning content</p>
                     </div>
                     <div className="tw-flex tw-space-x-3">
-                        <button
-                            type="button"
+                        <Link
+                            href="/admin/courses/create"
                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-white tw-transition-colors"
                         >
                             <i className="fas fa-plus tw-mr-2" />
                             New Course
-                        </button>
+                        </Link>
                         <Link
                             href="/admin"
                             className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"

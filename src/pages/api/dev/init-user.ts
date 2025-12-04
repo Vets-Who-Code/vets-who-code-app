@@ -1,34 +1,37 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma";
+import { NextApiRequest, NextApiResponse } from 'next';
+import prisma from '@/lib/prisma';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== "POST") {
-        return res.status(405).json({ error: "Method not allowed" });
-    }
+  // Only allow in development mode
+  if (process.env.NODE_ENV !== 'development' && process.env.DEV_MODE !== 'true') {
+    return res.status(403).json({ error: 'Not available in production' });
+  }
 
-    try {
-        const { id, name, email, image } = req.body;
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-        // Check if user exists
-        let user = await prisma.user.findUnique({
-            where: { id },
-        });
+  try {
+    const { email, name, image } = req.body;
 
-        if (!user) {
-            // Create the user if they don't exist
-            user = await prisma.user.create({
-                data: {
-                    id,
-                    name,
-                    email,
-                    image,
-                },
-            });
-        }
+    // Upsert user in database
+    const user = await prisma.user.upsert({
+      where: { email },
+      update: {
+        name,
+        image,
+      },
+      create: {
+        email,
+        name,
+        image,
+        role: 'ADMIN', // Default to admin for dev
+      },
+    });
 
-        return res.status(200).json(user);
-    } catch (error) {
-        console.error("Error initializing dev user:", error);
-        return res.status(500).json({ error: "Internal server error" });
-    }
+    res.status(200).json({ user });
+  } catch (error) {
+    console.error('Error initializing dev user:', error);
+    res.status(500).json({ error: 'Failed to initialize user' });
+  }
 }
