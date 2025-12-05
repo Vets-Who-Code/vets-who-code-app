@@ -386,7 +386,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             type="submit"
                                             disabled={
                                                 submitting ||
-                                                (!githubUrl && !liveUrl)
+                                                (!githubUrl && !liveUrl && (!files || files.length === 0))
                                             }
                                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-colors disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                         >
