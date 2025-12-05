@@ -60,7 +60,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                         id: course.id,
                         title: course.title,
                         description: course.description,
-                        instructor: "N/A", // TODO: Add instructor field to course schema
+                        instructor: "N/A", // NOTE: Instructor field not available in API response; using "N/A" as placeholder. See issue #123 for tracking.
                         duration: course.estimatedHours
                             ? `${course.estimatedHours} hours`
                             : "N/A",
