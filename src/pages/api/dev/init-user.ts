@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email,
         name,
         image,
-        role: 'ADMIN', // Default to admin for dev
+        role: (process.env.ALLOW_ADMIN_USER_CREATION === 'true' || req.body.isAdmin === true) ? 'ADMIN' : 'USER', // Only assign admin if explicitly allowed
       },
     });
 
