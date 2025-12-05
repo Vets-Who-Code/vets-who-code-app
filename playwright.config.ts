@@ -1,7 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 import dotenv from "dotenv";
+import path from "path";
 
-dotenv.config();
+// Load .env.local for local development
+dotenv.config({ path: path.resolve(__dirname, ".env.local") });
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -66,5 +68,8 @@ export default defineConfig({
         url: "http://localhost:3000",
         reuseExistingServer: !process.env.CI,
         timeout: 120000, // Adding a longer timeout for build process
+        env: {
+            NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || "test-secret-for-playwright",
+        },
     },
 });
