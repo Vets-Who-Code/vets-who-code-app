@@ -206,7 +206,11 @@ async function verifyConfiguration() {
     const org = process.env.GITHUB_ORG;
     info(`Organization configured: ${org}`);
     info(`In production, only members of ${org} can sign in`);
-    info('(plus hardcoded admin: jeromehardaway)');
+    if (process.env.GITHUB_ADMIN) {
+      info(`(plus configured admin: ${process.env.GITHUB_ADMIN})`);
+    } else {
+      warning('No GITHUB_ADMIN environment variable set; no admin override configured.');
+    }
 
     console.log('');
   }
