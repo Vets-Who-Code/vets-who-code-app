@@ -3,7 +3,7 @@ import prisma from '@/lib/prisma';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   // Only allow in development mode
-  if (process.env.NODE_ENV !== 'development' && process.env.DEV_MODE !== 'true') {
+  if (process.env.NODE_ENV !== 'development') {
     return res.status(403).json({ error: 'Not available in production' });
   }
 
