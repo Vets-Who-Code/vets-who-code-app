@@ -96,8 +96,10 @@ const InstructorGrading: PageWithLayout = () => {
                 // Remove graded submission from list
                 setSubmissions(submissions.filter((s) => s.id !== submissionId));
                 // Clear form data
-                setScore({ ...score, [submissionId]: 0 });
-                setFeedback({ ...feedback, [submissionId]: "" });
+                const { [submissionId]: _, ...remainingScores } = score;
+                setScore(remainingScores);
+                const { [submissionId]: __, ...remainingFeedback } = feedback;
+                setFeedback(remainingFeedback);
             } else {
                 setError(data.error || "Failed to grade submission");
             }
