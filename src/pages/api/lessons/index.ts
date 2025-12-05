@@ -6,19 +6,20 @@ import prisma from '@/lib/prisma';
  * POST /api/lessons
  *
  * Create a new lesson (Admin/Instructor only)
- * Body: { moduleId, title, description, content, type, videoUrl, duration, order }
+ * Body: { moduleId, title, content, type, videoUrl, duration, order, codeExample, resources }
  */
 async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
   try {
     const {
       moduleId,
       title,
-      description,
       content,
       type,
       videoUrl,
       duration,
       order,
+      codeExample,
+      resources,
     } = req.body;
 
     // Validate required fields
@@ -60,12 +61,13 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
       data: {
         moduleId,
         title,
-        description: description || null,
-        content: content || null,
+        content: content || '',
         type,
         videoUrl: videoUrl || null,
         duration: duration || null,
         order: lessonOrder,
+        codeExample: codeExample || null,
+        resources: resources || null,
       },
       include: {
         module: {

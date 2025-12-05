@@ -6,18 +6,6 @@ import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
-type Enrollment = {
-    id: string;
-    status: string;
-    progress: number;
-    enrolledAt: string;
-    course: {
-        id: string;
-        title: string;
-        description: string;
-        imageUrl?: string;
-    };
-};
 
 type PageProps = {
     layout?: {

@@ -46,7 +46,7 @@ async function handleGet(req: AuthenticatedRequest, res: NextApiResponse) {
  * POST /api/assignments
  *
  * Create a new assignment (Admin/Instructor only)
- * Body: { courseId, title, description, type, requirements, totalPoints, dueDate }
+ * Body: { courseId, title, description, instructions, type, maxPoints, dueDate, githubRepo, liveDemo }
  */
 async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
   try {
@@ -54,10 +54,12 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
       courseId,
       title,
       description,
+      instructions,
       type,
-      requirements,
-      totalPoints,
+      maxPoints,
       dueDate,
+      githubRepo,
+      liveDemo,
     } = req.body;
 
     // Validate required fields
@@ -89,10 +91,12 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
       data: {
         courseId,
         title,
-        description: description || null,
+        description: description || '',
+        instructions: instructions || '',
         type,
-        requirements: requirements || null,
-        totalPoints: totalPoints || 100,
+        maxPoints: maxPoints || 100,
+        githubRepo: githubRepo || false,
+        liveDemo: liveDemo || false,
         dueDate: dueDate ? new Date(dueDate) : null,
       },
       include: {
