@@ -301,7 +301,22 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                         >
                                             Upload Files (Alternative to GitHub)
                                         </label>
-                                        <div className="tw-relative">
+                                        
+                                        {/* Warning Banner */}
+                                        <div className="tw-mb-3 tw-rounded-md tw-bg-yellow-50 tw-border tw-border-yellow-200 tw-px-4 tw-py-3">
+                                            <div className="tw-flex">
+                                                <div className="tw-flex-shrink-0">
+                                                    <i className="fas fa-exclamation-triangle tw-text-yellow-600" />
+                                                </div>
+                                                <div className="tw-ml-3">
+                                                    <p className="tw-text-sm tw-text-yellow-800">
+                                                        <strong>File uploads are not yet functional.</strong> Please use the GitHub Repository URL or Live Demo URL fields above to submit your work.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div className="tw-relative tw-opacity-50 tw-pointer-events-none">
                                             <input
                                                 type="file"
                                                 id="files"
@@ -311,10 +326,11 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                     .map((format) => `.${format}`)
                                                     .join(",")}
                                                 className="tw-sr-only"
+                                                disabled
                                             />
                                             <label
                                                 htmlFor="files"
-                                                className="tw-flex tw-cursor-pointer tw-items-center tw-justify-center tw-rounded-md tw-border-2 tw-border-dashed tw-border-gray-300 tw-bg-gray-50 tw-py-6 tw-transition-colors hover:tw-border-primary hover:tw-bg-primary/5"
+                                                className="tw-flex tw-cursor-not-allowed tw-items-center tw-justify-center tw-rounded-md tw-border-2 tw-border-dashed tw-border-gray-300 tw-bg-gray-50 tw-py-6"
                                             >
                                                 <span className="tw-sr-only">
                                                     Choose files to upload
@@ -322,7 +338,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                 <div className="tw-text-center">
                                                     <i className="fas fa-cloud-upload-alt tw-mb-2 tw-text-2xl tw-text-gray-400" />
                                                     <p className="tw-text-sm tw-text-gray-600">
-                                                        <span className="tw-font-medium tw-text-primary">
+                                                        <span className="tw-font-medium tw-text-gray-600">
                                                             Click to upload
                                                         </span>{" "}
                                                         or drag and drop
@@ -386,7 +402,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             type="submit"
                                             disabled={
                                                 submitting ||
-                                                (!githubUrl && !liveUrl && (!files || files.length === 0))
+                                                (!githubUrl && !liveUrl)
                                             }
                                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-colors disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                         >
