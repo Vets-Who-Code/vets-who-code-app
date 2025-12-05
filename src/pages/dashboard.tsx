@@ -5,6 +5,7 @@ import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+import type { Enrollment } from "@/types/enrollment";
 
 
 type PageProps = {
@@ -21,7 +22,7 @@ type PageWithLayout = NextPage<PageProps> & {
 
 const Dashboard: PageWithLayout = () => {
     const { data: session, status } = useSession();
-    const [enrollments, setEnrollments] = useState<any[]>([]);
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
