@@ -19,9 +19,44 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
+type Course = {
+    id: string;
+    title: string;
+    description: string | null;
+    imageUrl: string | null;
+    difficulty: string;
+    category: string;
+    isPublished: boolean;
+    estimatedHours: number | null;
+    prerequisites: string[];
+    tags: string[];
+    _count: {
+        modules: number;
+    };
+};
+
+type EnrollmentStatus = "ACTIVE" | "COMPLETED" | "DROPPED" | "PAUSED";
+
+type Enrollment = {
+    id: string;
+    userId: string;
+    courseId: string;
+    status: EnrollmentStatus;
+    progress: number;
+    enrolledAt: string;
+    completedAt: string | null;
+    lastActivity: string;
+    course: Course;
+    stats: {
+        totalLessons: number;
+        completedLessons: number;
+        progressPercentage: number;
+    };
+};
+
 const Dashboard: PageWithLayout = () => {
     const { data: session, status } = useSession();
-    const [enrollments, setEnrollments] = useState<any[]>([]);
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
