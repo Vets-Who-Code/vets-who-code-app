@@ -1,5 +1,6 @@
 # VetsWhoCode Brand Style Guide
 
+
 ## June 1, 2016
 
 ### Retool, Retrain, Relaunch
