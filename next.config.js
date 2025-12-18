@@ -26,9 +26,34 @@ const nextConfig = {
 
     experimental: {},
 
-    // Ensure MDX and data files are included for all pages
+    // Optimize file tracing for smaller serverless bundles
     outputFileTracingIncludes: {
-        '/**': ['src/data/**/*'],
+        // Only include specific data files that are needed at runtime
+        '/': ['src/data/site-config.ts', 'src/data/homepages/**/*'],
+        '/api/**': [], // API routes don't need static data files
+    },
+
+    // Exclude unnecessary files from serverless functions
+    outputFileTracingExcludes: {
+        '/**': [
+            'node_modules/@playwright/**',
+            'node_modules/ace-builds/**',
+            'node_modules/@swc/core-linux-x64-gnu/**',
+            'node_modules/@swc/core-linux-x64-musl/**',
+            'node_modules/@swc/core-darwin-x64/**',
+            'node_modules/@swc/core-win32-x64-msvc/**',
+            '.git/**',
+            '.next/cache/**',
+            'src/data/blogs/**',
+            'src/data/curriculum/lessons/**',
+            '**/*.md',
+            '**/*.map',
+            '**/test/**',
+            '**/tests/**',
+            '**/__tests__/**',
+            '**/*.test.{js,jsx,ts,tsx}',
+            '**/*.spec.{js,jsx,ts,tsx}',
+        ],
     },
 
     webpack(config, { isServer }) {
