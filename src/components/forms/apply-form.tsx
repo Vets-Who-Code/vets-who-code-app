@@ -133,7 +133,7 @@ const ApplyForm = () => {
                         <h3 className="tw-mb-2 tw-text-center tw-text-3xl tw-font-bold tw-text-heading md:tw-text-left">
                             Application Form
                         </h3>
-                        <p className="tw-text-center tw-text-gray-600 md:tw-text-left">
+                        <p className="tw-text-center tw-text-gray-300 md:tw-text-left">
                             Complete all steps to submit your application
                         </p>
                     </div>
@@ -152,7 +152,7 @@ const ApplyForm = () => {
                                                 ? "tw-bg-primary tw-text-white"
                                                 : currentStep === index + 1
                                                 ? "tw-bg-secondary tw-text-white tw-ring-4 tw-ring-secondary-200"
-                                                : "tw-bg-gray-200 tw-text-gray-500"
+                                                : "tw-bg-gray-50 tw-text-gray-500"
                                         }`}
                                     >
                                         {currentStep > index + 1 ? "✓" : step.id}
@@ -171,7 +171,7 @@ const ApplyForm = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="tw-h-2 tw-w-full tw-overflow-hidden tw-rounded-full tw-bg-gray-200">
+                        <div className="tw-h-2 tw-w-full tw-overflow-hidden tw-rounded-full tw-bg-gray-50">
                             <motion.div
                                 className="tw-h-full tw-bg-gradient-to-r tw-from-secondary tw-to-primary"
                                 initial={{ width: 0 }}
@@ -607,7 +607,7 @@ const ApplyForm = () => {
                                                     })}
                                                 />
                                             </div>
-                                            <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-blue-50 tw-p-4">
+                                            <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-4">
                                                 <h5 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-blue-900">
                                                     Prework Submission
                                                 </h5>

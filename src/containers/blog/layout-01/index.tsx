@@ -146,7 +146,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
 
 BlogArea.defaultProps = {
     space: "top-bottom",
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default BlogArea;

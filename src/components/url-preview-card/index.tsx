@@ -97,11 +97,11 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
   if (loading) {
     return (
       <div className={`tw-animate-pulse tw-border tw-border-gray-200 tw-rounded-lg tw-overflow-hidden ${className}`}>
-        <div className="tw-h-48 tw-bg-gray-200" />
+        <div className="tw-h-48 tw-bg-gray-50" />
         <div className="tw-p-4">
-          <div className="tw-h-4 tw-bg-gray-200 tw-rounded tw-w-3/4 tw-mb-2" />
-          <div className="tw-h-3 tw-bg-gray-200 tw-rounded tw-w-full tw-mb-1" />
-          <div className="tw-h-3 tw-bg-gray-200 tw-rounded tw-w-5/6" />
+          <div className="tw-h-4 tw-bg-gray-50 tw-rounded tw-w-3/4 tw-mb-2" />
+          <div className="tw-h-3 tw-bg-gray-50 tw-rounded tw-w-full tw-mb-1" />
+          <div className="tw-h-3 tw-bg-gray-50 tw-rounded tw-w-5/6" />
         </div>
       </div>
     );
@@ -117,7 +117,7 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="tw-text-blue-600 tw-text-sm tw-underline tw-break-all"
+          className="tw-text-navy-royal tw-text-sm tw-underline tw-break-all"
         >
           {url}
         </a>
@@ -165,11 +165,11 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
             </span>
           </div>
         )}
-        <h3 className="tw-font-semibold tw-text-gray-900 tw-mb-2 tw-line-clamp-2 group-hover:tw-text-blue-600 tw-transition-colors">
+        <h3 className="tw-font-semibold tw-text-ink tw-mb-2 tw-line-clamp-2 group-hover:tw-text-navy-royal tw-transition-colors">
           {metadata.title}
         </h3>
         {metadata.description && (
-          <p className="tw-text-sm tw-text-gray-600 tw-line-clamp-2">
+          <p className="tw-text-sm tw-text-gray-300 tw-line-clamp-2">
             {metadata.description}
           </p>
         )}

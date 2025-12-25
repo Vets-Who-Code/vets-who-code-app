@@ -23,7 +23,7 @@ const AceEditor = dynamic(
         loading: () => (
             <div className="tw-flex tw-h-96 tw-items-center tw-justify-center tw-rounded tw-border tw-border-gray-300 tw-bg-gray-50">
                 <div className="tw-text-center">
-                    <div className="tw-mb-2 tw-text-gray-600">Loading editor...</div>
+                    <div className="tw-mb-2 tw-text-gray-300">Loading editor...</div>
                     <div className="tw-h-2 tw-w-32 tw-animate-pulse tw-rounded tw-bg-gray-300" />
                 </div>
             </div>

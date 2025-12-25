@@ -85,14 +85,14 @@ const EnrollmentSidebar = ({ course }: TProps) => {
             {/* Enrollment Card */}
             <div className="tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-p-6 tw-shadow-lg">
                 <div className="tw-mb-6 tw-text-center">
-                    <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-green-600">FREE</div>
-                    <p className="tw-text-gray-600">For veterans & military spouses</p>
+                    <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gold">FREE</div>
+                    <p className="tw-text-gray-300">For veterans & military spouses</p>
                 </div>
 
                 {checkingEnrollment ? (
                     <div className="tw-py-4 tw-text-center">
                         <div className="tw-mx-auto tw-h-8 tw-w-8 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                        <p className="tw-mt-2 tw-text-gray-600">Checking enrollment...</p>
+                        <p className="tw-mt-2 tw-text-gray-300">Checking enrollment...</p>
                     </div>
                 ) : (
                     <div>
@@ -100,7 +100,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                             <div>
                                 {isEnrolled ? (
                                     <div className="tw-text-center">
-                                        <div className="tw-mb-4 tw-rounded-md tw-bg-green-100 tw-px-4 tw-py-2 tw-text-green-800">
+                                        <div className="tw-mb-4 tw-rounded-md tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-gold-deep">
                                             ✓ Enrolled
                                         </div>
                                         <Link
@@ -132,7 +132,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                                             </button>
                                         )}
 
-                                        <p className="tw-text-center tw-text-sm tw-text-gray-600">
+                                        <p className="tw-text-center tw-text-sm tw-text-gray-300">
                                             Access interactive lessons, assignments, and progress
                                             tracking
                                         </p>
@@ -147,7 +147,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                                 >
                                     Sign In to Enroll
                                 </Link>
-                                <p className="tw-text-center tw-text-sm tw-text-gray-600">
+                                <p className="tw-text-center tw-text-sm tw-text-gray-300">
                                     Join the learning platform for hands-on experience
                                 </p>
                             </div>
@@ -157,10 +157,10 @@ const EnrollmentSidebar = ({ course }: TProps) => {
 
                 {/* Course Info */}
                 <div className="tw-mt-6 tw-border-t tw-border-gray-200 tw-pt-6">
-                    <h4 className="tw-mb-3 tw-font-semibold tw-text-gray-900">
+                    <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">
                         What&apos;s Included:
                     </h4>
-                    <ul className="tw-space-y-2 tw-text-sm tw-text-gray-600">
+                    <ul className="tw-space-y-2 tw-text-sm tw-text-gray-300">
                         <li className="tw-flex tw-items-center">
                             <i className="fas fa-check tw-mr-2 tw-text-green-500" />
                             Course materials & resources
@@ -186,7 +186,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
 
                 {/* Quick Links */}
                 <div className="tw-mt-6 tw-border-t tw-border-gray-200 tw-pt-6">
-                    <h4 className="tw-mb-3 tw-font-semibold tw-text-gray-900">Quick Links:</h4>
+                    <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">Quick Links:</h4>
                     <div className="tw-space-y-2">
                         <Link
                             href="/courses"

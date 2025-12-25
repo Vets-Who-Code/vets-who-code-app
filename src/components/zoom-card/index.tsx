@@ -47,7 +47,7 @@ const ZoomCard = forwardRef<HTMLDivElement, TProps>(
                     </h3>
 
                     <div className="tw-mt-[7px] tw-flex tw-items-center">
-                        <span className="tw-text-[13px] tw-font-medium tw-uppercase tw-tracking-[1.73px] tw-text-gray-700">
+                        <span className="tw-text-[13px] tw-font-medium tw-uppercase tw-tracking-[1.73px] tw-text-gray-200">
                             Meeting ID:{" "}
                         </span>
                         <span className="tw-text-[16px] tw-font-semibold tw-tracking-[2.13px] tw-text-primary">

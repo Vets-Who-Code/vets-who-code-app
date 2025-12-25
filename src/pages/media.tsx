@@ -63,7 +63,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="mediaTypeFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Filter by Type
                             </label>
@@ -86,7 +86,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="yearFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Filter by Year
                             </label>
@@ -109,7 +109,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="searchTerm"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Search
                             </label>
@@ -135,7 +135,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                     setYearFilter("");
                                     setSearchTerm("");
                                 }}
-                                className="h-12 tw-mt-1 tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-gray-700 tw-shadow-sm hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 sm:tw-mt-0 sm:tw-w-auto"
+                                className="h-12 tw-mt-1 tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-gray-200 tw-shadow-sm hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 sm:tw-mt-0 sm:tw-w-auto"
                             >
                                 Reset
                             </button>

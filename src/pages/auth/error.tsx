@@ -93,7 +93,7 @@ const AuthError: PageWithLayout = () => {
             <div className="tw-sm:mx-auto tw-sm:w-full tw-sm:max-w-md">
                 <div className="tw-sm:rounded-lg tw-sm:px-10 tw-bg-white tw-px-4 tw-py-8 tw-shadow">
                     <div className="tw-text-center">
-                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                             {error.title}
                         </h2>
                         <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">

@@ -32,7 +32,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                             />
                         </div>
                     ) : (
-                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-200">
+                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-50">
                             <span className="tw-text-gray-500">No Image</span>
                         </div>
                     )}

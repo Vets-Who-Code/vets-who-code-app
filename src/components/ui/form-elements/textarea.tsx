@@ -44,7 +44,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
         const successClass = !showErrorOnly && state === "success" && "!tw-border-success";
         const warningClass = !showErrorOnly && state === "warning" && "!tw-border-warning";
         const errorClass = state === "error" && "!tw-border-danger";
-        const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-blue-100";
+        const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
 
         return (
@@ -64,7 +64,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
                         focusBorderClass,
                         noFocusClass,
                         bg === "white" && "tw-bg-white",
-                        bg === "light" && "tw-bg-gray-200",
+                        bg === "light" && "tw-bg-gray-50",
                         className
                     )}
                     id={id}

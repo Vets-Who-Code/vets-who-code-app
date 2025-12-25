@@ -55,7 +55,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
 
                     {/* User Menu */}
                     <div className="tw-flex tw-items-center tw-space-x-4">
-                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-600">
+                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-300">
                             {user.image && (
                                 <img
                                     src={user.image}
@@ -70,7 +70,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         <div className="tw-flex tw-space-x-2">
                             <Link
                                 href="/profile"
-                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                                 title="View Profile"
                             >
                                 <i className="fas fa-user tw-mr-1" />
@@ -114,7 +114,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-primary" />
                                     <span>16-20 weeks</span>
                                 </div>
@@ -166,7 +166,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-secondary" />
                                     <span>18-22 weeks</span>
                                 </div>
@@ -218,7 +218,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-success" />
                                     <span>20-24 weeks</span>
                                 </div>

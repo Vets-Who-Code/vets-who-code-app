@@ -107,7 +107,7 @@ const AdminUsersPage: PageWithLayout = () => {
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
                     <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading users...</p>
+                    <p className="tw-mt-4 tw-text-gray-300">Loading users...</p>
                 </div>
             </div>
         );
@@ -118,10 +118,10 @@ const AdminUsersPage: PageWithLayout = () => {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
-                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
+                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
                         Access Denied
                     </h1>
-                    <p className="tw-text-gray-600">Administrator access required.</p>
+                    <p className="tw-text-gray-300">Administrator access required.</p>
                     <Link href="/admin" className="tw-mt-4 tw-inline-block tw-text-primary">
                         ← Back to Admin
                     </Link>
@@ -153,8 +153,8 @@ const AdminUsersPage: PageWithLayout = () => {
 
     const getStatusBadge = (userStatus: User["status"]) => {
         const styles = {
-            active: "tw-bg-green-100 tw-text-green-800",
-            inactive: "tw-bg-yellow-100 tw-text-yellow-800",
+            active: "tw-bg-gold-light/30 tw-text-gold-deep",
+            inactive: "tw-bg-gold-bright tw-text-gold-deep",
             suspended: "tw-bg-red-100 tw-text-red-800",
         };
         return (
@@ -167,8 +167,8 @@ const AdminUsersPage: PageWithLayout = () => {
     };
 
     const getProgressColor = (progress: number) => {
-        if (progress >= 75) return "tw-bg-green-500";
-        if (progress >= 50) return "tw-bg-yellow-500";
+        if (progress >= 75) return "tw-bg-gold-light/200";
+        if (progress >= 50) return "tw-bg-gold-light/200";
         return "tw-bg-red-500";
     };
 
@@ -196,16 +196,16 @@ const AdminUsersPage: PageWithLayout = () => {
                 {/* Header */}
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-between">
                     <div>
-                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-ink">
                             User Management
                         </h1>
-                        <p className="tw-text-gray-600">
+                        <p className="tw-text-gray-300">
                             Manage student accounts and monitor progress
                         </p>
                     </div>
                     <Link
                         href="/admin"
-                        className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                        className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                     >
                         <i className="fas fa-arrow-left tw-mr-2" />
                         Back to Admin
@@ -219,7 +219,7 @@ const AdminUsersPage: PageWithLayout = () => {
                         <div>
                             <label
                                 htmlFor="search"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Search Users
                             </label>
@@ -237,7 +237,7 @@ const AdminUsersPage: PageWithLayout = () => {
                         <div>
                             <label
                                 htmlFor="status"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Status
                             </label>
@@ -260,7 +260,7 @@ const AdminUsersPage: PageWithLayout = () => {
                         <div>
                             <label
                                 htmlFor="sort"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Sort By
                             </label>
@@ -278,7 +278,7 @@ const AdminUsersPage: PageWithLayout = () => {
 
                         {/* Results Count */}
                         <div className="tw-flex tw-items-end">
-                            <div className="tw-text-sm tw-text-gray-600">
+                            <div className="tw-text-sm tw-text-gray-300">
                                 Showing {filteredUsers.length} of {users.length} users
                             </div>
                         </div>
@@ -327,11 +327,11 @@ const AdminUsersPage: PageWithLayout = () => {
                                                     />
                                                 ) : (
                                                     <div className="tw-mr-4 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-gray-300">
-                                                        <i className="fas fa-user tw-text-gray-600" />
+                                                        <i className="fas fa-user tw-text-gray-300" />
                                                     </div>
                                                 )}
                                                 <div>
-                                                    <div className="tw-text-sm tw-font-medium tw-text-gray-900">
+                                                    <div className="tw-text-sm tw-font-medium tw-text-ink">
                                                         {user.name}
                                                     </div>
                                                     <div className="tw-text-sm tw-text-gray-500">
@@ -343,7 +343,7 @@ const AdminUsersPage: PageWithLayout = () => {
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
                                             {user.militaryBranch && user.rank ? (
                                                 <div>
-                                                    <div className="tw-text-sm tw-font-medium tw-text-gray-900">
+                                                    <div className="tw-text-sm tw-font-medium tw-text-ink">
                                                         {user.rank}
                                                     </div>
                                                     <div className="tw-text-sm tw-text-gray-500">
@@ -356,15 +356,15 @@ const AdminUsersPage: PageWithLayout = () => {
                                                 </span>
                                             )}
                                         </td>
-                                        <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-gray-900">
+                                        <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-ink">
                                             {user.enrollments} enrolled
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
                                             <div className="tw-flex tw-items-center">
-                                                <div className="tw-mr-2 tw-w-16 tw-text-sm tw-text-gray-900">
+                                                <div className="tw-mr-2 tw-w-16 tw-text-sm tw-text-ink">
                                                     {user.progress}%
                                                 </div>
-                                                <div className="tw-relative tw-h-2 tw-w-20 tw-overflow-hidden tw-rounded-full tw-bg-gray-200">
+                                                <div className="tw-relative tw-h-2 tw-w-20 tw-overflow-hidden tw-rounded-full tw-bg-gray-50">
                                                     <div
                                                         className={`tw-absolute tw-left-0 tw-top-0 tw-h-full tw-rounded-full ${getProgressColor(user.progress)} ${getProgressWidth(user.progress)}`}
                                                     />
@@ -388,7 +388,7 @@ const AdminUsersPage: PageWithLayout = () => {
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="tw-text-green-600 hover:tw-text-green-900"
+                                                    className="tw-text-gold hover:tw-text-green-900"
                                                     title="Send Message"
                                                 >
                                                     <i className="fas fa-envelope" />

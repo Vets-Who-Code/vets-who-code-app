@@ -67,7 +67,7 @@ const AppDownloadArea = ({
                             y: trans2().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[62px] tw-w-[62px] tw-rounded-full tw-border-8 tw-border-desert -tw-indent-[99999px]">
+                        <span className="tw-block tw-h-[62px] tw-w-[62px] tw-rounded-full tw-border-8 tw-border-red -tw-indent-[99999px]">
                             shape 1
                         </span>
                     </motion.div>

@@ -16,7 +16,7 @@ type TProps = {
 
 const HeroArea = ({ data: { headings, texts, buttons, images } }: TProps) => {
     return (
-        <div className="hero-area tw-relative tw-flex tw-items-center tw-bg-ebb">
+        <div className="hero-area tw-relative tw-flex tw-items-center tw-bg-gray-50">
             <div className="tw-container tw-relative tw-z-10 tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-2">
                 <motion.div
                     className="md:p-0 tw-self-center tw-px-3.8 tw-pb-10 tw-pt-[140px] tw-text-center md:tw-max-w-[460px] md:tw-text-left"

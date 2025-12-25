@@ -67,7 +67,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
                     <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading assignment...</p>
+                    <p className="tw-mt-4 tw-text-gray-300">Loading assignment...</p>
                 </div>
             </div>
         );
@@ -95,33 +95,33 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 <div className="tw-container tw-py-16">
                     <div className="tw-mx-auto tw-max-w-2xl tw-text-center">
                         <div className="tw-mb-8">
-                            <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-green-100">
-                                <i className="fas fa-check tw-text-3xl tw-text-green-600" />
+                            <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-gold-light/30">
+                                <i className="fas fa-check tw-text-3xl tw-text-gold" />
                             </div>
-                            <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-gray-900">
+                            <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                                 Assignment Submitted Successfully!
                             </h1>
-                            <p className="tw-text-xl tw-text-gray-600">
+                            <p className="tw-text-xl tw-text-gray-300">
                                 Your submission for &quot;{assignment.title}&quot; has been received
                                 and will be reviewed by your mentor.
                             </p>
                         </div>
 
-                        <div className="tw-mb-8 tw-rounded-lg tw-bg-blue-50 tw-p-6">
+                        <div className="tw-mb-8 tw-rounded-lg tw-bg-navy-sky/20 tw-p-6">
                             <h3 className="tw-mb-2 tw-font-semibold tw-text-blue-900">
                                 What happens next?
                             </h3>
                             <ul className="tw-space-y-2 tw-text-left tw-text-blue-800">
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-clock tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-clock tw-mr-2 tw-text-navy-royal" />
                                     Your mentor will review your submission within 2-3 business days
                                 </li>
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-comments tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-comments tw-mr-2 tw-text-navy-royal" />
                                     You&apos;ll receive detailed feedback on your work
                                 </li>
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-trophy tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-trophy tw-mr-2 tw-text-navy-royal" />
                                     Upon approval, you can continue to the next lesson
                                 </li>
                             </ul>
@@ -137,7 +137,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                             </Link>
                             <Link
                                 href="/courses/web-development"
-                                className="tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-medium tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50"
+                                className="tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-medium tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
                                 <i className="fas fa-book tw-mr-2" />
                                 Back to Course
@@ -166,27 +166,27 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 <div className="tw-mx-auto tw-max-w-4xl">
                     {/* Assignment Header */}
                     <div className="tw-mb-8">
-                        <div className="tw-mb-2 tw-text-sm tw-text-gray-600">
+                        <div className="tw-mb-2 tw-text-sm tw-text-gray-300">
                             {assignment.module} • {assignment.lesson}
                         </div>
-                        <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                             Submit Assignment: {assignment.title}
                         </h1>
-                        <p className="tw-text-gray-600">{assignment.description}</p>
+                        <p className="tw-text-gray-300">{assignment.description}</p>
                     </div>
 
                     <div className="tw-grid tw-grid-cols-1 tw-gap-8 lg:tw-grid-cols-3">
                         {/* Assignment Details */}
                         <div className="lg:tw-col-span-1">
                             <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                     Assignment Requirements
                                 </h3>
                                 <ul className="tw-space-y-2">
                                     {assignment.requirements.map((requirement) => (
                                         <li
                                             key={requirement}
-                                            className="tw-flex tw-items-start tw-text-gray-700"
+                                            className="tw-flex tw-items-start tw-text-gray-200"
                                         >
                                             <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-500" />
                                             {requirement}
@@ -195,12 +195,12 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                 </ul>
                             </div>
 
-                            <div className="tw-mb-6 tw-rounded-lg tw-bg-orange-50 tw-p-6">
-                                <h3 className="tw-mb-2 tw-font-semibold tw-text-orange-900">
+                            <div className="tw-mb-6 tw-rounded-lg tw-bg-red-signal/10 tw-p-6">
+                                <h3 className="tw-mb-2 tw-font-semibold tw-text-red-maroon">
                                     <i className="fas fa-exclamation-triangle tw-mr-2" />
                                     Important Information
                                 </h3>
-                                <div className="tw-space-y-2 tw-text-sm tw-text-orange-800">
+                                <div className="tw-space-y-2 tw-text-sm tw-text-red-dark">
                                     <p>
                                         <strong>Due Date:</strong> {assignment.dueDate}
                                     </p>
@@ -223,7 +223,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     <div>
                                         <label
                                             htmlFor="github-url"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             GitHub Repository URL (Recommended)
                                         </label>
@@ -233,7 +233,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             value={githubUrl}
                                             onChange={(e) => setGithubUrl(e.target.value)}
                                             placeholder="https://github.com/username/repository"
-                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-gray-900 tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-ink tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                                         />
                                         <p className="tw-mt-1 tw-text-sm tw-text-gray-500">
                                             Share your code via GitHub for easy review and
@@ -245,7 +245,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     <div>
                                         <label
                                             htmlFor="files"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Upload Files (Alternative to GitHub)
                                         </label>
@@ -269,7 +269,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                 </span>
                                                 <div className="tw-text-center">
                                                     <i className="fas fa-cloud-upload-alt tw-mb-2 tw-text-2xl tw-text-gray-400" />
-                                                    <p className="tw-text-sm tw-text-gray-600">
+                                                    <p className="tw-text-sm tw-text-gray-300">
                                                         <span className="tw-font-medium tw-text-primary">
                                                             Click to upload
                                                         </span>{" "}
@@ -284,14 +284,14 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                         </div>
                                         {files && files.length > 0 && (
                                             <div className="tw-mt-2">
-                                                <p className="tw-text-sm tw-font-medium tw-text-gray-700">
+                                                <p className="tw-text-sm tw-font-medium tw-text-gray-200">
                                                     Selected files:
                                                 </p>
                                                 <ul className="tw-mt-1 tw-space-y-1">
                                                     {Array.from(files).map((file) => (
                                                         <li
                                                             key={`${file.name}-${file.size}`}
-                                                            className="tw-text-sm tw-text-gray-600"
+                                                            className="tw-text-sm tw-text-gray-300"
                                                         >
                                                             {file.name} (
                                                             {Math.round(file.size / 1024)} KB)
@@ -306,7 +306,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     <div>
                                         <label
                                             htmlFor="notes"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Additional Notes (Optional)
                                         </label>
@@ -316,7 +316,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             value={notes}
                                             onChange={(e) => setNotes(e.target.value)}
                                             placeholder="Any additional information about your submission, challenges faced, or questions for your mentor..."
-                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-gray-900 tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-ink tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                                         />
                                     </div>
 

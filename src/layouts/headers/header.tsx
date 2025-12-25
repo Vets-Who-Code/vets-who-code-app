@@ -34,7 +34,7 @@ const Header = ({ shadow, fluid }: TProps) => {
             <header className="header tw-relative">
                 <div
                     className={clsx(
-                        "header-top tw-bg-gray-200 tw-py-2.5 tw-z-[60] tw-w-full tw-transition-all",
+                        "header-top tw-bg-gray-50 tw-py-2.5 tw-z-[60] tw-w-full tw-transition-all",
                         sticky && "tw-fixed tw-top-0 tw-left-0 tw-shadow-md"
                     )}
                 >

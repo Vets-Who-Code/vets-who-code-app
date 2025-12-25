@@ -235,7 +235,7 @@ const Profile: PageWithLayout = ({ user }) => {
                 <div
                     className={`tw-fixed tw-top-4 tw-right-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-animate-in tw-fade-in tw-slide-in-from-top-5 tw-duration-300 ${
                         notification.type === "success"
-                            ? "tw-bg-green-50 tw-text-green-800 tw-border tw-border-green-200"
+                            ? "tw-bg-gold-light/20 tw-text-gold-deep tw-border tw-border-green-200"
                             : "tw-bg-red-50 tw-text-red-800 tw-border tw-border-red-200"
                     }`}
                 >
@@ -251,7 +251,7 @@ const Profile: PageWithLayout = ({ user }) => {
                         <button
                             type="button"
                             onClick={() => setNotification(null)}
-                            className="tw-ml-4 tw-text-gray-500 hover:tw-text-gray-700"
+                            className="tw-ml-4 tw-text-gray-500 hover:tw-text-gray-200"
                             aria-label="Close notification"
                         >
                             <i className="fas fa-times" />
@@ -393,7 +393,7 @@ const Profile: PageWithLayout = ({ user }) => {
 
                                 {/* Recent Activity */}
                                 <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                    <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                    <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                         Recent Activity
                                     </h3>
                                     <div className="tw-space-y-4">
@@ -404,7 +404,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             >
                                                 <div className="tw-h-2 tw-w-2 tw-rounded-full tw-bg-primary" />
                                                 <div className="tw-flex-1">
-                                                    <div className="tw-text-sm tw-font-medium tw-text-gray-900">
+                                                    <div className="tw-text-sm tw-font-medium tw-text-ink">
                                                         {activity.action}: {activity.content}
                                                     </div>
                                                     <div className="tw-text-xs tw-text-secondary">
@@ -420,7 +420,7 @@ const Profile: PageWithLayout = ({ user }) => {
                             {/* Profile Details */}
                             <div className="tw-col-span-1">
                                 <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                    <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                    <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                         Profile Details
                                     </h3>
 
@@ -429,7 +429,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <div>
                                                 <label
                                                     htmlFor="bio"
-                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                                 >
                                                     Bio
                                                 </label>
@@ -447,7 +447,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <div>
                                                 <label
                                                     htmlFor="title"
-                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                                 >
                                                     Current Title
                                                 </label>
@@ -465,7 +465,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <div>
                                                 <label
                                                     htmlFor="location"
-                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                                 >
                                                     Location
                                                 </label>
@@ -483,7 +483,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <div>
                                                 <label
                                                     htmlFor="branch"
-                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                                    className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                                 >
                                                     Military Branch
                                                 </label>
@@ -528,7 +528,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                                         setIsEditing(false);
                                                     }}
                                                     disabled={isSaving}
-                                                    className="tw-flex-1 tw-rounded-lg tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-font-semibold tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+                                                    className="tw-flex-1 tw-rounded-lg tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                                                 >
                                                     Cancel
                                                 </button>
@@ -537,7 +537,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                     ) : (
                                         <div className="tw-space-y-4 tw-text-sm">
                                             <div>
-                                                <div className="tw-font-medium tw-text-gray-900">
+                                                <div className="tw-font-medium tw-text-ink">
                                                     Bio
                                                 </div>
                                                 <div className="tw-text-secondary">
@@ -546,7 +546,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="tw-font-medium tw-text-gray-900">
+                                                <div className="tw-font-medium tw-text-ink">
                                                     Location
                                                 </div>
                                                 <div className="tw-text-secondary">
@@ -554,7 +554,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="tw-font-medium tw-text-gray-900">
+                                                <div className="tw-font-medium tw-text-ink">
                                                     Military Branch
                                                 </div>
                                                 <div className="tw-text-secondary">
@@ -562,7 +562,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="tw-font-medium tw-text-gray-900">
+                                                <div className="tw-font-medium tw-text-ink">
                                                     Member Since
                                                 </div>
                                                 <div className="tw-text-secondary">August 2025</div>
@@ -578,7 +578,7 @@ const Profile: PageWithLayout = ({ user }) => {
                         <div className="tw-col-span-1 tw-space-y-6 lg:tw-col-span-3">
                             {/* Progress Overview */}
                             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                     Learning Progress
                                 </h3>
                                 <div className="tw-mb-4">
@@ -586,7 +586,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                         <span>Overall Progress</span>
                                         <span>{progressPercentage}%</span>
                                     </div>
-                                    <div className="tw-mt-2 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
+                                    <div className="tw-mt-2 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
                                         <div
                                             className={`tw-h-2 tw-rounded-full tw-bg-primary tw-transition-all tw-duration-300 tw-w-[${progressPercentage}%]`}
                                         />
@@ -600,20 +600,20 @@ const Profile: PageWithLayout = ({ user }) => {
 
                             {/* Current Courses */}
                             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                     Current Enrollments
                                 </h3>
                                 <div className="tw-space-y-4">
                                     <div className="tw-rounded-lg tw-border tw-border-gray-200 tw-p-4">
                                         <div className="tw-mb-2 tw-flex tw-items-center tw-justify-between">
-                                            <h4 className="tw-font-medium tw-text-gray-900">
+                                            <h4 className="tw-font-medium tw-text-ink">
                                                 Software Engineering
                                             </h4>
                                             <span className="tw-rounded tw-bg-primary/10 tw-px-2 tw-py-1 tw-text-xs tw-text-secondary">
                                                 In Progress
                                             </span>
                                         </div>
-                                        <div className="tw-mb-2 tw-h-1.5 tw-w-full tw-rounded-full tw-bg-gray-200">
+                                        <div className="tw-mb-2 tw-h-1.5 tw-w-full tw-rounded-full tw-bg-gray-50">
                                             <div className="tw-h-1.5 tw-w-1/3 tw-rounded-full tw-bg-primary" />
                                         </div>
                                         <div className="tw-text-sm tw-text-secondary">
@@ -628,7 +628,7 @@ const Profile: PageWithLayout = ({ user }) => {
                     {activeTab === "achievements" && (
                         <div className="tw-col-span-1 tw-space-y-6 lg:tw-col-span-3">
                             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                     Achievements
                                 </h3>
                                 <div className="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2">
@@ -651,7 +651,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                                 <i className="fas fa-trophy" />
                                             </div>
                                             <div>
-                                                <h4 className="tw-font-medium tw-text-gray-900">
+                                                <h4 className="tw-font-medium tw-text-ink">
                                                     {achievement.title}
                                                 </h4>
                                                 <p className="tw-text-sm tw-text-secondary">
@@ -672,10 +672,10 @@ const Profile: PageWithLayout = ({ user }) => {
                                     <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-16 tw-w-16 tw-items-center tw-justify-center tw-rounded-full tw-bg-primary tw-text-white">
                                         <i className="fas fa-code tw-text-2xl" />
                                     </div>
-                                    <h3 className="tw-mb-2 tw-text-2xl tw-font-bold tw-text-gray-900">
+                                    <h3 className="tw-mb-2 tw-text-2xl tw-font-bold tw-text-ink">
                                         Coding Skill Assessment
                                     </h3>
-                                    <p className="tw-text-gray-600">
+                                    <p className="tw-text-gray-300">
                                         Take our comprehensive assessment to determine your current skill level
                                     </p>
                                 </div>
@@ -683,52 +683,52 @@ const Profile: PageWithLayout = ({ user }) => {
                                 <div className="tw-mb-6 tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-3">
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
                                         <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">10</div>
-                                        <div className="tw-text-sm tw-text-gray-600">Questions</div>
+                                        <div className="tw-text-sm tw-text-gray-300">Questions</div>
                                     </div>
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
                                         <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">~30</div>
-                                        <div className="tw-text-sm tw-text-gray-600">Minutes</div>
+                                        <div className="tw-text-sm tw-text-gray-300">Minutes</div>
                                     </div>
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
                                         <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">5</div>
-                                        <div className="tw-text-sm tw-text-gray-600">Skill Levels</div>
+                                        <div className="tw-text-sm tw-text-gray-300">Skill Levels</div>
                                     </div>
                                 </div>
 
                                 <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6">
-                                    <h4 className="tw-mb-4 tw-font-semibold tw-text-gray-900">What You&apos;ll Be Tested On:</h4>
+                                    <h4 className="tw-mb-4 tw-font-semibold tw-text-ink">What You&apos;ll Be Tested On:</h4>
                                     <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-2">
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">Basic Syntax & Variables</span>
+                                            <span className="tw-text-sm tw-text-gray-200">Basic Syntax & Variables</span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">Functions & Conditionals</span>
+                                            <span className="tw-text-sm tw-text-gray-200">Functions & Conditionals</span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">Arrays & Loops</span>
+                                            <span className="tw-text-sm tw-text-gray-200">Arrays & Loops</span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">String Manipulation</span>
+                                            <span className="tw-text-sm tw-text-gray-200">String Manipulation</span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">Problem Solving</span>
+                                            <span className="tw-text-sm tw-text-gray-200">Problem Solving</span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-700">Algorithms</span>
+                                            <span className="tw-text-sm tw-text-gray-200">Algorithms</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="tw-mb-6 tw-rounded-lg tw-border-l-4 tw-border-primary tw-bg-blue-50 tw-p-4">
+                                <div className="tw-mb-6 tw-rounded-lg tw-border-l-4 tw-border-primary tw-bg-navy-sky/20 tw-p-4">
                                     <div className="tw-flex tw-items-start tw-space-x-3">
                                         <i className="fas fa-info-circle tw-mt-1 tw-text-primary" />
-                                        <div className="tw-text-sm tw-text-gray-700">
+                                        <div className="tw-text-sm tw-text-gray-200">
                                             <strong>Note:</strong> This assessment uses our built-in code editor. You&apos;ll write actual JavaScript code to solve programming challenges. Your skill level will be determined based on your performance: Newbie, Beginner, Junior, Mid, or Senior.
                                         </div>
                                     </div>
@@ -751,12 +751,12 @@ const Profile: PageWithLayout = ({ user }) => {
                     {activeTab === "settings" && (
                         <div className="tw-col-span-1 tw-space-y-6 lg:tw-col-span-3">
                             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                     Account Settings
                                 </h3>
                                 <div className="tw-space-y-6">
                                     <div>
-                                        <h4 className="tw-mb-2 tw-font-medium tw-text-gray-900">
+                                        <h4 className="tw-mb-2 tw-font-medium tw-text-ink">
                                             Notifications
                                         </h4>
                                         <div className="tw-space-y-2">
@@ -783,7 +783,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 className="tw-mb-2 tw-font-medium tw-text-gray-900">
+                                        <h4 className="tw-mb-2 tw-font-medium tw-text-ink">
                                             Privacy
                                         </h4>
                                         <div className="tw-space-y-2">

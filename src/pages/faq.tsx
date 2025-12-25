@@ -33,7 +33,7 @@ const Faq: PageProps = ({ data }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="FAQ"
                 showTitle={false}
-                className="tw-bg-gray-200"
+                className="tw-bg-gray-50"
             />
             <QuoteArea data={content?.["quote-area"]} />
             <FaqArea data={content?.["faq-area"]} />

@@ -20,7 +20,7 @@ const Wrapper = ({ children, className, color }: TProps) => {
 };
 
 Wrapper.defaultProps = {
-    color: "tw-bg-spring",
+    color: "tw-bg-cream",
 };
 
 export default Wrapper;

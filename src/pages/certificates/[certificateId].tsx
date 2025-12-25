@@ -69,7 +69,7 @@ const CertificatePage: PageWithLayout = () => {
       <div className="tw-container tw-py-16">
         <div className="tw-text-center">
           <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-          <p className="tw-mt-4 tw-text-gray-600">Loading certificate...</p>
+          <p className="tw-mt-4 tw-text-gray-300">Loading certificate...</p>
         </div>
       </div>
     );
@@ -79,10 +79,10 @@ const CertificatePage: PageWithLayout = () => {
     return (
       <div className="tw-container tw-py-16">
         <div className="tw-text-center">
-          <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
+          <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
             Certificate Not Found
           </h1>
-          <p className="tw-mb-8 tw-text-gray-600">
+          <p className="tw-mb-8 tw-text-gray-300">
             {error || "The certificate you're looking for doesn't exist."}
           </p>
           <button
@@ -158,27 +158,27 @@ const CertificatePage: PageWithLayout = () => {
           <div className="tw-border-8 tw-border-double tw-border-primary tw-p-8">
             {/* Header */}
             <div className="tw-mb-8 tw-text-center">
-              <h1 className="tw-mb-2 tw-text-5xl tw-font-bold tw-text-gray-900">
+              <h1 className="tw-mb-2 tw-text-5xl tw-font-bold tw-text-ink">
                 Certificate of Completion
               </h1>
               <div className="tw-mx-auto tw-my-4 tw-h-1 tw-w-32 tw-bg-primary"></div>
-              <p className="tw-text-xl tw-text-gray-600">
+              <p className="tw-text-xl tw-text-gray-300">
                 Vets Who Code
               </p>
             </div>
 
             {/* Body */}
             <div className="tw-mb-8 tw-text-center">
-              <p className="tw-mb-6 tw-text-lg tw-text-gray-700">
+              <p className="tw-mb-6 tw-text-lg tw-text-gray-200">
                 This is to certify that
               </p>
               <h2 className="tw-mb-6 tw-text-4xl tw-font-bold tw-text-primary">
                 {certificate.student.name}
               </h2>
-              <p className="tw-mb-6 tw-text-lg tw-text-gray-700">
+              <p className="tw-mb-6 tw-text-lg tw-text-gray-200">
                 has successfully completed the course
               </p>
-              <h3 className="tw-mb-6 tw-text-3xl tw-font-semibold tw-text-gray-900">
+              <h3 className="tw-mb-6 tw-text-3xl tw-font-semibold tw-text-ink">
                 {certificate.course.title}
               </h3>
             </div>
@@ -187,26 +187,26 @@ const CertificatePage: PageWithLayout = () => {
             <div className="tw-mb-8 tw-rounded-lg tw-bg-gray-50 tw-p-6">
               <div className="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-3">
                 <div className="tw-text-center">
-                  <p className="tw-text-sm tw-font-semibold tw-text-gray-600">
+                  <p className="tw-text-sm tw-font-semibold tw-text-gray-300">
                     Category
                   </p>
-                  <p className="tw-text-lg tw-text-gray-900">
+                  <p className="tw-text-lg tw-text-ink">
                     {certificate.course.category}
                   </p>
                 </div>
                 <div className="tw-text-center">
-                  <p className="tw-text-sm tw-font-semibold tw-text-gray-600">
+                  <p className="tw-text-sm tw-font-semibold tw-text-gray-300">
                     Difficulty
                   </p>
-                  <p className="tw-text-lg tw-text-gray-900">
+                  <p className="tw-text-lg tw-text-ink">
                     {certificate.course.difficulty}
                   </p>
                 </div>
                 <div className="tw-text-center">
-                  <p className="tw-text-sm tw-font-semibold tw-text-gray-600">
+                  <p className="tw-text-sm tw-font-semibold tw-text-gray-300">
                     Estimated Hours
                   </p>
-                  <p className="tw-text-lg tw-text-gray-900">
+                  <p className="tw-text-lg tw-text-ink">
                     {certificate.course.estimatedHours} hours
                   </p>
                 </div>
@@ -217,15 +217,15 @@ const CertificatePage: PageWithLayout = () => {
             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
               <div className="tw-text-center">
                 <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400"></div>
-                <p className="tw-text-sm tw-text-gray-600">Date of Completion</p>
-                <p className="tw-font-semibold tw-text-gray-900">
+                <p className="tw-text-sm tw-text-gray-300">Date of Completion</p>
+                <p className="tw-font-semibold tw-text-ink">
                   {formatDate(certificate.issuedAt)}
                 </p>
               </div>
               <div className="tw-text-center">
                 <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400"></div>
-                <p className="tw-text-sm tw-text-gray-600">Authorized Signature</p>
-                <p className="tw-font-semibold tw-text-gray-900">Vets Who Code</p>
+                <p className="tw-text-sm tw-text-gray-300">Authorized Signature</p>
+                <p className="tw-font-semibold tw-text-ink">Vets Who Code</p>
               </div>
             </div>
 
@@ -242,7 +242,7 @@ const CertificatePage: PageWithLayout = () => {
         </div>
 
         {/* Verification Notice - Hidden on print */}
-        <div className="tw-mx-auto tw-mt-8 tw-max-w-2xl tw-rounded-lg tw-bg-blue-50 tw-p-6 print:tw-hidden">
+        <div className="tw-mx-auto tw-mt-8 tw-max-w-2xl tw-rounded-lg tw-bg-navy-sky/20 tw-p-6 print:tw-hidden">
           <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-blue-900">
             Certificate Verification
           </h3>

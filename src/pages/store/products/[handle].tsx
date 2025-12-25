@@ -35,7 +35,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
         return (
             <Layout>
                 <div className="tw-container tw-mx-auto tw-px-4 tw-py-20 tw-text-center">
-                    <p className="tw-text-xl tw-text-gray-600">Loading product...</p>
+                    <p className="tw-text-xl tw-text-gray-300">Loading product...</p>
                 </div>
             </Layout>
         );
@@ -50,7 +50,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                     <h1 className="tw-text-4xl tw-font-bold tw-text-secondary tw-mb-4">
                         Product Not Found
                     </h1>
-                    <p className="tw-text-xl tw-text-gray-600 tw-mb-8">
+                    <p className="tw-text-xl tw-text-gray-300 tw-mb-8">
                         The product you're looking for doesn't exist.
                     </p>
                     <button
@@ -119,14 +119,14 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                     <nav className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
                         <button
                             onClick={() => router.push("/")}
-                            className="tw-text-gray-600 hover:tw-text-primary"
+                            className="tw-text-gray-300 hover:tw-text-primary"
                         >
                             Home
                         </button>
                         <span className="tw-text-gray-400">/</span>
                         <button
                             onClick={() => router.push("/store")}
-                            className="tw-text-gray-600 hover:tw-text-primary"
+                            className="tw-text-gray-300 hover:tw-text-primary"
                         >
                             Store
                         </button>
@@ -215,7 +215,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                     <div>
                         {/* Vendor */}
                         {product.vendor && (
-                            <p className="tw-text-sm tw-font-medium tw-text-gray-600 tw-mb-2 tw-uppercase tw-tracking-wide">
+                            <p className="tw-text-sm tw-font-medium tw-text-gray-300 tw-mb-2 tw-uppercase tw-tracking-wide">
                                 {product.vendor}
                             </p>
                         )}
@@ -240,7 +240,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         {/* Availability */}
                         <div className="tw-mb-6">
                             {product.availableForSale ? (
-                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-green-100 tw-text-green-800 tw-rounded-full tw-font-medium">
+                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-gold-light/30 tw-text-gold-deep tw-rounded-full tw-font-medium">
                                     <svg className="tw-w-5 tw-h-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                     </svg>
@@ -256,7 +256,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         {/* Description */}
                         {product.description && (
                             <div className="tw-mb-8">
-                                <p className="tw-text-gray-700 tw-leading-relaxed">
+                                <p className="tw-text-gray-200 tw-leading-relaxed">
                                     {product.description}
                                 </p>
                             </div>
@@ -277,7 +277,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                                 "tw-px-6 tw-py-3 tw-border-2 tw-rounded-lg tw-font-medium tw-transition-all",
                                                 selectedOptions[option.name] === value
                                                     ? "tw-border-primary tw-bg-primary tw-text-white"
-                                                    : "tw-border-gray-300 tw-bg-white tw-text-gray-700 hover:tw-border-gray-400"
+                                                    : "tw-border-gray-300 tw-bg-white tw-text-gray-200 hover:tw-border-gray-400"
                                             )}
                                         >
                                             {value}
@@ -295,7 +295,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                             <div className="tw-flex tw-items-center tw-gap-4">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                    className="tw-w-12 tw-h-12 tw-flex tw-items-center tw-justify-center tw-bg-gray-100 tw-border tw-border-gray-300 tw-rounded-lg tw-text-gray-700 hover:tw-bg-gray-200 tw-font-bold tw-text-xl"
+                                    className="tw-w-12 tw-h-12 tw-flex tw-items-center tw-justify-center tw-bg-gray-100 tw-border tw-border-gray-300 tw-rounded-lg tw-text-gray-200 hover:tw-bg-gray-50 tw-font-bold tw-text-xl"
                                 >
                                     -
                                 </button>
@@ -304,7 +304,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                 </span>
                                 <button
                                     onClick={() => setQuantity(quantity + 1)}
-                                    className="tw-w-12 tw-h-12 tw-flex tw-items-center tw-justify-center tw-bg-gray-100 tw-border tw-border-gray-300 tw-rounded-lg tw-text-gray-700 hover:tw-bg-gray-200 tw-font-bold tw-text-xl"
+                                    className="tw-w-12 tw-h-12 tw-flex tw-items-center tw-justify-center tw-bg-gray-100 tw-border tw-border-gray-300 tw-rounded-lg tw-text-gray-200 hover:tw-bg-gray-50 tw-font-bold tw-text-xl"
                                 >
                                     +
                                 </button>
@@ -319,7 +319,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                 "tw-w-full tw-py-4 tw-rounded-lg tw-font-bold tw-text-lg tw-transition-all tw-duration-300",
                                 product.availableForSale
                                     ? "tw-bg-primary tw-text-white hover:tw-bg-primary-dark hover:tw-shadow-xl disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
-                                    : "tw-bg-gray-300 tw-text-gray-600 tw-cursor-not-allowed"
+                                    : "tw-bg-gray-300 tw-text-gray-300 tw-cursor-not-allowed"
                             )}
                         >
                             {isAdding
@@ -333,7 +333,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         {(product.productType || product.tags.length > 0) && (
                             <div className="tw-mt-8 tw-pt-8 tw-border-t tw-border-gray-200">
                                 {product.productType && (
-                                    <p className="tw-text-sm tw-text-gray-600 tw-mb-2">
+                                    <p className="tw-text-sm tw-text-gray-300 tw-mb-2">
                                         <span className="tw-font-semibold">Category:</span>{" "}
                                         {product.productType}
                                     </p>
@@ -343,7 +343,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                         {product.tags.map((tag) => (
                                             <span
                                                 key={tag}
-                                                className="tw-px-3 tw-py-1 tw-bg-gray-100 tw-text-gray-700 tw-rounded-full tw-text-sm"
+                                                className="tw-px-3 tw-py-1 tw-bg-gray-100 tw-text-gray-200 tw-rounded-full tw-text-sm"
                                             >
                                                 {tag}
                                             </span>

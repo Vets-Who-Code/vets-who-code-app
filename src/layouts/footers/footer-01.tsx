@@ -12,8 +12,8 @@ const Footer01 = ({ mode }: TProps) => {
         <footer
             className={clsx(
                 "tw-pb-[50px] tw-pt-[70px] tw-relative",
-                mode === "dark" && "tw-bg-gradient-to-b tw-from-gray-900 tw-to-gray-950 tw-text-gray-300",
-                mode === "light" && "tw-bg-light-100"
+                mode === "dark" && "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-gray-300",
+                mode === "light" && "tw-bg-gray-50"
             )}
         >
             {mode === "dark" && (

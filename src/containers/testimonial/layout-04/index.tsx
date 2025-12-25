@@ -128,7 +128,7 @@ const TestimonialArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
+                        <SectionTitle {...section_title} align="left" titleSize={titleSize} color="C" />
                     )}
 
                     {buttons?.[0]?.content && (
@@ -143,7 +143,7 @@ const TestimonialArea = ({
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-navy",
 };
 
 export default TestimonialArea;
