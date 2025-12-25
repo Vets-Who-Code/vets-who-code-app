@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Explore the importance of command line skills and how Vets Who Code's Command Line Task Project Board can elevate your tech journey."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1723633145/cli-youtube_oi2yv3.png",
+        src: "v1723633145/cli-youtube_oi2yv3.png",
     }
 category: "Tech Skills"
 tags:

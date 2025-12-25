@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Exploring the invaluable transfer of skills from non-tech to tech careers, highlighting the significance of soft skills like process management, critical thinking, and teamwork."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1699756739/knowledge-transfer_wafnfp.webp",
+        src: "v1699756739/knowledge-transfer_wafnfp.webp",
     }
 category: "Career Development"
 tags:

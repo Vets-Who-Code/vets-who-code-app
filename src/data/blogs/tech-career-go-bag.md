@@ -3,7 +3,7 @@ title: "Your Career Go-Bag: Being Ready When Career Emergencies Strike"
 postedAt: "2025-03-19T14:30:00.000Z"
 author: "Vets Who Code Team"
 description: "Learn how to prepare a career emergency kit using the military go-bag concept to stay ready for unexpected job transitions."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1742570517/go-bag.jpg" }
+image: { src: "v1742570517/go-bag.jpg" }
 category: "Career Development"
 tags:
     - Career Planning

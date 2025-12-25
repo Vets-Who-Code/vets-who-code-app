@@ -2,10 +2,11 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import dayjs from "dayjs";
-import { IBlog, BlogMetaType, IDType } from "@utils/types";
+import { IBlog, BlogMetaType, IDType, ImageType } from "@utils/types";
 import { slugify, flatDeep } from "@utils/methods";
 import { getSlugs } from "./util";
 import { getAuthorByID } from "./author";
+import { getImageUrl } from "./cloudinary-helpers";
 
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;
@@ -22,6 +23,25 @@ const makeExcerpt = (str: string, maxLength: number): string => {
     let excerpt = str.substring(0, maxLength);
     excerpt = excerpt.substring(0, excerpt.lastIndexOf(" "));
     return `${excerpt} ...`;
+};
+
+/**
+ * Process image field to ensure it has a valid Cloudinary URL
+ * Supports both legacy full URLs and new public_id format
+ */
+const processImageField = (image: ImageType): ImageType => {
+    if (!image || !image.src) {
+        return image;
+    }
+
+    // Use the helper to get the URL (works with both public IDs and full URLs)
+    // Use default transformations (f_auto,q_auto,g_auto) to match original URLs
+    const processedSrc = getImageUrl(image.src);
+
+    return {
+        ...image,
+        src: processedSrc,
+    };
 };
 
 export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" = []): IBlog {
@@ -51,6 +71,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
             slug: realSlug,
             excerpt: makeExcerpt(content, 150),
             author: getAuthorByID(blogData.author, "all"),
+            image: processImageField(blogData.image),
         };
     } else {
         blog = fields.reduce(
@@ -86,6 +107,12 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
                             slug: slugify(tag),
                             path: `/blogs/tag/${slugify(tag)}`,
                         })),
+                    };
+                }
+                if (field === "image") {
+                    return {
+                        ...acc,
+                        image: processImageField(blogData.image),
                     };
                 }
                 if (typeof data[field] !== "undefined") {

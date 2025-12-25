@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Learn how to leverage AI tools like GitHub Copilot Workspaces and OpenAI to create a Next.js login feature efficiently."
 image:
     {
-        src: https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,dpr_auto,w_1200/v1718415884/YouTube_Thumbnail_Scroll_YouTube_Thumbnail_znc4st.png,
+        src: v1718415884/YouTube_Thumbnail_Scroll_YouTube_Thumbnail_znc4st.png,
     }
 category: "AI Development"
 tags:

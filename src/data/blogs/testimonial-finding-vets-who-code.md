@@ -5,7 +5,7 @@ author: "Jacob Oakley"
 description: "Discovering how Vets Who Code transformed my journey into web development."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721215701/jacob_oakley_s4vzb0.jpg",
+        src: "v1721215701/jacob_oakley_s4vzb0.jpg",
     }
 category: "Testimonial"
 tags:

@@ -5,7 +5,7 @@ author: "Josh Morton"
 description: "Follow the inspiring journey of Josh Morton transitioning from military service to a thriving tech career with the support of Vets Who Code."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg",
+        src: "v1721082085/josh-morton.jpg",
     }
 category: "Testimonial"
 tags:
