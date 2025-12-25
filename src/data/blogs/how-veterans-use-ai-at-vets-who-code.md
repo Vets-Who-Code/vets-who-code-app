@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Explore how Vets Who Code integrates GitHub Copilot and Azure Open AI into its curriculum, offering veterans an innovative approach to learning programming and preparing them for the future of tech."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1711322381/ai-teaching-vetswhocode_gixy7v.jpg",
+        src: "v1711322381/ai-teaching-vetswhocode_gixy7v.jpg",
     }
 category: "AI in Education"
 tags:

@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Explore the art of prompt engineering in software development, unlocking innovative patterns for web technologies."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1711469342/AdobeStock_589267674_pv1cwm.jpg",
+        src: "v1711469342/AdobeStock_589267674_pv1cwm.jpg",
     }
 category: "Software Development and Engineering"
 tags:

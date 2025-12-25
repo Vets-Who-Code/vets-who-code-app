@@ -5,7 +5,7 @@ author: "Jon Onulak"
 description: "A look at how Vets Who Code built a Projects Page to showcase community initiatives, with insights into the design, development, and implementation process."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1737333954/projects-screenshot_nym64x.png",
+        src: "v1737333954/projects-screenshot_nym64x.png",
     }
 category: "Development Journey"
 tags:
@@ -61,7 +61,7 @@ The detailed project modal was created using Radix UI's Dialog component. This f
 
 Testing was critical to the success of this feature. Using Jest and React Testing Library, I ensured all components and functions behaved as expected. Mocking the GitHub API allowed me to simulate real-world scenarios and validate the page's performance under various conditions. With these tests complete, the Projects Page is now live and ready to showcase the amazing work of Vets Who Code.
 
-![Projects Page Screenshot](https://res.cloudinary.com/vetswhocode/image/upload/v1737333954/projects-screenshot_nym64x.png)
+![Projects Page Screenshot](v1737333954/projects-screenshot_nym64x.png)
 
 ## Explore the Finished Feature and Join the Conversation
 

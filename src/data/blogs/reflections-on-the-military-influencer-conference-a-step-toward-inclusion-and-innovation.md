@@ -3,7 +3,7 @@ title: "Reflections on the Military Influencer Conference: A Step Toward Inclusi
 postedAt: "2024-12-23T00:00:00.000Z"
 author: "Jerome Hardaway"
 description: "A look back at the Military Influencer Conference, highlighting its inclusion, innovation, and the opportunities it presents for the veteran community."
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1734933670/mic_kfzbjs.jpg" }
+image: { src: "v1734933670/mic_kfzbjs.jpg" }
 category: "Conferences"
 tags:
     - Military

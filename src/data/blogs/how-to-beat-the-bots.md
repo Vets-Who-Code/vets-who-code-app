@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Understanding how ATS systems process your resume is key to getting past them."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,w_1200,c_limit,dpr_auto,fl_progressive,fl_strip_profile/v1745335052/ats-blog-header_mrcz1j.jpg",
+        src: "v1745335052/ats-blog-header_mrcz1j.jpg",
     }
 category: "Career Transition"
 tags:

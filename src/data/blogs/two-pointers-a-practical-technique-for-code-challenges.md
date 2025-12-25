@@ -3,7 +3,7 @@ title: "Two Pointers: A Practical Technique for Code Challenges"
 postedAt: 2025-07-14T23:25:23.000Z
 author: Jerome Hardaway
 description: Master the Two Pointers technique with practical Python and JavaScript examples designed to help you ace technical interviews.
-image: { src: "https://res.cloudinary.com/vetswhocode/image/upload/v1752532025/two-pointers-blog-image_dlhom6.jpg", alt: "Diagram illustrating the Two Pointers technique" }
+image: { src: "v1752532025/two-pointers-blog-image_dlhom6.jpg", alt: "Diagram illustrating the Two Pointers technique" }
 category: Code Challenges
 tags:
     - two pointers

@@ -1,5 +1,6 @@
 import { marked } from "marked";
 import clsx from "clsx";
+import { getImageUrl } from "@/lib/cloudinary-helpers";
 
 type TProps = {
     content: string;
@@ -8,12 +9,24 @@ type TProps = {
 
 const MarkdownRenderer = ({ content, className }: TProps) => {
     const renderer = new marked.Renderer();
+
+    // Custom link renderer to open links in new tabs
     // eslint-disable-next-line @typescript-eslint/unbound-method
     const linkRenderer = renderer.link;
     renderer.link = (href, linkTitle, text) => {
         const html = linkRenderer.call(renderer, href, linkTitle, text);
         return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
     };
+
+    // Custom image renderer to handle Cloudinary public IDs
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    const imageRenderer = renderer.image;
+    renderer.image = (href, title, text) => {
+        // Convert Cloudinary public IDs to full URLs
+        const imageUrl = getImageUrl(href || '');
+        return imageRenderer.call(renderer, imageUrl, title, text);
+    };
+
     return (
         <div
             className={clsx(

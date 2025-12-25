@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "What the DeepMind team revealed at Google I/O 2025 is shaping how Vets Who Code uses Gemini to empower veterans and military spouses for a future in tech."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1747965846/google-deepmind-team_rtepag.jpg",
+        src: "v1747965846/google-deepmind-team_rtepag.jpg",
     }
 category: "AI & Veterans"
 tags:

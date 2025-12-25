@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Why Vets Who Code’s new mentorship model is changing the game for veteran developers by focusing on tactical guidance from recently transitioned engineers."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746411634/vwc-mentorship-program_ywhqsa.jpg",
+        src: "v1746411634/vwc-mentorship-program_ywhqsa.jpg",
     }
 category: "Mentorship"
 tags:

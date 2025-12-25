@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "An update on the progress and future plans of Vets Who Code, commemorating Veterans Day 2023."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1699678278/veterans-day_szcwx5.png",
+        src: "v1699678278/veterans-day_szcwx5.png",
     }
 category: "Veterans Support"
 tags:
