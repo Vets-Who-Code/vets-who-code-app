@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
@@ -24,6 +24,10 @@ type PageProps = {
 type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
+
+// Course ID for Web Development course
+// Note: This should match the course ID in the database
+const WEB_DEVELOPMENT_COURSE_ID = "web-development-course";
 
 const modules = [
     {
@@ -103,17 +107,71 @@ const modules = [
 const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [enrolling, setEnrolling] = useState(false);
+    const [checkingEnrollment, setCheckingEnrollment] = useState(true);
+    const [enrollmentError, setEnrollmentError] = useState<string | null>(null);
+
+    // Check enrollment status on mount
+    useEffect(() => {
+        const checkEnrollment = async () => {
+            if (!session) {
+                setCheckingEnrollment(false);
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `/api/enrollment/status?courseId=${WEB_DEVELOPMENT_COURSE_ID}`
+                );
+                const data = await response.json();
+
+                if (response.ok) {
+                    setIsEnrolled(data.isEnrolled);
+                }
+            } catch (error) {
+                console.error("Error checking enrollment status:", error);
+            } finally {
+                setCheckingEnrollment(false);
+            }
+        };
+
+        if (status !== "loading") {
+            checkEnrollment();
+        }
+    }, [session, status]);
 
     const handleEnroll = async () => {
         setEnrolling(true);
+        setEnrollmentError(null);
+
         try {
-            // TODO: Implement enrollment API
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 1000);
-            }); // Simulate API call
-            setIsEnrolled(true);
+            const response = await fetch("/api/enrollment/enroll", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    courseId: WEB_DEVELOPMENT_COURSE_ID,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setIsEnrolled(true);
+                setEnrollmentError(null);
+            } else {
+                // Handle enrollment error
+                if (data.error === "Already enrolled in this course") {
+                    setIsEnrolled(true);
+                } else {
+                    setEnrollmentError(
+                        data.error || "Failed to enroll in course. Please try again."
+                    );
+                }
+            }
         } catch (error) {
-            // Handle error silently for now
+            console.error("Error enrolling in course:", error);
+            setEnrollmentError("An unexpected error occurred. Please try again.");
         } finally {
             setEnrolling(false);
         }

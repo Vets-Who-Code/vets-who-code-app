@@ -98,10 +98,10 @@ const AdminDashboard: PageWithLayout = () => {
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                Monthly Revenue
+                                Certificates Issued
                             </h3>
-                            <p className="tw-text-3xl tw-font-bold tw-text-primary">$45,2K</p>
-                            <p className="tw-text-sm tw-text-green-600">+18% growth</p>
+                            <p className="tw-text-3xl tw-font-bold tw-text-primary">127</p>
+                            <p className="tw-text-sm tw-text-green-600">+23 this month</p>
                         </div>
                     </div>
                 </div>

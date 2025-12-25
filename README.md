@@ -66,6 +66,47 @@ $ npm run dev
 
 Navigate to `http://localhost:3000/` to see the app in action.
 
+## LMS (Learning Management System) 🎓
+
+This app includes a complete Learning Management System for veterans to learn coding skills!
+
+### Quick Setup
+
+```sh
+# Generate Prisma client and setup database
+$ npm run dev:setup
+
+# Seed database with test data
+$ npx prisma db seed
+
+# Start development server
+$ npm run dev
+```
+
+### Sign In
+
+**Local Development:**
+
+- Go to `http://localhost:3000/login`
+- Click **"Dev Login (Jerome Only)"** for instant access
+
+**Production (Vercel):**
+
+- Sign in with your GitHub account
+- Admin access automatically granted to authorized users
+
+### 📚 Complete Guide
+
+For detailed information about the LMS features, API endpoints, and workflows, see **[LMS_GUIDE.md](LMS_GUIDE.md)**
+
+**Quick Links:**
+
+- Student Dashboard: `/dashboard`
+- Browse Courses: `/courses`
+- Admin Panel: `/admin/courses`
+- Create Course: `/admin/courses/create`
+- Instructor Grading: `/instructor/grading`
+
 ## Development using Dev Container (Optional) 🐳
 
 We support development containers for an easier setup experience.

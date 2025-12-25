@@ -20,7 +20,7 @@ jest.mock("@components/seo/page-seo", () => ({
 
 jest.mock("@layout/layout-01", () => ({
     __esModule: true,
-    default: ({ children }) => <div data-testid="layout">{children}</div>,
+    default: ({ children }: { children: React.ReactNode }) => <div data-testid="layout">{children}</div>,
 }));
 
 jest.mock("@components/breadcrumb", () => ({
@@ -29,19 +29,19 @@ jest.mock("@components/breadcrumb", () => ({
 }));
 
 jest.mock("@components/vwc-grid", () => ({
-    VWCGrid: ({ children }) => <div data-testid="vwc-grid">{children}</div>,
+    VWCGrid: ({ children }: { children: React.ReactNode }) => <div data-testid="vwc-grid">{children}</div>,
 }));
 
 jest.mock("@components/markdown-renderer", () => ({
     __esModule: true,
-    default: ({ content }) => <div data-testid="markdown">{content}</div>,
+    default: ({ content }: { content: string }) => <div data-testid="markdown">{content}</div>,
 }));
 
 // Mock the AnimatePresence component
 jest.mock("motion/react", () => ({
-    AnimatePresence: ({ children }) => <div>{children}</div>,
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     motion: {
-        div: ({ children }) => <div>{children}</div>,
+        div: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
     },
 }));
 
@@ -56,10 +56,6 @@ const mockContributor: VWCContributor = {
     avatar_url: "https://example.com/avatar.jpg",
     html_url: "https://github.com/testuser",
     contributions: 10,
-    id: 1,
-    node_id: "node1",
-    type: "User",
-    url: "https://api.github.com/users/testuser",
 };
 
 const mockRepo: VWCProjectRepo = {

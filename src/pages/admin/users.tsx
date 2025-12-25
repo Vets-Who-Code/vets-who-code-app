@@ -5,6 +5,7 @@ import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+import type { Role } from "@/lib/rbac";
 
 type User = {
     id: string;
@@ -31,8 +32,6 @@ type PageProps = {
 type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
-
-const ADMIN_GITHUB_USERNAME = "jeromehardaway";
 
 const AdminUsersPage: PageWithLayout = () => {
     const { data: session, status } = useSession();
@@ -113,8 +112,9 @@ const AdminUsersPage: PageWithLayout = () => {
         );
     }
 
-    // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
+    // Check admin access using RBAC
+    const userRole = (session?.user as any)?.role as Role | undefined;
+    if (!session || userRole !== 'ADMIN') {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
