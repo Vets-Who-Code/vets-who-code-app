@@ -25,7 +25,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                         <h1 className="tw-text-4xl tw-font-bold tw-text-secondary tw-mb-4">
                             Store Configuration Required
                         </h1>
-                        <p className="tw-text-lg tw-text-gray-600">
+                        <p className="tw-text-lg tw-text-gray-300">
                             The Shopify store is not configured yet. Please add your Shopify
                             credentials to the environment variables.
                         </p>
@@ -49,7 +49,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                         <h1 className="tw-text-5xl tw-font-bold tw-mb-4 tw-text-primary">
                             Vets Who Code Store
                         </h1>
-                        <p className="tw-text-xl tw-text-gray-700">
+                        <p className="tw-text-xl tw-text-gray-200">
                             Shop official merchandise and support our mission
                         </p>
                     </div>
@@ -89,7 +89,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                     <h2 className="tw-text-3xl tw-font-bold tw-text-secondary tw-mb-2">
                         All Products
                     </h2>
-                    <p className="tw-text-gray-600">
+                    <p className="tw-text-gray-300">
                         {products.length} {products.length === 1 ? "product" : "products"}{" "}
                         available
                     </p>
@@ -100,7 +100,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                     <ProductGrid products={products} columns={3} />
                 ) : (
                     <div className="tw-text-center tw-py-20">
-                        <p className="tw-text-xl tw-text-gray-600">
+                        <p className="tw-text-xl tw-text-gray-300">
                             No products available at the moment.
                         </p>
                     </div>

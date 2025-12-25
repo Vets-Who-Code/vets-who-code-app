@@ -45,6 +45,7 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                             "tw-mb-2.5 tw-block tw-text-base tw-font-medium tw-uppercase tw-leading-none -tw-tracking-tightest",
                             color === "A" && "tw-text-secondary-light",
                             color === "B" && "tw-text-secondary",
+                            color === "C" && "tw-text-white",
                             subtitleClass
                         )}
                         dangerouslySetInnerHTML={{ __html: subtitle }}

@@ -66,7 +66,7 @@ const TestimonialArea = ({
                         {items.map((item) => (
                             <SwiperSlide key={item.id}>
                                 <Testimonial
-                                    className="!tw-bg-gray-200 tw-shadow-[0_16px_40px_-40px]"
+                                    className="!tw-bg-gray-50 tw-shadow-[0_16px_40px_-40px]"
                                     name={item.name}
                                     designation={item.designation}
                                     title={item.title}

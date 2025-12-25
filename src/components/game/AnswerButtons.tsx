@@ -26,7 +26,7 @@ const AnswerButtons: React.FC<AnswerButtonsProps> = ({ onAnswer, branches, disab
                     key={branch}
                     onClick={() => onAnswer(branch)}
                     disabled={disabled}
-                    className="tw-flex tw-h-[80px] tw-flex-col tw-items-center tw-justify-center tw-rounded-lg tw-bg-gray-200 tw-px-4 tw-py-3 tw-font-medium tw-text-secondary tw-shadow-md tw-transition-all hover:tw-scale-105 hover:tw-bg-primary hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 disabled:tw-opacity-70"
+                    className="tw-flex tw-h-[80px] tw-flex-col tw-items-center tw-justify-center tw-rounded-lg tw-bg-gray-50 tw-px-4 tw-py-3 tw-font-medium tw-text-secondary tw-shadow-md tw-transition-all hover:tw-scale-105 hover:tw-bg-primary hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 disabled:tw-opacity-70"
                 >
                     <i className={`${branchIcons[branch]} tw-mb-2 tw-text-lg`} />
                     {branch}

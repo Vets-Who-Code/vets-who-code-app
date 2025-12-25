@@ -86,17 +86,17 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
         {/* Header */}
         <div className="tw-mb-12">
           <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-            <h1 className="tw-text-4xl tw-font-bold tw-text-gray-900">
+            <h1 className="tw-text-4xl tw-font-bold tw-text-ink">
               Vets Who Code Job Board
             </h1>
             {user.hasEnrollment && (
-              <span className="tw-rounded-full tw-bg-green-100 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-green-800">
+              <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gold-deep">
                 <i className="fas fa-check-circle tw-mr-2" />
                 VWC Alumni
               </span>
             )}
           </div>
-          <p className="tw-text-xl tw-text-gray-600">
+          <p className="tw-text-xl tw-text-gray-300">
             Exclusive tech opportunities for our veteran community
           </p>
         </div>
@@ -108,7 +108,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
             <div className="md:tw-col-span-2">
               <label
                 htmlFor="search"
-                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
               >
                 Search Jobs
               </label>
@@ -126,7 +126,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
             <div>
               <label
                 htmlFor="category"
-                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
               >
                 Category
               </label>
@@ -149,7 +149,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
             <div>
               <label
                 htmlFor="type"
-                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
               >
                 Job Type
               </label>
@@ -172,7 +172,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
           {/* Active Filters */}
           {(searchQuery || selectedCategory || selectedType) && (
             <div className="tw-mt-4 tw-flex tw-items-center tw-gap-2">
-              <span className="tw-text-sm tw-text-gray-600">Active filters:</span>
+              <span className="tw-text-sm tw-text-gray-300">Active filters:</span>
               {searchQuery && (
                 <span className="tw-rounded-full tw-bg-primary tw-bg-opacity-10 tw-px-3 tw-py-1 tw-text-sm tw-text-primary">
                   Search: &quot;{searchQuery}&quot;
@@ -199,7 +199,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
         </div>
 
         {/* Results Count */}
-        <div className="tw-mb-6 tw-text-gray-600">
+        <div className="tw-mb-6 tw-text-gray-300">
           Showing {filteredJobs.length} {filteredJobs.length === 1 ? 'job' : 'jobs'}
           {jobs.length !== filteredJobs.length && ` of ${jobs.length} total`}
         </div>
@@ -208,10 +208,10 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
         {filteredJobs.length === 0 ? (
           <div className="tw-rounded-lg tw-bg-white tw-p-12 tw-text-center tw-shadow-md">
             <i className="fas fa-briefcase tw-mb-4 tw-text-6xl tw-text-gray-300" />
-            <h3 className="tw-mb-2 tw-text-xl tw-font-semibold tw-text-gray-900">
+            <h3 className="tw-mb-2 tw-text-xl tw-font-semibold tw-text-ink">
               {jobs.length === 0 ? 'No jobs available yet' : 'No jobs match your filters'}
             </h3>
-            <p className="tw-mb-4 tw-text-gray-600">
+            <p className="tw-mb-4 tw-text-gray-300">
               {jobs.length === 0
                 ? 'Check back soon for new opportunities!'
                 : 'Try adjusting your search or filters to see more results.'}
@@ -235,10 +235,10 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                 <div className="tw-p-6">
                   <div className="tw-mb-4 tw-flex tw-items-start tw-justify-between">
                     <div className="tw-flex-1">
-                      <h2 className="tw-mb-2 tw-text-2xl tw-font-bold tw-text-gray-900">
+                      <h2 className="tw-mb-2 tw-text-2xl tw-font-bold tw-text-ink">
                         {job.title}
                       </h2>
-                      <div className="tw-mb-3 tw-flex tw-flex-wrap tw-gap-3 tw-text-gray-600">
+                      <div className="tw-mb-3 tw-flex tw-flex-wrap tw-gap-3 tw-text-gray-300">
                         {job.company && (
                           <div className="tw-flex tw-items-center">
                             <i className="fas fa-building tw-mr-2 tw-text-primary" />
@@ -265,7 +265,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                         )}
                       </div>
                       {job.category && (
-                        <span className="tw-inline-block tw-rounded-full tw-bg-blue-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800">
+                        <span className="tw-inline-block tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800">
                           {job.category}
                         </span>
                       )}
@@ -277,7 +277,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                     )}
                   </div>
 
-                  <p className="tw-mb-4 tw-line-clamp-3 tw-text-gray-700">
+                  <p className="tw-mb-4 tw-line-clamp-3 tw-text-gray-200">
                     {job.description}
                   </p>
 
@@ -305,12 +305,12 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
         )}
 
         {/* Help Section */}
-        <div className="tw-mt-12 tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-blue-50 tw-p-6">
-          <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-gray-900">
-            <i className="fas fa-info-circle tw-mr-2 tw-text-blue-600" />
+        <div className="tw-mt-12 tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-6">
+          <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-ink">
+            <i className="fas fa-info-circle tw-mr-2 tw-text-navy-royal" />
             Need Help with Your Job Search?
           </h3>
-          <p className="tw-mb-4 tw-text-gray-700">
+          <p className="tw-mb-4 tw-text-gray-200">
             Leverage our resources to improve your chances of landing your dream role:
           </p>
           <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-3">

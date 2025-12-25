@@ -51,7 +51,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
                                 "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-font-extrabold tw-uppercase tw-leading-[48px] -tw-tracking-tightest hover:tw-text-heading",
                                 currentPage !== i + 1 && "tw-text-gray-400",
                                 currentPage === i + 1 &&
-                                    "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
+                                    "tw-pointer-events-none tw-bg-gray-50 tw-text-heading"
                             )}
                             onClick={() => pagiHandler(`${i + 1}`)}
                         >

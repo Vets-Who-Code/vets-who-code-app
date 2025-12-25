@@ -42,10 +42,10 @@ const AdminDashboard: PageWithLayout = () => {
                 />
                 <div className="tw-container tw-py-16">
                     <div className="tw-text-center">
-                        <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
                             Admin Access Denied
                         </h1>
-                        <p className="tw-mx-auto tw-max-w-2xl tw-text-xl tw-text-gray-600">
+                        <p className="tw-mx-auto tw-max-w-2xl tw-text-xl tw-text-gray-300">
                             This area is restricted to authorized administrators only.
                         </p>
                     </div>
@@ -66,10 +66,10 @@ const AdminDashboard: PageWithLayout = () => {
             <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
                 <div className="tw-mx-auto tw-max-w-7xl tw-px-4 sm:tw-px-6 lg:tw-px-8">
                     <div className="tw-mb-8">
-                        <h1 className="tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-text-3xl tw-font-bold tw-text-ink">
                             Admin Dashboard
                         </h1>
-                        <p className="tw-mt-2 tw-text-gray-600">
+                        <p className="tw-mt-2 tw-text-gray-300">
                             Welcome back, {currentSession.user.name}! Manage your VWC platform here.
                         </p>
                     </div>
@@ -80,28 +80,28 @@ const AdminDashboard: PageWithLayout = () => {
                                 Total Students
                             </h3>
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">312</p>
-                            <p className="tw-text-sm tw-text-green-600">+12% from last month</p>
+                            <p className="tw-text-sm tw-text-gold">+12% from last month</p>
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
                                 Active Courses
                             </h3>
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">24</p>
-                            <p className="tw-text-sm tw-text-green-600">+3 new this month</p>
+                            <p className="tw-text-sm tw-text-gold">+3 new this month</p>
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
                                 Completion Rate
                             </h3>
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">78%</p>
-                            <p className="tw-text-sm tw-text-green-600">+5% improvement</p>
+                            <p className="tw-text-sm tw-text-gold">+5% improvement</p>
                         </div>
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
                                 Monthly Revenue
                             </h3>
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">$45,2K</p>
-                            <p className="tw-text-sm tw-text-green-600">+18% growth</p>
+                            <p className="tw-text-sm tw-text-gold">+18% growth</p>
                         </div>
                     </div>
                 </div>

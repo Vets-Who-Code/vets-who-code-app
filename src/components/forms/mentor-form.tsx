@@ -78,13 +78,13 @@ const MentorMenteeForm = () => {
             <div className="tw-mb-7.5 tw-flex tw-gap-4">
                 <Button
                     onClick={() => handleRoleChange("mentor")}
-                    className={`tw-flex-1 ${role === "mentor" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw-flex-1 ${role === "mentor" ? "" : "tw-bg-gray-300 tw-text-gray-200"}`}
                 >
                     Register as Mentor
                 </Button>
                 <Button
                     onClick={() => handleRoleChange("mentee")}
-                    className={`tw-flex-1 ${role === "mentee" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw-flex-1 ${role === "mentee" ? "" : "tw-bg-gray-300 tw-text-gray-200"}`}
                 >
                     Register as Mentee
                 </Button>

@@ -19,21 +19,21 @@ const Wrapper = ({ children, className, showBalls }: TProps) => {
             {showBalls && (
                 <>
                     <motion.div
-                        className="tw-absolute tw-left-[70px] tw-top-[164px] tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-orange-100/70"
+                        className="tw-absolute tw-left-[70px] tw-top-[164px] tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-red-signal/70"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     />
                     <motion.div
-                        className="tw-absolute tw-right-32 tw-top-[70px] tw-h-9 tw-w-9 tw-rounded-full tw-bg-blue-100/70"
+                        className="tw-absolute tw-right-32 tw-top-[70px] tw-h-9 tw-w-9 tw-rounded-full tw-bg-navy-sky/70"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
                         }}
                     />
                     <motion.div
-                        className="tw-absolute -tw-right-6 -tw-top-[120px] tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-jagged"
+                        className="tw-absolute -tw-right-6 -tw-top-[120px] tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-navy-sky"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,

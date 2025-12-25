@@ -76,7 +76,7 @@ const TheoryOfChange: PageWithLayout = ({ data }) => {
                                         {heading.content}
                                     </h3>
                                 ))}
-                                <div className="tw-text-base tw-text-gray-700">
+                                <div className="tw-text-base tw-text-gray-200">
                                     {item.texts?.map((text, index) => {
                                         if (item.texts && item.texts.length > 1 && index === 0) {
                                             return (

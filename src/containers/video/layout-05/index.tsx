@@ -17,7 +17,7 @@ type TProps = {
 
 const VideoArea = ({ data: { images, video, section_title } }: TProps) => {
     return (
-        <div className="tw-relative tw-z-10 tw-mb-15 tw-bg-gray-200 md:tw-mb-[140px]">
+        <div className="tw-relative tw-z-10 tw-mb-15 tw-bg-gray-50 md:tw-mb-[140px]">
             <div className="tw-container">
                 {section_title && (
                     <AnimatedSectionTitle

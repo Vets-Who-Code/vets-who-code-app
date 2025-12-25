@@ -48,7 +48,7 @@ const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
             <HeroArea data={heroData} />
             <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
                 <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
-                    <p className="tw-text-center tw-text-lg tw-text-gray-700">
+                    <p className="tw-text-center tw-text-lg tw-text-gray-200">
                         Our programs are designed to empower veterans with real-world skills,
                         mentorship, and a supportive community—helping you transition, grow, and
                         lead in tech.

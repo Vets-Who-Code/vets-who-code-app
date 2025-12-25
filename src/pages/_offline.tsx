@@ -38,11 +38,11 @@ const OfflinePage: PageWithLayout = () => {
                         </svg>
                     </div>
 
-                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-gray-900">
+                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                         You're Offline
                     </h1>
 
-                    <p className="tw-mb-8 tw-text-lg tw-text-gray-600">
+                    <p className="tw-mb-8 tw-text-lg tw-text-gray-300">
                         No internet connection found. Please check your connection and try again.
                     </p>
 
@@ -58,7 +58,7 @@ const OfflinePage: PageWithLayout = () => {
                         <button
                             type="button"
                             onClick={() => window.history.back()}
-                            className="tw-w-full tw-rounded-lg tw-bg-gray-200 tw-px-6 tw-py-3 tw-font-medium tw-text-gray-800 tw-transition-colors hover:tw-bg-gray-300"
+                            className="tw-w-full tw-rounded-lg tw-bg-gray-50 tw-px-6 tw-py-3 tw-font-medium tw-text-gray-400 tw-transition-colors hover:tw-bg-gray-300"
                         >
                             Go Back
                         </button>

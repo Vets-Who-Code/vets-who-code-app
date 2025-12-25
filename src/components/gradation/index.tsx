@@ -22,7 +22,7 @@ const Gradation = forwardRef<HTMLDivElement, TProps>(
                 )}
                 ref={ref}
             >
-                <div className="tw-absolute tw-left-[39px] tw-top-3.8 tw-h-full tw-w-px tw-bg-gray-550 group-last:tw-hidden lg:tw-left-3.8 lg:tw-top-6 lg:tw-h-px lg:tw-w-full" />
+                <div className="tw-absolute tw-left-[39px] tw-top-3.8 tw-h-full tw-w-px tw-bg-gray-50 group-last:tw-hidden lg:tw-left-3.8 lg:tw-top-6 lg:tw-h-px lg:tw-w-full" />
                 <div className="tw-relative tw-mb-14 tw-inline-block">
                     <div className="mask tw-invisible tw-opacity-0 group-hover:tw-visible group-hover:tw-opacity-100">
                         <div

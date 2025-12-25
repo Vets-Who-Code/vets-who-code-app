@@ -115,7 +115,7 @@ const AdminCoursesPage: PageWithLayout = () => {
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
                     <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading courses...</p>
+                    <p className="tw-mt-4 tw-text-gray-300">Loading courses...</p>
                 </div>
             </div>
         );
@@ -126,10 +126,10 @@ const AdminCoursesPage: PageWithLayout = () => {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
-                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
+                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
                         Access Denied
                     </h1>
-                    <p className="tw-text-gray-600">Administrator access required.</p>
+                    <p className="tw-text-gray-300">Administrator access required.</p>
                     <Link href="/admin" className="tw-mt-4 tw-inline-block tw-text-primary">
                         ← Back to Admin
                     </Link>
@@ -151,9 +151,9 @@ const AdminCoursesPage: PageWithLayout = () => {
 
     const getStatusBadge = (courseStatus: Course["status"]) => {
         const styles = {
-            published: "tw-bg-green-100 tw-text-green-800",
-            draft: "tw-bg-yellow-100 tw-text-yellow-800",
-            archived: "tw-bg-gray-100 tw-text-gray-800",
+            published: "tw-bg-gold-light/30 tw-text-gold-deep",
+            draft: "tw-bg-gold-bright tw-text-gold-deep",
+            archived: "tw-bg-gray-100 tw-text-gray-400",
         };
         return (
             <span
@@ -166,9 +166,9 @@ const AdminCoursesPage: PageWithLayout = () => {
 
     const getLevelBadge = (level: Course["level"]) => {
         const styles = {
-            Beginner: "tw-bg-blue-100 tw-text-blue-800",
+            Beginner: "tw-bg-navy-sky tw-text-blue-800",
             Intermediate: "tw-bg-purple-100 tw-text-purple-800",
-            Advanced: "tw-bg-orange-100 tw-text-orange-800",
+            Advanced: "tw-bg-red-signal tw-text-red-dark",
         };
         return (
             <span
@@ -195,10 +195,10 @@ const AdminCoursesPage: PageWithLayout = () => {
                 {/* Header */}
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-between">
                     <div>
-                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-ink">
                             Course Management
                         </h1>
-                        <p className="tw-text-gray-600">Create and manage learning content</p>
+                        <p className="tw-text-gray-300">Create and manage learning content</p>
                     </div>
                     <div className="tw-flex tw-space-x-3">
                         <button
@@ -210,7 +210,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                         </button>
                         <Link
                             href="/admin"
-                            className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                            className="tw-rounded-md tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                         >
                             <i className="fas fa-arrow-left tw-mr-2" />
                             Back to Admin
@@ -225,7 +225,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                         <div className="md:tw-col-span-2">
                             <label
                                 htmlFor="search"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Search Courses
                             </label>
@@ -243,7 +243,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                         <div>
                             <label
                                 htmlFor="status"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Status
                             </label>
@@ -266,7 +266,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                         <div>
                             <label
                                 htmlFor="level"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Level
                             </label>
@@ -287,7 +287,7 @@ const AdminCoursesPage: PageWithLayout = () => {
 
                         {/* Results Count */}
                         <div className="tw-flex tw-items-end">
-                            <div className="tw-text-sm tw-text-gray-600">
+                            <div className="tw-text-sm tw-text-gray-300">
                                 Showing {filteredCourses.length} of {courses.length} courses
                             </div>
                         </div>
@@ -309,14 +309,14 @@ const AdminCoursesPage: PageWithLayout = () => {
                                 <div className="tw-flex tw-space-x-1">
                                     <button
                                         type="button"
-                                        className="tw-text-blue-600 hover:tw-text-blue-900"
+                                        className="tw-text-navy-royal hover:tw-text-blue-900"
                                         title="Edit Course"
                                     >
                                         <i className="fas fa-edit" />
                                     </button>
                                     <button
                                         type="button"
-                                        className="tw-text-green-600 hover:tw-text-green-900"
+                                        className="tw-text-gold hover:tw-text-green-900"
                                         title="View Course"
                                     >
                                         <i className="fas fa-eye" />
@@ -331,11 +331,11 @@ const AdminCoursesPage: PageWithLayout = () => {
                                 </div>
                             </div>
 
-                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
                                 {course.title}
                             </h3>
 
-                            <p className="tw-mb-4 tw-line-clamp-2 tw-text-sm tw-text-gray-600">
+                            <p className="tw-mb-4 tw-line-clamp-2 tw-text-sm tw-text-gray-300">
                                 {course.description}
                             </p>
 

@@ -106,7 +106,7 @@ const VideoArea = ({
 };
 
 VideoArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default VideoArea;

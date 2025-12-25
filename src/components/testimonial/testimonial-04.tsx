@@ -9,7 +9,7 @@ const Testimonial04 = ({ title, className }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-max-w-[270px] tw-rounded tw-bg-white tw-px-[26px] tw-py-7.5 tw-shadow-lg tw-shadow-heading/10",
+                "tw-max-w-[270px] tw-rounded tw-bg-cream tw-px-[26px] tw-py-7.5 tw-shadow-lg tw-shadow-heading/10",
                 className
             )}
         >

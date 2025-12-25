@@ -125,7 +125,7 @@ const Button = ({
     ];
 
     // Light Button
-    const containedLightClass = "tw-bg-light tw-border-light tw-text-heading tw-shadow-sm";
+    const containedLightClass = "tw-bg-white tw-border-white tw-text-navy tw-shadow-sm";
     const containedLightHoverClass =
         !disabled &&
         !active &&
@@ -142,7 +142,7 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedLightClass = "tw-border-light tw-text-light";
+    const outlinedLightClass = "tw-border-white tw-text-white";
     const outlinedLightHoverClass =
         !disabled &&
         !active &&

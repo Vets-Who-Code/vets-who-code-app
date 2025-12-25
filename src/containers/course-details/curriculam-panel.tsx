@@ -23,7 +23,7 @@ const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
             {curriculum.map(({ id, title, description, lessons }) => (
                 <div
                     key={id}
-                    className="tw-mt-[50px] tw-rounded tw-border tw-border-alto first:tw-mt-0"
+                    className="tw-mt-[50px] tw-rounded tw-border tw-border-gray-100 first:tw-mt-0"
                 >
                     <div className="tw-px-3.8 tw-py-5 md:tw-px-12 md:tw-py-[22px]">
                         <h5 className="tw-mb-0 tw-text-xl">{title}</h5>

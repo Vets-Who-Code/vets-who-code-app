@@ -39,7 +39,7 @@ const DevAccess: NextPage = () => {
           <h1 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-red-600">
             Not Available in Production
           </h1>
-          <p className="tw-text-gray-700">
+          <p className="tw-text-gray-200">
             This page is only available in development mode.
           </p>
         </div>
@@ -53,10 +53,10 @@ const DevAccess: NextPage = () => {
         <div className="tw-mb-4">
           <i className="fas fa-cog fa-spin tw-text-6xl tw-text-primary" />
         </div>
-        <h1 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+        <h1 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
           Dev Access Enabled
         </h1>
-        <p className="tw-mb-4 tw-text-gray-700">
+        <p className="tw-mb-4 tw-text-gray-200">
           Setting up development bypass...
         </p>
         <p className="tw-text-sm tw-text-gray-500">

@@ -63,16 +63,16 @@ const AssignmentSection: React.FC<{
     if (!assignment) return null;
 
     return (
-        <div className="tw-mb-8 tw-rounded-lg tw-border tw-border-orange-200 tw-bg-orange-50 tw-p-6">
+        <div className="tw-mb-8 tw-rounded-lg tw-border tw-border-red-signal/30 tw-bg-red-signal/10 tw-p-6">
             <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                <h3 className="tw-text-xl tw-font-bold tw-text-orange-900">
+                <h3 className="tw-text-xl tw-font-bold tw-text-red-maroon">
                     <i className="fas fa-tasks tw-mr-2" />
                     Assignment: {assignment.title}
                 </h3>
                 <button
                     type="button"
                     onClick={() => setShowAssignment(!showAssignment)}
-                    className="tw-text-orange-600 hover:tw-text-orange-800"
+                    className="tw-text-red hover:tw-text-red-dark"
                 >
                     {showAssignment ? (
                         <i className="fas fa-chevron-up" />
@@ -84,13 +84,13 @@ const AssignmentSection: React.FC<{
 
             {showAssignment && (
                 <div>
-                    <p className="tw-mb-4 tw-text-orange-800">{assignment.description}</p>
+                    <p className="tw-mb-4 tw-text-red-dark">{assignment.description}</p>
 
-                    <h4 className="tw-mb-2 tw-font-semibold tw-text-orange-900">Requirements:</h4>
+                    <h4 className="tw-mb-2 tw-font-semibold tw-text-red-maroon">Requirements:</h4>
                     <ul className="tw-mb-4 tw-space-y-1">
                         {assignment.requirements.map((req) => (
-                            <li key={req} className="tw-flex tw-items-start tw-text-orange-800">
-                                <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-orange-600" />
+                            <li key={req} className="tw-flex tw-items-start tw-text-red-dark">
+                                <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-red" />
                                 {req}
                             </li>
                         ))}
@@ -99,7 +99,7 @@ const AssignmentSection: React.FC<{
                     {assignment.submissionUrl && (
                         <Link
                             href={assignment.submissionUrl}
-                            className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-orange-600 tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-orange-700"
+                            className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-red tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-red-crimson"
                         >
                             <i className="fas fa-upload tw-mr-2" />
                             Submit Assignment
@@ -168,11 +168,11 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                 {/* Header */}
                 <div className="tw-mb-8 tw-flex tw-flex-col tw-items-start tw-justify-between lg:tw-flex-row lg:tw-items-center">
                     <div className="tw-mb-4 tw-flex-1 lg:tw-mb-0">
-                        <div className="tw-mb-2 tw-text-sm tw-text-gray-600">{module.title}</div>
-                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <div className="tw-mb-2 tw-text-sm tw-text-gray-300">{module.title}</div>
+                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-ink">
                             {lesson.title}
                         </h1>
-                        <p className="tw-text-gray-600">{lesson.description}</p>
+                        <p className="tw-text-gray-300">{lesson.description}</p>
                     </div>
                     <div className="tw-flex tw-items-center tw-space-x-4">
                         <div className="tw-text-sm tw-text-gray-500">
@@ -180,7 +180,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             {lesson.duration}
                         </div>
                         {completed && (
-                            <div className="tw-flex tw-items-center tw-rounded-full tw-bg-green-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-green-800">
+                            <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gold-light/30 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-gold-deep">
                                 <i className="fas fa-check tw-mr-1" />
                                 Completed
                             </div>
@@ -194,7 +194,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                         {/* Video Player */}
                         {lesson.videoUrl && (
                             <div className="tw-mb-8">
-                                <div className="tw-aspect-video tw-overflow-hidden tw-rounded-lg tw-bg-gray-900">
+                                <div className="tw-aspect-video tw-overflow-hidden tw-rounded-lg tw-bg-ink">
                                     <iframe
                                         src={lesson.videoUrl}
                                         title={lesson.title}
@@ -208,7 +208,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* Lesson Content */}
                         <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+                            <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                                 Lesson Content
                             </h2>
                             <div
@@ -243,7 +243,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                     <button
                                         type="button"
                                         onClick={markAsCompleted}
-                                        className="tw-rounded-md tw-bg-green-600 tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700"
+                                        className="tw-rounded-md tw-bg-gold-rich tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700"
                                     >
                                         <i className="fas fa-check tw-mr-2" />
                                         Mark as Complete
@@ -267,29 +267,29 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     <div className="lg:tw-col-span-1">
                         {/* Course Progress */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Course Progress
                             </h3>
-                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-600">
+                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
                                 <span>Module Progress</span>
                                 <span>3/12 lessons</span>
                             </div>
-                            <div className="tw-mb-4 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
-                                <div className="tw-h-2 tw-w-[25%] tw-rounded-full tw-bg-blue-600" />
+                            <div className="tw-mb-4 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
+                                <div className="tw-h-2 tw-w-[25%] tw-rounded-full tw-bg-navy-royal" />
                             </div>
 
-                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-600">
+                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
                                 <span>Overall Progress</span>
                                 <span>15%</span>
                             </div>
-                            <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
-                                <div className="tw-h-2 tw-w-[15%] tw-rounded-full tw-bg-green-600" />
+                            <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
+                                <div className="tw-h-2 tw-w-[15%] tw-rounded-full tw-bg-gold-rich" />
                             </div>
                         </div>
 
                         {/* Quick Links */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Quick Links
                             </h3>
                             <div className="tw-space-y-2">
@@ -326,17 +326,17 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* AI Teaching Assistant */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-gradient-to-br tw-from-purple-50 tw-to-blue-50 tw-p-6 tw-shadow-md tw-border tw-border-purple-200">
-                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-gray-900">
-                                <i className="fas fa-robot tw-mr-2 tw-text-purple-600" />
+                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
+                                <i className="fas fa-robot tw-mr-2 tw-text-navy" />
                                 AI Teaching Assistant
                             </h3>
-                            <p className="tw-mb-4 tw-text-sm tw-text-gray-600">
+                            <p className="tw-mb-4 tw-text-sm tw-text-gray-300">
                                 Need help? Ask J0d!e for explanations and guidance!
                             </p>
                             <button
                                 type="button"
                                 onClick={() => setIsAIAssistantOpen(true)}
-                                className="tw-w-full tw-rounded-md tw-bg-purple-600 tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-purple-700"
+                                className="tw-w-full tw-rounded-md tw-bg-navy tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-purple-700"
                             >
                                 <i className="fas fa-comment-dots tw-mr-2" />
                                 Ask J0d!e
@@ -348,7 +348,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* Resources */}
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Lesson Resources
                             </h3>
                             <div className="tw-space-y-2">

@@ -51,10 +51,10 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
         <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
           <div className="tw-mb-6 tw-flex tw-items-start tw-justify-between">
             <div className="tw-flex-1">
-              <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-gray-900">
+              <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
                 {job.title}
               </h1>
-              <div className="tw-mb-4 tw-flex tw-flex-wrap tw-gap-4 tw-text-lg tw-text-gray-600">
+              <div className="tw-mb-4 tw-flex tw-flex-wrap tw-gap-4 tw-text-lg tw-text-gray-300">
                 {job.company && (
                   <div className="tw-flex tw-items-center">
                     <i className="fas fa-building tw-mr-2 tw-text-primary" />
@@ -82,13 +82,13 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
               </div>
               <div className="tw-flex tw-flex-wrap tw-gap-2">
                 {job.category && (
-                  <span className="tw-rounded-full tw-bg-blue-100 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-blue-800">
+                  <span className="tw-rounded-full tw-bg-navy-sky tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-blue-800">
                     <i className="fas fa-tag tw-mr-1" />
                     {job.category}
                   </span>
                 )}
                 {job.pubDate && (
-                  <span className="tw-rounded-full tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700">
+                  <span className="tw-rounded-full tw-bg-gray-100 tw-px-4 tw-py-2 tw-text-sm tw-text-gray-200">
                     <i className="fas fa-calendar tw-mr-1" />
                     Posted {new Date(job.pubDate).toLocaleDateString()}
                   </span>
@@ -139,11 +139,11 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
           <div className="lg:tw-col-span-2">
             {/* Job Description */}
             <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
-              <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+              <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                 Job Description
               </h2>
               <div
-                className="prose tw-max-w-none tw-text-gray-700"
+                className="prose tw-max-w-none tw-text-gray-200"
                 dangerouslySetInnerHTML={{ __html: job.description }}
               />
             </div>
@@ -151,40 +151,40 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
             {/* Additional Info */}
             {(job.company || job.type || job.salary) && (
               <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
-                <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+                <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                   Additional Information
                 </h2>
                 <dl className="tw-space-y-4">
                   {job.company && (
                     <div>
-                      <dt className="tw-font-semibold tw-text-gray-900">Company</dt>
-                      <dd className="tw-text-gray-700">{job.company}</dd>
+                      <dt className="tw-font-semibold tw-text-ink">Company</dt>
+                      <dd className="tw-text-gray-200">{job.company}</dd>
                     </div>
                   )}
                   {job.location && (
                     <div>
-                      <dt className="tw-font-semibold tw-text-gray-900">Location</dt>
-                      <dd className="tw-text-gray-700">{job.location}</dd>
+                      <dt className="tw-font-semibold tw-text-ink">Location</dt>
+                      <dd className="tw-text-gray-200">{job.location}</dd>
                     </div>
                   )}
                   {job.type && (
                     <div>
-                      <dt className="tw-font-semibold tw-text-gray-900">
+                      <dt className="tw-font-semibold tw-text-ink">
                         Employment Type
                       </dt>
-                      <dd className="tw-text-gray-700">{job.type}</dd>
+                      <dd className="tw-text-gray-200">{job.type}</dd>
                     </div>
                   )}
                   {job.salary && (
                     <div>
-                      <dt className="tw-font-semibold tw-text-gray-900">Salary Range</dt>
-                      <dd className="tw-text-gray-700">{job.salary}</dd>
+                      <dt className="tw-font-semibold tw-text-ink">Salary Range</dt>
+                      <dd className="tw-text-gray-200">{job.salary}</dd>
                     </div>
                   )}
                   {job.category && (
                     <div>
-                      <dt className="tw-font-semibold tw-text-gray-900">Category</dt>
-                      <dd className="tw-text-gray-700">{job.category}</dd>
+                      <dt className="tw-font-semibold tw-text-ink">Category</dt>
+                      <dd className="tw-text-gray-200">{job.category}</dd>
                     </div>
                   )}
                 </dl>
@@ -213,44 +213,44 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
 
             {/* Resources */}
             <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-              <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+              <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                 <i className="fas fa-tools tw-mr-2 tw-text-primary" />
                 Application Resources
               </h3>
               <div className="tw-space-y-3">
                 <Link
                   href="/resume-translator"
-                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-blue-50"
+                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                 >
-                  <div className="tw-font-medium tw-text-gray-900">
+                  <div className="tw-font-medium tw-text-ink">
                     <i className="fas fa-file-alt tw-mr-2 tw-text-primary" />
                     Resume Translator
                   </div>
-                  <div className="tw-text-sm tw-text-gray-600">
+                  <div className="tw-text-sm tw-text-gray-300">
                     Translate military skills to civilian terms
                   </div>
                 </Link>
                 <Link
                   href="/courses"
-                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-blue-50"
+                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                 >
-                  <div className="tw-font-medium tw-text-gray-900">
+                  <div className="tw-font-medium tw-text-ink">
                     <i className="fas fa-graduation-cap tw-mr-2 tw-text-primary" />
                     Skill Development
                   </div>
-                  <div className="tw-text-sm tw-text-gray-600">
+                  <div className="tw-text-sm tw-text-gray-300">
                     Enhance your tech skills
                   </div>
                 </Link>
                 <Link
                   href="/profile"
-                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-blue-50"
+                  className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                 >
-                  <div className="tw-font-medium tw-text-gray-900">
+                  <div className="tw-font-medium tw-text-ink">
                     <i className="fas fa-user-edit tw-mr-2 tw-text-primary" />
                     Update Profile
                   </div>
-                  <div className="tw-text-sm tw-text-gray-600">
+                  <div className="tw-text-sm tw-text-gray-300">
                     Keep your info current
                   </div>
                 </Link>
@@ -258,26 +258,26 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
             </div>
 
             {/* Tips */}
-            <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-blue-50 tw-p-6">
-              <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-gray-900">
-                <i className="fas fa-lightbulb tw-mr-2 tw-text-blue-600" />
+            <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-6">
+              <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-ink">
+                <i className="fas fa-lightbulb tw-mr-2 tw-text-navy-royal" />
                 Application Tips
               </h3>
-              <ul className="tw-space-y-2 tw-text-sm tw-text-gray-700">
+              <ul className="tw-space-y-2 tw-text-sm tw-text-gray-200">
                 <li className="tw-flex tw-items-start">
-                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-600" />
+                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-gold" />
                   <span>Tailor your resume to the job description</span>
                 </li>
                 <li className="tw-flex tw-items-start">
-                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-600" />
+                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-gold" />
                   <span>Highlight your military skills and experience</span>
                 </li>
                 <li className="tw-flex tw-items-start">
-                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-600" />
+                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-gold" />
                   <span>Include relevant certifications and training</span>
                 </li>
                 <li className="tw-flex tw-items-start">
-                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-600" />
+                  <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-gold" />
                   <span>Follow up after submitting your application</span>
                 </li>
               </ul>
@@ -287,10 +287,10 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
 
         {/* Bottom CTA */}
         <div className="tw-mt-12 tw-rounded-lg tw-bg-gray-100 tw-p-8 tw-text-center">
-          <h3 className="tw-mb-3 tw-text-2xl tw-font-bold tw-text-gray-900">
+          <h3 className="tw-mb-3 tw-text-2xl tw-font-bold tw-text-ink">
             Not the right fit?
           </h3>
-          <p className="tw-mb-6 tw-text-gray-700">
+          <p className="tw-mb-6 tw-text-gray-200">
             Browse more exclusive opportunities on our job board
           </p>
           <Link

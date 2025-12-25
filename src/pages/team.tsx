@@ -25,7 +25,7 @@ const Team: PageWithLayout = ({ data }) => {
             <h1 className="tw-sr-only">Our Team</h1>
 
             {/* Custom Hero Area with original size */}
-            <div className="tw-relative tw-z-1 tw-overflow-hidden tw-bg-pearl">
+            <div className="tw-relative tw-z-1 tw-overflow-hidden tw-bg-cream">
                 <div className="tw-relative tw-z-1 tw-flex tw-h-[450px] tw-w-full tw-items-end md:tw-h-[500px] lg:tw-h-[600px] xl:tw-h-[700px]">
                     <div className="tw-absolute tw-inset-0 tw-object-cover">
                         <img

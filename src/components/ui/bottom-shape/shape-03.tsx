@@ -20,7 +20,7 @@ const BottomShape = ({ className, color }: TProps) => {
 };
 
 BottomShape.defaultProps = {
-    color: "tw-fill-light-100",
+    color: "tw-fill-white",
 };
 
 export default BottomShape;

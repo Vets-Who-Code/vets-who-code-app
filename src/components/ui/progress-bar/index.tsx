@@ -61,7 +61,7 @@ const ProgressBar: FC<ProgressProps> = ({
         size === "lg" && "tw-h-5",
     ];
     return (
-        <div className={clsx("progress tw-rounded-sm tw-bg-gray-500", className)} {...restProps}>
+        <div className={clsx("progress tw-rounded-sm tw-bg-gray-50", className)} {...restProps}>
             <motion.div
                 role="progressbar"
                 aria-valuenow={now}

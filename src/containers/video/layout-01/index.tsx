@@ -122,7 +122,7 @@ const VideoArea = ({ data: { section_title, images, video }, space, bg }: TProps
 };
 
 VideoArea.defaultProps = {
-    bg: "tw-bg-spring",
+    bg: "tw-bg-cream",
     space: "top-bottom",
 };
 

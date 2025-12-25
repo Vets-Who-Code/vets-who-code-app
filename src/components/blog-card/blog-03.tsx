@@ -10,7 +10,7 @@ type TProps = Pick<IBlog, "image" | "path" | "title" | "category" | "postedAt"> 
 const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ className, image, path, title, category, postedAt }, ref) => {
         return (
-            <div className={clsx("blog-card tw-group", className)} ref={ref}>
+            <div className={clsx("blog-card tw-group tw-rounded tw-bg-cream tw-p-5 tw-shadow-lg tw-shadow-heading/10", className)} ref={ref}>
                 <div className="tw-relative tw-h-[250px] tw-overflow-hidden tw-rounded">
                     {image?.src && (
                         <figure className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">

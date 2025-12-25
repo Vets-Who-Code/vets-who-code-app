@@ -86,7 +86,7 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg }: TProps) => {
 };
 
 CtaArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default CtaArea;

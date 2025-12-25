@@ -128,7 +128,7 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                             Data Engineering
                         </h1>
                         <div className="tw-mx-auto tw-mb-6 tw-h-1 tw-w-24 tw-rounded tw-bg-secondary" />
-                        <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-leading-relaxed tw-text-gray-700 md:tw-text-2xl">
+                        <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-leading-relaxed tw-text-gray-200 md:tw-text-2xl">
                             Build data pipelines, work with big data technologies, and create robust
                             data infrastructure systems that power modern analytics.
                         </p>
@@ -168,10 +168,10 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                                         {index + 1}
                                     </div>
                                     <div>
-                                        <h3 className="tw-text-xl tw-font-bold tw-text-gray-900">
+                                        <h3 className="tw-text-xl tw-font-bold tw-text-ink">
                                             {module.title}
                                         </h3>
-                                        <p className="tw-text-gray-600">{module.description}</p>
+                                        <p className="tw-text-gray-300">{module.description}</p>
                                     </div>
                                 </div>
                                 <div className="tw-flex tw-items-center tw-space-x-4">
@@ -204,7 +204,7 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                             {selectedModule === module.id && (
                                 <div className="tw-border-t tw-border-gray-200 tw-bg-gray-50 tw-p-6">
                                     <div className="tw-mb-4">
-                                        <h4 className="tw-mb-3 tw-font-semibold tw-text-gray-900">
+                                        <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">
                                             Technologies Covered:
                                         </h4>
                                         <div className="tw-flex tw-flex-wrap tw-gap-2">
@@ -229,7 +229,7 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                                             </Link>
                                             <button
                                                 type="button"
-                                                className="tw-inline-flex tw-items-center tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50"
+                                                className="tw-inline-flex tw-items-center tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                                             >
                                                 <i className="fas fa-bookmark tw-mr-2" />
                                                 Save for Later
@@ -245,10 +245,10 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                 {/* Prerequisites & What You'll Build */}
                 <div className="tw-mt-16 tw-grid tw-grid-cols-1 tw-gap-8 lg:tw-grid-cols-2">
                     <div className="tw-rounded-xl tw-border tw-border-gray-200 tw-bg-white tw-p-8 tw-shadow-lg">
-                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-ink">
                             Prerequisites
                         </h3>
-                        <ul className="tw-space-y-3 tw-text-gray-700">
+                        <ul className="tw-space-y-3 tw-text-gray-200">
                             <li className="tw-flex tw-items-center">
                                 <i className="fas fa-check tw-mr-3 tw-text-success" />
                                 Programming experience (Python preferred)
@@ -269,10 +269,10 @@ const DataEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                     </div>
 
                     <div className="tw-rounded-xl tw-border tw-border-gray-200 tw-bg-white tw-p-8 tw-shadow-lg">
-                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-ink">
                             What You&apos;ll Build
                         </h3>
-                        <ul className="tw-space-y-3 tw-text-gray-700">
+                        <ul className="tw-space-y-3 tw-text-gray-200">
                             <li className="tw-flex tw-items-center">
                                 <i className="fas fa-rocket tw-mr-3 tw-text-secondary" />
                                 Automated ETL data pipeline

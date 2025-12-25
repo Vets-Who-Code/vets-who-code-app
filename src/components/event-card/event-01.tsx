@@ -14,7 +14,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "event tw-group tw-relative tw-h-full tw-rounded tw-bg-gray-100",
+                    "event tw-group tw-relative tw-h-full tw-rounded tw-bg-cream",
                     "before:tw-absolute before:tw-inset-0 before:tw-opacity-0 before:tw-shadow-4xl before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-duration-300 before:tw-content-['']",
                     "hover:before:tw-opacity-100",
                     className

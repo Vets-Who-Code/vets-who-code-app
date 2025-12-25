@@ -142,7 +142,7 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                                     <h1 className="tw-mb-2 tw-text-4xl tw-font-bold">
                                         Web Development
                                     </h1>
-                                    <p className="tw-text-lg tw-text-blue-100">
+                                    <p className="tw-text-lg tw-text-navy-ocean">
                                         Build modern, responsive web applications from frontend to
                                         backend
                                     </p>
@@ -152,19 +152,19 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                             <div className="tw-mb-6 tw-grid tw-grid-cols-2 tw-gap-6 md:tw-grid-cols-4">
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">12-16</div>
-                                    <div className="tw-text-blue-100">weeks</div>
+                                    <div className="tw-text-navy-ocean">weeks</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">158</div>
-                                    <div className="tw-text-blue-100">hours</div>
+                                    <div className="tw-text-navy-ocean">hours</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">176</div>
-                                    <div className="tw-text-blue-100">lessons</div>
+                                    <div className="tw-text-navy-ocean">lessons</div>
                                 </div>
                                 <div>
                                     <div className="tw-text-2xl tw-font-bold">9</div>
-                                    <div className="tw-text-blue-100">modules</div>
+                                    <div className="tw-text-navy-ocean">modules</div>
                                 </div>
                             </div>
 
@@ -190,17 +190,17 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                             </div>
                         </div>
 
-                        <div className="tw-min-w-[300px] tw-rounded-lg tw-bg-white tw-p-6 tw-text-gray-900">
+                        <div className="tw-min-w-[300px] tw-rounded-lg tw-bg-white tw-p-6 tw-text-ink">
                             <div className="tw-mb-4 tw-text-center">
-                                <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-green-600">
+                                <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gold">
                                     FREE
                                 </div>
-                                <p className="tw-text-gray-600">For veterans & military spouses</p>
+                                <p className="tw-text-gray-300">For veterans & military spouses</p>
                             </div>
 
                             {isEnrolled ? (
                                 <div className="tw-text-center">
-                                    <div className="tw-mb-4 tw-rounded-md tw-bg-green-100 tw-px-4 tw-py-2 tw-text-green-800">
+                                    <div className="tw-mb-4 tw-rounded-md tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-gold-deep">
                                         ✓ Enrolled
                                     </div>
                                     <Link
@@ -221,7 +221,7 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                                 </button>
                             )}
 
-                            <div className="tw-mt-4 tw-text-center tw-text-sm tw-text-gray-600">
+                            <div className="tw-mt-4 tw-text-center tw-text-sm tw-text-gray-300">
                                 <p>Includes:</p>
                                 <ul className="tw-mt-2 tw-space-y-1">
                                     <li>• Lifetime access</li>
@@ -237,7 +237,7 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                 {/* Course Description */}
                 <div className="tw-mb-16 tw-grid tw-grid-cols-1 tw-gap-12 lg:tw-grid-cols-3">
                     <div className="lg:tw-col-span-2">
-                        <h2 className="tw-mb-6 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h2 className="tw-mb-6 tw-text-3xl tw-font-bold tw-text-ink">
                             Course Overview
                         </h2>
                         <div className="tw-prose tw-prose-lg tw-max-w-none">
@@ -261,7 +261,7 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                             </p>
                         </div>
 
-                        <h3 className="tw-mb-4 tw-mt-8 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-4 tw-mt-8 tw-text-2xl tw-font-bold tw-text-ink">
                             What You&apos;ll Learn
                         </h3>
                         <div className="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2">
@@ -309,20 +309,20 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                     </div>
 
                     <div>
-                        <h3 className="tw-mb-4 tw-text-xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-4 tw-text-xl tw-font-bold tw-text-ink">
                             Prerequisites
                         </h3>
-                        <ul className="tw-mb-6 tw-space-y-2 tw-text-gray-600">
+                        <ul className="tw-mb-6 tw-space-y-2 tw-text-gray-300">
                             <li>• Basic computer literacy</li>
                             <li>• Willingness to learn and practice</li>
                             <li>• Military background (veteran or spouse)</li>
                             <li>• Commitment to 15-20 hours/week</li>
                         </ul>
 
-                        <h3 className="tw-mb-4 tw-text-xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-4 tw-text-xl tw-font-bold tw-text-ink">
                             Career Outcomes
                         </h3>
-                        <ul className="tw-mb-6 tw-space-y-2 tw-text-gray-600">
+                        <ul className="tw-mb-6 tw-space-y-2 tw-text-gray-300">
                             <li>• Frontend Developer</li>
                             <li>• Full-Stack Developer</li>
                             <li>• React Developer</li>
@@ -331,13 +331,13 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                         </ul>
 
                         <div className="tw-rounded-lg tw-bg-gray-50 tw-p-4">
-                            <h4 className="tw-mb-2 tw-font-semibold tw-text-gray-900">
+                            <h4 className="tw-mb-2 tw-font-semibold tw-text-ink">
                                 Average Salary Range
                             </h4>
-                            <div className="tw-text-2xl tw-font-bold tw-text-green-600">
+                            <div className="tw-text-2xl tw-font-bold tw-text-gold">
                                 $65K - $120K
                             </div>
-                            <p className="tw-mt-1 tw-text-sm tw-text-gray-600">
+                            <p className="tw-mt-1 tw-text-sm tw-text-gray-300">
                                 Based on location and experience
                             </p>
                         </div>
@@ -346,7 +346,7 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
 
                 {/* Course Curriculum */}
                 <div className="tw-mb-16">
-                    <h2 className="tw-mb-8 tw-text-3xl tw-font-bold tw-text-gray-900">
+                    <h2 className="tw-mb-8 tw-text-3xl tw-font-bold tw-text-ink">
                         Course Curriculum
                     </h2>
                     <div className="tw-space-y-4">
@@ -362,10 +362,10 @@ const WebDevelopmentCourse: PageWithLayout = ({ user: _user }) => {
                                                 {index + 1}
                                             </div>
                                             <div>
-                                                <h3 className="tw-text-xl tw-font-semibold tw-text-gray-900">
+                                                <h3 className="tw-text-xl tw-font-semibold tw-text-ink">
                                                     {module.title}
                                                 </h3>
-                                                <p className="tw-text-gray-600">
+                                                <p className="tw-text-gray-300">
                                                     {module.description}
                                                 </p>
                                             </div>

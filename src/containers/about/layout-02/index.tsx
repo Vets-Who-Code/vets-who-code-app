@@ -70,7 +70,7 @@ const AboutArea = ({ data: { section_title, motto, images }, space, bg, titleSiz
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[45px] tw-w-[45px] tw-rounded-full tw-border-[7px] tw-border-desert -tw-indent-[99999px] lg:tw-h-15 lg:tw-w-15">
+                        <span className="tw-block tw-h-[45px] tw-w-[45px] tw-rounded-full tw-border-[7px] tw-border-red -tw-indent-[99999px] lg:tw-h-15 lg:tw-w-15">
                             shape 1
                         </span>
                     </motion.div>
@@ -108,7 +108,7 @@ const AboutArea = ({ data: { section_title, motto, images }, space, bg, titleSiz
 };
 
 AboutArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default AboutArea;

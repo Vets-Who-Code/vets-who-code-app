@@ -225,7 +225,7 @@ export default function AITeachingAssistant({
                   'tw-max-w-[80%] tw-rounded-lg tw-px-4 tw-py-3 tw-shadow-sm',
                   msg.role === 'user'
                     ? 'tw-bg-primary tw-text-white'
-                    : 'tw-bg-gray-100 tw-text-gray-800'
+                    : 'tw-bg-gray-100 tw-text-gray-400'
                 )}
               >
                 <div className="tw-text-sm tw-whitespace-pre-wrap">{msg.content}</div>

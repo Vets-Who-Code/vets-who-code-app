@@ -105,7 +105,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                 <h1 className="tw-text-4xl tw-font-bold tw-text-[#091f40]">
                     Military Resume Translator
                 </h1>
-                <p className="tw-text-lg tw-text-gray-600 tw-max-w-2xl tw-mx-auto">
+                <p className="tw-text-lg tw-text-gray-300 tw-max-w-2xl tw-mx-auto">
                     Transform your military experience into civilian-friendly resume language.
                     Enter your military job details below and we'll help you translate them
                     into terms that civilian employers understand.
@@ -254,7 +254,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                             <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-2">
                                 Job Title
                             </h3>
-                            <p className="tw-text-gray-700 tw-text-lg tw-font-medium">
+                            <p className="tw-text-gray-200 tw-text-lg tw-font-medium">
                                 {translatedProfile.jobTitle}
                             </p>
                         </div>
@@ -264,7 +264,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                             <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-2">
                                 Professional Summary
                             </h3>
-                            <p className="tw-text-gray-700">{translatedProfile.summary}</p>
+                            <p className="tw-text-gray-200">{translatedProfile.summary}</p>
                         </div>
 
                         {/* Key Responsibilities */}
@@ -277,7 +277,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                                     {translatedProfile.keyResponsibilities.map((resp, idx) => (
                                         <li
                                             key={idx}
-                                            className="tw-flex tw-items-start tw-text-gray-700"
+                                            className="tw-flex tw-items-start tw-text-gray-200"
                                         >
                                             <span className="tw-text-[#c5203e] tw-mr-3 tw-mt-1">
                                                 •
@@ -299,7 +299,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                                     {translatedProfile.achievements.map((achievement, idx) => (
                                         <li
                                             key={idx}
-                                            className="tw-flex tw-items-start tw-text-gray-700"
+                                            className="tw-flex tw-items-start tw-text-gray-200"
                                         >
                                             <span className="tw-text-[#c5203e] tw-mr-3 tw-mt-1">
                                                 •
@@ -313,7 +313,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
 
                         {/* Suggestions */}
                         {suggestions.length > 0 && (
-                            <div className="tw-bg-blue-50 tw-p-6 tw-rounded-lg tw-border tw-border-blue-200">
+                            <div className="tw-bg-navy-sky/20 tw-p-6 tw-rounded-lg tw-border tw-border-blue-200">
                                 <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-3">
                                     Tips for Improvement
                                 </h3>
@@ -321,9 +321,9 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                                     {suggestions.map((suggestion, idx) => (
                                         <li
                                             key={idx}
-                                            className="tw-flex tw-items-start tw-text-sm tw-text-gray-700"
+                                            className="tw-flex tw-items-start tw-text-sm tw-text-gray-200"
                                         >
-                                            <span className="tw-text-blue-600 tw-mr-2 tw-mt-0.5">
+                                            <span className="tw-text-navy-royal tw-mr-2 tw-mt-0.5">
                                                 ℹ️
                                             </span>
                                             <span>{suggestion}</span>
@@ -344,7 +344,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                         </Button>
                         <Button
                             onClick={handleReset}
-                            className="tw-transform tw-rounded-lg tw-bg-gray-500 tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-gray-600 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gray-500 focus:tw-ring-offset-2"
+                            className="tw-transform tw-rounded-lg tw-bg-gray-50 tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-gray-300 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gray-500 focus:tw-ring-offset-2"
                         >
                             Translate Another Resume
                         </Button>

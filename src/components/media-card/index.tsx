@@ -49,7 +49,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                     </a>
                 </h3>
                 {description && (
-                    <p className="tw-mb-3 tw-flex-grow tw-text-sm tw-text-gray-700">
+                    <p className="tw-mb-3 tw-flex-grow tw-text-sm tw-text-gray-200">
                         {description}
                     </p>
                 )}

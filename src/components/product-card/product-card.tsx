@@ -70,7 +70,7 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(
 
                     {!product.availableForSale && (
                         <div className="tw-absolute tw-inset-0 tw-bg-black/50 tw-flex tw-items-center tw-justify-center">
-                            <span className="tw-bg-white tw-px-4 tw-py-2 tw-rounded-full tw-font-bold tw-text-gray-800">
+                            <span className="tw-bg-white tw-px-4 tw-py-2 tw-rounded-full tw-font-bold tw-text-gray-400">
                                 Sold Out
                             </span>
                         </div>
@@ -87,12 +87,12 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(
                             <Anchor path={`/store/products/${product.handle}`}>{product.title}</Anchor>
                         </h3>
                         {product.vendor && (
-                            <span className="tw-text-sm tw-text-gray-600">{product.vendor}</span>
+                            <span className="tw-text-sm tw-text-gray-300">{product.vendor}</span>
                         )}
                     </div>
 
                     {product.description && (
-                        <p className="tw-mt-2 tw-text-sm tw-text-gray-700 tw-line-clamp-2">
+                        <p className="tw-mt-2 tw-text-sm tw-text-gray-200 tw-line-clamp-2">
                             {product.description}
                         </p>
                     )}
@@ -109,7 +109,7 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(
                                 "tw-px-4 tw-py-2 tw-rounded-lg tw-font-semibold tw-text-sm tw-transition-all tw-duration-300",
                                 product.availableForSale
                                     ? "tw-bg-primary tw-text-white hover:tw-bg-primary-dark hover:tw-shadow-lg disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
-                                    : "tw-bg-gray-300 tw-text-gray-600 tw-cursor-not-allowed"
+                                    : "tw-bg-gray-300 tw-text-gray-300 tw-cursor-not-allowed"
                             )}
                         >
                             {isAdding ? "Adding..." : product.availableForSale ? "Add to Cart" : "Unavailable"}

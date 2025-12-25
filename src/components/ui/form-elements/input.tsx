@@ -68,7 +68,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                         focusBorderClass,
                         noFocusClass,
                         bg === "white" && "tw-bg-white",
-                        bg === "light" && "tw-bg-gray-200",
+                        bg === "light" && "tw-bg-gray-50",
                         className
                     )}
                     id={id}

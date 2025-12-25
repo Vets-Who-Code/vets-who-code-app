@@ -49,7 +49,7 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
         <div
             className={clsx(
                 "nice-select tw-relative tw-rounded-md tw-border tw-transition-all",
-                !open && "tw-border-gray-200 tw-bg-gray-200",
+                !open && "tw-border-gray-200 tw-bg-gray-50",
                 "hover:tw-border-primary hover:tw-bg-transparent",
                 className,
                 open && "tw-border-primary tw-bg-transparent"

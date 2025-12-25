@@ -78,7 +78,7 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                                     "tw-block tw-h-12 tw-w-12 tw-rounded-full tw-text-center tw-leading-[48px] -tw-tracking-tightest hover:tw-text-heading",
                                     currentPage !== pagi && "tw-text-gray-400",
                                     currentPage === pagi &&
-                                        "tw-pointer-events-none tw-bg-gray-500 tw-text-heading"
+                                        "tw-pointer-events-none tw-bg-gray-50 tw-text-heading"
                                 )}
                                 path={`${
                                     pagi === 1 ? `/${rootPage}` : `/${rootPage}/page/${pagi}`

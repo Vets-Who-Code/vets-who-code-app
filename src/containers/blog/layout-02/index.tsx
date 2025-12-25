@@ -71,7 +71,7 @@ const BlogArea = ({
 };
 
 BlogArea.defaultProps = {
-    bg: "tw-bg-spring",
+    bg: "tw-bg-cream",
 };
 
 export default BlogArea;

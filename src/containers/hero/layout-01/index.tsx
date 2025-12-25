@@ -21,7 +21,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }:
     const { trans1 } = useUI();
 
     return (
-        <div className="tw-relative tw-isolate tw-flex tw-h-full tw-items-center tw-overflow-hidden tw-bg-pearl tw-py-[50px] md:tw-min-h-[750px] xl:tw-min-h-[820px]">
+        <div className="tw-relative tw-isolate tw-flex tw-h-full tw-items-center tw-overflow-hidden tw-bg-cream tw-py-[50px] md:tw-min-h-[750px] xl:tw-min-h-[820px]">
             <h1 className="tw-sr-only">Home Page</h1>
             <div className="bgimg tw-absolute tw-inset-0 -tw-z-10 tw-hidden md:tw-block">
                 {images?.[0]?.src && (
