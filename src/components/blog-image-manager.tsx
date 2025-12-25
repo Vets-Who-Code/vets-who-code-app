@@ -8,7 +8,6 @@ import React, { useState } from 'react';
 import CloudinaryMediaLibrary from '@/components/cloudinary-media-library';
 import { CloudinaryImage } from '@/hooks/use-cloudinary-images';
 import MyImage from '@/components/ui/image';
-import styles from './blog-image-manager.module.css';
 
 const BlogImageManager: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<CloudinaryImage | null>(null);
