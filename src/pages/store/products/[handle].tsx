@@ -263,7 +263,14 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         )}
 
                         {/* Options (Size, Color, etc.) */}
-                        {product.options.map((option) => (
+                        {product.options
+                            .filter((option) => {
+                                // Only show options with multiple values
+                                // Hide default Shopify "Title" option with "Default Title" value
+                                return option.values.length > 1 &&
+                                       !(option.name === 'Title' && option.values.includes('Default Title'));
+                            })
+                            .map((option) => (
                             <div key={option.id} className="tw-mb-6">
                                 <label className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
                                     {option.name}
