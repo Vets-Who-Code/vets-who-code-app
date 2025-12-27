@@ -29,6 +29,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     );
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
     const [quantity, setQuantity] = useState(1);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
     // Show loading state while page is being generated
     if (router.isFallback) {
@@ -78,6 +79,16 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
         if (matchingVariant) {
             setSelectedVariant(matchingVariant);
+
+            // Update image if variant has an associated image
+            if (matchingVariant.image) {
+                const imageIndex = product.images.edges.findIndex(
+                    ({ node }) => node.id === matchingVariant.image?.id
+                );
+                if (imageIndex !== -1) {
+                    setSelectedImageIndex(imageIndex);
+                }
+            }
         }
     };
 
@@ -101,7 +112,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
         }
     };
 
-    const currentImage = selectedVariant?.image || product.images.edges[0]?.node;
+    const currentImage = product.images.edges[selectedImageIndex]?.node || product.images.edges[0]?.node;
     const price = selectedVariant?.price || product.priceRange.minVariantPrice;
     const compareAtPrice = selectedVariant?.compareAtPrice;
 
@@ -179,18 +190,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                 {/* Thumbnail Gallery */}
                                 {product.images.edges.length > 1 && (
                                     <div className="tw-grid tw-grid-cols-4 tw-gap-4 tw-mt-4">
-                                        {product.images.edges.map(({ node: image }) => (
+                                        {product.images.edges.map(({ node: image }, index) => (
                                             <button
                                                 key={image.id}
-                                                onClick={() => {
-                                                    // Find variant with this image
-                                                    const variantWithImage = product.variants.edges.find(
-                                                        ({ node }) => node.image?.id === image.id
-                                                    )?.node;
-                                                    if (variantWithImage) {
-                                                        setSelectedVariant(variantWithImage);
-                                                    }
-                                                }}
+                                                onClick={() => setSelectedImageIndex(index)}
                                                 className={clsx(
                                                     "tw-rounded-lg tw-overflow-hidden tw-border-2 tw-transition-all",
                                                     currentImage.id === image.id
