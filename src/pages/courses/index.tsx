@@ -13,6 +13,7 @@ type PageProps = {
         name: string | null;
         email: string;
         image: string | null;
+        role: string;
     };
     layout?: {
         headerShadow: boolean;
@@ -40,8 +41,8 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                 {/* Header with Admin and User Menu */}
                 <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
                     <div>
-                        {/* Admin Access Button (only for jeromehardaway) */}
-                        {user.email === "jeromehardaway@users.noreply.github.com" && (
+                        {/* Admin Access Button (only for ADMIN role) */}
+                        {user.role === "ADMIN" && (
                             <Link
                                 href="/admin"
                                 className="tw-rounded-md tw-bg-primary/10 tw-px-4 tw-py-2 tw-text-primary tw-transition-colors hover:tw-bg-primary/20"
@@ -279,6 +280,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
                 name: session.user.name || null,
                 email: session.user.email || "",
                 image: session.user.image || null,
+                role: session.user.role || "STUDENT",
             },
             layout: {
                 headerShadow: true,

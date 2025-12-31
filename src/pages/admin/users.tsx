@@ -1,26 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
+import prisma from "@/lib/prisma";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
 type User = {
     id: string;
-    name: string;
+    name: string | null;
     email: string;
-    avatar?: string;
-    joinDate: string;
-    lastActive: string;
-    enrollments: number;
-    progress: number;
-    status: "active" | "inactive" | "suspended";
-    militaryBranch?: string;
-    rank?: string;
+    image: string | null;
+    createdAt: string;
+    updatedAt: string;
+    role: string;
+    isActive: boolean;
+    branch: string | null;
+    rank: string | null;
+    enrollmentCount: number;
 };
 
 type PageProps = {
+    users: User[];
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -32,152 +35,66 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-const ADMIN_GITHUB_USERNAME = "jeromehardaway";
-
-const AdminUsersPage: PageWithLayout = () => {
-    const { data: session, status } = useSession();
-    const [users, setUsers] = useState<User[]>([]);
+const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [statusFilter, setStatusFilter] = useState<"all" | "active" | "inactive" | "suspended">(
-        "all"
-    );
-    const [sortBy, setSortBy] = useState<"name" | "joinDate" | "progress">("joinDate");
-
-    useEffect(() => {
-        // TODO: Fetch real user data from API
-        // Mock data for demonstration
-        const mockUsers: User[] = [
-            {
-                id: "1",
-                name: "Sarah Chen",
-                email: "sarah.chen@email.com",
-                avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5bb?w=50&h=50&fit=crop&crop=face",
-                joinDate: "2025-08-15",
-                lastActive: "2025-08-28",
-                enrollments: 2,
-                progress: 75,
-                status: "active",
-                militaryBranch: "Army",
-                rank: "Sergeant",
-            },
-            {
-                id: "2",
-                name: "Mike Rodriguez",
-                email: "mike.rodriguez@email.com",
-                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face",
-                joinDate: "2025-08-10",
-                lastActive: "2025-08-27",
-                enrollments: 1,
-                progress: 45,
-                status: "active",
-                militaryBranch: "Marines",
-                rank: "Corporal",
-            },
-            {
-                id: "3",
-                name: "Jennifer Kim",
-                email: "jennifer.kim@email.com",
-                avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face",
-                joinDate: "2025-08-05",
-                lastActive: "2025-08-28",
-                enrollments: 3,
-                progress: 92,
-                status: "active",
-                militaryBranch: "Navy",
-                rank: "Petty Officer",
-            },
-            {
-                id: "4",
-                name: "David Thompson",
-                email: "david.thompson@email.com",
-                joinDate: "2025-07-28",
-                lastActive: "2025-08-20",
-                enrollments: 1,
-                progress: 25,
-                status: "inactive",
-                militaryBranch: "Air Force",
-                rank: "Staff Sergeant",
-            },
-        ];
-        setUsers(mockUsers);
-    }, []);
-
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-300">Loading users...</p>
-                </div>
-            </div>
-        );
-    }
-
-    // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
-                        Access Denied
-                    </h1>
-                    <p className="tw-text-gray-300">Administrator access required.</p>
-                    <Link href="/admin" className="tw-mt-4 tw-inline-block tw-text-primary">
-                        ← Back to Admin
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+    const [statusFilter, setStatusFilter] = useState<"all" | "active" | "inactive">("all");
+    const [sortBy, setSortBy] = useState<"name" | "createdAt" | "enrollments">("createdAt");
 
     // Filter and sort users
-    const filteredUsers = users
+    const filteredUsers = initialUsers
         .filter((user) => {
             const matchesSearch =
-                user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                (user.name?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false) ||
                 user.email.toLowerCase().includes(searchTerm.toLowerCase());
-            const matchesStatus = statusFilter === "all" || user.status === statusFilter;
+            const matchesStatus =
+                statusFilter === "all" ||
+                (statusFilter === "active" && user.isActive) ||
+                (statusFilter === "inactive" && !user.isActive);
             return matchesSearch && matchesStatus;
         })
         .sort((a, b) => {
             switch (sortBy) {
                 case "name":
-                    return a.name.localeCompare(b.name);
-                case "progress":
-                    return b.progress - a.progress;
-                case "joinDate":
+                    return (a.name || "").localeCompare(b.name || "");
+                case "enrollments":
+                    return b.enrollmentCount - a.enrollmentCount;
+                case "createdAt":
                 default:
-                    return new Date(b.joinDate).getTime() - new Date(a.joinDate).getTime();
+                    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
             }
         });
 
-    const getStatusBadge = (userStatus: User["status"]) => {
-        const styles = {
-            active: "tw-bg-gold-light/30 tw-text-gold-deep",
-            inactive: "tw-bg-gold-bright tw-text-gold-deep",
-            suspended: "tw-bg-red-100 tw-text-red-800",
-        };
+    const getStatusBadge = (isActive: boolean) => {
+        if (isActive) {
+            return (
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                    Active
+                </span>
+            );
+        }
         return (
-            <span
-                className={`tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-medium ${styles[userStatus]}`}
-            >
-                {userStatus.charAt(0).toUpperCase() + userStatus.slice(1)}
+            <span className="tw-rounded-full tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gray-600">
+                Inactive
             </span>
         );
     };
 
-    const getProgressColor = (progress: number) => {
-        if (progress >= 75) return "tw-bg-gold-light/200";
-        if (progress >= 50) return "tw-bg-gold-light/200";
-        return "tw-bg-red-500";
-    };
-
-    const getProgressWidth = (progress: number) => {
-        if (progress >= 90) return "tw-w-full";
-        if (progress >= 75) return "tw-w-4/5";
-        if (progress >= 50) return "tw-w-1/2";
-        if (progress >= 25) return "tw-w-1/4";
-        return "tw-w-1/12";
+    const getRoleBadge = (role: string) => {
+        const styles = {
+            ADMIN: "tw-bg-red-100 tw-text-red-800",
+            INSTRUCTOR: "tw-bg-blue-100 tw-text-blue-800",
+            MENTOR: "tw-bg-purple-100 tw-text-purple-800",
+            STUDENT: "tw-bg-green-100 tw-text-green-800",
+        };
+        return (
+            <span
+                className={`tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-medium ${
+                    styles[role as keyof typeof styles] || styles.STUDENT
+                }`}
+            >
+                {role}
+            </span>
+        );
     };
 
     return (
@@ -252,7 +169,6 @@ const AdminUsersPage: PageWithLayout = () => {
                                 <option value="all">All Status</option>
                                 <option value="active">Active</option>
                                 <option value="inactive">Inactive</option>
-                                <option value="suspended">Suspended</option>
                             </select>
                         </div>
 
@@ -270,16 +186,16 @@ const AdminUsersPage: PageWithLayout = () => {
                                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
                                 className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                             >
-                                <option value="joinDate">Join Date</option>
+                                <option value="createdAt">Join Date</option>
                                 <option value="name">Name</option>
-                                <option value="progress">Progress</option>
+                                <option value="enrollments">Enrollments</option>
                             </select>
                         </div>
 
                         {/* Results Count */}
                         <div className="tw-flex tw-items-end">
                             <div className="tw-text-sm tw-text-gray-300">
-                                Showing {filteredUsers.length} of {users.length} users
+                                Showing {filteredUsers.length} of {initialUsers.length} users
                             </div>
                         </div>
                     </div>
@@ -295,19 +211,19 @@ const AdminUsersPage: PageWithLayout = () => {
                                         User
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
+                                        Role
+                                    </th>
+                                    <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
                                         Military Info
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
-                                        Courses
-                                    </th>
-                                    <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
-                                        Progress
+                                        Enrollments
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
                                         Status
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
-                                        Last Active
+                                        Joined
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
                                         Actions
@@ -319,11 +235,11 @@ const AdminUsersPage: PageWithLayout = () => {
                                     <tr key={user.id} className="hover:tw-bg-gray-50">
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
                                             <div className="tw-flex tw-items-center">
-                                                {user.avatar ? (
+                                                {user.image ? (
                                                     <img
                                                         className="tw-mr-4 tw-h-10 tw-w-10 tw-rounded-full"
-                                                        src={user.avatar}
-                                                        alt={user.name}
+                                                        src={user.image}
+                                                        alt={user.name || "User"}
                                                     />
                                                 ) : (
                                                     <div className="tw-mr-4 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-gray-300">
@@ -332,7 +248,7 @@ const AdminUsersPage: PageWithLayout = () => {
                                                 )}
                                                 <div>
                                                     <div className="tw-text-sm tw-font-medium tw-text-ink">
-                                                        {user.name}
+                                                        {user.name || "No name"}
                                                     </div>
                                                     <div className="tw-text-sm tw-text-gray-500">
                                                         {user.email}
@@ -341,13 +257,16 @@ const AdminUsersPage: PageWithLayout = () => {
                                             </div>
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
-                                            {user.militaryBranch && user.rank ? (
+                                            {getRoleBadge(user.role)}
+                                        </td>
+                                        <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
+                                            {user.branch && user.rank ? (
                                                 <div>
                                                     <div className="tw-text-sm tw-font-medium tw-text-ink">
                                                         {user.rank}
                                                     </div>
                                                     <div className="tw-text-sm tw-text-gray-500">
-                                                        {user.militaryBranch}
+                                                        {user.branch}
                                                     </div>
                                                 </div>
                                             ) : (
@@ -357,25 +276,13 @@ const AdminUsersPage: PageWithLayout = () => {
                                             )}
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-ink">
-                                            {user.enrollments} enrolled
+                                            {user.enrollmentCount}
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
-                                            <div className="tw-flex tw-items-center">
-                                                <div className="tw-mr-2 tw-w-16 tw-text-sm tw-text-ink">
-                                                    {user.progress}%
-                                                </div>
-                                                <div className="tw-relative tw-h-2 tw-w-20 tw-overflow-hidden tw-rounded-full tw-bg-gray-50">
-                                                    <div
-                                                        className={`tw-absolute tw-left-0 tw-top-0 tw-h-full tw-rounded-full ${getProgressColor(user.progress)} ${getProgressWidth(user.progress)}`}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
-                                            {getStatusBadge(user.status)}
+                                            {getStatusBadge(user.isActive)}
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-gray-500">
-                                            {new Date(user.lastActive).toLocaleDateString()}
+                                            {new Date(user.createdAt).toLocaleDateString()}
                                         </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-font-medium">
                                             <div className="tw-flex tw-space-x-2">
@@ -422,9 +329,72 @@ const AdminUsersPage: PageWithLayout = () => {
 
 AdminUsersPage.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    // Redirect if not authenticated
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/admin/users",
+                permanent: false,
+            },
+        };
+    }
+
+    // Check for ADMIN role
+    if (session.user.role !== "ADMIN") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false,
+            },
+        };
+    }
+
+    // Fetch all users with enrollment counts
+    const usersWithEnrollments = await prisma.user.findMany({
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            image: true,
+            role: true,
+            isActive: true,
+            branch: true,
+            rank: true,
+            createdAt: true,
+            updatedAt: true,
+            _count: {
+                select: {
+                    enrollments: true,
+                },
+            },
+        },
+        orderBy: {
+            createdAt: "desc",
+        },
+    });
+
+    // Transform data for component
+    const users: User[] = usersWithEnrollments.map((user) => ({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        image: user.image,
+        role: user.role,
+        isActive: user.isActive,
+        branch: user.branch,
+        rank: user.rank,
+        createdAt: user.createdAt.toISOString(),
+        updatedAt: user.updatedAt.toISOString(),
+        enrollmentCount: user._count.enrollments,
+    }));
+
     return {
         props: {
+            users,
             layout: {
                 headerShadow: true,
                 headerFluid: false,
