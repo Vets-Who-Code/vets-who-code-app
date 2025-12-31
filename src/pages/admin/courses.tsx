@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
+import prisma from "@/lib/prisma";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 
 type Course = {
     id: string;
     title: string;
-    description: string;
-    instructor: string;
-    duration: string;
-    level: "Beginner" | "Intermediate" | "Advanced";
-    enrollments: number;
-    status: "published" | "draft" | "archived";
+    description: string | null;
+    difficulty: string;
+    category: string;
+    isPublished: boolean;
     createdAt: string;
     updatedAt: string;
-    modules: number;
-    lessons: number;
+    moduleCount: number;
+    enrollmentCount: number;
 };
 
 type PageProps = {
+    courses: Course[];
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -33,148 +34,56 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-const ADMIN_GITHUB_USERNAME = "jeromehardaway";
-
-const AdminCoursesPage: PageWithLayout = () => {
-    const { data: session, status } = useSession();
-    const [courses, setCourses] = useState<Course[]>([]);
+const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
     const [searchTerm, setSearchTerm] = useState("");
-    const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft" | "archived">(
-        "all"
-    );
-    const [levelFilter, setLevelFilter] = useState<
-        "all" | "Beginner" | "Intermediate" | "Advanced"
+    const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft">("all");
+    const [difficultyFilter, setDifficultyFilter] = useState<
+        "all" | "BEGINNER" | "INTERMEDIATE" | "ADVANCED"
     >("all");
 
-    useEffect(() => {
-        // TODO: Fetch real course data from API
-        // Mock data for demonstration
-        const mockCourses: Course[] = [
-            {
-                id: "1",
-                title: "Introduction to Web Development",
-                description: "Learn the basics of HTML, CSS, and JavaScript",
-                instructor: "Jerome Hardaway",
-                duration: "8 weeks",
-                level: "Beginner",
-                enrollments: 47,
-                status: "published",
-                createdAt: "2025-07-01",
-                updatedAt: "2025-08-15",
-                modules: 4,
-                lessons: 24,
-            },
-            {
-                id: "2",
-                title: "JavaScript Fundamentals",
-                description: "Deep dive into JavaScript programming concepts",
-                instructor: "Alex Thompson",
-                duration: "6 weeks",
-                level: "Intermediate",
-                enrollments: 32,
-                status: "published",
-                createdAt: "2025-07-15",
-                updatedAt: "2025-08-10",
-                modules: 3,
-                lessons: 18,
-            },
-            {
-                id: "3",
-                title: "React Development Bootcamp",
-                description: "Build modern web applications with React",
-                instructor: "Sarah Chen",
-                duration: "12 weeks",
-                level: "Advanced",
-                enrollments: 23,
-                status: "draft",
-                createdAt: "2025-08-01",
-                updatedAt: "2025-08-28",
-                modules: 6,
-                lessons: 36,
-            },
-            {
-                id: "4",
-                title: "Python for Veterans",
-                description: "Programming fundamentals with Python",
-                instructor: "Mike Rodriguez",
-                duration: "10 weeks",
-                level: "Beginner",
-                enrollments: 15,
-                status: "published",
-                createdAt: "2025-06-15",
-                updatedAt: "2025-08-20",
-                modules: 5,
-                lessons: 30,
-            },
-        ];
-        setCourses(mockCourses);
-    }, []);
-
-    if (status === "loading") {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-300">Loading courses...</p>
-                </div>
-            </div>
-        );
-    }
-
-    // Check admin access
-    if (!session || session.user?.email !== `${ADMIN_GITHUB_USERNAME}@users.noreply.github.com`) {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <h1 className="tw-mb-4 tw-text-4xl tw-font-bold tw-text-ink">
-                        Access Denied
-                    </h1>
-                    <p className="tw-text-gray-300">Administrator access required.</p>
-                    <Link href="/admin" className="tw-mt-4 tw-inline-block tw-text-primary">
-                        ← Back to Admin
-                    </Link>
-                </div>
-            </div>
-        );
-    }
-
     // Filter courses
-    const filteredCourses = courses.filter((course) => {
+    const filteredCourses = initialCourses.filter((course) => {
         const matchesSearch =
             course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            course.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            course.instructor.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesStatus = statusFilter === "all" || course.status === statusFilter;
-        const matchesLevel = levelFilter === "all" || course.level === levelFilter;
-        return matchesSearch && matchesStatus && matchesLevel;
+            (course.description?.toLowerCase().includes(searchTerm.toLowerCase()) ?? false) ||
+            course.category.toLowerCase().includes(searchTerm.toLowerCase());
+        const matchesStatus =
+            statusFilter === "all" ||
+            (statusFilter === "published" && course.isPublished) ||
+            (statusFilter === "draft" && !course.isPublished);
+        const matchesDifficulty =
+            difficultyFilter === "all" || course.difficulty === difficultyFilter;
+        return matchesSearch && matchesStatus && matchesDifficulty;
     });
 
-    const getStatusBadge = (courseStatus: Course["status"]) => {
-        const styles = {
-            published: "tw-bg-gold-light/30 tw-text-gold-deep",
-            draft: "tw-bg-gold-bright tw-text-gold-deep",
-            archived: "tw-bg-gray-100 tw-text-gray-400",
-        };
+    const getStatusBadge = (isPublished: boolean) => {
+        if (isPublished) {
+            return (
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                    Published
+                </span>
+            );
+        }
         return (
-            <span
-                className={`tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-medium ${styles[courseStatus]}`}
-            >
-                {courseStatus.charAt(0).toUpperCase() + courseStatus.slice(1)}
+            <span className="tw-rounded-full tw-bg-gray-100 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gray-600">
+                Draft
             </span>
         );
     };
 
-    const getLevelBadge = (level: Course["level"]) => {
+    const getDifficultyBadge = (difficulty: string) => {
         const styles = {
-            Beginner: "tw-bg-navy-sky tw-text-blue-800",
-            Intermediate: "tw-bg-purple-100 tw-text-purple-800",
-            Advanced: "tw-bg-red-signal tw-text-red-dark",
+            BEGINNER: "tw-bg-green-100 tw-text-green-800",
+            INTERMEDIATE: "tw-bg-yellow-100 tw-text-yellow-800",
+            ADVANCED: "tw-bg-red-100 tw-text-red-800",
         };
         return (
             <span
-                className={`tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-medium ${styles[level]}`}
+                className={`tw-rounded-full tw-px-2 tw-py-1 tw-text-xs tw-font-medium ${
+                    styles[difficulty as keyof typeof styles] || styles.BEGINNER
+                }`}
             >
-                {level}
+                {difficulty}
             </span>
         );
     };
@@ -234,7 +143,7 @@ const AdminCoursesPage: PageWithLayout = () => {
                                 id="search"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="Title, description, or instructor..."
+                                placeholder="Title, description, or category..."
                                 className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                             />
                         </div>
@@ -258,37 +167,36 @@ const AdminCoursesPage: PageWithLayout = () => {
                                 <option value="all">All Status</option>
                                 <option value="published">Published</option>
                                 <option value="draft">Draft</option>
-                                <option value="archived">Archived</option>
                             </select>
                         </div>
 
-                        {/* Level Filter */}
+                        {/* Difficulty Filter */}
                         <div>
                             <label
-                                htmlFor="level"
+                                htmlFor="difficulty"
                                 className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
-                                Level
+                                Difficulty
                             </label>
                             <select
-                                id="level"
-                                value={levelFilter}
+                                id="difficulty"
+                                value={difficultyFilter}
                                 onChange={(e) =>
-                                    setLevelFilter(e.target.value as typeof levelFilter)
+                                    setDifficultyFilter(e.target.value as typeof difficultyFilter)
                                 }
                                 className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                             >
                                 <option value="all">All Levels</option>
-                                <option value="Beginner">Beginner</option>
-                                <option value="Intermediate">Intermediate</option>
-                                <option value="Advanced">Advanced</option>
+                                <option value="BEGINNER">Beginner</option>
+                                <option value="INTERMEDIATE">Intermediate</option>
+                                <option value="ADVANCED">Advanced</option>
                             </select>
                         </div>
 
                         {/* Results Count */}
                         <div className="tw-flex tw-items-end">
                             <div className="tw-text-sm tw-text-gray-300">
-                                Showing {filteredCourses.length} of {courses.length} courses
+                                Showing {filteredCourses.length} of {initialCourses.length} courses
                             </div>
                         </div>
                     </div>
@@ -303,8 +211,8 @@ const AdminCoursesPage: PageWithLayout = () => {
                         >
                             <div className="tw-mb-4 tw-flex tw-items-start tw-justify-between">
                                 <div className="tw-flex tw-space-x-2">
-                                    {getStatusBadge(course.status)}
-                                    {getLevelBadge(course.level)}
+                                    {getStatusBadge(course.isPublished)}
+                                    {getDifficultyBadge(course.difficulty)}
                                 </div>
                                 <div className="tw-flex tw-space-x-1">
                                     <button
@@ -336,27 +244,22 @@ const AdminCoursesPage: PageWithLayout = () => {
                             </h3>
 
                             <p className="tw-mb-4 tw-line-clamp-2 tw-text-sm tw-text-gray-300">
-                                {course.description}
+                                {course.description || "No description"}
                             </p>
 
                             <div className="tw-mb-4 tw-space-y-2">
                                 <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-500">
-                                    <i className="fas fa-user tw-mr-2 tw-w-4" />
-                                    {course.instructor}
-                                </div>
-                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-500">
-                                    <i className="fas fa-clock tw-mr-2 tw-w-4" />
-                                    {course.duration}
+                                    <i className="fas fa-tag tw-mr-2 tw-w-4" />
+                                    {course.category}
                                 </div>
                                 <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-500">
                                     <i className="fas fa-users tw-mr-2 tw-w-4" />
-                                    {course.enrollments} students
+                                    {course.enrollmentCount} students
                                 </div>
-                            </div>
-
-                            <div className="tw-flex tw-justify-between tw-text-sm tw-text-gray-500">
-                                <span>{course.modules} modules</span>
-                                <span>{course.lessons} lessons</span>
+                                <div className="tw-flex tw-items-center tw-text-sm tw-text-gray-500">
+                                    <i className="fas fa-book tw-mr-2 tw-w-4" />
+                                    {course.moduleCount} modules
+                                </div>
                             </div>
 
                             <div className="tw-mt-4 tw-border-t tw-pt-4">
@@ -387,9 +290,70 @@ const AdminCoursesPage: PageWithLayout = () => {
 
 AdminCoursesPage.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = () => {
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
+
+    // Redirect if not authenticated
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: "/login?callbackUrl=/admin/courses",
+                permanent: false,
+            },
+        };
+    }
+
+    // Check for ADMIN role
+    if (session.user.role !== "ADMIN") {
+        return {
+            redirect: {
+                destination: "/",
+                permanent: false,
+            },
+        };
+    }
+
+    // Fetch all courses with module and enrollment counts
+    const coursesWithCounts = await prisma.course.findMany({
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            difficulty: true,
+            category: true,
+            isPublished: true,
+            createdAt: true,
+            updatedAt: true,
+            _count: {
+                select: {
+                    modules: true,
+                    enrollments: true,
+                },
+            },
+        },
+        orderBy: {
+            updatedAt: "desc",
+        },
+    });
+
+    // Transform data for component
+    const courses: Course[] = coursesWithCounts.map((course) => ({
+        id: course.id,
+        title: course.title,
+        description: course.description,
+        difficulty: course.difficulty,
+        category: course.category,
+        isPublished: course.isPublished,
+        createdAt: course.createdAt.toISOString(),
+        updatedAt: course.updatedAt.toISOString(),
+        moduleCount: course._count.modules,
+        enrollmentCount: course._count.enrollments,
+    }));
+
     return {
         props: {
+            courses,
             layout: {
                 headerShadow: true,
                 headerFluid: false,

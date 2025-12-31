@@ -1,11 +1,13 @@
 /**
  * Admin page for managing blog images
  * Accessible at /admin/blog-images
+ * Protected by server-side authentication
  */
 
 import React, { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import type { GetServerSideProps } from 'next';
+import { getServerSession } from 'next-auth/next';
+import { options } from '@/pages/api/auth/options';
 import BlogImageManager from '@/components/blog-image-manager';
 import {
   getAllBlogImages,
@@ -15,44 +17,17 @@ import {
 } from '@/lib/blog-images';
 
 const BlogImagesAdminPage: React.FC = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
   const [stats, setStats] = useState<ReturnType<typeof getBlogImageStats> | null>(null);
   const [allImages, setAllImages] = useState<BlogImageInfo[]>([]);
   const [nonCloudinaryImages, setNonCloudinaryImages] = useState<BlogImageInfo[]>([]);
   const [activeTab, setActiveTab] = useState<'manager' | 'stats' | 'list'>('manager');
 
   useEffect(() => {
-    if (status === 'loading') return;
-
-    if (!session) {
-      router.push('/login');
-      return;
-    }
-
-    // Check if user is admin
-    if (session.user?.role !== 'ADMIN') {
-      router.push('/dashboard');
-      return;
-    }
-
-    // Load blog image data
+    // Load blog image data on mount
     setStats(getBlogImageStats());
     setAllImages(getAllBlogImages());
     setNonCloudinaryImages(getBlogsWithoutCloudinaryImages());
-  }, [session, status, router]);
-
-  if (status === 'loading') {
-    return (
-      <div style={{ padding: '40px', textAlign: 'center' }}>
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  if (!session || session.user?.role !== 'ADMIN') {
-    return null;
-  }
+  }, []);
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
@@ -288,6 +263,35 @@ const BlogImagesAdminPage: React.FC = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // Check authentication
+  const session = await getServerSession(context.req, context.res, options);
+
+  // Redirect if not authenticated
+  if (!session?.user) {
+    return {
+      redirect: {
+        destination: '/login?callbackUrl=/admin/blog-images',
+        permanent: false,
+      },
+    };
+  }
+
+  // Check for ADMIN role
+  if (session.user.role !== 'ADMIN') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 export default BlogImagesAdminPage;
