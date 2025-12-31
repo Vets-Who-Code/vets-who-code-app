@@ -67,7 +67,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
     });
     const totalLessonsByCourse: Record<string, number> = {};
     for (const lesson of lessons) {
-      const courseId = lesson.module.courseId;
+      const {courseId} = lesson.module;
       totalLessonsByCourse[courseId] = (totalLessonsByCourse[courseId] || 0) + 1;
     }
 
@@ -96,7 +96,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
     });
     const completedLessonsByCourse: Record<string, number> = {};
     for (const progress of progresses) {
-      const courseId = progress.lesson.module.courseId;
+      const {courseId} = progress.lesson.module;
       completedLessonsByCourse[courseId] = (completedLessonsByCourse[courseId] || 0) + 1;
     }
 

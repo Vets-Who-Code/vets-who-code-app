@@ -161,7 +161,7 @@ const BlogImageManager: React.FC = () => {
                     onChange={(e) =>
                       setCustomTransformations({
                         ...customTransformations,
-                        width: parseInt(e.target.value),
+                        width: parseInt(e.target.value, 10),
                       })
                     }
                     style={{

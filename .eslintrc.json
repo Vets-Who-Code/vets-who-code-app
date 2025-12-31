@@ -88,7 +88,51 @@
     "jsx-a11y/control-has-associated-label": "off",
     "@next/next/no-img-element": "off",
     "react/no-danger": "off",
-    "no-void": ["error", { "allowAsStatement": true }]
+    "no-void": ["error", { "allowAsStatement": true }],
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
+    "no-restricted-syntax": "off",
+    "no-nested-ternary": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase", "UPPER_CASE", "snake_case"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase", "PascalCase", "snake_case"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": null
+      }
+    ],
+    "no-await-in-loop": "warn",
+    "complexity": ["warn", { "max": 15 }],
+    "react/button-has-type": "warn",
+    "react/no-unescaped-entities": "warn",
+    "react/no-array-index-key": "warn",
+    "@typescript-eslint/no-shadow": "warn",
+    "no-plusplus": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
+    "jsx-a11y/click-events-have-key-events": "warn",
+    "jsx-a11y/no-static-element-interactions": "warn",
+    "jsx-a11y/no-noninteractive-element-interactions": "warn",
+    "react/destructuring-assignment": "off",
+    "no-restricted-exports": "off",
+    "prefer-destructuring": "off",
+    "no-bitwise": "warn",
+    "import/no-named-as-default": "warn",
+    "jsx-a11y/label-has-associated-control": "warn",
+    "react/no-unknown-property": "warn",
+    "no-restricted-globals": "warn",
+    "@typescript-eslint/no-loop-func": "warn",
+    "import/no-unresolved": "warn",
+    "import/extensions": "warn",
+    "react/function-component-definition": "warn",
+    "react/jsx-no-constructed-context-values": "warn"
   },
   "settings": {
     "react": {
@@ -110,6 +154,15 @@
         "@typescript-eslint/no-unsafe-call": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-return": "off"
+      }
+    },
+    {
+      "files": ["__tests__/**/*", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "jest.setup.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "no-console": "off",
+        "global-require": "off",
+        "@typescript-eslint/no-var-requires": "off"
       }
     }
   ]

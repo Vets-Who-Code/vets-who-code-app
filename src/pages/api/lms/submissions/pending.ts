@@ -27,8 +27,8 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
 
   try {
     const { courseId, limit = '50', offset = '0' } = req.query;
-    const limitNum = parseInt(limit as string);
-    const offsetNum = parseInt(offset as string);
+    const limitNum = parseInt(limit as string, 10);
+    const offsetNum = parseInt(offset as string, 10);
 
     // Build where clause
     const where: any = {

@@ -26,7 +26,7 @@ export const getProjectData = async (): Promise<VWCProject[]> => {
                 details: project,
                 repo: {
                     ...repo,
-                    contributors: contributors,
+                    contributors,
                 },
             };
             return data;

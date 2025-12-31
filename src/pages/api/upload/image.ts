@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getServerSession } from 'next-auth';
-import { options as authOptions } from '../auth/options';
 import { uploadImage, uploadMultipleImages } from '@/lib/cloudinary';
+import { options as authOptions } from '../auth/options';
 
 export const config = {
   api: {

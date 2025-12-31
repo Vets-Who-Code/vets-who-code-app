@@ -41,7 +41,7 @@ const CloudinaryUploadExample: React.FC = () => {
   };
 
   const handleMultipleUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
+    const {files} = event.target;
     if (!files || files.length === 0) return;
 
     try {

@@ -50,7 +50,7 @@ export default async function handler(
 
     // Extract Open Graph metadata
     const metadata: URLMetadata = {
-      url: url,
+      url,
       title:
         getMeta('meta[property="og:title"]') ||
         getMeta('meta[name="twitter:title"]') ||

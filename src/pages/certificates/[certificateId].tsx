@@ -161,7 +161,7 @@ const CertificatePage: PageWithLayout = () => {
               <h1 className="tw-mb-2 tw-text-5xl tw-font-bold tw-text-ink">
                 Certificate of Completion
               </h1>
-              <div className="tw-mx-auto tw-my-4 tw-h-1 tw-w-32 tw-bg-primary"></div>
+              <div className="tw-mx-auto tw-my-4 tw-h-1 tw-w-32 tw-bg-primary" />
               <p className="tw-text-xl tw-text-gray-300">
                 Vets Who Code
               </p>
@@ -216,14 +216,14 @@ const CertificatePage: PageWithLayout = () => {
             {/* Footer */}
             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
               <div className="tw-text-center">
-                <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400"></div>
+                <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400" />
                 <p className="tw-text-sm tw-text-gray-300">Date of Completion</p>
                 <p className="tw-font-semibold tw-text-ink">
                   {formatDate(certificate.issuedAt)}
                 </p>
               </div>
               <div className="tw-text-center">
-                <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400"></div>
+                <div className="tw-mb-2 tw-h-px tw-w-48 tw-bg-gray-400" />
                 <p className="tw-text-sm tw-text-gray-300">Authorized Signature</p>
                 <p className="tw-font-semibold tw-text-ink">Vets Who Code</p>
               </div>
