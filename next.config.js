@@ -26,6 +26,64 @@ const nextConfig = {
 
     experimental: {},
 
+    // Security Headers
+    async headers() {
+        return [
+            {
+                // Apply security headers to all routes
+                source: '/:path*',
+                headers: [
+                    {
+                        key: 'X-DNS-Prefetch-Control',
+                        value: 'on'
+                    },
+                    {
+                        key: 'Strict-Transport-Security',
+                        value: 'max-age=63072000; includeSubDomains; preload'
+                    },
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'SAMEORIGIN'
+                    },
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff'
+                    },
+                    {
+                        key: 'X-XSS-Protection',
+                        value: '1; mode=block'
+                    },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'strict-origin-when-cross-origin'
+                    },
+                    {
+                        key: 'Permissions-Policy',
+                        value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+                    },
+                    {
+                        key: 'Content-Security-Policy',
+                        value: [
+                            "default-src 'self'",
+                            "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.clarity.ms https://va.vercel-scripts.com",
+                            "style-src 'self' 'unsafe-inline'",
+                            "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com",
+                            "font-src 'self' data:",
+                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com",
+                            "frame-src 'self'",
+                            "media-src 'self'",
+                            "object-src 'none'",
+                            "base-uri 'self'",
+                            "form-action 'self'",
+                            "frame-ancestors 'self'",
+                            "upgrade-insecure-requests"
+                        ].join('; ')
+                    },
+                ],
+            },
+        ];
+    },
+
     // Optimize file tracing for smaller serverless bundles
     outputFileTracingIncludes: {
         // Only include specific data files that are needed at runtime
@@ -82,7 +140,7 @@ const nextConfig = {
     },
 
     images: {
-        domains: ['res.cloudinary.com'],
+        domains: ['res.cloudinary.com', 'avatars.githubusercontent.com'],
         remotePatterns: [
             {
                 protocol: 'https',
@@ -90,7 +148,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: '**',
+                hostname: 'avatars.githubusercontent.com',
             },
         ],
         unoptimized: false,
