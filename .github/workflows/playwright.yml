@@ -6,8 +6,13 @@ on:
   pull_request:
     branches: [main, master]
 
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.VWC_GITHUB_TOKEN }}
 
 jobs:
   test:
