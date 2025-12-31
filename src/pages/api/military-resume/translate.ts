@@ -82,7 +82,7 @@ Important guidelines:
     // Generate translation using AI
     const { text } = await generateText({
       model: aiModel.model,
-      prompt: prompt,
+      prompt,
       temperature: 0.7,
     });
 
@@ -102,7 +102,7 @@ Important guidelines:
       console.error('Failed to parse AI response:', parseError);
 
       translatedProfile = {
-        jobTitle: jobTitle,
+        jobTitle,
         summary: 'Experienced professional with proven leadership and operational experience',
         keyResponsibilities: duties.split('\n').filter(d => d.trim()),
         achievements: achievements ? achievements.split('\n').filter(a => a.trim()) : [],

@@ -172,7 +172,7 @@ async function shopifyFetch<T>({
       throw new Error(`Shopify API error: ${result.status} ${result.statusText}`);
     }
 
-    return result.json();
+    return await result.json();
   } catch (error) {
     console.error('Shopify API request failed:', error);
     throw error;

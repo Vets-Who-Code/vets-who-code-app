@@ -37,3 +37,8 @@ yarn-error.log*
 # PWA
 public/sw.js
 public/workbox-*.js
+
+# Scripts and utilities
+/scripts
+/prisma
+next.config.js

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useCart } from "@hooks";
 import { formatPrice } from "@lib/shopify";
 import clsx from "clsx";
@@ -43,7 +42,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
     };
 
     return (
-        <Fragment>
+        <>
             {/* Overlay */}
             <div
                 className={clsx(
@@ -214,7 +213,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                     </div>
                 )}
             </div>
-        </Fragment>
+        </>
     );
 };
 

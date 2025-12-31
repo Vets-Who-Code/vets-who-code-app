@@ -167,8 +167,8 @@ export async function translateDuty(duty: string): Promise<TranslationResult> {
 
   return {
     original: duty,
-    translated: translated,
-    suggestions: suggestions,
+    translated,
+    suggestions,
     confidence: 0.95, // High confidence with dictionary-based approach
   };
 }

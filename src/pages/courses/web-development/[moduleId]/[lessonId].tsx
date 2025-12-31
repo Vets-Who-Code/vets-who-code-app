@@ -404,7 +404,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     if (!session?.user) {
         return {
             redirect: {
-                destination: "/login?callbackUrl=" + encodeURIComponent(context.resolvedUrl),
+                destination: `/login?callbackUrl=${  encodeURIComponent(context.resolvedUrl)}`,
                 permanent: false,
             },
         };

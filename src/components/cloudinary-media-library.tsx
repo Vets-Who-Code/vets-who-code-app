@@ -55,9 +55,9 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
           const isSelected = prev.some((img) => img.public_id === image.public_id);
           if (isSelected) {
             return prev.filter((img) => img.public_id !== image.public_id);
-          } else {
+          } 
             return [...prev, image];
-          }
+          
         });
       } else {
         setSelectedImages([image]);

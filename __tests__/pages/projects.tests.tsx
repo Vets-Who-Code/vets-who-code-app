@@ -1,7 +1,6 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent , waitFor } from "@testing-library/react";
 import { VWCProject, VWCContributor, VWCProjectRepo } from "@utils/types";
-import Projects from "pages/projects";
-import {
+import Projects, {
     TechStack,
     LinkButtons,
     RepoStats,
@@ -10,7 +9,6 @@ import {
     ProjectCard,
 } from "pages/projects";
 import { getProjectData } from "lib/project";
-import { waitFor } from "@testing-library/react";
 
 // Mock dependencies
 jest.mock("@components/seo/page-seo", () => ({

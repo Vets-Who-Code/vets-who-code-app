@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import type { URLMetadata } from '@/types/url-metadata';
 
@@ -125,10 +125,10 @@ export default function URLPreviewCard({ url, className = '' }: URLPreviewCardPr
     );
   }
 
-  const hostname = new URL(metadata.url).hostname;
+  const {hostname} = new URL(metadata.url);
 
-  // Generate fallback image using useMemo to avoid regenerating on every render
-  const fallbackImage = useMemo(() => generateFallbackImage(hostname), [hostname]);
+  // Generate fallback image
+  const fallbackImage = generateFallbackImage(hostname);
   const displayImage = metadata.image || fallbackImage;
 
   return (

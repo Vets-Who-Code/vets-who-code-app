@@ -79,7 +79,7 @@ export function getCloudinaryUrl(
   const transformString = transformations.join(',');
 
   // Clean up the public ID (remove leading slashes, version prefixes if needed)
-  let cleanPublicId = publicId.trim();
+  const cleanPublicId = publicId.trim();
 
   // Build the URL
   return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}/${cleanPublicId}`;

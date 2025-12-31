@@ -60,8 +60,8 @@ async function handleGet(req: AuthenticatedRequest, res: NextApiResponse) {
             },
           },
         },
-        take: parseInt(limit as string),
-        skip: parseInt(offset as string),
+        take: parseInt(limit as string, 10),
+        skip: parseInt(offset as string, 10),
         orderBy: { createdAt: 'desc' },
       }),
       prisma.course.count({ where }),
@@ -103,9 +103,9 @@ async function handleGet(req: AuthenticatedRequest, res: NextApiResponse) {
       courses: coursesWithCounts,
       pagination: {
         total,
-        limit: parseInt(limit as string),
-        offset: parseInt(offset as string),
-        hasMore: parseInt(offset as string) + courses.length < total,
+        limit: parseInt(limit as string, 10),
+        offset: parseInt(offset as string, 10),
+        hasMore: parseInt(offset as string, 10) + courses.length < total,
       },
     });
   } catch (error) {
