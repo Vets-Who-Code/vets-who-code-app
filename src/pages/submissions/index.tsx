@@ -35,7 +35,7 @@ type PageWithLayout = NextPage & {
 };
 
 const SubmissionsPage: PageWithLayout = () => {
-    const { data: session, status } = useSession();
+    const { status } = useSession();
     const router = useRouter();
     const [submissions, setSubmissions] = useState<Submission[]>([]);
     const [loading, setLoading] = useState(true);
