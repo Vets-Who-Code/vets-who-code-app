@@ -193,19 +193,61 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
       });
     }
 
-    // Update enrollment lastActivity timestamp
+    // Calculate and update course progress
+    const courseId = lesson.module.courseId;
+
+    // Count total lessons in course
+    const totalLessons = await prisma.lesson.count({
+      where: {
+        module: {
+          courseId,
+        },
+      },
+    });
+
+    // Count completed lessons for this user
+    const completedLessons = await prisma.progress.count({
+      where: {
+        userId,
+        completed: true,
+        lesson: {
+          module: {
+            courseId,
+          },
+        },
+      },
+    });
+
+    // Calculate progress percentage
+    const progressPercentage = totalLessons > 0
+      ? Math.round((completedLessons / totalLessons) * 100)
+      : 0;
+
+    // Check if course is complete
+    const isComplete = progressPercentage === 100;
+
+    // Update enrollment with progress and completion status
     await prisma.enrollment.updateMany({
       where: {
         userId,
-        courseId: lesson.module.courseId,
+        courseId,
       },
       data: {
+        progress: progressPercentage,
         lastActivity: new Date(),
+        status: isComplete ? 'COMPLETED' : 'ACTIVE',
+        completedAt: isComplete ? new Date() : null,
       },
     });
 
     res.status(existingProgress ? 200 : 201).json({
       progress: progressRecord,
+      courseProgress: {
+        completed: completedLessons,
+        total: totalLessons,
+        percentage: progressPercentage,
+        isComplete,
+      },
       message: existingProgress
         ? 'Progress updated successfully'
         : 'Progress tracking started',

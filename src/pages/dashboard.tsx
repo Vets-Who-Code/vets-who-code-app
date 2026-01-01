@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+
+type Enrollment = {
+    id: string;
+    progress: number;
+    status: string;
+    completedAt: string | null;
+    course: {
+        id: string;
+        title: string;
+        estimatedHours: number | null;
+    };
+};
 
 type PageProps = {
     layout?: {
@@ -20,8 +32,42 @@ type PageWithLayout = NextPage<PageProps> & {
 
 const Dashboard: PageWithLayout = () => {
     const { data: session, status } = useSession();
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
+    const [loading, setLoading] = useState(true);
 
-    if (status === "loading") {
+    useEffect(() => {
+        if (status === "authenticated") {
+            fetchEnrollments();
+        }
+    }, [status]);
+
+    const fetchEnrollments = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/enrollment/enroll");
+            const data = await response.json();
+
+            if (response.ok) {
+                setEnrollments(data.enrollments);
+            }
+        } catch (error) {
+            console.error("Error fetching enrollments:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Calculate stats from enrollments
+    const stats = {
+        enrolled: enrollments.filter((e) => e.status === "ACTIVE" || e.status === "COMPLETED").length,
+        completed: enrollments.filter((e) => e.status === "COMPLETED").length,
+        totalHours: enrollments.reduce((sum, e) => sum + (e.course.estimatedHours || 0), 0),
+        averageProgress: enrollments.length > 0
+            ? Math.round(enrollments.reduce((sum, e) => sum + e.progress, 0) / enrollments.length)
+            : 0,
+    };
+
+    if (status === "loading" || loading) {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -76,22 +122,26 @@ const Dashboard: PageWithLayout = () => {
                 {/* Quick Stats */}
                 <div className="tw-mb-12 tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-4">
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-text-center tw-shadow-md">
-                        <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-navy-royal">1</div>
+                        <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-navy-royal">
+                            {stats.enrolled}
+                        </div>
                         <div className="tw-text-gray-300">Courses Enrolled</div>
                     </div>
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-text-center tw-shadow-md">
-                        <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gold">0</div>
+                        <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gold">
+                            {stats.completed}
+                        </div>
                         <div className="tw-text-gray-300">Courses Completed</div>
                     </div>
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-text-center tw-shadow-md">
                         <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-navy">
-                            12
+                            {stats.totalHours}
                         </div>
-                        <div className="tw-text-gray-300">Hours Studied</div>
+                        <div className="tw-text-gray-300">Total Course Hours</div>
                     </div>
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-text-center tw-shadow-md">
                         <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-red">
-                            85%
+                            {stats.averageProgress}%
                         </div>
                         <div className="tw-text-gray-300">Average Progress</div>
                     </div>
@@ -105,68 +155,127 @@ const Dashboard: PageWithLayout = () => {
                         </h2>
 
                         <div className="tw-space-y-6">
-                            {/* Sample enrolled course */}
-                            <div className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md">
-                                <div className="tw-p-6">
-                                    <div className="tw-mb-4 tw-flex tw-items-start tw-justify-between">
-                                        <div className="tw-flex tw-items-center tw-space-x-4">
-                                            <div className="tw-flex tw-h-16 tw-w-16 tw-items-center tw-justify-center tw-rounded-lg tw-bg-gradient-to-r tw-from-blue-500 tw-to-blue-600">
-                                                <i className="fab fa-html5 tw-text-2xl tw-text-white" />
-                                            </div>
-                                            <div>
-                                                <h3 className="tw-text-xl tw-font-semibold tw-text-ink">
-                                                    Web Development
-                                                </h3>
-                                                <p className="tw-text-gray-300">
-                                                    Build modern web applications
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-gold-deep">
-                                            Active
-                                        </span>
-                                    </div>
+                            {enrollments.filter((e) => e.status === "ACTIVE" || e.status === "COMPLETED").length > 0 ? (
+                                <>
+                                    {enrollments
+                                        .filter((e) => e.status === "ACTIVE" || e.status === "COMPLETED")
+                                        .map((enrollment) => (
+                                            <div
+                                                key={enrollment.id}
+                                                className="tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-md"
+                                            >
+                                                <div className="tw-p-6">
+                                                    <div className="tw-mb-4 tw-flex tw-items-start tw-justify-between">
+                                                        <div className="tw-flex tw-items-center tw-space-x-4">
+                                                            <div className="tw-flex tw-h-16 tw-w-16 tw-items-center tw-justify-center tw-rounded-lg tw-bg-gradient-to-r tw-from-blue-500 tw-to-blue-600">
+                                                                <i className="fas fa-code tw-text-2xl tw-text-white" />
+                                                            </div>
+                                                            <div>
+                                                                <h3 className="tw-text-xl tw-font-semibold tw-text-ink">
+                                                                    {enrollment.course.title}
+                                                                </h3>
+                                                                {enrollment.course.estimatedHours && (
+                                                                    <p className="tw-text-gray-300">
+                                                                        {enrollment.course.estimatedHours} hours
+                                                                    </p>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                        <span
+                                                            className={`tw-rounded-full tw-px-3 tw-py-1 tw-text-sm tw-font-medium ${
+                                                                enrollment.status === "COMPLETED"
+                                                                    ? "tw-bg-green-100 tw-text-green-800"
+                                                                    : "tw-bg-gold-light/30 tw-text-gold-deep"
+                                                            }`}
+                                                        >
+                                                            {enrollment.status === "COMPLETED"
+                                                                ? "Completed"
+                                                                : "Active"}
+                                                        </span>
+                                                    </div>
 
-                                    <div className="tw-mb-4">
-                                        <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
-                                            <span>Progress</span>
-                                            <span>15%</span>
-                                        </div>
-                                        <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
-                                            <div className="tw-h-2 tw-w-[15%] tw-rounded-full tw-bg-navy-royal" />
-                                        </div>
-                                    </div>
+                                                    <div className="tw-mb-4">
+                                                        <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
+                                                            <span>Progress</span>
+                                                            <span>{enrollment.progress}%</span>
+                                                        </div>
+                                                        <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
+                                                            <div
+                                                                className={`tw-h-2 tw-rounded-full tw-transition-all ${
+                                                                    enrollment.status === "COMPLETED"
+                                                                        ? "tw-bg-green-600"
+                                                                        : "tw-bg-navy-royal"
+                                                                }`}
+                                                                style={{ width: `${enrollment.progress}%` }}
+                                                            />
+                                                        </div>
+                                                    </div>
 
-                                    <div className="tw-flex tw-items-center tw-justify-between">
-                                        <div className="tw-text-sm tw-text-gray-300">
-                                            Next: CSS Styling & Layout
-                                        </div>
-                                        <Link
-                                            href="/courses/web-development"
-                                            className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-transition-colors"
-                                        >
-                                            Continue Learning
-                                        </Link>
-                                    </div>
+                                                    {enrollment.status !== "COMPLETED" && (
+                                                        <div className="tw-flex tw-items-center tw-justify-end">
+                                                            <Link
+                                                                href={`/courses/${enrollment.course.id}`}
+                                                                className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white tw-transition-colors"
+                                                            >
+                                                                Continue Learning
+                                                            </Link>
+                                                        </div>
+                                                    )}
+
+                                                    {enrollment.status === "COMPLETED" && enrollment.completedAt && (
+                                                        <div className="tw-flex tw-items-center tw-justify-between">
+                                                            <div className="tw-text-sm tw-text-gray-500">
+                                                                Completed on{" "}
+                                                                {new Date(enrollment.completedAt).toLocaleDateString()}
+                                                            </div>
+                                                            <Link
+                                                                href={`/courses/${enrollment.course.id}`}
+                                                                className="tw-text-sm tw-text-primary hover:tw-underline"
+                                                            >
+                                                                View Course
+                                                            </Link>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        ))}
+                                </>
+                            ) : (
+                                <div className="tw-rounded-lg tw-border-2 tw-border-dashed tw-border-gray-300 tw-bg-gray-50 tw-p-8 tw-text-center">
+                                    <i className="fas fa-book tw-mb-4 tw-text-4xl tw-text-gray-400" />
+                                    <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
+                                        No Courses Yet
+                                    </h3>
+                                    <p className="tw-mb-4 tw-text-gray-300">
+                                        Start your learning journey by enrolling in a course
+                                    </p>
+                                    <Link
+                                        href="/courses"
+                                        className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors"
+                                    >
+                                        Browse Courses
+                                    </Link>
                                 </div>
-                            </div>
+                            )}
 
-                            {/* Empty state for additional courses */}
-                            <div className="tw-rounded-lg tw-border-2 tw-border-dashed tw-border-gray-300 tw-bg-gray-50 tw-p-8 tw-text-center">
-                                <i className="fas fa-plus-circle tw-mb-4 tw-text-4xl tw-text-gray-400" />
-                                <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
-                                    Enroll in More Courses
-                                </h3>
-                                <p className="tw-mb-4 tw-text-gray-300">
-                                    Expand your skills with additional courses
-                                </p>
-                                <Link
-                                    href="/courses"
-                                    className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors"
-                                >
-                                    Browse Courses
-                                </Link>
-                            </div>
+                            {/* Enroll in more courses CTA */}
+                            {enrollments.filter((e) => e.status === "ACTIVE" || e.status === "COMPLETED").length > 0 && (
+                                <div className="tw-rounded-lg tw-border-2 tw-border-dashed tw-border-gray-300 tw-bg-gray-50 tw-p-8 tw-text-center">
+                                    <i className="fas fa-plus-circle tw-mb-4 tw-text-4xl tw-text-gray-400" />
+                                    <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
+                                        Enroll in More Courses
+                                    </h3>
+                                    <p className="tw-mb-4 tw-text-gray-300">
+                                        Expand your skills with additional courses
+                                    </p>
+                                    <Link
+                                        href="/courses"
+                                        className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors"
+                                    >
+                                        Browse Courses
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     </div>
 
