@@ -3,19 +3,51 @@ import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
 import prisma from '@/lib/prisma';
 
 /**
- * POST /api/enrollment/enroll
+ * GET /api/enrollment/enroll
+ * Fetch user's enrollments
  *
+ * POST /api/enrollment/enroll
  * Enroll user in a course
  * Body: { courseId: string }
  */
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
+  const userId = req.user!.id;
+
+  // GET - Fetch user's enrollments
+  if (req.method === 'GET') {
+    try {
+      const enrollments = await prisma.enrollment.findMany({
+        where: { userId },
+        include: {
+          course: {
+            select: {
+              id: true,
+              title: true,
+              description: true,
+              imageUrl: true,
+              difficulty: true,
+              category: true,
+            },
+          },
+        },
+        orderBy: {
+          enrolledAt: 'desc',
+        },
+      });
+
+      return res.status(200).json({ enrollments });
+    } catch (error) {
+      console.error('Error fetching enrollments:', error);
+      return res.status(500).json({ error: 'Failed to fetch enrollments' });
+    }
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
     const { courseId } = req.body;
-    const userId = req.user!.id;
 
     // Validation
     if (!courseId) {
