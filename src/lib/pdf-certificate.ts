@@ -209,7 +209,7 @@ export async function generateCertificatePDF(
   });
 
   // Verification URL
-  page.drawText('Verify at: vetswhocode.io/verify/' + data.certificateNumber, {
+  page.drawText(`Verify at: vetswhocode.io/verify/${data.certificateNumber}`, {
     x: width / 2 - 140,
     y: 35,
     size: 9,
