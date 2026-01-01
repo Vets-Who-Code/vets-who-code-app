@@ -1,6 +1,16 @@
 import { NextApiResponse } from 'next';
 import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
 import prisma from '@/lib/prisma';
+import { checkCertificateEligibility, generateCertificateNumber } from '@/lib/certificates';
+import { generateCertificatePDF, generateCertificateFilename } from '@/lib/pdf-certificate';
+import { v2 as cloudinary } from 'cloudinary';
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 /**
  * GET /api/lms/progress
@@ -240,6 +250,110 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
       },
     });
 
+    // Auto-generate certificate if course just completed
+    let certificateGenerated = false;
+    let certificateUrl: string | null = null;
+
+    if (isComplete) {
+      try {
+        // Check if certificate already exists
+        const eligibility = await checkCertificateEligibility(userId, courseId);
+
+        if (eligibility.eligible) {
+          // Fetch user and course data for certificate
+          const [user, course, enrollment] = await Promise.all([
+            prisma.user.findUnique({
+              where: { id: userId },
+              select: {
+                id: true,
+                name: true,
+                email: true,
+              },
+            }),
+            prisma.course.findUnique({
+              where: { id: courseId },
+              select: {
+                id: true,
+                title: true,
+                estimatedHours: true,
+              },
+            }),
+            prisma.enrollment.findUnique({
+              where: {
+                userId_courseId: {
+                  userId,
+                  courseId,
+                },
+              },
+              select: {
+                completedAt: true,
+              },
+            }),
+          ]);
+
+          if (user && course && enrollment) {
+            // Generate certificate number
+            const certificateNumber = await generateCertificateNumber();
+
+            // Generate PDF
+            const pdfBytes = await generateCertificatePDF({
+              studentName: user.name || user.email,
+              courseName: course.title,
+              completionDate: enrollment.completedAt || new Date(),
+              certificateNumber,
+              estimatedHours: course.estimatedHours || undefined,
+            });
+
+            // Generate filename
+            const filename = generateCertificateFilename(
+              user.name || user.email,
+              course.title,
+              certificateNumber
+            );
+
+            // Upload to Cloudinary
+            const uploadResult = await new Promise<{ secure_url: string }>(
+              (resolve, reject) => {
+                const uploadStream = cloudinary.uploader.upload_stream(
+                  {
+                    folder: 'certificates',
+                    public_id: filename.replace('.pdf', ''),
+                    resource_type: 'raw',
+                    format: 'pdf',
+                  },
+                  (error, result) => {
+                    if (error) {
+                      reject(error);
+                    } else {
+                      resolve(result as { secure_url: string });
+                    }
+                  }
+                );
+
+                uploadStream.end(Buffer.from(pdfBytes));
+              }
+            );
+
+            // Create certificate record
+            await prisma.certificate.create({
+              data: {
+                userId,
+                courseId,
+                certificateUrl: uploadResult.secure_url,
+                certificateNumber,
+              },
+            });
+
+            certificateGenerated = true;
+            certificateUrl = uploadResult.secure_url;
+          }
+        }
+      } catch (certError) {
+        console.error('Error auto-generating certificate:', certError);
+        // Don't fail the progress update if certificate generation fails
+      }
+    }
+
     res.status(existingProgress ? 200 : 201).json({
       progress: progressRecord,
       courseProgress: {
@@ -248,6 +362,12 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
         percentage: progressPercentage,
         isComplete,
       },
+      ...(certificateGenerated && {
+        certificate: {
+          generated: true,
+          url: certificateUrl,
+        },
+      }),
       message: existingProgress
         ? 'Progress updated successfully'
         : 'Progress tracking started',

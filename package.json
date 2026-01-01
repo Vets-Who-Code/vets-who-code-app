@@ -63,6 +63,7 @@
     "next-seo": "^5.5.0",
     "next-sitemap": "^3.1.55",
     "node-html-parser": "^7.0.1",
+    "pdf-lib": "^1.17.1",
     "plato": "^1.7.0",
     "react": "^18.3.1",
     "react-ace": "^11.0.1",

@@ -345,17 +345,18 @@ model Cohort {
 
 // Certificate Model - Course completion certificates
 model Certificate {
-  id             String   @id @default(cuid())
-  userId         String
-  courseId       String
-  certificateUrl String?  // URL to the certificate image/PDF
+  id               String   @id @default(cuid())
+  userId           String
+  courseId         String
+  certificateUrl   String?  // URL to the certificate image/PDF
+  certificateNumber String?  @unique // Unique certificate number (e.g., VWC-2025-001234)
 
   // Timestamps
-  issuedAt       DateTime @default(now())
+  issuedAt         DateTime @default(now())
 
   // Relationships
-  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  course         Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course           Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   @@unique([userId, courseId])
 }
