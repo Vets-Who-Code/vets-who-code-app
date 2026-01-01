@@ -255,6 +255,13 @@ const Dashboard: PageWithLayout = () => {
                                     View Assignments
                                 </Link>
                                 <Link
+                                    href="/submissions"
+                                    className="hover:tw-text-primary-dark tw-block tw-text-primary tw-transition-colors"
+                                >
+                                    <i className="fas fa-file-alt tw-mr-2" />
+                                    My Submissions
+                                </Link>
+                                <Link
                                     href="/support"
                                     className="hover:tw-text-primary-dark tw-block tw-text-primary tw-transition-colors"
                                 >
