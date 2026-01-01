@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
@@ -6,6 +6,13 @@ import { getServerSession } from "next-auth/next";
 import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+
+type Enrollment = {
+    id: string;
+    courseId: string;
+    status: string;
+    progress: number;
+};
 
 type PageProps = {
     user: {
@@ -102,6 +109,47 @@ const modules = [
 
 const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
     const [selectedModule, setSelectedModule] = useState<number | null>(null);
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [enrollmentError, setEnrollmentError] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetchEnrollments();
+    }, []);
+
+    const fetchEnrollments = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/enrollment/enroll");
+            const data = await response.json();
+
+            if (response.ok) {
+                setEnrollments(data.enrollments);
+            }
+        } catch (error) {
+            console.error("Error fetching enrollments:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Check if enrolled in Software Engineering vertical
+    const isEnrolled = (): boolean => {
+        const matchingTitles = ["Software Engineering", "Full-Stack Development", "Web Development"];
+        return enrollments.some(
+            (enrollment) =>
+                enrollment.status === "ACTIVE" &&
+                matchingTitles.some((title) =>
+                    enrollment.courseId.toLowerCase().includes(title.toLowerCase())
+                )
+        );
+    };
+
+    const handleEnroll = async () => {
+        // For now, this is a placeholder since we don't have a courseId
+        // In a real implementation, you'd need to map the vertical to an actual course
+        setEnrollmentError("Enrollment is not yet configured for this vertical. Please contact an administrator.");
+    };
 
     return (
         <>
@@ -133,6 +181,36 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                             to build scalable applications that solve real-world problems.
                         </p>
                     </div>
+
+                    {/* Enrollment Status/CTA */}
+                    {!loading && (
+                        <div className="tw-mb-8 tw-text-center">
+                            {isEnrolled() ? (
+                                <div className="tw-inline-flex tw-items-center tw-rounded-lg tw-bg-success/10 tw-px-6 tw-py-3 tw-text-success">
+                                    <i className="fas fa-check-circle tw-mr-2 tw-text-xl" />
+                                    <span className="tw-font-semibold">
+                                        You&apos;re enrolled in this vertical
+                                    </span>
+                                </div>
+                            ) : (
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={handleEnroll}
+                                        className="tw-inline-flex tw-items-center tw-rounded-lg tw-bg-primary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-transition-all hover:tw-bg-primary/90 hover:tw-shadow-lg"
+                                    >
+                                        <i className="fas fa-user-plus tw-mr-2" />
+                                        Enroll in Vertical
+                                    </button>
+                                    {enrollmentError && (
+                                        <p className="tw-mt-3 tw-text-sm tw-text-red-600">
+                                            {enrollmentError}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     {/* Course Stats */}
                     <div className="tw-grid tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-bg-gradient-to-r tw-from-primary tw-to-primary/80 tw-p-8 tw-text-white md:tw-grid-cols-4">
