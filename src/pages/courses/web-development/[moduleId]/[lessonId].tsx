@@ -115,13 +115,41 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
     const [completed, setCompleted] = useState(false);
     const [showAssignment, setShowAssignment] = useState(false);
     const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
+    const [updating, setUpdating] = useState(false);
+    const [moduleProgress, setModuleProgress] = useState({ completed: 0, total: module.totalLessons });
 
+    // Fetch lesson progress and module progress on mount
     useEffect(() => {
-        // TODO: Check if lesson is completed from database
-        // For now, check localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        setCompleted(localStorage.getItem(lessonKey) === "true");
-    }, [lesson.id]);
+        const fetchProgress = async () => {
+            try {
+                // Fetch current lesson progress
+                const lessonResponse = await fetch(`/api/lms/progress?lessonId=${lesson.id}`);
+                const lessonData = await lessonResponse.json();
+
+                if (lessonResponse.ok && lessonData.progress.length > 0) {
+                    setCompleted(lessonData.progress[0].completed);
+                }
+
+                // Fetch module progress
+                const moduleResponse = await fetch(`/api/lms/progress?moduleId=${module.id}`);
+                const moduleData = await moduleResponse.json();
+
+                if (moduleResponse.ok) {
+                    const completedCount = moduleData.progress.filter(
+                        (p: { completed: boolean }) => p.completed
+                    ).length;
+                    setModuleProgress({
+                        completed: completedCount,
+                        total: module.totalLessons,
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching progress:", error);
+            }
+        };
+
+        fetchProgress();
+    }, [lesson.id, module.id, module.totalLessons]);
 
     // Keyboard shortcut for AI Assistant ('A' key)
     useEffect(() => {
@@ -143,12 +171,36 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         return () => window.removeEventListener('keydown', handleKeyPress);
     }, []);
 
-    const markAsCompleted = () => {
-        // TODO: Update database with lesson completion
-        // For now, use localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        localStorage.setItem(lessonKey, "true");
-        setCompleted(true);
+    const markAsCompleted = async () => {
+        try {
+            setUpdating(true);
+            const response = await fetch("/api/lms/progress", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    lessonId: lesson.id,
+                    completed: true,
+                }),
+            });
+
+            if (response.ok) {
+                setCompleted(true);
+                // Refresh module progress
+                setModuleProgress((prev) => ({
+                    ...prev,
+                    completed: prev.completed + 1,
+                }));
+            } else {
+                const data = await response.json();
+                console.error("Failed to mark as completed:", data.error);
+            }
+        } catch (error) {
+            console.error("Error marking lesson as completed:", error);
+        } finally {
+            setUpdating(false);
+        }
     };
 
     return (
@@ -243,10 +295,11 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                     <button
                                         type="button"
                                         onClick={markAsCompleted}
-                                        className="tw-rounded-md tw-bg-gold-rich tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700"
+                                        disabled={updating}
+                                        className="tw-rounded-md tw-bg-gold-rich tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                     >
-                                        <i className="fas fa-check tw-mr-2" />
-                                        Mark as Complete
+                                        <i className={`fas ${updating ? "fa-spinner fa-spin" : "fa-check"} tw-mr-2`} />
+                                        {updating ? "Saving..." : "Mark as Complete"}
                                     </button>
                                 )}
 
@@ -272,18 +325,43 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             </h3>
                             <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
                                 <span>Module Progress</span>
-                                <span>3/12 lessons</span>
+                                <span>
+                                    {moduleProgress.completed}/{moduleProgress.total} lessons
+                                </span>
                             </div>
                             <div className="tw-mb-4 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
-                                <div className="tw-h-2 tw-w-[25%] tw-rounded-full tw-bg-navy-royal" />
+                                <div
+                                    className="tw-h-2 tw-rounded-full tw-bg-navy-royal tw-transition-all"
+                                    style={{
+                                        width: `${
+                                            moduleProgress.total > 0
+                                                ? (moduleProgress.completed / moduleProgress.total) * 100
+                                                : 0
+                                        }%`,
+                                    }}
+                                />
                             </div>
 
                             <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
-                                <span>Overall Progress</span>
-                                <span>15%</span>
+                                <span>Module Completion</span>
+                                <span>
+                                    {moduleProgress.total > 0
+                                        ? Math.round((moduleProgress.completed / moduleProgress.total) * 100)
+                                        : 0}
+                                    %
+                                </span>
                             </div>
                             <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
-                                <div className="tw-h-2 tw-w-[15%] tw-rounded-full tw-bg-gold-rich" />
+                                <div
+                                    className="tw-h-2 tw-rounded-full tw-bg-gold-rich tw-transition-all"
+                                    style={{
+                                        width: `${
+                                            moduleProgress.total > 0
+                                                ? (moduleProgress.completed / moduleProgress.total) * 100
+                                                : 0
+                                        }%`,
+                                    }}
+                                />
                             </div>
                         </div>
 
