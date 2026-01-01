@@ -3,8 +3,14 @@ import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
 import prisma from '@/lib/prisma';
 
 /**
- * POST /api/lms/submissions
+ * GET /api/lms/submissions
+ * Fetch user's submissions (optionally filtered by courseId or assignmentId)
  *
+ * Query params:
+ * - courseId?: string - Filter by course
+ * - assignmentId?: string - Filter by specific assignment
+ *
+ * POST /api/lms/submissions
  * Submit an assignment. Students can create or update their submissions.
  * Only one submission per user per assignment (enforced by unique constraint).
  *
@@ -16,21 +22,63 @@ import prisma from '@/lib/prisma';
  *   notes?: string,
  *   files?: string (JSON array of file URLs)
  * }
- *
- * Response:
- * {
- *   submission: {...},
- *   message: string
- * }
  */
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
+  const userId = req.user!.id;
+
+  // GET - Fetch user's submissions
+  if (req.method === 'GET') {
+    try {
+      const { courseId, assignmentId } = req.query;
+
+      const where: any = { userId };
+
+      if (assignmentId) {
+        where.assignmentId = assignmentId as string;
+      } else if (courseId) {
+        where.assignment = {
+          courseId: courseId as string,
+        };
+      }
+
+      const submissions = await prisma.submission.findMany({
+        where,
+        include: {
+          assignment: {
+            select: {
+              id: true,
+              title: true,
+              description: true,
+              dueDate: true,
+              maxPoints: true,
+              course: {
+                select: {
+                  id: true,
+                  title: true,
+                },
+              },
+            },
+          },
+        },
+        orderBy: {
+          submittedAt: 'desc',
+        },
+      });
+
+      return res.status(200).json({ submissions });
+    } catch (error) {
+      console.error('Error fetching submissions:', error);
+      return res.status(500).json({ error: 'Failed to fetch submissions' });
+    }
+  }
+
+  // POST - Create/update submission
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
     const { assignmentId, githubUrl, liveUrl, notes, files } = req.body;
-    const userId = req.user!.id;
 
     // Validate required fields
     if (!assignmentId) {
