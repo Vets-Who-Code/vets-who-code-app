@@ -116,7 +116,16 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
 export const getServerSideProps: GetServerSideProps<StorePageProps> = async () => {
     const isConfigured = isShopifyConfigured();
 
+    // Debug logging
+    console.log('Shopify Configuration Check:', {
+        isConfigured,
+        hasDomain: !!process.env.SHOPIFY_STORE_DOMAIN,
+        hasToken: !!process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+        domain: process.env.SHOPIFY_STORE_DOMAIN,
+    });
+
     if (!isConfigured) {
+        console.error('Shopify not configured - missing environment variables');
         return {
             props: {
                 products: [],
@@ -127,6 +136,7 @@ export const getServerSideProps: GetServerSideProps<StorePageProps> = async () =
 
     try {
         const products = await getProducts(100);
+        console.log(`Successfully fetched ${products.length} products from Shopify`);
 
         return {
             props: {
@@ -136,6 +146,7 @@ export const getServerSideProps: GetServerSideProps<StorePageProps> = async () =
         };
     } catch (error) {
         console.error("Failed to fetch products:", error);
+        console.error("Error details:", error instanceof Error ? error.message : String(error));
 
         return {
             props: {
