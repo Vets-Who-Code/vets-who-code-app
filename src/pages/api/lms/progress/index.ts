@@ -4,6 +4,7 @@ import prisma from '@/lib/prisma';
 import { checkCertificateEligibility, generateCertificateNumber } from '@/lib/certificates';
 import { generateCertificatePDF, generateCertificateFilename } from '@/lib/pdf-certificate';
 import { v2 as cloudinary } from 'cloudinary';
+import { sendCertificateEmail } from '@/lib/send-certificate-email';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -342,6 +343,16 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
                 certificateUrl: uploadResult.secure_url,
                 certificateNumber,
               },
+            });
+
+            // Send certificate email to user
+            await sendCertificateEmail({
+              to: user.email,
+              studentName: user.name || user.email,
+              courseName: course.title,
+              certificateUrl: uploadResult.secure_url,
+              certificateNumber,
+              completionDate: enrollment.completedAt || new Date(),
             });
 
             certificateGenerated = true;

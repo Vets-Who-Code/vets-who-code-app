@@ -10,6 +10,7 @@ import {
   generateCertificateFilename,
 } from '@/lib/pdf-certificate';
 import { v2 as cloudinary } from 'cloudinary';
+import { sendCertificateEmail } from '@/lib/send-certificate-email';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -166,6 +167,16 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
       },
     });
 
+    // Send certificate email to user
+    const emailResult = await sendCertificateEmail({
+      to: certificate.user.email || user.email,
+      studentName: certificate.user.name || certificate.user.email || 'Student',
+      courseName: certificate.course.title,
+      certificateUrl: certificate.certificateUrl || uploadResult.secure_url,
+      certificateNumber: certificate.certificateNumber || certificateNumber,
+      completionDate: enrollment.completedAt || new Date(),
+    });
+
     res.status(201).json({
       certificate: {
         id: certificate.id,
@@ -175,6 +186,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
         user: certificate.user,
         course: certificate.course,
       },
+      emailSent: emailResult.success,
       message: 'Certificate generated successfully',
     });
   } catch (error) {
