@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { GetStaticPaths, GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
@@ -30,17 +30,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
     const [quantity, setQuantity] = useState(1);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
-    // Show loading state while page is being generated
-    if (router.isFallback) {
-        return (
-            <Layout>
-                <div className="tw-container tw-mx-auto tw-px-4 tw-py-20 tw-text-center">
-                    <p className="tw-text-xl tw-text-gray-300">Loading product...</p>
-                </div>
-            </Layout>
-        );
-    }
 
     // Show 404 if product not found
     if (!product) {
@@ -372,34 +361,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-    if (!isShopifyConfigured()) {
-        return {
-            paths: [],
-            fallback: true,
-        };
-    }
-
-    try {
-        const products = await getProducts(100);
-        const paths = products.map((product) => ({
-            params: { handle: product.handle },
-        }));
-
-        return {
-            paths,
-            fallback: true,
-        };
-    } catch (error) {
-        console.error("Failed to fetch products for paths:", error);
-        return {
-            paths: [],
-            fallback: true,
-        };
-    }
-};
-
-export const getStaticProps: GetStaticProps<ProductDetailPageProps> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = async ({ params }) => {
     const handle = params?.handle as string;
 
     if (!handle || !isShopifyConfigured()) {
@@ -421,7 +383,6 @@ export const getStaticProps: GetStaticProps<ProductDetailPageProps> = async ({ p
             props: {
                 product,
             },
-            revalidate: 300, // Revalidate every 5 minutes
         };
     } catch (error) {
         console.error(`Failed to fetch product ${handle}:`, error);

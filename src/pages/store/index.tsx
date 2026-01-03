@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { GetStaticProps } from "next";
+import type { GetServerSideProps } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import ProductGrid from "@components/product-grid";
@@ -113,7 +113,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<StorePageProps> = async () => {
     const isConfigured = isShopifyConfigured();
 
     if (!isConfigured) {
@@ -122,7 +122,6 @@ export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
                 products: [],
                 isConfigured: false,
             },
-            revalidate: 60,
         };
     }
 
@@ -134,7 +133,6 @@ export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
                 products,
                 isConfigured: true,
             },
-            revalidate: 300, // Revalidate every 5 minutes
         };
     } catch (error) {
         console.error("Failed to fetch products:", error);
@@ -144,7 +142,6 @@ export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
                 products: [],
                 isConfigured: true,
             },
-            revalidate: 60,
         };
     }
 };
