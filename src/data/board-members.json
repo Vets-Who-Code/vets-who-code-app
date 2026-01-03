@@ -6,7 +6,7 @@
         "path": "/team/addy-osmani",
         "url": "",
         "image": {
-            "src": "https://addyosmani.com/press/img/55.jpg",
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1767417724/team/addy-osmani.jpg",
             "width": 350,
             "height": 430,
             "alt": "Engineering Leader, Google Chrome & Author"
