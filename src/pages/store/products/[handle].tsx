@@ -5,7 +5,6 @@ import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import ShoppingCart from "@components/shopping-cart";
 import {
-    getProducts,
     getProduct,
     ShopifyProduct,
     ShopifyProductVariant,
