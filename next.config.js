@@ -65,7 +65,7 @@ const nextConfig = {
                             "style-src 'self' 'unsafe-inline'",
                             "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://cdn.shopify.com https://widgets.guidestar.org",
                             "font-src 'self' data:",
-                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com",
+                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org",
                             "frame-src 'self'",
                             "media-src 'self'",
                             "object-src 'none'",
