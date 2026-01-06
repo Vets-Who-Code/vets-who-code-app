@@ -18,7 +18,7 @@ is_featured: true
 views:
 ---
 
-After a decade of training veterans in software engineering, we've rebuilt our curriculum from the ground up. The result is the Hashflag curriculum—a program designed for where the industry is headed, not where it was.
+After a decade of training veterans in software engineering, we've rebuilt our curriculum from the ground up. The result is the Hashflag curriculum—a program designed for where the industry is headed, not where it was. This is the first time we've added a new language to our stack in eight years.
 
 ## Why We Made This Change
 
@@ -30,15 +30,15 @@ We saw that shift coming, and we spent two years rebuilding our program to meet 
 
 We built this program around how veterans actually learn—clear objectives, real accountability, and meaningful work:
 
-**It fits your life.** This is a program built for people with jobs and families. 10 - 20 hours a week, on your schedule. No campus.
+**It fits your life.** This is a program built for people with jobs and families. 10-20 hours a week, on your schedule. No cost to you.
 
-**The work is real.** You push code directly to the Vets Who Code production platform. That means commits to a live codebase that people visit everyday—not tutorial projects.
+**The work is real.** You push code directly to the Vets Who Code production platforms. That means commits to a live codebase that people visit everyday—not tutorial projects.
 
 **We teach adaptability.** Frameworks change. Languages evolve. The skill that outlasts everything is the ability to pick up new technology quickly. We prioritize that from day one.
 
 ## What We Prioritize
 
-The curriculum itself came from working with recruiters and external data provided from one of the largest job data taxonomies, then working backwards as we identified what actually mattered. It's the most data-driven program we've ever built. People tend to treat AI as the star, but it's really just another layer in the stack—powerful only when the foundation beneath it is solid. A few principles guide the program:
+The curriculum itself came from working with recruiters and external data provided from one of the largest job data taxonomies, then working backwards to identify what actually mattered. We validated 128 specific skills against billions of job postings. It's the most data-driven program we've ever built. People tend to treat AI as the star, but it's really just another layer in the stack—powerful only when the foundation beneath it is solid. A few principles guide the program:
 
 **Fundamentals first.** Before you touch AI, you need to know how to code. You write every line by hand until it's second nature. There are no shortcuts here.
 
