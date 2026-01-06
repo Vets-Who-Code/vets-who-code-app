@@ -1,6 +1,6 @@
 ---
 title: "What We're Building at Vets Who Code"
-postedAt: "2025-01-05T10:00:00.000Z"
+postedAt: "2026-01-05T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "After a decade of training veterans in software engineering, we've rebuilt our curriculum from the ground up. The result is the Hashflag curriculum—a program designed for where the industry is headed, not where it was."
 image:
