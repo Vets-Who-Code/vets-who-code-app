@@ -66,7 +66,7 @@ const nextConfig = {
                             "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://cdn.shopify.com https://widgets.guidestar.org",
                             "font-src 'self' data:",
                             "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org",
-                            "frame-src 'self'",
+                            "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
                             "media-src 'self'",
                             "object-src 'none'",
                             "base-uri 'self'",
