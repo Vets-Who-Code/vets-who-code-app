@@ -78,14 +78,8 @@ export function getCloudinaryUrl(
 
   const transformString = transformations.join(',');
 
-  // Clean up the public ID
-  let cleanPublicId = publicId.trim();
-
-  // Remove file extension if using format transformation (f_auto, f_webp, etc)
-  // Cloudinary will apply the format automatically based on the transformation
-  if (mergedOptions.format) {
-    cleanPublicId = cleanPublicId.replace(/\.(jpg|jpeg|png|gif|webp|avif)$/i, '');
-  }
+  // Clean up the public ID (remove leading slashes)
+  const cleanPublicId = publicId.trim();
 
   // Build the URL
   return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}/${cleanPublicId}`;

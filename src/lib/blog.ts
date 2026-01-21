@@ -6,7 +6,7 @@ import { IBlog, BlogMetaType, IDType, ImageType } from "@utils/types";
 import { slugify, flatDeep } from "@utils/methods";
 import { getSlugs } from "./util";
 import { getAuthorByID } from "./author";
-import { getBlogHeaderUrl } from "./cloudinary-helpers";
+import { getImageUrl } from "./cloudinary-helpers";
 
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;
@@ -35,10 +35,16 @@ const processImageField = (image: ImageType): ImageType => {
         return image;
     }
 
-    // Use getBlogHeaderUrl for optimized blog header images
+    // Use getImageUrl with blog header optimizations
     // Applies w_1200,c_limit,q_auto,f_auto,g_auto transformations
     // This optimizes for page load time, Open Graph rendering, and responsive breakpoints
-    const processedSrc = getBlogHeaderUrl(image.src);
+    const processedSrc = getImageUrl(image.src, {
+        width: 1200,
+        crop: 'limit',
+        quality: 'auto',
+        format: 'auto',
+        gravity: 'auto',
+    });
 
     return {
         ...image,
