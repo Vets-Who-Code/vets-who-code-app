@@ -6,7 +6,7 @@ import { IBlog, BlogMetaType, IDType, ImageType } from "@utils/types";
 import { slugify, flatDeep } from "@utils/methods";
 import { getSlugs } from "./util";
 import { getAuthorByID } from "./author";
-import { getImageUrl } from "./cloudinary-helpers";
+import { getOptimizedImageUrl } from "./cloudinary";
 
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;
@@ -28,15 +28,28 @@ const makeExcerpt = (str: string, maxLength: number): string => {
 /**
  * Process image field to ensure it has a valid Cloudinary URL
  * Supports both legacy full URLs and new public_id format
+ * Applies optimized blog header transformations for better performance
  */
 const processImageField = (image: ImageType): ImageType => {
     if (!image || !image.src) {
         return image;
     }
 
-    // Use the helper to get the URL (works with both public IDs and full URLs)
-    // Use default transformations (f_auto,q_auto,g_auto) to match original URLs
-    const processedSrc = getImageUrl(image.src);
+    // If it's already a full URL, return as-is
+    if (image.src.startsWith('http://') || image.src.startsWith('https://')) {
+        return image;
+    }
+
+    // Use Cloudinary SDK to generate optimized URL
+    // Strip file extension as SDK handles format optimization
+    const publicIdWithoutExt = image.src.replace(/\.(jpg|jpeg|png|gif|webp|avif)$/i, '');
+
+    const processedSrc = getOptimizedImageUrl(publicIdWithoutExt, {
+        width: 1200,
+        crop: 'limit',
+        quality: 'auto',
+        format: 'auto',
+    });
 
     return {
         ...image,
