@@ -9,6 +9,7 @@ import BlogSidebar from "@containers/blog-details/blog-sidebar";
 import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
 import { toCapitalize } from "@utils/methods";
 import { getPostBySlug, getAllBlogs, getPrevNextPost, getTags } from "../../lib/blog";
+import { getBlogOpenGraphUrl } from "../../lib/cloudinary-helpers";
 
 type TProps = {
     data: {
@@ -28,6 +29,9 @@ type PageProps = NextPage<TProps> & {
 };
 
 const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, tags } }) => {
+    // Generate Open Graph optimized image URL for social media sharing
+    const ogImageUrl = getBlogOpenGraphUrl(blog.image.src);
+
     return (
         <>
             <SEO
@@ -40,7 +44,7 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                     authors: [blog.author.name],
                     tags: tags.map((tag) => tag.title),
                 }}
-                image={blog.image.src}
+                image={ogImageUrl}
             />
             <Breadcrumb
                 pages={[
