@@ -63,7 +63,7 @@ const nextConfig = {
                             "default-src 'self'",
                             "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.clarity.ms https://va.vercel-scripts.com https://www.googletagmanager.com https://maps.googleapis.com https://pro.fontawesome.com",
                             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pro.fontawesome.com",
-                            "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://cdn.shopify.com https://widgets.guidestar.org https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com",
+                            "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://cdn.shopify.com https://widgets.guidestar.org https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://images.huffingtonpost.com https://images.ctfassets.net https://www.hackerrank.com https://*.businessinsider.com https://i.insider.com https://cdn.sstatic.net https://i.stack.imgur.com https://stackoverflow.blog https://cdn.stackoverflow.co",
                             "font-src 'self' data: https://fonts.gstatic.com https://pro.fontawesome.com",
                             "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://maps.googleapis.com",
                             "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org",

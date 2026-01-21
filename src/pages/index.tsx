@@ -10,18 +10,20 @@ import VideoArea from "@containers/video/layout-04";
 import CourseArea from "@containers/course/layout-05";
 import TestimonialArea from "@containers/testimonial/layout-04";
 import EventArea from "@containers/event/layout-02";
+import MediaArea from "@containers/media/layout-01";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
 import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 
 import { normalizedData } from "@utils/methods";
-import { IBlog, ICourse, IEvent } from "@utils/types";
+import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
 
 import { getPageData } from "../lib/page";
 import { getAllBlogs } from "../lib/blog";
 import { getallCourses } from "../lib/course";
 import { getallEvents } from "../lib/event";
+import { getAllMediaPosts } from "../lib/mdx-pages";
 
 interface PageContent {
     section: string;
@@ -34,6 +36,7 @@ interface PageData {
     };
     courses: ICourse[];
     events: IEvent[];
+    media: IMedia[];
     blogs: IBlog[];
 }
 
@@ -66,6 +69,10 @@ const Home: PageProps = ({ data }) => {
                 data={{ ...content?.["event-area"], events: data.events }}
                 titleSize="large"
             />
+            <MediaArea
+                data={{ ...content?.["media-area"], media: data.media }}
+                titleSize="large"
+            />
             <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />
@@ -86,6 +93,14 @@ export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("home", "index");
     const courses = getallCourses(["title", "thumbnail"], 0, 6);
     const events = getallEvents(["title", "thumbnail", "start_date", "location"], 0, 6);
+    const allMedia = getAllMediaPosts<IMedia>(
+        ["slug", "title", "mediaType", "url", "publication", "date", "image", "description"],
+        "media"
+    );
+    // Sort by date (most recent first) and take the first 3
+    const media = allMedia
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 3);
     const { blogs } = getAllBlogs(["title", "image", "category", "postedAt"], 0, 3);
     return {
         props: {
@@ -93,6 +108,7 @@ export const getStaticProps: GetStaticProps = () => {
                 page,
                 courses,
                 events,
+                media,
                 blogs,
             },
             layout: {
