@@ -87,11 +87,21 @@ export function getCloudinaryUrl(
 
 /**
  * Generate a blog header image URL with standard transformations
- * @param publicId - The Cloudinary public ID
+ * @param imageSource - The Cloudinary public ID or full URL
  * @returns Optimized blog header URL
  */
-export function getBlogHeaderUrl(publicId: string): string {
-  return getCloudinaryUrl(publicId, {
+export function getBlogHeaderUrl(imageSource: string): string {
+  if (!imageSource) {
+    return '';
+  }
+
+  // If it's already a full URL, return it as-is
+  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
+    return imageSource;
+  }
+
+  // Otherwise, treat it as a public ID and generate the URL with blog header optimizations
+  return getCloudinaryUrl(imageSource, {
     width: 1200,
     crop: 'limit',
     quality: 'auto',
