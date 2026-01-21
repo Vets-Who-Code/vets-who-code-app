@@ -78,7 +78,7 @@ export function getCloudinaryUrl(
 
   const transformString = transformations.join(',');
 
-  // Clean up the public ID (remove leading slashes, version prefixes if needed)
+  // Clean up the public ID (remove leading slashes)
   const cleanPublicId = publicId.trim();
 
   // Build the URL
@@ -87,16 +87,54 @@ export function getCloudinaryUrl(
 
 /**
  * Generate a blog header image URL with standard transformations
- * @param publicId - The Cloudinary public ID
+ * @param imageSource - The Cloudinary public ID or full URL
  * @returns Optimized blog header URL
  */
-export function getBlogHeaderUrl(publicId: string): string {
-  return getCloudinaryUrl(publicId, {
+export function getBlogHeaderUrl(imageSource: string): string {
+  if (!imageSource) {
+    return '';
+  }
+
+  // If it's already a full URL, return it as-is
+  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
+    return imageSource;
+  }
+
+  // Otherwise, treat it as a public ID and generate the URL with blog header optimizations
+  return getCloudinaryUrl(imageSource, {
     width: 1200,
     crop: 'limit',
     quality: 'auto',
     format: 'auto',
     gravity: 'auto',
+  });
+}
+
+/**
+ * Generate an Open Graph optimized image URL for social media sharing
+ * This function is specifically designed for og:image meta tags
+ * Dimensions: 1200x630 (optimal for Twitter, Facebook, LinkedIn)
+ * @param imageSource - The Cloudinary public ID or full URL
+ * @returns Optimized Open Graph image URL
+ */
+export function getBlogOpenGraphUrl(imageSource: string): string {
+  if (!imageSource) {
+    return '';
+  }
+
+  // If it's already a full URL, return it as-is
+  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
+    return imageSource;
+  }
+
+  // Generate URL with Open Graph specific optimizations
+  // Note: gravity is NOT included to avoid 400 errors (requires paid Cloudinary addon)
+  return getCloudinaryUrl(imageSource, {
+    width: 1200,
+    height: 630,
+    crop: 'fill',
+    quality: 'auto',
+    format: 'auto',
   });
 }
 
