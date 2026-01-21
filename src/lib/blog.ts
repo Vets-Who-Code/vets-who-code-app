@@ -28,23 +28,15 @@ const makeExcerpt = (str: string, maxLength: number): string => {
 /**
  * Process image field to ensure it has a valid Cloudinary URL
  * Supports both legacy full URLs and new public_id format
- * Applies optimized blog header transformations for better performance and visual quality
  */
 const processImageField = (image: ImageType): ImageType => {
     if (!image || !image.src) {
         return image;
     }
 
-    // Use getImageUrl with blog header optimizations
-    // Applies w_1200,c_limit,q_auto,f_auto,g_auto transformations
-    // This optimizes for page load time, Open Graph rendering, and responsive breakpoints
-    const processedSrc = getImageUrl(image.src, {
-        width: 1200,
-        crop: 'limit',
-        quality: 'auto',
-        format: 'auto',
-        gravity: 'auto',
-    });
+    // Use the helper to get the URL (works with both public IDs and full URLs)
+    // Use default transformations (f_auto,q_auto,g_auto) to match original URLs
+    const processedSrc = getImageUrl(image.src);
 
     return {
         ...image,
