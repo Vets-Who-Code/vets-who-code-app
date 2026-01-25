@@ -14,8 +14,8 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
     const previousPage =
         currentPage - 1 === 1
             ? `/${rootPage}`
-            : `/${rootPage}/page/${(currentPage - 1).toString()}`;
-    const nextPage = `/${rootPage}/page/${(currentPage + 1).toString()}`;
+            : `/${rootPage}?page=${currentPage - 1}`;
+    const nextPage = `/${rootPage}?page=${currentPage + 1}`;
 
     let showPagi: (string | number)[] = [];
     Array.from({ length: numberOfPages }, () => {
@@ -81,7 +81,7 @@ const Pagination = ({ currentPage, numberOfPages, rootPage = "blog", className }
                                         "tw-pointer-events-none tw-bg-gray-50 tw-text-heading"
                                 )}
                                 path={`${
-                                    pagi === 1 ? `/${rootPage}` : `/${rootPage}/page/${pagi}`
+                                    pagi === 1 ? `/${rootPage}` : `/${rootPage}?page=${pagi}`
                                 }`}
                             >
                                 {pagi}{" "}

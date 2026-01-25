@@ -80,6 +80,17 @@ const nextConfig = {
         ];
     },
 
+    // Redirects for old blog pagination URLs
+    async redirects() {
+        return [
+            {
+                source: '/blogs/blog/page/:page',
+                destination: '/blogs/blog?page=:page',
+                permanent: true,
+            },
+        ];
+    },
+
     // Optimize file tracing for smaller serverless bundles
     outputFileTracingIncludes: {
         // Only include specific data files that are needed at runtime
