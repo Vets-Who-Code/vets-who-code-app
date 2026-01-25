@@ -7,6 +7,7 @@ import { options } from "@/pages/api/auth/options";
 import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
 import { AITeachingAssistant } from "@components/ai-assistant";
+import { PrismaClient } from '@prisma/client';
 
 type LessonData = {
     id: string;
@@ -229,6 +230,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                         {lesson.audioUrl && (
                             <div className="tw-mt-4">
                                 <audio controls src={lesson.audioUrl}>
+                                    <track kind="captions" />
                                     Your browser does not support the audio element.
                                 </audio>
                             </div>
@@ -482,8 +484,6 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 };
 
 LessonPage.Layout = Layout01;
-
-import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
