@@ -54,8 +54,9 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     // Generate Cloudinary audio URL
     // All blog audio files are hosted on Cloudinary in the blog-audio folder
+    // Convert to MP3 for better browser compatibility
     const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'vetswhocode';
-    const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/blog-audio/${realSlug}.wav`;
+    const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/f_mp3/blog-audio/${realSlug}.wav`;
 
     let blog: IBlog;
 

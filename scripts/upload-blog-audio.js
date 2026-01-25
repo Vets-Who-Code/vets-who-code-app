@@ -34,8 +34,7 @@ async function uploadAudioFile(filePath, slug) {
       public_id: slug,
       folder: CLOUDINARY_FOLDER,
       overwrite: true,
-      // Optimize for streaming
-      flags: 'streaming_attachment',
+      // Allow inline playback (no attachment flag)
     });
 
     console.log(`✓ Uploaded ${slug}`);

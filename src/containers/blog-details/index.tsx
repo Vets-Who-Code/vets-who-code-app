@@ -47,7 +47,7 @@ const BlogDetails = ({ image, title, category, author, postedAt, content, tags, 
                             className="tw-w-full"
                             preload="metadata"
                         >
-                            <source src={audioUrl} type="audio/wav" />
+                            <source src={audioUrl} type="audio/mpeg" />
                             <track kind="captions" src="" label="English" />
                             Your browser does not support the audio element.
                         </audio>

@@ -67,7 +67,7 @@ const nextConfig = {
                             "font-src 'self' data: https://fonts.gstatic.com https://pro.fontawesome.com",
                             "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://maps.googleapis.com",
                             "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org",
-                            "media-src 'self'",
+                            "media-src 'self' https://res.cloudinary.com",
                             "object-src 'none'",
                             "base-uri 'self'",
                             "form-action 'self'",
