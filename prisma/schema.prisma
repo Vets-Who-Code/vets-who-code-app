@@ -199,6 +199,7 @@ model Lesson {
   
   // Lesson type and content
   type        LessonType @default(CONTENT)
+  audioUrl    String?    // URL to the audio overview
   codeExample String?    // Code snippets or examples
   resources   String?    // JSON string of additional resource URLs
   

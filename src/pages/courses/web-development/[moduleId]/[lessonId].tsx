@@ -15,6 +15,7 @@ type LessonData = {
     videoUrl?: string;
     duration: string;
     content: string;
+    audioUrl?: string;
     assignment?: {
         title: string;
         description: string;
@@ -225,6 +226,13 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             {lesson.title}
                         </h1>
                         <p className="tw-text-gray-300">{lesson.description}</p>
+                        {lesson.audioUrl && (
+                            <div className="tw-mt-4">
+                                <audio controls src={lesson.audioUrl}>
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        )}
                     </div>
                     <div className="tw-flex tw-items-center tw-space-x-4">
                         <div className="tw-text-sm tw-text-gray-500">
@@ -475,6 +483,10 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
 LessonPage.Layout = Layout01;
 
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
 export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
     // Check authentication
     const session = await getServerSession(context.req, context.res, options);
@@ -490,99 +502,16 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
 
     const { moduleId, lessonId} = context.params as { moduleId: string; lessonId: string };
 
-    // Mock data - in real implementation, fetch from database
-    const mockLessons: Record<string, Record<string, LessonData>> = {
-        "1": {
-            "1": {
-                id: "1-1",
-                title: "Introduction to HTML",
-                description: "Learn the fundamentals of HTML and semantic markup",
-                videoUrl: "https://www.youtube.com/embed/UB1O30fR-EE",
-                duration: "45 minutes",
-                content: `
-                    <h3>Welcome to HTML Fundamentals</h3>
-                    <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using markup elements.</p>
-                    
-                    <h4>What you'll learn:</h4>
-                    <ul>
-                        <li>HTML document structure</li>
-                        <li>Common HTML elements</li>
-                        <li>Semantic markup principles</li>
-                        <li>Best practices for accessibility</li>
-                    </ul>
-                    
-                    <h4>Key Concepts:</h4>
-                    <p>HTML elements are the building blocks of HTML pages. They are represented by tags, which label pieces of content such as "heading", "paragraph", "table", and so on.</p>
-                `,
-                assignment: {
-                    title: "Create Your First HTML Page",
-                    description:
-                        "Create a simple HTML page that showcases proper document structure and semantic elements.",
-                    requirements: [
-                        "Use proper HTML5 document structure",
-                        "Include at least 5 different semantic elements",
-                        "Add a navigation menu with links",
-                        "Include an image with proper alt text",
-                        "Validate your HTML using W3C validator",
-                    ],
-                    submissionUrl: "/assignments/submit/1-1",
-                },
-                nextLesson: {
-                    moduleId: "1",
-                    lessonId: "2",
-                    title: "HTML Elements and Attributes",
-                },
-            },
-            "2": {
-                id: "1-2",
-                title: "HTML Elements and Attributes",
-                description: "Dive deeper into HTML elements and their attributes",
-                videoUrl: "https://www.youtube.com/embed/88PXJAA6szs",
-                duration: "50 minutes",
-                content: `
-                    <h3>Understanding HTML Elements and Attributes</h3>
-                    <p>In this lesson, we'll explore the various HTML elements and how attributes provide additional information about elements.</p>
-                    
-                    <h4>Common HTML Elements:</h4>
-                    <ul>
-                        <li><strong>Headings:</strong> h1, h2, h3, h4, h5, h6</li>
-                        <li><strong>Text:</strong> p, span, strong, em</li>
-                        <li><strong>Lists:</strong> ul, ol, li</li>
-                        <li><strong>Links:</strong> a</li>
-                        <li><strong>Images:</strong> img</li>
-                    </ul>
-                    
-                    <h4>Essential Attributes:</h4>
-                    <p>Attributes provide additional information about elements and are always specified in the start tag.</p>
-                `,
-                assignment: {
-                    title: "Build a Personal Bio Page",
-                    description:
-                        "Create a comprehensive personal biography page using various HTML elements and attributes.",
-                    requirements: [
-                        "Use all heading levels appropriately",
-                        "Include both ordered and unordered lists",
-                        "Add multiple images with descriptive alt text",
-                        "Create internal page navigation with anchor links",
-                        "Use proper semantic structure throughout",
-                    ],
-                    submissionUrl: "/assignments/submit/1-2",
-                },
-                prevLesson: {
-                    moduleId: "1",
-                    lessonId: "1",
-                    title: "Introduction to HTML",
-                },
-                nextLesson: {
-                    moduleId: "1",
-                    lessonId: "3",
-                    title: "Forms and Input Elements",
+    const lesson = await prisma.lesson.findUnique({
+        where: { id: lessonId },
+        include: {
+            module: {
+                include: {
+                    lessons: true,
                 },
             },
         },
-    };
-
-    const lesson = mockLessons[moduleId]?.[lessonId];
+    });
 
     if (!lesson) {
         return {
@@ -590,16 +519,32 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         };
     }
 
+    const currentLessonIndex = lesson.module.lessons.findIndex((l) => l.id === lessonId);
+    const prevLesson = lesson.module.lessons[currentLessonIndex - 1];
+    const nextLesson = lesson.module.lessons[currentLessonIndex + 1];
+
+    const lessonData: LessonData = {
+        id: lesson.id,
+        title: lesson.title,
+        description: lesson.content.substring(0, 100), // Or a dedicated description field
+        videoUrl: lesson.videoUrl || undefined,
+        duration: `${lesson.duration} minutes`,
+        content: lesson.content,
+        audioUrl: lesson.audioUrl || undefined,
+        nextLesson: nextLesson ? { moduleId: nextLesson.moduleId, lessonId: nextLesson.id, title: nextLesson.title } : undefined,
+        prevLesson: prevLesson ? { moduleId: prevLesson.moduleId, lessonId: prevLesson.id, title: prevLesson.title } : undefined,
+    };
+
     const moduleData: ModuleData = {
-        id: moduleId,
-        title: "HTML Fundamentals",
-        description: "Learn the building blocks of the web with semantic HTML",
-        totalLessons: 12,
+        id: lesson.moduleId,
+        title: lesson.module.title,
+        description: lesson.module.description || "",
+        totalLessons: lesson.module.lessons.length,
     };
 
     return {
         props: {
-            lesson,
+            lesson: lessonData,
             module: moduleData,
             layout: {
                 headerShadow: true,

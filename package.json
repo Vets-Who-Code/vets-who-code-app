@@ -17,12 +17,14 @@
     "lint:fix": "yarn typecheck & yarn format & yarn lint --fix",
     "prepare": "husky install",
     "postbuild": "next-sitemap",
-    "test": "jest"
+    "test": "jest",
+    "generate:audio-overviews": "tsx scripts/generate-audio-overviews.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
     "@ai-sdk/google": "^2.0.32",
     "@ai-sdk/openai": "^2.0.67",
+    "@google-cloud/text-to-speech": "^6.4.0",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
     "@neondatabase/serverless": "^1.0.1",
