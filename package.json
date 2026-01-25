@@ -18,7 +18,7 @@
     "prepare": "husky install",
     "postbuild": "next-sitemap",
     "test": "jest",
-    "generate:audio-overviews": "tsx scripts/generate-audio-overviews.ts"
+    "generate:blog-audio": "tsx -r dotenv/config scripts/generate-blog-audio-overviews.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",

@@ -52,6 +52,10 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     const blogData = data as BlogType;
 
+    // Check if audio file exists (WAV format from Gemini TTS)
+    const audioPath = join(process.cwd(), "public/audio/blogs", `${realSlug}.wav`);
+    const audioUrl = fs.existsSync(audioPath) ? `/audio/blogs/${realSlug}.wav` : undefined;
+
     let blog: IBlog;
 
     if (fields === "all") {
@@ -72,6 +76,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
             excerpt: makeExcerpt(content, 150),
             author: getAuthorByID(blogData.author, "all"),
             image: processImageField(blogData.image),
+            audioUrl,
         };
     } else {
         blog = fields.reduce(
@@ -114,6 +119,9 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
                         ...acc,
                         image: processImageField(blogData.image),
                     };
+                }
+                if (field === "audioUrl") {
+                    return { ...acc, audioUrl };
                 }
                 if (typeof data[field] !== "undefined") {
                     return { ...acc, [field]: blogData[field] };
