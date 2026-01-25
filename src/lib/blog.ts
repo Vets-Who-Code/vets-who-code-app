@@ -52,16 +52,10 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     const blogData = data as BlogType;
 
-    // Check if audio file exists (WAV format from Gemini TTS)
-    // Note: Audio files are excluded from Vercel builds via .vercelignore
-    // They should be hosted externally (e.g., Cloudinary) for production
-    let audioUrl: string | null = null;
-
-    // Only check for local audio files in non-production environments
-    if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
-        const audioPath = join(process.cwd(), "public/audio/blogs", `${realSlug}.wav`);
-        audioUrl = fs.existsSync(audioPath) ? `/audio/blogs/${realSlug}.wav` : null;
-    }
+    // Generate Cloudinary audio URL
+    // All blog audio files are hosted on Cloudinary in the blog-audio folder
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'vetswhocode';
+    const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/blog-audio/${realSlug}.wav`;
 
     let blog: IBlog;
 
