@@ -39,7 +39,7 @@ const BlogDetails = ({ image, title, category, author, postedAt, content, tags, 
                 {audioUrl && (
                     <div className="tw-mt-7 tw-rounded-lg tw-bg-gray-800 tw-p-5">
                         <div className="tw-mb-3 tw-flex tw-items-center tw-gap-2 tw-text-sm tw-font-medium tw-text-gray-300">
-                            <i className="fas fa-headphones"></i>
+                            <i className="fas fa-headphones" />
                             <span>Listen to this article</span>
                         </div>
                         <audio
@@ -48,6 +48,7 @@ const BlogDetails = ({ image, title, category, author, postedAt, content, tags, 
                             preload="metadata"
                         >
                             <source src={audioUrl} type="audio/wav" />
+                            <track kind="captions" src="" label="English" />
                             Your browser does not support the audio element.
                         </audio>
                     </div>
