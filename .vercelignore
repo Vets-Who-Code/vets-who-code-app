@@ -39,3 +39,6 @@ temp
 *.spec.tsx
 *.spec.js
 *.spec.jsx
+
+# Audio files (too large for serverless functions)
+public/audio/blogs

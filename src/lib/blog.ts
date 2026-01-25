@@ -52,6 +52,11 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     const blogData = data as BlogType;
 
+    // Generate Cloudinary audio URL
+    // All blog audio files are hosted on Cloudinary in the blog-audio folder
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'vetswhocode';
+    const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/blog-audio/${realSlug}.wav`;
+
     let blog: IBlog;
 
     if (fields === "all") {
@@ -72,6 +77,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
             excerpt: makeExcerpt(content, 150),
             author: getAuthorByID(blogData.author, "all"),
             image: processImageField(blogData.image),
+            audioUrl,
         };
     } else {
         blog = fields.reduce(
@@ -114,6 +120,9 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
                         ...acc,
                         image: processImageField(blogData.image),
                     };
+                }
+                if (field === "audioUrl") {
+                    return { ...acc, audioUrl };
                 }
                 if (typeof data[field] !== "undefined") {
                     return { ...acc, [field]: blogData[field] };

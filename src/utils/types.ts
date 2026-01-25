@@ -234,6 +234,7 @@ export interface IBlog {
     author: IInstructor;
     content: string;
     excerpt: string;
+    audioUrl?: string | null;
 }
 
 export interface ISocial {
