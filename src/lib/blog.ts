@@ -54,7 +54,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     // Check if audio file exists (WAV format from Gemini TTS)
     const audioPath = join(process.cwd(), "public/audio/blogs", `${realSlug}.wav`);
-    const audioUrl = fs.existsSync(audioPath) ? `/audio/blogs/${realSlug}.wav` : undefined;
+    const audioUrl = fs.existsSync(audioPath) ? `/audio/blogs/${realSlug}.wav` : null;
 
     let blog: IBlog;
 
