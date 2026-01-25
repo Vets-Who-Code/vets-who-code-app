@@ -37,9 +37,9 @@ const BlogDetails = ({ image, title, category, author, postedAt, content, tags, 
                 </div>
 
                 {audioUrl && (
-                    <div className="tw-mt-7 tw-rounded-lg tw-bg-gray-800 tw-p-5">
-                        <div className="tw-mb-3 tw-flex tw-items-center tw-gap-2 tw-text-sm tw-font-medium tw-text-gray-300">
-                            <i className="fas fa-headphones" />
+                    <div className="tw-mt-7 tw-rounded-lg tw-bg-gradient-to-r tw-from-blue-900 tw-to-blue-800 tw-p-5 tw-shadow-lg">
+                        <div className="tw-mb-3 tw-flex tw-items-center tw-gap-2 tw-text-sm tw-font-medium tw-text-white">
+                            <i className="fas fa-headphones tw-text-blue-300" />
                             <span>Listen to this article</span>
                         </div>
                         <audio
