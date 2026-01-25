@@ -500,7 +500,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         };
     }
 
-    const { moduleId, lessonId} = context.params as { moduleId: string; lessonId: string };
+    const { lessonId } = context.params as { moduleId: string; lessonId: string };
 
     const lesson = await prisma.lesson.findUnique({
         where: { id: lessonId },
