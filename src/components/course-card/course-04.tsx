@@ -22,7 +22,7 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                 <figure className="tw-relative tw-overflow-hidden">
                     {thumbnail?.src && (
                         <img
-                            className="tw-w-full tw-rounded-t tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
+                            className="tw-w-full tw-rounded-t tw-transition-transform tw-duration-1000 tw-ease-out tw-group-hover:tw-scale-110"
                             src={thumbnail.src}
                             alt={thumbnail?.alt || "Course"}
                             width={thumbnail?.width || 370}

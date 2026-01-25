@@ -18,7 +18,7 @@ const Video01 = ({ poster, video, className }: TProps) => {
         >
             {poster?.src && (
                 <img
-                    className="tw-w-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
+                    className="tw-w-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110"
                     src={poster.src}
                     alt={poster?.alt || "video poster"}
                     width={poster?.width || 970}

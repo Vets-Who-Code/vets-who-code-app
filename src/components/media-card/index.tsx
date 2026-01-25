@@ -19,7 +19,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
             {image?.src && (
                 <figure className="tw-relative tw-overflow-hidden">
                     <img
-                        className="tw-h-52 tw-w-full tw-object-cover tw-transition-transform tw-duration-1500 group-hover:tw-scale-105" // Changed from tw-h-48
+                        className="tw-h-52 tw-w-full tw-object-cover tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-105" // Changed from tw-h-48
                         src={image.src}
                         alt={image?.alt || title}
                         width={image?.width || 300}

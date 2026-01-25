@@ -17,7 +17,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                     {image?.src ? (
                         <div className="tw-relative">
                             <img
-                                className="tw-h-[430px] tw-w-[350px] tw-object-cover tw-grayscale tw-transition-all tw-duration-1000 tw-ease-out group-hover:tw-scale-110 group-hover:tw-grayscale-0"
+                                className="tw-h-[430px] tw-w-[350px] tw-object-cover tw-grayscale tw-transition-all tw-duration-1000 tw-ease-out tw-group-hover:tw-scale-110 tw-group-hover:tw-grayscale-0"
                                 src={image.src}
                                 alt={image?.alt || name}
                                 width={image?.width || 350}
