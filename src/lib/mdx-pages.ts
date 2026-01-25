@@ -2,8 +2,8 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import { getImageUrl } from "./cloudinary-helpers";
 import { ImageType } from "@utils/types";
+import { getImageUrl } from "./cloudinary-helpers";
 
 const mdxPagesDirectory = join(process.cwd(), "src/data/mdx-pages");
 
