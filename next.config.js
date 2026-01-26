@@ -80,11 +80,23 @@ const nextConfig = {
         ];
     },
 
+    // Redirects for old blog pagination URLs
+    async redirects() {
+        return [
+            {
+                source: '/blogs/blog/page/:page',
+                destination: '/blogs/blog?page=:page',
+                permanent: true,
+            },
+        ];
+    },
+
     // Optimize file tracing for smaller serverless bundles
     outputFileTracingIncludes: {
         // Only include specific data files that are needed at runtime
         '/': ['src/data/site-config.ts', 'src/data/homepages/**/*'],
         '/api/**': [], // API routes don't need static data files
+        '/blogs/blog': ['src/data/blogs/**/*.md'], // Blog listing page needs blog markdown files for SSR
     },
 
     // Exclude unnecessary files from serverless functions
@@ -98,9 +110,7 @@ const nextConfig = {
             'node_modules/@swc/core-win32-x64-msvc/**',
             '.git/**',
             '.next/cache/**',
-            'src/data/blogs/**',
             'src/data/curriculum/lessons/**',
-            '**/*.md',
             '**/*.map',
             '**/test/**',
             '**/tests/**',
