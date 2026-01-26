@@ -7,6 +7,7 @@ image:
     {
         src: "v1769461512/2026-cohort-accelerator-program_mtzxei.jpg",
     }
+audioUrl: "https://res.cloudinary.com/vetswhocode/video/upload/v1769462295/blog-audio/vwc-2026-what-to-know-before-you-apply.wav"
 category: "Program Updates"
 tags:
     - Vets Who Code
