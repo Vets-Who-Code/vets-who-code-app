@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Applications close February 14, 2026. The cohort starts April 7th. We rebuilt the program from scratch this year. Here's what changed, what it requires, and how to know if it's right for you."
 image:
     {
-        src: "v1738012800/vwc-2026-cohort_placeholder.jpg",
+        src: "v1769461512/2026-cohort-accelerator-program_mtzxei.jpg",
     }
 category: "Program Updates"
 tags:
