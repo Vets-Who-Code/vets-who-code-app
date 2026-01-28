@@ -9,6 +9,7 @@ import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import { linkedinRegex, githubRegex } from "@utils/formValidations";
 import { motion, AnimatePresence } from "motion/react";
+import { validateEmail, validateUrl } from "@utils/validators";
 
 interface IFormValues {
     firstName: string;
@@ -34,9 +35,26 @@ interface IFormValues {
 const STEPS = [
     { id: 1, title: "Personal Info", fields: ["firstName", "lastName", "email"] },
     { id: 2, title: "Location", fields: ["city", "state", "zipCode", "country"] },
-    { id: 3, title: "Military Background", fields: ["branchOfService", "yearJoined", "yearSeparated"] },
-    { id: 4, title: "Education History", fields: ["hasAttendedPreviousCourse", "previousCourses", "willAttendAnotherCourse", "otherCourses"] },
-    { id: 5, title: "Technical Profiles", fields: ["linkedInAccountName", "githubAccountName", "preworkLink", "preworkRepo"] },
+    {
+        id: 3,
+        title: "Military Background",
+        fields: ["branchOfService", "yearJoined", "yearSeparated"],
+    },
+    {
+        id: 4,
+        title: "Education History",
+        fields: [
+            "hasAttendedPreviousCourse",
+            "previousCourses",
+            "willAttendAnotherCourse",
+            "otherCourses",
+        ],
+    },
+    {
+        id: 5,
+        title: "Technical Profiles",
+        fields: ["linkedInAccountName", "githubAccountName", "preworkLink", "preworkRepo"],
+    },
 ] as const;
 
 const ApplyForm = () => {
@@ -120,10 +138,12 @@ const ApplyForm = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="tw-mx-auto tw-max-w-2xl tw-rounded-2xl tw-border-2 tw-border-primary tw-bg-gradient-to-br tw-from-primary-50 tw-to-secondary-50 tw-p-8 tw-text-center tw-shadow-2xl"
+                    className="tw-from-primary-50 tw-to-secondary-50 tw-mx-auto tw-max-w-2xl tw-rounded-2xl tw-border-2 tw-border-primary tw-bg-gradient-to-br tw-p-8 tw-text-center tw-shadow-2xl"
                 >
                     <div className="tw-mb-4 tw-text-6xl">🎉</div>
-                    <h3 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-primary">Application Submitted!</h3>
+                    <h3 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-primary">
+                        Application Submitted!
+                    </h3>
                     <p className="tw-text-lg tw-font-medium tw-text-secondary">{message}</p>
                     {showEmojiRain && <EmojiRain />}
                 </motion.div>
@@ -144,15 +164,15 @@ const ApplyForm = () => {
                             {STEPS.map((step, index) => (
                                 <div
                                     key={step.id}
-                                    className="tw-flex tw-flex-1 tw-flex-col tw-items-center tw-min-w-[80px]"
+                                    className="tw-flex tw-min-w-[80px] tw-flex-1 tw-flex-col tw-items-center"
                                 >
                                     <div
                                         className={`tw-mb-2 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-font-semibold tw-transition-all ${
                                             currentStep > index + 1
                                                 ? "tw-bg-primary tw-text-white"
                                                 : currentStep === index + 1
-                                                ? "tw-bg-secondary tw-text-white tw-ring-4 tw-ring-secondary-200"
-                                                : "tw-bg-gray-50 tw-text-gray-500"
+                                                  ? "tw-ring-secondary-200 tw-bg-secondary tw-text-white tw-ring-4"
+                                                  : "tw-bg-gray-50 tw-text-gray-500"
                                         }`}
                                     >
                                         {currentStep > index + 1 ? "✓" : step.id}
@@ -162,8 +182,8 @@ const ApplyForm = () => {
                                             currentStep === index + 1
                                                 ? "tw-text-secondary"
                                                 : currentStep > index + 1
-                                                ? "tw-text-primary"
-                                                : "tw-text-gray-500"
+                                                  ? "tw-text-primary"
+                                                  : "tw-text-gray-500"
                                         }`}
                                     >
                                         {step.title}
@@ -215,13 +235,18 @@ const ApplyForm = () => {
                                                         placeholder="John"
                                                         bg="light"
                                                         feedbackText={errors?.firstName?.message}
-                                                        state={hasKey(errors, "firstName") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "firstName")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "firstName")}
                                                         {...register("firstName", {
                                                             required: "First name is required",
                                                             minLength: {
                                                                 value: 2,
-                                                                message: "First name must be at least 2 characters",
+                                                                message:
+                                                                    "First name must be at least 2 characters",
                                                             },
                                                         })}
                                                     />
@@ -238,13 +263,18 @@ const ApplyForm = () => {
                                                         placeholder="Doe"
                                                         bg="light"
                                                         feedbackText={errors?.lastName?.message}
-                                                        state={hasKey(errors, "lastName") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "lastName")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "lastName")}
                                                         {...register("lastName", {
                                                             required: "Last name is required",
                                                             minLength: {
                                                                 value: 2,
-                                                                message: "Last name must be at least 2 characters",
+                                                                message:
+                                                                    "Last name must be at least 2 characters",
                                                             },
                                                         })}
                                                     />
@@ -263,13 +293,19 @@ const ApplyForm = () => {
                                                     placeholder="john.doe@example.com"
                                                     bg="light"
                                                     feedbackText={errors?.email?.message}
-                                                    state={hasKey(errors, "email") ? "error" : "success"}
+                                                    state={
+                                                        hasKey(errors, "email")
+                                                            ? "error"
+                                                            : "success"
+                                                    }
                                                     showState={!!hasKey(errors, "email")}
                                                     {...register("email", {
                                                         required: "Email address is required",
-                                                        pattern: {
-                                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                            message: "Please enter a valid email address",
+                                                        validate: (value) => {
+                                                            const result = validateEmail(value);
+                                                            return (
+                                                                result.isValid || result.error || ""
+                                                            );
                                                         },
                                                     })}
                                                 />
@@ -304,7 +340,11 @@ const ApplyForm = () => {
                                                         placeholder="San Francisco"
                                                         bg="light"
                                                         feedbackText={errors?.city?.message}
-                                                        state={hasKey(errors, "city") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "city")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "city")}
                                                         {...register("city", {
                                                             required: "City is required",
@@ -323,7 +363,11 @@ const ApplyForm = () => {
                                                         placeholder="California"
                                                         bg="light"
                                                         feedbackText={errors?.state?.message}
-                                                        state={hasKey(errors, "state") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "state")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "state")}
                                                         {...register("state", {
                                                             required: "State/Province is required",
@@ -344,7 +388,11 @@ const ApplyForm = () => {
                                                         placeholder="94102"
                                                         bg="light"
                                                         feedbackText={errors?.zipCode?.message}
-                                                        state={hasKey(errors, "zipCode") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "zipCode")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "zipCode")}
                                                         {...register("zipCode", {
                                                             required: "Zip/Postal code is required",
@@ -363,7 +411,11 @@ const ApplyForm = () => {
                                                         placeholder="United States"
                                                         bg="light"
                                                         feedbackText={errors?.country?.message}
-                                                        state={hasKey(errors, "country") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "country")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "country")}
                                                         {...register("country", {
                                                             required: "Country is required",
@@ -400,7 +452,11 @@ const ApplyForm = () => {
                                                     placeholder="e.g., Army, Navy, Air Force, Marines, Coast Guard"
                                                     bg="light"
                                                     feedbackText={errors?.branchOfService?.message}
-                                                    state={hasKey(errors, "branchOfService") ? "error" : "success"}
+                                                    state={
+                                                        hasKey(errors, "branchOfService")
+                                                            ? "error"
+                                                            : "success"
+                                                    }
                                                     showState={!!hasKey(errors, "branchOfService")}
                                                     {...register("branchOfService", {
                                                         required: "Branch of service is required",
@@ -420,13 +476,18 @@ const ApplyForm = () => {
                                                         placeholder="e.g., 2010"
                                                         bg="light"
                                                         feedbackText={errors?.yearJoined?.message}
-                                                        state={hasKey(errors, "yearJoined") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "yearJoined")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "yearJoined")}
                                                         {...register("yearJoined", {
                                                             required: "Year joined is required",
                                                             pattern: {
                                                                 value: /^\d{4}$/,
-                                                                message: "Please enter a valid year (e.g., 2010)",
+                                                                message:
+                                                                    "Please enter a valid year (e.g., 2010)",
                                                             },
                                                         })}
                                                     />
@@ -442,14 +503,23 @@ const ApplyForm = () => {
                                                         id="yearSeparated"
                                                         placeholder="e.g., 2015"
                                                         bg="light"
-                                                        feedbackText={errors?.yearSeparated?.message}
-                                                        state={hasKey(errors, "yearSeparated") ? "error" : "success"}
-                                                        showState={!!hasKey(errors, "yearSeparated")}
+                                                        feedbackText={
+                                                            errors?.yearSeparated?.message
+                                                        }
+                                                        state={
+                                                            hasKey(errors, "yearSeparated")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
+                                                        showState={
+                                                            !!hasKey(errors, "yearSeparated")
+                                                        }
                                                         {...register("yearSeparated", {
                                                             required: "Year separated is required",
                                                             pattern: {
                                                                 value: /^\d{4}$/,
-                                                                message: "Please enter a valid year (e.g., 2015)",
+                                                                message:
+                                                                    "Please enter a valid year (e.g., 2015)",
                                                             },
                                                         })}
                                                     />
@@ -496,13 +566,22 @@ const ApplyForm = () => {
                                                         id="previousCourses"
                                                         placeholder="e.g., JavaScript Fundamentals, Python for Beginners, etc."
                                                         bg="light"
-                                                        feedbackText={errors?.previousCourses?.message}
-                                                        state={hasKey(errors, "previousCourses") ? "error" : "success"}
-                                                        showState={!!hasKey(errors, "previousCourses")}
+                                                        feedbackText={
+                                                            errors?.previousCourses?.message
+                                                        }
+                                                        state={
+                                                            hasKey(errors, "previousCourses")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
+                                                        showState={
+                                                            !!hasKey(errors, "previousCourses")
+                                                        }
                                                         {...register("previousCourses", {
-                                                            required: watchHasAttendedPreviousCourses
-                                                                ? "Please list your previous courses or uncheck the box"
-                                                                : false,
+                                                            required:
+                                                                watchHasAttendedPreviousCourses
+                                                                    ? "Please list your previous courses or uncheck the box"
+                                                                    : false,
                                                         })}
                                                     />
                                                 </motion.div>
@@ -532,7 +611,11 @@ const ApplyForm = () => {
                                                         placeholder="e.g., Web Development Bootcamp, Data Science Course, etc."
                                                         bg="light"
                                                         feedbackText={errors?.otherCourses?.message}
-                                                        state={hasKey(errors, "otherCourses") ? "error" : "success"}
+                                                        state={
+                                                            hasKey(errors, "otherCourses")
+                                                                ? "error"
+                                                                : "success"
+                                                        }
                                                         showState={!!hasKey(errors, "otherCourses")}
                                                         {...register("otherCourses", {
                                                             required: watchWillAttendAnotherCourse
@@ -570,11 +653,20 @@ const ApplyForm = () => {
                                                     id="linkedInAccountName"
                                                     placeholder="linkedin.com/in/your-name"
                                                     bg="light"
-                                                    feedbackText={errors?.linkedInAccountName?.message}
-                                                    state={hasKey(errors, "linkedInAccountName") ? "error" : "success"}
-                                                    showState={!!hasKey(errors, "linkedInAccountName")}
+                                                    feedbackText={
+                                                        errors?.linkedInAccountName?.message
+                                                    }
+                                                    state={
+                                                        hasKey(errors, "linkedInAccountName")
+                                                            ? "error"
+                                                            : "success"
+                                                    }
+                                                    showState={
+                                                        !!hasKey(errors, "linkedInAccountName")
+                                                    }
                                                     {...register("linkedInAccountName", {
-                                                        required: "LinkedIn profile URL is required",
+                                                        required:
+                                                            "LinkedIn profile URL is required",
                                                         pattern: {
                                                             value: linkedinRegex,
                                                             message:
@@ -594,9 +686,17 @@ const ApplyForm = () => {
                                                     id="githubAccountName"
                                                     placeholder="github.com/your-username"
                                                     bg="light"
-                                                    feedbackText={errors?.githubAccountName?.message}
-                                                    state={hasKey(errors, "githubAccountName") ? "error" : "success"}
-                                                    showState={!!hasKey(errors, "githubAccountName")}
+                                                    feedbackText={
+                                                        errors?.githubAccountName?.message
+                                                    }
+                                                    state={
+                                                        hasKey(errors, "githubAccountName")
+                                                            ? "error"
+                                                            : "success"
+                                                    }
+                                                    showState={
+                                                        !!hasKey(errors, "githubAccountName")
+                                                    }
                                                     {...register("githubAccountName", {
                                                         required: "GitHub profile URL is required",
                                                         pattern: {
@@ -612,7 +712,9 @@ const ApplyForm = () => {
                                                     Prework Submission
                                                 </h5>
                                                 <p className="tw-mb-4 tw-text-sm tw-text-blue-800">
-                                                    Your prework demonstrates your commitment and foundational skills. Please provide both the live deployment link and the GitHub repository.
+                                                    Your prework demonstrates your commitment and
+                                                    foundational skills. Please provide both the
+                                                    live deployment link and the GitHub repository.
                                                 </p>
                                                 <div className="tw-space-y-4">
                                                     <div>
@@ -626,14 +728,24 @@ const ApplyForm = () => {
                                                             id="preworkLink"
                                                             placeholder="https://your-username.github.io/prework"
                                                             bg="light"
-                                                            feedbackText={errors?.preworkLink?.message}
-                                                            state={hasKey(errors, "preworkLink") ? "error" : "success"}
-                                                            showState={!!hasKey(errors, "preworkLink")}
+                                                            feedbackText={
+                                                                errors?.preworkLink?.message
+                                                            }
+                                                            state={
+                                                                hasKey(errors, "preworkLink")
+                                                                    ? "error"
+                                                                    : "success"
+                                                            }
+                                                            showState={
+                                                                !!hasKey(errors, "preworkLink")
+                                                            }
                                                             {...register("preworkLink", {
-                                                                required: "Prework live link is required",
+                                                                required:
+                                                                    "Prework live link is required",
                                                                 pattern: {
                                                                     value: /^https?:\/\/.+/,
-                                                                    message: "Please enter a valid URL (starting with http:// or https://)",
+                                                                    message:
+                                                                        "Please enter a valid URL (starting with http:// or https://)",
                                                                 },
                                                             })}
                                                         />
@@ -649,14 +761,24 @@ const ApplyForm = () => {
                                                             id="preworkRepo"
                                                             placeholder="https://github.com/your-username/prework"
                                                             bg="light"
-                                                            feedbackText={errors?.preworkRepo?.message}
-                                                            state={hasKey(errors, "preworkRepo") ? "error" : "success"}
-                                                            showState={!!hasKey(errors, "preworkRepo")}
+                                                            feedbackText={
+                                                                errors?.preworkRepo?.message
+                                                            }
+                                                            state={
+                                                                hasKey(errors, "preworkRepo")
+                                                                    ? "error"
+                                                                    : "success"
+                                                            }
+                                                            showState={
+                                                                !!hasKey(errors, "preworkRepo")
+                                                            }
                                                             {...register("preworkRepo", {
-                                                                required: "Prework repository URL is required",
+                                                                required:
+                                                                    "Prework repository URL is required",
                                                                 pattern: {
                                                                     value: /^https?:\/\/(www\.)?github\.com\/.+/,
-                                                                    message: "Please enter a valid GitHub repository URL",
+                                                                    message:
+                                                                        "Please enter a valid GitHub repository URL",
                                                                 },
                                                             })}
                                                         />
