@@ -8,6 +8,7 @@ import Textarea from "@ui/form-elements/textarea";
 import Feedback from "@ui/form-elements/feedback";
 import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
+import { validateEmail, validatePhone, validateRequired } from "@utils/validators";
 
 interface IFormValues {
     name: string;
@@ -70,7 +71,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         state={hasKey(errors, "name") ? "error" : "success"}
                         showState={!!hasKey(errors, "name")}
                         {...register("name", {
-                            required: "Name is required",
+                            validate: (value) => {
+                                const result = validateRequired(value, "Name");
+                                return result.isValid ? true : (result.error || "");
+                            },
                         })}
                     />
                 </div>
@@ -89,7 +93,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         state={hasKey(errors, "phone") ? "error" : "success"}
                         showState={!!hasKey(errors, "phone")}
                         {...register("phone", {
-                            required: "Phone is required",
+                            validate: (value) => {
+                                const result = validatePhone(value);
+                                return result.isValid ? true : (result.error || "");
+                            },
                         })}
                     />
                 </div>
@@ -109,10 +116,9 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         state={hasKey(errors, "email") ? "error" : "success"}
                         showState={!!hasKey(errors, "email")}
                         {...register("email", {
-                            required: "Email is required",
-                            pattern: {
-                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                message: "Invalid email address",
+                            validate: (value) => {
+                                const result = validateEmail(value);
+                                return result.isValid ? true : (result.error || "");
                             },
                         })}
                     />
@@ -132,7 +138,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         state={hasKey(errors, "subject") ? "error" : "success"}
                         showState={!!hasKey(errors, "subject")}
                         {...register("subject", {
-                            required: "Subject is required",
+                            validate: (value) => {
+                                const result = validateRequired(value, "Subject");
+                                return result.isValid ? true : (result.error || "");
+                            },
                         })}
                     />
                 </div>
@@ -152,7 +161,10 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                     state={hasKey(errors, "message") ? "error" : "success"}
                     showState={!!hasKey(errors, "message")}
                     {...register("message", {
-                        required: "Message is required",
+                        validate: (value) => {
+                            const result = validateRequired(value, "Message");
+                            return result.isValid ? true : (result.error || "");
+                        },
                     })}
                 />
             </div>
