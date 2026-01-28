@@ -23,7 +23,7 @@ export function validateEmail(email: string): ValidationResult {
         return { isValid: false, error: "Email is required" };
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(email)) {
         return { isValid: false, error: "Invalid email format" };
@@ -71,13 +71,15 @@ export function validatePassword(password: string): ValidationResult {
 
 /**
  * Validates US phone number format
- * Accepts formats like: (555) 555-5555, 555-555-5555, 5555555555, +1 555 555 5555
+ * Accepts formats like: (555) 555-5555, 555-555-5555, 5555555555, +1(555)555-5555
+ * Note: Spaces after +1 are handled by the \s* in the regex pattern
  * @param phone - Phone number to validate
  * @returns ValidationResult with isValid status and optional error message
  * @example
  * validatePhone('(555) 555-5555') // { isValid: true }
  * validatePhone('123') // { isValid: false, error: 'Invalid phone number format' }
  */
+
 export function validatePhone(phone: string): ValidationResult {
     if (!phone) {
         return { isValid: false, error: "Phone number is required" };

@@ -73,7 +73,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("name", {
                             validate: (value) => {
                                 const result = validateRequired(value, "Name");
-                                return result.isValid || result.error || "";
+                                return result.isValid ? true : (result.error || "");
                             },
                         })}
                     />
@@ -95,7 +95,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("phone", {
                             validate: (value) => {
                                 const result = validatePhone(value);
-                                return result.isValid || result.error || "";
+                                return result.isValid ? true : (result.error || "");
                             },
                         })}
                     />
@@ -118,7 +118,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("email", {
                             validate: (value) => {
                                 const result = validateEmail(value);
-                                return result.isValid || result.error || "";
+                                return result.isValid ? true : (result.error || "");
                             },
                         })}
                     />
@@ -140,7 +140,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("subject", {
                             validate: (value) => {
                                 const result = validateRequired(value, "Subject");
-                                return result.isValid || result.error || "";
+                                return result.isValid ? true : (result.error || "");
                             },
                         })}
                     />
@@ -163,7 +163,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                     {...register("message", {
                         validate: (value) => {
                             const result = validateRequired(value, "Message");
-                            return result.isValid || result.error || "";
+                            return result.isValid ? true : (result.error || "");
                         },
                     })}
                 />

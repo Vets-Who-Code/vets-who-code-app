@@ -269,7 +269,7 @@ const ApplyForm = () => {
                                                     {...register("email", {
                                                         validate: (value) => {
                                                             const result = validateEmail(value);
-                                                            return result.isValid || result.error || "";
+                                                            return result.isValid ? true : (result.error || "");
                                                         },
                                                     })}
                                                 />

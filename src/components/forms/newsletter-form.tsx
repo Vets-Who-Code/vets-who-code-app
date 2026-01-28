@@ -74,7 +74,7 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
                     {...register("newsletter_email", {
                         validate: (value) => {
                             const result = validateEmail(value);
-                            return result.isValid || result.error || "";
+                            return result.isValid ? true : (result.error || "");
                         },
                     })}
                     onChange={() => {
