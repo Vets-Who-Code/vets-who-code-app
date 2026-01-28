@@ -124,7 +124,7 @@ describe("validators", () => {
             const result2 = validateUrl("example.com");
             expect(result2.isValid).toBe(false);
 
-            const result3 = validateUrl("htp://invalid");
+            const result3 = validateUrl("ht!tp://invalid");
             expect(result3.isValid).toBe(false);
         });
 
