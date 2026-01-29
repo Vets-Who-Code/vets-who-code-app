@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import clsx from "clsx";
-import dayjs from "dayjs";
+import { formatDate } from "@utils/date";
 import Anchor from "@ui/anchor";
 import Button from "@ui/button";
 import { IEvent } from "@utils/types";
@@ -23,7 +23,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
             >
                 <div className="max-w-full tw-relative tw-h-[230px] tw-overflow-hidden tw-rounded-t">
                     {thumbnail?.src && (
-                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110">
+                        <figure className="tw-group-hover:tw-scale-110 tw-h-full tw-transition-transform tw-duration-1500">
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={thumbnail.src}
@@ -42,7 +42,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                 </div>
                 <div className="info tw-relative tw-z-1 tw-px-7.5 tw-pb-10 tw-pt-7.5 tw-text-center">
                     <p className="tw-mb-1 tw-font-semibold tw-uppercase -tw-tracking-tightest tw-text-primary">
-                        {dayjs(start_date).format("MMM DD, YYYY")}
+                        {formatDate(start_date)}
                     </p>
                     <h3 className="tw-mb-0 tw-text-xl tw-leading-normal tw-text-secondary">
                         <Anchor path={path}>{title}</Anchor>

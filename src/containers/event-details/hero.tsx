@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { formatDate } from "@utils/date";
 import CountdownTimer from "@components/ui/countdown-timer/layout-01";
 import { IEvent } from "@utils/types";
 import customParseFormat from "dayjs/plugin/customParseFormat";
@@ -7,7 +8,7 @@ dayjs.extend(customParseFormat);
 
 type TProps = Pick<IEvent, "thumbnail" | "title" | "start_date" | "start_time">;
 
-const HeroSection = ({ thumbnail, title, start_date, start_time }: TProps) => {
+function HeroSection({ thumbnail, title, start_date, start_time }: TProps) {
     return (
         <div className="tw-relative tw-max-h-[760px] tw-bg-heading tw-py-[100px] md:tw-pb-[184px] md:tw-pt-[232px]">
             <div className="tw-absolute tw-inset-0 after:tw-absolute after:tw-inset-0 after:tw-bg-black/40 after:tw-content-['']">
@@ -23,7 +24,7 @@ const HeroSection = ({ thumbnail, title, start_date, start_time }: TProps) => {
 
             <div className="tw-container tw-relative tw-z-1 tw-text-center tw-text-white">
                 <p className="tw-mb-7 tw-font-bold tw-uppercase tw-tracking-[4px]">
-                    {dayjs(start_date).format("MMMM YY")}{" "}
+                    {formatDate(start_date, "MMMM YY")}{" "}
                 </p>
 
                 <h1 className="tw-mb-0 tw-text-[40px] tw-leading-[1.15] tw-text-white md:tw-text-5xl lg:tw-text-[56px]">
@@ -36,6 +37,6 @@ const HeroSection = ({ thumbnail, title, start_date, start_time }: TProps) => {
             </div>
         </div>
     );
-};
+}
 
 export default HeroSection;
