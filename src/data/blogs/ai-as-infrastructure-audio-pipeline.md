@@ -4,7 +4,7 @@ postedAt: "2026-01-29T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "How we built an automated audio overview system using Google Gemini and Cloudinary, treating AI as infrastructure rather than magic—removing friction between knowledge and the people who need it."
 image:
-    src: "placeholder-ai-infrastructure"
+    src: "ai-as-infra_ew6r0j.png"
 category: "Technology"
 tags:
     - AI
