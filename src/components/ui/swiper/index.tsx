@@ -3,10 +3,11 @@ import cn from "clsx";
 import SwiperCore, { Navigation, Pagination, Autoplay, A11y } from "swiper";
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperModule } from "swiper/types";
 
 type TOptions = {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    modules?: any[];
+    modules?: SwiperModule[] = [Navigation, Pagination, A11y, Autoplay];
     slidesPerView?: number;
     spaceBetween?: number;
     watchSlidesProgress?: boolean;
