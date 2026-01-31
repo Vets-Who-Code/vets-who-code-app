@@ -1,9 +1,9 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import dayjs from "dayjs";
 import { IBlog, BlogMetaType, IDType, ImageType } from "@utils/types";
 import { slugify, flatDeep } from "@utils/methods";
+import { formatDate } from "@utils/date";
 import { getSlugs } from "./util";
 import { getAuthorByID } from "./author";
 import { getImageUrl } from "./cloudinary-helpers";
@@ -55,7 +55,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
     // Generate Cloudinary audio URL
     // All blog audio files are hosted on Cloudinary in the blog-audio folder
     // Convert to MP3 for better browser compatibility
-    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'vetswhocode';
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "vetswhocode";
     const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/f_mp3/blog-audio/${realSlug}.wav`;
 
     let blog: IBlog;
@@ -136,7 +136,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     return {
         ...blog,
-        postedAt: dayjs(blogData.postedAt).format("MMM DD, YYYY"),
+        postedAt: formatDate(blogData.postedAt),
         path: `/blogs/${realSlug}`,
     };
 }
