@@ -146,7 +146,7 @@ const nextConfig = {
     },
 
     images: {
-        domains: ['res.cloudinary.com', 'avatars.githubusercontent.com'],
+        domains: ['res.cloudinary.com', 'avatars.githubusercontent.com', 'cdn.shopify.com'],
         remotePatterns: [
             {
                 protocol: 'https',
@@ -155,6 +155,10 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'avatars.githubusercontent.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'cdn.shopify.com',
             },
         ],
         unoptimized: false,
