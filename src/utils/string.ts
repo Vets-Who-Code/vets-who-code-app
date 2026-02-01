@@ -72,8 +72,17 @@ export function pluralize(
  */
 export function stripHtml(html: string): string {
   if (!html) return "";
+
+  if (typeof window !== "undefined" && typeof window.DOMParser !== "undefined") {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    return doc.body.textContent || "";
+  }
+
+  // Fallback for non-DOM environments
   return html.replace(/<[^>]*>/g, "");
 }
+
 
 /**
  * Escape HTML special characters
@@ -108,7 +117,8 @@ export function formatFileSize(bytes: number): string {
 
 /**
  * Generate random string
- * @example randomString(8) // "aB3xY9Zk"
+ * ⚠️ Not cryptographically secure.
+ * Use only for non-security purposes (e.g. UI keys, mock data).
  */
 export function randomString(length: number): string {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

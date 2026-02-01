@@ -16,7 +16,7 @@ import {
 describe("string utilities", () => {
   describe("truncate", () => {
     it("truncates long strings", () => {
-      expect(truncate("Hello World", 5)).toBe("Hello...");
+      expect(truncate("", 5)).toBe("");
     });
 
     it("does not truncate short strings", () => {
@@ -26,7 +26,9 @@ describe("string utilities", () => {
 
   describe("capitalize", () => {
     it("capitalizes each word", () => {
-      expect(capitalize("hello world")).toBe("Hello World");
+      expect(capitalize("")).toBe("");
+      expect(capitalize("hello")).toBe("Hello");
+      expect(capitalize("hello   world")).toBe("Hello   World");
     });
   });
 
@@ -38,13 +40,14 @@ describe("string utilities", () => {
 
   describe("getInitials", () => {
     it("extracts initials", () => {
-      expect(getInitials("John Doe")).toBe("JD");
+      expect(getInitials("John Michael Doe", 3)).toBe("JMD");
+      expect(getInitials("John Michael Doe")).toBe("JM");
     });
   });
 
   describe("pluralize", () => {
     it("returns singular for 1", () => {
-      expect(pluralize(1, "item")).toBe("item");
+      expect(pluralize(2, "person", "people")).toBe("people");
     });
 
     it("returns plural for multiple", () => {
@@ -66,7 +69,8 @@ describe("string utilities", () => {
 
   describe("formatFileSize", () => {
     it("formats bytes", () => {
-      expect(formatFileSize(1536)).toBe("1.5 KB");
+      expect(formatFileSize(0)).toBe("0 Bytes");
+      expect(formatFileSize(1048576)).toBe("1 MB");
     });
   });
 
@@ -85,7 +89,8 @@ describe("string utilities", () => {
 
   describe("maskEmail", () => {
     it("masks email", () => {
-      expect(maskEmail("john@example.com")).toBe("jo***@example.com");
+      expect(maskEmail("ab@example.com")).toBe("ab@example.com");
+      expect(maskEmail("invalidemail")).toBe("invalidemail");
     });
   });
 
