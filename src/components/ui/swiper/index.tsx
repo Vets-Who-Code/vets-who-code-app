@@ -3,7 +3,7 @@ import cn from "clsx";
 import SwiperCore, { Navigation, Pagination, Autoplay, A11y } from "swiper";
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
-import { SwiperModule } from "swiper/types";
+import type { SwiperModule } from "swiper/types";
 
 type TOptions = {
     modules?: SwiperModule[];
