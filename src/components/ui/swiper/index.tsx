@@ -6,8 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperModule } from "swiper/types";
 
 type TOptions = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    modules?: SwiperModule[] = [Navigation, Pagination, A11y, Autoplay];
+    modules?: SwiperModule[];
     slidesPerView?: number;
     spaceBetween?: number;
     watchSlidesProgress?: boolean;
