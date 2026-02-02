@@ -10,8 +10,9 @@ Hello and thank you for your interest in contributing to the Vets Who Code web a
 4. [Feature Requests](#feature-requests)
 5. [Pull Request Process](#pull-request-process)
 6. [Code Style and Linting](#code-style-and-linting)
-7. [Testing](#testing)
-8. [Further Help](#further-help)
+7. [Commit Message Guidelines](#commit-message-guidelines)
+8. [Testing](#testing)
+9. [Further Help](#further-help)
 
 ## Code of Conduct
 
@@ -46,6 +47,54 @@ Our community has a [Code of Conduct](code_of_conduct.md), and we ask that you r
 
 - We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
 - Run the linter before submitting a PR to ensure your code passes.
+
+## Commit Message Guidelines
+
+We enforce the [Conventional Commits](https://www.conventionalcommits.org/) specification using **commitlint** and **husky**. All commit messages must follow these rules, and commits will be **automatically rejected** by git hooks if they don't comply.
+
+### Format
+
+```
+<type>(optional scope): <subject>
+```
+
+### Rules
+
+- **Header max length:** 72 characters
+- **Subject case:** Must be in sentence-case (capitalize the first letter)
+- **No period** at the end of the subject line
+
+### Allowed Types
+
+| Type       | Description                                      |
+|------------|--------------------------------------------------|
+| `feat`     | A new feature                                    |
+| `fix`      | A bug fix                                        |
+| `docs`     | Documentation changes                            |
+| `style`    | Code style changes (formatting, whitespace, etc.)|
+| `refactor` | Code refactoring without changing functionality  |
+| `perf`     | Performance improvements                         |
+| `test`     | Adding or updating tests                         |
+| `chore`    | Maintenance tasks                                |
+| `build`    | Build system changes                             |
+| `ci`       | CI/CD configuration changes                      |
+
+### Examples
+
+✅ **Valid commits:**
+```
+feat: Add user profile page
+fix(ui): Correct button alignment
+docs: Update API documentation
+refactor(auth): Simplify login logic
+```
+
+❌ **Invalid commits:**
+```
+added new feature          # Missing type
+feat: add user profile     # Subject not in sentence-case
+feat: Add user profile.    # Has trailing period
+```
 
 ## Testing
 
