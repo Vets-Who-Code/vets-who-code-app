@@ -27,6 +27,16 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
         return imageRenderer.call(renderer, imageUrl, title, text);
     };
 
+    // Process raw HTML img tags with Cloudinary public IDs before rendering
+    const processedContent = content.replace(
+        /<img\s+([^>]*?)src=["']([^"']+)["']([^>]*?)>/gi,
+        (_match, beforeSrc, src, afterSrc) => {
+            // Convert Cloudinary public IDs to full URLs for raw HTML img tags
+            const imageUrl = getImageUrl(src);
+            return `<img ${beforeSrc}src="${imageUrl}"${afterSrc}>`;
+        }
+    );
+
     return (
         <div
             className={clsx(
@@ -34,7 +44,7 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
                 className
             )}
             dangerouslySetInnerHTML={{
-                __html: marked(content, { renderer }),
+                __html: marked(processedContent, { renderer }),
             }}
         />
     );
