@@ -45,8 +45,11 @@ jobs:
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps ${{ matrix.browser }}
 
-      - name: Build project (optional, remove if not needed for tests)
+      - name: Build project
+        if: github.event_name == 'push'
         run: yarn build
+        env:
+          GITHUB_TOKEN: ${{ secrets.VWC_GITHUB_TOKEN }}
 
       - name: Run Playwright tests on ${{ matrix.browser }}
         run: yarn playwright test --project=${{ matrix.browser }}
