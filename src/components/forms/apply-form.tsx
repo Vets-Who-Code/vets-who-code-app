@@ -9,6 +9,7 @@ import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import { linkedinRegex, githubRegex } from "@utils/formValidations";
 import { motion, AnimatePresence } from "motion/react";
+import { validateEmail } from "@utils/validators";
 
 interface IFormValues {
     firstName: string;
@@ -266,10 +267,9 @@ const ApplyForm = () => {
                                                     state={hasKey(errors, "email") ? "error" : "success"}
                                                     showState={!!hasKey(errors, "email")}
                                                     {...register("email", {
-                                                        required: "Email address is required",
-                                                        pattern: {
-                                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                                                            message: "Please enter a valid email address",
+                                                        validate: (value) => {
+                                                            const result = validateEmail(value);
+                                                            return result.isValid ? true : (result.error || "");
                                                         },
                                                     })}
                                                 />
