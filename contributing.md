@@ -78,6 +78,7 @@ We enforce the [Conventional Commits](https://www.conventionalcommits.org/) spec
 | `chore`    | Maintenance tasks                                |
 | `build`    | Build system changes                             |
 | `ci`       | CI/CD configuration changes                      |
+| `revert`   | Revert previous commit                           |
 
 ### Examples
 
