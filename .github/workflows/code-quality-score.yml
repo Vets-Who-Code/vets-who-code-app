@@ -37,7 +37,11 @@ jobs:
       - name: Score the code
         run: node .github/scripts/scoreCode.js
 
+      - name: Display score in logs
+        run: cat score-output.md
+
       - name: Comment Code Score on PR
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: actions/github-script@v7
         with:
           script: |
