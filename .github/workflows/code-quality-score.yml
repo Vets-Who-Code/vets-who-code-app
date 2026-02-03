@@ -40,7 +40,6 @@ jobs:
         run: node .github/scripts/scoreCode.js
 
       - name: Comment Code Score on PR
-        if: github.event_name == 'pull_request'
         uses: actions/github-script@v7
         with:
           script: |
