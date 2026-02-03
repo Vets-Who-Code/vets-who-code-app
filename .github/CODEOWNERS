@@ -1,0 +1,6 @@
+# GitHub workflows and CI/CD require review from maintainers
+/.github/workflows/ @Vets-Who-Code/maintainers
+/.github/scripts/ @Vets-Who-Code/maintainers
+
+# Protect security-sensitive configuration
+/.github/CODEOWNERS @Vets-Who-Code/maintainers

@@ -8,11 +8,9 @@ on:
 
 permissions:
   contents: read
-  issues: read
-  pull-requests: read
 
 env:
-  GITHUB_TOKEN: ${{ secrets.VWC_GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ github.event_name == 'push' && secrets.VWC_GITHUB_TOKEN || github.token }}
 
 jobs:
   test:
