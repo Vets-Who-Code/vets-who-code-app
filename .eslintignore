@@ -42,3 +42,5 @@ public/workbox-*.js
 /scripts
 /prisma
 next.config.js
+commitlint.config.js
+
