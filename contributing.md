@@ -39,7 +39,7 @@ Our community has a [Code of Conduct](code_of_conduct.md), and we ask that you r
 2. Make your changes, ensuring you follow the code style guidelines.
 3. Commit your changes, using a clear and descriptive commit message.
 4. Push your branch to GitHub.
-5. Open a Pull Request against the main branch.
+5. Open a Pull Request against the main branch, ensure data required by template is provided.
 6. Ensure your PR description clearly describes the problem and solution.
 
 ## Code Style and Linting
