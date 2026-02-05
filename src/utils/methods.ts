@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import type { Dispatch, SetStateAction } from "react";
-import dayjs from "dayjs";
+import { getStartOfDay } from "@utils/date";
 import { SectionType, ICourse, IEvent } from "./types";
 
 export const normalizedData = <T extends Record<string, unknown>>(
@@ -95,6 +95,8 @@ export const eventFilter = (
     events: IEvent[],
     setFilteredEvents: Dispatch<SetStateAction<IEvent[]>>
 ): void => {
+    const todayStart = getStartOfDay().getTime();
+
     switch (filterValue) {
         case "all": {
             setFilteredEvents(events);
@@ -102,21 +104,21 @@ export const eventFilter = (
         }
         case "happening": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isSame(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() === todayStart;
             });
             setFilteredEvents(filterEvents);
             break;
         }
         case "upcoming": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isBefore(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() > todayStart;
             });
             setFilteredEvents(filterEvents);
             break;
         }
         case "expired": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isAfter(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() < todayStart;
             });
             setFilteredEvents(filterEvents);
             break;

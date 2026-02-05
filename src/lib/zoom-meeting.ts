@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import dayjs from "dayjs";
 import { IZoomMeeting, FieldType } from "@utils/types";
+import { formatDate } from "@utils/date";
 import { getSlugs } from "./util";
 
 const directory = path.join(process.cwd(), "src/data/zoom-meetings");
@@ -15,8 +15,8 @@ export function getZoomMeetingBySlug(slug: string, fields: FieldType<IZoomMeetin
         event = {
             ...fileContents,
             start_date: fileContents.date,
-            date: dayjs(fileContents.date).format("MMMM D, YYYY"),
-            time: dayjs(fileContents.date).format("h:mm a"),
+            date: formatDate(fileContents.date, "MMMM d, yyyy"),
+            time: formatDate(fileContents.date, "h:mm a"),
         };
     } else {
         event = fields.reduce(
@@ -27,13 +27,13 @@ export function getZoomMeetingBySlug(slug: string, fields: FieldType<IZoomMeetin
                 if (field === "date") {
                     return {
                         ...acc,
-                        [field]: dayjs(fileContents[field]).format("MMMM D, YYYY"),
+                        [field]: formatDate(fileContents[field], "MMMM d, yyyy"),
                     };
                 }
                 if (field === "time") {
                     return {
                         ...acc,
-                        [field]: dayjs(fileContents[field]).format("h:mm a"),
+                        [field]: formatDate(fileContents[field], "h:mm a"),
                     };
                 }
                 if (typeof fileContents[field] !== "undefined") {

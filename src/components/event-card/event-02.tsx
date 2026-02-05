@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import clsx from "clsx";
-import dayjs from "dayjs";
+import { formatDate } from "@utils/date";
 import Button from "@ui/button";
 import { IEvent } from "@utils/types";
 
@@ -31,10 +31,10 @@ const Event02 = forwardRef<HTMLDivElement, TProps>(
                 <div className="tw-shrink-0">
                     <div className="tw-mb-2.5 tw-text-left sm:tw-text-center">
                         <div className="tw-text-5xl tw-font-normal tw-leading-none tw-text-primary">
-                            {dayjs(start_date).format("DD")}
+                            {formatDate(start_date, "DD")}
                         </div>
                         <div className="tw-font-bold tw-uppercase tw-leading-none tw-tracking-wider tw-text-heading">
-                            {dayjs(start_date).format("MMM")}
+                            {formatDate(start_date, "MMM")}
                         </div>
                     </div>
                     <Button path={path} size="xs">
