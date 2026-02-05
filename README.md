@@ -96,6 +96,14 @@ We support development containers for an easier setup experience.
 
 Remember, this is optional. If you prefer to set up your development environment manually, you can continue to do so.
 
+## Image Generation Script for Blog Post Images
+
+**How it Works**
+
+**How to Run** - Verify you have the environment variable locally in a .env file (GEMINI_API_KEY).
+
+To get a local copy up and running, you'll need a few things installed on your machine.
+
 ## Contributing :handshake:
 
 We love contributions! Please read our [Contributing Guidelines](contributing.md) to get started.
