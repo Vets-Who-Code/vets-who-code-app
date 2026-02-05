@@ -2,7 +2,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 import type { Dispatch, SetStateAction } from "react";
 import { getStartOfDay } from "@utils/date";
-import { get } from "ace-builds-internal/config";
 import { SectionType, ICourse, IEvent } from "./types";
 
 export const normalizedData = <T extends Record<string, unknown>>(
