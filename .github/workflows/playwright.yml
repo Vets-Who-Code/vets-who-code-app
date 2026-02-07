@@ -13,50 +13,9 @@ env:
   GITHUB_TOKEN: ${{ github.event_name == 'push' && secrets.VWC_GITHUB_TOKEN || github.token }}
 
 jobs:
-  build:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js from .nvmrc
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: ".nvmrc"
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Next.js application
-        run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.VWC_GITHUB_TOKEN || github.token }}
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium firefox
-
-      - name: Upload build output
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: .next/
-          include-hidden-files: true
-          retention-days: 1
-
-      - name: Upload Playwright browsers
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-browsers
-          path: ~/.cache/ms-playwright
-          retention-days: 1
-
   test:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    needs: build
 
     strategy:
       matrix:
@@ -72,23 +31,24 @@ jobs:
           node-version-file: ".nvmrc"
           cache: "npm"
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
       - name: Install dependencies
         run: npm ci
 
-      - name: Download build output
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: .next/
+      - name: Build Next.js application
+        run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.VWC_GITHUB_TOKEN || github.token }}
 
-      - name: Download Playwright browsers
-        uses: actions/download-artifact@v4
-        with:
-          name: playwright-browsers
-          path: ~/.cache/ms-playwright
-
-      - name: Install Playwright system dependencies
-        run: npx playwright install-deps ${{ matrix.browser }}
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Run Playwright tests on ${{ matrix.browser }}
         run: npx playwright test --project=${{ matrix.browser }}
