@@ -1,16 +1,16 @@
+import type { Mock } from "vitest";
 import { NextApiRequest, NextApiResponse } from 'next';
 import handler from '@/pages/api/health';
 
-jest.mock('@/lib/prisma', () => ({
-  __esModule: true,
+vi.mock('@/lib/prisma', () => ({
   default: {
-    $queryRaw: jest.fn(),
+    $queryRaw: vi.fn(),
   },
 }));
 
 import prisma from '@/lib/prisma';
 
-const mockQueryRaw = prisma.$queryRaw as jest.Mock;
+const mockQueryRaw = prisma.$queryRaw as Mock;
 
 function createMockReqRes(method = 'GET'): {
   req: NextApiRequest;
@@ -18,8 +18,8 @@ function createMockReqRes(method = 'GET'): {
 } {
   const req = { method } as NextApiRequest;
   const res = {
-    status: jest.fn().mockReturnThis(),
-    json: jest.fn().mockReturnThis(),
+    status: vi.fn().mockReturnThis(),
+    json: vi.fn().mockReturnThis(),
   } as unknown as NextApiResponse;
   return { req, res };
 }
@@ -47,7 +47,7 @@ describe('GET /api/health', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     expect(body.status).toBe('healthy');
   });
 
@@ -59,7 +59,7 @@ describe('GET /api/health', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     expect(body.status).toBe('degraded');
   });
 
@@ -70,7 +70,7 @@ describe('GET /api/health', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(503);
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     expect(body.status).toBe('unhealthy');
   });
 
@@ -90,7 +90,7 @@ describe('GET /api/health', () => {
 
     await handler(req, res);
 
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     expect(body).toHaveProperty('version');
     expect(typeof body.version).toBe('string');
     expect(body).toHaveProperty('timestamp');
@@ -107,7 +107,7 @@ describe('GET /api/health', () => {
 
     await handler(req, res);
 
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     const dbCheck = body.checks.find((c: { name: string }) => c.name === 'database');
     expect(dbCheck).toBeDefined();
     expect(dbCheck.status).toBe('healthy');
@@ -121,7 +121,7 @@ describe('GET /api/health', () => {
 
     await handler(req, res);
 
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     const envCheck = body.checks.find((c: { name: string }) => c.name === 'environment');
     expect(envCheck).toBeDefined();
     expect(envCheck.status).toBe('unhealthy');
@@ -136,7 +136,7 @@ describe('GET /api/health', () => {
 
     await handler(req, res);
 
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     const envCheck = body.checks.find((c: { name: string }) => c.name === 'environment');
     expect(envCheck.missing).toEqual(['DATABASE_URL', 'NEXTAUTH_SECRET', 'NEXTAUTH_URL']);
   });
@@ -147,7 +147,7 @@ describe('GET /api/health', () => {
 
     await handler(req, res);
 
-    const body = (res.json as jest.Mock).mock.calls[0][0];
+    const body = (res.json as Mock).mock.calls[0][0];
     const dbCheck = body.checks.find((c: { name: string }) => c.name === 'database');
     expect(dbCheck.status).toBe('unhealthy');
     expect(typeof dbCheck.responseTime).toBe('number');

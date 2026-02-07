@@ -1,3 +1,4 @@
+import type { Mock } from "vitest";
 import { render, screen, fireEvent , waitFor } from "@testing-library/react";
 import { VWCProject, VWCContributor, VWCProjectRepo } from "@utils/types";
 import Projects, {
@@ -7,44 +8,40 @@ import Projects, {
     TopContributors,
     ProjectDetailModal,
     ProjectCard,
-} from "pages/projects";
-import { getProjectData } from "lib/project";
+} from "@/pages/projects";
+import { getProjectData } from "@/lib/project";
 
 // Mock dependencies
-jest.mock("@components/seo/page-seo", () => ({
-    __esModule: true,
+vi.mock("@components/seo/page-seo", () => ({
     default: () => <div data-testid="seo" />,
 }));
 
-jest.mock("@layout/layout-01", () => ({
-    __esModule: true,
+vi.mock("@layout/layout-01", () => ({
     default: ({ children }: { children: React.ReactNode }) => <div data-testid="layout">{children}</div>,
 }));
 
-jest.mock("@components/breadcrumb", () => ({
-    __esModule: true,
+vi.mock("@components/breadcrumb", () => ({
     default: () => <div data-testid="breadcrumb" />,
 }));
 
-jest.mock("@components/vwc-grid", () => ({
+vi.mock("@components/vwc-grid", () => ({
     VWCGrid: ({ children }: { children: React.ReactNode }) => <div data-testid="vwc-grid">{children}</div>,
 }));
 
-jest.mock("@components/markdown-renderer", () => ({
-    __esModule: true,
+vi.mock("@components/markdown-renderer", () => ({
     default: ({ content }: { content: string }) => <div data-testid="markdown">{content}</div>,
 }));
 
 // Mock the AnimatePresence component
-jest.mock("motion/react", () => ({
+vi.mock("motion/react", () => ({
     AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     motion: {
         div: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     },
 }));
 
-jest.mock("@/lib/project", () => ({
-    getProjectData: jest.fn(),
+vi.mock("@/lib/project", () => ({
+    getProjectData: vi.fn(),
 }));
 
 // Mock data
@@ -203,10 +200,10 @@ describe("Projects Page", () => {
 
 describe("getStaticProps", () => {
     it("returns project data and layout settings", async () => {
-        (getProjectData as jest.Mock).mockResolvedValue([mockProject]);
+        (getProjectData as Mock).mockResolvedValue([mockProject]);
 
-        const { getStaticProps } = require("@/pages/projects");
-        const result = await getStaticProps();
+        const { getStaticProps } = await import("@/pages/projects");
+        const result = await getStaticProps({});
 
         expect(result).toEqual({
             props: {
@@ -222,10 +219,10 @@ describe("getStaticProps", () => {
     });
 
     it("handles errors by falling back to empty projects", async () => {
-        (getProjectData as jest.Mock).mockRejectedValue(new Error("API Error"));
+        (getProjectData as Mock).mockRejectedValue(new Error("API Error"));
 
-        const { getStaticProps } = require("@/pages/projects");
-        const result = await getStaticProps();
+        const { getStaticProps } = await import("@/pages/projects");
+        const result = await getStaticProps({});
 
         expect(result).toEqual({
             props: {

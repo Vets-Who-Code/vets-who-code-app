@@ -1,8 +1,9 @@
-import { classifyContact, ContactClassification } from "../../../src/pages/api/api-helpers/classify-contact";
+import type { Mock } from "vitest";
 import { GoogleGenAI } from "@google/genai";
+import { classifyContact, ContactClassification } from "../../../src/pages/api/api-helpers/classify-contact";
 
-jest.mock("@google/genai", () => ({
-    GoogleGenAI: jest.fn(),
+vi.mock("@google/genai", () => ({
+    GoogleGenAI: vi.fn(),
     Type: {
         OBJECT: "OBJECT",
         STRING: "STRING",
@@ -11,14 +12,16 @@ jest.mock("@google/genai", () => ({
     },
 }));
 
-const mockGenerateContent = jest.fn();
+const mockGenerateContent = vi.fn();
 
 function setupGoogleGenAIMock(): void {
-    (GoogleGenAI as unknown as jest.Mock).mockImplementation(() => ({
-        models: {
-            generateContent: mockGenerateContent,
-        },
-    }));
+    (GoogleGenAI as unknown as Mock).mockImplementation(function () {
+        return {
+            models: {
+                generateContent: mockGenerateContent,
+            },
+        };
+    });
 }
 
 const validInput = {
@@ -196,7 +199,7 @@ describe("classifyContact", () => {
     });
 
     it("should log classification without PII", async () => {
-        const consoleSpy = jest.spyOn(console, "info").mockImplementation();
+        const consoleSpy = vi.spyOn(console, "info").mockImplementation(() => {});
         mockGenerateContent.mockResolvedValue({
             text: JSON.stringify(relevantClassification),
         });
