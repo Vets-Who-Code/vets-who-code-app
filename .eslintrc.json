@@ -100,13 +100,13 @@
     "prefer-destructuring": "off",
     "no-bitwise": "warn",
     "import/no-named-as-default": "warn",
-    "jsx-a11y/label-has-associated-control": "warn",
+    "jsx-a11y/label-has-associated-control": "error",
     "react/no-unknown-property": "warn",
     "no-restricted-globals": "warn",
     "@typescript-eslint/no-loop-func": "warn",
-    "import/no-unresolved": "warn",
-    "import/extensions": "warn",
-    "react/function-component-definition": "warn",
+    "import/no-unresolved": "error",
+    "import/extensions": "error",
+    "react/function-component-definition": "error",
     "react/jsx-no-constructed-context-values": "warn"
   },
   "settings": {
@@ -132,7 +132,7 @@
       }
     },
     {
-      "files": ["__tests__/**/*", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "vitest.setup.ts"],
+      "files": ["__tests__/**/*", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "vitest.setup.ts", "vitest.config.mts"],
       "rules": {
         "import/no-extraneous-dependencies": "off",
         "no-console": "off",

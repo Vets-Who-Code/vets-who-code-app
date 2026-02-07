@@ -36,7 +36,7 @@ export default defineConfig({
             "__tests__/**/*.{test,tests}.{ts,tsx}",
             "src/**/__tests__/**/*.{test,tests}.{ts,tsx}",
         ],
-    exclude: ["node_modules", "tests/**"],
+        exclude: ["node_modules", "tests/**"],
         coverage: {
             provider: "v8",
             reportsDirectory: "coverage",
