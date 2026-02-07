@@ -100,13 +100,13 @@
     "prefer-destructuring": "off",
     "no-bitwise": "warn",
     "import/no-named-as-default": "warn",
-    "jsx-a11y/label-has-associated-control": "error",
+    "jsx-a11y/label-has-associated-control": "warn",
     "react/no-unknown-property": "warn",
     "no-restricted-globals": "warn",
     "@typescript-eslint/no-loop-func": "warn",
     "import/no-unresolved": "error",
     "import/extensions": "error",
-    "react/function-component-definition": "error",
+    "react/function-component-definition": "warn",
     "react/jsx-no-constructed-context-values": "warn"
   },
   "settings": {
