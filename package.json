@@ -26,6 +26,7 @@
     "@ai-sdk/google": "^2.0.32",
     "@ai-sdk/openai": "^2.0.67",
     "@google-cloud/text-to-speech": "^6.4.0",
+    "@google/genai": "^1.40.0",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@googlemaps/typescript-guards": "^2.0.1",
     "@neondatabase/serverless": "^1.0.1",

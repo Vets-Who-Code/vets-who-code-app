@@ -82,6 +82,7 @@
     ]
   },
   "include": [
+    "__tests__/**/*.test.*",
     "__tests__/**/*.tests.*",
     "jest.config.ts",
     "jest.setup.ts",

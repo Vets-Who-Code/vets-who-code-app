@@ -350,9 +350,23 @@ export const getStaticProps: GetStaticProps = async () => {
         };
     } catch (err) {
         if (err instanceof Error) {
-            console.error(`Error while regenerating projects page: ${err.message}`);
+            console.error(`Error while fetching project data: ${err.message}`);
         }
-        throw new Error(`Failed to update github project data`);
+
+        // Return empty projects array as fallback during build
+        // This allows the build to succeed even if GitHub API is unavailable
+        console.warn("Falling back to empty projects list due to API error");
+        return {
+            props: {
+                projects: [],
+                layout: {
+                    headerShadow: true,
+                    headerFluid: false,
+                    footerMode: "light",
+                },
+            },
+            revalidate: 60, // Try again in 1 minute
+        };
     }
 };
 
