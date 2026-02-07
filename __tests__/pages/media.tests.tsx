@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { IMedia } from "@utils/types"; // Adjust path if needed
-import MediaPage from "../../pages/media.tsx"; // Adjust if path is different, e.g., src/pages/media
+import MediaPage from "@/pages/media";
 
 // Mock dependencies
 jest.mock("@components/seo/page-seo", () => ({
@@ -27,8 +27,8 @@ jest.mock("@components/media-card", () => ({
 // Mock getallPosts from mdx-pages
 // The actual getStaticProps will call the real one, but we pass props directly in tests
 const mockGetAllPosts = jest.fn();
-jest.mock("@lib/mdx-pages", () => ({
-    getallPosts: () => mockGetAllPosts(),
+jest.mock("@/lib/mdx-pages", () => ({
+    getAllMediaPosts: () => mockGetAllPosts(),
 }));
 
 
