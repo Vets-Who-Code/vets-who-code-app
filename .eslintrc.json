@@ -49,40 +49,16 @@
         ]
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "import/no-unresolved": "error",
     "consistent-return": "off",
     "arrow-body-style": "off",
     "prefer-arrow-callback": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx", ".jsx"] }],
-    "react/function-component-definition": [
-      "error",
-      {
-        "namedComponents": "arrow-function",
-        "unnamedComponents": "arrow-function"
-      }
-    ],
     "jsx-a11y/anchor-is-valid": [
       "error",
       {
         "components": ["Link"],
         "specialLink": ["hrefLeft", "hrefRight"],
         "aspects": ["invalidHref", "preferButton"]
-      }
-    ],
-    "jsx-a11y/label-has-associated-control": [
-      "error",
-      {
-        "required": {
-          "some": ["nesting", "id"]
-        }
       }
     ],
     "jsx-a11y/control-has-associated-label": "off",
@@ -110,7 +86,6 @@
       }
     ],
     "no-await-in-loop": "warn",
-    "complexity": ["warn", { "max": 15 }],
     "react/button-has-type": "warn",
     "react/no-unescaped-entities": "warn",
     "react/no-array-index-key": "warn",
@@ -129,8 +104,8 @@
     "react/no-unknown-property": "warn",
     "no-restricted-globals": "warn",
     "@typescript-eslint/no-loop-func": "warn",
-    "import/no-unresolved": "warn",
-    "import/extensions": "warn",
+    "import/no-unresolved": "error",
+    "import/extensions": "error",
     "react/function-component-definition": "warn",
     "react/jsx-no-constructed-context-values": "warn"
   },
@@ -157,7 +132,7 @@
       }
     },
     {
-      "files": ["__tests__/**/*", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "jest.setup.ts"],
+      "files": ["__tests__/**/*", "**/*.test.ts", "**/*.test.tsx", "**/*.spec.ts", "**/*.spec.tsx", "vitest.setup.ts", "vitest.config.mts"],
       "rules": {
         "import/no-extraneous-dependencies": "off",
         "no-console": "off",

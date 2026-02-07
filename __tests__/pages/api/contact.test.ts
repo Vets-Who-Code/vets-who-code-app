@@ -1,13 +1,14 @@
+import type { Mock } from "vitest";
 import { NextApiRequest, NextApiResponse } from "next";
 import handler from "@/pages/api/contact";
 import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
 import axios from "axios";
 
-jest.mock("@/pages/api/api-helpers/classify-contact", () => ({
-    classifyContact: jest.fn(),
+vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
+    classifyContact: vi.fn(),
 }));
 
-jest.mock("axios");
+vi.mock("axios");
 
 function createMockReqRes(body: Record<string, unknown>): {
     req: NextApiRequest;
@@ -15,8 +16,8 @@ function createMockReqRes(body: Record<string, unknown>): {
 } {
     const req = { body } as NextApiRequest;
     const res = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn().mockReturnThis(),
+        status: vi.fn().mockReturnThis(),
+        json: vi.fn().mockReturnThis(),
     } as unknown as NextApiResponse;
     return { req, res };
 }
@@ -69,7 +70,7 @@ describe("POST /api/contact", () => {
 
     describe("spam classification", () => {
         it("should filter spam when sendToSlack is false", async () => {
-            (classifyContact as jest.Mock).mockResolvedValue({
+            (classifyContact as Mock).mockResolvedValue({
                 sendToSlack: false,
                 category: "spam",
                 confidence: 0.95,
@@ -94,13 +95,13 @@ describe("POST /api/contact", () => {
         });
 
         it("should post to Slack when sendToSlack is true", async () => {
-            (classifyContact as jest.Mock).mockResolvedValue({
+            (classifyContact as Mock).mockResolvedValue({
                 sendToSlack: true,
                 category: "relevant",
                 confidence: 0.98,
                 reason: "Genuine inquiry",
             });
-            (axios as unknown as jest.Mock).mockResolvedValue({ status: 200 });
+            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "John Doe",
@@ -122,8 +123,8 @@ describe("POST /api/contact", () => {
         });
 
         it("should fail-open and post to Slack when classification returns null", async () => {
-            (classifyContact as jest.Mock).mockResolvedValue(null);
-            (axios as unknown as jest.Mock).mockResolvedValue({ status: 200 });
+            (classifyContact as Mock).mockResolvedValue(null);
+            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "Test User",
@@ -139,8 +140,8 @@ describe("POST /api/contact", () => {
         });
 
         it("should call classifyContact with correct input", async () => {
-            (classifyContact as jest.Mock).mockResolvedValue(null);
-            (axios as unknown as jest.Mock).mockResolvedValue({ status: 200 });
+            (classifyContact as Mock).mockResolvedValue(null);
+            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "Jane",
@@ -158,8 +159,8 @@ describe("POST /api/contact", () => {
         });
 
         it("should pass defaults when optional fields are missing", async () => {
-            (classifyContact as jest.Mock).mockResolvedValue(null);
-            (axios as unknown as jest.Mock).mockResolvedValue({ status: 200 });
+            (classifyContact as Mock).mockResolvedValue(null);
+            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
 
             const { req, res } = createMockReqRes({
                 email: "test@example.com",
@@ -178,7 +179,7 @@ describe("POST /api/contact", () => {
 
     describe("Slack webhook", () => {
         beforeEach(() => {
-            (classifyContact as jest.Mock).mockResolvedValue({
+            (classifyContact as Mock).mockResolvedValue({
                 sendToSlack: true,
                 category: "relevant",
                 confidence: 0.9,
@@ -187,7 +188,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should return 500 when Slack webhook fails with Error", async () => {
-            (axios as unknown as jest.Mock).mockRejectedValue(
+            (axios as unknown as Mock).mockRejectedValue(
                 new Error("Slack API timeout")
             );
 
@@ -206,7 +207,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should return 500 with generic message for non-Error exceptions", async () => {
-            (axios as unknown as jest.Mock).mockRejectedValue("unknown failure");
+            (axios as unknown as Mock).mockRejectedValue("unknown failure");
 
             const { req, res } = createMockReqRes({
                 name: "Test",
@@ -223,7 +224,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should include formatted message in Slack payload", async () => {
-            (axios as unknown as jest.Mock).mockResolvedValue({ status: 200 });
+            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "John Doe",
@@ -234,7 +235,7 @@ describe("POST /api/contact", () => {
 
             await handler(req, res);
 
-            const axiosCall = (axios as unknown as jest.Mock).mock.calls[0][0];
+            const axiosCall = (axios as unknown as Mock).mock.calls[0][0];
             const payload = JSON.parse(axiosCall.data);
             expect(payload.text).toContain("John Doe");
             expect(payload.text).toContain("john@example.com");
