@@ -1,9 +1,9 @@
-import { useMemo, useState } from "react";
-import SwiperCore, { EffectFade } from "swiper";
-import { motion } from "motion/react";
 import SwiperSlider, { SwiperSlide } from "@components/ui/swiper";
 import { ItemType } from "@utils/types";
 import { fadeInUp } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo, useState } from "react";
+import SwiperCore, { EffectFade } from "swiper";
 
 type TProps = {
     data: {

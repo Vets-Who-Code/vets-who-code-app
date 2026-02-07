@@ -1,8 +1,8 @@
-import clsx from "clsx";
-import { useRouter } from "next/router";
 import Anchor from "@ui/anchor";
 import Badge from "@ui/badge";
 import { ILesson } from "@utils/types";
+import clsx from "clsx";
+import { useRouter } from "next/router";
 
 type IProps = Omit<ILesson, "id" | "chapter" | "slug" | "content">;
 

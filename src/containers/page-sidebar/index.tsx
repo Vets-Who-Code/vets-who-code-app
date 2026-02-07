@@ -1,7 +1,7 @@
 import SidebarMenu from "@components/menu/sidebar-menu";
-import RecentCoursesWidget from "@widgets/recent-courses-widget";
 import menu from "@data/sidebar-menu";
 import { ICourse } from "@utils/types";
+import RecentCoursesWidget from "@widgets/recent-courses-widget";
 
 type TProps = {
     recentCourses: ICourse[];

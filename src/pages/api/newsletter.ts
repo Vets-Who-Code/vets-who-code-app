@@ -47,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         requestData = JSON.parse(req.body as string) as RequestData;
-    } catch (error) {
+    } catch (_error) {
         return res.status(400).json({ error: "Invalid JSON payload" });
     }
 
@@ -79,7 +79,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         try {
             data = (await response.json()) as Mailchimp;
-        } catch (error) {
+        } catch (_error) {
             // Handle JSON parsing error
             return res.status(500).json({ error: "Internal Server Error" });
         }

@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import Anchor from "@ui/anchor"; // Assuming Anchor component is suitable for external links
 import { IMedia } from "@utils/types"; // Import the IMedia interface
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = IMedia & {
     className?: string;

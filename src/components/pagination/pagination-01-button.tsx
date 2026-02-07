@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import clsx from "clsx";
+import { useRouter } from "next/router";
 
 type TProps = {
     numberOfPages: number;
@@ -15,7 +15,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
     const nextPage = `${(currentPage + 1).toString()}`;
 
     const pagiHandler = (curPage: string) => {
-        void router.push(
+        router.push(
             {
                 pathname: router.pathname,
                 query: {

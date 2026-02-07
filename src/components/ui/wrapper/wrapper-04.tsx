@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import { motion } from "motion/react";
 import BottomShape from "@components/ui/bottom-shape/shape-02";
 import { useUI } from "@contexts/ui-context";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     children: React.ReactNode;

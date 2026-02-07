@@ -1,6 +1,6 @@
+import { IEvent } from "@utils/types";
 import fs from "fs";
 import path from "path";
-import { IEvent } from "@utils/types";
 import { getSlugs } from "./util";
 
 const directory = path.join(process.cwd(), "src/data/events");

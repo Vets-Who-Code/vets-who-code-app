@@ -1,9 +1,9 @@
-import { useState } from "react";
-import clsx from "clsx";
-import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "motion/react";
 import { useKeyboardFocus } from "@hooks";
 import { fadeIn02 } from "@utils/variants";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "motion/react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import Spinner from "../spinner";
 
 const Portal = dynamic(() => import("../../portal"), {
@@ -99,7 +99,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                         title="YouTube video player"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
+                                        allowFullScreen={true}
                                     />
                                 </div>
                             </div>

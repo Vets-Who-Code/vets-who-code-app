@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import VideoButton from "@ui/video-button";
 import { ImageType, VideoType } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     poster: ImageType;

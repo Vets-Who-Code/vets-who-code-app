@@ -1,10 +1,10 @@
-import type { NextPage, GetStaticProps } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import ContactInfo from "@containers/contact-info/layout-02";
+import SEO from "@components/seo/page-seo";
 import ContactForm from "@containers/contact-form/layout-02";
+import ContactInfo from "@containers/contact-info/layout-02";
+import Layout from "@layout/layout-01";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps, NextPage } from "next";
 import { getPageData } from "../lib/page";
 
 interface PageContent {

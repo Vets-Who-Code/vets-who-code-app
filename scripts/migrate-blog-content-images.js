@@ -13,177 +13,135 @@
  *   node scripts/migrate-blog-content-images.js --apply      # Apply changes
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const BLOGS_DIR = path.join(process.cwd(), 'src/data/blogs');
+const BLOGS_DIR = path.join(process.cwd(), "src/data/blogs");
 const CLOUDINARY_URL_PATTERN =
-  /https:\/\/res\.cloudinary\.com\/vetswhocode\/image\/upload\/[^"')>\s]+/g;
+    /https:\/\/res\.cloudinary\.com\/vetswhocode\/image\/upload\/[^"')>\s]+/g;
 
 /**
  * Extract public ID from a Cloudinary URL
  */
 function extractPublicId(url) {
-  if (!url || !url.includes('cloudinary.com')) {
-    return null;
-  }
-
-  try {
-    // Match pattern: /upload/[transformations]/[version]/[public_id].[extension]
-    // Keep the extension and version!
-    const match = url.match(/\/upload\/(?:.*?\/)?(v\d+\/.+)$/);
-
-    if (match) {
-      return match[1];
+    if (!url || !url.includes("cloudinary.com")) {
+        return null;
     }
 
-    // Fallback: try without version
-    const fallbackMatch = url.match(/\/upload\/(?:.*?\/)?(.+)$/);
-    if (fallbackMatch) {
-      return fallbackMatch[1];
-    }
+    try {
+        // Match pattern: /upload/[transformations]/[version]/[public_id].[extension]
+        // Keep the extension and version!
+        const match = url.match(/\/upload\/(?:.*?\/)?(v\d+\/.+)$/);
 
-    return null;
-  } catch (error) {
-    console.error('Error extracting public ID from URL:', error);
-    return null;
-  }
+        if (match) {
+            return match[1];
+        }
+
+        // Fallback: try without version
+        const fallbackMatch = url.match(/\/upload\/(?:.*?\/)?(.+)$/);
+        if (fallbackMatch) {
+            return fallbackMatch[1];
+        }
+
+        return null;
+    } catch (error) {
+        console.error("Error extracting public ID from URL:", error);
+        return null;
+    }
 }
 
 /**
  * Process a single blog file
  */
 function processBlogFile(filePath, applyChanges = false) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  const matches = content.match(CLOUDINARY_URL_PATTERN);
+    const content = fs.readFileSync(filePath, "utf8");
+    const matches = content.match(CLOUDINARY_URL_PATTERN);
 
-  if (!matches || matches.length === 0) {
-    return { changed: false, file: filePath, reason: 'No Cloudinary URLs in content' };
-  }
-
-  let newContent = content;
-  const replacements = [];
-
-  matches.forEach((url) => {
-    const publicId = extractPublicId(url);
-
-    if (publicId) {
-      // Replace the full URL with just the public ID
-      newContent = newContent.replace(url, publicId);
-      replacements.push({ url, publicId });
+    if (!matches || matches.length === 0) {
+        return { changed: false, file: filePath, reason: "No Cloudinary URLs in content" };
     }
-  });
 
-  if (replacements.length === 0) {
+    let newContent = content;
+    const replacements = [];
+
+    matches.forEach((url) => {
+        const publicId = extractPublicId(url);
+
+        if (publicId) {
+            // Replace the full URL with just the public ID
+            newContent = newContent.replace(url, publicId);
+            replacements.push({ url, publicId });
+        }
+    });
+
+    if (replacements.length === 0) {
+        return {
+            changed: false,
+            file: filePath,
+            reason: "Could not extract public IDs",
+        };
+    }
+
+    if (applyChanges) {
+        fs.writeFileSync(filePath, newContent, "utf8");
+    }
+
     return {
-      changed: false,
-      file: filePath,
-      reason: 'Could not extract public IDs',
+        changed: true,
+        file: path.basename(filePath),
+        replacements,
+        count: replacements.length,
     };
-  }
-
-  if (applyChanges) {
-    fs.writeFileSync(filePath, newContent, 'utf8');
-  }
-
-  return {
-    changed: true,
-    file: path.basename(filePath),
-    replacements,
-    count: replacements.length,
-  };
 }
 
 /**
  * Main migration function
  */
 function migrateBlogContentImages(applyChanges = false) {
-  console.log('\n🔍 Scanning blog posts for in-content Cloudinary URLs...\n');
+    const files = fs.readdirSync(BLOGS_DIR).filter((f) => f.endsWith(".md"));
+    const results = {
+        total: files.length,
+        changed: [],
+        unchanged: [],
+    };
 
-  const files = fs.readdirSync(BLOGS_DIR).filter((f) => f.endsWith('.md'));
-  const results = {
-    total: files.length,
-    changed: [],
-    unchanged: [],
-  };
+    files.forEach((file) => {
+        const filePath = path.join(BLOGS_DIR, file);
+        const result = processBlogFile(filePath, applyChanges);
 
-  files.forEach((file) => {
-    const filePath = path.join(BLOGS_DIR, file);
-    const result = processBlogFile(filePath, applyChanges);
-
-    if (result.changed) {
-      results.changed.push(result);
-    } else {
-      results.unchanged.push(result);
-    }
-  });
-
-  // Display results
-  console.log('📊 Migration Summary:\n');
-  console.log(`   Total files scanned:     ${results.total}`);
-  console.log(`   Files with URLs:         ${results.changed.length}`);
-  console.log(`   Files without URLs:      ${results.unchanged.length}`);
-  console.log('');
-
-  if (results.changed.length > 0) {
-    console.log('📝 Files to migrate:\n');
-
-    results.changed.forEach((item, index) => {
-      console.log(`${index + 1}. ${item.file} (${item.count} URLs)`);
-      item.replacements.slice(0, 2).forEach((r) => {
-        console.log(`   Old: ${r.url.substring(0, 80)}...`);
-        console.log(`   New: ${r.publicId}`);
-        console.log('');
-      });
-      if (item.replacements.length > 2) {
-        console.log(`   ... and ${item.replacements.length - 2} more\n`);
-      }
+        if (result.changed) {
+            results.changed.push(result);
+        } else {
+            results.unchanged.push(result);
+        }
     });
 
-    if (applyChanges) {
-      console.log('✅ Changes have been applied!\n');
-      console.log(
-        '⚠️  IMPORTANT: Review the changes and test your blog posts before committing.\n'
-      );
-    } else {
-      console.log('ℹ️  This is a DRY RUN. No files were modified.');
-      console.log(
-        '   To apply these changes, run: node scripts/migrate-blog-content-images.js --apply\n'
-      );
-    }
-  } else {
-    console.log('✅ No Cloudinary URLs found in blog content.\n');
-  }
+    if (results.changed.length > 0) {
+        results.changed.forEach((item, index) => {
+            item.replacements.slice(0, 2).forEach((r) => {});
+            if (item.replacements.length > 2) {
+            }
+        });
 
-  // Summary of total replacements
-  const totalReplacements = results.changed.reduce(
-    (sum, item) => sum + item.count,
-    0
-  );
-  if (totalReplacements > 0) {
-    console.log(`📈 Total URLs to replace: ${totalReplacements}\n`);
-  }
+        if (applyChanges) {
+        } else {
+        }
+    } else {
+    }
+
+    // Summary of total replacements
+    const totalReplacements = results.changed.reduce((sum, item) => sum + item.count, 0);
+    if (totalReplacements > 0) {
+    }
 }
 
 // Parse command line arguments
 const args = process.argv.slice(2);
-const applyChanges = args.includes('--apply');
+const applyChanges = args.includes("--apply");
 
-if (args.length === 0 || args.includes('--dry-run')) {
-  console.log('🔧 Running in DRY RUN mode...');
-  migrateBlogContentImages(false);
+if (args.length === 0 || args.includes("--dry-run")) {
+    migrateBlogContentImages(false);
 } else if (applyChanges) {
-  console.log('⚠️  WARNING: This will modify your blog files!');
-  console.log('   Make sure you have committed your current changes first.');
-  console.log('');
-  console.log('🔧 Applying migrations...');
-  migrateBlogContentImages(true);
+    migrateBlogContentImages(true);
 } else {
-  console.log('Usage:');
-  console.log(
-    '  node scripts/migrate-blog-content-images.js --dry-run    # Preview changes'
-  );
-  console.log(
-    '  node scripts/migrate-blog-content-images.js --apply      # Apply changes'
-  );
 }

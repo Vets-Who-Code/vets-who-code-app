@@ -1,11 +1,11 @@
-import { useState } from "react";
-import type { GetServerSideProps } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import ProductGrid from "@components/product-grid";
+import SEO from "@components/seo/page-seo";
 import ShoppingCart from "@components/shopping-cart";
-import { getProducts, ShopifyProduct, isShopifyConfigured } from "@lib/shopify";
 import { useCart } from "@hooks";
+import Layout from "@layout/layout-01";
+import { getProducts, isShopifyConfigured, ShopifyProduct } from "@lib/shopify";
+import type { GetServerSideProps } from "next";
+import { useState } from "react";
 
 interface StorePageProps {
     products: ShopifyProduct[];
@@ -37,10 +37,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
 
     return (
         <Layout>
-            <SEO
-                title="Store"
-                description="Shop official Vets Who Code merchandise and apparel"
-            />
+            <SEO title="Store" description="Shop official Vets Who Code merchandise and apparel" />
 
             {/* Hero Section */}
             <div className="tw-bg-white tw-py-20">
@@ -90,8 +87,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                         All Products
                     </h2>
                     <p className="tw-text-gray-300">
-                        {products.length} {products.length === 1 ? "product" : "products"}{" "}
-                        available
+                        {products.length} {products.length === 1 ? "product" : "products"} available
                     </p>
                 </div>
 
@@ -116,16 +112,8 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
 export const getServerSideProps: GetServerSideProps<StorePageProps> = async () => {
     const isConfigured = isShopifyConfigured();
 
-    // Debug logging
-    console.log('Shopify Configuration Check:', {
-        isConfigured,
-        hasDomain: !!process.env.SHOPIFY_STORE_DOMAIN,
-        hasToken: !!process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-        domain: process.env.SHOPIFY_STORE_DOMAIN,
-    });
-
     if (!isConfigured) {
-        console.error('Shopify not configured - missing environment variables');
+        console.error("Shopify not configured - missing environment variables");
         return {
             props: {
                 products: [],
@@ -136,7 +124,6 @@ export const getServerSideProps: GetServerSideProps<StorePageProps> = async () =
 
     try {
         const products = await getProducts(100);
-        console.log(`Successfully fetched ${products.length} products from Shopify`);
 
         return {
             props: {

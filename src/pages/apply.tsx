@@ -1,15 +1,15 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Wrapper from "@ui/wrapper/wrapper-04";
 import Breadcrumb from "@components/breadcrumb";
-import CtaArea from "@containers/cta/layout-01";
-import FunfactArea from "@containers/funfact/layout-02";
-import PreworkButton from "@containers/prework-button";
-import HeroImageArea from "@containers/hero-image";
 // import GradationArea from "@containers/gradation";
 import ApplyForm from "@components/forms/apply-form";
+import SEO from "@components/seo/page-seo";
+import CtaArea from "@containers/cta/layout-01";
+import FunfactArea from "@containers/funfact/layout-02";
+import HeroImageArea from "@containers/hero-image";
+import PreworkButton from "@containers/prework-button";
+import Layout from "@layout/layout-01";
+import Wrapper from "@ui/wrapper/wrapper-04";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps, NextPage } from "next";
 import { getPageData } from "../lib/page";
 
 interface PageContent {

@@ -1,14 +1,14 @@
 // src/utils/__tests__/validators.test.ts
 
 import {
+    composeValidators,
     validateEmail,
+    validateMaxLength,
+    validateMinLength,
     validatePassword,
     validatePhone,
-    validateUrl,
     validateRequired,
-    validateMinLength,
-    validateMaxLength,
-    composeValidators,
+    validateUrl,
 } from "../validators";
 
 describe("validators", () => {

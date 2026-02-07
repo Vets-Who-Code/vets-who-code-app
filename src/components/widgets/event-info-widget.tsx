@@ -1,8 +1,8 @@
-import Button from "@ui/button";
-import Alert from "@ui/alert";
 import SocialShare from "@components/social-share/layout-02";
-import { IEvent } from "@utils/types";
+import Alert from "@ui/alert";
+import Button from "@ui/button";
 import { isDatePast } from "@utils/date";
+import { IEvent } from "@utils/types";
 import WidgetBox from "./widget-box";
 
 type TProps = Pick<IEvent, "title" | "start_date">;
@@ -16,7 +16,7 @@ function EventInfo({ start_date }: TProps) {
                     This event has expired
                 </Alert>
             ) : (
-                <Button fullwidth className="tw-mt-5">
+                <Button fullwidth={true} className="tw-mt-5">
                     Book Now
                 </Button>
             )}

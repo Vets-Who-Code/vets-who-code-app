@@ -75,7 +75,7 @@
       "google.maps",
       "@types/node",
       "vitest/globals",
-      "@testing-library/jest-dom/vitest"
+      "@testing-library/jest-dom/vitest",
     ],
     "plugins": [
       {

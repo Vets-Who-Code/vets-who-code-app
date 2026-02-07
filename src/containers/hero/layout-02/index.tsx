@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import clsx from "clsx";
+import { useUI } from "@contexts/ui-context";
 import Button from "@ui/button";
 import MottoText from "@ui/motto-text";
-import { useUI } from "@contexts/ui-context";
-import { HeadingType, TextType, ButtonType, ImageType, MottoType } from "@utils/types";
+import { ButtonType, HeadingType, ImageType, MottoType, TextType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {

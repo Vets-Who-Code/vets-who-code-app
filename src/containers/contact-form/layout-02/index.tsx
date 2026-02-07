@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import ContactForm from "@components/forms/contact-form";
+import Section from "@components/ui/engagement-modal";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedContactForm = motion(ContactForm);
 

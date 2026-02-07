@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, FocusEvent } from "react";
+import { ChangeEvent, FocusEvent, MouseEvent } from "react";
 
 export interface IFeedback {
     state?: "success" | "warning" | "error";

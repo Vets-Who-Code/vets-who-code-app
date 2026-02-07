@@ -1,5 +1,5 @@
-import { Children, isValidElement, cloneElement, ReactNode, ReactElement } from "react";
 import clsx from "clsx";
+import { Children, cloneElement, isValidElement, ReactElement, ReactNode } from "react";
 
 interface IProps {
     children: ReactNode;
@@ -86,7 +86,7 @@ const BasicTable = ({ children, className, striped, bordered }: IProps) => {
 
     return (
         <div className="table-responsive">
-            <table className={clsx("table tw-w-full", className)}>{renderChildren}</table>
+            <table className={clsx("tw-w-full table", className)}>{renderChildren}</table>
         </div>
     );
 };

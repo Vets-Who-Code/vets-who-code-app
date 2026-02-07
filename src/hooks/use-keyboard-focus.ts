@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
 import { getFocusableElements, nextFocus } from "@utils/methods";
+import { useEffect, useRef } from "react";
 
 const useKeyboardFocus = <T extends HTMLElement>(open: boolean, onClose: () => void) => {
     const ref = useRef<T>(null);

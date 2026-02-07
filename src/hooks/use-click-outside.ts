@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, RefObject } from "react";
+import { RefObject, useCallback, useEffect, useRef } from "react";
 
 const useClickOutside = <T extends HTMLElement>(onClose: () => void): RefObject<T> => {
     const ref = useRef<T>(null);

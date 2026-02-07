@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
-import { ImageType, HeadingType } from "@utils/types";
+import { HeadingType, ImageType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {

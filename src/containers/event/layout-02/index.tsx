@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
+import EventCard from "@components/event-card/event-01";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import MottoText from "@components/ui/motto-text";
 import SwiperSlider, { SwiperSlide } from "@ui/swiper";
-import EventCard from "@components/event-card/event-01";
-import { scrollUpVariants } from "@utils/variants";
 import { IEvent, MottoType, SectionTitleType, TSection } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedSwiper = motion(SwiperSlider);

@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
-import { scrollUpVariants } from "@utils/variants";
-import { ImageType, TSection, VideoType } from "@utils/types";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import Video from "@ui/video-with-poster/video-02";
+import { ImageType, TSection, VideoType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedVideo = motion(Video);
 

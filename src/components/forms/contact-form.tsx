@@ -1,14 +1,14 @@
 import EmojiRain from "@components/EmojiRain";
-import React, { forwardRef, useState } from "react";
-import axios from "axios";
-import clsx from "clsx";
-import { useForm, SubmitHandler } from "react-hook-form";
+import Button from "@ui/button";
+import Feedback from "@ui/form-elements/feedback";
 import Input from "@ui/form-elements/input";
 import Textarea from "@ui/form-elements/textarea";
-import Feedback from "@ui/form-elements/feedback";
-import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
 import { validateEmail, validatePhone, validateRequired } from "@utils/validators";
+import axios from "axios";
+import clsx from "clsx";
+import React, { forwardRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormValues {
     name: string;
@@ -44,7 +44,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
             } else {
                 setServerMessage("There was an error. Please try again later.");
             }
-        } catch (error) {
+        } catch (_error) {
             setServerMessage("There was an error. Please try again later.");
         }
     };
@@ -73,7 +73,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("name", {
                             validate: (value) => {
                                 const result = validateRequired(value, "Name");
-                                return result.isValid ? true : (result.error || "");
+                                return result.isValid ? true : result.error || "";
                             },
                         })}
                     />
@@ -95,7 +95,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("phone", {
                             validate: (value) => {
                                 const result = validatePhone(value);
-                                return result.isValid ? true : (result.error || "");
+                                return result.isValid ? true : result.error || "";
                             },
                         })}
                     />
@@ -118,7 +118,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("email", {
                             validate: (value) => {
                                 const result = validateEmail(value);
-                                return result.isValid ? true : (result.error || "");
+                                return result.isValid ? true : result.error || "";
                             },
                         })}
                     />
@@ -140,7 +140,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                         {...register("subject", {
                             validate: (value) => {
                                 const result = validateRequired(value, "Subject");
-                                return result.isValid ? true : (result.error || "");
+                                return result.isValid ? true : result.error || "";
                             },
                         })}
                     />
@@ -163,7 +163,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                     {...register("message", {
                         validate: (value) => {
                             const result = validateRequired(value, "Message");
-                            return result.isValid ? true : (result.error || "");
+                            return result.isValid ? true : result.error || "";
                         },
                     })}
                 />

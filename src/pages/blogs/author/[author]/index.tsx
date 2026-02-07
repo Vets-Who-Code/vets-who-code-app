@@ -1,11 +1,11 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-02";
+import Layout01 from "@layout/layout-01";
 import { toCapitalize } from "@utils/methods";
 import { BlogMetaType, IBlog } from "@utils/types";
 import { getAllBlogs, getPostsByAuthor, getTags } from "lib/blog";
+import type { GetStaticPaths, NextPage } from "next";
 import { getAllAuthors, getAuthorBySlug } from "../../../../lib/author";
 
 type TProps = {

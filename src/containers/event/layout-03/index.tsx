@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import EventCard from "@components/event-card/event-02";
-import MottoText from "@ui/motto-text";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import BottomShape from "@ui/bottom-shape/shape-03";
+import MottoText from "@ui/motto-text";
 import { IEvent, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedEventCard = motion(EventCard);

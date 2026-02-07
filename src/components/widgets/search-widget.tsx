@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
 import Input from "@ui/form-elements/input";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 type TProps = {
     className?: string;
@@ -12,7 +12,7 @@ const SearchWidget = ({ className }: TProps) => {
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!search) return;
-        void router.push(
+        router.push(
             {
                 pathname: "/blogs/search",
                 query: {

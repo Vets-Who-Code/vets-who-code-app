@@ -1,11 +1,11 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import Layout from "@layout/layout-01";
 import SEO from "@components/seo/page-seo";
-import matter from "gray-matter";
+import Layout from "@layout/layout-01";
 import fs from "fs";
-import path from "path";
+import matter from "gray-matter";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
+import path from "path";
 import { getAllMediaPosts } from "../../lib/mdx-pages";
 
 interface ProgramPageProps {

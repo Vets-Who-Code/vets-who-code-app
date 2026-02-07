@@ -1,8 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { IDType, FieldType, ILesson, IChapter, ICurriculum } from "@utils/types";
 import { flatDeep } from "@utils/methods";
+import { FieldType, IChapter, ICurriculum, IDType, ILesson } from "@utils/types";
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 import { getSlugs } from "./util";
 
 const file = path.join(process.cwd(), "src/data/curriculum/chapters.json");

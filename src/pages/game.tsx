@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import type { NextPage } from "next";
-import Layout from "@layout/layout-03";
-import SEO from "@components/seo/page-seo";
 import EmojiRain from "@components/EmojiRain";
-import PlayerSetup from "../components/game/PlayerSetup";
+import SEO from "@components/seo/page-seo";
+import Layout from "@layout/layout-03";
+import type { NextPage } from "next";
+import React, { useEffect, useState } from "react";
 import GameArea from "../components/game/GameArea";
+import PlayerSetup from "../components/game/PlayerSetup";
 import ScoreBoard from "../components/game/ScoreBoard";
-import { Player, Fact, GameState, MilitaryBranch } from "../utils/types";
 import factsData from "../data/militaryFacts.json";
+import { Fact, GameState, MilitaryBranch, Player } from "../utils/types";
 
 type PageWithLayoutType = NextPage & {
     Layout: typeof Layout;

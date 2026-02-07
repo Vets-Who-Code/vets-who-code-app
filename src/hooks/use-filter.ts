@@ -1,6 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import type { Dispatch, SetStateAction } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function useFilter<T>(
     items: T[],
@@ -20,7 +20,7 @@ function useFilter<T>(
         if (!value) return;
         const { query } = router;
         delete query.page;
-        void router.push(
+        router.push(
             {
                 pathname: pathname || router.pathname,
                 query: {

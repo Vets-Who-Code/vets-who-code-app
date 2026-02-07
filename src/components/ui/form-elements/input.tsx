@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
 import cn from "clsx";
+import { forwardRef } from "react";
 import Feedback from "./feedback";
 import { IInputProps } from "./types";
 

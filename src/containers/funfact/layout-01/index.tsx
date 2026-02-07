@@ -1,9 +1,9 @@
-import Section from "@components/ui/engagement-modal";
 import FunFact from "@components/funfact/funfact-01";
 import SectionTitle from "@components/section-title";
-import { motion } from "motion/react";
+import Section from "@components/ui/engagement-modal";
+import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { SectionTitleType, ItemType, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedFunFact = motion(FunFact);

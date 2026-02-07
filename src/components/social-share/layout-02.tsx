@@ -1,5 +1,5 @@
-import { useEffect, useState, MouseEvent } from "react";
 import Social, { SocialLink } from "@components/ui/social";
+import { MouseEvent, useEffect, useState } from "react";
 
 type TProps = {
     className?: string;
@@ -22,7 +22,13 @@ const SocialShare = ({ className }: TProps) => {
     };
 
     return (
-        <Social shape="circle" variant="outlined" color="light" tooltip className={className}>
+        <Social
+            shape="circle"
+            variant="outlined"
+            color="light"
+            tooltip={true}
+            className={className}
+        >
             <SocialLink
                 label="Facebook"
                 href={`https://www.facebook.com/sharer/sharer.php?u=${href}`}

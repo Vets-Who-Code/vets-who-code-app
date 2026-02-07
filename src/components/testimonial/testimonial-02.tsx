@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { ImageType, ItemType } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = Pick<ItemType, "title" | "description" | "name" | "designation"> & {
     image: ImageType;

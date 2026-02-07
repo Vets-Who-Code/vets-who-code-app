@@ -1,7 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useRef } from "react";
-import { createCustomEqual } from "fast-equals";
+
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
+import { createCustomEqual } from "fast-equals";
+import { useEffect, useRef } from "react";
 
 type LatLngInput = google.maps.LatLng | google.maps.LatLngLiteral | { lat: number; lng: number };
 

@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import VideoButton from "@ui/video-button";
 import { ImageType, VideoType } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = {
     poster: ImageType;

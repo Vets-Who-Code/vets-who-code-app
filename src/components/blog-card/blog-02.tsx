@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = Pick<IBlog, "title" | "path" | "category" | "postedAt" | "image"> & {
     className?: string;

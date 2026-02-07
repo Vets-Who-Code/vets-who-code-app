@@ -1,8 +1,8 @@
-import { formatDate } from "@utils/date";
-import GoogleMap from "@ui/google-map";
-import { IEvent } from "@utils/types";
-import EventInfo from "@components/widgets/event-info-widget";
 import HTMLContent from "@components/html-content";
+import EventInfo from "@components/widgets/event-info-widget";
+import GoogleMap from "@ui/google-map";
+import { formatDate } from "@utils/date";
+import { IEvent } from "@utils/types";
 
 type TProps = Pick<
     IEvent,

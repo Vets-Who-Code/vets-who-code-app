@@ -1,11 +1,11 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import Anchor from "@ui/anchor";
 import AuthorMeta from "@components/blog-meta/author";
 import BlogMetaItem from "@components/blog-meta/meta-item";
-import { IBlog } from "@utils/types";
-import Button from "@components/ui/button";
 import SocialShare from "@components/social-share/layout-03";
+import Button from "@components/ui/button";
+import Anchor from "@ui/anchor";
+import { IBlog } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = Pick<IBlog, "image" | "path" | "title" | "postedAt" | "author" | "excerpt"> & {
     className?: string;

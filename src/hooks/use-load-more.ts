@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) => {
     const router = useRouter();
@@ -14,7 +14,7 @@ const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) =
         const { page } = router.query;
         const pageNumber = page ? `${+page + 1}` : "2";
 
-        void router.push(
+        router.push(
             {
                 pathname: router.pathname,
                 query: {

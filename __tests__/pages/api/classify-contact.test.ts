@@ -1,6 +1,9 @@
-import type { Mock } from "vitest";
 import { GoogleGenAI } from "@google/genai";
-import { classifyContact, ContactClassification } from "../../../src/pages/api/api-helpers/classify-contact";
+import type { Mock } from "vitest";
+import {
+    ContactClassification,
+    classifyContact,
+} from "../../../src/pages/api/api-helpers/classify-contact";
 
 vi.mock("@google/genai", () => ({
     GoogleGenAI: vi.fn(),
@@ -206,10 +209,7 @@ describe("classifyContact", () => {
 
         await classifyContact(validInput);
 
-        expect(consoleSpy).toHaveBeenCalledWith(
-            "Contact classification:",
-            expect.any(String)
-        );
+        expect(consoleSpy).toHaveBeenCalledWith("Contact classification:", expect.any(String));
 
         const loggedJson = JSON.parse(consoleSpy.mock.calls[0][1] as string);
         expect(loggedJson).toEqual({

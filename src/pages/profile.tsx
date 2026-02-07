@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import type { GetServerSideProps, NextPage } from "next";
-import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import { useRouter } from "next/router";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import Spinner from "@ui/spinner";
-import { useSession, signOut } from "next-auth/react";
+import SEO from "@components/seo/page-seo";
 import { useMount } from "@hooks";
+import Layout01 from "@layout/layout-01";
+import Spinner from "@ui/spinner";
+import type { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
+import { getServerSession } from "next-auth/next";
+import { signOut, useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
+import { options } from "@/pages/api/auth/options";
 
 type PageProps = {
     user: {
@@ -159,11 +159,10 @@ const Profile: PageWithLayout = ({ user }) => {
 
     const handleLogout = async () => {
         try {
-
             // Handle real session logout
             await signOut({ redirect: false });
             await router.replace("/login");
-        } catch (error) {
+        } catch (_error) {
             // Handle logout error
         }
     };
@@ -205,7 +204,7 @@ const Profile: PageWithLayout = ({ user }) => {
                 // Auto-dismiss after 5 seconds for errors
                 setTimeout(() => setNotification(null), 5000);
             }
-        } catch (error) {
+        } catch (_error) {
             setNotification({
                 type: "error",
                 message: "An error occurred while saving your profile",
@@ -287,14 +286,14 @@ const Profile: PageWithLayout = ({ user }) => {
 
                         <div className="tw-flex-1">
                             <div className="tw-mb-2 tw-flex tw-items-center tw-space-x-2">
-                                <h1 className="tw-text-3xl tw-font-bold">
-                                    {user.name || "User"}
-                                </h1>
+                                <h1 className="tw-text-3xl tw-font-bold">{user.name || "User"}</h1>
                             </div>
                             <p className="tw-text-lg tw-opacity-90">{user.email}</p>
                             <p className="tw-opacity-75">
                                 {formData.title || "Software Engineering Student"}{" "}
-                                {formData.branch ? `• ${formData.branch} Veteran` : "• Army Veteran"}
+                                {formData.branch
+                                    ? `• ${formData.branch} Veteran`
+                                    : "• Army Veteran"}
                             </p>
                         </div>
 
@@ -676,51 +675,74 @@ const Profile: PageWithLayout = ({ user }) => {
                                         Coding Skill Assessment
                                     </h3>
                                     <p className="tw-text-gray-300">
-                                        Take our comprehensive assessment to determine your current skill level
+                                        Take our comprehensive assessment to determine your current
+                                        skill level
                                     </p>
                                 </div>
 
                                 <div className="tw-mb-6 tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-3">
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
-                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">10</div>
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">
+                                            10
+                                        </div>
                                         <div className="tw-text-sm tw-text-gray-300">Questions</div>
                                     </div>
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
-                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">~30</div>
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">
+                                            ~30
+                                        </div>
                                         <div className="tw-text-sm tw-text-gray-300">Minutes</div>
                                     </div>
                                     <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-text-center">
-                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">5</div>
-                                        <div className="tw-text-sm tw-text-gray-300">Skill Levels</div>
+                                        <div className="tw-mb-1 tw-text-2xl tw-font-bold tw-text-primary">
+                                            5
+                                        </div>
+                                        <div className="tw-text-sm tw-text-gray-300">
+                                            Skill Levels
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6">
-                                    <h4 className="tw-mb-4 tw-font-semibold tw-text-ink">What You&apos;ll Be Tested On:</h4>
+                                    <h4 className="tw-mb-4 tw-font-semibold tw-text-ink">
+                                        What You&apos;ll Be Tested On:
+                                    </h4>
                                     <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-2">
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">Basic Syntax & Variables</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                Basic Syntax & Variables
+                                            </span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">Functions & Conditionals</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                Functions & Conditionals
+                                            </span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">Arrays & Loops</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                Arrays & Loops
+                                            </span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">String Manipulation</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                String Manipulation
+                                            </span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">Problem Solving</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                Problem Solving
+                                            </span>
                                         </div>
                                         <div className="tw-flex tw-items-center tw-space-x-2">
                                             <i className="fas fa-check-circle tw-text-success" />
-                                            <span className="tw-text-sm tw-text-gray-200">Algorithms</span>
+                                            <span className="tw-text-sm tw-text-gray-200">
+                                                Algorithms
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
@@ -729,7 +751,11 @@ const Profile: PageWithLayout = ({ user }) => {
                                     <div className="tw-flex tw-items-start tw-space-x-3">
                                         <i className="fas fa-info-circle tw-mt-1 tw-text-primary" />
                                         <div className="tw-text-sm tw-text-gray-200">
-                                            <strong>Note:</strong> This assessment uses our built-in code editor. You&apos;ll write actual JavaScript code to solve programming challenges. Your skill level will be determined based on your performance: Newbie, Beginner, Junior, Mid, or Senior.
+                                            <strong>Note:</strong> This assessment uses our built-in
+                                            code editor. You&apos;ll write actual JavaScript code to
+                                            solve programming challenges. Your skill level will be
+                                            determined based on your performance: Newbie, Beginner,
+                                            Junior, Mid, or Senior.
                                         </div>
                                     </div>
                                 </div>
@@ -763,7 +789,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <label className="tw-flex tw-items-center">
                                                 <input
                                                     type="checkbox"
-                                                    defaultChecked
+                                                    defaultChecked={true}
                                                     className="tw-mr-3 tw-h-4 tw-w-4 tw-text-secondary"
                                                 />
                                                 <span className="tw-text-sm tw-text-secondary">
@@ -773,7 +799,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <label className="tw-flex tw-items-center">
                                                 <input
                                                     type="checkbox"
-                                                    defaultChecked
+                                                    defaultChecked={true}
                                                     className="tw-mr-3 tw-h-4 tw-w-4 tw-text-secondary"
                                                 />
                                                 <span className="tw-text-sm tw-text-secondary">
@@ -799,7 +825,7 @@ const Profile: PageWithLayout = ({ user }) => {
                                             <label className="tw-flex tw-items-center">
                                                 <input
                                                     type="checkbox"
-                                                    defaultChecked
+                                                    defaultChecked={true}
                                                     className="tw-mr-3 tw-h-4 tw-w-4 tw-text-secondary"
                                                 />
                                                 <span className="tw-text-sm tw-text-secondary">

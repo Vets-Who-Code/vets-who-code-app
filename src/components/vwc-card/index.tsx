@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import { ImageType } from "@utils/types";
-import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
+import { forwardRef } from "react";
 
 type TProps = {
     className?: string;

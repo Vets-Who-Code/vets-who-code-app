@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
-import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { getServerSession } from "next-auth/next";
+import { useSession } from "next-auth/react";
+import React, { useState } from "react";
 import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
 
 type AssignmentData = {
     id: string;
@@ -218,7 +218,9 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     Instructions
                                 </h3>
                                 <div className="tw-prose tw-prose-sm tw-max-w-none tw-text-gray-200">
-                                    <p className="tw-whitespace-pre-wrap">{assignment.instructions}</p>
+                                    <p className="tw-whitespace-pre-wrap">
+                                        {assignment.instructions}
+                                    </p>
                                 </div>
                             </div>
 
@@ -323,7 +325,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             <input
                                                 type="file"
                                                 id="files"
-                                                multiple
+                                                multiple={true}
                                                 onChange={handleFileChange}
                                                 className="tw-sr-only"
                                             />
@@ -400,7 +402,9 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             type="submit"
                                             disabled={
                                                 submitting ||
-                                                (!githubUrl && !liveUrl && (!files || files.length === 0))
+                                                (!githubUrl &&
+                                                    !liveUrl &&
+                                                    (!files || files.length === 0))
                                             }
                                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-colors disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                         >

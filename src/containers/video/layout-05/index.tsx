@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
-import Video from "@ui/video-with-poster/video-02";
 import BottomShape from "@components/ui/bottom-shape/shape-02";
-import { scrollUpVariants } from "@utils/variants";
+import Video from "@ui/video-with-poster/video-02";
 import { ImageType, SectionTitleType, VideoType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 

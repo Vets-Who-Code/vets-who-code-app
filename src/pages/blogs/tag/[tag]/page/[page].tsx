@@ -1,10 +1,10 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-02";
+import Layout01 from "@layout/layout-01";
+import { flatDeep, toCapitalize, unslugify } from "@utils/methods";
 import { BlogMetaType, IBlog } from "@utils/types";
-import { flatDeep, unslugify, toCapitalize } from "@utils/methods";
+import type { GetStaticPaths, NextPage } from "next";
 import { getAllBlogs, getPostsByTag, getTags } from "../../../../../lib/blog";
 
 type TProps = {
@@ -67,7 +67,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     const params = tags.map(({ slug }) => {
         const { count } = getPostsByTag(slug, ["slug"]);
         const pages = Math.ceil(count / POSTS_PER_PAGE);
-        const pagesToGenerate = [...Array(pages).keys()]
+        const pagesToGenerate = [...new Array(pages).keys()]
             .map((a) => {
                 if (a !== 0) return a + 1;
                 return null;

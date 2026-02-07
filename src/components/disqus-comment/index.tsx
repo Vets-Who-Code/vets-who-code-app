@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import cn from "clsx";
 import { DiscussionEmbed } from "disqus-react";
+import { useEffect, useState } from "react";
 
 type TProps = {
     id: string;

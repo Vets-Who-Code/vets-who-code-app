@@ -56,3 +56,8 @@ public/workbox-*.js
 
 /src/generated/prisma
 audio-cloudinary-urls.json
+
+# Linter/scoring artifacts
+eslint-report.json
+biome-report.json
+score-output.md

@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import { useCurriculumContext } from "@contexts/curriculum-context";
 import SearchForm from "@layout/sidebar/search-form";
+import clsx from "clsx";
 import Header from "./header";
 import Item from "./item";
 

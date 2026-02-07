@@ -1,22 +1,16 @@
-import { NextApiResponse } from 'next';
-import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
-import prisma from '@/lib/prisma';
-import {
-  checkCertificateEligibility,
-  generateCertificateNumber,
-} from '@/lib/certificates';
-import {
-  generateCertificatePDF,
-  generateCertificateFilename,
-} from '@/lib/pdf-certificate';
-import { v2 as cloudinary } from 'cloudinary';
-import { sendCertificateEmail } from '@/lib/send-certificate-email';
+import { v2 as cloudinary } from "cloudinary";
+import { NextApiResponse } from "next";
+import { checkCertificateEligibility, generateCertificateNumber } from "@/lib/certificates";
+import { generateCertificateFilename, generateCertificatePDF } from "@/lib/pdf-certificate";
+import prisma from "@/lib/prisma";
+import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { sendCertificateEmail } from "@/lib/send-certificate-email";
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 /**
@@ -40,160 +34,164 @@ cloudinary.config({
  * }
  */
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  try {
-    const { courseId } = req.body;
-    const userId = req.user!.id;
-
-    // Validation
-    if (!courseId) {
-      return res.status(400).json({ error: 'Course ID is required' });
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
     }
 
-    // Check eligibility
-    const eligibility = await checkCertificateEligibility(userId, courseId);
+    try {
+        const { courseId } = req.body;
+        const userId = req.user?.id;
 
-    if (!eligibility.eligible) {
-      return res.status(400).json({
-        error: 'Not eligible for certificate',
-        reason: eligibility.reason,
-      });
-    }
+        if (!userId) {
+            return res.status(401).json({ error: "User not authenticated" });
+        }
 
-    // Fetch user and course data
-    const [user, course, enrollment] = await Promise.all([
-      prisma.user.findUnique({
-        where: { id: userId },
-        select: {
-          id: true,
-          name: true,
-          email: true,
-        },
-      }),
-      prisma.course.findUnique({
-        where: { id: courseId },
-        select: {
-          id: true,
-          title: true,
-          estimatedHours: true,
-        },
-      }),
-      prisma.enrollment.findUnique({
-        where: {
-          userId_courseId: {
-            userId,
-            courseId,
-          },
-        },
-        select: {
-          completedAt: true,
-        },
-      }),
-    ]);
+        // Validation
+        if (!courseId) {
+            return res.status(400).json({ error: "Course ID is required" });
+        }
 
-    if (!user || !course || !enrollment) {
-      return res.status(404).json({ error: 'User, course, or enrollment not found' });
-    }
+        // Check eligibility
+        const eligibility = await checkCertificateEligibility(userId, courseId);
 
-    // Generate certificate number
-    const certificateNumber = await generateCertificateNumber();
+        if (!eligibility.eligible) {
+            return res.status(400).json({
+                error: "Not eligible for certificate",
+                reason: eligibility.reason,
+            });
+        }
 
-    // Generate PDF
-    const pdfBytes = await generateCertificatePDF({
-      studentName: user.name || user.email,
-      courseName: course.title,
-      completionDate: enrollment.completedAt || new Date(),
-      certificateNumber,
-      estimatedHours: course.estimatedHours || undefined,
-    });
+        // Fetch user and course data
+        const [user, course, enrollment] = await Promise.all([
+            prisma.user.findUnique({
+                where: { id: userId },
+                select: {
+                    id: true,
+                    name: true,
+                    email: true,
+                },
+            }),
+            prisma.course.findUnique({
+                where: { id: courseId },
+                select: {
+                    id: true,
+                    title: true,
+                    estimatedHours: true,
+                },
+            }),
+            prisma.enrollment.findUnique({
+                where: {
+                    userId_courseId: {
+                        userId,
+                        courseId,
+                    },
+                },
+                select: {
+                    completedAt: true,
+                },
+            }),
+        ]);
 
-    // Generate filename
-    const filename = generateCertificateFilename(
-      user.name || user.email,
-      course.title,
-      certificateNumber
-    );
+        if (!user || !course || !enrollment) {
+            return res.status(404).json({ error: "User, course, or enrollment not found" });
+        }
 
-    // Upload to Cloudinary
-    const uploadResult = await new Promise<{ secure_url: string; public_id: string }>(
-      (resolve, reject) => {
-        const uploadStream = cloudinary.uploader.upload_stream(
-          {
-            folder: 'certificates',
-            public_id: filename.replace('.pdf', ''),
-            resource_type: 'raw',
-            format: 'pdf',
-          },
-          (error, result) => {
-            if (error) {
-              reject(error);
-            } else {
-              resolve(result as { secure_url: string; public_id: string });
-            }
-          }
+        // Generate certificate number
+        const certificateNumber = await generateCertificateNumber();
+
+        // Generate PDF
+        const pdfBytes = await generateCertificatePDF({
+            studentName: user.name || user.email,
+            courseName: course.title,
+            completionDate: enrollment.completedAt || new Date(),
+            certificateNumber,
+            estimatedHours: course.estimatedHours || undefined,
+        });
+
+        // Generate filename
+        const filename = generateCertificateFilename(
+            user.name || user.email,
+            course.title,
+            certificateNumber
         );
 
-        uploadStream.end(Buffer.from(pdfBytes));
-      }
-    );
+        // Upload to Cloudinary
+        const uploadResult = await new Promise<{ secure_url: string; public_id: string }>(
+            (resolve, reject) => {
+                const uploadStream = cloudinary.uploader.upload_stream(
+                    {
+                        folder: "certificates",
+                        public_id: filename.replace(".pdf", ""),
+                        resource_type: "raw",
+                        format: "pdf",
+                    },
+                    (error, result) => {
+                        if (error) {
+                            reject(error);
+                        } else {
+                            resolve(result as { secure_url: string; public_id: string });
+                        }
+                    }
+                );
 
-    // Create certificate record in database
-    const certificate = await prisma.certificate.create({
-      data: {
-        userId,
-        courseId,
-        certificateUrl: uploadResult.secure_url,
-        certificateNumber,
-      },
-      include: {
-        user: {
-          select: {
-            id: true,
-            name: true,
-            email: true,
-          },
-        },
-        course: {
-          select: {
-            id: true,
-            title: true,
-            difficulty: true,
-            estimatedHours: true,
-          },
-        },
-      },
-    });
+                uploadStream.end(Buffer.from(pdfBytes));
+            }
+        );
 
-    // Send certificate email to user
-    const emailResult = await sendCertificateEmail({
-      to: certificate.user.email || user.email,
-      studentName: certificate.user.name || certificate.user.email || 'Student',
-      courseName: certificate.course.title,
-      certificateUrl: certificate.certificateUrl || uploadResult.secure_url,
-      certificateNumber: certificate.certificateNumber || certificateNumber,
-      completionDate: enrollment.completedAt || new Date(),
-    });
+        // Create certificate record in database
+        const certificate = await prisma.certificate.create({
+            data: {
+                userId,
+                courseId,
+                certificateUrl: uploadResult.secure_url,
+                certificateNumber,
+            },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                    },
+                },
+                course: {
+                    select: {
+                        id: true,
+                        title: true,
+                        difficulty: true,
+                        estimatedHours: true,
+                    },
+                },
+            },
+        });
 
-    res.status(201).json({
-      certificate: {
-        id: certificate.id,
-        certificateNumber: certificate.certificateNumber,
-        certificateUrl: certificate.certificateUrl,
-        issuedAt: certificate.issuedAt,
-        user: certificate.user,
-        course: certificate.course,
-      },
-      emailSent: emailResult.success,
-      message: 'Certificate generated successfully',
-    });
-  } catch (error) {
-    console.error('Error generating certificate:', error);
-    res.status(500).json({
-      error: 'Failed to generate certificate',
-      details: error instanceof Error ? error.message : 'Unknown error',
-    });
-  }
+        // Send certificate email to user
+        const emailResult = await sendCertificateEmail({
+            to: certificate.user.email || user.email,
+            studentName: certificate.user.name || certificate.user.email || "Student",
+            courseName: certificate.course.title,
+            certificateUrl: certificate.certificateUrl || uploadResult.secure_url,
+            certificateNumber: certificate.certificateNumber || certificateNumber,
+            completionDate: enrollment.completedAt || new Date(),
+        });
+
+        res.status(201).json({
+            certificate: {
+                id: certificate.id,
+                certificateNumber: certificate.certificateNumber,
+                certificateUrl: certificate.certificateUrl,
+                issuedAt: certificate.issuedAt,
+                user: certificate.user,
+                course: certificate.course,
+            },
+            emailSent: emailResult.success,
+            message: "Certificate generated successfully",
+        });
+    } catch (error) {
+        console.error("Error generating certificate:", error);
+        res.status(500).json({
+            error: "Failed to generate certificate",
+            details: error instanceof Error ? error.message : "Unknown error",
+        });
+    }
 });

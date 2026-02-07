@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import BlogCard from "@components/blog-card/blog-03";
 import Pagination from "@components/pagination/pagination-01";
+import Section from "@components/ui/engagement-modal";
 import { IBlog } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedBlogCard = motion(BlogCard);
 

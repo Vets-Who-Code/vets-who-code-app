@@ -1,5 +1,5 @@
-import { DefaultSeo } from "next-seo";
 import siteConfig from "@data/site-config";
+import { DefaultSeo } from "next-seo";
 
 const DefaultSEO = () => {
     return (

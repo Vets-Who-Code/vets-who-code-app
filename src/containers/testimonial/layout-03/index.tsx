@@ -1,13 +1,13 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import { EffectCoverflow } from "swiper";
 import SectionTitle from "@components/section-title";
 import Testimonial from "@components/testimonial/testimonial-02";
-import Swiper, { SwiperSlide } from "@ui/swiper";
+import Section from "@components/ui/engagement-modal";
 import MottoText from "@ui/motto-text";
+import Swiper, { SwiperSlide } from "@ui/swiper";
 import { ItemType, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
+import { EffectCoverflow } from "swiper";
 
 const AnimatedSwiper = motion(Swiper);
 

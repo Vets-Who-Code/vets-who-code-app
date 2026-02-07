@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { ISpeaker } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = Omit<ISpeaker, "id"> & {
     className?: string;

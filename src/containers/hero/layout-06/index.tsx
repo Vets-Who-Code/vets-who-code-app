@@ -1,10 +1,10 @@
-import clsx from "clsx";
-import { useScroll, motion, useTransform } from "motion/react";
+import BottomShape from "@ui/bottom-shape/shape-05";
 import Button from "@ui/button";
 import Video from "@ui/video-with-poster/video-01";
-import BottomShape from "@ui/bottom-shape/shape-05";
 import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion, useScroll, useTransform } from "motion/react";
 
 type TProps = {
     data: {

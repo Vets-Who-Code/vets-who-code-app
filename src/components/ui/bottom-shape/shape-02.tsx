@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import BottomShapeSVG from "@assets/svgs/bottom-shape-2.svg";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;
@@ -10,7 +10,7 @@ const BottomShape = ({ className, color }: TProps) => {
     return (
         <div
             className={clsx(
-                "bottom-shape tw-absolute -tw-bottom-px tw-left-0 tw-z-1 tw-h-[70px] tw-w-full",
+                "tw-absolute -tw-bottom-px tw-left-0 tw-z-1 tw-h-[70px] tw-w-full bottom-shape",
                 className
             )}
         >

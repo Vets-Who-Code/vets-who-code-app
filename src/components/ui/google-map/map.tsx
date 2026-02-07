@@ -10,7 +10,7 @@ interface ChildComponentProps {
     map?: google.maps.Map;
 }
 
-const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
+const GoogleMap: React.FC<MapProps> = ({ children, onClick, ...options }) => {
     const ref = useRef<HTMLDivElement>(null);
     const [map, setMap] = useState<google.maps.Map>();
 
@@ -30,9 +30,9 @@ const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
 
     useEffect(() => {
         if (map) {
-            ["click", "idle"].forEach((eventName) =>
-                google.maps.event.clearListeners(map, eventName)
-            );
+            ["click", "idle"].forEach((eventName) => {
+                google.maps.event.clearListeners(map, eventName);
+            });
 
             if (onClick) {
                 map.addListener("click", onClick);
@@ -54,4 +54,4 @@ const Map: React.FC<MapProps> = ({ children, onClick, ...options }) => {
     );
 };
 
-export default Map;
+export default GoogleMap;

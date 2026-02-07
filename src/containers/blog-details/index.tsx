@@ -1,10 +1,10 @@
-import { formatDate } from "@utils/date";
-import Anchor from "@ui/anchor";
 import AuthorMeta from "@components/blog-meta/author";
 import BlogMetaItem from "@components/blog-meta/meta-item";
-import SocialShare from "@components/social-share/layout-03";
 import TagMeta from "@components/blog-meta/tags";
 import MarkdownRenderer from "@components/markdown-renderer";
+import SocialShare from "@components/social-share/layout-03";
+import Anchor from "@ui/anchor";
+import { formatDate } from "@utils/date";
 import { IBlog } from "@utils/types";
 
 function BlogDetails({ image, title, category, author, postedAt, content, tags, audioUrl }: IBlog) {
@@ -42,7 +42,7 @@ function BlogDetails({ image, title, category, author, postedAt, content, tags, 
                             <i className="fas fa-headphones tw-text-blue-300" />
                             <span>Listen to this article</span>
                         </div>
-                        <audio controls className="tw-w-full" preload="metadata">
+                        <audio controls={true} className="tw-w-full" preload="metadata">
                             <source src={audioUrl} type="audio/mpeg" />
                             <track kind="captions" src="" label="English" />
                             Your browser does not support the audio element.

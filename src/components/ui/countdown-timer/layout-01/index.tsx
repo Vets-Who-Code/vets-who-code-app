@@ -1,6 +1,6 @@
+import { useCountdown } from "@hooks";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
-import { useCountdown } from "@hooks";
 
 const DateTimeDisplay = dynamic(() => import("./date-time-display"), {
     ssr: false,

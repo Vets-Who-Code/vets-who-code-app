@@ -1,8 +1,8 @@
-import type { Mock } from "vitest";
-import { NextApiRequest, NextApiResponse } from "next";
-import handler from "@/pages/api/contact";
-import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
 import axios from "axios";
+import { NextApiRequest, NextApiResponse } from "next";
+import type { Mock } from "vitest";
+import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
+import handler from "@/pages/api/contact";
 
 vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
     classifyContact: vi.fn(),
@@ -188,9 +188,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should return 500 when Slack webhook fails with Error", async () => {
-            (axios as unknown as Mock).mockRejectedValue(
-                new Error("Slack API timeout")
-            );
+            (axios as unknown as Mock).mockRejectedValue(new Error("Slack API timeout"));
 
             const { req, res } = createMockReqRes({
                 name: "Test",

@@ -1,5 +1,5 @@
-import { createContext, useContext, useMemo, useReducer } from "react";
 import { ICurriculum } from "@utils/types";
+import { createContext, useContext, useMemo, useReducer } from "react";
 
 // Curriculum Context
 

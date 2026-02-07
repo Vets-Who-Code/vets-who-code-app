@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
 
 type Enrollment = {
     id: string;
@@ -135,7 +135,11 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
 
     // Check if enrolled in Software Engineering vertical
     const isEnrolled = (): boolean => {
-        const matchingTitles = ["Software Engineering", "Full-Stack Development", "Web Development"];
+        const matchingTitles = [
+            "Software Engineering",
+            "Full-Stack Development",
+            "Web Development",
+        ];
         return enrollments.some(
             (enrollment) =>
                 enrollment.status === "ACTIVE" &&
@@ -148,7 +152,9 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
     const handleEnroll = async () => {
         // For now, this is a placeholder since we don't have a courseId
         // In a real implementation, you'd need to map the vertical to an actual course
-        setEnrollmentError("Enrollment is not yet configured for this vertical. Please contact an administrator.");
+        setEnrollmentError(
+            "Enrollment is not yet configured for this vertical. Please contact an administrator."
+        );
     };
 
     return (

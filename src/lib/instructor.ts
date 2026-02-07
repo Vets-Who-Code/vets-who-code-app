@@ -1,4 +1,4 @@
-import { IDType, IInstructor, FieldType } from "@utils/types";
+import { FieldType, IDType, IInstructor } from "@utils/types";
 import fs from "fs";
 import path from "path";
 import { getSlugs } from "./util";

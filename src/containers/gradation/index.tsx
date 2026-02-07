@@ -1,10 +1,10 @@
-import clsx from "clsx";
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import Gradation from "@components/gradation";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedGradation = motion(Gradation);

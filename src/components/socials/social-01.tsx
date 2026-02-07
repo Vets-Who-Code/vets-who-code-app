@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Social, { SocialLink } from "@ui/social";
+import clsx from "clsx";
 
 const Social01 = ({ className }: { className?: string }) => (
     <Social color="dark" size="lg" className={clsx(className)}>

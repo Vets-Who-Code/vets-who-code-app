@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import { IZoomMeeting } from "@utils/types";
 import Pagination from "@components/pagination/pagination-01";
+import Section from "@components/ui/engagement-modal";
 import ZoomCard from "@components/zoom-card";
+import { IZoomMeeting } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedZoomCard = motion(ZoomCard);
 

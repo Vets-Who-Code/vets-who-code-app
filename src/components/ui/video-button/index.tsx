@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { VideoType } from "@utils/types";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
-import { VideoType } from "@utils/types";
+import { useState } from "react";
 
 const ModalVideo = dynamic(() => import("../video-modal"), { ssr: false });
 

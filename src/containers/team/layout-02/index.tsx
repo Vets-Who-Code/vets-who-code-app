@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
 import TeamCard from "@components/team-card";
 import { ISocial, ItemType, SectionTitleType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedTeamCard = motion(TeamCard);

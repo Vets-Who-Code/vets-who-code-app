@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { ICourse } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     recentCourses: Pick<ICourse, "title" | "path" | "thumbnail">[];

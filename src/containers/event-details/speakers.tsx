@@ -1,5 +1,5 @@
-import Swiper, { SwiperSlide } from "@ui/swiper";
 import SpeakerCard from "@components/spearker-card";
+import Swiper, { SwiperSlide } from "@ui/swiper";
 import { ISpeaker } from "@utils/types";
 
 const sliderOptions = {

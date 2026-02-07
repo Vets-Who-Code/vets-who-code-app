@@ -1,9 +1,9 @@
-import Section from "@components/ui/engagement-modal";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import Anchor from "@ui/anchor";
-import { motion } from "motion/react";
+import { AnchorType, ImageType, SectionTitleType, TextType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { SectionTitleType, TextType, AnchorType, ImageType, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {

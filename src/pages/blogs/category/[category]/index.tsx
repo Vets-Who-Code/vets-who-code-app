@@ -1,10 +1,10 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-02";
-import { unslugify, toCapitalize } from "@utils/methods";
+import Layout01 from "@layout/layout-01";
+import { toCapitalize, unslugify } from "@utils/methods";
 import { BlogMetaType, IBlog } from "@utils/types";
+import type { GetStaticPaths, NextPage } from "next";
 import { getAllBlogs, getPostsByCategory, getTags } from "../../../../lib/blog";
 
 type TProps = {

@@ -1,12 +1,12 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
-import dynamic from "next/dynamic";
+import SectionTitle from "@components/section-title";
+import Testimonial from "@components/testimonial/testimonial-02";
 import Section from "@components/ui/engagement-modal";
 import { SwiperSlide } from "@ui/swiper";
-import Testimonial from "@components/testimonial/testimonial-02";
-import SectionTitle from "@components/section-title";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 
 const SwiperSlider = dynamic(() => import("../../../components/ui/swiper"), {
     ssr: false,

@@ -1,9 +1,9 @@
-import { useMemo } from "react";
 import Section from "@components/ui/engagement-modal";
 import SwiperSlider, { SwiperSlide } from "@ui/swiper";
-import { motion } from "motion/react";
-import { scrollUpVariants } from "@utils/variants";
 import { ItemType, TSection } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
 
 const AnimatedSwiper = motion(SwiperSlider);
 

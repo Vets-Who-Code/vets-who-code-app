@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import MottoText from "@ui/motto-text";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import MottoText from "@ui/motto-text";
 import { ImageType, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {

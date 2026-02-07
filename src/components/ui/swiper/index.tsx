@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
 import cn from "clsx";
-import SwiperCore, { Navigation, Pagination, Autoplay, A11y } from "swiper";
+import { forwardRef } from "react";
+import SwiperCore, { A11y, Autoplay, Navigation, Pagination } from "swiper";
 // eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { SwiperModule } from "swiper/types";

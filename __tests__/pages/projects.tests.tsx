@@ -1,15 +1,15 @@
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
 import type { Mock } from "vitest";
-import { render, screen, fireEvent , waitFor } from "@testing-library/react";
-import { VWCProject, VWCContributor, VWCProjectRepo } from "@utils/types";
-import Projects, {
-    TechStack,
-    LinkButtons,
-    RepoStats,
-    TopContributors,
-    ProjectDetailModal,
-    ProjectCard,
-} from "@/pages/projects";
 import { getProjectData } from "@/lib/project";
+import Projects, {
+    LinkButtons,
+    ProjectCard,
+    ProjectDetailModal,
+    RepoStats,
+    TechStack,
+    TopContributors,
+} from "@/pages/projects";
 
 // Mock dependencies
 vi.mock("@components/seo/page-seo", () => ({
@@ -17,7 +17,9 @@ vi.mock("@components/seo/page-seo", () => ({
 }));
 
 vi.mock("@layout/layout-01", () => ({
-    default: ({ children }: { children: React.ReactNode }) => <div data-testid="layout">{children}</div>,
+    default: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="layout">{children}</div>
+    ),
 }));
 
 vi.mock("@components/breadcrumb", () => ({
@@ -25,7 +27,9 @@ vi.mock("@components/breadcrumb", () => ({
 }));
 
 vi.mock("@components/vwc-grid", () => ({
-    VWCGrid: ({ children }: { children: React.ReactNode }) => <div data-testid="vwc-grid">{children}</div>,
+    VWCGrid: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="vwc-grid">{children}</div>
+    ),
 }));
 
 vi.mock("@components/markdown-renderer", () => ({

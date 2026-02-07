@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import { formatDate } from "@utils/date";
 import Button from "@ui/button";
+import { formatDate } from "@utils/date";
 import { IEvent } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = Pick<IEvent, "title" | "start_date" | "path" | "location"> & {
     className?: string;

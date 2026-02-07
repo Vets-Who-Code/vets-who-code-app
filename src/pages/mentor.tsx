@@ -1,15 +1,15 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Wrapper from "@ui/wrapper/wrapper-04";
 import Breadcrumb from "@components/breadcrumb";
+import TextBlock from "@components/common/text-block";
+import MentorForm from "@components/forms/mentor-form";
+import SEO from "@components/seo/page-seo";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
-import HeroImageArea from "@containers/hero-image";
-import MentorForm from "@components/forms/mentor-form";
-import TextBlock from "@components/common/text-block";
 import GradationArea from "@containers/gradation";
+import HeroImageArea from "@containers/hero-image";
+import Layout from "@layout/layout-01";
+import Wrapper from "@ui/wrapper/wrapper-04";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps, NextPage } from "next";
 import { getPageData } from "../lib/page";
 
 interface PageContent {
@@ -54,7 +54,7 @@ const MentorPage: PageProps = ({ data }) => {
                         heading="Join Our Vets Who Code Mentorship Program"
                         textSize="lg"
                         spacing="normal"
-                        highlight
+                        highlight={true}
                     />
                 </div>
                 <FunfactArea data={content["funfact-area"]} />

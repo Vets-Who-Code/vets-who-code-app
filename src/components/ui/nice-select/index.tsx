@@ -1,6 +1,6 @@
-import { useState, Dispatch, SetStateAction, useCallback, useEffect } from "react";
-import clsx from "clsx";
 import { useClickOutside } from "@hooks";
+import clsx from "clsx";
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
 
 interface IOption {
     value: string;
@@ -78,7 +78,6 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                     open && "tw-block"
                 )}
                 tabIndex={-1}
-                role="menubar"
                 onClick={(e) => e.stopPropagation()}
                 onKeyPress={(e) => e.stopPropagation()}
             >
@@ -88,7 +87,6 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                         className={clsx(
                             "tw-group tw-cursor-pointer tw-px-[30px] tw-py-[5px] tw-text-heading tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
                         )}
-                        role="menuitem"
                         onClick={() => currentHandler(item)}
                         onKeyPress={(e) => e}
                     >

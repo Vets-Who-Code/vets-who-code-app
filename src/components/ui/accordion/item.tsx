@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
-import clsx from "clsx";
 import { IDType } from "@utils/types";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     id: IDType;

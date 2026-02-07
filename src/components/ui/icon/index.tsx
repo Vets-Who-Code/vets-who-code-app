@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import { useDynamicIconImport } from "@hooks";
 import LoadingSVG from "@assets/svgs/linea-arrows-rotate.svg";
+import { useDynamicIconImport } from "@hooks";
+import clsx from "clsx";
 
 type TProps = {
     name: string;
