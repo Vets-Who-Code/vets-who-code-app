@@ -19,7 +19,7 @@ function useSort<T>(
 
     const sortHandler = useCallback(() => {
         if (!sortValue) return;
-        router.push(
+        void router.push(
             {
                 pathname: router.pathname,
                 query: {

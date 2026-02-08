@@ -1,5 +1,5 @@
+import ScrollToTop from "@ui/scroll-to-top";
 import { ReactNode } from "react";
-import ScrollToTop from "@/components/ui/scroll-to-top";
 import Footer from "../footers/footer-01";
 import Header from "../headers/header";
 

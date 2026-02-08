@@ -110,7 +110,7 @@
                 "noUselessThisAlias": "error",
                 "noUselessTypeConstraint": "error",
                 "noUselessUndefinedInitialization": "error",
-                "noVoid": "error",
+                "noVoid": "off",
                 "useArrowFunction": "off",
                 "useLiteralKeys": "error",
                 "useNumericLiterals": "error",

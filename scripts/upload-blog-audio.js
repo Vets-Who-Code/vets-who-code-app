@@ -83,7 +83,15 @@ async function uploadAllAudioFiles() {
     // Save results to JSON file
     const outputPath = path.join(process.cwd(), "audio-cloudinary-urls.json");
     fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
-    results.forEach(({ slug, url }) => {});
+    console.log(`\nResults saved to: ${outputPath}`);
+
+    console.log("\n" + "=".repeat(60));
+    console.log("Blog Slug → Cloudinary URL Mapping");
+    console.log("=".repeat(60));
+    results.forEach(({ slug, url }) => {
+        console.log(`${slug}`);
+        console.log(`  → ${url}\n`);
+    });
 
     return results;
 }

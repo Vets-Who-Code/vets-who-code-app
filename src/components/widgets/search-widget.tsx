@@ -12,7 +12,7 @@ const SearchWidget = ({ className }: TProps) => {
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (!search) return;
-        router.push(
+        void router.push(
             {
                 pathname: "/blogs/search",
                 query: {

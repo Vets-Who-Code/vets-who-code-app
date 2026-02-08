@@ -15,7 +15,7 @@ const Pagination = ({ numberOfPages, currentPage, className }: TProps) => {
     const nextPage = `${(currentPage + 1).toString()}`;
 
     const pagiHandler = (curPage: string) => {
-        router.push(
+        void router.push(
             {
                 pathname: router.pathname,
                 query: {

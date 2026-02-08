@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { ElementType, useEffect, useRef, useState } from "react";
 
 function useDynamicIconImport(name: string) {
@@ -17,7 +15,7 @@ function useDynamicIconImport(name: string) {
                 setLoading(false);
             }
         };
-        importIcon();
+        void importIcon();
     }, [name]);
 
     return { loading, error, SvgIcon: ImportedIconRef.current };

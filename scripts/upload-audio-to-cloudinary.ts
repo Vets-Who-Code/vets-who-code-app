@@ -23,8 +23,10 @@ async function uploadAudioToCloudinary(audioPath: string, publicId: string): Pro
             (error, result) => {
                 if (error) {
                     reject(error);
+                } else if (result?.secure_url) {
+                    resolve(result.secure_url);
                 } else {
-                    resolve(result?.secure_url);
+                    reject(new Error("Upload succeeded but no secure_url returned"));
                 }
             }
         );

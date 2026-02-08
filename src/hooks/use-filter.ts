@@ -20,7 +20,7 @@ function useFilter<T>(
         if (!value) return;
         const { query } = router;
         delete query.page;
-        router.push(
+        void router.push(
             {
                 pathname: pathname || router.pathname,
                 query: {

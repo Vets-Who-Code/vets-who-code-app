@@ -14,7 +14,7 @@ const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) =
         const { page } = router.query;
         const pageNumber = page ? `${+page + 1}` : "2";
 
-        router.push(
+        void router.push(
             {
                 pathname: router.pathname,
                 query: {

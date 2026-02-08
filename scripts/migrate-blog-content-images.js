@@ -116,22 +116,42 @@ function migrateBlogContentImages(applyChanges = false) {
         }
     });
 
+    console.log("Migration Summary:\n");
+    console.log(`   Total files scanned:     ${results.total}`);
+    console.log(`   Files with URLs:         ${results.changed.length}`);
+    console.log(`   Files without URLs:      ${results.unchanged.length}`);
+    console.log("");
+
     if (results.changed.length > 0) {
+        console.log("Files to migrate:\n");
         results.changed.forEach((item, index) => {
-            item.replacements.slice(0, 2).forEach((r) => {});
+            console.log(`${index + 1}. ${item.file} (${item.count} URLs)`);
+            item.replacements.slice(0, 2).forEach((r) => {
+                console.log(`   Old: ${r.url.substring(0, 80)}...`);
+                console.log(`   New: ${r.publicId}`);
+                console.log("");
+            });
             if (item.replacements.length > 2) {
+                console.log(`   ... and ${item.replacements.length - 2} more\n`);
             }
         });
 
         if (applyChanges) {
+            console.log("Changes have been applied!\n");
         } else {
+            console.log("This is a DRY RUN. No files were modified.");
+            console.log(
+                "   To apply these changes, run: node scripts/migrate-blog-content-images.js --apply\n"
+            );
         }
     } else {
+        console.log("No Cloudinary URLs found in blog content.\n");
     }
 
     // Summary of total replacements
     const totalReplacements = results.changed.reduce((sum, item) => sum + item.count, 0);
     if (totalReplacements > 0) {
+        console.log(`Total URLs to replace: ${totalReplacements}\n`);
     }
 }
 
@@ -140,8 +160,17 @@ const args = process.argv.slice(2);
 const applyChanges = args.includes("--apply");
 
 if (args.length === 0 || args.includes("--dry-run")) {
+    console.log("Running in DRY RUN mode...");
     migrateBlogContentImages(false);
 } else if (applyChanges) {
+    console.log("Applying migrations...");
     migrateBlogContentImages(true);
 } else {
+    console.log("Usage:");
+    console.log(
+        "  node scripts/migrate-blog-content-images.js --dry-run    # Preview changes"
+    );
+    console.log(
+        "  node scripts/migrate-blog-content-images.js --apply      # Apply changes"
+    );
 }
