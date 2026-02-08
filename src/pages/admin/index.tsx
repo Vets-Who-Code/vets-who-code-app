@@ -219,7 +219,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     return {
         props: {
             stats,
-            userName: session.user.name || "Admin",
+            userName: session.user.name || "User",
             layout: {
                 headerShadow: true,
                 headerFluid: false,

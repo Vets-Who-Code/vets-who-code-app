@@ -26,13 +26,17 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm<IFormValues>({
         defaultValues: {
-            username: "Admin",
-            password: "Admin",
+            username: "",
+            password: "",
         },
     });
 
     const onSubmit: SubmitHandler<IFormValues> = (data) => {
-        if (data.username === "Admin" && data.password === "Admin") {
+        // TODO: Replace this with proper server-side authentication
+        // SECURITY: Never validate credentials on the client side
+        // This is a temporary mock implementation
+        if (data.username && data.password) {
+            // Mock authentication - replace with actual API call
             setLogin();
             setServerState("");
             if (window?.history?.length > 2) {
@@ -62,7 +66,6 @@ const LoginForm = () => {
                             required: "Username is required",
                         })}
                     />
-                    <small>Default Username: Admin</small>
                 </div>
                 <div className="tw-mb-7.5">
                     <label htmlFor="password" className="tw-text-md tw-text-heading">
@@ -81,7 +84,6 @@ const LoginForm = () => {
                             required: "Password is required",
                         })}
                     />
-                    <small>Default Password: Admin</small>
                 </div>
                 <Checkbox name="remember" id="remember" label="Remember me" />
                 {serverState && <FeedbackText>{serverState}</FeedbackText>}
