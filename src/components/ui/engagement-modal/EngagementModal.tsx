@@ -1,3 +1,4 @@
+import { SafeSessionStorage } from "@utils/safe-storage";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -48,11 +49,14 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
             return () => clearTimeout(timer);
         }
 
-        if (sessionStorage.getItem(MODAL_FLAG)) return;
+        // Use SafeSessionStorage to check if modal was shown
+        const modalShown = SafeSessionStorage.getItem<boolean>(MODAL_FLAG, false);
+        if (modalShown) return;
 
         const timer = setTimeout(() => {
             setOpen(true);
-            sessionStorage.setItem(MODAL_FLAG, "1");
+            // Mark modal as shown with SafeSessionStorage
+            SafeSessionStorage.setItem(MODAL_FLAG, true);
         }, 3000);
 
         return () => clearTimeout(timer);

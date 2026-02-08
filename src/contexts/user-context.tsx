@@ -1,7 +1,10 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from "react";
+import { SafeLocalStorage } from "@utils/safe-storage";
 
 // Constants for local storage keys
 const AUTH_KEY = "vwcAuth";
+// Session timeout in minutes (e.g., 24 hours)
+const SESSION_TIMEOUT_MINUTES = 24 * 60;
 
 // Define the UserContextType
 export type UserContextType = {
@@ -26,14 +29,16 @@ const initialState: UserState = {
     isLoggedIn: false,
 };
 
-// Initialize state from local storage
+// Initialize state from local storage with safe handling
 const init = (): UserState => {
     if (typeof window === "undefined") return initialState;
-    const loginStore = localStorage.getItem(AUTH_KEY);
-    const loginParse = loginStore !== null ? (JSON.parse(loginStore) as boolean) : false;
+
+    // Use SafeStorage to get auth state with fallback to false
+    const isLoggedIn = SafeLocalStorage.getItem<boolean>(AUTH_KEY, false);
+
     return {
         ...initialState,
-        isLoggedIn: loginParse,
+        isLoggedIn,
     };
 };
 
@@ -41,14 +46,16 @@ const init = (): UserState => {
 function reducer(state: UserState, action: UserAction): UserState {
     switch (action.type) {
         case "LOGIN": {
-            localStorage.setItem(AUTH_KEY, JSON.stringify(true));
+            // Use SafeStorage to set auth state with session timeout
+            SafeLocalStorage.setItem(AUTH_KEY, true, SESSION_TIMEOUT_MINUTES);
             return {
                 ...state,
                 isLoggedIn: true,
             };
         }
         case "LOGOUT": {
-            localStorage.removeItem(AUTH_KEY);
+            // Use SafeStorage to remove auth state
+            SafeLocalStorage.removeItem(AUTH_KEY);
             return {
                 ...state,
                 isLoggedIn: false,
@@ -70,7 +77,7 @@ export const UserProvider = ({ children }: TProps) => {
     // Ensure user is logged out on initial load if isLoggedIn is incorrect
     useEffect(() => {
         if (!state.isLoggedIn) {
-            localStorage.removeItem(AUTH_KEY);
+            SafeLocalStorage.removeItem(AUTH_KEY);
         }
     }, [state.isLoggedIn]);
 

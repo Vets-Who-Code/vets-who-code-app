@@ -1,4 +1,5 @@
 import type { ShopifyCart } from "@lib/shopify";
+import { SafeLocalStorage } from "@utils/safe-storage";
 import React, {
     createContext,
     ReactNode,
@@ -9,6 +10,8 @@ import React, {
 } from "react";
 
 const CART_ID_KEY = "shopify_cart_id";
+// Cart session expires after 7 days (Shopify cart lifetime)
+const CART_TIMEOUT_MINUTES = 7 * 24 * 60;
 
 interface CartLine {
     merchandiseId: string;
@@ -41,22 +44,22 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    // Get cart ID from localStorage
+    // Get cart ID from localStorage with safe handling
     const getCartId = useCallback((): string | null => {
         if (typeof window === "undefined") return null;
-        return localStorage.getItem(CART_ID_KEY);
+        return SafeLocalStorage.getItem<string | null>(CART_ID_KEY, null);
     }, []);
 
-    // Save cart ID to localStorage
+    // Save cart ID to localStorage with expiration
     const saveCartId = useCallback((cartId: string) => {
         if (typeof window === "undefined") return;
-        localStorage.setItem(CART_ID_KEY, cartId);
+        SafeLocalStorage.setItem(CART_ID_KEY, cartId, CART_TIMEOUT_MINUTES);
     }, []);
 
     // Clear cart ID from localStorage
     const clearCartId = useCallback(() => {
         if (typeof window === "undefined") return;
-        localStorage.removeItem(CART_ID_KEY);
+        SafeLocalStorage.removeItem(CART_ID_KEY);
     }, []);
 
     // Fetch cart data
