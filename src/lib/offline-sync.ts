@@ -1,3 +1,5 @@
+import { SafeLocalStorage } from "@utils/safe-storage";
+
 export interface OfflineProgress {
     enrollmentId: string;
     lessonId: string;
@@ -7,36 +9,39 @@ export interface OfflineProgress {
 }
 
 const STORAGE_KEY = "vwc_offline_progress";
+// Offline progress expires after 30 days
+const OFFLINE_TIMEOUT_MINUTES = 30 * 24 * 60;
 
 /**
  * Save progress to localStorage when offline
  */
 export function saveOfflineProgress(progress: Omit<OfflineProgress, "timestamp">): void {
-    try {
-        const offlineQueue = getOfflineQueue();
+    const offlineQueue = getOfflineQueue();
 
-        // Add timestamp
-        const progressWithTimestamp: OfflineProgress = {
-            ...progress,
-            timestamp: Date.now(),
-        };
+    // Add timestamp
+    const progressWithTimestamp: OfflineProgress = {
+        ...progress,
+        timestamp: Date.now(),
+    };
 
-        // Check if this lesson progress already exists in queue
-        const existingIndex = offlineQueue.findIndex(
-            (p) => p.enrollmentId === progress.enrollmentId && p.lessonId === progress.lessonId
-        );
+    // Check if this lesson progress already exists in queue
+    const existingIndex = offlineQueue.findIndex(
+        (p) => p.enrollmentId === progress.enrollmentId && p.lessonId === progress.lessonId
+    );
 
-        if (existingIndex >= 0) {
-            // Update existing record
-            offlineQueue[existingIndex] = progressWithTimestamp;
-        } else {
-            // Add new record
-            offlineQueue.push(progressWithTimestamp);
-        }
+    if (existingIndex >= 0) {
+        // Update existing record
+        offlineQueue[existingIndex] = progressWithTimestamp;
+    } else {
+        // Add new record
+        offlineQueue.push(progressWithTimestamp);
+    }
 
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(offlineQueue));
-    } catch (error) {
-        console.error("Failed to save offline progress:", error);
+    // Use SafeStorage to save queue with expiration
+    const saved = SafeLocalStorage.setItem(STORAGE_KEY, offlineQueue, OFFLINE_TIMEOUT_MINUTES);
+
+    if (!saved) {
+        console.error("Failed to save offline progress - storage may be full or unavailable");
     }
 }
 
@@ -44,24 +49,16 @@ export function saveOfflineProgress(progress: Omit<OfflineProgress, "timestamp">
  * Get all offline progress records
  */
 export function getOfflineQueue(): OfflineProgress[] {
-    try {
-        const data = localStorage.getItem(STORAGE_KEY);
-        return data ? JSON.parse(data) : [];
-    } catch (error) {
-        console.error("Failed to get offline queue:", error);
-        return [];
-    }
+    // Use SafeStorage to get queue with automatic error handling
+    return SafeLocalStorage.getItem<OfflineProgress[]>(STORAGE_KEY, []);
 }
 
 /**
  * Clear offline progress queue
  */
 export function clearOfflineQueue(): void {
-    try {
-        localStorage.removeItem(STORAGE_KEY);
-    } catch (error) {
-        console.error("Failed to clear offline queue:", error);
-    }
+    // Use SafeStorage to remove queue
+    SafeLocalStorage.removeItem(STORAGE_KEY);
 }
 
 /**

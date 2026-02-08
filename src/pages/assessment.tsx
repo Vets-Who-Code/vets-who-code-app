@@ -4,6 +4,7 @@ import SEO from "@components/seo/page-seo";
 import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
+import { SafeLocalStorage } from "@utils/safe-storage";
 import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -55,14 +56,16 @@ const Assessment: PageWithLayout = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const stored = localStorage.getItem("dev-session");
-            if (stored) {
-                try {
-                    const user = JSON.parse(stored);
-                    setDevSession({ user });
-                } catch {
-                    localStorage.removeItem("dev-session");
-                }
+            // Use SafeStorage to get dev session
+            const user = SafeLocalStorage.getItem<{
+                id: string;
+                name: string;
+                email: string;
+                image: string;
+            } | null>("dev-session", null);
+
+            if (user) {
+                setDevSession({ user });
             }
             setDevSessionLoaded(true);
         }
