@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import SectionTitle from "@components/section-title";
 import Section from "@components/ui/engagement-modal";
 import Anchor from "@ui/anchor";
@@ -62,11 +63,10 @@ const QuoteArea = ({
                                 </div>
                                 <div className="md:tw-w-[35.406%]">
                                     {texts?.[1]?.content && (
-                                        <p
+                                        <SafeHTML
+                                            as="p"
                                             className="tw-mb-0 tw-text-5xl tw-font-extrabold tw-leading-tight tw-text-primary child:tw-bottom-0 child:tw-ml-1.3 child:tw-text-2xl"
-                                            dangerouslySetInnerHTML={{
-                                                __html: texts[1].content,
-                                            }}
+                                            content={texts[1].content}
                                         />
                                     )}
                                     {texts?.[2]?.content && (

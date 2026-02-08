@@ -1,5 +1,6 @@
 import AuthorMeta from "@components/blog-meta/author";
 import BlogMetaItem from "@components/blog-meta/meta-item";
+import SafeHTML from "@components/safe-html";
 import SocialShare from "@components/social-share/layout-03";
 import Button from "@components/ui/button";
 import Anchor from "@ui/anchor";
@@ -61,7 +62,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             icon="far fa-calendar"
                         />
                     </div>
-                    <p className="tw-mt-4" dangerouslySetInnerHTML={{ __html: excerpt }} />
+                    <SafeHTML content={excerpt} as="p" className="tw-mt-4" />
                     <div className="tw-mt-7.5 tw-flex tw-items-center tw-justify-between">
                         <Button path={path}>
                             Read More

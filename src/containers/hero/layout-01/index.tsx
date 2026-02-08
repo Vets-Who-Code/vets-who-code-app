@@ -1,4 +1,5 @@
 import CourseCard from "@components/course-card/course-01";
+import SafeHTML from "@components/safe-html";
 import { useUI } from "@contexts/ui-context";
 import BottomShape from "@ui/bottom-shape/shape-01";
 import Button from "@ui/button";
@@ -48,11 +49,10 @@ const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }:
                             </span>
                         )}
                         {headings?.[1]?.content && (
-                            <h2
+                            <SafeHTML
+                                as="h2"
                                 className="tw-text-3xl tw-leading-[1.13] tw-text-secondary sm:tw-text-[40px] lg:tw-text-[54px] xl:tw-text-[63px]"
-                                dangerouslySetInnerHTML={{
-                                    __html: headings[1].content,
-                                }}
+                                content={headings[1].content}
                             />
                         )}
                         {texts?.map((text) => (

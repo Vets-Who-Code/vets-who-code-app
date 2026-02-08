@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import Section from "@components/ui/engagement-modal";
 import Button from "@ui/button";
 import { ButtonType, SectionTitleType, TSection } from "@utils/types";
@@ -22,19 +23,17 @@ const CtaArea = ({ data: { section_title, buttons }, bg, space }: TProps) => {
                 variants={scrollUpVariants}
             >
                 {section_title?.subtitle && (
-                    <h3
+                    <SafeHTML
+                        as="h3"
                         className="tw-mb-2.5 tw-leading-none tw-text-secondary child:tw-font-normal child:tw-text-primary"
-                        dangerouslySetInnerHTML={{
-                            __html: section_title.subtitle,
-                        }}
+                        content={section_title.subtitle}
                     />
                 )}
                 {section_title?.title && (
-                    <h2
+                    <SafeHTML
+                        as="h2"
                         className="tw-mb-7.5 tw-text-[34px] tw-text-secondary"
-                        dangerouslySetInnerHTML={{
-                            __html: section_title.title,
-                        }}
+                        content={section_title.title}
                     />
                 )}
 

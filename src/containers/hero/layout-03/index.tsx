@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import Button from "@ui/button";
 import { ButtonType, HeadingType, ImageType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
@@ -38,11 +39,10 @@ const HeroArea = ({ data: { headings, buttons, images } }: TProps) => {
                     </span>
                 )}
                 {headings?.[1]?.content && (
-                    <h1
+                    <SafeHTML
+                        as="h1"
                         className="tw-text-[34px] tw-font-normal tw-leading-none tw-text-white sm:tw-text-[46px] lg:tw-text-[54px] xl:tw-text-[64px]"
-                        dangerouslySetInnerHTML={{
-                            __html: headings[1].content,
-                        }}
+                        content={headings[1].content}
                     />
                 )}
                 {buttons?.map(({ id, content, icon, ...rest }) => (
