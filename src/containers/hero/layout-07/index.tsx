@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import SwiperSlider, { SwiperSlide } from "@components/ui/swiper";
 import { ItemType } from "@utils/types";
 import { fadeInUp } from "@utils/variants";
@@ -65,15 +66,10 @@ const HeroArea = ({ data: { items } }: TProps) => {
                         )}
                         <div className="tw-container tw-relative tw-z-1 tw-mb-[350px] tw-grid tw-grid-cols-1 tw-gap-7.5 lg:tw-grid-cols-12">
                             {headings?.[0]?.content && (
-                                <motion.h2
-                                    initial="hidden"
-                                    animate={idx === activeIdx ? "visible" : "exit"}
-                                    exit="exit"
-                                    variants={fadeInUp}
+                                <SafeHTML
+                                    content={headings[0].content}
+                                    as="h2"
                                     className="tw-mb-0 tw-text-[32px] tw-uppercase tw-leading-[1.17] tw-text-white md:tw-text-4xl lg:tw-col-span-4 lg:tw-text-right lg:tw-text-5xl"
-                                    dangerouslySetInnerHTML={{
-                                        __html: headings[0].content,
-                                    }}
                                 />
                             )}
                             <div className="lg:tw-col-span-8">

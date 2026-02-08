@@ -1,5 +1,6 @@
 import { AITeachingAssistant } from "@components/ai-assistant";
 import Breadcrumb from "@components/breadcrumb";
+import SafeHTML from "@components/safe-html";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import { PrismaClient } from "@prisma/client";
@@ -276,9 +277,9 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                                 Lesson Content
                             </h2>
-                            <div
+                            <SafeHTML
+                                content={lesson.content}
                                 className="tw-prose tw-prose-lg tw-max-w-none"
-                                dangerouslySetInnerHTML={{ __html: lesson.content }}
                             />
                         </div>
 

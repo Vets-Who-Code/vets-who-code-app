@@ -1,4 +1,5 @@
 import Breadcrumb from "@components/breadcrumb";
+import SafeHTML from "@components/safe-html";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import { getJobById, type Job } from "@lib/jobboardly";
@@ -142,9 +143,9 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                             <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                                 Job Description
                             </h2>
-                            <div
+                            <SafeHTML
+                                content={job.description}
                                 className="prose tw-max-w-none tw-text-gray-200"
-                                dangerouslySetInnerHTML={{ __html: job.description }}
                             />
                         </div>
 

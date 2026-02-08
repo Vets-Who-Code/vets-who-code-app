@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import { IContent, ListContentType } from "@utils/types";
 import clsx from "clsx";
 
@@ -37,14 +38,13 @@ const HTMLContent = ({ body, className }: TProps) => {
         >
             {body.map(({ id, type, content }) => {
                 if (type === "text" && typeof content === "string") {
-                    return <p key={id} dangerouslySetInnerHTML={{ __html: content }} />;
+                    return <SafeHTML key={id} content={content} as="p" />;
                 }
                 if (
                     (type === "h3" || type === "h4" || type === "h5" || type === "blockquote") &&
                     typeof content === "string"
                 ) {
-                    const Tag = type;
-                    return <Tag key={id} dangerouslySetInnerHTML={{ __html: content }} />;
+                    return <SafeHTML key={id} content={content} as={type} />;
                 }
 
                 if ((type === "order-list" || type === "list") && Array.isArray(content)) {

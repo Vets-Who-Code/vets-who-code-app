@@ -1,3 +1,4 @@
+import SafeHTML from "@components/safe-html";
 import clsx from "clsx";
 import { marked } from "marked";
 import { getImageUrl } from "@/lib/cloudinary-helpers";
@@ -37,15 +38,16 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
         }
     );
 
+    // Process markdown and return sanitized HTML
+    const htmlContent = marked(processedContent, { renderer });
+
     return (
-        <div
+        <SafeHTML
+            content={htmlContent}
             className={clsx(
                 "tw-prose tw-max-w-none tw-text-base prose-blockquote:tw-border-l-primary prose-blockquote:tw-text-lg prose-blockquote:tw-not-italic prose-blockquote:tw-leading-relaxed prose-strong:tw-font-bold first:prose-img:tw-mt-0 md:prose-h3:tw-text-3xl md:prose-blockquote:tw-mb-11 md:prose-blockquote:tw-ml-12 md:prose-blockquote:tw-mt-[50px]",
                 className
             )}
-            dangerouslySetInnerHTML={{
-                __html: marked(processedContent, { renderer }),
-            }}
         />
     );
 };
