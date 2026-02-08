@@ -1,5 +1,5 @@
-import Anchor from "@ui/anchor";
 import Social, { SocialLink } from "@components/ui/social";
+import Anchor from "@ui/anchor";
 import { IInstructor } from "@utils/types";
 
 type TProps = IInstructor;

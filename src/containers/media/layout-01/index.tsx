@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
-import MottoText from "@components/ui/motto-text";
 import MediaCard from "@components/media-card";
-import { scrollUpVariants } from "@utils/variants";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import MottoText from "@components/ui/motto-text";
 import { IMedia, MottoType, SectionTitleType, TSection } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedMediaCard = motion(MediaCard);

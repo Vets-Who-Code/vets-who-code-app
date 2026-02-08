@@ -27,38 +27,38 @@ const nextConfig = {
         return [
             {
                 // Apply security headers to all routes
-                source: '/:path*',
+                source: "/:path*",
                 headers: [
                     {
-                        key: 'X-DNS-Prefetch-Control',
-                        value: 'on'
+                        key: "X-DNS-Prefetch-Control",
+                        value: "on",
                     },
                     {
-                        key: 'Strict-Transport-Security',
-                        value: 'max-age=63072000; includeSubDomains; preload'
+                        key: "Strict-Transport-Security",
+                        value: "max-age=63072000; includeSubDomains; preload",
                     },
                     {
-                        key: 'X-Frame-Options',
-                        value: 'SAMEORIGIN'
+                        key: "X-Frame-Options",
+                        value: "SAMEORIGIN",
                     },
                     {
-                        key: 'X-Content-Type-Options',
-                        value: 'nosniff'
+                        key: "X-Content-Type-Options",
+                        value: "nosniff",
                     },
                     {
-                        key: 'X-XSS-Protection',
-                        value: '1; mode=block'
+                        key: "X-XSS-Protection",
+                        value: "1; mode=block",
                     },
                     {
-                        key: 'Referrer-Policy',
-                        value: 'strict-origin-when-cross-origin'
+                        key: "Referrer-Policy",
+                        value: "strict-origin-when-cross-origin",
                     },
                     {
-                        key: 'Permissions-Policy',
-                        value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+                        key: "Permissions-Policy",
+                        value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
                     },
                     {
-                        key: 'Content-Security-Policy',
+                        key: "Content-Security-Policy",
                         value: [
                             "default-src 'self'",
                             "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.clarity.ms https://va.vercel-scripts.com https://www.googletagmanager.com https://maps.googleapis.com https://pro.fontawesome.com",
@@ -72,8 +72,8 @@ const nextConfig = {
                             "base-uri 'self'",
                             "form-action 'self'",
                             "frame-ancestors 'self'",
-                            "upgrade-insecure-requests"
-                        ].join('; ')
+                            "upgrade-insecure-requests",
+                        ].join("; "),
                     },
                 ],
             },
@@ -84,8 +84,8 @@ const nextConfig = {
     async redirects() {
         return [
             {
-                source: '/blogs/blog/page/:page',
-                destination: '/blogs/blog?page=:page',
+                source: "/blogs/blog/page/:page",
+                destination: "/blogs/blog?page=:page",
                 permanent: true,
             },
         ];
@@ -94,29 +94,29 @@ const nextConfig = {
     // Optimize file tracing for smaller serverless bundles
     outputFileTracingIncludes: {
         // Only include specific data files that are needed at runtime
-        '/': ['src/data/site-config.ts', 'src/data/homepages/**/*'],
-        '/api/**': [], // API routes don't need static data files
-        '/blogs/blog': ['src/data/blogs/**/*.md'], // Blog listing page needs blog markdown files for SSR
+        "/": ["src/data/site-config.ts", "src/data/homepages/**/*"],
+        "/api/**": [], // API routes don't need static data files
+        "/blogs/blog": ["src/data/blogs/**/*.md"], // Blog listing page needs blog markdown files for SSR
     },
 
     // Exclude unnecessary files from serverless functions
     outputFileTracingExcludes: {
-        '/**': [
-            'node_modules/@playwright/**',
-            'node_modules/ace-builds/**',
-            'node_modules/@swc/core-linux-x64-gnu/**',
-            'node_modules/@swc/core-linux-x64-musl/**',
-            'node_modules/@swc/core-darwin-x64/**',
-            'node_modules/@swc/core-win32-x64-msvc/**',
-            '.git/**',
-            '.next/cache/**',
-            'src/data/curriculum/lessons/**',
-            '**/*.map',
-            '**/test/**',
-            '**/tests/**',
-            '**/__tests__/**',
-            '**/*.test.{js,jsx,ts,tsx}',
-            '**/*.spec.{js,jsx,ts,tsx}',
+        "/**": [
+            "node_modules/@playwright/**",
+            "node_modules/ace-builds/**",
+            "node_modules/@swc/core-linux-x64-gnu/**",
+            "node_modules/@swc/core-linux-x64-musl/**",
+            "node_modules/@swc/core-darwin-x64/**",
+            "node_modules/@swc/core-win32-x64-msvc/**",
+            ".git/**",
+            ".next/cache/**",
+            "src/data/curriculum/lessons/**",
+            "**/*.map",
+            "**/test/**",
+            "**/tests/**",
+            "**/__tests__/**",
+            "**/*.test.{js,jsx,ts,tsx}",
+            "**/*.spec.{js,jsx,ts,tsx}",
         ],
     },
 
@@ -146,19 +146,19 @@ const nextConfig = {
     },
 
     images: {
-        domains: ['res.cloudinary.com', 'avatars.githubusercontent.com', 'cdn.shopify.com'],
+        domains: ["res.cloudinary.com", "avatars.githubusercontent.com", "cdn.shopify.com"],
         remotePatterns: [
             {
-                protocol: 'https',
-                hostname: 'res.cloudinary.com',
+                protocol: "https",
+                hostname: "res.cloudinary.com",
             },
             {
-                protocol: 'https',
-                hostname: 'avatars.githubusercontent.com',
+                protocol: "https",
+                hostname: "avatars.githubusercontent.com",
             },
             {
-                protocol: 'https',
-                hostname: 'cdn.shopify.com',
+                protocol: "https",
+                hostname: "cdn.shopify.com",
             },
         ],
         unoptimized: false,

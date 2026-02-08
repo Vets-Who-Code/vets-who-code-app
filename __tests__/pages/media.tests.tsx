@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { IMedia } from "@utils/types"; // Adjust path if needed
 import MediaPage from "@/pages/media";
 
@@ -8,7 +8,9 @@ vi.mock("@components/seo/page-seo", () => ({
 }));
 
 vi.mock("@layout/layout-01", () => ({
-    default: ({ children }: { children: React.ReactNode }) => <div data-testid="layout">{children}</div>,
+    default: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="layout">{children}</div>
+    ),
 }));
 
 vi.mock("@components/media-card", () => ({
@@ -27,7 +29,6 @@ const mockGetAllPosts = vi.fn();
 vi.mock("@/lib/mdx-pages", () => ({
     getAllMediaPosts: () => mockGetAllPosts(),
 }));
-
 
 const mockMediaItems: IMedia[] = [
     {
@@ -101,7 +102,7 @@ describe("MediaPage Filtering and Searching", () => {
 
         const cards = screen.getAllByTestId("media-card");
         expect(cards).toHaveLength(2);
-        cards.forEach(card => {
+        cards.forEach((card) => {
             expect(card).toHaveTextContent("Podcast");
         });
         expect(screen.getByText("Podcast Episode Alpha")).toBeInTheDocument();
@@ -116,11 +117,11 @@ describe("MediaPage Filtering and Searching", () => {
 
         const cards = screen.getAllByTestId("media-card");
         expect(cards).toHaveLength(2);
-        cards.forEach(card => {
+        cards.forEach((card) => {
             expect(card).toHaveTextContent("2023");
         });
         expect(screen.getByText("Podcast Episode Alpha")).toBeInTheDocument(); // Date 2023-01-15
-        expect(screen.getByText("Article on VWC")).toBeInTheDocument();      // Date 2023-05-20
+        expect(screen.getByText("Article on VWC")).toBeInTheDocument(); // Date 2023-05-20
         expect(screen.queryByText("VWC Demo Video")).not.toBeInTheDocument(); // Date 2022-11-10
     });
 
@@ -158,7 +159,11 @@ describe("MediaPage Filtering and Searching", () => {
         fireEvent.change(yearSelect, { target: { value: "2023" } }); // No videos in 2023
 
         expect(screen.queryAllByTestId("media-card")).toHaveLength(0);
-        expect(screen.getByText("No media items found matching your criteria. Try adjusting your filters or search term.")).toBeInTheDocument();
+        expect(
+            screen.getByText(
+                "No media items found matching your criteria. Try adjusting your filters or search term."
+            )
+        ).toBeInTheDocument();
     });
 
     it("resets filters when Reset button is clicked", () => {

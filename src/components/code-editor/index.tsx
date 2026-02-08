@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import dynamic from "next/dynamic";
+import React from "react";
 
 // Define a type for the props
 type CodeEditorProps = {
@@ -41,9 +41,9 @@ const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
             name="UNIQUE_ID_OF_DIV"
             editorProps={{ $blockScrolling: true }}
             fontSize={14}
-            showPrintMargin
-            showGutter
-            highlightActiveLine
+            showPrintMargin={true}
+            showGutter={true}
+            highlightActiveLine={true}
             setOptions={{
                 enableBasicAutocompletion: true,
                 enableLiveAutocompletion: true,

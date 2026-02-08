@@ -1,12 +1,12 @@
-import fs from "fs";
-import { join } from "path";
-import matter from "gray-matter";
-import { IBlog, BlogMetaType, IDType, ImageType } from "@utils/types";
-import { slugify, flatDeep } from "@utils/methods";
 import { formatDate } from "@utils/date";
-import { getSlugs } from "./util";
+import { flatDeep, slugify } from "@utils/methods";
+import { BlogMetaType, IBlog, IDType, ImageType } from "@utils/types";
+import fs from "fs";
+import matter from "gray-matter";
+import { join } from "path";
 import { getAuthorByID } from "./author";
 import { getImageUrl } from "./cloudinary-helpers";
+import { getSlugs } from "./util";
 
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;

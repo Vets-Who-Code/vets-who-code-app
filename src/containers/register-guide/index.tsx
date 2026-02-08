@@ -1,12 +1,12 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
-import ListWithCheck from "@ui/list-with-check";
-import Button from "@ui/button";
 import Shape2 from "@assets/svgs/shape-2.svg";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import Button from "@ui/button";
+import ListWithCheck from "@ui/list-with-check";
 import { ButtonType, ImageType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedListWithCheck = motion(ListWithCheck);

@@ -1,11 +1,11 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import teamMembers from "@data/team-members.json";
-import boardMembers from "@data/board-members.json";
+import SEO from "@components/seo/page-seo";
 import TeamCard from "@components/team-card";
+import boardMembers from "@data/board-members.json";
+import teamMembers from "@data/team-members.json";
+import Layout from "@layout/layout-01";
 import { IInstructor } from "@utils/types";
+import type { GetStaticProps, NextPage } from "next";
 
 type TProps = {
     data: {

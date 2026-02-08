@@ -1,7 +1,7 @@
+import { GithubContributor, GithubRepo, GithubUser } from "@utils/types";
 import type { Mock } from "vitest";
-import { getProjectContributors, getGithubRepo, getGithubRepoContributors } from "@/lib/github";
-import { GithubContributor, GithubUser, GithubRepo } from "@utils/types";
 import { gitAPI } from "@/lib/git-api-client";
+import { getGithubRepo, getGithubRepoContributors, getProjectContributors } from "@/lib/github";
 
 vi.mock("@/lib/git-api-client", () => ({
     gitAPI: {

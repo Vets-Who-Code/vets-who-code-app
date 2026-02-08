@@ -1,7 +1,7 @@
 import React from "react";
-import FactDisplay from "./FactDisplay";
-import AnswerButtons from "./AnswerButtons";
 import { Fact, MilitaryBranch } from "../../utils/types";
+import AnswerButtons from "./AnswerButtons";
+import FactDisplay from "./FactDisplay";
 
 interface GameAreaProps {
     currentFact: Fact | null;
@@ -39,7 +39,7 @@ const GameArea: React.FC<GameAreaProps> = ({
                 <AnswerButtons onAnswer={handleAnswer} branches={branches} />
             ) : (
                 <div className="tw-mt-6">
-                    <AnswerButtons onAnswer={handleAnswer} branches={branches} disabled />
+                    <AnswerButtons onAnswer={handleAnswer} branches={branches} disabled={true} />
                 </div>
             )}
             {showFeedback && feedbackMessage && (

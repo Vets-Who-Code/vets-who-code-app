@@ -1,6 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import type { Dispatch, SetStateAction } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 function useFilter<T>(
     items: T[],

@@ -1,16 +1,16 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth/next';
-import { options } from '@/pages/api/auth/options';
+import { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 
-export type Role = 'STUDENT' | 'INSTRUCTOR' | 'ADMIN' | 'MENTOR';
+export type Role = "STUDENT" | "INSTRUCTOR" | "ADMIN" | "MENTOR";
 
 export interface AuthenticatedRequest extends NextApiRequest {
-  user?: {
-    id: string;
-    name: string | null;
-    email: string;
-    role: Role;
-  };
+    user?: {
+        id: string;
+        name: string | null;
+        email: string;
+        role: Role;
+    };
 }
 
 /**
@@ -23,24 +23,24 @@ export interface AuthenticatedRequest extends NextApiRequest {
  * });
  */
 export function requireAuth(
-  handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void>
+    handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void>
 ) {
-  return async (req: AuthenticatedRequest, res: NextApiResponse) => {
-    const session = await getServerSession(req, res, options);
+    return async (req: AuthenticatedRequest, res: NextApiResponse) => {
+        const session = await getServerSession(req, res, options);
 
-    if (!session?.user) {
-      return res.status(401).json({ error: 'Unauthorized - Please sign in' });
-    }
+        if (!session?.user) {
+            return res.status(401).json({ error: "Unauthorized - Please sign in" });
+        }
 
-    req.user = {
-      id: session.user.id,
-      name: session.user.name || null,
-      email: session.user.email || '',
-      role: (session.user.role as Role) || 'STUDENT',
+        req.user = {
+            id: session.user.id,
+            name: session.user.name || null,
+            email: session.user.email || "",
+            role: (session.user.role as Role) || "STUDENT",
+        };
+
+        return handler(req, res);
     };
-
-    return handler(req, res);
-  };
 }
 
 /**
@@ -58,43 +58,43 @@ export function requireAuth(
  * });
  */
 export function requireRole(roles: Role | Role[]) {
-  const allowedRoles = Array.isArray(roles) ? roles : [roles];
+    const allowedRoles = Array.isArray(roles) ? roles : [roles];
 
-  return (handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void>) => {
-    return requireAuth(async (req, res) => {
-      if (!req.user || !allowedRoles.includes(req.user.role)) {
-        return res.status(403).json({
-          error: 'Forbidden - Insufficient permissions',
-          required: allowedRoles,
-          current: req.user?.role || 'none'
+    return (handler: (req: AuthenticatedRequest, res: NextApiResponse) => Promise<void>) => {
+        return requireAuth(async (req, res) => {
+            if (!req.user || !allowedRoles.includes(req.user.role)) {
+                return res.status(403).json({
+                    error: "Forbidden - Insufficient permissions",
+                    required: allowedRoles,
+                    current: req.user?.role || "none",
+                });
+            }
+
+            return handler(req, res);
         });
-      }
-
-      return handler(req, res);
-    });
-  };
+    };
 }
 
 /**
  * Check if user has specific role
  */
 export function hasRole(userRole: Role, requiredRoles: Role | Role[]): boolean {
-  const required = Array.isArray(requiredRoles) ? requiredRoles : [requiredRoles];
-  return required.includes(userRole);
+    const required = Array.isArray(requiredRoles) ? requiredRoles : [requiredRoles];
+    return required.includes(userRole);
 }
 
 /**
  * Check if user is admin
  */
 export function isAdmin(userRole: Role): boolean {
-  return userRole === 'ADMIN';
+    return userRole === "ADMIN";
 }
 
 /**
  * Check if user is instructor or admin
  */
 export function isInstructorOrAdmin(userRole: Role): boolean {
-  return ['INSTRUCTOR', 'ADMIN'].includes(userRole);
+    return ["INSTRUCTOR", "ADMIN"].includes(userRole);
 }
 
 /**
@@ -102,7 +102,7 @@ export function isInstructorOrAdmin(userRole: Role): boolean {
  * (Instructors and Admins can manage courses)
  */
 export function canManageCourses(userRole: Role): boolean {
-  return isInstructorOrAdmin(userRole);
+    return isInstructorOrAdmin(userRole);
 }
 
 /**
@@ -110,5 +110,5 @@ export function canManageCourses(userRole: Role): boolean {
  * (Instructors, Mentors, and Admins can grade)
  */
 export function canGradeAssignments(userRole: Role): boolean {
-  return ['INSTRUCTOR', 'ADMIN', 'MENTOR'].includes(userRole);
+    return ["INSTRUCTOR", "ADMIN", "MENTOR"].includes(userRole);
 }

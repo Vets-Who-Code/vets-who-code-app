@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import NewsletterForm from "@components/forms/newsletter-form";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {

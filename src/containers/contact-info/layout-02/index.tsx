@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import { motion } from "motion/react";
 import Section from "@components/ui/engagement-modal";
 import GoogleMap from "@ui/google-map";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {

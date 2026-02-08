@@ -1,6 +1,6 @@
-import { Children } from "react";
 import clsx from "clsx";
 import { AnimatePresence, motion } from "motion/react";
+import { Children } from "react";
 import { ContentProps } from "./types";
 
 const TabContent = ({ children, activeIdx, className }: ContentProps) => {

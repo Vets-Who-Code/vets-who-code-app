@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import FunFact from "@components/funfact/funfact-02";
+import Section from "@components/ui/engagement-modal";
 import { ItemType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedFunFact = motion(FunFact);
 

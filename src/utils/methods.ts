@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import type { Dispatch, SetStateAction } from "react";
-import { getStartOfDay } from "@utils/date";
-import { SectionType, ICourse, IEvent } from "./types";
+import { getStartOfDay } from "@/utils/date";
+import { ICourse, IEvent, SectionType } from "./types";
 
 export const normalizedData = <T extends Record<string, unknown>>(
     data: T[],
@@ -147,8 +148,8 @@ export const flatDeep = <T>(arr: unknown[], d = 1): T[] => {
         : (arr.slice() as T[]);
 };
 
-export const hasKey = (obj: unknown, key: string): boolean => {
-    return !!Object.prototype.hasOwnProperty.call(obj, key);
+export const hasKey = <K extends string>(obj: unknown, key: K): obj is Record<K, unknown> => {
+    return typeof obj === "object" && obj !== null && Object.hasOwn(obj, key);
 };
 
 export const getFocusableElements = (parent?: HTMLElement | null): HTMLElement[] => {

@@ -1,18 +1,18 @@
-import {
-    useState,
-    FunctionComponent,
-    Children,
-    isValidElement,
-    cloneElement,
-    ReactNode,
-    ReactElement,
-} from "react";
 import clsx from "clsx";
-import { TChildProps, ContainerProps } from "./types";
+import {
+    Children,
+    cloneElement,
+    FunctionComponent,
+    isValidElement,
+    ReactElement,
+    ReactNode,
+    useState,
+} from "react";
+import TabContent from "./tab-content";
 import TabList from "./tab-list";
 import TabNav from "./tab-nav";
-import TabContent from "./tab-content";
 import TabPane from "./tab-pane";
+import { ContainerProps, TChildProps } from "./types";
 
 const TabContainer = ({ className, children, variant, idPrefix = "tab" }: ContainerProps) => {
     const [value, setValue] = useState(0);
@@ -84,13 +84,13 @@ const TabContainer = ({ className, children, variant, idPrefix = "tab" }: Contai
 
 export { TabContainer, TabList, TabNav, TabContent, TabPane };
 export type {
-    TProps,
-    TChildProps,
-    TVariant,
     ContainerProps,
-    TabProps,
     ContentProps,
     TabPaneProps,
+    TabProps,
+    TChildProps,
+    TProps,
+    TVariant,
 } from "./types";
 
 export default TabContainer;

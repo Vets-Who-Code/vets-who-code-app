@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { TSubMenu } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;

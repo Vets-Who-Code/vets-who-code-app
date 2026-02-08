@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
-import Icon from "@ui/icon";
 import Anchor from "@ui/anchor";
+import Icon from "@ui/icon";
+import { forwardRef } from "react";
 
 export type IconBoxProps = {
     icon: string;

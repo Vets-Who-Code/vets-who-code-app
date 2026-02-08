@@ -1,1 +1,1 @@
-export { default as AITeachingAssistant } from './AITeachingAssistant';
+export { default as AITeachingAssistant } from "./AITeachingAssistant";

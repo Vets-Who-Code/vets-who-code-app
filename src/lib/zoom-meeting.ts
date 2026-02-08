@@ -1,7 +1,7 @@
+import { formatDate } from "@utils/date";
+import { FieldType, IZoomMeeting } from "@utils/types";
 import fs from "fs";
 import path from "path";
-import { IZoomMeeting, FieldType } from "@utils/types";
-import { formatDate } from "@utils/date";
 import { getSlugs } from "./util";
 
 const directory = path.join(process.cwd(), "src/data/zoom-meetings");

@@ -1,9 +1,9 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { ICourse } from "@utils/types";
-import { motion } from "motion/react";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
+import { forwardRef } from "react";
 
 type TProps = Pick<ICourse, "thumbnail" | "title" | "path"> & {
     className?: string;

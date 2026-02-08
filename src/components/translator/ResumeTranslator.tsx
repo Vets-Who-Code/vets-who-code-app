@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import clsx from "clsx";
+import Button from "@ui/button";
+import Feedback from "@ui/form-elements/feedback";
 import Input from "@ui/form-elements/input";
 import Textarea from "@ui/form-elements/textarea";
-import Feedback from "@ui/form-elements/feedback";
-import Button from "@ui/button";
 import { hasKey } from "@utils/methods";
+import clsx from "clsx";
+import React, { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import {
-    translateMilitaryProfile,
     formatForResume,
     getSuggestions,
-    type TranslatedProfile,
     type MilitaryProfile,
+    type TranslatedProfile,
+    translateMilitaryProfile,
 } from "@/lib/military-translator";
 
 interface IFormValues {
@@ -106,9 +106,9 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                     Military Resume Translator
                 </h1>
                 <p className="tw-text-lg tw-text-gray-300 tw-max-w-2xl tw-mx-auto">
-                    Transform your military experience into civilian-friendly resume language.
-                    Enter your military job details below and we'll help you translate them
-                    into terms that civilian employers understand.
+                    Transform your military experience into civilian-friendly resume language. Enter
+                    your military job details below and we'll help you translate them into terms
+                    that civilian employers understand.
                 </p>
             </div>
 
@@ -212,7 +212,8 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                             Achievements & Awards (Optional)
                         </label>
                         <p className="tw-text-sm tw-text-gray-500">
-                            List each achievement on a new line. Include specific results when possible.
+                            List each achievement on a new line. Include specific results when
+                            possible.
                         </p>
                         <Textarea
                             id="achievements"
@@ -233,11 +234,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className }) => {
                         </Button>
                     </div>
 
-                    {errorMessage && (
-                        <Feedback state="error">
-                            {errorMessage}
-                        </Feedback>
-                    )}
+                    {errorMessage && <Feedback state="error">{errorMessage}</Feedback>}
                 </form>
             )}
 

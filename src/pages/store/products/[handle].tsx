@@ -1,18 +1,18 @@
-import { useState } from "react";
-import type { GetServerSideProps } from "next";
-import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import ShoppingCart from "@components/shopping-cart";
+import { useCart } from "@hooks";
+import Layout from "@layout/layout-01";
 import {
+    formatPrice,
     getProduct,
+    isShopifyConfigured,
     ShopifyProduct,
     ShopifyProductVariant,
-    formatPrice,
-    isShopifyConfigured,
 } from "@lib/shopify";
-import { useCart } from "@hooks";
 import clsx from "clsx";
+import type { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 interface ProductDetailPageProps {
     product: ShopifyProduct | null;
@@ -60,9 +60,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
         // Find matching variant
         const matchingVariant = product.variants.edges.find(({ node: variant }) =>
-            variant.selectedOptions.every(
-                (option) => newOptions[option.name] === option.value
-            )
+            variant.selectedOptions.every((option) => newOptions[option.name] === option.value)
         )?.node;
 
         if (matchingVariant) {
@@ -100,7 +98,8 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
         }
     };
 
-    const currentImage = product.images.edges[selectedImageIndex]?.node || product.images.edges[0]?.node;
+    const currentImage =
+        product.images.edges[selectedImageIndex]?.node || product.images.edges[0]?.node;
     const price = selectedVariant?.price || product.priceRange.minVariantPrice;
     const compareAtPrice = selectedVariant?.compareAtPrice;
 
@@ -163,7 +162,6 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
             {/* Main Content */}
             <div className="tw-container tw-mx-auto tw-px-4 tw-py-12">
-
                 <div className="tw-grid md:tw-grid-cols-2 tw-gap-12">
                     {/* Product Images */}
                     <div>
@@ -223,7 +221,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                             </span>
                             {compareAtPrice && (
                                 <span className="tw-text-xl tw-text-gray-500 tw-line-through">
-                                    {formatPrice(compareAtPrice.amount, compareAtPrice.currencyCode)}
+                                    {formatPrice(
+                                        compareAtPrice.amount,
+                                        compareAtPrice.currencyCode
+                                    )}
                                 </span>
                             )}
                         </div>
@@ -232,8 +233,16 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         <div className="tw-mb-6">
                             {product.availableForSale ? (
                                 <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-gold-light/30 tw-text-gold-deep tw-rounded-full tw-font-medium">
-                                    <svg className="tw-w-5 tw-h-5" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                    <svg
+                                        className="tw-w-5 tw-h-5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clipRule="evenodd"
+                                        />
                                     </svg>
                                     In Stock
                                 </span>
@@ -258,32 +267,39 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                             .filter((option) => {
                                 // Only show options with multiple values
                                 // Hide default Shopify "Title" option with "Default Title" value
-                                return option.values.length > 1 &&
-                                       !(option.name === 'Title' && option.values.includes('Default Title'));
+                                return (
+                                    option.values.length > 1 &&
+                                    !(
+                                        option.name === "Title" &&
+                                        option.values.includes("Default Title")
+                                    )
+                                );
                             })
                             .map((option) => (
-                            <div key={option.id} className="tw-mb-6">
-                                <label className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
-                                    {option.name}
-                                </label>
-                                <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                    {option.values.map((value) => (
-                                        <button
-                                            key={value}
-                                            onClick={() => handleOptionChange(option.name, value)}
-                                            className={clsx(
-                                                "tw-px-6 tw-py-3 tw-border-2 tw-rounded-lg tw-font-medium tw-transition-all",
-                                                selectedOptions[option.name] === value
-                                                    ? "tw-border-primary tw-bg-primary tw-text-white"
-                                                    : "tw-border-gray-300 tw-bg-white tw-text-gray-200 hover:tw-border-gray-400"
-                                            )}
-                                        >
-                                            {value}
-                                        </button>
-                                    ))}
+                                <div key={option.id} className="tw-mb-6">
+                                    <label className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
+                                        {option.name}
+                                    </label>
+                                    <div className="tw-flex tw-flex-wrap tw-gap-2">
+                                        {option.values.map((value) => (
+                                            <button
+                                                key={value}
+                                                onClick={() =>
+                                                    handleOptionChange(option.name, value)
+                                                }
+                                                className={clsx(
+                                                    "tw-px-6 tw-py-3 tw-border-2 tw-rounded-lg tw-font-medium tw-transition-all",
+                                                    selectedOptions[option.name] === value
+                                                        ? "tw-border-primary tw-bg-primary tw-text-white"
+                                                        : "tw-border-gray-300 tw-bg-white tw-text-gray-200 hover:tw-border-gray-400"
+                                                )}
+                                            >
+                                                {value}
+                                            </button>
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
 
                         {/* Quantity */}
                         <div className="tw-mb-8">
@@ -323,8 +339,8 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                             {isAdding
                                 ? "Adding to Cart..."
                                 : product.availableForSale
-                                ? "Add to Cart"
-                                : "Out of Stock"}
+                                  ? "Add to Cart"
+                                  : "Out of Stock"}
                         </button>
 
                         {/* Product Type & Tags */}
@@ -360,7 +376,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = async ({
+    params,
+}) => {
     const handle = params?.handle as string;
 
     if (!handle || !isShopifyConfigured()) {

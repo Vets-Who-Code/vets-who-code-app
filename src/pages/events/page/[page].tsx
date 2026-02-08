@@ -1,10 +1,10 @@
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import EventArea from "@containers/event/layout-01";
+import Layout01 from "@layout/layout-01";
+import { IEvent } from "@utils/types";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import EventArea from "@containers/event/layout-01";
-import { IEvent } from "@utils/types";
 import { getallEvents, getEventMeta } from "../../../lib/event";
 
 type TProps = {
@@ -48,7 +48,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     const { count } = getEventMeta();
     const pages = Math.ceil(count / POSTS_PER_PAGE);
 
-    const pagesToGenerate = [...Array(pages).keys()]
+    const pagesToGenerate = [...new Array(pages).keys()]
         .map((a) => {
             if (a !== 0) return a + 1;
             return null;

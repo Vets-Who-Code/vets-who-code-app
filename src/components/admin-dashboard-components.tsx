@@ -43,9 +43,7 @@ export const OverviewStats = () => {
                 <div key={stat.label} className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
                     <h3 className="tw-text-lg tw-font-semibold tw-text-gray-400">{stat.label}</h3>
                     <p className="tw-mt-2 tw-text-3xl tw-font-bold tw-text-primary">{stat.value}</p>
-                    <p className="tw-mt-2 tw-text-sm tw-text-gold">
-                        {stat.change} from last month
-                    </p>
+                    <p className="tw-mt-2 tw-text-sm tw-text-gold">{stat.change} from last month</p>
                 </div>
             ))}
         </div>

@@ -1,13 +1,11 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import { formatDate } from "@utils/date";
 import Anchor from "@ui/anchor";
+import { formatDate } from "@utils/date";
 import { ICourse } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
-interface TProps extends Pick<
-    ICourse,
-    "thumbnail" | "title" | "path" | "published_at" | "excerpt"
-> {
+interface TProps
+    extends Pick<ICourse, "thumbnail" | "title" | "path" | "published_at" | "excerpt"> {
     className?: string;
 }
 

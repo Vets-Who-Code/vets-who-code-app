@@ -1,12 +1,12 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
-import Wrapper from "@ui/wrapper/wrapper-04";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
+import Layout01 from "@layout/layout-01";
+import Wrapper from "@ui/wrapper/wrapper-04";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps, NextPage } from "next";
 import { getPageData } from "../lib/page";
 
 // Update the interface to include an index signature

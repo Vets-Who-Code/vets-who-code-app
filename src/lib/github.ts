@@ -1,4 +1,4 @@
-import { VWCContributor, GithubRepo, GithubContributor, GithubUser } from "@utils/types";
+import { GithubContributor, GithubRepo, GithubUser, VWCContributor } from "@utils/types";
 import { gitAPI } from "./git-api-client";
 
 export const getProjectContributors = async (
@@ -16,16 +16,15 @@ export const getProjectContributors = async (
                     ...contributor,
                     ...user,
                 };
-            } 
-                if ("error" in response) {
-                    throw new Error(
-                        `Error fetching user data for ${contributor.login}\nStatus code: ${response.status}\nError: ${response.error}`
-                    );
-                }
+            }
+            if ("error" in response) {
                 throw new Error(
-                    `Error fetching user data for ${contributor.login}\nStatus code: ${response.status}`
+                    `Error fetching user data for ${contributor.login}\nStatus code: ${response.status}\nError: ${response.error}`
                 );
-            
+            }
+            throw new Error(
+                `Error fetching user data for ${contributor.login}\nStatus code: ${response.status}`
+            );
         })
     );
     return projectContributors;
@@ -35,16 +34,15 @@ export const getGithubRepo = async (owner: string, repo: string): Promise<Github
     const response = await gitAPI.get(`/repos/${owner}/${repo}`);
     if (response.status === 200) {
         return response.data as GithubRepo;
-    } 
-        if ("error" in response) {
-            throw new Error(
-                `Error fetching repo data for ${owner}/${repo}\nStatus code: ${response.status}\nError: ${response.error}`
-            );
-        }
+    }
+    if ("error" in response) {
         throw new Error(
-            `Error fetching repo data for ${owner}/${repo}\nStatus code: ${response.status}`
+            `Error fetching repo data for ${owner}/${repo}\nStatus code: ${response.status}\nError: ${response.error}`
         );
-    
+    }
+    throw new Error(
+        `Error fetching repo data for ${owner}/${repo}\nStatus code: ${response.status}`
+    );
 };
 
 export const getGithubRepoContributors = async (
@@ -55,14 +53,13 @@ export const getGithubRepoContributors = async (
     const response = await gitAPI.get(`/repos/${owner}/${repo}/contributors`);
     if (response.status === 200) {
         return (response.data as GithubContributor[]).slice(0, top);
-    } 
-        if ("error" in response) {
-            throw new Error(
-                `Error fetching contributor data for ${owner}/${repo}\nStatus code: ${response.status}\nError: ${response.error}`
-            );
-        }
+    }
+    if ("error" in response) {
         throw new Error(
-            `Error fetching contributor data for ${owner}/${repo}\nStatus code: ${response.status}`
+            `Error fetching contributor data for ${owner}/${repo}\nStatus code: ${response.status}\nError: ${response.error}`
         );
-    
+    }
+    throw new Error(
+        `Error fetching contributor data for ${owner}/${repo}\nStatus code: ${response.status}`
+    );
 };

@@ -1,29 +1,27 @@
-import type { NextPage } from "next";
-import { GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-03";
-import Wrapper from "@ui/wrapper/wrapper-02";
-import HeroArea from "@containers/hero/layout-04";
-import ServiceArea from "@containers/service/layout-03";
-import FunfactArea from "@containers/funfact/layout-04";
-import VideoArea from "@containers/video/layout-04";
-import CourseArea from "@containers/course/layout-05";
-import TestimonialArea from "@containers/testimonial/layout-04";
-import EventArea from "@containers/event/layout-02";
-import MediaArea from "@containers/media/layout-01";
+import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
+import CourseArea from "@containers/course/layout-05";
+import EventArea from "@containers/event/layout-02";
+import FunfactArea from "@containers/funfact/layout-04";
+import HeroArea from "@containers/hero/layout-04";
+import MediaArea from "@containers/media/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
-import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
-
+import ServiceArea from "@containers/service/layout-03";
+import TestimonialArea from "@containers/testimonial/layout-04";
+import VideoArea from "@containers/video/layout-04";
+import Layout from "@layout/layout-03";
+import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
 import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
-
-import { getPageData } from "../lib/page";
+import type { NextPage } from "next";
+import { GetStaticProps } from "next";
 import { getAllBlogs } from "../lib/blog";
 import { getallCourses } from "../lib/course";
 import { getallEvents } from "../lib/event";
 import { getAllMediaPosts } from "../lib/mdx-pages";
+import { getPageData } from "../lib/page";
 
 interface PageContent {
     section: string;
@@ -69,10 +67,7 @@ const Home: PageProps = ({ data }) => {
                 data={{ ...content?.["event-area"], events: data.events }}
                 titleSize="large"
             />
-            <MediaArea
-                data={{ ...content?.["media-area"], media: data.media }}
-                titleSize="large"
-            />
+            <MediaArea data={{ ...content?.["media-area"], media: data.media }} titleSize="large" />
             <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
             <BrandArea data={content?.["brand-area"]} />
             <NewsletterArea data={content?.["newsletter-area"]} />

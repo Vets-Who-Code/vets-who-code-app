@@ -1,4 +1,4 @@
-import { format, formatDistance, isToday, isYesterday, isPast, isFuture } from "date-fns";
+import { format, formatDistance, isFuture, isPast, isToday, isYesterday } from "date-fns";
 
 /**
  * Format date to readable string

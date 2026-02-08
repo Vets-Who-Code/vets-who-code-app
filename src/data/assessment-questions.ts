@@ -44,7 +44,8 @@ export const assessmentQuestions: AssessmentQuestion[] = [
         level: "newbie",
         title: "Simple Math Operation",
         description: "Perform basic arithmetic operations",
-        instructions: "Create a function called 'add' that takes two numbers and returns their sum.",
+        instructions:
+            "Create a function called 'add' that takes two numbers and returns their sum.",
         starterCode: `// Create a function called 'add' that takes two numbers and returns their sum
 function add(a, b) {
     // Your code here
@@ -402,11 +403,11 @@ export function calculateTotalPoints(questions: AssessmentQuestion[]): number {
 
 // Scoring thresholds to determine skill level
 export const scoringThresholds = {
-    newbie: { min: 0, max: 20 },      // 0-20 points: Basic syntax understanding
-    beginner: { min: 21, max: 55 },   // 21-55 points: Conditionals and functions
-    junior: { min: 56, max: 95 },     // 56-95 points: Arrays and loops
-    mid: { min: 96, max: 145 },       // 96-145 points: String manipulation and objects
-    senior: { min: 146, max: 210 },   // 146-210 points: Algorithms and problem solving
+    newbie: { min: 0, max: 20 }, // 0-20 points: Basic syntax understanding
+    beginner: { min: 21, max: 55 }, // 21-55 points: Conditionals and functions
+    junior: { min: 56, max: 95 }, // 56-95 points: Arrays and loops
+    mid: { min: 96, max: 145 }, // 96-145 points: String manipulation and objects
+    senior: { min: 146, max: 210 }, // 146-210 points: Algorithms and problem solving
 };
 
 export function determineSkillLevel(score: number): string {

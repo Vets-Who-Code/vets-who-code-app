@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { ImageType } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 export type ImageBoxProps = {
     image: ImageType;

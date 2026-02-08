@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
-import Anchor from "@ui/anchor";
 import BlogCard from "@components/blog-card/blog-04";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import Anchor from "@ui/anchor";
 import { IBlog, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedBlogCard = motion(BlogCard);
 

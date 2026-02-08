@@ -1,7 +1,7 @@
 import Button from "@ui/button";
 import { IZoomMeeting } from "@utils/types";
-import WidgetBox from "./widget-box";
 import InfoItem from "./info-item";
+import WidgetBox from "./widget-box";
 
 type TProps = Pick<
     IZoomMeeting,
@@ -23,10 +23,10 @@ const ZoomInfo = ({ host, date, time, category, duration, timezone, links }: TPr
                 your local timezone.
             </p>
             <div className="tw-mt-5">
-                <Button fullwidth className="!tw-px-6" path={links[0]}>
+                <Button fullwidth={true} className="!tw-px-6" path={links[0]}>
                     Join Meeting via Zoom App
                 </Button>
-                <Button fullwidth className="tw-mt-2.5" path={links[1]}>
+                <Button fullwidth={true} className="tw-mt-2.5" path={links[1]}>
                     Join via Web Browser
                 </Button>
             </div>

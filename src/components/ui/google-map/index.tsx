@@ -1,5 +1,5 @@
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import Map from "./map";
+import { Status, Wrapper } from "@googlemaps/react-wrapper";
+import GoogleMap from "./map";
 import Marker from "./marker";
 
 const render = (status: Status) => {
@@ -11,7 +11,9 @@ type MapProps = google.maps.MapOptions;
 const MyMap: React.FC<MapProps> = ({ ...options }) => {
     return (
         <Wrapper apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""} render={render}>
-            <Map {...options}>{options.center && <Marker position={options.center} />}</Map>
+            <GoogleMap {...options}>
+                {options.center && <Marker position={options.center} />}
+            </GoogleMap>
         </Wrapper>
     );
 };

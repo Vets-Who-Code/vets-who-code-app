@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import Document, { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
     render() {
@@ -30,7 +28,7 @@ export default class MyDocument extends Document {
                     {gaId && ( // Only include the script if the GA ID is present
                         <>
                             <script
-                                async
+                                async={true}
                                 src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
                             />
                             <script

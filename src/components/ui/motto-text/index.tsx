@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
 import Anchor from "@ui/anchor";
 import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = {
     text?: string;

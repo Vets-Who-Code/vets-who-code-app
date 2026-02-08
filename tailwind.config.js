@@ -82,29 +82,29 @@ module.exports = {
                 // Navy Blue (Pantone 282 C) - Primary Brand Color
                 navy: {
                     DEFAULT: "#091f40",
-                    midnight: "#061A40",    // Alternative to primary navy
-                    deep: "#003559",        // Dark accents, hover states
-                    royal: "#0353A4",       // Secondary buttons
-                    ocean: "#006DAA",       // Links, interactive elements
-                    sky: "#B9D6F2",         // Light backgrounds, info boxes
+                    midnight: "#061A40", // Alternative to primary navy
+                    deep: "#003559", // Dark accents, hover states
+                    royal: "#0353A4", // Secondary buttons
+                    ocean: "#006DAA", // Links, interactive elements
+                    sky: "#B9D6F2", // Light backgrounds, info boxes
                 },
 
                 // Red (Pantone 193 C) - Primary Accent, CTAs
                 red: {
                     DEFAULT: "#c5203e",
-                    signal: "#C52233",      // Near primary, alternative
-                    crimson: "#A51C30",     // Hover/pressed states
-                    dark: "#74121D",        // Error borders, deep accents
-                    maroon: "#580C1F",      // Darkest gradients
+                    signal: "#C52233", // Near primary, alternative
+                    crimson: "#A51C30", // Hover/pressed states
+                    dark: "#74121D", // Error borders, deep accents
+                    maroon: "#580C1F", // Darkest gradients
                 },
 
                 // Amber Gold - Highlights, Success States
                 gold: {
                     DEFAULT: "#FDB330",
-                    light: "#FFE169",       // Highlight backgrounds
-                    bright: "#FAD643",      // Badges, success indicators
-                    rich: "#DBB42C",        // Hover state for gold
-                    deep: "#C9A227",        // Darker gold accents
+                    light: "#FFE169", // Highlight backgrounds
+                    bright: "#FAD643", // Badges, success indicators
+                    rich: "#DBB42C", // Hover state for gold
+                    deep: "#C9A227", // Darker gold accents
                 },
 
                 // Cream White - Backgrounds
@@ -115,64 +115,64 @@ module.exports = {
 
                 // ===== UI GRAYS (Light Mode) =====
                 gray: {
-                    DEFAULT: "#6C757D",     // Slate - secondary text
-                    50: "#F8F9FA",          // Off White - light cards
-                    100: "#DEE2E6",         // Silver - borders, dividers
-                    200: "#6C757D",         // Slate - secondary text, captions
-                    300: "#495057",         // Charcoal - muted labels
-                    400: "#343A40",         // Dark Gray - softer text blocks
+                    DEFAULT: "#6C757D", // Slate - secondary text
+                    50: "#F8F9FA", // Off White - light cards
+                    100: "#DEE2E6", // Silver - borders, dividers
+                    200: "#6C757D", // Slate - secondary text, captions
+                    300: "#495057", // Charcoal - muted labels
+                    400: "#343A40", // Dark Gray - softer text blocks
                 },
 
                 // ===== SEMANTIC COLORS (Mapped to Brand Colors) =====
                 primary: {
-                    DEFAULT: "#c5203e",     // Brand Red
-                    light: "#C52233",       // Signal Red
-                    dark: "#A51C30",        // Crimson
+                    DEFAULT: "#c5203e", // Brand Red
+                    light: "#C52233", // Signal Red
+                    dark: "#A51C30", // Crimson
                 },
 
                 secondary: {
-                    DEFAULT: "#091f40",     // Navy Blue
-                    light: "#0353A4",       // Royal Blue
-                    dark: "#061A40",        // Midnight
+                    DEFAULT: "#091f40", // Navy Blue
+                    light: "#0353A4", // Royal Blue
+                    dark: "#061A40", // Midnight
                 },
 
                 success: {
-                    DEFAULT: "#FDB330",     // Amber Gold
-                    light: "#FFE169",       // Light Gold
-                    dark: "#DBB42C",        // Rich Gold
+                    DEFAULT: "#FDB330", // Amber Gold
+                    light: "#FFE169", // Light Gold
+                    dark: "#DBB42C", // Rich Gold
                 },
 
                 warning: {
-                    DEFAULT: "#FAD643",     // Bright Gold
-                    light: "#FFE169",       // Light Gold
-                    dark: "#C9A227",        // Deep Gold
+                    DEFAULT: "#FAD643", // Bright Gold
+                    light: "#FFE169", // Light Gold
+                    dark: "#C9A227", // Deep Gold
                 },
 
                 danger: {
-                    DEFAULT: "#c5203e",     // Brand Red
-                    light: "#C52233",       // Signal Red
-                    dark: "#74121D",        // Dark Red
+                    DEFAULT: "#c5203e", // Brand Red
+                    light: "#C52233", // Signal Red
+                    dark: "#74121D", // Dark Red
                 },
 
                 info: {
-                    DEFAULT: "#006DAA",     // Ocean Blue
-                    light: "#B9D6F2",       // Sky Blue
-                    dark: "#0353A4",        // Royal Blue
+                    DEFAULT: "#006DAA", // Ocean Blue
+                    light: "#B9D6F2", // Sky Blue
+                    dark: "#0353A4", // Royal Blue
                 },
 
                 // ===== DARK MODE COLORS =====
                 dark: {
-                    DEFAULT: "#1A1823",     // Ink Black - primary dark background
-                    surface: "#212529",     // Charcoal - elevated surfaces
-                    elevated: "#343A40",    // Dark Gray - tertiary surfaces
-                    text: "#F8F9FA",        // Off White - primary text
+                    DEFAULT: "#1A1823", // Ink Black - primary dark background
+                    surface: "#212529", // Charcoal - elevated surfaces
+                    elevated: "#343A40", // Dark Gray - tertiary surfaces
+                    text: "#F8F9FA", // Off White - primary text
                     "text-muted": "#DEE2E6", // Silver - secondary text
                     "text-disabled": "#6C757D", // Slate - disabled text
-                    accent: "#84C1FF",      // Light Blue - links, interactive
+                    accent: "#84C1FF", // Light Blue - links, interactive
                     "accent-hover": "#B9D6F2", // Sky Blue - hover state
-                    error: "#F38375",       // Coral - errors
-                    success: "#FFE169",     // Light Gold - success
-                    badge: "#FAD643",       // Bright Gold - badges
+                    error: "#F38375", // Coral - errors
+                    success: "#FFE169", // Light Gold - success
+                    badge: "#FAD643", // Bright Gold - badges
                 },
 
                 // ===== UTILITY COLORS =====
@@ -180,8 +180,8 @@ module.exports = {
                 black: "#000000",
 
                 // ===== LEGACY MAPPINGS (for prose/typography) =====
-                body: "#1A1823",           // Ink Black for body text
-                heading: "#091f40",        // Navy for headings
+                body: "#1A1823", // Ink Black for body text
+                heading: "#091f40", // Navy for headings
             },
             typography: ({ theme }) => ({
                 DEFAULT: {
@@ -251,14 +251,14 @@ module.exports = {
                 15: "3.75rem",
                 37: "9.375rem",
                 // Modern 8px grid spacing
-                xs: "0.5rem",    // 8px
-                sm: "0.75rem",   // 12px
-                md: "1rem",      // 16px
-                lg: "1.5rem",    // 24px
-                xl: "2rem",      // 32px
-                "2xl": "3rem",   // 48px
-                "3xl": "4rem",   // 64px
-                "4xl": "6rem",   // 96px
+                xs: "0.5rem", // 8px
+                sm: "0.75rem", // 12px
+                md: "1rem", // 16px
+                lg: "1.5rem", // 24px
+                xl: "2rem", // 32px
+                "2xl": "3rem", // 48px
+                "3xl": "4rem", // 64px
+                "4xl": "6rem", // 96px
             },
             screens: {
                 maxSm: { max: "575px" },

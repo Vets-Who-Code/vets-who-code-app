@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             };
 
             return res.status(200).json(userData);
-        } catch (error) {
+        } catch (_error) {
             return res.status(500).json({ error: "Internal server error" });
         }
     }
@@ -87,7 +87,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             };
 
             return res.status(200).json(userData);
-        } catch (error) {
+        } catch (_error) {
             return res.status(500).json({ error: "Internal server error" });
         }
     }

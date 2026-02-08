@@ -1,5 +1,5 @@
-import { marked } from "marked";
 import clsx from "clsx";
+import { marked } from "marked";
 import { getImageUrl } from "@/lib/cloudinary-helpers";
 
 type TProps = {
@@ -23,7 +23,7 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
     const imageRenderer = renderer.image;
     renderer.image = (href, title, text) => {
         // Convert Cloudinary public IDs to full URLs
-        const imageUrl = getImageUrl(href || '');
+        const imageUrl = getImageUrl(href || "");
         return imageRenderer.call(renderer, imageUrl, title, text);
     };
 

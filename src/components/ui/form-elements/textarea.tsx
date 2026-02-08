@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
 import cn from "clsx";
+import { forwardRef } from "react";
 import Feedback from "./feedback";
 import { IInputProps } from "./types";
 
@@ -44,7 +44,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
         const successClass = !showErrorOnly && state === "success" && "!tw-border-success";
         const warningClass = !showErrorOnly && state === "warning" && "!tw-border-warning";
         const errorClass = state === "error" && "!tw-border-danger";
-        const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
+        const focusBorderClass =
+            customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
 
         return (

@@ -1,9 +1,9 @@
-import { useState } from "react";
-import clsx from "clsx";
 import { TMenu } from "@utils/types";
+import clsx from "clsx";
+import { useState } from "react";
+import Megamenu from "./megamenu";
 import NavLink from "./nav-link";
 import Submenu from "./submenu";
-import Megamenu from "./megamenu";
 
 type TProps = {
     className?: string;
@@ -34,7 +34,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                 className
             )}
         >
-            <ul aria-label="Main Menu" role="menubar">
+            <ul aria-label="Main Menu">
                 {menu.map(({ id, label, path, submenu, megamenu }) => {
                     const hasSubmenu = !!submenu || !!megamenu;
                     return (

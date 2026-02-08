@@ -1,11 +1,11 @@
+import CourseCard from "@components/course-card/course-01";
+import { useUI } from "@contexts/ui-context";
+import BottomShape from "@ui/bottom-shape/shape-01";
+import Button from "@ui/button";
+import { ButtonType, HeadingType, ICourse, ImageType, TextType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import Button from "@ui/button";
-import CourseCard from "@components/course-card/course-01";
-import BottomShape from "@ui/bottom-shape/shape-01";
-import { scrollUpVariants } from "@utils/variants";
-import { useUI } from "@contexts/ui-context";
-import { HeadingType, TextType, ButtonType, ImageType, ICourse } from "@utils/types";
 
 type TProps = {
     data: {

@@ -1,15 +1,15 @@
 import {
     formatDate,
     formatDateTime,
-    getRelativeTime,
-    getDaysUntil,
     formatDuration,
-    getStartOfDay,
-    isDatePast,
-    getSmartDate,
-    isDateFuture,
     getDaysSince,
+    getDaysUntil,
     getEndOfDay,
+    getRelativeTime,
+    getSmartDate,
+    getStartOfDay,
+    isDateFuture,
+    isDatePast,
 } from "../date";
 
 describe("date utilities", () => {

@@ -1,6 +1,6 @@
+import Anchor from "@ui/anchor";
 import clsx from "clsx";
 import { useRouter } from "next/router";
-import Anchor from "@ui/anchor";
 
 type TProps = {
     children: React.ReactNode;

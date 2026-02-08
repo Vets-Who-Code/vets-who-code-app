@@ -8,14 +8,7 @@ interface ShoppingCartProps {
 }
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
-    const {
-        cart,
-        cartTotal,
-        cartCurrency,
-        isLoading,
-        updateCartLines,
-        removeFromCart,
-    } = useCart();
+    const { cart, cartTotal, cartCurrency, isLoading, updateCartLines, removeFromCart } = useCart();
 
     const handleUpdateQuantity = async (lineId: string, newQuantity: number) => {
         if (newQuantity < 1) return;
@@ -63,9 +56,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
             >
                 {/* Header */}
                 <div className="tw-flex tw-items-center tw-justify-between tw-p-6 tw-border-b tw-border-gray-200">
-                    <h2 className="tw-text-2xl tw-font-bold tw-text-secondary">
-                        Shopping Cart
-                    </h2>
+                    <h2 className="tw-text-2xl tw-font-bold tw-text-secondary">Shopping Cart</h2>
                     <button
                         onClick={onClose}
                         className="tw-text-gray-500 hover:tw-text-gray-200 tw-transition-colors"

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { ICourse } from "@utils/types";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
-import { ICourse } from "@utils/types";
+import React, { useEffect, useState } from "react";
 
 type TProps = {
     course: ICourse;
@@ -64,7 +64,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                 setTimeout(() => resolve(), 1000);
             });
             setIsEnrolled(true);
-        } catch (error) {
+        } catch (_error) {
             // Handle error silently for now
         } finally {
             setEnrolling(false);
@@ -157,9 +157,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
 
                 {/* Course Info */}
                 <div className="tw-mt-6 tw-border-t tw-border-gray-200 tw-pt-6">
-                    <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">
-                        What&apos;s Included:
-                    </h4>
+                    <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">What&apos;s Included:</h4>
                     <ul className="tw-space-y-2 tw-text-sm tw-text-gray-300">
                         <li className="tw-flex tw-items-center">
                             <i className="fas fa-check tw-mr-2 tw-text-green-500" />

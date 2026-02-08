@@ -1,11 +1,11 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import ZoomMeetingDetailsArea from "@containers/zoom-meeting-details";
-import { IZoomMeeting } from "@utils/types";
+import Layout01 from "@layout/layout-01";
 import { toCapitalize } from "@utils/methods";
-import { getZoomMeetingBySlug, getAllZoomMeetings } from "../../lib/zoom-meeting";
+import { IZoomMeeting } from "@utils/types";
+import type { GetStaticPaths, NextPage } from "next";
+import { getAllZoomMeetings, getZoomMeetingBySlug } from "../../lib/zoom-meeting";
 
 type TProps = {
     data: {

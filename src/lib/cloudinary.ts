@@ -1,39 +1,39 @@
-import { v2 as cloudinary } from 'cloudinary';
+import { v2 as cloudinary } from "cloudinary";
 
 // Configure Cloudinary
 cloudinary.config({
-  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-  secure: true,
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+    secure: true,
 });
 
 export interface UploadOptions {
-  folder?: string;
-  public_id?: string;
-  transformation?: Array<{
-    width?: number;
-    height?: number;
-    crop?: string;
-    quality?: string | number;
-  }>;
-  resource_type?: 'image' | 'video' | 'raw' | 'auto';
-  allowed_formats?: string[];
+    folder?: string;
+    public_id?: string;
+    transformation?: Array<{
+        width?: number;
+        height?: number;
+        crop?: string;
+        quality?: string | number;
+    }>;
+    resource_type?: "image" | "video" | "raw" | "auto";
+    allowed_formats?: string[];
 }
 
 export interface UploadResult {
-  public_id: string;
-  version: number;
-  signature: string;
-  width: number;
-  height: number;
-  format: string;
-  resource_type: string;
-  created_at: string;
-  bytes: number;
-  type: string;
-  url: string;
-  secure_url: string;
+    public_id: string;
+    version: number;
+    signature: string;
+    width: number;
+    height: number;
+    format: string;
+    resource_type: string;
+    created_at: string;
+    bytes: number;
+    type: string;
+    url: string;
+    secure_url: string;
 }
 
 /**
@@ -43,23 +43,23 @@ export interface UploadResult {
  * @returns Upload result with secure URL
  */
 export async function uploadImage(
-  file: string,
-  options: UploadOptions = {}
+    file: string,
+    options: UploadOptions = {}
 ): Promise<UploadResult> {
-  try {
-    const defaultOptions = {
-      folder: 'vets-who-code',
-      resource_type: 'auto' as const,
-      allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'],
-      ...options,
-    };
+    try {
+        const defaultOptions = {
+            folder: "vets-who-code",
+            resource_type: "auto" as const,
+            allowed_formats: ["jpg", "jpeg", "png", "gif", "webp", "svg"],
+            ...options,
+        };
 
-    const result = await cloudinary.uploader.upload(file, defaultOptions);
-    return result as UploadResult;
-  } catch (error) {
-    console.error('Error uploading to Cloudinary:', error);
-    throw new Error('Failed to upload image to Cloudinary');
-  }
+        const result = await cloudinary.uploader.upload(file, defaultOptions);
+        return result as UploadResult;
+    } catch (error) {
+        console.error("Error uploading to Cloudinary:", error);
+        throw new Error("Failed to upload image to Cloudinary");
+    }
 }
 
 /**
@@ -68,13 +68,13 @@ export async function uploadImage(
  * @returns Deletion result
  */
 export async function deleteImage(publicId: string): Promise<{ result: string }> {
-  try {
-    const result = await cloudinary.uploader.destroy(publicId);
-    return result;
-  } catch (error) {
-    console.error('Error deleting from Cloudinary:', error);
-    throw new Error('Failed to delete image from Cloudinary');
-  }
+    try {
+        const result = await cloudinary.uploader.destroy(publicId);
+        return result;
+    } catch (error) {
+        console.error("Error deleting from Cloudinary:", error);
+        throw new Error("Failed to delete image from Cloudinary");
+    }
 }
 
 /**
@@ -84,27 +84,27 @@ export async function deleteImage(publicId: string): Promise<{ result: string }>
  * @returns Optimized image URL
  */
 export function getOptimizedImageUrl(
-  publicId: string,
-  transformations?: {
-    width?: number;
-    height?: number;
-    crop?: string;
-    quality?: string | number;
-    format?: string;
-  }
+    publicId: string,
+    transformations?: {
+        width?: number;
+        height?: number;
+        crop?: string;
+        quality?: string | number;
+        format?: string;
+    }
 ): string {
-  return cloudinary.url(publicId, {
-    secure: true,
-    transformation: transformations
-      ? [
-          {
-            ...transformations,
-            fetch_format: transformations.format || 'auto',
-            quality: transformations.quality || 'auto',
-          },
-        ]
-      : [],
-  });
+    return cloudinary.url(publicId, {
+        secure: true,
+        transformation: transformations
+            ? [
+                  {
+                      ...transformations,
+                      fetch_format: transformations.format || "auto",
+                      quality: transformations.quality || "auto",
+                  },
+              ]
+            : [],
+    });
 }
 
 /**
@@ -114,17 +114,17 @@ export function getOptimizedImageUrl(
  * @returns Array of upload results
  */
 export async function uploadMultipleImages(
-  files: string[],
-  options: UploadOptions = {}
+    files: string[],
+    options: UploadOptions = {}
 ): Promise<UploadResult[]> {
-  try {
-    const uploadPromises = files.map((file) => uploadImage(file, options));
-    const results = await Promise.all(uploadPromises);
-    return results;
-  } catch (error) {
-    console.error('Error uploading multiple images:', error);
-    throw new Error('Failed to upload multiple images to Cloudinary');
-  }
+    try {
+        const uploadPromises = files.map((file) => uploadImage(file, options));
+        const results = await Promise.all(uploadPromises);
+        return results;
+    } catch (error) {
+        console.error("Error uploading multiple images:", error);
+        throw new Error("Failed to upload multiple images to Cloudinary");
+    }
 }
 
 /**
@@ -134,51 +134,51 @@ export async function uploadMultipleImages(
  * @returns Signature and timestamp
  */
 export function getUploadSignature(paramsToSign: Record<string, string | number>): {
-  signature: string;
-  timestamp: number;
+    signature: string;
+    timestamp: number;
 } {
-  const timestamp = Math.round(new Date().getTime() / 1000);
-  const signature = cloudinary.utils.api_sign_request(
-    {
-      timestamp,
-      ...paramsToSign,
-    },
-    process.env.CLOUDINARY_API_SECRET as string
-  );
+    const timestamp = Math.round(new Date().getTime() / 1000);
+    const signature = cloudinary.utils.api_sign_request(
+        {
+            timestamp,
+            ...paramsToSign,
+        },
+        process.env.CLOUDINARY_API_SECRET as string
+    );
 
-  return { signature, timestamp };
+    return { signature, timestamp };
 }
 
 export interface CloudinaryResource {
-  asset_id: string;
-  public_id: string;
-  format: string;
-  version: number;
-  resource_type: string;
-  type: string;
-  created_at: string;
-  bytes: number;
-  width: number;
-  height: number;
-  url: string;
-  secure_url: string;
-  folder?: string;
-  tags?: string[];
+    asset_id: string;
+    public_id: string;
+    format: string;
+    version: number;
+    resource_type: string;
+    type: string;
+    created_at: string;
+    bytes: number;
+    width: number;
+    height: number;
+    url: string;
+    secure_url: string;
+    folder?: string;
+    tags?: string[];
 }
 
 export interface ListImagesOptions {
-  folder?: string;
-  max_results?: number;
-  next_cursor?: string;
-  resource_type?: 'image' | 'video' | 'raw';
-  type?: 'upload' | 'private' | 'authenticated';
-  tags?: boolean;
+    folder?: string;
+    max_results?: number;
+    next_cursor?: string;
+    resource_type?: "image" | "video" | "raw";
+    type?: "upload" | "private" | "authenticated";
+    tags?: boolean;
 }
 
 export interface ListImagesResult {
-  resources: CloudinaryResource[];
-  next_cursor?: string;
-  total_count?: number;
+    resources: CloudinaryResource[];
+    next_cursor?: string;
+    total_count?: number;
 }
 
 /**
@@ -186,32 +186,30 @@ export interface ListImagesResult {
  * @param options - Options for listing images
  * @returns List of images with pagination
  */
-export async function listImages(
-  options: ListImagesOptions = {}
-): Promise<ListImagesResult> {
-  try {
-    const defaultOptions = {
-      resource_type: 'image' as const,
-      type: 'upload' as const,
-      max_results: 30,
-      tags: true,
-      ...options,
-    };
+export async function listImages(options: ListImagesOptions = {}): Promise<ListImagesResult> {
+    try {
+        const defaultOptions = {
+            resource_type: "image" as const,
+            type: "upload" as const,
+            max_results: 30,
+            tags: true,
+            ...options,
+        };
 
-    const result = await cloudinary.api.resources({
-      ...defaultOptions,
-      prefix: options.folder,
-    });
+        const result = await cloudinary.api.resources({
+            ...defaultOptions,
+            prefix: options.folder,
+        });
 
-    return {
-      resources: result.resources,
-      next_cursor: result.next_cursor,
-      total_count: result.total_count,
-    };
-  } catch (error) {
-    console.error('Error listing images from Cloudinary:', error);
-    throw new Error('Failed to list images from Cloudinary');
-  }
+        return {
+            resources: result.resources,
+            next_cursor: result.next_cursor,
+            total_count: result.total_count,
+        };
+    } catch (error) {
+        console.error("Error listing images from Cloudinary:", error);
+        throw new Error("Failed to list images from Cloudinary");
+    }
 }
 
 /**
@@ -221,10 +219,10 @@ export async function listImages(
  * @returns List of images in the folder
  */
 export async function getImagesByFolder(
-  folder: string,
-  options: Omit<ListImagesOptions, 'folder'> = {}
+    folder: string,
+    options: Omit<ListImagesOptions, "folder"> = {}
 ): Promise<ListImagesResult> {
-  return listImages({ ...options, folder });
+    return listImages({ ...options, folder });
 }
 
 /**
@@ -234,40 +232,40 @@ export async function getImagesByFolder(
  * @returns Search results
  */
 export async function searchImages(
-  expression: string,
-  options: {
-    max_results?: number;
-    next_cursor?: string;
-    sort_by?: Array<{ [key: string]: 'asc' | 'desc' }>;
-  } = {}
+    expression: string,
+    options: {
+        max_results?: number;
+        next_cursor?: string;
+        sort_by?: Array<{ [key: string]: "asc" | "desc" }>;
+    } = {}
 ): Promise<ListImagesResult> {
-  try {
-    const search = cloudinary.search
-      .expression(expression)
-      .max_results(options.max_results || 30);
+    try {
+        const search = cloudinary.search
+            .expression(expression)
+            .max_results(options.max_results || 30);
 
-    if (options.sort_by) {
-      options.sort_by.forEach((sort) => {
-        const [field, order] = Object.entries(sort)[0];
-        search.sort_by(field, order);
-      });
+        if (options.sort_by) {
+            options.sort_by.forEach((sort) => {
+                const [field, order] = Object.entries(sort)[0];
+                search.sort_by(field, order);
+            });
+        }
+
+        if (options.next_cursor) {
+            search.next_cursor(options.next_cursor);
+        }
+
+        const result = await search.execute();
+
+        return {
+            resources: result.resources,
+            next_cursor: result.next_cursor,
+            total_count: result.total_count,
+        };
+    } catch (error) {
+        console.error("Error searching images in Cloudinary:", error);
+        throw new Error("Failed to search images in Cloudinary");
     }
-
-    if (options.next_cursor) {
-      search.next_cursor(options.next_cursor);
-    }
-
-    const result = await search.execute();
-
-    return {
-      resources: result.resources,
-      next_cursor: result.next_cursor,
-      total_count: result.total_count,
-    };
-  } catch (error) {
-    console.error('Error searching images in Cloudinary:', error);
-    throw new Error('Failed to search images in Cloudinary');
-  }
 }
 
 /**
@@ -275,18 +273,16 @@ export async function searchImages(
  * @param publicId - The public ID of the image
  * @returns Image resource details
  */
-export async function getImageByPublicId(
-  publicId: string
-): Promise<CloudinaryResource> {
-  try {
-    const result = await cloudinary.api.resource(publicId, {
-      resource_type: 'image',
-    });
-    return result as CloudinaryResource;
-  } catch (error) {
-    console.error('Error fetching image from Cloudinary:', error);
-    throw new Error('Failed to fetch image from Cloudinary');
-  }
+export async function getImageByPublicId(publicId: string): Promise<CloudinaryResource> {
+    try {
+        const result = await cloudinary.api.resource(publicId, {
+            resource_type: "image",
+        });
+        return result as CloudinaryResource;
+    } catch (error) {
+        console.error("Error fetching image from Cloudinary:", error);
+        throw new Error("Failed to fetch image from Cloudinary");
+    }
 }
 
 /**
@@ -294,18 +290,18 @@ export async function getImageByPublicId(
  * @returns List of folders
  */
 export async function listFolders(): Promise<
-  Array<{
-    name: string;
-    path: string;
-  }>
+    Array<{
+        name: string;
+        path: string;
+    }>
 > {
-  try {
-    const result = await cloudinary.api.root_folders();
-    return result.folders;
-  } catch (error) {
-    console.error('Error listing folders from Cloudinary:', error);
-    throw new Error('Failed to list folders from Cloudinary');
-  }
+    try {
+        const result = await cloudinary.api.root_folders();
+        return result.folders;
+    } catch (error) {
+        console.error("Error listing folders from Cloudinary:", error);
+        throw new Error("Failed to list folders from Cloudinary");
+    }
 }
 
 /**
@@ -314,18 +310,18 @@ export async function listFolders(): Promise<
  * @returns List of subfolders
  */
 export async function getSubfolders(folder: string): Promise<
-  Array<{
-    name: string;
-    path: string;
-  }>
+    Array<{
+        name: string;
+        path: string;
+    }>
 > {
-  try {
-    const result = await cloudinary.api.sub_folders(folder);
-    return result.folders;
-  } catch (error) {
-    console.error('Error getting subfolders from Cloudinary:', error);
-    throw new Error('Failed to get subfolders from Cloudinary');
-  }
+    try {
+        const result = await cloudinary.api.sub_folders(folder);
+        return result.folders;
+    } catch (error) {
+        console.error("Error getting subfolders from Cloudinary:", error);
+        throw new Error("Failed to get subfolders from Cloudinary");
+    }
 }
 
 export default cloudinary;

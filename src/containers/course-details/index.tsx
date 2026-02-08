@@ -1,7 +1,8 @@
-import { TabContainer, TabNav, TabPane, TabList, TabContent } from "@ui/tab";
+import { TabContainer, TabContent, TabList, TabNav, TabPane } from "@ui/tab";
 import { ICourse } from "@utils/types";
-import OverviewPanel from "./overview-panel";
 import EnrollmentSidebar from "./enrollment-sidebar";
+import OverviewPanel from "./overview-panel";
+
 // import InstructorPanel from "./instructor-panel";
 // import ReviewPanel from "./review-panel";
 

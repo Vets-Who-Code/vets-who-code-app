@@ -60,10 +60,13 @@ const DEFAULT_MODEL = "gemini-2.5-flash";
 export async function classifyContact(
     input: ClassificationInput
 ): Promise<ContactClassification | null> {
-    const apiKey: string | undefined = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    const apiKey: string | undefined =
+        process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
     if (!apiKey) {
-        console.warn("GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY not configured, skipping spam classification");
+        console.warn(
+            "GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY not configured, skipping spam classification"
+        );
         return null;
     }
 
@@ -72,8 +75,7 @@ export async function classifyContact(
     try {
         const ai = new GoogleGenAI({ apiKey });
 
-        const prompt: string = CLASSIFICATION_PROMPT
-            .replace("{name}", input.name)
+        const prompt: string = CLASSIFICATION_PROMPT.replace("{name}", input.name)
             .replace("{email}", input.email)
             .replace("{message}", input.message);
 

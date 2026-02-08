@@ -1,9 +1,10 @@
-import React from "react";
-import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
+import React from "react";
+import SEO from "@/components/seo/page-seo";
+import Layout01 from "@/layouts/layout-01";
 
 type PageWithLayout = NextPage & {
+    // biome-ignore lint/style/useNamingConvention: Layout is a component
     Layout?: typeof Layout01;
 };
 
@@ -38,9 +39,7 @@ const OfflinePage: PageWithLayout = () => {
                         </svg>
                     </div>
 
-                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
-                        You're Offline
-                    </h1>
+                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">You're Offline</h1>
 
                     <p className="tw-mb-8 tw-text-lg tw-text-gray-300">
                         No internet connection found. Please check your connection and try again.

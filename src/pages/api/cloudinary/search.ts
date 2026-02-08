@@ -1,81 +1,78 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { getServerSession } from 'next-auth';
-import { searchImages, ListImagesResult } from '@/lib/cloudinary';
-import { options as authOptions } from '../auth/options';
+import type { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
+import { ListImagesResult, searchImages } from "@/lib/cloudinary";
+import { options as authOptions } from "../auth/options";
 
 interface SearchResponse extends Partial<ListImagesResult> {
-  success: boolean;
-  error?: string;
+    success: boolean;
+    error?: string;
 }
 
 /**
  * API endpoint to search images in Cloudinary
  * GET /api/cloudinary/search?expression=folder:vets-who-code&max_results=30
  */
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<SearchResponse>
-) {
-  // Only allow GET requests
-  if (req.method !== 'GET') {
-    return res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
-
-  try {
-    // Check authentication
-    const session = await getServerSession(req, res, authOptions);
-    if (!session) {
-      return res.status(401).json({ success: false, error: 'Unauthorized' });
+export default async function handler(req: NextApiRequest, res: NextApiResponse<SearchResponse>) {
+    // Only allow GET requests
+    if (req.method !== "GET") {
+        return res.status(405).json({ success: false, error: "Method not allowed" });
     }
 
-    const { expression, max_results, next_cursor, sort_by } = req.query as Record<
-      string,
-      string
-    >;
+    try {
+        // Check authentication
+        const session = await getServerSession(req, res, authOptions);
+        if (!session) {
+            return res.status(401).json({ success: false, error: "Unauthorized" });
+        }
 
-    if (!expression) {
-      return res.status(400).json({
-        success: false,
-        error: 'Search expression is required',
-      });
-    }
+        const { expression, max_results, next_cursor, sort_by } = req.query as Record<
+            string,
+            string
+        >;
 
-    const options: {
-      max_results?: number;
-      next_cursor?: string;
-      sort_by?: Array<{ [key: string]: 'asc' | 'desc' }>;
-    } = {};
+        if (!expression) {
+            return res.status(400).json({
+                success: false,
+                error: "Search expression is required",
+            });
+        }
 
-    if (max_results) {
-      options.max_results = parseInt(max_results, 10);
-    }
+        const options: {
+            max_results?: number;
+            next_cursor?: string;
+            sort_by?: Array<{ [key: string]: "asc" | "desc" }>;
+        } = {};
 
-    if (next_cursor) {
-      options.next_cursor = next_cursor;
-    }
+        if (max_results) {
+            options.max_results = parseInt(max_results, 10);
+        }
 
-    if (sort_by) {
-      try {
-        options.sort_by = JSON.parse(sort_by);
-      } catch (e) {
-        return res.status(400).json({
-          success: false,
-          error: 'Invalid sort_by format. Must be valid JSON array.',
+        if (next_cursor) {
+            options.next_cursor = next_cursor;
+        }
+
+        if (sort_by) {
+            try {
+                options.sort_by = JSON.parse(sort_by);
+            } catch (_e) {
+                return res.status(400).json({
+                    success: false,
+                    error: "Invalid sort_by format. Must be valid JSON array.",
+                });
+            }
+        }
+
+        const result = await searchImages(expression, options);
+
+        return res.status(200).json({
+            success: true,
+            ...result,
         });
-      }
+    } catch (error) {
+        console.error("Search images error:", error);
+        return res.status(500).json({
+            success: false,
+            error: error instanceof Error ? error.message : "Failed to search images",
+        });
     }
-
-    const result = await searchImages(expression, options);
-
-    return res.status(200).json({
-      success: true,
-      ...result,
-    });
-  } catch (error) {
-    console.error('Search images error:', error);
-    return res.status(500).json({
-      success: false,
-      error: error instanceof Error ? error.message : 'Failed to search images',
-    });
-  }
 }

@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Layout01 from "@layout/layout-01";
-import type { GetServerSideProps, NextPage } from "next";
-import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
 import { AITeachingAssistant } from "@components/ai-assistant";
-import { PrismaClient } from '@prisma/client';
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import Layout01 from "@layout/layout-01";
+import { PrismaClient } from "@prisma/client";
+import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
+import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
+import { options } from "@/pages/api/auth/options";
 
 type LessonData = {
     id: string;
@@ -118,7 +118,10 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
     const [showAssignment, setShowAssignment] = useState(false);
     const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
     const [updating, setUpdating] = useState(false);
-    const [moduleProgress, setModuleProgress] = useState({ completed: 0, total: module.totalLessons });
+    const [moduleProgress, setModuleProgress] = useState({
+        completed: 0,
+        total: module.totalLessons,
+    });
 
     // Fetch lesson progress and module progress on mount
     useEffect(() => {
@@ -158,19 +161,19 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
         const handleKeyPress = (e: KeyboardEvent) => {
             // Only trigger if not typing in an input field
             if (
-                e.key.toLowerCase() === 'a' &&
+                e.key.toLowerCase() === "a" &&
                 !e.ctrlKey &&
                 !e.metaKey &&
                 !e.altKey &&
-                document.activeElement?.tagName !== 'INPUT' &&
-                document.activeElement?.tagName !== 'TEXTAREA'
+                document.activeElement?.tagName !== "INPUT" &&
+                document.activeElement?.tagName !== "TEXTAREA"
             ) {
                 setIsAIAssistantOpen((prev) => !prev);
             }
         };
 
-        window.addEventListener('keydown', handleKeyPress);
-        return () => window.removeEventListener('keydown', handleKeyPress);
+        window.addEventListener("keydown", handleKeyPress);
+        return () => window.removeEventListener("keydown", handleKeyPress);
     }, []);
 
     const markAsCompleted = async () => {
@@ -229,7 +232,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                         <p className="tw-text-gray-300">{lesson.description}</p>
                         {lesson.audioUrl && (
                             <div className="tw-mt-4">
-                                <audio controls src={lesson.audioUrl}>
+                                <audio controls={true} src={lesson.audioUrl}>
                                     <track kind="captions" />
                                     Your browser does not support the audio element.
                                 </audio>
@@ -261,7 +264,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                         src={lesson.videoUrl}
                                         title={lesson.title}
                                         className="tw-h-full tw-w-full"
-                                        allowFullScreen
+                                        allowFullScreen={true}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     />
                                 </div>
@@ -308,7 +311,9 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                         disabled={updating}
                                         className="tw-rounded-md tw-bg-gold-rich tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                     >
-                                        <i className={`fas ${updating ? "fa-spinner fa-spin" : "fa-check"} tw-mr-2`} />
+                                        <i
+                                            className={`fas ${updating ? "fa-spinner fa-spin" : "fa-check"} tw-mr-2`}
+                                        />
                                         {updating ? "Saving..." : "Mark as Complete"}
                                     </button>
                                 )}
@@ -345,7 +350,10 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                     style={{
                                         width: `${
                                             moduleProgress.total > 0
-                                                ? (moduleProgress.completed / moduleProgress.total) * 100
+                                                ? (
+                                                      moduleProgress.completed /
+                                                          moduleProgress.total
+                                                  ) * 100
                                                 : 0
                                         }%`,
                                     }}
@@ -356,7 +364,10 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                 <span>Module Completion</span>
                                 <span>
                                     {moduleProgress.total > 0
-                                        ? Math.round((moduleProgress.completed / moduleProgress.total) * 100)
+                                        ? Math.round(
+                                              (moduleProgress.completed / moduleProgress.total) *
+                                                  100
+                                          )
                                         : 0}
                                     %
                                 </span>
@@ -367,7 +378,10 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                     style={{
                                         width: `${
                                             moduleProgress.total > 0
-                                                ? (moduleProgress.completed / moduleProgress.total) * 100
+                                                ? (
+                                                      moduleProgress.completed /
+                                                          moduleProgress.total
+                                                  ) * 100
                                                 : 0
                                         }%`,
                                     }}
@@ -476,7 +490,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     lessonTitle: lesson.title,
                     moduleTitle: module.title,
                     courseTitle: "Web Development",
-                    content: lesson.content.replace(/<[^>]*>/g, '').slice(0, 1000),
+                    content: lesson.content.replace(/<[^>]*>/g, "").slice(0, 1000),
                 }}
             />
         </>
@@ -494,7 +508,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     if (!session?.user) {
         return {
             redirect: {
-                destination: `/login?callbackUrl=${  encodeURIComponent(context.resolvedUrl)}`,
+                destination: `/login?callbackUrl=${encodeURIComponent(context.resolvedUrl)}`,
                 permanent: false,
             },
         };
@@ -531,8 +545,12 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         duration: `${lesson.duration} minutes`,
         content: lesson.content,
         audioUrl: lesson.audioUrl || undefined,
-        nextLesson: nextLesson ? { moduleId: nextLesson.moduleId, lessonId: nextLesson.id, title: nextLesson.title } : undefined,
-        prevLesson: prevLesson ? { moduleId: prevLesson.moduleId, lessonId: prevLesson.id, title: prevLesson.title } : undefined,
+        nextLesson: nextLesson
+            ? { moduleId: nextLesson.moduleId, lessonId: nextLesson.id, title: nextLesson.title }
+            : undefined,
+        prevLesson: prevLesson
+            ? { moduleId: prevLesson.moduleId, lessonId: prevLesson.id, title: prevLesson.title }
+            : undefined,
     };
 
     const moduleData: ModuleData = {

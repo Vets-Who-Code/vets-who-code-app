@@ -1,6 +1,6 @@
+import { ICourse } from "@utils/types";
 import fs from "fs";
 import path from "path";
-import { ICourse } from "@utils/types";
 import { getSlugs } from "./util";
 
 const courseDirectory = path.join(process.cwd(), "src/data/subjects");

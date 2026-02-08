@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;

@@ -1,12 +1,12 @@
-import clsx from "clsx";
-import { motion } from "motion/react";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
-import Accordion from "@ui/accordion";
 import BottomShape from "@components/ui/bottom-shape/shape-02";
-import { ImageType, ItemType, SectionTitleType } from "@utils/types";
 import { useUI } from "@contexts/ui-context";
+import Accordion from "@ui/accordion";
+import { ImageType, ItemType, SectionTitleType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {

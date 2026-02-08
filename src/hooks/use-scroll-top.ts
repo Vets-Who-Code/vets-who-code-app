@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useScrollTop = () => {
     const [stick, setStick] = useState(false);

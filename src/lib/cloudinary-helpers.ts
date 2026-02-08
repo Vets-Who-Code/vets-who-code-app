@@ -4,17 +4,17 @@
  */
 
 export interface CloudinaryTransformOptions {
-  width?: number;
-  height?: number;
-  crop?: 'fill' | 'fit' | 'scale' | 'limit' | 'pad' | 'crop' | 'thumb';
-  quality?: 'auto' | 'auto:best' | 'auto:good' | 'auto:eco' | 'auto:low' | number;
-  format?: 'auto' | 'webp' | 'jpg' | 'png' | 'avif';
-  gravity?: 'auto' | 'center' | 'face' | 'faces' | 'north' | 'south' | 'east' | 'west';
-  dpr?: 'auto' | number;
-  flags?: string[];
+    width?: number;
+    height?: number;
+    crop?: "fill" | "fit" | "scale" | "limit" | "pad" | "crop" | "thumb";
+    quality?: "auto" | "auto:best" | "auto:good" | "auto:eco" | "auto:low" | number;
+    format?: "auto" | "webp" | "jpg" | "png" | "avif";
+    gravity?: "auto" | "center" | "face" | "faces" | "north" | "south" | "east" | "west";
+    dpr?: "auto" | number;
+    flags?: string[];
 }
 
-const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'vetswhocode';
+const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "vetswhocode";
 
 /**
  * Generate an optimized Cloudinary URL from a public ID
@@ -23,66 +23,66 @@ const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || '
  * @returns Full Cloudinary URL with transformations
  */
 export function getCloudinaryUrl(
-  publicId: string,
-  options: CloudinaryTransformOptions = {}
+    publicId: string,
+    options: CloudinaryTransformOptions = {}
 ): string {
-  if (!publicId) {
-    return '';
-  }
+    if (!publicId) {
+        return "";
+    }
 
-  // Default transformations - keep it simple to match original URLs
-  const defaultOptions: CloudinaryTransformOptions = {
-    format: 'auto',
-    quality: 'auto',
-    gravity: 'auto',
-  };
+    // Default transformations - keep it simple to match original URLs
+    const defaultOptions: CloudinaryTransformOptions = {
+        format: "auto",
+        quality: "auto",
+        gravity: "auto",
+    };
 
-  const mergedOptions = { ...defaultOptions, ...options };
+    const mergedOptions = { ...defaultOptions, ...options };
 
-  // Build transformation string
-  const transformations: string[] = [];
+    // Build transformation string
+    const transformations: string[] = [];
 
-  if (mergedOptions.width) {
-    transformations.push(`w_${mergedOptions.width}`);
-  }
+    if (mergedOptions.width) {
+        transformations.push(`w_${mergedOptions.width}`);
+    }
 
-  if (mergedOptions.height) {
-    transformations.push(`h_${mergedOptions.height}`);
-  }
+    if (mergedOptions.height) {
+        transformations.push(`h_${mergedOptions.height}`);
+    }
 
-  if (mergedOptions.crop) {
-    transformations.push(`c_${mergedOptions.crop}`);
-  }
+    if (mergedOptions.crop) {
+        transformations.push(`c_${mergedOptions.crop}`);
+    }
 
-  if (mergedOptions.quality) {
-    transformations.push(`q_${mergedOptions.quality}`);
-  }
+    if (mergedOptions.quality) {
+        transformations.push(`q_${mergedOptions.quality}`);
+    }
 
-  if (mergedOptions.format) {
-    transformations.push(`f_${mergedOptions.format}`);
-  }
+    if (mergedOptions.format) {
+        transformations.push(`f_${mergedOptions.format}`);
+    }
 
-  if (mergedOptions.gravity) {
-    transformations.push(`g_${mergedOptions.gravity}`);
-  }
+    if (mergedOptions.gravity) {
+        transformations.push(`g_${mergedOptions.gravity}`);
+    }
 
-  if (mergedOptions.dpr) {
-    transformations.push(`dpr_${mergedOptions.dpr}`);
-  }
+    if (mergedOptions.dpr) {
+        transformations.push(`dpr_${mergedOptions.dpr}`);
+    }
 
-  if (mergedOptions.flags && mergedOptions.flags.length > 0) {
-    mergedOptions.flags.forEach((flag) => {
-      transformations.push(`fl_${flag}`);
-    });
-  }
+    if (mergedOptions.flags && mergedOptions.flags.length > 0) {
+        mergedOptions.flags.forEach((flag) => {
+            transformations.push(`fl_${flag}`);
+        });
+    }
 
-  const transformString = transformations.join(',');
+    const transformString = transformations.join(",");
 
-  // Clean up the public ID (remove leading slashes)
-  const cleanPublicId = publicId.trim();
+    // Clean up the public ID (remove leading slashes)
+    const cleanPublicId = publicId.trim();
 
-  // Build the URL
-  return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}/${cleanPublicId}`;
+    // Build the URL
+    return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/${transformString}/${cleanPublicId}`;
 }
 
 /**
@@ -91,23 +91,23 @@ export function getCloudinaryUrl(
  * @returns Optimized blog header URL
  */
 export function getBlogHeaderUrl(imageSource: string): string {
-  if (!imageSource) {
-    return '';
-  }
+    if (!imageSource) {
+        return "";
+    }
 
-  // If it's already a full URL, return it as-is
-  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
-    return imageSource;
-  }
+    // If it's already a full URL, return it as-is
+    if (imageSource.startsWith("http://") || imageSource.startsWith("https://")) {
+        return imageSource;
+    }
 
-  // Otherwise, treat it as a public ID and generate the URL with blog header optimizations
-  return getCloudinaryUrl(imageSource, {
-    width: 1200,
-    crop: 'limit',
-    quality: 'auto',
-    format: 'auto',
-    gravity: 'auto',
-  });
+    // Otherwise, treat it as a public ID and generate the URL with blog header optimizations
+    return getCloudinaryUrl(imageSource, {
+        width: 1200,
+        crop: "limit",
+        quality: "auto",
+        format: "auto",
+        gravity: "auto",
+    });
 }
 
 /**
@@ -118,24 +118,24 @@ export function getBlogHeaderUrl(imageSource: string): string {
  * @returns Optimized Open Graph image URL
  */
 export function getBlogOpenGraphUrl(imageSource: string): string {
-  if (!imageSource) {
-    return '';
-  }
+    if (!imageSource) {
+        return "";
+    }
 
-  // If it's already a full URL, return it as-is
-  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
-    return imageSource;
-  }
+    // If it's already a full URL, return it as-is
+    if (imageSource.startsWith("http://") || imageSource.startsWith("https://")) {
+        return imageSource;
+    }
 
-  // Generate URL with Open Graph specific optimizations
-  // Note: gravity is NOT included to avoid 400 errors (requires paid Cloudinary addon)
-  return getCloudinaryUrl(imageSource, {
-    width: 1200,
-    height: 630,
-    crop: 'fill',
-    quality: 'auto',
-    format: 'auto',
-  });
+    // Generate URL with Open Graph specific optimizations
+    // Note: gravity is NOT included to avoid 400 errors (requires paid Cloudinary addon)
+    return getCloudinaryUrl(imageSource, {
+        width: 1200,
+        height: 630,
+        crop: "fill",
+        quality: "auto",
+        format: "auto",
+    });
 }
 
 /**
@@ -144,14 +144,14 @@ export function getBlogOpenGraphUrl(imageSource: string): string {
  * @returns Optimized blog thumbnail URL
  */
 export function getBlogThumbnailUrl(publicId: string): string {
-  return getCloudinaryUrl(publicId, {
-    width: 400,
-    height: 300,
-    crop: 'fill',
-    quality: 'auto',
-    format: 'auto',
-    gravity: 'auto',
-  });
+    return getCloudinaryUrl(publicId, {
+        width: 400,
+        height: 300,
+        crop: "fill",
+        quality: "auto",
+        format: "auto",
+        gravity: "auto",
+    });
 }
 
 /**
@@ -160,27 +160,27 @@ export function getBlogThumbnailUrl(publicId: string): string {
  * @returns Public ID or null if not a valid Cloudinary URL
  */
 export function extractPublicIdFromUrl(url: string): string | null {
-  if (!url || !url.includes('cloudinary.com')) {
-    return null;
-  }
-
-  try {
-    // Match pattern: /upload/[transformations]/[version]/[public_id].[extension]
-    // or: /upload/[version]/[public_id].[extension]
-    const match = url.match(/\/upload\/(?:.*?\/)?(v\d+\/)?(.+?)(?:\.[^.]+)?$/);
-
-    if (match) {
-      // Combine version and public_id if version exists
-      const version = match[1] || '';
-      const publicId = match[2];
-      return version + publicId;
+    if (!url || !url.includes("cloudinary.com")) {
+        return null;
     }
 
-    return null;
-  } catch (error) {
-    console.error('Error extracting public ID from URL:', error);
-    return null;
-  }
+    try {
+        // Match pattern: /upload/[transformations]/[version]/[public_id].[extension]
+        // or: /upload/[version]/[public_id].[extension]
+        const match = url.match(/\/upload\/(?:.*?\/)?(v\d+\/)?(.+?)(?:\.[^.]+)?$/);
+
+        if (match) {
+            // Combine version and public_id if version exists
+            const version = match[1] || "";
+            const publicId = match[2];
+            return version + publicId;
+        }
+
+        return null;
+    } catch (error) {
+        console.error("Error extracting public ID from URL:", error);
+        return null;
+    }
 }
 
 /**
@@ -189,7 +189,7 @@ export function extractPublicIdFromUrl(url: string): string | null {
  * @returns True if URL is from Cloudinary
  */
 export function isCloudinaryUrl(url: string): boolean {
-  return url.includes('cloudinary.com') || url.includes('res.cloudinary.com');
+    return url.includes("cloudinary.com") || url.includes("res.cloudinary.com");
 }
 
 /**
@@ -200,19 +200,16 @@ export function isCloudinaryUrl(url: string): boolean {
  * @param options - Transformation options (only used if imageSource is a public ID)
  * @returns Image URL
  */
-export function getImageUrl(
-  imageSource: string,
-  options?: CloudinaryTransformOptions
-): string {
-  if (!imageSource) {
-    return '';
-  }
+export function getImageUrl(imageSource: string, options?: CloudinaryTransformOptions): string {
+    if (!imageSource) {
+        return "";
+    }
 
-  // If it's already a full URL, return it
-  if (imageSource.startsWith('http://') || imageSource.startsWith('https://')) {
-    return imageSource;
-  }
+    // If it's already a full URL, return it
+    if (imageSource.startsWith("http://") || imageSource.startsWith("https://")) {
+        return imageSource;
+    }
 
-  // Otherwise, treat it as a public ID and generate the URL
-  return getCloudinaryUrl(imageSource, options);
+    // Otherwise, treat it as a public ID and generate the URL
+    return getCloudinaryUrl(imageSource, options);
 }

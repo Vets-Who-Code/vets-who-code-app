@@ -1,12 +1,12 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import CourseDetails from "@containers/course-details";
+import SEO from "@components/seo/page-seo";
 import RelatedCourseArea from "@containers/course/layout-02";
+import CourseDetails from "@containers/course-details";
+import Layout01 from "@layout/layout-01";
 import { ICourse, IInstructor } from "@utils/types";
-import { getInstructorByID } from "../../lib/instructor";
+import type { GetStaticPaths, NextPage } from "next";
 import { getallCourses, getCourseBySlug, getFilteredCourses } from "../../lib/course";
+import { getInstructorByID } from "../../lib/instructor";
 
 type TProps = {
     data: {

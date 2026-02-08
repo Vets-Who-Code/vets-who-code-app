@@ -1,6 +1,6 @@
-import type { NextPage } from "next";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
+import type { NextPage } from "next";
 import React from "react";
 
 interface BenefitCardProps {

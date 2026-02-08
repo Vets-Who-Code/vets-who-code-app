@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { ImageProps } from "next/image";
+import Image from "next/image";
 
 const normalizeSrc = (src: string) => {
     return src.startsWith("/") ? src.slice(1) : src;
@@ -63,12 +63,7 @@ const MyImage = (props: ImageProps) => {
         loader = cloudinaryLoader;
     }
 
-    return (
-        <Image
-            loader={loader}
-            {...props}
-        />
-    );
+    return <Image loader={loader} {...props} />;
 };
 
 export default MyImage;

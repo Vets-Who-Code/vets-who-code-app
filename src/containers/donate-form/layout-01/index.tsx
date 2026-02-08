@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import DonateForm from "@components/forms/donate-form";
+import Section from "@components/ui/engagement-modal";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedDonateForm = motion(DonateForm);
 

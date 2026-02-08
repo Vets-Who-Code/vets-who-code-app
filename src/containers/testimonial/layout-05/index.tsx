@@ -1,13 +1,13 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SwiperSlider, { SwiperSlide } from "@ui/swiper";
-import Testimonial from "@components/testimonial/testimonial-05";
-import SectionTitle from "@components/section-title";
 import Shape2 from "@assets/svgs/shape-2.svg";
+import SectionTitle from "@components/section-title";
+import Testimonial from "@components/testimonial/testimonial-05";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedSwiperSlider = motion(SwiperSlider);

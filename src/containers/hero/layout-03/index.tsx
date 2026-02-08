@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
-import clsx from "clsx";
 import Button from "@ui/button";
 import { ButtonType, HeadingType, ImageType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {

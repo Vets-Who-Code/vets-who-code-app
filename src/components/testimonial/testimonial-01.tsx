@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { ImageType } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     name: string;

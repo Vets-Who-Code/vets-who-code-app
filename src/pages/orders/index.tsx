@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import clsx from "clsx";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 interface OrderItem {
     id: string;
@@ -89,14 +89,22 @@ const OrderHistoryPage = () => {
             paid: { color: "tw-bg-green-100 tw-text-green-800", label: "Paid" },
             pending: { color: "tw-bg-yellow-100 tw-text-yellow-800", label: "Pending" },
             refunded: { color: "tw-bg-red-100 tw-text-red-800", label: "Refunded" },
-            partially_refunded: { color: "tw-bg-orange-100 tw-text-orange-800", label: "Partially Refunded" },
+            partially_refunded: {
+                color: "tw-bg-orange-100 tw-text-orange-800",
+                label: "Partially Refunded",
+            },
             voided: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Voided" },
         };
 
-        const { color, label } = statusMap[status] || { color: "tw-bg-gray-100 tw-text-gray-800", label: status };
+        const { color, label } = statusMap[status] || {
+            color: "tw-bg-gray-100 tw-text-gray-800",
+            label: status,
+        };
 
         return (
-            <span className={clsx("tw-px-3 tw-py-1 tw-rounded-full tw-text-sm tw-font-medium", color)}>
+            <span
+                className={clsx("tw-px-3 tw-py-1 tw-rounded-full tw-text-sm tw-font-medium", color)}
+            >
                 {label}
             </span>
         );
@@ -117,10 +125,15 @@ const OrderHistoryPage = () => {
             unfulfilled: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Unfulfilled" },
         };
 
-        const { color, label } = statusMap[status] || { color: "tw-bg-gray-100 tw-text-gray-800", label: status };
+        const { color, label } = statusMap[status] || {
+            color: "tw-bg-gray-100 tw-text-gray-800",
+            label: status,
+        };
 
         return (
-            <span className={clsx("tw-px-3 tw-py-1 tw-rounded-full tw-text-sm tw-font-medium", color)}>
+            <span
+                className={clsx("tw-px-3 tw-py-1 tw-rounded-full tw-text-sm tw-font-medium", color)}
+            >
                 {label}
             </span>
         );
@@ -141,10 +154,7 @@ const OrderHistoryPage = () => {
 
     return (
         <Layout>
-            <SEO
-                title="Order History"
-                description="View your Vets Who Code store order history"
-            />
+            <SEO title="Order History" description="View your Vets Who Code store order history" />
 
             {/* Hero Section */}
             <div className="tw-bg-white tw-py-12">
@@ -266,11 +276,18 @@ const OrderHistoryPage = () => {
                                                 {/* Price */}
                                                 <div className="tw-text-right tw-flex-shrink-0">
                                                     <p className="tw-font-bold tw-text-primary">
-                                                        {formatPrice(item.totalPrice, order.currency)}
+                                                        {formatPrice(
+                                                            item.totalPrice,
+                                                            order.currency
+                                                        )}
                                                     </p>
                                                     {item.quantity > 1 && (
                                                         <p className="tw-text-sm tw-text-gray-300 tw-mt-1">
-                                                            {formatPrice(item.price, order.currency)} each
+                                                            {formatPrice(
+                                                                item.price,
+                                                                order.currency
+                                                            )}{" "}
+                                                            each
                                                         </p>
                                                     )}
                                                 </div>

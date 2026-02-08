@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
 
 type Submission = {
     id: string;
@@ -231,7 +231,8 @@ const SubmissionsPage: PageWithLayout = () => {
                                             </div>
                                             <div className="tw-text-xs tw-text-gray-500">
                                                 {Math.round(
-                                                    (submission.score / submission.assignment.maxPoints) *
+                                                    (submission.score /
+                                                        submission.assignment.maxPoints) *
                                                         100
                                                 )}
                                                 %
@@ -282,7 +283,8 @@ const SubmissionsPage: PageWithLayout = () => {
                                             Submitted
                                         </p>
                                         <p className="tw-text-sm tw-text-gray-200">
-                                            {new Date(submission.submittedAt).toLocaleDateString()} at{" "}
+                                            {new Date(submission.submittedAt).toLocaleDateString()}{" "}
+                                            at{" "}
                                             {new Date(submission.submittedAt).toLocaleTimeString()}
                                         </p>
                                     </div>
@@ -306,7 +308,9 @@ const SubmissionsPage: PageWithLayout = () => {
                                             Instructor Feedback
                                             {submission.gradedAt && (
                                                 <span className="tw-ml-auto tw-text-gray-500">
-                                                    {new Date(submission.gradedAt).toLocaleDateString()}
+                                                    {new Date(
+                                                        submission.gradedAt
+                                                    ).toLocaleDateString()}
                                                 </span>
                                             )}
                                         </p>

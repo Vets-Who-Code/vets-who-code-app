@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
 import cn from "clsx";
-import { IInputProps } from "./types";
+import { forwardRef } from "react";
 import Feedback from "./feedback";
+import { IInputProps } from "./types";
 
 interface IProps extends IInputProps {
     checked?: boolean;

@@ -1,11 +1,11 @@
-import React from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
 
 type DashboardStats = {
     totalStudents: number;
@@ -29,9 +29,10 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
-    const completionRate = stats.totalEnrollments > 0
-        ? Math.round((stats.completedEnrollments / stats.totalEnrollments) * 100)
-        : 0;
+    const completionRate =
+        stats.totalEnrollments > 0
+            ? Math.round((stats.completedEnrollments / stats.totalEnrollments) * 100)
+            : 0;
 
     return (
         <>
@@ -45,9 +46,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
             <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">
                 <div className="tw-mx-auto tw-max-w-7xl tw-px-4 sm:tw-px-6 lg:tw-px-8">
                     <div className="tw-mb-8">
-                        <h1 className="tw-text-3xl tw-font-bold tw-text-ink">
-                            Admin Dashboard
-                        </h1>
+                        <h1 className="tw-text-3xl tw-font-bold tw-text-ink">Admin Dashboard</h1>
                         <p className="tw-mt-2 tw-text-gray-300">
                             Welcome back, {userName}! Manage your VWC platform here.
                         </p>
@@ -101,9 +100,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                             <p className="tw-text-3xl tw-font-bold tw-text-primary">
                                 {completionRate}%
                             </p>
-                            <p className="tw-mt-2 tw-text-sm tw-text-gray-500">
-                                Platform average
-                            </p>
+                            <p className="tw-mt-2 tw-text-sm tw-text-gray-500">Platform average</p>
                         </div>
                     </div>
 
@@ -119,9 +116,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                             >
                                 <i className="fas fa-users tw-mr-3 tw-text-2xl tw-text-primary" />
                                 <div>
-                                    <h3 className="tw-font-medium tw-text-ink">
-                                        Manage Users
-                                    </h3>
+                                    <h3 className="tw-font-medium tw-text-ink">Manage Users</h3>
                                     <p className="tw-text-sm tw-text-gray-500">
                                         View and manage all users
                                     </p>
@@ -133,9 +128,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                             >
                                 <i className="fas fa-book tw-mr-3 tw-text-2xl tw-text-primary" />
                                 <div>
-                                    <h3 className="tw-font-medium tw-text-ink">
-                                        Manage Courses
-                                    </h3>
+                                    <h3 className="tw-font-medium tw-text-ink">Manage Courses</h3>
                                     <p className="tw-text-sm tw-text-gray-500">
                                         Create and edit courses
                                     </p>
@@ -147,9 +140,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                             >
                                 <i className="fas fa-image tw-mr-3 tw-text-2xl tw-text-primary" />
                                 <div>
-                                    <h3 className="tw-font-medium tw-text-ink">
-                                        Manage Images
-                                    </h3>
+                                    <h3 className="tw-font-medium tw-text-ink">Manage Images</h3>
                                     <p className="tw-text-sm tw-text-gray-500">
                                         Upload and manage blog images
                                     </p>

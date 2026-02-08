@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { NextSeo, NextSeoProps, ArticleJsonLd, CourseJsonLd } from "next-seo";
 import siteConfig from "@data/site-config";
+import { ArticleJsonLd, CourseJsonLd, NextSeo, NextSeoProps } from "next-seo";
+import { useEffect, useState } from "react";
 
 interface SeoProps extends NextSeoProps {
     template?: string;

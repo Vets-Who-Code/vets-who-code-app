@@ -1,11 +1,11 @@
+import Breadcrumb from "@components/breadcrumb";
+import ThankYouBlock from "@components/common/thank-you-block";
+import SEO from "@components/seo/page-seo";
+import DonateFormArea from "@containers/donate-form/layout-01";
+import Layout from "@layout/layout-01";
+import { normalizedData } from "@utils/methods";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import DonateFormArea from "@containers/donate-form/layout-01";
-import ThankYouBlock from "@components/common/thank-you-block";
-import { normalizedData } from "@utils/methods";
 import { getPageData } from "../lib/page";
 
 interface PageContent {

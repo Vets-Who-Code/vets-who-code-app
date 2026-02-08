@@ -1,6 +1,6 @@
+import Review from "@components/review";
 import ProgressBar from "@ui/progress-bar";
 import StarRating from "@ui/star-rating";
-import Review from "@components/review";
 import { ReviewType } from "@utils/types";
 
 const ReviewPanel = ({ average, count, rating_details, items }: ReviewType) => {
@@ -33,7 +33,7 @@ const ReviewPanel = ({ average, count, rating_details, items }: ReviewType) => {
                             <ProgressBar
                                 color="primary"
                                 now={value ? 50 : 0}
-                                disableAnimation
+                                disableAnimation={true}
                                 className="tw-grow"
                             />
                             <span className="tw-ml-1 tw-min-w-[25px] tw-shrink-0 tw-text-right tw-font-medium tw-text-gray-400">

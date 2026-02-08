@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { IDType, ItemType } from "@utils/types";
 import clsx from "clsx";
-import { ItemType, IDType } from "@utils/types";
+import { useState } from "react";
 import AccordionItem from "./item";
 
 type TProps = {

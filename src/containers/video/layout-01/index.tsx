@@ -1,13 +1,13 @@
-import clsx from "clsx";
-import Section from "@components/ui/engagement-modal";
+import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import { useUI } from "@contexts/ui-context";
 import BottomShape from "@ui/bottom-shape/shape-02";
 import Video from "@ui/video-with-poster/video-02";
-import Shape2 from "@assets/svgs/shape-2.svg";
-import { motion } from "motion/react";
-import { useUI } from "@contexts/ui-context";
-import { scrollUpVariants } from "@utils/variants";
 import { ImageType, SectionTitleType, TSection, VideoType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedVideo = motion(Video);

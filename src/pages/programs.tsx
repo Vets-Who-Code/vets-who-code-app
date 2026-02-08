@@ -1,8 +1,8 @@
-import { NextPage, GetStaticProps } from "next";
-import Layout from "@layout/layout-01";
-import SEO from "@components/seo/page-seo";
 import ProgramCard from "@components/program-card";
+import SEO from "@components/seo/page-seo";
 import HeroArea from "@containers/hero/layout-07";
+import Layout from "@layout/layout-01";
+import { GetStaticProps, NextPage } from "next";
 
 import { getAllMediaPosts } from "../lib/mdx-pages";
 

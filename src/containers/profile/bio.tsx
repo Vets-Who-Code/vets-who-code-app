@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Section from "@components/ui/engagement-modal";
 import Social, { SocialLink } from "@components/ui/social";
+import { useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
 
 interface UserProfile {
     id: string;
@@ -34,7 +34,7 @@ const ProfileBio = () => {
                 setProfile(userData);
                 setFormData(userData);
             }
-        } catch (error) {
+        } catch (_error) {
             // Error handling
         } finally {
             setLoading(false);
@@ -57,7 +57,7 @@ const ProfileBio = () => {
                 setProfile(updatedProfile);
                 setIsEditing(false);
             }
-        } catch (error) {
+        } catch (_error) {
             // Error handling
         } finally {
             setSaving(false);

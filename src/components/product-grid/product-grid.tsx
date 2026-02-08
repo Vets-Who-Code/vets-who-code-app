@@ -1,7 +1,7 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
 import ProductCard from "@components/product-card";
 import { ShopifyProduct } from "@lib/shopify";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 interface TProps {
     products: ShopifyProduct[];
@@ -18,14 +18,7 @@ const ProductGrid = forwardRef<HTMLDivElement, TProps>(
         };
 
         return (
-            <div
-                className={clsx(
-                    "tw-grid tw-gap-6",
-                    gridCols[columns],
-                    className
-                )}
-                ref={ref}
-            >
+            <div className={clsx("tw-grid tw-gap-6", gridCols[columns], className)} ref={ref}>
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} />
                 ))}

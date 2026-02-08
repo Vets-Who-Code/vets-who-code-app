@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = Pick<IBlog, "title" | "path" | "image"> & {
     variant: "prev" | "next";

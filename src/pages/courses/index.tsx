@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
 
 type Enrollment = {
     id: string;
@@ -60,10 +60,14 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
     // Helper function to check if user is enrolled in a vertical
     // Map vertical slugs to course titles for enrollment checking
     const verticalCourseMap: Record<string, string[]> = {
-        "software-engineering": ["Software Engineering", "Full-Stack Development", "Web Development"],
+        "software-engineering": [
+            "Software Engineering",
+            "Full-Stack Development",
+            "Web Development",
+        ],
         "data-engineering": ["Data Engineering", "Data Science"],
         "ai-engineering": ["AI Engineering", "Machine Learning", "Artificial Intelligence"],
-        "devops": ["DevOps", "Cloud Engineering"],
+        devops: ["DevOps", "Cloud Engineering"],
         "web-development": ["Web Development", "Frontend Development"],
     };
 
@@ -114,9 +118,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                                     className="tw-h-8 tw-w-8 tw-rounded-full"
                                 />
                             )}
-                            <span>
-                                Welcome, {user.name?.split(" ")[0] || "User"}
-                            </span>
+                            <span>Welcome, {user.name?.split(" ")[0] || "User"}</span>
                         </div>
                         <div className="tw-flex tw-space-x-2">
                             <Link

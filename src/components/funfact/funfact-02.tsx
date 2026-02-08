@@ -1,6 +1,6 @@
-import { forwardRef, useState, useRef, useEffect } from "react";
 import clsx from "clsx";
-import { motion, animate } from "motion/react";
+import { animate, motion } from "motion/react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 type TProps = {
     counter: number;

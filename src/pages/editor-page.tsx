@@ -1,6 +1,7 @@
 // pages/editor.tsx
-import React, { useState } from "react";
+
 import CodeEditor from "@components/code-editor"; // Adjust the import path according to your project structure
+import React, { useState } from "react";
 
 const EditorPage: React.FC = () => {
     // State to hold the code text

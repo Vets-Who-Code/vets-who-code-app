@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { IContent, ListContentType } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     body: IContent[];

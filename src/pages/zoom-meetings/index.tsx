@@ -1,9 +1,9 @@
 import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import ZoomMeetingArea from "@containers/zoom-meetings";
-import { IZoomMeeting } from "@utils/types";
+import Breadcrumb from "@/components/breadcrumb";
+import SEO from "@/components/seo/page-seo";
+import ZoomMeetingArea from "@/containers/zoom-meetings";
+import Layout01 from "@/layouts/layout-01";
+import { IZoomMeeting } from "@/utils/types";
 import { getAllZoomMeetings, getZoomMeetingMeta } from "../../lib/zoom-meeting";
 
 type TProps = {

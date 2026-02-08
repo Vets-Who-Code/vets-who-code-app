@@ -1,5 +1,5 @@
-import { formatDate } from "@utils/date";
 import CountdownTimer from "@components/ui/countdown-timer/layout-01";
+import { formatDate } from "@utils/date";
 import { IEvent } from "@utils/types";
 
 type TProps = Pick<IEvent, "thumbnail" | "title" | "start_date" | "start_time">;

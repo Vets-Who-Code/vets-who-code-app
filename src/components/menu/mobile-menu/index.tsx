@@ -1,14 +1,14 @@
-import { useState } from "react";
-import { motion } from "motion/react";
-import Offcanvas from "@ui/offcanvas";
-import OffcanvasHeader from "@ui/offcanvas/header";
-import OffcanvasBody from "@ui/offcanvas/body";
 import Logo from "@components/logo";
+import Offcanvas from "@ui/offcanvas";
+import OffcanvasBody from "@ui/offcanvas/body";
+import OffcanvasHeader from "@ui/offcanvas/header";
 import { TMenu } from "@utils/types";
+import { motion } from "motion/react";
+import { useState } from "react";
+import ExpandButton from "./expand-button";
+import Megamenu from "./megamenu";
 import NavLink from "./nav-link";
 import Submenu from "./submenu";
-import Megamenu from "./megamenu";
-import ExpandButton from "./expand-button";
 
 type TProps = {
     menu: TMenu[];

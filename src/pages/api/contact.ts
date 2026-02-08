@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import { checkParams, checkLength, contactErrors } from "./api-helpers";
+import { checkLength, checkParams, contactErrors } from "./api-helpers";
 import { classifyContact } from "./api-helpers/classify-contact";
 
 interface ParsedBody {
@@ -73,9 +73,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await postToSlack(parsedBody);
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err: unknown) {
-        const errorMessage: string = err instanceof Error
-            ? `Failed post to #contact channel: ${err.message}`
-            : "An unexpected error occurred.";
+        const errorMessage: string =
+            err instanceof Error
+                ? `Failed post to #contact channel: ${err.message}`
+                : "An unexpected error occurred.";
         return res.status(500).json({ message: errorMessage });
     }
 }

@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Social, { SocialLink } from "@components/ui/social";
+import clsx from "clsx";
 import WidgetTitle from "./widget-title";
 
 type TProps = {

@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
 import Social, { SocialLink } from "@ui/social";
 import { ImageType, ISocial } from "@utils/types";
+import { forwardRef } from "react";
 
 type TProps = {
     image: ImageType;
@@ -40,7 +40,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                         <Social
                             color="dark"
                             size="xl"
-                            tooltip
+                            tooltip={true}
                             className="tw-absolute tw-bottom-3 tw-left-3 tw-right-3 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
                         >
                             {socials.map((social) => (

@@ -1,6 +1,6 @@
-import RecentPostsWidget from "@widgets/recent-posts-widget";
-import PopularTagsWidget from "@widgets/popular-tags-widget";
 import { BlogMetaType, IBlog } from "@utils/types";
+import PopularTagsWidget from "@widgets/popular-tags-widget";
+import RecentPostsWidget from "@widgets/recent-posts-widget";
 
 type TProps = {
     recentPosts: Pick<IBlog, "title" | "path">[];

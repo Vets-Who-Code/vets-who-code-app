@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import Breadcrumb from "@components/breadcrumb";
+import CodeEditor from "@components/code-editor";
+import SEO from "@components/seo/page-seo";
+import { useMount } from "@hooks";
+import Layout01 from "@layout/layout-01";
+import Spinner from "@ui/spinner";
 import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import Layout01 from "@layout/layout-01";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
-import CodeEditor from "@components/code-editor";
-import Spinner from "@ui/spinner";
-import { useMount } from "@hooks";
+import React, { useEffect, useState } from "react";
 import {
+    type AssessmentQuestion,
     assessmentQuestions,
     determineSkillLevel,
-    type AssessmentQuestion,
 } from "@/data/assessment-questions";
 
 type PageProps = {
@@ -153,7 +153,7 @@ const Assessment: PageWithLayout = () => {
                 });
                 setTimeout(() => setNotification(null), 3000);
             }
-        } catch (error) {
+        } catch (_error) {
             setTestResults({
                 passed: 0,
                 total: currentQuestion.testCases.length,
@@ -226,7 +226,7 @@ const Assessment: PageWithLayout = () => {
                     message: "Failed to save assessment results",
                 });
             }
-        } catch (error) {
+        } catch (_error) {
             setNotification({
                 type: "error",
                 message: "An error occurred while saving your assessment",
@@ -410,18 +410,14 @@ const Assessment: PageWithLayout = () => {
                         <p className="tw-mb-4 tw-text-gray-300">{currentQuestion.description}</p>
 
                         <div className="tw-mb-4 tw-rounded-lg tw-bg-gray-50 tw-p-4">
-                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">
-                                Instructions
-                            </h3>
+                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">Instructions</h3>
                             <p className="tw-text-sm tw-text-gray-200">
                                 {currentQuestion.instructions}
                             </p>
                         </div>
 
                         <div className="tw-mb-4">
-                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">
-                                Test Cases
-                            </h3>
+                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">Test Cases</h3>
                             <div className="tw-space-y-2">
                                 {currentQuestion.testCases.map((testCase, index) => (
                                     <div

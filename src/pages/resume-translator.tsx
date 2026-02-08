@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import ResumeTranslator from "@components/translator/ResumeTranslator";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
-import ResumeTranslator from "@components/translator/ResumeTranslator";
 
 type PageProps = {
     user: {
@@ -27,7 +27,6 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
-
     return (
         <>
             <SEO
@@ -52,9 +51,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
                                     className="tw-h-8 tw-w-8 tw-rounded-full"
                                 />
                             )}
-                            <span>
-                                Welcome, {user.name?.split(" ")[0] || "User"}
-                            </span>
+                            <span>Welcome, {user.name?.split(" ")[0] || "User"}</span>
                         </div>
                         <div className="tw-flex tw-space-x-2">
                             <Link

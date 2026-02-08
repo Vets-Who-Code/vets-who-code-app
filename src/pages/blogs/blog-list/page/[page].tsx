@@ -1,10 +1,10 @@
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import BlogArea from "@containers/blog-full/layout-04";
+import Layout01 from "@layout/layout-01";
+import { IBlog } from "@utils/types";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import BlogArea from "@containers/blog-full/layout-04";
-import { IBlog } from "@utils/types";
 import { getAllBlogs } from "../../../../lib/blog";
 
 type TProps = {
@@ -46,7 +46,7 @@ export const getStaticPaths: GetStaticPaths = () => {
     const { count } = getAllBlogs([]);
     const pages = Math.ceil(count / POSTS_PER_PAGE);
 
-    const pagesToGenerate = [...Array(pages).keys()]
+    const pagesToGenerate = [...new Array(pages).keys()]
         .map((a) => {
             if (a !== 0) return a + 1;
             return null;

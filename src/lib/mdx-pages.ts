@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import fs from "fs";
-import { join } from "path";
-import matter from "gray-matter";
+
 import { ImageType } from "@utils/types";
+import fs from "fs";
+import matter from "gray-matter";
+import { join } from "path";
 import { getImageUrl } from "./cloudinary-helpers";
 
 const mdxPagesDirectory = join(process.cwd(), "src/data/mdx-pages");
@@ -34,7 +35,7 @@ export function getPageBySlug(slug: string) {
 }
 
 // Utility to get all media posts with selected fields
-export function getAllMediaPosts<T extends { [key: string]: unknown } = Record<string, unknown>>(
+export function getAllMediaPosts<T extends object = Record<string, unknown>>(
     fields: string[] = [],
     dir = "media"
 ) {
@@ -57,8 +58,7 @@ export function getAllMediaPosts<T extends { [key: string]: unknown } = Record<s
                 else if (field === "image") {
                     // Process image field to ensure proper URL
                     item.image = processImageField(data[field] as ImageType);
-                }
-                else if (data[field] !== undefined) item[field] = data[field];
+                } else if (data[field] !== undefined) item[field] = data[field];
             });
         }
         return item as T;

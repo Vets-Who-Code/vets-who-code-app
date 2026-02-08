@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-import clsx from "clsx";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
-import BurgerButton from "@ui/burger-button";
 import menu from "@data/menu";
 import { useSticky } from "@hooks";
+import BurgerButton from "@ui/burger-button";
+import clsx from "clsx";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,

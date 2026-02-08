@@ -1,10 +1,10 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import QuoteArea from "@containers/quote/layout-02";
+import SEO from "@components/seo/page-seo";
 import FaqArea from "@containers/faq/layout-03";
+import QuoteArea from "@containers/quote/layout-02";
+import Layout from "@layout/layout-01";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps, NextPage } from "next";
 import { getPageData } from "../lib/page";
 
 // Updated interface to satisfy Record<string, unknown>
