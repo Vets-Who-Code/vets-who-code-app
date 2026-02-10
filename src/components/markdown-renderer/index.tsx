@@ -1,5 +1,7 @@
-import { marked } from "marked";
+import SafeHTML from "@components/safe-html";
 import clsx from "clsx";
+import { marked } from "marked";
+import { getImageUrl } from "@/lib/cloudinary-helpers";
 
 type TProps = {
     content: string;
@@ -8,21 +10,44 @@ type TProps = {
 
 const MarkdownRenderer = ({ content, className }: TProps) => {
     const renderer = new marked.Renderer();
+
+    // Custom link renderer to open links in new tabs
     // eslint-disable-next-line @typescript-eslint/unbound-method
     const linkRenderer = renderer.link;
     renderer.link = (href, linkTitle, text) => {
         const html = linkRenderer.call(renderer, href, linkTitle, text);
         return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
     };
+
+    // Custom image renderer to handle Cloudinary public IDs
+    // eslint-disable-next-line @typescript-eslint/unbound-method
+    const imageRenderer = renderer.image;
+    renderer.image = (href, title, text) => {
+        // Convert Cloudinary public IDs to full URLs
+        const imageUrl = getImageUrl(href || "");
+        return imageRenderer.call(renderer, imageUrl, title, text);
+    };
+
+    // Process raw HTML img tags with Cloudinary public IDs before rendering
+    const processedContent = content.replace(
+        /<img\s+([^>]*?)src=["']([^"']+)["']([^>]*?)>/gi,
+        (_match, beforeSrc, src, afterSrc) => {
+            // Convert Cloudinary public IDs to full URLs for raw HTML img tags
+            const imageUrl = getImageUrl(src);
+            return `<img ${beforeSrc}src="${imageUrl}"${afterSrc}>`;
+        }
+    );
+
+    // Process markdown and return sanitized HTML
+    const htmlContent = marked(processedContent, { renderer });
+
     return (
-        <div
+        <SafeHTML
+            content={htmlContent}
             className={clsx(
                 "tw-prose tw-max-w-none tw-text-base prose-blockquote:tw-border-l-primary prose-blockquote:tw-text-lg prose-blockquote:tw-not-italic prose-blockquote:tw-leading-relaxed prose-strong:tw-font-bold first:prose-img:tw-mt-0 md:prose-h3:tw-text-3xl md:prose-blockquote:tw-mb-11 md:prose-blockquote:tw-ml-12 md:prose-blockquote:tw-mt-[50px]",
                 className
             )}
-            dangerouslySetInnerHTML={{
-                __html: marked(content, { renderer }),
-            }}
         />
     );
 };

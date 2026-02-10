@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import CourseCard from "@components/course-card/course-01";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import MottoText from "@components/ui/motto-text";
+import { ICourse, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { MottoType, SectionTitleType, ICourse, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedCourseCard = motion(CourseCard);

@@ -1,11 +1,12 @@
+import CourseCard from "@components/course-card/course-01";
+import SafeHTML from "@components/safe-html";
+import { useUI } from "@contexts/ui-context";
+import BottomShape from "@ui/bottom-shape/shape-01";
+import Button from "@ui/button";
+import { ButtonType, HeadingType, ICourse, ImageType, TextType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import Button from "@ui/button";
-import CourseCard from "@components/course-card/course-01";
-import BottomShape from "@ui/bottom-shape/shape-01";
-import { scrollUpVariants } from "@utils/variants";
-import { useUI } from "@contexts/ui-context";
-import { HeadingType, TextType, ButtonType, ImageType, ICourse } from "@utils/types";
 
 type TProps = {
     data: {
@@ -21,7 +22,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }:
     const { trans1 } = useUI();
 
     return (
-        <div className="tw-relative tw-isolate tw-flex tw-h-full tw-items-center tw-overflow-hidden tw-bg-pearl tw-py-[50px] md:tw-min-h-[750px] xl:tw-min-h-[820px]">
+        <div className="tw-relative tw-isolate tw-flex tw-h-full tw-items-center tw-overflow-hidden tw-bg-cream tw-py-[50px] md:tw-min-h-[750px] xl:tw-min-h-[820px]">
             <h1 className="tw-sr-only">Home Page</h1>
             <div className="bgimg tw-absolute tw-inset-0 -tw-z-10 tw-hidden md:tw-block">
                 {images?.[0]?.src && (
@@ -48,11 +49,10 @@ const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }:
                             </span>
                         )}
                         {headings?.[1]?.content && (
-                            <h2
+                            <SafeHTML
+                                as="h2"
                                 className="tw-text-3xl tw-leading-[1.13] tw-text-secondary sm:tw-text-[40px] lg:tw-text-[54px] xl:tw-text-[63px]"
-                                dangerouslySetInnerHTML={{
-                                    __html: headings[1].content,
-                                }}
+                                content={headings[1].content}
                             />
                         )}
                         {texts?.map((text) => (

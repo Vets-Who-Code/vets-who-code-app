@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Discover five practical ways developers can level up professionally and personally in 2025, from building a personal website to making friends outside of tech."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1737784630/dev-2025_bhpafr.jpg",
+        src: "v1737784630/dev-2025_bhpafr.jpg",
     }
 category: "Career Development"
 tags:

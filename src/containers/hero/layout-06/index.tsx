@@ -1,10 +1,10 @@
-import clsx from "clsx";
-import { useScroll, motion, useTransform } from "motion/react";
+import BottomShape from "@ui/bottom-shape/shape-05";
 import Button from "@ui/button";
 import Video from "@ui/video-with-poster/video-01";
-import BottomShape from "@ui/bottom-shape/shape-05";
 import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion, useScroll, useTransform } from "motion/react";
 
 type TProps = {
     data: {
@@ -21,7 +21,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps)
     const y1 = useTransform(scrollY, [0, 300], [0, -100]);
 
     return (
-        <div className="hero-area tw-relative tw-bg-gore tw-pt-[120px] md:tw-pt-44 xl:tw-pt-[176px]">
+        <div className="hero-area tw-relative tw-bg-navy tw-pt-[120px] md:tw-pt-44 xl:tw-pt-[176px]">
             <div className="tw-container">
                 <motion.div
                     className="tw-relative tw-z-10 tw-mb-10 tw-text-center md:tw-mb-20"

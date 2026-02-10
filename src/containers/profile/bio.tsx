@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
 import Section from "@components/ui/engagement-modal";
 import Social, { SocialLink } from "@components/ui/social";
+import { useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
 
 interface UserProfile {
     id: string;
@@ -34,7 +34,7 @@ const ProfileBio = () => {
                 setProfile(userData);
                 setFormData(userData);
             }
-        } catch (error) {
+        } catch (_error) {
             // Error handling
         } finally {
             setLoading(false);
@@ -57,7 +57,7 @@ const ProfileBio = () => {
                 setProfile(updatedProfile);
                 setIsEditing(false);
             }
-        } catch (error) {
+        } catch (_error) {
             // Error handling
         } finally {
             setSaving(false);
@@ -70,7 +70,7 @@ const ProfileBio = () => {
                 <div className="tw-container tw-flex tw-min-h-[400px] tw-items-center tw-justify-center">
                     <div className="tw-text-center">
                         <div className="tw-mx-auto tw-h-16 tw-w-16 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                        <p className="tw-mt-4 tw-text-gray-600">Loading your profile...</p>
+                        <p className="tw-mt-4 tw-text-gray-300">Loading your profile...</p>
                     </div>
                 </div>
             </Section>
@@ -82,7 +82,7 @@ const ProfileBio = () => {
             <div className="tw-container">
                 {/* Header with Edit Button */}
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-between">
-                    <h1 className="tw-text-3xl tw-font-bold tw-text-gray-900">Your Profile</h1>
+                    <h1 className="tw-text-3xl tw-font-bold tw-text-ink">Your Profile</h1>
                     <div className="tw-flex tw-space-x-3">
                         {isEditing ? (
                             <>
@@ -92,7 +92,7 @@ const ProfileBio = () => {
                                         setIsEditing(false);
                                         setFormData(profile);
                                     }}
-                                    className="tw-rounded-md tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-gray-50"
+                                    className="tw-rounded-md tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-200 hover:tw-bg-gray-50"
                                 >
                                     Cancel
                                 </button>
@@ -139,7 +139,7 @@ const ProfileBio = () => {
                                     <div>
                                         <label
                                             htmlFor="name"
-                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Name
                                         </label>
@@ -156,7 +156,7 @@ const ProfileBio = () => {
                                     <div>
                                         <label
                                             htmlFor="title"
-                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Job Title
                                         </label>
@@ -174,7 +174,7 @@ const ProfileBio = () => {
                                     <div>
                                         <label
                                             htmlFor="bio"
-                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Bio
                                         </label>

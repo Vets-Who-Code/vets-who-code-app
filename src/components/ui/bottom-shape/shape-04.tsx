@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import BottomShapeSVG from "@assets/svgs/bottom-shape-4.svg";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;

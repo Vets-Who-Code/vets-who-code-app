@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
+import ServiceCard from "@components/image-box/image-box-04";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import Button from "@ui/button";
 import ListWithCheck from "@ui/list-with-check";
-import ServiceCard from "@components/image-box/image-box-04";
 import { ButtonType, ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedServiceCard = motion(ServiceCard);
 

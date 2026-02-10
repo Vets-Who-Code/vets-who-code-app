@@ -1,11 +1,12 @@
-import { forwardRef, useState } from "react";
-import clsx from "clsx";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "@ui/form-elements/input";
-import Feedback from "@ui/form-elements/feedback";
 import Button from "@ui/button";
+import Feedback from "@ui/form-elements/feedback";
+import Input from "@ui/form-elements/input";
 import { hasKey } from "@utils/methods";
 import { ApiResponse, FetchError } from "@utils/types";
+import { validateEmail } from "@utils/validators";
+import clsx from "clsx";
+import { forwardRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 type TProps = {
     className?: string;
@@ -71,10 +72,9 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
                     state={hasKey(errors, "newsletter_email") ? "error" : "success"}
                     showState={!!hasKey(errors, "newsletter_email")}
                     {...register("newsletter_email", {
-                        required: "Email is required",
-                        pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                            message: "invalid email address",
+                        validate: (value) => {
+                            const result = validateEmail(value);
+                            return result.isValid ? true : result.error || "";
                         },
                     })}
                     onChange={() => {

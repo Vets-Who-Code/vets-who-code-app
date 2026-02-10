@@ -1,14 +1,14 @@
-import dayjs from "dayjs";
-import Button from "@ui/button";
-import Alert from "@ui/alert";
 import SocialShare from "@components/social-share/layout-02";
+import Alert from "@ui/alert";
+import Button from "@ui/button";
+import { isDatePast } from "@utils/date";
 import { IEvent } from "@utils/types";
 import WidgetBox from "./widget-box";
 
 type TProps = Pick<IEvent, "title" | "start_date">;
 
-const EventInfo = ({ start_date }: TProps) => {
-    const isExpired = dayjs().isAfter(dayjs(start_date));
+function EventInfo({ start_date }: TProps) {
+    const isExpired = isDatePast(start_date);
     return (
         <WidgetBox>
             {isExpired ? (
@@ -16,7 +16,7 @@ const EventInfo = ({ start_date }: TProps) => {
                     This event has expired
                 </Alert>
             ) : (
-                <Button fullwidth className="tw-mt-5">
+                <Button fullwidth={true} className="tw-mt-5">
                     Book Now
                 </Button>
             )}
@@ -24,7 +24,7 @@ const EventInfo = ({ start_date }: TProps) => {
             <SocialShare className="tw-mt-7 tw-justify-center" />
         </WidgetBox>
     );
-};
+}
 
 EventInfo.defaultProps = {
     total_booked: 0,

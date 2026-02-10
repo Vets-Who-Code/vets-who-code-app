@@ -1,12 +1,12 @@
-import { useState } from "react";
+import BottomShape from "@components/ui/bottom-shape/shape-02";
+import Button from "@ui/button";
+import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion } from "motion/react";
 import dynamic from "next/dynamic";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
-import Button from "@ui/button";
-import BottomShape from "@components/ui/bottom-shape/shape-02";
-import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
-import { scrollUpVariants } from "@utils/variants";
+import { useState } from "react";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const ModalVideo = dynamic(() => import("../../../components/ui/video-modal"), {
     ssr: false,
@@ -48,7 +48,8 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 left: 0,
                                 width: "100%",
                                 height: "100%",
-                                background: "linear-gradient(135deg, rgba(9, 31, 64, 0.85) 0%, rgba(197, 32, 62, 0.75) 100%)",
+                                background:
+                                    "linear-gradient(135deg, rgba(9, 31, 64, 0.90) 0%, rgba(6, 26, 64, 0.85) 100%)",
                             }}
                         />
                     </div>
@@ -101,7 +102,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                         </div>
                     </div>
                 </motion.div>
-                <BottomShape color="tw-fill-light-100" />
+                <BottomShape color="tw-fill-white" />
             </div>
 
             {video && (

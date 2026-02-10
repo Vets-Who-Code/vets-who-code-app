@@ -1,6 +1,6 @@
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider, { GithubProfile } from "next-auth/providers/github";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import prisma from "@/lib/prisma";
 
 const fetchWithTimeout = async (
@@ -90,7 +90,7 @@ export const options: NextAuthOptions = {
                         }
 
                         return true;
-                    } catch (error) {
+                    } catch (_error) {
                         return false;
                     }
                 }
@@ -107,7 +107,7 @@ export const options: NextAuthOptions = {
                         where: { id: user.id },
                         select: { role: true },
                     });
-                    session.user.role = dbUser?.role || 'STUDENT';
+                    session.user.role = dbUser?.role || "STUDENT";
                 }
                 return session;
             } catch (error) {

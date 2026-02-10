@@ -1,14 +1,14 @@
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import { VWCGridCard } from "@components/vwc-card";
+import { VWCGrid } from "@components/vwc-grid";
+import { useSort } from "@hooks";
+import Layout01 from "@layout/layout-01";
+import Anchor from "@ui/anchor";
+import { courseSorting } from "@utils/methods";
+import { ICourse } from "@utils/types";
 import type { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import { VWCGrid } from "@components/vwc-grid";
-import { ICourse } from "@utils/types";
-import { courseSorting } from "@utils/methods";
-import { useSort } from "@hooks";
-import { VWCGridCard } from "@components/vwc-card";
-import Anchor from "@ui/anchor";
 import { getallCourses } from "../../lib/course";
 
 type TProps = {

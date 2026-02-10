@@ -1,8 +1,8 @@
-import { motion } from "motion/react";
-import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/image-box/image-box-02";
-import { scrollUpVariants } from "@utils/variants";
+import SectionTitle from "@components/section-title";
 import { ItemType, SectionTitleType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedServiceCard = motion(ServiceCard);

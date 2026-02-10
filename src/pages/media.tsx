@@ -1,9 +1,9 @@
-import { GetStaticProps, NextPage } from "next";
-import { useState, useMemo } from "react"; // Import useState and useMemo
+import MediaCard from "@components/media-card";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import { IMedia } from "@utils/types";
-import MediaCard from "@components/media-card";
+import { GetStaticProps, NextPage } from "next";
+import { useMemo, useState } from "react"; // Import useState and useMemo
 import { getAllMediaPosts } from "../lib/mdx-pages";
 
 type TProps = {
@@ -63,14 +63,14 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="mediaTypeFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Filter by Type
                             </label>
                             <select
                                 id="mediaTypeFilter"
                                 name="mediaTypeFilter"
-                                className="h-12 tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12"
                                 value={mediaTypeFilter}
                                 onChange={(e) => setMediaTypeFilter(e.target.value)}
                             >
@@ -86,14 +86,14 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="yearFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Filter by Year
                             </label>
                             <select
                                 id="yearFilter"
                                 name="yearFilter"
-                                className="h-12 tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12"
                                 value={yearFilter}
                                 onChange={(e) => setYearFilter(e.target.value)}
                             >
@@ -109,7 +109,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="searchTerm"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                             >
                                 Search
                             </label>
@@ -117,7 +117,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                 type="text"
                                 id="searchTerm"
                                 name="searchTerm"
-                                className="appearance-none h-12 py-3 text-base tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12 appearance-none py-3 text-base"
                                 placeholder="Keywords..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -135,7 +135,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                     setYearFilter("");
                                     setSearchTerm("");
                                 }}
-                                className="h-12 tw-mt-1 tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-gray-700 tw-shadow-sm hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 sm:tw-mt-0 sm:tw-w-auto"
+                                className="tw-mt-1 tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-text-sm tw-font-medium tw-text-gray-200 tw-shadow-sm hover:tw-bg-gray-50 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2 sm:tw-mt-0 sm:tw-w-auto h-12"
                             >
                                 Reset
                             </button>

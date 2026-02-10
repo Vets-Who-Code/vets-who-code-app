@@ -1,8 +1,8 @@
-import dayjs from "dayjs";
-import GoogleMap from "@ui/google-map";
-import { IEvent } from "@utils/types";
-import EventInfo from "@components/widgets/event-info-widget";
 import HTMLContent from "@components/html-content";
+import EventInfo from "@components/widgets/event-info-widget";
+import GoogleMap from "@ui/google-map";
+import { formatDate } from "@utils/date";
+import { IEvent } from "@utils/types";
 
 type TProps = Pick<
     IEvent,
@@ -17,7 +17,7 @@ type TProps = Pick<
     | "body"
 >;
 
-const Summary = ({
+function Summary({
     location,
     start_date,
     end_date,
@@ -26,10 +26,10 @@ const Summary = ({
     venue,
     title,
     body,
-}: TProps) => {
+}: TProps) {
     return (
         <article className="tw-py-15 md:tw-py-20 lg:tw-py-[100px]">
-            <div className="tw-container tw-border-b tw-border-b-gray-650 tw-pb-[50px] md:tw-pb-[70px] lg:tw-pb-[90px]">
+            <div className="tw-border-b-gray-650 tw-container tw-border-b tw-pb-[50px] md:tw-pb-[70px] lg:tw-pb-[90px]">
                 <h2 className="tw-mb-5 tw-text-center tw-text-4xl md:tw-text-[42px] lg:tw-text-5xl">
                     About The Event
                 </h2>
@@ -44,16 +44,15 @@ const Summary = ({
                     <div className="tw-mx-3 tw-mb-[5px]">
                         <i className="fal fa-calendar tw-mr-[5px] tw-text-primary" />
                         <span>
-                            {dayjs(start_date).format("MMM DD, YYYY")} -{" "}
-                            {dayjs(end_date).format("MMM DD, YYYY")}
+                            {formatDate(start_date)} - {formatDate(end_date)}
                         </span>
                     </div>
 
                     <div className="tw-mx-3 tw-mb-[5px]">
                         <i className="fal fa-clock tw-mr-[5px] tw-text-primary" />
                         <span>
-                            {dayjs(`${start_date} ${start_time}`).format("h:mm a")} -{" "}
-                            {dayjs(`${end_date} ${end_time}`).format("h:mm a")}
+                            {formatDate(`${start_date} ${start_time}`, "h:mm a")} -{" "}
+                            {formatDate(`${end_date} ${end_time}`, "h:mm a")}
                         </span>
                     </div>
                 </div>
@@ -82,6 +81,6 @@ const Summary = ({
             </div>
         </article>
     );
-};
+}
 
 export default Summary;

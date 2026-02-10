@@ -1,10 +1,10 @@
-import clsx from "clsx";
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import Gradation from "@components/gradation";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedGradation = motion(Gradation);
@@ -41,7 +41,7 @@ const GradationArea = ({ data: { section_title, items } }: TProps) => {
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     >
-                        <mark className="tw-absolute tw-right-0 tw-top-1/2 -tw-z-1 -tw-translate-y-1/2 tw-bg-transparent tw-p-5 tw-text-[120px] tw-font-black tw-leading-[0.8] tw-text-gray-550">
+                        <mark className="tw-absolute tw-right-0 tw-top-1/2 -tw-z-1 -tw-translate-y-1/2 tw-bg-transparent tw-p-5 tw-text-[120px] tw-font-black tw-leading-[0.8] tw-text-gray-100">
                             {items?.length.toString() || "0"}
                         </mark>
                         Steps

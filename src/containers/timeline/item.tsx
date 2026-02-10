@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
-import clsx from "clsx";
 import { HeadingType, ImageType, TextType } from "@utils/types";
 import { scrollLeftVariants, scrollRightVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = {
     isEven: boolean;

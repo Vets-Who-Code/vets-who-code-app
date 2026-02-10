@@ -1,7 +1,7 @@
-import { ReactNode } from "react";
 import ScrollToTop from "@ui/scroll-to-top";
-import Header from "../headers/header-02";
+import { ReactNode } from "react";
 import Footer from "../footers/footer-01";
+import Header from "../headers/header-02";
 
 type TProps = {
     children: ReactNode;

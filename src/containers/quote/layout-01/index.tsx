@@ -1,11 +1,11 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import QuoteItem from "@components/quote-item";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import { ItemType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
 
 const AnimatedSwiperSlider = motion(SwiperSlider);
 
@@ -74,7 +74,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-orange-200" />
+                    <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-red-signal" />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-left-0 tw-top-[155px] tw-z-20 lg:tw-left-5 lg:tw-top-[300px]"
@@ -83,7 +83,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[54px] tw-w-[54px] tw-rounded-full tw-bg-porsche" />
+                    <span className="tw-block tw-h-[54px] tw-w-[54px] tw-rounded-full tw-bg-gold" />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-right-0 tw-top-[-100px] tw-z-20 lg:-tw-right-5"
@@ -92,7 +92,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-jagged" />
+                    <span className="tw-block tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-navy-sky" />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-right-7.5 tw-top-0 tw-z-20"
@@ -101,7 +101,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                         y: trans1().y,
                     }}
                 >
-                    <span className="tw-block tw-h-9 tw-w-9 tw-rounded-full tw-bg-blue-100/60" />
+                    <span className="tw-block tw-h-9 tw-w-9 tw-rounded-full tw-bg-navy-sky/60" />
                 </motion.div>
                 <motion.div
                     className="tw-absolute tw-right-0 tw-top-[155px] tw-z-20 lg:tw-right-12 lg:tw-top-[233px]"
@@ -110,7 +110,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
                         y: trans2().y,
                     }}
                 >
-                    <span className="tw-block tw-h-[38px] tw-w-[38px] tw-rounded-full tw-bg-mandy/70" />
+                    <span className="tw-block tw-h-[38px] tw-w-[38px] tw-rounded-full tw-bg-red/70" />
                 </motion.div>
             </div>
         </Section>
@@ -118,7 +118,7 @@ const QuoteArea = ({ data: { items }, space, bg }: TProps) => {
 };
 
 QuoteArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default QuoteArea;

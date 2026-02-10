@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import MottoText from "@ui/motto-text";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import MottoText from "@ui/motto-text";
 import { ImageType, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {
@@ -70,7 +70,7 @@ const AboutArea = ({ data: { section_title, motto, images }, space, bg, titleSiz
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[45px] tw-w-[45px] tw-rounded-full tw-border-[7px] tw-border-desert -tw-indent-[99999px] lg:tw-h-15 lg:tw-w-15">
+                        <span className="tw-block tw-h-[45px] tw-w-[45px] tw-rounded-full tw-border-[7px] tw-border-red -tw-indent-[99999px] lg:tw-h-15 lg:tw-w-15">
                             shape 1
                         </span>
                     </motion.div>
@@ -108,7 +108,7 @@ const AboutArea = ({ data: { section_title, motto, images }, space, bg, titleSiz
 };
 
 AboutArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default AboutArea;

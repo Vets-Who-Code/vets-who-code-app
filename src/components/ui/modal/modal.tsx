@@ -1,8 +1,8 @@
-import { motion, AnimatePresence } from "motion/react";
-import clsx from "clsx";
-import dynamic from "next/dynamic";
-import { fadeIn } from "@utils/variants";
 import { useKeyboardFocus } from "@hooks";
+import { fadeIn } from "@utils/variants";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "motion/react";
+import dynamic from "next/dynamic";
 
 const Portal = dynamic(() => import("../../portal"), {
     ssr: false,
@@ -55,7 +55,8 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                                 className,
                                 "tw-fixed tw-inset-0 tw-z-50 tw-overflow-hidden tw-outline-0 tw-transition-opacity"
                             )}
-                            role="button"
+                            role="dialog"
+                            aria-modal="true"
                             tabIndex={-1}
                             onClick={onClose}
                             onKeyPress={(e) => e}
@@ -79,7 +80,6 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                                     className="modal-content tw-pointer-events-auto tw-relative tw-flex tw-w-full tw-flex-col tw-rounded tw-bg-white tw-bg-clip-padding"
                                     onClick={(e) => e.stopPropagation()}
                                     onKeyPress={(e) => e.stopPropagation()}
-                                    role="button"
                                     tabIndex={0}
                                 >
                                     {children}

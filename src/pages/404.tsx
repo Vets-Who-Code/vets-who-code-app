@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import SEO from "@components/seo/page-seo";
-import Button from "@ui/button";
+import SEO from "@/components/seo/page-seo";
+import Button from "@/components/ui/button";
 
 const Error404Page = () => {
     const router = useRouter();

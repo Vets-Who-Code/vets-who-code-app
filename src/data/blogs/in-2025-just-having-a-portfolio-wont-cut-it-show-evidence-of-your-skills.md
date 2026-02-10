@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "In 2025, employers need more than portfolios—they want evidence of your skills, learning, and problem-solving ability. Learn how to showcase your value with an evidence-based framework."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1736709455/evidence-based_j4ucdv.jpg",
+        src: "v1736709455/evidence-based_j4ucdv.jpg",
     }
 category: "Career Development"
 tags:

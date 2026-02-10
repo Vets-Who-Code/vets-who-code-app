@@ -1,9 +1,9 @@
-import type { GetStaticProps } from "next";
 import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import HeroArea from "@containers/hero/layout-07";
 import CtaArea from "@containers/cta/layout-01";
+import HeroArea from "@containers/hero/layout-07";
+import Layout from "@layout/layout-01";
 import { normalizedData } from "@utils/methods";
+import type { GetStaticProps } from "next";
 import { getPageData } from "../lib/page";
 
 // Base content interface
@@ -76,7 +76,7 @@ const TheoryOfChange: PageWithLayout = ({ data }) => {
                                         {heading.content}
                                     </h3>
                                 ))}
-                                <div className="tw-text-base tw-text-gray-700">
+                                <div className="tw-text-base tw-text-gray-200">
                                     {item.texts?.map((text, index) => {
                                         if (item.texts && item.texts.length > 1 && index === 0) {
                                             return (

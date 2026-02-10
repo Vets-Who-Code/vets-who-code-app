@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
 import Layout from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 
 interface DevLoginProps {
     layout?: {
@@ -48,7 +48,7 @@ const DevLogin: PageWithLayout = () => {
                     <p className="tw-text-center tw-text-secondary">
                         Quick bypass for testing the platform
                     </p>
-                    <div className="tw-rounded tw-bg-yellow-50 tw-p-3 tw-text-sm tw-text-yellow-600">
+                    <div className="tw-rounded tw-bg-gold-light/20 tw-p-3 tw-text-sm tw-text-gold-rich">
                         ⚠️ This is for development only - bypasses GitHub OAuth
                     </div>
                 </div>

@@ -1,9 +1,10 @@
-import clsx from "clsx";
+import SafeHTML from "@components/safe-html";
 import Section from "@components/ui/engagement-modal";
-import { motion } from "motion/react";
 import { useUI } from "@contexts/ui-context";
 import { ImageType, ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {
@@ -45,12 +46,11 @@ const ContactInfo = ({ data: { section_title, items, images } }: TProps) => {
                             />
                             <h3 className="tw-mb-3.8 tw-text-lg">{item.title}</h3>
                             {item.texts?.map((text) => (
-                                <p
+                                <SafeHTML
                                     key={text.id}
+                                    as="p"
                                     className="tw-mb-2.5 child:tw-text-heading"
-                                    dangerouslySetInnerHTML={{
-                                        __html: text.content,
-                                    }}
+                                    content={text.content}
                                 />
                             ))}
                         </div>

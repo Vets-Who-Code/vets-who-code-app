@@ -1,6 +1,7 @@
-import { motion } from "motion/react";
+import SafeHTML from "@components/safe-html";
 import { HeadingType, TextType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {
@@ -21,11 +22,10 @@ const QuoteArea = ({ data: { headings, texts } }: TProps) => {
                     variants={scrollUpVariants}
                 >
                     {headings?.[0]?.content && (
-                        <h3
+                        <SafeHTML
+                            as="h3"
                             className="tw-leading-normal child:tw-text-primary md:tw-max-w-[370px]"
-                            dangerouslySetInnerHTML={{
-                                __html: headings[0].content,
-                            }}
+                            content={headings[0].content}
                         />
                     )}
                 </motion.div>
@@ -36,7 +36,9 @@ const QuoteArea = ({ data: { headings, texts } }: TProps) => {
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
-                    {texts?.map((text) => <p key={text.id}>{text.content}</p>)}
+                    {texts?.map((text) => (
+                        <p key={text.id}>{text.content}</p>
+                    ))}
                 </motion.div>
             </div>
         </div>

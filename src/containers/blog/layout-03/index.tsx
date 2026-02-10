@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import BlogCard from "@components/blog-card/blog-03";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import { IBlog, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { MottoType, SectionTitleType, IBlog, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedBlogCard = motion(BlogCard);
@@ -24,6 +24,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
+                        color="C"
                         className="tw-mb-7.5 md:tw-mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
@@ -54,7 +55,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
 };
 
 BlogArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-navy",
 };
 
 export default BlogArea;

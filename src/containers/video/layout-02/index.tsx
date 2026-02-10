@@ -1,13 +1,13 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
+import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import { useUI } from "@contexts/ui-context";
+import BottomShape from "@ui/bottom-shape/shape-03";
 import MottoText from "@ui/motto-text";
 import Video from "@ui/video-with-poster/video-02";
-import BottomShape from "@ui/bottom-shape/shape-03";
-import Shape2 from "@assets/svgs/shape-2.svg";
-import { useUI } from "@contexts/ui-context";
-import { scrollUpVariants } from "@utils/variants";
 import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedMottoText = motion(MottoText);

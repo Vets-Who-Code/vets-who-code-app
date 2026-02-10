@@ -36,7 +36,7 @@ async function handleGetProfile(userId: string, res: NextApiResponse) {
         };
 
         return res.status(200).json(userData);
-    } catch (error) {
+    } catch (_error) {
         return res.status(500).json({ error: "Internal server error" });
     }
 }
@@ -86,7 +86,7 @@ async function handleUpdateProfile(userId: string, body: UpdateProfileBody, res:
         };
 
         return res.status(200).json(userData);
-    } catch (error) {
+    } catch (_error) {
         return res.status(500).json({ error: "Internal server error" });
     }
 }

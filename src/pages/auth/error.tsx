@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import type { NextPage } from "next";
 import Layout from "@layout/layout-01";
+import type { NextPage } from "next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 type ErrorType = {
     [key: string]: {
@@ -89,11 +89,11 @@ const AuthError: PageWithLayout = () => {
     }, [router]);
 
     return (
-        <div className="tw-sm:px-6 tw-lg:px-8 tw-flex tw-min-h-[75vh] tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12">
+        <div className="tw-flex tw-min-h-[75vh] tw-flex-col tw-justify-center tw-bg-gray-50 tw-py-12 tw-lg:px-8 tw-sm:px-6">
             <div className="tw-sm:mx-auto tw-sm:w-full tw-sm:max-w-md">
-                <div className="tw-sm:rounded-lg tw-sm:px-10 tw-bg-white tw-px-4 tw-py-8 tw-shadow">
+                <div className="tw-bg-white tw-px-4 tw-py-8 tw-shadow tw-sm:rounded-lg tw-sm:px-10">
                     <div className="tw-text-center">
-                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                             {error.title}
                         </h2>
                         <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">

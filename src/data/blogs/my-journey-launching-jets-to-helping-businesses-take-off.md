@@ -5,7 +5,7 @@ author: "Brad Hankee"
 description: "From launching jets in the Air Force to launching careers in tech, a veteran's journey through Vets Who Code."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1721217567/brad-hankee_hpcklm.avif",
+        src: "v1721217567/brad-hankee_hpcklm.avif",
     }
 category: "Testimonial"
 tags:

@@ -1,11 +1,18 @@
-import React, { useState } from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
+
+type Enrollment = {
+    id: string;
+    courseId: string;
+    status: string;
+    progress: number;
+};
 
 type PageProps = {
     user: {
@@ -102,6 +109,53 @@ const modules = [
 
 const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
     const [selectedModule, setSelectedModule] = useState<number | null>(null);
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [enrollmentError, setEnrollmentError] = useState<string | null>(null);
+
+    useEffect(() => {
+        fetchEnrollments();
+    }, []);
+
+    const fetchEnrollments = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/enrollment/enroll");
+            const data = await response.json();
+
+            if (response.ok) {
+                setEnrollments(data.enrollments);
+            }
+        } catch (error) {
+            console.error("Error fetching enrollments:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Check if enrolled in Software Engineering vertical
+    const isEnrolled = (): boolean => {
+        const matchingTitles = [
+            "Software Engineering",
+            "Full-Stack Development",
+            "Web Development",
+        ];
+        return enrollments.some(
+            (enrollment) =>
+                enrollment.status === "ACTIVE" &&
+                matchingTitles.some((title) =>
+                    enrollment.courseId.toLowerCase().includes(title.toLowerCase())
+                )
+        );
+    };
+
+    const handleEnroll = async () => {
+        // For now, this is a placeholder since we don't have a courseId
+        // In a real implementation, you'd need to map the vertical to an actual course
+        setEnrollmentError(
+            "Enrollment is not yet configured for this vertical. Please contact an administrator."
+        );
+    };
 
     return (
         <>
@@ -128,11 +182,41 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                             Software Engineering
                         </h1>
                         <div className="tw-mx-auto tw-mb-6 tw-h-1 tw-w-24 tw-rounded tw-bg-primary" />
-                        <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-leading-relaxed tw-text-gray-700 md:tw-text-2xl">
+                        <p className="tw-mx-auto tw-max-w-3xl tw-text-xl tw-leading-relaxed tw-text-gray-200 md:tw-text-2xl">
                             Master full-stack development, system design, and software architecture
                             to build scalable applications that solve real-world problems.
                         </p>
                     </div>
+
+                    {/* Enrollment Status/CTA */}
+                    {!loading && (
+                        <div className="tw-mb-8 tw-text-center">
+                            {isEnrolled() ? (
+                                <div className="tw-inline-flex tw-items-center tw-rounded-lg tw-bg-success/10 tw-px-6 tw-py-3 tw-text-success">
+                                    <i className="fas fa-check-circle tw-mr-2 tw-text-xl" />
+                                    <span className="tw-font-semibold">
+                                        You&apos;re enrolled in this vertical
+                                    </span>
+                                </div>
+                            ) : (
+                                <div>
+                                    <button
+                                        type="button"
+                                        onClick={handleEnroll}
+                                        className="tw-inline-flex tw-items-center tw-rounded-lg tw-bg-primary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-transition-all hover:tw-bg-primary/90 hover:tw-shadow-lg"
+                                    >
+                                        <i className="fas fa-user-plus tw-mr-2" />
+                                        Enroll in Vertical
+                                    </button>
+                                    {enrollmentError && (
+                                        <p className="tw-mt-3 tw-text-sm tw-text-red-600">
+                                            {enrollmentError}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     {/* Course Stats */}
                     <div className="tw-grid tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-bg-gradient-to-r tw-from-primary tw-to-primary/80 tw-p-8 tw-text-white md:tw-grid-cols-4">
@@ -168,10 +252,10 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                                         {index + 1}
                                     </div>
                                     <div>
-                                        <h3 className="tw-text-xl tw-font-bold tw-text-gray-900">
+                                        <h3 className="tw-text-xl tw-font-bold tw-text-ink">
                                             {module.title}
                                         </h3>
-                                        <p className="tw-text-gray-600">{module.description}</p>
+                                        <p className="tw-text-gray-300">{module.description}</p>
                                     </div>
                                 </div>
                                 <div className="tw-flex tw-items-center tw-space-x-4">
@@ -204,7 +288,7 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                             {selectedModule === module.id && (
                                 <div className="tw-border-t tw-border-gray-200 tw-bg-gray-50 tw-p-6">
                                     <div className="tw-mb-4">
-                                        <h4 className="tw-mb-3 tw-font-semibold tw-text-gray-900">
+                                        <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">
                                             Technologies Covered:
                                         </h4>
                                         <div className="tw-flex tw-flex-wrap tw-gap-2">
@@ -229,7 +313,7 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                                             </Link>
                                             <button
                                                 type="button"
-                                                className="tw-inline-flex tw-items-center tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50"
+                                                className="tw-inline-flex tw-items-center tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                                             >
                                                 <i className="fas fa-bookmark tw-mr-2" />
                                                 Save for Later
@@ -245,10 +329,10 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                 {/* Prerequisites & What You'll Build */}
                 <div className="tw-mt-16 tw-grid tw-grid-cols-1 tw-gap-8 lg:tw-grid-cols-2">
                     <div className="tw-rounded-xl tw-border tw-border-gray-200 tw-bg-white tw-p-8 tw-shadow-lg">
-                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-ink">
                             Prerequisites
                         </h3>
-                        <ul className="tw-space-y-3 tw-text-gray-700">
+                        <ul className="tw-space-y-3 tw-text-gray-200">
                             <li className="tw-flex tw-items-center">
                                 <i className="fas fa-check tw-mr-3 tw-text-success" />
                                 Basic computer skills and familiarity with the internet
@@ -269,10 +353,10 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                     </div>
 
                     <div className="tw-rounded-xl tw-border tw-border-gray-200 tw-bg-white tw-p-8 tw-shadow-lg">
-                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-gray-900">
+                        <h3 className="tw-mb-6 tw-text-2xl tw-font-bold tw-text-ink">
                             What You&apos;ll Build
                         </h3>
-                        <ul className="tw-space-y-3 tw-text-gray-700">
+                        <ul className="tw-space-y-3 tw-text-gray-200">
                             <li className="tw-flex tw-items-center">
                                 <i className="fas fa-rocket tw-mr-3 tw-text-primary" />
                                 Personal portfolio website

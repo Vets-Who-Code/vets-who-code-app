@@ -1,7 +1,7 @@
-import { useRouter } from "next/router";
 import EventCard from "@components/event-card/event-01";
 import Pagination from "@components/pagination/pagination-01-button";
 import { IEvent } from "@utils/types";
+import { useRouter } from "next/router";
 
 type TProps = {
     events: IEvent[];

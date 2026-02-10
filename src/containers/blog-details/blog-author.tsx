@@ -15,7 +15,7 @@ const BlogAuthor = ({ name, image, bio, socials }: IInstructor) => {
                     />
                 )}
                 {socials?.length > 0 && (
-                    <Social color="dark" tooltip className="tw-mx-[-9px] tw-mt-[13px]">
+                    <Social color="dark" tooltip={true} className="tw-mx-[-9px] tw-mt-[13px]">
                         {socials.map(({ icon, label, url }) => (
                             <SocialLink
                                 key={label}

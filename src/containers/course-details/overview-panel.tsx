@@ -1,6 +1,5 @@
-import { IContent } from "@utils/types";
-
 import HTMLContent from "@components/html-content";
+import { IContent } from "@utils/types";
 
 type TProps = {
     description: IContent[];

@@ -1,6 +1,6 @@
-import { motion } from "motion/react";
 import { ImageType, ItemType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = {
     data: {
@@ -50,7 +50,9 @@ const FaqArea = ({ data: { images, items } }: TProps) => {
                         </h4>
                         <div className="tw-relative tw-mt-5 tw-pl-8 md:tw-mt-0">
                             <i className="far fa-check tw-absolute tw-left-0 tw-top-2 tw-text-primary" />
-                            {item.texts?.map((text) => <p key={text.id}>{text.content}</p>)}
+                            {item.texts?.map((text) => (
+                                <p key={text.id}>{text.content}</p>
+                            ))}
                         </div>
                     </motion.div>
                 ))}

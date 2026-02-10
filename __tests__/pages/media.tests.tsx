@@ -1,20 +1,19 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { IMedia } from "@utils/types"; // Adjust path if needed
-import MediaPage from "../../pages/media.tsx"; // Adjust if path is different, e.g., src/pages/media
+import MediaPage from "@/pages/media";
 
 // Mock dependencies
-jest.mock("@components/seo/page-seo", () => ({
-    __esModule: true,
+vi.mock("@components/seo/page-seo", () => ({
     default: () => <div data-testid="seo" />,
 }));
 
-jest.mock("@layout/layout-01", () => ({
-    __esModule: true,
-    default: ({ children }: { children: React.ReactNode }) => <div data-testid="layout">{children}</div>,
+vi.mock("@layout/layout-01", () => ({
+    default: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="layout">{children}</div>
+    ),
 }));
 
-jest.mock("@components/media-card", () => ({
-    __esModule: true,
+vi.mock("@components/media-card", () => ({
     default: ({ title, mediaType, date }: IMedia) => (
         <div data-testid="media-card">
             <h3>{title}</h3>
@@ -26,11 +25,10 @@ jest.mock("@components/media-card", () => ({
 
 // Mock getallPosts from mdx-pages
 // The actual getStaticProps will call the real one, but we pass props directly in tests
-const mockGetAllPosts = jest.fn();
-jest.mock("@lib/mdx-pages", () => ({
-    getallPosts: () => mockGetAllPosts(),
+const mockGetAllPosts = vi.fn();
+vi.mock("@/lib/mdx-pages", () => ({
+    getAllMediaPosts: () => mockGetAllPosts(),
 }));
-
 
 const mockMediaItems: IMedia[] = [
     {
@@ -104,7 +102,7 @@ describe("MediaPage Filtering and Searching", () => {
 
         const cards = screen.getAllByTestId("media-card");
         expect(cards).toHaveLength(2);
-        cards.forEach(card => {
+        cards.forEach((card) => {
             expect(card).toHaveTextContent("Podcast");
         });
         expect(screen.getByText("Podcast Episode Alpha")).toBeInTheDocument();
@@ -119,11 +117,11 @@ describe("MediaPage Filtering and Searching", () => {
 
         const cards = screen.getAllByTestId("media-card");
         expect(cards).toHaveLength(2);
-        cards.forEach(card => {
+        cards.forEach((card) => {
             expect(card).toHaveTextContent("2023");
         });
         expect(screen.getByText("Podcast Episode Alpha")).toBeInTheDocument(); // Date 2023-01-15
-        expect(screen.getByText("Article on VWC")).toBeInTheDocument();      // Date 2023-05-20
+        expect(screen.getByText("Article on VWC")).toBeInTheDocument(); // Date 2023-05-20
         expect(screen.queryByText("VWC Demo Video")).not.toBeInTheDocument(); // Date 2022-11-10
     });
 
@@ -161,7 +159,11 @@ describe("MediaPage Filtering and Searching", () => {
         fireEvent.change(yearSelect, { target: { value: "2023" } }); // No videos in 2023
 
         expect(screen.queryAllByTestId("media-card")).toHaveLength(0);
-        expect(screen.getByText("No media items found matching your criteria. Try adjusting your filters or search term.")).toBeInTheDocument();
+        expect(
+            screen.getByText(
+                "No media items found matching your criteria. Try adjusting your filters or search term."
+            )
+        ).toBeInTheDocument();
     });
 
     it("resets filters when Reset button is clicked", () => {
@@ -191,17 +193,3 @@ describe("MediaPage Filtering and Searching", () => {
         expect((screen.getByLabelText("Search") as HTMLInputElement).value).toBe("");
     });
 });
-
-// Basic test for getStaticProps (optional, as it's simple)
-// Note: This requires `getallPosts` to be mocked at the top level correctly.
-// If `src/pages/media.ts` exports getStaticProps, you can test it.
-// For this example, we assume it's part of the default export or tested elsewhere.
-// describe("MediaPage getStaticProps", () => {
-//     it("should return props with allMediaItems", async () => {
-//         mockGetAllPosts.mockReturnValue(mockMediaItems); // Configure the mock for this test
-//         const { getStaticProps } = require("@/pages/media"); // Re-require if getStaticProps is separate
-//         const result = await getStaticProps({});
-//         expect(result.props.allMediaItems).toEqual(mockMediaItems);
-//         expect(result.props.page.title).toEqual("Media & Features");
-//     });
-// });

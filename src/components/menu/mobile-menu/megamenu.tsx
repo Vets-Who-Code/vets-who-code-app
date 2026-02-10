@@ -1,7 +1,7 @@
-import clsx from "clsx";
 import Anchor from "@ui/anchor";
 import Badge from "@ui/badge";
 import { TMegaMenu } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;

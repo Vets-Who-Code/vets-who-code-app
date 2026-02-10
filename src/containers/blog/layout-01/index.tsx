@@ -1,13 +1,13 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
+import Shape2 from "@assets/svgs/shape-2.svg";
 import BlogCard01 from "@components/blog-card/blog-01";
 import BlogCard02 from "@components/blog-card/blog-02";
-import MottoText from "@components/ui/motto-text";
 import SectionTitle from "@components/section-title";
-import Shape2 from "@assets/svgs/shape-2.svg";
+import Section from "@components/ui/engagement-modal";
+import MottoText from "@components/ui/motto-text";
 import { useUI } from "@contexts/ui-context";
+import { IBlog, MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { MottoType, SectionTitleType, IBlog, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 
@@ -146,7 +146,7 @@ const BlogArea = ({ data: { section_title, motto, blogs }, space, bg, titleSize 
 
 BlogArea.defaultProps = {
     space: "top-bottom",
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default BlogArea;

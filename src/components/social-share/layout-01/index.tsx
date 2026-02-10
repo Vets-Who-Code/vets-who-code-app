@@ -1,5 +1,5 @@
-import { useEffect, useState, MouseEvent } from "react";
 import clsx from "clsx";
+import { MouseEvent, useEffect, useState } from "react";
 import SocialLink from "./social-link";
 
 const SocialShare = () => {

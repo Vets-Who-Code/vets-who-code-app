@@ -1,9 +1,9 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-01";
+import Layout01 from "@layout/layout-01";
 import { IBlog } from "@utils/types";
+import type { GetServerSideProps, NextPage } from "next";
 import { getAllBlogs } from "../../../lib/blog";
 
 type TProps = {
@@ -21,9 +21,11 @@ type PageProps = NextPage<TProps> & {
 const POSTS_PER_PAGE = 9;
 
 const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) => {
+    const pageTitle = currentPage === 1 ? "Blog" : `Blog - Page ${currentPage}`;
+
     return (
         <>
-            <SEO title="Blog" />
+            <SEO title={pageTitle} />
             <Breadcrumb pages={[{ path: "/", label: "home" }]} currentPage="Vets Who Code Blog" />
             <BlogArea
                 data={{
@@ -37,10 +39,14 @@ const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) =>
 
 BlogGrid.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+    const page = query.page;
+    const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
+    const skip = (currentPage - 1) * POSTS_PER_PAGE;
+
     const { blogs, count } = getAllBlogs(
-        ["title", "image", "category", "postedAt"],
-        0,
+        ["title", "slug", "image", "category", "postedAt"],
+        skip,
         POSTS_PER_PAGE
     );
 
@@ -48,7 +54,7 @@ export const getStaticProps: GetStaticProps = () => {
         props: {
             data: {
                 blogs,
-                currentPage: 1,
+                currentPage,
                 numberOfPages: Math.ceil(count / POSTS_PER_PAGE),
             },
             layout: {

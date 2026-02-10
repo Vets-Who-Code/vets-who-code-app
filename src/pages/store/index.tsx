@@ -1,11 +1,11 @@
-import { useState } from "react";
-import type { GetStaticProps } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
 import ProductGrid from "@components/product-grid";
+import SEO from "@components/seo/page-seo";
 import ShoppingCart from "@components/shopping-cart";
-import { getProducts, ShopifyProduct, isShopifyConfigured } from "@lib/shopify";
 import { useCart } from "@hooks";
+import Layout from "@layout/layout-01";
+import { getProducts, isShopifyConfigured, ShopifyProduct } from "@lib/shopify";
+import type { GetServerSideProps } from "next";
+import { useState } from "react";
 
 interface StorePageProps {
     products: ShopifyProduct[];
@@ -25,7 +25,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                         <h1 className="tw-text-4xl tw-font-bold tw-text-secondary tw-mb-4">
                             Store Configuration Required
                         </h1>
-                        <p className="tw-text-lg tw-text-gray-600">
+                        <p className="tw-text-lg tw-text-gray-300">
                             The Shopify store is not configured yet. Please add your Shopify
                             credentials to the environment variables.
                         </p>
@@ -37,10 +37,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
 
     return (
         <Layout>
-            <SEO
-                title="Store"
-                description="Shop official Vets Who Code merchandise and apparel"
-            />
+            <SEO title="Store" description="Shop official Vets Who Code merchandise and apparel" />
 
             {/* Hero Section */}
             <div className="tw-bg-white tw-py-20">
@@ -49,7 +46,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                         <h1 className="tw-text-5xl tw-font-bold tw-mb-4 tw-text-primary">
                             Vets Who Code Store
                         </h1>
-                        <p className="tw-text-xl tw-text-gray-700">
+                        <p className="tw-text-xl tw-text-gray-200">
                             Shop official merchandise and support our mission
                         </p>
                     </div>
@@ -89,9 +86,8 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                     <h2 className="tw-text-3xl tw-font-bold tw-text-secondary tw-mb-2">
                         All Products
                     </h2>
-                    <p className="tw-text-gray-600">
-                        {products.length} {products.length === 1 ? "product" : "products"}{" "}
-                        available
+                    <p className="tw-text-gray-300">
+                        {products.length} {products.length === 1 ? "product" : "products"} available
                     </p>
                 </div>
 
@@ -100,7 +96,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                     <ProductGrid products={products} columns={3} />
                 ) : (
                     <div className="tw-text-center tw-py-20">
-                        <p className="tw-text-xl tw-text-gray-600">
+                        <p className="tw-text-xl tw-text-gray-300">
                             No products available at the moment.
                         </p>
                     </div>
@@ -113,16 +109,16 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
     );
 };
 
-export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
+export const getServerSideProps: GetServerSideProps<StorePageProps> = async () => {
     const isConfigured = isShopifyConfigured();
 
     if (!isConfigured) {
+        console.error("Shopify not configured - missing environment variables");
         return {
             props: {
                 products: [],
                 isConfigured: false,
             },
-            revalidate: 60,
         };
     }
 
@@ -134,17 +130,16 @@ export const getStaticProps: GetStaticProps<StorePageProps> = async () => {
                 products,
                 isConfigured: true,
             },
-            revalidate: 300, // Revalidate every 5 minutes
         };
     } catch (error) {
         console.error("Failed to fetch products:", error);
+        console.error("Error details:", error instanceof Error ? error.message : String(error));
 
         return {
             props: {
                 products: [],
                 isConfigured: true,
             },
-            revalidate: 60,
         };
     }
 };

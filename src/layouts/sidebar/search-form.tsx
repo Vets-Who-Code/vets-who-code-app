@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import clsx from "clsx";
 import { useCurriculumContext } from "@contexts/curriculum-context";
+import clsx from "clsx";
+import { useEffect, useState } from "react";
 
 type TProps = {
     className?: string;

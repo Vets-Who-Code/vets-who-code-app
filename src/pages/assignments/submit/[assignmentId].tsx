@@ -1,22 +1,29 @@
-import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { getServerSession } from "next-auth/next";
+import { useSession } from "next-auth/react";
+import React, { useState } from "react";
+import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
 
 type AssignmentData = {
     id: string;
     title: string;
     description: string;
-    requirements: string[];
-    dueDate: string;
-    module: string;
-    lesson: string;
-    maxFileSize: string;
-    allowedFormats: string[];
+    instructions: string;
+    dueDate: string | null;
+    type: string;
+    githubRepo: boolean;
+    liveDemo: boolean;
+    maxPoints: number;
+    course: {
+        id: string;
+        title: string;
+    };
 };
 
 type PageProps = {
@@ -37,22 +44,50 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
     const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [error, setError] = useState<string | null>(null);
     const [files, setFiles] = useState<FileList | null>(null);
     const [githubUrl, setGithubUrl] = useState("");
+    const [liveUrl, setLiveUrl] = useState("");
     const [notes, setNotes] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setSubmitting(true);
+        setError(null);
 
         try {
-            // TODO: Implement actual submission to API
-            await new Promise<void>((resolve) => {
-                setTimeout(() => resolve(), 2000);
-            }); // Simulate API call
+            // TODO: Upload files to Cloudinary if provided
+            let filesJson = null;
+            if (files && files.length > 0) {
+                // For now, we'll store file names until Cloudinary integration is complete
+                filesJson = JSON.stringify(
+                    Array.from(files).map((f) => ({ name: f.name, size: f.size }))
+                );
+            }
+
+            const response = await fetch("/api/lms/submissions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    assignmentId: assignment.id,
+                    githubUrl: githubUrl || undefined,
+                    liveUrl: liveUrl || undefined,
+                    notes: notes || undefined,
+                    files: filesJson,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to submit assignment");
+            }
+
             setSubmitted(true);
-        } catch (error) {
-            // Handle submission error silently for now
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Failed to submit assignment");
         } finally {
             setSubmitting(false);
         }
@@ -67,7 +102,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
                     <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-600">Loading assignment...</p>
+                    <p className="tw-mt-4 tw-text-gray-300">Loading assignment...</p>
                 </div>
             </div>
         );
@@ -95,33 +130,33 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 <div className="tw-container tw-py-16">
                     <div className="tw-mx-auto tw-max-w-2xl tw-text-center">
                         <div className="tw-mb-8">
-                            <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-green-100">
-                                <i className="fas fa-check tw-text-3xl tw-text-green-600" />
+                            <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-gold-light/30">
+                                <i className="fas fa-check tw-text-3xl tw-text-gold" />
                             </div>
-                            <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-gray-900">
+                            <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                                 Assignment Submitted Successfully!
                             </h1>
-                            <p className="tw-text-xl tw-text-gray-600">
+                            <p className="tw-text-xl tw-text-gray-300">
                                 Your submission for &quot;{assignment.title}&quot; has been received
                                 and will be reviewed by your mentor.
                             </p>
                         </div>
 
-                        <div className="tw-mb-8 tw-rounded-lg tw-bg-blue-50 tw-p-6">
+                        <div className="tw-mb-8 tw-rounded-lg tw-bg-navy-sky/20 tw-p-6">
                             <h3 className="tw-mb-2 tw-font-semibold tw-text-blue-900">
                                 What happens next?
                             </h3>
                             <ul className="tw-space-y-2 tw-text-left tw-text-blue-800">
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-clock tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-clock tw-mr-2 tw-text-navy-royal" />
                                     Your mentor will review your submission within 2-3 business days
                                 </li>
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-comments tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-comments tw-mr-2 tw-text-navy-royal" />
                                     You&apos;ll receive detailed feedback on your work
                                 </li>
                                 <li className="tw-flex tw-items-center">
-                                    <i className="fas fa-trophy tw-mr-2 tw-text-blue-600" />
+                                    <i className="fas fa-trophy tw-mr-2 tw-text-navy-royal" />
                                     Upon approval, you can continue to the next lesson
                                 </li>
                             </ul>
@@ -137,7 +172,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                             </Link>
                             <Link
                                 href="/courses/web-development"
-                                className="tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-medium tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50"
+                                className="tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-medium tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
                                 <i className="fas fa-book tw-mr-2" />
                                 Back to Course
@@ -156,7 +191,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 pages={[
                     { path: "/", label: "home" },
                     { path: "/courses", label: "courses" },
-                    { path: "/courses/web-development", label: "web development" },
+                    { path: `/courses/${assignment.course.id}`, label: assignment.course.title },
                 ]}
                 currentPage={`Submit: ${assignment.title}`}
                 showTitle={false}
@@ -166,51 +201,59 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 <div className="tw-mx-auto tw-max-w-4xl">
                     {/* Assignment Header */}
                     <div className="tw-mb-8">
-                        <div className="tw-mb-2 tw-text-sm tw-text-gray-600">
-                            {assignment.module} • {assignment.lesson}
+                        <div className="tw-mb-2 tw-text-sm tw-text-gray-300">
+                            {assignment.course.title} • {assignment.type}
                         </div>
-                        <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                             Submit Assignment: {assignment.title}
                         </h1>
-                        <p className="tw-text-gray-600">{assignment.description}</p>
+                        <p className="tw-text-gray-300">{assignment.description}</p>
                     </div>
 
                     <div className="tw-grid tw-grid-cols-1 tw-gap-8 lg:tw-grid-cols-3">
                         {/* Assignment Details */}
                         <div className="lg:tw-col-span-1">
                             <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
-                                    Assignment Requirements
+                                <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
+                                    Instructions
                                 </h3>
-                                <ul className="tw-space-y-2">
-                                    {assignment.requirements.map((requirement) => (
-                                        <li
-                                            key={requirement}
-                                            className="tw-flex tw-items-start tw-text-gray-700"
-                                        >
-                                            <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-green-500" />
-                                            {requirement}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <div className="tw-prose tw-prose-sm tw-max-w-none tw-text-gray-200">
+                                    <p className="tw-whitespace-pre-wrap">
+                                        {assignment.instructions}
+                                    </p>
+                                </div>
                             </div>
 
-                            <div className="tw-mb-6 tw-rounded-lg tw-bg-orange-50 tw-p-6">
-                                <h3 className="tw-mb-2 tw-font-semibold tw-text-orange-900">
-                                    <i className="fas fa-exclamation-triangle tw-mr-2" />
-                                    Important Information
+                            <div className="tw-mb-6 tw-rounded-lg tw-bg-navy-sky/20 tw-p-6">
+                                <h3 className="tw-mb-3 tw-font-semibold tw-text-navy-royal">
+                                    <i className="fas fa-info-circle tw-mr-2" />
+                                    Assignment Details
                                 </h3>
-                                <div className="tw-space-y-2 tw-text-sm tw-text-orange-800">
+                                <div className="tw-space-y-2 tw-text-sm tw-text-blue-900">
+                                    {assignment.dueDate && (
+                                        <p>
+                                            <strong>Due Date:</strong>{" "}
+                                            {new Date(assignment.dueDate).toLocaleDateString()}
+                                        </p>
+                                    )}
                                     <p>
-                                        <strong>Due Date:</strong> {assignment.dueDate}
+                                        <strong>Max Points:</strong> {assignment.maxPoints}
                                     </p>
                                     <p>
-                                        <strong>Max File Size:</strong> {assignment.maxFileSize}
+                                        <strong>Type:</strong> {assignment.type}
                                     </p>
-                                    <p>
-                                        <strong>Allowed Formats:</strong>{" "}
-                                        {assignment.allowedFormats.join(", ")}
-                                    </p>
+                                    {assignment.githubRepo && (
+                                        <p className="tw-flex tw-items-center">
+                                            <i className="fab fa-github tw-mr-2" />
+                                            GitHub repository required
+                                        </p>
+                                    )}
+                                    {assignment.liveDemo && (
+                                        <p className="tw-flex tw-items-center">
+                                            <i className="fas fa-globe tw-mr-2" />
+                                            Live demo required
+                                        </p>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -218,12 +261,20 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                         {/* Submission Form */}
                         <div className="lg:tw-col-span-2">
                             <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
+                                {error && (
+                                    <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4 tw-text-red-800">
+                                        <div className="tw-flex">
+                                            <i className="fas fa-exclamation-circle tw-mr-2 tw-text-red-400" />
+                                            <span>{error}</span>
+                                        </div>
+                                    </div>
+                                )}
                                 <form onSubmit={handleSubmit} className="tw-space-y-6">
                                     {/* GitHub Repository URL */}
                                     <div>
                                         <label
                                             htmlFor="github-url"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             GitHub Repository URL (Recommended)
                                         </label>
@@ -233,7 +284,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             value={githubUrl}
                                             onChange={(e) => setGithubUrl(e.target.value)}
                                             placeholder="https://github.com/username/repository"
-                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-gray-900 tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-ink tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                                         />
                                         <p className="tw-mt-1 tw-text-sm tw-text-gray-500">
                                             Share your code via GitHub for easy review and
@@ -241,11 +292,32 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                         </p>
                                     </div>
 
+                                    {/* Live Demo URL */}
+                                    <div>
+                                        <label
+                                            htmlFor="live-url"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
+                                        >
+                                            Live Demo URL (Optional)
+                                        </label>
+                                        <input
+                                            type="url"
+                                            id="live-url"
+                                            value={liveUrl}
+                                            onChange={(e) => setLiveUrl(e.target.value)}
+                                            placeholder="https://your-app.vercel.app"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-ink tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                        />
+                                        <p className="tw-mt-1 tw-text-sm tw-text-gray-500">
+                                            Link to your deployed application or demo
+                                        </p>
+                                    </div>
+
                                     {/* File Upload */}
                                     <div>
                                         <label
                                             htmlFor="files"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Upload Files (Alternative to GitHub)
                                         </label>
@@ -253,11 +325,8 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             <input
                                                 type="file"
                                                 id="files"
-                                                multiple
+                                                multiple={true}
                                                 onChange={handleFileChange}
-                                                accept={assignment.allowedFormats
-                                                    .map((format) => `.${format}`)
-                                                    .join(",")}
                                                 className="tw-sr-only"
                                             />
                                             <label
@@ -269,29 +338,28 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                 </span>
                                                 <div className="tw-text-center">
                                                     <i className="fas fa-cloud-upload-alt tw-mb-2 tw-text-2xl tw-text-gray-400" />
-                                                    <p className="tw-text-sm tw-text-gray-600">
+                                                    <p className="tw-text-sm tw-text-gray-300">
                                                         <span className="tw-font-medium tw-text-primary">
                                                             Click to upload
                                                         </span>{" "}
                                                         or drag and drop
                                                     </p>
                                                     <p className="tw-text-xs tw-text-gray-500">
-                                                        {assignment.allowedFormats.join(", ")} up to{" "}
-                                                        {assignment.maxFileSize}
+                                                        Common formats: ZIP, PDF, images
                                                     </p>
                                                 </div>
                                             </label>
                                         </div>
                                         {files && files.length > 0 && (
                                             <div className="tw-mt-2">
-                                                <p className="tw-text-sm tw-font-medium tw-text-gray-700">
+                                                <p className="tw-text-sm tw-font-medium tw-text-gray-200">
                                                     Selected files:
                                                 </p>
                                                 <ul className="tw-mt-1 tw-space-y-1">
                                                     {Array.from(files).map((file) => (
                                                         <li
                                                             key={`${file.name}-${file.size}`}
-                                                            className="tw-text-sm tw-text-gray-600"
+                                                            className="tw-text-sm tw-text-gray-300"
                                                         >
                                                             {file.name} (
                                                             {Math.round(file.size / 1024)} KB)
@@ -306,7 +374,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     <div>
                                         <label
                                             htmlFor="notes"
-                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-700"
+                                            className="tw-mb-2 tw-block tw-text-sm tw-font-medium tw-text-gray-200"
                                         >
                                             Additional Notes (Optional)
                                         </label>
@@ -316,7 +384,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             value={notes}
                                             onChange={(e) => setNotes(e.target.value)}
                                             placeholder="Any additional information about your submission, challenges faced, or questions for your mentor..."
-                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-gray-900 tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                            className="tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-ink tw-placeholder-gray-500 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
                                         />
                                     </div>
 
@@ -334,7 +402,9 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                             type="submit"
                                             disabled={
                                                 submitting ||
-                                                (!githubUrl && (!files || files.length === 0))
+                                                (!githubUrl &&
+                                                    !liveUrl &&
+                                                    (!files || files.length === 0))
                                             }
                                             className="hover:tw-bg-primary-dark tw-rounded-md tw-bg-primary tw-px-8 tw-py-3 tw-font-medium tw-text-white tw-transition-colors disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                         >
@@ -363,50 +433,42 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
 
 AssignmentSubmissionPage.Layout = Layout01;
 
-export const getServerSideProps: GetServerSideProps<PageProps> = async ({ params }) => {
-    const { assignmentId } = params as { assignmentId: string };
+export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
+    const { assignmentId } = context.params as { assignmentId: string };
 
-    // Mock assignment data - in real implementation, fetch from database
-    const mockAssignments: Record<string, AssignmentData> = {
-        "1-1": {
-            id: "1-1",
-            title: "Create Your First HTML Page",
-            description:
-                "Create a simple HTML page that showcases proper document structure and semantic elements.",
-            requirements: [
-                "Use proper HTML5 document structure (DOCTYPE, html, head, body)",
-                "Include at least 5 different semantic elements (header, nav, main, section, footer)",
-                "Add a navigation menu with at least 3 links",
-                "Include an image with proper alt text for accessibility",
-                "Validate your HTML using the W3C HTML validator",
-            ],
-            dueDate: "September 5, 2025",
-            module: "HTML Fundamentals",
-            lesson: "Introduction to HTML",
-            maxFileSize: "10 MB",
-            allowedFormats: ["html", "css", "js", "zip", "pdf"],
-        },
-        "1-2": {
-            id: "1-2",
-            title: "Build a Personal Bio Page",
-            description:
-                "Create a comprehensive personal biography page using various HTML elements and attributes.",
-            requirements: [
-                "Use all heading levels (h1-h6) appropriately in a hierarchical structure",
-                "Include both ordered and unordered lists with proper content",
-                "Add multiple images with descriptive alt text",
-                "Create internal page navigation using anchor links",
-                "Use proper semantic structure throughout the document",
-            ],
-            dueDate: "September 8, 2025",
-            module: "HTML Fundamentals",
-            lesson: "HTML Elements and Attributes",
-            maxFileSize: "10 MB",
-            allowedFormats: ["html", "css", "js", "zip", "pdf"],
-        },
-    };
+    // Check authentication
+    const session = await getServerSession(context.req, context.res, options);
 
-    const assignment = mockAssignments[assignmentId];
+    if (!session?.user) {
+        return {
+            redirect: {
+                destination: `/login?callbackUrl=/assignments/submit/${assignmentId}`,
+                permanent: false,
+            },
+        };
+    }
+
+    // Fetch assignment from database
+    const assignment = await prisma.assignment.findUnique({
+        where: { id: assignmentId },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            instructions: true,
+            dueDate: true,
+            type: true,
+            githubRepo: true,
+            liveDemo: true,
+            maxPoints: true,
+            course: {
+                select: {
+                    id: true,
+                    title: true,
+                },
+            },
+        },
+    });
 
     if (!assignment) {
         return {
@@ -414,9 +476,30 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({ params
         };
     }
 
+    // Verify user is enrolled in the course
+    const enrollment = await prisma.enrollment.findFirst({
+        where: {
+            userId: session.user.id,
+            courseId: assignment.course.id,
+            status: "ACTIVE",
+        },
+    });
+
+    if (!enrollment) {
+        return {
+            redirect: {
+                destination: "/courses",
+                permanent: false,
+            },
+        };
+    }
+
     return {
         props: {
-            assignment,
+            assignment: {
+                ...assignment,
+                dueDate: assignment.dueDate?.toISOString() || null,
+            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,

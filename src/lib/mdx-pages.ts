@@ -1,9 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+import { ImageType } from "@utils/types";
 import fs from "fs";
-import { join } from "path";
 import matter from "gray-matter";
+import { join } from "path";
+import { getImageUrl } from "./cloudinary-helpers";
 
 const mdxPagesDirectory = join(process.cwd(), "src/data/mdx-pages");
+
+/**
+ * Process image field to ensure it has a valid URL
+ * Supports both Cloudinary public IDs and full URLs
+ */
+const processImageField = (image: ImageType | undefined): ImageType | undefined => {
+    if (!image || !image.src) {
+        return image;
+    }
+
+    // Use the helper to get the URL (works with both public IDs and full URLs)
+    const processedSrc = getImageUrl(image.src);
+
+    return {
+        ...image,
+        src: processedSrc,
+    };
+};
 
 export function getPageBySlug(slug: string) {
     const realSlug = slug.replace(/\.md$/, "");
@@ -14,7 +35,7 @@ export function getPageBySlug(slug: string) {
 }
 
 // Utility to get all media posts with selected fields
-export function getAllMediaPosts<T extends { [key: string]: unknown } = Record<string, unknown>>(
+export function getAllMediaPosts<T extends object = Record<string, unknown>>(
     fields: string[] = [],
     dir = "media"
 ) {
@@ -34,7 +55,10 @@ export function getAllMediaPosts<T extends { [key: string]: unknown } = Record<s
             fields.forEach((field) => {
                 if (field === "slug") item.slug = slug;
                 else if (field === "content") item.content = content;
-                else if (data[field] !== undefined) item[field] = data[field];
+                else if (field === "image") {
+                    // Process image field to ensure proper URL
+                    item.image = processImageField(data[field] as ImageType);
+                } else if (data[field] !== undefined) item[field] = data[field];
             });
         }
         return item as T;

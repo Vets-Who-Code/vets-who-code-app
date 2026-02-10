@@ -1,5 +1,6 @@
-import { forwardRef } from "react";
 import clsx from "clsx";
+import { forwardRef } from "react";
+import SafeHTML from "../safe-html";
 
 type TProps = {
     className?: string;
@@ -40,18 +41,22 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                 ref={ref}
             >
                 {subtitle && (
-                    <span
+                    <SafeHTML
+                        content={subtitle}
+                        as="span"
                         className={clsx(
                             "tw-mb-2.5 tw-block tw-text-base tw-font-medium tw-uppercase tw-leading-none -tw-tracking-tightest",
                             color === "A" && "tw-text-secondary-light",
                             color === "B" && "tw-text-secondary",
+                            color === "C" && "tw-text-white",
                             subtitleClass
                         )}
-                        dangerouslySetInnerHTML={{ __html: subtitle }}
                     />
                 )}
 
-                <h2
+                <SafeHTML
+                    content={title}
+                    as="h2"
                     className={clsx(
                         "title tw-m-0 child:tw-font-normal child:tw-text-primary",
                         color === "A" && "tw-text-secondary",
@@ -60,16 +65,16 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                             "tw-text-4xl tw-leading-heading lg:tw-text-5xl lg:tw-leading-heading",
                         titleClass
                     )}
-                    dangerouslySetInnerHTML={{ __html: title }}
                 />
                 {description && (
-                    <p
+                    <SafeHTML
+                        content={description}
+                        as="p"
                         className={clsx(
                             "tw-mb-0 tw-mt-[25px] tw-font-medium",
                             descClass,
                             color === "C" && "tw-text-white"
                         )}
-                        dangerouslySetInnerHTML={{ __html: description }}
                     />
                 )}
             </div>

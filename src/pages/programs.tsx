@@ -1,8 +1,8 @@
-import { NextPage, GetStaticProps } from "next";
-import Layout from "@layout/layout-01";
-import SEO from "@components/seo/page-seo";
 import ProgramCard from "@components/program-card";
+import SEO from "@components/seo/page-seo";
 import HeroArea from "@containers/hero/layout-07";
+import Layout from "@layout/layout-01";
+import { GetStaticProps, NextPage } from "next";
 
 import { getAllMediaPosts } from "../lib/mdx-pages";
 
@@ -48,7 +48,7 @@ const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
             <HeroArea data={heroData} />
             <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
                 <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
-                    <p className="tw-text-center tw-text-lg tw-text-gray-700">
+                    <p className="tw-text-center tw-text-lg tw-text-gray-200">
                         Our programs are designed to empower veterans with real-world skills,
                         mentorship, and a supportive community—helping you transition, grow, and
                         lead in tech.

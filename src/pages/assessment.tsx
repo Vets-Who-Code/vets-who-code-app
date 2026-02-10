@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from "react";
+import Breadcrumb from "@components/breadcrumb";
+import CodeEditor from "@components/code-editor";
+import SEO from "@components/seo/page-seo";
+import { useMount } from "@hooks";
+import Layout01 from "@layout/layout-01";
+import Spinner from "@ui/spinner";
+import { SafeLocalStorage } from "@utils/safe-storage";
 import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import Layout01 from "@layout/layout-01";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
-import CodeEditor from "@components/code-editor";
-import Spinner from "@ui/spinner";
-import { useMount } from "@hooks";
+import React, { useEffect, useState } from "react";
 import {
+    type AssessmentQuestion,
     assessmentQuestions,
     determineSkillLevel,
-    type AssessmentQuestion,
 } from "@/data/assessment-questions";
 
 type PageProps = {
@@ -55,14 +56,16 @@ const Assessment: PageWithLayout = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const stored = localStorage.getItem("dev-session");
-            if (stored) {
-                try {
-                    const user = JSON.parse(stored);
-                    setDevSession({ user });
-                } catch {
-                    localStorage.removeItem("dev-session");
-                }
+            // Use SafeStorage to get dev session
+            const user = SafeLocalStorage.getItem<{
+                id: string;
+                name: string;
+                email: string;
+                image: string;
+            } | null>("dev-session", null);
+
+            if (user) {
+                setDevSession({ user });
             }
             setDevSessionLoaded(true);
         }
@@ -153,7 +156,7 @@ const Assessment: PageWithLayout = () => {
                 });
                 setTimeout(() => setNotification(null), 3000);
             }
-        } catch (error) {
+        } catch (_error) {
             setTestResults({
                 passed: 0,
                 total: currentQuestion.testCases.length,
@@ -226,7 +229,7 @@ const Assessment: PageWithLayout = () => {
                     message: "Failed to save assessment results",
                 });
             }
-        } catch (error) {
+        } catch (_error) {
             setNotification({
                 type: "error",
                 message: "An error occurred while saving your assessment",
@@ -257,17 +260,17 @@ const Assessment: PageWithLayout = () => {
                             <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-success tw-text-white">
                                 <i className="fas fa-check tw-text-3xl" />
                             </div>
-                            <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-900">
+                            <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-ink">
                                 Assessment Complete!
                             </h1>
-                            <p className="tw-text-lg tw-text-gray-600">
+                            <p className="tw-text-lg tw-text-gray-300">
                                 Great job completing the coding assessment
                             </p>
                         </div>
 
                         <div className="tw-mb-8 tw-space-y-4">
                             <div className="tw-rounded-lg tw-bg-gray-50 tw-p-6">
-                                <div className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-600">
+                                <div className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-300">
                                     Your Score
                                 </div>
                                 <div className="tw-text-4xl tw-font-bold tw-text-secondary">
@@ -276,7 +279,7 @@ const Assessment: PageWithLayout = () => {
                             </div>
 
                             <div className="tw-rounded-lg tw-bg-primary/10 tw-p-6">
-                                <div className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-600">
+                                <div className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-300">
                                     Skill Level
                                 </div>
                                 <div className="tw-text-3xl tw-font-bold tw-text-primary">
@@ -285,10 +288,10 @@ const Assessment: PageWithLayout = () => {
                             </div>
 
                             <div className="tw-rounded-lg tw-border tw-border-gray-200 tw-p-6">
-                                <div className="tw-mb-4 tw-text-sm tw-font-medium tw-text-gray-600">
+                                <div className="tw-mb-4 tw-text-sm tw-font-medium tw-text-gray-300">
                                     What this means
                                 </div>
-                                <p className="tw-text-sm tw-text-gray-700">
+                                <p className="tw-text-sm tw-text-gray-200">
                                     {skillLevel === "NEWBIE" &&
                                         "You're just getting started! Focus on learning basic syntax and programming concepts."}
                                     {skillLevel === "BEGINNER" &&
@@ -315,7 +318,7 @@ const Assessment: PageWithLayout = () => {
                             <button
                                 type="button"
                                 onClick={() => router.push("/courses")}
-                                className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50"
+                                className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
                                 <i className="fas fa-book tw-mr-2" />
                                 Browse Courses
@@ -344,10 +347,10 @@ const Assessment: PageWithLayout = () => {
                 <div
                     className={`tw-fixed tw-right-4 tw-top-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-duration-300 tw-animate-in tw-fade-in tw-slide-in-from-top-5 ${
                         notification.type === "success"
-                            ? "tw-border tw-border-green-200 tw-bg-green-50 tw-text-green-800"
+                            ? "tw-border tw-border-green-200 tw-bg-gold-light/20 tw-text-gold-deep"
                             : notification.type === "error"
                               ? "tw-border tw-border-red-200 tw-bg-red-50 tw-text-red-800"
-                              : "tw-border tw-border-blue-200 tw-bg-blue-50 tw-text-blue-800"
+                              : "tw-border tw-border-blue-200 tw-bg-navy-sky/20 tw-text-blue-800"
                     }`}
                 >
                     <div className="tw-flex tw-items-center tw-space-x-2">
@@ -370,27 +373,27 @@ const Assessment: PageWithLayout = () => {
                 <div className="tw-mb-6">
                     <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
                         <div>
-                            <h1 className="tw-text-2xl tw-font-bold tw-text-gray-900">
+                            <h1 className="tw-text-2xl tw-font-bold tw-text-ink">
                                 Coding Assessment
                             </h1>
-                            <p className="tw-text-gray-600">
+                            <p className="tw-text-gray-300">
                                 Complete the challenges to determine your skill level
                             </p>
                         </div>
                         <div className="tw-text-right">
-                            <div className="tw-text-sm tw-text-gray-600">Current Score</div>
+                            <div className="tw-text-sm tw-text-gray-300">Current Score</div>
                             <div className="tw-text-2xl tw-font-bold tw-text-primary">{score}</div>
                         </div>
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="tw-mb-2 tw-flex tw-items-center tw-justify-between tw-text-sm tw-text-gray-600">
+                    <div className="tw-mb-2 tw-flex tw-items-center tw-justify-between tw-text-sm tw-text-gray-300">
                         <span>
                             Question {currentQuestionIndex + 1} of {assessmentQuestions.length}
                         </span>
                         <span>{Math.round(progress)}% Complete</span>
                     </div>
-                    <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
+                    <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
                         <div
                             className="tw-h-2 tw-rounded-full tw-bg-primary tw-transition-all tw-duration-300"
                             style={{ width: `${progress}%` }}
@@ -404,35 +407,31 @@ const Assessment: PageWithLayout = () => {
                         <div className="tw-mb-4 tw-inline-block tw-rounded tw-bg-primary/10 tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-uppercase tw-text-primary">
                             {currentQuestion.level}
                         </div>
-                        <h2 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-gray-900">
+                        <h2 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-ink">
                             {currentQuestion.title}
                         </h2>
-                        <p className="tw-mb-4 tw-text-gray-600">{currentQuestion.description}</p>
+                        <p className="tw-mb-4 tw-text-gray-300">{currentQuestion.description}</p>
 
                         <div className="tw-mb-4 tw-rounded-lg tw-bg-gray-50 tw-p-4">
-                            <h3 className="tw-mb-2 tw-font-semibold tw-text-gray-900">
-                                Instructions
-                            </h3>
-                            <p className="tw-text-sm tw-text-gray-700">
+                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">Instructions</h3>
+                            <p className="tw-text-sm tw-text-gray-200">
                                 {currentQuestion.instructions}
                             </p>
                         </div>
 
                         <div className="tw-mb-4">
-                            <h3 className="tw-mb-2 tw-font-semibold tw-text-gray-900">
-                                Test Cases
-                            </h3>
+                            <h3 className="tw-mb-2 tw-font-semibold tw-text-ink">Test Cases</h3>
                             <div className="tw-space-y-2">
                                 {currentQuestion.testCases.map((testCase, index) => (
                                     <div
                                         key={index}
                                         className="tw-rounded tw-bg-gray-50 tw-p-3 tw-text-sm"
                                     >
-                                        <div className="tw-mb-1 tw-font-mono tw-text-xs tw-text-gray-600">
+                                        <div className="tw-mb-1 tw-font-mono tw-text-xs tw-text-gray-300">
                                             {testCase.input || "No input"}
                                         </div>
                                         <div className="tw-flex tw-items-center tw-justify-between">
-                                            <span className="tw-text-gray-700">
+                                            <span className="tw-text-gray-200">
                                                 {testCase.description}
                                             </span>
                                             <span className="tw-font-mono tw-text-xs tw-text-success">
@@ -448,7 +447,7 @@ const Assessment: PageWithLayout = () => {
                             <div
                                 className={`tw-rounded-lg tw-p-4 ${
                                     testResults.passed === testResults.total
-                                        ? "tw-border tw-border-green-200 tw-bg-green-50"
+                                        ? "tw-border tw-border-green-200 tw-bg-gold-light/20"
                                         : "tw-border tw-border-red-200 tw-bg-red-50"
                                 }`}
                             >
@@ -456,14 +455,14 @@ const Assessment: PageWithLayout = () => {
                                     <i
                                         className={`fas ${
                                             testResults.passed === testResults.total
-                                                ? "fa-check-circle tw-text-green-600"
+                                                ? "fa-check-circle tw-text-gold"
                                                 : "fa-times-circle tw-text-red-600"
                                         }`}
                                     />
                                     <span
                                         className={
                                             testResults.passed === testResults.total
-                                                ? "tw-text-green-800"
+                                                ? "tw-text-gold-deep"
                                                 : "tw-text-red-800"
                                         }
                                     >
@@ -473,13 +472,13 @@ const Assessment: PageWithLayout = () => {
                             </div>
                         )}
 
-                        <div className="tw-mt-4 tw-flex tw-items-center tw-justify-between tw-text-sm tw-text-gray-600">
+                        <div className="tw-mt-4 tw-flex tw-items-center tw-justify-between tw-text-sm tw-text-gray-300">
                             <span>
                                 <i className="fas fa-clock tw-mr-1" />
                                 Est. {currentQuestion.timeEstimate} min
                             </span>
                             <span>
-                                <i className="fas fa-star tw-mr-1 tw-text-yellow-500" />
+                                <i className="fas fa-star tw-mr-1 tw-text-gold-light/200" />
                                 {currentQuestion.points} points
                             </span>
                         </div>
@@ -487,7 +486,7 @@ const Assessment: PageWithLayout = () => {
 
                     {/* Code Editor Panel */}
                     <div className="tw-flex tw-flex-col tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                        <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                        <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                             Your Solution
                         </h3>
                         <div className="tw-mb-4 tw-flex-1">
@@ -509,7 +508,7 @@ const Assessment: PageWithLayout = () => {
                                     type="button"
                                     onClick={handlePrevious}
                                     disabled={currentQuestionIndex === 0}
-                                    className="tw-flex-1 tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-font-semibold tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-50 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
+                                    className="tw-flex-1 tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-4 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                 >
                                     <i className="fas fa-arrow-left tw-mr-2" />
                                     Previous

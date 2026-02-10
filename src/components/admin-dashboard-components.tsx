@@ -23,7 +23,7 @@ const ProgressBar = ({ progress }: { progress: number }) => {
     };
 
     return (
-        <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
+        <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
             <div className={`tw-h-2 tw-rounded-full tw-bg-primary ${getWidthClass(progress)}`} />
         </div>
     );
@@ -41,11 +41,9 @@ export const OverviewStats = () => {
         <div className="tw-mb-8 tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2 lg:tw-grid-cols-4">
             {stats.map((stat) => (
                 <div key={stat.label} className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                    <h3 className="tw-text-lg tw-font-semibold tw-text-gray-800">{stat.label}</h3>
+                    <h3 className="tw-text-lg tw-font-semibold tw-text-gray-400">{stat.label}</h3>
                     <p className="tw-mt-2 tw-text-3xl tw-font-bold tw-text-primary">{stat.value}</p>
-                    <p className="tw-mt-2 tw-text-sm tw-text-green-600">
-                        {stat.change} from last month
-                    </p>
+                    <p className="tw-mt-2 tw-text-sm tw-text-gold">{stat.change} from last month</p>
                 </div>
             ))}
         </div>
@@ -61,7 +59,7 @@ export const VerticalProgress = () => {
 
     return (
         <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-            <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-800">
+            <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-400">
                 Course Verticals Progress
             </h3>
             <div className="tw-space-y-4">
@@ -71,8 +69,8 @@ export const VerticalProgress = () => {
                         className="tw-border-b tw-border-gray-200 tw-pb-4 last:tw-border-b-0"
                     >
                         <div className="tw-mb-2 tw-flex tw-items-center tw-justify-between">
-                            <span className="tw-font-medium tw-text-gray-800">{vertical.name}</span>
-                            <span className="tw-text-sm tw-text-gray-600">
+                            <span className="tw-font-medium tw-text-gray-400">{vertical.name}</span>
+                            <span className="tw-text-sm tw-text-gray-300">
                                 {vertical.enrolled} enrolled · {vertical.avgProgress}% avg progress
                             </span>
                         </div>
@@ -88,7 +86,7 @@ export const AnalyticsCharts = () => {
     return (
         <div className="tw-mb-8 tw-grid tw-grid-cols-1 tw-gap-6 lg:tw-grid-cols-2">
             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-800">
+                <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-400">
                     Enrollment Trends
                 </h3>
                 <div className="tw-flex tw-h-64 tw-items-center tw-justify-center tw-rounded tw-bg-gray-50">
@@ -98,7 +96,7 @@ export const AnalyticsCharts = () => {
                 </div>
             </div>
             <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-800">
+                <h3 className="tw-mb-4 tw-text-xl tw-font-semibold tw-text-gray-400">
                     Completion Rates
                 </h3>
                 <div className="tw-flex tw-h-64 tw-items-center tw-justify-center tw-rounded tw-bg-gray-50">
@@ -137,7 +135,7 @@ export const TabNavigation = ({
                         className={`tw-border-b-2 tw-px-1 tw-py-2 tw-text-sm tw-font-medium ${
                             activeTab === tab.id
                                 ? "tw-border-primary tw-text-primary"
-                                : "tw-border-transparent tw-text-gray-500 hover:tw-border-gray-300 hover:tw-text-gray-700"
+                                : "tw-border-transparent tw-text-gray-500 hover:tw-border-gray-300 hover:tw-text-gray-200"
                         }`}
                     >
                         {tab.label}
@@ -168,9 +166,9 @@ export const UserProgress = ({ progress }: { progress: number }) => {
     };
 
     return (
-        <div className="tw-w-full tw-rounded-full tw-bg-gray-200">
+        <div className="tw-w-full tw-rounded-full tw-bg-gray-50">
             <div className={`tw-h-2 tw-rounded-full tw-bg-primary ${getProgressWidth(progress)}`} />
-            <span className="tw-mt-1 tw-block tw-text-xs tw-text-gray-600">{progress}%</span>
+            <span className="tw-mt-1 tw-block tw-text-xs tw-text-gray-300">{progress}%</span>
         </div>
     );
 };
@@ -206,7 +204,7 @@ export const UserManagement = () => {
     return (
         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                <h3 className="tw-text-xl tw-font-semibold tw-text-gray-800">User Management</h3>
+                <h3 className="tw-text-xl tw-font-semibold tw-text-gray-400">User Management</h3>
                 <button
                     type="button"
                     className="tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-white hover:tw-bg-primary/90"
@@ -241,7 +239,7 @@ export const UserManagement = () => {
                             <tr key={user.id}>
                                 <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
                                     <div>
-                                        <div className="tw-text-sm tw-font-medium tw-text-gray-900">
+                                        <div className="tw-text-sm tw-font-medium tw-text-ink">
                                             {user.name}
                                         </div>
                                         <div className="tw-text-sm tw-text-gray-500">
@@ -253,14 +251,14 @@ export const UserManagement = () => {
                                     <span
                                         className={`tw-inline-flex tw-rounded-full tw-px-2 tw-text-xs tw-font-semibold ${
                                             user.status === "Active"
-                                                ? "tw-bg-green-100 tw-text-green-800"
+                                                ? "tw-bg-gold-light/30 tw-text-gold-deep"
                                                 : "tw-bg-red-100 tw-text-red-800"
                                         }`}
                                     >
                                         {user.status}
                                     </span>
                                 </td>
-                                <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-gray-900">
+                                <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-ink">
                                     {user.enrolled}
                                 </td>
                                 <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">

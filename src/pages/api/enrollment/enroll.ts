@@ -1,80 +1,116 @@
-import { NextApiResponse } from 'next';
-import { requireAuth, AuthenticatedRequest } from '@/lib/rbac';
-import prisma from '@/lib/prisma';
+import { NextApiResponse } from "next";
+import prisma from "@/lib/prisma";
+import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
 
 /**
- * POST /api/enrollment/enroll
+ * GET /api/enrollment/enroll
+ * Fetch user's enrollments
  *
+ * POST /api/enrollment/enroll
  * Enroll user in a course
  * Body: { courseId: string }
  */
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+    const userId = req.user?.id;
 
-  try {
-    const { courseId } = req.body;
-    const userId = req.user!.id;
-
-    // Validation
-    if (!courseId) {
-      return res.status(400).json({ error: 'Course ID is required' });
+    if (!userId) {
+        return res.status(401).json({ error: "User not authenticated" });
     }
 
-    // Check if course exists and is published
-    const course = await prisma.course.findUnique({
-      where: { id: courseId },
-    });
+    // GET - Fetch user's enrollments
+    if (req.method === "GET") {
+        try {
+            const enrollments = await prisma.enrollment.findMany({
+                where: { userId },
+                include: {
+                    course: {
+                        select: {
+                            id: true,
+                            title: true,
+                            description: true,
+                            imageUrl: true,
+                            difficulty: true,
+                            category: true,
+                        },
+                    },
+                },
+                orderBy: {
+                    enrolledAt: "desc",
+                },
+            });
 
-    if (!course) {
-      return res.status(404).json({ error: 'Course not found' });
+            return res.status(200).json({ enrollments });
+        } catch (error) {
+            console.error("Error fetching enrollments:", error);
+            return res.status(500).json({ error: "Failed to fetch enrollments" });
+        }
     }
 
-    if (!course.isPublished) {
-      return res.status(400).json({ error: 'Course is not published' });
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
     }
 
-    // Check if already enrolled
-    const existingEnrollment = await prisma.enrollment.findUnique({
-      where: {
-        userId_courseId: {
-          userId,
-          courseId,
-        },
-      },
-    });
+    try {
+        const { courseId } = req.body;
 
-    if (existingEnrollment) {
-      return res.status(400).json({
-        error: 'Already enrolled in this course',
-        enrollment: existingEnrollment,
-      });
+        // Validation
+        if (!courseId) {
+            return res.status(400).json({ error: "Course ID is required" });
+        }
+
+        // Check if course exists and is published
+        const course = await prisma.course.findUnique({
+            where: { id: courseId },
+        });
+
+        if (!course) {
+            return res.status(404).json({ error: "Course not found" });
+        }
+
+        if (!course.isPublished) {
+            return res.status(400).json({ error: "Course is not published" });
+        }
+
+        // Check if already enrolled
+        const existingEnrollment = await prisma.enrollment.findUnique({
+            where: {
+                userId_courseId: {
+                    userId,
+                    courseId,
+                },
+            },
+        });
+
+        if (existingEnrollment) {
+            return res.status(400).json({
+                error: "Already enrolled in this course",
+                enrollment: existingEnrollment,
+            });
+        }
+
+        // Create enrollment
+        const enrollment = await prisma.enrollment.create({
+            data: {
+                userId,
+                courseId,
+                status: "ACTIVE",
+                progress: 0,
+            },
+            include: {
+                course: {
+                    select: {
+                        id: true,
+                        title: true,
+                        description: true,
+                        imageUrl: true,
+                    },
+                },
+            },
+        });
+
+        res.status(201).json({ enrollment });
+    } catch (error) {
+        console.error("Error enrolling in course:", error);
+        res.status(500).json({ error: "Failed to enroll in course" });
     }
-
-    // Create enrollment
-    const enrollment = await prisma.enrollment.create({
-      data: {
-        userId,
-        courseId,
-        status: 'ACTIVE',
-        progress: 0,
-      },
-      include: {
-        course: {
-          select: {
-            id: true,
-            title: true,
-            description: true,
-            imageUrl: true,
-          },
-        },
-      },
-    });
-
-    res.status(201).json({ enrollment });
-  } catch (error) {
-    console.error('Error enrolling in course:', error);
-    res.status(500).json({ error: 'Failed to enroll in course' });
-  }
 });

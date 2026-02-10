@@ -1,12 +1,12 @@
-import type { GetStaticPaths, NextPage } from "next";
 import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import HeroSection from "@containers/event-details/hero";
-import Summary from "@containers/event-details/summary";
 import Speakers from "@containers/event-details/speakers";
-import { IEvent } from "@utils/types";
+import Summary from "@containers/event-details/summary";
+import Layout01 from "@layout/layout-01";
 import { toCapitalize } from "@utils/methods";
-import { getEventeBySlug, getallEvents } from "../../lib/event";
+import { IEvent } from "@utils/types";
+import type { GetStaticPaths, NextPage } from "next";
+import { getallEvents, getEventeBySlug } from "../../lib/event";
 
 type TProps = {
     data: {

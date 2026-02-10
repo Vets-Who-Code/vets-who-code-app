@@ -1,11 +1,18 @@
-import React from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
+
+type Enrollment = {
+    id: string;
+    courseId: string;
+    status: string;
+    progress: number;
+};
 
 type PageProps = {
     user: {
@@ -13,6 +20,7 @@ type PageProps = {
         name: string | null;
         email: string;
         image: string | null;
+        role: string;
     };
     layout?: {
         headerShadow: boolean;
@@ -26,6 +34,53 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const CoursesIndex: PageWithLayout = ({ user }) => {
+    const [enrollments, setEnrollments] = useState<Enrollment[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetchEnrollments();
+    }, []);
+
+    const fetchEnrollments = async () => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/enrollment/enroll");
+            const data = await response.json();
+
+            if (response.ok) {
+                setEnrollments(data.enrollments);
+            }
+        } catch (error) {
+            console.error("Error fetching enrollments:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Helper function to check if user is enrolled in a vertical
+    // Map vertical slugs to course titles for enrollment checking
+    const verticalCourseMap: Record<string, string[]> = {
+        "software-engineering": [
+            "Software Engineering",
+            "Full-Stack Development",
+            "Web Development",
+        ],
+        "data-engineering": ["Data Engineering", "Data Science"],
+        "ai-engineering": ["AI Engineering", "Machine Learning", "Artificial Intelligence"],
+        devops: ["DevOps", "Cloud Engineering"],
+        "web-development": ["Web Development", "Frontend Development"],
+    };
+
+    const isEnrolledInVertical = (verticalSlug: string): boolean => {
+        const matchingTitles = verticalCourseMap[verticalSlug] || [];
+        return enrollments.some(
+            (enrollment) =>
+                enrollment.status === "ACTIVE" &&
+                matchingTitles.some((title) =>
+                    enrollment.courseId.toLowerCase().includes(title.toLowerCase())
+                )
+        );
+    };
 
     return (
         <>
@@ -40,8 +95,8 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                 {/* Header with Admin and User Menu */}
                 <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
                     <div>
-                        {/* Admin Access Button (only for jeromehardaway) */}
-                        {user.email === "jeromehardaway@users.noreply.github.com" && (
+                        {/* Admin Access Button (only for ADMIN role) */}
+                        {user.role === "ADMIN" && (
                             <Link
                                 href="/admin"
                                 className="tw-rounded-md tw-bg-primary/10 tw-px-4 tw-py-2 tw-text-primary tw-transition-colors hover:tw-bg-primary/20"
@@ -55,7 +110,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
 
                     {/* User Menu */}
                     <div className="tw-flex tw-items-center tw-space-x-4">
-                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-600">
+                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-300">
                             {user.image && (
                                 <img
                                     src={user.image}
@@ -63,14 +118,12 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                                     className="tw-h-8 tw-w-8 tw-rounded-full"
                                 />
                             )}
-                            <span>
-                                Welcome, {user.name?.split(" ")[0] || "User"}
-                            </span>
+                            <span>Welcome, {user.name?.split(" ")[0] || "User"}</span>
                         </div>
                         <div className="tw-flex tw-space-x-2">
                             <Link
                                 href="/profile"
-                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                                 title="View Profile"
                             >
                                 <i className="fas fa-user tw-mr-1" />
@@ -99,13 +152,21 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                     {/* Software Engineering Vertical */}
                     <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
                         <div className="tw-bg-gradient-to-br tw-from-primary tw-via-primary tw-to-primary/80 tw-p-8">
-                            <div className="tw-mb-6 tw-flex tw-items-center">
-                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
-                                    <i className="fas fa-code tw-text-3xl tw-text-white" />
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center">
+                                    <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                        <i className="fas fa-code tw-text-3xl tw-text-white" />
+                                    </div>
+                                    <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                        Software Engineering
+                                    </h3>
                                 </div>
-                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
-                                    Software Engineering
-                                </h3>
+                                {!loading && isEnrolledInVertical("software-engineering") && (
+                                    <span className="tw-rounded-full tw-bg-white/90 tw-px-3 tw-py-1 tw-text-xs tw-font-semibold tw-text-primary">
+                                        <i className="fas fa-check-circle tw-mr-1" />
+                                        Enrolled
+                                    </span>
+                                )}
                             </div>
                             <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
                                 Master full-stack development, system design, and software
@@ -114,7 +175,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-primary" />
                                     <span>16-20 weeks</span>
                                 </div>
@@ -142,7 +203,11 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                                 href="/courses/software-engineering"
                                 className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-primary tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-primary/90 hover:tw-shadow-lg"
                             >
-                                <span>View Vertical</span>
+                                <span>
+                                    {!loading && isEnrolledInVertical("software-engineering")
+                                        ? "Continue Learning"
+                                        : "View Vertical"}
+                                </span>
                                 <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
@@ -151,13 +216,21 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                     {/* Data Engineering Vertical */}
                     <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
                         <div className="tw-bg-gradient-to-br tw-from-secondary tw-via-secondary tw-to-secondary/80 tw-p-8">
-                            <div className="tw-mb-6 tw-flex tw-items-center">
-                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
-                                    <i className="fas fa-database tw-text-3xl tw-text-white" />
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center">
+                                    <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                        <i className="fas fa-database tw-text-3xl tw-text-white" />
+                                    </div>
+                                    <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                        Data Engineering
+                                    </h3>
                                 </div>
-                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
-                                    Data Engineering
-                                </h3>
+                                {!loading && isEnrolledInVertical("data-engineering") && (
+                                    <span className="tw-rounded-full tw-bg-white/90 tw-px-3 tw-py-1 tw-text-xs tw-font-semibold tw-text-secondary">
+                                        <i className="fas fa-check-circle tw-mr-1" />
+                                        Enrolled
+                                    </span>
+                                )}
                             </div>
                             <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
                                 Build data pipelines, work with big data technologies, and create
@@ -166,7 +239,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-secondary" />
                                     <span>18-22 weeks</span>
                                 </div>
@@ -194,7 +267,11 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                                 href="/courses/data-engineering"
                                 className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-secondary tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-secondary/90 hover:tw-shadow-lg"
                             >
-                                <span>View Vertical</span>
+                                <span>
+                                    {!loading && isEnrolledInVertical("data-engineering")
+                                        ? "Continue Learning"
+                                        : "View Vertical"}
+                                </span>
                                 <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
@@ -203,13 +280,21 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                     {/* AI Engineering Vertical */}
                     <div className="tw-group tw-overflow-hidden tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-shadow-lg tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-shadow-2xl">
                         <div className="tw-bg-gradient-to-br tw-from-success tw-via-success tw-to-success/80 tw-p-8">
-                            <div className="tw-mb-6 tw-flex tw-items-center">
-                                <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
-                                    <i className="fas fa-brain tw-text-3xl tw-text-white" />
+                            <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
+                                <div className="tw-flex tw-items-center">
+                                    <div className="tw-rounded-lg tw-bg-white/20 tw-p-3">
+                                        <i className="fas fa-brain tw-text-3xl tw-text-white" />
+                                    </div>
+                                    <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
+                                        AI Engineering
+                                    </h3>
                                 </div>
-                                <h3 className="tw-ml-4 tw-text-2xl tw-font-bold tw-text-white">
-                                    AI Engineering
-                                </h3>
+                                {!loading && isEnrolledInVertical("ai-engineering") && (
+                                    <span className="tw-rounded-full tw-bg-white/90 tw-px-3 tw-py-1 tw-text-xs tw-font-semibold tw-text-success">
+                                        <i className="fas fa-check-circle tw-mr-1" />
+                                        Enrolled
+                                    </span>
+                                )}
                             </div>
                             <p className="tw-text-lg tw-leading-relaxed tw-text-white/95">
                                 Develop AI/ML models, work with neural networks, and build
@@ -218,7 +303,7 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                         </div>
                         <div className="tw-p-8">
                             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
-                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-700">
+                                <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gray-50 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200">
                                     <i className="fas fa-clock tw-mr-2 tw-text-success" />
                                     <span>20-24 weeks</span>
                                 </div>
@@ -246,7 +331,11 @@ const CoursesIndex: PageWithLayout = ({ user }) => {
                                 href="/courses/ai-engineering"
                                 className="tw-group tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded-lg tw-bg-success tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition-all tw-duration-200 hover:tw-bg-success/90 hover:tw-shadow-lg"
                             >
-                                <span>View Vertical</span>
+                                <span>
+                                    {!loading && isEnrolledInVertical("ai-engineering")
+                                        ? "Continue Learning"
+                                        : "View Vertical"}
+                                </span>
                                 <i className="fas fa-arrow-right tw-ml-2 tw-transition-transform tw-duration-200 group-hover:tw-translate-x-1" />
                             </Link>
                         </div>
@@ -279,6 +368,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
                 name: session.user.name || null,
                 email: session.user.email || "",
                 image: session.user.image || null,
+                role: session.user.role || "STUDENT",
             },
             layout: {
                 headerShadow: true,

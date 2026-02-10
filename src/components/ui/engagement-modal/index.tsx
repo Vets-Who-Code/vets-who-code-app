@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { TSection } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = Exclude<TSection, "titleSize"> & {
     children: React.ReactNode;

@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
 import Anchor from "@ui/anchor";
 import { ImageType } from "@utils/types";
+import { forwardRef } from "react";
 
 export type ImageBoxProps = {
     image: ImageType;

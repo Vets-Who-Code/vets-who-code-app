@@ -1,7 +1,7 @@
-import { IZoomMeeting } from "@utils/types";
-import ZoomInfo from "@components/widgets/zoom-info-widget";
 import HTMLContent from "@components/html-content";
+import ZoomInfo from "@components/widgets/zoom-info-widget";
 import CountdownTimer from "@ui/countdown-timer/layout-02";
+import { IZoomMeeting } from "@utils/types";
 
 type TProps = Pick<
     IZoomMeeting,

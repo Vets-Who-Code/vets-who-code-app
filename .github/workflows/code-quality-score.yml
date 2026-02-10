@@ -7,9 +7,13 @@ on:
       - 'src/**.ts'
       - 'src/**.tsx'
       - '.github/scripts/**'
-      - '.eslintrc*'
+      - 'biome.json'
       - 'package.json'
       - 'tsconfig.json'
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   score-code-quality:
@@ -27,22 +31,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run ESLint and generate report
-        run: npx eslint src --ext .ts,.tsx -f json -o eslint-report.json || true
+      - name: Run Biome and generate report
+        run: npx biome ci src --reporter=json --colors=off > biome-report.json || true
 
       - name: Score the code
         run: node .github/scripts/scoreCode.js
 
-      - name: Comment Code Score on PR
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            const body = fs.readFileSync('score-output.md', 'utf8');
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body
-            });
+      - name: Display score in logs
+        run: cat score-output.md

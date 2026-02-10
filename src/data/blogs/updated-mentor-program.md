@@ -5,7 +5,7 @@ author: "Jerome Hardaway"
 description: "Why Vets Who Code’s new mentorship model is changing the game for veteran developers by focusing on tactical guidance from recently transitioned engineers."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1746411634/vwc-mentorship-program_ywhqsa.jpg",
+        src: "v1746411634/vwc-mentorship-program_ywhqsa.jpg",
     }
 category: "Mentorship"
 tags:
@@ -16,24 +16,6 @@ tags:
     - developer careers
 is_featured: true
 ---
-
-<div style="background-color: #091f40; color: white; padding: 1.5rem; border-radius: 1rem; max-width: 600px; margin: 2rem auto;">
-  <h2 style="font-size: 1.25rem; font-weight: 600; display: flex; align-items: center; margin-bottom: 0.5rem; color: white;">
-    🎙️ <span style="margin-left: 0.5rem;">Vets Who Code Mentorship Audio Brief</span>
-  </h2>
-  <p style="font-size: 0.875rem; color: #cbd5e1; margin-bottom: 1rem;">
-    Learn how our Mentorship Program helps veterans and military spouses break into tech with real support, tactical guidance, and a system built for outcomes.
-  </p>
-  <audio controls style="width: 100%; border-radius: 0.5rem;">
-    <source src="https://res.cloudinary.com/vetswhocode/video/upload/v1746493982/empowering-veterans-in-2025-the-vets-who-code-mentorship-program_ihomfk.m4a" type="audio/mp4" />
-    Your browser does not support the audio element.
-  </audio>
-  <p style="margin-top: 1rem; font-size: 0.875rem;">
-    <a href="https://res.cloudinary.com/vetswhocode/video/upload/v1746493982/empowering-veterans-in-2025-the-vets-who-code-mentorship-program_ihomfk.m4a" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: #cbd5e1;">
-      Or open in new tab
-    </a>
-  </p>
-</div>
 
 <p><strong>Time to read: 8 minutes</strong></p>  
 <p><strong>Key Takeaways:</strong></p>

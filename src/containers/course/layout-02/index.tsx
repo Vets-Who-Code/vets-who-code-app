@@ -1,9 +1,10 @@
-import { motion } from "motion/react";
+import SafeHTML from "@components/safe-html";
 import Section from "@components/ui/engagement-modal";
-import Button from "@ui/button";
 import { useUI } from "@contexts/ui-context";
+import Button from "@ui/button";
 import { ButtonType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {
@@ -24,19 +25,17 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg }: TProps) => {
                 variants={scrollUpVariants}
             >
                 {section_title?.subtitle && (
-                    <h3
+                    <SafeHTML
+                        content={section_title.subtitle}
+                        as="h3"
                         className="tw-mb-2.5 tw-leading-none tw-text-secondary child:tw-font-normal child:tw-text-primary"
-                        dangerouslySetInnerHTML={{
-                            __html: section_title.subtitle,
-                        }}
                     />
                 )}
                 {section_title?.title && (
-                    <h2
+                    <SafeHTML
+                        content={section_title.title}
+                        as="h2"
                         className="tw-mb-7.5 tw-text-[34px] tw-text-secondary"
-                        dangerouslySetInnerHTML={{
-                            __html: section_title.title,
-                        }}
                     />
                 )}
 
@@ -86,7 +85,7 @@ const CtaArea = ({ data: { section_title, buttons }, space, bg }: TProps) => {
 };
 
 CtaArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default CtaArea;

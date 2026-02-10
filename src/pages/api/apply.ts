@@ -84,9 +84,15 @@ function buildSlackMessage(parsedBody: ParsedBody): string {
         formatField("Branch of Service", parsedBody.branchOfService),
         formatField("Year Joined", parsedBody.yearJoined),
         formatField("Year Separated", parsedBody.yearSeparated),
-        formatBooleanField("Has attended previous bootcamp/programs", parsedBody.hasAttendedPreviousCourse),
+        formatBooleanField(
+            "Has attended previous bootcamp/programs",
+            parsedBody.hasAttendedPreviousCourse
+        ),
         formatPreviousCourses(parsedBody),
-        formatBooleanField("Will do other courses/programs concurrently", parsedBody.willAttendAnotherCourse),
+        formatBooleanField(
+            "Will do other courses/programs concurrently",
+            parsedBody.willAttendAnotherCourse
+        ),
         formatOtherCourses(parsedBody),
         formatField("LinkedIn Account Name", parsedBody.linkedInAccountName),
         formatField("GitHub Account Name", parsedBody.githubAccountName),
@@ -119,7 +125,7 @@ export default async function handler(req: Request, res: Response) {
         await postToSlack(text);
 
         return res.status(200).json({ message: "SUCCESS" });
-    } catch (err) {
+    } catch (_err) {
         return res.status(500).json({ message: "Failed to post to #apply channel" });
     }
 }

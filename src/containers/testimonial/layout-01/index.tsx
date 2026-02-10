@@ -1,10 +1,10 @@
-import { useMemo } from "react";
+import Testimonial from "@components/testimonial/testimonial-01";
 import Section from "@components/ui/engagement-modal";
 import Swiper, { SwiperSlide } from "@ui/swiper";
-import Testimonial from "@components/testimonial/testimonial-01";
-import { motion } from "motion/react";
-import { scrollUpVariants } from "@utils/variants";
 import { ItemType, TSection } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
 
 const AnimatedSwiper = motion(Swiper);
 

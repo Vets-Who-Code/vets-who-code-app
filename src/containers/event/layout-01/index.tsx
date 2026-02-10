@@ -1,9 +1,9 @@
-import dynamic from "next/dynamic";
 import Section from "@components/ui/engagement-modal";
-import NiceSelect from "@ui/nice-select";
-import { IEvent } from "@utils/types";
-import { eventFilter } from "@utils/methods";
 import { useFilter } from "@hooks";
+import NiceSelect from "@ui/nice-select";
+import { eventFilter } from "@utils/methods";
+import { IEvent } from "@utils/types";
+import dynamic from "next/dynamic";
 import OriginalItems from "./original-items";
 
 const FilterItems = dynamic(() => import("./filter-items"), {

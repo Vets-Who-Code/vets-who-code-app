@@ -5,7 +5,7 @@ author: "John Doe"
 description: "Explore how traditional hiring methods are failing to attract top talent in the age of AI and what changes need to be made."
 image:
     {
-        src: "https://res.cloudinary.com/vetswhocode/image/upload/v1718478746/hiring-era-of-ai_jfj4dm.jpg",
+        src: "v1718478746/hiring-era-of-ai_jfj4dm.jpg",
     }
 category: "Tech Hiring Practices"
 tags:

@@ -1,5 +1,5 @@
-import { Children, FunctionComponent, ReactChild, ReactText } from "react";
 import cn from "clsx";
+import { Children, FunctionComponent, ReactChild, ReactText } from "react";
 import SocialLink from "./social-link";
 
 type TProps = {

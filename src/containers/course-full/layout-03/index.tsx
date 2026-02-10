@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import CourseCard from "@components/course-card/course-03";
-import { ICourse } from "@utils/types";
+import Section from "@components/ui/engagement-modal";
+import { useLoadMore, useSort } from "@hooks";
 import { courseSorting } from "@utils/methods";
-import { useSort, useLoadMore } from "@hooks";
+import { ICourse } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedCourseCard = motion(CourseCard);
 

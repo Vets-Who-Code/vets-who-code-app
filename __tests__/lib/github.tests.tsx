@@ -1,18 +1,15 @@
-import { getProjectContributors, getGithubRepo, getGithubRepoContributors } from "lib/github";
-import { GithubContributor, GithubUser, GithubRepo } from "@utils/types";
-import { gitAPI } from "lib/git-api-client";
+import { GithubContributor, GithubRepo, GithubUser } from "@utils/types";
+import type { Mock } from "vitest";
+import { gitAPI } from "@/lib/git-api-client";
+import { getGithubRepo, getGithubRepoContributors, getProjectContributors } from "@/lib/github";
 
-jest.mock("@/lib/git-api-client", () => ({
+vi.mock("@/lib/git-api-client", () => ({
     gitAPI: {
-        get: jest.fn(),
+        get: vi.fn(),
     },
 }));
 
 describe("GitHub API Functions", () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
-
     describe("getProjectContributors", () => {
         const mockContributors: GithubContributor[] = [
             {
@@ -42,7 +39,7 @@ describe("GitHub API Functions", () => {
 
         it("should return formatted contributor data", async () => {
             // Mock contributors endpoint
-            (gitAPI.get as jest.Mock)
+            (gitAPI.get as Mock)
                 .mockResolvedValueOnce({ status: 200, data: mockContributors })
                 // Mock individual user endpoints
                 .mockResolvedValueOnce({ status: 200, data: mockUsers[0] })
@@ -63,7 +60,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should handle contributor fetch error", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 404,
                 error: "Not Found",
             });
@@ -74,7 +71,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should handle user fetch error", async () => {
-            (gitAPI.get as jest.Mock)
+            (gitAPI.get as Mock)
                 .mockResolvedValueOnce({ status: 200, data: mockContributors })
                 .mockResolvedValueOnce({ status: 404, error: "User not found" });
 
@@ -94,7 +91,7 @@ describe("GitHub API Functions", () => {
         };
 
         it("should return repository data", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 200,
                 data: mockRepo,
             });
@@ -106,7 +103,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should handle error response", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 404,
                 error: "Repository not found",
             });
@@ -117,7 +114,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should handle error response without error message", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({ status: 500 });
+            (gitAPI.get as Mock).mockResolvedValueOnce({ status: 500 });
 
             await expect(getGithubRepo("owner", "repo")).rejects.toThrow(
                 "Error fetching repo data for owner/repo\nStatus code: 500"
@@ -142,7 +139,7 @@ describe("GitHub API Functions", () => {
         ];
 
         it("should return contributor list with specified limit", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 200,
                 data: mockContributors,
             });
@@ -160,7 +157,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should use default limit of 4", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 200,
                 data: mockContributors,
             });
@@ -172,7 +169,7 @@ describe("GitHub API Functions", () => {
         });
 
         it("should handle error response", async () => {
-            (gitAPI.get as jest.Mock).mockResolvedValueOnce({
+            (gitAPI.get as Mock).mockResolvedValueOnce({
                 status: 404,
                 error: "Not Found",
             });

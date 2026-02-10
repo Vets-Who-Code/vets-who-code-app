@@ -1,9 +1,9 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import dayjs from "dayjs";
 import Anchor from "@ui/anchor";
 import Button from "@ui/button";
+import { formatDate } from "@utils/date";
 import { IEvent } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 interface TProps extends Pick<IEvent, "thumbnail" | "title" | "path" | "start_date" | "location"> {
     className?: string;
@@ -14,16 +14,16 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "event tw-group tw-relative tw-h-full tw-rounded tw-bg-gray-100",
+                    "event tw-group tw-relative tw-h-full tw-rounded tw-bg-cream",
                     "before:tw-absolute before:tw-inset-0 before:tw-opacity-0 before:tw-shadow-4xl before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-duration-300 before:tw-content-['']",
                     "hover:before:tw-opacity-100",
                     className
                 )}
                 ref={ref}
             >
-                <div className="max-w-full tw-relative tw-h-[230px] tw-overflow-hidden tw-rounded-t">
+                <div className="tw-relative tw-h-[230px] tw-overflow-hidden tw-rounded-t max-w-full">
                     {thumbnail?.src && (
-                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">
+                        <figure className="tw-group-hover:tw-scale-110 tw-h-full tw-transition-transform tw-duration-1500">
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={thumbnail.src}
@@ -42,7 +42,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                 </div>
                 <div className="info tw-relative tw-z-1 tw-px-7.5 tw-pb-10 tw-pt-7.5 tw-text-center">
                     <p className="tw-mb-1 tw-font-semibold tw-uppercase -tw-tracking-tightest tw-text-primary">
-                        {dayjs(start_date).format("MMM DD, YYYY")}
+                        {formatDate(start_date)}
                     </p>
                     <h3 className="tw-mb-0 tw-text-xl tw-leading-normal tw-text-secondary">
                         <Anchor path={path}>{title}</Anchor>

@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import dayjs from "dayjs";
 import Button from "@ui/button";
+import { formatDate } from "@utils/date";
 import { IEvent } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = Pick<IEvent, "title" | "start_date" | "path" | "location"> & {
     className?: string;
@@ -13,7 +13,7 @@ const Event02 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "event-card tw-relative tw-z-10 tw-flex tw-flex-wrap tw-rounded tw-bg-light-100 tw-p-[31px] md:tw-flex-nowrap",
+                    "event-card tw-relative tw-z-10 tw-flex tw-flex-wrap tw-rounded tw-bg-cream tw-p-[31px] md:tw-flex-nowrap",
                     "before:tw-absolute before:tw-inset-0 before:-tw-z-1 before:tw-opacity-0 before:tw-shadow-lg before:tw-shadow-heading/10 before:tw-transition-opacity before:tw-duration-300 before:tw-content-['']",
                     "after:tw-absolute after:tw-inset-0 after:tw-right-auto after:tw-w-[3px] after:tw-rounded-bl after:tw-rounded-tl after:tw-bg-primary after:tw-opacity-0 after:tw-transition-opacity after:tw-duration-300 after:tw-content-['']",
                     "hover:tw-bg-white hover:before:tw-opacity-100 hover:after:tw-opacity-100",
@@ -31,10 +31,10 @@ const Event02 = forwardRef<HTMLDivElement, TProps>(
                 <div className="tw-shrink-0">
                     <div className="tw-mb-2.5 tw-text-left sm:tw-text-center">
                         <div className="tw-text-5xl tw-font-normal tw-leading-none tw-text-primary">
-                            {dayjs(start_date).format("DD")}
+                            {formatDate(start_date, "DD")}
                         </div>
                         <div className="tw-font-bold tw-uppercase tw-leading-none tw-tracking-wider tw-text-heading">
-                            {dayjs(start_date).format("MMM")}
+                            {formatDate(start_date, "MMM")}
                         </div>
                     </div>
                     <Button path={path} size="xs">

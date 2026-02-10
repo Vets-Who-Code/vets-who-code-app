@@ -1,52 +1,51 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { VWCProject, VWCContributor, VWCProjectRepo } from "@utils/types";
-import Projects from "pages/projects";
-import {
-    TechStack,
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
+import type { Mock } from "vitest";
+import { getProjectData } from "@/lib/project";
+import Projects, {
     LinkButtons,
-    RepoStats,
-    TopContributors,
-    ProjectDetailModal,
     ProjectCard,
-} from "pages/projects";
-import { getProjectData } from "lib/project";
-import { waitFor } from "@testing-library/react";
+    ProjectDetailModal,
+    RepoStats,
+    TechStack,
+    TopContributors,
+} from "@/pages/projects";
 
 // Mock dependencies
-jest.mock("@components/seo/page-seo", () => ({
-    __esModule: true,
+vi.mock("@components/seo/page-seo", () => ({
     default: () => <div data-testid="seo" />,
 }));
 
-jest.mock("@layout/layout-01", () => ({
-    __esModule: true,
-    default: ({ children }) => <div data-testid="layout">{children}</div>,
+vi.mock("@layout/layout-01", () => ({
+    default: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="layout">{children}</div>
+    ),
 }));
 
-jest.mock("@components/breadcrumb", () => ({
-    __esModule: true,
+vi.mock("@components/breadcrumb", () => ({
     default: () => <div data-testid="breadcrumb" />,
 }));
 
-jest.mock("@components/vwc-grid", () => ({
-    VWCGrid: ({ children }) => <div data-testid="vwc-grid">{children}</div>,
+vi.mock("@components/vwc-grid", () => ({
+    VWCGrid: ({ children }: { children: React.ReactNode }) => (
+        <div data-testid="vwc-grid">{children}</div>
+    ),
 }));
 
-jest.mock("@components/markdown-renderer", () => ({
-    __esModule: true,
-    default: ({ content }) => <div data-testid="markdown">{content}</div>,
+vi.mock("@components/markdown-renderer", () => ({
+    default: ({ content }: { content: string }) => <div data-testid="markdown">{content}</div>,
 }));
 
 // Mock the AnimatePresence component
-jest.mock("motion/react", () => ({
-    AnimatePresence: ({ children }) => <div>{children}</div>,
+vi.mock("motion/react", () => ({
+    AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     motion: {
-        div: ({ children }) => <div>{children}</div>,
+        div: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     },
 }));
 
-jest.mock("@/lib/project", () => ({
-    getProjectData: jest.fn(),
+vi.mock("@/lib/project", () => ({
+    getProjectData: vi.fn(),
 }));
 
 // Mock data
@@ -56,10 +55,6 @@ const mockContributor: VWCContributor = {
     avatar_url: "https://example.com/avatar.jpg",
     html_url: "https://github.com/testuser",
     contributions: 10,
-    id: 1,
-    node_id: "node1",
-    type: "User",
-    url: "https://api.github.com/users/testuser",
 };
 
 const mockRepo: VWCProjectRepo = {
@@ -209,10 +204,10 @@ describe("Projects Page", () => {
 
 describe("getStaticProps", () => {
     it("returns project data and layout settings", async () => {
-        (getProjectData as jest.Mock).mockResolvedValue([mockProject]);
+        (getProjectData as Mock).mockResolvedValue([mockProject]);
 
-        const { getStaticProps } = require("@/pages/projects");
-        const result = await getStaticProps();
+        const { getStaticProps } = await import("@/pages/projects");
+        const result = await getStaticProps({});
 
         expect(result).toEqual({
             props: {
@@ -227,10 +222,22 @@ describe("getStaticProps", () => {
         });
     });
 
-    it("handles errors appropriately", async () => {
-        (getProjectData as jest.Mock).mockRejectedValue(new Error("API Error"));
+    it("handles errors by falling back to empty projects", async () => {
+        (getProjectData as Mock).mockRejectedValue(new Error("API Error"));
 
-        const { getStaticProps } = require("@/pages/projects");
-        await expect(getStaticProps()).rejects.toThrow("Failed to update github project data");
+        const { getStaticProps } = await import("@/pages/projects");
+        const result = await getStaticProps({});
+
+        expect(result).toEqual({
+            props: {
+                projects: [],
+                layout: {
+                    headerShadow: true,
+                    headerFluid: false,
+                    footerMode: "light",
+                },
+            },
+            revalidate: 60,
+        });
     });
 });

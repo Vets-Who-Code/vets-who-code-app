@@ -14,8 +14,8 @@ const Badge = ({ children, className, color, size, variant }: TProps) => {
             className={clsx(
                 "tw-inline-flex tw-items-center tw-justify-center tw-leading-none",
                 variant === "contained" && [
-                    color === "teracotta" && "tw-bg-teracotta-light tw-text-teracotta",
-                    color === "scooter" && "tw-bg-scooter-light tw-text-scooter",
+                    color === "teracotta" && "tw-bg-red-signal/10 tw-text-red",
+                    color === "scooter" && "tw-bg-navy-sky tw-text-navy-ocean",
                     color === "primary" && "tw-bg-primary tw-text-white",
                     color === "gradient" && "tw-bg-strawGradient tw-text-white",
                 ],

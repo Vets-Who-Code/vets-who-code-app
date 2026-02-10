@@ -14,7 +14,7 @@ const PopularTagsWidget = ({ tags }: TProps) => {
                     <Anchor
                         key={tag.slug}
                         path={`/blogs/tag/${tag.slug}`}
-                        className="tw-m-[5px] tw-inline-block tw-rounded-[3px] tw-bg-gray-200 tw-px-3.8 tw-pb-1.5 tw-pt-[7px] tw-text-[13px] tw-font-medium tw-lowercase tw-leading-normal tw-text-gray-400 hover:tw-bg-primary hover:tw-text-white"
+                        className="tw-m-[5px] tw-inline-block tw-rounded-[3px] tw-bg-gray-50 tw-px-3.8 tw-pb-1.5 tw-pt-[7px] tw-text-[13px] tw-font-medium tw-lowercase tw-leading-normal tw-text-gray-400 hover:tw-bg-primary hover:tw-text-white"
                     >
                         {tag.title}
                     </Anchor>

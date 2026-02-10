@@ -1,12 +1,12 @@
-import { useState, useEffect, useCallback } from "react";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import BlogArea from "@containers/blog-full/layout-05";
+import Layout01 from "@layout/layout-01";
+import Spinner from "@ui/spinner";
+import { IBlog } from "@utils/types";
 import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import SEO from "@components/seo/page-seo";
-import Spinner from "@ui/spinner";
-import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import BlogArea from "@containers/blog-full/layout-05";
-import { IBlog } from "@utils/types";
+import { useCallback, useEffect, useState } from "react";
 import { getAllBlogs } from "../../lib/blog";
 
 type TProps = {

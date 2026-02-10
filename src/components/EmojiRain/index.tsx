@@ -8,7 +8,7 @@ const EmojiRain = () => {
     }));
 
     return (
-        <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-50 overflow-hidden">
+        <div className="pointer-events-none fixed top-0 left-0 z-50 h-full w-full overflow-hidden">
             {emojis.map((emojiObj) => (
                 <div
                     key={emojiObj.id} // Using the unique ID as key

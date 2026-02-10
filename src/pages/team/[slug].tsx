@@ -1,9 +1,9 @@
-import type { GetStaticPaths, NextPage } from "next";
+import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
 import { IInstructor } from "@utils/types";
-import { getTeamMemberBySlug, getAllTeamMembers } from "../../lib/team";
+import type { GetStaticPaths, NextPage } from "next";
+import { getAllTeamMembers, getTeamMemberBySlug } from "../../lib/team";
 
 type TProps = {
     data: {

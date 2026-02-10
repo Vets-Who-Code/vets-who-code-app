@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { useCart } from "@hooks";
 import { formatPrice } from "@lib/shopify";
 import clsx from "clsx";
@@ -9,14 +8,7 @@ interface ShoppingCartProps {
 }
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
-    const {
-        cart,
-        cartTotal,
-        cartCurrency,
-        isLoading,
-        updateCartLines,
-        removeFromCart,
-    } = useCart();
+    const { cart, cartTotal, cartCurrency, isLoading, updateCartLines, removeFromCart } = useCart();
 
     const handleUpdateQuantity = async (lineId: string, newQuantity: number) => {
         if (newQuantity < 1) return;
@@ -43,7 +35,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
     };
 
     return (
-        <Fragment>
+        <>
             {/* Overlay */}
             <div
                 className={clsx(
@@ -64,12 +56,10 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
             >
                 {/* Header */}
                 <div className="tw-flex tw-items-center tw-justify-between tw-p-6 tw-border-b tw-border-gray-200">
-                    <h2 className="tw-text-2xl tw-font-bold tw-text-secondary">
-                        Shopping Cart
-                    </h2>
+                    <h2 className="tw-text-2xl tw-font-bold tw-text-secondary">Shopping Cart</h2>
                     <button
                         onClick={onClose}
-                        className="tw-text-gray-500 hover:tw-text-gray-700 tw-transition-colors"
+                        className="tw-text-gray-500 hover:tw-text-gray-200 tw-transition-colors"
                         aria-label="Close cart"
                     >
                         <svg
@@ -109,7 +99,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                     d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                                 />
                             </svg>
-                            <p className="tw-text-gray-600 tw-text-lg tw-font-medium">
+                            <p className="tw-text-gray-300 tw-text-lg tw-font-medium">
                                 Your cart is empty
                             </p>
                             <p className="tw-text-gray-500 tw-text-sm tw-mt-1">
@@ -140,7 +130,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                         <h3 className="tw-font-semibold tw-text-secondary tw-truncate">
                                             {line.merchandise.product.title}
                                         </h3>
-                                        <p className="tw-text-sm tw-text-gray-600 tw-mt-1">
+                                        <p className="tw-text-sm tw-text-gray-300 tw-mt-1">
                                             {line.merchandise.title}
                                         </p>
                                         <p className="tw-font-bold tw-text-primary tw-mt-2">
@@ -157,7 +147,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                                     handleUpdateQuantity(line.id, line.quantity - 1)
                                                 }
                                                 disabled={line.quantity <= 1 || isLoading}
-                                                className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center tw-bg-white tw-border tw-border-gray-300 tw-rounded tw-text-gray-700 hover:tw-bg-gray-100 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+                                                className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center tw-bg-white tw-border tw-border-gray-300 tw-rounded tw-text-gray-200 hover:tw-bg-gray-100 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                                             >
                                                 -
                                             </button>
@@ -169,7 +159,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                                     handleUpdateQuantity(line.id, line.quantity + 1)
                                                 }
                                                 disabled={isLoading}
-                                                className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center tw-bg-white tw-border tw-border-gray-300 tw-rounded tw-text-gray-700 hover:tw-bg-gray-100 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+                                                className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center tw-bg-white tw-border tw-border-gray-300 tw-rounded tw-text-gray-200 hover:tw-bg-gray-100 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                                             >
                                                 +
                                             </button>
@@ -208,13 +198,13 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                             Proceed to Checkout
                         </button>
 
-                        <p className="tw-text-xs tw-text-gray-600 tw-text-center tw-mt-3">
+                        <p className="tw-text-xs tw-text-gray-300 tw-text-center tw-mt-3">
                             Shipping and taxes calculated at checkout
                         </p>
                     </div>
                 )}
             </div>
-        </Fragment>
+        </>
     );
 };
 

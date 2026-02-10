@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import BottomShapeSVG from "@assets/svgs/bottom-shape-3.svg";
+import clsx from "clsx";
 
 type TProps = {
     className?: string;
@@ -10,7 +10,7 @@ const BottomShape = ({ className, color }: TProps) => {
     return (
         <div
             className={clsx(
-                "bottom-shape tw-absolute -tw-bottom-px tw-left-0 -tw-z-1 tw-h-20 tw-w-full tw-rotate-180 md:tw-h-[310px]",
+                "tw-absolute -tw-bottom-px tw-left-0 -tw-z-1 tw-h-20 tw-w-full tw-rotate-180 md:tw-h-[310px] bottom-shape",
                 className
             )}
         >
@@ -20,7 +20,7 @@ const BottomShape = ({ className, color }: TProps) => {
 };
 
 BottomShape.defaultProps = {
-    color: "tw-fill-light-100",
+    color: "tw-fill-white",
 };
 
 export default BottomShape;

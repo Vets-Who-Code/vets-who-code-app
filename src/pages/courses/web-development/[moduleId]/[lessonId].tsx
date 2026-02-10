@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Layout01 from "@layout/layout-01";
-import type { GetServerSideProps, NextPage } from "next";
-import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
 import { AITeachingAssistant } from "@components/ai-assistant";
+import Breadcrumb from "@components/breadcrumb";
+import SafeHTML from "@components/safe-html";
+import SEO from "@components/seo/page-seo";
+import Layout01 from "@layout/layout-01";
+import { PrismaClient } from "@prisma/client";
+import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
+import { getServerSession } from "next-auth/next";
+import React, { useEffect, useState } from "react";
+import { options } from "@/pages/api/auth/options";
 
 type LessonData = {
     id: string;
@@ -15,6 +17,7 @@ type LessonData = {
     videoUrl?: string;
     duration: string;
     content: string;
+    audioUrl?: string;
     assignment?: {
         title: string;
         description: string;
@@ -63,16 +66,16 @@ const AssignmentSection: React.FC<{
     if (!assignment) return null;
 
     return (
-        <div className="tw-mb-8 tw-rounded-lg tw-border tw-border-orange-200 tw-bg-orange-50 tw-p-6">
+        <div className="tw-mb-8 tw-rounded-lg tw-border tw-border-red-signal/30 tw-bg-red-signal/10 tw-p-6">
             <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
-                <h3 className="tw-text-xl tw-font-bold tw-text-orange-900">
+                <h3 className="tw-text-xl tw-font-bold tw-text-red-maroon">
                     <i className="fas fa-tasks tw-mr-2" />
                     Assignment: {assignment.title}
                 </h3>
                 <button
                     type="button"
                     onClick={() => setShowAssignment(!showAssignment)}
-                    className="tw-text-orange-600 hover:tw-text-orange-800"
+                    className="tw-text-red hover:tw-text-red-dark"
                 >
                     {showAssignment ? (
                         <i className="fas fa-chevron-up" />
@@ -84,13 +87,13 @@ const AssignmentSection: React.FC<{
 
             {showAssignment && (
                 <div>
-                    <p className="tw-mb-4 tw-text-orange-800">{assignment.description}</p>
+                    <p className="tw-mb-4 tw-text-red-dark">{assignment.description}</p>
 
-                    <h4 className="tw-mb-2 tw-font-semibold tw-text-orange-900">Requirements:</h4>
+                    <h4 className="tw-mb-2 tw-font-semibold tw-text-red-maroon">Requirements:</h4>
                     <ul className="tw-mb-4 tw-space-y-1">
                         {assignment.requirements.map((req) => (
-                            <li key={req} className="tw-flex tw-items-start tw-text-orange-800">
-                                <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-orange-600" />
+                            <li key={req} className="tw-flex tw-items-start tw-text-red-dark">
+                                <i className="fas fa-check tw-mr-2 tw-mt-1 tw-text-red" />
                                 {req}
                             </li>
                         ))}
@@ -99,7 +102,7 @@ const AssignmentSection: React.FC<{
                     {assignment.submissionUrl && (
                         <Link
                             href={assignment.submissionUrl}
-                            className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-orange-600 tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-orange-700"
+                            className="tw-inline-flex tw-items-center tw-rounded-md tw-bg-red tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-red-crimson"
                         >
                             <i className="fas fa-upload tw-mr-2" />
                             Submit Assignment
@@ -115,40 +118,95 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
     const [completed, setCompleted] = useState(false);
     const [showAssignment, setShowAssignment] = useState(false);
     const [isAIAssistantOpen, setIsAIAssistantOpen] = useState(false);
+    const [updating, setUpdating] = useState(false);
+    const [moduleProgress, setModuleProgress] = useState({
+        completed: 0,
+        total: module.totalLessons,
+    });
 
+    // Fetch lesson progress and module progress on mount
     useEffect(() => {
-        // TODO: Check if lesson is completed from database
-        // For now, check localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        setCompleted(localStorage.getItem(lessonKey) === "true");
-    }, [lesson.id]);
+        const fetchProgress = async () => {
+            try {
+                // Fetch current lesson progress
+                const lessonResponse = await fetch(`/api/lms/progress?lessonId=${lesson.id}`);
+                const lessonData = await lessonResponse.json();
+
+                if (lessonResponse.ok && lessonData.progress.length > 0) {
+                    setCompleted(lessonData.progress[0].completed);
+                }
+
+                // Fetch module progress
+                const moduleResponse = await fetch(`/api/lms/progress?moduleId=${module.id}`);
+                const moduleData = await moduleResponse.json();
+
+                if (moduleResponse.ok) {
+                    const completedCount = moduleData.progress.filter(
+                        (p: { completed: boolean }) => p.completed
+                    ).length;
+                    setModuleProgress({
+                        completed: completedCount,
+                        total: module.totalLessons,
+                    });
+                }
+            } catch (error) {
+                console.error("Error fetching progress:", error);
+            }
+        };
+
+        fetchProgress();
+    }, [lesson.id, module.id, module.totalLessons]);
 
     // Keyboard shortcut for AI Assistant ('A' key)
     useEffect(() => {
         const handleKeyPress = (e: KeyboardEvent) => {
             // Only trigger if not typing in an input field
             if (
-                e.key.toLowerCase() === 'a' &&
+                e.key.toLowerCase() === "a" &&
                 !e.ctrlKey &&
                 !e.metaKey &&
                 !e.altKey &&
-                document.activeElement?.tagName !== 'INPUT' &&
-                document.activeElement?.tagName !== 'TEXTAREA'
+                document.activeElement?.tagName !== "INPUT" &&
+                document.activeElement?.tagName !== "TEXTAREA"
             ) {
                 setIsAIAssistantOpen((prev) => !prev);
             }
         };
 
-        window.addEventListener('keydown', handleKeyPress);
-        return () => window.removeEventListener('keydown', handleKeyPress);
+        window.addEventListener("keydown", handleKeyPress);
+        return () => window.removeEventListener("keydown", handleKeyPress);
     }, []);
 
-    const markAsCompleted = () => {
-        // TODO: Update database with lesson completion
-        // For now, use localStorage for demo
-        const lessonKey = `lesson_${lesson.id}_completed`;
-        localStorage.setItem(lessonKey, "true");
-        setCompleted(true);
+    const markAsCompleted = async () => {
+        try {
+            setUpdating(true);
+            const response = await fetch("/api/lms/progress", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    lessonId: lesson.id,
+                    completed: true,
+                }),
+            });
+
+            if (response.ok) {
+                setCompleted(true);
+                // Refresh module progress
+                setModuleProgress((prev) => ({
+                    ...prev,
+                    completed: prev.completed + 1,
+                }));
+            } else {
+                const data = await response.json();
+                console.error("Failed to mark as completed:", data.error);
+            }
+        } catch (error) {
+            console.error("Error marking lesson as completed:", error);
+        } finally {
+            setUpdating(false);
+        }
     };
 
     return (
@@ -168,11 +226,19 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                 {/* Header */}
                 <div className="tw-mb-8 tw-flex tw-flex-col tw-items-start tw-justify-between lg:tw-flex-row lg:tw-items-center">
                     <div className="tw-mb-4 tw-flex-1 lg:tw-mb-0">
-                        <div className="tw-mb-2 tw-text-sm tw-text-gray-600">{module.title}</div>
-                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gray-900">
+                        <div className="tw-mb-2 tw-text-sm tw-text-gray-300">{module.title}</div>
+                        <h1 className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-ink">
                             {lesson.title}
                         </h1>
-                        <p className="tw-text-gray-600">{lesson.description}</p>
+                        <p className="tw-text-gray-300">{lesson.description}</p>
+                        {lesson.audioUrl && (
+                            <div className="tw-mt-4">
+                                <audio controls={true} src={lesson.audioUrl}>
+                                    <track kind="captions" />
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        )}
                     </div>
                     <div className="tw-flex tw-items-center tw-space-x-4">
                         <div className="tw-text-sm tw-text-gray-500">
@@ -180,7 +246,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                             {lesson.duration}
                         </div>
                         {completed && (
-                            <div className="tw-flex tw-items-center tw-rounded-full tw-bg-green-100 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-green-800">
+                            <div className="tw-flex tw-items-center tw-rounded-full tw-bg-gold-light/30 tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-gold-deep">
                                 <i className="fas fa-check tw-mr-1" />
                                 Completed
                             </div>
@@ -194,12 +260,12 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                         {/* Video Player */}
                         {lesson.videoUrl && (
                             <div className="tw-mb-8">
-                                <div className="tw-aspect-video tw-overflow-hidden tw-rounded-lg tw-bg-gray-900">
+                                <div className="tw-aspect-video tw-overflow-hidden tw-rounded-lg tw-bg-ink">
                                     <iframe
                                         src={lesson.videoUrl}
                                         title={lesson.title}
                                         className="tw-h-full tw-w-full"
-                                        allowFullScreen
+                                        allowFullScreen={true}
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     />
                                 </div>
@@ -208,12 +274,12 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* Lesson Content */}
                         <div className="tw-mb-8 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-gray-900">
+                            <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                                 Lesson Content
                             </h2>
-                            <div
+                            <SafeHTML
+                                content={lesson.content}
                                 className="tw-prose tw-prose-lg tw-max-w-none"
-                                dangerouslySetInnerHTML={{ __html: lesson.content }}
                             />
                         </div>
 
@@ -243,10 +309,13 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                                     <button
                                         type="button"
                                         onClick={markAsCompleted}
-                                        className="tw-rounded-md tw-bg-green-600 tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700"
+                                        disabled={updating}
+                                        className="tw-rounded-md tw-bg-gold-rich tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-green-700 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                                     >
-                                        <i className="fas fa-check tw-mr-2" />
-                                        Mark as Complete
+                                        <i
+                                            className={`fas ${updating ? "fa-spinner fa-spin" : "fa-check"} tw-mr-2`}
+                                        />
+                                        {updating ? "Saving..." : "Mark as Complete"}
                                     </button>
                                 )}
 
@@ -267,29 +336,63 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     <div className="lg:tw-col-span-1">
                         {/* Course Progress */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Course Progress
                             </h3>
-                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-600">
+                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
                                 <span>Module Progress</span>
-                                <span>3/12 lessons</span>
+                                <span>
+                                    {moduleProgress.completed}/{moduleProgress.total} lessons
+                                </span>
                             </div>
-                            <div className="tw-mb-4 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
-                                <div className="tw-h-2 tw-w-[25%] tw-rounded-full tw-bg-blue-600" />
+                            <div className="tw-mb-4 tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
+                                <div
+                                    className="tw-h-2 tw-rounded-full tw-bg-navy-royal tw-transition-all"
+                                    style={{
+                                        width: `${
+                                            moduleProgress.total > 0
+                                                ? (
+                                                      moduleProgress.completed /
+                                                          moduleProgress.total
+                                                  ) * 100
+                                                : 0
+                                        }%`,
+                                    }}
+                                />
                             </div>
 
-                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-600">
-                                <span>Overall Progress</span>
-                                <span>15%</span>
+                            <div className="tw-mb-2 tw-flex tw-justify-between tw-text-sm tw-text-gray-300">
+                                <span>Module Completion</span>
+                                <span>
+                                    {moduleProgress.total > 0
+                                        ? Math.round(
+                                              (moduleProgress.completed / moduleProgress.total) *
+                                                  100
+                                          )
+                                        : 0}
+                                    %
+                                </span>
                             </div>
-                            <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-200">
-                                <div className="tw-h-2 tw-w-[15%] tw-rounded-full tw-bg-green-600" />
+                            <div className="tw-h-2 tw-w-full tw-rounded-full tw-bg-gray-50">
+                                <div
+                                    className="tw-h-2 tw-rounded-full tw-bg-gold-rich tw-transition-all"
+                                    style={{
+                                        width: `${
+                                            moduleProgress.total > 0
+                                                ? (
+                                                      moduleProgress.completed /
+                                                          moduleProgress.total
+                                                  ) * 100
+                                                : 0
+                                        }%`,
+                                    }}
+                                />
                             </div>
                         </div>
 
                         {/* Quick Links */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Quick Links
                             </h3>
                             <div className="tw-space-y-2">
@@ -326,17 +429,17 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* AI Teaching Assistant */}
                         <div className="tw-mb-6 tw-rounded-lg tw-bg-gradient-to-br tw-from-purple-50 tw-to-blue-50 tw-p-6 tw-shadow-md tw-border tw-border-purple-200">
-                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-gray-900">
-                                <i className="fas fa-robot tw-mr-2 tw-text-purple-600" />
+                            <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-ink">
+                                <i className="fas fa-robot tw-mr-2 tw-text-navy" />
                                 AI Teaching Assistant
                             </h3>
-                            <p className="tw-mb-4 tw-text-sm tw-text-gray-600">
+                            <p className="tw-mb-4 tw-text-sm tw-text-gray-300">
                                 Need help? Ask J0d!e for explanations and guidance!
                             </p>
                             <button
                                 type="button"
                                 onClick={() => setIsAIAssistantOpen(true)}
-                                className="tw-w-full tw-rounded-md tw-bg-purple-600 tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-purple-700"
+                                className="tw-w-full tw-rounded-md tw-bg-navy tw-px-4 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-purple-700"
                             >
                                 <i className="fas fa-comment-dots tw-mr-2" />
                                 Ask J0d!e
@@ -348,7 +451,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
                         {/* Resources */}
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
-                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-gray-900">
+                            <h3 className="tw-mb-4 tw-text-lg tw-font-semibold tw-text-ink">
                                 Lesson Resources
                             </h3>
                             <div className="tw-space-y-2">
@@ -388,7 +491,7 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
                     lessonTitle: lesson.title,
                     moduleTitle: module.title,
                     courseTitle: "Web Development",
-                    content: lesson.content.replace(/<[^>]*>/g, '').slice(0, 1000),
+                    content: lesson.content.replace(/<[^>]*>/g, "").slice(0, 1000),
                 }}
             />
         </>
@@ -397,6 +500,8 @@ const LessonPage: PageWithLayout = ({ lesson, module }) => {
 
 LessonPage.Layout = Layout01;
 
+const prisma = new PrismaClient();
+
 export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
     // Check authentication
     const session = await getServerSession(context.req, context.res, options);
@@ -404,107 +509,24 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     if (!session?.user) {
         return {
             redirect: {
-                destination: "/login?callbackUrl=" + encodeURIComponent(context.resolvedUrl),
+                destination: `/login?callbackUrl=${encodeURIComponent(context.resolvedUrl)}`,
                 permanent: false,
             },
         };
     }
 
-    const { moduleId, lessonId} = context.params as { moduleId: string; lessonId: string };
+    const { lessonId } = context.params as { moduleId: string; lessonId: string };
 
-    // Mock data - in real implementation, fetch from database
-    const mockLessons: Record<string, Record<string, LessonData>> = {
-        "1": {
-            "1": {
-                id: "1-1",
-                title: "Introduction to HTML",
-                description: "Learn the fundamentals of HTML and semantic markup",
-                videoUrl: "https://www.youtube.com/embed/UB1O30fR-EE",
-                duration: "45 minutes",
-                content: `
-                    <h3>Welcome to HTML Fundamentals</h3>
-                    <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. It describes the structure of a web page using markup elements.</p>
-                    
-                    <h4>What you'll learn:</h4>
-                    <ul>
-                        <li>HTML document structure</li>
-                        <li>Common HTML elements</li>
-                        <li>Semantic markup principles</li>
-                        <li>Best practices for accessibility</li>
-                    </ul>
-                    
-                    <h4>Key Concepts:</h4>
-                    <p>HTML elements are the building blocks of HTML pages. They are represented by tags, which label pieces of content such as "heading", "paragraph", "table", and so on.</p>
-                `,
-                assignment: {
-                    title: "Create Your First HTML Page",
-                    description:
-                        "Create a simple HTML page that showcases proper document structure and semantic elements.",
-                    requirements: [
-                        "Use proper HTML5 document structure",
-                        "Include at least 5 different semantic elements",
-                        "Add a navigation menu with links",
-                        "Include an image with proper alt text",
-                        "Validate your HTML using W3C validator",
-                    ],
-                    submissionUrl: "/assignments/submit/1-1",
-                },
-                nextLesson: {
-                    moduleId: "1",
-                    lessonId: "2",
-                    title: "HTML Elements and Attributes",
-                },
-            },
-            "2": {
-                id: "1-2",
-                title: "HTML Elements and Attributes",
-                description: "Dive deeper into HTML elements and their attributes",
-                videoUrl: "https://www.youtube.com/embed/88PXJAA6szs",
-                duration: "50 minutes",
-                content: `
-                    <h3>Understanding HTML Elements and Attributes</h3>
-                    <p>In this lesson, we'll explore the various HTML elements and how attributes provide additional information about elements.</p>
-                    
-                    <h4>Common HTML Elements:</h4>
-                    <ul>
-                        <li><strong>Headings:</strong> h1, h2, h3, h4, h5, h6</li>
-                        <li><strong>Text:</strong> p, span, strong, em</li>
-                        <li><strong>Lists:</strong> ul, ol, li</li>
-                        <li><strong>Links:</strong> a</li>
-                        <li><strong>Images:</strong> img</li>
-                    </ul>
-                    
-                    <h4>Essential Attributes:</h4>
-                    <p>Attributes provide additional information about elements and are always specified in the start tag.</p>
-                `,
-                assignment: {
-                    title: "Build a Personal Bio Page",
-                    description:
-                        "Create a comprehensive personal biography page using various HTML elements and attributes.",
-                    requirements: [
-                        "Use all heading levels appropriately",
-                        "Include both ordered and unordered lists",
-                        "Add multiple images with descriptive alt text",
-                        "Create internal page navigation with anchor links",
-                        "Use proper semantic structure throughout",
-                    ],
-                    submissionUrl: "/assignments/submit/1-2",
-                },
-                prevLesson: {
-                    moduleId: "1",
-                    lessonId: "1",
-                    title: "Introduction to HTML",
-                },
-                nextLesson: {
-                    moduleId: "1",
-                    lessonId: "3",
-                    title: "Forms and Input Elements",
+    const lesson = await prisma.lesson.findUnique({
+        where: { id: lessonId },
+        include: {
+            module: {
+                include: {
+                    lessons: true,
                 },
             },
         },
-    };
-
-    const lesson = mockLessons[moduleId]?.[lessonId];
+    });
 
     if (!lesson) {
         return {
@@ -512,16 +534,36 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         };
     }
 
+    const currentLessonIndex = lesson.module.lessons.findIndex((l) => l.id === lessonId);
+    const prevLesson = lesson.module.lessons[currentLessonIndex - 1];
+    const nextLesson = lesson.module.lessons[currentLessonIndex + 1];
+
+    const lessonData: LessonData = {
+        id: lesson.id,
+        title: lesson.title,
+        description: lesson.content.substring(0, 100), // Or a dedicated description field
+        videoUrl: lesson.videoUrl || undefined,
+        duration: `${lesson.duration} minutes`,
+        content: lesson.content,
+        audioUrl: lesson.audioUrl || undefined,
+        nextLesson: nextLesson
+            ? { moduleId: nextLesson.moduleId, lessonId: nextLesson.id, title: nextLesson.title }
+            : undefined,
+        prevLesson: prevLesson
+            ? { moduleId: prevLesson.moduleId, lessonId: prevLesson.id, title: prevLesson.title }
+            : undefined,
+    };
+
     const moduleData: ModuleData = {
-        id: moduleId,
-        title: "HTML Fundamentals",
-        description: "Learn the building blocks of the web with semantic HTML",
-        totalLessons: 12,
+        id: lesson.moduleId,
+        title: lesson.module.title,
+        description: lesson.module.description || "",
+        totalLessons: lesson.module.lessons.length,
     };
 
     return {
         props: {
-            lesson,
+            lesson: lessonData,
             module: moduleData,
             layout: {
                 headerShadow: true,

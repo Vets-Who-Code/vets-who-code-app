@@ -1,7 +1,7 @@
 // File: BecomeInstructor.tsx
 
-import React from "react";
 import InstructorForm from "@components/forms/mentor-form";
+import React from "react";
 
 interface BecomeInstructorProps {
     className?: string; // Add a className prop to the BecomeInstructor component

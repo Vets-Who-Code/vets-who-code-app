@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { useScrollTop } from "@hooks";
+import clsx from "clsx";
 
 const ScrollToTop = () => {
     const { stick, onClickHandler } = useScrollTop();

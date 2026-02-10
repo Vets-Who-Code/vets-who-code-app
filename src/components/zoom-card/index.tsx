@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
-import clsx from "clsx";
-import { IZoomMeeting } from "@utils/types";
 import Anchor from "@components/ui/anchor";
 import { minutesToHours } from "@utils/methods";
+import { IZoomMeeting } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = Pick<
     IZoomMeeting,
@@ -23,9 +23,9 @@ const ZoomCard = forwardRef<HTMLDivElement, TProps>(
                 )}
                 ref={ref}
             >
-                <div className="max-w-full tw-relative tw-h-[230px] tw-overflow-hidden tw-rounded-t">
+                <div className="tw-relative tw-h-[230px] tw-overflow-hidden tw-rounded-t max-w-full">
                     {thumbnail?.src && (
-                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110">
+                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110">
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={thumbnail.src}
@@ -47,7 +47,7 @@ const ZoomCard = forwardRef<HTMLDivElement, TProps>(
                     </h3>
 
                     <div className="tw-mt-[7px] tw-flex tw-items-center">
-                        <span className="tw-text-[13px] tw-font-medium tw-uppercase tw-tracking-[1.73px] tw-text-gray-700">
+                        <span className="tw-text-[13px] tw-font-medium tw-uppercase tw-tracking-[1.73px] tw-text-gray-200">
                             Meeting ID:{" "}
                         </span>
                         <span className="tw-text-[16px] tw-font-semibold tw-tracking-[2.13px] tw-text-primary">

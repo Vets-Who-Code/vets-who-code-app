@@ -1,14 +1,15 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogDetailsArea from "@containers/blog-details";
 import BlogAuthor from "@containers/blog-details/blog-author";
-import BlogNavLinks from "@containers/blog-details/nav-links";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
-import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
+import BlogNavLinks from "@containers/blog-details/nav-links";
+import Layout01 from "@layout/layout-01";
 import { toCapitalize } from "@utils/methods";
-import { getPostBySlug, getAllBlogs, getPrevNextPost, getTags } from "../../lib/blog";
+import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
+import type { GetStaticPaths, NextPage } from "next";
+import { getAllBlogs, getPostBySlug, getPrevNextPost, getTags } from "../../lib/blog";
+import { getBlogOpenGraphUrl } from "../../lib/cloudinary-helpers";
 
 type TProps = {
     data: {
@@ -28,6 +29,9 @@ type PageProps = NextPage<TProps> & {
 };
 
 const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, tags } }) => {
+    // Generate Open Graph optimized image URL for social media sharing
+    const ogImageUrl = getBlogOpenGraphUrl(blog.image.src);
+
     return (
         <>
             <SEO
@@ -40,7 +44,7 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                     authors: [blog.author.name],
                     tags: tags.map((tag) => tag.title),
                 }}
-                image={blog.image.src}
+                image={ogImageUrl}
             />
             <Breadcrumb
                 pages={[

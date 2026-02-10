@@ -1,9 +1,9 @@
-import { useState } from "react";
-import clsx from "clsx";
-import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "motion/react";
 import { useKeyboardFocus } from "@hooks";
 import { fadeIn02 } from "@utils/variants";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "motion/react";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import Spinner from "../spinner";
 
 const Portal = dynamic(() => import("../../portal"), {
@@ -59,7 +59,9 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                 "tw-fixed tw-inset-0 tw-z-[999] tw-overflow-hidden tw-outline-0 tw-transition-opacity",
                                 className
                             )}
-                            role="button"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="Video player"
                             tabIndex={-1}
                             ref={modalRef}
                             onClick={onClose}
@@ -74,8 +76,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                     className="modal-content tw-pointer-events-auto tw-relative tw-flex tw-w-full tw-flex-col tw-rounded tw-bg-white tw-bg-clip-padding"
                                     onClick={(e) => e.stopPropagation()}
                                     onKeyPress={(e) => e.stopPropagation()}
-                                    role="button"
-                                    tabIndex={-1}
+                                    tabIndex={0}
                                 >
                                     {videoLoading && (
                                         <div className="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center">
@@ -85,9 +86,10 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                     <button
                                         type="button"
                                         onClick={onClose}
+                                        aria-label="Close video"
                                         className="tw-absolute -tw-top-9 tw-right-0 tw-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-bg-black tw-text-white"
                                     >
-                                        <i className="linea-arrows-circle-remove" />
+                                        <i className="linea-arrows-circle-remove" aria-hidden="true" />
                                     </button>
                                     <iframe
                                         className="modal__video-style"
@@ -99,7 +101,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                         title="YouTube video player"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
+                                        allowFullScreen={true}
                                     />
                                 </div>
                             </div>

@@ -1,18 +1,18 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
-import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
-import { VWCGrid } from "@components/vwc-grid";
-import { VWCGridCard } from "@components/vwc-card";
-import * as Dialog from "@radix-ui/react-dialog";
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-import { Star, CircleDot, Eye, GitFork, XIcon } from "lucide-react";
-import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
-import clsx from "clsx";
-import Link from "next/link";
 import MarkdownRenderer from "@components/markdown-renderer";
+import SEO from "@components/seo/page-seo";
+import { VWCGridCard } from "@components/vwc-card";
+import { VWCGrid } from "@components/vwc-grid";
+import Layout01 from "@layout/layout-01";
+import * as Dialog from "@radix-ui/react-dialog";
+import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
+import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
+import clsx from "clsx";
+import { CircleDot, Eye, GitFork, Star, XIcon } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
+import { useState } from "react";
 import { getProjectData } from "../lib/project";
 
 interface TechStackProps {
@@ -39,31 +39,31 @@ interface LinkButtonsProps {
 export const LinkButtons = ({ github_url, live_url }: LinkButtonsProps) => {
     return (
         <div className="tw-mb-3 tw-flex tw-items-start tw-gap-1 tw-text-black">
+            <Link
+                href={github_url}
+                target="_blank"
+                title="See the code on GitHub"
+                className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
+            >
+                <GitHubLogoIcon />
+                <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
+                    GitHub
+                </h6>
+            </Link>
+            {live_url && (
                 <Link
-                    href={github_url}
+                    href={live_url}
                     target="_blank"
-                    title="See the code on GitHub"
+                    title="See it live"
                     className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
                 >
-                    <GitHubLogoIcon />
-                    <h6 className="tw-mb-0 tw-translate-y-[1.5px] tw-text-center tw-align-middle tw-text-inherit">
-                        GitHub
+                    <GlobeIcon />
+                    <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
+                        Live
                     </h6>
                 </Link>
-                {live_url && (
-                    <Link
-                        href={live_url}
-                        target="_blank"
-                        title="See it live"
-                        className="tw-flex tw-w-fit tw-items-center tw-justify-center tw-space-x-1 tw-rounded-md tw-border-2 tw-border-secondary tw-px-2 tw-py-1 tw-text-center tw-text-secondary hover:tw-bg-secondary hover:tw-text-white"
-                    >
-                        <GlobeIcon />
-                        <h6 className="tw-m-0 tw-translate-y-[1.5px] tw-text-center tw-text-inherit">
-                            Live
-                        </h6>
-                    </Link>
-                )}
-            </div>
+            )}
+        </div>
     );
 };
 
@@ -252,8 +252,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             </Dialog.Trigger>
             <AnimatePresence>
                 {isOpen && (
-                    <Dialog.Portal forceMount>
-                        <Dialog.Overlay asChild>
+                    <Dialog.Portal forceMount={true}>
+                        <Dialog.Overlay asChild={true}>
                             <motion.div
                                 className="tw-fixed tw-inset-0 tw-z-[55] tw-bg-black"
                                 key={`${project.details.name}-overlay`}
@@ -262,7 +262,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                                 exit={{ opacity: 0 }}
                             />
                         </Dialog.Overlay>
-                        <Dialog.Content asChild>
+                        <Dialog.Content asChild={true}>
                             <motion.div
                                 key={`${project.details.name}-content`}
                                 className="tw-fixed tw-left-1/2 tw-top-1/2 tw-z-[60] tw-grid tw-max-h-[90vh] tw-w-full tw-items-center tw-justify-center tw-overflow-scroll tw-bg-white tw-p-8 tw-shadow-xl md:tw-w-11/12 md:tw-rounded-2xl lg:tw-max-w-6xl"
@@ -350,9 +350,23 @@ export const getStaticProps: GetStaticProps = async () => {
         };
     } catch (err) {
         if (err instanceof Error) {
-            console.error(`Error while regenerating projects page: ${err.message}`);
+            console.error(`Error while fetching project data: ${err.message}`);
         }
-        throw new Error(`Failed to update github project data`);
+
+        // Return empty projects array as fallback during build
+        // This allows the build to succeed even if GitHub API is unavailable
+        console.warn("Falling back to empty projects list due to API error");
+        return {
+            props: {
+                projects: [],
+                layout: {
+                    headerShadow: true,
+                    headerFluid: false,
+                    footerMode: "light",
+                },
+            },
+            revalidate: 60, // Try again in 1 minute
+        };
     }
 };
 

@@ -31,7 +31,7 @@ const StarRating = ({ rating, className, align, size, space }: TProps) => {
                 <i
                     key={item}
                     className={clsx(
-                        "fas fa-star tw-text-yellow first:tw-ml-0",
+                        "fas fa-star tw-text-gold first:tw-ml-0",
                         space === "xs" && "tw-mx-px",
                         space === "sm" && "tw-mx-0.5"
                     )}
@@ -40,7 +40,7 @@ const StarRating = ({ rating, className, align, size, space }: TProps) => {
             {remainder > 0 && (
                 <i
                     className={clsx(
-                        "fas fa-star-half-alt tw-text-yellow first:tw-ml-0",
+                        "fas fa-star-half-alt tw-text-gold first:tw-ml-0",
                         space === "xs" && "tw-mx-px",
                         space === "sm" && "tw-mx-0.5"
                     )}

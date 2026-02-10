@@ -217,6 +217,18 @@
             }
         },
         {
+            "section": "media-area",
+            "section_title": {
+                "title": "Featured in <span>Media</span>",
+                "subtitle": "Vets Who Code in the spotlight"
+            },
+            "motto": {
+                "text": "See our impact and recognition in the media.​",
+                "path": "/media",
+                "pathText": "View all media"
+            }
+        },
+        {
             "section": "blog-area",
             "section_title": {
                 "title": "Trending on <span>Our Blogs</span>",

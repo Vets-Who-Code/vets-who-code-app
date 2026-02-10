@@ -1,6 +1,6 @@
-import { forwardRef } from "react";
 import Social, { SocialLink } from "@ui/social";
 import { ImageType, ISocial } from "@utils/types";
+import { forwardRef } from "react";
 
 type TProps = {
     image: ImageType;
@@ -17,7 +17,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                     {image?.src ? (
                         <div className="tw-relative">
                             <img
-                                className="tw-h-[430px] tw-w-[350px] tw-object-cover tw-grayscale tw-transition-all tw-duration-1000 tw-ease-out group-hover:tw-scale-110 group-hover:tw-grayscale-0"
+                                className="tw-h-[430px] tw-w-[350px] tw-object-cover tw-grayscale tw-transition-all tw-duration-1000 tw-ease-out tw-group-hover:tw-scale-110 tw-group-hover:tw-grayscale-0"
                                 src={image.src}
                                 alt={image?.alt || name}
                                 width={image?.width || 350}
@@ -32,7 +32,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                             />
                         </div>
                     ) : (
-                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-200">
+                        <div className="tw-flex tw-h-[430px] tw-w-[350px] tw-items-center tw-justify-center tw-bg-gray-50">
                             <span className="tw-text-gray-500">No Image</span>
                         </div>
                     )}
@@ -40,7 +40,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                         <Social
                             color="dark"
                             size="xl"
-                            tooltip
+                            tooltip={true}
                             className="tw-absolute tw-bottom-3 tw-left-3 tw-right-3 tw-justify-center tw-bg-white tw-py-2.5 tw-opacity-0 tw-transition-opacity tw-duration-300 group-hover:tw-opacity-100"
                         >
                             {socials.map((social) => (

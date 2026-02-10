@@ -1,9 +1,9 @@
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/image-box/image-box-01";
-import { motion } from "motion/react";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { SectionTitleType, ItemType, TSection } from "@utils/types";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedServiceCard = motion(ServiceCard);

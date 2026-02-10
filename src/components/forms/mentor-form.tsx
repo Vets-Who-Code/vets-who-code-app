@@ -1,12 +1,12 @@
 import EmojiRain from "@components/EmojiRain";
-import { useState } from "react";
-import { useForm, SubmitHandler, FieldErrors } from "react-hook-form";
-import axios from "axios";
-import Input from "@ui/form-elements/input";
 import Button from "@ui/button";
-import { hasKey } from "@utils/methods";
 import Feedback from "@ui/form-elements/feedback";
+import Input from "@ui/form-elements/input";
 import { validateProfileLink } from "@utils/formValidations";
+import { hasKey } from "@utils/methods";
+import axios from "axios";
+import { useState } from "react";
+import { FieldErrors, SubmitHandler, useForm } from "react-hook-form";
 
 interface IBaseFormValues {
     name: string;
@@ -59,7 +59,7 @@ const MentorMenteeForm = () => {
             setTimeout(() => setShowEmojiRain(false), 5000);
 
             reset();
-        } catch (error) {
+        } catch (_error) {
             setMessage("Failed to submit the form. Please try again later.");
         }
     };
@@ -78,19 +78,19 @@ const MentorMenteeForm = () => {
             <div className="tw-mb-7.5 tw-flex tw-gap-4">
                 <Button
                     onClick={() => handleRoleChange("mentor")}
-                    className={`tw-flex-1 ${role === "mentor" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw-flex-1 ${role === "mentor" ? "" : "tw-bg-gray-300 tw-text-gray-200"}`}
                 >
                     Register as Mentor
                 </Button>
                 <Button
                     onClick={() => handleRoleChange("mentee")}
-                    className={`tw-flex-1 ${role === "mentee" ? "" : "tw-bg-gray-300 tw-text-gray-700"}`}
+                    className={`tw-flex-1 ${role === "mentee" ? "" : "tw-bg-gray-300 tw-text-gray-200"}`}
                 >
                     Register as Mentee
                 </Button>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
                 {/* Common Fields for Both Roles */}
                 <div className="tw-mb-7.5">
                     <label htmlFor="name" className="tw-text-md tw-text-heading">
@@ -202,7 +202,7 @@ const MentorMenteeForm = () => {
                                 }
                                 state={hasKey(errors, "technical-expertise") ? "error" : "success"}
                                 showState={!!hasKey(errors, "technical-expertise")}
-                                {...register("technical-expertise" as any, {
+                                {...register("technical-expertise", {
                                     required: "Technical Expertise is required",
                                 })}
                             />
@@ -227,7 +227,7 @@ const MentorMenteeForm = () => {
                                     hasKey(errors, "employer-restrictions") ? "error" : "success"
                                 }
                                 showState={!!hasKey(errors, "employer-restrictions")}
-                                {...register("employer-restrictions" as any, {
+                                {...register("employer-restrictions", {
                                     required: "Employer Restrictions is required",
                                 })}
                             />
@@ -301,7 +301,7 @@ const MentorMenteeForm = () => {
 
                 <Button
                     type="submit"
-                    fullwidth
+                    fullwidth={true}
                     className="tw-mx-auto tw-mt-7.5 tw-w-full sm:tw-w-[200px]"
                 >
                     Register as {role === "mentor" ? "Mentor" : "Mentee"}

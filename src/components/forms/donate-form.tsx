@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
 import clsx from "clsx";
+import { forwardRef } from "react";
 
 type TProps = {
     className?: string;
@@ -72,7 +72,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             title="#VWC Donorbox"
                             src="https://donorbox.org/embed/vetswhocode-donation?show_content=true&default_interval=o&amount=25&hide_donation_meter=true&compact=true"
                             name="vwc-donorbox"
-                            seamless
+                            seamless={true}
                             className="tw-h-[950px] tw-w-full tw-border-none"
                         />
                     </div>

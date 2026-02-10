@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { ReactNode } from "react";
+
 import Link from "next/link";
+import { ReactNode } from "react";
 
 const defaultProps = {
     target: "_blank",

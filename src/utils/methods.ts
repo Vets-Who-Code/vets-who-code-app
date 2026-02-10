@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import type { Dispatch, SetStateAction } from "react";
-import dayjs from "dayjs";
-import { SectionType, ICourse, IEvent } from "./types";
+import { getStartOfDay } from "@/utils/date";
+import { ICourse, IEvent, SectionType } from "./types";
 
 export const normalizedData = <T extends Record<string, unknown>>(
     data: T[],
@@ -95,6 +96,8 @@ export const eventFilter = (
     events: IEvent[],
     setFilteredEvents: Dispatch<SetStateAction<IEvent[]>>
 ): void => {
+    const todayStart = getStartOfDay().getTime();
+
     switch (filterValue) {
         case "all": {
             setFilteredEvents(events);
@@ -102,21 +105,21 @@ export const eventFilter = (
         }
         case "happening": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isSame(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() === todayStart;
             });
             setFilteredEvents(filterEvents);
             break;
         }
         case "upcoming": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isBefore(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() > todayStart;
             });
             setFilteredEvents(filterEvents);
             break;
         }
         case "expired": {
             const filterEvents = events.filter((event) => {
-                return dayjs().isAfter(event.start_date, "day");
+                return getStartOfDay(event.start_date).getTime() < todayStart;
             });
             setFilteredEvents(filterEvents);
             break;
@@ -145,8 +148,8 @@ export const flatDeep = <T>(arr: unknown[], d = 1): T[] => {
         : (arr.slice() as T[]);
 };
 
-export const hasKey = (obj: unknown, key: string): boolean => {
-    return !!Object.prototype.hasOwnProperty.call(obj, key);
+export const hasKey = <K extends string>(obj: unknown, key: K): obj is Record<K, unknown> => {
+    return typeof obj === "object" && obj !== null && Object.hasOwn(obj, key);
 };
 
 export const getFocusableElements = (parent?: HTMLElement | null): HTMLElement[] => {

@@ -1,8 +1,8 @@
-import { memo } from "react";
-import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "motion/react";
-import clsx from "clsx";
 import { useKeyboardFocus } from "@hooks";
+import clsx from "clsx";
+import { AnimatePresence, motion } from "motion/react";
+import dynamic from "next/dynamic";
+import { memo } from "react";
 
 const Portal = dynamic(() => import("../../portal"), {
     ssr: false,
@@ -57,7 +57,9 @@ const Offcanvas = memo(({ className, onClose, isOpen, children }: TProps) => {
                         onClick={onClose}
                         onKeyUp={onClose}
                         tabIndex={-1}
-                        role="button"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label="Navigation menu"
                         variants={wrapVariant}
                         initial="hidden"
                         animate="show"
@@ -71,9 +73,8 @@ const Offcanvas = memo(({ className, onClose, isOpen, children }: TProps) => {
                             )}
                             onClick={(e) => e.stopPropagation()}
                             onKeyUp={(e) => e.stopPropagation()}
-                            tabIndex={-1}
+                            tabIndex={0}
                             ref={offcanvasRef}
-                            role="button"
                             variants={innerVariant}
                         >
                             {children}

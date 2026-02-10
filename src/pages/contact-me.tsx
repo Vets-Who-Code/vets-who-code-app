@@ -1,12 +1,11 @@
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import ContactForm from "@containers/contact-form/layout-01";
+import ContactInfo from "@containers/contact-info/layout-01";
+import Layout from "@layout/layout-01";
+import { normalizedData } from "@utils/methods";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout from "@layout/layout-01";
-import Breadcrumb from "@components/breadcrumb";
-import ContactInfo from "@containers/contact-info/layout-01";
-import ContactForm from "@containers/contact-form/layout-01";
-
-import { normalizedData } from "@utils/methods";
 
 import { getPageData } from "../lib/page";
 

@@ -1,9 +1,9 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-04";
+import Layout01 from "@layout/layout-01";
 import { IBlog } from "@utils/types";
+import type { GetStaticProps, NextPage } from "next";
 import { getAllBlogs } from "../../../lib/blog";
 
 type TProps = {

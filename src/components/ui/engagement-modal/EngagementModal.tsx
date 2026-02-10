@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { SafeSessionStorage } from "@utils/safe-storage";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./EngagementModal.module.css";
 
 interface EngagementModalProps {
@@ -28,13 +29,6 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
 }) => {
     const [open, setOpen] = useState(false);
     const modalRef = useRef<HTMLDivElement>(null);
-    // DEBUG: Log mount and open state
-    useEffect(() => {
-        console.log("[EngagementModal] mounted, forceShow:", forceShow);
-    }, []);
-    useEffect(() => {
-        console.log("[EngagementModal] open state:", open);
-    }, [open]);
 
     // Expose method to manually open modal for debugging
     // This can be called from browser console: window.openEngagementModal()
@@ -55,11 +49,14 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
             return () => clearTimeout(timer);
         }
 
-        if (sessionStorage.getItem(MODAL_FLAG)) return;
+        // Use SafeSessionStorage to check if modal was shown
+        const modalShown = SafeSessionStorage.getItem<boolean>(MODAL_FLAG, false);
+        if (modalShown) return;
 
         const timer = setTimeout(() => {
             setOpen(true);
-            sessionStorage.setItem(MODAL_FLAG, "1");
+            // Mark modal as shown with SafeSessionStorage
+            SafeSessionStorage.setItem(MODAL_FLAG, true);
         }, 3000);
 
         return () => clearTimeout(timer);
@@ -165,7 +162,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                     <Link
                                         href={cta2.href}
                                         className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-primary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-secondary`}
-                                        passHref
+                                        passHref={true}
                                         onClick={(e) => {
                                             e.preventDefault();
                                             setOpen(false);

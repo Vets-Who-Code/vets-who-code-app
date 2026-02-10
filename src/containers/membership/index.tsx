@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import Table from "@ui/table";
 import Anchor from "@ui/anchor";
 import Button from "@ui/button";
+import Table from "@ui/table";
+import clsx from "clsx";
 import Heading from "./heading";
 
 type TProps = {
@@ -15,7 +15,7 @@ type TProps = {
 const MembershipArea = ({ membershipLevels }: TProps) => {
     return (
         <div className="membership-area">
-            <Table bordered striped>
+            <Table bordered={true} striped={true}>
                 <thead>
                     <tr>
                         <th>

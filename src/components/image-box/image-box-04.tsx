@@ -1,6 +1,6 @@
+import { ImageType } from "@utils/types";
 import clsx from "clsx";
 import { forwardRef } from "react";
-import { ImageType } from "@utils/types";
 
 export type ImageBoxProps = {
     image: ImageType;

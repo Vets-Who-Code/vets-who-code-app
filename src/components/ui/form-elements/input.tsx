@@ -1,5 +1,5 @@
-import { forwardRef } from "react";
 import cn from "clsx";
+import { forwardRef } from "react";
 import Feedback from "./feedback";
 import { IInputProps } from "./types";
 
@@ -68,7 +68,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                         focusBorderClass,
                         noFocusClass,
                         bg === "white" && "tw-bg-white",
-                        bg === "light" && "tw-bg-gray-200",
+                        bg === "light" && "tw-bg-gray-50",
                         className
                     )}
                     id={id}

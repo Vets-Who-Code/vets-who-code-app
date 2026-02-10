@@ -1,6 +1,6 @@
-import Anchor from "@ui/anchor";
-import { Modal, ModalHeader, ModalClose, ModalBody } from "@ui/modal";
 import { useUser } from "@contexts/user-context";
+import Anchor from "@ui/anchor";
+import { Modal, ModalBody, ModalClose, ModalHeader } from "@ui/modal";
 
 type TProps = {
     show: boolean;

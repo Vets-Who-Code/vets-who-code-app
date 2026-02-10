@@ -1,11 +1,12 @@
+import { formatDate } from "@utils/date";
+import { flatDeep, slugify } from "@utils/methods";
+import { BlogMetaType, IBlog, IDType, ImageType } from "@utils/types";
 import fs from "fs";
-import { join } from "path";
 import matter from "gray-matter";
-import dayjs from "dayjs";
-import { IBlog, BlogMetaType, IDType } from "@utils/types";
-import { slugify, flatDeep } from "@utils/methods";
-import { getSlugs } from "./util";
+import { join } from "path";
 import { getAuthorByID } from "./author";
+import { getImageUrl } from "./cloudinary-helpers";
+import { getSlugs } from "./util";
 
 interface BlogType extends Omit<IBlog, "category" | "tags" | "author"> {
     category: string;
@@ -24,6 +25,25 @@ const makeExcerpt = (str: string, maxLength: number): string => {
     return `${excerpt} ...`;
 };
 
+/**
+ * Process image field to ensure it has a valid Cloudinary URL
+ * Supports both legacy full URLs and new public_id format
+ */
+const processImageField = (image: ImageType): ImageType => {
+    if (!image || !image.src) {
+        return image;
+    }
+
+    // Use the helper to get the URL (works with both public IDs and full URLs)
+    // Use default transformations (f_auto,q_auto,g_auto) to match original URLs
+    const processedSrc = getImageUrl(image.src);
+
+    return {
+        ...image,
+        src: processedSrc,
+    };
+};
+
 export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" = []): IBlog {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = join(postsDirectory, `${realSlug}.md`);
@@ -31,6 +51,12 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
     const { data, content } = matter(fileContents);
 
     const blogData = data as BlogType;
+
+    // Generate Cloudinary audio URL
+    // All blog audio files are hosted on Cloudinary in the blog-audio folder
+    // Convert to MP3 for better browser compatibility
+    const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "vetswhocode";
+    const audioUrl = `https://res.cloudinary.com/${cloudName}/video/upload/f_mp3/blog-audio/${realSlug}.wav`;
 
     let blog: IBlog;
 
@@ -51,6 +77,8 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
             slug: realSlug,
             excerpt: makeExcerpt(content, 150),
             author: getAuthorByID(blogData.author, "all"),
+            image: processImageField(blogData.image),
+            audioUrl,
         };
     } else {
         blog = fields.reduce(
@@ -88,6 +116,15 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
                         })),
                     };
                 }
+                if (field === "image") {
+                    return {
+                        ...acc,
+                        image: processImageField(blogData.image),
+                    };
+                }
+                if (field === "audioUrl") {
+                    return { ...acc, audioUrl };
+                }
                 if (typeof data[field] !== "undefined") {
                     return { ...acc, [field]: blogData[field] };
                 }
@@ -99,7 +136,7 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
 
     return {
         ...blog,
-        postedAt: dayjs(blogData.postedAt).format("MMM DD, YYYY"),
+        postedAt: formatDate(blogData.postedAt),
         path: `/blogs/${realSlug}`,
     };
 }

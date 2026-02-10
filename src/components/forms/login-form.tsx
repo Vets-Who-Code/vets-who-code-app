@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { useState } from "react";
-import { useRouter } from "next/router";
-import { useForm, SubmitHandler } from "react-hook-form";
-import Input from "@ui/form-elements/input";
+
+import { useUser } from "@contexts/user-context";
+import Anchor from "@ui/anchor";
+import Button from "@ui/button";
 import Checkbox from "@ui/form-elements/checkbox";
 import FeedbackText from "@ui/form-elements/feedback";
-import Button from "@ui/button";
-import Anchor from "@ui/anchor";
+import Input from "@ui/form-elements/input";
 import { hasKey } from "@utils/methods";
-import { useUser } from "@contexts/user-context";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormValues {
     username: string;
@@ -25,13 +26,17 @@ const LoginForm = () => {
         formState: { errors },
     } = useForm<IFormValues>({
         defaultValues: {
-            username: "Admin",
-            password: "Admin",
+            username: "",
+            password: "",
         },
     });
 
     const onSubmit: SubmitHandler<IFormValues> = (data) => {
-        if (data.username === "Admin" && data.password === "Admin") {
+        // TODO: Replace this with proper server-side authentication
+        // SECURITY: Never validate credentials on the client side
+        // This is a temporary mock implementation
+        if (data.username && data.password) {
+            // Mock authentication - replace with actual API call
             setLogin();
             setServerState("");
             if (window?.history?.length > 2) {
@@ -45,7 +50,7 @@ const LoginForm = () => {
     return (
         <div className="tw-max-w-[470px] tw-bg-white tw-px-[50px] tw-pb-[50px] tw-pt-7.5 tw-shadow-2xs tw-shadow-heading/10">
             <h3 className="tw-mb-5 tw-text-h2">Login</h3>
-            <form onSubmit={handleSubmit(onSubmit)} noValidate>
+            <form onSubmit={handleSubmit(onSubmit)} noValidate={true}>
                 <div className="tw-mb-7.5">
                     <label htmlFor="username" className="tw-text-md tw-text-heading">
                         Username *
@@ -61,7 +66,6 @@ const LoginForm = () => {
                             required: "Username is required",
                         })}
                     />
-                    <small>Default Username: Admin</small>
                 </div>
                 <div className="tw-mb-7.5">
                     <label htmlFor="password" className="tw-text-md tw-text-heading">
@@ -80,11 +84,10 @@ const LoginForm = () => {
                             required: "Password is required",
                         })}
                     />
-                    <small>Default Password: Admin</small>
                 </div>
                 <Checkbox name="remember" id="remember" label="Remember me" />
                 {serverState && <FeedbackText>{serverState}</FeedbackText>}
-                <Button type="submit" fullwidth className="tw-mt-7.5">
+                <Button type="submit" fullwidth={true} className="tw-mt-7.5">
                     Log In
                 </Button>
                 <div className="tw-mt-5 tw-flex tw-flex-col tw-items-center tw-justify-center">

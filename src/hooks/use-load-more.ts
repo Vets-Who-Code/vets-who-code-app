@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) => {
     const router = useRouter();

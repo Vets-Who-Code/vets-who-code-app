@@ -43,6 +43,7 @@ yarn-error.log*
 # PWA
 public/sw.js
 public/workbox-*.js
+public/fallback-*.js
 
 # Sitemap
 /public/robots.txt
@@ -55,3 +56,9 @@ public/workbox-*.js
 
 
 /src/generated/prisma
+audio-cloudinary-urls.json
+
+# Linter/scoring artifacts
+eslint-report.json
+biome-report.json
+score-output.md

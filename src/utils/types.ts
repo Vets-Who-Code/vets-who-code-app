@@ -1,4 +1,5 @@
 /// <reference types="@types/google.maps" />
+// biome-ignore-all: Type definitions with external API property names
 
 declare global {
     interface Window {
@@ -234,6 +235,7 @@ export interface IBlog {
     author: IInstructor;
     content: string;
     excerpt: string;
+    audioUrl?: string | null;
 }
 
 export interface ISocial {
@@ -398,6 +400,4 @@ export interface IMedia {
         height?: number;
     };
     description?: string;
-    // any other fields that might come from frontmatter
-    [key: string]: any; // To allow for other frontmatter fields
 }

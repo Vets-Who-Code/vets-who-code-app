@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import { ImageType, ItemType } from "@utils/types";
+import clsx from "clsx";
 
 type TProps = Pick<ItemType, "description" | "name" | "designation"> & {
     image: ImageType;
@@ -10,7 +10,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
     return (
         <div
             className={clsx(
-                "testimonial tw-rounded tw-bg-white tw-px-[26px] tw-py-11 tw-text-center tw-shadow-lg tw-shadow-heading/10",
+                "testimonial tw-rounded tw-bg-cream tw-px-[26px] tw-py-11 tw-text-center tw-shadow-lg tw-shadow-heading/10",
                 className
             )}
         >

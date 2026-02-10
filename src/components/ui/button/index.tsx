@@ -92,7 +92,8 @@ const Button = ({
         "hover:tw-bg-white hover:tw-border-white hover:tw-text-primary hover:tw-shadow-lg hover:tw-shadow-white/25 hover:tw-scale-105 active:tw-scale-95";
 
     // Primary Button
-    const containedPrimaryClass = "tw-bg-primary tw-border-primary tw-text-white tw-shadow-md tw-shadow-primary/20";
+    const containedPrimaryClass =
+        "tw-bg-primary tw-border-primary tw-text-white tw-shadow-md tw-shadow-primary/20";
     const containedPrimaryHoverClass =
         !disabled &&
         !active &&
@@ -111,7 +112,10 @@ const Button = ({
 
     const outlinedPrimaryClass = "tw-bg-transparent tw-border-primary tw-text-primary tw-border-2";
     const outlinedPrimaryHoverClass =
-        !disabled && !active && hover === "default" && "hover:tw-bg-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:tw-scale-105 active:tw-scale-95";
+        !disabled &&
+        !active &&
+        hover === "default" &&
+        "hover:tw-bg-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:tw-scale-105 active:tw-scale-95";
     const outlinedPrimaryActiveClass =
         !disabled &&
         active &&
@@ -125,7 +129,7 @@ const Button = ({
     ];
 
     // Light Button
-    const containedLightClass = "tw-bg-light tw-border-light tw-text-heading tw-shadow-sm";
+    const containedLightClass = "tw-bg-white tw-border-white tw-text-navy tw-shadow-sm";
     const containedLightHoverClass =
         !disabled &&
         !active &&
@@ -142,7 +146,7 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedLightClass = "tw-border-light tw-text-light";
+    const outlinedLightClass = "tw-border-white tw-text-white";
     const outlinedLightHoverClass =
         !disabled &&
         !active &&

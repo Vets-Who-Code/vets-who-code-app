@@ -75,122 +75,113 @@ module.exports = {
             colors: {
                 transparent: "transparent",
                 current: "currentColor",
-                primary: {
-                    DEFAULT: "#c5203e", // hashflag red
-                    50: "#fef2f4",
-                    100: "#fde6ea",
-                    200: "#fbd0d9",
-                    300: "#f7a6b9",
-                    400: "#f27293",
-                    500: "#e8446f",
-                    600: "#c5203e",
-                    700: "#b11a36",
-                    800: "#931733",
-                    900: "#7d1630",
-                    light: "#8fd6ca",
+
+                // ===== PRIMARY BRAND COLORS =====
+                // Based on VetsWhoCode Brand Style Guide
+
+                // Navy Blue (Pantone 282 C) - Primary Brand Color
+                navy: {
+                    DEFAULT: "#091f40",
+                    midnight: "#061A40", // Alternative to primary navy
+                    deep: "#003559", // Dark accents, hover states
+                    royal: "#0353A4", // Secondary buttons
+                    ocean: "#006DAA", // Links, interactive elements
+                    sky: "#B9D6F2", // Light backgrounds, info boxes
                 },
-                secondary: {
-                    DEFAULT: "#091f40", // hashflag blue
-                    50: "#f3f6fc",
-                    100: "#e6edf8",
-                    200: "#c8d9ef",
-                    300: "#97bbe1",
-                    400: "#5f97ce",
-                    500: "#3b79b8",
-                    600: "#2a609c",
-                    700: "#224d7f",
-                    800: "#1f436a",
-                    900: "#091f40",
-                    light: "#8C89A2",
-                },
-                body: "#696969",
-                heading: "#333333",
-                success: {
-                    DEFAULT: "#4CAF50",
-                    100: "#7ed321",
-                },
-                warning: {
-                    DEFAULT: "#FFC107",
-                    100: "#fdb494",
-                },
-                danger: {
-                    DEFAULT: "#F44336",
-                    100: "#d85554",
-                },
-                info: {
-                    DEFAULT: "#17A2B8",
-                },
-                light: {
-                    DEFAULT: "#F8F9FA",
-                    50: "#f8f9fd",
-                    100: "#f8f8f8",
-                },
-                dark: {
-                    DEFAULT: "#333333",
-                    50: "#111111",
-                    100: "#171621",
-                },
-                white: {
-                    DEFAULT: "#FFFFFF",
-                    inverse: "#f6f2ed",
-                    catskill: "#f5f7fa",
-                },
-                orange: {
-                    DEFAULT: "#ef6f31",
-                    light: "rgba(239,111,49,0.1)",
-                    100: "#ff4c24",
-                    200: "#ff4d24",
-                    300: "#fa7d61",
-                },
-                yellow: {
-                    DEFAULT: "#f6b500",
-                    100: "#ffbb00",
-                },
-                gray: {
-                    100: "#faf8f6",
-                    200: "#f5f5f5",
-                    300: "#7e7e7e",
-                    350: "#e0e0e0",
-                    400: "#ababab",
-                    450: "#F3F3F3",
-                    500: "#EEEEEE",
-                    550: "#ededed",
-                    600: "#4b5563",
-                    650: "#e7e7e7",
-                    700: "#9b9b9b",
-                    750: "#F1F1F1",
-                    800: "#b6b7d2",
-                    850: "#666666",
-                },
-                blue: {
-                    100: "#7288e8",
-                },
-                spring: "#F5F1ED",
-                desert: {
+
+                // Red (Pantone 193 C) - Primary Accent, CTAs
+                red: {
                     DEFAULT: "#c5203e",
-                    100: "#e6dcd2",
+                    signal: "#C52233", // Near primary, alternative
+                    crimson: "#A51C30", // Hover/pressed states
+                    dark: "#74121D", // Error borders, deep accents
+                    maroon: "#580C1F", // Darkest gradients
                 },
-                pearl: "#EAE1D6",
-                putty: "#e5c791",
-                brunt: "#ee7455",
-                jagged: "#BCE6DF",
-                azure: "#00adff",
-                alto: "#dedede",
-                teracotta: {
-                    DEFAULT: "#dd7d5a",
-                    light: "#f4ebe7",
+
+                // Amber Gold - Highlights, Success States
+                gold: {
+                    DEFAULT: "#FDB330",
+                    light: "#FFE169", // Highlight backgrounds
+                    bright: "#FAD643", // Badges, success indicators
+                    rich: "#DBB42C", // Hover state for gold
+                    deep: "#C9A227", // Darker gold accents
                 },
-                scooter: {
-                    DEFAULT: "#2dbbc4",
-                    light: "#e3f1f2",
+
+                // Cream White - Backgrounds
+                cream: "#EEEDE9",
+
+                // Ink Black - Body Text
+                ink: "#1A1823",
+
+                // ===== UI GRAYS (Light Mode) =====
+                gray: {
+                    DEFAULT: "#6C757D", // Slate - secondary text
+                    50: "#F8F9FA", // Off White - light cards
+                    100: "#DEE2E6", // Silver - borders, dividers
+                    200: "#6C757D", // Slate - secondary text, captions
+                    300: "#495057", // Charcoal - muted labels
+                    400: "#343A40", // Dark Gray - softer text blocks
                 },
-                ebb: "#e9e6e3",
-                pampas: "#ece8e4",
-                gore: "#1f1f52",
-                porsche: "#ebb860",
-                mandy: "#df5b6c",
-                tan: "#d2a98e",
-                mishcka: "#e2e2e8",
+
+                // ===== SEMANTIC COLORS (Mapped to Brand Colors) =====
+                primary: {
+                    DEFAULT: "#c5203e", // Brand Red
+                    light: "#C52233", // Signal Red
+                    dark: "#A51C30", // Crimson
+                },
+
+                secondary: {
+                    DEFAULT: "#091f40", // Navy Blue
+                    light: "#0353A4", // Royal Blue
+                    dark: "#061A40", // Midnight
+                },
+
+                success: {
+                    DEFAULT: "#FDB330", // Amber Gold
+                    light: "#FFE169", // Light Gold
+                    dark: "#DBB42C", // Rich Gold
+                },
+
+                warning: {
+                    DEFAULT: "#FAD643", // Bright Gold
+                    light: "#FFE169", // Light Gold
+                    dark: "#C9A227", // Deep Gold
+                },
+
+                danger: {
+                    DEFAULT: "#c5203e", // Brand Red
+                    light: "#C52233", // Signal Red
+                    dark: "#74121D", // Dark Red
+                },
+
+                info: {
+                    DEFAULT: "#006DAA", // Ocean Blue
+                    light: "#B9D6F2", // Sky Blue
+                    dark: "#0353A4", // Royal Blue
+                },
+
+                // ===== DARK MODE COLORS =====
+                dark: {
+                    DEFAULT: "#1A1823", // Ink Black - primary dark background
+                    surface: "#212529", // Charcoal - elevated surfaces
+                    elevated: "#343A40", // Dark Gray - tertiary surfaces
+                    text: "#F8F9FA", // Off White - primary text
+                    "text-muted": "#DEE2E6", // Silver - secondary text
+                    "text-disabled": "#6C757D", // Slate - disabled text
+                    accent: "#84C1FF", // Light Blue - links, interactive
+                    "accent-hover": "#B9D6F2", // Sky Blue - hover state
+                    error: "#F38375", // Coral - errors
+                    success: "#FFE169", // Light Gold - success
+                    badge: "#FAD643", // Bright Gold - badges
+                },
+
+                // ===== UTILITY COLORS =====
+                white: "#FFFFFF",
+                black: "#000000",
+
+                // ===== LEGACY MAPPINGS (for prose/typography) =====
+                body: "#1A1823", // Ink Black for body text
+                heading: "#091f40", // Navy for headings
             },
             typography: ({ theme }) => ({
                 DEFAULT: {
@@ -260,14 +251,14 @@ module.exports = {
                 15: "3.75rem",
                 37: "9.375rem",
                 // Modern 8px grid spacing
-                xs: "0.5rem",    // 8px
-                sm: "0.75rem",   // 12px
-                md: "1rem",      // 16px
-                lg: "1.5rem",    // 24px
-                xl: "2rem",      // 32px
-                "2xl": "3rem",   // 48px
-                "3xl": "4rem",   // 64px
-                "4xl": "6rem",   // 96px
+                xs: "0.5rem", // 8px
+                sm: "0.75rem", // 12px
+                md: "1rem", // 16px
+                lg: "1.5rem", // 24px
+                xl: "2rem", // 32px
+                "2xl": "3rem", // 48px
+                "3xl": "4rem", // 64px
+                "4xl": "6rem", // 96px
             },
             screens: {
                 maxSm: { max: "575px" },

@@ -1,10 +1,10 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/icon-box/icon-box-02";
-import { scrollUpVariants } from "@utils/variants";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
-import { SectionTitleType, ItemType, ImageType, TSection } from "@utils/types";
+import { ImageType, ItemType, SectionTitleType, TSection } from "@utils/types";
+import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedServiceCard = motion(ServiceCard);
@@ -77,7 +77,7 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-orange-300" />
+                        <span className="tw-block tw-h-[35px] tw-w-[35px] tw-rounded-full tw-bg-red" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute -tw-bottom-28 tw-left-0 tw-z-1"
@@ -86,7 +86,7 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                             y: trans2().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[54px] tw-w-[54px] tw-rounded-full tw-bg-porsche" />
+                        <span className="tw-block tw-h-[54px] tw-w-[54px] tw-rounded-full tw-bg-gold" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-right-0 tw-top-15 tw-z-1"
@@ -95,7 +95,7 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                             y: trans2().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-jagged" />
+                        <span className="tw-block tw-h-[46px] tw-w-[46px] tw-rounded-full tw-bg-navy-sky" />
                     </motion.div>{" "}
                     <motion.div
                         className="tw-absolute tw-bottom-16 tw-right-10 tw-z-1"
@@ -104,7 +104,7 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                             y: trans2().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[38px] tw-w-[38px] tw-rounded-full tw-bg-mandy/70" />
+                        <span className="tw-block tw-h-[38px] tw-w-[38px] tw-rounded-full tw-bg-red/70" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute -tw-bottom-24 tw-right-0 tw-z-1"
@@ -113,7 +113,7 @@ const ServiceArea = ({ data: { section_title, items, images }, space, bg, titleS
                             y: trans1().y,
                         }}
                     >
-                        <span className="tw-block tw-h-9 tw-w-9 tw-rounded-full tw-bg-blue-100/60" />
+                        <span className="tw-block tw-h-9 tw-w-9 tw-rounded-full tw-bg-navy-sky/60" />
                     </motion.div>
                 </div>
             </div>

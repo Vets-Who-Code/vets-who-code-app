@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
 import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
+import { useUI } from "@contexts/ui-context";
 import Accordion from "@ui/accordion";
 import { ImageType, ItemType, SectionTitleType, TSection } from "@utils/types";
-import { useUI } from "@contexts/ui-context";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {

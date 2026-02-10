@@ -1,13 +1,13 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import MottoText from "@ui/motto-text";
-import SectionTitle from "@components/section-title";
-import BottomShape from "@ui/bottom-shape/shape-03";
-import Video from "@ui/video-with-poster/video-02";
 import Shape2 from "@assets/svgs/shape-2.svg";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import BottomShape from "@ui/bottom-shape/shape-03";
+import MottoText from "@ui/motto-text";
+import Video from "@ui/video-with-poster/video-02";
 import { ImageType, MottoType, SectionTitleType, TSection, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 const AnimatedVideo = motion(Video);
 
@@ -106,7 +106,7 @@ const VideoArea = ({
 };
 
 VideoArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-gray-50",
 };
 
 export default VideoArea;

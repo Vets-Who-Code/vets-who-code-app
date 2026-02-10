@@ -1,12 +1,12 @@
-import React from "react";
-import Link from "next/link";
+import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
+import ResumeTranslator from "@components/translator/ResumeTranslator";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
+import React from "react";
 import { options } from "@/pages/api/auth/options";
-import SEO from "@components/seo/page-seo";
-import Breadcrumb from "@components/breadcrumb";
-import ResumeTranslator from "@components/translator/ResumeTranslator";
 
 type PageProps = {
     user: {
@@ -27,7 +27,6 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
-
     return (
         <>
             <SEO
@@ -44,7 +43,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
                 {/* Header with User Menu */}
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-end">
                     <div className="tw-flex tw-items-center tw-space-x-4">
-                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-600">
+                        <div className="tw-flex tw-items-center tw-space-x-2 tw-text-sm tw-text-gray-300">
                             {user.image && (
                                 <img
                                     src={user.image}
@@ -52,14 +51,12 @@ const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
                                     className="tw-h-8 tw-w-8 tw-rounded-full"
                                 />
                             )}
-                            <span>
-                                Welcome, {user.name?.split(" ")[0] || "User"}
-                            </span>
+                            <span>Welcome, {user.name?.split(" ")[0] || "User"}</span>
                         </div>
                         <div className="tw-flex tw-space-x-2">
                             <Link
                                 href="/profile"
-                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-700 tw-transition-colors hover:tw-bg-gray-200"
+                                className="tw-rounded-md tw-bg-gray-100 tw-px-3 tw-py-2 tw-text-sm tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                                 title="View Profile"
                             >
                                 <i className="fas fa-user tw-mr-1" />
@@ -84,7 +81,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
                                     <i className="fas fa-check-circle tw-text-success tw-mr-2" />
                                     Do:
                                 </h3>
-                                <ul className="tw-space-y-2 tw-text-gray-700">
+                                <ul className="tw-space-y-2 tw-text-gray-200">
                                     <li className="tw-flex tw-items-start">
                                         <span className="tw-mr-2">•</span>
                                         <span>Use action verbs to start each bullet point</span>
@@ -108,7 +105,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ user }) => {
                                     <i className="fas fa-times-circle tw-text-danger tw-mr-2" />
                                     Don&apos;t:
                                 </h3>
-                                <ul className="tw-space-y-2 tw-text-gray-700">
+                                <ul className="tw-space-y-2 tw-text-gray-200">
                                     <li className="tw-flex tw-items-start">
                                         <span className="tw-mr-2">•</span>
                                         <span>Use military acronyms without explanation</span>

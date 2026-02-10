@@ -1,14 +1,14 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
+import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
-import Button from "@ui/button";
+import RatingBox from "@components/testimonial/rating-box";
 import Testimonial03 from "@components/testimonial/testimonial-03";
 import Testimonial04 from "@components/testimonial/testimonial-04";
-import RatingBox from "@components/testimonial/rating-box";
-import Shape2 from "@assets/svgs/shape-2.svg";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import Button from "@ui/button";
 import { ButtonType, ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {
@@ -128,7 +128,12 @@ const TestimonialArea = ({
                     variants={scrollUpVariants}
                 >
                     {section_title && (
-                        <SectionTitle {...section_title} align="left" titleSize={titleSize} />
+                        <SectionTitle
+                            {...section_title}
+                            align="left"
+                            titleSize={titleSize}
+                            color="C"
+                        />
                     )}
 
                     {buttons?.[0]?.content && (
@@ -143,7 +148,7 @@ const TestimonialArea = ({
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-gray-200",
+    bg: "tw-bg-navy",
 };
 
 export default TestimonialArea;

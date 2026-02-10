@@ -1,10 +1,10 @@
-import { useMemo } from "react";
-import { motion } from "motion/react";
 import SectionTitle from "@components/section-title";
-import Swiper, { SwiperSlide } from "@ui/swiper";
 import Testimonial from "@components/testimonial/testimonial-06";
+import Swiper, { SwiperSlide } from "@ui/swiper";
 import { ItemType, SectionTitleType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
+import { useMemo } from "react";
 
 const AnimatedSectionTitle = motion(SectionTitle);
 const AnimatedSwiper = motion(Swiper);

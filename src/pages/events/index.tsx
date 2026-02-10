@@ -1,9 +1,9 @@
-import type { GetStaticProps, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import EventArea from "@containers/event/layout-01";
+import Layout01 from "@layout/layout-01";
 import { IEvent } from "@utils/types";
+import type { GetStaticProps, NextPage } from "next";
 import { getallEvents, getEventMeta } from "../../lib/event";
 
 type TProps = {

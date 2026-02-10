@@ -1,8 +1,8 @@
-import path from "path";
 import { VWCProject, VWCProjectDetails } from "@utils/types";
 import fs from "fs";
-import { getSlugs } from "./util";
+import path from "path";
 import { getGithubRepo, getProjectContributors } from "./github";
+import { getSlugs } from "./util";
 
 const projectDirectory = path.join(process.cwd(), "src/data/projects");
 
@@ -26,7 +26,7 @@ export const getProjectData = async (): Promise<VWCProject[]> => {
                 details: project,
                 repo: {
                     ...repo,
-                    contributors: contributors,
+                    contributors,
                 },
             };
             return data;

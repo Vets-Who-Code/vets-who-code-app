@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import SectionTitle from "@components/section-title";
 import ServiceCard from "@components/icon-box/icon-box-02";
-import { motion } from "motion/react";
+import SectionTitle from "@components/section-title";
+import { ImageType, ItemType, SectionTitleType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
-import { SectionTitleType, ItemType, ImageType } from "@utils/types";
+import clsx from "clsx";
+import { motion } from "motion/react";
 
 const AnimatedSerctionTitle = motion(SectionTitle);
 const AnimatedServiceCard = motion(ServiceCard);

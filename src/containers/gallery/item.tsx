@@ -1,6 +1,6 @@
-import { forwardRef, useEffect, useRef, useState } from "react";
-import clsx from "clsx";
 import { ImageType } from "@utils/types";
+import clsx from "clsx";
+import { forwardRef, useEffect, useRef, useState } from "react";
 
 type TProps = {
     image: ImageType;

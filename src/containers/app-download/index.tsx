@@ -1,11 +1,11 @@
-import { motion } from "motion/react";
-import Section from "@components/ui/engagement-modal";
-import SectionTitle from "@components/section-title";
-import Button from "@ui/button";
 import Shape2 from "@assets/svgs/shape-2.svg";
+import SectionTitle from "@components/section-title";
+import Section from "@components/ui/engagement-modal";
 import { useUI } from "@contexts/ui-context";
+import Button from "@ui/button";
 import { ButtonType, ImageType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
+import { motion } from "motion/react";
 
 type TProps = TSection & {
     data: {
@@ -67,7 +67,7 @@ const AppDownloadArea = ({
                             y: trans2().y,
                         }}
                     >
-                        <span className="tw-block tw-h-[62px] tw-w-[62px] tw-rounded-full tw-border-8 tw-border-desert -tw-indent-[99999px]">
+                        <span className="tw-block tw-h-[62px] tw-w-[62px] tw-rounded-full tw-border-8 tw-border-red -tw-indent-[99999px]">
                             shape 1
                         </span>
                     </motion.div>

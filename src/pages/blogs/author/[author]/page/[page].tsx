@@ -1,12 +1,12 @@
-import type { GetStaticPaths, NextPage } from "next";
-import SEO from "@components/seo/page-seo";
-import Layout01 from "@layout/layout-01";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-02";
-import { BlogMetaType, IBlog } from "@utils/types";
+import Layout01 from "@layout/layout-01";
 import { flatDeep, toCapitalize } from "@utils/methods";
-import { getAllBlogs, getPostsByAuthor, getTags } from "../../../../../lib/blog";
+import { BlogMetaType, IBlog } from "@utils/types";
+import type { GetStaticPaths, NextPage } from "next";
 import { getAllAuthors, getAuthorBySlug } from "../../../../../lib/author";
+import { getAllBlogs, getPostsByAuthor, getTags } from "../../../../../lib/blog";
 
 type TProps = {
     data: {
@@ -69,7 +69,7 @@ export const getStaticPaths: GetStaticPaths = () => {
         const { count } = getPostsByAuthor(id, ["slug"]);
         const pages = Math.ceil(count / POSTS_PER_PAGE);
 
-        const pagesToGenerate = [...Array(pages).keys()]
+        const pagesToGenerate = [...new Array(pages).keys()]
             .map((a) => {
                 if (a !== 0) return a + 1;
                 return null;
