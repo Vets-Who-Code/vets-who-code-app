@@ -2,8 +2,7 @@ import "dotenv/config";
 import * as fs from "fs";
 import * as path from "path";
 import { GoogleGenAI } from "@google/genai";
-import { v2 as cloudinary } from "cloudinary";
-import { configureCloudinary } from "./lib/cloudinary-config";
+import cloudinary from "@/lib/cloudinary";
 
 const apiKey = process.env.GEMINI_API_KEY;
 
@@ -121,8 +120,6 @@ async function uploadToCloudinary(
   imageBytes: string,
   slug: string,
 ): Promise<string> {
-  configureCloudinary();
-
   // Wrap base64 bytes as a data URI so Cloudinary knows the format
   const dataUri = `data:image/png;base64,${imageBytes}`;
 

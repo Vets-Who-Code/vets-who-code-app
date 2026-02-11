@@ -1,10 +1,6 @@
-import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 import path from "path";
-import { configureCloudinary } from "./lib/cloudinary-config";
-
-// Configure Cloudinary
-configureCloudinary();
+import cloudinary from "@/lib/cloudinary";
 
 // Helper function to convert PCM data to WAV format
 function pcmToWav(pcmData: Buffer, sampleRate = 24000, channels = 1): Buffer {
