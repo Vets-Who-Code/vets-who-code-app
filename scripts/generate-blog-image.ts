@@ -170,7 +170,7 @@ async function main() {
   const theme = await generateBlogStructuredDataWithGemini(title, content);
 
   const prompt = buildImagenPrompt(theme);
-  const imageBytes = await generateImage(prompt, slug);
+  const imageBytes = await generateImage(prompt);
 
   const url = await uploadToCloudinary(imageBytes, slug);
 
