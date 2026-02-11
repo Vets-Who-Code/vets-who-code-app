@@ -114,10 +114,6 @@ async function generateImage(prompt: string, slug: string): Promise<string> {
     throw new Error("Imagen returned no image bytes.");
   }
 
-  // Save locally so you can preview it before uploading
-  const outputPath = path.resolve(process.cwd(), `${slug}.png`);
-  fs.writeFileSync(outputPath, Buffer.from(imageBytes, "base64"));
-
   return imageBytes;
 }
 
