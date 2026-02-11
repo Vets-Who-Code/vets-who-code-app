@@ -4,14 +4,7 @@ import * as path from "path";
 import { GoogleGenAI } from "@google/genai";
 import cloudinary from "@/lib/cloudinary";
 
-const apiKey = process.env.GEMINI_API_KEY;
-
-if (!apiKey) {
-  throw new Error("Missing GEMINI_API_KEY.");
-}
-
-const ai = new GoogleGenAI({ apiKey });
-
+let ai: GoogleGenAI;
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 
 export function readBlogPost(slug: string) {
@@ -161,6 +154,14 @@ async function main() {
   if (!slug) {
     throw new Error("No slug provided as argument.");
   }
+
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("Missing GEMINI_API_KEY.");
+  }
+
+  // Initialize the client here
+  ai = new GoogleGenAI({ apiKey });
 
   // Read the blog post content from markdown file.
   const { title, content } = readBlogPost(slug);
