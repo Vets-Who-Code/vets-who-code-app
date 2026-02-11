@@ -107,7 +107,7 @@ Remember, this is optional. If you prefer to set up your development environment
 
 **How to Run**
 
-- Verify you have the follwoing environment variables locally in a .env file:
+- Verify you have the following environment variables locally in a .env file:
   - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
   - CLOUDINARY_API_KEY
   - CLOUDINARY_API_SECRET

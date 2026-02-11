@@ -17,8 +17,8 @@ const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 function readBlogPost(slug: string) {
   const filePath = path.join(BLOG_DIR, `${slug}.md`);
 
-  if (!filePath) {
-    throw new Error(`Blog post not found for slug "${slug}".}`);
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Blog post not found for slug "${slug}".`);
   }
 
   const raw = fs.readFileSync(filePath, "utf-8");
@@ -65,7 +65,17 @@ Rules:
   const raw = response.text ?? "";
   const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
 
-  const theme = JSON.parse(cleaned);
+  let theme;
+
+  try {
+    theme = JSON.parse(cleaned);
+  } catch (err: any) {
+    const truncated =
+      cleaned.length > 1000 ? `${cleaned.slice(0, 1000)}...` : cleaned;
+    throw new Error(
+      `Failed to parse Gemini JSON response: ${err?.message ?? err}\nCleaned payload (truncated):\n${truncated}`,
+    );
+  }
   return theme;
 }
 
@@ -168,4 +178,7 @@ async function main() {
   );
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
