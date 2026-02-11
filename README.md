@@ -80,19 +80,19 @@ We support development containers for an easier setup experience.
 
 1. **Clone the repository**
 
-    ```sh
-    git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
-    cd vets-who-code-app
-    ```
+   ```sh
+   git clone https://github.com/Vets-Who-Code/vets-who-code-app.git
+   cd vets-who-code-app
+   ```
 
 2. **Open in VS Code**
 
-    - Open the root directory in VS Code.
-    - When prompted, choose "Reopen in Container"
-    - Or use Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
+   - Open the root directory in VS Code.
+   - When prompted, choose "Reopen in Container"
+   - Or use Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
 
 3. **Start Developing**
-    - Once the container is built and running, you're ready to code!
+   - Once the container is built and running, you're ready to code!
 
 Remember, this is optional. If you prefer to set up your development environment manually, you can continue to do so.
 
@@ -103,6 +103,7 @@ Remember, this is optional. If you prefer to set up your development environment
 **How to Run** - Verify you have the environment variable locally in a .env file (GEMINI_API_KEY).
 
 To get a local copy up and running, you'll need a few things installed on your machine.
+`npx tsx scripts/generate-blog-image.ts`
 
 ## Contributing :handshake:
 
