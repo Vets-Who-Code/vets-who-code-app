@@ -85,7 +85,7 @@ Hard Constraints:
 - Colors: Use only Navy Blue (#091f40), Red (#c5203e), and White (#ffffff).
 - Style: Bold lines, strong shapes, and a positive, mission-oriented feel.
 - Texture: Add a subtle, distressed paper texture.
-- Text: No text or hex codes.
+- Text: No text or hex codes anywhere on image.
 - Tone: Positive, uplifting, empowering.`;
 }
 

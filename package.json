@@ -17,7 +17,8 @@
     "lint:fix": "yarn typecheck & yarn format & yarn lint --fix",
     "prepare": "husky install",
     "postbuild": "next-sitemap",
-    "test": "jest"
+    "test": "jest",
+    "generate-blog-image": "npx tsx scripts/generate-blog-image.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
