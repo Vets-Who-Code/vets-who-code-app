@@ -3,7 +3,11 @@ import path from "path";
 import cloudinary from "@/lib/cloudinary";
 
 // Helper function to convert PCM data to WAV format
-function pcmToWav(pcmData: Buffer, sampleRate = 24000, channels = 1): Buffer {
+export function pcmToWav(
+  pcmData: Buffer,
+  sampleRate = 24000,
+  channels = 1,
+): Buffer {
   const bitsPerSample = 16;
   const blockAlign = channels * (bitsPerSample / 8);
   const byteRate = sampleRate * blockAlign;
@@ -189,12 +193,14 @@ async function main() {
   uploadToCloudinary(audioBuffer, blogSlug);
 }
 
-main().catch((error) => {
-  console.error("Script failed:", error);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error("Script failed:", error);
+    process.exit(1);
+  });
+}
 
-function cleanMarkdownToText(markdown: string): string {
+export function cleanMarkdownToText(markdown: string): string {
   return markdown
     .replace(/^#{1,6}\s+/gm, "") // Remove headers
     .replace(/\*\*/g, "") // Remove bold
