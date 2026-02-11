@@ -97,7 +97,7 @@ Hard Constraints:
 - Tone: Positive, uplifting, empowering.`;
 }
 
-async function generateImage(prompt: string, slug: string): Promise<string> {
+async function generateImage(prompt: string): Promise<string> {
   console.log(
     "\n\x1b[34m\x1b[43m\x1b[1m🖼️ Generating image with Imagen 4...\x1b[0m",
   );

@@ -22,7 +22,7 @@
     "test": "vitest run",
     "generate:blog-audio": "tsx -r dotenv/config scripts/generate-blog-audio-overviews.ts",
     "commitlint": "commitlint --from-HEAD~1",
-    "generate-blog-image": "tsx -r dotenv/config scripts/generate-blog-image.ts"
+    "generate:blog-image": "tsx -r dotenv/config scripts/generate-blog-image.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
