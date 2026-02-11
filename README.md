@@ -100,7 +100,20 @@ Remember, this is optional. If you prefer to set up your development environment
 
 **How it Works**
 
-**How to Run** - Verify you have the environment variable locally in a .env file (GEMINI_API_KEY).
+- Scrapes/reads the blog markdown file in system blog folder.
+- Blog title, content and summary are returned to inject in a dynamic prompt that is given to Google Gemini.
+- Gemini returns JSON formatted to be able to give this return value as an input to Google Imagen to build an image.
+- After the image is generated it is uploaded to [Cloudinary](https://cloudinary.com/) into the blog-images folder.
+
+**How to Run**
+
+- Verify you have the follwoing environment variables locally in a .env file:
+  - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+  - CLOUDINARY_API_KEY
+  - CLOUDINARY_API_SECRET
+  - GEMINI_API_KEY
+- Run this script followed by the blog article slug as second arg like this example:
+  `npm run generate-blog-image <blog-slug-here>`
 
 To get a local copy up and running, you'll need a few things installed on your machine.
 `npx tsx scripts/generate-blog-image.ts`
