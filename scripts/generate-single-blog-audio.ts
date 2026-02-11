@@ -184,7 +184,18 @@ async function main() {
   const content = contentMatch[1];
 
   // Clean the content: remove markdown formatting and extract readable text
-  const cleanContent = content
+  const cleanContent = cleanMarkdownToText(content);
+  const audioBuffer = await generateAudioWithGemini(cleanContent, apiKey);
+  uploadToCloudinary(audioBuffer, blogSlug);
+}
+
+main().catch((error) => {
+  console.error("Script failed:", error);
+  process.exit(1);
+});
+
+function cleanMarkdownToText(markdown: string): string {
+  return markdown
     .replace(/^#{1,6}\s+/gm, "") // Remove headers
     .replace(/\*\*/g, "") // Remove bold
     .replace(/\*/g, "") // Remove italics
@@ -192,11 +203,4 @@ async function main() {
     .replace(/<[^>]+>/g, "") // Remove HTML tags
     .replace(/^[-*+]\s+/gm, "") // Remove list markers
     .trim();
-  const audioBuffer = await generateAudioWithGemini(cleanContent, apiKey);
-  const _cloudinaryUrl = await uploadToCloudinary(audioBuffer, blogSlug);
 }
-
-main().catch((error) => {
-  console.error("Script failed:", error);
-  process.exit(1);
-});
