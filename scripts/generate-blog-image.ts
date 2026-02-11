@@ -14,7 +14,7 @@ const ai = new GoogleGenAI({ apiKey });
 
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 
-function readBlogPost(slug: string) {
+export function readBlogPost(slug: string) {
   const filePath = path.join(BLOG_DIR, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {
@@ -79,7 +79,7 @@ Rules:
   return theme;
 }
 
-function buildImagenPrompt(theme: any): string {
+export function buildImagenPrompt(theme: any): string {
   return `Create a high-impact 1950s military propaganda-style poster illustration.
 
 Visual Theme: ${theme.fullThemeDescription}
@@ -178,7 +178,9 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
