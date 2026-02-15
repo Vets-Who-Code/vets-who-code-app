@@ -123,5 +123,27 @@
                 "url": "https://www.linkedin.com/in/alexreyes27/"
             }
         ]
+    },
+    {
+        "id": 6,
+        "name": "Natalia Bailey",
+        "slug": "natalia-bailey",
+        "path": "/team/natalia-bailey",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771193144/team/natalia-bailey.png",
+            "width": 742,
+            "height": 990,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Natalia Bailey is an IT and data analytics leader who specializes in building clear, ethical, and scalable analytics programs. A U.S. Army veteran and former Signal Officer, she brings mission discipline and empathy to complex technical efforts. At PulteGroup, Natalia manages enterprise analytics and platform modernization; embedding business processes into analytics. She leads data governance implementation and program management integrating data discovery with transparency and security at the center.\n\nBefore PulteGroup, Natalia was a senior consultant at Slalom, where she implemented data governance for mid- and large-size organizations across sectors such as automotive, manufacturing, non-profit, public sector, and construction. Her focus: build trust and transparency in data without breaking the bank, so teams can surface actionable insights and make better decisions. There she created the RAISE Framework (Risk Assessment, AI Integration, Sustainable Efficiency), guiding responsible AI adoption with data quality, privacy, and governance foundations.\n\nShe holds master's degrees in Information Technology Management and Business Administration. She is active in the Atlanta veteran community and passionate about helping veterans reintegrate back into civilian life by translating military problem-solving into modern technical careers through project-based learning, mentorship, and community building.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/nataliabailey/"
+            }
+        ]
     }
 ]
