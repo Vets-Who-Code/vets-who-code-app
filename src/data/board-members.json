@@ -145,5 +145,27 @@
                 "url": "https://www.linkedin.com/in/nataliabailey/"
             }
         ]
+    },
+    {
+        "id": 7,
+        "name": "Ken Wheeler",
+        "slug": "ken-wheeler",
+        "path": "/team/ken-wheeler",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771200642/team/ken-wheeler.jpg",
+            "width": 180,
+            "height": 180,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Ken Wheeler is a software developer with over a decade of experience in creating web applications for large clients. He has spent a large amount of his career working in e-commerce, custom enterprise application development and more recently, the fintech space. He primarily works in Javascript, but is comfortable and productive in several languages.\n\nA large part of his recent experience has been being a part of core architecture teams, where he has focused on application architecture, internal training, external training, performance optimization and coordinating organizational practices across vertical teams.\n\nAdjacent to this work, Ken has also traveled the world speaking at a variety of conferences and giving workshops. He has also written and maintained a number of popular open source projects, most notably Slick Carousel and Webpack Dashboard.\n\nHis independent study and free time interests generally lie in explorations and prototyping related to what the next web could look like, the exploration of Rust, OCaml/ReasonML, applications of machine/deep learning, and WebAudio/WebGL.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/kennywheeler/"
+            }
+        ]
     }
 ]
