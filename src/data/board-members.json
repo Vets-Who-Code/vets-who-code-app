@@ -253,5 +253,32 @@
                 "url": "https://emilyfreeman.io/"
             }
         ]
+    },
+    {
+        "id": 13,
+        "name": "Paul Ford",
+        "slug": "paul-ford",
+        "path": "/team/paul-ford",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771208155/team/paul-ford.png",
+            "width": 460,
+            "height": 460,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Paul Ford is a writer, programmer, and entrepreneur based in New York City. He is the co-founder of Aboard and Postlight, a New York City software company. One of the earliest bloggers, he started Ftrain.com in 1997, and has since become one of the most prominent literary voices covering technology as a regular contributor to Wired, The New Yorker, The New York Times Magazine, and Harper's Magazine. He also teaches at the MFA program in Interaction Design at the School of Visual Arts.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/ftrain/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/ftrain"
+            }
+        ]
     }
 ]
