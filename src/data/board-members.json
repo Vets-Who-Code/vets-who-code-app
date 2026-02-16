@@ -280,5 +280,37 @@
                 "url": "https://github.com/ftrain"
             }
         ]
+    },
+    {
+        "id": 14,
+        "name": "Kyle Shevlin",
+        "slug": "kyle-shevlin",
+        "path": "/team/kyle-shevlin",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771207250/team/kyle-shevlin.jpg",
+            "width": 460,
+            "height": 460,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Kyle Shevlin is a software engineer based in Portland, Oregon, specializing in React, Astro, TypeScript, and frontend web development. He is also a writer, speaker, and coding instructor who cares deeply about quality in his craft and is passionate about helping others improve theirs. Kyle teaches courses on topics such as state machines and XState, and shares his knowledge through his blog and open source contributions.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/kyleshevlin/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/kyleshevlin"
+            },
+            {
+                "label": "Website",
+                "icon": "fas fa-globe",
+                "url": "https://kyleshevlin.com/"
+            }
+        ]
     }
 ]
