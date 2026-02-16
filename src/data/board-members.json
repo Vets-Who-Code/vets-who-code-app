@@ -165,6 +165,11 @@
                 "label": "LinkedIn",
                 "icon": "fab fa-linkedin",
                 "url": "https://www.linkedin.com/in/kennywheeler/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/kenwheeler"
             }
         ]
     },
@@ -187,6 +192,33 @@
                 "label": "LinkedIn",
                 "icon": "fab fa-linkedin",
                 "url": "https://www.linkedin.com/in/rachelpolish/"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Tim Banks",
+        "slug": "tim-banks",
+        "path": "/team/tim-banks",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771204083/team/tim-banks.jpg",
+            "width": 460,
+            "height": 460,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Tim Banks' tech career spans over 25 years through various sectors. His initial journey into tech started in avionics in the US Marine Corps and then into various government contracting roles. After moving to the private sector, Tim worked both in large corporate environments and in small startups, honing his skills in systems administration, automation, architecture, and operations for large cloud-based datastores. Today, Tim leverages his years in operations, DevOps, and Site Reliability Engineering to advise and consult with the open source and cloud computing communities. Tim is also a competitive Brazilian Jiu-Jitsu practitioner. He is the 2-time American National and is the 5-time Pan American Brazilian Jiu-Jitsu champion in his division.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/timjb/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/timbanks"
             }
         ]
     }
