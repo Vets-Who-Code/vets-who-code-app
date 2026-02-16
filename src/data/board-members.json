@@ -167,5 +167,27 @@
                 "url": "https://www.linkedin.com/in/kennywheeler/"
             }
         ]
+    },
+    {
+        "id": 8,
+        "name": "Rachel Polish",
+        "slug": "rachel-polish",
+        "path": "/team/rachel-polish",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771201515/team/rachel-polish.jpg",
+            "width": 272,
+            "height": 300,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Rachel Polish is a dynamic Senior Digital Media Sales and Marketing Lead with 15+ years of experience as a partner for paid/owned/earned digital strategic plans and crisis management programs, supporting brands like JPMorgan Chase and agencies like Ogilvy Public Relations. She is an expert in measurement, online listening, and audience development, with deep B2B and B2C insights/KPI experience. Skilled in building strong client relationships, developing tailored narratives, pitch presentations, and initiatives that align client goals and KPIs with digital solutions, Rachel is a passionate advocate for client needs, demonstrating value through focused, measurable campaigns.\n\nAs a Coast Guard Reservist, Rachel is privileged to serve as the senior enlisted leader for a diverse unit spanning multiple missions and special operations, providing strategic leadership, mentorship, advocacy, and training opportunities to 150+ Reserve personnel.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/rachelpolish/"
+            }
+        ]
     }
 ]
