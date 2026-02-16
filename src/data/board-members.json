@@ -320,9 +320,9 @@
         "path": "/team/amanda-casari",
         "url": "",
         "image": {
-            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771203109/team/amanda-casari.jpg",
-            "width": 259,
-            "height": 194,
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771212402/team/amanda-casari.png",
+            "width": 1024,
+            "height": 768,
             "alt": "Board Member"
         },
         "designation": "Board Member",
