@@ -261,9 +261,9 @@
         "path": "/team/paul-ford",
         "url": "",
         "image": {
-            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771208155/team/paul-ford.png",
-            "width": 460,
-            "height": 460,
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771213002/team/paul-ford.jpg",
+            "width": 500,
+            "height": 500,
             "alt": "Board Member"
         },
         "designation": "Board Member",
