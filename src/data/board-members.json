@@ -221,5 +221,37 @@
                 "url": "https://github.com/timbanks"
             }
         ]
+    },
+    {
+        "id": 11,
+        "name": "Emily Freeman",
+        "slug": "emily-freeman",
+        "path": "/team/emily-freeman",
+        "url": "",
+        "image": {
+            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771205532/team/emily-freeman.webp",
+            "width": 2500,
+            "height": 1237,
+            "alt": "Board Member"
+        },
+        "designation": "Board Member",
+        "bio": "Emily Freeman is a bestselling author, public speaker, and technical leader who believes tech's biggest challenges are human, not technical. Her mission centers on building collaborative, diverse team cultures grounded in empathy, kindness, and respect. She is the author of DevOps for Dummies and 97 Things Every Cloud Engineer Should Know.",
+        "socials": [
+            {
+                "label": "LinkedIn",
+                "icon": "fab fa-linkedin",
+                "url": "https://www.linkedin.com/in/editingemily/"
+            },
+            {
+                "label": "GitHub",
+                "icon": "fab fa-github",
+                "url": "https://github.com/emilyfreeman"
+            },
+            {
+                "label": "Website",
+                "icon": "fas fa-globe",
+                "url": "https://emilyfreeman.io/"
+            }
+        ]
     }
 ]
