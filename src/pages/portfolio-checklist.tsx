@@ -525,7 +525,7 @@ const PortfolioChecklist: PageProps = () => {
                         it&rsquo;s noise. Build accordingly.
                     </p>
                     <p className="tw-text-sm tw-text-white/70 print:tw-text-gray-200">
-                        2025 Edition &middot; {totalItems} items across 7 sections
+                        2026 Edition &middot; {totalItems} items across 7 sections
                     </p>
                 </div>
             </section>
