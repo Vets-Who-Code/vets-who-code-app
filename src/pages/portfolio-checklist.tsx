@@ -516,7 +516,7 @@ const PortfolioChecklist: PageProps = () => {
             {/* Hero */}
             <section className="tw-bg-gradient-to-br tw-from-secondary tw-to-navy-deep tw-py-16 tw-text-white md:tw-py-24 print:tw-bg-white print:tw-py-8 print:tw-text-body">
                 <div className="tw-container tw-max-w-4xl">
-                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-leading-tight md:tw-text-5xl print:tw-text-2xl print:tw-text-secondary">
+                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-leading-tight tw-text-white md:tw-text-5xl print:tw-text-2xl print:tw-text-secondary">
                         Portfolio Checklist for Software Engineers
                     </h1>
                     <p className="tw-mb-6 tw-text-lg tw-leading-relaxed tw-text-white/90 md:tw-text-xl print:tw-text-body">
