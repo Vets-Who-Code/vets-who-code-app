@@ -100,6 +100,12 @@ const navigation: NavigationItem[] = [
                 label: "Media",
                 path: "/media",
             },
+            {
+                id: 705,
+                label: "Portfolio Checklist",
+                path: "/portfolio-checklist",
+                status: "new",
+            },
         ],
     },
     {
