@@ -519,12 +519,12 @@ const PortfolioChecklist: PageProps = () => {
                     <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-leading-tight md:tw-text-5xl print:tw-text-2xl print:tw-text-secondary">
                         Portfolio Checklist for Software Engineers
                     </h1>
-                    <p className="tw-mb-6 tw-text-lg tw-leading-relaxed tw-text-navy-sky md:tw-text-xl print:tw-text-body">
+                    <p className="tw-mb-6 tw-text-lg tw-leading-relaxed tw-text-white/90 md:tw-text-xl print:tw-text-body">
                         The portfolio is a sales site. Every element either moves a hiring
                         manager toward &ldquo;I need to talk to this person&rdquo; or
                         it&rsquo;s noise. Build accordingly.
                     </p>
-                    <p className="tw-text-sm tw-text-navy-sky/70 print:tw-text-gray-200">
+                    <p className="tw-text-sm tw-text-white/70 print:tw-text-gray-200">
                         2025 Edition &middot; {totalItems} items across 7 sections
                     </p>
                 </div>
