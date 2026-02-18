@@ -148,7 +148,7 @@ async function uploadToCloudinary(
   });
 }
 
-async function main() {
+export async function main() {
   // Read the slug from the command line
   const slug = process.argv[2];
   if (!slug) {

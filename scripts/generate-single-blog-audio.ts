@@ -148,7 +148,7 @@ async function uploadToCloudinary(
   });
 }
 
-async function main() {
+export async function main() {
   const blogSlug = process.argv[2];
 
   if (!blogSlug) {
