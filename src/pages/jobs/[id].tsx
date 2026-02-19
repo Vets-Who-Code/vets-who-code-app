@@ -204,7 +204,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                     {/* Sidebar */}
                     <div>
                         {/* Quick Apply */}
-                        <div className="tw-mb-8 tw-rounded-lg tw-bg-gradient-to-br tw-from-primary tw-to-red-700 tw-p-6 tw-text-white tw-shadow-md">
+                        <div className="tw-mb-8 tw-rounded-lg tw-bg-gradient-to-br tw-from-secondary tw-to-secondary-dark tw-p-6 tw-text-white tw-shadow-md">
                             <h3 className="tw-mb-3 tw-text-xl tw-font-bold">Ready to Apply?</h3>
                             <p className="tw-mb-4 tw-text-sm tw-opacity-90">
                                 Click below to submit your application through Job Boardly.
@@ -213,7 +213,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                                 href={job.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="tw-block tw-rounded-md tw-bg-white tw-px-6 tw-py-3 tw-text-center tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100"
+                                className="tw-block tw-rounded-md tw-bg-accent tw-px-6 tw-py-3 tw-text-center tw-font-semibold tw-text-secondary tw-transition-colors hover:tw-bg-accent-dark"
                             >
                                 Apply Now
                                 <i className="fas fa-arrow-right tw-ml-2" />

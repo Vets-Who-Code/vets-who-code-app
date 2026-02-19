@@ -13,12 +13,12 @@ const Footer01 = ({ mode }: TProps) => {
             className={clsx(
                 "tw-pb-[50px] tw-pt-[70px] tw-relative",
                 mode === "dark" &&
-                    "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-gray-300",
+                    "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-dark-text-muted",
                 mode === "light" && "tw-bg-gray-50"
             )}
         >
             {mode === "dark" && (
-                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-primary tw-to-transparent tw-opacity-50" />
+                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-accent tw-to-transparent tw-opacity-50" />
             )}
             <h2 className="tw-sr-only">Footer</h2>
             <div className="tw-container">
@@ -50,18 +50,18 @@ const Footer01 = ({ mode }: TProps) => {
                         </a>
                     </div>
                 </div>
-                <p className="copyright tw-mt-5 tw-text-center tw-text-base tw-text-gray-400">
+                <p className={clsx("copyright tw-mt-5 tw-text-center tw-text-base", mode === "dark" ? "tw-text-white" : "tw-text-navy")}>
                     &copy; {new Date().getFullYear()} Vets Who Code{" "}
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
                         href="https://www.vetswhocode.io/"
-                        className="tw-transition-colors hover:tw-text-primary"
+                        className="tw-transition-colors hover:tw-text-accent"
                     >
                         All Rights Reserved
                     </a>
                 </p>
-                <p className="copyright tw-mt-2 tw-text-center tw-text-base tw-text-gray-400">
+                <p className={clsx("copyright tw-mt-2 tw-text-center tw-text-base", mode === "dark" ? "tw-text-white" : "tw-text-navy")}>
                     Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
                     Donations are tax-deductible to the fullest extent allowable under the law.
                 </p>
@@ -71,7 +71,7 @@ const Footer01 = ({ mode }: TProps) => {
 };
 
 Footer01.defaultProps = {
-    mode: "dark",
+    mode: "light",
 };
 
 export default Footer01;

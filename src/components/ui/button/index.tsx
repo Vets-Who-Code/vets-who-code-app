@@ -151,11 +151,11 @@ const Button = ({
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-primary hover:tw-border-primary hover:tw-text-white";
+        "hover:tw-bg-accent hover:tw-border-accent hover:tw-text-secondary";
     const outlinedLightActiveClass =
         !disabled &&
         active &&
-        "tw-bg-primary tw-border-primary active:tw-bg-primary active:tw-border-primary";
+        "tw-bg-accent tw-border-accent active:tw-bg-accent active:tw-border-accent tw-text-secondary";
     const outlinedLightBtn = color === "light" && [
         outlinedLightClass,
         outlinedLightHoverClass,
