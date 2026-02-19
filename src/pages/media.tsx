@@ -166,11 +166,11 @@ export const getStaticProps: GetStaticProps = async () => {
     const allMediaItems = getAllMediaPosts<IMedia>(
         ["slug", "title", "mediaType", "url", "publication", "date", "image", "description"],
         "media"
-    );
+    ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
     return {
         props: {
-            allMediaItems, // Pass all items to the page
+            allMediaItems,
             page: {
                 title: "Media & Features",
             },
