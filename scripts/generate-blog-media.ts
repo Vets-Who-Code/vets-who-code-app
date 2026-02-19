@@ -4,21 +4,29 @@ import * as path from "path";
 
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 
-async function main() {
-  const slug = process.argv[2];
+export function validateSlug(slug: string | undefined): string {
   if (!slug) {
-    console.error("Usage: npm run generate:blog-media <slug>");
-    process.exit(1);
+    throw new Error("Usage: npm run generate:blog-media <slug>");
   }
 
   const blogPath = path.join(BLOG_DIR, `${slug}.md`);
   if (!fs.existsSync(blogPath)) {
-    console.error(`Blog post not found: ${blogPath}`);
-    process.exit(1);
+    throw new Error(`Blog post not found: ${blogPath}`);
   }
 
-  console.log(`\n🚀 Generating media for "${slug}"...\n`);
+  return slug;
+}
 
+export interface GenerateMediaResult {
+  imageOk: boolean;
+  audioOk: boolean;
+}
+
+export async function generateMedia(
+  slug: string,
+  generateImage: () => Promise<void>,
+  generateAudio: () => Promise<void>,
+): Promise<GenerateMediaResult> {
   let imageOk = false;
   let audioOk = false;
 
@@ -27,8 +35,6 @@ async function main() {
   console.log("Step 1/2: Generating blog image...");
   console.log("━".repeat(50));
   try {
-    const { main: generateImage } = await import("./generate-blog-image");
-    process.argv[2] = slug;
     await generateImage();
     imageOk = true;
   } catch (err) {
@@ -41,8 +47,6 @@ async function main() {
   console.log("Step 2/2: Generating blog audio...");
   console.log("━".repeat(50));
   try {
-    const { main: generateAudio } = await import("./generate-single-blog-audio");
-    process.argv[2] = slug;
     await generateAudio();
     audioOk = true;
   } catch (err) {
@@ -57,12 +61,32 @@ async function main() {
   console.log(`  Image: ${imageOk ? "✅ Success" : "❌ Failed"}`);
   console.log(`  Audio: ${audioOk ? "✅ Success" : "❌ Failed"}`);
 
-  if (!imageOk || !audioOk) {
+  return { imageOk, audioOk };
+}
+
+async function main() {
+  const slug = validateSlug(process.argv[2]);
+
+  console.log(`\n🚀 Generating media for "${slug}"...\n`);
+
+  const { main: generateImage } = await import("./generate-blog-image");
+  const { main: generateAudio } = await import("./generate-single-blog-audio");
+
+  process.argv[2] = slug;
+  const result = await generateMedia(
+    slug,
+    generateImage,
+    generateAudio,
+  );
+
+  if (!result.imageOk || !result.audioOk) {
     process.exit(1);
   }
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}
