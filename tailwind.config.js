@@ -130,6 +130,13 @@ module.exports = {
                     dark: "#A51C30", // Crimson
                 },
 
+                // Accent color for use on navy/dark backgrounds (WCAG AA compliant)
+                accent: {
+                    DEFAULT: "#FDB330", // Gold — 9.5:1 on navy
+                    light: "#FFE169", // Light Gold
+                    dark: "#C9A227", // Deep Gold — 6.3:1 on navy
+                },
+
                 secondary: {
                     DEFAULT: "#091f40", // Navy Blue
                     light: "#0353A4", // Royal Blue

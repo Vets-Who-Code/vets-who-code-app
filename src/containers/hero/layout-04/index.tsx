@@ -68,7 +68,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                     {headings[0].content}
                                 </h1>
                                 <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
-                                    <span className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-primary lg:tw-text-[56px]">
+                                    <span className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-accent lg:tw-text-[56px]">
                                         {animatedText}
                                         <Cursor />
                                     </span>
@@ -85,7 +85,10 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                         ))}
                         <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
                             {buttons?.[0] && (
-                                <Button {...buttons[0]} className="tw-m-2.5">
+                                <Button
+                                    {...buttons[0]}
+                                    className="tw-m-2.5 !tw-bg-accent !tw-border-accent !tw-text-secondary hover:!tw-bg-accent-dark hover:!tw-border-accent-dark !tw-shadow-accent/20"
+                                >
                                     {buttons[0].content}
                                 </Button>
                             )}
@@ -93,6 +96,8 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 <Button
                                     {...buttons[1]}
                                     className="tw-m-2.5"
+                                    color="light"
+                                    variant="outlined"
                                     onClick={() => setOpen(true)}
                                 >
                                     <i className={clsx(buttons[1]?.icon, "tw-mr-4")} />

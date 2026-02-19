@@ -30,7 +30,7 @@ const Coursegrid01: PageProps = ({ data }) => {
 
             {/* Learning Platform CTA */}
             <div className="tw-container tw-py-16">
-                <div className="tw-to-primary-dark tw-mb-16 tw-rounded-lg tw-bg-gradient-to-r tw-from-primary tw-p-8 tw-text-center tw-text-white">
+                <div className="tw-mb-16 tw-rounded-lg tw-bg-gradient-to-r tw-from-secondary tw-to-secondary-dark tw-p-8 tw-text-center tw-text-white">
                     <h2 className="tw-mb-4 tw-text-3xl tw-font-bold">Ready to Start Learning?</h2>
                     <p className="tw-mb-6 tw-text-xl tw-opacity-90">
                         Explore our subjects below, then join our interactive learning platform for
@@ -39,14 +39,14 @@ const Coursegrid01: PageProps = ({ data }) => {
                     <div className="tw-flex tw-flex-col tw-justify-center tw-gap-4 sm:tw-flex-row">
                         <Link
                             href="/courses"
-                            className="tw-rounded-md tw-bg-white tw-px-8 tw-py-3 tw-font-semibold tw-text-primary tw-transition-colors hover:tw-bg-gray-100"
+                            className="tw-rounded-md tw-bg-accent tw-px-8 tw-py-3 tw-font-semibold tw-text-secondary tw-transition-colors hover:tw-bg-accent-dark"
                         >
                             <i className="fas fa-graduation-cap tw-mr-2" />
                             View Learning Platform
                         </Link>
                         <Link
                             href="/dashboard"
-                            className="tw-rounded-md tw-border-2 tw-border-white tw-bg-transparent tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-white hover:tw-text-primary"
+                            className="tw-rounded-md tw-border-2 tw-border-white tw-bg-transparent tw-px-8 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-white hover:tw-text-secondary"
                         >
                             <i className="fas fa-tachometer-alt tw-mr-2" />
                             My Dashboard

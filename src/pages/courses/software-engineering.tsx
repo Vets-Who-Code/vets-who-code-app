@@ -219,7 +219,7 @@ const SoftwareEngineeringCourse: PageWithLayout = ({ user: _user }) => {
                     )}
 
                     {/* Course Stats */}
-                    <div className="tw-grid tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-bg-gradient-to-r tw-from-primary tw-to-primary/80 tw-p-8 tw-text-white md:tw-grid-cols-4">
+                    <div className="tw-grid tw-grid-cols-2 tw-gap-6 tw-rounded-xl tw-bg-gradient-to-r tw-from-secondary tw-to-secondary-dark tw-p-8 tw-text-white md:tw-grid-cols-4">
                         <div className="tw-text-center">
                             <div className="tw-text-3xl tw-font-bold">8</div>
                             <div className="tw-text-sm tw-opacity-90">Modules</div>

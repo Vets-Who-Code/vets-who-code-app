@@ -161,7 +161,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 {cta2.href.startsWith("#") ? (
                                     <Link
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-primary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
                                         passHref={true}
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -188,7 +188,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 ) : (
                                     <a
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-primary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
                                     >
                                         <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
                                             {cta2.label}

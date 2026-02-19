@@ -16,7 +16,7 @@ type PageWithLayout = NextPage & {
 const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description }) => (
     <div className="tw-text-center">
         <div className="tw-mb-4 tw-flex tw-justify-center">
-            <i className={`${icon} tw-text-6xl tw-text-red-700`} />
+            <i className={`${icon} tw-text-6xl tw-text-accent-dark`} />
         </div>
         <h3 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-blue-900">{title}</h3>
         <p>{description}</p>
@@ -55,7 +55,7 @@ const SponsorPage: PageWithLayout = () => {
                             WE WANT YOU
                         </h1>
                         <div className="tw-flex tw-justify-center">
-                            <div className="tw-relative tw--mb-20 tw-bg-red-700 tw-p-4">
+                            <div className="tw-relative tw--mb-20 tw-bg-accent tw-p-4 tw-text-secondary">
                                 <div className="tw-text-2xl tw-font-semibold">#VetsWhoCode</div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@ const SponsorPage: PageWithLayout = () => {
                     </section>
 
                     {/* Contact Section */}
-                    <section className="tw-rounded-lg tw-bg-red-700 tw-p-8 tw-text-center tw-text-white">
+                    <section className="tw-rounded-lg tw-bg-secondary tw-p-8 tw-text-center tw-text-white">
                         <h2 className="tw-mb-4 tw-text-2xl tw-font-bold">
                             Contact Ayumi Bennett, Technical Program Manager
                         </h2>
