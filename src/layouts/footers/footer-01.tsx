@@ -13,7 +13,7 @@ const Footer01 = ({ mode }: TProps) => {
             className={clsx(
                 "tw-pb-[50px] tw-pt-[70px] tw-relative",
                 mode === "dark" &&
-                    "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-gray-300",
+                    "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-dark-text-muted",
                 mode === "light" && "tw-bg-gray-50"
             )}
         >
@@ -50,7 +50,7 @@ const Footer01 = ({ mode }: TProps) => {
                         </a>
                     </div>
                 </div>
-                <p className="copyright tw-mt-5 tw-text-center tw-text-base tw-text-gray-400">
+                <p className="copyright tw-mt-5 tw-text-center tw-text-base tw-text-dark-text-muted">
                     &copy; {new Date().getFullYear()} Vets Who Code{" "}
                     <a
                         target="_blank"
@@ -61,7 +61,7 @@ const Footer01 = ({ mode }: TProps) => {
                         All Rights Reserved
                     </a>
                 </p>
-                <p className="copyright tw-mt-2 tw-text-center tw-text-base tw-text-gray-400">
+                <p className="copyright tw-mt-2 tw-text-center tw-text-base tw-text-dark-text-muted">
                     Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
                     Donations are tax-deductible to the fullest extent allowable under the law.
                 </p>
@@ -71,7 +71,7 @@ const Footer01 = ({ mode }: TProps) => {
 };
 
 Footer01.defaultProps = {
-    mode: "dark",
+    mode: "light",
 };
 
 export default Footer01;
