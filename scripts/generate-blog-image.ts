@@ -6,8 +6,22 @@ import cloudinary from "@/lib/cloudinary";
 
 let ai: GoogleGenAI;
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
+const MAX_RETRIES = 3;
 
-export function readBlogPost(slug: string) {
+type Theme = {
+  mainSubject: string;
+  keyMessage: string;
+  visualMetaphor: string;
+  symbolicElements: string;
+  fullThemeDescription: string;
+};
+
+type BlogPostSummary = {
+  title: string;
+  content: string;
+};
+
+export function readBlogPost(slug: string): BlogPostSummary {
   const filePath = path.join(BLOG_DIR, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {
@@ -26,7 +40,7 @@ export function readBlogPost(slug: string) {
 async function generateBlogStructuredDataWithGemini(
   title: string,
   content: string,
-) {
+): Promise<Theme> {
   console.log(
     "\x1b[34m\x1b[43m\x1b[1m🤖 Analyzing blog content with Gemini...\x1b[0m",
   );
@@ -73,16 +87,10 @@ Rules:
   return theme;
 }
 
-type Theme = {
-  mainSubject: string;
-  keyMessage: string;
-  visualMetaphor: string;
-  symbolicElements: string;
-  fullThemeDescription: string;
-};
-
 export function buildImagenPrompt(theme: Theme): string {
-  return `Create a high-impact 1950s military propaganda-style poster illustration.
+  return `CRITICAL: This image MUST contain ZERO text, letters, numbers, or typography of any kind.
+  
+  Create a high-impact 1950s military propaganda-style poster illustration.
 
 Visual Theme: ${theme.fullThemeDescription}
 Subject Focus: ${theme.mainSubject}
@@ -99,11 +107,17 @@ Style Requirements:
 - Illustration style: Flat graphic design with strong silhouettes, not photorealistic
 
 Hard Constraints:
+- NO text, letters, words, numbers, or symbols of any kind
+- NO labels, captions, dates, or typography
+- NO hex codes visible anywhere
+- If in doubt about whether something looks like text - DON'T include it
+- Pure visual communication only - ZERO written language
 - Colors: Use only Navy Blue (#091f40), Red (#c5203e), and White (#ffffff).
 - Style: Bold lines, strong shapes, and a positive, mission-oriented feel.
 - Texture: Add a subtle, distressed paper texture.
-- Text: No text or hex codes anywhere on image.
-- Tone: Positive, uplifting, empowering.`;
+- Tone: Positive, uplifting, empowering.
+
+Remember: Not a single character. Pure imagery only.`;
 }
 
 async function generateImage(prompt: string): Promise<string> {
@@ -179,7 +193,7 @@ export async function main() {
   const theme = await generateBlogStructuredDataWithGemini(title, content);
 
   const prompt = buildImagenPrompt(theme);
-  const imageBytes = await generateImage(prompt);
+  const imageBytes = await generateImageWithRetry(prompt);
 
   const url = await uploadToCloudinary(imageBytes, slug);
 
@@ -193,4 +207,78 @@ if (require.main === module) {
     console.error(err);
     process.exit(1);
   });
+}
+
+// Detect if any tecxt exists on image
+async function detectTextInImage(
+  imageBase64: string,
+): Promise<{ hasText: boolean; detectedText?: string }> {
+  console.log("  🔍 Checking image for text...");
+
+  const response = await ai.models.generateContent({
+    model: "gemini-2.5-flash",
+    contents: [
+      {
+        role: "user",
+        parts: [
+          {
+            inlineData: {
+              mimeType: "image/png",
+              data: imageBase64,
+            },
+          },
+          {
+            text: `Analyze this image carefully. Does it contain ANY text, letters, numbers, words, labels, captions, or typography of any kind?
+
+Be VERY strict: even a single letter or number counts as text.
+
+Respond with ONLY a JSON object (no markdown fences):
+{
+  "hasText": true or false,
+  "detectedText": "describe any text you see, or null if none"
+}`,
+          },
+        ],
+      },
+    ],
+  });
+
+  const raw = response.text ?? "{}";
+  const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
+
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    // If parsing fails, assume no text (fail open)
+    return { hasText: false };
+  }
+}
+
+async function generateImageWithRetry(prompt: string): Promise<string> {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    console.log(`\n📸 Attempt ${attempt}/${MAX_RETRIES}`);
+
+    const imageBytes = await generateImage(prompt);
+
+    // Check for text
+    const textCheck = await detectTextInImage(imageBytes);
+
+    if (!textCheck.hasText) {
+      console.log("  ✅ No text detected - image is valid!");
+      return imageBytes;
+    }
+
+    console.log(` ⚠️  Text detected: "${textCheck.detectedText}"`);
+
+    if (attempt < MAX_RETRIES) {
+      console.log("  🔄 Retrying...");
+    } else {
+      console.log(
+        " ⚠️  Max retries reached. Proceeding with last image (manual review recommended).",
+      );
+      return imageBytes;
+    }
+  }
+
+  throw new Error("Failed to generate image without text after max retries");
 }
