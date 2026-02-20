@@ -69,10 +69,19 @@ Rules:
       `Failed to parse Gemini JSON response: ${err?.message ?? err}\nCleaned payload (truncated):\n${truncated}`,
     );
   }
+
   return theme;
 }
 
-export function buildImagenPrompt(theme: any): string {
+type Theme = {
+  mainSubject: string;
+  keyMessage: string;
+  visualMetaphor: string;
+  symbolicElements: string;
+  fullThemeDescription: string;
+};
+
+export function buildImagenPrompt(theme: Theme): string {
   return `Create a high-impact 1950s military propaganda-style poster illustration.
 
 Visual Theme: ${theme.fullThemeDescription}
