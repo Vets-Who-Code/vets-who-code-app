@@ -88,36 +88,23 @@ Rules:
 }
 
 export function buildImagenPrompt(theme: Theme): string {
-  return `CRITICAL: This image MUST contain ZERO text, letters, numbers, or typography of any kind.
+  return `A wordless, text-free 1950s-style graphic illustration. 
   
-  Create a high-impact 1950s military propaganda-style poster illustration.
+  This is a PURE VISUAL composition with absolutely no typography, lettering, or characters.
 
-Visual Theme: ${theme.fullThemeDescription}
-Subject Focus: ${theme.mainSubject}
-Central Visual Metaphor: ${theme.visualMetaphor}
-Symbolic Elements to Include: ${theme.symbolicElements}
+  Visual Theme: ${theme.fullThemeDescription}
+  Subject Focus: ${theme.mainSubject}
+  Central Visual Metaphor: ${theme.visualMetaphor}
+  Symbolic Elements: ${theme.symbolicElements}
 
-Style Requirements:
-- Era: 1950s American military propaganda poster aesthetic
-- Colors: Use ONLY deep navy blue hex code: #091f40, bold red hex code: #c5203e, and white hexcode: #ffffff. No other colors.
-- Line Work: Bold, clean lines and strong geometric shapes
-- Composition: High-impact, heroic composition that emphasizes the subject
-- Mood: Positive, mission-oriented, uplifting, empowering
-- Texture: Subtle distressed paper or aged print texture overlay
-- Illustration style: Flat graphic design with strong silhouettes, not photorealistic
-
-Hard Constraints:
-- NO text, letters, words, numbers, or symbols of any kind
-- NO labels, captions, dates, or typography
-- NO hex codes visible anywhere
-- If in doubt about whether something looks like text - DON'T include it
-- Pure visual communication only - ZERO written language
-- Colors: Use only Navy Blue (#091f40), Red (#c5203e), and White (#ffffff).
-- Style: Bold lines, strong shapes, and a positive, mission-oriented feel.
-- Texture: Add a subtle, distressed paper texture.
-- Tone: Positive, uplifting, empowering.
-
-Remember: Not a single character. Pure imagery only.`;
+  Style & Composition:
+  - Aesthetics: 1950s American military propaganda art style, but strictly as a wordless illustration.
+  - Composition: A heroic, central silhouette that fills the frame. High-impact geometric shapes.
+  - Palette: Limited to three flat colors: Deep Navy Blue, Bold Red, and Crisp White. 
+  - Texture: A heavy, distressed vintage paper texture with aged print ink effects.
+  - Rendering: Flat vector-style graphics with bold, clean outlines. No photorealism.
+  
+  Constraint: Zero text. The image communicates entirely through symbolism and imagery. No text at all.`;
 }
 
 async function generateImage(prompt: string): Promise<string> {
@@ -128,6 +115,7 @@ async function generateImage(prompt: string): Promise<string> {
   const response = await ai.models.generateImages({
     model: "imagen-4.0-generate-001",
     prompt,
+
     config: {
       numberOfImages: 1,
       aspectRatio: "16:9",
@@ -216,7 +204,7 @@ async function detectTextInImage(
   console.log("  🔍 Checking image for text...");
 
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-3-pro-preview",
     contents: [
       {
         role: "user",
