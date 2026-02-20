@@ -144,12 +144,14 @@ describe("buildImagenPrompt", () => {
 
     const prompt = buildImagenPrompt(theme);
 
-    // Check for critical constraints (match actual prompt wording)
-    expect(prompt).toContain("No text or hex codes");
+    // Check for critical constraints (match new prompt wording)
+    expect(prompt).toContain("ZERO text");
     expect(prompt).toContain("deep navy blue");
-    expect(prompt).toContain("red hex code");
+    expect(prompt).toContain("bold red");
     expect(prompt).toContain("white");
     expect(prompt).toContain("Bold, clean lines");
     expect(prompt).toContain("distressed paper");
+    expect(prompt).toContain("Hard Constraints");
+    expect(prompt).toContain("Pure visual communication only");
   });
 });

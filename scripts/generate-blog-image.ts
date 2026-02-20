@@ -99,7 +99,7 @@ Symbolic Elements to Include: ${theme.symbolicElements}
 
 Style Requirements:
 - Era: 1950s American military propaganda poster aesthetic
-- Colors: Use ONLY deep navy blue hex code: #091f40, red hex code: #c5203e, and white hexcode: #ffffff. No other colors.
+- Colors: Use ONLY deep navy blue hex code: #091f40, bold red hex code: #c5203e, and white hexcode: #ffffff. No other colors.
 - Line Work: Bold, clean lines and strong geometric shapes
 - Composition: High-impact, heroic composition that emphasizes the subject
 - Mood: Positive, mission-oriented, uplifting, empowering
