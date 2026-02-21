@@ -1,0 +1,92 @@
+{
+  "11B": [
+    {"role": "Operations Manager", "matchLevel": "High match", "avgSalary": 85000, "demand": "High demand", "skillsToClose": ["Project management certification", "Business analytics"]},
+    {"role": "Security Operations Manager", "matchLevel": "High match", "avgSalary": 92000, "demand": "High demand", "skillsToClose": ["Security certifications", "Risk assessment frameworks"]},
+    {"role": "Emergency Management Specialist", "matchLevel": "Good match", "avgSalary": 78000, "demand": "Growing demand", "skillsToClose": ["FEMA certifications", "Emergency planning software"]},
+    {"role": "Law Enforcement Officer", "matchLevel": "Good match", "avgSalary": 65000, "demand": "High demand", "skillsToClose": ["State POST certification"]}
+  ],
+  "25B": [
+    {"role": "IT Systems Administrator", "matchLevel": "High match", "avgSalary": 88000, "demand": "Very high demand", "skillsToClose": ["Cloud platforms (AWS/Azure)", "Automation scripting"]},
+    {"role": "Network Administrator", "matchLevel": "High match", "avgSalary": 82000, "demand": "High demand", "skillsToClose": ["CCNA", "Cloud networking"]},
+    {"role": "Cybersecurity Analyst", "matchLevel": "Good match", "avgSalary": 105000, "demand": "Very high demand", "skillsToClose": ["CompTIA Security+", "SIEM tools", "Incident response"]},
+    {"role": "Help Desk Manager", "matchLevel": "Good match", "avgSalary": 72000, "demand": "High demand", "skillsToClose": ["ITIL certification"]}
+  ],
+  "35F": [
+    {"role": "Business Intelligence Analyst", "matchLevel": "High match", "avgSalary": 92000, "demand": "Very high demand", "skillsToClose": ["SQL", "Tableau/Power BI"]},
+    {"role": "Threat Intelligence Analyst", "matchLevel": "High match", "avgSalary": 108000, "demand": "Growing demand", "skillsToClose": ["OSINT tools", "Python scripting"]},
+    {"role": "Data Analyst", "matchLevel": "Good match", "avgSalary": 85000, "demand": "Very high demand", "skillsToClose": ["SQL", "Python", "Statistical analysis"]},
+    {"role": "Security Operations Analyst", "matchLevel": "Good match", "avgSalary": 95000, "demand": "High demand", "skillsToClose": ["SIEM platforms", "Incident response"]}
+  ],
+  "68W": [
+    {"role": "Emergency Medical Technician", "matchLevel": "High match", "avgSalary": 42000, "demand": "Very high demand", "skillsToClose": ["State EMT certification"]},
+    {"role": "Paramedic", "matchLevel": "High match", "avgSalary": 52000, "demand": "Very high demand", "skillsToClose": ["Paramedic bridge program", "ACLS/PALS"]},
+    {"role": "Registered Nurse", "matchLevel": "Good match", "avgSalary": 82000, "demand": "Very high demand", "skillsToClose": ["BSN program", "NCLEX-RN"]},
+    {"role": "Medical Device Sales Representative", "matchLevel": "Moderate match", "avgSalary": 95000, "demand": "Growing demand", "skillsToClose": ["Sales training", "Product knowledge"]}
+  ],
+  "31B": [
+    {"role": "Law Enforcement Officer", "matchLevel": "High match", "avgSalary": 65000, "demand": "High demand", "skillsToClose": ["State POST certification"]},
+    {"role": "Corporate Security Manager", "matchLevel": "High match", "avgSalary": 85000, "demand": "Growing demand", "skillsToClose": ["CPP certification", "Business operations"]},
+    {"role": "Loss Prevention Manager", "matchLevel": "Good match", "avgSalary": 62000, "demand": "High demand", "skillsToClose": ["Retail operations knowledge"]},
+    {"role": "Federal Agent (CBP/ICE/DEA)", "matchLevel": "Good match", "avgSalary": 95000, "demand": "Stable demand", "skillsToClose": ["Federal application process", "Polygraph preparation"]}
+  ],
+  "42A": [
+    {"role": "Human Resources Specialist", "matchLevel": "High match", "avgSalary": 65000, "demand": "High demand", "skillsToClose": ["SHRM-CP", "HRIS platforms"]},
+    {"role": "HR Manager", "matchLevel": "High match", "avgSalary": 82000, "demand": "High demand", "skillsToClose": ["SHRM-SCP", "Employment law"]},
+    {"role": "Payroll Administrator", "matchLevel": "Good match", "avgSalary": 58000, "demand": "Stable demand", "skillsToClose": ["Payroll software (ADP/Workday)"]},
+    {"role": "Recruiting Coordinator", "matchLevel": "Good match", "avgSalary": 55000, "demand": "High demand", "skillsToClose": ["ATS platforms", "Sourcing techniques"]}
+  ],
+  "92Y": [
+    {"role": "Inventory Manager", "matchLevel": "High match", "avgSalary": 62000, "demand": "High demand", "skillsToClose": ["ERP systems (SAP/Oracle)", "Lean Six Sigma"]},
+    {"role": "Supply Chain Coordinator", "matchLevel": "High match", "avgSalary": 68000, "demand": "Very high demand", "skillsToClose": ["Supply chain software", "APICS certification"]},
+    {"role": "Warehouse Operations Manager", "matchLevel": "Good match", "avgSalary": 72000, "demand": "High demand", "skillsToClose": ["WMS platforms", "Process optimization"]},
+    {"role": "Procurement Specialist", "matchLevel": "Good match", "avgSalary": 65000, "demand": "Growing demand", "skillsToClose": ["Contract negotiation", "Vendor management"]}
+  ],
+  "88M": [
+    {"role": "Fleet Manager", "matchLevel": "High match", "avgSalary": 65000, "demand": "High demand", "skillsToClose": ["Fleet management software", "DOT regulations"]},
+    {"role": "Logistics Coordinator", "matchLevel": "High match", "avgSalary": 58000, "demand": "Very high demand", "skillsToClose": ["TMS platforms", "Route optimization"]},
+    {"role": "Transportation Manager", "matchLevel": "Good match", "avgSalary": 75000, "demand": "High demand", "skillsToClose": ["Supply chain management", "Budget management"]},
+    {"role": "CDL Truck Driver", "matchLevel": "High match", "avgSalary": 55000, "demand": "Very high demand", "skillsToClose": ["CDL endorsements"]}
+  ],
+  "91B": [
+    {"role": "Automotive Technician", "matchLevel": "High match", "avgSalary": 48000, "demand": "Very high demand", "skillsToClose": ["ASE certifications"]},
+    {"role": "Fleet Maintenance Manager", "matchLevel": "High match", "avgSalary": 68000, "demand": "High demand", "skillsToClose": ["CMMS software", "Budget management"]},
+    {"role": "Heavy Equipment Mechanic", "matchLevel": "Good match", "avgSalary": 55000, "demand": "High demand", "skillsToClose": ["Manufacturer certifications"]},
+    {"role": "Maintenance Supervisor", "matchLevel": "Good match", "avgSalary": 62000, "demand": "Growing demand", "skillsToClose": ["Leadership training", "OSHA compliance"]}
+  ],
+  "3P0X1": [
+    {"role": "Security Operations Manager", "matchLevel": "High match", "avgSalary": 85000, "demand": "High demand", "skillsToClose": ["CPP certification", "Risk assessment"]},
+    {"role": "Law Enforcement Officer", "matchLevel": "High match", "avgSalary": 65000, "demand": "High demand", "skillsToClose": ["State POST certification"]},
+    {"role": "Loss Prevention Director", "matchLevel": "Good match", "avgSalary": 78000, "demand": "Growing demand", "skillsToClose": ["Retail security systems"]},
+    {"role": "Emergency Management Coordinator", "matchLevel": "Good match", "avgSalary": 72000, "demand": "Growing demand", "skillsToClose": ["FEMA certs", "Crisis communication"]}
+  ],
+  "HM": [
+    {"role": "Medical Assistant", "matchLevel": "High match", "avgSalary": 42000, "demand": "Very high demand", "skillsToClose": ["CMA certification"]},
+    {"role": "Emergency Medical Technician", "matchLevel": "High match", "avgSalary": 42000, "demand": "Very high demand", "skillsToClose": ["State EMT certification"]},
+    {"role": "Registered Nurse", "matchLevel": "Good match", "avgSalary": 82000, "demand": "Very high demand", "skillsToClose": ["BSN bridge program"]},
+    {"role": "Physician Assistant", "matchLevel": "Moderate match", "avgSalary": 120000, "demand": "Very high demand", "skillsToClose": ["PA program", "GRE"]}
+  ],
+  "IT": [
+    {"role": "Network Administrator", "matchLevel": "High match", "avgSalary": 82000, "demand": "High demand", "skillsToClose": ["CCNA", "Cloud platforms"]},
+    {"role": "Cybersecurity Analyst", "matchLevel": "High match", "avgSalary": 105000, "demand": "Very high demand", "skillsToClose": ["CompTIA Security+", "SIEM tools"]},
+    {"role": "Systems Administrator", "matchLevel": "High match", "avgSalary": 85000, "demand": "High demand", "skillsToClose": ["Cloud certifications (AWS/Azure)"]},
+    {"role": "IT Project Manager", "matchLevel": "Good match", "avgSalary": 95000, "demand": "High demand", "skillsToClose": ["PMP", "Agile/Scrum"]}
+  ],
+  "CTN": [
+    {"role": "Cybersecurity Analyst", "matchLevel": "High match", "avgSalary": 105000, "demand": "Very high demand", "skillsToClose": ["CEH", "Cloud security"]},
+    {"role": "Penetration Tester", "matchLevel": "High match", "avgSalary": 115000, "demand": "Growing demand", "skillsToClose": ["OSCP", "Bug bounty experience"]},
+    {"role": "Security Engineer", "matchLevel": "Good match", "avgSalary": 125000, "demand": "Very high demand", "skillsToClose": ["Cloud security", "DevSecOps"]},
+    {"role": "SOC Analyst", "matchLevel": "High match", "avgSalary": 85000, "demand": "Very high demand", "skillsToClose": ["SIEM platforms"]}
+  ],
+  "0311": [
+    {"role": "Operations Manager", "matchLevel": "High match", "avgSalary": 85000, "demand": "High demand", "skillsToClose": ["Project management", "Business analytics"]},
+    {"role": "Security Consultant", "matchLevel": "High match", "avgSalary": 90000, "demand": "Growing demand", "skillsToClose": ["CPP", "Risk assessment"]},
+    {"role": "Emergency Management Specialist", "matchLevel": "Good match", "avgSalary": 78000, "demand": "Growing demand", "skillsToClose": ["FEMA certifications"]},
+    {"role": "Corporate Trainer", "matchLevel": "Good match", "avgSalary": 65000, "demand": "Stable demand", "skillsToClose": ["Instructional design", "LMS platforms"]}
+  ],
+  "2651": [
+    {"role": "Network Engineer", "matchLevel": "High match", "avgSalary": 92000, "demand": "High demand", "skillsToClose": ["CCNP", "Cloud networking"]},
+    {"role": "Cybersecurity Analyst", "matchLevel": "High match", "avgSalary": 105000, "demand": "Very high demand", "skillsToClose": ["CompTIA Security+", "SIEM"]},
+    {"role": "IT Systems Administrator", "matchLevel": "Good match", "avgSalary": 85000, "demand": "High demand", "skillsToClose": ["Cloud platforms"]},
+    {"role": "Telecommunications Specialist", "matchLevel": "Good match", "avgSalary": 72000, "demand": "Stable demand", "skillsToClose": ["VoIP systems"]}
+  ]
+}

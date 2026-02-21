@@ -1,0 +1,340 @@
+{
+  "11B": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Project Management Professional (PMP)", "coverage": 40, "gaps": "Formal project management methodology, earned value management, and stakeholder analysis frameworks"},
+      {"cert": "Certified Protection Professional (CPP)", "coverage": 50, "gaps": "Business security principles, enterprise risk management, and legal aspects of security"}
+    ],
+    "recommended_next": ["PMP", "CPP", "OSHA 30-Hour"]
+  },
+  "12B": {
+    "direct_qualifies": ["OSHA 10-Hour Construction"],
+    "partial_coverage": [
+      {"cert": "OSHA 30-Hour Construction", "coverage": 70, "gaps": "Focus on construction-specific standards and fall protection requirements"},
+      {"cert": "Certified Construction Manager (CCM)", "coverage": 35, "gaps": "Construction contract administration, cost estimation, and building codes"}
+    ],
+    "recommended_next": ["OSHA 30-Hour Construction", "CCM", "CDL Class A"]
+  },
+  "25B": {
+    "direct_qualifies": ["CompTIA A+"],
+    "partial_coverage": [
+      {"cert": "CompTIA Network+", "coverage": 75, "gaps": "Focus on subnetting and routing protocols"},
+      {"cert": "CompTIA Security+", "coverage": 60, "gaps": "Study risk management and cryptography"}
+    ],
+    "recommended_next": ["CompTIA Security+", "CCNA"]
+  },
+  "25N": {
+    "direct_qualifies": ["CompTIA Network+"],
+    "partial_coverage": [
+      {"cert": "CCNA", "coverage": 65, "gaps": "Cisco-specific CLI, advanced routing, and switching configurations"},
+      {"cert": "CompTIA Security+", "coverage": 55, "gaps": "Governance, risk, and compliance frameworks"}
+    ],
+    "recommended_next": ["CCNA", "CompTIA Security+", "AWS Cloud Practitioner"]
+  },
+  "25S": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "CompTIA Network+", "coverage": 60, "gaps": "Wired networking fundamentals and LAN/WAN protocols"},
+      {"cert": "Certified Wireless Network Administrator (CWNA)", "coverage": 50, "gaps": "Commercial wireless standards and enterprise Wi-Fi design"}
+    ],
+    "recommended_next": ["CompTIA Network+", "CompTIA Security+", "SatCom industry certifications"]
+  },
+  "31B": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Protection Professional (CPP)", "coverage": 55, "gaps": "Enterprise security management, business continuity, and corporate investigations"},
+      {"cert": "Physical Security Professional (PSP)", "coverage": 65, "gaps": "Commercial access control systems, alarm systems, and CPTED principles"}
+    ],
+    "recommended_next": ["State Peace Officer License", "CPP", "PSP"]
+  },
+  "35F": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "CompTIA Security+", "coverage": 45, "gaps": "Technical network security, cryptography, and identity management"},
+      {"cert": "Certified Information Systems Security Professional (CISSP)", "coverage": 30, "gaps": "Software development security, asset security, and security engineering domains"}
+    ],
+    "recommended_next": ["CompTIA Security+", "Certified Analytics Professional (CAP)", "CISSP"]
+  },
+  "35M": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Fraud Examiner (CFE)", "coverage": 40, "gaps": "Financial fraud schemes, forensic accounting, and legal elements of fraud"},
+      {"cert": "Professional Certified Investigator (PCI)", "coverage": 50, "gaps": "Civil litigation support, corporate investigations methodology, and surveillance law"}
+    ],
+    "recommended_next": ["PCI", "CFE", "Certified Anti-Money Laundering Specialist (CAMS)"]
+  },
+  "42A": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "SHRM Certified Professional (SHRM-CP)", "coverage": 50, "gaps": "Employment law, compensation/benefits administration, and talent acquisition strategy"},
+      {"cert": "Professional in Human Resources (PHR)", "coverage": 50, "gaps": "Workforce planning, employee relations, and total rewards"}
+    ],
+    "recommended_next": ["SHRM-CP", "PHR", "Certified Administrative Professional (CAP)"]
+  },
+  "68W": {
+    "direct_qualifies": ["EMT-B", "NREMT"],
+    "partial_coverage": [
+      {"cert": "Paramedic", "coverage": 70, "gaps": "Advanced pharmacology and clinical rotations"},
+      {"cert": "Certified Nursing Assistant", "coverage": 85, "gaps": "Minimal — focus on long-term care protocols"}
+    ],
+    "recommended_next": ["Paramedic", "RN (with bridge program)"]
+  },
+  "74D": {
+    "direct_qualifies": ["HAZWOPER 40-Hour"],
+    "partial_coverage": [
+      {"cert": "Certified Hazardous Materials Manager (CHMM)", "coverage": 55, "gaps": "Environmental regulations, waste management compliance, and remediation technologies"},
+      {"cert": "Certified Safety Professional (CSP)", "coverage": 40, "gaps": "Industrial hygiene, system safety, and ergonomics"}
+    ],
+    "recommended_next": ["CHMM", "CSP", "Certified Industrial Hygienist (CIH)"]
+  },
+  "88M": {
+    "direct_qualifies": ["CDL Class A"],
+    "partial_coverage": [
+      {"cert": "Certified Transportation Professional (CTP)", "coverage": 45, "gaps": "DOT regulations, fleet management software, and commercial transportation law"},
+      {"cert": "Certified Logistics Associate (CLA)", "coverage": 50, "gaps": "Supply chain fundamentals, warehouse management, and inventory control theory"}
+    ],
+    "recommended_next": ["HAZMAT endorsement", "CTP", "CLA"]
+  },
+  "91B": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "ASE Certification (various)", "coverage": 70, "gaps": "Manufacturer-specific systems, emissions diagnostics, and hybrid/electric vehicle technology"},
+      {"cert": "EPA Section 609 (Refrigerant)", "coverage": 80, "gaps": "Minimal — study commercial refrigerant recovery procedures"}
+    ],
+    "recommended_next": ["ASE A1-A8 Series", "ASE Master Technician", "CDL Class A"]
+  },
+  "92A": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified in Logistics, Transportation and Distribution (CLTD)", "coverage": 55, "gaps": "Demand planning, global logistics, and commercial supply chain analytics"},
+      {"cert": "Certified Supply Chain Professional (CSCP)", "coverage": 45, "gaps": "Supplier relationship management, ERP systems, and strategic sourcing"}
+    ],
+    "recommended_next": ["CSCP", "CLTD", "Six Sigma Green Belt"]
+  },
+  "92Y": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Logistics Associate (CLA)", "coverage": 65, "gaps": "Commercial warehouse management systems and procurement processes"},
+      {"cert": "APICS Certified in Production and Inventory Management (CPIM)", "coverage": 40, "gaps": "Master scheduling, demand management, and MRP/capacity planning"}
+    ],
+    "recommended_next": ["CLA", "Certified Logistics Technician (CLT)", "Six Sigma Green Belt"]
+  },
+  "94E": {
+    "direct_qualifies": ["CompTIA A+"],
+    "partial_coverage": [
+      {"cert": "CompTIA Network+", "coverage": 55, "gaps": "Network design, cloud networking, and virtualization fundamentals"},
+      {"cert": "Certified Electronics Technician (CET)", "coverage": 75, "gaps": "Commercial test equipment calibration and FCC regulations"}
+    ],
+    "recommended_next": ["CET", "CompTIA Network+", "CompTIA Security+"]
+  },
+  "CTN": {
+    "direct_qualifies": ["CompTIA Security+"],
+    "partial_coverage": [
+      {"cert": "Certified Ethical Hacker (CEH)", "coverage": 70, "gaps": "Web application hacking, social engineering tools, and cloud security testing"},
+      {"cert": "CISSP", "coverage": 40, "gaps": "Security architecture, software development security, and asset security domains"}
+    ],
+    "recommended_next": ["CEH", "GIAC certifications", "OSCP"]
+  },
+  "ET": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Electronics Technician (CET)", "coverage": 80, "gaps": "Commercial standards, FCC regulations, and consumer electronics repair"},
+      {"cert": "CompTIA A+", "coverage": 60, "gaps": "Commercial operating systems, mobile devices, and printer troubleshooting"}
+    ],
+    "recommended_next": ["CET", "CompTIA A+", "CompTIA Network+"]
+  },
+  "FC": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Electronics Technician (CET)", "coverage": 65, "gaps": "Commercial electronics standards and FCC compliance"},
+      {"cert": "CompTIA A+", "coverage": 50, "gaps": "Commercial IT hardware, operating systems, and software troubleshooting"}
+    ],
+    "recommended_next": ["CET", "CompTIA A+", "Systems Engineering certifications"]
+  },
+  "HM": {
+    "direct_qualifies": ["EMT-B", "NREMT"],
+    "partial_coverage": [
+      {"cert": "Paramedic", "coverage": 65, "gaps": "Advanced cardiac life support pharmacology, clinical internship hours, and pediatric emergencies"},
+      {"cert": "Certified Nursing Assistant", "coverage": 85, "gaps": "Minimal — focus on long-term care and assisted living facility protocols"},
+      {"cert": "Licensed Practical Nurse (LPN)", "coverage": 50, "gaps": "Pharmacology, IV therapy, and state licensing clinical requirements"}
+    ],
+    "recommended_next": ["Paramedic", "LPN", "RN (with bridge program)"]
+  },
+  "IS": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "CompTIA Security+", "coverage": 40, "gaps": "Technical network security, PKI, and identity management"},
+      {"cert": "Certified Analytics Professional (CAP)", "coverage": 45, "gaps": "Statistical modeling, data visualization tools, and machine learning fundamentals"}
+    ],
+    "recommended_next": ["CompTIA Security+", "CAP", "Certified Information Security Manager (CISM)"]
+  },
+  "IT": {
+    "direct_qualifies": ["CompTIA A+", "CompTIA Network+"],
+    "partial_coverage": [
+      {"cert": "CompTIA Security+", "coverage": 65, "gaps": "Risk management frameworks, cryptography, and governance/compliance"},
+      {"cert": "CCNA", "coverage": 60, "gaps": "Cisco-specific CLI, advanced routing protocols, and SD-WAN"}
+    ],
+    "recommended_next": ["CompTIA Security+", "CCNA", "AWS Cloud Practitioner"]
+  },
+  "MA": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Protection Professional (CPP)", "coverage": 50, "gaps": "Enterprise security management, corporate risk assessment, and business continuity"},
+      {"cert": "Physical Security Professional (PSP)", "coverage": 60, "gaps": "Commercial access control design, intrusion detection systems, and CPTED"}
+    ],
+    "recommended_next": ["State Peace Officer License", "CPP", "PSP"]
+  },
+  "OS": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Project Management Professional (PMP)", "coverage": 40, "gaps": "Formal project management methodology, earned value management, and Agile frameworks"},
+      {"cert": "Certified Analytics Professional (CAP)", "coverage": 35, "gaps": "Data science tools, statistical analysis, and business analytics methodologies"}
+    ],
+    "recommended_next": ["PMP", "CompTIA Security+", "Six Sigma Green Belt"]
+  },
+  "YN": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "SHRM Certified Professional (SHRM-CP)", "coverage": 45, "gaps": "Employment law, talent acquisition strategy, and total rewards management"},
+      {"cert": "Certified Administrative Professional (CAP)", "coverage": 60, "gaps": "Business writing, event planning, and advanced office technology"}
+    ],
+    "recommended_next": ["CAP", "SHRM-CP", "PHR"]
+  },
+  "0311": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Project Management Professional (PMP)", "coverage": 35, "gaps": "Formal project management methodology, cost management, and stakeholder engagement frameworks"},
+      {"cert": "Certified Protection Professional (CPP)", "coverage": 45, "gaps": "Enterprise security management, investigations, and corporate physical security"}
+    ],
+    "recommended_next": ["PMP", "CPP", "OSHA 30-Hour"]
+  },
+  "0811": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Project Management Professional (PMP)", "coverage": 30, "gaps": "Full project lifecycle management, procurement, and quality management frameworks"},
+      {"cert": "Six Sigma Green Belt", "coverage": 35, "gaps": "Statistical process control, DMAIC methodology, and quality tools"}
+    ],
+    "recommended_next": ["PMP", "Six Sigma Green Belt", "OSHA 30-Hour"]
+  },
+  "1371": {
+    "direct_qualifies": ["OSHA 10-Hour Construction"],
+    "partial_coverage": [
+      {"cert": "OSHA 30-Hour Construction", "coverage": 70, "gaps": "Focus on scaffolding, excavation, and electrical hazard standards"},
+      {"cert": "Certified Construction Manager (CCM)", "coverage": 40, "gaps": "Construction contract law, project cost estimating, and building code compliance"}
+    ],
+    "recommended_next": ["OSHA 30-Hour Construction", "CCM", "CDL Class A"]
+  },
+  "2651": {
+    "direct_qualifies": ["CompTIA Security+"],
+    "partial_coverage": [
+      {"cert": "Certified Ethical Hacker (CEH)", "coverage": 60, "gaps": "Web application penetration testing, cloud security, and social engineering techniques"},
+      {"cert": "GIAC Security Essentials (GSEC)", "coverage": 55, "gaps": "Linux administration, active defense techniques, and Windows security architecture"}
+    ],
+    "recommended_next": ["CEH", "GSEC", "OSCP"]
+  },
+  "2841": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Electronics Technician (CET)", "coverage": 75, "gaps": "Commercial standards, consumer electronics, and FCC regulations"},
+      {"cert": "CompTIA A+", "coverage": 55, "gaps": "Commercial operating systems, mobile device management, and cloud computing basics"}
+    ],
+    "recommended_next": ["CET", "CompTIA A+", "CompTIA Network+"]
+  },
+  "3531": {
+    "direct_qualifies": ["CDL Class A"],
+    "partial_coverage": [
+      {"cert": "Certified Transportation Professional (CTP)", "coverage": 50, "gaps": "Federal motor carrier regulations, commercial fleet management software, and DOT compliance"},
+      {"cert": "Certified Logistics Associate (CLA)", "coverage": 45, "gaps": "Warehouse operations, commercial supply chain processes, and inventory management systems"}
+    ],
+    "recommended_next": ["HAZMAT endorsement", "CTP", "CLA"]
+  },
+  "1N0X1": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "CompTIA Security+", "coverage": 40, "gaps": "Technical security controls, PKI infrastructure, and identity management"},
+      {"cert": "Certified Analytics Professional (CAP)", "coverage": 50, "gaps": "Data science tools, predictive modeling, and business analytics"}
+    ],
+    "recommended_next": ["CompTIA Security+", "CAP", "CISSP"]
+  },
+  "2A6X1": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "FAA Airframe and Powerplant (A&P)", "coverage": 65, "gaps": "FAA regulatory knowledge, general aviation systems, and civilian aircraft-specific maintenance"},
+      {"cert": "OSHA 10-Hour General Industry", "coverage": 80, "gaps": "Minimal — review electrical and machine guarding standards"}
+    ],
+    "recommended_next": ["FAA A&P License", "Six Sigma Green Belt", "PMP"]
+  },
+  "3D0X2": {
+    "direct_qualifies": ["CompTIA A+", "CompTIA Security+"],
+    "partial_coverage": [
+      {"cert": "CCNA", "coverage": 55, "gaps": "Cisco-specific CLI, OSPF/EIGRP configuration, and SD-WAN technology"},
+      {"cert": "AWS Solutions Architect Associate", "coverage": 40, "gaps": "Cloud architecture design, serverless computing, and AWS service ecosystem"}
+    ],
+    "recommended_next": ["CCNA", "AWS Solutions Architect", "CISSP"]
+  },
+  "3D1X1": {
+    "direct_qualifies": ["CompTIA A+"],
+    "partial_coverage": [
+      {"cert": "CompTIA Network+", "coverage": 70, "gaps": "Network design, cloud networking, and wireless standards"},
+      {"cert": "CompTIA Security+", "coverage": 55, "gaps": "Risk management, vulnerability assessment tools, and incident response procedures"}
+    ],
+    "recommended_next": ["CompTIA Network+", "CompTIA Security+", "CCNA"]
+  },
+  "3P0X1": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Protection Professional (CPP)", "coverage": 55, "gaps": "Enterprise security management, business continuity, and corporate investigations"},
+      {"cert": "Physical Security Professional (PSP)", "coverage": 65, "gaps": "Commercial access control systems, video surveillance design, and CPTED principles"}
+    ],
+    "recommended_next": ["State Peace Officer License", "CPP", "PSP"]
+  },
+  "4N0X1": {
+    "direct_qualifies": ["EMT-B", "NREMT"],
+    "partial_coverage": [
+      {"cert": "Certified Nursing Assistant", "coverage": 85, "gaps": "Minimal — focus on long-term care and rehabilitation facility protocols"},
+      {"cert": "Licensed Practical Nurse (LPN)", "coverage": 55, "gaps": "Pharmacology, IV therapy administration, and state-specific clinical requirements"},
+      {"cert": "Paramedic", "coverage": 65, "gaps": "Advanced pharmacology, 12-lead EKG interpretation, and pediatric emergencies"}
+    ],
+    "recommended_next": ["Paramedic", "LPN", "RN (with bridge program)"]
+  },
+  "BM": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "USCG Master Captain License", "coverage": 60, "gaps": "Celestial navigation calculations, commercial vessel regulations, and maritime law"},
+      {"cert": "OSHA 30-Hour General Industry", "coverage": 65, "gaps": "Focus on confined space, electrical safety, and lockout/tagout procedures"}
+    ],
+    "recommended_next": ["USCG Master License", "OSHA 30-Hour", "PMP"]
+  },
+  "CGET": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "Certified Electronics Technician (CET)", "coverage": 75, "gaps": "Commercial electronics standards and FCC regulations"},
+      {"cert": "CompTIA A+", "coverage": 55, "gaps": "Commercial operating systems, mobile devices, and cloud computing concepts"}
+    ],
+    "recommended_next": ["CET", "CompTIA A+", "CompTIA Network+"]
+  },
+  "CGIS": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "CompTIA Security+", "coverage": 40, "gaps": "Technical security controls, cryptography, and network security architecture"},
+      {"cert": "Certified Analytics Professional (CAP)", "coverage": 45, "gaps": "Statistical analysis, data visualization platforms, and predictive analytics"}
+    ],
+    "recommended_next": ["CompTIA Security+", "CAP", "PMP"]
+  },
+  "CGIT": {
+    "direct_qualifies": ["CompTIA A+"],
+    "partial_coverage": [
+      {"cert": "CompTIA Network+", "coverage": 70, "gaps": "Advanced routing, network design, and cloud networking"},
+      {"cert": "CompTIA Security+", "coverage": 60, "gaps": "Risk management frameworks, vulnerability scanning, and incident response"}
+    ],
+    "recommended_next": ["CompTIA Network+", "CompTIA Security+", "CCNA"]
+  },
+  "MK": {
+    "direct_qualifies": [],
+    "partial_coverage": [
+      {"cert": "USCG Marine Engineering License", "coverage": 55, "gaps": "Commercial vessel engineering regulations, steam propulsion, and maritime environmental compliance"},
+      {"cert": "EPA Section 608 (Refrigerant)", "coverage": 75, "gaps": "Minimal — review commercial HVAC system regulations and recovery procedures"}
+    ],
+    "recommended_next": ["USCG Engineering License", "EPA 608", "OSHA 30-Hour"]
+  }
+}

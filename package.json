@@ -23,7 +23,8 @@
     "generate:blog-audio": "tsx -r dotenv/config scripts/generate-blog-audio-overviews.ts",
     "commitlint": "commitlint --from-HEAD~1",
     "generate:blog-image": "tsx -r dotenv/config scripts/generate-blog-image.ts",
-    "generate:blog-media": "tsx -r dotenv/config scripts/generate-blog-media.ts"
+    "generate:blog-media": "tsx -r dotenv/config scripts/generate-blog-media.ts",
+    "generate:job-codes": "tsx scripts/parse-job-codes.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
@@ -46,6 +47,7 @@
     "@shopify/shopify-api": "^12.1.2",
     "@types/express": "^4.17.17",
     "@vercel/analytics": "^1.4.1",
+    "@xenova/transformers": "^2.17.2",
     "ace-builds": "^1.33.1",
     "ai": "^5.0.93",
     "axios": "^1.4.0",
@@ -65,6 +67,7 @@
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.378.0",
     "mailchimp-api-v3": "^1.15.0",
+    "mammoth": "^1.11.0",
     "marked": "^4.0.18",
     "motion": "^11.13.3",
     "next": "15.0.7",
@@ -77,6 +80,7 @@
     "next-sitemap": "^3.1.55",
     "node-html-parser": "^7.0.1",
     "pdf-lib": "^1.17.1",
+    "pdf-parse": "^2.4.5",
     "plato": "^1.7.0",
     "react": "^18.3.1",
     "react-ace": "^11.0.1",

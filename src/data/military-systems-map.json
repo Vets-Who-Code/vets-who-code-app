@@ -1,0 +1,704 @@
+{
+  "11B": {
+    "branch": "Army",
+    "title": "Infantryman",
+    "systems": [
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"},
+      {"military": "FBCB2 (Force XXI Battle Command Brigade and Below)", "civilian": "Tactical network communication and situational awareness platforms"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "Encrypted radio frequency communication systems"},
+      {"military": "JCR (Joint Capabilities Release)", "civilian": "Joint asset tracking, messaging, and logistics coordination systems"}
+    ]
+  },
+  "11C": {
+    "branch": "Army",
+    "title": "Indirect Fire Infantryman",
+    "systems": [
+      {"military": "LHMBC (Lightweight Handheld Mortar Ballistic Computer)", "civilian": "Ballistic trajectory calculation and fire control software"},
+      {"military": "M95/M96 Mortar Fire Control System", "civilian": "Computerized fire control and targeting systems"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "Forward Observer Software (FOS)", "civilian": "Geospatial targeting and coordinate calculation tools"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "12B": {
+    "branch": "Army",
+    "title": "Combat Engineer",
+    "systems": [
+      {"military": "ENFIRE (Engineer Fire Control)", "civilian": "Obstacle planning and geospatial engineering software"},
+      {"military": "TERRABASE", "civilian": "Terrain analysis and geospatial information systems"},
+      {"military": "TCMS (Theater Construction Management System)", "civilian": "Construction project management and scheduling platforms (Primavera, MS Project)"},
+      {"military": "JDLM (Joint Demolition Logistics Module)", "civilian": "Materials tracking and demolition planning databases"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "13B": {
+    "branch": "Army",
+    "title": "Cannon Crewmember",
+    "systems": [
+      {"military": "AFATDS (Advanced Field Artillery Tactical Data System)", "civilian": "Automated fire control and mission planning software"},
+      {"military": "BCS (Battery Computer System)", "civilian": "Ballistic computation and fire direction platforms"},
+      {"military": "IPADS (Improved Position and Azimuth Determining System)", "civilian": "Precision surveying and geolocation instruments"},
+      {"military": "GDU-R (Gun Display Unit-Replacement)", "civilian": "Digital display and fire mission processing terminals"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "13F": {
+    "branch": "Army",
+    "title": "Fire Support Specialist",
+    "systems": [
+      {"military": "AFATDS (Advanced Field Artillery Tactical Data System)", "civilian": "Automated mission planning and fire coordination software"},
+      {"military": "LLDR (Lightweight Laser Designator Rangefinder)", "civilian": "Laser rangefinding and precision measurement systems"},
+      {"military": "PFED (Pocket-Sized Forward Entry Device)", "civilian": "Handheld tactical data entry and communication terminals"},
+      {"military": "JADOCS (Joint Automated Deep Operations Coordination System)", "civilian": "Cross-organizational operational coordination platforms"},
+      {"military": "AMDWS (Air and Missile Defense Workstation)", "civilian": "Air traffic and threat monitoring workstations"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "15T": {
+    "branch": "Army",
+    "title": "UH-60 Helicopter Repairer",
+    "systems": [
+      {"military": "ULLS-A (Unit Level Logistics System-Aviation)", "civilian": "Aviation maintenance tracking and logistics management platforms (SAP, Maximo)"},
+      {"military": "IETM (Interactive Electronic Technical Manual)", "civilian": "Digital technical publication and maintenance procedure systems"},
+      {"military": "IMDS (Integrated Maintenance Data System)", "civilian": "Enterprise asset management and maintenance scheduling software"},
+      {"military": "PQDR (Product Quality Deficiency Reporting)", "civilian": "Quality assurance defect tracking and reporting systems"},
+      {"military": "VIDS/MAF (Visual Information Display System / Maintenance Action Forms)", "civilian": "Maintenance documentation and work order management systems"}
+    ]
+  },
+  "19D": {
+    "branch": "Army",
+    "title": "Cavalry Scout",
+    "systems": [
+      {"military": "LRAS3 (Long Range Advanced Scout Surveillance System)", "civilian": "Long-range electro-optical surveillance and imaging systems"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"},
+      {"military": "FBCB2 (Force XXI Battle Command Brigade and Below)", "civilian": "Tactical network communication and situational awareness platforms"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "Encrypted radio frequency communication systems"},
+      {"military": "JCR (Joint Capabilities Release)", "civilian": "Joint asset tracking, messaging, and logistics coordination systems"}
+    ]
+  },
+  "25B": {
+    "branch": "Army",
+    "title": "Information Technology Specialist",
+    "systems": [
+      {"military": "WIN-T (Warfighter Information Network-Tactical)", "civilian": "Enterprise WAN/LAN networking and telecommunications infrastructure"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys)"},
+      {"military": "SCCM (System Center Configuration Manager)", "civilian": "Microsoft SCCM/Endpoint Manager for systems administration"},
+      {"military": "Active Directory / DEERS", "civilian": "Identity and access management (Active Directory, LDAP, Okta)"},
+      {"military": "VDMS (Video Display Management System) / VTC Systems", "civilian": "Video teleconferencing and unified communications platforms (Zoom, Teams, Cisco Webex)"},
+      {"military": "Remedy / ITSM", "civilian": "IT service management ticketing systems (ServiceNow, Jira Service Management)"}
+    ]
+  },
+  "25N": {
+    "branch": "Army",
+    "title": "Nodal Network Systems Operator-Maintainer",
+    "systems": [
+      {"military": "WIN-T (Warfighter Information Network-Tactical)", "civilian": "Enterprise WAN/LAN networking infrastructure and transport systems"},
+      {"military": "JNN (Joint Network Node)", "civilian": "IP-based network routing and switching platforms (Cisco, Juniper)"},
+      {"military": "CPN (Command Post Node)", "civilian": "Enterprise network operations center (NOC) systems"},
+      {"military": "STT (Satellite Transportable Terminal)", "civilian": "Satellite communications and VSAT terminal systems"},
+      {"military": "ISYSCON (Integrated System Control)", "civilian": "Network management and monitoring platforms (SolarWinds, Nagios, PRTG)"}
+    ]
+  },
+  "25S": {
+    "branch": "Army",
+    "title": "Satellite Communication Systems Operator-Maintainer",
+    "systems": [
+      {"military": "SNAP (Space Network Access Program) Terminal", "civilian": "VSAT and satellite earth station equipment"},
+      {"military": "STT (Satellite Transportable Terminal)", "civilian": "Transportable satellite communications terminals"},
+      {"military": "TSC-85/93/154 SATCOM Terminals", "civilian": "Commercial satellite uplink/downlink ground station systems"},
+      {"military": "DISA SATCOM Management", "civilian": "Satellite bandwidth allocation and link budget analysis tools"},
+      {"military": "WIN-T (Warfighter Information Network-Tactical)", "civilian": "Enterprise telecommunications and network transport systems"}
+    ]
+  },
+  "25U": {
+    "branch": "Army",
+    "title": "Signal Support Systems Specialist",
+    "systems": [
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "VHF/UHF radio communication systems"},
+      {"military": "Harris AN/PRC-117G/152", "civilian": "Software-defined radio and multiband communication platforms"},
+      {"military": "JCR (Joint Capabilities Release)", "civilian": "Tactical messaging and asset tracking systems"},
+      {"military": "CPOF (Command Post of the Future)", "civilian": "Collaborative planning and decision support platforms"},
+      {"military": "WIN-T (Warfighter Information Network-Tactical)", "civilian": "Enterprise networking and telecommunications infrastructure"}
+    ]
+  },
+  "31B": {
+    "branch": "Army",
+    "title": "Military Police",
+    "systems": [
+      {"military": "ALERTS (Army Law Enforcement Reporting and Tracking System)", "civilian": "Law enforcement records management systems (RMS)"},
+      {"military": "NCIC (National Crime Information Center)", "civilian": "Criminal justice information systems and background check databases"},
+      {"military": "DBIDS (Defense Biometric Identification System)", "civilian": "Biometric access control and identity verification platforms"},
+      {"military": "APMIS (Army Physical Security Information Management System)", "civilian": "Physical security and access control management software"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "35F": {
+    "branch": "Army",
+    "title": "Intelligence Analyst",
+    "systems": [
+      {"military": "DCGS-A (Distributed Common Ground System-Army)", "civilian": "Multi-source intelligence fusion and data analytics platforms"},
+      {"military": "Analyst's Notebook (i2)", "civilian": "IBM i2 Analyst's Notebook link analysis and data visualization"},
+      {"military": "CIDNE (Combined Information Data Network Exchange)", "civilian": "Incident reporting and intelligence database management systems"},
+      {"military": "Palantir GOTHAM", "civilian": "Palantir data integration and intelligence analytics platform"},
+      {"military": "ArcGIS / TIGR (Tactical Ground Reporting)", "civilian": "Esri ArcGIS geospatial intelligence and mapping platforms"},
+      {"military": "SIPRNET / JWICS Workstations", "civilian": "Classified network administration and secure information systems"}
+    ]
+  },
+  "35G": {
+    "branch": "Army",
+    "title": "Geospatial Intelligence Imagery Analyst",
+    "systems": [
+      {"military": "DCGS-A (Distributed Common Ground System-Army)", "civilian": "Multi-source intelligence fusion and geospatial analytics platforms"},
+      {"military": "RemoteView / SOCET GXP", "civilian": "Geospatial imagery exploitation and photogrammetry software (BAE Systems)"},
+      {"military": "ArcGIS / ArcMap", "civilian": "Esri ArcGIS geospatial information systems and mapping tools"},
+      {"military": "NES (National Exploitation System)", "civilian": "Satellite imagery analysis and exploitation platforms"},
+      {"military": "Google Earth Pro / FalconView", "civilian": "3D geospatial visualization and mission planning tools"},
+      {"military": "ERDAS IMAGINE", "civilian": "Remote sensing image processing and geospatial analysis software"}
+    ]
+  },
+  "35M": {
+    "branch": "Army",
+    "title": "Human Intelligence Collector",
+    "systems": [
+      {"military": "CHIMS (Counterintelligence and HUMINT Information Management System)", "civilian": "Investigative case management and reporting systems"},
+      {"military": "HOT-R (HUMINT Online Tasking and Reporting)", "civilian": "Task management and intelligence reporting platforms"},
+      {"military": "Analyst's Notebook (i2)", "civilian": "IBM i2 link analysis and investigative data visualization"},
+      {"military": "CIDNE (Combined Information Data Network Exchange)", "civilian": "Incident and intelligence database management systems"},
+      {"military": "Palantir GOTHAM", "civilian": "Data integration, entity resolution, and analytics platform"}
+    ]
+  },
+  "42A": {
+    "branch": "Army",
+    "title": "Human Resources Specialist",
+    "systems": [
+      {"military": "eMILPO (Electronic Military Personnel Office)", "civilian": "HRIS platforms (Workday, SAP SuccessFactors, Oracle HCM)"},
+      {"military": "iPERMS (Interactive Personnel Electronic Records Management System)", "civilian": "Electronic document management and digital records systems"},
+      {"military": "TOPMIS (Total Officer Personnel Management Information System)", "civilian": "Talent management and personnel tracking systems"},
+      {"military": "EDAS (Enlisted Distribution and Assignment System)", "civilian": "Workforce planning and employee assignment management platforms"},
+      {"military": "DCPDS (Defense Civilian Personnel Data System)", "civilian": "Civilian HR information and payroll systems (ADP, Ceridian)"},
+      {"military": "DTMS (Digital Training Management System)", "civilian": "Learning management systems (LMS) for training compliance tracking"}
+    ]
+  },
+  "68W": {
+    "branch": "Army",
+    "title": "Combat Medic Specialist",
+    "systems": [
+      {"military": "AHLTA (Armed Forces Health Longitudinal Technology Application)", "civilian": "Electronic health record systems (Epic, Cerner, Allscripts)"},
+      {"military": "TC2 (Tactical Combat Casualty Care) Protocols", "civilian": "Emergency medical protocols and clinical decision support systems"},
+      {"military": "TMIP (Theater Medical Information Program)", "civilian": "Healthcare information exchange and patient tracking systems"},
+      {"military": "MEDEVAC Request Systems (9-Line)", "civilian": "Emergency dispatch and patient transport coordination platforms"},
+      {"military": "MODS (Medical Operational Data System)", "civilian": "Medical logistics and supply chain management systems"}
+    ]
+  },
+  "74D": {
+    "branch": "Army",
+    "title": "Chemical, Biological, Radiological, and Nuclear Specialist",
+    "systems": [
+      {"military": "JSLSCAD (Joint Service Lightweight Standoff Chemical Agent Detector)", "civilian": "Chemical detection and environmental hazard monitoring systems"},
+      {"military": "JCAD (Joint Chemical Agent Detector)", "civilian": "Portable chemical agent detection and monitoring instruments"},
+      {"military": "JWARN (Joint Warning and Reporting Network)", "civilian": "Hazardous materials reporting and emergency notification systems (CAMEO, ALOHA)"},
+      {"military": "RADIAC (Radiation Detection, Indication, and Computation)", "civilian": "Radiation monitoring and dosimetry instruments"},
+      {"military": "NBC Reporting Systems (NBC-1 through NBC-6)", "civilian": "Environmental incident reporting and HAZMAT documentation platforms"}
+    ]
+  },
+  "88M": {
+    "branch": "Army",
+    "title": "Motor Transport Operator",
+    "systems": [
+      {"military": "BCS3 (Battle Command Sustainment Support System)", "civilian": "Logistics and supply chain management platforms (SAP, Oracle SCM)"},
+      {"military": "TC-AIMS II (Transportation Coordinators' Automated Information for Movements System)", "civilian": "Transportation management systems (TMS) and freight logistics platforms"},
+      {"military": "MTS (Movement Tracking System)", "civilian": "GPS fleet tracking and telematics systems (Samsara, Geotab, Omnitracs)"},
+      {"military": "RFID / AIT (Automatic Identification Technology)", "civilian": "RFID-based asset tracking and inventory management systems"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"}
+    ]
+  },
+  "89B": {
+    "branch": "Army",
+    "title": "Ammunition Specialist",
+    "systems": [
+      {"military": "SAAS (Standard Army Ammunition System)", "civilian": "Inventory management and materials tracking systems (SAP MM, Oracle Inventory)"},
+      {"military": "TAMIS (Total Ammunition Management Information System)", "civilian": "Supply chain forecasting and demand planning platforms"},
+      {"military": "AESIP (Army Enterprise Systems Integration Program)", "civilian": "Enterprise resource planning (ERP) integration platforms"},
+      {"military": "WARS (Worldwide Ammunition Reporting System)", "civilian": "Global inventory reporting and logistics analytics systems"},
+      {"military": "HAZMAT Certification Systems", "civilian": "Hazardous materials compliance and shipping documentation systems (DOT/IATA)"}
+    ]
+  },
+  "91B": {
+    "branch": "Army",
+    "title": "Wheeled Vehicle Mechanic",
+    "systems": [
+      {"military": "GCSS-Army (Global Combat Support System-Army)", "civilian": "Enterprise fleet maintenance management (SAP ERP, Fleetio, Fleet Complete)"},
+      {"military": "SAMS-E (Standard Army Maintenance System-Enhanced)", "civilian": "Computerized maintenance management systems (CMMS)"},
+      {"military": "IETM (Interactive Electronic Technical Manual)", "civilian": "Digital technical manuals and repair procedure databases (Alldata, Mitchell1)"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Automotive diagnostic and electronic testing equipment (OBD-II, oscilloscopes)"},
+      {"military": "PBUSE (Property Book Unit Supply Enhanced)", "civilian": "Parts inventory and supply chain tracking systems"}
+    ]
+  },
+  "92A": {
+    "branch": "Army",
+    "title": "Automated Logistical Specialist",
+    "systems": [
+      {"military": "GCSS-Army (Global Combat Support System-Army)", "civilian": "Enterprise resource planning for supply chain and logistics (SAP ERP, Oracle EBS)"},
+      {"military": "SARSS (Standard Army Retail Supply System)", "civilian": "Retail inventory management and automated reorder systems"},
+      {"military": "PBUSE (Property Book Unit Supply Enhanced)", "civilian": "Asset management and property accountability platforms"},
+      {"military": "LIW (Logistics Information Warehouse)", "civilian": "Data warehousing and logistics business intelligence platforms (Tableau, Power BI)"},
+      {"military": "RFID / AIT (Automatic Identification Technology)", "civilian": "Barcode/RFID inventory and warehouse management systems (WMS)"}
+    ]
+  },
+  "92F": {
+    "branch": "Army",
+    "title": "Petroleum Supply Specialist",
+    "systems": [
+      {"military": "GCSS-Army (Global Combat Support System-Army)", "civilian": "Enterprise fuel inventory and supply chain management (SAP, Oracle)"},
+      {"military": "APOD/SPOD Fuel Distribution Systems", "civilian": "Bulk fuel distribution and terminal management systems"},
+      {"military": "Coriolis Meters / Fuel Accountability Systems", "civilian": "Flow measurement and fuel accountability instrumentation"},
+      {"military": "FSS (Fuel System Supply Point) Controls", "civilian": "Industrial tank farm and fuel storage facility management systems"},
+      {"military": "HAZMAT Compliance Systems", "civilian": "Environmental compliance and hazardous materials reporting systems (EPA, OSHA)"}
+    ]
+  },
+  "92Y": {
+    "branch": "Army",
+    "title": "Unit Supply Specialist",
+    "systems": [
+      {"military": "GCSS-Army (Global Combat Support System-Army)", "civilian": "Enterprise resource planning for supply and logistics (SAP ERP, Oracle EBS)"},
+      {"military": "PBUSE (Property Book Unit Supply Enhanced)", "civilian": "Asset management and property accountability systems"},
+      {"military": "SARSS (Standard Army Retail Supply System)", "civilian": "Automated inventory management and requisition systems"},
+      {"military": "FLIPLs (Financial Liability Investigation of Property Loss)", "civilian": "Asset loss investigation and financial accountability reporting"},
+      {"military": "RFID / AIT (Automatic Identification Technology)", "civilian": "Barcode/RFID inventory tracking and warehouse management systems"}
+    ]
+  },
+  "94E": {
+    "branch": "Army",
+    "title": "Radio and Communications Security Repairer",
+    "systems": [
+      {"military": "COMSEC (Communications Security) Equipment / KG-Series", "civilian": "Hardware encryption and network security appliances"},
+      {"military": "SKL (Simple Key Loader) / KYK-13", "civilian": "Cryptographic key management and distribution systems (PKI, HSM)"},
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "VHF/UHF radio communication system repair and maintenance"},
+      {"military": "Harris Falcon III / AN/PRC-117G", "civilian": "Software-defined radio platforms and RF communication systems"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic test equipment (spectrum analyzers, signal generators, oscilloscopes)"}
+    ]
+  },
+
+  "BM_NAVY": {
+    "branch": "Navy",
+    "title": "Boatswain's Mate",
+    "systems": [
+      {"military": "ECDIS (Electronic Chart Display and Information System)", "civilian": "Electronic navigation and maritime charting systems"},
+      {"military": "Voyage Management System (VMS)", "civilian": "Fleet voyage planning and route optimization software"},
+      {"military": "WQSB (Weather / Sea State) Monitoring Systems", "civilian": "Marine weather monitoring and environmental data systems"},
+      {"military": "SOMS (Ship's Operational Manning System)", "civilian": "Crew scheduling and workforce management platforms"},
+      {"military": "3M (Maintenance and Material Management System)", "civilian": "Preventive maintenance and asset management systems (CMMS)"}
+    ]
+  },
+  "CTN": {
+    "branch": "Navy",
+    "title": "Cryptologic Technician Networks",
+    "systems": [
+      {"military": "NSA CNO (Computer Network Operations) Tools", "civilian": "Penetration testing and network security tools (Metasploit, Burp Suite, Wireshark)"},
+      {"military": "SIGINT Analysis Platforms", "civilian": "Network traffic analysis and intrusion detection systems (Splunk, ELK Stack)"},
+      {"military": "Linux / Unix Administration (RHEL, CentOS)", "civilian": "Linux/Unix systems administration and shell scripting"},
+      {"military": "IDS/IPS (Intrusion Detection/Prevention Systems)", "civilian": "Network security monitoring (Snort, Suricata, Palo Alto, CrowdStrike)"},
+      {"military": "SIEM (Security Information and Event Management)", "civilian": "SIEM platforms (Splunk, IBM QRadar, ArcSight)"},
+      {"military": "JWICS / SIPRNET Workstations", "civilian": "Classified and secured network infrastructure administration"}
+    ]
+  },
+  "ET_NAVY": {
+    "branch": "Navy",
+    "title": "Electronics Technician",
+    "systems": [
+      {"military": "AN/SPS-73 / AN/SPS-67 Radar Systems", "civilian": "Radar and RF electronics systems maintenance"},
+      {"military": "CANES (Consolidated Afloat Networks and Enterprise Services)", "civilian": "Enterprise LAN/WAN network infrastructure and server systems"},
+      {"military": "NGEN (Next Generation Enterprise Network)", "civilian": "Enterprise IT infrastructure and managed network services"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic test and calibration equipment (Fluke, Keysight, Tektronix)"},
+      {"military": "3M (Maintenance and Material Management System)", "civilian": "Preventive maintenance and asset management platforms (CMMS)"}
+    ]
+  },
+  "FC": {
+    "branch": "Navy",
+    "title": "Fire Controlman",
+    "systems": [
+      {"military": "Aegis Combat System / SPY-1 Radar", "civilian": "Integrated control systems and phased array radar technology"},
+      {"military": "SSDS (Ship Self-Defense System)", "civilian": "Automated threat detection and response control systems"},
+      {"military": "MK 160 / MK 34 Gun Weapon Systems", "civilian": "Precision electromechanical control and servo systems"},
+      {"military": "AN/SWG-1 Harpoon Fire Control", "civilian": "Automated targeting and fire control computation systems"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic test and calibration instruments (oscilloscopes, multimeters)"}
+    ]
+  },
+  "GM": {
+    "branch": "Navy",
+    "title": "Gunner's Mate",
+    "systems": [
+      {"military": "MK 45 / MK 38 Gun Weapon Systems", "civilian": "Electromechanical weapons systems and automated control platforms"},
+      {"military": "CIWS (Close-In Weapon System) Phalanx", "civilian": "Automated tracking and defense control systems"},
+      {"military": "3M (Maintenance and Material Management System)", "civilian": "Preventive maintenance and asset management platforms (CMMS)"},
+      {"military": "Ordnance Information System (OIS)", "civilian": "Inventory control and materials management systems"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic and mechanical test and diagnostic instruments"}
+    ]
+  },
+  "HM": {
+    "branch": "Navy",
+    "title": "Hospital Corpsman",
+    "systems": [
+      {"military": "AHLTA (Armed Forces Health Longitudinal Technology Application)", "civilian": "Electronic health record systems (Epic, Cerner, Allscripts)"},
+      {"military": "CHCS (Composite Health Care System)", "civilian": "Hospital information and patient management systems"},
+      {"military": "TMIP (Theater Medical Information Program)", "civilian": "Healthcare information exchange and patient tracking platforms"},
+      {"military": "DMLSS (Defense Medical Logistics Standard Support)", "civilian": "Medical supply chain and inventory management systems"},
+      {"military": "TC2 (Tactical Combat Casualty Care) Protocols", "civilian": "Emergency medical protocols and clinical decision support tools"}
+    ]
+  },
+  "IS_NAVY": {
+    "branch": "Navy",
+    "title": "Intelligence Specialist",
+    "systems": [
+      {"military": "DCGS-N (Distributed Common Ground System-Navy)", "civilian": "Multi-source intelligence fusion and analytics platforms"},
+      {"military": "JMPS (Joint Mission Planning System)", "civilian": "Mission planning and operational coordination software"},
+      {"military": "Palantir GOTHAM", "civilian": "Data integration, entity resolution, and intelligence analytics"},
+      {"military": "ArcGIS (Geospatial Intelligence)", "civilian": "Esri ArcGIS geospatial analysis and mapping platforms"},
+      {"military": "Analyst's Notebook (i2)", "civilian": "IBM i2 link analysis and data visualization tools"},
+      {"military": "SIPRNET / JWICS Workstations", "civilian": "Classified network information systems administration"}
+    ]
+  },
+  "IT_NAVY": {
+    "branch": "Navy",
+    "title": "Information Systems Technician",
+    "systems": [
+      {"military": "CANES (Consolidated Afloat Networks and Enterprise Services)", "civilian": "Enterprise network infrastructure (Cisco, Juniper routing/switching)"},
+      {"military": "NGEN (Next Generation Enterprise Network)", "civilian": "Managed enterprise IT services and cloud infrastructure"},
+      {"military": "Windows Server / Active Directory", "civilian": "Microsoft Windows Server administration and identity management"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys, Tenable)"},
+      {"military": "HBSS (Host Based Security System)", "civilian": "Endpoint security and detection platforms (McAfee, CrowdStrike, Carbon Black)"},
+      {"military": "Remedy / ITSM", "civilian": "IT service management ticketing (ServiceNow, Jira Service Management)"}
+    ]
+  },
+  "MA": {
+    "branch": "Navy",
+    "title": "Master-at-Arms",
+    "systems": [
+      {"military": "DBIDS (Defense Biometric Identification System)", "civilian": "Biometric access control and identity verification systems"},
+      {"military": "NCIC (National Crime Information Center)", "civilian": "Criminal justice information and background check databases"},
+      {"military": "CCTV / IPCAM Surveillance Systems", "civilian": "IP camera surveillance and video management systems (Genetec, Milestone)"},
+      {"military": "PACS (Physical Access Control Systems)", "civilian": "Physical access control and security management platforms"},
+      {"military": "RMS (Records Management System)", "civilian": "Law enforcement records and incident management systems"}
+    ]
+  },
+  "OS": {
+    "branch": "Navy",
+    "title": "Operations Specialist",
+    "systems": [
+      {"military": "CDS (Combat Direction System)", "civilian": "Operations center data fusion and display platforms"},
+      {"military": "GCCS-M (Global Command and Control System-Maritime)", "civilian": "Command and control operational planning systems"},
+      {"military": "AIS (Automatic Identification System)", "civilian": "Maritime vessel tracking and traffic monitoring systems"},
+      {"military": "AN/SPS-48/49 Radar Systems", "civilian": "3D radar surveillance and air traffic tracking systems"},
+      {"military": "Link-16 / TADIL (Tactical Digital Information Link)", "civilian": "Tactical data link and real-time information sharing networks"}
+    ]
+  },
+  "QM": {
+    "branch": "Navy",
+    "title": "Quartermaster",
+    "systems": [
+      {"military": "ECDIS (Electronic Chart Display and Information System)", "civilian": "Electronic navigation and maritime charting systems (Transas, Furuno)"},
+      {"military": "VMS (Voyage Management System)", "civilian": "Voyage planning, route optimization, and fleet management software"},
+      {"military": "GPS / DGPS Navigation Systems", "civilian": "Differential GPS and precision navigation systems"},
+      {"military": "METOC (Meteorology and Oceanography) Systems", "civilian": "Weather forecasting and oceanographic data analysis tools"},
+      {"military": "AIS (Automatic Identification System)", "civilian": "Maritime vessel tracking and traffic management systems"}
+    ]
+  },
+  "YN_NAVY": {
+    "branch": "Navy",
+    "title": "Yeoman",
+    "systems": [
+      {"military": "NSIPS (Navy Standard Integrated Personnel System)", "civilian": "HRIS platforms (Workday, SAP SuccessFactors, Oracle HCM)"},
+      {"military": "IAPS (Integrated Automated Personnel System)", "civilian": "Personnel data management and reporting systems"},
+      {"military": "DTS (Defense Travel System)", "civilian": "Corporate travel management and expense platforms (Concur, Navan)"},
+      {"military": "PRIMS (Personnel Readiness Information Management System)", "civilian": "Workforce readiness and compliance tracking platforms"},
+      {"military": "Microsoft Office / SharePoint", "civilian": "Microsoft 365, SharePoint, and enterprise collaboration tools"}
+    ]
+  },
+
+  "0311": {
+    "branch": "Marine Corps",
+    "title": "Rifleman",
+    "systems": [
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"},
+      {"military": "FBCB2 (Force XXI Battle Command Brigade and Below)", "civilian": "Tactical network communication and situational awareness platforms"},
+      {"military": "PRC-117G / PRC-152 Radios", "civilian": "Software-defined radio and multiband communication platforms"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "Encrypted radio frequency communication systems"}
+    ]
+  },
+  "0317": {
+    "branch": "Marine Corps",
+    "title": "Scout Sniper",
+    "systems": [
+      {"military": "ATAC (Advanced Target Acquisition Capability)", "civilian": "Electro-optical target tracking and precision measurement systems"},
+      {"military": "LLDR (Lightweight Laser Designator Rangefinder)", "civilian": "Laser rangefinding and precision measurement instruments"},
+      {"military": "Kestrel Weather Meters", "civilian": "Portable environmental monitoring and meteorological instruments"},
+      {"military": "Applied Ballistics Software", "civilian": "Ballistic calculation and trajectory modeling software"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS asset tracking and management systems"}
+    ]
+  },
+  "0321": {
+    "branch": "Marine Corps",
+    "title": "Reconnaissance Man",
+    "systems": [
+      {"military": "MBITR (Multiband Inter/Intra Team Radio) AN/PRC-148", "civilian": "Software-defined radio and tactical communication systems"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "ISRVT (ISR Video Terminal)", "civilian": "Real-time video streaming and surveillance feed receivers"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS asset tracking and management systems"},
+      {"military": "LLDR (Lightweight Laser Designator Rangefinder)", "civilian": "Laser rangefinding and electro-optical measurement systems"}
+    ]
+  },
+  "0811": {
+    "branch": "Marine Corps",
+    "title": "Field Artillery Cannoneer",
+    "systems": [
+      {"military": "AFATDS (Advanced Field Artillery Tactical Data System)", "civilian": "Automated fire control and mission planning software"},
+      {"military": "BCS (Battery Computer System)", "civilian": "Ballistic computation and fire direction platforms"},
+      {"military": "IPADS (Improved Position and Azimuth Determining System)", "civilian": "Precision surveying and geolocation systems"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS asset tracking and management systems"}
+    ]
+  },
+  "1371": {
+    "branch": "Marine Corps",
+    "title": "Combat Engineer",
+    "systems": [
+      {"military": "TCMS (Theater Construction Management System)", "civilian": "Construction project management platforms (Primavera, Procore, MS Project)"},
+      {"military": "AutoCAD / MicroStation", "civilian": "Computer-aided design (CAD) and engineering drawing software"},
+      {"military": "ENFIRE (Engineer Fire Control)", "civilian": "Obstacle planning and geospatial engineering software"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"},
+      {"military": "DAGR (Defense Advanced GPS Receiver)", "civilian": "Precision GPS navigation and positioning systems"}
+    ]
+  },
+  "2651": {
+    "branch": "Marine Corps",
+    "title": "Cyber Network Operator",
+    "systems": [
+      {"military": "HBSS (Host Based Security System)", "civilian": "Endpoint detection and response platforms (CrowdStrike, Carbon Black, SentinelOne)"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys, Tenable)"},
+      {"military": "Kali Linux / Penetration Testing Tools", "civilian": "Penetration testing platforms (Kali, Metasploit, Burp Suite)"},
+      {"military": "Splunk / ArcSight SIEM", "civilian": "Security information and event management platforms (Splunk, QRadar)"},
+      {"military": "Wireshark / Network Analysis Tools", "civilian": "Network traffic analysis and packet capture tools"},
+      {"military": "Linux / Windows Server Administration", "civilian": "Enterprise server and systems administration (RHEL, Windows Server)"}
+    ]
+  },
+  "2841": {
+    "branch": "Marine Corps",
+    "title": "Ground Radio Repairer",
+    "systems": [
+      {"military": "AN/PRC-117G / AN/PRC-152 Radios", "civilian": "Software-defined radio platforms and RF communication systems"},
+      {"military": "SINCGARS (Single Channel Ground and Airborne Radio System)", "civilian": "VHF radio communication systems maintenance and repair"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic test equipment (spectrum analyzers, signal generators, oscilloscopes)"},
+      {"military": "COMSEC (Communications Security) Equipment", "civilian": "Hardware encryption and network security appliances"},
+      {"military": "3M (Maintenance and Material Management System)", "civilian": "Preventive maintenance management and work order tracking systems (CMMS)"}
+    ]
+  },
+  "3043": {
+    "branch": "Marine Corps",
+    "title": "Supply Administration and Operations Specialist",
+    "systems": [
+      {"military": "GCSS-MC (Global Combat Support System-Marine Corps)", "civilian": "Enterprise resource planning and supply chain management (SAP ERP, Oracle EBS)"},
+      {"military": "ATLASS II (Asset Tracking Logistics and Supply System)", "civilian": "Inventory management and warehouse management systems (WMS)"},
+      {"military": "DTS (Defense Travel System)", "civilian": "Corporate travel management and expense platforms (Concur, Navan)"},
+      {"military": "SABRS (Standard Accounting, Budgeting, and Reporting System)", "civilian": "Financial accounting and budgeting systems (QuickBooks, SAP FICO, NetSuite)"},
+      {"military": "Microsoft Office / SharePoint", "civilian": "Microsoft 365 and enterprise productivity and collaboration tools"}
+    ]
+  },
+  "3531": {
+    "branch": "Marine Corps",
+    "title": "Motor Vehicle Operator",
+    "systems": [
+      {"military": "GCSS-MC (Global Combat Support System-Marine Corps)", "civilian": "Fleet maintenance and logistics management platforms (SAP, Oracle)"},
+      {"military": "MTS (Movement Tracking System)", "civilian": "GPS fleet tracking and telematics systems (Samsara, Geotab, Omnitracs)"},
+      {"military": "TC-AIMS II (Transportation Coordinators' Automated Information for Movements System)", "civilian": "Transportation management systems (TMS) and freight logistics platforms"},
+      {"military": "Blue Force Tracker (BFT)", "civilian": "Real-time GPS fleet and asset management systems"},
+      {"military": "HAZMAT Transportation Systems", "civilian": "Hazardous materials shipping compliance and documentation systems (DOT/IATA)"}
+    ]
+  },
+  "6042": {
+    "branch": "Marine Corps",
+    "title": "Individual Material Readiness List (IMRL) / Aircraft Maintenance Administration",
+    "systems": [
+      {"military": "NALCOMIS (Naval Aviation Logistics Command Management Information System)", "civilian": "Aviation maintenance tracking and logistics management (SAP, Maximo)"},
+      {"military": "OOMA (Optimized Organizational Maintenance Activity)", "civilian": "Maintenance operations management and scheduling platforms"},
+      {"military": "DECKPLATE", "civilian": "Personnel readiness and training management systems"},
+      {"military": "IMRL Manager", "civilian": "Precision tool and equipment calibration tracking systems"},
+      {"military": "3M (Maintenance and Material Management System)", "civilian": "Preventive maintenance planning and asset management platforms (CMMS)"}
+    ]
+  },
+
+  "1C1X1": {
+    "branch": "Air Force",
+    "title": "Air Traffic Control",
+    "systems": [
+      {"military": "RAPCON (Radar Approach Control)", "civilian": "FAA terminal radar approach control (TRACON) systems"},
+      {"military": "STARS (Standard Terminal Automation Replacement System)", "civilian": "FAA STARS air traffic automation and display systems"},
+      {"military": "DASR (Digital Airport Surveillance Radar)", "civilian": "Airport surveillance radar and air traffic monitoring systems"},
+      {"military": "IFF/SIF (Identification Friend or Foe)", "civilian": "Transponder-based aircraft identification systems (Mode S, ADS-B)"},
+      {"military": "VHF/UHF ATC Radio Systems", "civilian": "Aviation radio communication and frequency management systems"},
+      {"military": "GBDAA (Ground Based Detect and Avoid)", "civilian": "UAS traffic management and drone detection systems"}
+    ]
+  },
+  "1N0X1": {
+    "branch": "Air Force",
+    "title": "Operations Intelligence",
+    "systems": [
+      {"military": "DCGS (Distributed Common Ground System)", "civilian": "Multi-source intelligence fusion and data analytics platforms"},
+      {"military": "Analyst's Notebook (i2)", "civilian": "IBM i2 link analysis and intelligence data visualization"},
+      {"military": "JMPS (Joint Mission Planning System)", "civilian": "Mission planning and operational coordination software"},
+      {"military": "Palantir GOTHAM", "civilian": "Data integration, entity resolution, and analytics platform"},
+      {"military": "ArcGIS (Geospatial Intelligence)", "civilian": "Esri ArcGIS geospatial analysis and mapping platforms"},
+      {"military": "SIPRNET / JWICS Workstations", "civilian": "Classified network information systems and secure data handling"}
+    ]
+  },
+  "2A6X1": {
+    "branch": "Air Force",
+    "title": "Aerospace Propulsion",
+    "systems": [
+      {"military": "IMDS (Integrated Maintenance Data System)", "civilian": "Enterprise asset management and CMMS platforms (SAP PM, Maximo, IFS)"},
+      {"military": "IETM (Interactive Electronic Technical Manual)", "civilian": "Digital technical publications and maintenance procedure systems"},
+      {"military": "CEMS (Comprehensive Engine Management System)", "civilian": "Engine health monitoring and predictive maintenance platforms"},
+      {"military": "TO (Technical Orders) System", "civilian": "Technical documentation and standard operating procedure management"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Precision measurement and calibration instruments (CMM, borescopes, torque testers)"}
+    ]
+  },
+  "3D0X2": {
+    "branch": "Air Force",
+    "title": "Cyber Systems Operations",
+    "systems": [
+      {"military": "Windows Server / Active Directory / Group Policy", "civilian": "Microsoft Windows Server administration, Active Directory, and Group Policy"},
+      {"military": "VMware vSphere / ESXi", "civilian": "VMware virtualization and cloud infrastructure platforms"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys, Tenable)"},
+      {"military": "HBSS (Host Based Security System)", "civilian": "Endpoint security platforms (McAfee, CrowdStrike, Carbon Black)"},
+      {"military": "Remedy / ITSM", "civilian": "IT service management ticketing platforms (ServiceNow, Jira Service Management)"},
+      {"military": "Linux / Red Hat Enterprise Linux (RHEL)", "civilian": "Linux systems administration and shell scripting (RHEL, Ubuntu, CentOS)"}
+    ]
+  },
+  "3D1X1": {
+    "branch": "Air Force",
+    "title": "Client Systems",
+    "systems": [
+      {"military": "SCCM (System Center Configuration Manager)", "civilian": "Microsoft SCCM/Endpoint Manager for desktop management and deployment"},
+      {"military": "Active Directory / DEERS", "civilian": "Identity and access management (Active Directory, Azure AD, Okta)"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys)"},
+      {"military": "Remedy / ITSM Ticketing", "civilian": "IT service management and help desk platforms (ServiceNow, Jira)"},
+      {"military": "VTC / DVTS (Defense Video Teleconference Services)", "civilian": "Video conferencing and unified communications (Zoom, Teams, Webex)"},
+      {"military": "Ghost / PXE Imaging", "civilian": "OS deployment and imaging tools (SCCM, MDT, PXE boot)"}
+    ]
+  },
+  "3E7X1": {
+    "branch": "Air Force",
+    "title": "Fire Protection",
+    "systems": [
+      {"military": "P-23 / P-19 ARFF (Aircraft Rescue and Firefighting) Vehicles", "civilian": "ARFF vehicle operations and airport crash rescue systems"},
+      {"military": "WBDG (Whole Building Design Guide) Fire Systems", "civilian": "Building fire suppression and alarm system design platforms"},
+      {"military": "NFIRS (National Fire Incident Reporting System)", "civilian": "Fire incident reporting and data management systems (NFIRS, ImageTrend)"},
+      {"military": "SCBA (Self-Contained Breathing Apparatus) Systems", "civilian": "Respiratory protection and SCBA equipment maintenance and testing"},
+      {"military": "HAZMAT Detection and Mitigation Systems", "civilian": "Hazardous materials detection and emergency response systems"}
+    ]
+  },
+  "3P0X1": {
+    "branch": "Air Force",
+    "title": "Security Forces",
+    "systems": [
+      {"military": "DBIDS (Defense Biometric Identification System)", "civilian": "Biometric access control and identity verification platforms"},
+      {"military": "SFMIS (Security Forces Management Information System)", "civilian": "Law enforcement records and incident management systems (RMS)"},
+      {"military": "NCIC (National Crime Information Center)", "civilian": "Criminal justice information and background check databases"},
+      {"military": "ESS (Electronic Security Systems)", "civilian": "Integrated security systems (CCTV, intrusion detection, access control)"},
+      {"military": "CCTV / IP Camera Surveillance", "civilian": "Video surveillance and management platforms (Genetec, Milestone, Avigilon)"},
+      {"military": "PACS (Physical Access Control Systems)", "civilian": "Physical access control platforms (Lenel, AMAG, HID)"}
+    ]
+  },
+  "4N0X1": {
+    "branch": "Air Force",
+    "title": "Aerospace Medical Technician",
+    "systems": [
+      {"military": "AHLTA (Armed Forces Health Longitudinal Technology Application)", "civilian": "Electronic health record systems (Epic, Cerner, Allscripts)"},
+      {"military": "CHCS (Composite Health Care System)", "civilian": "Hospital information and patient management systems"},
+      {"military": "ASIMS (Aeromedical Services Information Management System)", "civilian": "Occupational health and medical surveillance tracking systems"},
+      {"military": "DMLSS (Defense Medical Logistics Standard Support)", "civilian": "Medical supply chain and inventory management systems"},
+      {"military": "TMIP (Theater Medical Information Program)", "civilian": "Healthcare information exchange and patient tracking platforms"}
+    ]
+  },
+
+  "BM_CG": {
+    "branch": "Coast Guard",
+    "title": "Boatswain's Mate",
+    "systems": [
+      {"military": "ECDIS (Electronic Chart Display and Information System)", "civilian": "Electronic navigation and maritime charting systems"},
+      {"military": "AIS (Automatic Identification System)", "civilian": "Maritime vessel tracking and traffic management systems"},
+      {"military": "VMS (Vessel Monitoring System)", "civilian": "Fleet tracking and vessel monitoring platforms"},
+      {"military": "MISLE (Marine Information for Safety and Law Enforcement)", "civilian": "Regulatory compliance and incident reporting databases"},
+      {"military": "GPS / DGPS Navigation Systems", "civilian": "Differential GPS and precision navigation systems"}
+    ]
+  },
+  "ET_CG": {
+    "branch": "Coast Guard",
+    "title": "Electronics Technician",
+    "systems": [
+      {"military": "DGPS / NDGPS (Nationwide Differential GPS)", "civilian": "Differential GPS and precision navigation systems"},
+      {"military": "AIS (Automatic Identification System)", "civilian": "Maritime vessel tracking and monitoring systems"},
+      {"military": "LORAN-C / eLoran Navigation Systems", "civilian": "Long-range radio navigation and positioning systems"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Electronic test and calibration equipment (Fluke, Keysight, Tektronix)"},
+      {"military": "COMDAC (Communications and Data Acquisition) Systems", "civilian": "Data acquisition and SCADA systems for remote monitoring"}
+    ]
+  },
+  "IS_CG": {
+    "branch": "Coast Guard",
+    "title": "Intelligence Specialist",
+    "systems": [
+      {"military": "MISLE (Marine Information for Safety and Law Enforcement)", "civilian": "Regulatory compliance, investigations, and incident databases"},
+      {"military": "Analyst's Notebook (i2)", "civilian": "IBM i2 link analysis and intelligence data visualization"},
+      {"military": "ArcGIS (Geospatial Intelligence)", "civilian": "Esri ArcGIS geospatial analysis and mapping platforms"},
+      {"military": "CGBI (Coast Guard Business Intelligence)", "civilian": "Business intelligence and data analytics platforms (Tableau, Power BI)"},
+      {"military": "SIPRNET Workstations", "civilian": "Classified network information systems and secure data handling"}
+    ]
+  },
+  "IT_CG": {
+    "branch": "Coast Guard",
+    "title": "Information Systems Technician",
+    "systems": [
+      {"military": "CGDN (Coast Guard Data Network)", "civilian": "Enterprise WAN/LAN networking infrastructure (Cisco, Juniper)"},
+      {"military": "Windows Server / Active Directory", "civilian": "Microsoft Windows Server administration and identity management"},
+      {"military": "ACAS (Assured Compliance Assessment Solution)", "civilian": "Vulnerability scanning and compliance tools (Nessus, Qualys, Tenable)"},
+      {"military": "HBSS (Host Based Security System)", "civilian": "Endpoint security platforms (McAfee, CrowdStrike, Carbon Black)"},
+      {"military": "Remedy / ITSM Ticketing", "civilian": "IT service management platforms (ServiceNow, Jira Service Management)"},
+      {"military": "VoIP / Unified Communications", "civilian": "VoIP and unified communications systems (Cisco UCM, Microsoft Teams)"}
+    ]
+  },
+  "MK": {
+    "branch": "Coast Guard",
+    "title": "Machinery Technician",
+    "systems": [
+      {"military": "LMIS (Logistics Management Information System)", "civilian": "Maintenance management and logistics tracking systems (CMMS, SAP PM)"},
+      {"military": "PMS (Planned Maintenance System)", "civilian": "Preventive maintenance scheduling and asset management platforms"},
+      {"military": "Marine Diesel and Gas Turbine Control Systems", "civilian": "Industrial engine diagnostics and SCADA control systems"},
+      {"military": "Damage Control Systems (DC Central)", "civilian": "Facility emergency response and damage control monitoring systems"},
+      {"military": "TMDE (Test, Measurement, and Diagnostic Equipment)", "civilian": "Mechanical and electrical test and diagnostic instruments"}
+    ]
+  },
+  "OS_CG": {
+    "branch": "Coast Guard",
+    "title": "Operations Specialist",
+    "systems": [
+      {"military": "WatchKeeper / C2 (Command and Control) Systems", "civilian": "Operations center command and control platforms"},
+      {"military": "AIS (Automatic Identification System)", "civilian": "Maritime vessel tracking and traffic management systems"},
+      {"military": "MISLE (Marine Information for Safety and Law Enforcement)", "civilian": "Maritime law enforcement and regulatory compliance databases"},
+      {"military": "SAR (Search and Rescue) Planning Tools", "civilian": "Search and rescue planning and resource coordination software"},
+      {"military": "VHF/HF Radio Communication Systems", "civilian": "Maritime radio communication and distress frequency monitoring systems"}
+    ]
+  },
+  "YN_CG": {
+    "branch": "Coast Guard",
+    "title": "Yeoman",
+    "systems": [
+      {"military": "DA (Direct Access) Personnel System", "civilian": "HRIS platforms (Workday, SAP SuccessFactors, Oracle HCM)"},
+      {"military": "DTS (Defense Travel System)", "civilian": "Corporate travel management and expense platforms (Concur, Navan)"},
+      {"military": "SPO (Standard Pay and Personnel) System", "civilian": "Payroll processing and personnel management systems (ADP, Ceridian)"},
+      {"military": "TPAX (Travel Pay and Allowances)", "civilian": "Travel reimbursement and expense management platforms"},
+      {"military": "Microsoft Office / SharePoint", "civilian": "Microsoft 365 and enterprise productivity and collaboration tools"}
+    ]
+  }
+}

@@ -1,0 +1,1249 @@
+{
+  "11B": {
+    "branch": "Army",
+    "title": "Infantryman",
+    "program": "Infantry One Station Unit Training (OSUT), Fort Moore (formerly Fort Benning)",
+    "hours": 1144,
+    "weeks": 22,
+    "topics": [
+      "Small arms tactics",
+      "Land navigation",
+      "Patrolling operations",
+      "Anti-armor weapons systems",
+      "Urban operations",
+      "Field communications",
+      "First aid and combat casualty care"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "12B": {
+    "branch": "Army",
+    "title": "Combat Engineer",
+    "program": "Combat Engineer One Station Unit Training (OSUT), Fort Leonard Wood",
+    "hours": 1040,
+    "weeks": 20,
+    "topics": [
+      "Demolitions",
+      "Mine and countermine operations",
+      "Route clearance",
+      "Construction and rigging",
+      "Bridge building",
+      "Earthmoving equipment operation",
+      "Combat engineering reconnaissance"
+    ],
+    "civilian_certs": [
+      "OSHA 30-Hour Construction (partial)",
+      "Blaster certification (partial)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "13B": {
+    "branch": "Army",
+    "title": "Cannon Crewmember",
+    "program": "Cannon Crewmember One Station Unit Training (OSUT), Fort Sill",
+    "hours": 936,
+    "weeks": 18,
+    "topics": [
+      "Howitzer operations",
+      "Fire direction procedures",
+      "Ammunition handling",
+      "Gunnery techniques",
+      "Survey and meteorological data",
+      "Field artillery tactics"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "13F": {
+    "branch": "Army",
+    "title": "Joint Fire Support Specialist",
+    "program": "Joint Fire Support Specialist AIT, Fort Sill (BCT + AIT)",
+    "hours": 1040,
+    "weeks": 20,
+    "topics": [
+      "Fire support planning",
+      "Call for fire procedures",
+      "Target acquisition",
+      "Close air support coordination",
+      "Digital fire support systems",
+      "Joint terminal attack controller fundamentals",
+      "Map reading and land navigation"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "15T": {
+    "branch": "Army",
+    "title": "UH-60 Helicopter Repairer",
+    "program": "UH-60 Helicopter Repairer AIT, Fort Novosel (formerly Fort Rucker)",
+    "hours": 1200,
+    "weeks": 23,
+    "topics": [
+      "Rotary-wing aircraft maintenance",
+      "Powerplant and power train systems",
+      "Rotor systems and flight controls",
+      "Hydraulic and pneumatic systems",
+      "Electrical troubleshooting",
+      "Aircraft inspections and documentation",
+      "Aviation safety and ground handling"
+    ],
+    "civilian_certs": [
+      "FAA Airframe & Powerplant (partial, counts toward experience requirement)"
+    ],
+    "ace_credits": "Up to 24 semester hours recommended"
+  },
+  "19D": {
+    "branch": "Army",
+    "title": "Cavalry Scout",
+    "program": "Cavalry Scout One Station Unit Training (OSUT), Fort Moore",
+    "hours": 1144,
+    "weeks": 22,
+    "topics": [
+      "Reconnaissance and surveillance",
+      "Mounted and dismounted patrolling",
+      "Weapons systems (M2, MK19, M240)",
+      "Bradley Fighting Vehicle operations",
+      "Reporting and intelligence gathering",
+      "Land navigation",
+      "Urban reconnaissance"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "25B": {
+    "branch": "Army",
+    "title": "Information Technology Specialist",
+    "program": "Information Technology Specialist AIT, Fort Eisenhower (formerly Fort Gordon)",
+    "hours": 880,
+    "weeks": 20,
+    "topics": [
+      "Network administration",
+      "Server management (Windows Server, Linux)",
+      "Cybersecurity fundamentals",
+      "Help desk operations",
+      "Active Directory and Group Policy",
+      "TCP/IP networking",
+      "Hardware troubleshooting and repair"
+    ],
+    "civilian_certs": [
+      "CompTIA A+ (direct)",
+      "CompTIA Security+ (direct)",
+      "CompTIA Network+ (partial)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "25N": {
+    "branch": "Army",
+    "title": "Nodal Network Systems Operator-Maintainer",
+    "program": "Nodal Network Systems Operator-Maintainer AIT, Fort Eisenhower",
+    "hours": 832,
+    "weeks": 19,
+    "topics": [
+      "Wide area network operations",
+      "Network node switching systems",
+      "Satellite communications",
+      "Multiplexing and routing",
+      "Signal support systems installation",
+      "Troubleshooting network infrastructure",
+      "Fiber optic cable installation"
+    ],
+    "civilian_certs": [
+      "CompTIA Network+ (partial)",
+      "CompTIA Security+ (direct)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "25S": {
+    "branch": "Army",
+    "title": "Satellite Communication Systems Operator-Maintainer",
+    "program": "Satellite Communication Systems Operator-Maintainer AIT, Fort Eisenhower",
+    "hours": 920,
+    "weeks": 21,
+    "topics": [
+      "Satellite terminal operations",
+      "VSAT and BLOS communications",
+      "Signal propagation and antenna theory",
+      "Wideband and narrowband satellite systems",
+      "Transmission security (TRANSEC)",
+      "Network management",
+      "Equipment maintenance and fault isolation"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (direct)",
+      "SatCom industry certifications (partial)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "25U": {
+    "branch": "Army",
+    "title": "Signal Support Systems Specialist",
+    "program": "Signal Support Systems Specialist AIT, Fort Eisenhower",
+    "hours": 680,
+    "weeks": 16,
+    "topics": [
+      "Radio communications (HF, VHF, UHF)",
+      "Network switching systems",
+      "Signal support systems installation and operation",
+      "Antenna theory and installation",
+      "Information security",
+      "Help desk and user support"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "31B": {
+    "branch": "Army",
+    "title": "Military Police",
+    "program": "Military Police One Station Unit Training (OSUT), Fort Leonard Wood",
+    "hours": 936,
+    "weeks": 20,
+    "topics": [
+      "Law enforcement operations",
+      "Criminal investigations",
+      "Traffic accident investigation",
+      "Evidence collection and preservation",
+      "Defensive tactics and apprehension",
+      "Force protection",
+      "Detainee operations",
+      "Report writing"
+    ],
+    "civilian_certs": [
+      "State law enforcement certification (partial, varies by state)",
+      "Certified Protection Professional (partial)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "35F": {
+    "branch": "Army",
+    "title": "Intelligence Analyst",
+    "program": "Intelligence Analyst AIT, Fort Huachuca",
+    "hours": 760,
+    "weeks": 17,
+    "topics": [
+      "All-source intelligence analysis",
+      "Intelligence preparation of the battlefield (IPB)",
+      "Threat analysis and assessment",
+      "Intelligence databases and systems",
+      "Briefing and report writing",
+      "Geospatial intelligence fundamentals",
+      "Order of battle analysis"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (partial)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "35G": {
+    "branch": "Army",
+    "title": "Geospatial Intelligence Imagery Analyst",
+    "program": "Geospatial Intelligence Imagery Analyst AIT, Fort Huachuca",
+    "hours": 960,
+    "weeks": 22,
+    "topics": [
+      "Imagery analysis and interpretation",
+      "Geospatial information systems (GIS)",
+      "Remote sensing",
+      "Photogrammetry",
+      "Digital image processing",
+      "Mapping and terrain analysis",
+      "Intelligence reporting"
+    ],
+    "civilian_certs": [
+      "ASPRS Certification (partial)",
+      "GIS Professional (GISP) (partial)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "35M": {
+    "branch": "Army",
+    "title": "Human Intelligence Collector",
+    "program": "Human Intelligence Collector AIT, Fort Huachuca",
+    "hours": 920,
+    "weeks": 21,
+    "topics": [
+      "Interrogation techniques",
+      "Source operations",
+      "Debriefing procedures",
+      "Cross-cultural communication",
+      "Screening and assessment",
+      "Report writing",
+      "Legal and ethical frameworks"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "42A": {
+    "branch": "Army",
+    "title": "Human Resources Specialist",
+    "program": "Human Resources Specialist AIT, Fort Jackson",
+    "hours": 440,
+    "weeks": 9,
+    "topics": [
+      "Personnel management",
+      "Military pay and entitlements",
+      "Personnel records administration",
+      "Casualty operations",
+      "Awards and decorations processing",
+      "Postal operations",
+      "HR information systems (eMILPO, iPERMS)"
+    ],
+    "civilian_certs": [
+      "SHRM-CP (partial)",
+      "PHR (partial)"
+    ],
+    "ace_credits": "Up to 9 semester hours recommended"
+  },
+  "68W": {
+    "branch": "Army",
+    "title": "Combat Medic Specialist",
+    "program": "Combat Medic Specialist AIT, Joint Base San Antonio (Fort Sam Houston)",
+    "hours": 1040,
+    "weeks": 16,
+    "topics": [
+      "Emergency medicine",
+      "Trauma care and Tactical Combat Casualty Care (TCCC)",
+      "Pharmacology",
+      "Patient assessment",
+      "IV therapy and fluid resuscitation",
+      "Airway management",
+      "Laboratory and diagnostic procedures",
+      "Primary care and sick call"
+    ],
+    "civilian_certs": [
+      "NREMT-B / EMT-Basic (direct)",
+      "Paramedic (partial, bridge programs available)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "74D": {
+    "branch": "Army",
+    "title": "Chemical, Biological, Radiological, and Nuclear (CBRN) Specialist",
+    "program": "CBRN Specialist AIT, Fort Leonard Wood",
+    "hours": 600,
+    "weeks": 12,
+    "topics": [
+      "CBRN defense operations",
+      "Detection and identification of CBRN agents",
+      "Decontamination procedures",
+      "Hazardous material handling",
+      "Smoke and obscurant operations",
+      "Protective equipment fitting and maintenance",
+      "Radiological monitoring"
+    ],
+    "civilian_certs": [
+      "HAZMAT Technician (partial)",
+      "OSHA HAZWOPER 40-Hour (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "88M": {
+    "branch": "Army",
+    "title": "Motor Transport Operator",
+    "program": "Motor Transport Operator AIT, Fort Leonard Wood",
+    "hours": 440,
+    "weeks": 7,
+    "topics": [
+      "Vehicle operation (wheeled vehicles up to tractor-trailers)",
+      "Convoy operations",
+      "Map reading and route planning",
+      "Vehicle inspection and preventive maintenance",
+      "Loading and securing cargo",
+      "Defensive driving",
+      "Hazardous materials transportation"
+    ],
+    "civilian_certs": [
+      "Commercial Driver's License (CDL) Class A (direct)"
+    ],
+    "ace_credits": "Up to 6 semester hours recommended"
+  },
+  "89B": {
+    "branch": "Army",
+    "title": "Ammunition Specialist",
+    "program": "Ammunition Specialist AIT, Fort Lee (now Fort Gregg-Adams)",
+    "hours": 440,
+    "weeks": 9,
+    "topics": [
+      "Ammunition storage and handling",
+      "Explosive safety",
+      "Ammunition supply operations",
+      "Inspection and surveillance of munitions",
+      "Demolition and disposal procedures",
+      "Inventory management",
+      "Transportation of hazardous materials"
+    ],
+    "civilian_certs": [
+      "ATF Federal Explosives License eligibility (partial)",
+      "OSHA safety certifications (partial)"
+    ],
+    "ace_credits": "Up to 8 semester hours recommended"
+  },
+  "91B": {
+    "branch": "Army",
+    "title": "Wheeled Vehicle Mechanic",
+    "program": "Wheeled Vehicle Mechanic AIT, Fort Lee (Fort Gregg-Adams)",
+    "hours": 600,
+    "weeks": 12,
+    "topics": [
+      "Automotive engine repair",
+      "Brake systems",
+      "Electrical and electronic systems",
+      "Suspension and steering",
+      "Hydraulic systems",
+      "Diesel engine maintenance",
+      "Preventive maintenance checks and services (PMCS)"
+    ],
+    "civilian_certs": [
+      "ASE Certification (partial, multiple areas)",
+      "Automotive Service Excellence (ASE) T-series for trucks (partial)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "92A": {
+    "branch": "Army",
+    "title": "Automated Logistical Specialist",
+    "program": "Automated Logistical Specialist AIT, Fort Lee (Fort Gregg-Adams)",
+    "hours": 440,
+    "weeks": 9,
+    "topics": [
+      "Supply chain management",
+      "Automated inventory systems (GCSS-Army)",
+      "Property accountability",
+      "Warehouse operations",
+      "Receiving and shipping procedures",
+      "Financial management of supplies",
+      "Demand planning"
+    ],
+    "civilian_certs": [
+      "Certified Logistics Associate (CLA) (partial)",
+      "Certified Supply Chain Professional (CSCP) (partial)"
+    ],
+    "ace_credits": "Up to 9 semester hours recommended"
+  },
+  "92F": {
+    "branch": "Army",
+    "title": "Petroleum Supply Specialist",
+    "program": "Petroleum Supply Specialist AIT, Fort Lee (Fort Gregg-Adams)",
+    "hours": 440,
+    "weeks": 9,
+    "topics": [
+      "Petroleum product handling and storage",
+      "Fuel system operations",
+      "Quality surveillance and testing",
+      "Pipeline operations",
+      "Environmental compliance",
+      "Bulk fuel distribution",
+      "Safety and spill response"
+    ],
+    "civilian_certs": [
+      "Petroleum Equipment Institute (PEI) certification (partial)",
+      "OSHA HAZWOPER (partial)"
+    ],
+    "ace_credits": "Up to 8 semester hours recommended"
+  },
+  "92Y": {
+    "branch": "Army",
+    "title": "Unit Supply Specialist",
+    "program": "Unit Supply Specialist AIT, Fort Lee (Fort Gregg-Adams)",
+    "hours": 440,
+    "weeks": 8,
+    "topics": [
+      "Unit-level supply operations",
+      "Property book management",
+      "Request and receipt of supplies",
+      "Inventory management",
+      "Supply accountability",
+      "GCSS-Army operations",
+      "Hand receipts and sub-hand receipts"
+    ],
+    "civilian_certs": [
+      "Certified Logistics Associate (CLA) (partial)"
+    ],
+    "ace_credits": "Up to 6 semester hours recommended"
+  },
+  "94E": {
+    "branch": "Army",
+    "title": "Radio and Communications Security Repairer",
+    "program": "Radio and Communications Security Repairer AIT, Fort Eisenhower",
+    "hours": 920,
+    "weeks": 21,
+    "topics": [
+      "Radio transceiver repair",
+      "COMSEC equipment maintenance",
+      "Electronic troubleshooting",
+      "Digital multimeter and oscilloscope use",
+      "Soldering and circuit board repair",
+      "Encryption device maintenance",
+      "Signal test equipment operation"
+    ],
+    "civilian_certs": [
+      "IPC J-STD-001 Soldering (partial)",
+      "CompTIA A+ (partial)",
+      "CET (Certified Electronics Technician) (partial)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+
+  "BM_NAVY": {
+    "branch": "Navy",
+    "title": "Boatswain's Mate",
+    "program": "Boatswain's Mate A School, various locations (Boot Camp + A School)",
+    "hours": 560,
+    "weeks": 11,
+    "topics": [
+      "Seamanship and deck operations",
+      "Small boat handling",
+      "Underway replenishment",
+      "Line handling and rigging",
+      "Navigation fundamentals",
+      "Cargo handling",
+      "Crew supervision and leadership"
+    ],
+    "civilian_certs": [
+      "USCG Merchant Mariner Credential (partial)",
+      "OSHA Rigging certification (partial)"
+    ],
+    "ace_credits": "Up to 8 semester hours recommended"
+  },
+  "CTN": {
+    "branch": "Navy",
+    "title": "Cryptologic Technician (Networks)",
+    "program": "CTN A School, Joint Cyber Analysis Course (JCAC), Corry Station, Pensacola, FL",
+    "hours": 1320,
+    "weeks": 26,
+    "topics": [
+      "Computer network operations",
+      "Digital forensics",
+      "Offensive and defensive cyber operations",
+      "Network exploitation techniques",
+      "Programming and scripting (Python, Bash)",
+      "Operating system internals (Linux, Windows)",
+      "Packet analysis and network protocols"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (direct)",
+      "CompTIA CySA+ (partial)",
+      "CEH (Certified Ethical Hacker) (partial)"
+    ],
+    "ace_credits": "Up to 21 semester hours recommended"
+  },
+  "ET_NAVY": {
+    "branch": "Navy",
+    "title": "Electronics Technician",
+    "program": "Electronics Technician A School, Great Lakes, IL",
+    "hours": 1040,
+    "weeks": 22,
+    "topics": [
+      "Electronic circuit theory and analysis",
+      "Radar systems maintenance",
+      "Communications systems repair",
+      "Digital and analog electronics",
+      "Microprocessor fundamentals",
+      "Test equipment operation",
+      "Calibration procedures"
+    ],
+    "civilian_certs": [
+      "CET (Certified Electronics Technician) (partial)",
+      "CompTIA A+ (partial)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "FC": {
+    "branch": "Navy",
+    "title": "Fire Controlman",
+    "program": "Fire Controlman A School, Great Lakes, IL",
+    "hours": 1040,
+    "weeks": 22,
+    "topics": [
+      "Weapons systems operation and maintenance",
+      "Fire control radar and computer systems",
+      "Guided missile systems",
+      "Electro-optic systems",
+      "Digital and analog circuitry",
+      "Combat systems integration",
+      "Preventive and corrective maintenance"
+    ],
+    "civilian_certs": [
+      "CET (Certified Electronics Technician) (partial)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "GM": {
+    "branch": "Navy",
+    "title": "Gunner's Mate",
+    "program": "Gunner's Mate A School, Great Lakes, IL",
+    "hours": 680,
+    "weeks": 14,
+    "topics": [
+      "Naval weapons systems",
+      "Ammunition handling and stowage",
+      "Small arms and crew-served weapons",
+      "Missile launching systems",
+      "Ordnance safety and handling",
+      "Weapons maintenance and repair",
+      "Magazine sprinkler systems"
+    ],
+    "civilian_certs": [
+      "NRA Firearms Instructor (partial)",
+      "ATF Federal Firearms License eligibility (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "HM": {
+    "branch": "Navy",
+    "title": "Hospital Corpsman",
+    "program": "Hospital Corpsman A School, Joint Base San Antonio (Fort Sam Houston)",
+    "hours": 920,
+    "weeks": 19,
+    "topics": [
+      "Basic medical and surgical procedures",
+      "Patient assessment and triage",
+      "Pharmacology and medication administration",
+      "Emergency medicine",
+      "Anatomy and physiology",
+      "Laboratory techniques",
+      "Medical record documentation",
+      "Preventive medicine"
+    ],
+    "civilian_certs": [
+      "NREMT-B / EMT-Basic (direct)",
+      "Phlebotomy Technician (partial)",
+      "CNA (Certified Nursing Assistant) (partial, varies by state)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "IS_NAVY": {
+    "branch": "Navy",
+    "title": "Intelligence Specialist",
+    "program": "Intelligence Specialist A School, Dam Neck, VA",
+    "hours": 720,
+    "weeks": 14,
+    "topics": [
+      "Intelligence collection and analysis",
+      "Imagery intelligence (IMINT)",
+      "Indications and warning analysis",
+      "Strike planning",
+      "Order of battle maintenance",
+      "Briefing and presentation skills",
+      "Intelligence databases and systems"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "IT_NAVY": {
+    "branch": "Navy",
+    "title": "Information Systems Technician",
+    "program": "Information Systems Technician A School, Corry Station, Pensacola, FL",
+    "hours": 960,
+    "weeks": 20,
+    "topics": [
+      "Network administration",
+      "Systems administration (Windows, Linux)",
+      "Cybersecurity operations",
+      "Satellite communications (SATCOM)",
+      "Routing and switching",
+      "Help desk and user support",
+      "Information assurance"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (direct)",
+      "CompTIA Network+ (partial)",
+      "CCNA (partial)"
+    ],
+    "ace_credits": "Up to 16 semester hours recommended"
+  },
+  "MA": {
+    "branch": "Navy",
+    "title": "Master-at-Arms",
+    "program": "Master-at-Arms A School, Joint Expeditionary Base Little Creek, VA",
+    "hours": 560,
+    "weeks": 10,
+    "topics": [
+      "Law enforcement and physical security",
+      "Force protection",
+      "Anti-terrorism operations",
+      "Weapons qualification",
+      "Detention operations",
+      "Crime prevention",
+      "Access control and investigations"
+    ],
+    "civilian_certs": [
+      "State law enforcement / security certification (partial, varies by state)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "OS_NAVY": {
+    "branch": "Navy",
+    "title": "Operations Specialist",
+    "program": "Operations Specialist A School, Dam Neck, VA",
+    "hours": 680,
+    "weeks": 13,
+    "topics": [
+      "Tactical operations center management",
+      "Radar operations and plotting",
+      "Combat information center (CIC) operations",
+      "Surface and air contact tracking",
+      "Tactical communications",
+      "Navigation plotting",
+      "Meteorological and oceanographic data"
+    ],
+    "civilian_certs": [
+      "Air traffic control certification (partial, FAA eligibility)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "QM": {
+    "branch": "Navy",
+    "title": "Quartermaster",
+    "program": "Quartermaster A School, Great Lakes, IL",
+    "hours": 560,
+    "weeks": 11,
+    "topics": [
+      "Celestial and terrestrial navigation",
+      "Electronic chart display (ECDIS)",
+      "GPS and radar navigation",
+      "Piloting and voyage planning",
+      "Weather observation and reporting",
+      "Ship handling fundamentals",
+      "Signal communications (flag, flashing light)"
+    ],
+    "civilian_certs": [
+      "USCG Merchant Mariner Credential (partial)",
+      "USCG Able Seaman (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "YN_NAVY": {
+    "branch": "Navy",
+    "title": "Yeoman",
+    "program": "Yeoman A School, Meridian, MS",
+    "hours": 400,
+    "weeks": 7,
+    "topics": [
+      "Administrative and clerical procedures",
+      "Naval correspondence",
+      "Personnel records management",
+      "Travel administration (DTS)",
+      "Pay and entitlements",
+      "Office management",
+      "Legal administration"
+    ],
+    "civilian_certs": [
+      "Microsoft Office Specialist (partial)",
+      "Certified Administrative Professional (CAP) (partial)"
+    ],
+    "ace_credits": "Up to 6 semester hours recommended"
+  },
+
+  "0311": {
+    "branch": "Marine Corps",
+    "title": "Rifleman",
+    "program": "Infantry Training Battalion (ITB), School of Infantry (SOI-East: Camp Geiger / SOI-West: Camp Pendleton)",
+    "hours": 440,
+    "weeks": 8,
+    "topics": [
+      "Infantry tactics and maneuver",
+      "Marksmanship and weapons employment",
+      "Land navigation",
+      "Patrolling",
+      "Urban operations (MOUT)",
+      "Improvised explosive device awareness",
+      "Tactical casualty care"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 8 semester hours recommended"
+  },
+  "0317": {
+    "branch": "Marine Corps",
+    "title": "Scout Sniper",
+    "program": "Scout Sniper Basic Course, Quantico, VA (requires 0311 qualification first)",
+    "hours": 600,
+    "weeks": 12,
+    "topics": [
+      "Advanced marksmanship",
+      "Observation and surveillance",
+      "Stalking and concealment",
+      "Range estimation",
+      "Ballistics and trajectory computation",
+      "Mission planning",
+      "Reconnaissance and reporting"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "0321": {
+    "branch": "Marine Corps",
+    "title": "Reconnaissance Man",
+    "program": "Basic Reconnaissance Course (BRC), Camp Pendleton, CA",
+    "hours": 720,
+    "weeks": 12,
+    "topics": [
+      "Amphibious reconnaissance",
+      "Deep ground reconnaissance",
+      "Hydrographic survey",
+      "Advanced patrolling",
+      "Communications planning",
+      "Close quarters combat",
+      "Small boat and combat diving (introductory)"
+    ],
+    "civilian_certs": [
+      "PADI Open Water Diver (partial, varies)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "0811": {
+    "branch": "Marine Corps",
+    "title": "Field Artillery Cannoneer",
+    "program": "Field Artillery Cannoneer Course, Fort Sill, OK",
+    "hours": 360,
+    "weeks": 6,
+    "topics": [
+      "Howitzer operations (M777, M119)",
+      "Ammunition handling and preparation",
+      "Fire direction procedures",
+      "Gunnery fundamentals",
+      "Survey operations",
+      "Safety procedures"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 6 semester hours recommended"
+  },
+  "1371": {
+    "branch": "Marine Corps",
+    "title": "Combat Engineer",
+    "program": "Combat Engineer Course, Camp Lejeune, NC",
+    "hours": 520,
+    "weeks": 10,
+    "topics": [
+      "Demolitions",
+      "Mine and countermine warfare",
+      "Obstacle construction and breaching",
+      "Route clearance",
+      "Basic construction techniques",
+      "Heavy equipment operation",
+      "Combat engineering reconnaissance"
+    ],
+    "civilian_certs": [
+      "OSHA 30-Hour Construction (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "2651": {
+    "branch": "Marine Corps",
+    "title": "Special Communications Signals Collection Operator / Analyst",
+    "program": "SIGINT Analyst Course, Goodfellow AFB, TX and Corry Station, Pensacola, FL",
+    "hours": 960,
+    "weeks": 22,
+    "topics": [
+      "Signals intelligence collection",
+      "Electronic warfare fundamentals",
+      "Signal analysis and identification",
+      "SIGINT reporting",
+      "Communications theory",
+      "Geolocation techniques",
+      "Intelligence analysis"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (partial)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "2841": {
+    "branch": "Marine Corps",
+    "title": "Ground Radio Repairer",
+    "program": "Ground Radio Repair Course, Twentynine Palms, CA",
+    "hours": 720,
+    "weeks": 16,
+    "topics": [
+      "Radio transceiver troubleshooting and repair",
+      "Electronic circuit theory",
+      "Digital and analog communications",
+      "Antenna systems",
+      "Test equipment operation",
+      "Soldering and component repair",
+      "Preventive maintenance"
+    ],
+    "civilian_certs": [
+      "CET (Certified Electronics Technician) (partial)",
+      "IPC J-STD-001 Soldering (partial)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "3043": {
+    "branch": "Marine Corps",
+    "title": "Supply Administration and Operations Specialist",
+    "program": "Supply Administration and Operations Course, Camp Lejeune, NC",
+    "hours": 360,
+    "weeks": 6,
+    "topics": [
+      "Supply chain management",
+      "Inventory control and accountability",
+      "Procurement procedures",
+      "Warehousing and distribution",
+      "Financial management",
+      "GCSS-MC and automated supply systems",
+      "Requisition processing"
+    ],
+    "civilian_certs": [
+      "Certified Logistics Associate (CLA) (partial)"
+    ],
+    "ace_credits": "Up to 6 semester hours recommended"
+  },
+  "3531": {
+    "branch": "Marine Corps",
+    "title": "Motor Vehicle Operator",
+    "program": "Motor Vehicle Operator Course, Fort Leonard Wood, MO",
+    "hours": 320,
+    "weeks": 5,
+    "topics": [
+      "Tactical vehicle operation",
+      "Convoy operations",
+      "Vehicle inspection and PMCS",
+      "Map reading and land navigation",
+      "Cargo loading and securing",
+      "Night operations",
+      "Hazardous materials transport"
+    ],
+    "civilian_certs": [
+      "Commercial Driver's License (CDL) Class A (direct)"
+    ],
+    "ace_credits": "Up to 4 semester hours recommended"
+  },
+  "6042": {
+    "branch": "Marine Corps",
+    "title": "Individual Material Readiness List (IMRL) / Calibration Technician",
+    "program": "Aviation Calibration and Measurement Course, various USMC air stations",
+    "hours": 560,
+    "weeks": 11,
+    "topics": [
+      "Precision measurement equipment calibration",
+      "Metrology fundamentals",
+      "Electronic and mechanical calibration",
+      "Standards traceability",
+      "Test equipment management",
+      "Quality assurance",
+      "Technical documentation"
+    ],
+    "civilian_certs": [
+      "ASQ Certified Calibration Technician (CCT) (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+
+  "1C1X1": {
+    "branch": "Air Force",
+    "title": "Air Traffic Control",
+    "program": "Air Traffic Control Apprentice Course, Keesler AFB, MS",
+    "hours": 880,
+    "weeks": 18,
+    "topics": [
+      "Tower and approach control procedures",
+      "Radar approach control",
+      "Flight data and clearance delivery",
+      "Airfield management",
+      "Weather observation interpretation",
+      "FAA regulations and phraseology",
+      "Emergency procedures"
+    ],
+    "civilian_certs": [
+      "FAA Control Tower Operator (CTO) rating (partial, FAA-recognized experience)",
+      "FAA AT-SAT eligibility preference"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "1N0X1": {
+    "branch": "Air Force",
+    "title": "All Source Intelligence Analyst",
+    "program": "Intelligence Analyst Apprentice Course, Goodfellow AFB, TX",
+    "hours": 720,
+    "weeks": 15,
+    "topics": [
+      "All-source intelligence analysis",
+      "Intelligence preparation of the operational environment",
+      "Target development",
+      "Order of battle analysis",
+      "Briefing and report writing",
+      "ISR operations support",
+      "Geospatial analysis fundamentals"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "2A6X1": {
+    "branch": "Air Force",
+    "title": "Aerospace Propulsion",
+    "program": "Aerospace Propulsion Apprentice Course, Sheppard AFB, TX",
+    "hours": 760,
+    "weeks": 16,
+    "topics": [
+      "Jet engine theory and operation",
+      "Turbine engine maintenance and repair",
+      "Engine test cell operations",
+      "Fuel systems",
+      "Lubrication and cooling systems",
+      "Exhaust and afterburner systems",
+      "Non-destructive inspection methods"
+    ],
+    "civilian_certs": [
+      "FAA Airframe & Powerplant (A&P) (partial, counts toward experience requirement)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+  "3D0X2": {
+    "branch": "Air Force",
+    "title": "Cyber Systems Operations",
+    "program": "Cyber Systems Operations Apprentice Course, Keesler AFB, MS",
+    "hours": 760,
+    "weeks": 16,
+    "topics": [
+      "Server administration (Windows and Linux)",
+      "Network infrastructure management",
+      "Cybersecurity operations",
+      "Virtualization technologies",
+      "Active Directory and Group Policy",
+      "Scripting and automation",
+      "Incident response"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (direct)",
+      "CompTIA Server+ (partial)",
+      "Microsoft Certified: Azure Fundamentals (partial)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "3D1X1": {
+    "branch": "Air Force",
+    "title": "Client Systems",
+    "program": "Client Systems Apprentice Course, Keesler AFB, MS",
+    "hours": 560,
+    "weeks": 11,
+    "topics": [
+      "Desktop support and troubleshooting",
+      "Operating system installation and configuration",
+      "Network connectivity troubleshooting",
+      "Hardware repair and maintenance",
+      "Information assurance",
+      "Help desk operations",
+      "Peripheral device management"
+    ],
+    "civilian_certs": [
+      "CompTIA A+ (direct)",
+      "CompTIA Security+ (direct)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "3E7X1": {
+    "branch": "Air Force",
+    "title": "Fire Protection",
+    "program": "Fire Protection Apprentice Course, Goodfellow AFB, TX",
+    "hours": 520,
+    "weeks": 10,
+    "topics": [
+      "Structural firefighting",
+      "Aircraft rescue and firefighting (ARFF)",
+      "HAZMAT emergency response",
+      "Fire prevention and inspection",
+      "Emergency medical response (first responder)",
+      "Fire alarm and suppression systems",
+      "Incident command system"
+    ],
+    "civilian_certs": [
+      "IFSAC/ProBoard Firefighter I & II (direct)",
+      "HAZMAT Operations (direct)",
+      "DoD Fire Officer certification (direct)"
+    ],
+    "ace_credits": "Up to 12 semester hours recommended"
+  },
+  "3P0X1": {
+    "branch": "Air Force",
+    "title": "Security Forces",
+    "program": "Security Forces Apprentice Course, Joint Base San Antonio-Lackland",
+    "hours": 520,
+    "weeks": 10,
+    "topics": [
+      "Law enforcement and security operations",
+      "Base defense operations",
+      "Force protection",
+      "Entry control procedures",
+      "Weapons qualification",
+      "Military working dog support",
+      "Emergency response procedures"
+    ],
+    "civilian_certs": [
+      "State law enforcement certification (partial, varies by state)",
+      "Certified Protection Professional (CPP) (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "4N0X1": {
+    "branch": "Air Force",
+    "title": "Aerospace Medical Technician",
+    "program": "Aerospace Medical Technician Apprentice Course, Joint Base San Antonio (Fort Sam Houston)",
+    "hours": 760,
+    "weeks": 15,
+    "topics": [
+      "Patient assessment and triage",
+      "Emergency medical procedures",
+      "Pharmacology and medication administration",
+      "Clinical nursing procedures",
+      "Ambulatory care",
+      "Preventive medicine",
+      "Aeromedical evacuation fundamentals"
+    ],
+    "civilian_certs": [
+      "NREMT-B / EMT-Basic (direct)",
+      "Paramedic (partial, bridge programs available)",
+      "CNA (Certified Nursing Assistant) (partial, varies by state)"
+    ],
+    "ace_credits": "Up to 18 semester hours recommended"
+  },
+
+  "BM_CG": {
+    "branch": "Coast Guard",
+    "title": "Boatswain's Mate",
+    "program": "Boatswain's Mate A School, TRACEN Yorktown, VA",
+    "hours": 680,
+    "weeks": 13,
+    "topics": [
+      "Deck seamanship",
+      "Boat handling and coxswain operations",
+      "Search and rescue operations",
+      "Navigation and piloting",
+      "Towing and salvage",
+      "Law enforcement boarding procedures",
+      "Aids to navigation (ATON) maintenance"
+    ],
+    "civilian_certs": [
+      "USCG Merchant Mariner Credential (partial)",
+      "USCG Master license (partial, counts toward sea time)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "ET_CG": {
+    "branch": "Coast Guard",
+    "title": "Electronics Technician",
+    "program": "Electronics Technician A School, TRACEN Petaluma, CA",
+    "hours": 1280,
+    "weeks": 28,
+    "topics": [
+      "Electronic circuit theory",
+      "Communications systems maintenance",
+      "Radar and navigation systems",
+      "Computer networking",
+      "Aids to navigation electronics",
+      "Antenna systems",
+      "Test equipment operation and calibration"
+    ],
+    "civilian_certs": [
+      "CET (Certified Electronics Technician) (partial)",
+      "CompTIA A+ (partial)",
+      "FCC General Radiotelephone Operator License (GROL) (partial)"
+    ],
+    "ace_credits": "Up to 21 semester hours recommended"
+  },
+  "IS_CG": {
+    "branch": "Coast Guard",
+    "title": "Intelligence Specialist",
+    "program": "Intelligence Specialist A School, TRACEN Yorktown, VA",
+    "hours": 640,
+    "weeks": 12,
+    "topics": [
+      "Maritime intelligence analysis",
+      "Counter-narcotics intelligence",
+      "Port security intelligence",
+      "Open source intelligence (OSINT)",
+      "Briefing and reporting",
+      "Intelligence databases and systems",
+      "Threat assessment"
+    ],
+    "civilian_certs": [],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "IT_CG": {
+    "branch": "Coast Guard",
+    "title": "Information Systems Technician",
+    "program": "Information Systems Technician A School, TRACEN Petaluma, CA",
+    "hours": 960,
+    "weeks": 20,
+    "topics": [
+      "Network administration and security",
+      "Systems administration (Windows, Linux)",
+      "Telecommunications systems",
+      "Cybersecurity operations",
+      "SATCOM systems",
+      "Routing and switching",
+      "Help desk and user support"
+    ],
+    "civilian_certs": [
+      "CompTIA Security+ (direct)",
+      "CompTIA Network+ (partial)",
+      "CCNA (partial)"
+    ],
+    "ace_credits": "Up to 16 semester hours recommended"
+  },
+  "MK": {
+    "branch": "Coast Guard",
+    "title": "Machinery Technician",
+    "program": "Machinery Technician A School, TRACEN Yorktown, VA",
+    "hours": 960,
+    "weeks": 18,
+    "topics": [
+      "Marine diesel engine maintenance",
+      "Electrical systems and generators",
+      "Hydraulic and pneumatic systems",
+      "Damage control and firefighting",
+      "HVAC systems",
+      "Welding and metalworking",
+      "Environmental protection equipment"
+    ],
+    "civilian_certs": [
+      "USCG Designated Examiner (partial)",
+      "EPA 608 HVAC certification (partial)",
+      "AWS welding certification (partial)"
+    ],
+    "ace_credits": "Up to 15 semester hours recommended"
+  },
+  "OS_CG": {
+    "branch": "Coast Guard",
+    "title": "Operations Specialist",
+    "program": "Operations Specialist A School, TRACEN Petaluma, CA",
+    "hours": 600,
+    "weeks": 12,
+    "topics": [
+      "Search and rescue coordination",
+      "Radar and communications watchstanding",
+      "Vessel traffic management",
+      "Maritime domain awareness",
+      "Command center operations",
+      "Weather observation and reporting",
+      "Chart navigation and plotting"
+    ],
+    "civilian_certs": [
+      "Vessel traffic service operator (partial)"
+    ],
+    "ace_credits": "Up to 10 semester hours recommended"
+  },
+  "YN_CG": {
+    "branch": "Coast Guard",
+    "title": "Yeoman",
+    "program": "Yeoman A School, TRACEN Petaluma, CA",
+    "hours": 480,
+    "weeks": 9,
+    "topics": [
+      "Administrative procedures and correspondence",
+      "Personnel management and records",
+      "Travel administration (DTS)",
+      "Financial record keeping",
+      "Office management",
+      "Legal administration",
+      "Customer service"
+    ],
+    "civilian_certs": [
+      "Microsoft Office Specialist (partial)",
+      "Certified Administrative Professional (CAP) (partial)"
+    ],
+    "ace_credits": "Up to 6 semester hours recommended"
+  }
+}

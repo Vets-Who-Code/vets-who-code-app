@@ -17,14 +17,15 @@ function initializeProviders(): ProviderConfig[] {
     const providers: ProviderConfig[] = [];
 
     // Google Gemini
-    if (process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    const geminiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_API_KEY;
+    if (geminiKey) {
         const google = createGoogleGenerativeAI({
-            apiKey: process.env.GOOGLE_GENERATIVE_AI_API_KEY,
+            apiKey: geminiKey,
         });
         providers.push({
             name: "gemini",
-            model: "gemini-1.5-flash",
-            instance: google("gemini-1.5-flash"),
+            model: "gemini-2.0-flash",
+            instance: google("gemini-2.0-flash"),
         });
     }
 

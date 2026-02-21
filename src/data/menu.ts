@@ -52,7 +52,7 @@ const navigation: NavigationItem[] = [
             },
             {
                 id: 107,
-                label: "Military Resume Translator",
+                label: "Military-Civilian Translator",
                 path: "/resume-translator",
                 status: "new",
             },

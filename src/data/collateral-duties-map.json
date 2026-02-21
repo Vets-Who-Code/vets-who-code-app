@@ -1,0 +1,77 @@
+{
+  "unit_safety_officer": {
+    "label": "Unit Safety Officer/NCO",
+    "bullet": "Administered workplace safety program ensuring OSHA compliance, conducting regular inspections and maintaining zero incident rate",
+    "skills": ["OSHA compliance", "Risk assessment", "Safety program management", "Incident investigation"]
+  },
+  "equal_opportunity_rep": {
+    "label": "Equal Opportunity Representative",
+    "bullet": "Managed diversity, equity, and inclusion program for organization, conducting training sessions and mediating workplace concerns",
+    "skills": ["DEI program management", "Conflict resolution", "Training facilitation", "Policy compliance"]
+  },
+  "training_nco_officer": {
+    "label": "Training NCO/Officer",
+    "bullet": "Designed and executed comprehensive training programs for 50+ personnel, tracking completion metrics and ensuring regulatory compliance",
+    "skills": ["Curriculum development", "Learning management systems", "Training needs analysis", "Performance tracking"]
+  },
+  "key_control_custodian": {
+    "label": "Key Control Custodian",
+    "bullet": "Managed physical security access control program, maintaining 100% accountability of sensitive assets through rigorous inventory and audit procedures",
+    "skills": ["Access control management", "Asset accountability", "Audit procedures", "Physical security"]
+  },
+  "arms_room_officer": {
+    "label": "Arms Room Officer/NCO",
+    "bullet": "Oversaw inventory management and accountability of high-value equipment valued at $2M+, maintaining zero loss rate through systematic tracking and auditing",
+    "skills": ["Inventory management", "Asset tracking", "Regulatory compliance", "Loss prevention"]
+  },
+  "hazmat_nco": {
+    "label": "HAZMAT NCO",
+    "bullet": "Administered hazardous materials handling and disposal program in compliance with EPA and OSHA regulations, training personnel on proper storage and emergency response procedures",
+    "skills": ["HAZMAT compliance", "EPA regulations", "Emergency response planning", "Environmental safety"]
+  },
+  "physical_fitness_leader": {
+    "label": "Physical Fitness Leader",
+    "bullet": "Developed and led structured wellness and fitness programs for 30+ personnel, tracking individual progress metrics and improving overall team performance by 20%",
+    "skills": ["Wellness program management", "Performance metrics", "Team motivation", "Program development"]
+  },
+  "records_management_officer": {
+    "label": "Records Management Officer",
+    "bullet": "Administered organizational records management program ensuring compliance with federal retention schedules, overseeing digitization and secure archival of sensitive documents",
+    "skills": ["Records management", "Data governance", "Compliance auditing", "Document management systems"]
+  },
+  "sharp_representative": {
+    "label": "SHARP Representative (Sexual Harassment/Assault Response)",
+    "bullet": "Served as certified victim advocate and prevention coordinator, conducting climate assessments, facilitating mandatory training, and providing confidential crisis support",
+    "skills": ["Crisis intervention", "Victim advocacy", "Prevention program management", "Confidential reporting"]
+  },
+  "supply_accountability_nco": {
+    "label": "Supply Accountability NCO",
+    "bullet": "Managed supply chain operations and property accountability for equipment valued at $5M+, conducting cyclic inventories and reconciling discrepancies to maintain 100% accountability",
+    "skills": ["Supply chain management", "Property accountability", "Inventory reconciliation", "Procurement"]
+  },
+  "unit_prevention_leader": {
+    "label": "Unit Prevention Leader",
+    "bullet": "Coordinated substance abuse prevention and education program, conducting risk assessments, facilitating intervention referrals, and maintaining confidential case management records",
+    "skills": ["Substance abuse prevention", "Case management", "Risk assessment", "Health education"]
+  },
+  "voting_assistance_officer": {
+    "label": "Voting Assistance Officer",
+    "bullet": "Administered federal voting assistance program for 200+ personnel, ensuring compliance with UOCAVA regulations and facilitating civic engagement through education campaigns",
+    "skills": ["Program administration", "Regulatory compliance", "Public outreach", "Event coordination"]
+  },
+  "resilience_master_fitness_trainer": {
+    "label": "Resilience/Master Fitness Trainer",
+    "bullet": "Designed and implemented holistic performance optimization programs integrating physical fitness, mental resilience, and nutrition education for organizational readiness",
+    "skills": ["Performance optimization", "Resilience training", "Program design", "Behavioral health awareness"]
+  },
+  "comsec_custodian": {
+    "label": "Communications Security (COMSEC) Custodian",
+    "bullet": "Managed classified communications security material and cryptographic equipment, enforcing strict access controls, conducting audits, and maintaining zero security incidents",
+    "skills": ["Information security", "Cryptographic material handling", "Access control", "Security auditing"]
+  },
+  "unit_public_affairs_rep": {
+    "label": "Unit Public Affairs Representative",
+    "bullet": "Served as organizational communications liaison, drafting press releases, coordinating media engagements, and managing internal communications to stakeholders",
+    "skills": ["Public relations", "Media relations", "Content creation", "Strategic communications"]
+  }
+}

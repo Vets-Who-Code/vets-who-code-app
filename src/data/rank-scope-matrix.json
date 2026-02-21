@@ -1,0 +1,146 @@
+{
+  "E-1": {
+    "direct_reports": "0",
+    "equipment_value": "$5K-$50K",
+    "decision_scope": "Individual task execution under direct supervision",
+    "civilian_equivalent": "Entry-Level Associate"
+  },
+  "E-2": {
+    "direct_reports": "0",
+    "equipment_value": "$5K-$50K",
+    "decision_scope": "Individual task execution with minimal guidance",
+    "civilian_equivalent": "Junior Associate"
+  },
+  "E-3": {
+    "direct_reports": "0-2",
+    "equipment_value": "$10K-$100K",
+    "decision_scope": "Task execution with occasional peer mentoring",
+    "civilian_equivalent": "Associate / Junior Specialist"
+  },
+  "E-4": {
+    "direct_reports": "2-5",
+    "equipment_value": "$50K-$500K",
+    "decision_scope": "Small team task coordination and on-the-job training",
+    "civilian_equivalent": "Senior Associate / Junior Supervisor"
+  },
+  "E-5": {
+    "direct_reports": "4-10",
+    "equipment_value": "$100K-$2M",
+    "decision_scope": "Team operations, training, and daily task management",
+    "civilian_equivalent": "Supervisor / Team Lead"
+  },
+  "E-6": {
+    "direct_reports": "8-20",
+    "equipment_value": "$500K-$5M",
+    "decision_scope": "Multi-team coordination, training programs, and performance management",
+    "civilian_equivalent": "Senior Supervisor / Section Manager"
+  },
+  "E-7": {
+    "direct_reports": "15-40",
+    "equipment_value": "$2M-$20M",
+    "decision_scope": "Department-level operations, policy implementation, and staff development",
+    "civilian_equivalent": "Department Manager / Operations Manager"
+  },
+  "E-8": {
+    "direct_reports": "40-100",
+    "equipment_value": "$10M-$50M",
+    "decision_scope": "Multi-department operations, organizational policy, and strategic planning",
+    "civilian_equivalent": "Senior Operations Manager / Director"
+  },
+  "E-9": {
+    "direct_reports": "100-500+",
+    "equipment_value": "$50M-$200M",
+    "decision_scope": "Organization-wide operations, executive advisory, and strategic leadership",
+    "civilian_equivalent": "Senior Director / Vice President"
+  },
+  "W-1": {
+    "direct_reports": "3-10",
+    "equipment_value": "$500K-$5M",
+    "decision_scope": "Technical systems management and specialist advisory",
+    "civilian_equivalent": "Technical Specialist / Subject Matter Expert"
+  },
+  "W-2": {
+    "direct_reports": "5-15",
+    "equipment_value": "$1M-$10M",
+    "decision_scope": "Advanced technical operations and team technical leadership",
+    "civilian_equivalent": "Senior Technical Specialist / Technical Lead"
+  },
+  "W-3": {
+    "direct_reports": "10-25",
+    "equipment_value": "$5M-$25M",
+    "decision_scope": "Technical program management and cross-functional advisory",
+    "civilian_equivalent": "Technical Manager / Program Lead"
+  },
+  "W-4": {
+    "direct_reports": "15-40",
+    "equipment_value": "$10M-$50M",
+    "decision_scope": "Enterprise technical strategy and senior advisory",
+    "civilian_equivalent": "Senior Technical Manager / Principal Engineer"
+  },
+  "W-5": {
+    "direct_reports": "20-50+",
+    "equipment_value": "$25M-$100M",
+    "decision_scope": "Organization-wide technical authority and executive advisory",
+    "civilian_equivalent": "Chief Technical Officer / Senior Principal"
+  },
+  "O-1": {
+    "direct_reports": "10-30",
+    "equipment_value": "$1M-$10M",
+    "decision_scope": "Platoon-level operations and personnel management",
+    "civilian_equivalent": "Team Manager / Project Lead"
+  },
+  "O-2": {
+    "direct_reports": "20-50",
+    "equipment_value": "$5M-$20M",
+    "decision_scope": "Multi-team operations, project planning, and resource allocation",
+    "civilian_equivalent": "Project Manager / Operations Lead"
+  },
+  "O-3": {
+    "direct_reports": "50-200",
+    "equipment_value": "$20M-$100M",
+    "decision_scope": "Company-level operations, budget management, and strategic execution",
+    "civilian_equivalent": "Senior Manager / Director"
+  },
+  "O-4": {
+    "direct_reports": "100-500",
+    "equipment_value": "$50M-$250M",
+    "decision_scope": "Battalion-level operations, organizational strategy, and cross-functional leadership",
+    "civilian_equivalent": "Director / Senior Director"
+  },
+  "O-5": {
+    "direct_reports": "300-1000",
+    "equipment_value": "$100M-$500M",
+    "decision_scope": "Large organization management, strategic planning, and executive decision-making",
+    "civilian_equivalent": "Senior Director / Vice President"
+  },
+  "O-6": {
+    "direct_reports": "1000-5000",
+    "equipment_value": "$500M-$2B",
+    "decision_scope": "Brigade/regiment-level command, enterprise strategy, and policy development",
+    "civilian_equivalent": "Vice President / Senior Vice President"
+  },
+  "O-7": {
+    "direct_reports": "3000-10000",
+    "equipment_value": "$1B-$5B",
+    "decision_scope": "Division-level strategic leadership and enterprise transformation",
+    "civilian_equivalent": "Senior Vice President / Chief Operating Officer"
+  },
+  "O-8": {
+    "direct_reports": "5000-20000",
+    "equipment_value": "$2B-$10B",
+    "decision_scope": "Corps-level command, multi-division operations, and national strategy",
+    "civilian_equivalent": "Executive Vice President / Chief Operating Officer"
+  },
+  "O-9": {
+    "direct_reports": "20000-50000",
+    "equipment_value": "$10B-$50B",
+    "decision_scope": "Theater-level command, joint operations, and strategic policy",
+    "civilian_equivalent": "Chief Executive Officer / President"
+  },
+  "O-10": {
+    "direct_reports": "50000+",
+    "equipment_value": "$50B+",
+    "decision_scope": "Global operations command, national defense strategy, and executive leadership",
+    "civilian_equivalent": "Chairman / Chief Executive Officer"
+  }
+}

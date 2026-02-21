@@ -1,0 +1,170 @@
+{
+  "11B": {
+    "works_with": ["11C", "13-series", "19-series", "25-series", "35F", "68W", "91B"],
+    "civilian_statement": "Collaborated across fire support, reconnaissance, communications, intelligence, medical, and maintenance teams to execute complex multi-element operations"
+  },
+  "12B": {
+    "works_with": ["11B", "12N", "21-series", "25-series", "91-series"],
+    "civilian_statement": "Partnered with construction, operations, communications, and equipment maintenance teams to deliver engineering projects in challenging environments"
+  },
+  "25B": {
+    "works_with": ["25N", "25S", "25U", "35-series", "42A"],
+    "civilian_statement": "Partnered with network engineering, satellite communications, cybersecurity, and administrative teams to maintain enterprise IT infrastructure"
+  },
+  "25N": {
+    "works_with": ["25B", "25S", "25U", "35T", "94E"],
+    "civilian_statement": "Collaborated with IT support, satellite communications, radio systems, cybersecurity, and electronics maintenance teams to deliver integrated network solutions"
+  },
+  "25S": {
+    "works_with": ["25B", "25N", "25U", "94E"],
+    "civilian_statement": "Coordinated with network, IT support, radio, and electronics teams to ensure uninterrupted satellite communications and data transmission services"
+  },
+  "31B": {
+    "works_with": ["31D", "31K", "35-series", "42A", "68W"],
+    "civilian_statement": "Worked with criminal investigations, K-9 units, intelligence analysts, administrative, and medical teams to enforce law and maintain public safety"
+  },
+  "35F": {
+    "works_with": ["35G", "35M", "25-series", "11-series", "13-series"],
+    "civilian_statement": "Collaborated across cybersecurity, geospatial analysis, communications, and operational teams to deliver integrated intelligence products"
+  },
+  "35M": {
+    "works_with": ["35F", "35G", "35L", "37F", "25-series"],
+    "civilian_statement": "Partnered with intelligence analysts, geospatial teams, counterintelligence, psychological operations, and communications teams to produce actionable human intelligence"
+  },
+  "42A": {
+    "works_with": ["25B", "36B", "42-series", "92A", "27D"],
+    "civilian_statement": "Coordinated with IT support, finance, administrative staff, logistics, and legal teams to manage personnel operations and organizational HR functions"
+  },
+  "68W": {
+    "works_with": ["11B", "68-series", "25-series", "42A"],
+    "civilian_statement": "Collaborated with operational teams, medical specialists, communications, and administrative staff to deliver healthcare in field and clinical environments"
+  },
+  "74D": {
+    "works_with": ["11-series", "68-series", "12-series", "25-series"],
+    "civilian_statement": "Partnered with operations, medical, engineering, and communications teams to conduct environmental monitoring, hazard assessment, and decontamination operations"
+  },
+  "88M": {
+    "works_with": ["92A", "92Y", "88N", "25-series", "91B"],
+    "civilian_statement": "Coordinated with logistics planners, supply chain managers, transportation coordinators, communications, and maintenance teams to execute fleet operations"
+  },
+  "91B": {
+    "works_with": ["91-series", "92A", "92Y", "25-series", "88M"],
+    "civilian_statement": "Worked with specialized mechanics, supply chain, inventory management, communications, and transportation teams to maintain vehicle fleet readiness"
+  },
+  "92A": {
+    "works_with": ["92Y", "42A", "88M", "25B", "91-series"],
+    "civilian_statement": "Partnered with warehouse operations, HR, transportation, IT, and maintenance teams to optimize logistics and supply chain processes"
+  },
+  "92Y": {
+    "works_with": ["92A", "42A", "25B", "88M", "91-series"],
+    "civilian_statement": "Collaborated with logistics, administrative, IT support, transportation, and maintenance teams to manage property accountability and supply distribution"
+  },
+  "94E": {
+    "works_with": ["25B", "25N", "25S", "35T", "91-series"],
+    "civilian_statement": "Partnered with IT, networking, satellite communications, cybersecurity, and maintenance teams to repair and maintain complex electronic systems"
+  },
+  "CTN": {
+    "works_with": ["IT", "IS", "ET", "CTR", "CTT"],
+    "civilian_statement": "Collaborated with IT operations, intelligence analysts, electronics technicians, and signals analysis teams to conduct network security and cyber operations"
+  },
+  "ET": {
+    "works_with": ["FC", "IT", "OS", "CTN"],
+    "civilian_statement": "Partnered with fire control, IT, operations, and cybersecurity teams to maintain and repair advanced electronic and weapons systems"
+  },
+  "FC": {
+    "works_with": ["ET", "OS", "IT", "GM"],
+    "civilian_statement": "Coordinated with electronics, operations, IT, and weapons teams to maintain integrated combat and fire control systems"
+  },
+  "HM": {
+    "works_with": ["0311", "IS", "YN", "MA"],
+    "civilian_statement": "Partnered with operational units, intelligence, administrative, and security teams to provide medical support in clinical and field environments"
+  },
+  "IS": {
+    "works_with": ["CTN", "IT", "OS", "YN"],
+    "civilian_statement": "Collaborated with cybersecurity, IT operations, watch teams, and administrative staff to produce intelligence assessments and mission planning products"
+  },
+  "IT": {
+    "works_with": ["CTN", "ET", "IS", "YN"],
+    "civilian_statement": "Partnered with cybersecurity, electronics, intelligence, and administrative teams to manage enterprise network infrastructure and communications systems"
+  },
+  "MA": {
+    "works_with": ["IS", "IT", "YN", "HM"],
+    "civilian_statement": "Collaborated with intelligence, IT, administrative, and medical teams to enforce security protocols and conduct law enforcement operations"
+  },
+  "OS": {
+    "works_with": ["ET", "FC", "IT", "IS"],
+    "civilian_statement": "Coordinated with electronics, fire control, IT, and intelligence teams to manage real-time operational tracking and tactical decision support"
+  },
+  "YN": {
+    "works_with": ["IT", "IS", "MA", "HM", "42A"],
+    "civilian_statement": "Partnered with IT, intelligence, security, medical, and HR teams to manage personnel administration and organizational correspondence"
+  },
+  "0311": {
+    "works_with": ["0811", "1371", "0621", "0231", "HM"],
+    "civilian_statement": "Collaborated with fire support, engineering, communications, intelligence, and medical teams to execute complex multi-element operations"
+  },
+  "0811": {
+    "works_with": ["0311", "0861", "0621", "0231"],
+    "civilian_statement": "Partnered with infantry, forward observer, communications, and intelligence teams to coordinate precision fire support operations"
+  },
+  "1371": {
+    "works_with": ["0311", "1341", "0621", "1361"],
+    "civilian_statement": "Coordinated with operations, heavy equipment, communications, and engineering teams to deliver construction and infrastructure projects"
+  },
+  "2651": {
+    "works_with": ["2621", "0621", "0231", "0689"],
+    "civilian_statement": "Collaborated with signals intelligence, communications, intelligence analysis, and cyber operations teams to conduct electronic warfare and network defense"
+  },
+  "2841": {
+    "works_with": ["0621", "0631", "2651", "0689"],
+    "civilian_statement": "Partnered with field communications, networking, signals intelligence, and cyber teams to maintain ground electronics and communications systems"
+  },
+  "3531": {
+    "works_with": ["0311", "0431", "3521", "0481"],
+    "civilian_statement": "Coordinated with operations, logistics, heavy equipment, and maintenance management teams to execute transportation and convoy operations"
+  },
+  "1N0X1": {
+    "works_with": ["1N1X1", "1N2X1", "1N4X1", "3D0X2", "14N"],
+    "civilian_statement": "Collaborated with imagery, signals, network intelligence, cybersecurity, and operational planning teams to produce all-source intelligence assessments"
+  },
+  "2A6X1": {
+    "works_with": ["2A5X1", "2A3X3", "2W0X1", "2S0X1"],
+    "civilian_statement": "Partnered with engine, structural, munitions, and supply teams to maintain aircraft systems and ensure fleet readiness"
+  },
+  "3D0X2": {
+    "works_with": ["3D1X1", "3D1X2", "1N4X1", "1B4X1"],
+    "civilian_statement": "Coordinated with network operations, transport systems, cybersecurity, and cyber warfare teams to manage enterprise IT systems and security"
+  },
+  "3D1X1": {
+    "works_with": ["3D0X2", "3D1X2", "2E1X3", "1B4X1"],
+    "civilian_statement": "Partnered with systems administration, transport, ground radar, and cyber operations teams to install and maintain client networking systems"
+  },
+  "3P0X1": {
+    "works_with": ["3P0X1B", "31B", "5S0X1", "3D0X2"],
+    "civilian_statement": "Collaborated with investigations, military police, legal, and IT teams to maintain installation security and force protection operations"
+  },
+  "4N0X1": {
+    "works_with": ["4N1X1", "4T0X1", "68W", "4R0X1"],
+    "civilian_statement": "Partnered with surgical, laboratory, combat medic, and radiology teams to deliver comprehensive patient care in clinical and field settings"
+  },
+  "BM": {
+    "works_with": ["MK", "ET", "OS", "IS"],
+    "civilian_statement": "Coordinated with engineering, electronics, operations, and intelligence teams to manage vessel operations, navigation, and deck crew supervision"
+  },
+  "CGET": {
+    "works_with": ["IT", "BM", "OS", "MK"],
+    "civilian_statement": "Partnered with IT, deck operations, watchstanding, and engineering teams to maintain advanced electronics and navigation systems"
+  },
+  "CGIS": {
+    "works_with": ["IT", "OS", "BM", "YN"],
+    "civilian_statement": "Collaborated with IT, operations, deck, and administrative teams to produce intelligence products and support law enforcement operations"
+  },
+  "CGIT": {
+    "works_with": ["ET", "IS", "OS", "YN"],
+    "civilian_statement": "Partnered with electronics, intelligence, operations, and administrative teams to manage Coast Guard network infrastructure and cybersecurity"
+  },
+  "MK": {
+    "works_with": ["BM", "ET", "DC", "OS"],
+    "civilian_statement": "Coordinated with deck operations, electronics, damage control, and watchstanding teams to maintain propulsion, auxiliary, and electrical systems"
+  }
+}
