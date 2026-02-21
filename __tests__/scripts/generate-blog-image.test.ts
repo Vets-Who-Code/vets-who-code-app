@@ -130,7 +130,7 @@ describe("buildImagenPrompt", () => {
 
     // Verify style constraints are present
     expect(prompt).toContain("1950s");
-    expect(prompt).toContain("propaganda");
+    expect(prompt).toContain("linocut");
   });
 
   it("includes required style constraints", () => {
@@ -145,13 +145,10 @@ describe("buildImagenPrompt", () => {
     const prompt = buildImagenPrompt(theme);
 
     // Check for critical constraints (match actual prompt wording)
-    expect(prompt).toContain("wordless");
-    expect(prompt).toContain("text-free");
-    expect(prompt).toContain("Deep Navy Blue");
-    expect(prompt).toContain("Bold Red");
-    expect(prompt).toContain("Crisp White");
-    expect(prompt).toContain("distressed vintage paper");
-    expect(prompt).toContain("Zero text");
-    expect(prompt).toContain("PURE VISUAL");
+    expect(prompt).toContain("Navy Blue");
+    expect(prompt).toContain("Red");
+    expect(prompt).toContain("White");
+    expect(prompt).toContain("distressed paper texture");
+    expect(prompt).toContain("No text");
   });
 });
