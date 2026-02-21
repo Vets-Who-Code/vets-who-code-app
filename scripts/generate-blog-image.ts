@@ -3,18 +3,11 @@ import * as fs from "fs";
 import * as path from "path";
 import { GoogleGenAI } from "@google/genai";
 import cloudinary from "@/lib/cloudinary";
+import { imagenPromptVariants, type Theme } from "./image-prompts";
 
 let ai: GoogleGenAI;
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 const MAX_RETRIES = 3;
-
-type Theme = {
-  mainSubject: string;
-  keyMessage: string;
-  visualMetaphor: string;
-  symbolicElements: string;
-  fullThemeDescription: string;
-};
 
 type BlogPostSummary = {
   title: string;
@@ -87,24 +80,8 @@ Rules:
   return theme;
 }
 
-export function buildImagenPrompt(theme: Theme): string {
-  return `A wordless, text-free 1950s-style graphic illustration. 
-  
-  This is a PURE VISUAL composition with absolutely no typography, lettering, or characters.
-
-  Visual Theme: ${theme.fullThemeDescription}
-  Subject Focus: ${theme.mainSubject}
-  Central Visual Metaphor: ${theme.visualMetaphor}
-  Symbolic Elements: ${theme.symbolicElements}
-
-  Style & Composition:
-  - Aesthetics: 1950s American military propaganda art style, but strictly as a wordless illustration.
-  - Composition: A heroic, central silhouette that fills the frame. High-impact geometric shapes.
-  - Palette: Limited to three flat colors: Deep Navy Blue, Bold Red, and Crisp White. 
-  - Texture: A heavy, distressed vintage paper texture with aged print ink effects.
-  - Rendering: Flat vector-style graphics with bold, clean outlines. No photorealism.
-  
-  Constraint: Zero text. The image communicates entirely through symbolism and imagery. No text at all.`;
+export function buildImagenPrompt(theme: Theme, variantIndex = 0): string {
+  return imagenPromptVariants[variantIndex](theme);
 }
 
 async function generateImage(prompt: string): Promise<string> {
@@ -115,7 +92,6 @@ async function generateImage(prompt: string): Promise<string> {
   const response = await ai.models.generateImages({
     model: "imagen-4.0-generate-001",
     prompt,
-
     config: {
       numberOfImages: 1,
       aspectRatio: "16:9",
@@ -180,8 +156,7 @@ export async function main() {
   // Call Gemini to analyze the content and return JSON describing a visual theme.
   const theme = await generateBlogStructuredDataWithGemini(title, content);
 
-  const prompt = buildImagenPrompt(theme);
-  const imageBytes = await generateImageWithRetry(prompt);
+  const imageBytes = await generateImageWithRetry(theme);
 
   const url = await uploadToCloudinary(imageBytes, slug);
 
@@ -242,9 +217,10 @@ Respond with ONLY a JSON object (no markdown fences):
   }
 }
 
-async function generateImageWithRetry(prompt: string): Promise<string> {
+async function generateImageWithRetry(theme: Theme): Promise<string> {
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     console.log(`\n📸 Attempt ${attempt}/${MAX_RETRIES}`);
+    let prompt = buildImagenPrompt(theme, attempt - 1);
 
     const imageBytes = await generateImage(prompt);
 
