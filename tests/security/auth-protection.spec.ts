@@ -14,16 +14,6 @@ test.describe("Protected Routes - Authentication Required", () => {
         await page.context().clearCookies();
     });
 
-    test("Resume Translator - redirects to login when unauthenticated", async ({ page }) => {
-        // Attempt to access resume translator
-        await page.goto("/resume-translator");
-
-        // Should redirect to login page with callback URL
-        await page.waitForURL(/\/login/);
-        expect(page.url()).toContain("/login");
-        expect(page.url()).toMatch(/callbackUrl=(\/|%2F)resume-translator/);
-    });
-
     test("Courses Index - redirects to login when unauthenticated", async ({ page }) => {
         await page.goto("/courses");
 
@@ -128,7 +118,7 @@ test.describe("Client-Side Bypass Prevention", () => {
         });
 
         // Try to access protected route
-        await page.goto("/resume-translator");
+        await page.goto("/courses");
 
         // Should still redirect to login because server-side auth is required
         await page.waitForURL(/\/login/);
@@ -172,6 +162,11 @@ test.describe("Public Routes - No Auth Required", () => {
 
     test("Apply page is publicly accessible", async ({ page }) => {
         const response = await page.goto("/apply");
+        expect(response?.status()).toBe(200);
+    });
+
+    test("Resume Translator is publicly accessible", async ({ page }) => {
+        const response = await page.goto("/resume-translator");
         expect(response?.status()).toBe(200);
     });
 });
