@@ -146,39 +146,45 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
     const renderBulletList = (
         items: string[],
         field: "keyResponsibilities" | "achievements"
-    ) => (
-        <ul className="tw-space-y-2">
-            {items.map((item, idx) => (
-                <li
-                    key={idx}
-                    className="tw-group tw-flex tw-items-start tw-text-gray-700"
-                >
-                    <span className="tw-text-[#c5203e] tw-mr-3 tw-mt-1">
-                        &bull;
-                    </span>
-                    <span
-                        contentEditable={!isTranslating}
-                        suppressContentEditableWarning
-                        onBlur={handleBulletBlur(field, idx)}
-                        className="tw-flex-1 tw-outline-none tw-rounded tw-px-1 hover:tw-bg-gray-50 focus:tw-bg-blue-50 focus:tw-ring-1 focus:tw-ring-blue-300"
+    ) => {
+        const fieldLabel = field === "keyResponsibilities" ? "responsibility" : "achievement";
+        return (
+            <ul className="tw-space-y-2" role="list">
+                {items.map((item, idx) => (
+                    <li
+                        key={idx}
+                        className="tw-group tw-flex tw-items-start tw-text-gray-700 focus-within:tw-bg-gray-50"
                     >
-                        {item}
-                    </span>
-                    {!isTranslating && (
-                        <button
-                            type="button"
-                            onClick={handleDeleteBullet(field, idx)}
-                            className="tw-ml-2 tw-mt-0.5 tw-opacity-0 group-hover:tw-opacity-100 tw-text-gray-300 hover:tw-text-red-500 tw-transition-opacity tw-text-sm"
-                            title="Remove bullet"
-                            aria-label={`Remove bullet: ${item.slice(0, 30)}`}
+                        <span className="tw-text-[#c5203e] tw-mr-3 tw-mt-1" aria-hidden="true">
+                            &bull;
+                        </span>
+                        <span
+                            role="textbox"
+                            aria-label={`Edit ${fieldLabel} ${idx + 1}`}
+                            tabIndex={isTranslating ? undefined : 0}
+                            contentEditable={!isTranslating}
+                            suppressContentEditableWarning
+                            onBlur={handleBulletBlur(field, idx)}
+                            className="tw-flex-1 tw-outline-none tw-rounded tw-px-1 hover:tw-bg-gray-50 focus:tw-bg-blue-50 focus:tw-ring-1 focus:tw-ring-blue-300"
                         >
-                            <i className="fas fa-times" />
-                        </button>
-                    )}
-                </li>
-            ))}
-        </ul>
-    );
+                            {item}
+                        </span>
+                        {!isTranslating && (
+                            <button
+                                type="button"
+                                onClick={handleDeleteBullet(field, idx)}
+                                className="tw-ml-2 tw-mt-0.5 tw-opacity-0 group-hover:tw-opacity-100 focus:tw-opacity-100 tw-text-gray-300 hover:tw-text-red-500 focus:tw-text-red-500 tw-transition-opacity tw-text-sm focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-red-300 tw-rounded"
+                                title="Remove bullet"
+                                aria-label={`Remove ${fieldLabel} ${idx + 1}: ${item.slice(0, 50)}`}
+                            >
+                                <i className="fas fa-times" />
+                            </button>
+                        )}
+                    </li>
+                ))}
+            </ul>
+        );
+    };
 
     return (
         <div className="tw-space-y-6">
@@ -212,10 +218,10 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                     <h2 className="tw-text-2xl tw-font-bold tw-text-[#091f40]">
                         Your Translated Resume
                     </h2>
-                    <p className="tw-text-xs tw-text-gray-400">
+                    <p className="tw-text-xs tw-text-gray-400" aria-live="polite">
                         {isTranslating
                             ? "Editing available when AI translation completes..."
-                            : "Click any text to edit. Hover bullets to remove."}
+                            : "Click or tab to any text to edit. Use the remove button next to each bullet to delete it."}
                     </p>
                 </div>
 
@@ -238,6 +244,10 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                         Professional Summary
                     </h3>
                     <p
+                        role="textbox"
+                        aria-label="Edit professional summary"
+                        aria-multiline="true"
+                        tabIndex={isTranslating ? undefined : 0}
                         contentEditable={!isTranslating}
                         suppressContentEditableWarning
                         onBlur={handleSummaryBlur}
