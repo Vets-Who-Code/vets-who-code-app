@@ -16,6 +16,7 @@ export interface LightcastSalaryData {
 // Token cache
 let cachedToken: string | null = null;
 let tokenExpiresAt = 0;
+let authFailureLogged = false;
 
 // Salary data cache: SOC code → { data, fetchedAt }
 const salaryCache = new Map<string, { data: LightcastSalaryData; fetchedAt: number }>();
@@ -25,8 +26,38 @@ const TOKEN_URL = "https://auth.emsicloud.com/connect/token";
 const API_BASE = "https://emsiservices.com";
 const FETCH_TIMEOUT = 5000;
 
+/** Returns a trailing 12-month window as { start: "YYYY-MM", end: "YYYY-MM" } */
+function getTrailing12Months(): { start: string; end: string } {
+    const now = new Date();
+    const end = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}`;
+    const startDate = new Date(now.getFullYear(), now.getMonth() - 12, 1);
+    const start = `${startDate.getFullYear()}-${String(startDate.getMonth() + 1).padStart(2, "0")}`;
+    return { start, end };
+}
+
 export function isLightcastConfigured(): boolean {
     return !!(process.env.LIGHTCAST_CLIENT_ID && process.env.LIGHTCAST_CLIENT_SECRET);
+}
+
+/**
+ * Validate that Lightcast env vars are present and log status.
+ * Call once at startup (module load) to surface misconfiguration early.
+ */
+export function validateLightcastConfig(): void {
+    const hasId = !!process.env.LIGHTCAST_CLIENT_ID;
+    const hasSecret = !!process.env.LIGHTCAST_CLIENT_SECRET;
+
+    if (hasId && hasSecret) {
+        console.info("Lightcast: configured (client credentials set)");
+    } else if (hasId || hasSecret) {
+        console.warn(
+            "Lightcast: partially configured — " +
+            `LIGHTCAST_CLIENT_ID: ${hasId ? "set" : "MISSING"}, ` +
+            `LIGHTCAST_CLIENT_SECRET: ${hasSecret ? "set" : "MISSING"}. ` +
+            "Both are required. Salary data will fall back to Census/curated."
+        );
+    }
+    // If neither is set, it's intentionally unconfigured — no warning needed
 }
 
 async function fetchWithTimeout(url: string, options: RequestInit): Promise<Response> {
@@ -57,14 +88,31 @@ async function getAccessToken(): Promise<string | null> {
             }),
         });
 
-        if (!response.ok) return null;
+        if (!response.ok) {
+            if (!authFailureLogged) {
+                console.error(
+                    `Lightcast: OAuth token request failed (${response.status}). ` +
+                    "Check LIGHTCAST_CLIENT_ID and LIGHTCAST_CLIENT_SECRET. " +
+                    "Falling back to Census/curated salary data."
+                );
+                authFailureLogged = true;
+            }
+            return null;
+        }
+
+        // Reset failure flag on successful auth
+        authFailureLogged = false;
 
         const data = await response.json();
         cachedToken = data.access_token;
         // Lightcast tokens last 1 hour
         tokenExpiresAt = Date.now() + (data.expires_in || 3600) * 1000;
         return cachedToken;
-    } catch {
+    } catch (err) {
+        if (!authFailureLogged) {
+            console.error("Lightcast: OAuth token request error:", err);
+            authFailureLogged = true;
+        }
         return null;
     }
 }
@@ -100,6 +148,9 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
             { method: "GET", headers }
         );
 
+        // Trailing 12-month window for demand and skills queries
+        const dateRange = getTrailing12Months();
+
         // Fetch job posting counts for demand
         const postingsRes = await fetchWithTimeout(
             `${API_BASE}/jpa/totals`,
@@ -108,7 +159,7 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
                 headers,
                 body: JSON.stringify({
                     filter: {
-                        when: { start: "2024-01", end: "2025-01" },
+                        when: dateRange,
                         soc5: [socCode],
                     },
                     metrics: ["unique_postings"],
@@ -124,7 +175,7 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
                 headers,
                 body: JSON.stringify({
                     filter: {
-                        when: { start: "2024-01", end: "2025-01" },
+                        when: dateRange,
                         soc5: [socCode],
                     },
                     rank: { by: "unique_postings", limit: 5 },
@@ -132,7 +183,10 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
             }
         );
 
-        if (!salaryRes.ok) return null;
+        if (!salaryRes.ok) {
+            console.warn(`Lightcast: salary fetch failed for SOC ${socCode} (${salaryRes.status})`);
+            return null;
+        }
 
         const salaryData = await salaryRes.json();
         const medianSalary = salaryData?.median_salary ?? salaryData?.percentile_50 ?? 0;
@@ -166,7 +220,8 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
 
         salaryCache.set(socCode, { data: result, fetchedAt: Date.now() });
         return result;
-    } catch {
+    } catch (err) {
+        console.warn(`Lightcast: fetch error for SOC ${socCode}:`, err);
         return null;
     }
 }

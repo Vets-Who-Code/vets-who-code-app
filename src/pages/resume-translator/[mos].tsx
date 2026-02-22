@@ -360,10 +360,12 @@ const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways }
 MosPage.Layout = Layout01;
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    // Pre-render the highest-quality pages at build time; all other valid
+    // MOS codes are generated on-demand via fallback: "blocking"
     const paths = SEO_MOS_CODES.map((mos) => ({
         params: { mos: mos.toLowerCase() },
     }));
-    return { paths, fallback: false };
+    return { paths, fallback: "blocking" };
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
@@ -374,8 +376,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const systemsMap = (await import("@data/military-systems-map.json")).default as Record<string, SystemsData>;
     const pathwaysMap = (await import("@data/career-pathways-map.json")).default as Record<string, CareerPathway[]>;
 
-    // Try exact match first, then case variations
-    const mosCode = SEO_MOS_CODES.find((c) => c.toUpperCase() === mosParam) || mosParam;
+    // Resolve the canonical MOS key: check SEO list first, then match
+    // against training data keys (handles mixed-case codes like IT_NAVY)
+    const mosCode =
+        SEO_MOS_CODES.find((c) => c.toUpperCase() === mosParam) ||
+        Object.keys(trainingMap).find((k) => k.toUpperCase() === mosParam) ||
+        mosParam;
 
     const training = trainingMap[mosCode];
     if (!training) {

@@ -1,6 +1,7 @@
 import { generateText } from "ai";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getAIModelWithFallback } from "@/lib/ai-provider";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 interface ExtractFieldsRequest {
     text: string;
@@ -20,6 +21,17 @@ export default async function handler(
 ) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Rate limit: 10 field extractions per 15 minutes per IP
+    const ip = getClientIp(req);
+    const limit = checkRateLimit(ip, 10, 15 * 60 * 1000);
+    res.setHeader("X-RateLimit-Remaining", limit.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(limit.resetAt / 1000));
+    if (!limit.allowed) {
+        return res.status(429).json({
+            error: "Too many requests. Please try again in a few minutes.",
+        });
     }
 
     try {

@@ -1,11 +1,23 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { fetchLaborMarketData } from "@/lib/labor-market";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 const SOC_FORMAT = /^\d{2}-\d{4}$/;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Rate limit: 30 salary lookups per 15 minutes per IP
+    const ip = getClientIp(req);
+    const limit = checkRateLimit(ip, 30, 15 * 60 * 1000);
+    res.setHeader("X-RateLimit-Remaining", limit.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(limit.resetAt / 1000));
+    if (!limit.allowed) {
+        return res.status(429).json({
+            error: "Too many requests. Please try again in a few minutes.",
+        });
     }
 
     const { socCode } = req.body as { socCode?: string };

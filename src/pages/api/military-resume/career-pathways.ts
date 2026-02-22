@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             mosKey = jobCode.toUpperCase().trim();
         } else if (jobTitle) {
             const cleaned = jobTitle.trim();
-            if (/^[A-Z0-9]{2,7}$/i.test(cleaned)) {
+            if (/^([A-Z]{2,4}|\d[A-Za-z0-9]{1,6})$/.test(cleaned)) {
                 mosKey = cleaned.toUpperCase();
             }
         }
@@ -41,8 +41,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         try {
             const pathwaysMap = (await import("@data/career-pathways-map.json")).default as Record<string, CareerPathway[]>;
             pathways = pathwaysMap[mosKey] || [];
-        } catch {
-            // Non-critical
+        } catch (err) {
+            console.warn("Career pathways: failed to load career-pathways-map.json:", err);
         }
 
         // If a target job title is provided, prioritize matching pathways
@@ -89,8 +89,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
                     return res.status(200).json({ pathways: enriched });
                 }
-            } catch {
-                // Enrichment failed — return static data with curated source
+            } catch (err) {
+                console.warn("Career pathways: labor market enrichment failed:", err);
             }
         }
 

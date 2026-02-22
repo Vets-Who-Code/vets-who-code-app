@@ -16,6 +16,8 @@ const CACHE_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days (ACS data updates annually)
 const ACS_BASE = "https://api.census.gov/data";
 const FETCH_TIMEOUT = 5000;
 
+let authFailureLogged = false;
+
 // Map SOC major groups to ACS S2401 variable codes for median earnings
 // These cover the major occupation groups in the S2401 subject table
 const SOC_TO_ACS_VARIABLE: Record<string, string> = {
@@ -45,6 +47,17 @@ const SOC_TO_ACS_VARIABLE: Record<string, string> = {
 
 export function isCensusConfigured(): boolean {
     return !!process.env.CENSUS_API_KEY;
+}
+
+/**
+ * Validate that Census env var is present and log status.
+ * Call once at startup (module load) to surface misconfiguration early.
+ */
+export function validateCensusConfig(): void {
+    if (process.env.CENSUS_API_KEY) {
+        console.info("Census ACS: configured (API key set)");
+    }
+    // If not set, it's intentionally unconfigured — no warning needed
 }
 
 async function fetchWithTimeout(url: string): Promise<Response> {
@@ -77,7 +90,24 @@ export async function fetchCensusSalary(socCode: string): Promise<CensusSalaryDa
         const url = `${ACS_BASE}/2023/acs/acs1/subject?get=${variable}&for=us:*&key=${apiKey}`;
 
         const response = await fetchWithTimeout(url);
-        if (!response.ok) return null;
+
+        if (!response.ok) {
+            if (response.status === 401 || response.status === 403) {
+                if (!authFailureLogged) {
+                    console.error(
+                        `Census ACS: API key rejected (${response.status}). ` +
+                        "Check CENSUS_API_KEY. Falling back to curated salary data."
+                    );
+                    authFailureLogged = true;
+                }
+            } else {
+                console.warn(`Census ACS: fetch failed for SOC ${socCode} (${response.status})`);
+            }
+            return null;
+        }
+
+        // Reset failure flag on successful request
+        authFailureLogged = false;
 
         const data = await response.json();
         // ACS API returns [["header"], ["value", "us", "1"]]
@@ -95,7 +125,8 @@ export async function fetchCensusSalary(socCode: string): Promise<CensusSalaryDa
 
         censusCache.set(socCode, { data: result, fetchedAt: Date.now() });
         return result;
-    } catch {
+    } catch (err) {
+        console.warn(`Census ACS: fetch error for SOC ${socCode}:`, err);
         return null;
     }
 }

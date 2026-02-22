@@ -3,8 +3,8 @@
  * Three-tier fallback: Lightcast → Census ACS → static curated data
  */
 
-import { isLightcastConfigured, fetchSalaryBySOC } from "./lightcast-client";
-import { isCensusConfigured, fetchCensusSalary } from "./census-client";
+import { isLightcastConfigured, fetchSalaryBySOC, validateLightcastConfig } from "./lightcast-client";
+import { isCensusConfigured, fetchCensusSalary, validateCensusConfig } from "./census-client";
 
 export interface EnrichedSalaryData {
     avgSalary: number;
@@ -15,11 +15,31 @@ export interface EnrichedSalaryData {
     dataAge?: string;
 }
 
+// Log configuration status once on first import
+let configValidated = false;
+function validateOnce(): void {
+    if (configValidated) return;
+    configValidated = true;
+
+    validateLightcastConfig();
+    validateCensusConfig();
+
+    if (!isLightcastConfigured() && !isCensusConfigured()) {
+        console.info(
+            "Labor market: no external APIs configured. " +
+            "Career pathways will use curated salary data. " +
+            "Set LIGHTCAST_CLIENT_ID + LIGHTCAST_CLIENT_SECRET and/or CENSUS_API_KEY for live data."
+        );
+    }
+}
+
 export async function fetchLaborMarketData(
     socCode: string,
     fallbackSalary: number,
     fallbackDemand: string
 ): Promise<EnrichedSalaryData> {
+    validateOnce();
+
     // Tier 1: Lightcast
     if (isLightcastConfigured()) {
         try {
@@ -34,8 +54,8 @@ export async function fetchLaborMarketData(
                     dataAge: "Updated monthly",
                 };
             }
-        } catch {
-            // Fall through to next tier
+        } catch (err) {
+            console.warn(`Labor market: Lightcast failed for SOC ${socCode}, trying Census:`, err);
         }
     }
 
@@ -51,8 +71,8 @@ export async function fetchLaborMarketData(
                     dataAge: "ACS 2023 estimates",
                 };
             }
-        } catch {
-            // Fall through to static
+        } catch (err) {
+            console.warn(`Labor market: Census failed for SOC ${socCode}, using curated:`, err);
         }
     }
 

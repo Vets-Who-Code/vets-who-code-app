@@ -1,6 +1,7 @@
 import { generateText } from "ai";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getAIModelWithFallback } from "@/lib/ai-provider";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import type {
     TrainingEntry,
     CertEquivalency,
@@ -37,13 +38,18 @@ export interface TranslateResponse {
     careerPathways?: CareerPathway[];
 }
 
+// Match real MOS/rating formats: 2-4 uppercase letters (Navy/CG ratings like HM, CTN, AMCS)
+// or digit-leading alphanumeric codes (Army 11B, USMC 0311, AF 3P0X1).
+// Rejects common English words like "Admin", "Nurse", "Manager" that the old
+// /^[A-Z0-9]{2,7}$/i pattern would incorrectly treat as MOS codes.
+const MOS_CODE_FORMAT = /^([A-Z]{2,4}|\d[A-Za-z0-9]{1,6})$/;
+
 // Resolve the MOS lookup key — normalize job code for data file lookup
 function getMosKey(jobCode?: string, jobTitle?: string): string | null {
     if (jobCode) return jobCode.toUpperCase().trim();
     if (jobTitle) {
-        // Check if job title looks like a MOS code (e.g., "25B", "3P0X1", "0311")
         const cleaned = jobTitle.trim();
-        if (/^[A-Z0-9]{2,7}$/i.test(cleaned)) return cleaned.toUpperCase();
+        if (MOS_CODE_FORMAT.test(cleaned)) return cleaned.toUpperCase();
     }
     return null;
 }
@@ -51,6 +57,17 @@ function getMosKey(jobCode?: string, jobTitle?: string): string | null {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Rate limit: 10 AI translations per 15 minutes per IP
+    const ip = getClientIp(req);
+    const limit = checkRateLimit(ip, 10, 15 * 60 * 1000);
+    res.setHeader("X-RateLimit-Remaining", limit.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(limit.resetAt / 1000));
+    if (!limit.allowed) {
+        return res.status(429).json({
+            error: "Too many translation requests. Please try again in a few minutes.",
+        });
     }
 
     try {
@@ -61,6 +78,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             skillLevel, deploymentHistory,
             leadershipCourses, collateralDuties, certificationsEarned,
         } = req.body as TranslateRequest;
+
+        // Validate required fields
+        if (!jobTitle || !rank || !branch || !duties) {
+            return res.status(400).json({
+                error: "Missing required fields: jobTitle, rank, branch, and duties are required.",
+            });
+        }
+
+        if (yearsOfService == null || yearsOfService < 1 || yearsOfService > 40) {
+            return res.status(400).json({
+                error: "Years of service is required and must be between 1 and 40.",
+            });
+        }
 
         // Get AI model with fallback
         const aiModel = await getAIModelWithFallback();
@@ -73,6 +103,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const mosKey = getMosKey(jobCode, jobTitle);
 
+        const layerWarnings: string[] = [];
+
         // ─── Layer 1: Official MOS Description ──────────────────────────────
         let officialDescription = "";
         if (jobCode && jobCodeBranch) {
@@ -80,7 +112,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 const descriptions = (await import("@data/job-codes-descriptions.json")).default as Record<string, string>;
                 const key = `${jobCodeBranch}:${jobCode}`;
                 officialDescription = descriptions[key] ?? "";
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 1 (MOS description) failed:", err);
+                layerWarnings.push("job-codes-descriptions");
+            }
         }
 
         const officialContext = officialDescription
@@ -119,7 +154,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                         .join("\n");
                     technicalSystemsContext = `\nTECHNICAL SYSTEMS (translate these to civilian equivalents in bullets where relevant):\n${systemsList}\n`;
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 3 (technical systems) failed:", err);
+                layerWarnings.push("military-systems-map");
+            }
         }
 
         // ─── Layer 4: Training Pipeline ─────────────────────────────────────
@@ -143,7 +181,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     };
                     trainingContext = `\nFORMAL TRAINING: Completed ${entry.hours.toLocaleString()} hours of formal training in ${entry.program}. Topics: ${entry.topics.join(", ")}. Civilian cert equivalencies: ${entry.civilian_certs.join(", ")}. Mention training hours in summary when relevant.\n`;
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 4 (training pipeline) failed:", err);
+                layerWarnings.push("training-pipeline");
+            }
         }
 
         // ─── Layer 5: Rank-Scope Matrix ─────────────────────────────────────
@@ -162,7 +203,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 - Civilian equivalent: ${scope.civilian_equivalent}
 Use these metrics to quantify leadership in summary and bullets.\n`;
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 5 (rank-scope matrix) failed:", err);
+                layerWarnings.push("rank-scope-matrix");
+            }
         }
 
         // ─── Layer 6: Collateral Duties ─────────────────────────────────────
@@ -180,7 +224,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
                 if (bullets.length > 0) {
                     collateralContext = `\nCOLLATERAL DUTIES (incorporate these as additional resume bullets — they represent real additional responsibilities held):\n${bullets.join("\n")}\n`;
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 6 (collateral duties) failed:", err);
+                layerWarnings.push("collateral-duties-map");
+            }
         }
 
         // ─── Layer 7: Deployment Context ────────────────────────────────────
@@ -196,7 +243,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
                     }
                     deploymentContext += "\n";
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 7 (deployment context) failed:", err);
+                layerWarnings.push("deployment-context-map");
+            }
         }
 
         // ─── Layer 8: Adjacent MOS Awareness ────────────────────────────────
@@ -208,7 +258,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
                 if (entry) {
                     adjacentContext = `\nCROSS-FUNCTIONAL EXPERIENCE: ${entry.civilian_statement}. Weave this into the summary or add as a bullet.\n`;
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 8 (adjacent MOS) failed:", err);
+                layerWarnings.push("adjacent-mos-map");
+            }
         }
 
         // ─── Layer 9: Certification Equivalencies ───────────────────────────
@@ -245,7 +298,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
                         certContext = `\nCERTIFICATION EQUIVALENCIES:\n${parts.map((p) => `  - ${p}`).join("\n")}\nMention certifications the veteran is ready to earn in the summary or bullets where relevant.\n`;
                     }
                 }
-            } catch { /* non-critical */ }
+            } catch (err) {
+                console.warn("Layer 9 (cert equivalencies) failed:", err);
+                layerWarnings.push("cert-equivalencies");
+            }
         }
 
         // ─── Years, Clearance, Certifications ───────────────────────────────
@@ -395,6 +451,13 @@ DO NOT:
                 technicalSystems: technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
                 certPathways: certData,
             };
+        }
+
+        if (layerWarnings.length > 0) {
+            console.warn(
+                `Translation for ${mosKey || jobTitle} completed with ${layerWarnings.length} degraded layer(s): ${layerWarnings.join(", ")}`
+            );
+            res.setHeader("X-Enrichment-Warnings", layerWarnings.join(","));
         }
 
         return res.status(200).json(translatedProfile);

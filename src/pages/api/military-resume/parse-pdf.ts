@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export const config = {
     api: {
@@ -7,6 +8,11 @@ export const config = {
         },
     },
 };
+
+// Max decoded buffer size: 5 MB (base64 inflates ~33%, so 5MB body ≈ 3.75MB decoded)
+const MAX_DECODED_BYTES = 5 * 1024 * 1024;
+// Cap extracted text to 500KB to prevent memory issues from decompression bombs
+const MAX_TEXT_LENGTH = 500 * 1024;
 
 interface ParseRequest {
     pdf: string; // base64-encoded PDF or DOCX
@@ -38,6 +44,17 @@ export default async function handler(
         return res.status(405).json({ error: "Method not allowed" });
     }
 
+    // Rate limit: 10 file parses per 15 minutes per IP
+    const ip = getClientIp(req);
+    const limit = checkRateLimit(ip, 10, 15 * 60 * 1000);
+    res.setHeader("X-RateLimit-Remaining", limit.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(limit.resetAt / 1000));
+    if (!limit.allowed) {
+        return res.status(429).json({
+            error: "Too many upload requests. Please try again in a few minutes.",
+        });
+    }
+
     try {
         const { pdf, fileType } = req.body as ParseRequest;
 
@@ -47,6 +64,12 @@ export default async function handler(
 
         // Decode base64 to buffer
         const buffer = Buffer.from(pdf, "base64");
+
+        if (buffer.length > MAX_DECODED_BYTES) {
+            return res.status(400).json({
+                error: `File too large (${(buffer.length / 1024 / 1024).toFixed(1)}MB). Maximum file size is 5MB.`,
+            });
+        }
 
         // Determine file type from explicit param or magic bytes
         const isDocx = fileType === "docx" || (!fileType && isDocxBuffer(buffer));
@@ -88,6 +111,12 @@ export default async function handler(
             return res.status(422).json({
                 error: "Could not extract text from this file. It may be a scanned document or image-only file. Please copy and paste your resume text instead.",
             });
+        }
+
+        // Truncate if the extracted text is abnormally large (decompression bomb defense)
+        if (text.length > MAX_TEXT_LENGTH) {
+            console.warn(`Extracted text truncated: ${text.length} chars -> ${MAX_TEXT_LENGTH} chars`);
+            text = text.slice(0, MAX_TEXT_LENGTH);
         }
 
         return res.status(200).json({
