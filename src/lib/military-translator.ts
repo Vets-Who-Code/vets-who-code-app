@@ -203,6 +203,23 @@ export interface CareerPathway {
     dataSource?: "lightcast" | "census_acs" | "curated";
 }
 
+export interface CognitiveSkill {
+    skill: string;
+    militaryContext: string;
+    civilianTranslation: string;
+}
+
+export interface NonObviousCareer {
+    role: string;
+    whyItFits: string;
+    socCode: string;
+}
+
+export interface CognitiveProfile {
+    cognitiveSkills: CognitiveSkill[];
+    nonObviousCareers: NonObviousCareer[];
+}
+
 export interface TranslatedProfile {
     jobTitle: string;
     summary: string;
@@ -214,6 +231,7 @@ export interface TranslatedProfile {
     technicalSystems?: Array<{ military: string; civilian: string }>;
     certPathways?: CertEquivalency;
     careerPathways?: CareerPathway[];
+    cognitiveProfile?: CognitiveProfile;
 }
 
 /**

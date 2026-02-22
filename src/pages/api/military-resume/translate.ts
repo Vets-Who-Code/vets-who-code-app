@@ -1,11 +1,14 @@
 import { generateText } from "ai";
 import type { NextApiRequest, NextApiResponse } from "next";
+import fs from "fs";
+import path from "path";
 import { getAIModelWithFallback } from "@/lib/ai-provider";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import type {
     TrainingEntry,
     CertEquivalency,
     CareerPathway,
+    CognitiveProfile,
 } from "@/lib/military-translator";
 
 export interface TranslateRequest {
@@ -36,6 +39,7 @@ export interface TranslateResponse {
     technicalSystems?: Array<{ military: string; civilian: string }>;
     certPathways?: CertEquivalency;
     careerPathways?: CareerPathway[];
+    cognitiveProfile?: CognitiveProfile;
 }
 
 // Match real MOS/rating formats: 2-4 uppercase letters (Navy/CG ratings like HM, CTN, AMCS)
@@ -145,7 +149,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let technicalSystemsData: Array<{ military: string; civilian: string }> = [];
         if (mosKey) {
             try {
-                const systemsMap = (await import("@data/military-systems-map.json")).default as Record<string, { systems: Array<{ military: string; civilian: string }> }>;
+                const systemsMap = JSON.parse(
+                    fs.readFileSync(path.join(process.cwd(), "src/data/military-systems-map.json"), "utf-8")
+                ) as Record<string, { systems: Array<{ military: string; civilian: string }> }>;
                 const entry = systemsMap[mosKey];
                 if (entry?.systems) {
                     technicalSystemsData = entry.systems;
@@ -165,7 +171,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let trainingData: TrainingEntry | undefined;
         if (mosKey) {
             try {
-                const pipeline = (await import("@data/training-pipeline.json")).default as Record<string, {
+                const pipeline = JSON.parse(
+                    fs.readFileSync(path.join(process.cwd(), "src/data/training-pipeline.json"), "utf-8")
+                ) as Record<string, {
                     program: string; hours: number; weeks?: number;
                     topics: string[]; civilian_certs: string[]; ace_credits?: string;
                 }>;
@@ -269,7 +277,9 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         let certData: CertEquivalency | undefined;
         if (mosKey) {
             try {
-                const certMap = (await import("@data/cert-equivalencies.json")).default as Record<string, {
+                const certMap = JSON.parse(
+                    fs.readFileSync(path.join(process.cwd(), "src/data/cert-equivalencies.json"), "utf-8")
+                ) as Record<string, {
                     direct_qualifies: string[];
                     partial_coverage: Array<{ cert: string; coverage: number; gaps: string }>;
                     recommended_next: string[];
@@ -301,6 +311,23 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
             } catch (err) {
                 console.warn("Layer 9 (cert equivalencies) failed:", err);
                 layerWarnings.push("cert-equivalencies");
+            }
+        }
+
+        // ─── Layer 10: Cognitive Skills ─────────────────────────────────────
+        let cognitiveData: CognitiveProfile | undefined;
+        if (mosKey) {
+            try {
+                const cognitiveMap = JSON.parse(
+                    fs.readFileSync(path.join(process.cwd(), "src/data/cognitive-skills-map.json"), "utf-8")
+                ) as Record<string, CognitiveProfile>;
+                const entry = cognitiveMap[mosKey];
+                if (entry) {
+                    cognitiveData = entry;
+                }
+            } catch (err) {
+                console.warn("Layer 10 (cognitive skills) failed:", err);
+                layerWarnings.push("cognitive-skills-map");
             }
         }
 
@@ -428,6 +455,7 @@ DO NOT:
                     training: trainingData,
                     technicalSystems: technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
                     certPathways: certData,
+                    cognitiveProfile: cognitiveData,
                 };
             } else {
                 throw new Error("No JSON found in response");
@@ -450,6 +478,7 @@ DO NOT:
                 training: trainingData,
                 technicalSystems: technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
                 certPathways: certData,
+                cognitiveProfile: cognitiveData,
             };
         }
 

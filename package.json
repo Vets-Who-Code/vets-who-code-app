@@ -24,7 +24,12 @@
     "commitlint": "commitlint --from-HEAD~1",
     "generate:blog-image": "tsx -r dotenv/config scripts/generate-blog-image.ts",
     "generate:blog-media": "tsx -r dotenv/config scripts/generate-blog-media.ts",
-    "generate:job-codes": "tsx scripts/parse-job-codes.ts"
+    "generate:job-codes": "tsx scripts/parse-job-codes.ts",
+    "generate:cognitive-skills": "tsx -r dotenv/config scripts/generate-cognitive-skills.ts",
+    "generate:training-pipeline": "tsx -r dotenv/config scripts/generate-training-pipeline.ts",
+    "generate:cert-equivalencies": "tsx -r dotenv/config scripts/generate-cert-equivalencies.ts",
+    "generate:military-systems": "tsx -r dotenv/config scripts/generate-military-systems.ts",
+    "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",

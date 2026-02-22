@@ -4,6 +4,7 @@ import ResumeTranslator from "@components/translator/ResumeTranslator";
 import Layout01 from "@layout/layout-01";
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import type { JobCodeEntry } from "@/types/job-codes";
 
@@ -85,6 +86,24 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
                     className="tw-mx-auto tw-max-w-5xl"
                     jobCodeIndex={jobCodeIndex}
                 />
+
+                {/* Career Guides CTA */}
+                <div className="tw-mt-16 tw-mx-auto tw-max-w-5xl">
+                    <div className="tw-bg-gradient-to-r tw-from-[#091f40] tw-to-[#1a3a6b] tw-rounded-lg tw-p-8 tw-text-white">
+                        <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-white">
+                            Browse Career Guides by Job Code
+                        </h2>
+                        <p className="tw-text-white tw-mb-4">
+                            Explore detailed career guides for every military job code — including civilian career pathways, certification equivalencies, training data, and salary information.
+                        </p>
+                        <Link
+                            href="/resume-translator/career-guides"
+                            className="tw-inline-block tw-bg-[#c5a44e] tw-text-[#091f40] tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-[#d4b55e] tw-transition-colors"
+                        >
+                            Browse All Career Guides
+                        </Link>
+                    </div>
+                </div>
 
                 {/* Resume Writing Tips */}
                 <div className="tw-mt-16 tw-mx-auto tw-max-w-5xl">

@@ -4,7 +4,9 @@ import Layout01 from "@layout/layout-01";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import type { CareerPathway } from "@/lib/military-translator";
+import fs from "fs";
+import path from "path";
+import type { CareerPathway, CognitiveProfile } from "@/lib/military-translator";
 
 /** MOS codes with data across all 4 sources — highest-quality pages */
 const SEO_MOS_CODES = [
@@ -46,6 +48,7 @@ interface MosPageProps {
     certs: CertData;
     systems: SystemsData;
     pathways: CareerPathway[];
+    cognitiveProfile: CognitiveProfile | null;
 }
 
 type PageWithLayout = NextPage<MosPageProps> & {
@@ -62,7 +65,7 @@ const DATA_SOURCE_LABELS: Record<string, string> = {
     curated: "Salary estimates from VWC career data",
 };
 
-const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways }) => {
+const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways, cognitiveProfile }) => {
     const pageTitle = `${mosCode} ${training.title} — Military-to-Civilian Career Guide`;
     const pageDescription = `Free career guide for ${training.branch} ${mosCode} (${training.title}). Discover civilian job matches, salary data, certification pathways, and training equivalencies. Built by veterans, for veterans.`;
 
@@ -120,10 +123,10 @@ const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways }
 
                     {/* CTA to translator */}
                     <div className="tw-bg-gradient-to-r tw-from-[#091f40] tw-to-[#1a3a6b] tw-rounded-lg tw-p-6 tw-mb-10 tw-text-white">
-                        <h2 className="tw-text-xl tw-font-bold tw-mb-2">
+                        <h2 className="tw-text-xl tw-font-bold tw-mb-2 tw-text-white">
                             Translate Your {mosCode} Experience Now
                         </h2>
-                        <p className="tw-text-gray-200 tw-mb-4">
+                        <p className="tw-text-white tw-mb-4">
                             Get a personalized AI-powered translation of your military experience into civilian resume language.
                         </p>
                         <Link
@@ -195,6 +198,46 @@ const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways }
                                     {DATA_SOURCE_LABELS[pathways[0]?.dataSource || "curated"]}
                                 </p>
                             )}
+                        </section>
+                    )}
+
+                    {/* Hidden Strengths / Cognitive Skills */}
+                    {cognitiveProfile && (
+                        <section className="tw-mb-10">
+                            <h2 className="tw-text-2xl tw-font-bold tw-text-[#091f40] tw-mb-2">
+                                <i className="fas fa-brain tw-mr-2 tw-text-[#c5203e]" />
+                                Hidden Strengths
+                            </h2>
+                            <p className="tw-text-gray-600 tw-mb-6">
+                                Cognitive skills your {mosCode} training built — and where they transfer.
+                            </p>
+
+                            <div className="tw-space-y-3 tw-mb-8">
+                                {cognitiveProfile.cognitiveSkills.map((cs) => (
+                                    <div key={cs.skill} className="tw-bg-gray-50 tw-rounded-lg tw-p-4">
+                                        <h3 className="tw-font-semibold tw-text-[#091f40] tw-mb-1">{cs.skill}</h3>
+                                        <p className="tw-text-sm tw-text-gray-500 tw-italic tw-mb-2">{cs.militaryContext}</p>
+                                        <p className="tw-text-sm tw-text-gray-700">{cs.civilianTranslation}</p>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-3">
+                                Non-Obvious Career Matches
+                            </h3>
+                            <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
+                                {cognitiveProfile.nonObviousCareers.map((career) => (
+                                    <div key={career.role} className="tw-border tw-border-gray-200 tw-rounded-lg tw-p-5">
+                                        <div className="tw-flex tw-items-center tw-justify-between tw-mb-2">
+                                            <h4 className="tw-font-semibold tw-text-[#091f40]">{career.role}</h4>
+                                            <span className="tw-text-xs tw-bg-gray-100 tw-text-gray-500 tw-px-2 tw-py-0.5 tw-rounded tw-font-mono">
+                                                SOC {career.socCode}
+                                            </span>
+                                        </div>
+                                        <p className="tw-text-sm tw-text-gray-700">{career.whyItFits}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </section>
                     )}
 
@@ -371,10 +414,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const mosParam = (params?.mos as string).toUpperCase();
 
-    const trainingMap = (await import("@data/training-pipeline.json")).default as Record<string, TrainingData>;
-    const certsMap = (await import("@data/cert-equivalencies.json")).default as Record<string, CertData>;
-    const systemsMap = (await import("@data/military-systems-map.json")).default as Record<string, SystemsData>;
-    const pathwaysMap = (await import("@data/career-pathways-map.json")).default as Record<string, CareerPathway[]>;
+    const dataDir = path.join(process.cwd(), "src/data");
+    const trainingMap = JSON.parse(
+        fs.readFileSync(path.join(dataDir, "training-pipeline.json"), "utf-8")
+    ) as Record<string, TrainingData>;
+    const certsMap = JSON.parse(
+        fs.readFileSync(path.join(dataDir, "cert-equivalencies.json"), "utf-8")
+    ) as Record<string, CertData>;
+    const systemsMap = JSON.parse(
+        fs.readFileSync(path.join(dataDir, "military-systems-map.json"), "utf-8")
+    ) as Record<string, SystemsData>;
+    const pathwaysMap = JSON.parse(
+        fs.readFileSync(path.join(dataDir, "career-pathways-map.json"), "utf-8")
+    ) as Record<string, CareerPathway[]>;
+    const cognitiveMap = JSON.parse(
+        fs.readFileSync(path.join(dataDir, "cognitive-skills-map.json"), "utf-8")
+    ) as Record<string, CognitiveProfile>;
 
     // Resolve the canonical MOS key: check SEO list first, then match
     // against training data keys (handles mixed-case codes like IT_NAVY)
@@ -400,6 +455,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
             certs: certsMap[mosCode] || { direct_qualifies: [], partial_coverage: [], recommended_next: [] },
             systems: systemsMap[mosCode] || { branch: training.branch, title: training.title, systems: [] },
             pathways: pathwaysMap[mosCode] || [],
+            cognitiveProfile: cognitiveMap[mosCode] || null,
         },
     };
 };

@@ -10,6 +10,7 @@ import TrainingSection from "./TrainingSection";
 import TechnicalSkillsSection from "./TechnicalSkillsSection";
 import CertPathwaysCard from "./CertPathwaysCard";
 import CareerPathwaysCard from "./CareerPathwaysCard";
+import CognitiveSkillsCard from "./CognitiveSkillsCard";
 
 interface TranslatorResultsProps {
     result: TranslatedProfile;
@@ -323,6 +324,11 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                         careerPathways={editableResult.careerPathways}
                     />
                 )}
+
+            {/* Hidden Strengths / Cognitive Skills */}
+            {editableResult.cognitiveProfile && (
+                <CognitiveSkillsCard cognitiveProfile={editableResult.cognitiveProfile} />
+            )}
 
             {/* Action buttons */}
             <div className="tw-flex tw-gap-4 tw-justify-center tw-flex-wrap">
