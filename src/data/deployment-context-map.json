@@ -1,0 +1,27 @@
+{
+  "none": {
+    "summary_addition": "",
+    "bullets": []
+  },
+  "1": {
+    "summary_addition": "including operational deployment experience in high-tempo environments",
+    "bullets": [
+      "Performed duties in high-tempo, time-critical operational environment requiring rapid decision-making with incomplete information",
+      "Demonstrated sustained performance and adaptability under challenging conditions with 24/7 operational tempo"
+    ]
+  },
+  "2": {
+    "summary_addition": "including multiple operational deployments demonstrating sustained high performance",
+    "bullets": [
+      "Executed mission-critical operations across multiple deployments, demonstrating adaptability and resilience in high-stress environments",
+      "Led team operations through multiple rotational deployments, maintaining operational effectiveness and personnel welfare"
+    ]
+  },
+  "3+": {
+    "summary_addition": "including extensive operational deployment experience across multiple theaters",
+    "bullets": [
+      "Led operations across 3+ deployments, demonstrating exceptional adaptability, crisis management, and sustained leadership under pressure",
+      "Maintained team cohesion and operational effectiveness through multiple high-stress deployment cycles, mentoring new personnel through each rotation"
+    ]
+  }
+}
