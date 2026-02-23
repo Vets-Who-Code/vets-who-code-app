@@ -76,6 +76,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
     }
 
+    // Reject oversized payloads (max 16 KB)
+    const bodyStr = JSON.stringify(req.body);
+    if (bodyStr.length > 16_384) {
+        return res.status(413).json({ error: "Request payload too large." });
+    }
+
     try {
         const {
             jobTitle, rank, branch, duties, achievements,
@@ -96,6 +102,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             return res.status(400).json({
                 error: "Years of service is required and must be between 1 and 40.",
             });
+        }
+
+        // Validate string field lengths to prevent prompt injection / abuse
+        const MAX_FIELD = 2_000;
+        const MAX_SHORT = 200;
+        if (duties.length > MAX_FIELD || (achievements && achievements.length > MAX_FIELD)) {
+            return res.status(400).json({ error: "Duties and achievements must be under 2,000 characters each." });
+        }
+        if (
+            jobTitle.length > MAX_SHORT || rank.length > MAX_SHORT || branch.length > MAX_SHORT ||
+            (targetJobTitle && targetJobTitle.length > MAX_SHORT) ||
+            (deploymentHistory && deploymentHistory.length > MAX_FIELD) ||
+            (certificationsEarned && certificationsEarned.length > MAX_FIELD)
+        ) {
+            return res.status(400).json({ error: "One or more fields exceed the maximum allowed length." });
         }
 
         // Get AI model with fallback
