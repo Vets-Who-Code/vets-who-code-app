@@ -56,6 +56,12 @@ const navigation: NavigationItem[] = [
                 path: "/resume-translator",
                 status: "new",
             },
+            {
+                id: 108,
+                label: "Career Guides",
+                path: "/career-guides",
+                status: "new",
+            },
         ],
     },
     {
