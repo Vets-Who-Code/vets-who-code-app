@@ -81,11 +81,11 @@ const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways, 
                             "@type": "WebPage",
                             "name": pageTitle,
                             "description": pageDescription,
-                            "url": `https://vetswhocode.io/resume-translator/${mosCode.toLowerCase()}`,
+                            "url": `https://vetswhocode.io/career-guides/${mosCode.toLowerCase()}`,
                             "isPartOf": {
-                                "@type": "WebApplication",
-                                "name": "Military-to-Civilian Resume Translator",
-                                "url": "https://vetswhocode.io/resume-translator",
+                                "@type": "WebSite",
+                                "name": "Military Career Guides",
+                                "url": "https://vetswhocode.io/career-guides",
                             },
                             "creator": {
                                 "@type": "Organization",
@@ -100,7 +100,7 @@ const MosPage: PageWithLayout = ({ mosCode, training, certs, systems, pathways, 
             <Breadcrumb
                 pages={[
                     { path: "/", label: "home" },
-                    { path: "/resume-translator", label: "Resume Translator" },
+                    { path: "/career-guides", label: "Career Guides" },
                 ]}
                 currentPage={`${mosCode} Career Guide`}
                 showTitle={false}

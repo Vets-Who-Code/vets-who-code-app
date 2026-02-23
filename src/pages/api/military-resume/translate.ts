@@ -42,11 +42,13 @@ export interface TranslateResponse {
     cognitiveProfile?: CognitiveProfile;
 }
 
-// Match real MOS/rating formats: 2-4 uppercase letters (Navy/CG ratings like HM, CTN, AMCS)
-// or digit-leading alphanumeric codes (Army 11B, USMC 0311, AF 3P0X1).
-// Rejects common English words like "Admin", "Nurse", "Manager" that the old
-// /^[A-Z0-9]{2,7}$/i pattern would incorrectly treat as MOS codes.
-const MOS_CODE_FORMAT = /^([A-Z]{2,4}|\d[A-Za-z0-9]{1,6})$/;
+// Match real MOS/rating formats from the jobTitle field (only used when
+// jobCode is not provided). Two branches:
+//   1) 3-4 uppercase letters — Navy/CG ratings like CTN, AMCS, ABH
+//      (2-letter ratings like HM, IT are excluded since they collide with
+//      common abbreviations; they're always submitted via the jobCode field)
+//   2) Digit-leading alphanumeric — Army 11B, USMC 0311, AF 3P0X1
+const MOS_CODE_FORMAT = /^([A-Z]{3,4}|\d[A-Za-z0-9]{1,6})$/;
 
 // Resolve the MOS lookup key — normalize job code for data file lookup
 function getMosKey(jobCode?: string, jobTitle?: string): string | null {

@@ -56,10 +56,7 @@ const CareerGuidesPage: PageWithLayout = ({ guides, branches }) => {
                 description="Browse career guides for every military job code. Find civilian career pathways, certification equivalencies, training data, and salary information for your MOS, rating, or AFSC."
             />
             <Breadcrumb
-                pages={[
-                    { path: "/", label: "home" },
-                    { path: "/resume-translator", label: "Resume Translator" },
-                ]}
+                pages={[{ path: "/", label: "home" }]}
                 currentPage="Career Guides"
                 showTitle={false}
             />
@@ -138,7 +135,7 @@ const CareerGuidesPage: PageWithLayout = ({ guides, branches }) => {
                             {filteredGuides.map((guide) => (
                                 <Link
                                     key={guide.code}
-                                    href={`/resume-translator/${guide.code.toLowerCase()}`}
+                                    href={`/career-guides/${guide.code.toLowerCase()}`}
                                     className="tw-block tw-border tw-border-gray-200 tw-rounded-lg tw-p-4 hover:tw-border-[#091f40] hover:tw-shadow-sm tw-transition-all"
                                 >
                                     <div className="tw-flex tw-items-start tw-justify-between">
@@ -158,6 +155,21 @@ const CareerGuidesPage: PageWithLayout = ({ guides, branches }) => {
                             ))}
                         </div>
                     )}
+                    {/* Resume Translator CTA */}
+                    <div className="tw-mt-12 tw-bg-gradient-to-r tw-from-[#091f40] tw-to-[#1a3a6b] tw-rounded-lg tw-p-8 tw-text-white">
+                        <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-white">
+                            Translate Your Resume
+                        </h2>
+                        <p className="tw-text-white tw-mb-4">
+                            Use our AI-powered translator to convert your military experience into ATS-optimized civilian resume language.
+                        </p>
+                        <Link
+                            href="/resume-translator"
+                            className="tw-inline-block tw-bg-[#c5a44e] tw-text-[#091f40] tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-[#d4b55e] tw-transition-colors"
+                        >
+                            Start Free Translation
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

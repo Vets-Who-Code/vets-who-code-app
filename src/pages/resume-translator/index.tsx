@@ -97,7 +97,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
                             Explore detailed career guides for every military job code — including civilian career pathways, certification equivalencies, training data, and salary information.
                         </p>
                         <Link
-                            href="/resume-translator/career-guides"
+                            href="/career-guides"
                             className="tw-inline-block tw-bg-[#c5a44e] tw-text-[#091f40] tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-[#d4b55e] tw-transition-colors"
                         >
                             Browse All Career Guides
