@@ -50,18 +50,6 @@ const navigation: NavigationItem[] = [
                 label: "Team",
                 path: "/team",
             },
-            {
-                id: 107,
-                label: "Military-Civilian Translator",
-                path: "/resume-translator",
-                status: "new",
-            },
-            {
-                id: 108,
-                label: "Career Guides",
-                path: "/career-guides",
-                status: "new",
-            },
         ],
     },
     {

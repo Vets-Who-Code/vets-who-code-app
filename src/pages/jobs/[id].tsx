@@ -228,18 +228,6 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                             </h3>
                             <div className="tw-space-y-3">
                                 <Link
-                                    href="/resume-translator"
-                                    className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
-                                >
-                                    <div className="tw-font-medium tw-text-ink">
-                                        <i className="fas fa-file-alt tw-mr-2 tw-text-primary" />
-                                        Resume Translator
-                                    </div>
-                                    <div className="tw-text-sm tw-text-gray-300">
-                                        Translate military skills to civilian terms
-                                    </div>
-                                </Link>
-                                <Link
                                     href="/courses"
                                     className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                                 >
