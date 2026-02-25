@@ -51,6 +51,14 @@ const HTMLContent = ({ body, className }: TProps) => {
                     return generateList(type, content, id);
                 }
                 if (
+                    type === "image" &&
+                    typeof content === "object" &&
+                    !Array.isArray(content) &&
+                    content.src
+                ) {
+                    return <img key={id} alt={content?.alt || "Image"} src={content.src} className="tw-w-full tw-rounded-lg" />;
+                }
+                if (
                     type === "iframe" &&
                     typeof content === "object" &&
                     !Array.isArray(content) &&

@@ -1,0 +1,100 @@
+{
+  "id": 1,
+  "title": "Foundations",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981381/foundations_bb1ayh.png"
+  },
+  "published_at": "2020-12-01T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": "4 weeks",
+  "total_lectures": 8,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Master the tools that separate professionals from hobbyists. Before you write application code, you need to think like an engineer — navigate systems, control your environment, and solve problems methodically. Every module here builds muscle memory you'll use for the rest of your career.",
+  "curriculum": [
+    "terminal-mastery",
+    "vs-code-mastery",
+    "git-and-github",
+    "html-css-fundamentals",
+    "javascript-fundamentals",
+    "python-fundamentals",
+    "software-development-life-cycle",
+    "code-challenges"
+  ],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "image",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981381/foundations_bb1ayh.png",
+        "alt": "Foundations Phase Introduction"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "Weeks 1–4 · 8 Modules. Master the tools that separate professionals from hobbyists. Before you write application code, you need to think like an engineer — navigate systems, control your environment, and solve problems methodically. Every module here builds muscle memory you'll use for the rest of your career."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Module 1: Terminal Mastery — Learn to dominate the command line. Every tool you'll use has a CLI, and the fastest path to productivity runs through the terminal. Covers file system navigation, piping and text processing (grep, sed, awk), Bash scripting and automation, environment configuration, and process management."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Module 2: VS Code Mastery — Configure your primary workspace for maximum speed and efficiency. Covers IDE setup and extensions, debugging tools, keyboard shortcuts and productivity workflows, Git integration with linting and formatting, and custom settings and profiles."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Module 3: Git & GitHub — Write code like a professional. Version everything, review everything, collaborate on everything. Covers version control fundamentals, branching strategies and merge conflict resolution, pull requests and code review, GitHub Actions and CI basics, and collaborative development."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Module 4: HTML & CSS Fundamentals — Build the visual layer of the web with semantic, accessible, responsive code. Covers semantic HTML5, accessibility fundamentals, CSS Box Model, Flexbox and CSS Grid, responsive design and media queries, and mobile-first design with transitions and animations."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Module 5: JavaScript Fundamentals — The language of the web. Master it here, build with it everywhere. Covers variables, data types, control flow, functions, arrays and objects, DOM manipulation and event handling, ES6+ features, and async/await with Promises."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Module 6: Python Fundamentals — Your second language and the backbone of AI engineering. Covers variables, data types, control structures, functions, lists, dictionaries and tuples, object-oriented programming, modules and virtual environments, and file I/O with error handling."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "Module 7: Software Development Life Cycle — Learn how real teams build real software. Covers Agile methodology and Scrum framework, sprint planning, standups and retrospectives, user stories, project management, technical writing, and team collaboration."
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "content": "Module 8: Code Challenges — Sharpen your problem-solving and prepare for technical interviews from day one. Covers data structures (arrays, linked lists, stacks, queues, hash maps, trees), algorithms (sorting, searching, recursion), Big O complexity, LeetCode practice, and whiteboard problem-solving strategies."
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "content": "Phase Outcome: Navigate any codebase, push code professionally, and solve problems like an engineer."
+    }
+  ]
+}
