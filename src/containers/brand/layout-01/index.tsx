@@ -55,11 +55,10 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                 className="tw-my-auto tw-flex tw-justify-center"
                             >
                                 <img
-                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100"
+                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
                                     src={item.images?.[0]?.src}
                                     alt={item.images?.[0]?.alt || "logo"}
                                     loading="lazy"
-                                    style={{ filter: "invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%) contrast(95%)" }}
                                 />
                             </SwiperSlide>
                         ))}
