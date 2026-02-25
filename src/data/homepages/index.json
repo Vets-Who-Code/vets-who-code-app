@@ -242,7 +242,7 @@
                     "id": 1,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/slack.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042938/partners/partners/slack-logo.svg",
                             "alt": "Slack"
                         }
                     ]
@@ -251,7 +251,7 @@
                     "id": 2,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/google.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042940/partners/partners/google-logo.svg",
                             "alt": "Google"
                         }
                     ]
@@ -260,7 +260,7 @@
                     "id": 3,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/deepmind.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042941/partners/partners/deepmind-logo.svg",
                             "alt": "Google DeepMind"
                         }
                     ]
@@ -269,7 +269,7 @@
                     "id": 4,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042943/partners/partners/github-logo.svg",
                             "alt": "GitHub"
                         }
                     ]
@@ -278,7 +278,7 @@
                     "id": 5,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/cloudinary.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042945/partners/partners/cloudinary-logo.svg",
                             "alt": "Cloudinary"
                         }
                     ]
@@ -287,7 +287,7 @@
                     "id": 6,
                     "images": [
                         {
-                            "src": "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/microsoft.svg",
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1772042947/partners/partners/microsoft-logo.svg",
                             "alt": "Microsoft"
                         }
                     ]
