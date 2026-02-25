@@ -63,7 +63,7 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(({ className, product }, 
                         width={image.width}
                         height={image.height}
                         loading="lazy"
-                        className="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-1000 tw-ease-out tw-group-hover:tw-scale-110"
+                        className="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
                     />
                 )}
 

@@ -1,0 +1,100 @@
+{
+  "id": 3,
+  "title": "AI Engineering",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981444/ai-engineering_nonggx.png"
+  },
+  "published_at": "2020-12-03T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": "5 weeks",
+  "total_lectures": 8,
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Go beyond prompts. This is where VWC graduates separate from every other bootcamp — you won't just use AI tools, you'll build the systems behind them. Production APIs, retrieval-augmented generation, autonomous agents, and real-time streaming interfaces.",
+  "curriculum": [
+    "python-for-ai",
+    "pydantic-and-data-validation",
+    "fastapi-production-ai-apis",
+    "google-gemini-integration",
+    "rag-systems",
+    "ai-agents",
+    "streaming-ai-interfaces",
+    "ai-safety-and-security"
+  ],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "image",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981444/ai-engineering_nonggx.png",
+        "alt": "AI Engineering Phase Introduction"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "Weeks 10–14 · 8 Modules. Go beyond prompts. This is where VWC graduates separate from every other bootcamp — you won't just use AI tools, you'll build the systems behind them. Production APIs, retrieval-augmented generation, autonomous agents, and real-time streaming interfaces."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Module 14: Python for AI — Bridge your Python fundamentals into the AI engineering stack. Covers advanced data handling (Pandas, NumPy basics), working with APIs and JSON, environment management for AI projects, Jupyter notebooks and rapid prototyping, and Python packaging and project structure."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Module 15: Pydantic & Data Validation — The foundation of every reliable AI system: structured, validated data. Covers Pydantic models and type validation, schema design for AI inputs and outputs, nested models and custom validators, serialization and deserialization, and settings management and configuration."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Module 16: FastAPI: Production AI APIs — Build the backend that powers AI applications at scale. Covers request/response validation with Pydantic, async/await patterns for performance, dependency injection and middleware, auto-generated OpenAPI documentation, and background tasks and error handling."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Module 17: Google Gemini Integration — Connect to frontier AI models for text and multimodal applications. Covers Gemini API setup and authentication, text generation and chat completions, multimodal inputs (images, documents, audio), prompt engineering for production systems, and token management and cost optimization."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Module 18: RAG Systems — Give AI applications real knowledge: your data, your documents, your context. Covers document ingestion and chunking strategies, embedding models and vector databases, retrieval pipeline design, context window management, and evaluation and quality metrics for retrieval."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Module 19: AI Agents — Build autonomous systems that reason, plan, and take action. Covers agent architecture and design patterns, tool use and function calling, multi-step reasoning and planning, memory and state management, and guardrails and control mechanisms."
+    },
+    {
+      "id": 9,
+      "type": "text",
+      "content": "Module 20: Streaming AI Interfaces — Build real-time, token-by-token experiences users expect from modern AI. Covers server-sent events (SSE) and streaming protocols, token-by-token response rendering, FastAPI streaming endpoints, frontend streaming consumption, and loading states, error handling and UX patterns."
+    },
+    {
+      "id": 10,
+      "type": "text",
+      "content": "Module 21: AI Safety & Security — Ship AI responsibly. Protect your users, your data, and your system. Covers prompt injection and adversarial attacks, input sanitization and output filtering, rate limiting and abuse prevention, content moderation strategies, and responsible AI principles and bias mitigation."
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "content": "Phase Outcome: Design, build, and secure AI-powered applications from scratch."
+    }
+  ]
+}

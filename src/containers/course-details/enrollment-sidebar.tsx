@@ -9,18 +9,9 @@ type TProps = {
 
 // Mapping between subject slugs and course IDs in the learning platform
 const subjectToCourseMapping: Record<string, string> = {
-    "web-fundamentals": "web-development",
-    devops: "devops",
-    "python-fundamentals": "data-science",
-    django: "web-development",
-    "next-js-and-typescript": "web-development",
-    flask: "web-development",
-    "fast-api": "web-development",
-    "core-fundamentals": "web-development",
-    "job-prep": "career-prep",
-    "scalable-coding-principles": "web-development",
-    "postgres-with-neon": "web-development",
-    streamlit: "data-science",
+    foundations: "foundations",
+    "software-engineering": "software-engineering",
+    "ai-engineering": "ai-engineering",
 };
 
 const EnrollmentSidebar = ({ course }: TProps) => {
@@ -86,7 +77,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
             <div className="tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-p-6 tw-shadow-lg">
                 <div className="tw-mb-6 tw-text-center">
                     <div className="tw-mb-2 tw-text-3xl tw-font-bold tw-text-gold">FREE</div>
-                    <p className="tw-text-gray-300">For veterans & military spouses</p>
+                    <p className="tw-text-gray-300">For veterans & military spouses in Vets Who Code.</p>
                 </div>
 
                 {checkingEnrollment ? (
@@ -187,28 +178,12 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                     <h4 className="tw-mb-3 tw-font-semibold tw-text-ink">Quick Links:</h4>
                     <div className="tw-space-y-2">
                         <Link
-                            href="/courses"
-                            className="hover:tw-text-primary-dark tw-block tw-text-sm tw-text-primary tw-transition-colors"
-                        >
-                            <i className="fas fa-book tw-mr-2" />
-                            Browse All Courses
-                        </Link>
-                        <Link
                             href="/subjects/all"
                             className="hover:tw-text-primary-dark tw-block tw-text-sm tw-text-primary tw-transition-colors"
                         >
                             <i className="fas fa-list tw-mr-2" />
                             View All Subjects
                         </Link>
-                        {session && (
-                            <Link
-                                href="/dashboard"
-                                className="hover:tw-text-primary-dark tw-block tw-text-sm tw-text-primary tw-transition-colors"
-                            >
-                                <i className="fas fa-tachometer-alt tw-mr-2" />
-                                My Dashboard
-                            </Link>
-                        )}
                     </div>
                 </div>
             </div>
