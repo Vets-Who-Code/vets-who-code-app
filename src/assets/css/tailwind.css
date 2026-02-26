@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .tw-filter-brand-primary {
+        filter: invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%) contrast(95%);
+    }
+}
+
 @layer base {
     body {
         @apply tw-overflow-x-hidden tw-font-body tw-text-base tw-font-normal tw-leading-body tw-text-body;

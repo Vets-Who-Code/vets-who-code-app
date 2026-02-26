@@ -30,7 +30,7 @@ const CourseArea = ({ data: { section_title, courses }, space, bg, titleSize }: 
                     />
                 )}
                 <div className="tw-grid tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3">
-                    {courses.map((course) => (
+                    {[...courses].reverse().map((course) => (
                         <CourseCard
                             key={course.path}
                             title={course.title}

@@ -38,7 +38,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
     return (
         <Section className="brand-area" space={space} bg={bg}>
             <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-primary">
-                We Are Thankful for our Corporate Donors and Sponsors
+                Technology Partners
             </h2>
             <div className="tw-container">
                 {items && (
@@ -55,7 +55,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                 className="tw-my-auto tw-flex tw-justify-center"
                             >
                                 <img
-                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100"
+                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
                                     src={item.images?.[0]?.src}
                                     alt={item.images?.[0]?.alt || "logo"}
                                     loading="lazy"
