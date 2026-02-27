@@ -1,6 +1,6 @@
-import { useUser } from "@contexts/user-context";
 import Anchor from "@ui/anchor";
 import { Modal, ModalBody, ModalClose, ModalHeader } from "@ui/modal";
+import { useSession } from "next-auth/react";
 
 type TProps = {
     show: boolean;
@@ -8,7 +8,8 @@ type TProps = {
 };
 
 const EnrollModal = ({ show, onClose }: TProps) => {
-    const { isLoggedIn } = useUser();
+    const { status } = useSession();
+    const isLoggedIn = status === "authenticated";
     return (
         <Modal show={show} onClose={onClose}>
             <ModalHeader>

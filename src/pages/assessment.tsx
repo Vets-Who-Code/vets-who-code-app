@@ -4,7 +4,6 @@ import SEO from "@components/seo/page-seo";
 import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
-import { SafeLocalStorage } from "@utils/safe-storage";
 import type { GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -48,36 +47,11 @@ const Assessment: PageWithLayout = () => {
         message: string;
     } | null>(null);
 
-    // Check for dev session
-    const [devSession, setDevSession] = useState<{
-        user: { id: string; name: string; email: string; image: string };
-    } | null>(null);
-    const [devSessionLoaded, setDevSessionLoaded] = useState(false);
-
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            // Use SafeStorage to get dev session
-            const user = SafeLocalStorage.getItem<{
-                id: string;
-                name: string;
-                email: string;
-                image: string;
-            } | null>("dev-session", null);
-
-            if (user) {
-                setDevSession({ user });
-            }
-            setDevSessionLoaded(true);
-        }
-    }, []);
-
-    const currentSession = session || devSession;
-
-    useEffect(() => {
-        if (devSessionLoaded && status === "unauthenticated" && !devSession) {
+        if (status === "unauthenticated") {
             router.replace("/login");
         }
-    }, [status, router, devSession, devSessionLoaded]);
+    }, [status, router]);
 
     const currentQuestion: AssessmentQuestion = assessmentQuestions[currentQuestionIndex];
 
@@ -90,7 +64,7 @@ const Assessment: PageWithLayout = () => {
         }
     }, [currentQuestionIndex, currentQuestion, answers]);
 
-    if (!mounted || (!devSessionLoaded && status === "loading")) {
+    if (!mounted || status === "loading") {
         return (
             <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
                 <Spinner />
@@ -98,7 +72,7 @@ const Assessment: PageWithLayout = () => {
         );
     }
 
-    if (!currentSession) {
+    if (!session) {
         return (
             <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
                 <Spinner />
@@ -201,14 +175,9 @@ const Assessment: PageWithLayout = () => {
         const skillLevel = determineSkillLevel(score);
 
         try {
-            const headers: HeadersInit = { "Content-Type": "application/json" };
-            if (devSession) {
-                headers["x-dev-user-id"] = devSession.user.id;
-            }
-
             const response = await fetch("/api/user/assessment", {
                 method: "POST",
-                headers,
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     score,
                     skillLevel,

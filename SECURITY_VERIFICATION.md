@@ -40,33 +40,6 @@ In production, the login flow:
 
 **Development:** All GitHub users can login for testing (Line 47)
 
-### 3. **Dev Login Protection**
-
-**File:** `src/pages/dev-login.tsx` (Lines 91-100)
-
-```typescript
-if (process.env.NODE_ENV !== "development") {
-    return {
-        redirect: {
-            destination: "/",
-            permanent: false,
-        },
-    };
-}
-```
-
-- In production, `/dev-login` redirects to homepage
-- Dev login button is hidden in production (conditional rendering)
-- Dev session API endpoint returns 403 in production
-
-**File:** `src/pages/api/auth/dev-session.ts` (Lines 10-12)
-
-```typescript
-if (process.env.NODE_ENV !== 'development') {
-    return res.status(403).json({ error: 'Not available in production' });
-}
-```
-
 ---
 
 ## 🔒 Security Verification Checklist
@@ -75,18 +48,11 @@ if (process.env.NODE_ENV !== 'development') {
 
 - ❌ **Cannot** bypass auth by manipulating localStorage
   - *Why:* All auth checks happen server-side via `getServerSession()`
-  - *Old approach removed:* No longer checking `localStorage.getItem("dev-session")`
 
 - ❌ **Cannot** bypass auth by manipulating browser DevTools
   - *Why:* Server-side rendering checks auth before sending HTML
 
-- ❌ **Cannot** access `/dev-login` in production
-  - *Why:* `GetServerSideProps` redirects to "/" in production
-
 ### Server-Side Bypasses - PREVENTED ✅
-
-- ❌ **Cannot** access dev-session API in production
-  - *Why:* Returns 403 if `NODE_ENV !== 'development'`
 
 - ❌ **Cannot** forge NextAuth session
   - *Why:* Sessions are validated against database and signed with secret
@@ -97,41 +63,24 @@ if (process.env.NODE_ENV !== 'development') {
 ### Environment-Based Security ✅
 
 **Development Mode (`NODE_ENV=development`):**
-- ✅ Dev login accessible for testing
-- ✅ All GitHub users can login
-- ✅ Dev-session API works
-- ✅ localStorage dev-session (legacy, not used on protected pages)
+- ✅ All GitHub users can login for testing
 
 **Production Mode (`NODE_ENV=production`):**
-- ✅ Dev login redirects to homepage
 - ✅ Only Vets-Who-Code org members + jeromehardaway can login
-- ✅ Dev-session API returns 403
 - ✅ All protected pages require valid NextAuth session
 
 ---
 
 ## 🧪 How to Verify (Manual Testing)
 
-### Test 1: Dev Login in Production
-1. Set `NODE_ENV=production`
-2. Build: `npm run build`
-3. Start: `npm start`
-4. Navigate to `/dev-login`
-5. **Expected:** Redirect to homepage
-
-### Test 2: Protected Pages Without Auth
+### Test 1: Protected Pages Without Auth
 1. Open browser in incognito mode
 2. Navigate to `/resume-translator`
 3. **Expected:** Redirect to `/login?callbackUrl=/resume-translator`
 4. Try `/courses`
 5. **Expected:** Redirect to `/login?callbackUrl=/courses`
 
-### Test 3: Dev Session API in Production
-1. Set `NODE_ENV=production`
-2. Make POST request to `/api/auth/dev-session`
-3. **Expected:** `403 Forbidden` with error message
-
-### Test 4: Non-Org Member Login Attempt
+### Test 2: Non-Org Member Login Attempt
 1. Set `NODE_ENV=production`
 2. Login with GitHub user NOT in Vets-Who-Code org
 3. **Expected:** Login denied, redirected back
@@ -154,25 +103,21 @@ NEXTAUTH_URL=https://your-domain.com
 
 ## ✅ Security Validation: PASSED
 
-**Build Status:** ✅ Successful (no TypeScript errors)
-
 **Protected Routes:** 9 routes converted to server-side auth
-
-**Dev Login:** ✅ Protected in production
 
 **Org Membership:** ✅ Enforced via GitHub API
 
-**Last Verified:** November 28, 2025
+**Last Verified:** February 27, 2026
 
 ---
 
 ## 📋 Summary
 
 All features are properly secured with:
-1. ✅ Server-side authentication checks
+1. ✅ Server-side authentication checks (NextAuth.js + Prisma)
 2. ✅ GitHub organization membership verification
 3. ✅ No client-side bypass vulnerabilities
-4. ✅ Dev tools disabled in production
+4. ✅ No dev-only auth bypass endpoints
 5. ✅ Environment-based access control
 
 **In production, only authenticated members of the Vets-Who-Code GitHub organization can access protected features.**
