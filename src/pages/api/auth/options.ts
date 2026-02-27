@@ -42,8 +42,12 @@ export const options: NextAuthOptions = {
             if (account?.provider === "github") {
                 const githubProfile = profile as GithubProfile;
 
+                if (!githubProfile?.login) {
+                    console.error("[Auth] GitHub profile missing login field");
+                    return false;
+                }
+
                 // For development, allow any GitHub user to sign in
-                // In production, you'd want to restrict this
                 if (process.env.NODE_ENV === "development") {
                     return true;
                 }
@@ -54,45 +58,40 @@ export const options: NextAuthOptions = {
                 }
 
                 // For other users in production, check organization membership
-                if (account.access_token) {
-                    try {
-                        const githubOrg = process.env.GITHUB_ORG;
-                        if (!githubOrg) {
-                            return false;
-                        }
+                const githubOrg = process.env.GITHUB_ORG;
+                if (!githubOrg) {
+                    console.error("[Auth] GITHUB_ORG env var is not set");
+                    return false;
+                }
 
-                        // Add timeout protection to the GitHub API call
-                        const res = await fetchWithTimeout(
-                            `https://api.github.com/orgs/${githubOrg}/members/${githubProfile.login}`,
-                            {
-                                headers: {
-                                    Accept: "application/vnd.github.v3+json",
-                                    Authorization: `Bearer ${account.access_token}`,
-                                    "User-Agent": "NextAuth.js",
-                                },
+                if (!account.access_token) {
+                    console.error("[Auth] No access_token on account");
+                    return false;
+                }
+
+                try {
+                    const res = await fetchWithTimeout(
+                        `https://api.github.com/orgs/${githubOrg}/members/${githubProfile.login}`,
+                        {
+                            headers: {
+                                Accept: "application/vnd.github.v3+json",
+                                Authorization: `Bearer ${account.access_token}`,
+                                "User-Agent": "NextAuth.js",
                             },
-                            5000 // 5 second timeout
-                        );
+                        },
+                        5000
+                    );
 
-                        // Handle rate limiting
-                        if (res.status === 403) {
-                            return false;
-                        }
-
-                        if (!res.ok) {
-                            return false;
-                        }
-
-                        const isMember = res.status === 204;
-
-                        if (!isMember) {
-                            return false;
-                        }
-
+                    // 204 = member, 302 = requester not in org, 404 = not a member
+                    if (res.status === 204) {
                         return true;
-                    } catch (_error) {
-                        return false;
                     }
+
+                    console.error(`[Auth] Org membership check failed for ${githubProfile.login}: status ${res.status}`);
+                    return false;
+                } catch (error) {
+                    console.error("[Auth] Org membership check error:", error);
+                    return false;
                 }
             }
 
