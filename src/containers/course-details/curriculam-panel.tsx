@@ -1,22 +1,19 @@
-import { useUser } from "@contexts/user-context";
 import Anchor from "@ui/anchor";
 import Badge from "@ui/badge";
 import { ICurriculum } from "@utils/types";
 import clsx from "clsx";
+import { useSession } from "next-auth/react";
 
 type TProps = {
     curriculum: ICurriculum[];
     courseSlug: string;
 };
 
-interface UserContextType {
-    courseProgress?: Array<{ course: string }>;
-}
-
 const CurriculumPanel = ({ curriculum, courseSlug }: TProps) => {
-    const user = useUser() as UserContextType;
-    const courseProgress = user?.courseProgress ?? [];
-    const enrolledCourse = courseProgress.find((cs) => cs.course === courseSlug);
+    const { status } = useSession();
+    const isAuthenticated = status === "authenticated";
+    // TODO: Replace with actual course enrollment check from database
+    const enrolledCourse = isAuthenticated ? { course: courseSlug } : undefined;
 
     return (
         <div className="curriculum-sections">

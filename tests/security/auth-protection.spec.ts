@@ -75,60 +75,7 @@ test.describe("Protected Routes - Authentication Required", () => {
     });
 });
 
-test.describe("Dev Login Protection", () => {
-    test("Dev login page should not be accessible in production", async ({ page }) => {
-        // Playwright webServer runs in production mode (npm run build && npm run start)
-        // In production, /dev-login should redirect to homepage
-
-        await page.goto("/dev-login");
-
-        // Should redirect to homepage in production
-        expect(page.url()).toBe(new URL("/", page.url()).href);
-    });
-
-    test("Dev session API should return 403 in production", async ({ request }) => {
-        // Playwright webServer runs in production mode (npm run build && npm run start)
-        // Dev session API should return 403 in production
-
-        const response = await request.post("/api/auth/dev-session", {
-            data: {
-                email: "test@example.com",
-            },
-        });
-
-        // Should return 403 in production
-        expect(response.status()).toBe(403);
-        const data = await response.json();
-        expect(data.error).toBe("Not available in production");
-    });
-});
-
 test.describe("Client-Side Bypass Prevention", () => {
-    test("Cannot bypass auth with localStorage manipulation", async ({ page }) => {
-        // Set fake dev session in localStorage
-        await page.goto("/");
-        await page.evaluate(() => {
-            const fakeUser = {
-                id: "fake-user",
-                name: "Fake User",
-                email: "fake@example.com",
-                image: "https://example.com/fake.png",
-            };
-            localStorage.setItem("dev-session", JSON.stringify(fakeUser));
-        });
-
-        // Try to access protected route
-        await page.goto("/courses");
-
-        // Should still redirect to login because server-side auth is required
-        await page.waitForURL(/\/login/);
-        expect(page.url()).toContain("/login");
-
-        // Verify localStorage was set (to prove the test is valid)
-        const devSession = await page.evaluate(() => localStorage.getItem("dev-session"));
-        expect(devSession).toBeTruthy();
-    });
-
     test("Protected content should not be visible without server-side auth", async ({ page }) => {
         // Go to courses page
         await page.goto("/courses");

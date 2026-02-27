@@ -17,7 +17,6 @@ import "@/assets/css/globals.css";
 
 import { CartProvider } from "../contexts/cart-context";
 import { UIProvider } from "../contexts/ui-context";
-import { UserProvider } from "../contexts/user-context";
 
 interface CustomAppProps extends Omit<AppProps, "Component"> {
     Component: AppProps["Component"] & { Layout?: ElementType };
@@ -49,8 +48,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     return (
         <SessionProvider session={pageProps.session}>
             <UIProvider>
-                <UserProvider>
-                    <CartProvider>
+                <CartProvider>
                         {/* Microsoft Clarity Script */}
                         {process.env.NODE_ENV === "production" && (
                             <Script
@@ -73,8 +71,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
                             <Component {...pageProps} />
                             <Analytics />
                         </Layout>
-                    </CartProvider>
-                </UserProvider>
+                </CartProvider>
             </UIProvider>
         </SessionProvider>
     );
