@@ -86,7 +86,6 @@ We support development containers for an easier setup experience.
    ```
 
 2. **Open in VS Code**
-
    - Open the root directory in VS Code.
    - When prompted, choose "Reopen in Container"
    - Or use Command Palette (`F1`) and run `Remote-Containers: Reopen in Container`.
@@ -113,7 +112,7 @@ Remember, this is optional. If you prefer to set up your development environment
   - CLOUDINARY_API_SECRET
   - GEMINI_API_KEY
 - Run this script followed by the blog article slug as second arg like this example:
-  `npm run generate-blog-image <blog-slug-here>`
+  `npm run generate:blog-image <blog-slug-here>`
 
 To get a local copy up and running, you'll need a few things installed on your machine.
 `npx tsx scripts/generate-blog-image.ts`
