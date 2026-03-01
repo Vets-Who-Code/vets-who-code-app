@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import prisma from "@/lib/prisma";
 
 interface UpdateProfileBody {
@@ -92,7 +93,7 @@ async function handleUpdateProfile(userId: string, body: UpdateProfileBody, res:
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, options);
 
     if (!session?.user?.id) {
         return res.status(401).json({ error: "Unauthorized" });

@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/pages/api/auth/options";
 import prisma from "@/lib/prisma";
 import type { LearningStatsData } from "@/types/profile";
 
@@ -9,7 +10,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const session = await getSession({ req });
+    const session = await getServerSession(req, res, options);
     if (!session?.user?.id) {
         return res.status(401).json({ error: "Unauthorized" });
     }
