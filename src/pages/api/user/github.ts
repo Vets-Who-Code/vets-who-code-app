@@ -78,8 +78,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             token
         ) as GitHubProfileData;
 
-        // Then fetch repos and events in parallel using the real login
-        const [repos, events] = await Promise.all([
+        // Then fetch repos, events, and profile README in parallel
+        const [repos, events, readme] = await Promise.all([
             githubFetch(
                 "https://api.github.com/user/repos?per_page=100&sort=updated&direction=desc&type=owner",
                 token
@@ -88,6 +88,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 `https://api.github.com/users/${profile.login}/events?per_page=30`,
                 token
             ).catch(() => [] as GitHubEvent[]),
+            // Profile README lives in a repo named after the user's login
+            fetch(
+                `https://raw.githubusercontent.com/${profile.login}/${profile.login}/main/README.md`,
+                { headers: { "User-Agent": "VetsWhoCode-App" } }
+            )
+                .then((r) => (r.ok ? r.text() : null))
+                .catch(() => null),
         ]);
 
         // Compute aggregated stats
@@ -110,6 +117,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             repos,
             languages,
             events,
+            readme,
             stats: { totalStars, totalForks, accountAgeDays, topLanguage },
         };
 

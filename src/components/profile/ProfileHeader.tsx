@@ -22,6 +22,8 @@ const ProfileHeader = ({
         ? Math.floor(github.stats.accountAgeDays / 365)
         : null;
 
+    const avatarUrl = user.image || github?.profile.avatar_url || null;
+
     return (
         <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -42,9 +44,9 @@ const ProfileHeader = ({
             <div className="tw-relative tw-flex tw-flex-col tw-items-start tw-space-y-6 md:tw-flex-row md:tw-items-center md:tw-space-x-8 md:tw-space-y-0">
                 {/* Avatar */}
                 <div className="tw-relative tw-flex-shrink-0">
-                    {user.image ? (
+                    {avatarUrl ? (
                         <img
-                            src={user.image}
+                            src={avatarUrl}
                             alt={user.name || "User"}
                             className="tw-h-28 tw-w-28 tw-rounded-full tw-border-4 tw-border-gold/40 tw-shadow-lg tw-shadow-gold/10"
                         />

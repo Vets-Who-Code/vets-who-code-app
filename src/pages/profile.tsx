@@ -24,6 +24,7 @@ import {
     ServiceRecord,
     LearningProgress,
     ProfileSettings,
+    GitHubReadme,
 } from "@/components/profile";
 
 type PageProps = {
@@ -116,6 +117,11 @@ const Profile: PageWithLayout = ({ user }) => {
                         />
                         <LanguageBreakdown
                             languages={github.data?.languages || []}
+                            isLoading={github.isLoading}
+                        />
+                        <GitHubReadme
+                            content={github.data?.readme || null}
+                            login={github.data?.profile.login || ""}
                             isLoading={github.isLoading}
                         />
                     </div>

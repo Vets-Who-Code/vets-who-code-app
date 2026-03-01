@@ -8,3 +8,4 @@ export { default as ActivityFeed } from "./ActivityFeed";
 export { default as ServiceRecord } from "./ServiceRecord";
 export { default as LearningProgress } from "./LearningProgress";
 export { default as ProfileSettings } from "./ProfileSettings";
+export { default as GitHubReadme } from "./GitHubReadme";

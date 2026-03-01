@@ -52,6 +52,7 @@ export interface GitHubData {
     repos: GitHubRepo[];
     languages: LanguageBreakdownEntry[];
     events: GitHubEvent[];
+    readme: string | null;
     stats: {
         totalStars: number;
         totalForks: number;
