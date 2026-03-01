@@ -99,6 +99,17 @@ const Profile: PageWithLayout = ({ user }) => {
                 {/* Command Center — GitHub overview */}
                 {activeTab === "command-center" && (
                     <div className="tw-space-y-8">
+                        {github.error && !github.isLoading && (
+                            <div className="tw-rounded-lg tw-border tw-border-red/20 tw-bg-red/5 tw-p-6 tw-text-center">
+                                <i className="fas fa-exclamation-triangle tw-text-red tw-text-2xl tw-mb-2" />
+                                <p className="tw-font-mono tw-text-sm tw-text-red/80">
+                                    Unable to load GitHub data: {github.error}
+                                </p>
+                                <p className="tw-font-mono tw-text-xs tw-text-gray-300 tw-mt-1">
+                                    Try logging out and back in to refresh your GitHub token.
+                                </p>
+                            </div>
+                        )}
                         <GitHubStatsGrid
                             github={github.data}
                             isLoading={github.isLoading}

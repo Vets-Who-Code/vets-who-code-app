@@ -71,15 +71,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const token = account.access_token;
 
-        // Fetch GitHub data in parallel
-        const [profile, repos, events] = await Promise.all([
-            githubFetch("https://api.github.com/user", token) as Promise<GitHubProfileData>,
+        // Fetch profile first to get the GitHub login
+        const profile = await githubFetch(
+            "https://api.github.com/user",
+            token
+        ) as GitHubProfileData;
+
+        // Then fetch repos and events in parallel using the real login
+        const [repos, events] = await Promise.all([
             githubFetch(
-                "https://api.github.com/user/repos?per_page=100&sort=updated&direction=desc",
+                "https://api.github.com/user/repos?per_page=100&sort=updated&direction=desc&type=owner",
                 token
             ) as Promise<GitHubRepo[]>,
             githubFetch(
-                `https://api.github.com/users/${session.user.name || "unknown"}/events?per_page=30`,
+                `https://api.github.com/users/${profile.login}/events?per_page=30`,
                 token
             ).catch(() => [] as GitHubEvent[]),
         ]);

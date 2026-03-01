@@ -62,7 +62,7 @@ const ProfileHeader = ({
 
                 {/* Info */}
                 <div className="tw-flex-1 tw-min-w-0">
-                    <h1 className="tw-text-3xl tw-font-bold tw-tracking-tight">
+                    <h1 className="tw-text-3xl tw-font-bold tw-tracking-tight tw-text-white tw-mb-0">
                         {user.name || "Operator"}
                     </h1>
                     <p className="tw-mt-1 tw-font-mono tw-text-sm tw-text-gold/80">
