@@ -13,3 +13,6 @@ export { default as useSort } from "./use-sort";
 export { default as useSticky } from "./use-sticky";
 export { default as useTranslator } from "./use-translator";
 export { default as useWindowSize } from "./use-window-size";
+export { default as useGitHubProfile } from "./use-github-profile";
+export { default as useLearningStats } from "./use-learning-stats";
+export { default as useProfileForm } from "./use-profile-form";
