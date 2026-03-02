@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useSession } from "next-auth/react";
 import type { ProfileFormData, ProfileUser } from "@/types/profile";
 
@@ -45,6 +45,10 @@ export default function useProfileForm(user: ProfileUser): UseProfileFormReturn 
     const [isSaving, setIsSaving] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [notification, setNotification] = useState<Notification | null>(null);
+
+    // Keep a ref to formData so handleSave always reads the latest
+    const formDataRef = useRef(formData);
+    formDataRef.current = formData;
 
     useEffect(() => {
         async function fetchProfile() {
@@ -95,37 +99,38 @@ export default function useProfileForm(user: ProfileUser): UseProfileFormReturn 
     const dismissNotification = useCallback(() => setNotification(null), []);
 
     const handleSave = useCallback(async () => {
+        const currentData = formDataRef.current;
         setIsSaving(true);
         try {
             const response = await fetch("/api/user/profile", {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(currentData),
             });
 
             if (response.ok) {
                 setIsEditing(false);
-                setOriginalFormData(formData);
+                setOriginalFormData(currentData);
                 setNotification({ type: "success", message: "Profile updated successfully!" });
-                setTimeout(() => setNotification(null), 3000);
+                setTimeout(() => setNotification(null), 5000);
             } else {
                 const err = await response.json().catch(() => ({}));
                 setNotification({
                     type: "error",
-                    message: err.message || "Failed to update profile",
+                    message: err.error || err.message || "Failed to update profile",
                 });
-                setTimeout(() => setNotification(null), 5000);
+                setTimeout(() => setNotification(null), 8000);
             }
         } catch {
             setNotification({
                 type: "error",
                 message: "An error occurred while saving your profile",
             });
-            setTimeout(() => setNotification(null), 5000);
+            setTimeout(() => setNotification(null), 8000);
         } finally {
             setIsSaving(false);
         }
-    }, [formData]);
+    }, []);
 
     const handleCancel = useCallback(() => {
         setFormData(originalFormData);
