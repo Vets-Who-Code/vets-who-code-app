@@ -7,6 +7,7 @@ interface ProfileHeaderProps {
     formData: ProfileFormData;
     github: GitHubData | null;
     isEditing: boolean;
+    isOwner?: boolean;
     onToggleEdit: () => void;
     onLogout: () => void;
 }
@@ -16,6 +17,7 @@ const ProfileHeader = ({
     formData,
     github,
     isEditing,
+    isOwner = true,
     onToggleEdit,
     onLogout,
 }: ProfileHeaderProps) => {
@@ -147,25 +149,27 @@ const ProfileHeader = ({
                     </div>
                 </div>
 
-                {/* Actions */}
-                <div className="tw-flex tw-flex-shrink-0 tw-space-x-3">
-                    <button
-                        type="button"
-                        onClick={onToggleEdit}
-                        className="tw-rounded-lg tw-border tw-border-gold/30 tw-bg-gold/10 tw-px-4 tw-py-2 tw-font-mono tw-text-sm tw-font-semibold tw-text-gold tw-transition-all hover:tw-bg-gold/20"
-                    >
-                        <i className={`fas ${isEditing ? "fa-times" : "fa-edit"} tw-mr-2`} />
-                        {isEditing ? "Cancel" : "Edit Profile"}
-                    </button>
-                    <button
-                        type="button"
-                        onClick={onLogout}
-                        className="tw-rounded-lg tw-bg-red/80 tw-px-4 tw-py-2 tw-font-mono tw-text-sm tw-font-semibold tw-text-white tw-transition-all hover:tw-bg-red"
-                    >
-                        <i className="fas fa-sign-out-alt tw-mr-2" />
-                        Logout
-                    </button>
-                </div>
+                {/* Actions — only visible to profile owner */}
+                {isOwner && (
+                    <div className="tw-flex tw-flex-shrink-0 tw-space-x-3">
+                        <button
+                            type="button"
+                            onClick={onToggleEdit}
+                            className="tw-rounded-lg tw-border tw-border-gold/30 tw-bg-gold/10 tw-px-4 tw-py-2 tw-font-mono tw-text-sm tw-font-semibold tw-text-gold tw-transition-all hover:tw-bg-gold/20"
+                        >
+                            <i className={`fas ${isEditing ? "fa-times" : "fa-edit"} tw-mr-2`} />
+                            {isEditing ? "Cancel" : "Edit Profile"}
+                        </button>
+                        <button
+                            type="button"
+                            onClick={onLogout}
+                            className="tw-rounded-lg tw-bg-red/80 tw-px-4 tw-py-2 tw-font-mono tw-text-sm tw-font-semibold tw-text-white tw-transition-all hover:tw-bg-red"
+                        >
+                            <i className="fas fa-sign-out-alt tw-mr-2" />
+                            Logout
+                        </button>
+                    </div>
+                )}
             </div>
         </motion.div>
     );

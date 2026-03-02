@@ -15,7 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const userId = session.user.id;
+    // Allow viewing another member's learning stats via ?userId=
+    const userId = (req.query.userId as string) || session.user.id;
 
     try {
         const [enrollments, progressAgg, certificates, recentProgress] = await Promise.all([
