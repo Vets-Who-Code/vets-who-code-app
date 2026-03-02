@@ -7,7 +7,7 @@ interface UseGitHubProfileReturn {
     error: string | null;
 }
 
-export default function useGitHubProfile(): UseGitHubProfileReturn {
+export default function useGitHubProfile(userId?: string): UseGitHubProfileReturn {
     const [data, setData] = useState<GitHubData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -17,7 +17,10 @@ export default function useGitHubProfile(): UseGitHubProfileReturn {
 
         async function fetchGitHub() {
             try {
-                const res = await fetch("/api/user/github");
+                const url = userId
+                    ? `/api/user/github?userId=${encodeURIComponent(userId)}`
+                    : "/api/user/github";
+                const res = await fetch(url);
                 if (!res.ok) {
                     const body = await res.json().catch(() => ({}));
                     throw new Error(body.error || `HTTP ${res.status}`);
@@ -33,7 +36,7 @@ export default function useGitHubProfile(): UseGitHubProfileReturn {
 
         fetchGitHub();
         return () => { cancelled = true; };
-    }, []);
+    }, [userId]);
 
     return { data, isLoading, error };
 }

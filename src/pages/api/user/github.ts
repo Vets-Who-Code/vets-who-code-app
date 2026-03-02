@@ -56,11 +56,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ error: "Unauthorized" });
     }
 
+    // Allow viewing another member's GitHub data via ?userId=
+    const targetUserId = (req.query.userId as string) || session.user.id;
+
     try {
-        // Get the user's GitHub access token from the Account table
+        // Get the target user's GitHub access token from the Account table
         const account = await prisma.account.findFirst({
             where: {
-                userId: session.user.id,
+                userId: targetUserId,
                 provider: "github",
             },
             select: { access_token: true },

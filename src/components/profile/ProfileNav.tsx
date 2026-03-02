@@ -4,12 +4,20 @@ import { PROFILE_TABS } from "@/types/profile";
 interface ProfileNavProps {
     activeTab: ProfileTab;
     onTabChange: (tab: ProfileTab) => void;
+    isOwner?: boolean;
 }
 
-const ProfileNav = ({ activeTab, onTabChange }: ProfileNavProps) => (
+const OWNER_ONLY_TABS: ProfileTab[] = ["settings"];
+
+const ProfileNav = ({ activeTab, onTabChange, isOwner = true }: ProfileNavProps) => {
+    const visibleTabs = isOwner
+        ? PROFILE_TABS
+        : PROFILE_TABS.filter((tab) => !OWNER_ONLY_TABS.includes(tab.id));
+
+    return (
     <div className="tw-mb-8">
         <nav className="tw-flex tw-gap-1 tw-overflow-x-auto tw-border-b tw-border-navy/10 tw-pb-px">
-            {PROFILE_TABS.map((tab) => (
+            {visibleTabs.map((tab) => (
                 <button
                     key={tab.id}
                     type="button"
@@ -26,6 +34,7 @@ const ProfileNav = ({ activeTab, onTabChange }: ProfileNavProps) => (
             ))}
         </nav>
     </div>
-);
+    );
+};
 
 export default ProfileNav;

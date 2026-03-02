@@ -7,7 +7,7 @@ interface UseLearningStatsReturn {
     error: string | null;
 }
 
-export default function useLearningStats(): UseLearningStatsReturn {
+export default function useLearningStats(userId?: string): UseLearningStatsReturn {
     const [data, setData] = useState<LearningStatsData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -17,7 +17,10 @@ export default function useLearningStats(): UseLearningStatsReturn {
 
         async function fetchStats() {
             try {
-                const res = await fetch("/api/user/learning-stats");
+                const url = userId
+                    ? `/api/user/learning-stats?userId=${encodeURIComponent(userId)}`
+                    : "/api/user/learning-stats";
+                const res = await fetch(url);
                 if (!res.ok) {
                     const body = await res.json().catch(() => ({}));
                     throw new Error(body.error || `HTTP ${res.status}`);
@@ -33,7 +36,7 @@ export default function useLearningStats(): UseLearningStatsReturn {
 
         fetchStats();
         return () => { cancelled = true; };
-    }, []);
+    }, [userId]);
 
     return { data, isLoading, error };
 }

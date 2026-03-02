@@ -102,10 +102,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const userId = session.user.id;
 
     if (req.method === "GET") {
-        return handleGetProfile(userId, res);
+        // Allow viewing another member's profile via ?userId=
+        const targetUserId = (req.query.userId as string) || userId;
+        return handleGetProfile(targetUserId, res);
     }
 
     if (req.method === "PUT") {
+        // Only the owner can update their own profile
         return handleUpdateProfile(userId, req.body, res);
     }
 

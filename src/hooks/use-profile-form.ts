@@ -54,7 +54,10 @@ export default function useProfileForm(user: ProfileUser): UseProfileFormReturn 
         async function fetchProfile() {
             if (!session?.user) return;
             try {
-                const response = await fetch("/api/user/profile");
+                const url = user.id && user.id !== session.user.id
+                    ? `/api/user/profile?userId=${encodeURIComponent(user.id)}`
+                    : "/api/user/profile";
+                const response = await fetch(url);
                 if (response.ok) {
                     const userData = await response.json();
                     const profileData: ProfileFormData = {
