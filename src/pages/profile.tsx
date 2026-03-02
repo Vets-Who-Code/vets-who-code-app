@@ -9,6 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { options } from "@/pages/api/auth/options";
+import prisma from "@/lib/prisma";
 import useGitHubProfile from "@/hooks/use-github-profile";
 import useLearningStats from "@/hooks/use-learning-stats";
 import useProfileForm from "@/hooks/use-profile-form";
@@ -190,13 +191,29 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         };
     }
 
+    // If session image is missing, try to get GitHub avatar from the Account table
+    let image = session.user.image || null;
+    if (!image) {
+        try {
+            const account = await prisma.account.findFirst({
+                where: { userId: session.user.id, provider: "github" },
+                select: { providerAccountId: true },
+            });
+            if (account?.providerAccountId) {
+                image = `https://avatars.githubusercontent.com/u/${account.providerAccountId}?v=4`;
+            }
+        } catch {
+            // non-critical, fall through
+        }
+    }
+
     return {
         props: {
             user: {
                 id: session.user.id,
                 name: session.user.name || null,
                 email: session.user.email || "",
-                image: session.user.image || null,
+                image,
             },
             layout: {
                 headerShadow: true,
