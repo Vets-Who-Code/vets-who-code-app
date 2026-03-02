@@ -1,4 +1,5 @@
 import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 interface GitHubReadmeProps {
     content: string | null;
@@ -29,7 +30,9 @@ const GitHubReadme = ({ content, login, isLoading }: GitHubReadmeProps) => {
                 {login} / README.md
             </h3>
             <div className="tw-prose tw-prose-sm tw-max-w-none tw-text-ink prose-headings:tw-text-navy prose-a:tw-text-navy-ocean hover:prose-a:tw-text-gold prose-img:tw-rounded-lg prose-code:tw-bg-navy/5 prose-code:tw-px-1 prose-code:tw-py-0.5 prose-code:tw-rounded prose-code:tw-text-navy prose-pre:tw-bg-navy/5 prose-pre:tw-rounded-lg">
-                <ReactMarkdown>{content}</ReactMarkdown>
+                <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                    {content}
+                </ReactMarkdown>
             </div>
         </div>
     );
