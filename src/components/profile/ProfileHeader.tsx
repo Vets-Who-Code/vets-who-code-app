@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
 import type { ProfileUser, ProfileFormData, GitHubData } from "@/types/profile";
 
@@ -45,13 +46,17 @@ const ProfileHeader = ({
                 {/* Avatar */}
                 <div className="tw-relative tw-flex-shrink-0">
                     {avatarUrl ? (
-                        <img
+                        <Image
                             src={avatarUrl}
                             alt={user.name || "User"}
-                            className="tw-h-28 tw-w-28 tw-rounded-full tw-border-4 tw-border-gold/40 tw-shadow-lg tw-shadow-gold/10"
+                            width={112}
+                            height={112}
+                            priority
+                            className="tw-rounded-full tw-border-4 tw-border-gold/40 tw-shadow-lg tw-shadow-gold/10"
+                            style={{ width: 112, height: 112, objectFit: "cover" }}
                         />
                     ) : (
-                        <div className="tw-flex tw-h-28 tw-w-28 tw-items-center tw-justify-center tw-rounded-full tw-bg-white/10 tw-text-3xl tw-border-4 tw-border-gold/40">
+                        <div className="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-white/10 tw-text-3xl tw-border-4 tw-border-gold/40" style={{ width: 112, height: 112 }}>
                             <i className="fas fa-user" />
                         </div>
                     )}
