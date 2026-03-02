@@ -88,10 +88,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 `https://api.github.com/users/${profile.login}/events?per_page=30`,
                 token
             ).catch(() => [] as GitHubEvent[]),
-            // Profile README lives in a repo named after the user's login
+            // Profile README — fetch as rendered HTML from GitHub
             fetch(
-                `https://raw.githubusercontent.com/${profile.login}/${profile.login}/main/README.md`,
-                { headers: { "User-Agent": "VetsWhoCode-App" } }
+                `https://api.github.com/repos/${profile.login}/${profile.login}/readme`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        Accept: "application/vnd.github.html+json",
+                        "User-Agent": "VetsWhoCode-App",
+                    },
+                }
             )
                 .then((r) => (r.ok ? r.text() : null))
                 .catch(() => null),
