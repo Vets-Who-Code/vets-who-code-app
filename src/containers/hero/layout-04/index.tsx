@@ -32,7 +32,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
 
     return (
         <>
-            <div className="hero-area tw-relative tw-pb-[130px] tw-pt-[100px] md:tw-py-[170px] xl:tw-pb-[248px] xl:tw-pt-[270px]">
+            <div className="hero-area dark-section tw-relative tw-pb-[130px] tw-pt-[100px] md:tw-py-[170px] xl:tw-pb-[248px] xl:tw-pt-[270px]">
                 {images?.[0]?.src && (
                     <div className="tw-absolute tw-inset-0 -tw-z-10">
                         <img
@@ -49,7 +49,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 width: "100%",
                                 height: "100%",
                                 background:
-                                    "linear-gradient(135deg, rgba(9, 31, 64, 0.90) 0%, rgba(6, 26, 64, 0.85) 100%)",
+                                    "linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%)",
                             }}
                         />
                     </div>
@@ -64,11 +64,31 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                     <div className="tw-flex tw-flex-col tw-items-center">
                         {headings?.[0]?.content && (
                             <div className="md:tw-mb-4">
-                                <h1 className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-white lg:tw-text-[56px]">
+                                <h1
+                                    className="tw-text-white tw-leading-none"
+                                    style={{
+                                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                                        fontWeight: 900,
+                                        fontSize: "clamp(38px, 7vw, 72px)",
+                                        textTransform: "uppercase",
+                                        letterSpacing: "-0.02em",
+                                        lineHeight: 1.05,
+                                    }}
+                                >
                                     {headings[0].content}
                                 </h1>
                                 <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
-                                    <span className="tw-text-[46px] tw-font-medium tw-leading-tight tw-text-accent lg:tw-text-[56px]">
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                                            fontWeight: 900,
+                                            fontSize: "clamp(38px, 7vw, 72px)",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "-0.02em",
+                                            lineHeight: 1.05,
+                                            color: "var(--red, #c5203e)",
+                                        }}
+                                    >
                                         {animatedText}
                                         <Cursor />
                                     </span>
@@ -78,24 +98,57 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                         {texts?.map((text) => (
                             <p
                                 key={text.id}
-                                className="tw-mb-5 tw-text-lg tw-font-medium tw-leading-relaxed tw-text-white sm:tw-mb-8"
+                                style={{
+                                    fontFamily: "var(--font-body, Gilroy, sans-serif)",
+                                    fontSize: "16px",
+                                    color: "#FFFFFF",
+                                    lineHeight: 1.7,
+                                }}
+                                className="tw-mb-5 tw-max-w-[600px] sm:tw-mb-8"
                             >
                                 {text.content}
                             </p>
                         ))}
+
+                        {/* Est. badge — Evil Rabbit tag pattern */}
+                        <div
+                            className="tw-mb-6"
+                            style={{
+                                fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                                fontSize: "10px",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.08em",
+                                background: "var(--red, #c5203e)",
+                                color: "var(--gold, #FDB330)",
+                                padding: "4px 12px",
+                                borderRadius: "2px",
+                                fontWeight: 500,
+                            }}
+                        >
+                            Est. 2014 — Veteran-Led &amp; Operated
+                        </div>
+
                         <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
                             {buttons?.[0] && (
-                                <Button
-                                    {...buttons[0]}
-                                    className="tw-m-2.5 !tw-bg-accent !tw-border-accent !tw-text-secondary hover:!tw-bg-accent-dark hover:!tw-border-accent-dark !tw-shadow-accent/20"
+                                <button
+                                    className="tw-m-2.5 btn-primary-upgraded tw-group tw-inline-flex tw-items-center"
+                                    onClick={() => {
+                                        if (buttons[0].path) window.location.href = buttons[0].path;
+                                    }}
+                                    style={{ cursor: "pointer" }}
                                 >
                                     {buttons[0].content}
-                                </Button>
+                                    <span
+                                        className="tw-ml-2 tw-inline-block tw-transition-transform tw-duration-300 group-hover:tw-translate-x-[3px]"
+                                    >
+                                        →
+                                    </span>
+                                </button>
                             )}
                             {buttons?.[1] && (
                                 <Button
                                     {...buttons[1]}
-                                    className="tw-m-2.5"
+                                    className="tw-m-2.5 btn-secondary-upgraded"
                                     color="light"
                                     variant="outlined"
                                     onClick={() => setOpen(true)}

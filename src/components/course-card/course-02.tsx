@@ -14,11 +14,18 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
         return (
             <motion.div
                 className={clsx(
-                    "course tw-relative tw-h-full tw-rounded tw-bg-white",
-                    "before:tw-absolute before:tw-inset-0 before:-tw-z-1 before:tw-rounded-b before:tw-opacity-0 before:tw-shadow-4md before:tw-shadow-black/[0.12] before:tw-transition-opacity before:tw-content-['']",
-                    "hover:before:tw-opacity-100",
+                    "course tw-relative tw-h-full tw-bg-white tw-transition-all tw-duration-300",
                     className
                 )}
+                style={{
+                    border: "1px solid rgba(185, 214, 242, 0.08)",
+                    borderRadius: 0,
+                }}
+                whileHover={{
+                    y: -2,
+                    borderTopWidth: "2px",
+                    borderTopColor: "var(--red, #c5203e)",
+                }}
                 ref={ref}
                 initial="offscreen"
                 whileInView="onscreen"
@@ -28,7 +35,7 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                 <figure className="tw-relative">
                     {thumbnail?.src && (
                         <img
-                            className="tw-w-full tw-rounded-t"
+                            className="tw-w-full"
                             src={thumbnail.src}
                             alt={thumbnail?.alt || "Course"}
                             width={thumbnail?.width || 370}
@@ -42,7 +49,16 @@ const CourseCard02 = forwardRef<HTMLDivElement, TProps>(
                     </Anchor>
                 </figure>
                 <div className="info tw-p-[30px]">
-                    <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
+                    <h3
+                        className="tw-mb-0 tw-leading-normal"
+                        style={{
+                            fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                            fontWeight: 700,
+                            fontSize: "17px",
+                            textTransform: "none",
+                            letterSpacing: "0",
+                        }}
+                    >
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                 </div>

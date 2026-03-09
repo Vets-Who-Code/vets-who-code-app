@@ -50,7 +50,7 @@ const TestimonialArea = ({
                     )}
                     {items?.[1] && <Testimonial04 title={items[1].title} className="tw-ml-auto" />}
                     <motion.div
-                        className="tw-absolute tw-bottom-[130px] tw-left-[-110px] -tw-z-1 tw-h-[-110px] tw-w-[166px]"
+                        className="tw-absolute tw-bottom-[280px] tw-left-[-110px] -tw-z-1 tw-h-[166px] tw-w-[166px]"
                         animate={{
                             x: trans1().x,
                             y: trans1().y,
@@ -59,7 +59,7 @@ const TestimonialArea = ({
                         <Shape2 className="tw-h-full tw-w-full tw-fill-primary-light" />
                     </motion.div>
                     <motion.div
-                        className="tw-absolute tw-bottom-20 tw-left-[-70px] -tw-z-1"
+                        className="tw-absolute tw-bottom-[40px] tw-left-[-70px] -tw-z-1"
                         animate={{
                             x: trans2().x,
                             y: trans2().y,

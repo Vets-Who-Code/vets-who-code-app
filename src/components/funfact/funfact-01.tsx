@@ -33,15 +33,47 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(({ counter, suffix, title }, 
     }, [counter, inView]);
 
     return (
-        <div className="funfact tw-text-center" ref={continerRef}>
+        <div
+            className="funfact tw-text-center"
+            ref={continerRef}
+            style={{
+                background: "var(--navy, #091f40)",
+                padding: "40px 28px",
+                transition: "background 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "var(--navy-deep, #003559)";
+            }}
+            onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "var(--navy, #091f40)";
+            }}
+        >
             <motion.div
-                className="tw-text-4xl tw-font-extrabold tw-leading-none tw-text-primary md:tw-text-5xl"
+                style={{
+                    fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                    fontWeight: 900,
+                    fontSize: "clamp(48px, 6vw, 64px)",
+                    color: "var(--gold, #FDB330)",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1,
+                }}
                 onViewportEnter={viewPortHandler}
             >
                 <span ref={nodeRef} />
                 {suffix}
             </motion.div>
-            <h3 className="tw-mb-0 tw-mt-2.5 tw-text-md tw-font-bold tw-uppercase -tw-tracking-tightest tw-text-secondary md:tw-mt-[14px] md:tw-text-base">
+            <h3
+                style={{
+                    fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                    fontSize: "14px",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    color: "#FFFFFF",
+                    fontWeight: 600,
+                    marginTop: "16px",
+                    marginBottom: 0,
+                }}
+            >
                 {title}
             </h3>
         </div>

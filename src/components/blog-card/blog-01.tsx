@@ -11,9 +11,21 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, path, category, postedAt, image, className }, ref) => (
         <div
             className={clsx(
-                "blog-card tw-group tw-relative tw-overflow-hidden tw-rounded-2xl tw-bg-white tw-border tw-border-gray-200/50 tw-shadow-md tw-shadow-black/5 tw-transition-all tw-duration-500 hover:tw-shadow-2xl hover:tw-shadow-primary/10 hover:-tw-translate-y-2",
+                "blog-card tw-group tw-relative tw-overflow-hidden tw-bg-white tw-transition-all tw-duration-300",
                 className
             )}
+            style={{
+                border: "1px solid rgba(185, 214, 242, 0.08)",
+                borderRadius: 0,
+            }}
+            onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderTop = "2px solid var(--red, #c5203e)";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
+            }}
+            onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.borderTop = "1px solid rgba(185, 214, 242, 0.08)";
+                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+            }}
             ref={ref}
         >
             {image?.src && (
@@ -35,15 +47,40 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
             <div className="tw-px-[30px] tw-py-[25px]">
                 <Anchor
                     path={category.path}
-                    className="tw-mb-1 tw-block tw-font-medium tw-uppercase -tw-tracking-tightest tw-text-secondary-light"
+                    style={{
+                        fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                        fontSize: "9px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        color: "#6C757D",
+                    }}
+                    className="tw-mb-2 tw-block"
                 >
                     {category.title}
                 </Anchor>
-                <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">
-                    <Anchor path={path}>{title}</Anchor>
+                <h3
+                    className="tw-mb-0 tw-leading-normal"
+                    style={{
+                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                        fontWeight: 700,
+                        fontSize: "17px",
+                        textTransform: "none",
+                        letterSpacing: "0",
+                    }}
+                >
+                    <Anchor path={path} className="tw-text-navy hover:tw-text-primary">{title}</Anchor>
                 </h3>
                 <ul>
-                    <li className="tw-mt-3.8 tw-text-md">
+                    <li
+                        className="tw-mt-3.8"
+                        style={{
+                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontSize: "10px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.08em",
+                            color: "#6C757D",
+                        }}
+                    >
                         <i className="far fa-calendar tw-mr-2.5" />
                         {postedAt}
                     </li>

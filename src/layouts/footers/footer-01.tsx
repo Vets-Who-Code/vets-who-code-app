@@ -11,18 +11,22 @@ const Footer01 = ({ mode }: TProps) => {
     return (
         <footer
             className={clsx(
-                "tw-pb-[50px] tw-pt-[70px] tw-relative",
+                "tw-relative",
                 mode === "dark" &&
-                    "tw-bg-gradient-to-b tw-from-dark tw-to-dark-surface tw-text-dark-text-muted",
+                    "tw-text-dark-text-muted",
                 mode === "light" && "tw-bg-gray-50"
             )}
+            style={{
+                background: mode === "dark" ? "var(--navy, #091f40)" : undefined,
+                paddingTop: "64px",
+                paddingBottom: "64px",
+                borderTop: "1px solid rgba(185, 214, 242, 0.08)",
+            }}
         >
-            {mode === "dark" && (
-                <div className="tw-absolute tw-top-0 tw-left-0 tw-right-0 tw-h-px tw-bg-gradient-to-r tw-from-transparent tw-via-accent tw-to-transparent tw-opacity-50" />
-            )}
             <h2 className="tw-sr-only">Footer</h2>
             <div className="tw-container">
-                <div className="tw-grid tw-grid-cols-12">
+                {/* Top row — nav links and content */}
+                <div className="tw-grid tw-grid-cols-12 tw-gap-y-8">
                     <TextWidget
                         mode={mode}
                         className="tw-col-span-12 tw-mb-[43px] lg:tw-col-span-5 xl:tw-col-span-5"
@@ -50,21 +54,50 @@ const Footer01 = ({ mode }: TProps) => {
                         </a>
                     </div>
                 </div>
-                <p className={clsx("copyright tw-mt-5 tw-text-center tw-text-base", mode === "dark" ? "tw-text-white" : "tw-text-navy")}>
-                    &copy; {new Date().getFullYear()} Vets Who Code{" "}
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.vetswhocode.io/"
-                        className="tw-transition-colors hover:tw-text-accent"
+
+                {/* Bottom row — copyright */}
+                <div
+                    style={{
+                        marginTop: "48px",
+                        paddingTop: "24px",
+                        borderTop: "1px solid rgba(185, 214, 242, 0.08)",
+                        textAlign: "center",
+                    }}
+                >
+                    <p
+                        style={{
+                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontSize: "10px",
+                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "var(--navy, #091f40)",
+                            letterSpacing: "0.08em",
+                            textTransform: "uppercase",
+                            marginBottom: "8px",
+                        }}
                     >
-                        All Rights Reserved
-                    </a>
-                </p>
-                <p className={clsx("copyright tw-mt-2 tw-text-center tw-text-base", mode === "dark" ? "tw-text-white" : "tw-text-navy")}>
-                    Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
-                    Donations are tax-deductible to the fullest extent allowable under the law.
-                </p>
+                        &copy; {new Date().getFullYear()} Vets Who Code{" "}
+                        <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://www.vetswhocode.io/"
+                            className="tw-transition-colors hover:tw-text-accent"
+                            style={{ color: "inherit" }}
+                        >
+                            All Rights Reserved
+                        </a>
+                    </p>
+                    <p
+                        style={{
+                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontSize: "10px",
+                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6C757D",
+                            letterSpacing: "0.06em",
+                            margin: 0,
+                        }}
+                    >
+                        Vets Who Code is a registered 501(c)(3) nonprofit under EIN 86-2122804.
+                        Donations are tax-deductible to the fullest extent allowable under the law.
+                    </p>
+                </div>
             </div>
         </footer>
     );

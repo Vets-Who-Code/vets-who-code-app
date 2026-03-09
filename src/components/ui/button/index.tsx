@@ -3,65 +3,20 @@ import clsx from "clsx";
 import Anchor from "../anchor";
 
 interface ButtonProps {
-    /**
-     * Required.
-     */
     children: React.ReactNode;
-    /**
-     * Optional. Default is `button`.
-     */
     type?: "button" | "submit" | "reset";
-    /**
-     * Optional. Default is `contained`.
-     */
     variant?: "contained" | "outlined" | "texted";
-    /**
-     * Optional. Default is `primary`.
-     */
     color?: "primary" | "light";
-    /**
-     * Optional. Default is `md`.
-     */
     size?: "xs" | "sm" | "md" | "lg";
-    /**
-     * Optional. Default is `tw-rounded`.
-     */
     shape?: "tw-rounded" | "square" | "ellipse";
-    /**
-     * Pass fullwidth to make button fullwidth.
-     */
     fullwidth?: boolean;
-    /**
-     * Pass active to enable active state.
-     */
     active?: boolean;
-    /**
-     * Pass disabled to enable disabled state.
-     */
     disabled?: boolean;
-    /**
-     * Pass iconButton to get Icon Button style.
-     */
     iconButton?: boolean;
-    /**
-     * Optional. onClick function
-     */
     onClick?: () => void;
-    /**
-     * Optional. Extra Class Name
-     */
     className?: string;
-    /**
-     * Pass `path` to make link button
-     */
     path?: string;
-    /**
-     * Optional. Pass label if button does not contain any text
-     */
     label?: string;
-    /**
-     * Optional. Pass false if you don't need hover and focus
-     */
     hover?: "default" | "light" | false;
 }
 
@@ -82,23 +37,28 @@ const Button = ({
     onClick,
     hover,
 }: ButtonProps) => {
+    /* Base — sharp edges, HashFlag font, uppercase */
     const baseClass =
-        "tw-font-bold tw-justify-center tw-items-center tw-border tw-border-solid tw-rounded-lg tw-transition-all tw-duration-300 tw-ease-out tw-min-w-max";
+        "tw-font-bold tw-justify-center tw-items-center tw-border tw-border-solid tw-transition-all tw-duration-300 tw-ease-out tw-min-w-max";
     const baseNotFullWidthClass = !fullwidth && "tw-inline-flex";
+
+    /* No border-radius — sharp edges signal precision */
+    const sharpEdges = "tw-rounded-none";
+
     const lightHoverClass =
         !disabled &&
         !active &&
         hover === "light" &&
-        "hover:tw-bg-white hover:tw-border-white hover:tw-text-primary hover:tw-shadow-lg hover:tw-shadow-white/25 hover:tw-scale-105 active:tw-scale-95";
+        "hover:tw-bg-white hover:tw-border-white hover:tw-text-primary hover:tw-shadow-lg hover:tw-shadow-white/25 hover:-tw-translate-y-px active:tw-scale-95";
 
-    // Primary Button
+    // Primary Button — Red CTA, Obama campaign energy
     const containedPrimaryClass =
         "tw-bg-primary tw-border-primary tw-text-white tw-shadow-md tw-shadow-primary/20";
     const containedPrimaryHoverClass =
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-secondary hover:tw-border-secondary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/30 hover:tw-scale-105 active:tw-scale-95";
+        "hover:tw-bg-red-crimson hover:tw-border-red-crimson hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/30 hover:-tw-translate-y-px active:tw-scale-95";
     const containedPrimaryActiveClass =
         !disabled &&
         active &&
@@ -115,7 +75,7 @@ const Button = ({
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:tw-scale-105 active:tw-scale-95";
+        "hover:tw-bg-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:-tw-translate-y-px active:tw-scale-95";
     const outlinedPrimaryActiveClass =
         !disabled &&
         active &&
@@ -134,7 +94,7 @@ const Button = ({
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-primary hover:tw-border-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:tw-scale-105 active:tw-scale-95";
+        "hover:tw-bg-primary hover:tw-border-primary hover:tw-text-white hover:tw-shadow-lg hover:tw-shadow-primary/20 hover:-tw-translate-y-px active:tw-scale-95";
     const containedLightActiveClass =
         !disabled &&
         active &&
@@ -146,12 +106,12 @@ const Button = ({
         lightHoverClass,
     ];
 
-    const outlinedLightClass = "tw-border-white tw-text-white";
+    const outlinedLightClass = "tw-border-white/15 tw-text-white";
     const outlinedLightHoverClass =
         !disabled &&
         !active &&
         hover === "default" &&
-        "hover:tw-bg-accent hover:tw-border-accent hover:tw-text-secondary";
+        "hover:tw-border-red hover:tw-text-white";
     const outlinedLightActiveClass =
         !disabled &&
         active &&
@@ -163,17 +123,20 @@ const Button = ({
         lightHoverClass,
     ];
 
-    // Buton Sizes
+    // Button Sizes
     const mdBtn =
         size === "md" &&
         "tw-text-md tw-px-7 tw-py-1 tw-min-h-[48px] md:tw-min-h-[52px] md:tw-px-10";
     const smBtn = size === "sm" && "tw-text-sm tw-px-6 tw-py-1 tw-min-h-[40px] md:tw-min-h-[44px]";
     const xsBtn = size === "xs" && "tw-text-[13px] tw-px-5 tw-leading-[30px] tw-min-h-8";
 
-    // Button Shapes
-    const roundedBtn = shape === "tw-rounded" && "tw-rounded-md";
-    const ellipseBtn = shape === "ellipse" && "tw-rounded-full";
+    // Button Shapes — default to sharp edges
+    const roundedBtn = shape === "tw-rounded" && sharpEdges;
+    const ellipseBtn = shape === "ellipse" && sharpEdges;
     const fullBtn = fullwidth && "tw-flex tw-w-full";
+
+    /* Font upgrade — HashFlag for buttons */
+    const fontUpgrade = variant !== "texted" ? "[font-family:var(--font-headline,HashFlag,sans-serif)]" : "";
 
     const classnames = clsx(
         variant !== "texted" && baseClass,
@@ -181,9 +144,12 @@ const Button = ({
         variant === "contained" && [containedPrimaryBtn, containedLightBtn],
         variant === "outlined" && [outlinedPrimaryBtn, outlinedLightBtn],
         !iconButton && variant !== "texted" && [mdBtn, smBtn, xsBtn],
+        sharpEdges,
         roundedBtn,
         ellipseBtn,
         fullBtn,
+        fontUpgrade,
+        "tw-uppercase tw-tracking-wider tw-text-xs",
         className
     );
 

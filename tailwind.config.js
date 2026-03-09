@@ -203,8 +203,9 @@ module.exports = {
                 },
             }),
             fontFamily: {
-                body: ["Gilroy", "sans-serif"],
-                heading: ["Gilroy", "sans-serif"],
+                body: ["Gilroy", "HashFlag", "system-ui", "sans-serif"],
+                heading: ["HashFlag", "system-ui", "sans-serif"],
+                hashflag: ["HashFlag", "system-ui", "sans-serif"],
                 playfair: ["Playfair Display", "serif"],
                 rossela: ["Conv_Rossela-Demo-2", "serif"],
             },

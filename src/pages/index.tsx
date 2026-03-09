@@ -52,26 +52,51 @@ const Home: PageProps = ({ data }) => {
     return (
         <>
             <SEO title="Home" />
+
+            {/* Hero — full navy, dark-section for grain overlay */}
             <HeroArea data={content?.["hero-area"]} />
+
             <Wrapper className="tw-mb-[140px]">
                 <ServiceArea data={content?.["service-area"]} space="none" />
+
+                {/* Section divider */}
+                <div className="tw-container"><div className="section-divider" /></div>
+
                 <FunfactArea data={content?.["funfact-area"]} titleSize="large" />
                 <VideoArea data={content?.["video-area"]} space="top" />
             </Wrapper>
+
+            {/* Section divider */}
+            <div className="tw-container"><div className="section-divider" /></div>
+
             <CourseArea
                 data={{ ...content?.["course-area"], courses: data.courses }}
                 titleSize="large"
             />
-            <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
+
+            {/* Testimonials — dark background with subtle contrast */}
+            <div className="dark-section">
+                <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
+            </div>
+
             <EventArea
                 data={{ ...content?.["event-area"], events: data.events }}
                 titleSize="large"
             />
             <MediaArea data={{ ...content?.["media-area"], media: data.media }} titleSize="large" />
-            <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
+
+            {/* Blog — dark background */}
+            <div className="dark-section">
+                <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
+            </div>
+
             <BrandArea data={content?.["brand-area"]} />
-            <NewsletterArea data={content?.["newsletter-area"]} />
-            {/* For production, remove forceShow prop entirely */}
+
+            {/* Newsletter — CTA banner feel */}
+            <div className="dark-section cta-banner">
+                <NewsletterArea data={content?.["newsletter-area"]} />
+            </div>
+
             <EngagementModal
                 headline="Your Next Mission Starts Here."
                 body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
@@ -92,7 +117,6 @@ export const getStaticProps: GetStaticProps = () => {
         ["slug", "title", "mediaType", "url", "publication", "date", "image", "description"],
         "media"
     );
-    // Sort by date (most recent first) and take the first 3
     const media = allMedia
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .slice(0, 3);

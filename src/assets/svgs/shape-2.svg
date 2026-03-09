@@ -4,7 +4,7 @@
       .gradient-fill { fill: url(#custom-gradient); }
     </style>
     <linearGradient id="custom-gradient" x1="4" y1="32" x2="60" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#091f40"/> <!-- Navy Blue -->
+      <stop offset="0" stop-color="#74121D"/> <!-- Dark Red -->
       <stop offset="0.5" stop-color="#c5203e"/> <!-- Red -->
       <stop offset="1" stop-color="#ffffff"/> <!-- White -->
     </linearGradient>
