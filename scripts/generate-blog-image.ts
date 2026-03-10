@@ -3,11 +3,18 @@ import * as fs from "fs";
 import * as path from "path";
 import { GoogleGenAI } from "@google/genai";
 import cloudinary from "@/lib/cloudinary";
+import { imagenPromptVariants, type Theme } from "./image-prompts";
 
 let ai: GoogleGenAI;
 const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
+const MAX_RETRIES = 3;
 
-export function readBlogPost(slug: string) {
+type BlogPostSummary = {
+  title: string;
+  content: string;
+};
+
+export function readBlogPost(slug: string): BlogPostSummary {
   const filePath = path.join(BLOG_DIR, `${slug}.md`);
 
   if (!fs.existsSync(filePath)) {
@@ -26,7 +33,7 @@ export function readBlogPost(slug: string) {
 async function generateBlogStructuredDataWithGemini(
   title: string,
   content: string,
-) {
+): Promise<Theme> {
   console.log(
     "\x1b[34m\x1b[43m\x1b[1m🤖 Analyzing blog content with Gemini...\x1b[0m",
   );
@@ -51,7 +58,7 @@ Rules:
 - No references to text or typography`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
+    model: "gemini-3-pro-preview",
     contents: prompt,
   });
 
@@ -69,32 +76,12 @@ Rules:
       `Failed to parse Gemini JSON response: ${err?.message ?? err}\nCleaned payload (truncated):\n${truncated}`,
     );
   }
+
   return theme;
 }
 
-export function buildImagenPrompt(theme: any): string {
-  return `Create a high-impact 1950s military propaganda-style poster illustration.
-
-Visual Theme: ${theme.fullThemeDescription}
-Subject Focus: ${theme.mainSubject}
-Central Visual Metaphor: ${theme.visualMetaphor}
-Symbolic Elements to Include: ${theme.symbolicElements}
-
-Style Requirements:
-- Era: 1950s American military propaganda poster aesthetic
-- Colors: Use ONLY deep navy blue hex code: #091f40, red hex code: #c5203e, and white hexcode: #ffffff. No other colors.
-- Line Work: Bold, clean lines and strong geometric shapes
-- Composition: High-impact, heroic composition that emphasizes the subject
-- Mood: Positive, mission-oriented, uplifting, empowering
-- Texture: Subtle distressed paper or aged print texture overlay
-- Illustration style: Flat graphic design with strong silhouettes, not photorealistic
-
-Hard Constraints:
-- Colors: Use only Navy Blue (#091f40), Red (#c5203e), and White (#ffffff).
-- Style: Bold lines, strong shapes, and a positive, mission-oriented feel.
-- Texture: Add a subtle, distressed paper texture.
-- Text: No text or hex codes anywhere on image.
-- Tone: Positive, uplifting, empowering.`;
+export function buildImagenPrompt(theme: Theme, variantIndex = 0): string {
+  return imagenPromptVariants[variantIndex](theme);
 }
 
 async function generateImage(prompt: string): Promise<string> {
@@ -169,8 +156,7 @@ export async function main() {
   // Call Gemini to analyze the content and return JSON describing a visual theme.
   const theme = await generateBlogStructuredDataWithGemini(title, content);
 
-  const prompt = buildImagenPrompt(theme);
-  const imageBytes = await generateImage(prompt);
+  const imageBytes = await generateImageWithRetry(theme);
 
   const url = await uploadToCloudinary(imageBytes, slug);
 
@@ -184,4 +170,79 @@ if (require.main === module) {
     console.error(err);
     process.exit(1);
   });
+}
+
+// Detect if any tecxt exists on image
+async function detectTextInImage(
+  imageBase64: string,
+): Promise<{ hasText: boolean; detectedText?: string }> {
+  console.log("  🔍 Checking image for text...");
+
+  const response = await ai.models.generateContent({
+    model: "gemini-3-pro-preview",
+    contents: [
+      {
+        role: "user",
+        parts: [
+          {
+            inlineData: {
+              mimeType: "image/png",
+              data: imageBase64,
+            },
+          },
+          {
+            text: `Analyze this image carefully. Does it contain ANY text, letters, numbers, words, labels, captions, or typography of any kind?
+
+Be VERY strict: even a single letter or number counts as text.
+
+Respond with ONLY a JSON object (no markdown fences):
+{
+  "hasText": true or false,
+  "detectedText": "describe any text you see, or null if none"
+}`,
+          },
+        ],
+      },
+    ],
+  });
+
+  const raw = response.text ?? "{}";
+  const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
+
+  try {
+    return JSON.parse(cleaned);
+  } catch {
+    // If parsing fails, assume no text (fail open)
+    return { hasText: false };
+  }
+}
+
+async function generateImageWithRetry(theme: Theme): Promise<string> {
+  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    console.log(`\n📸 Attempt ${attempt}/${MAX_RETRIES}`);
+    let prompt = buildImagenPrompt(theme, attempt - 1);
+
+    const imageBytes = await generateImage(prompt);
+
+    // Check for text
+    const textCheck = await detectTextInImage(imageBytes);
+
+    if (!textCheck.hasText) {
+      console.log("  ✅ No text detected - image is valid!");
+      return imageBytes;
+    }
+
+    console.log(` ⚠️  Text detected: "${textCheck.detectedText}"`);
+
+    if (attempt < MAX_RETRIES) {
+      console.log("  🔄 Retrying...");
+    } else {
+      console.log(
+        " ⚠️  Max retries reached. Proceeding with last image (manual review recommended).",
+      );
+      return imageBytes;
+    }
+  }
+
+  throw new Error("Failed to generate image without text after max retries");
 }

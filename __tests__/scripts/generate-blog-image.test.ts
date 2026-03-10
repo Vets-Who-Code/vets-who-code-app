@@ -129,8 +129,8 @@ describe("buildImagenPrompt", () => {
     expect(prompt).toContain(theme.symbolicElements);
 
     // Verify style constraints are present
-    expect(prompt).toContain("1950s military propaganda");
-    expect(prompt).toContain("navy blue");
+    expect(prompt).toContain("1950s");
+    expect(prompt).toContain("linocut");
   });
 
   it("includes required style constraints", () => {
@@ -145,11 +145,10 @@ describe("buildImagenPrompt", () => {
     const prompt = buildImagenPrompt(theme);
 
     // Check for critical constraints (match actual prompt wording)
-    expect(prompt).toContain("No text or hex codes");
-    expect(prompt).toContain("deep navy blue");
-    expect(prompt).toContain("red hex code");
-    expect(prompt).toContain("white");
-    expect(prompt).toContain("Bold, clean lines");
-    expect(prompt).toContain("distressed paper");
+    expect(prompt).toContain("Navy Blue");
+    expect(prompt).toContain("Red");
+    expect(prompt).toContain("White");
+    expect(prompt).toContain("distressed paper texture");
+    expect(prompt).toContain("No text");
   });
 });
