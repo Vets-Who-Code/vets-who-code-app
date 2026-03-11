@@ -22,7 +22,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
             {/* Large decorative quotation mark — navy blue */}
             <div
                 style={{
-                    fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                    fontFamily: "var(--font-headline)",
                     fontWeight: 900,
                     fontSize: "64px",
                     color: "var(--navy, #091f40)",
@@ -64,7 +64,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
             <div>
                 <span
                     style={{
-                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                        fontFamily: "var(--font-headline)",
                         fontSize: "12px",
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",
@@ -77,7 +77,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                 </span>
                 <span
                     style={{
-                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                        fontFamily: "var(--font-headline)",
                         fontSize: "11px",
                         textTransform: "uppercase",
                         letterSpacing: "0.1em",

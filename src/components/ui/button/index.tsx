@@ -37,7 +37,7 @@ const Button = ({
     onClick,
     hover,
 }: ButtonProps) => {
-    /* Base — sharp edges, HashFlag font, uppercase */
+    /* Base — sharp edges, GothamPro font, uppercase */
     const baseClass =
         "tw-font-bold tw-justify-center tw-items-center tw-border tw-border-solid tw-transition-all tw-duration-300 tw-ease-out tw-min-w-max";
     const baseNotFullWidthClass = !fullwidth && "tw-inline-flex";
@@ -135,8 +135,8 @@ const Button = ({
     const ellipseBtn = shape === "ellipse" && sharpEdges;
     const fullBtn = fullwidth && "tw-flex tw-w-full";
 
-    /* Font upgrade — HashFlag for buttons */
-    const fontUpgrade = variant !== "texted" ? "[font-family:var(--font-headline,HashFlag,sans-serif)]" : "";
+    /* Font upgrade — GothamPro for buttons */
+    const fontUpgrade = variant !== "texted" ? "[font-family:var(--font-headline)]" : "";
 
     const classnames = clsx(
         variant !== "texted" && baseClass,

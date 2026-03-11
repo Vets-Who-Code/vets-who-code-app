@@ -49,7 +49,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                 <h3
                     className="tw-mb-0 tw-leading-normal"
                     style={{
-                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                        fontFamily: "var(--font-headline)",
                         fontWeight: 700,
                         fontSize: "17px",
                         textTransform: "none",

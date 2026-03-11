@@ -1,42 +1,57 @@
 /* =============================================
-   FONTS — HashFlag + Gilroy via Tailwind config
+   FONTS — GothamPro + Gilroy via Tailwind config
    ============================================= */
 @font-face {
-    font-family: "HashFlag";
+    font-family: "GothamPro";
     src:
-        url("/fonts/hashflag/HashFlag-Light.woff2") format("woff2"),
-        url("/fonts/hashflag/HashFlag-Light.ttf") format("truetype");
+        url("/fonts/gotham/GothamPro-Light.woff2") format("woff2"),
+        url("/fonts/gotham/GothamPro-Light.woff") format("woff"),
+        url("/fonts/gotham/GothamPro-Light.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "HashFlag";
+    font-family: "GothamPro";
     src:
-        url("/fonts/hashflag/HashFlag-Regular.woff2") format("woff2"),
-        url("/fonts/hashflag/HashFlag-Regular.ttf") format("truetype");
+        url("/fonts/gotham/GothamPro.woff2") format("woff2"),
+        url("/fonts/gotham/GothamPro.woff") format("woff"),
+        url("/fonts/gotham/GothamPro.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "HashFlag";
+    font-family: "GothamPro";
     src:
-        url("/fonts/hashflag/HashFlag-Medium.woff2") format("woff2"),
-        url("/fonts/hashflag/HashFlag-Medium.ttf") format("truetype");
+        url("/fonts/gotham/GothamPro-Medium.woff2") format("woff2"),
+        url("/fonts/gotham/GothamPro-Medium.woff") format("woff"),
+        url("/fonts/gotham/GothamPro-Medium.ttf") format("truetype");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "HashFlag";
+    font-family: "GothamPro";
     src:
-        url("/fonts/hashflag/HashFlag-Bold.woff2") format("woff2"),
-        url("/fonts/hashflag/HashFlag-Bold.ttf") format("truetype");
+        url("/fonts/gotham/GothamPro-Bold.woff2") format("woff2"),
+        url("/fonts/gotham/GothamPro-Bold.woff") format("woff"),
+        url("/fonts/gotham/GothamPro-Bold.ttf") format("truetype");
     font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GothamPro";
+    src:
+        url("/fonts/gotham/GothamPro-Black.woff2") format("woff2"),
+        url("/fonts/gotham/GothamPro-Black.woff") format("woff"),
+        url("/fonts/gotham/GothamPro-Black.ttf") format("truetype");
+    font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
@@ -70,7 +85,7 @@
     --accent: var(--red);
 
     /* Font Stacks */
-    --font-headline: "HashFlag", system-ui, sans-serif;
+    --font-headline: "GothamPro", system-ui, sans-serif;
     --font-body: "Gilroy", system-ui, sans-serif;
     --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", "Fira Code", monospace;
 }
@@ -106,7 +121,7 @@
     background-repeat: repeat;
 }
 
-/* GothamPro @font-face declarations removed — replaced by HashFlag */
+/* GothamPro @font-face declarations now in globals.css above */
 
 /* Keyframes and animations */
 
@@ -352,7 +367,7 @@ footer .copyright {
 /* Global body styling */
 
 body {
-    font-family: var(--font-body), "HashFlag", system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body), "GothamPro", system-ui, -apple-system, sans-serif;
     font-weight: 400;
     font-size: 18px;
     line-height: 1.75;
@@ -380,7 +395,7 @@ html {
 
 /* =============================================
    TYPOGRAPHY UPGRADE — Three-font system
-   HashFlag (headlines + labels), Gilroy (body)
+   GothamPro (headlines + labels), Gilroy (body)
    ============================================= */
 
 /* Headlines — bold, geometric, authoritative */

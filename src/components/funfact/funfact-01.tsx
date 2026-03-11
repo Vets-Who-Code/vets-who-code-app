@@ -50,7 +50,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(({ counter, suffix, title }, 
         >
             <motion.div
                 style={{
-                    fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                    fontFamily: "var(--font-headline)",
                     fontWeight: 900,
                     fontSize: "clamp(48px, 6vw, 64px)",
                     color: "var(--gold, #FDB330)",
@@ -64,7 +64,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(({ counter, suffix, title }, 
             </motion.div>
             <h3
                 style={{
-                    fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                    fontFamily: "var(--font-headline)",
                     fontSize: "14px",
                     textTransform: "uppercase",
                     letterSpacing: "0.08em",

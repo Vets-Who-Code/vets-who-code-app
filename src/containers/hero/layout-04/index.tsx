@@ -67,7 +67,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 <h1
                                     className="tw-text-white tw-leading-none"
                                     style={{
-                                        fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                                        fontFamily: "var(--font-headline)",
                                         fontWeight: 900,
                                         fontSize: "clamp(38px, 7vw, 72px)",
                                         textTransform: "uppercase",
@@ -80,7 +80,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
                                     <span
                                         style={{
-                                            fontFamily: "var(--font-headline, HashFlag, sans-serif)",
+                                            fontFamily: "var(--font-headline)",
                                             fontWeight: 900,
                                             fontSize: "clamp(38px, 7vw, 72px)",
                                             textTransform: "uppercase",

@@ -62,12 +62,12 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                     </div>
                 )}
 
-                {/* Main heading — HashFlag authority */}
+                {/* Main heading — GothamPro authority */}
                 <SafeHTML
                     content={title}
                     as="h2"
                     className={clsx(
-                        "title tw-m-0 child:tw-font-normal child:tw-text-primary [font-family:var(--font-headline,HashFlag,sans-serif)] tw-font-extrabold",
+                        "title tw-m-0 child:tw-font-normal child:tw-text-primary [font-family:var(--font-headline)] tw-font-extrabold",
                         color === "A" && "tw-text-secondary",
                         color === "C" && "tw-text-white",
                         titleSize === "large" &&
