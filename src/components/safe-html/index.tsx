@@ -1,117 +1,62 @@
 import React from "react";
 
-// Function to sanitize HTML content for safe rendering
-const sanitizeHTML = (dirty: string) => {
-	// Only sanitize on client side, on server side return the content as-is
-	// This prevents SSR issues with DOMPurify
-	if (typeof window === "undefined") {
-		// During SSR, we'll return a safer version by escaping the most dangerous characters
-		// This is a temporary measure until the client takes over
-		return dirty
-			.replace(/</g, "&lt;")
-			.replace(/>/g, "&gt;")
-			.replace(/"/g, "&quot;")
-			.replace(/'/g, "&#39;")
-			.replace(/&(?!(lt|gt|quot|#39|amp);)/g, "&amp;");
-	}
+const SANITIZE_CONFIG = {
+	ALLOWED_TAGS: [
+		"a", "b", "i", "em", "strong", "p", "br", "ul", "ol", "li",
+		"blockquote", "code", "pre", "h1", "h2", "h3", "h4", "h5", "h6",
+		"span", "div", "img", "section", "article", "nav", "header",
+		"footer", "aside", "table", "thead", "tbody", "tr", "td", "th",
+		"caption", "sup", "sub", "small", "mark", "del", "ins", "abbr",
+		"time", "figure", "figcaption", "video", "audio", "source",
+		"iframe", "hr",
+	],
+	ALLOWED_ATTR: [
+		"href", "target", "rel", "class", "id", "src", "alt", "title",
+		"width", "height", "loading", "style", "role", "tabindex", "type",
+		"controls", "autoplay", "muted", "loop", "poster", "preload",
+		"frameborder", "allow", "allowfullscreen", "datetime", "colspan",
+		"rowspan",
+	],
+	ALLOW_DATA_ATTR: true,
+	ALLOW_ARIA_ATTR: true,
+	KEEP_CONTENT: true,
+	ADD_ATTR: ["target", "rel"],
+};
 
-	// Dynamic import DOMPurify only on client side
-	const DOMPurify = require("dompurify");
+const ALLOWED_ATTR_SET = new Set(SANITIZE_CONFIG.ALLOWED_ATTR);
 
-	// Recommended DOMPurify configuration for safe HTML rendering
-	const SANITIZE_CONFIG = {
-		ALLOWED_TAGS: [
-			"a",
-			"b",
-			"i",
-			"em",
-			"strong",
-			"p",
-			"br",
-			"ul",
-			"ol",
-			"li",
-			"blockquote",
-			"code",
-			"pre",
-			"h1",
-			"h2",
-			"h3",
-			"h4",
-			"h5",
-			"h6",
-			"span",
-			"div",
-			"img",
-			"section",
-			"article",
-			"nav",
-			"header",
-			"footer",
-			"aside",
-			"table",
-			"thead",
-			"tbody",
-			"tr",
-			"td",
-			"th",
-			"caption",
-			"sup",
-			"sub",
-			"small",
-			"mark",
-			"del",
-			"ins",
-			"abbr",
-			"time",
-			"figure",
-			"figcaption",
-			"video",
-			"audio",
-			"source",
-			"iframe", // For embedded videos
-			"hr",
-		],
-		ALLOWED_ATTR: [
-			"href",
-			"target",
-			"rel",
-			"class",
-			"id",
-			"src",
-			"alt",
-			"title",
-			"width",
-			"height",
-			"loading",
-			"style", // For inline styles
-			"data-*", // For data attributes
-			"aria-*", // For accessibility
-			"role",
-			"tabindex",
-			"type",
-			"controls",
-			"autoplay",
-			"muted",
-			"loop",
-			"poster",
-			"preload",
-			"frameborder",
-			"allow",
-			"allowfullscreen",
-			"datetime",
-			"colspan",
-			"rowspan",
-		],
-		ALLOW_DATA_ATTR: true,
-		KEEP_CONTENT: true,
-		ADD_ATTR: ["target", "rel"], // Ensure external links open safely
-	};
+// Lightweight SSR-safe sanitizer that preserves allowed tags and filters attributes
+const sanitizeForSSR = (dirty: string): string => {
+	const allowedTagSet = new Set(SANITIZE_CONFIG.ALLOWED_TAGS);
+	return dirty.replace(/<(\/?[a-zA-Z][a-zA-Z0-9]*)((?:\s+[^>]*?)?)(\s*\/?)>/g, (_match, tag, attrs, selfClose) => {
+		const tagName = tag.replace("/", "").toLowerCase();
+		if (!allowedTagSet.has(tagName)) return "";
+		// Closing tags have no attributes
+		if (tag.startsWith("/")) return `<${tag}>`;
+		// Filter attributes to only allowed ones
+		const safeAttrs: string[] = [];
+		const attrRegex = /([a-zA-Z][a-zA-Z0-9-]*)\s*(?:=\s*(?:"([^"]*)"|'([^']*)'|(\S+)))?/g;
+		let attrMatch;
+		while ((attrMatch = attrRegex.exec(attrs)) !== null) {
+			const attrName = attrMatch[1].toLowerCase();
+			if (ALLOWED_ATTR_SET.has(attrName) || attrName.startsWith("data-") || attrName.startsWith("aria-")) {
+				safeAttrs.push(attrMatch[0]);
+			}
+		}
+		const attrStr = safeAttrs.length > 0 ? ` ${safeAttrs.join(" ")}` : "";
+		return `<${tag}${attrStr}${selfClose}>`;
+	});
+};
 
-	// Sanitize the content
+// Full client-side sanitization with DOMPurify
+const sanitizeForClient = (dirty: string): string => {
+	const DOMPurifyFactory = require("dompurify");
+	// DOMPurify exports a factory function that needs window
+	const DOMPurify = typeof DOMPurifyFactory === "function"
+		? DOMPurifyFactory(window)
+		: DOMPurifyFactory;
 	const sanitized = DOMPurify.sanitize(dirty, SANITIZE_CONFIG);
 
-	// Post-process to ensure external links are safe
 	const tempDiv = document.createElement("div");
 	tempDiv.innerHTML = sanitized;
 	const links = tempDiv.querySelectorAll('a[target="_blank"]');
@@ -130,36 +75,23 @@ interface SafeHTMLProps {
 	as?: keyof JSX.IntrinsicElements;
 }
 
-/**
- * SafeHTML Component
- * Safely renders HTML content by sanitizing it with DOMPurify
- * Prevents XSS attacks while preserving legitimate formatting
- */
 const SafeHTML: React.FC<SafeHTMLProps> = ({
 	content,
 	className,
 	as: Component = "div",
 }) => {
-	// Use state to handle hydration mismatch between server and client
-	const [safeContent, setSafeContent] = React.useState<string>("");
-	const [isClient, setIsClient] = React.useState(false);
+	// Always initialize with SSR sanitizer so server and client initial render match
+	const [safeContent, setSafeContent] = React.useState<string>(
+		() => sanitizeForSSR(content || "")
+	);
 
+	// Upgrade to full DOMPurify sanitization on the client
 	React.useEffect(() => {
-		// Mark that we're on the client
-		setIsClient(true);
-		// Sanitize content on client side
 		if (content) {
-			setSafeContent(sanitizeHTML(content));
+			setSafeContent(sanitizeForClient(content));
 		}
 	}, [content]);
 
-	// During SSR or before hydration, show nothing or a placeholder
-	// This prevents hydration mismatch
-	if (!isClient) {
-		return <Component className={className} />;
-	}
-
-	// Render sanitized content
 	return (
 		<Component
 			className={className}

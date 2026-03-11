@@ -79,7 +79,16 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 menu={menu}
                                 hoverStyle="B"
                             />
-                            <div className="tw-flex tw-items-center tw-justify-end">
+                            <div className="tw-flex tw-items-center tw-justify-end tw-gap-4">
+                                <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
+                                    <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
+                                        <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75" style={{ animation: "statusBlink 2s ease-in-out infinite" }} />
+                                        <span className="tw-relative tw-inline-flex tw-h-[5px] tw-w-[5px] tw-rounded-full tw-bg-red" />
+                                    </span>
+                                    <span style={{ fontFamily: "var(--font-mono, HashFlag, sans-serif)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(9, 31, 64, 0.5)" }}>
+                                        2026 Cohort Active
+                                    </span>
+                                </div>
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"

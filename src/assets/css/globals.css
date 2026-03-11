@@ -1,142 +1,112 @@
+/* =============================================
+   FONTS — HashFlag + Gilroy via Tailwind config
+   ============================================= */
 @font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-Light.eot");
+    font-family: "HashFlag";
     src:
-        url("/fonts/gotham/GothamPro-Light.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-Light.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-Light.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-Light.svg#GothamPro-Light") format("svg"),
-        url("/fonts/gotham/GothamPro-Light.eot?#iefix") format("embedded-opentype");
-    font-weight: 100;
+        url("/fonts/hashflag/HashFlag-Light.woff2") format("woff2"),
+        url("/fonts/hashflag/HashFlag-Light.ttf") format("truetype");
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-LightItalic.eot");
+    font-family: "HashFlag";
     src:
-        url("/fonts/gotham/GothamPro-LightItalic.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-LightItalic.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-LightItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-LightItalic.svg#GothamPro-LightItalic") format("svg"),
-        url("/fonts/gotham/GothamPro-LightItalic.eot?#iefix") format("embedded-opentype");
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro.eot");
-    src:
-        url("/fonts/gotham/GothamPro.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro.woff") format("woff"),
-        url("/fonts/gotham/GothamPro.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro.svg#GothamPro") format("svg"),
-        url("/fonts/gotham/GothamPro.eot?#iefix") format("embedded-opentype");
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-Italic.eot");
-    src:
-        url("/fonts/gotham/GothamPro-Italic.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-Italic.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-Italic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-Italic.svg#GothamPro-Italic") format("svg"),
-        url("/fonts/gotham/GothamPro-Italic.eot?#iefix") format("embedded-opentype");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-Medium.eot");
-    src:
-        url("/fonts/gotham/GothamPro-Medium.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-Medium.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-Medium.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-Medium.svg#GothamPro-Medium") format("svg"),
-        url("/fonts/gotham/GothamPro-Medium.eot?#iefix") format("embedded-opentype");
+        url("/fonts/hashflag/HashFlag-Regular.woff2") format("woff2"),
+        url("/fonts/hashflag/HashFlag-Regular.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-MediumItalic.eot");
+    font-family: "HashFlag";
     src:
-        url("/fonts/gotham/GothamPro-MediumItalic.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-MediumItalic.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-MediumItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-MediumItalic.svg#GothamPro-MediumItalic") format("svg"),
-        url("/fonts/gotham/GothamPro-MediumItalic.eot?#iefix") format("embedded-opentype");
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-Bold.eot");
-    src:
-        url("/fonts/gotham/GothamPro-Bold.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-Bold.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-Bold.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-Bold.svg#GothamPro-Bold") format("svg"),
-        url("/fonts/gotham/GothamPro-Bold.eot?#iefix") format("embedded-opentype");
-    font-weight: 600;
+        url("/fonts/hashflag/HashFlag-Medium.woff2") format("woff2"),
+        url("/fonts/hashflag/HashFlag-Medium.ttf") format("truetype");
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-BoldItalic.eot");
+    font-family: "HashFlag";
     src:
-        url("/fonts/gotham/GothamPro-BoldItalic.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-BoldItalic.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-BoldItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-BoldItalic.svg#GothamPro-BoldItalic") format("svg"),
-        url("/fonts/gotham/GothamPro-BoldItalic.eot?#iefix") format("embedded-opentype");
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-Black.eot");
-    src:
-        url("/fonts/gotham/GothamPro-Black.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-Black.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-Black.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-Black.svg#GothamPro-Black") format("svg"),
-        url("/fonts/gotham/GothamPro-Black.eot?#iefix") format("embedded-opentype");
-    font-weight: 800;
+        url("/fonts/hashflag/HashFlag-Bold.woff2") format("woff2"),
+        url("/fonts/hashflag/HashFlag-Bold.ttf") format("truetype");
+    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 
-@font-face {
-    font-family: GothamPro;
-    src: url("/fonts/gotham/GothamPro-BlackItalic.eot");
-    src:
-        url("/fonts/gotham/GothamPro-BlackItalic.woff2") format("woff2"),
-        url("/fonts/gotham/GothamPro-BlackItalic.woff") format("woff"),
-        url("/fonts/gotham/GothamPro-BlackItalic.ttf") format("truetype"),
-        url("/fonts/gotham/GothamPro-BlackItalic.svg#GothamPro-BlackItalic") format("svg"),
-        url("/fonts/gotham/GothamPro-BlackItalic.eot?#iefix") format("embedded-opentype");
-    font-weight: 800;
-    font-style: italic;
-    font-display: swap;
+/* =============================================
+   DESIGN TOKENS — CSS Custom Properties
+   Mapped to Tailwind config brand colors
+   ============================================= */
+:root {
+    /* Brand Colors */
+    --navy: #091f40;
+    --navy-deep: #003559;
+    --navy-royal: #0353A4;
+    --navy-ocean: #006DAA;
+    --navy-sky: #B9D6F2;
+    --red: #c5203e;
+    --red-crimson: #A51C30;
+    --red-dark: #74121D;
+    --gold: #FDB330;
+    --gold-light: #FFE169;
+    --cream: #EEEDE9;
+    --ink: #1A1823;
+    --white: #ffffff;
+
+    /* Semantic Aliases */
+    --bg-dark: var(--navy);
+    --fg-light: var(--white);
+    --muted: #6C757D;
+    --muted-on-dark: rgba(185, 214, 242, 0.7);
+    --border-subtle: rgba(185, 214, 242, 0.08);
+    --accent: var(--red);
+
+    /* Font Stacks */
+    --font-headline: "HashFlag", system-ui, sans-serif;
+    --font-body: "Gilroy", "HashFlag", system-ui, sans-serif;
+    --font-mono: "HashFlag", system-ui, sans-serif;
 }
+
+/* =============================================
+   SELECTION STYLING
+   ============================================= */
+::selection {
+    background: var(--red);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background: var(--red);
+    color: var(--white);
+}
+
+/* =============================================
+   NOISE GRAIN OVERLAY — Dark sections only
+   ============================================= */
+.dark-section {
+    position: relative;
+}
+
+.dark-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.02;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+}
+
+/* GothamPro @font-face declarations removed — replaced by HashFlag */
 
 /* Keyframes and animations */
 
@@ -150,13 +120,243 @@
     animation: fall 5s linear forwards;
 }
 
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================
+   ENTRANCE ANIMATION UTILITIES
+   ============================================= */
+.fade-up {
+    animation: fadeUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+
+/* =============================================
+   NAVIGATION UPGRADE — Premium styling
+   ============================================= */
+.header-inner {
+    backdrop-filter: blur(12px);
+}
+
+.header-inner.tw-fixed {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Nav link styling — uppercase precision */
+nav[aria-label="Main Menu"] a {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: color 0.2s ease;
+}
+
+/* =============================================
+   SECTION DIVIDERS & LABELS
+   ============================================= */
+.section-divider {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 56px 0;
+}
+
+.section-divider::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 1px;
+    background: var(--red);
+}
+
+/* =============================================
+   CARD UPGRADE — Unified visual treatment
+   ============================================= */
+.card-upgraded {
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s ease;
+}
+
+.card-upgraded:hover {
+    border-top: 2px solid var(--red);
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   BUTTON SYSTEM UPGRADE
+   ============================================= */
+.btn-primary-upgraded {
+    font-family: var(--font-headline) !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    background: var(--red) !important;
+    color: var(--white) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 12px 28px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary-upgraded:hover {
+    background: var(--red-crimson) !important;
+    transform: translateY(-1px);
+}
+
+.btn-secondary-upgraded {
+    font-family: var(--font-headline) !important;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+    background: transparent !important;
+    color: var(--white) !important;
+    border: 1px solid rgba(185, 214, 242, 0.15) !important;
+    border-radius: 0 !important;
+    padding: 12px 28px !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-secondary-upgraded:hover {
+    border-color: var(--red) !important;
+}
+
+.btn-ghost-upgraded {
+    font-family: var(--font-mono) !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--navy-sky) !important;
+    background: transparent !important;
+    border: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.btn-ghost-upgraded:hover {
+    color: var(--white) !important;
+    text-decoration: underline;
+}
+
+/* =============================================
+   DARK SECTION CONTRAST & ALTERNATING BGs
+   ============================================= */
+.section-dark {
+    background: var(--navy);
+    position: relative;
+}
+
+.section-dark-alt {
+    background: var(--navy-deep);
+    position: relative;
+}
+
+.section-dark-subtle {
+    background: rgba(9, 31, 64, 0.85);
+    position: relative;
+}
+
+/* CTA Banner — bordered section */
+.cta-banner {
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+}
+
+.cta-banner::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 48px;
+    height: 1px;
+    background: var(--red);
+}
+
+/* =============================================
+   TESTIMONIAL UPGRADE
+   ============================================= */
+.testimonial-upgraded {
+    border-left: 2px solid var(--red);
+    padding-left: 24px;
+    position: relative;
+}
+
+.testimonial-upgraded .quote-mark {
+    font-family: var(--font-headline);
+    font-weight: 900;
+    font-size: 64px;
+    color: rgba(197, 32, 62, 0.3);
+    line-height: 1;
+    position: absolute;
+    top: -8px;
+    left: 24px;
+}
+
+.testimonial-upgraded .quote-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.testimonial-upgraded .attribution-name {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+}
+
+.testimonial-upgraded .attribution-detail {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+/* =============================================
+   FOOTER UPGRADE
+   ============================================= */
+footer .copyright {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(185, 214, 242, 0.4);
+}
+
 /* Global body styling */
 
 body {
-    font-family: "GothamPro", system-ui, -apple-system, sans-serif;
+    font-family: var(--font-body), "HashFlag", system-ui, -apple-system, sans-serif;
     font-weight: 400;
-    font-size: 16px; /* Improved from 15px for better readability */
-    line-height: 1.7; /* Increased from 1.74 for better readability */
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--ink);
 }
 
 /* Improved focus states for accessibility */
@@ -178,20 +378,67 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Improved heading scale with fluid typography */
+/* =============================================
+   TYPOGRAPHY UPGRADE — Three-font system
+   HashFlag (headlines + labels), Gilroy (body)
+   ============================================= */
+
+/* Headlines — bold, geometric, authoritative */
+h1, h2, h3 {
+    font-family: var(--font-headline);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--navy);
+}
+
+/* White headlines on dark backgrounds */
+.tw-bg-navy h1, .tw-bg-navy h2, .tw-bg-navy h3,
+.tw-bg-secondary h1, .tw-bg-secondary h2, .tw-bg-secondary h3,
+.dark-section h1, .dark-section h2, .dark-section h3 {
+    color: var(--white);
+}
+
 h1 {
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    line-height: 1.2;
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 900;
 }
 
 h2 {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    line-height: 1.25;
+    font-size: clamp(28px, 5vw, 48px);
+    font-weight: 800;
 }
 
 h3 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    line-height: 1.3;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 700;
+}
+
+/* Metadata & Labels — small caps precision */
+.meta-label,
+.section-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+/* Section heading red accent line */
+.section-title .title {
+    position: relative;
+}
+
+.section-title[data-align="left"] .title::before,
+.section-title .section-accent::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: var(--red);
+    margin-right: 12px;
+    vertical-align: middle;
 }
 
 /* Print styles for portfolio checklist */

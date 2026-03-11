@@ -38,27 +38,36 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                     align === "center" && "tw-text-center",
                     className
                 )}
+                data-align={align}
                 ref={ref}
             >
+                {/* Section label — Evil Rabbit precision context */}
                 {subtitle && (
-                    <SafeHTML
-                        content={subtitle}
-                        as="span"
-                        className={clsx(
-                            "tw-mb-2.5 tw-block tw-text-base tw-font-medium tw-uppercase tw-leading-none -tw-tracking-tightest",
-                            color === "A" && "tw-text-secondary-light",
-                            color === "B" && "tw-text-secondary",
-                            color === "C" && "tw-text-white",
-                            subtitleClass
-                        )}
-                    />
+                    <div
+                        className="section-label tw-mb-3"
+                        style={{
+                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontSize: "12px",
+                            textTransform: "uppercase",
+                            letterSpacing: "0.1em",
+                            color: color === "C" ? "#FFFFFF" : "#091f40",
+                            display: "flex",
+                            alignItems: align === "center" ? "center" : "center",
+                            justifyContent: align === "center" ? "center" : "flex-start",
+                            gap: "12px",
+                        }}
+                    >
+                        <span style={{ width: "16px", height: "2px", background: "var(--red, #c5203e)", display: "inline-block", flexShrink: 0 }} />
+                        <SafeHTML content={subtitle} as="span" className={subtitleClass} />
+                    </div>
                 )}
 
+                {/* Main heading — HashFlag authority */}
                 <SafeHTML
                     content={title}
                     as="h2"
                     className={clsx(
-                        "title tw-m-0 child:tw-font-normal child:tw-text-primary",
+                        "title tw-m-0 child:tw-font-normal child:tw-text-primary [font-family:var(--font-headline,HashFlag,sans-serif)] tw-font-extrabold",
                         color === "A" && "tw-text-secondary",
                         color === "C" && "tw-text-white",
                         titleSize === "large" &&

@@ -1,16 +1,30 @@
 import { Variants } from "motion/react";
 
+/* Upgraded scroll animation — subtle, purposeful entrance
+   16px translate, 0.5s duration. Content arrives with purpose, not spectacle. */
 export const scrollUpVariants: Variants = {
     offscreen: {
         opacity: 0,
-        y: 30,
+        y: 16,
     },
     onscreen: {
         opacity: 1,
         y: 0,
         transition: {
-            type: "spring",
-            duration: 1,
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.5,
+        },
+    },
+};
+
+/* Staggered children — for applying delay across grid items */
+export const staggerContainer: Variants = {
+    offscreen: {},
+    onscreen: {
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1,
         },
     },
 };
@@ -18,14 +32,15 @@ export const scrollUpVariants: Variants = {
 export const scrollLeftVariants: Variants = {
     offscreen: {
         opacity: 0,
-        x: -100,
+        x: -60,
     },
     onscreen: {
         opacity: 1,
         x: 0,
         transition: {
-            type: "spring",
-            duration: 1,
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.5,
         },
     },
 };
@@ -33,14 +48,15 @@ export const scrollLeftVariants: Variants = {
 export const scrollRightVariants: Variants = {
     offscreen: {
         opacity: 0,
-        x: 100,
+        x: 60,
     },
     onscreen: {
         opacity: 1,
         x: 0,
         transition: {
-            type: "spring",
-            duration: 1,
+            type: "tween",
+            ease: "easeOut",
+            duration: 0.5,
         },
     },
 };

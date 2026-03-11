@@ -18,13 +18,13 @@
                 },
                 {
                     "id":4,
-                    "content":"With Vets Who Code"
+                    "content":"With #VetsWhoCode"
                 }
             ],
             "texts": [
                 {
                     "id": 1,
-                    "content": "VetsWhoCode is a veteran-led 501(c)(3) committed to empowering veterans and military spouses through a high-quality, AI-powered software engineering training program. With over a decade of dedication, we've enabled over 300 veterans and spouses to transition seamlessly into the tech sector, unlocking over $20 million in earnings, at no cost to them. Our approach is not just about coding—it's about building successful careers through an innovative curriculum that mimics real-world challenges, guided by mentors in an engineering manager role to enhance critical thinking. Join us in transforming futures."
+                    "content": "#VetsWhoCode is a veteran-led 501(c)(3) committed to empowering veterans and military spouses through a high-quality, AI-powered software engineering training program. With over a decade of dedication, we've enabled over 300 veterans and spouses to transition seamlessly into the tech sector, unlocking over $20 million in earnings, at no cost to them. Our approach is not just about coding—it's about building successful careers through an innovative curriculum that mimics real-world challenges, guided by mentors in an engineering manager role to enhance critical thinking. Join us in transforming futures."
                 }
             ],
             "buttons": [
@@ -50,7 +50,7 @@
             ],
             "video": {
                 "videoId": "S4lpKm9mbVk",
-                "channel": "Vets Who Code youtube channel"
+                "channel": "#VetsWhoCode youtube channel"
             }
         },
         {
@@ -154,7 +154,7 @@
             "section": "course-area",
             "section_title": {
                 "title": "Our <span>Subjects</span>",
-                "subtitle":"Learn with us at Vets Who Code"
+                "subtitle":"Learn with us at #VetsWhoCode"
             }
         },
         {
@@ -176,7 +176,7 @@
                     "id": 1,
                     "name": "Osvaldo Vargas, US Army",
                     "designation": "Senior Software Engineering Manager | Accenture Federal Services",
-                    "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. Vets Who Code delivered more value to me than 12 of the non-profits combined.",
+                    "description": "During my transition, I have signed up for and utilized services from over 14 different Non-Profits, Corporate, and State resources. I attended all three US Army military transition tracks (Business, Education, Career), been a part of a variety of technology training programs and transition programs. Of all of these programs, only three have made a significant contribution to my transition, and of these three organizations, only one has truly changed my life for the better. #VetsWhoCode delivered more value to me than 12 of the non-profits combined.",
                     "images": [
                         {
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1656258222/Headshots/ozzie_zcaamv.png"
@@ -220,7 +220,7 @@
             "section": "media-area",
             "section_title": {
                 "title": "Featured in <span>Media</span>",
-                "subtitle": "Vets Who Code in the spotlight"
+                "subtitle": "#VetsWhoCode in the spotlight"
             },
             "motto": {
                 "text": "See our impact and recognition in the media.​",
