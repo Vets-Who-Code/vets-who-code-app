@@ -19,6 +19,11 @@ export default class MyDocument extends Document {
                     <link rel="icon" href="/favicon.ico" />
                     <link rel="apple-touch-icon" href="/images/favicon.png" />
 
+                    {/* Preload HashFlag fonts for mobile Chrome */}
+                    <link rel="preload" href="/fonts/hashflag/HashFlag-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                    <link rel="preload" href="/fonts/hashflag/HashFlag-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                    <link rel="preload" href="/fonts/hashflag/HashFlag-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
                     <link
                         rel="stylesheet"
                         href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
