@@ -130,12 +130,9 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
 
                         <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-center">
                             {buttons?.[0] && (
-                                <button
+                                <Button
+                                    path={buttons[0].path}
                                     className="tw-m-2.5 btn-primary-upgraded tw-group tw-inline-flex tw-items-center"
-                                    onClick={() => {
-                                        if (buttons[0].path) window.location.href = buttons[0].path;
-                                    }}
-                                    style={{ cursor: "pointer" }}
                                 >
                                     {buttons[0].content}
                                     <span
@@ -143,7 +140,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                     >
                                         →
                                     </span>
-                                </button>
+                                </Button>
                             )}
                             {buttons?.[1] && (
                                 <Button

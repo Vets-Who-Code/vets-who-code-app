@@ -11,21 +11,9 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, path, category, postedAt, image, className }, ref) => (
         <div
             className={clsx(
-                "blog-card tw-group tw-relative tw-overflow-hidden tw-bg-white tw-transition-all tw-duration-300",
+                "blog-card card-upgraded tw-group tw-relative tw-overflow-hidden tw-bg-white",
                 className
             )}
-            style={{
-                border: "1px solid rgba(185, 214, 242, 0.08)",
-                borderRadius: 0,
-            }}
-            onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderTop = "2px solid var(--red, #c5203e)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderTop = "1px solid rgba(185, 214, 242, 0.08)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-            }}
             ref={ref}
         >
             {image?.src && (

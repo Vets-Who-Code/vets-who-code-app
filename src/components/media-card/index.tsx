@@ -11,21 +11,9 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
     ({ title, mediaType, url, publication, date, image, description, className }, ref) => (
         <div
             className={clsx(
-                "media-card tw-group tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white tw-transition-all tw-duration-300",
+                "media-card card-upgraded tw-group tw-relative tw-flex tw-flex-col tw-overflow-hidden tw-bg-white",
                 className
             )}
-            style={{
-                border: "1px solid rgba(185, 214, 242, 0.08)",
-                borderRadius: 0,
-            }}
-            onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderTop = "2px solid var(--red, #c5203e)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-            }}
-            onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.borderTop = "1px solid rgba(185, 214, 242, 0.08)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-            }}
             ref={ref}
         >
             {image?.src && (

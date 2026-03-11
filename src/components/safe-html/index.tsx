@@ -18,16 +18,33 @@ const SANITIZE_CONFIG = {
 		"rowspan",
 	],
 	ALLOW_DATA_ATTR: true,
+	ALLOW_ARIA_ATTR: true,
 	KEEP_CONTENT: true,
 	ADD_ATTR: ["target", "rel"],
 };
 
-// Lightweight SSR-safe sanitizer that preserves allowed tags
+const ALLOWED_ATTR_SET = new Set(SANITIZE_CONFIG.ALLOWED_ATTR);
+
+// Lightweight SSR-safe sanitizer that preserves allowed tags and filters attributes
 const sanitizeForSSR = (dirty: string): string => {
 	const allowedTagSet = new Set(SANITIZE_CONFIG.ALLOWED_TAGS);
-	// Strip tags that aren't in our allowed list, keep allowed ones intact
-	return dirty.replace(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b[^>]*\/?>/g, (match, tagName) => {
-		return allowedTagSet.has(tagName.toLowerCase()) ? match : "";
+	return dirty.replace(/<(\/?[a-zA-Z][a-zA-Z0-9]*)((?:\s+[^>]*?)?)(\s*\/?)>/g, (_match, tag, attrs, selfClose) => {
+		const tagName = tag.replace("/", "").toLowerCase();
+		if (!allowedTagSet.has(tagName)) return "";
+		// Closing tags have no attributes
+		if (tag.startsWith("/")) return `<${tag}>`;
+		// Filter attributes to only allowed ones
+		const safeAttrs: string[] = [];
+		const attrRegex = /([a-zA-Z][a-zA-Z0-9-]*)\s*(?:=\s*(?:"([^"]*)"|'([^']*)'|(\S+)))?/g;
+		let attrMatch;
+		while ((attrMatch = attrRegex.exec(attrs)) !== null) {
+			const attrName = attrMatch[1].toLowerCase();
+			if (ALLOWED_ATTR_SET.has(attrName) || attrName.startsWith("data-") || attrName.startsWith("aria-")) {
+				safeAttrs.push(attrMatch[0]);
+			}
+		}
+		const attrStr = safeAttrs.length > 0 ? ` ${safeAttrs.join(" ")}` : "";
+		return `<${tag}${attrStr}${selfClose}>`;
 	});
 };
 
@@ -63,10 +80,12 @@ const SafeHTML: React.FC<SafeHTMLProps> = ({
 	className,
 	as: Component = "div",
 }) => {
-	const isServer = typeof window === "undefined";
-	const initialHTML = isServer ? sanitizeForSSR(content || "") : sanitizeForClient(content || "");
-	const [safeContent, setSafeContent] = React.useState<string>(initialHTML);
+	// Always initialize with SSR sanitizer so server and client initial render match
+	const [safeContent, setSafeContent] = React.useState<string>(
+		() => sanitizeForSSR(content || "")
+	);
 
+	// Upgrade to full DOMPurify sanitization on the client
 	React.useEffect(() => {
 		if (content) {
 			setSafeContent(sanitizeForClient(content));

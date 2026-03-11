@@ -14,21 +14,11 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "event tw-group tw-relative tw-h-full tw-transition-all tw-duration-300",
+                    "event card-upgraded tw-group tw-relative tw-h-full",
                     className
                 )}
                 style={{
-                    border: "1px solid rgba(185, 214, 242, 0.08)",
-                    borderRadius: 0,
                     background: "var(--cream, #EEEDE9)",
-                }}
-                onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderTop = "2px solid var(--red, #c5203e)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderTop = "1px solid rgba(185, 214, 242, 0.08)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                 }}
                 ref={ref}
             >

@@ -12,21 +12,9 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
         return (
             <div
                 className={clsx(
-                    "blog-card tw-group tw-bg-white tw-p-5 tw-transition-all tw-duration-300",
+                    "blog-card card-upgraded tw-group tw-bg-white tw-p-5",
                     className
                 )}
-                style={{
-                    border: "1px solid rgba(185, 214, 242, 0.08)",
-                    borderRadius: 0,
-                }}
-                onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderTop = "2px solid var(--red, #c5203e)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.borderTop = "1px solid rgba(185, 214, 242, 0.08)";
-                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                }}
                 ref={ref}
             >
                 <div className="tw-relative tw-h-[250px] tw-overflow-hidden">

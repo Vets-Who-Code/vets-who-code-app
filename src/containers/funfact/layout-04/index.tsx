@@ -51,9 +51,8 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
 
                     {/* Stats grid — Evil Rabbit cell divider effect */}
                     <div
+                        className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2"
                         style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(2, 1fr)",
                             gap: "1px",
                             background: "rgba(185, 214, 242, 0.08)",
                             border: "1px solid rgba(185, 214, 242, 0.08)",
