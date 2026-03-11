@@ -44,7 +44,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                 <div className="info tw-relative tw-z-1 tw-px-7.5 tw-pb-10 tw-pt-7.5 tw-text-center">
                     <p
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "10px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",

@@ -36,7 +36,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                 <Anchor
                     path={category.path}
                     style={{
-                        fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                        fontFamily: "var(--font-mono)",
                         fontSize: "9px",
                         textTransform: "uppercase",
                         letterSpacing: "0.08em",
@@ -62,7 +62,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     <li
                         className="tw-mt-3.8"
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "10px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",

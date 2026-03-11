@@ -203,7 +203,7 @@ module.exports = {
                 },
             }),
             fontFamily: {
-                body: ["Gilroy", "HashFlag", "system-ui", "sans-serif"],
+                body: ["Gilroy", "system-ui", "sans-serif"],
                 heading: ["HashFlag", "system-ui", "sans-serif"],
                 hashflag: ["HashFlag", "system-ui", "sans-serif"],
                 playfair: ["Playfair Display", "serif"],

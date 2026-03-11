@@ -33,7 +33,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                     <p
                         className="tw-mb-1"
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "9px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
@@ -72,7 +72,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                     {date && (
                         <p
                             style={{
-                                fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                                fontFamily: "var(--font-mono)",
                                 fontSize: "10px",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
@@ -93,7 +93,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                         rel="noopener noreferrer"
                         className="tw-mt-3 tw-inline-block tw-group"
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "11px",
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",

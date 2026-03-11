@@ -46,7 +46,7 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                     <div
                         className="section-label tw-mb-3"
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "12px",
                             textTransform: "uppercase",
                             letterSpacing: "0.1em",

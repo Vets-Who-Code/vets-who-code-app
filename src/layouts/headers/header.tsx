@@ -85,7 +85,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                         <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75" style={{ animation: "statusBlink 2s ease-in-out infinite" }} />
                                         <span className="tw-relative tw-inline-flex tw-h-[5px] tw-w-[5px] tw-rounded-full tw-bg-red" />
                                     </span>
-                                    <span style={{ fontFamily: "var(--font-mono, HashFlag, sans-serif)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(9, 31, 64, 0.5)" }}>
+                                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(9, 31, 64, 0.5)" }}>
                                         2026 Cohort Active
                                     </span>
                                 </div>

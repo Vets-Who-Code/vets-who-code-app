@@ -71,8 +71,8 @@
 
     /* Font Stacks */
     --font-headline: "HashFlag", system-ui, sans-serif;
-    --font-body: "Gilroy", "HashFlag", system-ui, sans-serif;
-    --font-mono: "HashFlag", system-ui, sans-serif;
+    --font-body: "Gilroy", system-ui, sans-serif;
+    --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", "Fira Code", monospace;
 }
 
 /* =============================================

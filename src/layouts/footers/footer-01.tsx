@@ -66,7 +66,7 @@ const Footer01 = ({ mode }: TProps) => {
                 >
                     <p
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "10px",
                             color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "var(--navy, #091f40)",
                             letterSpacing: "0.08em",
@@ -87,7 +87,7 @@ const Footer01 = ({ mode }: TProps) => {
                     </p>
                     <p
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "10px",
                             color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6C757D",
                             letterSpacing: "0.06em",

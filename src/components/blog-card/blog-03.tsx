@@ -39,7 +39,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     <div
                         className="tw-mb-2"
                         style={{
-                            fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                            fontFamily: "var(--font-mono)",
                             fontSize: "9px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
@@ -69,7 +69,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                         <li
                             className="tw-mb-0 tw-mt-3.8"
                             style={{
-                                fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                                fontFamily: "var(--font-mono)",
                                 fontSize: "10px",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",

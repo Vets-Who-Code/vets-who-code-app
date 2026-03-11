@@ -114,7 +114,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                         <div
                             className="tw-mb-6"
                             style={{
-                                fontFamily: "var(--font-mono, HashFlag, sans-serif)",
+                                fontFamily: "var(--font-mono)",
                                 fontSize: "10px",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
