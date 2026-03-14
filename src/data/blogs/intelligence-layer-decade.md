@@ -4,15 +4,15 @@ postedAt: "2026-03-13T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "What we learned building an intelligence layer from a decade of transforming 300+ veterans into software engineers — and how it shaped J0dI3, our AI-powered career intelligence system."
 image:
-    src: "blog-images/intelligence-layer-decade.png"
+  src: "blog-images/intelligence-layer-decade.png"
 category: "AI & Veterans"
 tags:
-    - AI
-    - Veterans
-    - Career Transition
-    - J0dI3
-    - Machine Learning
-    - Military
+  - AI
+  - Veterans
+  - Career Transition
+  - J0dI3
+  - Machine Learning
+  - Military
 is_featured: true
 ---
 
@@ -110,11 +110,11 @@ J0dI3 was built on a different dataset. It was built on watching what actually w
 
 Three hundred veterans. Twenty million dollars in earnings. Ninety-seven percent placement. One decade of pattern data. That's not a curriculum. That's an intelligence layer. And it's the foundation J0dI3 is built on.
 
-If you can navigate a career transition out of the United States military into software engineering — one of the hardest professional pivots there is — then a standard career switch is well within range. J0dI3 was forged on the hard problem. Everything else is a subset.
+What 300 veterans taught us is simple: capability is rarely the problem. Translation is. The skills are already there—pattern recognition, systematic troubleshooting, operating under pressure, leading teams through ambiguity. The gap is in bridging what you've done to what you're capable of doing next.
+
+J0dI3 exists because we refused to let a decade of watching that bridge get built disappear into institutional memory. It's the encoding of everything we learned. But the lessons came first. The veterans taught us. The tool just makes sure we don't forget.
 
 ---
-
-*Jerome Hardaway is the Executive Director and founder of Vets Who Code, a 501(c)(3) nonprofit that has trained over 300 veterans in software engineering since 2014. He is a Senior AI Engineer at Accenture Federal Services and a U.S. Air Force veteran. Learn more at vetswhocode.io.*
 
 ### Support Vets Who Code
 
