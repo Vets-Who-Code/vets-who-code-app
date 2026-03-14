@@ -88,7 +88,7 @@ Nobody asked them to do this. They did it because contributing to a community is
 
 Why does this predict career outcomes? Because for career switchers, community contribution compensates for a thin professional network in the new field. When you're transitioning into tech, you don't have college friends at Google or former coworkers at startups. Your network is built from scratch, and the way you build it isn't by showing up — it's by adding value when you do. Speaking at meetups, not just attending them. Submitting pull requests to open-source projects, not just starring repos. Mentoring someone behind you, not just asking for help from someone ahead of you.
 
-J0dI3's LinkedIn evaluation captures this signal. The intelligence layer doesn't just check for community membership — it assesses community contribution. Leadership roles, not just attendance. Technical volunteering, not just networking. Conference talks, not just conference badges. Mentoring output, not just mentoring input. We've found that troops who contribute to their technical communities within their first year consistently outperform those who merely participate, even when their raw technical skills are comparable. J0dI3 surfaces that as a measurable career readiness dimension because we've watched the pattern repeat for a decade. The alumni who are still building with us today are also the ones with the strongest careers. That's not a coincidence. That's a signal.
+J0dI3 captures this signal across your entire professional presence. It distinguishes between community membership and community contribution — leadership versus attendance, building versus showing up.
 
 ## Depth Over Breadth Is the Career Switcher's Edge
 
