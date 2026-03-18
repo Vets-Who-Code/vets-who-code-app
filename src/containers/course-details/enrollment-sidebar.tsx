@@ -133,13 +133,13 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                         ) : (
                             <div>
                                 <Link
-                                    href="/login"
+                                    href="/apply"
                                     className="hover:tw-bg-primary-dark tw-mb-4 tw-block tw-w-full tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-text-center tw-font-semibold tw-text-white tw-transition-colors"
                                 >
-                                    Sign In to Enroll
+                                    Apply to Vets Who Code
                                 </Link>
                                 <p className="tw-text-center tw-text-sm tw-text-gray-300">
-                                    Join the learning platform for hands-on experience
+                                    Course access is available after acceptance into the program
                                 </p>
                             </div>
                         )}
