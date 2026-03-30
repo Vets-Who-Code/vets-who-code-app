@@ -4,7 +4,21 @@ const withPWA = require("next-pwa")({
     disable: process.env.NODE_ENV === "development",
     register: true,
     skipWaiting: true,
-    runtimeCaching: require("next-pwa/cache"),
+    runtimeCaching: [
+        {
+            urlPattern: /^https:\/\/cdn\.shopify\.com\/.*$/i,
+            handler: "NetworkFirst",
+            options: {
+                cacheName: "shopify-images",
+                expiration: {
+                    maxEntries: 64,
+                    maxAgeSeconds: 3600,
+                },
+                networkTimeoutSeconds: 10,
+            },
+        },
+        ...require("next-pwa/cache"),
+    ],
     buildExcludes: [
         /middleware-manifest\.json$/,
         /middleware-runtime\.js$/,
