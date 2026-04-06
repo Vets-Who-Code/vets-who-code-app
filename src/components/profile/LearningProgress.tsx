@@ -196,7 +196,7 @@ function StatCard({ label, value, icon }: { label: string; value: string; icon: 
         <div className="tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-5 tw-text-center tw-shadow-sm">
             <i className={`${icon} tw-text-gold/60 tw-mb-1`} />
             <div className="tw-font-mono tw-text-2xl tw-font-bold tw-text-navy">{value}</div>
-            <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-navy/40">
+            <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-ink/60">
                 {label}
             </div>
         </div>

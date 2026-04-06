@@ -51,7 +51,7 @@ const LanguageBreakdown = ({ languages, isLoading }: LanguageBreakdownProps) => 
                             style={{ backgroundColor: lang.color }}
                         />
                         <span className="tw-text-gray-300">{lang.language}</span>
-                        <span className="tw-text-navy/40">{lang.percentage}%</span>
+                        <span className="tw-text-ink/60">{lang.percentage}%</span>
                     </div>
                 ))}
             </div>

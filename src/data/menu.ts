@@ -103,6 +103,12 @@ const navigation: NavigationItem[] = [
         ],
     },
     {
+        id: 8,
+        label: "J0d!e",
+        path: "/jodie",
+        status: "new",
+    },
+    {
         id: 6,
         label: "Shop",
         path: "/store",

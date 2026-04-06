@@ -12,15 +12,16 @@
   "instructor": 1,
   "duration": "5 weeks",
   "total_lectures": 5,
+  "weeks": "5-9",
   "total_students": null,
   "membership": [],
   "excerpt": "Build full-stack applications with modern frameworks and ship them to production. This phase takes you from writing code to engineering software — architecture, testing, deployment, and the interview skills to get paid for it.",
   "curriculum": [
     "advanced-javascript-typescript",
-    "nextjs-full-stack",
-    "testing-and-qa",
-    "cicd-and-deployment",
-    "technical-interviews"
+    "nextjs-application-development",
+    "testing-fundamentals",
+    "deployment-and-cicd",
+    "media-management-and-analytics"
   ],
   "reviews": {
     "average": null,
@@ -56,27 +57,27 @@
     {
       "id": 4,
       "type": "text",
-      "content": "Module 10: Next.js Full-Stack — Build complete applications with the framework powering the modern web. Covers App Router, pages, layouts and routing, Server Components and Client Components, API routes and server actions, data fetching, caching and state management, and authentication, middleware and database integration."
+      "content": "Module 10: Next.js Application Development — Build complete applications with the framework powering the modern web. Covers App Router architecture, layouts and templates, Server and Client Components, data fetching with caching and ISR, Server Actions, API routes, Tailwind CSS styling, and performance optimization with next/image and next/font."
     },
     {
       "id": 5,
       "type": "text",
-      "content": "Module 11: Testing & QA — Ship with confidence. If it's not tested, it doesn't work. Covers unit testing fundamentals, integration and end-to-end testing, test-driven development (TDD), mocking, fixtures and test strategy, and code coverage and quality metrics."
+      "content": "Module 11: Testing Fundamentals — Untested code is broken code. Period. Covers the testing pyramid, TDD, Jest (matchers, mocking, async), React Testing Library, integration testing, E2E with Playwright (Page Object Model, visual regression), and CI integration."
     },
     {
       "id": 6,
       "type": "text",
-      "content": "Module 12: CI/CD & Deployment — Automate everything between your code and your users. Covers CI/CD pipeline design and implementation, GitHub Actions workflows, environment management (dev, staging, production), containerization basics, and cloud deployment and hosting."
+      "content": "Module 12: Deployment & CI/CD — Automate everything between your code and your users. Covers Vercel deployment, preview deploys, GitHub Actions (triggers, jobs, secrets, matrix builds, caching), CI pipeline (lint, typecheck, test), CD pipeline (feature flags, rollbacks, blue-green deployments)."
     },
     {
       "id": 7,
       "type": "text",
-      "content": "Module 13: Technical Interviews — Practice doesn't make perfect — deliberate practice does. Covers system design fundamentals, behavioral interview preparation (STAR method), live coding practice and communication, take-home project strategy, and salary negotiation and offer evaluation."
+      "content": "Module 13: Media Management & Analytics — Images and videos can make or break your app's performance. Covers Cloudinary integration (upload, transforms, optimization), image formats (WebP, AVIF), lazy loading, Microsoft Clarity (session recordings, heatmaps), Google Analytics 4, and event tracking."
     },
     {
       "id": 8,
       "type": "text",
-      "content": "Phase Outcome: Build, test, and deploy production applications. Pass technical interviews."
+      "content": "Phase Outcome: Build, test, and deploy production applications. Ship features to real users on the VWC platform."
     }
   ]
 }

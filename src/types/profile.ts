@@ -127,6 +127,7 @@ export type ProfileTab =
     | "ops-log"
     | "service-record"
     | "training"
+    | "j0di3"
     | "settings";
 
 export interface ProfileTabDef {
@@ -141,6 +142,7 @@ export const PROFILE_TABS: ProfileTabDef[] = [
     { id: "ops-log", label: "Ops Log", icon: "fas fa-clipboard-list" },
     { id: "service-record", label: "Service Record", icon: "fas fa-medal" },
     { id: "training", label: "Training", icon: "fas fa-graduation-cap" },
+    { id: "j0di3", label: "J0dI3", icon: "fas fa-robot" },
     { id: "settings", label: "Settings", icon: "fas fa-cog" },
 ];
 
