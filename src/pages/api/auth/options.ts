@@ -2,6 +2,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider, { GithubProfile } from "next-auth/providers/github";
 import prisma from "@/lib/prisma";
+import { ensureTroop } from "@/lib/ensure-troop";
 
 const fetchWithTimeout = async (
     url: string,
@@ -107,6 +108,11 @@ export const options: NextAuthOptions = {
                         select: { role: true },
                     });
                     session.user.role = dbUser?.role || "STUDENT";
+
+                    // Lazily ensure user has a J0dI3 troop profile
+                    ensureTroop(user.id as string).catch((err) =>
+                        console.error("[Auth] ensureTroop background error:", err)
+                    );
                 }
                 return session;
             } catch (error) {

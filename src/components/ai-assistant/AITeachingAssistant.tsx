@@ -73,95 +73,33 @@ export default function AITeachingAssistant({
         setError(null);
 
         try {
-            const response = await fetch("/api/ai/chat", {
+            const response = await fetch("/api/j0di3/learning/explain", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    messages: [...messages, userMessage].map(({ role, content }) => ({
-                        role,
-                        content,
-                    })),
-                    lessonContext,
+                    concept: lessonContext?.lessonTitle ?? "general",
+                    question: input.trim(),
+                    curriculum_week: 1,
                 }),
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || "Failed to get response");
+                const msg = errorData.error || (Array.isArray(errorData.detail) ? errorData.detail.map((d: any) => d.msg).join(", ") : errorData.detail) || "Failed to get response";
+                throw new Error(msg);
             }
 
-            // Handle streaming response
-            const reader = response.body?.getReader();
-            const decoder = new TextDecoder();
-            let assistantMessage = "";
+            const data = await response.json();
 
-            if (!reader) {
-                throw new Error("No response stream available");
-            }
-
-            // Create initial assistant message
             const assistantMessageObj: Message = {
                 role: "assistant",
-                content: "",
+                content: data.response || data.explanation || data.answer || JSON.stringify(data),
                 timestamp: new Date(),
             };
             setMessages((prev) => [...prev, assistantMessageObj]);
-
-            while (true) {
-                // biome-ignore lint/performance/noAwaitInLoops: Sequential stream reading requires await in loop
-                const { done, value } = await reader.read();
-
-                if (done) break;
-
-                const chunk = decoder.decode(value);
-                const lines = chunk.split("\n");
-
-                for (const line of lines) {
-                    if (line.startsWith("data: ")) {
-                        const data = line.slice(6);
-
-                        if (data === "[DONE]") {
-                            break;
-                        }
-
-                        try {
-                            const parsed = JSON.parse(data);
-
-                            if (parsed.error) {
-                                setError(parsed.error);
-                                break;
-                            }
-
-                            if (parsed.text) {
-                                assistantMessage += parsed.text;
-                                // Update the last message (assistant's message)
-                                setMessages((prev) => {
-                                    const updated = [...prev];
-                                    updated[updated.length - 1] = {
-                                        ...updated[updated.length - 1],
-                                        content: assistantMessage,
-                                    };
-                                    return updated;
-                                });
-                            }
-                        } catch (e) {
-                            console.error("Failed to parse SSE data:", e);
-                        }
-                    }
-                }
-            }
         } catch (err) {
             console.error("Chat error:", err);
             setError(err instanceof Error ? err.message : "An error occurred");
-            // Remove the last assistant message if there was an error
-            setMessages((prev) => {
-                if (prev.length > 0 && prev[prev.length - 1].role === "assistant") {
-                    return prev.slice(0, -1);
-                }
-                return prev;
-            });
         } finally {
             setIsLoading(false);
         }
@@ -191,7 +129,7 @@ export default function AITeachingAssistant({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="tw-text-white hover:tw-text-gray-200 tw-text-2xl tw-leading-none tw-transition-colors"
+                        className="tw-text-white hover:tw-text-ink/80 tw-text-2xl tw-leading-none tw-transition-colors"
                         aria-label="Close"
                     >
                         &times;
@@ -201,14 +139,14 @@ export default function AITeachingAssistant({
                 {/* Messages */}
                 <div className="tw-flex-1 tw-overflow-y-auto tw-p-6 tw-space-y-4">
                     {messages.length === 0 && (
-                        <div className="tw-text-center tw-text-gray-500 tw-py-8">
+                        <div className="tw-text-center tw-text-ink/60 tw-py-8">
                             <p className="tw-text-lg tw-font-medium tw-mb-2">
                                 Hi! I&apos;m J0d!e, your AI teaching assistant.
                             </p>
                             <p className="tw-text-sm">
                                 Ask me anything about {lessonContext ? "this lesson" : "coding"}!
                             </p>
-                            <p className="tw-text-xs tw-mt-4 tw-text-gray-400">
+                            <p className="tw-text-xs tw-mt-4 tw-text-ink/60">
                                 Tip: Press &apos;A&apos; to open me quickly, ESC to close
                             </p>
                         </div>
@@ -227,7 +165,7 @@ export default function AITeachingAssistant({
                                     "tw-max-w-[80%] tw-rounded-lg tw-px-4 tw-py-3 tw-shadow-sm",
                                     msg.role === "user"
                                         ? "tw-bg-primary tw-text-white"
-                                        : "tw-bg-gray-100 tw-text-gray-400"
+                                        : "tw-bg-navy/5 tw-text-ink/80"
                                 )}
                             >
                                 <div className="tw-text-sm tw-whitespace-pre-wrap">
@@ -238,7 +176,7 @@ export default function AITeachingAssistant({
                                         "tw-text-xs tw-mt-1",
                                         msg.role === "user"
                                             ? "tw-text-white tw-opacity-70"
-                                            : "tw-text-gray-500"
+                                            : "tw-text-ink/60"
                                     )}
                                 >
                                     {msg.timestamp.toLocaleTimeString()}
@@ -259,7 +197,7 @@ export default function AITeachingAssistant({
                 </div>
 
                 {/* Input */}
-                <div className="tw-border-t tw-border-gray-200 tw-p-4">
+                <div className="tw-border-t tw-border-navy/10 tw-p-4">
                     <form onSubmit={handleSubmit} className="tw-flex tw-gap-2">
                         <input
                             ref={inputRef}
@@ -268,7 +206,7 @@ export default function AITeachingAssistant({
                             onChange={(e) => setInput(e.target.value)}
                             placeholder="Ask me anything..."
                             disabled={isLoading}
-                            className="tw-flex-1 tw-border tw-border-gray-300 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-outline-none focus:tw-border-primary disabled:tw-bg-gray-100 disabled:tw-cursor-not-allowed"
+                            className="tw-flex-1 tw-border tw-border-navy/10 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-outline-none focus:tw-border-primary disabled:tw-bg-navy/5 disabled:tw-cursor-not-allowed"
                         />
                         <button
                             type="submit"
@@ -276,7 +214,7 @@ export default function AITeachingAssistant({
                             className={clsx(
                                 "tw-px-6 tw-py-2 tw-rounded-lg tw-font-medium tw-transition-colors",
                                 isLoading || !input.trim()
-                                    ? "tw-bg-gray-300 tw-text-gray-500 tw-cursor-not-allowed"
+                                    ? "tw-bg-navy/10 tw-text-ink/60 tw-cursor-not-allowed"
                                     : "tw-bg-primary tw-text-white hover:tw-bg-primary-dark"
                             )}
                         >
@@ -309,7 +247,7 @@ export default function AITeachingAssistant({
                             )}
                         </button>
                     </form>
-                    <p className="tw-text-xs tw-text-gray-500 tw-mt-2 tw-text-center">
+                    <p className="tw-text-xs tw-text-ink/60 tw-mt-2 tw-text-center">
                         J0d!e uses AI to help you learn. Responses may not always be accurate.
                     </p>
                 </div>

@@ -26,6 +26,7 @@ import {
     LearningProgress,
     ProfileSettings,
     GitHubReadme,
+    TroopDashboard,
 } from "@/components/profile";
 
 type PageProps = {
@@ -174,6 +175,9 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                         error={learning.error}
                     />
                 )}
+
+                {/* J0dI3 — AI dashboard */}
+                {activeTab === "j0di3" && <TroopDashboard />}
 
                 {/* Settings — only for owner */}
                 {activeTab === "settings" && isOwner && <ProfileSettings />}

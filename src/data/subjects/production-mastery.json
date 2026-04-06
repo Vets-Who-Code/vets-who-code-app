@@ -1,0 +1,82 @@
+{
+  "id": 4,
+  "title": "Production Mastery",
+  "thumbnail": {
+    "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981444/ai-engineering_nonggx.png"
+  },
+  "published_at": "2020-12-04T00:00:00.000Z",
+  "category": "programming",
+  "price": null,
+  "currency": null,
+  "language": "english",
+  "instructor": 1,
+  "duration": "3 weeks",
+  "total_lectures": 4,
+  "weeks": "15-17",
+  "total_students": null,
+  "membership": [],
+  "excerpt": "Building is only half the job. This phase teaches you to ship, monitor, and maintain AI systems at scale. Testing AI output, observability, containerized deployment, and responsible AI governance.",
+  "curriculum": [
+    "testing-ai-systems",
+    "llmops-and-observability",
+    "production-deployment",
+    "ethics-safety-and-governance"
+  ],
+  "reviews": {
+    "average": null,
+    "count": 0,
+    "rating_details": {
+      "5": 0,
+      "4": 0,
+      "3": 0,
+      "2": 0,
+      "1": 0
+    },
+    "items": []
+  },
+  "description": [
+    {
+      "id": 1,
+      "type": "image",
+      "content": {
+        "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1771981444/ai-engineering_nonggx.png",
+        "alt": "Production Mastery Phase Introduction"
+      }
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "content": "Weeks 15–17 · 4 Modules + Capstone. Building is only half the job. This phase teaches you to ship, monitor, and maintain AI systems at scale. This is what separates engineers from hobbyists."
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "content": "Module 22: Testing AI Systems — AI systems need different testing strategies. Covers pytest (fixtures, async testing), FastAPI TestClient, streaming endpoint tests, K6 load testing (virtual users, scenarios, thresholds), and LLM output evaluation (factuality, relevance, automated pipelines)."
+    },
+    {
+      "id": 4,
+      "type": "text",
+      "content": "Module 23: LLMOps & Observability — You can't improve what you can't measure. Covers LangSmith (tracing, evaluation datasets, prompt versioning, cost tracking), structured logging, Prometheus metrics, AI-specific metrics (latency, tokens, errors), cost management, and budget alerts."
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "content": "Module 24: Production Deployment — Getting AI to production is different from traditional software. Covers Docker (Dockerfile best practices, multi-stage builds), Google Cloud Run (config, secrets, scaling, Cloud SQL), GitHub Actions for Python, CI/CD automation, rollbacks, and the production checklist."
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "content": "Module 25: Ethics, Safety & Governance — AI systems can cause harm. Build responsibly. Covers bias and fairness, prompt injection defense, data poisoning, model extraction, PII leakage, explainability, GDPR for AI, ISO 42001, model cards, content safety filters, and incident response."
+    },
+    {
+      "id": 7,
+      "type": "text",
+      "content": "Capstone Project: AI-Powered Document Intelligence Platform — Build a complete system: Next.js 14+ frontend with streaming chat, FastAPI backend with Pydantic, Google Gemini with RAG and function calling, Postgres with pgvector, Docker + Cloud Run + Vercel, LangSmith observability, pytest + Playwright + K6 testing. Required: auth, document upload, intelligent chunking, streaming chat with citations, conversation history, admin dashboard, and safety measures."
+    },
+    {
+      "id": 8,
+      "type": "text",
+      "content": "Phase Outcome: Ship, monitor, and scale real AI applications. Complete a production capstone that proves mastery of the entire Hashflag Stack."
+    }
+  ]
+}

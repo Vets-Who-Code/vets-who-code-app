@@ -208,7 +208,7 @@ function InfoRow({
 }) {
     return (
         <div>
-            <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-navy/40">
+            <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-ink/60">
                 {label}
             </div>
             {value ? (
