@@ -7,7 +7,7 @@
     "dev": "next dev",
     "dev:setup": "prisma generate && prisma db push",
     "build": "next build",
-    "vercel-build": "prisma generate && next build",
+    "vercel-build": "prisma migrate deploy && prisma generate && next build",
     "start": "next start",
     "export": "next build && next export",
     "format": "biome format --write",
