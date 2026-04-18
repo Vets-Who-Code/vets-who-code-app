@@ -15,6 +15,19 @@ test.describe("Shopify Image Caching", () => {
     // Wait for the page to be fully loaded
     await page.waitForLoadState("networkidle");
 
+    // When SHOPIFY_STORE_DOMAIN / SHOPIFY_STOREFRONT_ACCESS_TOKEN aren't set,
+    // /store renders a "Store Configuration Required" fallback with no
+    // products. Skip the test at runtime rather than fail — this test
+    // requires a live Shopify connection to be meaningful.
+    const storeUnconfigured = await page
+      .getByText("Store Configuration Required")
+      .isVisible()
+      .catch(() => false);
+    test.skip(
+      storeUnconfigured,
+      "Shopify not configured — set SHOPIFY_STORE_DOMAIN + SHOPIFY_STOREFRONT_ACCESS_TOKEN to run this test"
+    );
+
     // Find the first product image from Shopify
     const productImage = page.locator('img[src*="cdn.shopify.com"]').first();
     await expect(productImage).toBeVisible();
