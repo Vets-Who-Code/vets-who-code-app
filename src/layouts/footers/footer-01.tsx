@@ -50,6 +50,7 @@ const Footer01 = ({ mode }: TProps) => {
                                 src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
                                 alt="Candid/Guidestar Transparency Seal"
                                 title="Candid/Guidestar Transparency Seal"
+                                loading="lazy"
                             />{" "}
                         </a>
                     </div>
@@ -89,7 +90,7 @@ const Footer01 = ({ mode }: TProps) => {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "10px",
-                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6C757D",
+                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6B7280",
                             letterSpacing: "0.06em",
                             margin: 0,
                         }}

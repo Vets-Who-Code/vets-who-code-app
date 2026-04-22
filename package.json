@@ -29,7 +29,11 @@
     "generate:training-pipeline": "tsx -r dotenv/config scripts/generate-training-pipeline.ts",
     "generate:cert-equivalencies": "tsx -r dotenv/config scripts/generate-cert-equivalencies.ts",
     "generate:military-systems": "tsx -r dotenv/config scripts/generate-military-systems.ts",
-    "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts"
+    "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts",
+    "lhci:collect": "lhci collect",
+    "lhci:assert": "lhci assert",
+    "lhci:upload": "lhci upload",
+    "lhci": "npm run build && lhci collect && lhci assert && lhci upload"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
@@ -112,6 +116,7 @@
     "@commitlint/cli": "^20.4.0",
     "@commitlint/config-conventional": "^20.4.0",
     "@fullhuman/postcss-purgecss": "^4.1.3",
+    "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.49.0",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.2",
