@@ -89,7 +89,7 @@ const Footer01 = ({ mode }: TProps) => {
                         style={{
                             fontFamily: "var(--font-mono)",
                             fontSize: "10px",
-                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6C757D",
+                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#495057",
                             letterSpacing: "0.06em",
                             margin: 0,
                         }}

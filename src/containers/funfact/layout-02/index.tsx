@@ -15,15 +15,17 @@ type TProps = TSection & {
 const FunfactArea = ({ data: { items }, space, bg }: TProps) => (
     <Section className="funfact-area" space={space} bg={bg}>
         <div className="tw-container tw-relative tw-z-20 tw-grid tw-gap-7.5 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
-            {items?.map((item) => (
+            {items?.map((item, i) => (
                 <AnimatedFunFact
                     key={item.id}
                     counter={item.counter}
                     suffix={item.suffix}
+                    prefix={(item as ItemType & { prefix?: string }).prefix}
+                    index={i}
                     title={item.title}
                     initial="offscreen"
                     whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.4 }}
+                    viewport={{ once: true, amount: 0.1, margin: "0px 0px -10% 0px" }}
                     variants={scrollUpVariants}
                 />
             ))}
