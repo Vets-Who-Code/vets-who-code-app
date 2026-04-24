@@ -33,7 +33,7 @@ export async function ensureTroop(userId: string): Promise<string | null> {
             email: dbUser.email,
             branch: dbUser.branch || "",
             mos: dbUser.mos || "",
-            curriculum_week: 1,
+            current_module: 1,
             enrolled: dbUser.enrollments.length > 0,
         });
 

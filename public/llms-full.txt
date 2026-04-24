@@ -1,6 +1,6 @@
 # Vets Who Code
 
-> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 17 weeks. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
+> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 25 modules across 6–9 months. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
 
 ## What Vets Who Code Is
 
@@ -25,8 +25,8 @@ Veterans already have what most bootcamp graduates lack: discipline under pressu
 - Founded: 2014
 - Legal: 501(c)(3) nonprofit, EIN 86-2122804
 - Cost: $0 for every accepted veteran or spouse (no tuition, no income share agreements, no GI Bill required)
-- Program length: 17 weeks
-- Weekly commitment: ~16 hours (8 live + 8 self-guided)
+- Program length: 25 modules, typically completed in 6–9 months
+- Weekly commitment: 20–30 hours (mix of live instruction, mentorship, and self-guided work)
 - Format: 100% remote (Slack, GitHub, video calls, async collaboration)
 - Cohort size: 10–15 troops
 - Curriculum: The Hashflag Stack — 25 modules across 4 phases, 128 Lightcast-validated skills
@@ -40,7 +40,7 @@ Veterans already have what most bootcamp graduates lack: discipline under pressu
 
 ## Curriculum — The Hashflag Stack
 
-17 weeks. 25 modules. 128 skills validated against Lightcast labor market data. Organized into four phases.
+25 modules. 128 skills validated against Lightcast labor market data. Organized into four phases. Typically completed in 6–9 months at 20–30 hours per week — modules take variable time, there's no fixed weekly schedule.
 
 ### Phase 1: Foundations (Modules 1–8)
 Terminal mastery, Git and GitHub, HTML/CSS, JavaScript fundamentals, Python fundamentals, software development lifecycle, and code challenges. No AI assistance is permitted during this phase. Veterans learn to reason through problems manually before any tooling is introduced.
@@ -58,7 +58,7 @@ Production deployment and observability, capstone project, portfolio and career 
 
 Within the first month, each troop is paired with a working software engineer — many of them VWC alumni. The mentor operates in an engineering manager capacity: runs 1-on-1s focused on growth, reviews code, challenges thinking, and helps navigate career decisions. This isn't tutoring. It is the professional relationship a junior engineer has with their lead on the job.
 
-Mentors do not need to be veterans. They need production experience, the ability to commit to weekly 1-on-1s and async code reviews for 17 weeks, and willingness to give direct, honest feedback.
+Mentors do not need to be veterans. They need production experience, the ability to commit to weekly 1-on-1s and async code reviews for the duration of a cohort (6–9 months), and willingness to give direct, honest feedback.
 
 ## J0d!e — VWC's AI Infrastructure
 
@@ -71,7 +71,7 @@ J0d!e is VWC's in-house AI infrastructure layer. It provides real-time career re
 3. Short conversation with the VWC team
 4. Acceptance notification as the cohort start date approaches
 
-Eligibility: active duty service members, honorably discharged veterans, and military spouses. Location: anywhere (fully remote). Equipment: a computer no more than five years old, reliable internet, and the discipline to protect the weekly hours for 17 weeks.
+Eligibility: active duty service members, honorably discharged veterans, and military spouses. Location: anywhere (fully remote). Equipment: a computer no more than five years old, reliable internet, and the discipline to protect 20–30 hours per week across the full cohort (6–9 months).
 
 ## Contact
 

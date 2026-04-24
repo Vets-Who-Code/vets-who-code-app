@@ -6,7 +6,7 @@ interface DashboardData {
         email: string;
         branch: string | null;
         mos_afsc: string | null;
-        current_week: number;
+        current_module: number;
         skill_level: string | null;
         target_role: string | null;
         github_username: string | null;
@@ -18,7 +18,7 @@ interface DashboardData {
     resume_score?: number | null;
     github_score?: number | null;
     portfolio_score?: number | null;
-    current_week_topics?: string[];
+    current_module_topics?: string[];
     recent_conversations?: {
         id: string;
         pillar?: string;
@@ -31,26 +31,26 @@ export default function TroopDashboard() {
     const [data, setData] = useState<DashboardData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [isUpdatingWeek, setIsUpdatingWeek] = useState(false);
+    const [isUpdatingModule, setIsUpdatingModule] = useState(false);
 
-    const handleWeekChange = async (newWeek: number) => {
-        setIsUpdatingWeek(true);
+    const handleModuleChange = async (newModule: number) => {
+        setIsUpdatingModule(true);
         try {
             const res = await fetch("/api/j0di3/troops/me", {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ current_week: newWeek }),
+                body: JSON.stringify({ current_module: newModule }),
             });
             if (res.ok) {
                 setData((prev) => prev ? {
                     ...prev,
-                    troop: prev.troop ? { ...prev.troop, current_week: newWeek } : prev.troop,
+                    troop: prev.troop ? { ...prev.troop, current_module: newModule } : prev.troop,
                 } : prev);
             }
         } catch {
             // non-critical
         } finally {
-            setIsUpdatingWeek(false);
+            setIsUpdatingModule(false);
         }
     };
 
@@ -180,19 +180,19 @@ export default function TroopDashboard() {
                     </h3>
                     <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-4 tw-text-sm">
                         <div>
-                            <span className="tw-text-gray-400">Curriculum Week</span>
+                            <span className="tw-text-gray-400">Current Module</span>
                             <div className="tw-flex tw-items-center tw-gap-2">
                                 <select
-                                    value={data.troop.current_week}
-                                    onChange={(e) => handleWeekChange(Number(e.target.value))}
-                                    disabled={isUpdatingWeek}
+                                    value={data.troop.current_module}
+                                    onChange={(e) => handleModuleChange(Number(e.target.value))}
+                                    disabled={isUpdatingModule}
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
-                                    {Array.from({ length: 17 }, (_, i) => i + 1).map((w) => (
-                                        <option key={w} value={w}>Week {w}</option>
+                                    {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
+                                        <option key={m} value={m}>Module {m}</option>
                                     ))}
                                 </select>
-                                <span className="tw-text-xs tw-text-gray-400">of 17</span>
+                                <span className="tw-text-xs tw-text-gray-400">of 25</span>
                             </div>
                         </div>
                         {data.troop.skill_level && (
@@ -229,14 +229,14 @@ export default function TroopDashboard() {
                 </div>
             )}
 
-            {/* Current Week Topics */}
-            {data?.current_week_topics && data.current_week_topics.length > 0 && (
+            {/* Current Module Topics */}
+            {data?.current_module_topics && data.current_module_topics.length > 0 && (
                 <div className="tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-6 tw-shadow-sm">
                     <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-4">
-                        This Week&apos;s Topics
+                        Current Module Topics
                     </h3>
                     <div className="tw-flex tw-flex-wrap tw-gap-2">
-                        {data.current_week_topics.map((topic) => (
+                        {data.current_module_topics.map((topic) => (
                             <span
                                 key={topic}
                                 className="tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800"
