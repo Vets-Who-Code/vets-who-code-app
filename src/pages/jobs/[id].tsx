@@ -228,15 +228,15 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                             </h3>
                             <div className="tw-space-y-3">
                                 <Link
-                                    href="/courses"
+                                    href="/subjects/all"
                                     className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                                 >
                                     <div className="tw-font-medium tw-text-ink">
                                         <i className="fas fa-graduation-cap tw-mr-2 tw-text-primary" />
-                                        Skill Development
+                                        View Curriculum
                                     </div>
                                     <div className="tw-text-sm tw-text-gray-300">
-                                        Enhance your tech skills
+                                        The full Hashflag Stack
                                     </div>
                                 </Link>
                                 <Link
