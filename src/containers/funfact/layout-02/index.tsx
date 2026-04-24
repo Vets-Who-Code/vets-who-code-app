@@ -20,7 +20,7 @@ const FunfactArea = ({ data: { items }, space, bg }: TProps) => (
                     key={item.id}
                     counter={item.counter}
                     suffix={item.suffix}
-                    prefix={(item as ItemType & { prefix?: string }).prefix}
+                    prefix={item.prefix}
                     index={i}
                     title={item.title}
                     initial="offscreen"

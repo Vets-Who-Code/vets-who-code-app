@@ -75,7 +75,10 @@ const MentorPage: PageProps = ({ data }) => {
                         <ul className="tw-space-y-4 tw-text-lg tw-text-body">
                             {lookingFor.map((item) => (
                                 <li key={item} className="tw-flex tw-gap-3">
-                                    <span className="tw-mt-2 tw-h-2 tw-w-2 tw-shrink-0 tw-rounded-full tw-bg-primary" />
+                                    <span
+                                        aria-hidden="true"
+                                        className="tw-mt-2 tw-h-2 tw-w-2 tw-shrink-0 tw-rounded-full tw-bg-primary"
+                                    />
                                     <span>{item}</span>
                                 </li>
                             ))}

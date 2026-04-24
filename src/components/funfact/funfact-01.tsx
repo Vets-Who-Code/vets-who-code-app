@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
+import { HTMLMotionProps, motion } from "motion/react";
 import { forwardRef, MutableRefObject, useEffect, useRef, useState } from "react";
 
-type TProps = {
+type TProps = Omit<HTMLMotionProps<"div">, "children"> & {
     counter: number;
     title: string;
     suffix?: string;
@@ -15,7 +15,20 @@ const DURATION_MS = 2200;
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 const FunFact = forwardRef<HTMLDivElement, TProps>(
-    ({ counter, suffix, prefix, title, note, index = 0 }, containerRef) => {
+    (
+        {
+            counter,
+            suffix,
+            prefix,
+            title,
+            note,
+            index = 0,
+            className,
+            style,
+            ...rest
+        },
+        containerRef
+    ) => {
         const [hasRun, setHasRun] = useState(false);
         const localRef = useRef<HTMLDivElement | null>(null);
         const nodeRef = useRef<HTMLSpanElement>(null);
@@ -63,11 +76,12 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
             return () => cancelAnimationFrame(rafId);
         }, [counter, hasRun]);
 
-        const accentColor = index % 2 === 0 ? "var(--red, #c5203e)" : "var(--navy, #091f40)";
+        const accentColor = index % 2 === 0 ? "var(--red, #c5203e)" : "var(--gold, #FDB330)";
 
         return (
-            <div
-                className="funfact tw-text-center tw-relative"
+            <motion.div
+                {...rest}
+                className={`funfact tw-text-center tw-relative${className ? ` ${className}` : ""}`}
                 ref={(node) => {
                     localRef.current = node;
                     if (typeof containerRef === "function") {
@@ -80,6 +94,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                     background: "var(--navy, #091f40)",
                     padding: "40px 28px",
                     transition: "background 0.3s ease",
+                    ...style,
                 }}
                 onMouseEnter={(e) => {
                     (e.currentTarget as HTMLDivElement).style.background = "var(--navy-deep, #003559)";
@@ -141,7 +156,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                         {note}
                     </p>
                 )}
-            </div>
+            </motion.div>
         );
     }
 );
