@@ -286,11 +286,11 @@ const Assessment: PageWithLayout = () => {
                             </button>
                             <button
                                 type="button"
-                                onClick={() => router.push("/courses")}
+                                onClick={() => router.push("/subjects/all")}
                                 className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
                                 <i className="fas fa-book tw-mr-2" />
-                                Browse Courses
+                                View Curriculum
                             </button>
                         </div>
                     </div>

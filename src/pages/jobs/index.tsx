@@ -352,11 +352,11 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                     </p>
                     <div className="tw-grid tw-grid-cols-1 tw-gap-3 md:tw-grid-cols-3">
                         <Link
-                            href="/courses"
+                            href="/subjects/all"
                             className="tw-flex tw-items-center tw-rounded-md tw-bg-white tw-p-3 tw-shadow-sm tw-transition-shadow hover:tw-shadow-sm"
                         >
                             <i className="fas fa-graduation-cap tw-mr-3 tw-text-xl tw-text-primary" />
-                            <span className="tw-font-medium">Skill Development</span>
+                            <span className="tw-font-medium">View Curriculum</span>
                         </Link>
                         <Link
                             href="/profile"
