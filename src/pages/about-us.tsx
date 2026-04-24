@@ -78,7 +78,7 @@ const AboutUs: PageWithLayout = ({ data }) => {
               Our Methodology
             </h2>
             <p className="tw-mb-8 tw-text-lg tw-text-body md:tw-text-xl">
-              Want to understand how we transform veterans into web developers?
+              Want to understand how we transform veterans into software engineers?
               <br />
               Explore our comprehensive Theory of Change.
             </p>

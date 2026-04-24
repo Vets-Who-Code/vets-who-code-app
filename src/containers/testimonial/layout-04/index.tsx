@@ -48,7 +48,18 @@ const TestimonialArea = ({
                             className="tw-my-7.5"
                         />
                     )}
-                    {items?.[1] && <Testimonial04 title={items[1].title} className="tw-ml-auto" />}
+                    {items?.[1] &&
+                        (items[1].description ? (
+                            <Testimonial03
+                                image={items[1].images?.[0]}
+                                description={items[1].description}
+                                name={items[1].name}
+                                designation={items[1].designation}
+                                className="tw-ml-auto tw-mt-7.5"
+                            />
+                        ) : (
+                            <Testimonial04 title={items[1].title} className="tw-ml-auto" />
+                        ))}
                     <motion.div
                         className="tw-absolute tw-bottom-[280px] tw-left-[-110px] -tw-z-1 tw-h-[166px] tw-w-[166px]"
                         animate={{
@@ -109,15 +120,6 @@ const TestimonialArea = ({
                             width={178}
                             height={178}
                         />
-                    </motion.div>
-                    <motion.div
-                        className="tw-absolute -tw-right-2.5 tw-bottom-15 -tw-z-1"
-                        animate={{
-                            x: trans1().x,
-                            y: trans1().y,
-                        }}
-                    >
-                        <img src="/images/shape-animation/code.svg" alt="ssh montior" />
                     </motion.div>
                 </motion.div>
                 <motion.div

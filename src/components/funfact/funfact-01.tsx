@@ -6,6 +6,7 @@ type TProps = {
     title: string;
     suffix?: string;
     prefix?: string;
+    note?: string;
     index?: number;
 };
 
@@ -14,7 +15,7 @@ const DURATION_MS = 2200;
 const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
 const FunFact = forwardRef<HTMLDivElement, TProps>(
-    ({ counter, suffix, prefix, title, index = 0 }, containerRef) => {
+    ({ counter, suffix, prefix, title, note, index = 0 }, containerRef) => {
         const [hasRun, setHasRun] = useState(false);
         const localRef = useRef<HTMLDivElement | null>(null);
         const nodeRef = useRef<HTMLSpanElement>(null);
@@ -127,6 +128,19 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                 >
                     {title}
                 </h3>
+                {note && (
+                    <p
+                        style={{
+                            fontFamily: "var(--font-body)",
+                            fontSize: "12px",
+                            color: "rgba(255, 255, 255, 0.65)",
+                            marginTop: "6px",
+                            marginBottom: 0,
+                        }}
+                    >
+                        {note}
+                    </p>
+                )}
             </div>
         );
     }

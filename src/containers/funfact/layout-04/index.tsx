@@ -65,7 +65,8 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
                                 suffix={item.suffix}
                                 prefix={(item as ItemType & { prefix?: string }).prefix}
                                 index={i}
-                                title={item.title === "Validated Skills" ? "In-Demand Skills" : item.title}
+                                title={item.title}
+                                note={item.description}
                                 initial="offscreen"
                                 whileInView="onscreen"
                                 viewport={{ once: true, amount: 0.1, margin: "0px 0px -10% 0px" }}

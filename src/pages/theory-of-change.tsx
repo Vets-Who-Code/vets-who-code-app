@@ -21,7 +21,11 @@ interface PageContent extends Record<string, unknown> {
   items?: Array<{
     id: number | string;
     headings?: Array<{ id: number | string; content: string }>;
-    texts?: Array<{ id: number | string; content: string }>;
+    texts?: Array<{
+      id: number | string;
+      content: string;
+      type?: "paragraph" | "bullet" | "subheading";
+    }>;
     images?: Array<{ src: string }>;
   }>;
   buttons?: Array<{
@@ -89,7 +93,18 @@ const TheoryOfChange: PageWithLayout = ({ data }) => {
                 ))}
                 <div className="tw-text-base tw-text-gray-200">
                   {item.texts?.map((text, index) => {
-                    if (item.texts && item.texts.length > 1 && index === 0) {
+                    if (text.type === "subheading") {
+                      return (
+                        <h4
+                          key={text.id}
+                          className="tw-mb-3 tw-mt-6 tw-text-lg tw-font-semibold first:tw-mt-0"
+                        >
+                          {text.content}
+                        </h4>
+                      );
+                    }
+
+                    if (text.type === "paragraph") {
                       return (
                         <p key={text.id} className="tw-mb-4">
                           {text.content}
@@ -97,8 +112,7 @@ const TheoryOfChange: PageWithLayout = ({ data }) => {
                       );
                     }
 
-                    if (item.texts && item.texts.length > 1 && index > 0) {
-                      // For list items after the intro paragraph
+                    if (text.type === "bullet") {
                       return (
                         <div
                           key={text.id}
@@ -110,7 +124,26 @@ const TheoryOfChange: PageWithLayout = ({ data }) => {
                       );
                     }
 
-                    // For sections with only a single paragraph
+                    if (item.texts && item.texts.length > 1 && index === 0) {
+                      return (
+                        <p key={text.id} className="tw-mb-4">
+                          {text.content}
+                        </p>
+                      );
+                    }
+
+                    if (item.texts && item.texts.length > 1 && index > 0) {
+                      return (
+                        <div
+                          key={text.id}
+                          className="tw-mb-3 tw-flex last:tw-mb-0"
+                        >
+                          <div className="tw-mr-2">•</div>
+                          <div>{text.content}</div>
+                        </div>
+                      );
+                    }
+
                     return (
                       <p key={text.id} className="tw-mb-4">
                         {text.content}
