@@ -50,7 +50,9 @@ type PageWithLayout = {
 
 const TheoryOfChange: PageWithLayout = ({ data }) => {
   const content = normalizedData<PageContent>(data.page?.content, "section");
-  const theoryOfChangeData = content?.["theory-of-change-area"];
+  const theoryOfChangeData = content?.["theory-of-change-area"] as
+    | PageContent
+    | undefined;
 
   return (
     <>
