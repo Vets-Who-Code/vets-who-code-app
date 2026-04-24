@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import prisma from "@/lib/prisma";
 import { options } from "@/pages/api/auth/options";
 
@@ -97,7 +97,14 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
         setFiles(e.target.files);
     };
 
-    if (status === "loading") {
+    useEffect(() => {
+        if (status !== "loading" && !session) {
+            const callbackUrl = encodeURIComponent(router.asPath);
+            router.replace(`/login?callbackUrl=${callbackUrl}`);
+        }
+    }, [session, status, router]);
+
+    if (status === "loading" || !session) {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -106,11 +113,6 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 </div>
             </div>
         );
-    }
-
-    if (!session) {
-        router.push("/login");
-        return null;
     }
 
     if (submitted) {
