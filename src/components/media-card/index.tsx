@@ -37,11 +37,11 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                             fontSize: "9px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
-                            color: "#6C757D",
+                            color: "#495057",
                         }}
                     >
                         {mediaType}
-                        {publication && <span style={{ color: "#6C757D" }}> — {publication}</span>}
+                        {publication && <span style={{ color: "#495057" }}> — {publication}</span>}
                     </p>
                 )}
                 <h3
@@ -76,7 +76,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                                 fontSize: "10px",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
-                                color: "#6C757D",
+                                color: "#495057",
                             }}
                         >
                             <i className="far fa-calendar tw-mr-1.5" />

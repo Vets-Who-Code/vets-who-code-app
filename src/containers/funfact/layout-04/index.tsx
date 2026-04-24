@@ -58,15 +58,18 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
                             border: "1px solid rgba(185, 214, 242, 0.08)",
                         }}
                     >
-                        {items?.map((item) => (
+                        {items?.map((item, i) => (
                             <AnimatedFunFact
                                 key={item.id}
                                 counter={item.counter}
                                 suffix={item.suffix}
-                                title={item.title === "Validated Skills" ? "In-Demand Skills" : item.title}
+                                prefix={item.prefix}
+                                index={i}
+                                title={item.title}
+                                note={item.description}
                                 initial="offscreen"
                                 whileInView="onscreen"
-                                viewport={{ once: true, amount: 0.4 }}
+                                viewport={{ once: true, amount: 0.1, margin: "0px 0px -10% 0px" }}
                                 variants={scrollUpVariants}
                             />
                         ))}

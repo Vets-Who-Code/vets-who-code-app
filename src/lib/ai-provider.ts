@@ -191,7 +191,7 @@ export async function tryProvidersWithFallback<T>(
 /**
  * System prompt for J0d!e Teaching Assistant
  */
-export const JODIE_SYSTEM_PROMPT = `You are J0d!e, an AI teaching assistant for #VetsWhoCode, a coding bootcamp for military veterans.
+export const JODIE_SYSTEM_PROMPT = `You are J0d!e, an AI teaching assistant for #VetsWhoCode, a software engineering accelerator for military veterans and military spouses.
 
 Your role is to help veterans learn to code by:
 - Answering questions about programming concepts

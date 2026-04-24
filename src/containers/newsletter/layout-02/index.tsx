@@ -36,6 +36,19 @@ const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProp
                     />
                 )}
                 <NewsletterForm className="tw-mx-auto tw-mt-[50px]" />
+                <p
+                    className="tw-mx-auto tw-mt-8 tw-mb-0 tw-text-center"
+                    style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "10px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        color: "#DEE2E6",
+                        maxWidth: "720px",
+                    }}
+                >
+                    Vets Who Code is a registered 501(c)(3) nonprofit — EIN 86-2122804. Donations are tax-deductible to the fullest extent allowable under the law.
+                </p>
             </motion.div>
         </Section>
     );
