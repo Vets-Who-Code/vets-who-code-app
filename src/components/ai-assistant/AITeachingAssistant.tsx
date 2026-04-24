@@ -79,7 +79,7 @@ export default function AITeachingAssistant({
                 body: JSON.stringify({
                     concept: lessonContext?.lessonTitle ?? "general",
                     question: input.trim(),
-                    curriculum_week: 1,
+                    curriculum_module: 1,
                 }),
             });
 

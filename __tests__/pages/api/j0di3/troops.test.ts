@@ -80,14 +80,14 @@ describe("troops/me API route", () => {
 
         const req = {
             method: "PATCH",
-            body: { curriculum_week: 5 },
+            body: { current_module: 5 },
             user: { id: "u1", troopId: "troop-1" },
         } as any;
         const res = createRes();
 
         await handler(req, res);
 
-        expect(client.patch).toHaveBeenCalledWith("/api/v1/troops/troop-1", { curriculum_week: 5 });
+        expect(client.patch).toHaveBeenCalledWith("/api/v1/troops/troop-1", { current_module: 5 });
         expect(res.json).toHaveBeenCalledWith({ updated: true });
     });
 
