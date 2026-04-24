@@ -1,6 +1,6 @@
 # Vets Who Code
 
-> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 25 modules across 6–9 months. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
+> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 17 weeks. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
 
 Vets Who Code is not a bootcamp. It is a selective, outcome-focused training program that maps every hour of instruction to verified labor market demand (Lightcast Open Skills taxonomy). Cohorts are capped at 10–15 troops. Mentorship is delivered by working software engineers operating in an engineering manager capacity — not tutors.
 
@@ -31,7 +31,7 @@ Key facts:
 
 ## Get Involved
 
-- [Become a Mentor](https://vetswhocode.io/mentor): For working engineers who can commit weekly 1-on-1s and async code reviews across a 6–9 month cohort.
+- [Become a Mentor](https://vetswhocode.io/mentor): For working engineers who can commit weekly 1-on-1s and async code reviews across a 17-week cohort.
 - [Donate](https://vetswhocode.io/donate): Tax-deductible. Funds tuition-free training.
 - [Hire Our Troops](https://vetswhocode.io/jobs): Direct hiring pipeline to VWC graduates.
 - [Sponsors](https://vetswhocode.io/sponsors): Current corporate and foundation partners.

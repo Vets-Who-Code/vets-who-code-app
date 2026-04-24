@@ -43,7 +43,7 @@ const EnrollmentSidebar = ({ course }: TProps) => {
                     <ul className="tw-space-y-2 tw-text-sm tw-text-gray-300">
                         <li className="tw-flex tw-items-center">
                             <i className="fas fa-check tw-mr-2 tw-text-green-500" />
-                            25-module accelerator with 128 Lightcast-validated skills
+                            17-week accelerator with 128 Lightcast-validated skills
                         </li>
                         <li className="tw-flex tw-items-center">
                             <i className="fas fa-check tw-mr-2 tw-text-green-500" />

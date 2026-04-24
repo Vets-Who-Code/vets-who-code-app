@@ -33,13 +33,13 @@ const MentorPage: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     const mentorText = [
         "VWC mentors don't tutor. They operate as engineering managers for veterans transitioning into software engineering — running 1-on-1s, reviewing code, challenging assumptions, and preparing troops for the standards they'll face on real engineering teams.",
-        "We pair working engineers with small cohorts of 10–15 veterans and military spouses working through the 25-module Hashflag Stack (typically 6–9 months). Your commitment is real but manageable: weekly check-ins, async code reviews, and direct involvement in someone's career trajectory.",
+        "We pair working engineers with small cohorts of 10–15 veterans and military spouses going through our 17-week accelerator. Your commitment is real but manageable: weekly check-ins, async code reviews, and direct involvement in someone's career trajectory.",
         "Our alumni are engineering at Microsoft, Accenture, Amazon, Google, GitHub, Booz Allen, and Deloitte. Many of them came back to mentor the next cohort. That pipeline started with someone doing exactly what you're considering right now.",
     ];
 
     const lookingFor = [
         "Working software engineers with production experience — frontend, backend, full-stack, DevOps, AI/ML, or cloud infrastructure.",
-        "Engineers who can commit to weekly check-ins and async code reviews for the duration of a cohort (6–9 months).",
+        "Engineers who can commit to weekly check-ins and async code reviews for the duration of a 17-week cohort.",
         "People who give direct, honest feedback. Our troops come from the military — they don't need to be coddled, they need to be coached.",
         "VWC alumni who want to come back and pay it forward are especially welcome.",
     ];
