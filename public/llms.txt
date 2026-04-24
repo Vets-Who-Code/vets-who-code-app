@@ -1,0 +1,50 @@
+# Vets Who Code
+
+> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 17 weeks. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
+
+Vets Who Code is not a bootcamp. It is a selective, outcome-focused training program that maps every hour of instruction to verified labor market demand (Lightcast Open Skills taxonomy). Cohorts are capped at 10–15 troops. Mentorship is delivered by working software engineers operating in an engineering manager capacity — not tutors.
+
+Key facts:
+
+- Founded 2014
+- 300+ veterans and spouses trained
+- 128 Lightcast-validated technical skills across 25 modules
+- 97% job placement rate
+- $20M+ in collective alumni earnings
+- Cost: $0 (no tuition, no income share agreements, no GI Bill required)
+- 501(c)(3) — EIN 86-2122804
+
+## Program
+
+- [About Vets Who Code](https://vetswhocode.io/about-us): Origin story, mission, and positioning — why VWC exists and who it is for.
+- [Theory of Change](https://vetswhocode.io/theory-of-change): Structured explanation of inputs, activities, outputs, and long-term impact. The authoritative document on how VWC turns military experience into software engineering careers.
+- [Apply](https://vetswhocode.io/apply): Application path for veterans and military spouses. Complete the prework to qualify for an interview.
+- [FAQ](https://vetswhocode.io/faq): Straight answers on eligibility, cost, time commitment, mentorship, and post-graduation outcomes.
+
+## Curriculum
+
+- [Subjects](https://vetswhocode.io/subjects/all): The Hashflag Stack — 25 modules across four phases.
+- [Foundations](https://vetswhocode.io/subjects/foundations): Terminal, Git, HTML/CSS, JavaScript, Python fundamentals. No AI assistance permitted in this phase.
+- [Software Engineering](https://vetswhocode.io/subjects/software-engineering): TypeScript, Next.js, testing, CI/CD, production deployment.
+- [AI Engineering](https://vetswhocode.io/subjects/ai-engineering): FastAPI, Gemini integration, RAG, agents, streaming interfaces, AI safety.
+- [Production Mastery](https://vetswhocode.io/subjects/production-mastery): Observability, capstone project, portfolio, real-user deployment.
+
+## Get Involved
+
+- [Become a Mentor](https://vetswhocode.io/mentor): For working engineers who can commit weekly 1-on-1s and async code reviews across a 17-week cohort.
+- [Donate](https://vetswhocode.io/donate): Tax-deductible. Funds tuition-free training.
+- [Hire Our Troops](https://vetswhocode.io/jobs): Direct hiring pipeline to VWC graduates.
+- [Sponsors](https://vetswhocode.io/sponsors): Current corporate and foundation partners.
+
+## Content
+
+- [Blog](https://vetswhocode.io/blogs/blog): Alumni stories, engineering essays, program updates.
+- [Projects](https://vetswhocode.io/projects): Open-source work troops ship during the program.
+- [Events](https://vetswhocode.io/events): Drills, meetups, and cohort milestones.
+- [Press](https://vetswhocode.io/media): External coverage of VWC.
+
+## Optional
+
+- [Team](https://vetswhocode.io/team): Board, staff, and core mentor network.
+- [Sitemap](https://vetswhocode.io/sitemap): Every public page, grouped.
+- [Contact](https://vetswhocode.io/contact-us): hello@vetswhocode.io
