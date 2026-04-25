@@ -247,8 +247,8 @@ export const hasKey = <K extends string>(obj: unknown, key: K): obj is Record<K,
 /**
  * Returns all focusable elements from a specified parent root element
  *
- * Focusable elements include any element with attributes that are not
- * disabled, aria-hidden, or unreachable via keyboard navigation
+ * Focusable elements include matching elements that are not disabled,
+ * do not have `aria-hidden`, and do not have `tabindex="-1"`
  *
  * @param parent The parent HTML element hierarchy to traverse through
  * @returns The collection of found focusable elements, otherwise an empty array
