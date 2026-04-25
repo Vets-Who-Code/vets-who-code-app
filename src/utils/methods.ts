@@ -224,7 +224,7 @@ export const minutesToHours = (minutes: number): string => {
  * @param arr The array to flatten
  * @param d The number of levels deep to flatten
  * @returns The flattened array
- */,
+ */
 export const flatDeep = <T>(arr: unknown[], d = 1): T[] => {
     return d > 0
         ? arr.reduce((acc: T[], val) => {
