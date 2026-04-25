@@ -93,15 +93,6 @@ export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
     return Object.keys(object).length === 0;
 };
 
-/**
- * Checks if a value is a non-empty string.
- *
- * @param value - The string to check
- * @returns True if value is a non-empty string, otherwise False
- */
-export const isNonEmptyString = (value: unknown): boolean => {
-    return typeof value === "string" && value.trim() !== "";
-};
 
 /**
  * Capitalizes only the first letter of a string and leaves the rest in lowercase
@@ -205,7 +196,7 @@ export const eventFilter = (
 /**
  * Converts minutes to hours
  * @param minutes The number of minutes to convert
- * @return The string in '5h : 32m' format, invalid formats are empty
+ * @return The string in '5h 32m' format, or an empty string when no positive hour or minute component is produced
  */
 export const minutesToHours = (minutes: number): string => {
     const hours = Math.floor(minutes / 60);
@@ -218,7 +209,7 @@ export const minutesToHours = (minutes: number): string => {
 };
 
 /**
- * Recursively flattens an inputted array nested arrays up to a specified depth
+ * Recursively flattens a nested array up to a specified depth
  *
  * @tparam T The type of the array elements
  * @param arr The array to flatten
