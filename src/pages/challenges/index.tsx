@@ -1,12 +1,14 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { runChallenge } from "@/lib/challenge-runner";
+import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import type { GetServerSideProps, NextPage } from "next";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
 
-interface Challenge {
+interface ChallengeSummary {
     id: string;
     title: string;
     description: string;
@@ -25,6 +27,13 @@ interface ChallengeAttempt {
     passed: boolean;
     score?: number;
     submitted_at: string;
+}
+
+interface SubmissionResponse {
+    passed?: boolean;
+    score?: number;
+    feedback?: string;
+    [key: string]: unknown;
 }
 
 type PageProps = {
@@ -62,7 +71,7 @@ const TOPICS = [
 const DIFFICULTIES = ["easy", "medium", "hard"];
 
 const ChallengesPage: PageWithLayout = () => {
-    const [recommended, setRecommended] = useState<Challenge[]>([]);
+    const [recommended, setRecommended] = useState<ChallengeSummary[]>([]);
     const [history, setHistory] = useState<ChallengeAttempt[]>([]);
     const [isLoadingRec, setIsLoadingRec] = useState(true);
     const [isLoadingHist, setIsLoadingHist] = useState(true);
@@ -72,12 +81,14 @@ const ChallengesPage: PageWithLayout = () => {
     const [selectedTopic, setSelectedTopic] = useState("javascript");
     const [selectedDifficulty, setSelectedDifficulty] = useState("easy");
     const [isStarting, setIsStarting] = useState(false);
-    const [activeChallenge, setActiveChallenge] = useState<Challenge & { starter_code?: string } | null>(null);
+    const [activeChallenge, setActiveChallenge] = useState<Challenge | null>(null);
 
     // Submission state
     const [code, setCode] = useState("");
+    const [isRunning, setIsRunning] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [result, setResult] = useState<{ passed: boolean; score?: number; feedback?: string } | null>(null);
+    const [localResults, setLocalResults] = useState<ClientResults | null>(null);
+    const [serverResult, setServerResult] = useState<SubmissionResponse | null>(null);
     const [hints, setHints] = useState<string[]>([]);
     const [isLoadingHint, setIsLoadingHint] = useState(false);
     const [showSolution, setShowSolution] = useState(false);
@@ -116,13 +127,18 @@ const ChallengesPage: PageWithLayout = () => {
         fetchHistory();
     }, [fetchRecommended, fetchHistory]);
 
-    const handleStartChallenge = async () => {
-        setIsStarting(true);
-        setError(null);
-        setResult(null);
+    const resetChallengeState = () => {
+        setLocalResults(null);
+        setServerResult(null);
         setHints([]);
         setSolution(null);
         setShowSolution(false);
+    };
+
+    const handleStartChallenge = async () => {
+        setIsStarting(true);
+        setError(null);
+        resetChallengeState();
 
         try {
             const res = await fetch("/api/j0di3/challenges/start", {
@@ -139,7 +155,7 @@ const ChallengesPage: PageWithLayout = () => {
                 throw new Error(errData.error || "Failed to start challenge");
             }
 
-            const data = await res.json();
+            const data = (await res.json()) as Challenge;
             setActiveChallenge(data);
             setCode(data.starter_code || "");
         } catch (err) {
@@ -149,16 +165,46 @@ const ChallengesPage: PageWithLayout = () => {
         }
     };
 
+    const handleRun = async () => {
+        if (!activeChallenge) return;
+        if (!activeChallenge.test_cases || activeChallenge.test_cases.length === 0) {
+            setError("This challenge has no test cases — try reloading it.");
+            return;
+        }
+
+        setIsRunning(true);
+        setError(null);
+        try {
+            const results = await runChallenge(code, activeChallenge, { visibleOnly: true });
+            setLocalResults(results);
+            setServerResult(null);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : "Failed to run your solution");
+        } finally {
+            setIsRunning(false);
+        }
+    };
+
     const handleSubmit = async () => {
         if (!activeChallenge) return;
+        if (!activeChallenge.test_cases || activeChallenge.test_cases.length === 0) {
+            setError("This challenge has no test cases — try reloading it.");
+            return;
+        }
+
         setIsSubmitting(true);
         setError(null);
-
         try {
+            const clientResults = await runChallenge(code, activeChallenge);
+            setLocalResults(clientResults);
+
             const res = await fetch(`/api/j0di3/challenges/${activeChallenge.id}/submit`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ code, language: activeChallenge.language }),
+                body: JSON.stringify({
+                    solution: code,
+                    client_results: clientResults,
+                }),
             });
 
             if (!res.ok) {
@@ -166,8 +212,8 @@ const ChallengesPage: PageWithLayout = () => {
                 throw new Error(errData.error || "Submission failed");
             }
 
-            const data = await res.json();
-            setResult(data);
+            const data = (await res.json()) as SubmissionResponse;
+            setServerResult(data);
             fetchHistory();
         } catch (err) {
             setError(err instanceof Error ? err.message : "Submission failed");
@@ -220,6 +266,10 @@ const ChallengesPage: PageWithLayout = () => {
                 return "tw-bg-gray-100 tw-text-gray-800";
         }
     };
+
+    const visibleTestCount =
+        activeChallenge?.test_cases?.filter((tc: TestCase) => !(tc.hidden ?? false)).length ?? 0;
+    const hasTestCases = (activeChallenge?.test_cases?.length ?? 0) > 0;
 
     return (
         <>
@@ -371,10 +421,7 @@ const ChallengesPage: PageWithLayout = () => {
                                     <button
                                         onClick={() => {
                                             setActiveChallenge(null);
-                                            setResult(null);
-                                            setHints([]);
-                                            setSolution(null);
-                                            setShowSolution(false);
+                                            resetChallengeState();
                                         }}
                                         className="tw-text-sm tw-text-ink/60 hover:tw-text-ink/80"
                                     >
@@ -401,10 +448,19 @@ const ChallengesPage: PageWithLayout = () => {
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="tw-flex tw-gap-3 tw-mb-4">
+                                <div className="tw-flex tw-flex-wrap tw-gap-3 tw-mb-4">
+                                    <button
+                                        onClick={handleRun}
+                                        disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                        className="tw-rounded-md tw-border tw-border-primary tw-px-6 tw-py-2 tw-font-medium tw-text-primary tw-transition-colors hover:tw-bg-primary/5 disabled:tw-opacity-50"
+                                    >
+                                        {isRunning
+                                            ? "Running..."
+                                            : `Run (${visibleTestCount} visible test${visibleTestCount === 1 ? "" : "s"})`}
+                                    </button>
                                     <button
                                         onClick={handleSubmit}
-                                        disabled={isSubmitting || !code.trim()}
+                                        disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
                                         className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
                                     >
                                         {isSubmitting ? "Submitting..." : "Submit Solution"}
@@ -452,11 +508,16 @@ const ChallengesPage: PageWithLayout = () => {
                                     </div>
                                 )}
 
-                                {/* Result */}
-                                {result && (
+                                {/* Local test results */}
+                                {localResults && (
+                                    <TestResultsPanel results={localResults} />
+                                )}
+
+                                {/* Server submission result */}
+                                {serverResult && (
                                     <div
-                                        className={`tw-rounded-md tw-p-4 tw-border ${
-                                            result.passed
+                                        className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
+                                            serverResult.passed
                                                 ? "tw-bg-green-50 tw-border-green-200"
                                                 : "tw-bg-red-50 tw-border-red-200"
                                         }`}
@@ -464,21 +525,29 @@ const ChallengesPage: PageWithLayout = () => {
                                         <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
                                             <i
                                                 className={`fas ${
-                                                    result.passed ? "fa-check-circle tw-text-green-600" : "fa-times-circle tw-text-red-600"
+                                                    serverResult.passed
+                                                        ? "fa-check-circle tw-text-green-600"
+                                                        : "fa-times-circle tw-text-red-600"
                                                 }`}
                                             />
-                                            <span className={`tw-font-semibold ${result.passed ? "tw-text-green-800" : "tw-text-red-800"}`}>
-                                                {result.passed ? "Challenge Passed!" : "Not quite right"}
+                                            <span
+                                                className={`tw-font-semibold ${
+                                                    serverResult.passed
+                                                        ? "tw-text-green-800"
+                                                        : "tw-text-red-800"
+                                                }`}
+                                            >
+                                                {serverResult.passed ? "Submission accepted" : "Submission did not pass"}
                                             </span>
-                                            {result.score !== undefined && (
+                                            {serverResult.score !== undefined && (
                                                 <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
-                                                    Score: {result.score}/100
+                                                    Score: {serverResult.score}/100
                                                 </span>
                                             )}
                                         </div>
-                                        {result.feedback && (
+                                        {serverResult.feedback && (
                                             <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
-                                                {result.feedback}
+                                                {serverResult.feedback}
                                             </p>
                                         )}
                                     </div>
@@ -537,6 +606,98 @@ const ChallengesPage: PageWithLayout = () => {
         </>
     );
 };
+
+function TestResultsPanel({ results }: { results: ClientResults }) {
+    const passedCount = results.test_results.filter((r) => r.passed).length;
+    const total = results.test_results.length;
+    const headerClass = results.all_passed
+        ? "tw-bg-green-50 tw-border-green-200"
+        : "tw-bg-red-50 tw-border-red-200";
+
+    return (
+        <div className={`tw-rounded-md tw-p-4 tw-border ${headerClass}`}>
+            <div className="tw-flex tw-items-center tw-gap-2 tw-mb-3">
+                <i
+                    className={`fas ${
+                        results.all_passed
+                            ? "fa-check-circle tw-text-green-600"
+                            : "fa-times-circle tw-text-red-600"
+                    }`}
+                />
+                <span
+                    className={`tw-font-semibold ${
+                        results.all_passed ? "tw-text-green-800" : "tw-text-red-800"
+                    }`}
+                >
+                    {passedCount} / {total} tests passing
+                </span>
+                {typeof results.execution_ms === "number" && (
+                    <span className="tw-text-xs tw-text-ink/60 tw-ml-2">
+                        {results.execution_ms}ms
+                    </span>
+                )}
+            </div>
+            <ul className="tw-space-y-2">
+                {results.test_results.map((r) => (
+                    <TestResultRow key={r.test_case_index} result={r} />
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+function TestResultRow({ result }: { result: ClientTestResult }) {
+    const rowClass = result.passed
+        ? "tw-border-green-200 tw-bg-white"
+        : "tw-border-red-200 tw-bg-white";
+    return (
+        <li className={`tw-rounded-md tw-border tw-p-3 tw-text-sm ${rowClass}`}>
+            <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
+                <i
+                    className={`fas ${
+                        result.passed
+                            ? "fa-check tw-text-green-600"
+                            : "fa-times tw-text-red-600"
+                    }`}
+                />
+                <span className="tw-font-semibold tw-text-ink">
+                    Test {result.test_case_index + 1}
+                </span>
+                {result.hidden && (
+                    <span className="tw-rounded-full tw-bg-navy/10 tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-navy/70">
+                        hidden
+                    </span>
+                )}
+            </div>
+            {!result.hidden && (
+                <div className="tw-mt-1 tw-space-y-1 tw-font-mono tw-text-xs tw-text-ink/80">
+                    <div>
+                        <span className="tw-text-ink/50">Input:</span> {result.input}
+                    </div>
+                    <div>
+                        <span className="tw-text-ink/50">Expected:</span> {result.expected_output}
+                    </div>
+                    {!result.passed && (
+                        <div className="tw-text-red-700">
+                            <span className="tw-text-ink/50">Got:</span>{" "}
+                            {result.actual_output ?? "(no output)"}
+                        </div>
+                    )}
+                </div>
+            )}
+            {result.hidden && !result.passed && (
+                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                    Hidden test failed — adjust your solution and try again.
+                </div>
+            )}
+            {result.error && (
+                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                    <span className="tw-text-ink/50">Error:</span> {result.error}
+                </div>
+            )}
+        </li>
+    );
+}
 
 ChallengesPage.Layout = Layout01;
 
