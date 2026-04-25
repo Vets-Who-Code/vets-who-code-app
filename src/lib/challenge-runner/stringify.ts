@@ -19,7 +19,9 @@ export function stringifyForCatalog(value: unknown): string {
     if (t === "number" || t === "boolean" || t === "bigint") return String(value);
     // arrays, objects, anything else structured
     try {
-        return JSON.stringify(value);
+        const stringified = JSON.stringify(value);
+        // JSON.stringify returns undefined for functions/symbols/etc.
+        return stringified ?? String(value);
     } catch {
         return String(value);
     }

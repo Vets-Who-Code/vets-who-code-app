@@ -10,52 +10,43 @@ import type { ClientTestResult, TestCase, WorkerInput, WorkerMessage } from "./t
 declare const self: DedicatedWorkerGlobalScope;
 
 /**
- * Extracts the name of the first top-level function declared in the student's
- * solution. Matches:
+ * Extracts the name of the first top-level function declared in the
+ * student's solution. Matches:
  *   function NAME(...)
- *   const NAME = (...) =>
- *   let NAME = function (...)
- *   var NAME = ...
- * Returns null if nothing matches — the caller reports a clear error.
+ *   const NAME = function (...)
+ *   const NAME = async function (...)
+ *   const NAME = (args) => ...
+ *   const NAME = async args => ...
+ *   (and the same with let/var)
+ *
+ * Bare value assignments like `const NUM = 5` or `const x = something()`
+ * are intentionally rejected so the caller surfaces a clear "no function
+ * declaration found" error rather than a downstream "x is not a function".
  */
 function detectFunctionName(code: string): string | null {
     const fnDecl = code.match(/function\s+([A-Za-z_$][\w$]*)\s*\(/);
     if (fnDecl) return fnDecl[1];
-    const assigned = code.match(/(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=/);
+    const assigned = code.match(
+        /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=\s*(?:async\s+)?(?:function\b|\([^)]*\)\s*=>|[A-Za-z_$][\w$]*\s*=>)/
+    );
     if (assigned) return assigned[1];
     return null;
 }
 
-function runTest(solution: string, fnName: string, tc: TestCase, index: number): ClientTestResult {
-    const hidden = tc.hidden ?? false;
-    try {
-        // Compile solution + call in a single Function so the student's
-        // declarations are in scope for the call expression. The test case
-        // input is embedded as a bare argument list and evaluated by JS,
-        // which handles "5", "[1,2]", "'hello'", "5, 10", "true" uniformly.
-        const body = `${solution}\nreturn ${fnName}(${tc.input});`;
-        const actual = new Function(body)();
-        const actualStr = stringifyForCatalog(actual);
-        return {
-            test_case_index: index,
-            input: tc.input,
-            expected_output: tc.expected_output,
-            actual_output: actualStr,
-            passed: actualStr === tc.expected_output,
-            error: null,
-            hidden,
-        };
-    } catch (err) {
-        return {
-            test_case_index: index,
-            input: tc.input,
-            expected_output: tc.expected_output,
-            actual_output: null,
-            passed: false,
-            error: err instanceof Error ? err.message : String(err),
-            hidden,
-        };
-    }
+function failedResult(
+    index: number,
+    tc: TestCase,
+    error: string
+): ClientTestResult {
+    return {
+        test_case_index: index,
+        input: tc.input,
+        expected_output: tc.expected_output,
+        actual_output: null,
+        passed: false,
+        error,
+        hidden: tc.hidden ?? false,
+    };
 }
 
 self.onmessage = (e: MessageEvent<WorkerInput>) => {
@@ -71,9 +62,58 @@ self.onmessage = (e: MessageEvent<WorkerInput>) => {
         return;
     }
 
+    // Compile the student's solution once and capture the named function,
+    // then call it with parsed args per test. Avoids recompiling the full
+    // solution body for every test case.
+    let studentFn: (...args: unknown[]) => unknown;
+    try {
+        const compiled = new Function(`${solution}\nreturn ${fnName};`);
+        const candidate = compiled() as unknown;
+        if (typeof candidate !== "function") {
+            post({
+                type: "fatal",
+                error: `\`${fnName}\` is not a function. Make sure your solution defines a function named \`${fnName}\`.`,
+            });
+            return;
+        }
+        studentFn = candidate as (...args: unknown[]) => unknown;
+    } catch (err) {
+        post({
+            type: "fatal",
+            error: err instanceof Error ? err.message : String(err),
+        });
+        return;
+    }
+
     for (let i = 0; i < testCases.length; i += 1) {
-        const result = runTest(solution, fnName, testCases[i], i);
-        post({ type: "result", index: i, result });
+        const tc = testCases[i];
+        try {
+            // Parse the catalog input string ("5", "[1,2,3]", "'hello'",
+            // "5, 10", "true") via JS's own expression parser so every
+            // catalog format works without bespoke handling.
+            const args = new Function(`return [${tc.input}];`)() as unknown[];
+            const actual = studentFn(...args);
+            const actualStr = stringifyForCatalog(actual);
+            post({
+                type: "result",
+                index: i,
+                result: {
+                    test_case_index: i,
+                    input: tc.input,
+                    expected_output: tc.expected_output,
+                    actual_output: actualStr,
+                    passed: actualStr === tc.expected_output,
+                    error: null,
+                    hidden: tc.hidden ?? false,
+                },
+            });
+        } catch (err) {
+            post({
+                type: "result",
+                index: i,
+                result: failedResult(i, tc, err instanceof Error ? err.message : String(err)),
+            });
+        }
     }
     post({ type: "done" });
 };

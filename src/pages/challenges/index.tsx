@@ -521,10 +521,18 @@ const ChallengesPage: PageWithLayout = () => {
                                 )}
 
                                 {/* Server submission result */}
-                                {serverResult && (
+                                {serverResult && (() => {
+                                    // Backend may omit `passed` when the runner reports
+                                    // all_passed: true; fall back to the runner's verdict
+                                    // so we don't render "Not quite right" for a true pass.
+                                    const passed =
+                                        typeof serverResult.passed === "boolean"
+                                            ? serverResult.passed
+                                            : (localResults?.all_passed ?? false);
+                                    return (
                                     <div
                                         className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
-                                            serverResult.passed
+                                            passed
                                                 ? "tw-bg-green-50 tw-border-green-200"
                                                 : "tw-bg-red-50 tw-border-red-200"
                                         }`}
@@ -532,19 +540,19 @@ const ChallengesPage: PageWithLayout = () => {
                                         <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
                                             <i
                                                 className={`fas ${
-                                                    serverResult.passed
+                                                    passed
                                                         ? "fa-check-circle tw-text-green-600"
                                                         : "fa-times-circle tw-text-red-600"
                                                 }`}
                                             />
                                             <span
                                                 className={`tw-font-semibold ${
-                                                    serverResult.passed
+                                                    passed
                                                         ? "tw-text-green-800"
                                                         : "tw-text-red-800"
                                                 }`}
                                             >
-                                                {serverResult.passed ? "Challenge Passed!" : "Not quite right"}
+                                                {passed ? "Challenge Passed!" : "Not quite right"}
                                             </span>
                                             {serverResult.score !== undefined && (
                                                 <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
@@ -558,7 +566,8 @@ const ChallengesPage: PageWithLayout = () => {
                                             </p>
                                         )}
                                     </div>
-                                )}
+                                    );
+                                })()}
                             </div>
                         )}
                     </div>
