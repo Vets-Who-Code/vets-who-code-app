@@ -544,7 +544,7 @@ const ChallengesPage: PageWithLayout = () => {
                                                         : "tw-text-red-800"
                                                 }`}
                                             >
-                                                {serverResult.passed ? "Submission accepted" : "Submission did not pass"}
+                                                {serverResult.passed ? "Challenge Passed!" : "Not quite right"}
                                             </span>
                                             {serverResult.score !== undefined && (
                                                 <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
