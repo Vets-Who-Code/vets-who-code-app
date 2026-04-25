@@ -345,6 +345,7 @@ const ChallengesPage: PageWithLayout = () => {
                                     </div>
                                 </div>
                                 <button
+                                    type="button"
                                     onClick={handleStartChallenge}
                                     disabled={isStarting}
                                     className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
@@ -385,6 +386,7 @@ const ChallengesPage: PageWithLayout = () => {
                                                     </div>
                                                 </div>
                                                 <button
+                                                    type="button"
                                                     onClick={() => {
                                                         setSelectedTopic(ch.topic);
                                                         setSelectedDifficulty(ch.difficulty);
@@ -419,6 +421,7 @@ const ChallengesPage: PageWithLayout = () => {
                                         </div>
                                     </div>
                                     <button
+                                        type="button"
                                         onClick={() => {
                                             setActiveChallenge(null);
                                             resetChallengeState();
@@ -450,6 +453,7 @@ const ChallengesPage: PageWithLayout = () => {
                                 {/* Action Buttons */}
                                 <div className="tw-flex tw-flex-wrap tw-gap-3 tw-mb-4">
                                     <button
+                                        type="button"
                                         onClick={handleRun}
                                         disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
                                         className="tw-rounded-md tw-border tw-border-primary tw-px-6 tw-py-2 tw-font-medium tw-text-primary tw-transition-colors hover:tw-bg-primary/5 disabled:tw-opacity-50"
@@ -459,6 +463,7 @@ const ChallengesPage: PageWithLayout = () => {
                                             : `Run (${visibleTestCount} visible test${visibleTestCount === 1 ? "" : "s"})`}
                                     </button>
                                     <button
+                                        type="button"
                                         onClick={handleSubmit}
                                         disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
                                         className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
@@ -466,6 +471,7 @@ const ChallengesPage: PageWithLayout = () => {
                                         {isSubmitting ? "Submitting..." : "Submit Solution"}
                                     </button>
                                     <button
+                                        type="button"
                                         onClick={handleGetHint}
                                         disabled={isLoadingHint}
                                         className="tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
@@ -474,6 +480,7 @@ const ChallengesPage: PageWithLayout = () => {
                                     </button>
                                     {!showSolution && (
                                         <button
+                                            type="button"
                                             onClick={handleShowSolution}
                                             className="tw-rounded-md tw-border tw-border-red-300 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-red-600 hover:tw-bg-red-50"
                                         >
