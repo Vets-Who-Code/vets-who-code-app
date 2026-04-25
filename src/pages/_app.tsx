@@ -14,7 +14,6 @@ import "@/assets/css/fonts.css";
 import "@/assets/css/tailwind.css";
 import "@/assets/css/swiper.css";
 import "@/assets/css/globals.css";
-import "swagger-ui-react/swagger-ui.css";
 
 import { CartProvider } from "../contexts/cart-context";
 import { UIProvider } from "../contexts/ui-context";
