@@ -63,39 +63,28 @@ interface MosContext {
 
 // ----- Output schema (Gemini structured output) -----
 
+// Generous upper bounds — Gemini sometimes produces more legitimate items
+// than a tight cap allows, and getting the data is more valuable than
+// strict shape control. The render layer can truncate visually if needed.
 const TechPathwaySchema = z.object({
     techRoles: z
         .array(
             z.object({
-                roleKey: z.string().describe("The 'key' field from the taxonomy this entry corresponds to"),
+                roleKey: z.string(),
                 matchLevel: z.enum(["high", "good", "moderate"]),
-                whyItFits: z
-                    .string()
-                    .describe(
-                        "1-2 sentences pairing concrete elements of this MOS background to concrete elements of the role. Cite specific training, cognitive skills, or systems — never generic phrases like 'leadership' or 'attention to detail'."
-                    ),
+                whyItFits: z.string(),
             })
         )
-        .min(3)
-        .max(5),
-    skillsYouHave: z
-        .array(
-            z.object({
-                from: z.string().describe("A concrete element of this MOS — a training topic, cognitive skill, or system worked with. Not a generic trait."),
-                to: z.string().describe("The tech-equivalent skill or practice this maps to."),
-            })
-        )
-        .min(3)
-        .max(6),
-    skillsToLearn: z
-        .array(
-            z.object({
-                skill: z.string().describe("A specific, concrete skill (e.g., 'JavaScript fundamentals', 'Python pandas', 'Kubernetes basics' — never 'learn programming' or 'computer skills')."),
-                forRole: z.string().describe("Which roleKey from techRoles this skill primarily serves."),
-            })
-        )
-        .min(4)
+        .min(1)
         .max(8),
+    skillsYouHave: z
+        .array(z.object({ from: z.string(), to: z.string() }))
+        .min(1)
+        .max(20),
+    skillsToLearn: z
+        .array(z.object({ skill: z.string(), forRole: z.string() }))
+        .min(1)
+        .max(20),
 });
 
 type TechPathwayBundle = z.infer<typeof TechPathwaySchema> & {
@@ -156,28 +145,21 @@ async function loadEnrichedTaxonomy(): Promise<EnrichedRole[]> {
 
 // ----- Per-MOS generation -----
 
-const SYSTEM_INSTRUCTION = `You are a career counselor for Vets Who Code, a software engineering accelerator for military veterans. Your mandate is to help veterans see realistic tech industry roles they can aim for, regardless of which civilian path they chose first.
+const SYSTEM_INSTRUCTION = `You are a career counselor for Vets Who Code, a software engineering accelerator. Help veterans see realistic tech industry roles they can aim for given their military background.
 
-Rules you must follow:
-1. Recommend 3 to 5 tech roles drawn from the provided taxonomy. Pick the best fits for THIS specific military background — not the same defaults for every MOS.
-2. Every "whyItFits" sentence must cite a specific training topic, cognitive skill, or system from the MOS data. Generic phrases like "leadership", "attention to detail", "discipline", or "teamwork" are forbidden — those are true for every MOS and tell the reader nothing.
-3. Every "skillsYouHave.from" must reference a real, specific element of THIS MOS — not a trait that could apply to anyone. The "to" must name a real tech practice the veteran can claim.
-4. Every "skillsToLearn.skill" must be concrete enough to put in a learning plan: a language, framework, tool, or named practice. Never "learn programming" or "computer skills".
-5. Tone is direct and respectful — the audience is veterans who have already done hard things. Don't be patronizing. Don't be flowery.
-6. If a MOS has obvious tech-adjacent specialties (cyber, intel, signals, comms, IT), lean into those. If a MOS is far from tech (infantry, logistics, medical), still find honest tech-aligned roles by mapping the cognitive skills, not by stretching the truth.`;
+Style guidance (prefer, do not strictly forbid):
+- Cite specific training topics, cognitive skills, or systems from the MOS data when explaining a fit. Concrete is better than generic.
+- Skills to learn should be specific — name the language, framework, or tool (e.g., "JavaScript fundamentals", "Python pandas", "Kubernetes basics") rather than "learn programming".
+- Tone is direct and respectful — the audience is veterans. Not patronizing. Not flowery.
+- For MOSes with obvious tech adjacency (cyber, intel, signals, comms, IT), lean into those. For MOSes farther from tech (infantry, logistics, medical), still find honest tech-aligned roles by mapping the cognitive transfer skills, not by stretching the truth.`;
 
 function buildPrompt(ctx: MosContext, taxonomy: EnrichedRole[]): string {
-    const taxonomyJson = JSON.stringify(
-        taxonomy.map((r) => ({
-            key: r.key,
-            title: r.title,
-            track: r.track,
-            description: r.description,
-            stack: r.stack,
-        })),
-        null,
-        2
-    );
+    // Trim taxonomy to just what Gemini needs to pick a key — passing the
+    // full descriptions and stack arrays bloats the prompt and seems to
+    // confuse Gemini's structured-output mode.
+    const taxonomyLines = taxonomy
+        .map((r) => `- ${r.key} | ${r.title} (${r.track})`)
+        .join("\n");
 
     return `Military Background:
 - Code: ${ctx.code}
@@ -203,9 +185,9 @@ ${
 }
 
 Tech role taxonomy (pick 3-5 keys from this list — do NOT invent new keys):
-${taxonomyJson}
+${taxonomyLines}
 
-Generate the tech pathway bundle for this MOS following the rules in the system instruction.`;
+Generate the tech pathway bundle for this MOS.`;
 }
 
 async function generateForMos(
@@ -213,13 +195,17 @@ async function generateForMos(
     taxonomy: EnrichedRole[]
 ): Promise<TechPathwayBundle | null> {
     try {
-        const model = google(process.env.GEMINI_MODEL || "gemini-2.5-flash");
+        // gemini-2.0-flash is the model used by the existing generate-career-pathways
+        // script and has proven reliable for structured-output JSON of this shape.
+        // Override via TECH_PATHWAYS_MODEL env if needed.
+        const model = google(process.env.TECH_PATHWAYS_MODEL || "gemini-2.0-flash");
 
         const { object } = await generateObject({
             model,
             schema: TechPathwaySchema,
             system: SYSTEM_INSTRUCTION,
             prompt: buildPrompt(ctx, taxonomy),
+            maxRetries: 4,
         });
 
         // Validate that all referenced roleKeys exist in the taxonomy.
