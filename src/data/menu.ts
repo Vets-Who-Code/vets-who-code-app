@@ -82,10 +82,23 @@ const navigation: NavigationItem[] = [
         ],
     },
     {
-        id: 2,
-        label: "Apply",
-        path: "/apply",
-        hideWhenAuth: true,
+        id: 12,
+        label: "Join",
+        path: "#!",
+        submenu: [
+            {
+                id: 1201,
+                label: "Apply",
+                path: "/apply",
+                hideWhenAuth: true,
+            },
+            {
+                id: 1202,
+                label: "Mentor",
+                path: "/mentor",
+                status: "hot",
+            },
+        ],
     },
     {
         id: 10,
@@ -153,12 +166,6 @@ const navigation: NavigationItem[] = [
         ],
     },
     {
-        id: 4,
-        label: "Mentor",
-        path: "/mentor",
-        status: "hot",
-    },
-    {
         id: 5,
         label: "Community",
         path: "#!",
@@ -198,24 +205,25 @@ const navigation: NavigationItem[] = [
 ];
 
 export function filterMenuByAuth(items: NavigationItem[], isAuthed: boolean): NavigationItem[] {
+    const visible = (item: MenuItem) => {
+        if (item.requiresAuth && !isAuthed) return false;
+        if (item.hideWhenAuth && isAuthed) return false;
+        return true;
+    };
+
     return items
-        .filter((item) => {
-            if (item.requiresAuth && !isAuthed) return false;
-            if (item.hideWhenAuth && isAuthed) return false;
-            return true;
-        })
+        .filter(visible)
         .map((item) => {
             if ("submenu" in item && item.submenu) {
-                return {
-                    ...item,
-                    submenu: item.submenu.filter((child) => {
-                        if (child.requiresAuth && !isAuthed) return false;
-                        if (child.hideWhenAuth && isAuthed) return false;
-                        return true;
-                    }),
-                };
+                return { ...item, submenu: item.submenu.filter(visible) };
             }
             return item;
+        })
+        // Drop parents whose submenu became empty after filtering — a parent
+        // that hovers but reveals nothing is worse than a hidden parent.
+        .filter((item) => {
+            if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
+            return true;
         });
 }
 
