@@ -60,9 +60,6 @@ const Home: PageProps = ({ data }) => {
       {/* Hero — full navy, dark-section for grain overlay */}
       <HeroArea data={content?.["hero-area"]} />
 
-      {/* Outcomes belt — three above-the-fold stats attached to hero */}
-      <HeroStatBelt />
-
       <Wrapper className="tw-mb-[140px]">
         <ServiceArea data={content?.["service-area"]} space="none" />
 
@@ -82,6 +79,9 @@ const Home: PageProps = ({ data }) => {
       <div className="tw-container">
         <div className="section-divider" />
       </div>
+
+      {/* Outcomes belt — results gate before the subjects/courses section */}
+      <HeroStatBelt />
 
       <CourseArea
         data={{ ...content?.["course-area"], courses: data.courses }}
