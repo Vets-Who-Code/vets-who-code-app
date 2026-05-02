@@ -29,7 +29,9 @@
     "generate:training-pipeline": "tsx -r dotenv/config scripts/generate-training-pipeline.ts",
     "generate:cert-equivalencies": "tsx -r dotenv/config scripts/generate-cert-equivalencies.ts",
     "generate:military-systems": "tsx -r dotenv/config scripts/generate-military-systems.ts",
-    "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts"
+    "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts",
+    "generate:tech-pathways": "tsx -r dotenv/config scripts/generate-tech-pathways.ts",
+    "generate:curriculum-gap-report": "tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
