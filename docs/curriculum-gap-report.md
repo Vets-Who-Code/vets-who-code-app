@@ -1,8 +1,8 @@
 # Curriculum Gap Report
 
-Generated 2026-05-02T21:34:49.356Z from `tech-pathways-map.json`.
+Generated 2026-05-02T21:41:58.761Z from `tech-pathways-map.json`.
 
-Analyzed **4200** MOS codes across all branches. Roles below are ranked by weighted recommendation score: each "high match" counts 3, "good" 2, "moderate" 1.
+Analyzed **4201** MOS codes across all branches. Roles below are ranked by weighted recommendation score: each "high match" counts 3, "good" 2, "moderate" 1.
 
 ## Top tech roles by veteran fit demand
 
@@ -10,12 +10,12 @@ Analyzed **4200** MOS codes across all branches. Roles below are ranked by weigh
 |---:|---|---|---|---:|---:|---:|---:|---:|
 | 1 | Data Analyst | Data | 15-2051 | 467 | 732 | 931 | 2130 | 3796 |
 | 2 | Security Engineer | Security | 15-1212 | 542 | 621 | 855 | 2018 | 3723 |
-| 3 | Computer Systems Analyst | Customer / Field | 15-1211 | 49 | 942 | 1176 | 2167 | 3207 |
-| 4 | DevOps Engineer | DevOps / Platform | 15-1244 | 148 | 627 | 861 | 1636 | 2559 |
+| 3 | Computer Systems Analyst | Customer / Field | 15-1211 | 49 | 942 | 1177 | 2168 | 3208 |
+| 4 | DevOps Engineer | DevOps / Platform | 15-1244 | 148 | 628 | 861 | 1637 | 2561 |
 | 5 | Technical Program Manager | Product | 11-3021 | 301 | 438 | 745 | 1484 | 2524 |
 | 6 | QA / Test Automation Engineer | Engineering | 15-1253 | 221 | 305 | 378 | 904 | 1651 |
 | 7 | Network Engineer | Infrastructure | 15-1241 | 325 | 212 | 46 | 583 | 1445 |
-| 8 | Systems Administrator | Infrastructure | 15-1244 | 146 | 359 | 220 | 725 | 1376 |
+| 8 | Systems Administrator | Infrastructure | 15-1244 | 146 | 360 | 220 | 726 | 1378 |
 | 9 | Health IT Specialist | Vertical Specialty | 15-1211 | 398 | 74 | 13 | 485 | 1355 |
 | 10 | IT Support Specialist (Help Desk) | Infrastructure | 15-1232 | 69 | 373 | 369 | 811 | 1322 |
 | 11 | Site Reliability Engineer | DevOps / Platform | 15-1244 | 207 | 259 | 109 | 575 | 1248 |
@@ -48,7 +48,7 @@ Skills that show up most often in `skillsToLearn` — concrete signals about wha
 | Skill | Frequency |
 |---|---:|
 | Data visualization tools (e.g., Tableau, Power BI) | 848 |
-| Cloud computing basics (AWS, Azure, or GCP) | 705 |
+| Cloud computing basics (AWS, Azure, or GCP) | 706 |
 | SQL for data querying and manipulation | 586 |
 | SQL for data querying | 525 |
 | SQL | 407 |
@@ -63,8 +63,8 @@ Skills that show up most often in `skillsToLearn` — concrete signals about wha
 | Cloud computing basics (AWS, Azure, or Google Cloud) | 257 |
 | Scripting with Python or Bash | 245 |
 | Python fundamentals | 245 |
+| Linux server administration | 237 |
 | Technical documentation and communication | 237 |
-| Linux server administration | 236 |
 | Agile project management methodologies | 222 |
 | Cloud computing platforms (AWS, Azure, GCP) | 204 |
 | Cloud computing platforms (AWS, Azure, or GCP) | 203 |

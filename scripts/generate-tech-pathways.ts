@@ -208,16 +208,28 @@ async function generateForMos(
             maxRetries: 4,
         });
 
-        // Validate that all referenced roleKeys exist in the taxonomy.
+        // Filter out roleKeys that aren't in the taxonomy. Gemini occasionally
+        // emits a near-miss key (e.g. "backend_software_engineer" vs
+        // "software_engineer_backend"); drop the bad entry but keep the rest.
         const validKeys = new Set(taxonomy.map((r) => r.key));
-        for (const r of object.techRoles) {
+        const cleanedRoles = object.techRoles.filter((r) => {
             if (!validKeys.has(r.roleKey)) {
-                console.warn(`  ${ctx.code}: invalid roleKey "${r.roleKey}", skipping entry.`);
-                return null;
+                console.warn(`  ${ctx.code}: dropping invalid roleKey "${r.roleKey}"`);
+                return false;
             }
+            return true;
+        });
+
+        if (cleanedRoles.length === 0) {
+            console.warn(`  ${ctx.code}: no valid roleKeys after filter, skipping bundle.`);
+            return null;
         }
 
-        return { ...object, generatedAt: new Date().toISOString() };
+        return {
+            ...object,
+            techRoles: cleanedRoles,
+            generatedAt: new Date().toISOString(),
+        };
     } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`  ${ctx.code}: generation failed — ${message}`);
