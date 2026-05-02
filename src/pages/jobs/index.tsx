@@ -10,6 +10,7 @@ import React, { useMemo, useState } from "react";
 import { options } from "@/pages/api/auth/options";
 import ResumeScorer from "@/components/jobs/ResumeScorer";
 import MockInterview from "@/components/jobs/MockInterview";
+import JobMatch from "@/components/jobs/JobMatch";
 
 type PageProps = {
     jobs: Job[];
@@ -32,7 +33,7 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-type JobsTab = "board" | "resume" | "interview";
+type JobsTab = "board" | "matches" | "resume" | "interview";
 
 const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
     const [activeTab, setActiveTab] = useState<JobsTab>("board");
@@ -110,6 +111,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                 <div className="tw-mb-8 tw-flex tw-gap-1 tw-rounded-lg tw-bg-navy/5 tw-p-1">
                     {([
                         { key: "board" as const, label: "Job Board", icon: "fa-briefcase" },
+                        { key: "matches" as const, label: "Matches", icon: "fa-bullseye" },
                         { key: "resume" as const, label: "Resume Scorer", icon: "fa-file-alt" },
                         { key: "interview" as const, label: "Mock Interview", icon: "fa-comments" },
                     ]).map((tab) => (
@@ -129,6 +131,8 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                 </div>
 
                 {/* Resume Scorer Tab */}
+                {activeTab === "matches" && <JobMatch />}
+
                 {activeTab === "resume" && <ResumeScorer />}
 
                 {/* Mock Interview Tab */}

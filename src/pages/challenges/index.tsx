@@ -4,6 +4,7 @@ import Layout01 from "@layout/layout-01";
 import { runChallenge } from "@/lib/challenge-runner";
 import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import type { GetServerSideProps, NextPage } from "next";
+import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
 import { options } from "@/pages/api/auth/options";
@@ -284,13 +285,22 @@ const ChallengesPage: PageWithLayout = () => {
             />
 
             <div className="tw-container tw-py-16">
-                <div className="tw-mb-12">
-                    <h1 className="tw-text-4xl tw-font-bold tw-text-ink tw-mb-4">
-                        Code Challenges
-                    </h1>
-                    <p className="tw-text-xl tw-text-navy/60">
-                        AI-powered coding challenges that adapt to your skill level
-                    </p>
+                <div className="tw-mb-12 tw-flex tw-flex-wrap tw-items-end tw-justify-between tw-gap-4">
+                    <div>
+                        <h1 className="tw-text-4xl tw-font-bold tw-text-ink tw-mb-4">
+                            Code Challenges
+                        </h1>
+                        <p className="tw-text-xl tw-text-navy/60">
+                            AI-powered coding challenges that adapt to your skill level
+                        </p>
+                    </div>
+                    <Link
+                        href="/challenges/browse"
+                        className="tw-inline-flex tw-items-center tw-gap-2 tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-border-primary hover:tw-text-primary"
+                    >
+                        <i className="fas fa-th-list" />
+                        Browse the full catalog
+                    </Link>
                 </div>
 
                 {error && (
