@@ -14,8 +14,8 @@ import VideoArea from "@containers/video/layout-04";
 import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
 import HeroCodeSnippet from "@ui/hero-code-snippet";
-import HeroStatBelt from "@ui/hero-stat-belt";
 import PullQuote from "@ui/pull-quote";
+import StatBelt from "@ui/stat-belt";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
 import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
@@ -81,7 +81,7 @@ const Home: PageProps = ({ data }) => {
       </div>
 
       {/* Outcomes belt — results gate before the subjects/courses section */}
-      <HeroStatBelt />
+      <StatBelt />
 
       <CourseArea
         data={{ ...content?.["course-area"], courses: data.courses }}
