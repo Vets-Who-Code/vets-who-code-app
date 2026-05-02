@@ -59,11 +59,11 @@ const Home: PageProps = ({ data }) => {
       {/* Hero — full navy, dark-section for grain overlay */}
       <HeroArea data={content?.["hero-area"]} />
 
-      {/* Code snippet — extends hero into "what you'll ship" beat */}
-      <HeroCodeSnippet />
-
       <Wrapper className="tw-mb-[140px]">
         <ServiceArea data={content?.["service-area"]} space="none" />
+
+        {/* Code snippet — "what you'll ship" beat after the service pitch */}
+        <HeroCodeSnippet />
 
         {/* Section divider */}
         <div className="tw-container">
