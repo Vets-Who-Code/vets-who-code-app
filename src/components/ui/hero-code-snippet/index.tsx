@@ -39,7 +39,11 @@ type CommandResult = {
 const HELP_LINES = [
     "available commands:",
     "  apply      start your application",
+    "  mentor     become a mentor",
     "  donate     support the mission",
+    "  programs   explore our programs",
+    "  jobs       browse / post tech roles",
+    "  careers    translate your MOS to tech",
     "  about      our story",
     "  contact    reach the team",
     "  train      run the function above",
@@ -66,10 +70,32 @@ const runCommand = (raw: string): CommandResult => {
                 output: ["→ redirecting to /apply ..."],
                 navigateTo: "/apply",
             };
+        case "mentor":
+            return {
+                output: ["→ redirecting to /mentor ..."],
+                navigateTo: "/mentor",
+            };
         case "donate":
             return {
                 output: ["→ redirecting to /donate ..."],
                 navigateTo: "/donate",
+            };
+        case "programs":
+            return {
+                output: ["→ redirecting to /programs ..."],
+                navigateTo: "/programs",
+            };
+        case "jobs":
+        case "hire":
+            return {
+                output: ["→ redirecting to /jobs ..."],
+                navigateTo: "/jobs",
+            };
+        case "careers":
+        case "mos":
+            return {
+                output: ["→ redirecting to /career-guides ..."],
+                navigateTo: "/career-guides",
             };
         case "about":
             return {
