@@ -16,8 +16,7 @@ const codeBody = {
 const COMMENT = "rgba(185, 214, 242, 0.55)";
 const KEYWORD = "#FDB330";
 const TYPE = "#FFE169";
-const STRING_COLOR = "#FFE169";
-const NUMBER = "#FFE169";
+const METHOD = "#84C1FF";
 const PUNCT = "rgba(248, 249, 250, 0.7)";
 const IDENT = "#F8F9FA";
 
@@ -41,7 +40,7 @@ const HeroCodeSnippet = () => {
                             className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-3"
                             style={{ ...monoLabel, color: "rgba(185, 214, 242, 0.65)" }}
                         >
-                            <span>~/cohort-2024/modules/squad-roster.ts</span>
+                            <span>~/vwc/train.ts</span>
                             <span className="tw-flex tw-items-center tw-gap-2">
                                 <span
                                     className="tw-inline-block tw-h-[6px] tw-w-[6px] tw-rounded-full tw-bg-gold"
@@ -50,7 +49,7 @@ const HeroCodeSnippet = () => {
                                             "pulse-soft 2.4s ease-in-out infinite",
                                     }}
                                 />
-                                <span>module 04 · typescript</span>
+                                <span>since 2014 · live</span>
                             </span>
                         </div>
 
@@ -62,47 +61,32 @@ const HeroCodeSnippet = () => {
                             <code>
                                 <span
                                     style={{ color: COMMENT }}
-                                >{`// Filter combat-ready engineers from the squad roster\n// Built during Module 04 — TypeScript fundamentals\n\n`}</span>
-                                <span style={{ color: KEYWORD }}>interface</span>
-                                {` `}
-                                <span style={{ color: TYPE }}>ServiceMember</span>
-                                {` `}
-                                <span style={{ color: PUNCT }}>{`{`}</span>
-                                {`\n  callsign: `}
-                                <span style={{ color: KEYWORD }}>string</span>
-                                <span style={{ color: PUNCT }}>;</span>
-                                {`\n  branch: `}
-                                <span
-                                    style={{ color: STRING_COLOR }}
-                                >{`'army' | 'navy' | 'air-force' | 'marines'`}</span>
-                                <span style={{ color: PUNCT }}>;</span>
-                                {`\n  yearsOfService: `}
-                                <span style={{ color: KEYWORD }}>number</span>
-                                <span style={{ color: PUNCT }}>;</span>
-                                {`\n`}
-                                <span style={{ color: PUNCT }}>{`}`}</span>
-                                {`\n\n`}
+                                >{`// vetswhocode.io\n// engineers, not students.\n\n`}</span>
                                 <span style={{ color: KEYWORD }}>const</span>
-                                {` deploySquad = (roster: `}
-                                <span style={{ color: TYPE }}>ServiceMember[]</span>
-                                {`): `}
-                                <span style={{ color: TYPE }}>ServiceMember[]</span>
-                                {` =>\n  roster.filter(member => member.yearsOfService >= `}
-                                <span style={{ color: NUMBER }}>4</span>
-                                <span style={{ color: PUNCT }}>);</span>
+                                {` train = (veteran: `}
+                                <span style={{ color: TYPE }}>Veteran</span>
+                                {`) =>\n  hashflagStack\n    `}
+                                <span style={{ color: PUNCT }}>.</span>
+                                <span style={{ color: METHOD }}>deploy</span>
+                                <span style={{ color: PUNCT }}>(</span>
+                                veteran
+                                <span style={{ color: PUNCT }}>)</span>
+                                {`\n    `}
+                                <span style={{ color: PUNCT }}>.</span>
+                                <span style={{ color: METHOD }}>ship</span>
+                                <span style={{ color: PUNCT }}>(</span>
+                                realProduct
+                                <span style={{ color: PUNCT }}>)</span>
+                                {`\n    `}
+                                <span style={{ color: PUNCT }}>.</span>
+                                <span style={{ color: METHOD }}>hire</span>
+                                <span style={{ color: PUNCT }}>();</span>
+                                {`\n\n`}
+                                <span
+                                    style={{ color: COMMENT }}
+                                >{`// 300+ deployed · $20M+ collective earnings · <1% acceptance`}</span>
                             </code>
                         </pre>
-
-                        {/* Attribution footer */}
-                        <div
-                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-t tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-4"
-                            style={{ ...monoLabel, color: "rgba(185, 214, 242, 0.7)" }}
-                        >
-                            <span>Source: VWC curriculum · Cohort 2024</span>
-                            <span
-                                style={{ color: KEYWORD }}
-                            >{`// engineers, not students`}</span>
-                        </div>
                     </div>
                 </div>
             </div>
