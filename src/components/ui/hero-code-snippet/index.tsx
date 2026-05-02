@@ -1,4 +1,5 @@
 import SectionTitle from "@components/section-title";
+import styles from "./HeroCodeSnippet.module.css";
 
 const monoLabel = {
     fontFamily: "var(--font-mono)",
@@ -19,6 +20,7 @@ const TYPE = "#FFE169";
 const METHOD = "#84C1FF";
 const PUNCT = "rgba(248, 249, 250, 0.7)";
 const IDENT = "#F8F9FA";
+const PROMPT = "#FDB330";
 
 const HeroCodeSnippet = () => {
     return (
@@ -35,12 +37,12 @@ const HeroCodeSnippet = () => {
 
                 <div className="tw-mx-auto tw-max-w-[860px]">
                     <div className="tw-overflow-hidden tw-border tw-border-[rgba(185,214,242,0.08)] tw-shadow-2xl">
-                        {/* File path bar */}
+                        {/* Terminal title bar */}
                         <div
                             className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-3"
                             style={{ ...monoLabel, color: "rgba(185, 214, 242, 0.65)" }}
                         >
-                            <span>~/vwc/train.ts</span>
+                            <span>vwc-engineer — train.ts — zsh</span>
                             <span className="tw-flex tw-items-center tw-gap-2">
                                 <span
                                     className="tw-inline-block tw-h-[6px] tw-w-[6px] tw-rounded-full tw-bg-gold"
@@ -53,12 +55,17 @@ const HeroCodeSnippet = () => {
                             </span>
                         </div>
 
-                        {/* Code body — template literals preserve newlines inside <pre> */}
+                        {/* Code body */}
                         <pre
                             className="tw-overflow-x-auto tw-bg-[#0a1f40] tw-px-6 tw-py-7 md:tw-px-9 md:tw-py-9"
                             style={{ ...codeBody, color: IDENT }}
                         >
                             <code>
+                                {/* Prompt line — looks like a recently-run command */}
+                                <span style={{ color: PROMPT }}>❯</span>
+                                {` cat train.ts\n\n`}
+
+                                {/* File contents */}
                                 <span
                                     style={{ color: COMMENT }}
                                 >{`// vetswhocode.io\n// engineers, not students.\n\n`}</span>
@@ -85,8 +92,30 @@ const HeroCodeSnippet = () => {
                                 <span
                                     style={{ color: COMMENT }}
                                 >{`// 300+ deployed · $20M+ collective earnings · <1% acceptance`}</span>
+                                {`\n\n`}
+
+                                {/* Trailing prompt — waiting for next command */}
+                                <span style={{ color: PROMPT }}>❯</span>
+                                {` `}
+                                <span
+                                    className={styles.cursor}
+                                    aria-hidden="true"
+                                />
                             </code>
                         </pre>
+
+                        {/* Status bar — vscode/vim style */}
+                        <div
+                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-t tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-2.5"
+                            style={{
+                                ...monoLabel,
+                                fontSize: "10px",
+                                color: "rgba(185, 214, 242, 0.5)",
+                            }}
+                        >
+                            <span>Ln 12 · TypeScript</span>
+                            <span>LF · UTF-8 · spaces:2</span>
+                        </div>
                     </div>
                 </div>
             </div>
