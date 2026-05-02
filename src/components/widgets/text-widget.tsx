@@ -32,9 +32,6 @@ const TextWidget = ({ className, mode }: TProps) => {
                 >
                     <i className="fab fa-facebook-square" />
                 </SocialLink>
-                <SocialLink href="https://dev.to/vetswhocode" label="Practical Dev">
-                    <i className="fab fa-dev" />
-                </SocialLink>
                 <SocialLink href="https://github.com/Vets-Who-Code" label="Github">
                     <i className="fab fa-github" />
                 </SocialLink>

@@ -13,9 +13,6 @@ const Social01 = ({ className }: { className?: string }) => (
         >
             <i className="fab fa-facebook-f" />
         </SocialLink>
-        <SocialLink href="https://dev.to/vetswhocode" label="Practical Dev" className="tw-px-2.5">
-            <i className="fab fa-dev" />
-        </SocialLink>
         <SocialLink
             href="https://www.linkedin.com/company/vets-who-code"
             label="linkedin"
