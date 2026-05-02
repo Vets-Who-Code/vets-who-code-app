@@ -13,6 +13,7 @@ import TestimonialArea from "@containers/testimonial/layout-04";
 import VideoArea from "@containers/video/layout-04";
 import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
+import HeroCodeSnippet from "@ui/hero-code-snippet";
 import PullQuote from "@ui/pull-quote";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
@@ -60,6 +61,9 @@ const Home: PageProps = ({ data }) => {
 
       <Wrapper className="tw-mb-[140px]">
         <ServiceArea data={content?.["service-area"]} space="none" />
+
+        {/* Code snippet — "what you'll ship" beat after the service pitch */}
+        <HeroCodeSnippet />
 
         {/* Section divider */}
         <div className="tw-container">
