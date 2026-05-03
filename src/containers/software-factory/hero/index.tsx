@@ -60,9 +60,9 @@ const HeroSection = () => {
                                 maxWidth: "420px",
                             }}
                         >
-                            Train transitioning service members in software engineering by deploying
-                            them on real client work, supervised by veteran staff engineers. Ship
-                            production software. Reinvest 100% of project margin into the program.
+                            Forward Deployed Engineers, personally selected from VWC&rsquo;s alumni
+                            network — 5+ years in industry. Ship production software. Engineers
+                            earn for the code they ship; project margin funds the program.
                         </p>
 
                         <dl className="tw-mt-10 tw-grid tw-grid-cols-[110px_1fr] tw-gap-y-3">
