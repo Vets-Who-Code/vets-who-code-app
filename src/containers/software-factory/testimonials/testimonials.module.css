@@ -1,0 +1,52 @@
+.grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}
+
+.quote {
+    position: relative;
+    padding-left: 24px;
+    border-left: 2px solid #c5203e;
+    margin: 0;
+}
+
+.glyph {
+    position: absolute;
+    left: 24px;
+    top: -32px;
+    font-size: 96px;
+    font-family: var(--font-headline);
+    font-weight: 900;
+    color: rgba(0, 0, 0, 0.3);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.q {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.attrib {
+    margin-top: 20px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}

@@ -1,0 +1,112 @@
+.capTable {
+    border: 1px solid rgba(185, 214, 242, 0.08);
+}
+
+.capRow {
+    display: grid;
+    grid-template-columns: 60px 80px 280px 1fr 200px;
+    align-items: center;
+    padding: 28px 32px;
+    border-bottom: 1px solid rgba(185, 214, 242, 0.08);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.capRow:last-child {
+    border-bottom: none;
+}
+
+.capRow::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #c5203e;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.capRow:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.capRow:hover::before {
+    transform: scaleY(1);
+}
+
+.capNum {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(185, 214, 242, 0.5);
+    letter-spacing: 0.1em;
+}
+
+.capIcon {
+    display: flex;
+    align-items: center;
+}
+
+.capTitle {
+    margin: 0;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.capBody {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(185, 214, 242, 0.7);
+}
+
+.capTag {
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}
+
+@media (max-width: 1100px) {
+    .capRow {
+        grid-template-columns: 60px 1fr;
+        grid-template-areas:
+            "num icon"
+            "title title"
+            "body body"
+            "tag tag";
+        row-gap: 12px;
+        padding: 24px 20px;
+    }
+    .capNum {
+        grid-area: num;
+    }
+    .capIcon {
+        grid-area: icon;
+    }
+    .capTitle {
+        grid-area: title;
+    }
+    .capBody {
+        grid-area: body;
+    }
+    .capTag {
+        grid-area: tag;
+        text-align: left;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .capRow,
+    .capRow::before {
+        transition: none;
+    }
+}

@@ -9,7 +9,7 @@ export const sitemapColumns: SitemapColumn[] = [
             { label: "Core Curriculum", path: "/programs/core-curriculum" },
             { label: "Mission-Ready", path: "/programs/mission-ready" },
             { label: "Mentorship", path: "/programs/mentorship" },
-            { label: "Studio", path: "/programs/studio" },
+            { label: "Software Factory", path: "/programs/software-factory" },
         ],
     },
     {

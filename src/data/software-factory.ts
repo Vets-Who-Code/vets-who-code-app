@@ -1,0 +1,306 @@
+export type ServiceShape =
+    | "halfsquare"
+    | "bars"
+    | "target"
+    | "diag"
+    | "stack"
+    | "cross"
+    | "dot"
+    | "square";
+
+export type Capability = {
+    shape: ServiceShape;
+    title: string;
+    body: string;
+    tag: string;
+};
+
+export type ProcessStep = {
+    phase: string;
+    name: string;
+    body: string;
+    duration: string;
+};
+
+export type Engagement = {
+    id: string;
+    tag: string;
+    year: string;
+    title: string;
+    body: string;
+    stack: string;
+};
+
+export type SponsorTier = {
+    tier: string;
+    amount: string;
+    body: string;
+    popular?: boolean;
+};
+
+export type TeamMember = {
+    name: string;
+    role: string;
+    branch: string;
+    specialty: string;
+};
+
+export type Differentiator = {
+    num: string;
+    title: string;
+    body: string;
+};
+
+export type Stat = {
+    num: string;
+    label: string;
+};
+
+export type Testimonial = {
+    quote: string;
+    attribution: string;
+};
+
+export type DeliverableArtifact = {
+    name: string;
+    description: string;
+};
+
+export const CAPABILITIES: Capability[] = [
+    {
+        shape: "halfsquare",
+        title: "Web App Development",
+        body: "Production-grade React, Next.js, TypeScript. Greenfield products through platform rebuilds.",
+        tag: "T+0 · DEPLOYABLE",
+    },
+    {
+        shape: "bars",
+        title: "API & Backend Systems",
+        body: "Node, Python, Go services. Postgres, queues, auth, billing — the unglamorous spine that holds up.",
+        tag: "T+0 · DEPLOYABLE",
+    },
+    {
+        shape: "target",
+        title: "AI / ML Integration",
+        body: "RAG, agents, model orchestration. We separate what AI can ship today from the demo-ware.",
+        tag: "T+14 · DEPLOYABLE",
+    },
+    {
+        shape: "diag",
+        title: "UX / UI Design",
+        body: "Research, IA, design systems, pixel-precise interfaces. Design that respects the user's time.",
+        tag: "T+0 · DEPLOYABLE",
+    },
+    {
+        shape: "stack",
+        title: "DevOps & Cloud",
+        body: "AWS, GCP, Vercel. CI/CD, observability, IaC. We hand back ops you can actually run.",
+        tag: "T+7 · DEPLOYABLE",
+    },
+    {
+        shape: "cross",
+        title: "Discovery Sprints",
+        body: "Two-week scoping engagements. Walk away with a prototype, a roadmap, and a fixed-bid proposal.",
+        tag: "T+0 · DEPLOYABLE",
+    },
+    {
+        shape: "dot",
+        title: "Code Audits",
+        body: "Independent review of architecture, security, and team practices. Findings ranked by what to do Monday.",
+        tag: "T+30 · DEPLOYABLE",
+    },
+    {
+        shape: "square",
+        title: "Engineering Squads",
+        body: "3–5 person veteran teams embedded in your product org for a defined mission. T+30 to first PR.",
+        tag: "T+30 · DEPLOYABLE",
+    },
+];
+
+export const PROCESS: ProcessStep[] = [
+    {
+        phase: "Phase 01",
+        name: "Recon",
+        body: "Discovery call, then a paid two-week sprint. We walk your problem space, talk to your users, produce a working prototype with a fixed-bid scope.",
+        duration: "2 weeks · fixed bid",
+    },
+    {
+        phase: "Phase 02",
+        name: "Plan",
+        body: 'Architecture decisions, milestones, and the "definition of done" — written down before any code. You see the whole map; nothing is held back.',
+        duration: "1 week · async",
+    },
+    {
+        phase: "Phase 03",
+        name: "Build",
+        body: "Two-week sprints, demo every Friday, async daily SITREP in your Slack. Code lives in your repo from day one. Pull requests, not handovers.",
+        duration: "sprints · 2 weeks each",
+    },
+    {
+        phase: "Phase 04",
+        name: "Hand Off",
+        body: "Documentation, runbooks, and a 30-day warranty. We can stay on retainer or train your team to take it from here. Your call.",
+        duration: "30 days · warranty",
+    },
+];
+
+export const DELIVERABLES: DeliverableArtifact[] = [
+    { name: "SCOPE.md", description: "Fixed-bid scope statement" },
+    { name: "ARCH.png", description: "System architecture diagram" },
+    { name: "BACKLOG.csv", description: "Sprint-ready backlog" },
+    { name: "RUNBOOK.md", description: "Hand-off runbook" },
+];
+
+export const ENGAGEMENTS: Engagement[] = [
+    {
+        id: "ENG/01",
+        tag: "PUBLIC SECTOR",
+        year: "2025",
+        title: "Veteran Resource Locator",
+        body: "A nationwide directory of vetted veteran services, built in 12 weeks for a state VA office.",
+        stack: "Next.js · Postgres · Mapbox",
+    },
+    {
+        id: "ENG/02",
+        tag: "NONPROFIT",
+        year: "2024–25",
+        title: "Cohort Management Platform",
+        body: "Application, interview scheduling, and curriculum tracking for a workforce-development partner.",
+        stack: "Remix · Prisma · AWS",
+    },
+    {
+        id: "ENG/03",
+        tag: "STARTUP",
+        year: "2024",
+        title: "AI-Assisted Resume Translator",
+        body: "Turns military OERs into civilian resumes. Open-sourced after launch — used by 11k vets.",
+        stack: "Next.js · OpenAI · Vercel",
+    },
+    {
+        id: "ENG/04",
+        tag: "OPEN SOURCE",
+        year: "Ongoing",
+        title: "HashFlag VS Code Theme",
+        body: "Distributed via the official Marketplace. 40k+ installs across the developer community.",
+        stack: "TypeScript · VS Code API",
+    },
+];
+
+export const SPONSOR_TIERS: SponsorTier[] = [
+    {
+        tier: "PLATOON",
+        amount: "$60k",
+        body: "Funds 1 cohort engineer for 16 weeks. Logo on the project repo and case study.",
+    },
+    {
+        tier: "COMPANY",
+        amount: "$240k",
+        body: "Funds 4 cohort engineers + 1 staff lead. Project shaped to your mission area.",
+        popular: true,
+    },
+    {
+        tier: "BATTALION",
+        amount: "$1M+",
+        body: "Funds an entire 16-week cohort + open-source platform deliverable in your name.",
+    },
+    {
+        tier: "CUSTOM",
+        amount: "TBD",
+        body: "Multi-year giving plans, employer matching, or directed giving for specific cohorts.",
+    },
+];
+
+export const TEAM: TeamMember[] = [
+    {
+        name: "Jerome Hardaway",
+        role: "Founder · CO",
+        branch: "USAF · 2003–2010",
+        specialty: "Frontend · Engineering Mgmt",
+    },
+    {
+        name: "Engineer 02",
+        role: "Staff Engineer",
+        branch: "USMC · 2008–2014",
+        specialty: "Backend · Infra",
+    },
+    {
+        name: "Engineer 03",
+        role: "Design Lead",
+        branch: "US Army · 2010–2018",
+        specialty: "UX · Design Systems",
+    },
+    {
+        name: "Engineer 04",
+        role: "Staff Engineer",
+        branch: "USN · 2012–2020",
+        specialty: "AI/ML · Data",
+    },
+];
+
+export const DIFFERENTIATORS: Differentiator[] = [
+    {
+        num: "01",
+        title: "Vetted Veteran Engineers",
+        body: "Every contributor is a US veteran. Staff are full-time; cohort grads contribute under their lead.",
+    },
+    {
+        num: "02",
+        title: "Mission-First Discipline",
+        body: "Cadence borrowed from the Army. Daily SITREP, weekly demo, scope locked in writing.",
+    },
+    {
+        num: "03",
+        title: "Every Dollar Trains a Vet",
+        body: "501(c)(3) status. Project margin funds the next cohort. Your invoice is also a charitable line item.",
+    },
+    {
+        num: "04",
+        title: "US-Based · Full-Time",
+        body: "No offshoring, no surprise subcontracting. Our team is in your timezone, on our payroll.",
+    },
+];
+
+export const STATS: Stat[] = [
+    { num: "1,800+", label: "Veterans trained since 2016" },
+    { num: "$0", label: "Tuition charged to any veteran, ever" },
+    { num: "92%", label: "Job-placement rate within 6 months" },
+    { num: "100%", label: "Of project margin reinvested in the program" },
+];
+
+export const TESTIMONIALS: Testimonial[] = [
+    {
+        quote: "They shipped what three previous vendors couldn't. The veteran-led team brings an operations cadence we weren't getting anywhere else.",
+        attribution: "Director, Veteran-Owned SaaS Startup",
+    },
+    {
+        quote: "Funding the Software Factory was the highest-leverage line item in our annual giving. We got a working product and our donation paid the salaries of vets who built it.",
+        attribution: "Program Officer, Family Foundation",
+    },
+];
+
+export const SERVICE_CHIPS: string[] = [
+    "Web App",
+    "AI / ML",
+    "Backend",
+    "Design",
+    "DevOps",
+    "Discovery",
+    "Audit",
+    "Squad",
+];
+
+export const BUDGET_CHIPS: string[] = [
+    "<$50k",
+    "$50–150k",
+    "$150–500k",
+    "$500k+",
+    "Sponsor / grant",
+];
+
+export const HERO_META: Array<[string, string]> = [
+    ["UNIT", "VWC SOFTWARE FACTORY"],
+    ["ESTABLISHED", "2016 · FACTORY 2022"],
+    ["CO", "JEROME HARDAWAY · USAF"],
+    ["STATUS", "BOOKING Q3 2026"],
+    ["POSTURE", "2 SQUADS AVAILABLE"],
+];

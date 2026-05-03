@@ -1,0 +1,71 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+@media (max-width: 991px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: #212529;
+    border: 1px solid rgba(185, 214, 242, 0.08);
+    overflow: hidden;
+}
+
+.photo {
+    aspect-ratio: 4 / 5;
+    background:
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 8px),
+        #091f40;
+    display: grid;
+    place-items: center;
+    color: rgba(185, 214, 242, 0.5);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.info {
+    padding: 20px;
+}
+
+.name {
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.role {
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}
+
+.branch {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(185, 214, 242, 0.08);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.7);
+    line-height: 1.6;
+}
