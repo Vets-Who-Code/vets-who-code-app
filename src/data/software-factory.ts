@@ -233,31 +233,32 @@ export const TEAM: TeamMember[] = [
 export const DIFFERENTIATORS: Differentiator[] = [
     {
         num: "01",
-        title: "Vetted Veteran Engineers",
-        body: "Every contributor is a US veteran. Staff are full-time; cohort grads contribute under their lead.",
+        title: "US Veterans, On Our Payroll",
+        body: "Every engineer on your project is a US veteran, full-time on VWC's payroll. No offshoring, no surprise subcontracting, no contractor-of-a-contractor chain.",
     },
     {
         num: "02",
-        title: "Mission-First Discipline",
-        body: "Cadence borrowed from the Army. Daily SITREP, weekly demo, scope locked in writing.",
+        title: "Code in Your Repo, Day One",
+        body: "Pull requests, not handovers. You see the work as it's written. No two-month black-box phase ending in a zip file.",
     },
     {
         num: "03",
-        title: "Every Dollar Trains a Vet",
-        body: "501(c)(3) status. Project margin funds the next cohort. Your invoice is also a charitable line item.",
+        title: "Fixed Scope, Written Down",
+        body: "Definition of done lives in SCOPE.md before any code is written. Change requests are change requests, not surprises on the invoice.",
     },
     {
         num: "04",
-        title: "US-Based · Full-Time",
-        body: "No offshoring, no surprise subcontracting. Our team is in your timezone, on our payroll.",
+        title: "Documentation Is a Deliverable",
+        body: "RUNBOOK.md, ARCH.png, and a 30-day warranty ship with every engagement. Your team can run what we hand back, or we'll train them to.",
     },
 ];
 
+export const STATS_HEADER = "Factory engagements since 2022";
+
 export const STATS: Stat[] = [
-    { num: "1,800+", label: "Veterans trained since 2016" },
-    { num: "$0", label: "Tuition charged to any veteran, ever" },
-    { num: "92%", label: "Job-placement rate within 6 months" },
-    { num: "100%", label: "Of project margin reinvested in the program" },
+    { num: "4", label: "projects shipped" },
+    { num: "2", label: "active clients" },
+    { num: "37,000", label: "lines of production code in the wild" },
 ];
 
 export const TESTIMONIALS: Testimonial[] = [

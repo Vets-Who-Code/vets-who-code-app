@@ -1,4 +1,4 @@
-import { DIFFERENTIATORS, STATS } from "@data/software-factory";
+import { DIFFERENTIATORS, STATS, STATS_HEADER } from "@data/software-factory";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import styles from "./differentiators.module.css";
@@ -32,7 +32,7 @@ const DifferentiatorsSection = () => {
                         }}
                     >
                         <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-red" />
-                        <span>SECTION 07 / WHY US</span>
+                        <span>SECTION 07 / THE STANDARD</span>
                     </div>
                     <h2
                         className="tw-mb-0 tw-mt-4 tw-uppercase tw-text-white"
@@ -45,7 +45,7 @@ const DifferentiatorsSection = () => {
                             maxWidth: "800px",
                         }}
                     >
-                        The four-line standard.
+                        What every engagement ships with.
                     </h2>
                 </motion.div>
 
@@ -73,12 +73,15 @@ const DifferentiatorsSection = () => {
                     viewport={{ once: true, amount: 0.2 }}
                     variants={scrollUpVariants}
                 >
-                    {STATS.map((s) => (
-                        <div key={s.label} className={styles.stat}>
-                            <div className={styles.statNum}>{s.num}</div>
-                            <div className={styles.statLabel}>{s.label}</div>
-                        </div>
-                    ))}
+                    <div className={styles.statsHeader}>{STATS_HEADER}</div>
+                    <div className={styles.statsRow}>
+                        {STATS.map((s) => (
+                            <div key={s.label} className={styles.stat}>
+                                <div className={styles.statNum}>{s.num}</div>
+                                <div className={styles.statLabel}>{s.label}</div>
+                            </div>
+                        ))}
+                    </div>
                 </motion.div>
             </div>
         </section>

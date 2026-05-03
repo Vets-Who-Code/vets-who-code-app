@@ -49,14 +49,26 @@
     margin-top: 80px;
     padding-top: 48px;
     border-top: 1px solid rgba(185, 214, 242, 0.08);
+}
+
+.statsHeader {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.7);
+    margin-bottom: 32px;
+}
+
+.statsRow {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
 @media (max-width: 767px) {
-    .stats {
-        grid-template-columns: 1fr 1fr;
+    .statsRow {
+        grid-template-columns: 1fr;
     }
 }
 
