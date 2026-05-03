@@ -53,7 +53,7 @@ const ProcessSection = () => {
                             maxWidth: "720px",
                         }}
                     >
-                        We borrowed our cadence from the Army. Demo every Friday, async daily
+                        We borrowed our cadence from the Military. Demo every Friday, async daily
                         SITREP, code in your repo on day one. No surprises, no scope-creep theater,
                         no two-month silence.
                     </p>
