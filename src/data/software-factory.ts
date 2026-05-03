@@ -31,11 +31,10 @@ export type Engagement = {
     stack: string;
 };
 
-export type SponsorTier = {
-    tier: string;
-    amount: string;
+export type ClientType = {
+    label: string;
+    title: string;
     body: string;
-    popular?: boolean;
 };
 
 export type TeamMember = {
@@ -186,27 +185,21 @@ export const ENGAGEMENTS: Engagement[] = [
     },
 ];
 
-export const SPONSOR_TIERS: SponsorTier[] = [
+export const CLIENT_TYPES: ClientType[] = [
     {
-        tier: "PLATOON",
-        amount: "$60k",
-        body: "Funds 1 cohort engineer for 16 weeks. Logo on the project repo and case study.",
+        label: "01",
+        title: "Veteran-Owned Startups",
+        body: "You vibe-coded your way to a demo and now you need an MVP that won't collapse under real users. We've taken founder-built prototypes and turned them into production software customers actually pay for — without throwing away the work that got you here.",
     },
     {
-        tier: "COMPANY",
-        amount: "$240k",
-        body: "Funds 4 cohort engineers + 1 staff lead. Project shaped to your mission area.",
-        popular: true,
+        label: "02",
+        title: "Veteran-Owned Small Businesses",
+        body: "Something is broken and it's costing you money. A checkout that double-charges. A scheduling system that lost last Tuesday. A platform the original developer ghosted on. We've walked into catastrophic-error situations and shipped the fix — fast, documented, and with a runbook so it doesn't happen again.",
     },
     {
-        tier: "BATTALION",
-        amount: "$1M+",
-        body: "Funds an entire 16-week cohort + open-source platform deliverable in your name.",
-    },
-    {
-        tier: "CUSTOM",
-        amount: "TBD",
-        body: "Multi-year giving plans, employer matching, or directed giving for specific cohorts.",
+        label: "03",
+        title: "Nonprofits",
+        body: "You don't need another deck about digital transformation. You need engineers who can train your team, ship the tool, and leave you running. We've done both — built the software and trained the staff at some of the largest nonprofits in America.",
     },
 ];
 
