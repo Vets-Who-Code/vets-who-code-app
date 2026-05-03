@@ -233,8 +233,8 @@ export const TEAM: TeamMember[] = [
 export const DIFFERENTIATORS: Differentiator[] = [
     {
         num: "01",
-        title: "US Veterans, On Our Payroll",
-        body: "Every engineer on your project is a US veteran, full-time on VWC's payroll. No offshoring, no surprise subcontracting, no contractor-of-a-contractor chain.",
+        title: "US Veterans, On Our Team",
+        body: "Every engineer on your project is a US veteran, full-time on the VWC team. No offshoring, no surprise subcontracting, no contractor-of-a-contractor chain.",
     },
     {
         num: "02",
