@@ -3,37 +3,43 @@ export type SitemapColumn = { heading: string; links: SitemapLink[] };
 
 export const sitemapColumns: SitemapColumn[] = [
     {
-        heading: "Program",
+        heading: "Programs",
         links: [
-            { label: "About", path: "/about-us" },
-            { label: "Theory of Change", path: "/theory-of-change" },
-            { label: "Apply", path: "/apply" },
-            { label: "FAQ", path: "/faq" },
+            { label: "Overview", path: "/programs" },
+            { label: "Core Curriculum", path: "/programs/core-curriculum" },
+            { label: "Mission-Ready", path: "/programs/mission-ready" },
+            { label: "Mentorship", path: "/programs/mentorship" },
+            { label: "Studio", path: "/programs/studio" },
         ],
     },
     {
         heading: "Get Involved",
         links: [
-            { label: "Become a Mentor", path: "/mentor" },
+            { label: "Apply", path: "/apply" },
+            { label: "Mentor", path: "/mentor" },
             { label: "Donate", path: "/donate" },
-            { label: "Hire Our Troops", path: "/jobs" },
             { label: "Sponsors", path: "/sponsors" },
+            { label: "Hire Our Troops", path: "/jobs" },
         ],
     },
     {
         heading: "Learn",
         links: [
             { label: "Blog", path: "/blogs/blog" },
-            { label: "Subjects", path: "/subjects/all" },
-            { label: "Projects", path: "/projects" },
+            { label: "Career Guides", path: "/career-guides" },
+            { label: "Events", path: "/events" },
+            { label: "Media", path: "/media" },
+            { label: "Game", path: "/game" },
         ],
     },
     {
         heading: "Company",
         links: [
+            { label: "About Us", path: "/about-us" },
+            { label: "Theory of Change", path: "/theory-of-change" },
             { label: "Team", path: "/team" },
-            { label: "Events", path: "/events" },
-            { label: "Press", path: "/media" },
+            { label: "Open Source Projects", path: "/projects" },
+            { label: "FAQ", path: "/faq" },
             { label: "Contact", path: "/contact-us" },
             { label: "Sitemap", path: "/sitemap" },
             { label: "Code of Conduct", path: "/code-of-conduct" },
@@ -55,21 +61,20 @@ export const sitemapExtraColumns: SitemapColumn[] = [
         ],
     },
     {
-        heading: "Programs",
+        heading: "Member Tools",
         links: [
-            { label: "All Programs", path: "/programs" },
-            { label: "Core Curriculum", path: "/programs/core-curriculum" },
-            { label: "Mentorship", path: "/programs/mentorship" },
-            { label: "Mission Ready", path: "/programs/mission-ready" },
-            { label: "Studio", path: "/programs/studio" },
+            { label: "Profile", path: "/profile" },
+            { label: "Reps (Challenges)", path: "/challenges" },
+            { label: "Assessment", path: "/assessment" },
+            { label: "J0d!e", path: "/jodie" },
+            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
         ],
     },
     {
         heading: "More",
         links: [
-            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
+            { label: "Resume Translator", path: "/resume-translator" },
             { label: "Join Our Community", path: "/join-our-community" },
-            { label: "Career Guides", path: "/career-guides" },
             { label: "Store", path: "/store" },
         ],
     },
