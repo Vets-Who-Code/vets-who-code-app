@@ -1,0 +1,117 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    position: relative;
+    padding: 32px;
+    background: #212529;
+    border: 1px solid rgba(185, 214, 242, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #fdb330;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(9, 31, 64, 0.22);
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.id {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}
+
+.year {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.5);
+}
+
+.title {
+    margin: 16px 0 0;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+}
+
+.body {
+    margin: 12px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(185, 214, 242, 0.7);
+}
+
+.foot {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(185, 214, 242, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.stack {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: rgba(185, 214, 242, 0.7);
+}
+
+.aar {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card::before {
+        transition: none;
+    }
+    .card:hover {
+        transform: none;
+    }
+}

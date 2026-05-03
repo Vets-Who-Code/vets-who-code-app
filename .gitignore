@@ -70,3 +70,7 @@ audio-cloudinary-urls.json
 eslint-report.json
 biome-report.json
 score-output.md
+
+# Design handoff source assets (kept out of repo)
+/design_handoff_*/
+/*.zip

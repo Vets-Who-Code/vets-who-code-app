@@ -76,8 +76,8 @@ const navigation: NavigationItem[] = [
             },
             {
                 id: 905,
-                label: "Studio",
-                path: "/programs/studio",
+                label: "Software Factory",
+                path: "/programs/software-factory",
             },
         ],
     },
