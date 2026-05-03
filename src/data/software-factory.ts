@@ -110,8 +110,8 @@ export const CAPABILITIES: Capability[] = [
     },
     {
         shape: "square",
-        title: "Engineering Squads",
-        body: "3–5 person veteran teams embedded in your product org for a defined mission. T+30 to first PR.",
+        title: "Embedded Engineer",
+        body: "One Forward Deployed Engineer. Agentic workflows. Team-scale output. T+30 to first PR.",
         tag: "T+30 · DEPLOYABLE",
     },
 ];
