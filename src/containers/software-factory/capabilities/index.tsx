@@ -63,21 +63,18 @@ const CapabilitiesSection = () => {
                 </motion.div>
 
                 <motion.div
-                    className={styles.capTable}
+                    className={styles.capGrid}
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.1 }}
                     variants={scrollUpVariants}
                 >
                     {CAPABILITIES.map((c, i) => (
-                        <div key={c.title} className={styles.capRow}>
+                        <div key={c.title} className={styles.capCard}>
+                            <ServiceMark shape={c.shape} tone={i % 2 === 0 ? "red" : "gold"} />
                             <div className={styles.capNum}>0{i + 1}</div>
-                            <div className={styles.capIcon}>
-                                <ServiceMark shape={c.shape} tone={i % 2 === 0 ? "red" : "gold"} />
-                            </div>
                             <h3 className={styles.capTitle}>{c.title}</h3>
                             <p className={styles.capBody}>{c.body}</p>
-                            <div className={styles.capTag}>{c.tag}</div>
                         </div>
                     ))}
                 </motion.div>
