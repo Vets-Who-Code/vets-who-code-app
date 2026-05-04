@@ -83,8 +83,12 @@ const TeamSection = () => {
                                 <div className={styles.name}>{t.name}</div>
                                 <div className={styles.role}>{t.role}</div>
                                 <div className={styles.branch}>
-                                    {t.branch}
-                                    <br />
+                                    {t.branch && (
+                                        <>
+                                            {t.branch}
+                                            <br />
+                                        </>
+                                    )}
                                     {t.specialty}
                                 </div>
                             </div>

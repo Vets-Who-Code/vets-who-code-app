@@ -40,7 +40,7 @@ export type ClientType = {
 export type TeamMember = {
     name: string;
     role: string;
-    branch: string;
+    branch?: string;
     specialty: string;
 };
 
@@ -211,22 +211,9 @@ export const TEAM: TeamMember[] = [
         specialty: "Frontend · Engineering Mgmt",
     },
     {
-        name: "Engineer 02",
-        role: "Staff Engineer",
-        branch: "USMC · 2008–2014",
-        specialty: "Backend · Infra",
-    },
-    {
-        name: "Engineer 03",
-        role: "Design Lead",
-        branch: "US Army · 2010–2018",
-        specialty: "UX · Design Systems",
-    },
-    {
-        name: "Engineer 04",
-        role: "Staff Engineer",
-        branch: "USN · 2012–2020",
-        specialty: "AI/ML · Data",
+        name: "Ayumi Bennett",
+        role: "Chief of Staff",
+        specialty: "Operations · Strategy",
     },
 ];
 
