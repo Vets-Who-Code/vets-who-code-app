@@ -42,6 +42,7 @@ export type TeamMember = {
     role: string;
     branch?: string;
     specialty: string;
+    body: string;
 };
 
 export type Differentiator = {
@@ -206,14 +207,16 @@ export const CLIENT_TYPES: ClientType[] = [
 export const TEAM: TeamMember[] = [
     {
         name: "Jerome Hardaway",
-        role: "Founder · CO",
+        role: "Founder · Executive Director",
         branch: "USAF · 2003–2010",
-        specialty: "Frontend · Engineering Mgmt",
+        specialty: "Self-taught software engineer · Speaker · Writer",
+        body: "Started Vets Who Code in 2014. 500+ veterans trained, $20M+ in combined economic impact. Built VWC as a fully remote, open-source accelerator focused on modern web development and AI-powered tools — and runs the Software Factory as its operational arm.",
     },
     {
         name: "Ayumi Bennett",
         role: "Chief of Staff",
-        specialty: "Operations · Strategy",
+        specialty: "Business + tech journalist · Information illustrator · Nashville, TN",
+        body: "Runs strategy, operations, and product development at VWC. Combines visual thinking with strategic execution — turns complex ideas into clear actions and prevents the slow leak of organizational focus across teams.",
     },
 ];
 

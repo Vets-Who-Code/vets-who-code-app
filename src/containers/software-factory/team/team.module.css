@@ -1,16 +1,10 @@
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
 }
 
-@media (max-width: 991px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 575px) {
+@media (max-width: 767px) {
     .grid {
         grid-template-columns: 1fr;
     }
@@ -20,6 +14,20 @@
     background: #212529;
     border: 1px solid rgba(185, 214, 242, 0.08);
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+@media (max-width: 991px) {
+    .card {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
 }
 
 .photo {
@@ -37,25 +45,28 @@
 }
 
 .info {
-    padding: 20px;
-}
-
-.name {
-    font-family: var(--font-headline);
-    font-weight: 800;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    color: #ffffff;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
 }
 
 .role {
-    margin-top: 6px;
     font-family: var(--font-mono);
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: #fdb330;
+}
+
+.name {
+    margin-top: 8px;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    line-height: 1.15;
 }
 
 .branch {
@@ -67,5 +78,12 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: rgba(185, 214, 242, 0.7);
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+.body {
+    margin: 16px 0 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(185, 214, 242, 0.7);
 }

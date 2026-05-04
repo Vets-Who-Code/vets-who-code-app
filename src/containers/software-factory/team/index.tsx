@@ -80,8 +80,8 @@ const TeamSection = () => {
                                 </span>
                             </div>
                             <div className={styles.info}>
-                                <div className={styles.name}>{t.name}</div>
                                 <div className={styles.role}>{t.role}</div>
+                                <div className={styles.name}>{t.name}</div>
                                 <div className={styles.branch}>
                                     {t.branch && (
                                         <>
@@ -91,6 +91,7 @@ const TeamSection = () => {
                                     )}
                                     {t.specialty}
                                 </div>
+                                <p className={styles.body}>{t.body}</p>
                             </div>
                         </motion.div>
                     ))}
