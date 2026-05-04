@@ -216,7 +216,7 @@ export const TEAM: TeamMember[] = [
         name: "Ayumi Bennett",
         role: "Chief of Staff",
         specialty: "Business + tech journalist · Information illustrator · Nashville, TN",
-        body: "Runs strategy, operations, and product development at VWC. Combines visual thinking with strategic execution — turns complex ideas into clear actions and prevents the slow leak of organizational focus across teams.",
+        body: "Runs strategy, operations, and product development at VWC. Combines visual thinking with strategic execution — and deploys AI agents to amplify her journalist's instinct for the right question and her illustrator's eye for the clearest frame, scaling solo strengths into systems the whole team runs on.",
     },
 ];
 
