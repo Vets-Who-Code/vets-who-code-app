@@ -208,7 +208,7 @@ export const TEAM: TeamMember[] = [
     {
         name: "Jerome Hardaway",
         role: "Founder · Executive Director",
-        branch: "USAF · 2003–2010",
+        branch: "USAF · 2004–2009",
         specialty: "Self-taught software engineer · Speaker · Writer",
         body: "Started Vets Who Code in 2014. 500+ veterans trained, $20M+ in combined economic impact. Built VWC as a fully remote, open-source accelerator focused on modern web development and AI-powered tools — and runs the Software Factory as its operational arm.",
     },
