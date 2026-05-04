@@ -42,6 +42,7 @@ export type TeamMember = {
     role: string;
     branch?: string;
     specialty: string;
+    quote?: string;
     body: string;
 };
 
@@ -213,10 +214,11 @@ export const TEAM: TeamMember[] = [
         body: "Started Vets Who Code in 2014. 500+ veterans trained, $20M+ in combined economic impact. Built VWC as a fully remote, open-source accelerator focused on modern software engineering and AI-powered tools — and runs the Software Factory as its operational arm.",
     },
     {
-        name: "Ayumi Bennett",
-        role: "Chief of Staff",
-        specialty: "Business + tech journalist · Information illustrator · Nashville, TN",
-        body: "Runs strategy, operations, and product development at VWC. Combines visual thinking with strategic execution — and deploys AI agents to amplify her journalist's instinct for the right question and her illustrator's eye for the clearest frame, scaling solo strengths into systems the whole team runs on.",
+        name: "Ayumi Fukuda Bennett",
+        role: "Technical Program Manager",
+        specialty: "Vanderbilt · Founder, Startup Southerner · Nashville, TN",
+        quote: "Your wisdom is too important to evaporate with the rest of the noise.",
+        body: "That belief shapes everything Ayumi brings to Vets Who Code. Born in Japan, raised in the southern Appalachians, and educated at Vanderbilt, she's built a career across business journalism, UX design, and visual storytelling — and founded Startup Southerner along the way. As VWC's Technical Program Manager since 2021, she translates the organization's mission into the words, visuals, and systems that move it forward. She runs sponsor relations, content strategy, and program operations from Nashville, where she lives with her family.",
     },
 ];
 

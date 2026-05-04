@@ -91,6 +91,11 @@ const TeamSection = () => {
                                     )}
                                     {t.specialty}
                                 </div>
+                                {t.quote && (
+                                    <blockquote className={styles.quote}>
+                                        &ldquo;{t.quote}&rdquo;
+                                    </blockquote>
+                                )}
                                 <p className={styles.body}>{t.body}</p>
                             </div>
                         </motion.div>
