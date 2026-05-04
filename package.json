@@ -33,7 +33,7 @@
     "lhci:collect": "lhci collect",
     "lhci:assert": "lhci assert",
     "lhci:upload": "lhci upload",
-    "lhci": "npm run build && lhci collect && lhci assert && lhci upload"
+    "lhci": "npm run build && lhci collect && lhci assert && lhci upload",
     "generate:tech-pathways": "tsx -r dotenv/config scripts/generate-tech-pathways.ts",
     "generate:curriculum-gap-report": "tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts"
   },
