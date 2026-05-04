@@ -8,23 +8,48 @@ type TProps = {
 const Testimonial04 = ({ title, className }: TProps) => {
     return (
         <div
-            className={clsx(
-                "tw-max-w-[270px] tw-px-[26px] tw-py-7.5 tw-shadow-lg tw-shadow-heading/10",
-                className
-            )}
+            className={clsx("tw-max-w-[270px] tw-relative", className)}
             style={{
-                background: "var(--red, #c5203e)",
+                background: "transparent",
+                borderLeft: "2px solid var(--red, #c5203e)",
+                paddingLeft: "24px",
+                paddingTop: "24px",
+                paddingRight: "24px",
+                paddingBottom: "24px",
                 borderRadius: 0,
             }}
         >
-            <h3
-                className="tw-text-xl"
-                style={{ color: "#FFFFFF" }}
+            <div
+                aria-hidden="true"
+                style={{
+                    fontFamily: "var(--font-headline)",
+                    fontWeight: 900,
+                    fontSize: "64px",
+                    color: "#FFFFFF",
+                    lineHeight: 1,
+                    opacity: 0.08,
+                    position: "absolute",
+                    top: "-16px",
+                    left: "16px",
+                    pointerEvents: "none",
+                }}
             >
-                <span style={{ color: "var(--navy, #091f40)", fontWeight: 900 }}>&ldquo;</span>
+                &ldquo;
+            </div>
+            <p
+                style={{
+                    fontFamily: "var(--font-body, Gilroy, sans-serif)",
+                    fontSize: "clamp(16px, 2vw, 20px)",
+                    fontStyle: "italic",
+                    fontWeight: 400,
+                    color: "#FFFFFF",
+                    lineHeight: 1.74,
+                    margin: 0,
+                    position: "relative",
+                }}
+            >
                 {title}
-                <span style={{ color: "var(--navy, #091f40)", fontWeight: 900 }}>&rdquo;</span>
-            </h3>
+            </p>
         </div>
     );
 };

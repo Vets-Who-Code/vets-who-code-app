@@ -1,0 +1,289 @@
+{
+    "metadata": {
+        "version": 1,
+        "source": "BLS Standard Occupational Classification (SOC) — tech-aligned subset",
+        "note": "Salary ranges and demand indicators are enriched from Lightcast at script run time when LIGHTCAST_CLIENT_ID/SECRET are set. SOC codes are stable; titles match common industry usage."
+    },
+    "roles": [
+        {
+            "key": "software_engineer_frontend",
+            "title": "Frontend Software Engineer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Builds user-facing web applications. Owns the experience users actually touch.",
+            "stack": ["JavaScript", "TypeScript", "React or Vue", "HTML / CSS", "Accessibility"]
+        },
+        {
+            "key": "software_engineer_backend",
+            "title": "Backend Software Engineer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Designs and operates the systems behind the UI — APIs, databases, service logic.",
+            "stack": ["One backend language (Python, Go, Java, or Node)", "REST / GraphQL APIs", "SQL", "Caching", "Service design"]
+        },
+        {
+            "key": "software_engineer_fullstack",
+            "title": "Full-Stack Software Engineer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Owns features end-to-end across UI, API, and data.",
+            "stack": ["JavaScript / TypeScript", "React or Vue", "Node or Python", "SQL", "Git workflows"]
+        },
+        {
+            "key": "mobile_engineer_ios",
+            "title": "iOS Engineer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Builds native applications for iPhone and iPad.",
+            "stack": ["Swift", "SwiftUI / UIKit", "Xcode", "Core Data", "App Store deployment"]
+        },
+        {
+            "key": "mobile_engineer_android",
+            "title": "Android Engineer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Builds native applications for Android devices.",
+            "stack": ["Kotlin", "Jetpack Compose", "Android SDK", "Room / SQLite", "Play Store deployment"]
+        },
+        {
+            "key": "embedded_software_engineer",
+            "title": "Embedded Software Engineer",
+            "track": "Engineering",
+            "socCode": "17-2061",
+            "description": "Writes software that runs on devices — vehicles, medical instruments, industrial control, defense systems.",
+            "stack": ["C / C++", "RTOS basics", "Hardware-software interfaces", "Memory-constrained programming", "Debug tools (JTAG, oscilloscope)"]
+        },
+        {
+            "key": "qa_test_automation_engineer",
+            "title": "QA / Test Automation Engineer",
+            "track": "Engineering",
+            "socCode": "15-1253",
+            "description": "Builds the test infrastructure that catches regressions before users do.",
+            "stack": ["One scripting language", "Playwright / Cypress / Selenium", "CI/CD pipelines", "Test design (boundary, equivalence, mutation)", "Bug-reproduction discipline"]
+        },
+        {
+            "key": "game_developer",
+            "title": "Game Developer",
+            "track": "Engineering",
+            "socCode": "15-1252",
+            "description": "Builds video games, simulations, or training environments.",
+            "stack": ["C# (Unity) or C++ (Unreal)", "Game-loop architecture", "Physics + math", "Shaders / rendering", "Performance optimization"]
+        },
+        {
+            "key": "site_reliability_engineer",
+            "title": "Site Reliability Engineer",
+            "track": "DevOps / Platform",
+            "socCode": "15-1244",
+            "description": "Keeps production systems up and fast. Lives at the intersection of code and operations.",
+            "stack": ["Linux", "One scripting language (Python or Go)", "Observability stack (Prometheus, Grafana, OpenTelemetry)", "Incident response practices", "Cloud platform basics"]
+        },
+        {
+            "key": "devops_engineer",
+            "title": "DevOps Engineer",
+            "track": "DevOps / Platform",
+            "socCode": "15-1244",
+            "description": "Owns the pipelines that get code from a developer's machine to production.",
+            "stack": ["CI/CD tooling (GitHub Actions, GitLab, Jenkins)", "Infrastructure as Code (Terraform, Pulumi)", "Containers (Docker, Kubernetes)", "Cloud platforms (AWS, GCP, Azure)", "Linux"]
+        },
+        {
+            "key": "platform_engineer",
+            "title": "Platform Engineer",
+            "track": "DevOps / Platform",
+            "socCode": "15-1244",
+            "description": "Builds the internal developer platform — the paved roads other engineers use.",
+            "stack": ["Kubernetes", "Internal developer portals (Backstage)", "API design", "Cost / quota management", "Documentation"]
+        },
+        {
+            "key": "cloud_engineer",
+            "title": "Cloud Engineer",
+            "track": "DevOps / Platform",
+            "socCode": "15-1241",
+            "description": "Designs and operates infrastructure on AWS, GCP, or Azure.",
+            "stack": ["One major cloud (AWS, GCP, Azure)", "Networking (VPC, subnets, routing)", "IAM and security boundaries", "Cost optimization", "Infrastructure as Code"]
+        },
+        {
+            "key": "network_engineer",
+            "title": "Network Engineer",
+            "track": "Infrastructure",
+            "socCode": "15-1241",
+            "description": "Designs, deploys, and operates the networks that connect everything.",
+            "stack": ["TCP/IP fundamentals", "Routing protocols (BGP, OSPF)", "Firewall and VPN configuration", "Cloud networking", "Cisco or Juniper hands-on"]
+        },
+        {
+            "key": "systems_administrator",
+            "title": "Systems Administrator",
+            "track": "Infrastructure",
+            "socCode": "15-1244",
+            "description": "Runs the servers and services an organization depends on.",
+            "stack": ["Linux and/or Windows Server", "Scripting (Bash, PowerShell, Python)", "Backup and DR practices", "Monitoring", "Patch management"]
+        },
+        {
+            "key": "database_administrator",
+            "title": "Database Administrator / Engineer",
+            "track": "Data",
+            "socCode": "15-1245",
+            "description": "Owns database performance, reliability, and data integrity.",
+            "stack": ["SQL (deep)", "One database in depth (Postgres, MySQL, SQL Server, Oracle)", "Indexing and query optimization", "Backup / recovery", "Replication and sharding"]
+        },
+        {
+            "key": "data_engineer",
+            "title": "Data Engineer",
+            "track": "Data",
+            "socCode": "15-2051",
+            "description": "Builds the pipelines that move and transform data so analysts and ML can use it.",
+            "stack": ["Python", "SQL (deep)", "Pipeline orchestration (Airflow, Dagster, dbt)", "Cloud data warehouse (Snowflake, BigQuery, Redshift)", "Schema design"]
+        },
+        {
+            "key": "analytics_engineer",
+            "title": "Analytics Engineer",
+            "track": "Data",
+            "socCode": "15-2051",
+            "description": "The bridge between data engineering and analytics — owns the trusted models analysts query.",
+            "stack": ["SQL (deep)", "dbt", "Cloud data warehouse", "Version-controlled data models", "Documentation discipline"]
+        },
+        {
+            "key": "data_analyst",
+            "title": "Data Analyst",
+            "track": "Data",
+            "socCode": "15-2051",
+            "description": "Turns data into decisions. Builds dashboards, runs analyses, partners with stakeholders.",
+            "stack": ["SQL", "Excel / Sheets at expert level", "One BI tool (Tableau, Power BI, Looker)", "Statistics fundamentals", "Stakeholder communication"]
+        },
+        {
+            "key": "data_scientist",
+            "title": "Data Scientist",
+            "track": "Data",
+            "socCode": "15-2051",
+            "description": "Applies statistics and ML to answer business questions and ship predictive features.",
+            "stack": ["Python (pandas, scikit-learn)", "SQL", "Statistics (regression, hypothesis testing)", "ML fundamentals", "Communication of model behavior"]
+        },
+        {
+            "key": "machine_learning_engineer",
+            "title": "Machine Learning Engineer",
+            "track": "Data",
+            "socCode": "15-1252",
+            "description": "Productionizes ML models — training pipelines, serving infra, monitoring drift.",
+            "stack": ["Python", "PyTorch or TensorFlow", "ML pipeline tooling (MLflow, Kubeflow, Vertex AI)", "Model deployment", "Software engineering fundamentals"]
+        },
+        {
+            "key": "mlops_engineer",
+            "title": "MLOps Engineer",
+            "track": "Data",
+            "socCode": "15-1252",
+            "description": "DevOps for ML — owns training pipelines, model registries, and production model reliability.",
+            "stack": ["Python", "Kubernetes", "ML platforms (Vertex AI, SageMaker, MLflow)", "Monitoring (drift, latency, cost)", "CI/CD for models"]
+        },
+        {
+            "key": "security_engineer",
+            "title": "Security Engineer",
+            "track": "Security",
+            "socCode": "15-1212",
+            "description": "Designs systems to be secure by default. Owns the security review for new architectures.",
+            "stack": ["Networking and OS internals", "Cryptography fundamentals", "Threat modeling", "Cloud security (IAM, VPC)", "Code review for security"]
+        },
+        {
+            "key": "soc_analyst",
+            "title": "SOC Analyst",
+            "track": "Security",
+            "socCode": "15-1212",
+            "description": "Front line of cyber defense — investigates alerts, triages incidents, writes detections.",
+            "stack": ["SIEM platforms (Splunk, Elastic, Sentinel)", "Network protocols", "Endpoint and log analysis", "MITRE ATT&CK familiarity", "Incident-response runbooks"]
+        },
+        {
+            "key": "penetration_tester",
+            "title": "Penetration Tester",
+            "track": "Security",
+            "socCode": "15-1212",
+            "description": "Breaks systems on purpose so defenders can fix them.",
+            "stack": ["Networking and web app fundamentals", "Burp Suite / Metasploit / nmap", "OSCP-style methodology", "Scripting (Python, Bash)", "Report writing"]
+        },
+        {
+            "key": "grc_analyst",
+            "title": "Governance, Risk & Compliance Analyst",
+            "track": "Security",
+            "socCode": "15-1212",
+            "description": "Owns the framework side of security — audits, control mapping, regulatory readiness.",
+            "stack": ["Frameworks (NIST, ISO 27001, SOC 2)", "Risk-assessment methodology", "Audit evidence collection", "Policy writing", "Stakeholder communication"]
+        },
+        {
+            "key": "ux_designer",
+            "title": "UX Designer / Researcher",
+            "track": "Product",
+            "socCode": "15-1255",
+            "description": "Decides what gets built and how it should feel for users.",
+            "stack": ["User research methods", "Wireframing and prototyping (Figma)", "Accessibility patterns", "Information architecture", "Stakeholder communication"]
+        },
+        {
+            "key": "technical_program_manager",
+            "title": "Technical Program Manager",
+            "track": "Product",
+            "socCode": "11-3021",
+            "description": "Drives multi-team technical initiatives. Translates strategy into execution.",
+            "stack": ["Software systems literacy (read code, read architecture diagrams)", "Cross-team coordination", "Risk and dependency management", "Written communication", "Stakeholder reporting"]
+        },
+        {
+            "key": "engineering_manager",
+            "title": "Engineering Manager",
+            "track": "Product",
+            "socCode": "11-3021",
+            "description": "Manages engineers — hiring, performance, technical direction, team health.",
+            "stack": ["Software engineering background", "1-on-1s and feedback discipline", "Technical scoping", "Hiring", "Stakeholder partnership"]
+        },
+        {
+            "key": "solutions_engineer",
+            "title": "Solutions Engineer",
+            "track": "Customer / Field",
+            "socCode": "13-1161",
+            "description": "Pre-sales technical role — proves the product works for the customer's actual problem.",
+            "stack": ["Software engineering literacy", "Strong written and verbal communication", "Demo and POC building", "Customer empathy", "Partnership with sales"]
+        },
+        {
+            "key": "developer_advocate",
+            "title": "Developer Advocate / DevRel",
+            "track": "Customer / Field",
+            "socCode": "13-1161",
+            "description": "Bridges product and developer community — talks, content, feedback loops.",
+            "stack": ["Software engineering background", "Public speaking / writing", "Community building", "Sample app development", "Feedback synthesis"]
+        },
+        {
+            "key": "technical_writer",
+            "title": "Technical Writer",
+            "track": "Customer / Field",
+            "socCode": "27-3023",
+            "description": "Owns the docs developers and customers use. Documentation is the product surface.",
+            "stack": ["Strong writing", "Software engineering literacy (read code, run examples)", "Static site generators", "Information architecture", "Editorial process"]
+        },
+        {
+            "key": "computer_user_support",
+            "title": "IT Support Specialist (Help Desk)",
+            "track": "Infrastructure",
+            "socCode": "15-1232",
+            "description": "Often the on-ramp into tech — supporting end users while building career-long systems intuition.",
+            "stack": ["Windows and macOS troubleshooting", "Active Directory basics", "Ticketing systems", "Customer communication", "Documentation"]
+        },
+        {
+            "key": "health_it_specialist",
+            "title": "Health IT Specialist",
+            "track": "Vertical Specialty",
+            "socCode": "15-1211",
+            "description": "Bridges clinical operations and IT — EHR systems, HL7/FHIR, healthcare compliance.",
+            "stack": ["Healthcare data standards (HL7, FHIR)", "EHR system fundamentals (Epic, Cerner)", "HIPAA awareness", "SQL", "Stakeholder communication"]
+        },
+        {
+            "key": "robotics_engineer",
+            "title": "Robotics / Autonomy Software Engineer",
+            "track": "Engineering",
+            "socCode": "17-2199",
+            "description": "Software for robots, drones, autonomous vehicles — perception, planning, control.",
+            "stack": ["C++ and Python", "ROS / ROS 2", "Sensor fusion basics", "Linear algebra", "Linux / real-time systems"]
+        },
+        {
+            "key": "computer_systems_analyst",
+            "title": "Computer Systems Analyst",
+            "track": "Customer / Field",
+            "socCode": "15-1211",
+            "description": "Studies an organization's systems and processes, then designs improvements.",
+            "stack": ["Software systems literacy", "Process mapping", "Requirements gathering", "SQL", "Stakeholder communication"]
+        }
+    ]
+}

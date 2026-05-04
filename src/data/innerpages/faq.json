@@ -6,17 +6,13 @@
             "headings": [
                 {
                     "id": 1,
-                    "content": "Unlocking answers, one question at a time. Welcome to our FAQs, where we empower veterans who code with knowledge and support. Got questions? We've got you covered. Together, let's conquer the FAQs and embark on a transformative coding journey."
+                    "content": "Frequently Asked Questions"
                 }
             ],
             "texts": [
                 {
                     "id": 1,
-                    "content": "Welcome to Vets Who Code FAQs! We're dedicated to understanding your needs and empowering your educational journey. Our goal is to provide innovative higher education options that lead you towards self-improvement. With advanced delivery methods, we pave the way for a better learning experience. Explore our FAQ section for answers to your questions and let us guide you to a brighter future in coding."
-                },
-                {
-                    "id": 2,
-                    "content": "Enhance your degree, sharpen your skills, or pursue new career opportunities with our training. Join our global community of students and unlock the doors to a brighter future, all from the convenience of your own screen."
+                    "content": "We get asked the same things by every veteran and spouse considering the program. Here are straight answers."
                 }
             ]
         },
@@ -31,101 +27,232 @@
             "items": [
                 {
                     "id": 1,
-                    "title": "Who is eligible to join VetsWhoCode cohort?",
+                    "category": "Eligibility",
+                    "title": "Who is eligible to join a VetsWhoCode cohort?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Active Duty Troops, Honorable Discharged Veterans and Military spouses."
+                            "content": "Active duty service members, honorably discharged veterans, and military spouses."
                         }
                     ]
                 },
                 {
                     "id": 2,
-                    "title": "Do I need to show any proof of eligibility?",
+                    "category": "Eligibility",
+                    "title": "Do I need to show proof of eligibility?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "We ask for proof of connection to service during the initial interview process but we don’t ask for copies of it to protect your identity."
+                            "content": "We verify your connection to military service during the interview process. We never ask for copies of your documents — your identity and privacy are protected."
                         }
                     ]
                 },
                 {
                     "id": 3,
-                    "title": "Where do I need to be currently living?",
+                    "category": "Eligibility",
+                    "title": "Where do I need to live?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "You can live wherever you want because we are a remote program. We have students from all over the world."
+                            "content": "Anywhere. VWC is fully remote. We've had students from across the U.S. and around the world. All you need is a computer, reliable internet, and the discipline to show up."
                         }
                     ]
                 },
                 {
                     "id": 4,
+                    "category": "Applying",
                     "title": "What do I need to do to apply?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "You have to complete the prework to qualify for an interview."
+                            "content": "Complete the prework first. The prework is your entry ticket to an interview — it shows us you're serious and gives us something concrete to discuss."
                         }
                     ]
                 },
                 {
                     "id": 5,
-                    "title": "Oh, there’s prework?  What do I do if I’m stuck on something in the prework?",
+                    "category": "Applying",
+                    "title": "What is the prework?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "You can always reach out to us our contact form or our Linkedin Group and if you explain your problem during the interview we can give advice so you can resend."
+                            "content": "The prework covers foundational concepts that prepare you for the program. It's designed to be challenging but achievable with effort. If you complete it, you qualify for an interview."
                         }
                     ]
                 },
                 {
                     "id": 6,
-                    "title": "What is the application process? When will I know I’m accepted?",
+                    "category": "Applying",
+                    "title": "What if I get stuck on the prework?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "The process is once you complete the prework we set up the interview as we get closer to acceptance date. Afterwards we let you know that whether you make it or not"
+                            "content": "Reach out through our contact form or our LinkedIn group. Explain what you're stuck on — we'll point you in the right direction. If you're still working through a problem at interview time, explain your approach. We're evaluating how you think, not whether you got a perfect score."
                         }
                     ]
                 },
                 {
                     "id": 7,
-                    "title": "What is the cost to attend the program?",
+                    "category": "Applying",
+                    "title": "What is the application process?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "It’s absolutely free for everyone that gets in. Here you pay in learning how to build and pairing on web app features."
+                            "content": "Complete the prework, we schedule an interview as the cohort acceptance date approaches, then we notify you whether you've been accepted. The process is straightforward and we communicate clearly at every step."
                         }
                     ]
                 },
                 {
                     "id": 8,
-                    "title": "Do you take the GI Bill? Do I need to use the GI Bill?",
+                    "category": "Applying",
+                    "title": "What if I don't get in?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "There is no need to gather GI Bill resources because you don’t need them with us."
+                            "content": "Apply to the next cohort. Persistence is part of the process. Some of our strongest graduates didn't get in on their first attempt."
                         }
                     ]
                 },
                 {
                     "id": 9,
-                    "title": "What type of computer do I need in order to be able to do the work for VetsWhoCode?",
+                    "category": "Program",
+                    "title": "What does the program cost?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "While we try not to focus on the type of machine you have we ask that your computer be no older than five years old."
+                            "content": "Nothing. The program is completely free for every veteran and spouse who gets accepted. No tuition, no income share agreements, no hidden fees."
                         }
                     ]
                 },
                 {
                     "id": 10,
+                    "category": "Program",
+                    "title": "Do I need to use my GI Bill?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "No. Save your GI Bill for something else. VWC is fully funded through donations and partnerships — your benefits are yours to keep."
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "category": "Program",
+                    "title": "What computer do I need?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We don't require a specific brand or operating system, but your machine should be no more than five years old with enough performance to run a code editor, a browser, and a terminal simultaneously."
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "category": "Program",
+                    "title": "How long is the program?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "17 weeks. The curriculum is the Hashflag Stack — 25 modules across four phases: Foundations, Software Engineering, AI Engineering, and Production Mastery. 128 skills validated against Lightcast labor market data."
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "category": "Program",
+                    "title": "How much time per week does it require?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Plan for 16 hours per week — 8 hours of live instruction and 8 hours of self-guided work. This is a serious commitment. If you can't protect those hours consistently for 17 weeks, wait for a cohort when you can."
+                        }
+                    ]
+                },
+                {
+                    "id": 14,
+                    "category": "Program",
+                    "title": "Is the program remote?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "100% remote. Always has been. We use Slack, GitHub, and video calls. You'll collaborate asynchronously with your cohort across time zones — the same way distributed engineering teams work in production."
+                        }
+                    ]
+                },
+                {
+                    "id": 15,
+                    "category": "Mentorship",
                     "title": "How does the mentor program work?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "We connect you to a mentor within your first month of VWC. We do this so you can have 1:1s that focus on your growth."
+                            "content": "Within your first month, we pair you with a working software engineer — many of them VWC alumni. Your mentor operates in an engineering manager capacity: they run 1-on-1s focused on your growth, review your code, challenge your thinking, and help you navigate career decisions. This isn't tutoring. It's the professional relationship you'll have with your lead on the job."
+                        }
+                    ]
+                },
+                {
+                    "id": 16,
+                    "category": "Mentorship",
+                    "title": "Do mentors stay involved after graduation?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Many do. The VWC alumni network stays active on Slack, refers each other for roles, and reviews each other's work long after the program ends. Graduates regularly return as mentors for the next cohort."
+                        }
+                    ]
+                },
+                {
+                    "id": 17,
+                    "category": "After the Program",
+                    "title": "What happens after I graduate?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "You leave with a production-grade GitHub profile, a shipped capstone project, a J0dI3-scored career readiness profile, and a professional network of VWC alumni at companies like Microsoft, Accenture, Amazon, Google, and GitHub. Career support — resume reviews, interview prep, job referrals — continues after graduation."
+                        }
+                    ]
+                },
+                {
+                    "id": 18,
+                    "category": "After the Program",
+                    "title": "What kind of jobs do graduates get?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Software engineering roles. Our alumni work at Microsoft, Accenture Federal Services, Amazon, Google, GitHub, Booz Allen, Deloitte, and other companies across the industry. Average starting salaries target $72K–$85K. Our 90-day placement rate is 90%+."
+                        }
+                    ]
+                },
+                {
+                    "id": 19,
+                    "category": "After the Program",
+                    "title": "Is this a bootcamp?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "We're a 501(c)(3) nonprofit software engineering accelerator. The difference: bootcamps sell seats. We select small cohorts (10–15 max), train with an engineering manager mentorship model, validate every skill against labor market data, and charge nothing. Our troops don't build throwaway exercises — they ship community-impact projects to production, with real users depending on the code they write. Our incentive is your outcome, not your tuition check."
+                        }
+                    ]
+                },
+                {
+                    "id": 20,
+                    "category": "Supporting VWC",
+                    "title": "How can I support Vets Who Code?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Donate, mentor, or hire our graduates. Donations are tax-deductible — EIN 86-2122804. If you're an engineer who wants to mentor, apply through our mentor page. If you're hiring, our graduates are interview-ready and backed by a network that holds them accountable."
+                        }
+                    ]
+                },
+                {
+                    "id": 21,
+                    "category": "Supporting VWC",
+                    "title": "Is VWC a real nonprofit?",
+                    "texts": [
+                        {
+                            "id": 1,
+                            "content": "Yes. Vets Who Code is a registered 501(c)(3) nonprofit — EIN 86-2122804. We hold a Candid/GuideStar Transparency Seal and publish our financials openly."
                         }
                     ]
                 }

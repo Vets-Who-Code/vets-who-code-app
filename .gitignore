@@ -49,11 +49,19 @@ public/fallback-*.js
 /public/robots.txt
 /public/sitemap.xml
 /public/sitemap-*.xml
+/sitemap.xml
 /test-results/
 /playwright-report/
 /playwright/.cache/
 
+# IDE
+.idea/
+.claude/settings.local.json
 
+# Stray build/debug artifacts
+.tailwind-debug.css
+complexity-report.json
+npm_output.log
 
 /src/generated/prisma
 audio-cloudinary-urls.json

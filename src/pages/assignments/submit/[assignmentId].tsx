@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import prisma from "@/lib/prisma";
 import { options } from "@/pages/api/auth/options";
 
@@ -97,7 +97,14 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
         setFiles(e.target.files);
     };
 
-    if (status === "loading") {
+    useEffect(() => {
+        if (status !== "loading" && !session) {
+            const callbackUrl = encodeURIComponent(router.asPath);
+            router.replace(`/login?callbackUrl=${callbackUrl}`);
+        }
+    }, [session, status, router]);
+
+    if (status === "loading" || !session) {
         return (
             <div className="tw-container tw-py-16">
                 <div className="tw-text-center">
@@ -108,11 +115,6 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
         );
     }
 
-    if (!session) {
-        router.push("/courses");
-        return null;
-    }
-
     if (submitted) {
         return (
             <>
@@ -120,8 +122,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                 <Breadcrumb
                     pages={[
                         { path: "/", label: "home" },
-                        { path: "/courses", label: "courses" },
-                        { path: "/courses/web-development", label: "web development" },
+                        { path: "/profile", label: "profile" },
                     ]}
                     currentPage="Assignment Submitted"
                     showTitle={false}
@@ -171,11 +172,11 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                 Go to Dashboard
                             </Link>
                             <Link
-                                href="/courses/web-development"
+                                href="/profile"
                                 className="tw-rounded-md tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-medium tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
-                                <i className="fas fa-book tw-mr-2" />
-                                Back to Course
+                                <i className="fas fa-user tw-mr-2" />
+                                Back to Profile
                             </Link>
                         </div>
                     </div>
@@ -190,8 +191,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
             <Breadcrumb
                 pages={[
                     { path: "/", label: "home" },
-                    { path: "/courses", label: "courses" },
-                    { path: `/courses/${assignment.course.id}`, label: assignment.course.title },
+                    { path: "/profile", label: "profile" },
                 ]}
                 currentPage={`Submit: ${assignment.title}`}
                 showTitle={false}
@@ -391,11 +391,11 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     {/* Submit Button */}
                                     <div className="tw-flex tw-items-center tw-justify-between tw-border-t tw-pt-6">
                                         <Link
-                                            href="/courses/web-development/1/1"
+                                            href="/profile"
                                             className="hover:tw-text-primary-dark tw-text-primary tw-transition-colors"
                                         >
                                             <i className="fas fa-arrow-left tw-mr-2" />
-                                            Back to Lesson
+                                            Back to Profile
                                         </Link>
 
                                         <button
@@ -488,7 +488,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     if (!enrollment) {
         return {
             redirect: {
-                destination: "/courses",
+                destination: "/profile",
                 permanent: false,
             },
         };

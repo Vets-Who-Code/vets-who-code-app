@@ -1,15 +1,16 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import Social01 from "@components/socials/social-01";
-import menu from "@data/menu";
+import menu, { filterMenuByAuth } from "@data/menu";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
 import clsx from "clsx";
+import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
@@ -24,6 +25,11 @@ const Header = ({ shadow, fluid }: TProps) => {
     const router = useRouter();
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
+    const { status } = useSession();
+    const filteredMenu = useMemo(
+        () => filterMenuByAuth(menu, status === "authenticated"),
+        [status]
+    );
 
     useEffect(() => {
         setOffcanvas(false);
@@ -68,18 +74,21 @@ const Header = ({ shadow, fluid }: TProps) => {
                     >
                         <div
                             className={clsx(
-                                "tw-container tw-grid tw-grid-flow-col tw-items-center xl:tw-grid-cols-[22%_minmax(56%,_1fr)_22%]",
+                                "tw-container tw-flex tw-items-center tw-justify-between tw-gap-6",
                                 fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                             )}
                         >
-                            <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
+                            <Logo
+                                variant="dark"
+                                className="tw-flex tw-items-center tw-shrink-0 tw-max-w-[120px] sm:tw-max-w-[158px]"
+                            />
                             <MainMenu
                                 className="tw-hidden xl:tw-block"
                                 align="center"
-                                menu={menu}
+                                menu={filteredMenu}
                                 hoverStyle="B"
                             />
-                            <div className="tw-flex tw-items-center tw-justify-end tw-gap-4">
+                            <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
                                 <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
                                     <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
                                         <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75" style={{ animation: "statusBlink 2s ease-in-out infinite" }} />
@@ -102,7 +111,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div className="tw-h-20" />
                 </div>
             </header>
-            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
+            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={filteredMenu} />
         </>
     );
 };

@@ -43,7 +43,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             fontSize: "9px",
                             textTransform: "uppercase",
                             letterSpacing: "0.08em",
-                            color: "#6C757D",
+                            color: "#495057",
                         }}
                     >
                         <Anchor path={category.path} className="tw-text-inherit">
@@ -73,7 +73,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                                 fontSize: "10px",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
-                                color: "#6C757D",
+                                color: "#495057",
                             }}
                         >
                             <i className="far fa-calendar tw-mr-2.5" />

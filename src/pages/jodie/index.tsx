@@ -26,40 +26,40 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
-// Hashflag Stack: 25 modules + capstone across 4 phases (17 weeks)
+// Hashflag Stack: 25 modules across 4 phases. Modules take variable time — no fixed weekly schedule.
 const HASHFLAG_MODULES = [
-    // Phase 1: Foundations — Weeks 1-4
-    { module: 1, week: 1, phase: "Foundations", title: "Terminal Mastery", topics: "File system navigation, file operations, text processing (grep/sed/awk), piping & redirection, shell config (.zshrc), package management, process management, SSH, shell scripting" },
-    { module: 2, week: 1, phase: "Foundations", title: "VS Code Mastery", topics: "Core navigation, Command Palette, extensions (ESLint, Prettier, GitLens), workspace config, integrated terminal, debugging (JS/Python), keyboard shortcuts" },
-    { module: 3, week: 2, phase: "Foundations", title: "Git & GitHub", topics: "Git architecture, staging/commits, branching strategies, merging/rebasing, conflict resolution, GitHub collaboration, PRs, code review, advanced Git (stash, cherry-pick, bisect, reflog)" },
-    { module: 4, week: 2, phase: "Foundations", title: "HTML & CSS Fundamentals", topics: "Semantic HTML5, accessibility, forms, CSS selectors & specificity, Box Model, Flexbox, Grid, responsive design, media queries, typography, transitions & animations" },
-    { module: 5, week: 3, phase: "Foundations", title: "JavaScript Fundamentals", topics: "Variables, data types, operators, control flow, functions, closures, arrays (map/filter/reduce), objects, destructuring, DOM manipulation, events, error handling, async/await, Promises, fetch" },
-    { module: 6, week: 3, phase: "Foundations", title: "Python Fundamentals", topics: "Variables, data types, control flow, functions (*args/**kwargs), lists, tuples, dicts, sets, string processing, file I/O, JSON, error handling, OOP basics, classes" },
-    { module: 7, week: 4, phase: "Foundations", title: "Software Development Lifecycle", topics: "User stories, requirements, Agile/Scrum/Kanban, sprint planning, standups, retros, technical documentation, READMEs, code review best practices" },
-    { module: 8, week: 4, phase: "Foundations", title: "Code Challenges", topics: "Data structures (arrays, linked lists, stacks, queues, hash maps, trees), algorithm patterns (two pointers, sliding window, recursion), Big O, 50+ easy + 25+ medium LeetCode in JS & Python. Gate: 3 problems in 90 min" },
+    // Phase 1: Foundations (Modules 1–8)
+    { module: 1, phase: "Foundations", title: "Terminal Mastery", topics: "File system navigation, file operations, text processing (grep/sed/awk), piping & redirection, shell config (.zshrc), package management, process management, SSH, shell scripting" },
+    { module: 2, phase: "Foundations", title: "VS Code Mastery", topics: "Core navigation, Command Palette, extensions (ESLint, Prettier, GitLens), workspace config, integrated terminal, debugging (JS/Python), keyboard shortcuts" },
+    { module: 3, phase: "Foundations", title: "Git & GitHub", topics: "Git architecture, staging/commits, branching strategies, merging/rebasing, conflict resolution, GitHub collaboration, PRs, code review, advanced Git (stash, cherry-pick, bisect, reflog)" },
+    { module: 4, phase: "Foundations", title: "HTML & CSS Fundamentals", topics: "Semantic HTML5, accessibility, forms, CSS selectors & specificity, Box Model, Flexbox, Grid, responsive design, media queries, typography, transitions & animations" },
+    { module: 5, phase: "Foundations", title: "JavaScript Fundamentals", topics: "Variables, data types, operators, control flow, functions, closures, arrays (map/filter/reduce), objects, destructuring, DOM manipulation, events, error handling, async/await, Promises, fetch" },
+    { module: 6, phase: "Foundations", title: "Python Fundamentals", topics: "Variables, data types, control flow, functions (*args/**kwargs), lists, tuples, dicts, sets, string processing, file I/O, JSON, error handling, OOP basics, classes" },
+    { module: 7, phase: "Foundations", title: "Software Development Lifecycle", topics: "User stories, requirements, Agile/Scrum/Kanban, sprint planning, standups, retros, technical documentation, READMEs, code review best practices" },
+    { module: 8, phase: "Foundations", title: "Code Challenges", topics: "Data structures (arrays, linked lists, stacks, queues, hash maps, trees), algorithm patterns (two pointers, sliding window, recursion), Big O, 50+ easy + 25+ medium LeetCode in JS & Python. Gate: 3 problems in 90 min" },
 
-    // Phase 2: Software Engineering — Weeks 5-9
-    { module: 9, week: 5, phase: "Software Engineering", title: "Advanced JavaScript & TypeScript", topics: "ES6+ features, advanced async (Promise.all/race/allSettled), modules, classes, TypeScript fundamentals (interfaces, generics, utility types), advanced TS (conditional types, mapped types), debugging" },
-    { module: 10, week: 6, phase: "Software Engineering", title: "Next.js Application Development", topics: "App Router, layouts, Server & Client Components, data fetching (ISR, Suspense, SWR), Server Actions, API routes, Tailwind CSS styling, performance optimization (next/image, next/font, code splitting)" },
-    { module: 11, week: 7, phase: "Software Engineering", title: "Testing Fundamentals", topics: "Testing pyramid, TDD, Jest (matchers, mocking), React Testing Library, integration testing, E2E with Playwright (Page Object Model, visual regression), CI integration" },
-    { module: 12, week: 8, phase: "Software Engineering", title: "Deployment & CI/CD", topics: "Vercel deployment, preview deploys, GitHub Actions (triggers, jobs, secrets, matrix, caching), CI pipeline (lint, typecheck, test), CD pipeline (feature flags, rollbacks, blue-green)" },
-    { module: 13, week: 8, phase: "Software Engineering", title: "Media Management & Analytics", topics: "Cloudinary (upload, transforms, optimization), image formats (WebP/AVIF), lazy loading, Microsoft Clarity (session recordings, heatmaps), Google Analytics 4, event tracking" },
+    // Phase 2: Software Engineering (Modules 9–13)
+    { module: 9, phase: "Software Engineering", title: "Advanced JavaScript & TypeScript", topics: "ES6+ features, advanced async (Promise.all/race/allSettled), modules, classes, TypeScript fundamentals (interfaces, generics, utility types), advanced TS (conditional types, mapped types), debugging" },
+    { module: 10, phase: "Software Engineering", title: "Next.js Application Development", topics: "App Router, layouts, Server & Client Components, data fetching (ISR, Suspense, SWR), Server Actions, API routes, Tailwind CSS styling, performance optimization (next/image, next/font, code splitting)" },
+    { module: 11, phase: "Software Engineering", title: "Testing Fundamentals", topics: "Testing pyramid, TDD, Jest (matchers, mocking), React Testing Library, integration testing, E2E with Playwright (Page Object Model, visual regression), CI integration" },
+    { module: 12, phase: "Software Engineering", title: "Deployment & CI/CD", topics: "Vercel deployment, preview deploys, GitHub Actions (triggers, jobs, secrets, matrix, caching), CI pipeline (lint, typecheck, test), CD pipeline (feature flags, rollbacks, blue-green)" },
+    { module: 13, phase: "Software Engineering", title: "Media Management & Analytics", topics: "Cloudinary (upload, transforms, optimization), image formats (WebP/AVIF), lazy loading, Microsoft Clarity (session recordings, heatmaps), Google Analytics 4, event tracking" },
 
-    // Phase 3: AI Engineering — Weeks 9-14
-    { module: 14, week: 9, phase: "AI Engineering", title: "AI Foundations", topics: "AI vs ML vs Deep Learning, learning paradigms (supervised/unsupervised/reinforcement), Transformer architecture, self-attention, tokens & embeddings, context windows, LLM landscape (GPT-4, Claude, Gemini, Llama)" },
-    { module: 15, week: 10, phase: "AI Engineering", title: "Advanced Python for AI", topics: "Python 3.11+ patterns, uv, type hints, Pydantic v2 (BaseModel, validators, serialization, BaseSettings, computed fields, JSON schema), async Python (asyncio, httpx)" },
-    { module: 16, week: 10, phase: "AI Engineering", title: "FastAPI: Production AI APIs", topics: "Routing, path/query params, Pydantic request/response, dependency injection, OpenAPI 3.1, streaming responses (SSE, AsyncIterator), middleware, CORS, API key auth, rate limiting, background tasks" },
-    { module: 17, week: 11, phase: "AI Engineering", title: "Google Gemini Integration", topics: "Gemini Pro/Flash, auth, generation config (temperature, top_p, top_k), text generation, streaming, chat sessions, structured output (JSON mode + Pydantic schema), multimodal (images, PDF, video, audio), function calling" },
-    { module: 18, week: 11, phase: "AI Engineering", title: "Professional Prompt Engineering", topics: "Zero/one/few-shot, Chain of Thought, Self-Consistency, Tree of Thoughts, ReAct, XML tags & delimiters, schema-guided generation, role assignment, prompt templates (Jinja2), A/B testing, evaluation" },
-    { module: 19, week: 12, phase: "AI Engineering", title: "RAG Systems", topics: "Document ingestion, chunking strategies, embeddings, pgvector (Postgres), ChromaDB, hybrid search (keyword + semantic), reranking, query expansion (HyDE), evaluation (Precision@k, Recall@k, MRR, faithfulness)" },
-    { module: 20, week: 13, phase: "AI Engineering", title: "AI Agents & Workflows", topics: "Agent architecture (perception, reasoning, action, reflection), tool use & function calling, memory systems (short/long-term, episodic, semantic), LangChain, LangGraph, multi-agent systems, human-in-the-loop" },
-    { module: 21, week: 14, phase: "AI Engineering", title: "Full-Stack AI Integration", topics: "Next.js AI patterns, Server Components for AI, streaming chat UI (SSE, token-by-token, markdown rendering), type-safe integration (OpenAPI client gen, Zod ↔ Pydantic), file upload (drag-and-drop, multimodal)" },
+    // Phase 3: AI Engineering (Modules 14–21)
+    { module: 14, phase: "AI Engineering", title: "AI Foundations", topics: "AI vs ML vs Deep Learning, learning paradigms (supervised/unsupervised/reinforcement), Transformer architecture, self-attention, tokens & embeddings, context windows, LLM landscape (GPT-4, Claude, Gemini, Llama)" },
+    { module: 15, phase: "AI Engineering", title: "Advanced Python for AI", topics: "Python 3.11+ patterns, uv, type hints, Pydantic v2 (BaseModel, validators, serialization, BaseSettings, computed fields, JSON schema), async Python (asyncio, httpx)" },
+    { module: 16, phase: "AI Engineering", title: "FastAPI: Production AI APIs", topics: "Routing, path/query params, Pydantic request/response, dependency injection, OpenAPI 3.1, streaming responses (SSE, AsyncIterator), middleware, CORS, API key auth, rate limiting, background tasks" },
+    { module: 17, phase: "AI Engineering", title: "Google Gemini Integration", topics: "Gemini Pro/Flash, auth, generation config (temperature, top_p, top_k), text generation, streaming, chat sessions, structured output (JSON mode + Pydantic schema), multimodal (images, PDF, video, audio), function calling" },
+    { module: 18, phase: "AI Engineering", title: "Professional Prompt Engineering", topics: "Zero/one/few-shot, Chain of Thought, Self-Consistency, Tree of Thoughts, ReAct, XML tags & delimiters, schema-guided generation, role assignment, prompt templates (Jinja2), A/B testing, evaluation" },
+    { module: 19, phase: "AI Engineering", title: "RAG Systems", topics: "Document ingestion, chunking strategies, embeddings, pgvector (Postgres), ChromaDB, hybrid search (keyword + semantic), reranking, query expansion (HyDE), evaluation (Precision@k, Recall@k, MRR, faithfulness)" },
+    { module: 20, phase: "AI Engineering", title: "AI Agents & Workflows", topics: "Agent architecture (perception, reasoning, action, reflection), tool use & function calling, memory systems (short/long-term, episodic, semantic), LangChain, LangGraph, multi-agent systems, human-in-the-loop" },
+    { module: 21, phase: "AI Engineering", title: "Full-Stack AI Integration", topics: "Next.js AI patterns, Server Components for AI, streaming chat UI (SSE, token-by-token, markdown rendering), type-safe integration (OpenAPI client gen, Zod ↔ Pydantic), file upload (drag-and-drop, multimodal)" },
 
-    // Phase 4: Production Mastery — Weeks 15-17
-    { module: 22, week: 15, phase: "Production Mastery", title: "Testing AI Systems", topics: "pytest, fixtures, async testing, FastAPI TestClient, streaming endpoint tests, K6 load testing (virtual users, scenarios, thresholds), LLM output evaluation (factuality, relevance, automated pipelines)" },
-    { module: 23, week: 15, phase: "Production Mastery", title: "LLMOps & Observability", topics: "LangSmith (tracing, evaluation datasets, prompt versioning, cost tracking), structured logging, Prometheus metrics, AI-specific metrics (latency, tokens, errors), cost management, budget alerts" },
-    { module: 24, week: 16, phase: "Production Mastery", title: "Production Deployment", topics: "Docker (Dockerfile best practices, multi-stage builds), Google Cloud Run (config, secrets, scaling, Cloud SQL), GitHub Actions for Python, CI/CD automation, rollbacks, production checklist" },
-    { module: 25, week: 17, phase: "Production Mastery", title: "Ethics, Safety & Governance", topics: "Bias & fairness, prompt injection defense, data poisoning, model extraction, PII leakage, explainability, GDPR for AI, ISO 42001, model cards, content safety filters, incident response" },
+    // Phase 4: Production Mastery (Modules 22–25)
+    { module: 22, phase: "Production Mastery", title: "Testing AI Systems", topics: "pytest, fixtures, async testing, FastAPI TestClient, streaming endpoint tests, K6 load testing (virtual users, scenarios, thresholds), LLM output evaluation (factuality, relevance, automated pipelines)" },
+    { module: 23, phase: "Production Mastery", title: "LLMOps & Observability", topics: "LangSmith (tracing, evaluation datasets, prompt versioning, cost tracking), structured logging, Prometheus metrics, AI-specific metrics (latency, tokens, errors), cost management, budget alerts" },
+    { module: 24, phase: "Production Mastery", title: "Production Deployment", topics: "Docker (Dockerfile best practices, multi-stage builds), Google Cloud Run (config, secrets, scaling, Cloud SQL), GitHub Actions for Python, CI/CD automation, rollbacks, production checklist" },
+    { module: 25, phase: "Production Mastery", title: "Ethics, Safety & Governance", topics: "Bias & fairness, prompt injection defense, data poisoning, model extraction, PII leakage, explainability, GDPR for AI, ISO 42001, model cards, content safety filters, incident response" },
 ];
 
 const JodiePage: PageWithLayout = () => {
@@ -102,7 +102,7 @@ const JodiePage: PageWithLayout = () => {
                 body: JSON.stringify({
                     concept: currentMod?.title ?? "general",
                     question: userMsg.content,
-                    curriculum_week: currentMod?.week ?? 1,
+                    curriculum_module: currentMod?.module ?? 1,
                 }),
             });
 
@@ -269,10 +269,10 @@ const JodiePage: PageWithLayout = () => {
                 {/* LEARN PILLAR */}
                 {activePillar === "learn" && (
                     <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-4 tw-gap-6">
-                        {/* Week Selector */}
+                        {/* Module Selector */}
                         <div className="tw-rounded-lg tw-bg-white tw-p-4 tw-shadow-sm">
                             <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60">
-                                Curriculum Week
+                                Curriculum Module
                             </h3>
                             <div className="tw-space-y-1 tw-max-h-96 tw-overflow-y-auto">
                                 {["Foundations", "Software Engineering", "AI Engineering", "Production Mastery"].map((phase) => (
@@ -318,7 +318,7 @@ const JodiePage: PageWithLayout = () => {
                                             Ask me about {currentMod?.title || "the curriculum"}
                                         </p>
                                         <p className="tw-text-sm">
-                                            {currentMod?.phase} — Week {currentMod?.week}
+                                            {currentMod?.phase} — Module {currentMod?.module}
                                         </p>
                                     </div>
                                 )}

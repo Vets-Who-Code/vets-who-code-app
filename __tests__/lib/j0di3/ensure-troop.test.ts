@@ -73,7 +73,7 @@ describe("ensureTroop", () => {
             email: "new@example.com",
             branch: "Army",
             mos: "11B",
-            curriculum_week: 1,
+            current_module: 1,
             enrolled: true,
         });
         expect(mockUpdate).toHaveBeenCalledWith({
@@ -104,7 +104,7 @@ describe("ensureTroop", () => {
             email: "user@example.com",
             branch: "",
             mos: "",
-            curriculum_week: 1,
+            current_module: 1,
             enrolled: false,
         });
     });

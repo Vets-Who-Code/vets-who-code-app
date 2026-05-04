@@ -37,7 +37,7 @@ const CLASSIFICATION_SCHEMA = {
     required: ["sendToSlack", "category", "confidence", "reason"],
 };
 
-const CLASSIFICATION_PROMPT = `You are a spam filter for a nonprofit coding bootcamp contact form (Vets Who Code).
+const CLASSIFICATION_PROMPT = `You are a spam filter for a nonprofit software engineering accelerator contact form (Vets Who Code).
 
 Classify the following contact form submission.
 

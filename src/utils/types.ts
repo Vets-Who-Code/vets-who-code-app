@@ -72,6 +72,7 @@ export interface ItemType {
     icon: string;
     path: string;
     pathText: string;
+    prefix?: string;
     suffix: string;
     counter: number;
     name: string;

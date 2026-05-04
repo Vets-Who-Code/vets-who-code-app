@@ -15,13 +15,13 @@ const TextWidget = ({ className, mode }: TProps) => {
                 <p className="tw-mb-[11px]">31860 Sandy Plains Road, Ste 204 PMB 206</p>
                 <p className="tw-mb-[11px]">
                     <a
-                        href="#!"
+                        href="mailto:hello@vetswhocode.io"
                         className={clsx(
                             "hover:tw-text-primary",
                             mode === "dark" && "tw-text-gray-400"
                         )}
                     >
-                        hello@vetswhocode.io{" "}
+                        hello@vetswhocode.io
                     </a>
                 </p>
             </div>
@@ -31,9 +31,6 @@ const TextWidget = ({ className, mode }: TProps) => {
                     label="Facebook"
                 >
                     <i className="fab fa-facebook-square" />
-                </SocialLink>
-                <SocialLink href="https://dev.to/vetswhocode" label="Practical Dev">
-                    <i className="fab fa-dev" />
                 </SocialLink>
                 <SocialLink href="https://github.com/Vets-Who-Code" label="Github">
                     <i className="fab fa-github" />

@@ -24,7 +24,11 @@
           "texts": [
             {
               "id": 1,
-              "content": "How we transform military experience into software engineering excellence."
+              "content": "A Structured Path from Service to Software Engineering"
+            },
+            {
+              "id": 2,
+              "content": "How we turn military discipline into software engineering careers. Measurably."
             }
           ]
         }
@@ -34,7 +38,7 @@
       "section": "theory-of-change-area",
       "section_title": {
         "title": "Vets Who Code — Theory of Change",
-        "subtitle": "A Structured Path from Service to Software"
+        "subtitle": "A Structured Path from Service to Software Engineering"
       },
       "items": [
         {
@@ -48,7 +52,13 @@
           "texts": [
             {
               "id": 1,
-              "content": "We believe that military experience instills a unique blend of grit, discipline, and adaptive thinking that—when paired with cutting-edge technical training and real-world software development opportunities—produces exceptional software engineers. Our mission is to channel that potential through a proven, product-focused learning ecosystem designed for impact."
+              "type": "paragraph",
+              "content": "Veterans already have what most bootcamp graduates lack: discipline under pressure, accountability to a team, and the ability to execute when the plan breaks. What they don't have is a bridge from that experience to the skills employers are hiring for today."
+            },
+            {
+              "id": 2,
+              "type": "paragraph",
+              "content": "VWC is that bridge — a structured, evidence-based training program that maps every hour of instruction to verified labor market demand. Every skill in our curriculum is validated against the Lightcast Open Skills taxonomy. If employers aren't hiring for it, we don't teach it."
             }
           ]
         },
@@ -63,27 +73,38 @@
           "texts": [
             {
               "id": 1,
-              "content": "We start by identifying highly motivated U.S. military veterans and military spouses ready to transition into tech. Our key inputs include:"
+              "type": "paragraph",
+              "content": "Who we select: U.S. military veterans and military spouses with demonstrated motivation and commitment. Cohorts are capped at 10–15 to maintain mentorship intensity and individual accountability. Admission is selective — we evaluate aptitude, drive, and follow-through, not prior technical experience."
             },
             {
               "id": 2,
-              "content": "A curated selection of veteran learners with high aptitude and drive"
+              "type": "paragraph",
+              "content": "What we bring:"
             },
             {
               "id": 3,
-              "content": "The Vets Who Code learning platform, housing our open-source curriculum, projects, and blog"
+              "type": "bullet",
+              "content": "The Hashflag Stack — a 25-module, 17-week technical accelerator with 128 skills validated against Lightcast labor market data, organized across four phases: Foundations, Software Engineering, AI Engineering, and Production Mastery."
             },
             {
               "id": 4,
-              "content": "A network of experienced mentors, industry veterans, and alumni coaches"
+              "type": "bullet",
+              "content": "J0dI3 — VWC's AI infrastructure layer, providing real-time career readiness scoring, military-to-civilian skills translation, curriculum intelligence, and personalized learning feedback embedded directly into the program."
             },
             {
               "id": 5,
-              "content": "Community infrastructure for remote collaboration and code reviews"
+              "type": "bullet",
+              "content": "Engineering Manager Mentorship — a network of working software engineers, many of them VWC alumni, operating in an engineering manager capacity. They provide code review, career strategy, and accountability — not tutoring."
             },
             {
               "id": 6,
-              "content": "Access to development tools, GitHub repositories, and cloud environments"
+              "type": "bullet",
+              "content": "Remote-First Infrastructure — Slack, GitHub, cloud development environments, and async collaboration tools designed for distributed teams operating across time zones."
+            },
+            {
+              "id": 7,
+              "type": "bullet",
+              "content": "Industry Partnerships — technology companies providing tools, mentorship hours, and hiring pipeline access to VWC graduates."
             }
           ]
         },
@@ -98,27 +119,73 @@
           "texts": [
             {
               "id": 1,
-              "content": "We immerse our learners in a 100% remote-first, product-driven experience that mirrors real software engineering workflows. Our core activities include:"
+              "type": "paragraph",
+              "content": "VWC operates as a 17-week, fully remote software engineering accelerator. The program mirrors real engineering team workflows — not classroom instruction."
             },
             {
               "id": 2,
-              "content": "Platform-Based Learning: Learners progress through a rigorous 12-module open-source curriculum hosted on our custom platform, covering everything from core web fundamentals to backend APIs and DevOps."
+              "type": "subheading",
+              "content": "Phase 1: Foundations (Modules 1–8)"
             },
             {
               "id": 3,
-              "content": "Mentorship & Pair Programming: Each veteran is paired with mentors from our alumni and industry network who guide them through weekly check-ins, code reviews, and career strategy."
+              "type": "paragraph",
+              "content": "Terminal mastery, Git and GitHub, HTML/CSS, JavaScript fundamentals, Python fundamentals, software development lifecycle, and code challenges. No AI assistance is permitted during this phase. Veterans learn to reason through problems manually before any tooling is introduced."
             },
             {
               "id": 4,
-              "content": "Open Source Collaboration: Learners contribute to internal and external open-source projects, learning how to write scalable, readable code that integrates into production environments."
+              "type": "subheading",
+              "content": "Phase 2: Software Engineering (Modules 9–13)"
             },
             {
               "id": 5,
-              "content": "Product Development: Veterans work on real nonprofit apps, tools, and features—like the PTSD Toolkit and AEGIS—designed to be used by real users. This gives them portfolio-ready projects with real-world scope and impact."
+              "type": "paragraph",
+              "content": "Advanced JavaScript and TypeScript, Next.js full-stack development, testing, CI/CD pipelines, and production deployment. Veterans build and ship real applications."
             },
             {
               "id": 6,
-              "content": "Career Development: Weekly resume reviews, GitHub audits, behavioral interview training, and asynchronous job prep help troops present themselves as polished professionals."
+              "type": "subheading",
+              "content": "Phase 3: AI Engineering (Modules 14–21)"
+            },
+            {
+              "id": 7,
+              "type": "paragraph",
+              "content": "Python for AI, FastAPI production APIs, Google Gemini integration (text and multimodal), retrieval-augmented generation, AI agents and workflows, streaming AI interfaces, and AI safety and security. This phase reflects VWC's position that AI engineering is a baseline skill for modern software engineers, not a specialization."
+            },
+            {
+              "id": 8,
+              "type": "subheading",
+              "content": "Phase 4: Production Mastery (Modules 22–25)"
+            },
+            {
+              "id": 9,
+              "type": "paragraph",
+              "content": "Production deployment and observability, capstone project, portfolio and career preparation, and shipping to real users. The capstone is scoped, reviewed, and deployed under real-world constraints."
+            },
+            {
+              "id": 10,
+              "type": "subheading",
+              "content": "Throughout all phases"
+            },
+            {
+              "id": 11,
+              "type": "bullet",
+              "content": "Weekly mentorship sessions with engineers operating as engineering managers — providing code review, architectural feedback, career strategy, and direct accountability."
+            },
+            {
+              "id": 12,
+              "type": "bullet",
+              "content": "Contributions to VWC's open-source projects, building production-grade GitHub profiles with real commit history."
+            },
+            {
+              "id": 13,
+              "type": "bullet",
+              "content": "Career readiness development powered by J0dI3: resume scoring, GitHub profile audits, LinkedIn optimization, behavioral and technical interview preparation, and job description gap analysis — all evaluated against current labor market demand data."
+            },
+            {
+              "id": 14,
+              "type": "bullet",
+              "content": "Pair programming and async code review replicating the workflows veterans will encounter on distributed engineering teams."
             }
           ]
         },
@@ -133,27 +200,38 @@
           "texts": [
             {
               "id": 1,
-              "content": "By the end of the program, graduates leave with:"
+              "type": "paragraph",
+              "content": "By the end of the 17-week program, each graduate has:"
             },
             {
               "id": 2,
-              "content": "A strong GitHub profile reflecting open-source and production-level contributions"
+              "type": "bullet",
+              "content": "A production-grade GitHub profile with open-source contributions and deployed applications."
             },
             {
               "id": 3,
-              "content": "Completed software products deployed or used by actual users"
+              "type": "bullet",
+              "content": "A shipped capstone project — scoped, reviewed, and deployed to actual users."
             },
             {
               "id": 4,
-              "content": "Job-ready skills in tools like TypeScript, React, Next.js, Python, FastAPI, Git, and CI/CD workflows"
+              "type": "bullet",
+              "content": "Verified proficiency across 128 Lightcast-validated technical skills spanning full-stack development, AI engineering, and production operations."
             },
             {
               "id": 5,
-              "content": "Direct mentorship and professional guidance from engineers already in the field"
+              "type": "bullet",
+              "content": "A J0dI3-scored career readiness profile: resume, GitHub, LinkedIn, and portfolio evaluated against current employer demand."
             },
             {
               "id": 6,
-              "content": "The confidence and social proof to break into the tech industry"
+              "type": "bullet",
+              "content": "A professional network of VWC alumni and mentors embedded in engineering teams at companies including Microsoft, Accenture, Amazon, Google, and GitHub."
+            },
+            {
+              "id": 7,
+              "type": "bullet",
+              "content": "Behavioral and technical interview readiness validated through mock interviews and structured feedback."
             }
           ]
         },
@@ -162,33 +240,34 @@
           "headings": [
             {
               "id": 1,
-              "content": "Short- to Medium-Term Outcomes"
+              "content": "Short- to Medium-Term Outcomes (6–12 Months)"
             }
           ],
           "texts": [
             {
               "id": 1,
-              "content": "Within 6–12 months, we see:"
+              "type": "bullet",
+              "content": "Graduates employed in software engineering roles with an average starting salary targeting $72K–$85K and a 90-day placement rate of 90%+."
             },
             {
               "id": 2,
-              "content": "Veterans hired into six-figure tech roles in software engineering, DevOps, or data roles"
+              "type": "bullet",
+              "content": "Alumni return as mentors and open-source contributors, feeding the next cohort's mentor pipeline."
             },
             {
               "id": 3,
-              "content": "Alumni re-engagement as mentors, speakers, and open-source contributors"
+              "type": "bullet",
+              "content": "Graduates report measurable economic mobility: reduced debt burden, housing stability, and increased household income — particularly among underrepresented and minority veterans."
             },
             {
               "id": 4,
-              "content": "Economic mobility, especially among underrepresented and minority veterans"
+              "type": "bullet",
+              "content": "J0dI3 career readiness scores tracked post-graduation to measure continued professional development."
             },
             {
               "id": 5,
-              "content": "Product impact as the tools and apps they've built are used in the real world"
-            },
-            {
-              "id": 6,
-              "content": "Portfolio visibility, helping them stand out in competitive hiring pipelines"
+              "type": "bullet",
+              "content": "Employer partners provide structured feedback on graduate performance, directly informing curriculum updates for future cohorts."
             }
           ]
         },
@@ -197,33 +276,64 @@
           "headings": [
             {
               "id": 1,
-              "content": "Long-Term Impact"
+              "content": "Long-Term Impact (By 2030)"
             }
           ],
           "texts": [
             {
               "id": 1,
-              "content": "Over time, our model creates:"
+              "type": "subheading",
+              "content": "Measurable targets"
             },
             {
               "id": 2,
-              "content": "A visible, high-performing ecosystem of veteran technologists whose skills are rooted in service and real-world engineering"
+              "type": "bullet",
+              "content": "500+ cumulative graduates, with cohorts permanently capped at 10–15 to maintain quality."
             },
             {
               "id": 3,
-              "content": "Generational wealth creation and stability for veteran families"
+              "type": "bullet",
+              "content": "$50M+ in collective alumni earnings."
             },
             {
               "id": 4,
-              "content": "A transformed narrative in tech: veterans aren't just potential hires—they're builders, maintainers, and innovators"
+              "type": "bullet",
+              "content": "97% 90-day job placement rate."
             },
             {
               "id": 5,
-              "content": "A proven, replicable nonprofit model that blends product-based learning with mentorship and community leadership"
+              "type": "bullet",
+              "content": "Average graduate starting salary of $95K+."
             },
             {
               "id": 6,
-              "content": "A more diverse and mission-driven U.S. tech workforce that reflects the values of service, resilience, and contribution"
+              "type": "bullet",
+              "content": "60%+ of organizational revenue from earned sources — J0dI3 licensing, employer partnerships, and corporate training — reducing dependency on philanthropic grants."
+            },
+            {
+              "id": 7,
+              "type": "bullet",
+              "content": "Alumni return rate as mentors and donors exceeding 30%, creating a self-sustaining pipeline."
+            },
+            {
+              "id": 8,
+              "type": "subheading",
+              "content": "Systemic impact"
+            },
+            {
+              "id": 9,
+              "type": "bullet",
+              "content": "Veteran representation in software engineering roles increases measurably at partner companies."
+            },
+            {
+              "id": 10,
+              "type": "bullet",
+              "content": "VWC's model — small cohorts, AI-augmented instruction, market-validated curriculum, alumni-fed mentorship — is documented and available for replication by other workforce development organizations."
+            },
+            {
+              "id": 11,
+              "type": "bullet",
+              "content": "Longitudinal salary tracking via J0dI3 and alumni surveys provides publishable data on veteran economic mobility at 1, 3, and 5 years post-graduation."
             }
           ]
         },
@@ -238,7 +348,13 @@
           "texts": [
             {
               "id": 1,
-              "content": "We envision a future where every veteran who wants a career in tech has access to the platform, mentorship, and tools they need to succeed. Our platform is not just a curriculum—it's a launchpad. By continuing to build open-source tools that matter, develop products people use, and uplift our own through mentoring and advocacy, Vets Who Code will remain a blueprint for what's possible when service meets software."
+              "type": "paragraph",
+              "content": "Veterans are stakeholders, not charity cases. Every design decision at VWC — from capping cohorts at 15 to validating every skill against Lightcast data to building J0dI3 as our own AI infrastructure — exists to prove one thing: that a nonprofit can operate with the rigor of a product company and the accountability of a military unit."
+            },
+            {
+              "id": 2,
+              "type": "paragraph",
+              "content": "The vision is not access. Access is easy. The vision is outcomes — verifiable, repeatable, and funded by the value we create, not the sympathy we generate."
             }
           ]
         }
@@ -256,11 +372,11 @@
           "texts": [
             {
               "id": 1,
-              "content": "Your contribution fuels a proven system that has already generated over twenty million dollars in collective earnings for those who served our country. Our graduates become mentors and donors themselves, creating a self-sustaining cycle of success that multiplies your impact far beyond your initial contribution."
+              "content": "Your contribution fuels a proven system that has already generated $20M+ in collective alumni earnings. Our graduates return as mentors and donors — creating a self-sustaining pipeline that multiplies your impact far beyond the initial gift."
             },
             {
               "id": 2,
-              "content": "Unlike traditional programs with high overhead, we're remote-first and tech-enabled—meaning more of your donation goes directly to veteran success. Our AI-augmented learning platform adapts to each veteran's unique background and learning style, maximizing educational outcomes while minimizing costs."
+              "content": "We're remote-first and tech-enabled, so more of your donation goes directly to veteran outcomes. J0dI3, our in-house AI infrastructure, personalizes every learner's path and keeps our curriculum aligned with real labor market demand."
             }
           ]
         }

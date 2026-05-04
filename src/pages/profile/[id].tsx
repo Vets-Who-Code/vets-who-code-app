@@ -4,7 +4,6 @@ import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
 import type { GetServerSideProps, NextPage } from "next";
-import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
@@ -45,7 +44,6 @@ type PageWithLayout = NextPage<PageProps> & {
 
 const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
     const mounted = useMount();
-    const router = useRouter();
     const [activeTab, setActiveTab] = useState<ProfileTab>("command-center");
 
     // Pass the target user's ID to hooks so they fetch that member's data
@@ -64,10 +62,12 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
 
     const handleLogout = async () => {
         try {
-            await signOut({ redirect: false });
-            await router.replace("/login");
-        } catch {
-            // logout error handled silently
+            await signOut({ callbackUrl: "/login" });
+        } catch (error) {
+            console.error("[Profile] signOut failed:", error);
+            window.alert(
+                "Logout failed. Please try again, or clear your browser cookies for this site."
+            );
         }
     };
 

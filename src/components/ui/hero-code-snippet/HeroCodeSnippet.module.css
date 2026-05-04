@@ -1,0 +1,27 @@
+@keyframes cursorBlink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: #f8f9fa;
+    vertical-align: -0.18em;
+    margin-left: 2px;
+    animation: cursorBlink 1.05s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cursor {
+        animation: none;
+        opacity: 0.7;
+    }
+}

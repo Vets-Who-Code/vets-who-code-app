@@ -15,6 +15,16 @@ vi.mock("@/pages/api/auth/options", () => ({
     options: {},
 }));
 
+// Mock the challenge runner so tests don't need a real Web Worker.
+// happy-dom doesn't ship one and the runner's behavior is covered by
+// the dedicated stringify test plus its own integration tests.
+vi.mock("@/lib/challenge-runner", () => ({
+    runChallenge: vi.fn(),
+}));
+
+import { runChallenge } from "@/lib/challenge-runner";
+const mockRunChallenge = vi.mocked(runChallenge);
+
 const mockFetch = vi.fn();
 global.fetch = mockFetch;
 
@@ -24,6 +34,7 @@ import ChallengesPage from "@/pages/challenges/index";
 describe("ChallengesPage", () => {
     beforeEach(() => {
         mockFetch.mockReset();
+        mockRunChallenge.mockReset();
 
         // Default: recommended returns empty, history returns empty
         mockFetch.mockImplementation((url: string) => {
@@ -121,7 +132,25 @@ describe("ChallengesPage", () => {
     });
 
     it("submits a solution and shows result", async () => {
-        // Start challenge
+        // Stub the worker-backed runner so the component can advance to
+        // the submit POST without a real Web Worker.
+        mockRunChallenge.mockResolvedValue({
+            all_passed: true,
+            test_results: [
+                {
+                    test_case_index: 0,
+                    input: "[1, 2, 3]",
+                    expected_output: "6",
+                    actual_output: "6",
+                    passed: true,
+                    error: null,
+                    hidden: false,
+                },
+            ],
+            execution_ms: 4,
+            runtime: "browser-js",
+        });
+
         mockFetch.mockImplementation((url: string, opts?: any) => {
             if (url.includes("start") && opts?.method === "POST") {
                 return Promise.resolve({
@@ -133,6 +162,9 @@ describe("ChallengesPage", () => {
                         topic: "javascript",
                         difficulty: "easy",
                         language: "javascript",
+                        test_cases: [
+                            { input: "[1, 2, 3]", expected_output: "6", hidden: false },
+                        ],
                     }),
                 });
             }
@@ -166,6 +198,16 @@ describe("ChallengesPage", () => {
             expect(screen.getByText("Score: 100/100")).toBeInTheDocument();
             expect(screen.getByText("Perfect solution!")).toBeInTheDocument();
         });
+
+        // The submit POST must include the runner's structured client_results.
+        const submitCall = mockFetch.mock.calls.find(([url, opts]) =>
+            String(url).includes("submit") && opts?.method === "POST"
+        );
+        expect(submitCall).toBeDefined();
+        const body = JSON.parse(submitCall![1].body);
+        expect(body.solution).toContain("reduce");
+        expect(body.client_results.all_passed).toBe(true);
+        expect(body.client_results.test_results).toHaveLength(1);
     });
 
     it("shows recommended challenges when available", async () => {

@@ -3,10 +3,9 @@ import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import { getServerSession } from "next-auth/next";
 import React, { useState } from "react";
 import prisma from "@/lib/prisma";
-import { options } from "@/pages/api/auth/options";
+import { requireAdminSSR } from "@/lib/auth-guards";
 
 type Course = {
     id: string;
@@ -291,28 +290,8 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
 AdminCoursesPage.Layout = Layout01;
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
-    // Check authentication
-    const session = await getServerSession(context.req, context.res, options);
-
-    // Redirect if not authenticated
-    if (!session?.user) {
-        return {
-            redirect: {
-                destination: "/login?callbackUrl=/admin/courses",
-                permanent: false,
-            },
-        };
-    }
-
-    // Check for ADMIN role
-    if (session.user.role !== "ADMIN") {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false,
-            },
-        };
-    }
+    const guard = await requireAdminSSR(context);
+    if (!guard.ok) return guard.result;
 
     // Fetch all courses with module and enrollment counts
     const coursesWithCounts = await prisma.course.findMany({

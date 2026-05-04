@@ -5,8 +5,8 @@
  */
 
 import type { GetServerSideProps } from "next";
-import { getServerSession } from "next-auth/next";
 import React, { useEffect, useState } from "react";
+import { requireAdminSSR } from "@/lib/auth-guards";
 import BlogImageManager from "@/components/blog-image-manager";
 import {
     BlogImageInfo,
@@ -14,7 +14,6 @@ import {
     getBlogImageStats,
     getBlogsWithoutCloudinaryImages,
 } from "@/lib/blog-images";
-import { options } from "@/pages/api/auth/options";
 
 const BlogImagesAdminPage: React.FC = () => {
     const [stats, setStats] = useState<ReturnType<typeof getBlogImageStats> | null>(null);
@@ -325,28 +324,8 @@ const BlogImagesAdminPage: React.FC = () => {
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    // Check authentication
-    const session = await getServerSession(context.req, context.res, options);
-
-    // Redirect if not authenticated
-    if (!session?.user) {
-        return {
-            redirect: {
-                destination: "/login?callbackUrl=/admin/blog-images",
-                permanent: false,
-            },
-        };
-    }
-
-    // Check for ADMIN role
-    if (session.user.role !== "ADMIN") {
-        return {
-            redirect: {
-                destination: "/",
-                permanent: false,
-            },
-        };
-    }
+    const guard = await requireAdminSSR(context);
+    if (!guard.ok) return guard.result;
 
     return {
         props: {},

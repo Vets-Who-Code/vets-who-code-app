@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 module.exports = {
+    darkMode: "class",
     safelist: ["group-hover:tw-animate-wiggle"],
     content: ["./src/**/*.tsx"],
     prefix: "tw-",

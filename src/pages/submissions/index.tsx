@@ -197,11 +197,11 @@ const SubmissionsPage: PageWithLayout = () => {
                                 : `No ${filter} submissions.`}
                         </p>
                         <Link
-                            href="/courses"
+                            href="/profile"
                             className="hover:tw-bg-primary-dark tw-inline-flex tw-items-center tw-rounded-md tw-bg-primary tw-px-6 tw-py-3 tw-font-medium tw-text-white tw-transition-colors"
                         >
-                            <i className="fas fa-book tw-mr-2" />
-                            Browse Courses
+                            <i className="fas fa-user tw-mr-2" />
+                            Back to Profile
                         </Link>
                     </div>
                 ) : (

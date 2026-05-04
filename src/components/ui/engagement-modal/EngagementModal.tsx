@@ -104,7 +104,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black/50 tw-p-2 sm:tw-p-6"
+                        className="tw-fixed tw-inset-0 tw-z-[100] tw-flex tw-items-center tw-justify-center tw-bg-black/50 tw-p-2 sm:tw-p-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -149,19 +149,17 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                             <div className="tw-mt-4 tw-flex tw-w-full tw-flex-col tw-gap-4 sm:tw-flex-row">
                                 <a
                                     href={cta1.href}
-                                    className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-primary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-secondary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-primary`}
+                                    className={`${styles.button} tw-group tw-relative tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded tw-bg-primary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-secondary hover:tw-text-white focus:tw-ring-2 focus:tw-ring-primary`}
                                 >
-                                    <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
-                                        {cta1.label}
-                                    </span>
-                                    <span className={`${styles.emoji}`} aria-hidden="true">
+                                    <span className="tw-leading-none">{cta1.label}</span>
+                                    <span className={styles.emoji} aria-hidden="true">
                                         💖
                                     </span>
                                 </a>
                                 {cta2.href.startsWith("#") ? (
                                     <Link
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw-group tw-relative tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
                                         passHref={true}
                                         onClick={(e) => {
                                             e.preventDefault();
@@ -178,22 +176,18 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                             }
                                         }}
                                     >
-                                        <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
-                                            {cta2.label}
-                                        </span>
-                                        <span className={`${styles.emoji}`} aria-hidden="true">
+                                        <span className="tw-leading-none">{cta2.label}</span>
+                                        <span className={styles.emoji} aria-hidden="true">
                                             🚀
                                         </span>
                                     </Link>
                                 ) : (
                                     <a
                                         href={cta2.href}
-                                        className={`${styles.button} tw-group tw-w-full tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-center tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
+                                        className={`${styles.button} tw-group tw-relative tw-flex tw-w-full tw-items-center tw-justify-center tw-rounded tw-bg-secondary tw-px-8 tw-py-4 tw-text-lg tw-font-semibold tw-text-white tw-transition hover:tw-bg-accent hover:tw-text-secondary focus:tw-ring-2 focus:tw-ring-secondary`}
                                     >
-                                        <span className="tw-group-hover:tw-mr-2 tw-inline-block tw-transition-all">
-                                            {cta2.label}
-                                        </span>
-                                        <span className={`${styles.emoji}`} aria-hidden="true">
+                                        <span className="tw-leading-none">{cta2.label}</span>
+                                        <span className={styles.emoji} aria-hidden="true">
                                             🚀
                                         </span>
                                     </a>

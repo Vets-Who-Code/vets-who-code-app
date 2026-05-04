@@ -4,14 +4,15 @@
     {
       "section": "cta-area",
       "section_title": {
-        "title": "Take your skills and join us <br/> today to serve others",
-        "subtitle": "Help Us Help Veterans"
+        "title": "Not an engineer? <br/> You can still help.",
+        "subtitle": "Support the Mission",
+        "description": "If mentoring isn't the right fit, you can support VWC by donating, hiring our graduates, or spreading the word. Every contribution — time, money, or a referral — gets a veteran closer to their first engineering role."
       },
       "buttons": [
         {
           "id": 1,
           "path": "/donate",
-          "content": "Support Our Mission"
+          "content": "Support the Mission"
         }
       ]
     },
@@ -20,25 +21,25 @@
       "items": [
         {
           "id": 1,
-          "title": "Years of Experience",
-          "counter": 10
+          "title": "Years Operating",
+          "counter": 12,
+          "suffix": "+"
         },
         {
           "id": 2,
-          "title": "Veterans Served",
+          "title": "Veterans Trained",
           "counter": 300,
           "suffix": "+"
         },
         {
           "id": 3,
-          "title": "Subjects Taught",
-          "counter": 10,
-          "suffix": "+"
+          "title": "Lightcast-Validated Skills Taught",
+          "counter": 128
         },
         {
           "id": 4,
-          "title": "Satisfaction rate",
-          "counter": 90,
+          "title": "Job Placement Rate",
+          "counter": 97,
           "suffix": "%"
         }
       ]
@@ -54,49 +55,49 @@
     {
       "section": "gradation-area",
       "section_title": {
-        "title": "8 Steps to Join <span> our <br/> Mentorship Program</span> and Level Up",
-        "subtitle": "Make it <strong>#VetsWhoCode</strong>"
+        "title": "How It <span>Works</span>",
+        "subtitle": "Mentoring with <strong>#VetsWhoCode</strong>"
       },
       "items": [
         {
           "id": 1,
-          "title": "Determine Your Role",
-          "description": "Decide whether you want to join as a mentor or a mentee. Mentorship is open to veterans who would have qualified as a troop. Mentors should be within 2 years of experience relative to their mentee."
+          "title": "Decide to Mentor",
+          "description": "You're a working engineer with production experience. You've got an hour or two a week. You want that time to mean something. That's enough to start."
         },
         {
           "id": 2,
-          "title": "Complete the Mentorship Program Interest Form",
-          "description": "Submit the application form to indicate your interest in participating. This is required for both mentors and mentees. Ensure your GitHub profile is included if you're applying as a mentee."
+          "title": "Submit the Mentor Form",
+          "description": "Fill out the registration form below with your GitHub or LinkedIn, technical expertise, and availability. Takes five minutes."
         },
         {
           "id": 3,
-          "title": "Initial Profile Review",
-          "description": "We review the GitHub portfolio for mentees to gauge current skill level. This helps ensure appropriate matching and mentorship impact."
+          "title": "Interview With the VWC Team",
+          "description": "A short conversation to understand your technical strengths, schedule, and what you want to get out of mentoring. We're checking for alignment, not gatekeeping."
         },
         {
           "id": 4,
-          "title": "Interview with the VWC Team",
-          "description": "All applicants—both mentors and mentees—will be interviewed. We assess alignment with our goals and values, and verify your readiness to participate effectively."
+          "title": "Confirm Your Availability",
+          "description": "We'll align your schedule with the current cohort timeline. Mentorship runs alongside our 17-week program — we need to know you can commit for the duration."
         },
         {
           "id": 5,
-          "title": "Confirm Eligibility",
-          "description": "For mentees: Must be a veteran eligible to be a troop, not currently employed in a full-time developer role. Paid apprenticeships may still qualify. For mentors: Must be within two years of relevant experience compared to mentees."
+          "title": "Get Matched",
+          "description": "We pair you with a veteran based on your technical domain, experience level, and availability. The goal is a close enough gap that your guidance is practical and current, not theoretical."
         },
         {
           "id": 6,
-          "title": "Skill Level Self-Assessment",
-          "description": "During the form submission or interview, you will be asked to self-assess your skill level. This ensures accurate pairing between mentors and mentees."
+          "title": "Onboard",
+          "description": "You'll get access to our Slack, the cohort's progress tracking, and context on your mentee's background and goals. You'll know exactly where they are in the Hashflag Stack before your first call."
         },
         {
           "id": 7,
-          "title": "Mentor/Mentee Matching",
-          "description": "Once reviewed and accepted, you'll be matched based on skill level, experience gap (no more than 2 years), and learning goals. Final approval will follow this stage."
+          "title": "Mentor",
+          "description": "Weekly 1-on-1s. Code reviews on their pull requests. Career strategy as they approach the job search. You're their engineering manager for the duration — the person who tells them the truth about their code and their readiness."
         },
         {
           "id": 8,
-          "title": "Begin Your Mentorship Journey",
-          "description": "After approval and matching, your mentorship officially begins. Expect regular check-ins, progress tracking, and support from the VWC community."
+          "title": "Stay Connected",
+          "description": "Most mentors stay in the VWC Slack long after their mentee graduates. Some come back for another cohort. Some end up hiring a VWC graduate at their own company. The relationship doesn't expire when the program ends."
         }
       ]
     }

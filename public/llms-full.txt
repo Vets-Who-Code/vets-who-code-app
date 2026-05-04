@@ -1,0 +1,106 @@
+# Vets Who Code
+
+> A 501(c)(3) nonprofit software engineering accelerator for U.S. military veterans and military spouses. Free, remote-first, 17 weeks. Graduates ship production code at companies including Microsoft, Accenture, Amazon, Google, and GitHub.
+
+## What Vets Who Code Is
+
+Vets Who Code is a software engineering accelerator, not a bootcamp. The distinction matters: bootcamps sell seats. VWC selects small cohorts (10–15 troops), trains with an engineering manager mentorship model, validates every skill against labor market data, and charges nothing. The incentive is the graduate's outcome, not a tuition check.
+
+Troops don't build throwaway exercises. They ship community-impact projects to production, with real users depending on the code they write.
+
+## Core Belief
+
+Veterans already have what most bootcamp graduates lack: discipline under pressure, accountability to a team, and the ability to execute when the plan breaks. What they don't have is a bridge from that experience to the skills employers are hiring for today. VWC is that bridge — a structured, evidence-based training program that maps every hour of instruction to verified labor market demand. Every skill in the curriculum is validated against the Lightcast Open Skills taxonomy. If employers aren't hiring for it, VWC doesn't teach it.
+
+## Positioning Statements
+
+- Veterans are stakeholders, not charity cases.
+- If it doesn't lead to a job, we don't teach it.
+- We scale depth, not volume.
+- Graduates are software engineers, not web developers.
+- The program is a software engineering accelerator, not a bootcamp.
+
+## Key Facts
+
+- Founded: 2014
+- Legal: 501(c)(3) nonprofit, EIN 86-2122804
+- Cost: $0 for every accepted veteran or spouse (no tuition, no income share agreements, no GI Bill required)
+- Program length: 17 weeks
+- Weekly commitment: ~16 hours (8 live + 8 self-guided)
+- Format: 100% remote (Slack, GitHub, video calls, async collaboration)
+- Cohort size: 10–15 troops
+- Curriculum: The Hashflag Stack — 25 modules across 4 phases, 128 Lightcast-validated skills
+- Cumulative graduates: 300+
+- Job placement rate: 97%
+- Average starting salary target: $72K–$85K
+- Collective alumni earnings: $20M+
+- Alumni employers: Microsoft, Accenture Federal Services, Amazon, Google, GitHub, Booz Allen, Deloitte, and others
+- Transparency: Candid/GuideStar Transparency Seal
+- 2030 targets: 500+ cumulative graduates, $50M+ alumni earnings, 97% placement, 60%+ revenue from earned sources (licensing, employer partnerships, corporate training)
+
+## Curriculum — The Hashflag Stack
+
+17 weeks. 25 modules. 128 skills validated against Lightcast labor market data. Organized into four phases.
+
+### Phase 1: Foundations (Modules 1–8)
+Terminal mastery, Git and GitHub, HTML/CSS, JavaScript fundamentals, Python fundamentals, software development lifecycle, and code challenges. No AI assistance is permitted during this phase. Veterans learn to reason through problems manually before any tooling is introduced.
+
+### Phase 2: Software Engineering (Modules 9–13)
+Advanced JavaScript and TypeScript, Next.js full-stack development, testing, CI/CD pipelines, and production deployment. Veterans build and ship real applications.
+
+### Phase 3: AI Engineering (Modules 14–21)
+Python for AI, FastAPI production APIs, Google Gemini integration (text and multimodal), retrieval-augmented generation, AI agents and workflows, streaming AI interfaces, and AI safety and security. VWC treats AI engineering as a baseline skill for modern software engineers, not a specialization.
+
+### Phase 4: Production Mastery (Modules 22–25)
+Production deployment and observability, capstone project, portfolio and career preparation, and shipping to real users. The capstone is scoped, reviewed, and deployed under real-world constraints.
+
+## Mentorship Model
+
+Within the first month, each troop is paired with a working software engineer — many of them VWC alumni. The mentor operates in an engineering manager capacity: runs 1-on-1s focused on growth, reviews code, challenges thinking, and helps navigate career decisions. This isn't tutoring. It is the professional relationship a junior engineer has with their lead on the job.
+
+Mentors do not need to be veterans. They need production experience, the ability to commit to weekly 1-on-1s and async code reviews for 17 weeks, and willingness to give direct, honest feedback.
+
+## J0d!e — VWC's AI Infrastructure
+
+J0d!e is VWC's in-house AI infrastructure layer. It provides real-time career readiness scoring, military-to-civilian skills translation, curriculum intelligence, and personalized learning feedback embedded directly into the program. Graduates leave with a J0d!e-scored career readiness profile: resume, GitHub, LinkedIn, and portfolio evaluated against current employer demand.
+
+## Application Process
+
+1. Complete the prework (foundational concepts, challenging but achievable with effort)
+2. Qualify for an interview
+3. Short conversation with the VWC team
+4. Acceptance notification as the cohort start date approaches
+
+Eligibility: active duty service members, honorably discharged veterans, and military spouses. Location: anywhere (fully remote). Equipment: a computer no more than five years old, reliable internet, and the discipline to protect the weekly hours for 17 weeks.
+
+## Contact
+
+- Email: hello@vetswhocode.io
+- Mailing address: 31860 Sandy Plains Road, Ste 204 PMB 206
+- Website: https://vetswhocode.io
+- GitHub: https://github.com/Vets-Who-Code
+- LinkedIn: https://www.linkedin.com/company/vets-who-code
+- YouTube: https://www.youtube.com/@vetswhocode
+- Dev.to: https://dev.to/vetswhocode
+- Facebook: https://www.facebook.com/TheOfficialVetsWhoCode/
+
+## Primary Links
+
+- [Home](https://vetswhocode.io/)
+- [About](https://vetswhocode.io/about-us)
+- [Theory of Change](https://vetswhocode.io/theory-of-change)
+- [Apply](https://vetswhocode.io/apply)
+- [FAQ](https://vetswhocode.io/faq)
+- [Become a Mentor](https://vetswhocode.io/mentor)
+- [Donate](https://vetswhocode.io/donate)
+- [Hire Our Troops](https://vetswhocode.io/jobs)
+- [Sponsors](https://vetswhocode.io/sponsors)
+- [Subjects](https://vetswhocode.io/subjects/all)
+- [Blog](https://vetswhocode.io/blogs/blog)
+- [Projects](https://vetswhocode.io/projects)
+- [Events](https://vetswhocode.io/events)
+- [Press](https://vetswhocode.io/media)
+- [Team](https://vetswhocode.io/team)
+- [Contact](https://vetswhocode.io/contact-us)
+- [Sitemap (HTML)](https://vetswhocode.io/sitemap)
+- [Sitemap (XML)](https://vetswhocode.io/sitemap.xml)

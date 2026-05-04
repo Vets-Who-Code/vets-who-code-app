@@ -9,35 +9,37 @@ type TProps = Pick<ItemType, "description" | "name" | "designation"> & {
 const Testimonial03 = ({ description, name, designation, image, className }: TProps) => {
     return (
         <div
-            className={clsx(
-                "testimonial tw-relative tw-py-8 tw-px-7",
-                className
-            )}
+            className={clsx("testimonial tw-relative", className)}
             style={{
-                background: "var(--red, #c5203e)",
+                background: "transparent",
+                borderLeft: "2px solid var(--red, #c5203e)",
+                paddingLeft: "24px",
+                paddingTop: "24px",
+                paddingRight: "24px",
+                paddingBottom: "24px",
                 borderRadius: 0,
-                borderLeft: "none",
             }}
         >
-            {/* Large decorative quotation mark — navy blue */}
             <div
+                aria-hidden="true"
                 style={{
                     fontFamily: "var(--font-headline)",
                     fontWeight: 900,
                     fontSize: "64px",
-                    color: "var(--navy, #091f40)",
+                    color: "#FFFFFF",
                     lineHeight: 1,
-                    opacity: 0.4,
+                    opacity: 0.08,
                     position: "absolute",
-                    top: "8px",
-                    left: "24px",
+                    top: "-16px",
+                    left: "16px",
+                    pointerEvents: "none",
                 }}
             >
                 &ldquo;
             </div>
 
             {image?.src && (
-                <div className="tw-mb-5 tw-mt-8 tw-flex tw-items-center tw-gap-4">
+                <div className="tw-mb-5 tw-flex tw-items-center tw-gap-4 tw-relative">
                     <img
                         src={image.src}
                         width={image?.width || 60}
@@ -51,10 +53,12 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
             <p
                 style={{
                     fontFamily: "var(--font-body, Gilroy, sans-serif)",
-                    fontSize: "18px",
+                    fontSize: "clamp(16px, 2vw, 20px)",
                     fontStyle: "italic",
+                    fontWeight: 400,
                     color: "#FFFFFF",
-                    lineHeight: 1.6,
+                    lineHeight: 1.74,
+                    position: "relative",
                 }}
                 className="tw-mb-6"
             >
@@ -65,11 +69,9 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                 <span
                     style={{
                         fontFamily: "var(--font-headline)",
-                        fontSize: "12px",
-                        textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        color: "#FFFFFF",
+                        fontSize: "13px",
                         fontWeight: 700,
+                        color: "#FFFFFF",
                     }}
                     className="tw-block tw-mb-1"
                 >
@@ -77,14 +79,14 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                 </span>
                 <span
                     style={{
-                        fontFamily: "var(--font-headline)",
-                        fontSize: "11px",
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "10px",
                         textTransform: "uppercase",
-                        letterSpacing: "0.1em",
-                        color: "rgba(255, 255, 255, 0.7)",
+                        letterSpacing: "0.08em",
+                        color: "rgba(185, 214, 242, 0.7)",
                     }}
                 >
-                    / {designation}
+                    {designation}
                 </span>
             </div>
         </div>

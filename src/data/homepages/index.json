@@ -24,7 +24,7 @@
             "texts": [
                 {
                     "id": 1,
-                    "content": "#VetsWhoCode is a veteran-led 501(c)(3) committed to empowering veterans and military spouses through a high-quality, AI-powered software engineering training program. With over a decade of dedication, we've enabled over 300 veterans and spouses to transition seamlessly into the tech sector, unlocking over $20 million in earnings, at no cost to them. Our approach is not just about coding—it's about building successful careers through an innovative curriculum that mimics real-world challenges, guided by mentors in an engineering manager role to enhance critical thinking. Join us in transforming futures."
+                    "content": "We've trained over 300 veterans and military spouses into software engineers — generating $20M+ in first-year earnings across our alumni network. No tuition. No gimmicks. Just a battle-tested curriculum built by veterans who made the same transition. We've been doing this for over a decade."
                 }
             ],
             "buttons": [
@@ -63,8 +63,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746105264/9_xwkdus.png"
                         }
                     ],
-                    "title": "Remote-First Learning",
-                    "description": "Learn from anywhere with our remote-first program—just need a computer, internet, and determination.",
+                    "title": "Remote-First",
+                    "description": "A computer, internet, and discipline. That's the barrier to entry. We train from anywhere because the military taught us how to operate anywhere.",
                     "path": "/about-us",
                     "pathText": "Start here"
                 },
@@ -75,8 +75,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746105263/5_beplkr.png"
                         }
                     ],
-                    "title": "Develop Cutting-Edge Skills",
-                    "description": "Our evolving curriculum keeps you ahead of the curve with the latest industry trends.",
+                    "title": "Market-Driven Curriculum",
+                    "description": "128 Lightcast-validated skills across 25 modules. Every skill maps to actual job postings. If employers aren't hiring for it, we don't teach it.",
                     "path": "/about-us",
                     "pathText": "Start here"
                 },
@@ -87,8 +87,8 @@
                             "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1746105262/1_tvrmfb.png"
                         }
                     ],
-                    "title": "A Lifelong Community of Support",
-                    "description": "Personalized sessions, mentorship, and a supportive community ensure you're never alone on your journey.",
+                    "title": "Mentorship, Not Hand-Holding",
+                    "description": "Your mentors operate as engineering managers, not tutors. You'll learn to think, debug, and ship under the same pressure you'll face on the job.",
                     "path": "/about-us",
                     "pathText": "Start here"
                 }
@@ -104,7 +104,7 @@
             "section_title": {
                 "title": "Who We <span> Are</span>",
                 "subtitle": "Rooted in Experience,<strong>Focused on Outcomes</strong>",
-                "description": "Founded by veterans, for veterans, #VetsWhoCode understands the unique challenges of transitioning to civilian life firsthand. Our mission transcends traditional marketing tactics and the pursuit of volume; we are all about quality, tangible outcomes, and practical solutions. Our curriculum is meticulously crafted with one goal in mind: to ensure every skill we teach opens doors to financial opportunities for our students. If it doesn't lead to a job, it doesn't make the cut. We're committed to action, not just words, empowering our veterans to build successful careers in tech."
+                "description": "We were founded by veterans who went through the same broken transition pipeline and decided to build something that actually works. Our filter is simple: if it doesn't lead to a job, we don't teach it. Every module in our curriculum maps to skills that employers are actively hiring for — validated by Lightcast labor market data, not guesswork. We keep cohorts small, mentorship direct, and outcomes measurable. Ten years, 300+ graduates, $20M+ in collective earnings. That's the mission statement."
             },
             "motto": {
                 "text": "Want To Learn More?​",
@@ -114,26 +114,31 @@
             "items": [
                 {
                     "id": 1,
-                    "title": "Success Rate",
-                    "suffix": "%",
-                    "counter": 90
+                    "title": "Alumni Earnings",
+                    "prefix": "$",
+                    "suffix": "M+",
+                    "counter": 20,
+                    "description": "Collective first-year compensation"
                 },
                 {
                     "id": 2,
-                    "title": "Veterans Served",
-                    "counter": 300
+                    "title": "Veterans Trained",
+                    "suffix": "+",
+                    "counter": 300,
+                    "description": "Since 2014"
                 },
                 {
                     "id": 3,
-                    "title": "Average Salary Increase",
+                    "title": "Job Placement Rate",
                     "suffix": "%",
-                    "counter": 40
+                    "counter": 97,
+                    "description": "Verified outcomes"
                 },
                 {
                     "id": 4,
-                    "title": "Felt Supported for Learning Journey",
-                    "suffix": "%",
-                    "counter": 80
+                    "title": "Validated Skills",
+                    "counter": 128,
+                    "description": "Lightcast-verified"
                 }
             ]
         }, 
@@ -184,8 +189,15 @@
                     ]
                 },
                 {
-                    "id": 3,
-                    "title": "The course was great!"
+                    "id": 2,
+                    "name": "Carla Kroll, US Air Force",
+                    "designation": "Frontend Developer · Chicago",
+                    "description": "I knew nothing at all of code. VetsWhoCode helped me become a successful frontend developer in Chicago — and I found a group of people that understand me. I finished my cohort over two years ago, but there's rarely a day I don't check in.",
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1721218265/carla-kroll_mojy9c.jpg"
+                        }
+                    ]
                 },
                 {
                     "id": 3,

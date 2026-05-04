@@ -26,7 +26,7 @@ describe("TroopDashboard", () => {
                     email: "test@test.com",
                     branch: "Army",
                     mos_afsc: "25B",
-                    current_week: 4,
+                    current_module: 4,
                     skill_level: "beginner",
                     enrolled: true,
                 },
@@ -54,7 +54,7 @@ describe("TroopDashboard", () => {
                     email: "jane@test.com",
                     branch: "Navy",
                     mos_afsc: "IT",
-                    current_week: 7,
+                    current_module: 7,
                     skill_level: "junior",
                     target_role: "Frontend Dev",
                     enrolled: true,
@@ -73,9 +73,9 @@ describe("TroopDashboard", () => {
             expect(screen.getByText("IT")).toBeInTheDocument();
             expect(screen.getByText("Frontend Dev")).toBeInTheDocument();
             expect(screen.getByText("Active")).toBeInTheDocument();
-            // current_week is in a <select> dropdown
-            const weekSelect = screen.getByDisplayValue("Week 7") as HTMLSelectElement;
-            expect(weekSelect.value).toBe("7");
+            // current_module is in a <select> dropdown
+            const moduleSelect = screen.getByDisplayValue("Module 7") as HTMLSelectElement;
+            expect(moduleSelect.value).toBe("7");
         });
     });
 
@@ -88,7 +88,7 @@ describe("TroopDashboard", () => {
                     email: "t@t.com",
                     branch: "",
                     mos_afsc: null,
-                    current_week: 1,
+                    current_module: 1,
                     skill_level: null,
                     enrolled: false,
                 },
@@ -135,7 +135,7 @@ describe("TroopDashboard", () => {
         mockFetch.mockResolvedValue({
             ok: true,
             json: () => Promise.resolve({
-                troop: { current_week: 1, enrolled: false },
+                troop: { current_module: 1, enrolled: false },
                 challenges_completed: 0,
                 challenges_attempted: 0,
                 recent_conversations: [],
@@ -153,7 +153,7 @@ describe("TroopDashboard", () => {
         mockFetch.mockResolvedValue({
             ok: true,
             json: () => Promise.resolve({
-                troop: { current_week: 1, enrolled: true },
+                troop: { current_module: 1, enrolled: true },
                 challenges_completed: 0,
                 challenges_attempted: 0,
                 resume_score: 72,
@@ -172,14 +172,14 @@ describe("TroopDashboard", () => {
         });
     });
 
-    it("renders current week topics when present", async () => {
+    it("renders current module topics when present", async () => {
         mockFetch.mockResolvedValue({
             ok: true,
             json: () => Promise.resolve({
-                troop: { current_week: 3, enrolled: true },
+                troop: { current_module: 3, enrolled: true },
                 challenges_completed: 0,
                 challenges_attempted: 0,
-                current_week_topics: ["JavaScript", "React", "CSS"],
+                current_module_topics: ["JavaScript", "React", "CSS"],
                 recent_conversations: [],
             }),
         });

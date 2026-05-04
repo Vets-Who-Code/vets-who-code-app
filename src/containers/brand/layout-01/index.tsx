@@ -49,19 +49,54 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                         viewport={{ once: true, amount: 0.4 }}
                         variants={scrollUpVariants}
                     >
-                        {items.map((item) => (
-                            <SwiperSlide
-                                key={item.id}
-                                className="tw-my-auto tw-flex tw-justify-center"
-                            >
-                                <img
-                                    className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
-                                    src={item.images?.[0]?.src}
-                                    alt={item.images?.[0]?.alt || "logo"}
-                                    loading="lazy"
-                                />
-                            </SwiperSlide>
-                        ))}
+                        {items.map((item, i) => {
+                            const logoSrc = item.images?.[0]?.src;
+                            const name = item.images?.[0]?.alt || item.title;
+                            return (
+                                <SwiperSlide
+                                    key={item.id}
+                                    className="tw-my-auto tw-flex tw-justify-center tw-items-center"
+                                >
+                                    {logoSrc ? (
+                                        <img
+                                            className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
+                                            src={logoSrc}
+                                            alt={name || "logo"}
+                                            loading="lazy"
+                                        />
+                                    ) : (
+                                        <span
+                                            className="partner-text"
+                                            style={{
+                                                fontFamily: "var(--font-mono)",
+                                                fontSize: "12px",
+                                                fontWeight: 700,
+                                                textTransform: "uppercase",
+                                                letterSpacing: "0.12em",
+                                                color: "var(--ink, #1A1823)",
+                                                whiteSpace: "nowrap",
+                                                display: "inline-flex",
+                                                alignItems: "center",
+                                            }}
+                                        >
+                                            {i > 0 && (
+                                                <span
+                                                    aria-hidden="true"
+                                                    style={{
+                                                        width: "16px",
+                                                        height: "2px",
+                                                        background: "#DEE2E6",
+                                                        margin: "0 20px",
+                                                        flexShrink: 0,
+                                                    }}
+                                                />
+                                            )}
+                                            {name}
+                                        </span>
+                                    )}
+                                </SwiperSlide>
+                            );
+                        })}
                     </AnimatedSwiper>
                 )}
             </div>

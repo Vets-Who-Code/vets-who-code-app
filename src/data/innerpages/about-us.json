@@ -24,7 +24,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Tailoring Skills for the Software Industry."
+                "content": "128 Lightcast-validated skills. Every module maps to what employers are hiring for — nothing we teach is decorative."
               }
             ]
           },
@@ -48,7 +48,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Designed for Flexibility: Learn From Anywhere, Anytime."
+                "content": "Remote-first since 2014. Train from your kitchen table, a barracks, or a PCS move — the program travels with you."
               }
             ]
           },
@@ -72,7 +72,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Learn To Think And Solve Problems like a Programmer."
+                "content": "Be a software engineer. You'll debug, design systems, and ship code under pressure — not memorize syntax for a certificate."
               }
             ]
           }
@@ -105,7 +105,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "For years, veterans like us stepped out of uniform and into a civilian job market that spoke a language we didn't yet understand. Recruiters skimmed past our leadership stories, résumés disappeared into applicant‑tracking systems, and the gap between our disciplined experience and the tech roles we wanted felt wider than the ocean we once crossed. Established in 2014, #VetsWhoCode is a proactive non-profit bridging the gap in technical expertise, inspired by 'To Teach a Man To Fish,' we prepare transitioning veterans and military spouses for the workforce."
+                "content": "For years, veterans like us stepped out of uniform and into a civilian job market that spoke a language we didn't yet understand. Recruiters skimmed past our leadership stories, résumés disappeared into applicant‑tracking systems, and the gap between our disciplined experience and the tech roles we wanted felt wider than the ocean we once crossed. Nobody was solving it — not the transition programs, not the nonprofits collecting thank‑you‑for‑your‑service donations, and not the bootcamps charging $20K for a certificate. So in 2014, we decided to build the solution ourselves."
               }
             ]
           },
@@ -129,7 +129,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Instead of settling for 'thanks for your service,' a handful of us gathered on late‑night video calls and dared to ask, What if we built our own bridge? That question became Vets Who Code—a mission to transform military grit into world‑class software engineering skill. Doubt tried to ground us. Could a free, fully remote program really move veterans into top tech jobs? We were told it was impossible without massive tuition or fancy campuses. We pushed forward anyway, fueled by stubborn optimism and the knowledge that missions rarely start with perfect resources."
+                "content": "Instead of settling for 'thanks for your service,' a handful of us gathered on late‑night video calls and asked: what if we built our own bridge? That question became Vets Who Code — a mission to transform military grit into world‑class software engineering skill. Could a free, fully remote program really move veterans into top tech jobs? We were told it was impossible without massive tuition or fancy campuses. We pushed forward anyway.\n\nMissions rarely start with perfect resources."
               }
             ]
           },
@@ -153,7 +153,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Our mentors emerged from the veteran community itself: senior engineers, tech leads, and hiring managers who had already made the leap. They guided us in translating NATO phonetics into JavaScript functions, after‑action reviews into code reviews, and squad tactics into agile collaboration. Daily pair‑programming sessions, weekend hack‑a‑thons, and live code audits forged our skills. Time‑zone differences, career doubts, and imposter syndrome tried to slow us down, but our ally network grew: mentors from Microsoft, GitHub, Salesforce, JP Morgan Chase, Chewy, Apple, Google, and CBS Interactive volunteered on Slack at zero‑dark‑thirty to keep us moving."
+                "content": "Our mentors emerged from the veteran community itself: senior engineers, tech leads, and hiring managers who had already made the leap. They guided us in translating NATO phonetics into JavaScript functions, after‑action reviews into code reviews, and squad tactics into agile collaboration. Daily pair‑programming sessions, weekend hack‑a‑thons, and live code audits forged our skills. Time‑zone differences, career doubts, and imposter syndrome tried to slow us down — but the ally network grew, and mentors showed up on Slack at zero‑dark‑thirty to keep us moving."
               }
             ]
           },
@@ -177,7 +177,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "Every veteran faces a crucible project—building a full‑stack application under real‑world constraints. Graduates emerge with production portfolios, lifelong allies, and offer letters that turn service stripes into six‑figure salaries. Collectively, alumni have earned more than twenty million dollars and injected veteran leadership into some of the most influential engineering teams on Earth. But the journey doesn't end at first employment. Alumni return as mentors and donors, passing on their knowledge and financially supporting those who follow. They prototype new tools—like our AI‑augmented Nonprofit‑as‑a‑Service platform and Mission UI design system—to scale impact beyond borders."
+                "content": "Every veteran faces a crucible project — building a full‑stack application under real‑world constraints. Graduates emerge with production portfolios, lifelong allies, and offer letters that turn service stripes into six‑figure salaries. Collectively, alumni have earned $20M+ and now ship code at Microsoft, GitHub, Salesforce, JP Morgan Chase, Chewy, Apple, Google, and CBS Interactive.\n\nBut the journey doesn't end at first employment. Alumni return as mentors and donors, passing on their knowledge and funding the next cohort. The pipeline feeds itself. That's by design."
               }
             ]
           },
@@ -201,7 +201,7 @@
             "texts": [
               {
                 "id": 1,
-                "content": "A decade in, Vets Who Code has evolved into a remote‑first, AI‑enabled nonprofit that treats veterans as stakeholders, not charity cases. We blend human mentorship with machine intelligence to personalize learning and keep our Field Manual evergreen.\n\n By 2030 we will arm ten‑thousand veterans with high‑value tech skills, generate a billion dollars in lifetime earnings for alumni, and prove that nonprofits can scale like startups—powered by talent, trust, and tech. If you're a veteran staring at the civilian tech world and wondering where you fit, your call to adventure has arrived. Join us, cross the threshold, and write the next chapter of your mission in code."
+                "content": "Veterans are stakeholders, not charity cases. That principle drives everything we build.\n\nA decade in, Vets Who Code has evolved into a remote‑first, AI‑enabled nonprofit that blends human mentorship with machine intelligence to personalize learning and keep our curriculum evergreen. By 2030 we will have trained 500+ veterans as software engineers, generated $50M+ in collective alumni earnings, and maintained a 97% placement rate — built on small cohorts, not mass enrollment. We scale depth, not volume. That's how nonprofits earn trust.\n\nIf you're a veteran staring at the civilian tech world and wondering where you fit — this is it. Apply. Show up. Write the next chapter of your mission in code."
               }
             ]
           }
