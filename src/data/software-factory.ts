@@ -209,9 +209,9 @@ export const TEAM: TeamMember[] = [
     {
         name: "Jerome Hardaway",
         role: "Founder · Executive Director",
-        branch: "USAF · 2004–2009",
-        specialty: "Self-taught software engineer · Speaker · Writer",
-        body: "Started Vets Who Code in 2014. 500+ veterans trained, $20M+ in combined economic impact. Built VWC as a fully remote, open-source accelerator focused on modern software engineering and AI-powered tools — and runs the Software Factory as its operational arm.",
+        branch: "USAF Security Forces · 2004–2009",
+        specialty: "Google Developer Expert · GitHub Star · White House honoree",
+        body: "Jerome is a working software engineer first and a founder second — the rare nonprofit leader who still ships code on Monday and teaches it on Tuesday. An Air Force Security Forces veteran with 15+ years of production AI experience at Microsoft, Vista Equity Partners, and now Accenture Federal Services, he runs Vets Who Code the way he runs engineering teams: in the work, not above it. He's a Google Developer Expert, GitHub Star, and White House honoree, with courses on LinkedIn Learning and Frontend Masters. Since founding VWC in 2014, he's trained over 300 veterans and military spouses, unlocking $20M+ in graduate earnings — and personally mentored many of them.",
     },
     {
         name: "Ayumi Fukuda Bennett",
