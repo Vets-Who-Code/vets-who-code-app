@@ -1,106 +1,122 @@
+import { BRANCHES, GOALS, HOURS, JOURNEY, PREWORK } from "@data/apply-form";
 import axios from "axios";
-import { Request, Response } from "express";
-import { checkParams } from "./api-helpers";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-// Define the ParsedBody interface to type-check the request body
 interface ParsedBody {
     firstName?: string;
     lastName?: string;
     email?: string;
+    phone?: string;
     city?: string;
     state?: string;
-    zipCode?: number;
+    zip?: string;
     country?: string;
-    branchOfService?: string;
-    yearJoined?: number;
-    yearSeparated?: number;
-    hasAttendedPreviousCourse?: boolean;
-    previousCourses?: string;
-    willAttendAnotherCourse?: boolean;
-    otherCourses?: string;
-    linkedInAccountName?: string;
-    githubAccountName?: string;
+    timezone?: string;
+    branch?: string;
+    yearJoined?: string;
+    yearSeparated?: string;
+    mos?: string;
+    priorBootcamp?: boolean;
+    priorList?: string;
+    concurrent?: boolean;
+    concurrentList?: string;
+    hours?: string;
+    github?: string;
+    linkedin?: string;
+    prework?: string;
     preworkLink?: string;
     preworkRepo?: string;
+    journey?: string;
+    goal?: string;
+    interests?: string[];
+    why?: string;
 }
 
-function getRequiredParams(): (keyof ParsedBody)[] {
-    return [
-        "firstName",
-        "lastName",
-        "email",
-        "city",
-        "state",
-        "zipCode",
-        "country",
-        "branchOfService",
-        "yearJoined",
-        "yearSeparated",
-        "hasAttendedPreviousCourse",
-        "willAttendAnotherCourse",
-        "linkedInAccountName",
-        "githubAccountName",
-        "preworkLink",
-        "preworkRepo",
-    ];
+const REQUIRED: (keyof ParsedBody)[] = [
+    "firstName",
+    "lastName",
+    "email",
+    "city",
+    "state",
+    "zip",
+    "country",
+    "branch",
+    "yearJoined",
+    "hours",
+    "github",
+    "prework",
+    "journey",
+    "goal",
+    "why",
+];
+
+function lookupLabel(list: { id: string; label?: string; t?: string }[], id?: string): string {
+    if (!id) return "";
+    const found = list.find((o) => o.id === id);
+    return found?.label ?? found?.t ?? id;
 }
 
-function validateBody(parsedBody: ParsedBody): boolean {
-    const requiredParams = getRequiredParams();
-    return checkParams(parsedBody, requiredParams);
-}
-
-function formatPreviousCourses(parsedBody: ParsedBody): string | null {
-    if (parsedBody.hasAttendedPreviousCourse && parsedBody.previousCourses !== "") {
-        return `\`\`\`${parsedBody.previousCourses}\`\`\``;
-    }
-    return null;
-}
-
-function formatOtherCourses(parsedBody: ParsedBody): string | null {
-    if (parsedBody.willAttendAnotherCourse && parsedBody.otherCourses !== "") {
-        return `\`\`\`${parsedBody.otherCourses}\`\`\``;
-    }
-    return null;
-}
-
-function formatField(label: string, value: string | number | undefined): string {
+function field(label: string, value?: string | number): string {
     return `${label}: \`${value ?? ""}\``;
 }
 
-function formatBooleanField(label: string, value: boolean | undefined): string {
+function boolField(label: string, value?: boolean): string {
     return `${label}: \`${value ? "Yes" : "No"}\``;
 }
 
-function buildSlackMessage(parsedBody: ParsedBody): string {
-    const items = [
-        formatField("First Name", parsedBody.firstName),
-        formatField("Last Name", parsedBody.lastName),
-        formatField("Email", parsedBody.email),
-        formatField("City", parsedBody.city),
-        formatField("State", parsedBody.state),
-        formatField("Zip Code", parsedBody.zipCode),
-        formatField("Country", parsedBody.country),
-        formatField("Branch of Service", parsedBody.branchOfService),
-        formatField("Year Joined", parsedBody.yearJoined),
-        formatField("Year Separated", parsedBody.yearSeparated),
-        formatBooleanField(
-            "Has attended previous bootcamp/programs",
-            parsedBody.hasAttendedPreviousCourse
-        ),
-        formatPreviousCourses(parsedBody),
-        formatBooleanField(
-            "Will do other courses/programs concurrently",
-            parsedBody.willAttendAnotherCourse
-        ),
-        formatOtherCourses(parsedBody),
-        formatField("LinkedIn Account Name", parsedBody.linkedInAccountName),
-        formatField("GitHub Account Name", parsedBody.githubAccountName),
-        formatField("Prework Link", parsedBody.preworkLink),
-        formatField("Prework Repository", parsedBody.preworkRepo),
-    ].filter(Boolean);
+function block(label: string, value?: string): string | null {
+    if (!value) return null;
+    return `${label}:\n\`\`\`${value}\`\`\``;
+}
 
-    return items.join("\n");
+function buildSlackMessage(b: ParsedBody): string {
+    const branch = lookupLabel(BRANCHES, b.branch);
+    const hours = lookupLabel(HOURS, b.hours);
+    const prework = lookupLabel(PREWORK, b.prework);
+    const journey = lookupLabel(JOURNEY, b.journey);
+    const goal = lookupLabel(GOALS, b.goal);
+
+    const items: (string | null)[] = [
+        "*— APPLICANT —*",
+        field("Name", `${b.firstName ?? ""} ${b.lastName ?? ""}`.trim()),
+        field("Email", b.email),
+        field("Phone", b.phone),
+        "",
+        "*— LOCATION —*",
+        field("City", b.city),
+        field("State", b.state),
+        field("Zip", b.zip),
+        field("Country", b.country),
+        field("Timezone", b.timezone),
+        "",
+        "*— SERVICE —*",
+        field("Branch", branch),
+        field("Year joined", b.yearJoined),
+        field("Year separated", b.yearSeparated),
+        field("MOS / Rate / AFSC", b.mos),
+        "",
+        "*— TRAINING —*",
+        boolField("Prior bootcamp", b.priorBootcamp),
+        b.priorBootcamp ? block("Prior programs", b.priorList) : null,
+        boolField("Concurrent program", b.concurrent),
+        b.concurrent ? block("Concurrent details", b.concurrentList) : null,
+        field("Hours/week", hours),
+        "",
+        "*— PROFILES —*",
+        field("GitHub", b.github),
+        field("LinkedIn", b.linkedin),
+        field("Prework status", prework),
+        field("Prework live URL", b.preworkLink),
+        field("Prework repo URL", b.preworkRepo),
+        "",
+        "*— FIT —*",
+        field("Journey", journey),
+        field("Goal", goal),
+        field("Tech interests", b.interests?.join(", ")),
+        block("Why VWC", b.why),
+    ];
+
+    return items.filter((item) => item !== null).join("\n");
 }
 
 async function postToSlack(text: string): Promise<void> {
@@ -110,20 +126,27 @@ async function postToSlack(text: string): Promise<void> {
     );
 }
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    const body = req.body as ParsedBody;
+
+    const missing = REQUIRED.filter((k) => {
+        const v = body[k];
+        return v === undefined || v === null || v === "";
+    });
+
+    if (missing.length > 0) {
+        return res.status(422).json({
+            error: "Missing required fields",
+            fields: missing,
+        });
+    }
+
     try {
-        const parsedBody = req.body as ParsedBody;
-
-        const hasErrors = validateBody(parsedBody);
-
-        if (hasErrors) {
-            return res.status(422).json({ error: "Missing or incorrect required property" });
-        }
-
-        const text = buildSlackMessage(parsedBody);
-
-        await postToSlack(text);
-
+        await postToSlack(buildSlackMessage(body));
         return res.status(200).json({ message: "SUCCESS" });
     } catch (_err) {
         return res.status(500).json({ message: "Failed to post to #apply channel" });
