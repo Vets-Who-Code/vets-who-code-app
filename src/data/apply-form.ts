@@ -165,6 +165,9 @@ export const TIMEZONES: string[] = [
     "Outside CONUS",
 ];
 
+export const STORAGE_KEY = "vwc.apply.draft.v1";
+export const STORAGE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
 export const WHY: Record<string, string> = {
     email: "We'll use this for your interview invitation. We don't add you to lists.",
     branch: "We use this to pair you with mentors who came up the same lane. Branch rivalry is welcome.",

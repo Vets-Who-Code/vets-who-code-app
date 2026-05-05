@@ -1,4 +1,4 @@
-import { type ApplyFormData, STEPS } from "@data/apply-form";
+import { type ApplyFormData, STEPS, STORAGE_KEY, STORAGE_TTL_MS } from "@data/apply-form";
 import { trackApplyEvent } from "@lib/apply-analytics";
 import { type ApplyErrors, validateStep } from "@lib/apply-validation";
 import axios from "axios";
@@ -9,7 +9,46 @@ import ApplyHero from "./hero";
 import StepRail from "./step-rail";
 import { Step1, Step2, Step3, Step4, Step5, Step6 } from "./steps";
 
+type StoredDraft = { data: ApplyFormData; savedAt: number };
+
+const loadDraft = (): ApplyFormData | null => {
+    if (typeof window === "undefined") return null;
+    try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw) as StoredDraft;
+        if (!parsed?.data || typeof parsed.savedAt !== "number") return null;
+        if (Date.now() - parsed.savedAt > STORAGE_TTL_MS) {
+            window.localStorage.removeItem(STORAGE_KEY);
+            return null;
+        }
+        return parsed.data;
+    } catch {
+        return null;
+    }
+};
+
+const saveDraft = (data: ApplyFormData) => {
+    if (typeof window === "undefined") return;
+    try {
+        const payload: StoredDraft = { data, savedAt: Date.now() };
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+    } catch {
+        // localStorage may be unavailable (private mode, full quota) — ignore
+    }
+};
+
+const clearDraft = () => {
+    if (typeof window === "undefined") return;
+    try {
+        window.localStorage.removeItem(STORAGE_KEY);
+    } catch {
+        // ignore
+    }
+};
+
 const ApplyContainer = () => {
+    const [hydrated, setHydrated] = useState(false);
     const [current, setCurrent] = useState(1);
     const [data, setData] = useState<ApplyFormData>({ country: "United States" });
     const [errors, setErrors] = useState<ApplyErrors>({});
@@ -20,8 +59,17 @@ const ApplyContainer = () => {
     const [submitError, setSubmitError] = useState<string | null>(null);
 
     useEffect(() => {
+        const draft = loadDraft();
+        if (draft) setData(draft);
+        setHydrated(true);
         trackApplyEvent({ action: "step_view", step: 1 });
     }, []);
+
+    useEffect(() => {
+        if (!hydrated) return;
+        const t = setTimeout(() => saveDraft(data), 400);
+        return () => clearTimeout(t);
+    }, [data, hydrated]);
 
     // Close why-pop on outside click
     useEffect(() => {
@@ -44,6 +92,7 @@ const ApplyContainer = () => {
         try {
             const res = await axios.post("/api/apply", payload);
             if (res.status === 200) {
+                clearDraft();
                 setSubmitted(payload);
                 trackApplyEvent({ action: "form_submit", success: true });
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -107,6 +156,7 @@ const ApplyContainer = () => {
     const onWhy = (id: string) => setWhyOpen(whyOpen === id ? null : id);
 
     const reset = () => {
+        clearDraft();
         setSubmitted(null);
         setData({ country: "United States" });
         setCurrent(1);
