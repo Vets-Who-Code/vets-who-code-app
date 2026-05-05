@@ -4,8 +4,7 @@ type ApplyEvent =
     | { action: "validation_error"; step: number; field: string }
     | { action: "github_lookup"; status: "found" | "not_found" | "error" }
     | { action: "form_submit"; success: boolean }
-    | { action: "form_reset" }
-    | { action: "draft_resumed" };
+    | { action: "form_reset" };
 
 declare global {
     interface Window {

@@ -90,16 +90,6 @@
     background: #fdb330;
 }
 
-.timePillSky {
-    background: rgba(132, 193, 255, 0.06);
-    border-color: rgba(132, 193, 255, 0.25);
-    color: #84c1ff;
-}
-
-.timePillSky::before {
-    background: #84c1ff;
-}
-
 .timePillMuted {
     background: rgba(255, 255, 255, 0.04);
     border-color: rgba(185, 214, 242, 0.08);
@@ -303,40 +293,6 @@
 
 .railStep[data-state="done"] .railStepLabel {
     color: #f8f9fa;
-}
-
-.railFoot {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(185, 214, 242, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.railSaved {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(185, 214, 242, 0.7);
-    padding: 10px 12px;
-    border: 1px solid rgba(185, 214, 242, 0.08);
-    text-align: left;
-}
-
-.railSavedTitle {
-    color: #ffffff;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: block;
-}
-
-.railSavedSub {
-    display: block;
-    margin-top: 4px;
-    font-size: 10px;
 }
 
 /* ========== FORM CARD ========== */

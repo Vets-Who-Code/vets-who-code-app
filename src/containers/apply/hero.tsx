@@ -28,7 +28,7 @@ const ApplyHero = () => {
                         <p className={styles.lead}>
                             We don&rsquo;t train veterans to fill seats. We train you to ship
                             production code, in real engagements, with a paycheck on the other side.
-                            Six steps. Save and resume anytime.
+                            Six steps. About 6–8 minutes.
                         </p>
                         <div
                             style={{
@@ -39,9 +39,6 @@ const ApplyHero = () => {
                             }}
                         >
                             <span className={styles.timePill}>6–8 minutes</span>
-                            <span className={`${styles.timePill} ${styles.timePillSky}`}>
-                                Save &amp; resume
-                            </span>
                             <span className={`${styles.timePill} ${styles.timePillMuted}`}>
                                 Mobile-friendly
                             </span>

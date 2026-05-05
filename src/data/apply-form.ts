@@ -46,7 +46,6 @@ export type ApplyFormData = {
     goal?: string;
     interests?: string[];
     why?: string;
-    savedAt?: number;
 };
 
 export const STEPS: Step[] = [
@@ -174,5 +173,3 @@ export const WHY: Record<string, string> = {
         "Your prework demonstrates commitment. If you haven't started, we'll point you at it. It's not a blocker.",
     goal: "Self-selection helps us put you in the right cohort with the right tempo. There is no wrong answer.",
 };
-
-export const STORAGE_KEY = "vwc.apply.draft";

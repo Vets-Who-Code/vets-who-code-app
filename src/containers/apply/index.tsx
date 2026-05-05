@@ -1,4 +1,4 @@
-import { type ApplyFormData, STEPS, STORAGE_KEY } from "@data/apply-form";
+import { type ApplyFormData, STEPS } from "@data/apply-form";
 import { trackApplyEvent } from "@lib/apply-analytics";
 import { type ApplyErrors, validateStep } from "@lib/apply-validation";
 import axios from "axios";
@@ -9,67 +9,19 @@ import ApplyHero from "./hero";
 import StepRail from "./step-rail";
 import { Step1, Step2, Step3, Step4, Step5, Step6 } from "./steps";
 
-const loadDraft = (): ApplyFormData | null => {
-    if (typeof window === "undefined") return null;
-    try {
-        const raw = window.localStorage.getItem(STORAGE_KEY);
-        return raw ? (JSON.parse(raw) as ApplyFormData) : null;
-    } catch {
-        return null;
-    }
-};
-
-const saveDraft = (data: ApplyFormData) => {
-    if (typeof window === "undefined") return;
-    try {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...data, savedAt: Date.now() }));
-    } catch {
-        // localStorage may be unavailable (private mode, full quota) — ignore
-    }
-};
-
-const clearDraft = () => {
-    if (typeof window === "undefined") return;
-    try {
-        window.localStorage.removeItem(STORAGE_KEY);
-    } catch {
-        // ignore
-    }
-};
-
 const ApplyContainer = () => {
-    const [hydrated, setHydrated] = useState(false);
     const [current, setCurrent] = useState(1);
     const [data, setData] = useState<ApplyFormData>({ country: "United States" });
     const [errors, setErrors] = useState<ApplyErrors>({});
     const [completed, setCompleted] = useState<number[]>([]);
     const [whyOpen, setWhyOpen] = useState<string | null>(null);
-    const [savedTime, setSavedTime] = useState<string | null>(null);
     const [submitted, setSubmitted] = useState<ApplyFormData | null>(null);
     const [submitting, setSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
 
-    // Hydrate from localStorage on mount (avoid SSR mismatch)
     useEffect(() => {
-        const draft = loadDraft();
-        if (draft) {
-            setData(draft);
-            trackApplyEvent({ action: "draft_resumed" });
-        }
-        setHydrated(true);
         trackApplyEvent({ action: "step_view", step: 1 });
     }, []);
-
-    // Persist on every change (debounced)
-    useEffect(() => {
-        if (!hydrated) return;
-        const t = setTimeout(() => {
-            saveDraft(data);
-            const now = new Date();
-            setSavedTime(now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
-        }, 400);
-        return () => clearTimeout(t);
-    }, [data, hydrated]);
 
     // Close why-pop on outside click
     useEffect(() => {
@@ -90,11 +42,8 @@ const ApplyContainer = () => {
         setSubmitting(true);
         setSubmitError(null);
         try {
-            const { savedAt: _savedAt, ...clean } = payload;
-            void _savedAt;
-            const res = await axios.post("/api/apply", clean);
+            const res = await axios.post("/api/apply", payload);
             if (res.status === 200) {
-                clearDraft();
                 setSubmitted(payload);
                 trackApplyEvent({ action: "form_submit", success: true });
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -158,13 +107,11 @@ const ApplyContainer = () => {
     const onWhy = (id: string) => setWhyOpen(whyOpen === id ? null : id);
 
     const reset = () => {
-        clearDraft();
         setSubmitted(null);
         setData({ country: "United States" });
         setCurrent(1);
         setErrors({});
         setCompleted([]);
-        setSavedTime(null);
         setSubmitError(null);
         trackApplyEvent({ action: "form_reset" });
     };
@@ -183,12 +130,7 @@ const ApplyContainer = () => {
             <section className={`dark-section tw-bg-navy ${styles.shell}`}>
                 <div className="tw-container">
                     <div className={styles.grid}>
-                        <StepRail
-                            current={current}
-                            completed={completed}
-                            onJump={jumpTo}
-                            lastSaved={savedTime}
-                        />
+                        <StepRail current={current} completed={completed} onJump={jumpTo} />
 
                         <div className={styles.formCard}>
                             <div className={styles.formHead}>
@@ -264,9 +206,7 @@ const ApplyContainer = () => {
 
                             <div className={styles.formFoot}>
                                 <span className={styles.saveStatus}>
-                                    {savedTime
-                                        ? `Auto-saved · ${savedTime}`
-                                        : "Auto-saving as you type"}
+                                    Step {step.num} of 0{STEPS.length}
                                 </span>
                                 <div className={styles.formFootActions}>
                                     {submitError && (

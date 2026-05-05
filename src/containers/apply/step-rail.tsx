@@ -5,10 +5,9 @@ type StepRailProps = {
     current: number;
     completed: number[];
     onJump: (step: number) => void;
-    lastSaved: string | null;
 };
 
-const StepRail = ({ current, completed, onJump, lastSaved }: StepRailProps) => {
+const StepRail = ({ current, completed, onJump }: StepRailProps) => {
     const pct = (current / STEPS.length) * 100;
 
     return (
@@ -55,17 +54,6 @@ const StepRail = ({ current, completed, onJump, lastSaved }: StepRailProps) => {
                     );
                 })}
             </ul>
-
-            <div className={styles.railFoot}>
-                <div className={styles.railSaved}>
-                    <strong className={styles.railSavedTitle}>Auto-saved locally</strong>
-                    <span className={styles.railSavedSub}>
-                        {lastSaved
-                            ? `Last save · ${lastSaved}`
-                            : "Your progress stays in this browser"}
-                    </span>
-                </div>
-            </div>
         </aside>
     );
 };
