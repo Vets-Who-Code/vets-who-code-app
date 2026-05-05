@@ -44,17 +44,13 @@ export type TeamMember = {
     specialty: string;
     quote?: string;
     body: string;
+    image?: string;
 };
 
 export type Differentiator = {
     num: string;
     title: string;
     body: string;
-};
-
-export type Stat = {
-    num: string;
-    label: string;
 };
 
 export type Testimonial = {
@@ -212,6 +208,7 @@ export const TEAM: TeamMember[] = [
         branch: "USAF Security Forces · 2004–2009",
         specialty: "Google Developer Expert · GitHub Star · White House honoree",
         body: "Jerome is a working software engineer first and a founder second — the rare nonprofit leader who still ships code on Monday and teaches it on Tuesday. An Air Force Security Forces veteran with 15+ years of production AI experience at Microsoft, Vista Equity Partners, and now Accenture Federal Services, he runs Vets Who Code the way he runs engineering teams: in the work, not above it. He's a Google Developer Expert, GitHub Star, and White House honoree, with courses on LinkedIn Learning and Frontend Masters. Since founding VWC in 2014, he's trained over 300 veterans and military spouses, unlocking $20M+ in graduate earnings — and personally mentored many of them.",
+        image: "https://res.cloudinary.com/vetswhocode/image/upload/v1683429329/jerome-headshot-bw-3900.jpg",
     },
     {
         name: "Ayumi Fukuda Bennett",
@@ -219,6 +216,7 @@ export const TEAM: TeamMember[] = [
         specialty: "Vanderbilt · Founder, Startup Southerner · Nashville, TN",
         quote: "Your wisdom is too important to evaporate with the rest of the noise.",
         body: "That belief shapes everything Ayumi brings to Vets Who Code. Born in Japan, raised in the southern Appalachians, and educated at Vanderbilt, she's built a career across business journalism, UX design, and visual storytelling — and founded Startup Southerner along the way. As VWC's Technical Program Manager since 2021, she translates the organization's mission into the words, visuals, and systems that move it forward. She runs sponsor relations, content strategy, and program operations from Nashville, where she lives with her family.",
+        image: "https://res.cloudinary.com/vetswhocode/image/upload/v1671657545/Headshots/ayumi_m1hc2r.png",
     },
 ];
 
@@ -245,14 +243,6 @@ export const DIFFERENTIATORS: Differentiator[] = [
     },
 ];
 
-export const STATS_HEADER = "Factory engagements since 2022";
-
-export const STATS: Stat[] = [
-    { num: "4", label: "projects shipped" },
-    { num: "2", label: "active clients" },
-    { num: "37,000", label: "lines of production code in the wild" },
-];
-
 export const TESTIMONIALS: Testimonial[] = [
     {
         quote: "They shipped what three previous vendors couldn't. The veteran-led team brings an operations cadence we weren't getting anywhere else.",
@@ -275,18 +265,12 @@ export const SERVICE_CHIPS: string[] = [
     "Squad",
 ];
 
-export const BUDGET_CHIPS: string[] = [
-    "<$50k",
-    "$50–150k",
-    "$150–500k",
-    "$500k+",
-    "Sponsor / grant",
-];
+export const BUDGET_CHIPS: string[] = ["$10–25k", "$25–50k"];
 
 export const HERO_META: Array<[string, string]> = [
     ["UNIT", "VWC SOFTWARE FACTORY"],
-    ["ESTABLISHED", "2016 · FACTORY 2022"],
+    ["ESTABLISHED", "2014 · FACTORY 2022"],
     ["CO", "JEROME HARDAWAY · USAF"],
     ["STATUS", "BOOKING Q3 2026"],
-    ["POSTURE", "2 SQUADS AVAILABLE"],
+    ["POSTURE", "1 FIRE TEAM · 2 ENGINEERS AVAILABLE"],
 ];

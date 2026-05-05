@@ -18,7 +18,7 @@ const CtaSection = () => {
     const [org, setOrg] = useState("");
     const [brief, setBrief] = useState("");
     const [services, setServices] = useState<Set<string>>(new Set(["Web App"]));
-    const [budget, setBudget] = useState("$50–150k");
+    const [budget, setBudget] = useState("$10–25k");
     const [state, setState] = useState<SubmitState>("ready");
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -70,7 +70,7 @@ const CtaSection = () => {
         setOrg("");
         setBrief("");
         setServices(new Set(["Web App"]));
-        setBudget("$50–150k");
+        setBudget("$10–25k");
         setState("ready");
         setErrorMsg("");
     };

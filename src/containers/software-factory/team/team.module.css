@@ -31,6 +31,7 @@
 }
 
 .photo {
+    position: relative;
     aspect-ratio: 4 / 5;
     background:
         repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 8px),
@@ -42,6 +43,12 @@
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    overflow: hidden;
+}
+
+.photoImg {
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
 }
 
 .info {

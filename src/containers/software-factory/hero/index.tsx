@@ -60,9 +60,9 @@ const HeroSection = () => {
                                 maxWidth: "420px",
                             }}
                         >
-                            Forward Deployed Engineers, personally selected from VWC&rsquo;s alumni
-                            network — 5+ years in industry. Ship production software. Engineers
-                            earn for the code they ship; project margin funds the program.
+                            Two Forward Deployed Engineer leads — 10+ years combined in industry.
+                            Ship production software. Engineers earn for the code they ship;
+                            project margin funds the program.
                         </p>
 
                         <dl className="tw-mt-10 tw-grid tw-grid-cols-[110px_1fr] tw-gap-y-3">
@@ -124,8 +124,9 @@ const HeroSection = () => {
                                 maxWidth: "600px",
                             }}
                         >
-                            A veteran-led engineering team for hire, embedded inside a 501(c)(3)
-                            nonprofit. Hire us for the work; fund the mission as a side effect.
+                            Two Forward Deployed Engineer leads with 10+ years combined in
+                            industry, embedded inside a 501(c)(3) nonprofit. Hire us for the work;
+                            fund the mission as a side effect.
                         </p>
 
                         <div className="tw-mt-10 tw-flex tw-flex-wrap tw-gap-4">

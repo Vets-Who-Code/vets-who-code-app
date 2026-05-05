@@ -1,4 +1,4 @@
-import { DIFFERENTIATORS, STATS, STATS_HEADER } from "@data/software-factory";
+import { DIFFERENTIATORS } from "@data/software-factory";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import styles from "./differentiators.module.css";
@@ -66,23 +66,6 @@ const DifferentiatorsSection = () => {
                     ))}
                 </div>
 
-                <motion.div
-                    className={styles.stats}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.2 }}
-                    variants={scrollUpVariants}
-                >
-                    <div className={styles.statsHeader}>{STATS_HEADER}</div>
-                    <div className={styles.statsRow}>
-                        {STATS.map((s) => (
-                            <div key={s.label} className={styles.stat}>
-                                <div className={styles.statNum}>{s.num}</div>
-                                <div className={styles.statLabel}>{s.label}</div>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
             </div>
         </section>
     );

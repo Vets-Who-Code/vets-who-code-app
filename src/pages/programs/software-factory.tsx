@@ -16,7 +16,7 @@ const SoftwareFactoryPage: NextPage & { Layout: typeof Layout } = () => {
         <>
             <SEO
                 title="Software Factory | Vets Who Code"
-                description="Forward Deployed Engineers for hire, embedded inside a 501(c)(3) nonprofit. Veteran alumni with 5+ years in industry. Hire us for the work; fund the mission as a side effect."
+                description="Two Forward Deployed Engineer leads with 10+ years combined in industry, embedded inside a 501(c)(3) nonprofit. Hire us for the work; fund the mission as a side effect."
             />
             <HeroSection />
             <CapabilitiesSection />

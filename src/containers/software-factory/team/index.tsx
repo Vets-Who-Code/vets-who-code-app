@@ -1,6 +1,7 @@
 import { TEAM } from "@data/software-factory";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 import styles from "./team.module.css";
 
 const monoLabel = {
@@ -70,14 +71,24 @@ const TeamSection = () => {
                             viewport={{ once: true, amount: 0.2 }}
                             variants={scrollUpVariants}
                         >
-                            <div className={styles.photo} aria-hidden="true">
-                                <span>
-                                    PHOTO ·{" "}
-                                    {t.name
-                                        .split(" ")
-                                        .map((n) => n[0])
-                                        .join("")}
-                                </span>
+                            <div className={styles.photo}>
+                                {t.image ? (
+                                    <Image
+                                        src={t.image}
+                                        alt={t.name}
+                                        fill
+                                        sizes="(max-width: 575px) 100vw, (max-width: 991px) 200px, 240px"
+                                        className={styles.photoImg}
+                                    />
+                                ) : (
+                                    <span>
+                                        PHOTO ·{" "}
+                                        {t.name
+                                            .split(" ")
+                                            .map((n) => n[0])
+                                            .join("")}
+                                    </span>
+                                )}
                             </div>
                             <div className={styles.info}>
                                 <div className={styles.role}>{t.role}</div>
