@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+// Source of truth: HASHFLAG_MODULES in src/pages/jodie/index.tsx
+const MAX_CURRICULUM_MODULES = 25;
+const RECENT_CONVERSATIONS_LIMIT = 5;
 
 interface DashboardData {
     troop?: {
@@ -61,9 +65,11 @@ export default function TroopDashboard() {
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isUpdatingModule, setIsUpdatingModule] = useState(false);
+    const [moduleUpdateError, setModuleUpdateError] = useState<string | null>(null);
 
     const handleModuleChange = async (newModule: number) => {
         setIsUpdatingModule(true);
+        setModuleUpdateError(null);
         try {
             const res = await fetch("/api/j0di3/troops/me", {
                 method: "PATCH",
@@ -71,13 +77,21 @@ export default function TroopDashboard() {
                 body: JSON.stringify({ current_module: newModule }),
             });
             if (res.ok) {
-                setData((prev) => prev ? {
-                    ...prev,
-                    troop: prev.troop ? { ...prev.troop, current_module: newModule } : prev.troop,
-                } : prev);
+                setData((prev) =>
+                    prev
+                        ? {
+                              ...prev,
+                              troop: prev.troop
+                                  ? { ...prev.troop, current_module: newModule }
+                                  : prev.troop,
+                          }
+                        : prev
+                );
+            } else {
+                setModuleUpdateError("Couldn't save your module. Try again.");
             }
         } catch {
-            // non-critical
+            setModuleUpdateError("Network error — your module change wasn't saved.");
         } finally {
             setIsUpdatingModule(false);
         }
@@ -150,13 +164,19 @@ export default function TroopDashboard() {
         );
     }
 
+    const moduleOptions = useMemo(
+        () => Array.from({ length: MAX_CURRICULUM_MODULES }, (_, i) => i + 1),
+        []
+    );
+
     const challengesCompleted = data?.challenges_completed ?? 0;
     const challengesAttempted = data?.challenges_attempted ?? 0;
     const passRate =
-        challengesAttempted > 0
-            ? Math.round((challengesCompleted / challengesAttempted) * 100)
-            : 0;
-    const conversationCount = data?.recent_conversations?.length ?? 0;
+        challengesAttempted > 0 ? Math.round((challengesCompleted / challengesAttempted) * 100) : 0;
+    const conversationCount = Math.min(
+        data?.recent_conversations?.length ?? 0,
+        RECENT_CONVERSATIONS_LIMIT
+    );
 
     return (
         <div className="tw-space-y-6">
@@ -205,7 +225,9 @@ export default function TroopDashboard() {
             </div>
 
             {/* Scores */}
-            {(data?.resume_score != null || data?.github_score != null || data?.portfolio_score != null) && (
+            {(data?.resume_score != null ||
+                data?.github_score != null ||
+                data?.portfolio_score != null) && (
                 <div className="tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-6 tw-shadow-sm">
                     <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-4">
                         Scores
@@ -213,19 +235,25 @@ export default function TroopDashboard() {
                     <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-text-center">
                         {data.resume_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.resume_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.resume_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">Resume</div>
                             </div>
                         )}
                         {data.github_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.github_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.github_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">GitHub</div>
                             </div>
                         )}
                         {data.portfolio_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.portfolio_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.portfolio_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">Portfolio</div>
                             </div>
                         )}
@@ -248,18 +276,30 @@ export default function TroopDashboard() {
                                     onChange={(e) => handleModuleChange(Number(e.target.value))}
                                     disabled={isUpdatingModule}
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
+                                    aria-label="Current Module"
                                 >
-                                    {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
-                                        <option key={m} value={m}>Module {m}</option>
+                                    {moduleOptions.map((m) => (
+                                        <option key={m} value={m}>
+                                            Module {m}
+                                        </option>
                                     ))}
                                 </select>
-                                <span className="tw-text-xs tw-text-gray-400">of 25</span>
+                                <span className="tw-text-xs tw-text-gray-400">
+                                    of {MAX_CURRICULUM_MODULES}
+                                </span>
                             </div>
+                            {moduleUpdateError && (
+                                <p role="alert" className="tw-text-xs tw-text-red tw-mt-1">
+                                    {moduleUpdateError}
+                                </p>
+                            )}
                         </div>
                         {data.troop.skill_level && (
                             <div>
                                 <span className="tw-text-gray-400">Skill Level</span>
-                                <p className="tw-font-semibold tw-text-ink tw-capitalize">{data.troop.skill_level}</p>
+                                <p className="tw-font-semibold tw-text-ink tw-capitalize">
+                                    {data.troop.skill_level}
+                                </p>
                             </div>
                         )}
                         {data.troop.branch && (
@@ -271,13 +311,17 @@ export default function TroopDashboard() {
                         {data.troop.mos_afsc && (
                             <div>
                                 <span className="tw-text-gray-400">MOS/AFSC</span>
-                                <p className="tw-font-semibold tw-text-ink">{data.troop.mos_afsc}</p>
+                                <p className="tw-font-semibold tw-text-ink">
+                                    {data.troop.mos_afsc}
+                                </p>
                             </div>
                         )}
                         {data.troop.target_role && (
                             <div>
                                 <span className="tw-text-gray-400">Target Role</span>
-                                <p className="tw-font-semibold tw-text-ink">{data.troop.target_role}</p>
+                                <p className="tw-font-semibold tw-text-ink">
+                                    {data.troop.target_role}
+                                </p>
                             </div>
                         )}
                         <div>
@@ -319,28 +363,32 @@ export default function TroopDashboard() {
                         Recent AI Conversations
                     </h3>
                     <div className="tw-space-y-3">
-                        {data.recent_conversations.slice(0, 5).map((conv) => (
-                            <div
-                                key={conv.id}
-                                className="tw-border-b tw-border-gray-100 tw-pb-2 last:tw-border-0"
-                            >
-                                <div className="tw-flex tw-items-center tw-justify-between">
-                                    {conv.pillar && (
-                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800 tw-capitalize">
-                                            {conv.pillar}
-                                        </span>
-                                    )}
-                                    {conv.created_at && (
-                                        <span className="tw-text-xs tw-text-gray-400">
-                                            {new Date(conv.created_at).toLocaleDateString()}
-                                        </span>
+                        {data.recent_conversations
+                            .slice(0, RECENT_CONVERSATIONS_LIMIT)
+                            .map((conv) => (
+                                <div
+                                    key={conv.id}
+                                    className="tw-border-b tw-border-gray-100 tw-pb-2 last:tw-border-0"
+                                >
+                                    <div className="tw-flex tw-items-center tw-justify-between">
+                                        {conv.pillar && (
+                                            <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800 tw-capitalize">
+                                                {conv.pillar}
+                                            </span>
+                                        )}
+                                        {conv.created_at && (
+                                            <span className="tw-text-xs tw-text-gray-400">
+                                                {new Date(conv.created_at).toLocaleDateString()}
+                                            </span>
+                                        )}
+                                    </div>
+                                    {conv.summary && (
+                                        <p className="tw-text-sm tw-text-gray-200 tw-mt-1 tw-line-clamp-2">
+                                            {conv.summary}
+                                        </p>
                                     )}
                                 </div>
-                                {conv.summary && (
-                                    <p className="tw-text-sm tw-text-gray-200 tw-mt-1 tw-line-clamp-2">{conv.summary}</p>
-                                )}
-                            </div>
-                        ))}
+                            ))}
                     </div>
                 </div>
             )}
@@ -348,13 +396,7 @@ export default function TroopDashboard() {
     );
 }
 
-function RepsTray({
-    warmups,
-    loading,
-}: {
-    warmups: WarmupChallenge[];
-    loading: boolean;
-}) {
+function RepsTray({ warmups, loading }: { warmups: WarmupChallenge[]; loading: boolean }) {
     if (loading) {
         return null;
     }
