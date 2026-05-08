@@ -450,24 +450,24 @@ export const PHASES: Phase[] = [
 ];
 
 export const CAPSTONE: Capstone = {
-    title: "AI-Powered Document Intelligence Platform",
-    subtitle: "Capstone Project · Final Mission",
-    blurb: "Build a complete production system that proves mastery of the entire Hashflag Stack. Real users, real data, real consequences.",
+    title: "Ship to production. The same codebases veterans use.",
+    subtitle: "Capstone · Forward-Deployed Reps",
+    blurb: "Your capstone isn't a demo. You own a real feature end-to-end — issue to PR to production — on the VWC Next.js application or the J0dI3 FastAPI service. Same codebases the team works in every day. Real review, real CI gates, real users.",
     required: [
-        "Auth and user management",
-        "Document upload with intelligent chunking",
-        "Streaming chat with citations",
-        "Conversation history",
-        "Admin dashboard",
-        "Safety measures and content filters",
+        "Take a feature from issue → design → PR",
+        "Pass typecheck, lint, and the full CI gate",
+        "Tests that the team will run after you leave",
+        "Update runbooks and docs the next cohort will read",
+        "Senior-engineer code review on every change",
+        "Watch it ship and stay green for 7 days",
     ],
     stack: {
-        Frontend: ["Next.js 14+", "Streaming chat UI", "Tailwind"],
+        Frontend: ["Next.js", "TypeScript", "React", "Tailwind"],
         Backend: ["FastAPI", "Pydantic v2", "Async Python"],
         AI: ["Google Gemini", "RAG", "Function calling"],
-        Data: ["Postgres", "pgvector", "Cloud SQL"],
-        Infra: ["Docker", "Cloud Run", "Vercel"],
-        Ops: ["LangSmith", "pytest", "Playwright", "K6"],
+        Data: ["Postgres", "pgvector", "Prisma"],
+        Infra: ["Vercel", "Cloud Run", "Docker"],
+        Ops: ["GitHub Actions", "LangSmith", "pytest", "Playwright"],
     },
 };
 
