@@ -126,11 +126,6 @@ const navigation: NavigationItem[] = [
                 path: "/assessment",
             },
             {
-                id: 1103,
-                label: "Subjects & Skills",
-                path: "/subjects/all",
-            },
-            {
                 id: 1104,
                 label: "J0d!e",
                 path: "/jodie",
@@ -206,20 +201,22 @@ export function filterMenuByAuth(items: NavigationItem[], isAuthed: boolean): Na
         return true;
     };
 
-    return items
-        .filter(visible)
-        .map((item) => {
-            if ("submenu" in item && item.submenu) {
-                return { ...item, submenu: item.submenu.filter(visible) };
-            }
-            return item;
-        })
-        // Drop parents whose submenu became empty after filtering — a parent
-        // that hovers but reveals nothing is worse than a hidden parent.
-        .filter((item) => {
-            if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
-            return true;
-        });
+    return (
+        items
+            .filter(visible)
+            .map((item) => {
+                if ("submenu" in item && item.submenu) {
+                    return { ...item, submenu: item.submenu.filter(visible) };
+                }
+                return item;
+            })
+            // Drop parents whose submenu became empty after filtering — a parent
+            // that hovers but reveals nothing is worse than a hidden parent.
+            .filter((item) => {
+                if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
+                return true;
+            })
+    );
 }
 
 export default navigation;
