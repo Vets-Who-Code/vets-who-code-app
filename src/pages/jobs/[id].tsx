@@ -228,7 +228,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                             </h3>
                             <div className="tw-space-y-3">
                                 <Link
-                                    href="/subjects/all"
+                                    href="/programs/core-curriculum"
                                     className="tw-block tw-rounded-md tw-border tw-border-gray-200 tw-p-3 tw-transition-colors hover:tw-border-primary hover:tw-bg-navy-sky/20"
                                 >
                                     <div className="tw-font-medium tw-text-ink">

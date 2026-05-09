@@ -51,16 +51,6 @@ export const sitemapColumns: SitemapColumn[] = [
 // where real estate is tight.
 export const sitemapExtraColumns: SitemapColumn[] = [
     {
-        heading: "Curriculum Tracks",
-        links: [
-            { label: "All Subjects", path: "/subjects/all" },
-            { label: "Foundations", path: "/subjects/foundations" },
-            { label: "Software Engineering", path: "/subjects/software-engineering" },
-            { label: "AI Engineering", path: "/subjects/ai-engineering" },
-            { label: "Production Mastery", path: "/subjects/production-mastery" },
-        ],
-    },
-    {
         heading: "Member Tools",
         links: [
             { label: "Profile", path: "/profile" },
