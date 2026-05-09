@@ -65,11 +65,6 @@ const navigation: NavigationItem[] = [
                 path: "/programs/core-curriculum",
             },
             {
-                id: 903,
-                label: "Mission-Ready",
-                path: "/programs/mission-ready",
-            },
-            {
                 id: 904,
                 label: "Mentorship",
                 path: "/programs/mentorship",
