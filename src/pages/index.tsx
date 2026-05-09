@@ -83,19 +83,18 @@ const Home: PageProps = ({ data }) => {
 
             <CurriculumColumns />
 
-            {/* Testimonials — light */}
-            <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
-
-            {/* Events — dark */}
+            {/* Testimonials — dark background with subtle contrast */}
             <div className="dark-section">
-                <EventArea
-                    data={{ ...content?.["event-area"], events: data.events }}
-                    titleSize="large"
-                />
+                <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
             </div>
 
-            {/* Mission pull-quote + alumni proof — light */}
-            <div className="tw-py-20 md:tw-py-[120px]">
+            <EventArea
+                data={{ ...content?.["event-area"], events: data.events }}
+                titleSize="large"
+            />
+
+            {/* Mission pull-quote + alumni proof — dark section */}
+            <div className="dark-section tw-bg-navy tw-py-20 md:tw-py-[120px]">
                 <div className="tw-container">
                     <PullQuote
                         emphasis="We don't train veterans to fill seats."
@@ -107,24 +106,22 @@ const Home: PageProps = ({ data }) => {
                 </div>
             </div>
 
-            {/* Media — dark */}
+            <MediaArea data={{ ...content?.["media-area"], media: data.media }} titleSize="large" />
+
+            {/* Blog — dark background */}
             <div className="dark-section">
-                <MediaArea
-                    data={{ ...content?.["media-area"], media: data.media }}
+                <BlogArea
+                    data={{ ...content?.["blog-area"], blogs: data.blogs }}
                     titleSize="large"
                 />
             </div>
 
-            {/* Blog — light */}
-            <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
+            <BrandArea data={content?.["brand-area"]} />
 
-            {/* Brand — dark */}
-            <div className="dark-section">
-                <BrandArea data={content?.["brand-area"]} />
+            {/* Newsletter — CTA banner feel */}
+            <div className="dark-section cta-banner">
+                <NewsletterArea data={content?.["newsletter-area"]} />
             </div>
-
-            {/* Newsletter — light */}
-            <NewsletterArea data={content?.["newsletter-area"]} />
 
             <EngagementModal
                 headline="Your Next Mission Starts Here."
