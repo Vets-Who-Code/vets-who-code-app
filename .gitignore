@@ -70,3 +70,6 @@ audio-cloudinary-urls.json
 eslint-report.json
 biome-report.json
 score-output.md
+
+*storybook.log
+storybook-static

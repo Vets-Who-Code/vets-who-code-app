@@ -31,7 +31,9 @@
     "generate:military-systems": "tsx -r dotenv/config scripts/generate-military-systems.ts",
     "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts",
     "generate:tech-pathways": "tsx -r dotenv/config scripts/generate-tech-pathways.ts",
-    "generate:curriculum-gap-report": "tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts"
+    "generate:curriculum-gap-report": "tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@ai-sdk/azure": "^2.0.69",
@@ -150,7 +152,12 @@
     "tsx": "^4.19.4",
     "typescript": "^5.6.3",
     "vitest": "^4.0.18",
-    "vitest-dom": "^0.1.1"
+    "vitest-dom": "^0.1.1",
+    "storybook": "^10.3.6",
+    "@storybook/nextjs": "^10.3.6",
+    "@storybook/addon-a11y": "^10.3.6",
+    "@storybook/addon-docs": "^10.3.6",
+    "@storybook/addon-onboarding": "^10.3.6"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "biome check --write"
