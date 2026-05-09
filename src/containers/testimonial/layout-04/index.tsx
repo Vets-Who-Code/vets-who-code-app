@@ -134,7 +134,7 @@ const TestimonialArea = ({
                             {...section_title}
                             align="left"
                             titleSize={titleSize}
-                            color="C"
+                            color="A"
                         />
                     )}
 

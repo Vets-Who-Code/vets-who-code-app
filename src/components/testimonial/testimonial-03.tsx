@@ -26,9 +26,9 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                     fontFamily: "var(--font-headline)",
                     fontWeight: 900,
                     fontSize: "64px",
-                    color: "#FFFFFF",
+                    color: "#091f40",
                     lineHeight: 1,
-                    opacity: 0.08,
+                    opacity: 0.12,
                     position: "absolute",
                     top: "-16px",
                     left: "16px",
@@ -56,7 +56,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                     fontSize: "clamp(16px, 2vw, 20px)",
                     fontStyle: "italic",
                     fontWeight: 400,
-                    color: "#FFFFFF",
+                    color: "#1A1823",
                     lineHeight: 1.74,
                     position: "relative",
                 }}
@@ -71,7 +71,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                         fontFamily: "var(--font-headline)",
                         fontSize: "13px",
                         fontWeight: 700,
-                        color: "#FFFFFF",
+                        color: "#091f40",
                     }}
                     className="tw-block tw-mb-1"
                 >
@@ -83,7 +83,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
                         fontSize: "10px",
                         textTransform: "uppercase",
                         letterSpacing: "0.08em",
-                        color: "rgba(185, 214, 242, 0.7)",
+                        color: "#6C757D",
                     }}
                 >
                     {designation}

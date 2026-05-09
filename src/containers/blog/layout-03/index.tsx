@@ -24,7 +24,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
                     <AnimatedSectionTitle
                         {...section_title}
                         titleSize={titleSize}
-                        color="C"
+                        color="A"
                         className="tw-mb-7.5 md:tw-mb-15"
                         initial="offscreen"
                         whileInView="onscreen"
@@ -55,7 +55,7 @@ const BlogArea = ({ data: { section_title, blogs }, space, bg, titleSize }: TPro
 };
 
 BlogArea.defaultProps = {
-    bg: "tw-bg-navy",
+    bg: "tw-bg-white",
 };
 
 export default BlogArea;

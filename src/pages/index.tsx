@@ -86,35 +86,43 @@ const Home: PageProps = ({ data }) => {
             {/* Testimonials — light */}
             <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
 
-            <EventArea
-                data={{ ...content?.["event-area"], events: data.events }}
-                titleSize="large"
-            />
-
-            {/* Mission pull-quote + alumni proof — dark section */}
-            <div className="dark-section tw-bg-navy tw-py-20 md:tw-py-[120px]">
-                <div className="tw-container">
-                    <PullQuote
-                        emphasis="We don't train veterans to fill seats."
-                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
-                    />
-                    <div className="tw-mt-14 md:tw-mt-20">
-                        <AlumniStrip align="center" />
-                    </div>
-                </div>
-            </div>
-
-            <MediaArea data={{ ...content?.["media-area"], media: data.media }} titleSize="large" />
-
-            {/* Blog — dark background */}
-            <div className="dark-section">
-                <BlogArea
-                    data={{ ...content?.["blog-area"], blogs: data.blogs }}
+            {/* Events — navy */}
+            <div className="dark-section tw-bg-navy">
+                <EventArea
+                    data={{ ...content?.["event-area"], events: data.events }}
                     titleSize="large"
                 />
             </div>
 
-            <BrandArea data={content?.["brand-area"]} />
+            {/* Mission pull-quote + alumni proof — light */}
+            <div className="tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <PullQuote
+                        theme="light"
+                        emphasis="We don't train veterans to fill seats."
+                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
+                    />
+                    <div className="tw-mt-14 md:tw-mt-20">
+                        <AlumniStrip align="center" theme="light" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Media — navy */}
+            <div className="dark-section tw-bg-navy">
+                <MediaArea
+                    data={{ ...content?.["media-area"], media: data.media }}
+                    titleSize="large"
+                />
+            </div>
+
+            {/* Blog — light */}
+            <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
+
+            {/* Brand / partners — navy */}
+            <div className="dark-section tw-bg-navy">
+                <BrandArea data={content?.["brand-area"]} />
+            </div>
 
             {/* Newsletter — CTA banner feel */}
             <div className="dark-section cta-banner">
