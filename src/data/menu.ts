@@ -140,11 +140,6 @@ const navigation: NavigationItem[] = [
                 label: "J0d!e",
                 path: "/jodie",
             },
-            {
-                id: 1105,
-                label: "Portfolio Checklist",
-                path: "/portfolio-checklist",
-            },
         ],
     },
     {
@@ -189,6 +184,11 @@ const navigation: NavigationItem[] = [
                 id: 704,
                 label: "Game",
                 path: "/game",
+            },
+            {
+                id: 705,
+                label: "Portfolio Checklist",
+                path: "/portfolio-checklist",
             },
         ],
     },
