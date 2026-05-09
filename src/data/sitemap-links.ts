@@ -7,7 +7,6 @@ export const sitemapColumns: SitemapColumn[] = [
         links: [
             { label: "Overview", path: "/programs" },
             { label: "Core Curriculum", path: "/programs/core-curriculum" },
-            { label: "Mission-Ready", path: "/programs/mission-ready" },
             { label: "Mentorship", path: "/programs/mentorship" },
             { label: "Studio", path: "/programs/studio" },
         ],
