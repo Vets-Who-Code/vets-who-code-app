@@ -53,9 +53,11 @@ const ProcessSection = () => {
                             maxWidth: "720px",
                         }}
                     >
-                        We borrowed our cadence from the Military. Demo every Friday, async daily
-                        SITREP, code in your repo on day one. No surprises, no scope-creep theater,
-                        no two-month silence.
+                        We borrowed our cadence from the military. Weekly demo, daily SITREP, AAR
+                        at sprint close. Commander&rsquo;s Intent is documented before kickoff, so
+                        the team adapts without waiting for a permission slip. BLUF on every
+                        update. Code lives in your repo from day one. No surprises, no scope-creep
+                        theater, no two-month silence.
                     </p>
                 </motion.div>
 
