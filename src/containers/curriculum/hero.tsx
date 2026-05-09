@@ -15,7 +15,7 @@ const CurriculumHero = ({ onJump }: HeroProps) => {
             <div className={styles.gridPattern} aria-hidden="true" />
             <div className="tw-container" style={{ position: "relative" }}>
                 <div className={styles.briefBar}>
-                    <span className={styles.live}>LIVE · COHORT 24 INTAKE</span>
+                    <span className={styles.live}>LIVE · COHORT 2027 INTAKE</span>
                     <span>VERSION 2.0 · DEC 2025</span>
                     <span>17 WEEKS · 25 MODULES · 128 SKILLS</span>
                     <span>VALIDATED · LIGHTCAST LABOR DATA</span>
@@ -40,7 +40,7 @@ const CurriculumHero = ({ onJump }: HeroProps) => {
                                 href="/apply"
                                 className={`${styles.btn} ${styles.btnPrimary} ${styles.btnLg}`}
                             >
-                                Apply for Cohort 24 <span className={styles.arrow}>→</span>
+                                Apply for Cohort 2027 <span className={styles.arrow}>→</span>
                             </Link>
                             <button
                                 type="button"

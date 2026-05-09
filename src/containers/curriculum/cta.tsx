@@ -12,7 +12,7 @@ const CurriculumCta = () => {
             <div className="tw-container">
                 <div className={styles.ctaGrid}>
                     <div>
-                        <span className={styles.eyebrow}>COHORT 24 · INTAKE OPEN</span>
+                        <span className={styles.eyebrow}>COHORT 2027 · INTAKE OPEN</span>
                         <h2 id="curriculum-cta-heading" className={styles.ctaTitle}>
                             Code is the new combat boots. Lace up.
                         </h2>
@@ -26,7 +26,7 @@ const CurriculumCta = () => {
                                 href="/apply"
                                 className={`${styles.btn} ${styles.btnPrimary} ${styles.btnLg}`}
                             >
-                                Apply for Cohort 24 <span className={styles.arrow}>→</span>
+                                Apply for Cohort 2027 <span className={styles.arrow}>→</span>
                             </Link>
                             <Link
                                 href="#program"
@@ -40,7 +40,7 @@ const CurriculumCta = () => {
                     <aside className={styles.ctaAside}>
                         <div className={styles.ctaAsideHead}>
                             <span>NEXT COHORT</span>
-                            <span>· COHORT 24</span>
+                            <span>· COHORT 2027</span>
                         </div>
                         {CTA_ASIDE_ROWS.map(([k, v]) => (
                             <div key={k} className={styles.ctaAsideRow}>
