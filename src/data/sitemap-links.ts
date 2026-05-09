@@ -27,6 +27,7 @@ export const sitemapColumns: SitemapColumn[] = [
         links: [
             { label: "Blog", path: "/blogs/blog" },
             { label: "Career Guides", path: "/career-guides" },
+            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
             { label: "Events", path: "/events" },
             { label: "Media", path: "/media" },
             { label: "Game", path: "/game" },
@@ -67,7 +68,6 @@ export const sitemapExtraColumns: SitemapColumn[] = [
             { label: "Reps (Challenges)", path: "/challenges" },
             { label: "Assessment", path: "/assessment" },
             { label: "J0d!e", path: "/jodie" },
-            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
         ],
     },
     {
