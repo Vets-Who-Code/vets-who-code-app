@@ -83,10 +83,8 @@ const Home: PageProps = ({ data }) => {
 
             <CurriculumColumns />
 
-            {/* Testimonials — dark background with subtle contrast */}
-            <div className="dark-section">
-                <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
-            </div>
+            {/* Testimonials — light */}
+            <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
 
             <EventArea
                 data={{ ...content?.["event-area"], events: data.events }}

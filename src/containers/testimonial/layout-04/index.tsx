@@ -150,7 +150,7 @@ const TestimonialArea = ({
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-navy",
+    bg: "tw-bg-white",
 };
 
 export default TestimonialArea;
