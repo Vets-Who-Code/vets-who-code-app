@@ -56,8 +56,8 @@ const TeamSection = () => {
                             maxWidth: "480px",
                         }}
                     >
-                        Every engagement is led by a full-time veteran staff engineer. No surprise
-                        resumes, no offshore subcontracting, no junior-only teams.
+                        Every engagement is led by VWC leadership. No surprise resumes, no
+                        offshore subcontracting, no junior-only teams.
                     </p>
                 </motion.div>
 
