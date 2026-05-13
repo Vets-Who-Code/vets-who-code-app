@@ -15,16 +15,19 @@ vi.mock("axios", () => ({
     },
 }));
 
-import j0di3 from "@/lib/j0di3-client";
 import axios from "axios";
+import j0di3 from "@/lib/j0di3-client";
 import { j0di3Proxy } from "@/lib/j0di3-proxy";
 
 const mockJ0di3 = j0di3 as unknown as Mock;
 const mockIsAxiosError = axios.isAxiosError as Mock;
 
-function createMockReqRes(
-    overrides: Partial<NextApiRequest> = {}
-): { req: NextApiRequest; res: NextApiResponse } {
+const VALID_TROOP_ID = "00000000-0000-4000-8000-000000000001";
+
+function createMockReqRes(overrides: Partial<NextApiRequest> = {}): {
+    req: NextApiRequest;
+    res: NextApiResponse;
+} {
     const req = {
         method: "POST",
         body: { question: "What is React?" },
@@ -34,7 +37,7 @@ function createMockReqRes(
             name: "Test",
             email: "test@test.com",
             role: "STUDENT",
-            troopId: "troop-uuid-123",
+            troopId: VALID_TROOP_ID,
         },
         ...overrides,
     } as unknown as NextApiRequest;
@@ -59,7 +62,7 @@ describe("j0di3Proxy", () => {
         expect(mockJ0di3).toHaveBeenCalledWith({
             method: "POST",
             url: "/api/v1/learning/explain",
-            data: { question: "What is React?", troop_id: "troop-uuid-123" },
+            data: { question: "What is React?", troop_id: VALID_TROOP_ID },
             params: undefined,
         });
         expect(res.json).toHaveBeenCalledWith({ response: "React is a library" });
@@ -77,7 +80,7 @@ describe("j0di3Proxy", () => {
             method: "GET",
             url: "/api/v1/challenges/recommended",
             data: undefined,
-            params: expect.objectContaining({ troop_id: "troop-uuid-123" }),
+            params: expect.objectContaining({ troop_id: VALID_TROOP_ID }),
         });
     });
 
@@ -108,6 +111,23 @@ describe("j0di3Proxy", () => {
         expect(res.json).toHaveBeenCalledWith(
             expect.objectContaining({ error: expect.stringContaining("No J0dI3 troop profile") })
         );
+    });
+
+    it("returns 400 when troopId is not a valid UUID", async () => {
+        const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const { req, res } = createMockReqRes();
+        (req as any).user.troopId = "not-a-uuid";
+
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.json).toHaveBeenCalledWith(
+            expect.objectContaining({ error: expect.stringContaining("troop profile is invalid") })
+        );
+        expect(mockJ0di3).not.toHaveBeenCalled();
+        expect(consoleSpy).toHaveBeenCalled();
+        consoleSpy.mockRestore();
     });
 
     it("forwards J0dI3 error status and message on axios error", async () => {
