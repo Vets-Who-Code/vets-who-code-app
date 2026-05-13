@@ -1,12 +1,13 @@
+import UserMenu from "@components/header/user-menu";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
 import clsx from "clsx";
-import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import { useEffect, useMemo, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
@@ -51,11 +52,16 @@ const Header = ({ shadow, fluid }: TProps) => {
                             fluid && "tw-max-w-full tw-px-3.8 3xl:tw-px-37"
                         )}
                     >
-                        <MainMenu menu={filteredMenu} hoverStyle="B" className="tw-hidden xl:tw-block" />
+                        <MainMenu
+                            menu={filteredMenu}
+                            hoverStyle="B"
+                            className="tw-hidden xl:tw-block"
+                        />
                         <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
-                        <div className="tw-flex tw-items-center tw-justify-end">
+                        <div className="tw-flex tw-items-center tw-justify-end tw-gap-3">
+                            <UserMenu mode="dark" />
                             <BurgerButton
-                                className="tw-pl-5 xl:tw-hidden"
+                                className="tw-pl-2 xl:tw-hidden"
                                 color="dark"
                                 onClick={() => setOffcanvas(true)}
                                 label="Toggle Menu"
@@ -65,7 +71,11 @@ const Header = ({ shadow, fluid }: TProps) => {
                 </div>
                 <div className="tw-h-20" />
             </header>
-            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={filteredMenu} />
+            <MobileMenu
+                isOpen={offcanvas}
+                onClose={() => setOffcanvas(false)}
+                menu={filteredMenu}
+            />
         </>
     );
 };
