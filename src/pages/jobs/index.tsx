@@ -6,10 +6,11 @@ import prisma from "@lib/prisma";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import JobMatch from "@/components/jobs/JobMatch";
 import MockInterview from "@/components/jobs/MockInterview";
 import ResumeScorer from "@/components/jobs/ResumeScorer";
+import useJobMatchAvailability from "@/hooks/use-job-match-availability";
 import { options } from "@/pages/api/auth/options";
 
 type PageProps = {
@@ -40,6 +41,14 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState<string>("");
     const [selectedType, setSelectedType] = useState<string>("");
+    const matchAvailability = useJobMatchAvailability();
+    const matchEnabled = matchAvailability !== "unavailable";
+
+    useEffect(() => {
+        if (!matchEnabled && activeTab === "matches") {
+            setActiveTab("board");
+        }
+    }, [matchEnabled, activeTab]);
 
     // Filter jobs based on search and filters
     const filteredJobs = useMemo(() => {
@@ -107,12 +116,26 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
 
                 {/* Tab Navigation */}
                 <div className="tw-mb-8 tw-flex tw-gap-1 tw-rounded-lg tw-bg-navy/5 tw-p-1">
-                    {[
-                        { key: "board" as const, label: "Job Board", icon: "fa-briefcase" },
-                        { key: "matches" as const, label: "Matches", icon: "fa-bullseye" },
-                        { key: "resume" as const, label: "Resume Scorer", icon: "fa-file-alt" },
-                        { key: "interview" as const, label: "Mock Interview", icon: "fa-comments" },
-                    ].map((tab) => (
+                    {(
+                        [
+                            { key: "board" as const, label: "Job Board", icon: "fa-briefcase" },
+                            ...(matchEnabled
+                                ? [
+                                      {
+                                          key: "matches" as const,
+                                          label: "Matches",
+                                          icon: "fa-bullseye",
+                                      },
+                                  ]
+                                : []),
+                            { key: "resume" as const, label: "Resume Scorer", icon: "fa-file-alt" },
+                            {
+                                key: "interview" as const,
+                                label: "Mock Interview",
+                                icon: "fa-comments",
+                            },
+                        ] as { key: JobsTab; label: string; icon: string }[]
+                    ).map((tab) => (
                         <button
                             key={tab.key}
                             onClick={() => setActiveTab(tab.key)}
@@ -128,8 +151,8 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                     ))}
                 </div>
 
-                {/* Resume Scorer Tab */}
-                {activeTab === "matches" && <JobMatch />}
+                {/* Matches Tab — only mounted when JOB_MATCH_ENABLED is on */}
+                {activeTab === "matches" && matchEnabled && <JobMatch />}
 
                 {activeTab === "resume" && <ResumeScorer />}
 
