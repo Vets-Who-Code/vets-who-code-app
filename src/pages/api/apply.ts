@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { applyRateLimit } from "@/lib/rate-limit";
 import { checkParams } from "./api-helpers";
 
 // Define the ParsedBody interface to type-check the request body
@@ -112,6 +114,17 @@ async function postToSlack(text: string): Promise<void> {
 
 export default async function handler(req: Request, res: Response) {
     try {
+        const rl = applyRateLimit(
+            req as unknown as NextApiRequest,
+            res as unknown as NextApiResponse,
+            { scope: "apply", max: 3, windowMs: 60 * 60 * 1000 }
+        );
+        if (!rl.allowed) {
+            return res.status(429).json({
+                message: "Too many application attempts. Please try again in an hour.",
+            });
+        }
+
         const parsedBody = req.body as ParsedBody;
 
         const hasErrors = validateBody(parsedBody);

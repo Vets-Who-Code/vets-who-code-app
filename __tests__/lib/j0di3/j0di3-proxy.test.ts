@@ -29,6 +29,8 @@ function createMockReqRes(
         method: "POST",
         body: { question: "What is React?" },
         query: {},
+        headers: {},
+        socket: { remoteAddress: "127.0.0.1" },
         user: {
             id: "user-123",
             name: "Test",
@@ -42,6 +44,7 @@ function createMockReqRes(
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
+        setHeader: vi.fn(),
     } as unknown as NextApiResponse;
 
     return { req, res };
