@@ -5,11 +5,14 @@ export interface IFeedback {
     state?: "success" | "warning" | "error";
     showErrorOnly?: boolean;
     children: React.ReactNode;
+    id?: string;
 }
 
-const Feedback: FC<IFeedback> = ({ state, showErrorOnly, children }) => {
+const Feedback: FC<IFeedback> = ({ state, showErrorOnly, children, id }) => {
     return (
         <span
+            id={id}
+            role={state === "error" ? "alert" : undefined}
             className={clsx(
                 "tw-mt-1 tw-block tw-w-full tw-text-md",
                 state !== "error" && showErrorOnly && "tw-hidden",

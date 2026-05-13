@@ -14,6 +14,7 @@ export interface IInputProps extends IFeedback {
     disabled?: boolean;
     readonly?: boolean;
     feedbackText?: string;
+    feedbackId?: string;
     id: string;
     name: string;
     placeholder?: string;

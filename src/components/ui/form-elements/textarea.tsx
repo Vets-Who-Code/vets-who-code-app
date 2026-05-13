@@ -16,6 +16,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
             disabled,
             state,
             feedbackText,
+            feedbackId,
             id,
             name,
             onChange,
@@ -47,6 +48,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
         const focusBorderClass =
             customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
+        const errorFeedbackId = feedbackId || `${id}-error`;
+        const showErrorFeedback = !!feedbackText && showState && state === "error";
 
         return (
             <>
@@ -75,10 +78,16 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
                     onBlur={onBlur}
                     value={value}
                     readOnly={readonly}
+                    aria-invalid={state === "error" ? true : undefined}
+                    aria-describedby={showErrorFeedback ? errorFeedbackId : undefined}
                     {...restProps}
                 />
                 {feedbackText && showState && (
-                    <Feedback state={state} showErrorOnly={showErrorOnly}>
+                    <Feedback
+                        id={showErrorFeedback ? errorFeedbackId : undefined}
+                        state={state}
+                        showErrorOnly={showErrorOnly}
+                    >
                         {feedbackText}
                     </Feedback>
                 )}
