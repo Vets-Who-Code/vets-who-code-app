@@ -2,6 +2,7 @@ import Section from "@components/ui/engagement-modal";
 import Social, { SocialLink } from "@components/ui/social";
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
+import { handleClientError } from "@/utils/handle-client-error";
 
 interface UserProfile {
     id: string;
@@ -26,16 +27,17 @@ const ProfileBio = () => {
         }
     }, [session]);
 
+    const [saveError, setSaveError] = useState<string | null>(null);
+
     const fetchProfile = async () => {
         try {
             const response = await fetch("/api/user/profile-basic");
-            if (response.ok) {
-                const userData = await response.json();
-                setProfile(userData);
-                setFormData(userData);
-            }
-        } catch (_error) {
-            // Error handling
+            if (!response.ok) throw new Error(`Profile request failed (${response.status}).`);
+            const userData = await response.json();
+            setProfile(userData);
+            setFormData(userData);
+        } catch (err) {
+            handleClientError(err, { context: "ProfileBio:fetchProfile" });
         } finally {
             setLoading(false);
         }
@@ -43,6 +45,7 @@ const ProfileBio = () => {
 
     const handleSave = async () => {
         setSaving(true);
+        setSaveError(null);
         try {
             const response = await fetch("/api/user/profile-basic", {
                 method: "PUT",
@@ -52,13 +55,13 @@ const ProfileBio = () => {
                 body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
-                const updatedProfile = await response.json();
-                setProfile(updatedProfile);
-                setIsEditing(false);
-            }
-        } catch (_error) {
-            // Error handling
+            if (!response.ok) throw new Error(`Profile update failed (${response.status}).`);
+            const updatedProfile = await response.json();
+            setProfile(updatedProfile);
+            setIsEditing(false);
+        } catch (err) {
+            handleClientError(err, { context: "ProfileBio:handleSave" });
+            setSaveError("Couldn't save your profile. Please try again.");
         } finally {
             setSaving(false);
         }
@@ -81,6 +84,12 @@ const ProfileBio = () => {
         <Section className="profile-area" space="bottom">
             <div className="tw-container">
                 {/* Header with Edit Button */}
+                {saveError && (
+                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                        {saveError}
+                    </div>
+                )}
+
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-between">
                     <h1 className="tw-text-3xl tw-font-bold tw-text-ink">Your Profile</h1>
                     <div className="tw-flex tw-space-x-3">

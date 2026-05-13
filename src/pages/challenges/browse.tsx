@@ -6,6 +6,7 @@ import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { options } from "@/pages/api/auth/options";
+import { handleClientError } from "@/utils/handle-client-error";
 
 type Difficulty = "warmup" | "easy" | "medium" | "hard";
 type Language = "javascript" | "typescript" | "python";
@@ -77,12 +78,12 @@ const BrowseChallengesPage: PageWithLayout = () => {
                     ? `/api/j0di3/challenges/topics?module=${mod}`
                     : "/api/j0di3/challenges/topics";
             const res = await fetch(url);
-            if (res.ok) {
-                const body = (await res.json()) as TopicsResponse;
-                setTopics(body.topics ?? []);
-            }
-        } catch {
-            // non-critical — topic chip area just stays empty
+            if (!res.ok) throw new Error(`Topics request failed (${res.status}).`);
+            const body = (await res.json()) as TopicsResponse;
+            setTopics(body.topics ?? []);
+        } catch (err) {
+            // Topic chip area just stays empty on failure — not user-blocking.
+            handleClientError(err, { context: "challenges/browse:fetchTopics" });
         }
     }, []);
 
@@ -174,7 +175,9 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                 value={moduleFilter}
                                 onChange={(e) => {
                                     setOffset(0);
-                                    setModuleFilter(e.target.value === "" ? "" : Number(e.target.value));
+                                    setModuleFilter(
+                                        e.target.value === "" ? "" : Number(e.target.value)
+                                    );
                                 }}
                                 className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
                             >
