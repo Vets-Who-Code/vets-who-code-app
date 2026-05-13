@@ -3,10 +3,8 @@ import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
-import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import prisma from "@/lib/prisma";
 import { options } from "@/pages/api/auth/options";
 
@@ -40,8 +38,6 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
-    const { data: session, status } = useSession();
-    const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState<string | null>(null);
@@ -96,24 +92,6 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFiles(e.target.files);
     };
-
-    useEffect(() => {
-        if (status !== "loading" && !session) {
-            const callbackUrl = encodeURIComponent(router.asPath);
-            router.replace(`/login?callbackUrl=${callbackUrl}`);
-        }
-    }, [session, status, router]);
-
-    if (status === "loading" || !session) {
-        return (
-            <div className="tw-container tw-py-16">
-                <div className="tw-text-center">
-                    <div className="tw-mx-auto tw-h-32 tw-w-32 tw-animate-spin tw-rounded-full tw-border-b-2 tw-border-primary" />
-                    <p className="tw-mt-4 tw-text-gray-300">Loading assignment...</p>
-                </div>
-            </div>
-        );
-    }
 
     if (submitted) {
         return (

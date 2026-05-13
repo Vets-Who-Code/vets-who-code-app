@@ -1,12 +1,9 @@
+import ProtectedContent from "@components/auth/protected-content";
 import Breadcrumb from "@components/breadcrumb";
 import CodeEditor from "@components/code-editor";
 import SEO from "@components/seo/page-seo";
-import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
-import Spinner from "@ui/spinner";
 import type { GetStaticProps, NextPage } from "next";
-import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import {
     type AssessmentQuestion,
@@ -27,10 +24,6 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const Assessment: PageWithLayout = () => {
-    const mounted = useMount();
-    const { data: session, status } = useSession();
-    const router = useRouter();
-
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [userCode, setUserCode] = useState("");
     const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -47,12 +40,6 @@ const Assessment: PageWithLayout = () => {
         message: string;
     } | null>(null);
 
-    useEffect(() => {
-        if (status === "unauthenticated") {
-            router.replace("/login");
-        }
-    }, [status, router]);
-
     const currentQuestion: AssessmentQuestion = assessmentQuestions[currentQuestionIndex];
 
     // Initialize code with starter code when question changes
@@ -63,22 +50,6 @@ const Assessment: PageWithLayout = () => {
             setTestResults(null);
         }
     }, [currentQuestionIndex, currentQuestion, answers]);
-
-    if (!mounted || status === "loading") {
-        return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
-                <Spinner />
-            </div>
-        );
-    }
-
-    if (!session) {
-        return (
-            <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-items-center tw-justify-center tw-bg-white">
-                <Spinner />
-            </div>
-        );
-    }
 
     const handleCodeChange = (newCode: string) => {
         setUserCode(newCode);
@@ -213,7 +184,7 @@ const Assessment: PageWithLayout = () => {
 
     if (isComplete) {
         return (
-            <>
+            <ProtectedContent>
                 <SEO title="Assessment Complete" />
                 <Breadcrumb
                     pages={[
@@ -276,31 +247,29 @@ const Assessment: PageWithLayout = () => {
                         </div>
 
                         <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-justify-center">
-                            <button
-                                type="button"
-                                onClick={() => router.push("/profile")}
-                                className="tw-rounded-lg tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90"
+                            <a
+                                href="/profile"
+                                className="tw-rounded-lg tw-bg-primary tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-primary/90 tw-inline-block"
                             >
                                 <i className="fas fa-user tw-mr-2" />
                                 Back to Profile
-                            </button>
-                            <button
-                                type="button"
-                                onClick={() => router.push("/programs/core-curriculum")}
-                                className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
+                            </a>
+                            <a
+                                href="/programs/core-curriculum"
+                                className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50 tw-inline-block"
                             >
                                 <i className="fas fa-book tw-mr-2" />
                                 View Curriculum
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-            </>
+            </ProtectedContent>
         );
     }
 
     return (
-        <>
+        <ProtectedContent>
             <SEO title="Coding Assessment" />
             <Breadcrumb
                 pages={[
@@ -510,7 +479,7 @@ const Assessment: PageWithLayout = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </ProtectedContent>
     );
 };
 
