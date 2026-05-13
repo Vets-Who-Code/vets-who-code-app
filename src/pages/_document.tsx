@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
+import { THEME_PREPAINT_SCRIPT } from "@/contexts/theme-context";
 
 export default class MyDocument extends Document {
     render() {
@@ -8,6 +9,14 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    {/* Apply theme before first paint so dark-mode users
+                        don't see a flash of light content while hydrating.
+                        Source: src/contexts/theme-context.tsx */}
+                    <script
+                        // biome-ignore lint/security/noDangerouslySetInnerHtml: Inline pre-paint script, source-controlled constant.
+                        dangerouslySetInnerHTML={{ __html: THEME_PREPAINT_SCRIPT }}
+                    />
+
                     {/* PWA Meta Tags */}
                     <meta name="mobile-web-app-capable" content="yes" />
                     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -20,9 +29,27 @@ export default class MyDocument extends Document {
                     <link rel="apple-touch-icon" href="/images/favicon.png" />
 
                     {/* Preload GothamPro fonts */}
-                    <link rel="preload" href="/fonts/gotham/GothamPro.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-                    <link rel="preload" href="/fonts/gotham/GothamPro-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-                    <link rel="preload" href="/fonts/gotham/GothamPro-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro-Bold.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro-Medium.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
 
                     <link
                         rel="stylesheet"
