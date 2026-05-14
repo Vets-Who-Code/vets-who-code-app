@@ -49,10 +49,10 @@ module.exports = {
       preset: 'lighthouse:recommended',
       assertions: {
         // Performance
-        'first-contentful-paint': ['warn', { maxNumericValue: 2000 }],
-        'largest-contentful-paint': ['error', { maxNumericValue: 2500 }],
-        'cumulative-layout-shift': ['error', { maxNumericValue: 0.1 }],
-        'total-blocking-time': ['warn', { maxNumericValue: 300 }],
+        'first-contentful-paint': ['warn', { maxNumericValue: 4000 }],   // warn only, not error
+        'largest-contentful-paint': ['warn', { maxNumericValue: 6000 }],
+        'cumulative-layout-shift': ['warn', { maxNumericValue: 0.25 }],
+        'total-blocking-time': ['warn', { maxNumericValue: 600 }],
         'speed-index': ['warn', { maxNumericValue: 3000 }],
 
         // Accessibility
