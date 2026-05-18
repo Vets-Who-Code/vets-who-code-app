@@ -4,29 +4,28 @@ import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
 import type { GetServerSideProps, NextPage } from "next";
-import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
-import { options } from "@/pages/api/auth/options";
-import prisma from "@/lib/prisma";
-import useGitHubProfile from "@/hooks/use-github-profile";
-import useLearningStats from "@/hooks/use-learning-stats";
-import useProfileForm from "@/hooks/use-profile-form";
-import type { ProfileUser, ProfileTab } from "@/types/profile";
 import {
+    ActivityFeed,
+    GitHubReadme,
+    GitHubStatsGrid,
+    LanguageBreakdown,
+    LearningProgress,
     NotificationToast,
     ProfileHeader,
     ProfileNav,
-    GitHubStatsGrid,
-    RepositoryShowcase,
-    LanguageBreakdown,
-    ActivityFeed,
-    ServiceRecord,
-    LearningProgress,
     ProfileSettings,
-    GitHubReadme,
+    RepositoryShowcase,
+    ServiceRecord,
     TroopDashboard,
 } from "@/components/profile";
+import useGitHubProfile from "@/hooks/use-github-profile";
+import useLearningStats from "@/hooks/use-learning-stats";
+import useProfileForm from "@/hooks/use-profile-form";
+import { requireAuthSSR } from "@/lib/auth-guards";
+import prisma from "@/lib/prisma";
+import type { ProfileTab, ProfileUser } from "@/types/profile";
 
 type PageProps = {
     user: ProfileUser;
@@ -101,11 +100,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                     onLogout={handleLogout}
                 />
 
-                <ProfileNav
-                    activeTab={activeTab}
-                    onTabChange={setActiveTab}
-                    isOwner={isOwner}
-                />
+                <ProfileNav activeTab={activeTab} onTabChange={setActiveTab} isOwner={isOwner} />
 
                 {/* Command Center — GitHub overview */}
                 {activeTab === "command-center" && (
@@ -118,10 +113,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                                 </p>
                             </div>
                         )}
-                        <GitHubStatsGrid
-                            github={github.data}
-                            isLoading={github.isLoading}
-                        />
+                        <GitHubStatsGrid github={github.data} isLoading={github.isLoading} />
                         <LanguageBreakdown
                             languages={github.data?.languages || []}
                             isLoading={github.isLoading}
@@ -189,19 +181,11 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
 MemberProfile.Layout = Layout01;
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
-    const session = await getServerSession(context.req, context.res, options);
-
-    if (!session?.user) {
-        return {
-            redirect: {
-                destination: "/login?callbackUrl=/profile",
-                permanent: false,
-            },
-        };
-    }
+    const auth = await requireAuthSSR(context);
+    if (!auth.ok) return auth.result;
 
     const targetId = context.params?.id as string;
-    const isOwner = session.user.id === targetId;
+    const isOwner = auth.session.user.id === targetId;
 
     // Look up the target user
     const targetUser = await prisma.user.findUnique({
