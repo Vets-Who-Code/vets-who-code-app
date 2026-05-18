@@ -78,7 +78,7 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
         <div className="tw-relative">
             <div
                 className={clsx(
-                    "tw-flex tw-items-center tw-gap-3 tw-border tw-bg-[#003559] tw-px-5 tw-py-4 tw-transition-all tw-duration-150",
+                    "tw-flex tw-items-center tw-gap-3 tw-border tw-bg-navy-deep tw-px-5 tw-py-4 tw-transition-all tw-duration-150",
                     focused
                         ? "tw-border-accent tw-shadow-[0_0_0_4px_rgba(253,179,48,0.14)]"
                         : "tw-border-cream/[0.18]"
@@ -95,9 +95,9 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
                     onKeyDown={onKey}
                     placeholder={'try "cyber", "11B", "intel", "pilot"…'}
                     aria-label="Search career guides"
-                    className="tw-flex-1 tw-bg-transparent tw-font-body tw-text-[19px] tw-text-cream tw-outline-none placeholder:tw-text-[#495057]"
+                    className="tw-flex-1 tw-bg-transparent tw-font-body tw-text-[19px] tw-text-cream tw-outline-none placeholder:tw-text-cream/60"
                 />
-                <span className="tw-flex tw-items-center tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                <span className="tw-flex tw-items-center tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-cream/70">
                     <kbd className="tw-border tw-border-cream/20 tw-bg-secondary tw-px-2 tw-py-1 tw-text-[10px] tw-text-cream">
                         {mod}K
                     </kbd>
@@ -107,7 +107,7 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
 
             {open && (
                 <div
-                    className="tw-absolute tw-left-0 tw-right-0 tw-top-full tw-z-30 tw-mt-1 tw-border tw-border-cream/[0.18] tw-bg-[#003559] tw-shadow-lg"
+                    className="tw-absolute tw-left-0 tw-right-0 tw-top-full tw-z-30 tw-mt-1 tw-border tw-border-cream/[0.18] tw-bg-navy-deep tw-shadow-lg"
                     role="listbox"
                 >
                     {matches.map((m, i) => (
@@ -124,7 +124,7 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
                             }}
                             className={clsx(
                                 "tw-flex tw-w-full tw-items-center tw-gap-4 tw-px-5 tw-py-3 tw-text-left tw-transition-colors",
-                                i === activeIdx ? "tw-bg-[#003559]" : "tw-bg-transparent"
+                                i === activeIdx ? "tw-bg-navy" : "tw-bg-transparent"
                             )}
                         >
                             <span className="tw-w-20 tw-shrink-0 tw-font-mono tw-text-[13px] tw-text-cream">
@@ -134,11 +134,11 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
                                 <span className="tw-font-body tw-text-[14px] tw-text-cream">
                                     {m.title}
                                 </span>
-                                <span className="tw-font-body tw-text-[12.5px] tw-text-[#6C757D]">
+                                <span className="tw-font-body tw-text-[12.5px] tw-text-cream/70">
                                     → {m.civilian}
                                 </span>
                             </span>
-                            <span className="tw-flex tw-shrink-0 tw-items-center tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
+                            <span className="tw-flex tw-shrink-0 tw-items-center tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-gray-100">
                                 <span
                                     aria-hidden={true}
                                     className="tw-inline-block tw-h-2 tw-w-2"
