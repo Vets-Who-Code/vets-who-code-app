@@ -104,6 +104,11 @@ const nextConfig = {
                 destination: "/blogs/blog?page=:page",
                 permanent: true,
             },
+            {
+                source: "/programs/studio",
+                destination: "/programs/software-factory",
+                permanent: true,
+            },
         ];
     },
 

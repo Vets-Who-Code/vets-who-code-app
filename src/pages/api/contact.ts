@@ -13,14 +13,19 @@ interface ParsedBody {
 }
 
 async function postToSlack(parsedBody: ParsedBody): Promise<void> {
-    const { name, email, phone, message } = parsedBody;
+    const { name, email, phone, subject, message } = parsedBody;
 
-    const text: string = [
+    const lines: string[] = [
         `Name: \`${name ?? "Sent from footer form."}\``,
         `\nEmail: \`${email ?? "Not provided."}\``,
         `\nPhone: \`${phone ?? "Not provided."}\``,
-        `\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``,
-    ].join("");
+    ];
+    if (subject) {
+        lines.push(`\nSubject: \`${subject}\``);
+    }
+    lines.push(`\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``);
+
+    const text: string = lines.join("");
 
     const payload: string = JSON.stringify({ text });
 
@@ -58,6 +63,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const classification = await classifyContact({
         name: name ?? "Unknown",
         email: email ?? "",
+        subject: parsedBody.subject ?? "",
         message: message ?? "",
     });
 

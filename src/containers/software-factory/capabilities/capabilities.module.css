@@ -1,0 +1,91 @@
+.capGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 1100px) {
+    .capGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .capGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575px) {
+    .capGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.capCard {
+    position: relative;
+    padding: 28px;
+    background: #212529;
+    border: 1px solid rgba(185, 214, 242, 0.08);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.capCard::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #c5203e;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.capCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(9, 31, 64, 0.22);
+}
+
+.capCard:hover::before {
+    transform: scaleY(1);
+}
+
+.capNum {
+    margin-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: #fdb330;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.capTitle {
+    margin: 8px 0 0;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 17px;
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.capBody {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(185, 214, 242, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .capCard,
+    .capCard::before {
+        transition: none;
+    }
+    .capCard:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,106 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: #212529;
+    border: 1px solid rgba(185, 214, 242, 0.08);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+}
+
+@media (max-width: 991px) {
+    .card {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+@media (max-width: 575px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background:
+        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 8px),
+        #091f40;
+    display: grid;
+    place-items: center;
+    color: rgba(185, 214, 242, 0.5);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    overflow: hidden;
+}
+
+.photoImg {
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.05);
+}
+
+.info {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #fdb330;
+}
+
+.name {
+    margin-top: 8px;
+    font-family: var(--font-headline);
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    line-height: 1.15;
+}
+
+.branch {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(185, 214, 242, 0.08);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.7);
+    line-height: 1.7;
+}
+
+.quote {
+    margin: 20px 0 0;
+    padding-left: 16px;
+    border-left: 2px solid #c5203e;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.body {
+    margin: 16px 0 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(185, 214, 242, 0.7);
+}

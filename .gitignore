@@ -70,3 +70,12 @@ audio-cloudinary-urls.json
 eslint-report.json
 biome-report.json
 score-output.md
+
+# Design handoff source assets (kept out of repo)
+/design_handoff_*/
+/*.zip
+
+# Per-developer AI assistant guidance — kept out of the public repo
+CLAUDE.md
+AGENTS.md
+.cursorrules
