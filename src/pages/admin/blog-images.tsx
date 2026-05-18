@@ -6,8 +6,8 @@
 
 import type { GetServerSideProps } from "next";
 import React, { useEffect, useState } from "react";
-import { requireAdminSSR } from "@/lib/auth-guards";
 import BlogImageManager from "@/components/blog-image-manager";
+import { requireAdminSSR } from "@/lib/auth-guards";
 import {
     BlogImageInfo,
     getAllBlogImages,
@@ -29,25 +29,25 @@ const BlogImagesAdminPage: React.FC = () => {
     }, []);
 
     return (
-        <div style={{ minHeight: "100vh", backgroundColor: "#f5f5f5" }}>
+        <div style={{ minHeight: "100vh", backgroundColor: "#F8F9FA" }}>
             {/* Header */}
             <div
                 style={{
                     backgroundColor: "white",
-                    borderBottom: "1px solid #e0e0e0",
+                    borderBottom: "1px solid #DEE2E6",
                     padding: "20px",
                 }}
             >
                 <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
                     <h1 style={{ margin: 0 }}>Blog Images Administration</h1>
-                    <p style={{ color: "#666", marginTop: "10px" }}>
+                    <p style={{ color: "#6C757D", marginTop: "10px" }}>
                         Manage and optimize blog images from Cloudinary
                     </p>
                 </div>
             </div>
 
             {/* Tabs */}
-            <div style={{ backgroundColor: "white", borderBottom: "1px solid #e0e0e0" }}>
+            <div style={{ backgroundColor: "white", borderBottom: "1px solid #DEE2E6" }}>
                 <div
                     style={{
                         maxWidth: "1200px",
@@ -60,10 +60,10 @@ const BlogImagesAdminPage: React.FC = () => {
                         onClick={() => setActiveTab("manager")}
                         style={{
                             padding: "15px 30px",
-                            backgroundColor: activeTab === "manager" ? "#2196f3" : "transparent",
-                            color: activeTab === "manager" ? "white" : "#666",
+                            backgroundColor: activeTab === "manager" ? "#0353A4" : "transparent",
+                            color: activeTab === "manager" ? "white" : "#6C757D",
                             border: "none",
-                            borderBottom: activeTab === "manager" ? "3px solid #2196f3" : "none",
+                            borderBottom: activeTab === "manager" ? "3px solid #0353A4" : "none",
                             cursor: "pointer",
                             fontSize: "16px",
                             fontWeight: activeTab === "manager" ? "bold" : "normal",
@@ -75,10 +75,10 @@ const BlogImagesAdminPage: React.FC = () => {
                         onClick={() => setActiveTab("stats")}
                         style={{
                             padding: "15px 30px",
-                            backgroundColor: activeTab === "stats" ? "#2196f3" : "transparent",
-                            color: activeTab === "stats" ? "white" : "#666",
+                            backgroundColor: activeTab === "stats" ? "#0353A4" : "transparent",
+                            color: activeTab === "stats" ? "white" : "#6C757D",
                             border: "none",
-                            borderBottom: activeTab === "stats" ? "3px solid #2196f3" : "none",
+                            borderBottom: activeTab === "stats" ? "3px solid #0353A4" : "none",
                             cursor: "pointer",
                             fontSize: "16px",
                             fontWeight: activeTab === "stats" ? "bold" : "normal",
@@ -90,10 +90,10 @@ const BlogImagesAdminPage: React.FC = () => {
                         onClick={() => setActiveTab("list")}
                         style={{
                             padding: "15px 30px",
-                            backgroundColor: activeTab === "list" ? "#2196f3" : "transparent",
-                            color: activeTab === "list" ? "white" : "#666",
+                            backgroundColor: activeTab === "list" ? "#0353A4" : "transparent",
+                            color: activeTab === "list" ? "white" : "#6C757D",
                             border: "none",
-                            borderBottom: activeTab === "list" ? "3px solid #2196f3" : "none",
+                            borderBottom: activeTab === "list" ? "3px solid #0353A4" : "none",
                             cursor: "pointer",
                             fontSize: "16px",
                             fontWeight: activeTab === "list" ? "bold" : "normal",
@@ -127,7 +127,7 @@ const BlogImagesAdminPage: React.FC = () => {
                             <div
                                 style={{
                                     padding: "20px",
-                                    backgroundColor: "#e3f2fd",
+                                    backgroundColor: "#EEEDE9",
                                     borderRadius: "8px",
                                     textAlign: "center",
                                 }}
@@ -136,18 +136,18 @@ const BlogImagesAdminPage: React.FC = () => {
                                     style={{
                                         margin: "0 0 10px 0",
                                         fontSize: "36px",
-                                        color: "#1976d2",
+                                        color: "#003559",
                                     }}
                                 >
                                     {stats.total}
                                 </h3>
-                                <p style={{ margin: 0, color: "#666" }}>Total Blog Images</p>
+                                <p style={{ margin: 0, color: "#6C757D" }}>Total Blog Images</p>
                             </div>
 
                             <div
                                 style={{
                                     padding: "20px",
-                                    backgroundColor: "#e8f5e9",
+                                    backgroundColor: "#EEEDE9",
                                     borderRadius: "8px",
                                     textAlign: "center",
                                 }}
@@ -156,18 +156,18 @@ const BlogImagesAdminPage: React.FC = () => {
                                     style={{
                                         margin: "0 0 10px 0",
                                         fontSize: "36px",
-                                        color: "#388e3c",
+                                        color: "#FDB330",
                                     }}
                                 >
                                     {stats.cloudinary}
                                 </h3>
-                                <p style={{ margin: 0, color: "#666" }}>Using Cloudinary</p>
+                                <p style={{ margin: 0, color: "#6C757D" }}>Using Cloudinary</p>
                             </div>
 
                             <div
                                 style={{
                                     padding: "20px",
-                                    backgroundColor: "#fff3e0",
+                                    backgroundColor: "#EEEDE9",
                                     borderRadius: "8px",
                                     textAlign: "center",
                                 }}
@@ -176,18 +176,18 @@ const BlogImagesAdminPage: React.FC = () => {
                                     style={{
                                         margin: "0 0 10px 0",
                                         fontSize: "36px",
-                                        color: "#f57c00",
+                                        color: "#FDB330",
                                     }}
                                 >
                                     {stats.local}
                                 </h3>
-                                <p style={{ margin: 0, color: "#666" }}>Local/Other</p>
+                                <p style={{ margin: 0, color: "#6C757D" }}>Local/Other</p>
                             </div>
 
                             <div
                                 style={{
                                     padding: "20px",
-                                    backgroundColor: "#f3e5f5",
+                                    backgroundColor: "#EEEDE9",
                                     borderRadius: "8px",
                                     textAlign: "center",
                                 }}
@@ -196,24 +196,24 @@ const BlogImagesAdminPage: React.FC = () => {
                                     style={{
                                         margin: "0 0 10px 0",
                                         fontSize: "36px",
-                                        color: "#7b1fa2",
+                                        color: "#091f40",
                                     }}
                                 >
                                     {stats.cloudinaryPercentage}%
                                 </h3>
-                                <p style={{ margin: 0, color: "#666" }}>Cloudinary Coverage</p>
+                                <p style={{ margin: 0, color: "#6C757D" }}>Cloudinary Coverage</p>
                             </div>
                         </div>
 
                         {nonCloudinaryImages.length > 0 && (
                             <div style={{ marginTop: "40px" }}>
-                                <h3 style={{ color: "#f57c00" }}>
+                                <h3 style={{ color: "#FDB330" }}>
                                     Blogs Not Using Cloudinary ({nonCloudinaryImages.length})
                                 </h3>
                                 <div
                                     style={{
                                         marginTop: "20px",
-                                        backgroundColor: "#fff3e0",
+                                        backgroundColor: "#EEEDE9",
                                         borderRadius: "8px",
                                         padding: "20px",
                                     }}
@@ -226,7 +226,7 @@ const BlogImagesAdminPage: React.FC = () => {
                                                 <span
                                                     style={{
                                                         fontSize: "12px",
-                                                        color: "#666",
+                                                        color: "#6C757D",
                                                         wordBreak: "break-all",
                                                     }}
                                                 >
@@ -244,7 +244,7 @@ const BlogImagesAdminPage: React.FC = () => {
                 {activeTab === "list" && (
                     <div style={{ backgroundColor: "white", borderRadius: "8px", padding: "30px" }}>
                         <h2>All Blog Images</h2>
-                        <p style={{ color: "#666" }}>
+                        <p style={{ color: "#6C757D" }}>
                             Complete list of all images used across {allImages.length} blog posts
                         </p>
 
@@ -255,9 +255,9 @@ const BlogImagesAdminPage: React.FC = () => {
                                     style={{
                                         marginBottom: "20px",
                                         padding: "20px",
-                                        backgroundColor: img.isCloudinary ? "#e8f5e9" : "#ffebee",
+                                        backgroundColor: img.isCloudinary ? "#EEEDE9" : "#EEEDE9",
                                         borderRadius: "8px",
-                                        borderLeft: `4px solid ${img.isCloudinary ? "#4caf50" : "#f44336"}`,
+                                        borderLeft: `4px solid ${img.isCloudinary ? "#FDB330" : "#c5203e"}`,
                                     }}
                                 >
                                     <div
@@ -275,7 +275,7 @@ const BlogImagesAdminPage: React.FC = () => {
                                                 style={{
                                                     margin: "0 0 10px 0",
                                                     fontSize: "14px",
-                                                    color: "#666",
+                                                    color: "#6C757D",
                                                 }}
                                             >
                                                 Slug: <code>{img.blogSlug}</code>
@@ -301,8 +301,8 @@ const BlogImagesAdminPage: React.FC = () => {
                                                 marginLeft: "20px",
                                                 padding: "5px 15px",
                                                 backgroundColor: img.isCloudinary
-                                                    ? "#4caf50"
-                                                    : "#f44336",
+                                                    ? "#FDB330"
+                                                    : "#c5203e",
                                                 color: "white",
                                                 borderRadius: "20px",
                                                 fontSize: "12px",

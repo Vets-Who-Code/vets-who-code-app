@@ -23,7 +23,6 @@ async function cleanDatabase() {
         console.log("2. Click 'Sign in with GitHub'");
         console.log("3. You'll be created as a fresh user");
         console.log("4. You'll automatically be admin (jeromehardaway)");
-
     } catch (error) {
         console.error("❌ Error cleaning database:", error);
     } finally {
@@ -35,15 +34,15 @@ async function cleanDatabase() {
 console.log("⚠️  This will delete ALL users (but keep forums and other data)");
 console.log("You'll need to login fresh with GitHub OAuth.\n");
 
-const readline = require('readline').createInterface({
+const readline = require("readline").createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
 });
 
 readline.question("Continue? (yes/no): ", (answer: string) => {
     readline.close();
 
-    if (answer.toLowerCase() === 'yes') {
+    if (answer.toLowerCase() === "yes") {
         cleanDatabase();
     } else {
         console.log("Cancelled.");

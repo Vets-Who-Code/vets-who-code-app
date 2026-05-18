@@ -57,7 +57,7 @@ const AnchorNav = ({ items }: Props) => {
                                         "tw-h-[1px] tw-transition-all tw-duration-200",
                                         isActive
                                             ? "tw-w-8 tw-bg-accent"
-                                            : "tw-w-[18px] tw-bg-cream/30 group-hover:tw-w-8 group-hover:tw-bg-accent",
+                                            : "tw-w-[18px] tw-bg-cream/30 group-hover:tw-w-8 group-hover:tw-bg-accent"
                                     )}
                                 />
                                 <span
@@ -65,7 +65,7 @@ const AnchorNav = ({ items }: Props) => {
                                         "tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-transition-opacity",
                                         isActive
                                             ? "tw-text-cream tw-opacity-100"
-                                            : "tw-text-[#8590a6] tw-opacity-0 group-hover:tw-opacity-100",
+                                            : "tw-text-[#6C757D] tw-opacity-0 group-hover:tw-opacity-100"
                                     )}
                                 >
                                     {item.label}

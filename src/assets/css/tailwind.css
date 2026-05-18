@@ -4,7 +4,8 @@
 
 @layer utilities {
     .tw-filter-brand-primary {
-        filter: invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%) contrast(95%);
+        filter: invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%)
+            contrast(95%);
     }
 }
 

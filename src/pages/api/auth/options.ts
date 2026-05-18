@@ -1,8 +1,8 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider, { GithubProfile } from "next-auth/providers/github";
-import prisma from "@/lib/prisma";
 import { ensureTroop } from "@/lib/ensure-troop";
+import prisma from "@/lib/prisma";
 
 const fetchWithTimeout = async (
     url: string,
@@ -98,7 +98,9 @@ export const options: NextAuthOptions = {
                         return true;
                     }
 
-                    console.error(`[Auth] Org membership check failed for ${githubProfile.login}: status ${res.status}`);
+                    console.error(
+                        `[Auth] Org membership check failed for ${githubProfile.login}: status ${res.status}`
+                    );
                     return false;
                 } catch (error) {
                     console.error("[Auth] Org membership check error:", error);

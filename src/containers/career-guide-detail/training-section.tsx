@@ -23,14 +23,14 @@ const TrainingSection = ({ training, certs }: Props) => (
             <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-[1fr_1.1fr_1.4fr] lg:tw-divide-x lg:tw-divide-cream/10">
                 {/* Academy */}
                 <div className="tw-flex tw-flex-col tw-gap-4 lg:tw-pr-8">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Academy
                     </span>
                     <h3 className="tw-font-heading tw-text-[26px] tw-font-medium tw-uppercase tw-leading-[1.15] tw-text-cream [letter-spacing:-0.01em]">
                         {training.program.split(",")[0]}
                     </h3>
                     {training.program.includes(",") && (
-                        <span className="tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                        <span className="tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                             {training.program.split(",").slice(1).join(",").trim()}
                         </span>
                     )}
@@ -39,7 +39,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                             <span className="tw-font-heading tw-text-[22px] tw-font-semibold tw-text-cream [letter-spacing:-0.02em]">
                                 {training.hours.toLocaleString()}h
                             </span>
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                 Hours
                             </span>
                         </div>
@@ -48,7 +48,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                                 <span className="tw-font-heading tw-text-[22px] tw-font-semibold tw-text-cream [letter-spacing:-0.02em]">
                                     {training.weeks}wk
                                 </span>
-                                <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                     Weeks
                                 </span>
                             </div>
@@ -58,14 +58,14 @@ const TrainingSection = ({ training, certs }: Props) => (
                                 <span className="tw-font-heading tw-text-[22px] tw-font-semibold tw-text-accent [letter-spacing:-0.02em]">
                                     ACE
                                 </span>
-                                <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                     Credit
                                 </span>
                             </div>
                         )}
                     </div>
                     {training.ace_credits && (
-                        <p className="tw-font-body tw-text-[13px] tw-leading-[1.55] tw-text-[#8590a6]">
+                        <p className="tw-font-body tw-text-[13px] tw-leading-[1.55] tw-text-[#6C757D]">
                             {training.ace_credits}
                         </p>
                     )}
@@ -73,7 +73,7 @@ const TrainingSection = ({ training, certs }: Props) => (
 
                 {/* Topics */}
                 <div className="tw-flex tw-flex-col tw-gap-4 tw-pt-10 lg:tw-px-8 lg:tw-pt-0">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Topics · {training.topics.length}
                     </span>
                     <ul className="tw-flex tw-flex-col">
@@ -82,7 +82,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                                 key={topic}
                                 className="tw-flex tw-items-center tw-gap-3 tw-border-b tw-border-cream/10 tw-py-3 last:tw-border-b-0"
                             >
-                                <span aria-hidden className="tw-text-accent">
+                                <span aria-hidden={true} className="tw-text-accent">
                                     ▸
                                 </span>
                                 <span className="tw-font-body tw-text-[14.5px] tw-text-cream">
@@ -97,7 +97,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                 <div className="tw-flex tw-flex-col tw-gap-6 tw-pt-10 lg:tw-pl-8 lg:tw-pt-0">
                     {certs.partial_coverage.length > 0 && (
                         <>
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                                 Partial coverage · {certs.partial_coverage.length}
                             </span>
                             <ul className="tw-flex tw-flex-col tw-gap-5">
@@ -112,7 +112,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                                             </span>
                                         </div>
                                         <CertBar fill={c.coverage} />
-                                        <p className="tw-font-body tw-text-[12.5px] tw-leading-[1.5] tw-text-[#8590a6]">
+                                        <p className="tw-font-body tw-text-[12.5px] tw-leading-[1.5] tw-text-[#6C757D]">
                                             {c.gaps}
                                         </p>
                                     </li>
@@ -123,8 +123,9 @@ const TrainingSection = ({ training, certs }: Props) => (
 
                     {certs.recommended_next.length > 0 && (
                         <div className="tw-mt-2 tw-flex tw-flex-col tw-gap-3 tw-border-t tw-border-dashed tw-border-cream/10 tw-pt-4">
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
-                                Recommended next · {String(certs.recommended_next.length).padStart(2, "0")}
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                                Recommended next ·{" "}
+                                {String(certs.recommended_next.length).padStart(2, "0")}
                             </span>
                             <ul className="tw-flex tw-flex-col tw-gap-2">
                                 {certs.recommended_next.slice(0, 6).map((c) => (
@@ -135,7 +136,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                                         <span className="tw-font-body tw-text-[14px] tw-text-cream">
                                             {c}
                                         </span>
-                                        <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                        <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                             Adjacent
                                         </span>
                                     </li>

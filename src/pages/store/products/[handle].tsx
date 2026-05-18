@@ -154,7 +154,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                     />
                 </svg>
                 {cartCount > 0 && (
-                    <span className="tw-absolute -tw-top-2 -tw-right-2 tw-bg-red-600 tw-text-white tw-rounded-full tw-w-7 tw-h-7 tw-flex tw-items-center tw-justify-center tw-text-sm tw-font-bold tw-shadow-lg">
+                    <span className="tw-absolute -tw-top-2 -tw-right-2 tw-bg-red tw-text-white tw-rounded-full tw-w-7 tw-h-7 tw-flex tw-items-center tw-justify-center tw-text-sm tw-font-bold tw-shadow-lg">
                         {cartCount}
                     </span>
                 )}
@@ -247,7 +247,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                     In Stock
                                 </span>
                             ) : (
-                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-red-100 tw-text-red-800 tw-rounded-full tw-font-medium">
+                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-cream tw-text-red-dark tw-rounded-full tw-font-medium">
                                     Out of Stock
                                 </span>
                             )}

@@ -11,14 +11,26 @@ import type {
     TrainingData,
 } from "@containers/career-guide-detail/types";
 import Layout01 from "@layout/layout-01";
+import fs from "fs";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import fs from "fs";
 import path from "path";
 
 const SEO_MOS_CODES = [
-    "11B", "25B", "35F", "68W", "31B", "42A", "92Y",
-    "88M", "91B", "3P0X1", "HM", "CTN", "0311", "2651",
+    "11B",
+    "25B",
+    "35F",
+    "68W",
+    "31B",
+    "42A",
+    "92Y",
+    "88M",
+    "91B",
+    "3P0X1",
+    "HM",
+    "CTN",
+    "0311",
+    "2651",
 ] as const;
 
 interface TechRoleSeed {
@@ -62,18 +74,18 @@ const MosPage: PageWithLayout = ({ detail }) => {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebPage",
-                            "name": pageTitle,
-                            "description": pageDescription,
-                            "url": `https://vetswhocode.io/career-guides/${detail.code.toLowerCase()}`,
-                            "isPartOf": {
+                            name: pageTitle,
+                            description: pageDescription,
+                            url: `https://vetswhocode.io/career-guides/${detail.code.toLowerCase()}`,
+                            isPartOf: {
                                 "@type": "WebSite",
-                                "name": "Military Career Guides",
-                                "url": "https://vetswhocode.io/career-guides",
+                                name: "Military Career Guides",
+                                url: "https://vetswhocode.io/career-guides",
                             },
-                            "creator": {
+                            creator: {
                                 "@type": "Organization",
-                                "name": "Vets Who Code",
-                                "url": "https://vetswhocode.io",
+                                name: "Vets Who Code",
+                                url: "https://vetswhocode.io",
                             },
                         }),
                     }}
@@ -98,25 +110,28 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const dataDir = path.join(process.cwd(), "src/data");
 
     const trainingMap = JSON.parse(
-        fs.readFileSync(path.join(dataDir, "training-pipeline.json"), "utf-8"),
+        fs.readFileSync(path.join(dataDir, "training-pipeline.json"), "utf-8")
     ) as Record<string, TrainingData>;
     const certsMap = JSON.parse(
-        fs.readFileSync(path.join(dataDir, "cert-equivalencies.json"), "utf-8"),
+        fs.readFileSync(path.join(dataDir, "cert-equivalencies.json"), "utf-8")
     ) as Record<string, CertData>;
     const systemsMap = JSON.parse(
-        fs.readFileSync(path.join(dataDir, "military-systems-map.json"), "utf-8"),
+        fs.readFileSync(path.join(dataDir, "military-systems-map.json"), "utf-8")
     ) as Record<string, SystemsData>;
     const pathwaysMap = JSON.parse(
-        fs.readFileSync(path.join(dataDir, "career-pathways-map.json"), "utf-8"),
+        fs.readFileSync(path.join(dataDir, "career-pathways-map.json"), "utf-8")
     ) as Record<string, PathwayEntry[]>;
     const cognitiveMap = JSON.parse(
-        fs.readFileSync(path.join(dataDir, "cognitive-skills-map.json"), "utf-8"),
+        fs.readFileSync(path.join(dataDir, "cognitive-skills-map.json"), "utf-8")
     ) as Record<string, CognitiveProfile>;
 
     const techPathwaysPath = path.join(dataDir, "tech-pathways-map.json");
     const techTaxonomyPath = path.join(dataDir, "tech-roles-taxonomy.json");
     const techPathwaysMap: Record<string, TechPathwayBundle> = fs.existsSync(techPathwaysPath)
-        ? (JSON.parse(fs.readFileSync(techPathwaysPath, "utf-8")) as Record<string, TechPathwayBundle>)
+        ? (JSON.parse(fs.readFileSync(techPathwaysPath, "utf-8")) as Record<
+              string,
+              TechPathwayBundle
+          >)
         : {};
     const techTaxonomy: { roles: TechRoleSeed[] } = fs.existsSync(techTaxonomyPath)
         ? (JSON.parse(fs.readFileSync(techTaxonomyPath, "utf-8")) as { roles: TechRoleSeed[] })

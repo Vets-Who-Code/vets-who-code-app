@@ -1,10 +1,10 @@
-import SEO from "@components/seo/page-seo";
 import Breadcrumb from "@components/breadcrumb";
+import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
 import { SafeLocalStorage } from "@utils/safe-storage";
-import type { GetStaticProps, NextPage } from "next";
-import { useState, useEffect, useCallback, useMemo } from "react";
 import clsx from "clsx";
+import type { GetStaticProps, NextPage } from "next";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 // --- Checklist Data ---
 
@@ -313,7 +313,8 @@ const CHECKLIST_DATA: ChecklistSection[] = [
         id: "discoverability",
         number: "6",
         title: "Discoverability & Distribution",
-        description: "Getting found. Make sure your portfolio works for you even when you\u2019re not sharing it directly.",
+        description:
+            "Getting found. Make sure your portfolio works for you even when you\u2019re not sharing it directly.",
         items: [
             {
                 id: "6-1",
@@ -366,7 +367,7 @@ const CHECKLIST_DATA: ChecklistSection[] = [
             },
             {
                 id: "7-5",
-                text: '\u201cWhat\u2019s New\u201d section or changelog \u2014 optional but strong. Shows continuous improvement.',
+                text: "\u201cWhat\u2019s New\u201d section or changelog \u2014 optional but strong. Shows continuous improvement.",
             },
         ],
     },
@@ -520,9 +521,9 @@ const PortfolioChecklist: PageProps = () => {
                         Portfolio Checklist for Software Engineers
                     </h1>
                     <p className="tw-mb-6 tw-text-lg tw-leading-relaxed tw-text-white/90 md:tw-text-xl print:tw-text-body">
-                        The portfolio is a sales site. Every element either moves a hiring
-                        manager toward &ldquo;I need to talk to this person&rdquo; or
-                        it&rsquo;s noise. Build accordingly.
+                        The portfolio is a sales site. Every element either moves a hiring manager
+                        toward &ldquo;I need to talk to this person&rdquo; or it&rsquo;s noise.
+                        Build accordingly.
                     </p>
                     <p className="tw-text-sm tw-text-white/70 print:tw-text-gray-200">
                         2026 Edition &middot; {totalItems} items across 7 sections
@@ -578,11 +579,7 @@ const PortfolioChecklist: PageProps = () => {
                     {CHECKLIST_DATA.map((section) => {
                         const { done, total } = getSectionProgress(section);
                         return (
-                            <section
-                                key={section.id}
-                                id={section.id}
-                                className="tw-scroll-mt-20"
-                            >
+                            <section key={section.id} id={section.id} className="tw-scroll-mt-20">
                                 {/* Section Header */}
                                 <div className="tw-mb-6 tw-flex tw-items-start tw-gap-4 print:tw-mb-3">
                                     <span className="tw-flex tw-h-10 tw-w-10 tw-shrink-0 tw-items-center tw-justify-center tw-rounded-full tw-bg-secondary tw-text-lg tw-font-bold tw-text-white print:tw-bg-gray-200 print:tw-text-secondary">
@@ -667,9 +664,7 @@ const PortfolioChecklist: PageProps = () => {
                                     href={`#${section.id}`}
                                     className={clsx(
                                         "tw-flex tw-items-center tw-gap-2 tw-rounded-md tw-px-2 tw-py-1 tw-text-sm tw-transition-colors hover:tw-bg-gray-50",
-                                        complete
-                                            ? "tw-text-navy-ocean"
-                                            : "tw-text-gray-300"
+                                        complete ? "tw-text-navy-ocean" : "tw-text-gray-300"
                                     )}
                                 >
                                     <i

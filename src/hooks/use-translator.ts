@@ -99,7 +99,9 @@ export default function useTranslator(): UseTranslatorReturn {
                 jobTitle: profile.jobTitle,
                 targetJobTitle: profile.targetJobTitle,
             }),
-        }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+        })
+            .then((r) => (r.ok ? r.json() : null))
+            .catch(() => null);
 
         Promise.all([translatePromise, careerPromise])
             .then(async ([translateRes, careerData]) => {

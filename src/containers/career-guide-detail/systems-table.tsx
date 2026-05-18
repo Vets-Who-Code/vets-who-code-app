@@ -37,13 +37,13 @@ const SystemsTable = ({ systems }: Props) => {
                     <table className="tw-w-full">
                         <thead>
                             <tr className="tw-bg-secondary">
-                                <th className="tw-w-[35%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                                <th className="tw-w-[35%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                                     Military System
                                 </th>
-                                <th className="tw-w-[50%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                                <th className="tw-w-[50%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                                     Civilian Equivalent
                                 </th>
-                                <th className="tw-px-4 tw-py-4 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                                <th className="tw-px-4 tw-py-4 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                                     Domain
                                 </th>
                             </tr>
@@ -52,12 +52,12 @@ const SystemsTable = ({ systems }: Props) => {
                             {systems.systems.map((sys) => (
                                 <tr
                                     key={sys.military}
-                                    className="tw-border-t tw-border-cream/10 tw-transition-colors hover:tw-bg-[#0c2549]"
+                                    className="tw-border-t tw-border-cream/10 tw-transition-colors hover:tw-bg-[#003559]"
                                 >
                                     <td className="tw-px-4 tw-py-4 tw-font-mono tw-text-[13.5px] tw-text-cream">
                                         {sys.military}
                                     </td>
-                                    <td className="tw-px-4 tw-py-4 tw-font-body tw-text-[15px] tw-text-[#c4cad6]">
+                                    <td className="tw-px-4 tw-py-4 tw-font-body tw-text-[15px] tw-text-[#DEE2E6]">
                                         {sys.civilian}
                                     </td>
                                     <td className="tw-px-4 tw-py-4 tw-text-right tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-accent">

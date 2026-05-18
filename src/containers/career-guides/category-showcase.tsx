@@ -48,7 +48,7 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
             <div className="tw-container">
                 <div className="tw-mb-10 tw-flex tw-items-center tw-gap-3">
                     <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Pathways that ship in civilian roles
                     </span>
                 </div>
@@ -63,23 +63,27 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
                                 onClick={() => onPick(family)}
                                 className={clsx(
                                     "tw-group tw-flex tw-flex-col tw-gap-5 tw-px-6 tw-py-8 tw-text-left tw-transition-colors tw-duration-150",
-                                    "hover:tw-bg-[#0c2549]",
+                                    "hover:tw-bg-[#003559]",
                                     idx > 0 && "lg:tw-border-l lg:tw-border-cream/10",
-                                    idx > 0 && idx < FEATURED_FAMILIES.length && "sm:tw-border-l sm:tw-border-cream/10",
+                                    idx > 0 &&
+                                        idx < FEATURED_FAMILIES.length &&
+                                        "sm:tw-border-l sm:tw-border-cream/10"
                                 )}
                             >
-                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#5a6478] group-hover:tw-text-accent">
+                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#495057] group-hover:tw-text-accent">
                                     {number}
                                 </span>
                                 <span className="tw-font-heading tw-text-[22px] tw-font-medium tw-uppercase tw-text-cream [letter-spacing:-0.01em]">
                                     {family}
                                 </span>
-                                <span className="tw-font-body tw-text-[14px] tw-leading-[1.55] tw-text-[#c4cad6]">
+                                <span className="tw-font-body tw-text-[14px] tw-leading-[1.55] tw-text-[#DEE2E6]">
                                     {blurb}
                                 </span>
-                                <span className="tw-mt-auto tw-flex tw-flex-col tw-gap-1 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#8590a6]">
+                                <span className="tw-mt-auto tw-flex tw-flex-col tw-gap-1 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
                                     <span>
-                                        <span className="tw-text-cream">{rows.length.toLocaleString()}</span>{" "}
+                                        <span className="tw-text-cream">
+                                            {rows.length.toLocaleString()}
+                                        </span>{" "}
                                         guides
                                     </span>
                                     <span>{medianSalary(rows)}</span>

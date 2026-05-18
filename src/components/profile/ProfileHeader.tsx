@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { motion } from "framer-motion";
-import type { ProfileUser, ProfileFormData, GitHubData } from "@/types/profile";
+import Image from "next/image";
+import type { GitHubData, ProfileFormData, ProfileUser } from "@/types/profile";
 
 interface ProfileHeaderProps {
     user: ProfileUser;
@@ -53,12 +53,15 @@ const ProfileHeader = ({
                             alt={user.name || "User"}
                             width={112}
                             height={112}
-                            priority
+                            priority={true}
                             className="tw-rounded-full tw-border-4 tw-border-gold/40 tw-shadow-lg tw-shadow-gold/10"
                             style={{ width: 112, height: 112, objectFit: "cover" }}
                         />
                     ) : (
-                        <div className="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-white/10 tw-text-3xl tw-border-4 tw-border-gold/40" style={{ width: 112, height: 112 }}>
+                        <div
+                            className="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-white/10 tw-text-3xl tw-border-4 tw-border-gold/40"
+                            style={{ width: 112, height: 112 }}
+                        >
                             <i className="fas fa-user" />
                         </div>
                     )}

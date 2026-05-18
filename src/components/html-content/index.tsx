@@ -56,7 +56,14 @@ const HTMLContent = ({ body, className }: TProps) => {
                     !Array.isArray(content) &&
                     content.src
                 ) {
-                    return <img key={id} alt={content?.alt || "Image"} src={content.src} className="tw-w-full tw-rounded-lg" />;
+                    return (
+                        <img
+                            key={id}
+                            alt={content?.alt || "Image"}
+                            src={content.src}
+                            className="tw-w-full tw-rounded-lg"
+                        />
+                    );
                 }
                 if (
                     type === "iframe" &&

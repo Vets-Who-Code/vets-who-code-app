@@ -252,7 +252,7 @@ export const UserManagement = () => {
                                         className={`tw-inline-flex tw-rounded-full tw-px-2 tw-text-xs tw-font-semibold ${
                                             user.status === "Active"
                                                 ? "tw-bg-gold-light/30 tw-text-gold-deep"
-                                                : "tw-bg-red-100 tw-text-red-800"
+                                                : "tw-bg-cream tw-text-red-dark"
                                         }`}
                                     >
                                         {user.status}
@@ -273,7 +273,7 @@ export const UserManagement = () => {
                                     </button>
                                     <button
                                         type="button"
-                                        className="tw-text-red-600 hover:tw-text-red-900"
+                                        className="tw-text-red-dark hover:tw-text-red-maroon"
                                     >
                                         Remove
                                     </button>

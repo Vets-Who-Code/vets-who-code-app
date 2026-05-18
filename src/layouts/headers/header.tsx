@@ -7,9 +7,9 @@ import BurgerButton from "@ui/burger-button";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
 import clsx from "clsx";
-import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import { useEffect, useMemo, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
@@ -91,10 +91,23 @@ const Header = ({ shadow, fluid }: TProps) => {
                             <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
                                 <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
                                     <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
-                                        <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75" style={{ animation: "statusBlink 2s ease-in-out infinite" }} />
+                                        <span
+                                            className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75"
+                                            style={{
+                                                animation: "statusBlink 2s ease-in-out infinite",
+                                            }}
+                                        />
                                         <span className="tw-relative tw-inline-flex tw-h-[5px] tw-w-[5px] tw-rounded-full tw-bg-red" />
                                     </span>
-                                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(9, 31, 64, 0.5)" }}>
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-mono)",
+                                            fontSize: "10px",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "0.06em",
+                                            color: "rgba(9, 31, 64, 0.5)",
+                                        }}
+                                    >
                                         2026 Cohort Active
                                     </span>
                                 </div>
@@ -111,7 +124,11 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div className="tw-h-20" />
                 </div>
             </header>
-            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={filteredMenu} />
+            <MobileMenu
+                isOpen={offcanvas}
+                onClose={() => setOffcanvas(false)}
+                menu={filteredMenu}
+            />
         </>
     );
 };

@@ -64,22 +64,22 @@
     /* Brand Colors */
     --navy: #091f40;
     --navy-deep: #003559;
-    --navy-royal: #0353A4;
-    --navy-ocean: #006DAA;
-    --navy-sky: #B9D6F2;
+    --navy-royal: #0353a4;
+    --navy-ocean: #006daa;
+    --navy-sky: #b9d6f2;
     --red: #c5203e;
-    --red-crimson: #A51C30;
-    --red-dark: #74121D;
-    --gold: #FDB330;
-    --gold-light: #FFE169;
-    --cream: #EEEDE9;
-    --ink: #1A1823;
+    --red-crimson: #a51c30;
+    --red-dark: #74121d;
+    --gold: #fdb330;
+    --gold-light: #ffe169;
+    --cream: #eeede9;
+    --ink: #1a1823;
     --white: #ffffff;
 
     /* Semantic Aliases */
     --bg-dark: var(--navy);
     --fg-light: var(--white);
-    --muted: #6C757D;
+    --muted: #6c757d;
     --muted-on-dark: rgba(185, 214, 242, 0.7);
     --border-subtle: rgba(185, 214, 242, 0.08);
     --accent: var(--red);
@@ -136,8 +136,13 @@
 }
 
 @keyframes statusBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
 }
 
 @keyframes fadeUp {
@@ -158,13 +163,27 @@
     animation: fadeUp 0.5s ease-out forwards;
     opacity: 0;
 }
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
-.delay-5 { animation-delay: 0.5s; }
-.delay-6 { animation-delay: 0.6s; }
-.delay-7 { animation-delay: 0.7s; }
+.delay-1 {
+    animation-delay: 0.1s;
+}
+.delay-2 {
+    animation-delay: 0.2s;
+}
+.delay-3 {
+    animation-delay: 0.3s;
+}
+.delay-4 {
+    animation-delay: 0.4s;
+}
+.delay-5 {
+    animation-delay: 0.5s;
+}
+.delay-6 {
+    animation-delay: 0.6s;
+}
+.delay-7 {
+    animation-delay: 0.7s;
+}
 
 /* =============================================
    NAVIGATION UPGRADE — Premium styling
@@ -377,7 +396,7 @@ body {
 
 /* Improved focus states for accessibility */
 *:focus-visible {
-    outline: 3px solid #FDB330;
+    outline: 3px solid #fdb330;
     outline-offset: 2px;
     border-radius: 4px;
 }
@@ -400,7 +419,9 @@ html {
    ============================================= */
 
 /* Headlines — bold, geometric, authoritative */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-headline);
     font-weight: 800;
     text-transform: uppercase;
@@ -410,9 +431,15 @@ h1, h2, h3 {
 }
 
 /* White headlines on dark backgrounds */
-.tw-bg-navy h1, .tw-bg-navy h2, .tw-bg-navy h3,
-.tw-bg-secondary h1, .tw-bg-secondary h2, .tw-bg-secondary h3,
-.dark-section h1, .dark-section h2, .dark-section h3 {
+.tw-bg-navy h1,
+.tw-bg-navy h2,
+.tw-bg-navy h3,
+.tw-bg-secondary h1,
+.tw-bg-secondary h2,
+.tw-bg-secondary h3,
+.dark-section h1,
+.dark-section h2,
+.dark-section h3 {
     color: var(--white);
 }
 

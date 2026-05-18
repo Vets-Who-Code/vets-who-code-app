@@ -308,7 +308,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                                                         )}
                                                     </div>
                                                     {job.category && (
-                                                        <span className="tw-inline-block tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800">
+                                                        <span className="tw-inline-block tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-navy-deep">
                                                             {job.category}
                                                         </span>
                                                     )}
@@ -348,7 +348,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                         )}
 
                         {/* Help Section */}
-                        <div className="tw-mt-12 tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-6">
+                        <div className="tw-mt-12 tw-rounded-lg tw-border-2 tw-border-navy-sky tw-bg-navy-sky/20 tw-p-6">
                             <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-ink">
                                 <i className="fas fa-info-circle tw-mr-2 tw-text-navy-royal" />
                                 Need Help with Your Job Search?

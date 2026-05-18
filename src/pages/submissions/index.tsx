@@ -73,9 +73,9 @@ const SubmissionsPage: PageWithLayout = () => {
 
     const getStatusBadge = (status: string) => {
         const styles = {
-            SUBMITTED: "tw-bg-blue-100 tw-text-blue-800",
-            GRADED: "tw-bg-green-100 tw-text-green-800",
-            RETURNED: "tw-bg-yellow-100 tw-text-yellow-800",
+            SUBMITTED: "tw-bg-navy-sky tw-text-navy-deep",
+            GRADED: "tw-bg-gold-light tw-text-gold-deep",
+            RETURNED: "tw-bg-gold-light tw-text-gold-rich",
         };
         return (
             <span
@@ -139,9 +139,9 @@ const SubmissionsPage: PageWithLayout = () => {
                 </div>
 
                 {error && (
-                    <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4 tw-text-red-800">
+                    <div className="tw-mb-6 tw-rounded-md tw-bg-cream tw-p-4 tw-text-red-dark">
                         <div className="tw-flex">
-                            <i className="fas fa-exclamation-circle tw-mr-2 tw-text-red-400" />
+                            <i className="fas fa-exclamation-circle tw-mr-2 tw-text-red" />
                             <span>{error}</span>
                         </div>
                     </div>
@@ -302,7 +302,7 @@ const SubmissionsPage: PageWithLayout = () => {
                                 )}
 
                                 {submission.feedback && (
-                                    <div className="tw-rounded-md tw-border-l-4 tw-border-primary tw-bg-blue-50 tw-p-4">
+                                    <div className="tw-rounded-md tw-border-l-4 tw-border-primary tw-bg-navy-sky/20 tw-p-4">
                                         <p className="tw-mb-2 tw-flex tw-items-center tw-text-xs tw-font-medium tw-text-primary">
                                             <i className="fas fa-comment-alt tw-mr-2" />
                                             Instructor Feedback
@@ -314,7 +314,7 @@ const SubmissionsPage: PageWithLayout = () => {
                                                 </span>
                                             )}
                                         </p>
-                                        <p className="tw-text-sm tw-text-blue-900">
+                                        <p className="tw-text-sm tw-text-navy-deep">
                                             {submission.feedback}
                                         </p>
                                     </div>

@@ -1,13 +1,13 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
-import { runChallenge } from "@/lib/challenge-runner";
-import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
+import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
+import { runChallenge } from "@/lib/challenge-runner";
 import { options } from "@/pages/api/auth/options";
 
 interface SubmissionResponse {
@@ -131,7 +131,10 @@ const ChallengeDetailPage: PageWithLayout = () => {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/hint`);
             if (res.ok) {
                 const body = await res.json();
-                setHints((prev) => [...prev, body.hint || body.message || "No more hints available."]);
+                setHints((prev) => [
+                    ...prev,
+                    body.hint || body.message || "No more hints available.",
+                ]);
             }
         } catch {
             // non-critical
@@ -157,13 +160,13 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const difficultyColor = (d: string) => {
         switch (d.toLowerCase()) {
             case "warmup":
-                return "tw-bg-emerald-100 tw-text-emerald-800";
+                return "tw-bg-gold-light tw-text-gold-deep";
             case "easy":
-                return "tw-bg-green-100 tw-text-green-800";
+                return "tw-bg-gold-light tw-text-gold-deep";
             case "medium":
-                return "tw-bg-yellow-100 tw-text-yellow-800";
+                return "tw-bg-gold-light tw-text-gold-rich";
             case "hard":
-                return "tw-bg-red-100 tw-text-red-800";
+                return "tw-bg-cream tw-text-red-dark";
             default:
                 return "tw-bg-gray-100 tw-text-gray-800";
         }
@@ -193,8 +196,8 @@ const ChallengeDetailPage: PageWithLayout = () => {
                 )}
 
                 {loadError && !isLoading && (
-                    <div className="tw-rounded-lg tw-border tw-border-red-200 tw-bg-red-50 tw-p-6 tw-text-center">
-                        <p className="tw-text-red-700 tw-mb-3">{loadError}</p>
+                    <div className="tw-rounded-lg tw-border tw-border-red tw-bg-cream tw-p-6 tw-text-center">
+                        <p className="tw-text-red-dark tw-mb-3">{loadError}</p>
                         <Link
                             href="/challenges"
                             className="tw-text-sm tw-text-primary hover:tw-underline"
@@ -212,7 +215,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                     {challenge.title}
                                 </h1>
                                 <div className="tw-flex tw-gap-2 tw-mt-2">
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800">
+                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-navy-deep">
                                         {challenge.topic}
                                     </span>
                                     <span
@@ -253,7 +256,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                         </div>
 
                         {error && (
-                            <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                            <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                                 {error}
                             </div>
                         )}
@@ -262,7 +265,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
                             <button
                                 type="button"
                                 onClick={handleRun}
-                                disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                disabled={
+                                    isRunning || isSubmitting || !code.trim() || !hasTestCases
+                                }
                                 className="tw-rounded-md tw-border tw-border-primary tw-px-6 tw-py-2 tw-font-medium tw-text-primary tw-transition-colors hover:tw-bg-primary/5 disabled:tw-opacity-50"
                             >
                                 {isRunning
@@ -272,7 +277,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
                             <button
                                 type="button"
                                 onClick={handleSubmit}
-                                disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                disabled={
+                                    isRunning || isSubmitting || !code.trim() || !hasTestCases
+                                }
                                 className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
                             >
                                 {isSubmitting ? "Submitting..." : "Submit Solution"}
@@ -289,7 +296,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                 <button
                                     type="button"
                                     onClick={handleShowSolution}
-                                    className="tw-rounded-md tw-border tw-border-red-300 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-red-600 hover:tw-bg-red-50"
+                                    className="tw-rounded-md tw-border tw-border-red tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-red-dark hover:tw-bg-cream"
                                 >
                                     Reveal Solution
                                 </button>
@@ -301,23 +308,25 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                 {hints.map((hint, i) => (
                                     <div
                                         key={i}
-                                        className="tw-rounded-md tw-bg-blue-50 tw-border tw-border-blue-200 tw-p-3"
+                                        className="tw-rounded-md tw-bg-navy-sky/20 tw-border tw-border-navy-sky tw-p-3"
                                     >
-                                        <span className="tw-text-xs tw-font-semibold tw-text-blue-600 tw-uppercase">
+                                        <span className="tw-text-xs tw-font-semibold tw-text-navy-ocean tw-uppercase">
                                             Hint {i + 1}
                                         </span>
-                                        <p className="tw-text-sm tw-text-blue-800 tw-mt-1">{hint}</p>
+                                        <p className="tw-text-sm tw-text-navy-deep tw-mt-1">
+                                            {hint}
+                                        </p>
                                     </div>
                                 ))}
                             </div>
                         )}
 
                         {showSolution && solutionText && (
-                            <div className="tw-mb-4 tw-rounded-md tw-bg-amber-50 tw-border tw-border-amber-200 tw-p-4">
-                                <span className="tw-text-xs tw-font-semibold tw-text-amber-600 tw-uppercase">
+                            <div className="tw-mb-4 tw-rounded-md tw-bg-gold-light tw-border tw-border-gold tw-p-4">
+                                <span className="tw-text-xs tw-font-semibold tw-text-gold-rich tw-uppercase">
                                     Solution
                                 </span>
-                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-amber-900 tw-whitespace-pre-wrap">
+                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-gold-deep tw-whitespace-pre-wrap">
                                     {solutionText}
                                 </pre>
                             </div>
@@ -325,48 +334,51 @@ const ChallengeDetailPage: PageWithLayout = () => {
 
                         {localResults && <TestResultsPanel results={localResults} />}
 
-                        {serverResult && (() => {
-                            const passed =
-                                typeof serverResult.passed === "boolean"
-                                    ? serverResult.passed
-                                    : (localResults?.all_passed ?? false);
-                            return (
-                                <div
-                                    className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
-                                        passed
-                                            ? "tw-bg-green-50 tw-border-green-200"
-                                            : "tw-bg-red-50 tw-border-red-200"
-                                    }`}
-                                >
-                                    <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
-                                        <i
-                                            className={`fas ${
-                                                passed
-                                                    ? "fa-check-circle tw-text-green-600"
-                                                    : "fa-times-circle tw-text-red-600"
-                                            }`}
-                                        />
-                                        <span
-                                            className={`tw-font-semibold ${
-                                                passed ? "tw-text-green-800" : "tw-text-red-800"
-                                            }`}
-                                        >
-                                            {passed ? "Challenge Passed!" : "Not quite right"}
-                                        </span>
-                                        {serverResult.score !== undefined && (
-                                            <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
-                                                Score: {serverResult.score}/100
+                        {serverResult &&
+                            (() => {
+                                const passed =
+                                    typeof serverResult.passed === "boolean"
+                                        ? serverResult.passed
+                                        : (localResults?.all_passed ?? false);
+                                return (
+                                    <div
+                                        className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
+                                            passed
+                                                ? "tw-bg-gold-light tw-border-gold"
+                                                : "tw-bg-cream tw-border-red"
+                                        }`}
+                                    >
+                                        <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
+                                            <i
+                                                className={`fas ${
+                                                    passed
+                                                        ? "fa-check-circle tw-text-gold-deep"
+                                                        : "fa-times-circle tw-text-red-dark"
+                                                }`}
+                                            />
+                                            <span
+                                                className={`tw-font-semibold ${
+                                                    passed
+                                                        ? "tw-text-gold-deep"
+                                                        : "tw-text-red-dark"
+                                                }`}
+                                            >
+                                                {passed ? "Challenge Passed!" : "Not quite right"}
                                             </span>
+                                            {serverResult.score !== undefined && (
+                                                <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
+                                                    Score: {serverResult.score}/100
+                                                </span>
+                                            )}
+                                        </div>
+                                        {serverResult.feedback && (
+                                            <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
+                                                {serverResult.feedback}
+                                            </p>
                                         )}
                                     </div>
-                                    {serverResult.feedback && (
-                                        <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
-                                            {serverResult.feedback}
-                                        </p>
-                                    )}
-                                </div>
-                            );
-                        })()}
+                                );
+                            })()}
                     </div>
                 )}
             </div>
@@ -378,8 +390,8 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
     const passedCount = results.test_results.filter((r) => r.passed).length;
     const total = results.test_results.length;
     const headerClass = results.all_passed
-        ? "tw-bg-green-50 tw-border-green-200"
-        : "tw-bg-red-50 tw-border-red-200";
+        ? "tw-bg-gold-light tw-border-gold"
+        : "tw-bg-cream tw-border-red";
 
     return (
         <div className={`tw-rounded-md tw-p-4 tw-border ${headerClass}`}>
@@ -387,13 +399,13 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
                 <i
                     className={`fas ${
                         results.all_passed
-                            ? "fa-check-circle tw-text-green-600"
-                            : "fa-times-circle tw-text-red-600"
+                            ? "fa-check-circle tw-text-gold-deep"
+                            : "fa-times-circle tw-text-red-dark"
                     }`}
                 />
                 <span
                     className={`tw-font-semibold ${
-                        results.all_passed ? "tw-text-green-800" : "tw-text-red-800"
+                        results.all_passed ? "tw-text-gold-deep" : "tw-text-red-dark"
                     }`}
                 >
                     {passedCount} / {total} tests passing
@@ -414,17 +426,13 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
 }
 
 function TestResultRow({ result }: { result: ClientTestResult }) {
-    const rowClass = result.passed
-        ? "tw-border-green-200 tw-bg-white"
-        : "tw-border-red-200 tw-bg-white";
+    const rowClass = result.passed ? "tw-border-gold tw-bg-white" : "tw-border-red tw-bg-white";
     return (
         <li className={`tw-rounded-md tw-border tw-p-3 tw-text-sm ${rowClass}`}>
             <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
                 <i
                     className={`fas ${
-                        result.passed
-                            ? "fa-check tw-text-green-600"
-                            : "fa-times tw-text-red-600"
+                        result.passed ? "fa-check tw-text-gold-deep" : "fa-times tw-text-red-dark"
                     }`}
                 />
                 <span className="tw-font-semibold tw-text-ink">
@@ -445,7 +453,7 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
                         <span className="tw-text-ink/50">Expected:</span> {result.expected_output}
                     </div>
                     {!result.passed && (
-                        <div className="tw-text-red-700">
+                        <div className="tw-text-red-dark">
                             <span className="tw-text-ink/50">Got:</span>{" "}
                             {result.actual_output ?? "(no output)"}
                         </div>
@@ -453,12 +461,12 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
                 </div>
             )}
             {result.hidden && !result.passed && (
-                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                <div className="tw-mt-1 tw-text-xs tw-text-red-dark">
                     Hidden test failed — adjust your solution and try again.
                 </div>
             )}
             {result.error && (
-                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                <div className="tw-mt-1 tw-text-xs tw-text-red-dark">
                     <span className="tw-text-ink/50">Error:</span> {result.error}
                 </div>
             )}

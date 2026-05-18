@@ -1,6 +1,6 @@
+import type { Branch, Demand, Family, GuideEntry, Rank } from "@containers/career-guides/types";
 import fs from "fs";
 import path from "path";
-import type { Branch, Demand, Family, GuideEntry, Rank } from "@containers/career-guides/types";
 
 type TrainingEntry = {
     branch: string;

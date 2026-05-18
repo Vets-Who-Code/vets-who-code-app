@@ -352,7 +352,7 @@ const JUNK_PATTERNS = [
     /^and\s/i,
     /^or\s/i,
     /^the\s+(soldier|marine|sailor|airman|coast guardsman)/i,
-    /^[A-Z]-\s/,            // "A- Military Working Dog handler" shredout codes
+    /^[A-Z]-\s/, // "A- Military Working Dog handler" shredout codes
     /^[A-Z0-9]{1,4}\s*-\s/, // "B- Combat Arms" shredout codes
 ];
 
@@ -383,7 +383,10 @@ function splitIntoDuties(text: string): string[] {
 
     for (const line of lines) {
         // Split on semicolons (common in MOS descriptions)
-        const segments = line.split(";").map((s) => s.trim()).filter(Boolean);
+        const segments = line
+            .split(";")
+            .map((s) => s.trim())
+            .filter(Boolean);
         for (const seg of segments) {
             // If still very long, split on sentence boundaries
             if (seg.length > 200) {
@@ -436,21 +439,79 @@ function toBullet(text: string): string {
     // Check if it already starts with an action verb
     const lower = result.toLowerCase();
     const KNOWN_ACTION_VERBS = [
-        "accomplished", "achieved", "administered", "analyzed", "assigned",
-        "built", "calculated", "chaired", "coached", "collaborated",
-        "communicated", "compiled", "completed", "coordinated", "created",
-        "delivered", "designed", "developed", "directed", "documented",
-        "enforced", "engineered", "ensured", "established", "evaluated",
-        "executed", "facilitated", "generated", "guided", "identified",
-        "implemented", "improved", "inspected", "installed", "instructed",
-        "investigated", "launched", "led", "maintained", "managed",
-        "mentored", "monitored", "negotiated", "operated", "optimized",
-        "organized", "oversaw", "performed", "planned", "prepared",
-        "presented", "processed", "produced", "programmed", "provided",
-        "recommended", "reduced", "reorganized", "reported", "reviewed",
-        "scheduled", "secured", "spearheaded", "standardized", "streamlined",
-        "strengthened", "supervised", "supported", "trained", "translated",
-        "upgraded", "validated", "verified",
+        "accomplished",
+        "achieved",
+        "administered",
+        "analyzed",
+        "assigned",
+        "built",
+        "calculated",
+        "chaired",
+        "coached",
+        "collaborated",
+        "communicated",
+        "compiled",
+        "completed",
+        "coordinated",
+        "created",
+        "delivered",
+        "designed",
+        "developed",
+        "directed",
+        "documented",
+        "enforced",
+        "engineered",
+        "ensured",
+        "established",
+        "evaluated",
+        "executed",
+        "facilitated",
+        "generated",
+        "guided",
+        "identified",
+        "implemented",
+        "improved",
+        "inspected",
+        "installed",
+        "instructed",
+        "investigated",
+        "launched",
+        "led",
+        "maintained",
+        "managed",
+        "mentored",
+        "monitored",
+        "negotiated",
+        "operated",
+        "optimized",
+        "organized",
+        "oversaw",
+        "performed",
+        "planned",
+        "prepared",
+        "presented",
+        "processed",
+        "produced",
+        "programmed",
+        "provided",
+        "recommended",
+        "reduced",
+        "reorganized",
+        "reported",
+        "reviewed",
+        "scheduled",
+        "secured",
+        "spearheaded",
+        "standardized",
+        "streamlined",
+        "strengthened",
+        "supervised",
+        "supported",
+        "trained",
+        "translated",
+        "upgraded",
+        "validated",
+        "verified",
     ];
     const alreadyHasVerb = KNOWN_ACTION_VERBS.some((v) => lower.startsWith(v));
 
@@ -494,9 +555,10 @@ export function fallbackTranslation(profile: MilitaryProfile): TranslatedProfile
     const rank = profile.rank || "";
     const branch = profile.branch ? profile.branch.replace(/^U\.S\.\s*/i, "") : "";
     const years = profile.yearsOfService;
-    const clearance = profile.securityClearance && profile.securityClearance !== "None"
-        ? profile.securityClearance
-        : null;
+    const clearance =
+        profile.securityClearance && profile.securityClearance !== "None"
+            ? profile.securityClearance
+            : null;
 
     const yearsPrefix = years ? `${years}+ years of` : "";
     const clearanceSuffix = clearance ? `. Holds an active ${clearance} security clearance` : "";
@@ -534,9 +596,7 @@ export function fallbackTranslation(profile: MilitaryProfile): TranslatedProfile
     }
 
     // Achievements
-    const rawAchievements = profile.achievements
-        ? splitIntoDuties(profile.achievements)
-        : [];
+    const rawAchievements = profile.achievements ? splitIntoDuties(profile.achievements) : [];
     const translatedAchievements = rawAchievements
         .filter((a) => !isJunk(a))
         .map((a) => toBullet(a))
@@ -571,18 +631,77 @@ export async function translateDuties(duties: string[]): Promise<TranslationResu
  * Harvard-recommended action verbs by category
  */
 const ACTION_VERBS_CHECK = [
-    "accomplished", "achieved", "administered", "analyzed", "assigned", "attained",
-    "built", "chaired", "coached", "collaborated", "communicated", "compiled",
-    "completed", "consolidated", "coordinated", "created", "delegated", "delivered",
-    "designed", "developed", "directed", "documented", "drafted", "enforced",
-    "engineered", "established", "evaluated", "executed", "facilitated", "generated",
-    "guided", "headed", "identified", "implemented", "improved", "inspected",
-    "installed", "instructed", "investigated", "launched", "led", "maintained",
-    "managed", "mentored", "monitored", "operated", "optimized", "organized",
-    "oversaw", "performed", "planned", "presented", "processed", "produced",
-    "programmed", "recommended", "reduced", "reorganized", "reviewed", "scheduled",
-    "secured", "spearheaded", "standardized", "streamlined", "strengthened",
-    "supervised", "supported", "trained", "translated", "upgraded", "validated",
+    "accomplished",
+    "achieved",
+    "administered",
+    "analyzed",
+    "assigned",
+    "attained",
+    "built",
+    "chaired",
+    "coached",
+    "collaborated",
+    "communicated",
+    "compiled",
+    "completed",
+    "consolidated",
+    "coordinated",
+    "created",
+    "delegated",
+    "delivered",
+    "designed",
+    "developed",
+    "directed",
+    "documented",
+    "drafted",
+    "enforced",
+    "engineered",
+    "established",
+    "evaluated",
+    "executed",
+    "facilitated",
+    "generated",
+    "guided",
+    "headed",
+    "identified",
+    "implemented",
+    "improved",
+    "inspected",
+    "installed",
+    "instructed",
+    "investigated",
+    "launched",
+    "led",
+    "maintained",
+    "managed",
+    "mentored",
+    "monitored",
+    "operated",
+    "optimized",
+    "organized",
+    "oversaw",
+    "performed",
+    "planned",
+    "presented",
+    "processed",
+    "produced",
+    "programmed",
+    "recommended",
+    "reduced",
+    "reorganized",
+    "reviewed",
+    "scheduled",
+    "secured",
+    "spearheaded",
+    "standardized",
+    "streamlined",
+    "strengthened",
+    "supervised",
+    "supported",
+    "trained",
+    "translated",
+    "upgraded",
+    "validated",
     "verified",
 ];
 
@@ -595,22 +714,32 @@ export function getSuggestions(translatedDuty: string): string[] {
 
     // Personal pronouns
     if (/\b(i|me|my|we|our)\b/i.test(translatedDuty)) {
-        suggestions.push("Remove personal pronouns (I, me, my, we, our) — use phrases, not sentences");
+        suggestions.push(
+            "Remove personal pronouns (I, me, my, we, our) — use phrases, not sentences"
+        );
     }
 
     // Action verb check
     const startsWithActionVerb = ACTION_VERBS_CHECK.some((verb) => lower.startsWith(verb));
     if (!startsWithActionVerb) {
-        suggestions.push("Start with a strong action verb (e.g., Led, Managed, Developed, Coordinated)");
+        suggestions.push(
+            "Start with a strong action verb (e.g., Led, Managed, Developed, Coordinated)"
+        );
     }
 
     // Quantification
     if (!/\d+/.test(translatedDuty)) {
-        suggestions.push("Quantify your impact — add numbers, percentages, dollar amounts, or team sizes");
+        suggestions.push(
+            "Quantify your impact — add numbers, percentages, dollar amounts, or team sizes"
+        );
     }
 
     // Impact/outcome
-    if (!/result|improv|increas|reduc|sav|enhanc|optimi|achiev|boost|grew|eliminat/i.test(translatedDuty)) {
+    if (
+        !/result|improv|increas|reduc|sav|enhanc|optimi|achiev|boost|grew|eliminat/i.test(
+            translatedDuty
+        )
+    ) {
         suggestions.push("Convey impact: what you did, how you did it, and the measurable result");
     }
 

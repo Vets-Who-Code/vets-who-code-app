@@ -4,7 +4,7 @@ interface Props {
 
 const StatusBar = ({ code }: Props) => (
     <div className="tw-w-full tw-border-b tw-border-cream/10 tw-bg-secondary tw-py-2.5">
-        <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+        <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
             <span className="tw-flex tw-items-center tw-gap-2 tw-text-cream">
                 <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">
                     <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-primary tw-opacity-75" />

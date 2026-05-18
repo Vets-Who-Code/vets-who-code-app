@@ -96,7 +96,7 @@ export async function fetchCensusSalary(socCode: string): Promise<CensusSalaryDa
                 if (!authFailureLogged) {
                     console.error(
                         `Census ACS: API key rejected (${response.status}). ` +
-                        "Check CENSUS_API_KEY. Falling back to curated salary data."
+                            "Check CENSUS_API_KEY. Falling back to curated salary data."
                     );
                     authFailureLogged = true;
                 }

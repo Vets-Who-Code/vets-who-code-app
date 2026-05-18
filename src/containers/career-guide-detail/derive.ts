@@ -1,3 +1,4 @@
+import { normaliseBranch } from "./branch-meta";
 import type {
     CareerGuideDetail,
     CertData,
@@ -9,7 +10,6 @@ import type {
     TechPathway,
     TrainingData,
 } from "./types";
-import { normaliseBranch } from "./branch-meta";
 
 const SALARY_BAND = (pathways: PathwayEntry[]): string => {
     if (pathways.length === 0) return "$45K–$120K";
@@ -63,7 +63,10 @@ const FAMILY_FROM = (training: TrainingData): string => {
     return "Operations";
 };
 
-const RANK_FROM = (code: string, branch: ReturnType<typeof normaliseBranch>): "Enlisted" | "Warrant" | "Officer" => {
+const RANK_FROM = (
+    code: string,
+    branch: ReturnType<typeof normaliseBranch>
+): "Enlisted" | "Warrant" | "Officer" => {
     const c = code.toUpperCase();
     if (branch === "Army") {
         if (/^\d{3}A$/.test(c)) return "Warrant";
@@ -92,7 +95,7 @@ const RANK_FROM = (code: string, branch: ReturnType<typeof normaliseBranch>): "E
 export const buildSummary = (
     pathways: PathwayEntry[],
     techPathway: TechPathway | null,
-    code: string,
+    code: string
 ): GuideSummary => ({
     topMatch: pathways[0]?.role ?? techPathway?.roles[0]?.title ?? "—",
     salaryBand: SALARY_BAND(pathways),
@@ -105,7 +108,7 @@ export const buildStats = (
     training: TrainingData,
     certs: CertData,
     pathways: PathwayEntry[],
-    techPathway: TechPathway | null,
+    techPathway: TechPathway | null
 ): GuideStats => ({
     trainingHours: training.hours,
     aceCredit: training.ace_credits ?? "—",

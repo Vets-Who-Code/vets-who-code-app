@@ -28,10 +28,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
         return (
             <div className="tw-space-y-6">
                 {[1, 2].map((i) => (
-                    <div
-                        key={i}
-                        className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse"
-                    />
+                    <div key={i} className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse" />
                 ))}
             </div>
         );
@@ -112,14 +109,18 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                 <div className="tw-h-2 tw-w-full tw-overflow-hidden tw-rounded-full tw-bg-navy/5">
                                     <motion.div
                                         initial={{ width: 0 }}
-                                        animate={{ width: `${Math.min(enrollment.progress, 100)}%` }}
+                                        animate={{
+                                            width: `${Math.min(enrollment.progress, 100)}%`,
+                                        }}
                                         transition={{ duration: 0.8, delay: i * 0.1 }}
                                         className="tw-h-full tw-rounded-full tw-bg-gradient-to-r tw-from-navy tw-to-gold"
                                     />
                                 </div>
                                 <div className="tw-mt-2 tw-flex tw-justify-between tw-font-mono tw-text-[10px] tw-text-gray-300">
                                     <span>{Math.round(enrollment.progress)}% complete</span>
-                                    <span>Last active: {relativeDate(enrollment.lastActivity)}</span>
+                                    <span>
+                                        Last active: {relativeDate(enrollment.lastActivity)}
+                                    </span>
                                 </div>
                             </motion.div>
                         ))}
@@ -179,8 +180,11 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                     </span>
                                 </div>
                                 <span className="tw-font-mono tw-text-[10px] tw-text-gray-300 tw-flex-shrink-0">
-                                    {activity.completedAt ? relativeDate(activity.completedAt) : "In progress"}
-                                    {activity.timeSpent > 0 && ` • ${formatMinutes(activity.timeSpent)}`}
+                                    {activity.completedAt
+                                        ? relativeDate(activity.completedAt)
+                                        : "In progress"}
+                                    {activity.timeSpent > 0 &&
+                                        ` • ${formatMinutes(activity.timeSpent)}`}
                                 </span>
                             </div>
                         ))}
