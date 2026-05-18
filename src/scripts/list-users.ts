@@ -9,8 +9,8 @@ async function listUsers() {
     try {
         const users = await prisma.user.findMany({
             include: {
-                accounts: true
-            }
+                accounts: true,
+            },
         });
 
         console.log(`\n📊 Total users in database: ${users.length}\n`);
@@ -21,7 +21,7 @@ async function listUsers() {
             return;
         }
 
-        users.forEach(user => {
+        users.forEach((user) => {
             console.log(`👤 User: ${user.name || "No name"}`);
             console.log(`   ID: ${user.id}`);
             console.log(`   Email: ${user.email}`);
@@ -29,7 +29,7 @@ async function listUsers() {
             console.log(`   Accounts: ${user.accounts.length} linked`);
 
             if (user.accounts.length > 0) {
-                user.accounts.forEach(account => {
+                user.accounts.forEach((account) => {
                     console.log(`     - ${account.provider} (${account.providerAccountId})`);
                 });
             }
@@ -40,19 +40,18 @@ async function listUsers() {
         const jeromeVariations = [
             "jeromehardaway@users.noreply.github.com",
             "jerome@vetswhocode.io",
-            "jeromehardaway@gmail.com"
+            "jeromehardaway@gmail.com",
         ];
 
         console.log("🔍 Checking for Jerome's accounts:");
         for (const email of jeromeVariations) {
             const user = await prisma.user.findUnique({
-                where: { email }
+                where: { email },
             });
             if (user) {
                 console.log(`✅ Found: ${email} (ID: ${user.id})`);
             }
         }
-
     } catch (error) {
         console.error("❌ Error:", error);
     } finally {

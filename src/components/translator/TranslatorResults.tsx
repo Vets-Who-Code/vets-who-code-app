@@ -1,16 +1,12 @@
 import Button from "@ui/button";
-import {
-    formatForResume,
-    getSuggestions,
-    type TranslatedProfile,
-} from "@/lib/military-translator";
-import { trackTranslatorEvent } from "@/lib/translator-analytics";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import TrainingSection from "./TrainingSection";
-import TechnicalSkillsSection from "./TechnicalSkillsSection";
-import CertPathwaysCard from "./CertPathwaysCard";
+import { formatForResume, getSuggestions, type TranslatedProfile } from "@/lib/military-translator";
+import { trackTranslatorEvent } from "@/lib/translator-analytics";
 import CareerPathwaysCard from "./CareerPathwaysCard";
+import CertPathwaysCard from "./CertPathwaysCard";
 import CognitiveSkillsCard from "./CognitiveSkillsCard";
+import TechnicalSkillsSection from "./TechnicalSkillsSection";
+import TrainingSection from "./TrainingSection";
 
 interface TranslatorResultsProps {
     result: TranslatedProfile;
@@ -41,11 +37,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
         if (editableResult.suggestions && editableResult.suggestions.length > 0) {
             return editableResult.suggestions;
         }
-        return [
-            ...new Set(
-                editableResult.keyResponsibilities.flatMap((r) => getSuggestions(r))
-            ),
-        ];
+        return [...new Set(editableResult.keyResponsibilities.flatMap((r) => getSuggestions(r)))];
     }, [editableResult]);
 
     const handleSummaryBlur = useCallback((e: React.FocusEvent<HTMLParagraphElement>) => {
@@ -122,9 +114,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
         ];
         if (editableResult.achievements.length > 0) {
             lines.push("", "Notable Achievements:");
-            lines.push(
-                ...editableResult.achievements.slice(0, 3).map((a) => `• ${a}`)
-            );
+            lines.push(...editableResult.achievements.slice(0, 3).map((a) => `• ${a}`));
         }
         const text = lines.join("\n");
         try {
@@ -144,10 +134,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
         }
     }, [editableResult]);
 
-    const renderBulletList = (
-        items: string[],
-        field: "keyResponsibilities" | "achievements"
-    ) => {
+    const renderBulletList = (items: string[], field: "keyResponsibilities" | "achievements") => {
         const fieldLabel = field === "keyResponsibilities" ? "responsibility" : "achievement";
         return (
             <ul className="tw-space-y-2" role="list">
@@ -164,9 +151,9 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                             aria-label={`Edit ${fieldLabel} ${idx + 1}`}
                             tabIndex={isTranslating ? undefined : 0}
                             contentEditable={!isTranslating}
-                            suppressContentEditableWarning
+                            suppressContentEditableWarning={true}
                             onBlur={handleBulletBlur(field, idx)}
-                            className="tw-flex-1 tw-outline-none tw-rounded tw-px-1 hover:tw-bg-gray-50 focus:tw-bg-blue-50 focus:tw-ring-1 focus:tw-ring-blue-300"
+                            className="tw-flex-1 tw-outline-none tw-rounded tw-px-1 hover:tw-bg-gray-50 focus:tw-bg-navy-sky/20 focus:tw-ring-1 focus:tw-ring-navy-sky"
                         >
                             {item}
                         </span>
@@ -174,7 +161,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                             <button
                                 type="button"
                                 onClick={handleDeleteBullet(field, idx)}
-                                className="tw-ml-2 tw-mt-0.5 tw-opacity-0 group-hover:tw-opacity-100 focus:tw-opacity-100 tw-text-gray-300 hover:tw-text-red-500 focus:tw-text-red-500 tw-transition-opacity tw-text-sm focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-red-300 tw-rounded"
+                                className="tw-ml-2 tw-mt-0.5 tw-opacity-0 group-hover:tw-opacity-100 focus:tw-opacity-100 tw-text-gray-300 hover:tw-text-red focus:tw-text-red tw-transition-opacity tw-text-sm focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-red tw-rounded"
                                 title="Remove bullet"
                                 aria-label={`Remove ${fieldLabel} ${idx + 1}: ${item.slice(0, 50)}`}
                             >
@@ -192,22 +179,22 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
             {/* Source indicator */}
             {resultSource === "dictionary" && (
                 <div
-                    className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-blue-200 tw-bg-blue-50 tw-px-4 tw-py-3"
+                    className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-navy-sky tw-bg-navy-sky/20 tw-px-4 tw-py-3"
                     role="status"
                     aria-live="polite"
                 >
-                    <i className="fas fa-spinner fa-spin tw-text-blue-600" />
-                    <p className="tw-text-sm tw-text-blue-700">
-                        Showing instant dictionary translation. Gemini AI-enhanced
-                        results will replace this automatically.
+                    <i className="fas fa-spinner fa-spin tw-text-navy-ocean" />
+                    <p className="tw-text-sm tw-text-navy-deep">
+                        Showing instant dictionary translation. Gemini AI-enhanced results will
+                        replace this automatically.
                     </p>
                 </div>
             )}
 
             {resultSource === "ai" && (
-                <div className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-green-200 tw-bg-green-50 tw-px-4 tw-py-3">
-                    <i className="fas fa-check-circle tw-text-green-600" />
-                    <p className="tw-text-sm tw-text-green-700">
+                <div className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-gold tw-bg-gold-light tw-px-4 tw-py-3">
+                    <i className="fas fa-check-circle tw-text-gold-deep" />
+                    <p className="tw-text-sm tw-text-gold-deep">
                         AI-enhanced translation complete.
                     </p>
                 </div>
@@ -250,9 +237,9 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                         aria-multiline="true"
                         tabIndex={isTranslating ? undefined : 0}
                         contentEditable={!isTranslating}
-                        suppressContentEditableWarning
+                        suppressContentEditableWarning={true}
                         onBlur={handleSummaryBlur}
-                        className="tw-text-gray-700 tw-outline-none tw-rounded tw-p-1 hover:tw-bg-gray-50 focus:tw-bg-blue-50 focus:tw-ring-1 focus:tw-ring-blue-300"
+                        className="tw-text-gray-700 tw-outline-none tw-rounded tw-p-1 hover:tw-bg-gray-50 focus:tw-bg-navy-sky/20 focus:tw-ring-1 focus:tw-ring-navy-sky"
                     >
                         {editableResult.summary}
                     </p>
@@ -263,7 +250,10 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                         <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-3">
                             Key Responsibilities
                         </h3>
-                        {renderBulletList(editableResult.keyResponsibilities, "keyResponsibilities")}
+                        {renderBulletList(
+                            editableResult.keyResponsibilities,
+                            "keyResponsibilities"
+                        )}
                     </div>
                 )}
 
@@ -277,12 +267,9 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                 )}
 
                 {/* Technical Skills Translation */}
-                {editableResult.technicalSystems &&
-                    editableResult.technicalSystems.length > 0 && (
-                        <TechnicalSkillsSection
-                            systems={editableResult.technicalSystems}
-                        />
-                    )}
+                {editableResult.technicalSystems && editableResult.technicalSystems.length > 0 && (
+                    <TechnicalSkillsSection systems={editableResult.technicalSystems} />
+                )}
 
                 {/* Training & Education */}
                 {editableResult.training && (
@@ -293,7 +280,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                 )}
 
                 {suggestions.length > 0 && (
-                    <div className="tw-bg-navy-sky/20 tw-p-6 tw-rounded-lg tw-border tw-border-blue-200">
+                    <div className="tw-bg-navy-sky/20 tw-p-6 tw-rounded-lg tw-border tw-border-navy-sky">
                         <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-3">
                             Tips for Improvement
                         </h3>
@@ -318,12 +305,9 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
             )}
 
             {/* Career Pathways */}
-            {editableResult.careerPathways &&
-                editableResult.careerPathways.length > 0 && (
-                    <CareerPathwaysCard
-                        careerPathways={editableResult.careerPathways}
-                    />
-                )}
+            {editableResult.careerPathways && editableResult.careerPathways.length > 0 && (
+                <CareerPathwaysCard careerPathways={editableResult.careerPathways} />
+            )}
 
             {/* Hidden Strengths / Cognitive Skills */}
             {editableResult.cognitiveProfile && (
@@ -335,7 +319,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                 <Button
                     onClick={handleDownloadPdf}
                     disabled={generatingPdf}
-                    className="tw-transform tw-rounded-lg tw-bg-[#091f40] tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-[#0a2a5c] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40] focus:tw-ring-offset-2 disabled:tw-opacity-50"
+                    className="tw-transform tw-rounded-lg tw-bg-navy tw-px-6 tw-py-3 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-navy-deep focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-navy focus:tw-ring-offset-2 disabled:tw-opacity-50"
                 >
                     {generatingPdf ? (
                         <>
@@ -364,7 +348,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                 >
                     {linkedInCopied ? (
                         <>
-                            <i className="fas fa-check tw-mr-2 tw-text-green-500" />
+                            <i className="fas fa-check tw-mr-2 tw-text-gold" />
                             Copied!
                         </>
                     ) : (

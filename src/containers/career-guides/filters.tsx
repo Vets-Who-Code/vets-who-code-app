@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { BRANCH_META, BRANCH_ORDER } from "./branch-meta";
 import { FAMILIES } from "@/lib/career-guides";
+import { BRANCH_META, BRANCH_ORDER } from "./branch-meta";
 import type { Branch, Family, Rank, SortKey } from "./types";
 
 interface Props {
@@ -61,11 +61,11 @@ const Filters = ({
                         "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
                         branch === "all"
                             ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                            : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#c4cad6] hover:tw-border-[#8590a6] hover:tw-text-cream",
+                            : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
                     )}
                 >
                     <span
-                        aria-hidden
+                        aria-hidden={true}
                         className="tw-h-2 tw-w-2"
                         style={{ backgroundImage: RAINBOW }}
                     />
@@ -73,7 +73,7 @@ const Filters = ({
                     <span
                         className={clsx(
                             "tw-tabular-nums",
-                            branch === "all" ? "tw-text-secondary/60" : "tw-text-[#8590a6]",
+                            branch === "all" ? "tw-text-secondary/60" : "tw-text-[#6C757D]"
                         )}
                     >
                         {allCount.toLocaleString()}
@@ -90,11 +90,11 @@ const Filters = ({
                                 "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
                                 active
                                     ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                                    : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#c4cad6] hover:tw-border-[#8590a6] hover:tw-text-cream",
+                                    : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
                             )}
                         >
                             <span
-                                aria-hidden
+                                aria-hidden={true}
                                 className="tw-h-2 tw-w-2"
                                 style={{ backgroundColor: BRANCH_META[b].color }}
                             />
@@ -102,7 +102,7 @@ const Filters = ({
                             <span
                                 className={clsx(
                                     "tw-tabular-nums",
-                                    active ? "tw-text-secondary/60" : "tw-text-[#8590a6]",
+                                    active ? "tw-text-secondary/60" : "tw-text-[#6C757D]"
                                 )}
                             >
                                 {branchCounts[b].toLocaleString()}
@@ -116,7 +116,7 @@ const Filters = ({
             <div className="tw-flex tw-flex-col tw-gap-6 tw-border-t tw-border-cream/10 tw-border-b tw-py-5 lg:tw-flex-row lg:tw-flex-wrap lg:tw-items-center">
                 {/* Rank segmented */}
                 <div className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Rank
                     </span>
                     <div className="tw-flex tw-border tw-border-cream/[0.18]">
@@ -129,7 +129,7 @@ const Filters = ({
                                     "tw-px-3 tw-py-1.5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-transition-colors",
                                     rank === r.key
                                         ? "tw-bg-accent tw-text-secondary"
-                                        : "tw-bg-secondary tw-text-[#c4cad6] hover:tw-text-cream",
+                                        : "tw-bg-secondary tw-text-[#DEE2E6] hover:tw-text-cream"
                                 )}
                             >
                                 {r.label}
@@ -140,7 +140,7 @@ const Filters = ({
 
                 {/* Family */}
                 <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Family
                     </span>
                     <select
@@ -159,7 +159,7 @@ const Filters = ({
 
                 {/* Sort */}
                 <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                         Sort
                     </span>
                     <select
@@ -175,7 +175,7 @@ const Filters = ({
                     </select>
                 </label>
 
-                <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                     Showing{" "}
                     <span className="tw-font-bold tw-text-cream tw-tabular-nums">
                         {showing.toLocaleString()}

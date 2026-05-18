@@ -25,7 +25,7 @@ const CertBar = ({ fill }: Props) => {
                     }
                 }
             },
-            { threshold: 0.3 },
+            { threshold: 0.3 }
         );
         obs.observe(node);
         return () => obs.disconnect();

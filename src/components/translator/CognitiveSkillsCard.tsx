@@ -5,9 +5,7 @@ interface CognitiveSkillsCardProps {
     cognitiveProfile: CognitiveProfile;
 }
 
-const CognitiveSkillsCard: React.FC<CognitiveSkillsCardProps> = ({
-    cognitiveProfile,
-}) => {
+const CognitiveSkillsCard: React.FC<CognitiveSkillsCardProps> = ({ cognitiveProfile }) => {
     const { cognitiveSkills, nonObviousCareers } = cognitiveProfile;
 
     if (cognitiveSkills.length === 0 && nonObviousCareers.length === 0) {
@@ -31,9 +29,7 @@ const CognitiveSkillsCard: React.FC<CognitiveSkillsCardProps> = ({
                         key={cs.skill}
                         className="tw-rounded-lg tw-border tw-border-gray-100 tw-bg-gray-50 tw-px-4 tw-py-3"
                     >
-                        <p className="tw-text-sm tw-font-medium tw-text-[#091f40]">
-                            {cs.skill}
-                        </p>
+                        <p className="tw-text-sm tw-font-medium tw-text-[#091f40]">{cs.skill}</p>
                         <p className="tw-text-xs tw-text-gray-500 tw-italic tw-mt-1">
                             {cs.militaryContext}
                         </p>
@@ -48,7 +44,7 @@ const CognitiveSkillsCard: React.FC<CognitiveSkillsCardProps> = ({
             {nonObviousCareers.length > 0 && (
                 <div>
                     <p className="tw-text-xs tw-font-semibold tw-text-[#091f40] tw-uppercase tw-tracking-wide tw-mb-2">
-                        <i className="fas fa-lightbulb tw-mr-1 tw-text-[#c5a44e]" />
+                        <i className="fas fa-lightbulb tw-mr-1 tw-text-gold-rich" />
                         Careers You Might Not Have Considered
                     </p>
                     <div className="tw-space-y-3">
@@ -65,9 +61,7 @@ const CognitiveSkillsCard: React.FC<CognitiveSkillsCardProps> = ({
                                         SOC {career.socCode}
                                     </span>
                                 </div>
-                                <p className="tw-text-xs tw-text-gray-700">
-                                    {career.whyItFits}
-                                </p>
+                                <p className="tw-text-xs tw-text-gray-700">{career.whyItFits}</p>
                             </div>
                         ))}
                     </div>

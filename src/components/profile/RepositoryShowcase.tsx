@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import type { GitHubRepo } from "@/types/profile";
 import { GITHUB_LANGUAGE_COLORS } from "@/types/profile";
 
@@ -18,10 +18,7 @@ const RepositoryShowcase = ({ repos, isLoading }: RepositoryShowcaseProps) => {
         return (
             <div className="tw-space-y-4">
                 {[1, 2, 3].map((i) => (
-                    <div
-                        key={i}
-                        className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse"
-                    />
+                    <div key={i} className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse" />
                 ))}
             </div>
         );
@@ -130,7 +127,7 @@ const RepositoryShowcase = ({ repos, isLoading }: RepositoryShowcaseProps) => {
                                         className="tw-inline-block tw-h-2.5 tw-w-2.5 tw-rounded-full"
                                         style={{
                                             backgroundColor:
-                                                GITHUB_LANGUAGE_COLORS[repo.language] || "#8b8b8b",
+                                                GITHUB_LANGUAGE_COLORS[repo.language] || "#6C757D",
                                         }}
                                     />
                                     {repo.language}

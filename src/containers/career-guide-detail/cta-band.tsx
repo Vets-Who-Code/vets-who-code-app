@@ -8,7 +8,7 @@ const CtaBand = ({ code }: Props) => (
     <section className="tw-relative tw-overflow-hidden tw-border-t tw-border-cream/10 tw-bg-secondary tw-py-24">
         {/* Grid backdrop */}
         <div
-            aria-hidden
+            aria-hidden={true}
             className="tw-pointer-events-none tw-absolute tw-inset-0"
             style={{
                 backgroundImage:
@@ -22,7 +22,7 @@ const CtaBand = ({ code }: Props) => (
         <div className="tw-relative tw-container tw-flex tw-flex-col tw-gap-7">
             <div className="tw-flex tw-items-center tw-gap-3">
                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                     / Translator · Live
                 </span>
             </div>
@@ -31,9 +31,9 @@ const CtaBand = ({ code }: Props) => (
                 Translate <span className="tw-text-primary">{code}</span> into a resume that ships.
             </h2>
 
-            <p className="tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#c4cad6]">
-                Pair this guide with the VWC AI-powered translator: drop in your service record,
-                get back ATS-optimized civilian resume language tuned to the tech roles above.
+            <p className="tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#DEE2E6]">
+                Pair this guide with the VWC AI-powered translator: drop in your service record, get
+                back ATS-optimized civilian resume language tuned to the tech roles above.
             </p>
 
             <div className="tw-flex tw-flex-wrap tw-gap-4">

@@ -17,7 +17,7 @@ const StatCell = ({
     accent?: boolean;
 }) => (
     <div className="tw-flex tw-flex-col tw-gap-3 tw-px-6 tw-py-7 md:tw-border-l md:tw-border-cream/10 first:md:tw-border-l-0">
-        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
             {label}
         </span>
         <span
@@ -27,7 +27,7 @@ const StatCell = ({
         >
             {value}
         </span>
-        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#8590a6]">
+        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
             {sub}
         </span>
     </div>
@@ -45,7 +45,7 @@ const SummaryRow = ({
     mono?: boolean;
 }) => (
     <div className="tw-flex tw-items-baseline tw-justify-between tw-gap-4 tw-border-b tw-border-dashed tw-border-cream/10 tw-py-3 last:tw-border-b-0">
-        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
             {label}
         </span>
         <span
@@ -72,11 +72,11 @@ const Hero = ({ detail }: Props) => {
         <section id="sec-overview" className="tw-bg-secondary tw-pt-16 md:tw-pt-20">
             <div className="tw-container">
                 {/* Breadcrumb */}
-                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                     <span>Home</span>
-                    <span className="tw-mx-2 tw-text-[#5a6478]">/</span>
+                    <span className="tw-mx-2 tw-text-[#495057]">/</span>
                     <span>Career Guides</span>
-                    <span className="tw-mx-2 tw-text-[#5a6478]">/</span>
+                    <span className="tw-mx-2 tw-text-[#495057]">/</span>
                     <span className="tw-text-cream">{detail.code}</span>
                 </div>
 
@@ -84,7 +84,7 @@ const Hero = ({ detail }: Props) => {
                 <div className="tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-gap-3">
                     <span className="tw-inline-flex tw-items-center tw-gap-2 tw-border tw-border-accent tw-px-3 tw-py-1.5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.12em] tw-text-cream">
                         <span
-                            aria-hidden
+                            aria-hidden={true}
                             className="tw-h-2 tw-w-2"
                             style={{ backgroundColor: meta.color }}
                         />
@@ -92,7 +92,7 @@ const Hero = ({ detail }: Props) => {
                     </span>
                     <span className="tw-flex tw-items-center tw-gap-3">
                         <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                             Career Guide · {detail.family} · {detail.summary.docId}
                         </span>
                     </span>
@@ -102,14 +102,19 @@ const Hero = ({ detail }: Props) => {
                 <div className="tw-mt-12 tw-grid tw-grid-cols-1 tw-gap-14 lg:tw-grid-cols-[1.5fr_1fr]">
                     {/* Left — display title + lede */}
                     <div className="tw-flex tw-flex-col tw-gap-6">
-                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#5a6478]">
+                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#495057]">
                             {detail.code} · {meta.short} · {detail.rank}
                         </span>
                         <h1 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98] [font-size:clamp(48px,8.5vw,116px)]">
-                            {leadWords && <>{leadWords}<br /></>}
+                            {leadWords && (
+                                <>
+                                    {leadWords}
+                                    <br />
+                                </>
+                            )}
                             <span className="tw-text-accent">{lastWord}.</span>
                         </h1>
-                        <p className="tw-max-w-[640px] tw-font-body tw-text-[#c4cad6] [font-size:clamp(17px,1.4vw,20px)] tw-leading-[1.55]">
+                        <p className="tw-max-w-[640px] tw-font-body tw-text-[#DEE2E6] [font-size:clamp(17px,1.4vw,20px)] tw-leading-[1.55]">
                             <span className="tw-font-semibold tw-text-cream">
                                 {detail.training.branch} {detail.code} ({detail.training.title}).
                             </span>{" "}
@@ -124,9 +129,9 @@ const Hero = ({ detail }: Props) => {
                     </div>
 
                     {/* Right — summary card */}
-                    <aside className="tw-border tw-border-cream/[0.18] tw-bg-[#0c2549]">
+                    <aside className="tw-border tw-border-cream/[0.18] tw-bg-[#003559]">
                         <header className="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-cream/10 tw-px-5 tw-py-4">
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                                 Summary · Lightcast
                             </span>
                             <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">
@@ -135,11 +140,21 @@ const Hero = ({ detail }: Props) => {
                             </span>
                         </header>
                         <div className="tw-flex tw-flex-col tw-px-5">
-                            <SummaryRow label="Top civilian match" value={detail.summary.topMatch} />
-                            <SummaryRow label="Civilian salary band" value={detail.summary.salaryBand} big />
+                            <SummaryRow
+                                label="Top civilian match"
+                                value={detail.summary.topMatch}
+                            />
+                            <SummaryRow
+                                label="Civilian salary band"
+                                value={detail.summary.salaryBand}
+                                big={true}
+                            />
                             <SummaryRow label="Market demand" value={detail.summary.demand} />
-                            <SummaryRow label="Tech match score" value={detail.summary.techMatchScore} />
-                            <SummaryRow label="Doc ID" value={detail.summary.docId} mono />
+                            <SummaryRow
+                                label="Tech match score"
+                                value={detail.summary.techMatchScore}
+                            />
+                            <SummaryRow label="Doc ID" value={detail.summary.docId} mono={true} />
                         </div>
                     </aside>
                 </div>
@@ -154,13 +169,17 @@ const Hero = ({ detail }: Props) => {
                     <StatCell
                         label="ACE credit"
                         value={detail.stats.aceCredit !== "—" ? "ACE" : "—"}
-                        sub={detail.stats.aceCredit !== "—" ? detail.stats.aceCredit : "no recommendation"}
+                        sub={
+                            detail.stats.aceCredit !== "—"
+                                ? detail.stats.aceCredit
+                                : "no recommendation"
+                        }
                     />
                     <StatCell
                         label="Tech roles"
                         value={String(detail.stats.techRolesMapped)}
                         sub="mapped to your code"
-                        accent
+                        accent={true}
                     />
                     <StatCell
                         label="Civilian pathways"

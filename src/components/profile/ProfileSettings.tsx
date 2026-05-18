@@ -5,8 +5,8 @@ const ProfileSettings = () => (
                 Notifications
             </h3>
             <div className="tw-space-y-3">
-                <Toggle label="Email notifications for course updates" defaultChecked />
-                <Toggle label="Weekly progress reports" defaultChecked />
+                <Toggle label="Email notifications for course updates" defaultChecked={true} />
+                <Toggle label="Weekly progress reports" defaultChecked={true} />
                 <Toggle label="New assignment alerts" defaultChecked={false} />
             </div>
         </div>
@@ -17,8 +17,8 @@ const ProfileSettings = () => (
             </h3>
             <div className="tw-space-y-3">
                 <Toggle label="Make profile visible to other veterans" defaultChecked={false} />
-                <Toggle label="Show progress on leaderboards" defaultChecked />
-                <Toggle label="Display GitHub stats on profile" defaultChecked />
+                <Toggle label="Show progress on leaderboards" defaultChecked={true} />
+                <Toggle label="Display GitHub stats on profile" defaultChecked={true} />
             </div>
         </div>
     </div>

@@ -41,7 +41,7 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
                     g.code.toLowerCase().includes(q) ||
                     g.title.toLowerCase().includes(q) ||
                     g.civilian.toLowerCase().includes(q) ||
-                    g.certs.some((c) => c.toLowerCase().includes(q)),
+                    g.certs.some((c) => c.toLowerCase().includes(q))
             );
         }
         const sorted = [...rows];
@@ -83,7 +83,7 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
             setFamily(f);
             scrollToDatabase();
         },
-        [scrollToDatabase],
+        [scrollToDatabase]
     );
 
     return (
@@ -99,17 +99,14 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
             <CategoryShowcase guides={guides} onPick={onPickCategory} />
 
             {/* Database */}
-            <section
-                id="database"
-                className="tw-bg-secondary tw-py-16 md:tw-py-20"
-            >
+            <section id="database" className="tw-bg-secondary tw-py-16 md:tw-py-20">
                 <div className="tw-container tw-flex tw-flex-col tw-gap-10">
                     {/* Section title */}
                     <div className="tw-flex tw-flex-col tw-gap-4 md:tw-flex-row md:tw-items-end md:tw-justify-between">
                         <div className="tw-flex tw-flex-col tw-gap-3">
                             <div className="tw-flex tw-items-center tw-gap-3">
                                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#8590a6]">
+                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
                                     Database · {guides.length.toLocaleString()} Guides
                                 </span>
                             </div>
@@ -117,7 +114,7 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
                                 Search the index.
                             </h2>
                         </div>
-                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                             Sourced · DoD · Validated · Lightcast
                         </span>
                     </div>

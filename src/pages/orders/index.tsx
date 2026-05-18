@@ -86,11 +86,11 @@ const OrderHistoryPage = () => {
 
     const getStatusBadge = (status: string) => {
         const statusMap: Record<string, { color: string; label: string }> = {
-            paid: { color: "tw-bg-green-100 tw-text-green-800", label: "Paid" },
-            pending: { color: "tw-bg-yellow-100 tw-text-yellow-800", label: "Pending" },
-            refunded: { color: "tw-bg-red-100 tw-text-red-800", label: "Refunded" },
+            paid: { color: "tw-bg-gold-light tw-text-gold-deep", label: "Paid" },
+            pending: { color: "tw-bg-gold-light tw-text-gold-rich", label: "Pending" },
+            refunded: { color: "tw-bg-cream tw-text-red-dark", label: "Refunded" },
             partially_refunded: {
-                color: "tw-bg-orange-100 tw-text-orange-800",
+                color: "tw-bg-gold-light tw-text-gold-rich",
                 label: "Partially Refunded",
             },
             voided: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Voided" },
@@ -120,8 +120,8 @@ const OrderHistoryPage = () => {
         }
 
         const statusMap: Record<string, { color: string; label: string }> = {
-            fulfilled: { color: "tw-bg-green-100 tw-text-green-800", label: "Fulfilled" },
-            partial: { color: "tw-bg-yellow-100 tw-text-yellow-800", label: "Partially Fulfilled" },
+            fulfilled: { color: "tw-bg-gold-light tw-text-gold-deep", label: "Fulfilled" },
+            partial: { color: "tw-bg-gold-light tw-text-gold-rich", label: "Partially Fulfilled" },
             unfulfilled: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Unfulfilled" },
         };
 
@@ -171,7 +171,7 @@ const OrderHistoryPage = () => {
             {/* Main Content */}
             <div className="tw-container tw-mx-auto tw-px-4 tw-py-12">
                 {error && (
-                    <div className="tw-bg-red-50 tw-border tw-border-red-200 tw-text-red-800 tw-px-6 tw-py-4 tw-rounded-lg tw-mb-8">
+                    <div className="tw-bg-cream tw-border tw-border-red tw-text-red-dark tw-px-6 tw-py-4 tw-rounded-lg tw-mb-8">
                         {error}
                     </div>
                 )}

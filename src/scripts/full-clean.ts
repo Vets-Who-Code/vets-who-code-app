@@ -57,7 +57,6 @@ async function fullClean() {
         console.log("2. Click 'Sign in with GitHub'");
         console.log("3. You'll be created as a fresh admin user");
         console.log("\n⚡ Your username 'jeromehardaway' is hardcoded as admin!");
-
     } catch (error) {
         console.error("❌ Error:", error);
     } finally {

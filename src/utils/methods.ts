@@ -93,7 +93,6 @@ export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
     return Object.keys(object).length === 0;
 };
 
-
 /**
  * Capitalizes only the first letter of a string and leaves the rest in lowercase
  *

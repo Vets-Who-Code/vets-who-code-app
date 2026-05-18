@@ -10,10 +10,10 @@ interface Props {
 
 const matchSwatch = (level: ResolvedTechRole["matchLevel"]) =>
     level === "high"
-        ? { color: "#7ad395", label: "High match" }
+        ? { color: "#FDB330", label: "High match" }
         : level === "good"
-          ? { color: "#5b87c4", label: "Good match" }
-          : { color: "#c4cad6", label: "Moderate match" };
+          ? { color: "#0353A4", label: "Good match" }
+          : { color: "#DEE2E6", label: "Moderate match" };
 
 const matchDemand = (level: ResolvedTechRole["matchLevel"]) =>
     level === "high" ? 4 : level === "good" ? 3 : 2;
@@ -57,7 +57,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                         "tw-px-3 tw-py-1.5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-transition-colors",
                                         active
                                             ? "tw-bg-accent tw-text-secondary"
-                                            : "tw-bg-secondary tw-text-[#c4cad6] hover:tw-text-cream",
+                                            : "tw-bg-secondary tw-text-[#DEE2E6] hover:tw-text-cream"
                                     )}
                                 >
                                     {t === "all" ? "All" : t}
@@ -65,7 +65,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                             );
                         })}
                     </div>
-                    <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                    <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                         Sort · Match descending
                     </span>
                 </div>
@@ -81,7 +81,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                 key={role.roleKey}
                                 className={clsx(
                                     "tw-border-b tw-border-cream/10 tw-transition-colors",
-                                    isOpen && "tw-bg-[#0c2549]",
+                                    isOpen && "tw-bg-[#003559]"
                                 )}
                             >
                                 <button
@@ -95,24 +95,22 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                         })
                                     }
                                     aria-expanded={isOpen}
-                                    className="tw-grid tw-w-full tw-grid-cols-[60px_1fr_36px] tw-gap-4 tw-px-2 tw-py-5 tw-text-left tw-transition-colors hover:tw-bg-[#0c2549] md:tw-grid-cols-[60px_1fr_220px_140px_130px_36px]"
+                                    className="tw-grid tw-w-full tw-grid-cols-[60px_1fr_36px] tw-gap-4 tw-px-2 tw-py-5 tw-text-left tw-transition-colors hover:tw-bg-[#003559] md:tw-grid-cols-[60px_1fr_220px_140px_130px_36px]"
                                 >
-                                    <span className="tw-font-mono tw-text-[12px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                    <span className="tw-font-mono tw-text-[12px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                         {idxLabel}
                                     </span>
                                     <div className="tw-flex tw-flex-col tw-gap-1">
                                         <span className="tw-font-heading tw-text-[20px] tw-font-medium tw-uppercase tw-leading-[1.15] tw-text-cream [letter-spacing:-0.01em]">
                                             {role.title}
                                         </span>
-                                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                             SOC {role.socCode} · {role.track}
                                         </span>
                                     </div>
-                                    <span
-                                        className="tw-hidden tw-items-center tw-gap-2 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#c4cad6] md:tw-flex"
-                                    >
+                                    <span className="tw-hidden tw-items-center tw-gap-2 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6] md:tw-flex">
                                         <span
-                                            aria-hidden
+                                            aria-hidden={true}
                                             className="tw-h-2 tw-w-2"
                                             style={{ backgroundColor: swatch.color }}
                                         />
@@ -120,23 +118,23 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                     </span>
                                     <span className="tw-hidden md:tw-flex tw-items-center tw-gap-3">
                                         <DemandBars level={matchDemand(role.matchLevel)} />
-                                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                             Demand
                                         </span>
                                     </span>
                                     <span className="tw-hidden md:tw-block tw-font-mono tw-text-[13px] tw-text-cream tw-text-right">
                                         See pathways
-                                        <span className="tw-block tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#8590a6]">
+                                        <span className="tw-block tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
                                             typical · civilian
                                         </span>
                                     </span>
                                     <span
-                                        aria-hidden
+                                        aria-hidden={true}
                                         className={clsx(
                                             "tw-flex tw-h-8 tw-w-8 tw-items-center tw-justify-center tw-border tw-transition-colors",
                                             isOpen
                                                 ? "tw-border-accent tw-text-accent"
-                                                : "tw-border-cream/[0.18] tw-text-cream group-hover:tw-border-accent",
+                                                : "tw-border-cream/[0.18] tw-text-cream group-hover:tw-border-accent"
                                         )}
                                     >
                                         {isOpen ? "−" : "+"}
@@ -147,7 +145,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                     <div className="tw-grid tw-grid-cols-1 tw-gap-4 tw-px-2 tw-pb-6 md:tw-grid-cols-[60px_1fr] md:tw-pl-2">
                                         <span />
                                         <div className="tw-flex tw-flex-col tw-gap-4">
-                                            <p className="tw-max-w-[720px] tw-font-body tw-text-[15px] tw-leading-[1.55] tw-text-[#c4cad6]">
+                                            <p className="tw-max-w-[720px] tw-font-body tw-text-[15px] tw-leading-[1.55] tw-text-[#DEE2E6]">
                                                 {role.whyItFits || role.description}
                                             </p>
                                             {role.stack.length > 0 && (
@@ -155,7 +153,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                                     {role.stack.map((s) => (
                                                         <span
                                                             key={s}
-                                                            className="tw-border tw-border-cream/10 tw-px-2 tw-py-1 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.08em] tw-text-[#c4cad6]"
+                                                            className="tw-border tw-border-cream/10 tw-px-2 tw-py-1 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]"
                                                         >
                                                             {s}
                                                         </span>

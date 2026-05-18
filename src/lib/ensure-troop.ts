@@ -1,5 +1,5 @@
-import prisma from "@/lib/prisma";
 import j0di3 from "@/lib/j0di3-client";
+import prisma from "@/lib/prisma";
 
 /**
  * Ensures a user has a linked J0dI3 troop profile.

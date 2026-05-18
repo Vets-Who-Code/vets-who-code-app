@@ -2,7 +2,7 @@ import SEO from "@components/seo/page-seo";
 import CareerGuidesContainer from "@containers/career-guides";
 import type { Branch, GuideEntry } from "@containers/career-guides/types";
 import Layout01 from "@layout/layout-01";
-import { FAMILIES, computeBranchCounts, loadCareerGuides } from "@lib/career-guides";
+import { computeBranchCounts, FAMILIES, loadCareerGuides } from "@lib/career-guides";
 import type { GetStaticProps, NextPage } from "next";
 
 type TProps = {
@@ -16,12 +16,7 @@ type PageWithLayout = NextPage<TProps> & {
     Layout?: typeof Layout01;
 };
 
-const CareerGuidesPage: PageWithLayout = ({
-    guides,
-    branchCounts,
-    familiesCount,
-    certsCount,
-}) => (
+const CareerGuidesPage: PageWithLayout = ({ guides, branchCounts, familiesCount, certsCount }) => (
     <>
         <SEO
             title="Career Guides — Military Job Code Translator"

@@ -6,10 +6,7 @@ interface TrainingSectionProps {
     leadershipCourses?: string[];
 }
 
-const TrainingSection: React.FC<TrainingSectionProps> = ({
-    training,
-    leadershipCourses,
-}) => {
+const TrainingSection: React.FC<TrainingSectionProps> = ({ training, leadershipCourses }) => {
     return (
         <div className="tw-space-y-4">
             <h3 className="tw-text-lg tw-font-semibold tw-text-[#091f40] tw-mb-3">
@@ -57,7 +54,7 @@ const TrainingSection: React.FC<TrainingSectionProps> = ({
                                     key={cert}
                                     className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-gray-700"
                                 >
-                                    <i className="fas fa-check tw-text-green-500 tw-text-xs" />
+                                    <i className="fas fa-check tw-text-gold tw-text-xs" />
                                     {cert}
                                 </li>
                             ))}

@@ -1,14 +1,11 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { requireAuth, type AuthenticatedRequest } from "@/lib/rbac";
 import j0di3 from "@/lib/j0di3-client";
+import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
 
-export function j0di3Proxy(
-    method: Method,
-    path: string | ((req: NextApiRequest) => string)
-) {
+export function j0di3Proxy(method: Method, path: string | ((req: NextApiRequest) => string)) {
     return requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
         const url = typeof path === "function" ? path(req) : path;
         const troopId = req.user!.troopId;
@@ -20,8 +17,7 @@ export function j0di3Proxy(
         }
 
         try {
-            const body =
-                method !== "GET" ? { ...req.body, troop_id: troopId } : undefined;
+            const body = method !== "GET" ? { ...req.body, troop_id: troopId } : undefined;
 
             const { data } = await j0di3({
                 method,
@@ -30,12 +26,14 @@ export function j0di3Proxy(
                 params: method === "GET" ? { ...req.query, troop_id: troopId } : undefined,
             });
 
-
             res.json(data);
         } catch (error: unknown) {
             if (axios.isAxiosError(error) && error.response) {
                 const status = error.response.status;
-                const message = error.response.data?.detail || error.response.data?.error || "J0dI3 request failed";
+                const message =
+                    error.response.data?.detail ||
+                    error.response.data?.error ||
+                    "J0dI3 request failed";
                 return res.status(status).json({ error: message });
             }
             console.error("[j0di3-proxy] Unexpected error:", error);

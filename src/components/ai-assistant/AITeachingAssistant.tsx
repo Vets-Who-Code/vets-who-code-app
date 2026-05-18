@@ -85,7 +85,12 @@ export default function AITeachingAssistant({
 
             if (!response.ok) {
                 const errorData = await response.json();
-                const msg = errorData.error || (Array.isArray(errorData.detail) ? errorData.detail.map((d: any) => d.msg).join(", ") : errorData.detail) || "Failed to get response";
+                const msg =
+                    errorData.error ||
+                    (Array.isArray(errorData.detail)
+                        ? errorData.detail.map((d: any) => d.msg).join(", ")
+                        : errorData.detail) ||
+                    "Failed to get response";
                 throw new Error(msg);
             }
 
@@ -186,7 +191,7 @@ export default function AITeachingAssistant({
                     ))}
 
                     {error && (
-                        <div className="tw-bg-red-50 tw-border tw-border-red-200 tw-text-red-700 tw-px-4 tw-py-3 tw-rounded">
+                        <div className="tw-bg-cream tw-border tw-border-red tw-text-red-dark tw-px-4 tw-py-3 tw-rounded">
                             <p className="tw-text-sm">
                                 <strong>Error:</strong> {error}
                             </p>

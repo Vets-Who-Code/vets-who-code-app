@@ -7,7 +7,13 @@ import type {
     WorkerMessage,
 } from "./types";
 
-export type { Challenge, ClientResults, ClientTestResult, RunChallengeOptions, TestCase } from "./types";
+export type {
+    Challenge,
+    ClientResults,
+    ClientTestResult,
+    RunChallengeOptions,
+    TestCase,
+} from "./types";
 
 const DEFAULT_PER_TEST_TIMEOUT_MS = 3000;
 

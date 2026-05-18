@@ -31,7 +31,9 @@ const email = process.argv[2];
 
 if (!email) {
     console.log("Usage: npx tsx src/scripts/make-admin.ts <email>");
-    console.log("Example: npx tsx src/scripts/make-admin.ts jeromehardaway@users.noreply.github.com");
+    console.log(
+        "Example: npx tsx src/scripts/make-admin.ts jeromehardaway@users.noreply.github.com"
+    );
     process.exit(1);
 }
 

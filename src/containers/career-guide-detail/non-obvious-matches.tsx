@@ -31,11 +31,11 @@ const NonObviousMatches = ({ matches }: Props) => {
                                 <h3 className="tw-font-heading tw-text-[22px] tw-font-medium tw-uppercase tw-leading-[1.2] tw-text-cream [letter-spacing:-0.01em]">
                                     {m.role}
                                 </h3>
-                                <span className="tw-shrink-0 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#8590a6]">
+                                <span className="tw-shrink-0 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
                                     SOC {m.socCode}
                                 </span>
                             </header>
-                            <p className="tw-font-body tw-text-[14.5px] tw-leading-[1.6] tw-text-[#c4cad6]">
+                            <p className="tw-font-body tw-text-[14.5px] tw-leading-[1.6] tw-text-[#DEE2E6]">
                                 {m.whyItFits}
                             </p>
                             <span className="tw-mt-auto tw-inline-flex tw-self-start tw-border tw-border-accent tw-px-3 tw-py-1.5 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-accent">
