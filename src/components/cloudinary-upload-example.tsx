@@ -72,7 +72,7 @@ const CloudinaryUploadExample: React.FC = () => {
                             style={{
                                 width: "100%",
                                 height: "10px",
-                                backgroundColor: "#e0e0e0",
+                                backgroundColor: "#DEE2E6",
                                 borderRadius: "5px",
                                 overflow: "hidden",
                             }}
@@ -81,7 +81,7 @@ const CloudinaryUploadExample: React.FC = () => {
                                 style={{
                                     width: `${progress}%`,
                                     height: "100%",
-                                    backgroundColor: "#4caf50",
+                                    backgroundColor: "#FDB330",
                                     transition: "width 0.3s ease",
                                 }}
                             />
@@ -158,7 +158,7 @@ const CloudinaryUploadExample: React.FC = () => {
                 style={{
                     marginTop: "40px",
                     padding: "20px",
-                    backgroundColor: "#f5f5f5",
+                    backgroundColor: "#F8F9FA",
                     borderRadius: "8px",
                 }}
             >

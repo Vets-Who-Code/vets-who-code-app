@@ -56,7 +56,9 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                         letterSpacing: "0",
                     }}
                 >
-                    <Anchor path={path} className="tw-text-navy hover:tw-text-primary">{title}</Anchor>
+                    <Anchor path={path} className="tw-text-navy hover:tw-text-primary">
+                        {title}
+                    </Anchor>
                 </h3>
                 <ul>
                     <li

@@ -135,9 +135,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                     className="tw-m-2.5 btn-primary-upgraded tw-group tw-inline-flex tw-items-center"
                                 >
                                     {buttons[0].content}
-                                    <span
-                                        className="tw-ml-2 tw-inline-block tw-transition-transform tw-duration-300 group-hover:tw-translate-x-[3px]"
-                                    >
+                                    <span className="tw-ml-2 tw-inline-block tw-transition-transform tw-duration-300 group-hover:tw-translate-x-[3px]">
                                         →
                                     </span>
                                 </Button>

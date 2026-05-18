@@ -35,7 +35,9 @@ export default function useGitHubProfile(userId?: string): UseGitHubProfileRetur
         }
 
         fetchGitHub();
-        return () => { cancelled = true; };
+        return () => {
+            cancelled = true;
+        };
     }, [userId]);
 
     return { data, isLoading, error };

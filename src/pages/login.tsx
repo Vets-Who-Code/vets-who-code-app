@@ -72,7 +72,7 @@ const Login: PageWithLayout = () => {
                             Sign in to continue your journey with #VetsWhoCode
                         </p>
                         {errorMessage && (
-                            <div className="tw-rounded tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-600">
+                            <div className="tw-rounded tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                                 {errorMessage}
                             </div>
                         )}
@@ -87,7 +87,6 @@ const Login: PageWithLayout = () => {
                             <i className="fab fa-github" />
                             Sign in with GitHub
                         </button>
-
                     </div>
                     <div className="tw-px-8 tw-pb-8">
                         <p className="tw-text-center tw-text-sm tw-text-secondary">

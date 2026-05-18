@@ -18,7 +18,7 @@ const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description }) =
         <div className="tw-mb-4 tw-flex tw-justify-center">
             <i className={`${icon} tw-text-6xl tw-text-accent-dark`} />
         </div>
-        <h3 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-blue-900">{title}</h3>
+        <h3 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-navy-deep">{title}</h3>
         <p>{description}</p>
     </div>
 );
@@ -49,7 +49,7 @@ const SponsorPage: PageWithLayout = () => {
             <SEO title="Become a Sponsor" />
             <div className="tw-min-h-screen tw-bg-white">
                 {/* Hero Section */}
-                <section className="tw-bg-blue-900 tw-py-16 tw-text-white">
+                <section className="tw-bg-navy-deep tw-py-16 tw-text-white">
                     <div className="tw-container tw-mx-auto tw-px-4">
                         <h1 className="tw-mb-4 tw-text-center tw-text-5xl tw-font-bold">
                             WE WANT YOU
@@ -65,7 +65,7 @@ const SponsorPage: PageWithLayout = () => {
                 {/* Main Content */}
                 <main className="tw-container tw-mx-auto tw-px-4 tw-py-16">
                     <div className="tw-mx-auto tw-mb-16 tw-max-w-4xl tw-text-center">
-                        <p className="tw-text-xl tw-text-blue-900">
+                        <p className="tw-text-xl tw-text-navy-deep">
                             After completing the VWC curriculum, our pool of veterans are able,
                             willing, and highly qualified to enter the civilian workforce. Become a
                             VWC Sponsor today and honor our veterans by making a real investment in
@@ -81,7 +81,7 @@ const SponsorPage: PageWithLayout = () => {
                     </div>
 
                     {/* Benefits Section */}
-                    <section className="tw-mb-16 tw-rounded-lg tw-bg-blue-800 tw-p-8 tw-text-white">
+                    <section className="tw-mb-16 tw-rounded-lg tw-bg-navy-midnight tw-p-8 tw-text-white">
                         <h2 className="tw-mb-8 tw-text-center tw-text-3xl tw-font-bold">
                             BENEFITS OF BECOMING A VWC SPONSOR
                         </h2>
@@ -128,7 +128,7 @@ const SponsorPage: PageWithLayout = () => {
                 </main>
 
                 {/* Footer */}
-                <footer className="tw-bg-blue-900 tw-py-4 tw-text-center tw-text-white">
+                <footer className="tw-bg-navy-deep tw-py-4 tw-text-center tw-text-white">
                     <p>
                         VISIT HTTPS://VETSWHOCODE.IO/SYLLABUS TO LEARN MORE ABOUT OUR FLAGSHIP
                         CURRICULUM.

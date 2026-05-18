@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
 import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
 
 export type Role = "STUDENT" | "INSTRUCTOR" | "ADMIN" | "MENTOR";
 

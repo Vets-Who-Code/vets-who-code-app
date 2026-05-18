@@ -108,10 +108,7 @@ const Button = ({
 
     const outlinedLightClass = "tw-border-white/15 tw-text-white";
     const outlinedLightHoverClass =
-        !disabled &&
-        !active &&
-        hover === "default" &&
-        "hover:tw-border-red hover:tw-text-white";
+        !disabled && !active && hover === "default" && "hover:tw-border-red hover:tw-text-white";
     const outlinedLightActiveClass =
         !disabled &&
         active &&

@@ -25,7 +25,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                         <div className="tw-mt-3 tw-text-xs">
                             <div className="tw-mb-1 tw-flex tw-items-center">
                                 <svg
-                                    className="tw-mr-1 tw-h-4 tw-w-4 tw-text-green-300"
+                                    className="tw-mr-1 tw-h-4 tw-w-4 tw-text-gold-light"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             </div>
                             <div className="tw-flex tw-items-center">
                                 <svg
-                                    className="tw-mr-1 tw-h-4 tw-w-4 tw-text-green-300"
+                                    className="tw-mr-1 tw-h-4 tw-w-4 tw-text-gold-light"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"

@@ -1,6 +1,6 @@
 import type { NextApiResponse } from "next";
-import { requireAuth, type AuthenticatedRequest } from "@/lib/rbac";
 import j0di3 from "@/lib/j0di3-client";
+import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
 
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     const troopId = req.user!.troopId;

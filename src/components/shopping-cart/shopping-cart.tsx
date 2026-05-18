@@ -166,7 +166,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                             <button
                                                 onClick={() => handleRemove(line.id)}
                                                 disabled={isLoading}
-                                                className="tw-ml-auto tw-text-red-600 hover:tw-text-red-800 tw-text-sm tw-font-medium disabled:tw-opacity-50"
+                                                className="tw-ml-auto tw-text-red-dark hover:tw-text-red-dark tw-text-sm tw-font-medium disabled:tw-opacity-50"
                                             >
                                                 Remove
                                             </button>

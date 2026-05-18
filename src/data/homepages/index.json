@@ -220,7 +220,8 @@
             "section": "event-area",
             "section_title": {
                 "title": "Upcoming <span>Events</span>",
-                "subtitle": "Join us to network and learn!"
+                "subtitle": "Join us to network and learn!",
+                "color": "C"
             },
             "motto": {
                 "text": "We'd love to see you at our events.​",
@@ -232,7 +233,8 @@
             "section": "media-area",
             "section_title": {
                 "title": "Featured in <span>Media</span>",
-                "subtitle": "#VetsWhoCode in the spotlight"
+                "subtitle": "#VetsWhoCode in the spotlight",
+                "color": "C"
             },
             "motto": {
                 "text": "See our impact and recognition in the media.​",

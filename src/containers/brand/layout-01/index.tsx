@@ -73,7 +73,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                                 fontWeight: 700,
                                                 textTransform: "uppercase",
                                                 letterSpacing: "0.12em",
-                                                color: "var(--ink, #1A1823)",
+                                                color: "rgba(248, 249, 250, 0.85)",
                                                 whiteSpace: "nowrap",
                                                 display: "inline-flex",
                                                 alignItems: "center",
@@ -85,7 +85,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                                     style={{
                                                         width: "16px",
                                                         height: "2px",
-                                                        background: "#DEE2E6",
+                                                        background: "rgba(185, 214, 242, 0.4)",
                                                         margin: "0 20px",
                                                         flexShrink: 0,
                                                     }}

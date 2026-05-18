@@ -710,11 +710,11 @@ const ApplyForm = () => {
                                                     })}
                                                 />
                                             </div>
-                                            <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-4">
-                                                <h5 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-blue-900">
+                                            <div className="tw-rounded-lg tw-border-2 tw-border-navy-sky tw-bg-navy-sky/20 tw-p-4">
+                                                <h5 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-navy-deep">
                                                     Prework Submission
                                                 </h5>
-                                                <p className="tw-mb-4 tw-text-sm tw-text-blue-800">
+                                                <p className="tw-mb-4 tw-text-sm tw-text-navy">
                                                     Your prework demonstrates your commitment and
                                                     foundational skills. Please provide both the
                                                     live deployment link and the GitHub repository.

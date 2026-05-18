@@ -7,7 +7,6 @@ export const sitemapColumns: SitemapColumn[] = [
         links: [
             { label: "Overview", path: "/programs" },
             { label: "Core Curriculum", path: "/programs/core-curriculum" },
-            { label: "Mission-Ready", path: "/programs/mission-ready" },
             { label: "Mentorship", path: "/programs/mentorship" },
             { label: "Software Factory", path: "/programs/software-factory" },
         ],
@@ -27,6 +26,7 @@ export const sitemapColumns: SitemapColumn[] = [
         links: [
             { label: "Blog", path: "/blogs/blog" },
             { label: "Career Guides", path: "/career-guides" },
+            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
             { label: "Events", path: "/events" },
             { label: "Media", path: "/media" },
             { label: "Game", path: "/game" },
@@ -51,23 +51,12 @@ export const sitemapColumns: SitemapColumn[] = [
 // where real estate is tight.
 export const sitemapExtraColumns: SitemapColumn[] = [
     {
-        heading: "Curriculum Tracks",
-        links: [
-            { label: "All Subjects", path: "/subjects/all" },
-            { label: "Foundations", path: "/subjects/foundations" },
-            { label: "Software Engineering", path: "/subjects/software-engineering" },
-            { label: "AI Engineering", path: "/subjects/ai-engineering" },
-            { label: "Production Mastery", path: "/subjects/production-mastery" },
-        ],
-    },
-    {
         heading: "Member Tools",
         links: [
             { label: "Profile", path: "/profile" },
             { label: "Reps (Challenges)", path: "/challenges" },
             { label: "Assessment", path: "/assessment" },
             { label: "J0d!e", path: "/jodie" },
-            { label: "Portfolio Checklist", path: "/portfolio-checklist" },
         ],
     },
     {
