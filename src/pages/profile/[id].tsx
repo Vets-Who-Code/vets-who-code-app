@@ -4,29 +4,30 @@ import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
 import type { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
-import { useState } from "react";
-import { options } from "@/pages/api/auth/options";
-import prisma from "@/lib/prisma";
-import useGitHubProfile from "@/hooks/use-github-profile";
-import useLearningStats from "@/hooks/use-learning-stats";
-import useProfileForm from "@/hooks/use-profile-form";
-import type { ProfileUser, ProfileTab } from "@/types/profile";
+import { useCallback } from "react";
 import {
+    ActivityFeed,
+    GitHubReadme,
+    GitHubStatsGrid,
+    LanguageBreakdown,
+    LearningProgress,
     NotificationToast,
     ProfileHeader,
     ProfileNav,
-    GitHubStatsGrid,
-    RepositoryShowcase,
-    LanguageBreakdown,
-    ActivityFeed,
-    ServiceRecord,
-    LearningProgress,
     ProfileSettings,
-    GitHubReadme,
+    RepositoryShowcase,
+    ServiceRecord,
     TroopDashboard,
 } from "@/components/profile";
+import useGitHubProfile from "@/hooks/use-github-profile";
+import useLearningStats from "@/hooks/use-learning-stats";
+import useProfileForm from "@/hooks/use-profile-form";
+import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
+import { PROFILE_TABS, type ProfileTab, type ProfileUser } from "@/types/profile";
 
 type PageProps = {
     user: ProfileUser;
@@ -42,9 +43,31 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
+const DEFAULT_TAB: ProfileTab = "command-center";
+const VALID_TABS = new Set<ProfileTab>(PROFILE_TABS.map((t) => t.id));
+
+function parseTab(value: unknown): ProfileTab {
+    return typeof value === "string" && VALID_TABS.has(value as ProfileTab)
+        ? (value as ProfileTab)
+        : DEFAULT_TAB;
+}
+
 const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
     const mounted = useMount();
-    const [activeTab, setActiveTab] = useState<ProfileTab>("command-center");
+    const router = useRouter();
+    const activeTab = parseTab(router.query.tab);
+
+    const handleTabChange = useCallback(
+        (tab: ProfileTab) => {
+            const nextQuery = { ...router.query, tab };
+            if (tab === DEFAULT_TAB) delete nextQuery.tab;
+            router.push({ pathname: router.pathname, query: nextQuery }, undefined, {
+                shallow: true,
+                scroll: false,
+            });
+        },
+        [router]
+    );
 
     // Pass the target user's ID to hooks so they fetch that member's data
     const targetId = isOwner ? undefined : user.id;
@@ -101,11 +124,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                     onLogout={handleLogout}
                 />
 
-                <ProfileNav
-                    activeTab={activeTab}
-                    onTabChange={setActiveTab}
-                    isOwner={isOwner}
-                />
+                <ProfileNav activeTab={activeTab} onTabChange={handleTabChange} isOwner={isOwner} />
 
                 {/* Command Center — GitHub overview */}
                 {activeTab === "command-center" && (
@@ -118,10 +137,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                                 </p>
                             </div>
                         )}
-                        <GitHubStatsGrid
-                            github={github.data}
-                            isLoading={github.isLoading}
-                        />
+                        <GitHubStatsGrid github={github.data} isLoading={github.isLoading} />
                         <LanguageBreakdown
                             languages={github.data?.languages || []}
                             isLoading={github.isLoading}
