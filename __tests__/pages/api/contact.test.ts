@@ -154,6 +154,7 @@ describe("POST /api/contact", () => {
             expect(classifyContact).toHaveBeenCalledWith({
                 name: "Jane",
                 email: "jane@test.com",
+                subject: "",
                 message: "I heard about your program and would like to apply",
             });
         });
@@ -172,6 +173,7 @@ describe("POST /api/contact", () => {
             expect(classifyContact).toHaveBeenCalledWith({
                 name: "Unknown",
                 email: "test@example.com",
+                subject: "",
                 message: "Test message for the bootcamp",
             });
         });
