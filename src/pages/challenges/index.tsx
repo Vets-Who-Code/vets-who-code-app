@@ -1,13 +1,14 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
-import { runChallenge } from "@/lib/challenge-runner";
-import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
+import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
+import { runChallenge } from "@/lib/challenge-runner";
 import { options } from "@/pages/api/auth/options";
+import { handleClientError } from "@/utils/handle-client-error";
 
 interface ChallengeSummary {
     id: string;
@@ -77,6 +78,10 @@ const ChallengesPage: PageWithLayout = () => {
     const [isLoadingRec, setIsLoadingRec] = useState(true);
     const [isLoadingHist, setIsLoadingHist] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    const [recError, setRecError] = useState<string | null>(null);
+    const [historyError, setHistoryError] = useState<string | null>(null);
+    const [hintError, setHintError] = useState<string | null>(null);
+    const [solutionError, setSolutionError] = useState<string | null>(null);
 
     // Start challenge form
     const [selectedTopic, setSelectedTopic] = useState("javascript");
@@ -96,28 +101,30 @@ const ChallengesPage: PageWithLayout = () => {
     const [solution, setSolution] = useState<string | null>(null);
 
     const fetchRecommended = useCallback(async () => {
+        setRecError(null);
         try {
             const res = await fetch("/api/j0di3/challenges/recommended");
-            if (res.ok) {
-                const data = await res.json();
-                setRecommended(Array.isArray(data) ? data : data.challenges || []);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`Recommended request failed (${res.status}).`);
+            const data = await res.json();
+            setRecommended(Array.isArray(data) ? data : data.challenges || []);
+        } catch (err) {
+            handleClientError(err, { context: "challenges:fetchRecommended" });
+            setRecError("Couldn't load recommended challenges. Try again in a moment.");
         } finally {
             setIsLoadingRec(false);
         }
     }, []);
 
     const fetchHistory = useCallback(async () => {
+        setHistoryError(null);
         try {
             const res = await fetch("/api/j0di3/challenges/history");
-            if (res.ok) {
-                const data = await res.json();
-                setHistory(Array.isArray(data) ? data : data.attempts || []);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`History request failed (${res.status}).`);
+            const data = await res.json();
+            setHistory(Array.isArray(data) ? data : data.attempts || []);
+        } catch (err) {
+            handleClientError(err, { context: "challenges:fetchHistory" });
+            setHistoryError("Couldn't load your attempt history.");
         } finally {
             setIsLoadingHist(false);
         }
@@ -226,15 +233,16 @@ const ChallengesPage: PageWithLayout = () => {
     const handleGetHint = async () => {
         if (!activeChallenge) return;
         setIsLoadingHint(true);
+        setHintError(null);
 
         try {
             const res = await fetch(`/api/j0di3/challenges/${activeChallenge.id}/hint`);
-            if (res.ok) {
-                const data = await res.json();
-                setHints((prev) => [...prev, data.hint || data.message || "No more hints available."]);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`Hint request failed (${res.status}).`);
+            const data = await res.json();
+            setHints((prev) => [...prev, data.hint || data.message || "No more hints available."]);
+        } catch (err) {
+            handleClientError(err, { context: "challenges:handleGetHint" });
+            setHintError("Couldn't fetch a hint. Try again in a moment.");
         } finally {
             setIsLoadingHint(false);
         }
@@ -242,16 +250,17 @@ const ChallengesPage: PageWithLayout = () => {
 
     const handleShowSolution = async () => {
         if (!activeChallenge) return;
+        setSolutionError(null);
 
         try {
             const res = await fetch(`/api/j0di3/challenges/${activeChallenge.id}/solution`);
-            if (res.ok) {
-                const data = await res.json();
-                setSolution(data.solution || data.code || "Solution not available.");
-                setShowSolution(true);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`Solution request failed (${res.status}).`);
+            const data = await res.json();
+            setSolution(data.solution || data.code || "Solution not available.");
+            setShowSolution(true);
+        } catch (err) {
+            handleClientError(err, { context: "challenges:handleShowSolution" });
+            setSolutionError("Couldn't load the solution. Try again in a moment.");
         }
     };
 
@@ -320,7 +329,10 @@ const ChallengesPage: PageWithLayout = () => {
                                 </h2>
                                 <div className="tw-grid tw-grid-cols-2 tw-gap-4 tw-mb-4">
                                     <div>
-                                        <label htmlFor="topic" className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2">
+                                        <label
+                                            htmlFor="topic"
+                                            className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2"
+                                        >
                                             Topic
                                         </label>
                                         <select
@@ -331,13 +343,18 @@ const ChallengesPage: PageWithLayout = () => {
                                         >
                                             {TOPICS.map((t) => (
                                                 <option key={t} value={t}>
-                                                    {t.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                                                    {t
+                                                        .replace("-", " ")
+                                                        .replace(/\b\w/g, (c) => c.toUpperCase())}
                                                 </option>
                                             ))}
                                         </select>
                                     </div>
                                     <div>
-                                        <label htmlFor="difficulty" className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2">
+                                        <label
+                                            htmlFor="difficulty"
+                                            className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2"
+                                        >
                                             Difficulty
                                         </label>
                                         <select
@@ -373,9 +390,12 @@ const ChallengesPage: PageWithLayout = () => {
                                 </h2>
                                 {isLoadingRec ? (
                                     <p className="tw-text-navy/60">Loading recommendations...</p>
+                                ) : recError ? (
+                                    <p className="tw-text-red tw-text-sm">{recError}</p>
                                 ) : recommended.length === 0 ? (
                                     <p className="tw-text-navy/60">
-                                        Complete some challenges to get personalized recommendations.
+                                        Complete some challenges to get personalized
+                                        recommendations.
                                     </p>
                                 ) : (
                                     <div className="tw-space-y-3">
@@ -385,12 +405,16 @@ const ChallengesPage: PageWithLayout = () => {
                                                 className="tw-flex tw-items-center tw-justify-between tw-rounded-md tw-border tw-border-navy/10 tw-p-4"
                                             >
                                                 <div>
-                                                    <h3 className="tw-font-semibold tw-text-ink">{ch.title}</h3>
+                                                    <h3 className="tw-font-semibold tw-text-ink">
+                                                        {ch.title}
+                                                    </h3>
                                                     <div className="tw-flex tw-gap-2 tw-mt-1">
                                                         <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800">
                                                             {ch.topic}
                                                         </span>
-                                                        <span className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium ${difficultyColor(ch.difficulty)}`}>
+                                                        <span
+                                                            className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium ${difficultyColor(ch.difficulty)}`}
+                                                        >
                                                             {ch.difficulty}
                                                         </span>
                                                     </div>
@@ -425,7 +449,9 @@ const ChallengesPage: PageWithLayout = () => {
                                             <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800">
                                                 {activeChallenge.topic}
                                             </span>
-                                            <span className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium ${difficultyColor(activeChallenge.difficulty)}`}>
+                                            <span
+                                                className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium ${difficultyColor(activeChallenge.difficulty)}`}
+                                            >
                                                 {activeChallenge.difficulty}
                                             </span>
                                         </div>
@@ -442,11 +468,16 @@ const ChallengesPage: PageWithLayout = () => {
                                     </button>
                                 </div>
 
-                                <p className="tw-mb-4 tw-text-ink/80">{activeChallenge.description}</p>
+                                <p className="tw-mb-4 tw-text-ink/80">
+                                    {activeChallenge.description}
+                                </p>
 
                                 {/* Code Editor */}
                                 <div className="tw-mb-4">
-                                    <label htmlFor="code-editor" className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2">
+                                    <label
+                                        htmlFor="code-editor"
+                                        className="tw-block tw-text-sm tw-font-medium tw-text-ink/80 tw-mb-2"
+                                    >
                                         Your Solution ({activeChallenge.language})
                                     </label>
                                     <textarea
@@ -465,7 +496,12 @@ const ChallengesPage: PageWithLayout = () => {
                                     <button
                                         type="button"
                                         onClick={handleRun}
-                                        disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                        disabled={
+                                            isRunning ||
+                                            isSubmitting ||
+                                            !code.trim() ||
+                                            !hasTestCases
+                                        }
                                         className="tw-rounded-md tw-border tw-border-primary tw-px-6 tw-py-2 tw-font-medium tw-text-primary tw-transition-colors hover:tw-bg-primary/5 disabled:tw-opacity-50"
                                     >
                                         {isRunning
@@ -475,7 +511,12 @@ const ChallengesPage: PageWithLayout = () => {
                                     <button
                                         type="button"
                                         onClick={handleSubmit}
-                                        disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                        disabled={
+                                            isRunning ||
+                                            isSubmitting ||
+                                            !code.trim() ||
+                                            !hasTestCases
+                                        }
                                         className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
                                     >
                                         {isSubmitting ? "Submitting..." : "Submit Solution"}
@@ -486,7 +527,9 @@ const ChallengesPage: PageWithLayout = () => {
                                         disabled={isLoadingHint}
                                         className="tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
                                     >
-                                        {isLoadingHint ? "Loading..." : `Get Hint (${hints.length} used)`}
+                                        {isLoadingHint
+                                            ? "Loading..."
+                                            : `Get Hint (${hints.length} used)`}
                                     </button>
                                     {!showSolution && (
                                         <button
@@ -500,20 +543,35 @@ const ChallengesPage: PageWithLayout = () => {
                                 </div>
 
                                 {/* Hints */}
+                                {hintError && (
+                                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                                        {hintError}
+                                    </div>
+                                )}
                                 {hints.length > 0 && (
                                     <div className="tw-mb-4 tw-space-y-2">
                                         {hints.map((hint, i) => (
-                                            <div key={i} className="tw-rounded-md tw-bg-blue-50 tw-border tw-border-blue-200 tw-p-3">
+                                            <div
+                                                key={i}
+                                                className="tw-rounded-md tw-bg-blue-50 tw-border tw-border-blue-200 tw-p-3"
+                                            >
                                                 <span className="tw-text-xs tw-font-semibold tw-text-blue-600 tw-uppercase">
                                                     Hint {i + 1}
                                                 </span>
-                                                <p className="tw-text-sm tw-text-blue-800 tw-mt-1">{hint}</p>
+                                                <p className="tw-text-sm tw-text-blue-800 tw-mt-1">
+                                                    {hint}
+                                                </p>
                                             </div>
                                         ))}
                                     </div>
                                 )}
 
                                 {/* Solution */}
+                                {solutionError && (
+                                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                                        {solutionError}
+                                    </div>
+                                )}
                                 {showSolution && solution && (
                                     <div className="tw-mb-4 tw-rounded-md tw-bg-amber-50 tw-border tw-border-amber-200 tw-p-4">
                                         <span className="tw-text-xs tw-font-semibold tw-text-amber-600 tw-uppercase">
@@ -526,58 +584,59 @@ const ChallengesPage: PageWithLayout = () => {
                                 )}
 
                                 {/* Local test results */}
-                                {localResults && (
-                                    <TestResultsPanel results={localResults} />
-                                )}
+                                {localResults && <TestResultsPanel results={localResults} />}
 
                                 {/* Server submission result */}
-                                {serverResult && (() => {
-                                    // Backend may omit `passed` when the runner reports
-                                    // all_passed: true; fall back to the runner's verdict
-                                    // so we don't render "Not quite right" for a true pass.
-                                    const passed =
-                                        typeof serverResult.passed === "boolean"
-                                            ? serverResult.passed
-                                            : (localResults?.all_passed ?? false);
-                                    return (
-                                    <div
-                                        className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
-                                            passed
-                                                ? "tw-bg-green-50 tw-border-green-200"
-                                                : "tw-bg-red-50 tw-border-red-200"
-                                        }`}
-                                    >
-                                        <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
-                                            <i
-                                                className={`fas ${
+                                {serverResult &&
+                                    (() => {
+                                        // Backend may omit `passed` when the runner reports
+                                        // all_passed: true; fall back to the runner's verdict
+                                        // so we don't render "Not quite right" for a true pass.
+                                        const passed =
+                                            typeof serverResult.passed === "boolean"
+                                                ? serverResult.passed
+                                                : (localResults?.all_passed ?? false);
+                                        return (
+                                            <div
+                                                className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
                                                     passed
-                                                        ? "fa-check-circle tw-text-green-600"
-                                                        : "fa-times-circle tw-text-red-600"
-                                                }`}
-                                            />
-                                            <span
-                                                className={`tw-font-semibold ${
-                                                    passed
-                                                        ? "tw-text-green-800"
-                                                        : "tw-text-red-800"
+                                                        ? "tw-bg-green-50 tw-border-green-200"
+                                                        : "tw-bg-red-50 tw-border-red-200"
                                                 }`}
                                             >
-                                                {passed ? "Challenge Passed!" : "Not quite right"}
-                                            </span>
-                                            {serverResult.score !== undefined && (
-                                                <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
-                                                    Score: {serverResult.score}/100
-                                                </span>
-                                            )}
-                                        </div>
-                                        {serverResult.feedback && (
-                                            <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
-                                                {serverResult.feedback}
-                                            </p>
-                                        )}
-                                    </div>
-                                    );
-                                })()}
+                                                <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
+                                                    <i
+                                                        className={`fas ${
+                                                            passed
+                                                                ? "fa-check-circle tw-text-green-600"
+                                                                : "fa-times-circle tw-text-red-600"
+                                                        }`}
+                                                    />
+                                                    <span
+                                                        className={`tw-font-semibold ${
+                                                            passed
+                                                                ? "tw-text-green-800"
+                                                                : "tw-text-red-800"
+                                                        }`}
+                                                    >
+                                                        {passed
+                                                            ? "Challenge Passed!"
+                                                            : "Not quite right"}
+                                                    </span>
+                                                    {serverResult.score !== undefined && (
+                                                        <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
+                                                            Score: {serverResult.score}/100
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                {serverResult.feedback && (
+                                                    <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
+                                                        {serverResult.feedback}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        );
+                                    })()}
                             </div>
                         )}
                     </div>
@@ -590,6 +649,8 @@ const ChallengesPage: PageWithLayout = () => {
                             </h2>
                             {isLoadingHist ? (
                                 <p className="tw-text-navy/60 tw-text-sm">Loading...</p>
+                            ) : historyError ? (
+                                <p className="tw-text-red tw-text-sm">{historyError}</p>
                             ) : history.length === 0 ? (
                                 <p className="tw-text-navy/60 tw-text-sm">
                                     No challenges attempted yet. Start one!
@@ -614,11 +675,15 @@ const ChallengesPage: PageWithLayout = () => {
                                                 />
                                             </div>
                                             <div className="tw-flex tw-gap-2 tw-mt-1">
-                                                <span className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs ${difficultyColor(attempt.difficulty)}`}>
+                                                <span
+                                                    className={`tw-rounded-full tw-px-2 tw-py-0.5 tw-text-xs ${difficultyColor(attempt.difficulty)}`}
+                                                >
                                                     {attempt.difficulty}
                                                 </span>
                                                 <span className="tw-text-xs tw-text-ink/60">
-                                                    {new Date(attempt.submitted_at).toLocaleDateString()}
+                                                    {new Date(
+                                                        attempt.submitted_at
+                                                    ).toLocaleDateString()}
                                                 </span>
                                             </div>
                                         </div>
@@ -681,9 +746,7 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
             <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
                 <i
                     className={`fas ${
-                        result.passed
-                            ? "fa-check tw-text-green-600"
-                            : "fa-times tw-text-red-600"
+                        result.passed ? "fa-check tw-text-green-600" : "fa-times tw-text-red-600"
                     }`}
                 />
                 <span className="tw-font-semibold tw-text-ink">

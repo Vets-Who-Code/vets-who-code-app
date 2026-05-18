@@ -5,7 +5,7 @@
  * swap the Map for Redis or similar.
  */
 
-import type { NextApiRequest } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 interface RateLimitEntry {
     count: number;
@@ -69,4 +69,48 @@ export function checkRateLimit(
 
     entry.count++;
     return { allowed: true, remaining: maxRequests - entry.count, resetAt: entry.resetAt };
+}
+
+export interface ApplyRateLimitOptions {
+    /** Bucket key. Defaults to client IP. Use a user/session id for per-user limits. */
+    key?: string;
+    /** Max requests allowed in the window. */
+    max: number;
+    /** Window length in milliseconds. */
+    windowMs: number;
+    /** Optional prefix added to the key (avoids collisions across endpoints sharing a key strategy). */
+    scope?: string;
+}
+
+/**
+ * Apply a rate limit and set the standard headers (X-RateLimit-* and
+ * Retry-After when blocked). The caller is responsible for short-circuiting
+ * with `res.status(429).json(...)` when `allowed === false`.
+ */
+export function applyRateLimit(
+    req: NextApiRequest,
+    res: NextApiResponse,
+    options: ApplyRateLimitOptions
+): RateLimitResult {
+    const rawKey = options.key || getClientIp(req);
+    const bucketKey = options.scope ? `${options.scope}:${rawKey}` : rawKey;
+    const limit = checkRateLimit(bucketKey, options.max, options.windowMs);
+
+    res.setHeader("X-RateLimit-Limit", options.max);
+    res.setHeader("X-RateLimit-Remaining", limit.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(limit.resetAt / 1000));
+    if (!limit.allowed) {
+        const retryAfterSec = Math.max(0, Math.ceil((limit.resetAt - Date.now()) / 1000));
+        res.setHeader("Retry-After", retryAfterSec);
+    }
+    return limit;
+}
+
+/**
+ * Exposed for unit tests — clears the in-memory bucket so test order does not
+ * accumulate state. Do not call from production code.
+ */
+export function _resetRateLimitForTests(): void {
+    ipBuckets.clear();
+    lastCleanup = Date.now();
 }

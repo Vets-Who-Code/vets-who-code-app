@@ -1,14 +1,15 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
-import { runChallenge } from "@/lib/challenge-runner";
-import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
+import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
+import { runChallenge } from "@/lib/challenge-runner";
 import { options } from "@/pages/api/auth/options";
+import { handleClientError } from "@/utils/handle-client-error";
 
 interface SubmissionResponse {
     passed?: boolean;
@@ -127,14 +128,15 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const handleGetHint = async () => {
         if (!challenge) return;
         setIsLoadingHint(true);
+        setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/hint`);
-            if (res.ok) {
-                const body = await res.json();
-                setHints((prev) => [...prev, body.hint || body.message || "No more hints available."]);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`Hint request failed (${res.status}).`);
+            const body = await res.json();
+            setHints((prev) => [...prev, body.hint || body.message || "No more hints available."]);
+        } catch (err) {
+            handleClientError(err, { context: "challenges/[id]:handleGetHint" });
+            setError("Couldn't fetch a hint. Try again in a moment.");
         } finally {
             setIsLoadingHint(false);
         }
@@ -142,15 +144,16 @@ const ChallengeDetailPage: PageWithLayout = () => {
 
     const handleShowSolution = async () => {
         if (!challenge) return;
+        setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/solution`);
-            if (res.ok) {
-                const body = await res.json();
-                setSolutionText(body.solution || body.code || "Solution not available.");
-                setShowSolution(true);
-            }
-        } catch {
-            // non-critical
+            if (!res.ok) throw new Error(`Solution request failed (${res.status}).`);
+            const body = await res.json();
+            setSolutionText(body.solution || body.code || "Solution not available.");
+            setShowSolution(true);
+        } catch (err) {
+            handleClientError(err, { context: "challenges/[id]:handleShowSolution" });
+            setError("Couldn't load the solution. Try again in a moment.");
         }
     };
 
@@ -262,7 +265,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
                             <button
                                 type="button"
                                 onClick={handleRun}
-                                disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                disabled={
+                                    isRunning || isSubmitting || !code.trim() || !hasTestCases
+                                }
                                 className="tw-rounded-md tw-border tw-border-primary tw-px-6 tw-py-2 tw-font-medium tw-text-primary tw-transition-colors hover:tw-bg-primary/5 disabled:tw-opacity-50"
                             >
                                 {isRunning
@@ -272,7 +277,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
                             <button
                                 type="button"
                                 onClick={handleSubmit}
-                                disabled={isRunning || isSubmitting || !code.trim() || !hasTestCases}
+                                disabled={
+                                    isRunning || isSubmitting || !code.trim() || !hasTestCases
+                                }
                                 className="tw-rounded-md tw-bg-primary tw-px-6 tw-py-2 tw-font-medium tw-text-white tw-transition-colors hover:tw-bg-primary-dark disabled:tw-opacity-50"
                             >
                                 {isSubmitting ? "Submitting..." : "Submit Solution"}
@@ -306,7 +313,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                         <span className="tw-text-xs tw-font-semibold tw-text-blue-600 tw-uppercase">
                                             Hint {i + 1}
                                         </span>
-                                        <p className="tw-text-sm tw-text-blue-800 tw-mt-1">{hint}</p>
+                                        <p className="tw-text-sm tw-text-blue-800 tw-mt-1">
+                                            {hint}
+                                        </p>
                                     </div>
                                 ))}
                             </div>
@@ -325,48 +334,49 @@ const ChallengeDetailPage: PageWithLayout = () => {
 
                         {localResults && <TestResultsPanel results={localResults} />}
 
-                        {serverResult && (() => {
-                            const passed =
-                                typeof serverResult.passed === "boolean"
-                                    ? serverResult.passed
-                                    : (localResults?.all_passed ?? false);
-                            return (
-                                <div
-                                    className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
-                                        passed
-                                            ? "tw-bg-green-50 tw-border-green-200"
-                                            : "tw-bg-red-50 tw-border-red-200"
-                                    }`}
-                                >
-                                    <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
-                                        <i
-                                            className={`fas ${
-                                                passed
-                                                    ? "fa-check-circle tw-text-green-600"
-                                                    : "fa-times-circle tw-text-red-600"
-                                            }`}
-                                        />
-                                        <span
-                                            className={`tw-font-semibold ${
-                                                passed ? "tw-text-green-800" : "tw-text-red-800"
-                                            }`}
-                                        >
-                                            {passed ? "Challenge Passed!" : "Not quite right"}
-                                        </span>
-                                        {serverResult.score !== undefined && (
-                                            <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
-                                                Score: {serverResult.score}/100
+                        {serverResult &&
+                            (() => {
+                                const passed =
+                                    typeof serverResult.passed === "boolean"
+                                        ? serverResult.passed
+                                        : (localResults?.all_passed ?? false);
+                                return (
+                                    <div
+                                        className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
+                                            passed
+                                                ? "tw-bg-green-50 tw-border-green-200"
+                                                : "tw-bg-red-50 tw-border-red-200"
+                                        }`}
+                                    >
+                                        <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
+                                            <i
+                                                className={`fas ${
+                                                    passed
+                                                        ? "fa-check-circle tw-text-green-600"
+                                                        : "fa-times-circle tw-text-red-600"
+                                                }`}
+                                            />
+                                            <span
+                                                className={`tw-font-semibold ${
+                                                    passed ? "tw-text-green-800" : "tw-text-red-800"
+                                                }`}
+                                            >
+                                                {passed ? "Challenge Passed!" : "Not quite right"}
                                             </span>
+                                            {serverResult.score !== undefined && (
+                                                <span className="tw-text-sm tw-text-ink/60 tw-ml-2">
+                                                    Score: {serverResult.score}/100
+                                                </span>
+                                            )}
+                                        </div>
+                                        {serverResult.feedback && (
+                                            <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
+                                                {serverResult.feedback}
+                                            </p>
                                         )}
                                     </div>
-                                    {serverResult.feedback && (
-                                        <p className="tw-text-sm tw-text-ink/80 tw-whitespace-pre-wrap">
-                                            {serverResult.feedback}
-                                        </p>
-                                    )}
-                                </div>
-                            );
-                        })()}
+                                );
+                            })()}
                     </div>
                 )}
             </div>
@@ -422,9 +432,7 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
             <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
                 <i
                     className={`fas ${
-                        result.passed
-                            ? "fa-check tw-text-green-600"
-                            : "fa-times tw-text-red-600"
+                        result.passed ? "fa-check tw-text-green-600" : "fa-times tw-text-red-600"
                     }`}
                 />
                 <span className="tw-font-semibold tw-text-ink">

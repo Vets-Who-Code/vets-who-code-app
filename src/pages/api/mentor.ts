@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { applyRateLimit } from "@/lib/rate-limit";
 import { checkParams } from "./api-helpers";
 
 // Define the ParsedBody type
@@ -15,6 +17,17 @@ interface ParsedBody {
 
 export default async function handler(req: Request, res: Response) {
     try {
+        const rl = applyRateLimit(
+            req as unknown as NextApiRequest,
+            res as unknown as NextApiResponse,
+            { scope: "mentor", max: 5, windowMs: 60 * 60 * 1000 }
+        );
+        if (!rl.allowed) {
+            return res.status(429).json({
+                message: "Too many mentor signups. Please try again in an hour.",
+            });
+        }
+
         const parsedBody = req.body as ParsedBody; // Cast to ensure body matches ParsedBody interface
         const requiredParams: (keyof ParsedBody)[] = [
             "name",

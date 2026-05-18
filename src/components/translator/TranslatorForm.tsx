@@ -6,10 +6,11 @@ import { hasKey } from "@utils/methods";
 import clsx from "clsx";
 import React, { useCallback, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { usePdfUpload } from "@/hooks";
 import type { MilitaryProfile } from "@/lib/military-translator";
 import { trackTranslatorEvent } from "@/lib/translator-analytics";
 import type { JobCodeEntry } from "@/types/job-codes";
-import { usePdfUpload } from "@/hooks";
+import { handleClientError } from "@/utils/handle-client-error";
 import JobCodeCombobox from "./JobCodeCombobox";
 
 interface IFormValues {
@@ -157,8 +158,9 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     setValue("duties", formatted, { shouldValidate: true });
                     setDutiesAutoFilled(true);
                 }
-            } catch {
-                // Silently fail — user can still type duties manually
+            } catch (err) {
+                // Soft fail — user can still type duties manually. Log for devs.
+                handleClientError(err, { context: "TranslatorForm:fetchDescription" });
             } finally {
                 setFetchingDescription(false);
             }
@@ -192,22 +194,28 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     });
                     if (res.ok) {
                         const fields = await res.json();
-                        if (fields.branch) setValue("branch", fields.branch, { shouldValidate: true });
+                        if (fields.branch)
+                            setValue("branch", fields.branch, { shouldValidate: true });
                         if (fields.rank) setValue("rank", fields.rank, { shouldValidate: true });
-                        if (fields.jobTitle) setValue("jobTitle", fields.jobTitle, { shouldValidate: true });
+                        if (fields.jobTitle)
+                            setValue("jobTitle", fields.jobTitle, { shouldValidate: true });
                         if (fields.duties) {
                             setValue("duties", fields.duties, { shouldValidate: true });
                             setDutiesAutoFilled(true);
                         }
                         if (fields.achievements) setValue("achievements", fields.achievements);
                     }
-                } catch {
-                    // Silent fallback — raw text is already in duties
+                } catch (err) {
+                    // Raw PDF text is already in duties, so this is a soft
+                    // fail; AI auto-fill just doesn't run.
+                    handleClientError(err, { context: "TranslatorForm:extractFields" });
                 } finally {
                     setExtractingFields(false);
                 }
-            } catch {
-                // Error is already tracked via the hook state
+            } catch (err) {
+                // PDF parse error is surfaced via uploadPdf's hook state;
+                // log so devs can see the underlying failure too.
+                handleClientError(err, { context: "TranslatorForm:handlePdfUpload" });
             }
         },
         [uploadPdf, setValue]
@@ -231,11 +239,21 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
             securityClearance: values.securityClearance || undefined,
             skillLevel: values.skillLevel || undefined,
             deploymentHistory: values.deploymentHistory || undefined,
-            leadershipCourses: selectedLeadershipCourses.length > 0 ? selectedLeadershipCourses : undefined,
-            collateralDuties: selectedCollateralDuties.length > 0 ? selectedCollateralDuties : undefined,
+            leadershipCourses:
+                selectedLeadershipCourses.length > 0 ? selectedLeadershipCourses : undefined,
+            collateralDuties:
+                selectedCollateralDuties.length > 0 ? selectedCollateralDuties : undefined,
             certificationsEarned: values.certificationsEarned || undefined,
         });
-    }, [pdfParsedText, getValues, onSubmit, selectedJobCode, trigger, selectedLeadershipCourses, selectedCollateralDuties]);
+    }, [
+        pdfParsedText,
+        getValues,
+        onSubmit,
+        selectedJobCode,
+        trigger,
+        selectedLeadershipCourses,
+        selectedCollateralDuties,
+    ]);
 
     const handleFormSubmit: SubmitHandler<IFormValues> = (data) => {
         onSubmit({
@@ -251,8 +269,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
             securityClearance: data.securityClearance || undefined,
             skillLevel: data.skillLevel || undefined,
             deploymentHistory: data.deploymentHistory || undefined,
-            leadershipCourses: selectedLeadershipCourses.length > 0 ? selectedLeadershipCourses : undefined,
-            collateralDuties: selectedCollateralDuties.length > 0 ? selectedCollateralDuties : undefined,
+            leadershipCourses:
+                selectedLeadershipCourses.length > 0 ? selectedLeadershipCourses : undefined,
+            collateralDuties:
+                selectedCollateralDuties.length > 0 ? selectedCollateralDuties : undefined,
             certificationsEarned: data.certificationsEarned || undefined,
         });
     };
@@ -273,8 +293,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     htmlFor="branch"
                     className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                 >
-                    Branch of Service{" "}
-                    <span className="tw-text-danger">*</span>
+                    Branch of Service <span className="tw-text-danger">*</span>
                 </label>
                 <select
                     id="branch"
@@ -294,9 +313,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     ))}
                 </select>
                 {errors.branch && (
-                    <p className="tw-mt-1 tw-text-sm tw-text-danger">
-                        {errors.branch.message}
-                    </p>
+                    <p className="tw-mt-1 tw-text-sm tw-text-danger">{errors.branch.message}</p>
                 )}
             </div>
 
@@ -306,13 +323,15 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         htmlFor="jobTitle"
                         className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                     >
-                        Military Job Code (MOS/Rating){" "}
-                        <span className="tw-text-danger">*</span>
+                        Military Job Code (MOS/Rating) <span className="tw-text-danger">*</span>
                     </label>
                     <p className="tw-text-xs tw-text-gray-400">
                         Type your job code to search the database, or enter a title manually.
                     </p>
-                    <input type="hidden" {...register("jobTitle", { required: "Job title is required" })} />
+                    <input
+                        type="hidden"
+                        {...register("jobTitle", { required: "Job title is required" })}
+                    />
                     <JobCodeCombobox
                         jobCodeIndex={jobCodeIndex}
                         selectedBranch={branchValue}
@@ -358,8 +377,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         htmlFor="yearsOfService"
                         className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                     >
-                        Years of Service{" "}
-                        <span className="tw-text-danger">*</span>
+                        Years of Service <span className="tw-text-danger">*</span>
                     </label>
                     <Input
                         id="yearsOfService"
@@ -383,9 +401,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                     >
                         Security Clearance{" "}
-                        <span className="tw-text-xs tw-text-gray-300">
-                            (Optional)
-                        </span>
+                        <span className="tw-text-xs tw-text-gray-300">(Optional)</span>
                     </label>
                     <select
                         id="securityClearance"
@@ -507,8 +523,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     htmlFor="duties"
                     className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                 >
-                    Key Duties &amp; Responsibilities{" "}
-                    <span className="tw-text-danger">*</span>
+                    Key Duties &amp; Responsibilities <span className="tw-text-danger">*</span>
                 </label>
                 <p className="tw-text-sm tw-text-gray-500">
                     {fetchingDescription
@@ -544,13 +559,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                 >
                     Achievements &amp; Awards{" "}
-                    <span className="tw-text-xs tw-text-gray-300">
-                        (Optional)
-                    </span>
+                    <span className="tw-text-xs tw-text-gray-300">(Optional)</span>
                 </label>
                 <p className="tw-text-sm tw-text-gray-500">
-                    List each achievement on a new line. Include specific
-                    results when possible.
+                    List each achievement on a new line. Include specific results when possible.
                 </p>
                 <Textarea
                     id="achievements"
@@ -567,13 +579,11 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                 >
                     Target Civilian Job Title{" "}
-                    <span className="tw-text-xs tw-text-gray-300">
-                        (Optional)
-                    </span>
+                    <span className="tw-text-xs tw-text-gray-300">(Optional)</span>
                 </label>
                 <p className="tw-text-sm tw-text-gray-500">
-                    If you have a specific role in mind, enter it here to tailor
-                    your resume translation.
+                    If you have a specific role in mind, enter it here to tailor your resume
+                    translation.
                 </p>
                 <Input
                     id="targetJobTitle"
@@ -621,7 +631,9 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                     className="tw-block tw-text-sm tw-font-medium tw-text-[#091f40]"
                                 >
                                     Skill Level{" "}
-                                    <span className="tw-text-xs tw-text-gray-300">(Army/Marines)</span>
+                                    <span className="tw-text-xs tw-text-gray-300">
+                                        (Army/Marines)
+                                    </span>
                                 </label>
                                 <select
                                     id="skillLevel"
@@ -665,7 +677,8 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                 Leadership Courses Completed
                             </p>
                             <p className="tw-text-xs tw-text-gray-400">
-                                Select all that apply. These add formal training hours to your profile.
+                                Select all that apply. These add formal training hours to your
+                                profile.
                             </p>
                             <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-2">
                                 {LEADERSHIP_COURSES.map((course) => (
@@ -678,7 +691,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                             checked={selectedLeadershipCourses.includes(course)}
                                             onChange={(e) => {
                                                 if (e.target.checked) {
-                                                    setSelectedLeadershipCourses((prev) => [...prev, course]);
+                                                    setSelectedLeadershipCourses((prev) => [
+                                                        ...prev,
+                                                        course,
+                                                    ]);
                                                 } else {
                                                     setSelectedLeadershipCourses((prev) =>
                                                         prev.filter((c) => c !== course)
@@ -699,7 +715,8 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                 Collateral Duties Held
                             </p>
                             <p className="tw-text-xs tw-text-gray-400">
-                                Each duty maps to a civilian competency area and generates additional resume bullets.
+                                Each duty maps to a civilian competency area and generates
+                                additional resume bullets.
                             </p>
                             <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-2">
                                 {COLLATERAL_DUTIES.map((duty) => (
@@ -712,7 +729,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                             checked={selectedCollateralDuties.includes(duty.value)}
                                             onChange={(e) => {
                                                 if (e.target.checked) {
-                                                    setSelectedCollateralDuties((prev) => [...prev, duty.value]);
+                                                    setSelectedCollateralDuties((prev) => [
+                                                        ...prev,
+                                                        duty.value,
+                                                    ]);
                                                 } else {
                                                     setSelectedCollateralDuties((prev) =>
                                                         prev.filter((d) => d !== duty.value)
@@ -736,7 +756,8 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                                 Certifications Earned in Service
                             </label>
                             <p className="tw-text-xs tw-text-gray-400">
-                                List any certifications obtained during service (e.g., Security+, EMT-B, CDL, HAZMAT).
+                                List any certifications obtained during service (e.g., Security+,
+                                EMT-B, CDL, HAZMAT).
                             </p>
                             <Input
                                 id="certificationsEarned"

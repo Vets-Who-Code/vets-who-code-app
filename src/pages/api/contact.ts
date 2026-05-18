@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
+import { applyRateLimit } from "@/lib/rate-limit";
 import { checkLength, checkParams, contactErrors } from "./api-helpers";
 import { classifyContact } from "./api-helpers/classify-contact";
 
@@ -35,6 +36,15 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    // Per-IP rate limit on the contact form. The Gemini classifier handles
+    // semantic spam; this caps the volume that classifier even has to score.
+    const rl = applyRateLimit(req, res, { scope: "contact", max: 5, windowMs: 15 * 60 * 1000 });
+    if (!rl.allowed) {
+        return res.status(429).json({
+            error: "Too many messages sent recently. Please try again in a few minutes.",
+        });
+    }
+
     const parsedBody: ParsedBody = req.body as ParsedBody;
     const { name, email, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];

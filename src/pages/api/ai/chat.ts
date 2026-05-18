@@ -1,6 +1,7 @@
 import { streamText } from "ai";
 import { NextApiResponse } from "next";
 import { getAIModelWithFallback, JODIE_SYSTEM_PROMPT } from "@/lib/ai-provider";
+import { applyRateLimit } from "@/lib/rate-limit";
 import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
 
 export const runtime = "nodejs";
@@ -45,6 +46,20 @@ interface ChatRequestBody {
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Per-user rate limit on the streaming AI endpoint. Each call hits a paid
+    // model, so a runaway client should not be able to drain quota.
+    const rl = applyRateLimit(req, res, {
+        scope: "ai-chat",
+        key: req.user!.id,
+        max: 20,
+        windowMs: 60_000,
+    });
+    if (!rl.allowed) {
+        return res.status(429).json({
+            error: "You're sending messages too quickly. Please wait a moment.",
+        });
     }
 
     try {
