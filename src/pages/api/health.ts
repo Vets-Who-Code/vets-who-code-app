@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
+import { applyRateLimit } from "@/lib/rate-limit";
 import { version } from "../../../package.json";
 
 interface CheckResult {
@@ -62,6 +63,14 @@ export default async function handler(
 ) {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Cap /health to prevent tight-loop pings from a misbehaving uptime
+    // checker. Real uptime probes ping every 30–60s — 60/min per IP is
+    // generous.
+    const rl = applyRateLimit(req, res, { scope: "health", max: 60, windowMs: 60_000 });
+    if (!rl.allowed) {
+        return res.status(429).json({ error: "Rate limit exceeded" });
     }
 
     const dbCheck = await checkDatabase();

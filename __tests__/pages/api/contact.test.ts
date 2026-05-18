@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
 import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
 import handler from "@/pages/api/contact";
+import { _resetRateLimitForTests } from "@/lib/rate-limit";
 
 vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
     classifyContact: vi.fn(),
@@ -14,16 +15,22 @@ function createMockReqRes(body: Record<string, unknown>): {
     req: NextApiRequest;
     res: NextApiResponse;
 } {
-    const req = { body } as NextApiRequest;
+    const req = {
+        body,
+        headers: {},
+        socket: { remoteAddress: "127.0.0.1" },
+    } as unknown as NextApiRequest;
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
+        setHeader: vi.fn(),
     } as unknown as NextApiResponse;
     return { req, res };
 }
 
 describe("POST /api/contact", () => {
     beforeEach(() => {
+        _resetRateLimitForTests();
         process.env.CONTACT_WEBHOOK_ID = "T00/B00/xxx";
     });
 

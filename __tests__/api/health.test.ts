@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
 import handler from "@/pages/api/health";
+import { _resetRateLimitForTests } from "@/lib/rate-limit";
 
 vi.mock("@/lib/prisma", () => ({
     default: {
@@ -16,10 +17,15 @@ function createMockReqRes(method = "GET"): {
     req: NextApiRequest;
     res: NextApiResponse;
 } {
-    const req = { method } as NextApiRequest;
+    const req = {
+        method,
+        headers: {},
+        socket: { remoteAddress: "127.0.0.1" },
+    } as unknown as NextApiRequest;
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
+        setHeader: vi.fn(),
     } as unknown as NextApiResponse;
     return { req, res };
 }
@@ -28,6 +34,7 @@ describe("GET /api/health", () => {
     const originalEnv = process.env;
 
     beforeEach(() => {
+        _resetRateLimitForTests();
         process.env = {
             ...originalEnv,
             DATABASE_URL: "postgresql://localhost:5432/test",
