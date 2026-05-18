@@ -171,7 +171,7 @@ const ApplyForm = () => {
                                             currentStep > index + 1
                                                 ? "tw-bg-primary tw-text-white"
                                                 : currentStep === index + 1
-                                                  ? "tw-bg-secondary tw-text-white tw-ring-4 tw-ring-secondary-200"
+                                                  ? "tw-bg-secondary tw-text-white tw-ring-4 tw-ring-navy-sky"
                                                   : "tw-bg-gray-50 tw-text-gray-500"
                                         }`}
                                     >

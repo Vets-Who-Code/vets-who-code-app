@@ -193,10 +193,8 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
 
             {resultSource === "ai" && (
                 <div className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-gold tw-bg-gold-light tw-px-4 tw-py-3">
-                    <i className="fas fa-check-circle tw-text-gold-deep" />
-                    <p className="tw-text-sm tw-text-gold-deep">
-                        AI-enhanced translation complete.
-                    </p>
+                    <i className="fas fa-check-circle tw-text-ink" />
+                    <p className="tw-text-sm tw-text-ink">AI-enhanced translation complete.</p>
                 </div>
             )}
 
@@ -348,7 +346,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                 >
                     {linkedInCopied ? (
                         <>
-                            <i className="fas fa-check tw-mr-2 tw-text-gold" />
+                            <i className="fas fa-check tw-mr-2 tw-text-navy-deep" />
                             Copied!
                         </>
                     ) : (

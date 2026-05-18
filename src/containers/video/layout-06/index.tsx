@@ -44,7 +44,7 @@ const VideoArea = ({ data: { section_title, motto, images, video }, titleSize }:
                             y: trans1().y,
                         }}
                     >
-                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-750" />
+                        <Shape2 className="tw-h-full tw-w-full tw-fill-gray-700" />
                     </motion.div>
                     <motion.div
                         className="tw-absolute tw-left-[-65px] tw-top-2 tw-z-1 tw-h-[90px] tw-w-[90px] md:tw-h-auto md:tw-w-auto"

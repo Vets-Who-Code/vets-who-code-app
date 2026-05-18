@@ -12,7 +12,7 @@ const Alert = ({ className, children, color }: TProps) => {
             className={clsx(
                 "alert tw-rounded tw-py-2.5 tw-pl-3 tw-pr-3 nextIcon:tw-mr-2",
                 color === "light" && "tw-bg-gray-50 nextIcon:tw-text-navy-ocean",
-                color === "warning" && "tw-bg-warning-100 tw-text-heading",
+                color === "warning" && "tw-bg-warning-light tw-text-heading",
                 color === "secondary" && "tw-bg-secondary tw-text-white",
                 className
             )}

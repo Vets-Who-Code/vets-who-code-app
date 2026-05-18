@@ -58,7 +58,7 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
     const getStatusBadge = (isPublished: boolean) => {
         if (isPublished) {
             return (
-                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-ink">
                     Published
                 </span>
             );
@@ -72,8 +72,8 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
 
     const getDifficultyBadge = (difficulty: string) => {
         const styles = {
-            BEGINNER: "tw-bg-gold-light tw-text-gold-deep",
-            INTERMEDIATE: "tw-bg-gold-light tw-text-gold-rich",
+            BEGINNER: "tw-bg-gold-light tw-text-ink",
+            INTERMEDIATE: "tw-bg-gold-light tw-text-ink",
             ADVANCED: "tw-bg-cream tw-text-red-dark",
         };
         return (
@@ -223,7 +223,7 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
                                     </button>
                                     <button
                                         type="button"
-                                        className="tw-text-gold hover:tw-text-gold-deep"
+                                        className="tw-text-navy hover:tw-text-navy-deep"
                                         title="View Course"
                                     >
                                         <i className="fas fa-eye" />

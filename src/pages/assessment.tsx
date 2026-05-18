@@ -316,7 +316,7 @@ const Assessment: PageWithLayout = () => {
                 <div
                     className={`tw-fixed tw-right-4 tw-top-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-duration-300 tw-animate-in tw-fade-in tw-slide-in-from-top-5 ${
                         notification.type === "success"
-                            ? "tw-border tw-border-gold tw-bg-gold-light/20 tw-text-gold-deep"
+                            ? "tw-border tw-border-gold tw-bg-gold-light/20 tw-text-ink"
                             : notification.type === "error"
                               ? "tw-border tw-border-red tw-bg-cream tw-text-red-dark"
                               : "tw-border tw-border-navy-sky tw-bg-navy-sky/20 tw-text-navy-deep"
@@ -424,14 +424,14 @@ const Assessment: PageWithLayout = () => {
                                     <i
                                         className={`fas ${
                                             testResults.passed === testResults.total
-                                                ? "fa-check-circle tw-text-gold"
+                                                ? "fa-check-circle tw-text-navy-deep"
                                                 : "fa-times-circle tw-text-red-dark"
                                         }`}
                                     />
                                     <span
                                         className={
                                             testResults.passed === testResults.total
-                                                ? "tw-text-gold-deep"
+                                                ? "tw-text-navy-deep"
                                                 : "tw-text-red-dark"
                                         }
                                     >
@@ -447,7 +447,7 @@ const Assessment: PageWithLayout = () => {
                                 Est. {currentQuestion.timeEstimate} min
                             </span>
                             <span>
-                                <i className="fas fa-star tw-mr-1 tw-text-gold-light/200" />
+                                <i className="fas fa-star tw-mr-1 tw-text-navy-deep" />
                                 {currentQuestion.points} points
                             </span>
                         </div>

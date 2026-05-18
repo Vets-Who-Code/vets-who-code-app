@@ -160,11 +160,11 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const difficultyColor = (d: string) => {
         switch (d.toLowerCase()) {
             case "warmup":
-                return "tw-bg-gold-light tw-text-gold-deep";
+                return "tw-bg-gold-light tw-text-ink";
             case "easy":
-                return "tw-bg-gold-light tw-text-gold-deep";
+                return "tw-bg-gold-light tw-text-ink";
             case "medium":
-                return "tw-bg-gold-light tw-text-gold-rich";
+                return "tw-bg-gold-light tw-text-ink";
             case "hard":
                 return "tw-bg-cream tw-text-red-dark";
             default:
@@ -323,10 +323,10 @@ const ChallengeDetailPage: PageWithLayout = () => {
 
                         {showSolution && solutionText && (
                             <div className="tw-mb-4 tw-rounded-md tw-bg-gold-light tw-border tw-border-gold tw-p-4">
-                                <span className="tw-text-xs tw-font-semibold tw-text-gold-rich tw-uppercase">
+                                <span className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase">
                                     Solution
                                 </span>
-                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-gold-deep tw-whitespace-pre-wrap">
+                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-ink tw-whitespace-pre-wrap">
                                     {solutionText}
                                 </pre>
                             </div>
@@ -352,14 +352,14 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                             <i
                                                 className={`fas ${
                                                     passed
-                                                        ? "fa-check-circle tw-text-gold-deep"
+                                                        ? "fa-check-circle tw-text-ink"
                                                         : "fa-times-circle tw-text-red-dark"
                                                 }`}
                                             />
                                             <span
                                                 className={`tw-font-semibold ${
                                                     passed
-                                                        ? "tw-text-gold-deep"
+                                                        ? "tw-text-ink"
                                                         : "tw-text-red-dark"
                                                 }`}
                                             >
@@ -399,13 +399,13 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
                 <i
                     className={`fas ${
                         results.all_passed
-                            ? "fa-check-circle tw-text-gold-deep"
+                            ? "fa-check-circle tw-text-ink"
                             : "fa-times-circle tw-text-red-dark"
                     }`}
                 />
                 <span
                     className={`tw-font-semibold ${
-                        results.all_passed ? "tw-text-gold-deep" : "tw-text-red-dark"
+                        results.all_passed ? "tw-text-ink" : "tw-text-red-dark"
                     }`}
                 >
                     {passedCount} / {total} tests passing
@@ -432,7 +432,7 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
             <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
                 <i
                     className={`fas ${
-                        result.passed ? "fa-check tw-text-gold-deep" : "fa-times tw-text-red-dark"
+                        result.passed ? "fa-check tw-text-navy-deep" : "fa-times tw-text-red-dark"
                     }`}
                 />
                 <span className="tw-font-semibold tw-text-ink">

@@ -292,15 +292,15 @@ export default function ResumeScorer() {
     };
 
     const scoreTextColor = (score: number) => {
-        if (score >= 80) return "tw-text-gold-deep";
-        if (score >= 60) return "tw-text-gold-rich";
-        if (score >= 40) return "tw-text-gold-rich";
+        if (score >= 80) return "tw-text-ink";
+        if (score >= 60) return "tw-text-navy-deep";
+        if (score >= 40) return "tw-text-red-dark";
         return "tw-text-red-dark";
     };
 
     const passFailColor = (pf: string) => {
         return pf === "PASS"
-            ? "tw-bg-gold-light tw-text-gold-deep"
+            ? "tw-bg-gold-light tw-text-ink"
             : "tw-bg-cream tw-text-red-dark";
     };
 
@@ -364,8 +364,8 @@ export default function ResumeScorer() {
                             </div>
                         ) : fileName && resumeText ? (
                             <div>
-                                <i className="fas fa-check-circle tw-text-gold tw-text-xl tw-mb-1" />
-                                <p className="tw-text-sm tw-text-gold-deep tw-font-medium">
+                                <i className="fas fa-check-circle tw-text-navy-deep tw-text-xl tw-mb-1" />
+                                <p className="tw-text-sm tw-text-navy-deep tw-font-medium">
                                     {fileName} loaded
                                 </p>
                                 <button
@@ -631,7 +631,7 @@ export default function ResumeScorer() {
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-sm">
                             <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-3 tw-flex tw-items-center tw-gap-2">
                                 <span className="tw-w-6 tw-h-6 tw-rounded-full tw-bg-gold-light tw-flex tw-items-center tw-justify-center">
-                                    <i className="fas fa-check tw-text-gold-deep tw-text-xs" />
+                                    <i className="fas fa-check tw-text-ink tw-text-xs" />
                                 </span>
                                 Strengths
                             </h3>
@@ -642,7 +642,7 @@ export default function ResumeScorer() {
                                             key={i}
                                             className="tw-flex tw-gap-2 tw-text-sm tw-text-ink/80"
                                         >
-                                            <i className="fas fa-check tw-text-gold tw-mt-0.5 tw-flex-shrink-0" />
+                                            <i className="fas fa-check tw-text-navy-deep tw-mt-0.5 tw-flex-shrink-0" />
                                             {renderText(s)}
                                         </li>
                                     ))}
@@ -654,7 +654,7 @@ export default function ResumeScorer() {
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-sm">
                             <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-3 tw-flex tw-items-center tw-gap-2">
                                 <span className="tw-w-6 tw-h-6 tw-rounded-full tw-bg-gold-light tw-flex tw-items-center tw-justify-center">
-                                    <i className="fas fa-exclamation tw-text-gold-rich tw-text-xs" />
+                                    <i className="fas fa-exclamation tw-text-ink tw-text-xs" />
                                 </span>
                                 Improvements
                             </h3>
@@ -665,7 +665,7 @@ export default function ResumeScorer() {
                                             key={i}
                                             className="tw-flex tw-gap-2 tw-text-sm tw-text-ink/80"
                                         >
-                                            <i className="fas fa-arrow-up tw-text-gold-rich tw-mt-0.5 tw-flex-shrink-0" />
+                                            <i className="fas fa-arrow-up tw-text-red-dark tw-mt-0.5 tw-flex-shrink-0" />
                                             {renderText(s)}
                                         </li>
                                     ))}
@@ -695,7 +695,7 @@ export default function ResumeScorer() {
                                             {r.detected_technologies.map((t, i) => (
                                                 <span
                                                     key={i}
-                                                    className="tw-rounded-full tw-bg-gold-light tw-text-gold-deep tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium"
+                                                    className="tw-rounded-full tw-bg-gold-light tw-text-ink tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium"
                                                 >
                                                     {renderText(t)}
                                                 </span>
@@ -792,7 +792,7 @@ export default function ResumeScorer() {
                     {r.weak_verbs.length > 0 && (
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-sm">
                             <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-3">
-                                <i className="fas fa-pen tw-mr-2 tw-text-gold-rich" />
+                                <i className="fas fa-pen tw-mr-2 tw-text-red-dark" />
                                 Weak Verb Detection
                             </h3>
                             <div className="tw-space-y-2">
@@ -807,7 +807,7 @@ export default function ResumeScorer() {
                                         {wv.suggestion && (
                                             <>
                                                 <i className="fas fa-arrow-right tw-text-ink/60" />
-                                                <span className="tw-font-mono tw-text-gold-deep tw-font-medium">
+                                                <span className="tw-font-mono tw-text-ink tw-font-medium">
                                                     {wv.suggestion}
                                                 </span>
                                             </>
@@ -879,7 +879,7 @@ export default function ResumeScorer() {
                                         className={`tw-text-center tw-p-2 tw-rounded ${f.val ? "tw-bg-cream" : "tw-bg-gold-light"}`}
                                     >
                                         <i
-                                            className={`fas ${f.val ? "fa-exclamation-triangle tw-text-red" : "fa-check tw-text-gold"} tw-mb-1`}
+                                            className={`fas ${f.val ? "fa-exclamation-triangle tw-text-red" : "fa-check tw-text-ink"} tw-mb-1`}
                                         />
                                         <p className="tw-text-xs tw-font-medium">{f.label}</p>
                                     </div>
@@ -898,27 +898,27 @@ export default function ResumeScorer() {
                         r.employment_red_flags.job_hopping ||
                         r.employment_red_flags.career_regression) && (
                         <div className="tw-rounded-lg tw-bg-gold-light tw-border tw-border-gold tw-p-6">
-                            <h3 className="tw-font-bold tw-text-gold-deep tw-mb-3">
+                            <h3 className="tw-font-bold tw-text-ink tw-mb-3">
                                 <i className="fas fa-flag tw-mr-2" />
                                 Employment Red Flags
                             </h3>
                             <div className="tw-space-y-2 tw-text-sm">
                                 {r.employment_red_flags.gaps_over_6_months.length > 0 && (
-                                    <p className="tw-text-gold-rich">
+                                    <p className="tw-text-ink">
                                         <i className="fas fa-calendar-times tw-mr-2" />
                                         Gaps over 6 months:{" "}
                                         {r.employment_red_flags.gaps_over_6_months.join(", ")}
                                     </p>
                                 )}
                                 {r.employment_red_flags.job_hopping && (
-                                    <p className="tw-text-gold-rich">
+                                    <p className="tw-text-ink">
                                         <i className="fas fa-running tw-mr-2" />
                                         Job hopping detected.{" "}
                                         {r.employment_red_flags.job_hopping_details}
                                     </p>
                                 )}
                                 {r.employment_red_flags.career_regression && (
-                                    <p className="tw-text-gold-rich">
+                                    <p className="tw-text-ink">
                                         <i className="fas fa-arrow-down tw-mr-2" />
                                         Career regression.{" "}
                                         {r.employment_red_flags.career_regression_details}
@@ -948,14 +948,14 @@ export default function ResumeScorer() {
                             <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4 tw-mb-4">
                                 {r.jd_match.matched_skills.length > 0 && (
                                     <div>
-                                        <h4 className="tw-text-xs tw-font-bold tw-text-gold-deep tw-uppercase tw-mb-2">
+                                        <h4 className="tw-text-xs tw-font-bold tw-text-navy-deep tw-uppercase tw-mb-2">
                                             Matched Skills
                                         </h4>
                                         <div className="tw-flex tw-flex-wrap tw-gap-1.5">
                                             {r.jd_match.matched_skills.map((s: any, i: number) => (
                                                 <span
                                                     key={i}
-                                                    className="tw-rounded-full tw-bg-gold-light tw-text-gold-deep tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium"
+                                                    className="tw-rounded-full tw-bg-gold-light tw-text-ink tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium"
                                                 >
                                                     {renderText(s)}
                                                 </span>
@@ -992,7 +992,7 @@ export default function ResumeScorer() {
                                                 key={i}
                                                 className="tw-flex tw-gap-2 tw-text-sm tw-text-ink/80"
                                             >
-                                                <i className="fas fa-lightbulb tw-text-gold-bright tw-mt-0.5" />
+                                                <i className="fas fa-lightbulb tw-text-red tw-mt-0.5" />
                                                 {renderText(rec)}
                                             </li>
                                         ))}
@@ -1026,16 +1026,16 @@ export default function ResumeScorer() {
                                             </p>
                                         </div>
                                         <div className="tw-bg-gold-light tw-px-4 tw-py-3 tw-border-b tw-border-navy/10">
-                                            <span className="tw-text-xs tw-font-bold tw-text-gold-deep tw-uppercase">
+                                            <span className="tw-text-xs tw-font-bold tw-text-ink tw-uppercase">
                                                 After
                                             </span>
-                                            <p className="tw-text-sm tw-text-gold-deep tw-font-medium tw-mt-1">
+                                            <p className="tw-text-sm tw-text-ink tw-font-medium tw-mt-1">
                                                 {rw.suggested_bullet}
                                             </p>
                                         </div>
                                         <div className="tw-px-4 tw-py-3 tw-bg-navy/5">
                                             <p className="tw-text-xs tw-text-ink/60 tw-italic">
-                                                <i className="fas fa-lightbulb tw-text-gold-bright tw-mr-1" />
+                                                <i className="fas fa-lightbulb tw-text-red tw-mr-1" />
                                                 {rw.reason}
                                             </p>
                                         </div>
@@ -1087,7 +1087,7 @@ export default function ResumeScorer() {
                                         key={i}
                                         className="tw-flex tw-gap-2 tw-text-sm tw-text-ink/80"
                                     >
-                                        <i className="fas fa-check tw-text-gold tw-mt-0.5 tw-flex-shrink-0" />
+                                        <i className="fas fa-check tw-text-navy-deep tw-mt-0.5 tw-flex-shrink-0" />
                                         {renderText(c)}
                                     </li>
                                 ))}

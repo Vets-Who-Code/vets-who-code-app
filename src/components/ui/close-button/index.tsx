@@ -8,10 +8,10 @@ const CloseButton = ({ onClose }: { onClose: () => void }) => {
     const afterClass =
         "after:tw-absolute after:tw-inset-0 after:tw-content-[''] after:tw-bg-dark after:tw-origin-left after:tw-scale-x-0 after:tw-transition-transform after:tw-duration-600 after:tw-ease-in-expo";
     const beforeHoverClass =
-        "group-hover:before:tw-bg-dark-50 group-hover:before:tw-scale-x-0 group-hover:before:tw-transition-transform group-hover:before:tw-duration-600 group-hover:before:tw-ease-in-expo group-hover:before:tw-delay-0";
+        "group-hover:before:tw-bg-dark/50 group-hover:before:tw-scale-x-0 group-hover:before:tw-transition-transform group-hover:before:tw-duration-600 group-hover:before:tw-ease-in-expo group-hover:before:tw-delay-0";
 
     const afterHoverClass =
-        "group-hover:after:tw-bg-dark-50 group-hover:after:tw-scale-x-[1px] group-hover:after:tw-transition-transform group-hover:after:tw-duration-600 group-hover:after:tw-ease-in-expo group-hover:after:tw-delay-200";
+        "group-hover:after:tw-bg-dark/50 group-hover:after:tw-scale-x-[1px] group-hover:after:tw-transition-transform group-hover:after:tw-duration-600 group-hover:after:tw-ease-in-expo group-hover:after:tw-delay-200";
 
     return (
         <button

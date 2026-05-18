@@ -232,7 +232,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                         {/* Availability */}
                         <div className="tw-mb-6">
                             {product.availableForSale ? (
-                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-gold-light/30 tw-text-gold-deep tw-rounded-full tw-font-medium">
+                                <span className="tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-bg-gold-light/30 tw-text-ink tw-rounded-full tw-font-medium">
                                     <svg
                                         className="tw-w-5 tw-h-5"
                                         fill="currentColor"

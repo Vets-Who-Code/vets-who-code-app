@@ -186,7 +186,7 @@ export default function TroopDashboard() {
                         label: "Pass Rate",
                         value: `${passRate}%`,
                         icon: "fa-chart-line",
-                        color: passRate >= 70 ? "tw-text-gold-deep" : "tw-text-gold-rich",
+                        color: passRate >= 70 ? "tw-text-navy-deep" : "tw-text-red-dark",
                     },
                     {
                         label: "Conversations",
@@ -405,7 +405,7 @@ function RepsTray({ warmups, loading }: { warmups: WarmupChallenge[]; loading: b
                                     <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-navy-deep">
                                         {w.topic}
                                     </span>
-                                    <span className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-gold-deep">
+                                    <span className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-ink">
                                         warmup
                                     </span>
                                 </div>

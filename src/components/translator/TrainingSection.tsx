@@ -54,7 +54,7 @@ const TrainingSection: React.FC<TrainingSectionProps> = ({ training, leadershipC
                                     key={cert}
                                     className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-gray-700"
                                 >
-                                    <i className="fas fa-check tw-text-gold tw-text-xs" />
+                                    <i className="fas fa-check tw-text-navy-deep tw-text-xs" />
                                     {cert}
                                 </li>
                             ))}
