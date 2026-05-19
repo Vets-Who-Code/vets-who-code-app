@@ -81,7 +81,7 @@ const StatBelt = () => {
                                 className="tw-flex tw-items-center tw-gap-2.5"
                                 style={{
                                     ...monoLabel,
-                                    color: "rgba(185, 214, 242, 0.7)",
+                                    color: "#F8F9FA",
                                 }}
                             >
                                 <span
@@ -115,7 +115,7 @@ const StatBelt = () => {
                                         fontFamily: "var(--font-body)",
                                         fontSize: "13px",
                                         lineHeight: 1.5,
-                                        color: "rgba(185, 214, 242, 0.55)",
+                                        color: "#F8F9FA",
                                     }}
                                 >
                                     {stat.sub}

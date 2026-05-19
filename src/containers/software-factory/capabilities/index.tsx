@@ -55,7 +55,7 @@ const CapabilitiesSection = () => {
                         style={{
                             ...monoLabel,
                             fontSize: "11px",
-                            color: "rgba(185, 214, 242, 0.7)",
+                            color: "#F8F9FA",
                         }}
                     >
                         8 capability areas · led by staff engineers

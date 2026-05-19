@@ -66,7 +66,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
     const getStatusBadge = (isActive: boolean) => {
         if (isActive) {
             return (
-                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-ink">
                     Active
                 </span>
             );
@@ -82,8 +82,8 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
         const styles = {
             ADMIN: "tw-bg-cream tw-text-red-dark",
             INSTRUCTOR: "tw-bg-navy-sky tw-text-navy-deep",
-            MENTOR: "tw-bg-gold-light tw-text-gold-rich",
-            STUDENT: "tw-bg-gold-light tw-text-gold-deep",
+            MENTOR: "tw-bg-gold-light tw-text-ink",
+            STUDENT: "tw-bg-gold-light tw-text-ink",
         };
         return (
             <span
@@ -294,7 +294,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="tw-text-gold hover:tw-text-gold-deep"
+                                                    className="tw-text-navy hover:tw-text-navy-deep"
                                                     title="Send Message"
                                                 >
                                                     <i className="fas fa-envelope" />

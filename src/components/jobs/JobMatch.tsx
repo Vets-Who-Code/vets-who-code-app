@@ -100,8 +100,8 @@ export default function JobMatch() {
 
 function JobMatchCard({ job }: { job: MatchedJob }) {
     const fitColor = (pct: number) => {
-        if (pct >= 80) return "tw-bg-gold-light tw-text-gold-deep";
-        if (pct >= 60) return "tw-bg-gold-light tw-text-gold-rich";
+        if (pct >= 80) return "tw-bg-gold-light tw-text-ink";
+        if (pct >= 60) return "tw-bg-gold-light tw-text-ink";
         return "tw-bg-cream tw-text-red-dark";
     };
     return (
@@ -136,7 +136,7 @@ function JobMatchCard({ job }: { job: MatchedJob }) {
                         {job.matched_skills.map((s) => (
                             <span
                                 key={`m-${s}`}
-                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-gold-deep"
+                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-ink"
                             >
                                 {s}
                             </span>
@@ -154,7 +154,7 @@ function JobMatchCard({ job }: { job: MatchedJob }) {
                         {job.gap_skills.map((s) => (
                             <span
                                 key={`g-${s}`}
-                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-gold-rich"
+                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-ink"
                             >
                                 {s}
                             </span>

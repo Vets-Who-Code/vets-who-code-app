@@ -480,7 +480,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
 
                 {pdfFileName && !pdfUploading && !pdfError && (
                     <div className="tw-space-y-3">
-                        <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-gold-deep">
+                        <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-navy-deep">
                             <i className="fas fa-check-circle" />
                             Extracted text from {pdfFileName}
                         </div>
@@ -525,7 +525,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         : "List each duty on a new line. Be specific about what you did."}
                 </p>
                 {dutiesAutoFilled && (
-                    <p className="tw-text-xs tw-font-medium tw-text-gold-deep">
+                    <p className="tw-text-xs tw-font-medium tw-text-navy-deep">
                         <i className="fas fa-check-circle tw-mr-1" />
                         Auto-filled from MOS database. Edit as needed.
                     </p>

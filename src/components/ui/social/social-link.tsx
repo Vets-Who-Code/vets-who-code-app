@@ -51,7 +51,7 @@ const SocialLink = ({
                     "tw-text-center",
                     size === "md" && "tw-h-10 tw-w-10 tw-leading-10",
                     color === "light" &&
-                        "tw-border-gray-550 hover:tw-border-primary hover:tw-bg-primary hover:tw-text-white",
+                        "tw-border-gray-300 hover:tw-border-primary hover:tw-bg-primary hover:tw-text-white",
                 ],
                 variant === "outlined" && "tw-border tw-bg-transparent",
                 shape === "rounded" && "tw-rounded",

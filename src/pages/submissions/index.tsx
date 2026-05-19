@@ -74,8 +74,8 @@ const SubmissionsPage: PageWithLayout = () => {
     const getStatusBadge = (status: string) => {
         const styles = {
             SUBMITTED: "tw-bg-navy-sky tw-text-navy-deep",
-            GRADED: "tw-bg-gold-light tw-text-gold-deep",
-            RETURNED: "tw-bg-gold-light tw-text-gold-rich",
+            GRADED: "tw-bg-gold-light tw-text-ink",
+            RETURNED: "tw-bg-gold-light tw-text-ink",
         };
         return (
             <span

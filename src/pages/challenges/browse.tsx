@@ -126,11 +126,11 @@ const BrowseChallengesPage: PageWithLayout = () => {
     const difficultyColor = (d: Difficulty) => {
         switch (d) {
             case "warmup":
-                return "tw-bg-gold-light tw-text-gold-deep";
+                return "tw-bg-gold-light tw-text-ink";
             case "easy":
-                return "tw-bg-gold-light tw-text-gold-deep";
+                return "tw-bg-gold-light tw-text-ink";
             case "medium":
-                return "tw-bg-gold-light tw-text-gold-rich";
+                return "tw-bg-gold-light tw-text-ink";
             case "hard":
                 return "tw-bg-cream tw-text-red-dark";
         }

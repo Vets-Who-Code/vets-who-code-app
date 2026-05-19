@@ -77,7 +77,7 @@
     margin: 10px 0 0;
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 @media (prefers-reduced-motion: reduce) {

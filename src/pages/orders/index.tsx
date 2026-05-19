@@ -86,11 +86,11 @@ const OrderHistoryPage = () => {
 
     const getStatusBadge = (status: string) => {
         const statusMap: Record<string, { color: string; label: string }> = {
-            paid: { color: "tw-bg-gold-light tw-text-gold-deep", label: "Paid" },
-            pending: { color: "tw-bg-gold-light tw-text-gold-rich", label: "Pending" },
+            paid: { color: "tw-bg-gold-light tw-text-ink", label: "Paid" },
+            pending: { color: "tw-bg-gold-light tw-text-ink", label: "Pending" },
             refunded: { color: "tw-bg-cream tw-text-red-dark", label: "Refunded" },
             partially_refunded: {
-                color: "tw-bg-gold-light tw-text-gold-rich",
+                color: "tw-bg-gold-light tw-text-ink",
                 label: "Partially Refunded",
             },
             voided: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Voided" },
@@ -120,8 +120,8 @@ const OrderHistoryPage = () => {
         }
 
         const statusMap: Record<string, { color: string; label: string }> = {
-            fulfilled: { color: "tw-bg-gold-light tw-text-gold-deep", label: "Fulfilled" },
-            partial: { color: "tw-bg-gold-light tw-text-gold-rich", label: "Partially Fulfilled" },
+            fulfilled: { color: "tw-bg-gold-light tw-text-ink", label: "Fulfilled" },
+            partial: { color: "tw-bg-gold-light tw-text-ink", label: "Partially Fulfilled" },
             unfulfilled: { color: "tw-bg-gray-100 tw-text-gray-800", label: "Unfulfilled" },
         };
 

@@ -94,7 +94,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                     <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
                         <h1 className="tw-text-4xl tw-font-bold tw-text-ink">Career Hub</h1>
                         {user.hasEnrollment && (
-                            <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-gold-deep">
+                            <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-ink">
                                 <i className="fas fa-check-circle tw-mr-2" />
                                 VWC Alumni
                             </span>

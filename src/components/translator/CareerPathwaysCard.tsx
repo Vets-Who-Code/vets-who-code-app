@@ -6,16 +6,16 @@ interface CareerPathwaysCardProps {
 }
 
 const DEMAND_COLORS: Record<string, string> = {
-    "Very high demand": "tw-text-gold-deep tw-bg-gold-light",
-    "High demand": "tw-text-gold-deep tw-bg-gold-light",
+    "Very high demand": "tw-text-ink tw-bg-gold-light",
+    "High demand": "tw-text-ink tw-bg-gold-light",
     "Growing demand": "tw-text-navy-deep tw-bg-navy-sky",
-    "Stable demand": "tw-text-gray-600 tw-bg-gray-100",
+    "Stable demand": "tw-text-gray-400 tw-bg-gray-100",
 };
 
 const MATCH_COLORS: Record<string, string> = {
-    "High match": "tw-text-gold-deep",
+    "High match": "tw-text-red",
     "Good match": "tw-text-navy-deep",
-    "Moderate match": "tw-text-gray-600",
+    "Moderate match": "tw-text-gray-400",
 };
 
 const DATA_SOURCE_LABELS: Record<string, string> = {
@@ -50,7 +50,7 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({ careerPathways 
                 <i className="fas fa-route tw-mr-2 tw-text-[#c5203e]" />
                 Career Pathways
             </h3>
-            <p className="tw-text-sm tw-text-gray-500">
+            <p className="tw-text-sm tw-text-gray-300">
                 Your military experience maps to these civilian roles.
             </p>
 
@@ -100,7 +100,7 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({ careerPathways 
 
             {trendingSkills.length > 0 && (
                 <div className="tw-rounded-lg tw-bg-gold-light tw-px-4 tw-py-3">
-                    <p className="tw-text-xs tw-font-semibold tw-text-gold-deep tw-uppercase tw-tracking-wide tw-mb-2">
+                    <p className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase tw-tracking-wide tw-mb-2">
                         <i className="fas fa-chart-line tw-mr-1" />
                         Skills in Demand
                     </p>
@@ -108,7 +108,7 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({ careerPathways 
                         {trendingSkills.map((skill) => (
                             <span
                                 key={skill}
-                                className="tw-inline-block tw-rounded-full tw-border tw-border-gold tw-bg-white tw-px-3 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep"
+                                className="tw-inline-block tw-rounded-full tw-border tw-border-gold tw-bg-white tw-px-3 tw-py-1 tw-text-xs tw-font-medium tw-text-ink"
                             >
                                 {skill}
                             </span>

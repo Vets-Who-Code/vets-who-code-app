@@ -28,7 +28,7 @@ const CertPathwaysCard: React.FC<CertPathwaysCardProps> = ({ certPathways }) => 
 
             {directQualifies.length > 0 && (
                 <div className="tw-space-y-2">
-                    <p className="tw-text-xs tw-font-semibold tw-text-gold-deep tw-uppercase tw-tracking-wide">
+                    <p className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase tw-tracking-wide">
                         Ready to Certify
                     </p>
                     {directQualifies.map((cert) => (
@@ -36,12 +36,10 @@ const CertPathwaysCard: React.FC<CertPathwaysCardProps> = ({ certPathways }) => 
                             key={cert}
                             className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-bg-gold-light tw-border tw-border-gold tw-px-4 tw-py-3"
                         >
-                            <i className="fas fa-check-circle tw-text-gold-deep" />
+                            <i className="fas fa-check-circle tw-text-ink" />
                             <div>
-                                <p className="tw-text-sm tw-font-medium tw-text-gold-deep">
-                                    {cert}
-                                </p>
-                                <p className="tw-text-xs tw-text-gold-rich">
+                                <p className="tw-text-sm tw-font-medium tw-text-ink">{cert}</p>
+                                <p className="tw-text-xs tw-text-ink/70">
                                     Your training likely qualifies you to sit for this exam now
                                 </p>
                             </div>

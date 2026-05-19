@@ -131,8 +131,8 @@ export default function MockInterview() {
     };
 
     const scoreColor = (score: number) => {
-        if (score >= 8) return "tw-text-gold-deep";
-        if (score >= 5) return "tw-text-gold-rich";
+        if (score >= 8) return "tw-text-ink";
+        if (score >= 5) return "tw-text-navy-deep";
         return "tw-text-red-dark";
     };
 
@@ -229,12 +229,12 @@ export default function MockInterview() {
                                     {item.feedback}
                                 </p>
                                 {item.what_landed && (
-                                    <p className="tw-text-sm tw-text-gold-deep">
+                                    <p className="tw-text-sm tw-text-navy-deep">
                                         <i className="fas fa-check tw-mr-1" /> {item.what_landed}
                                     </p>
                                 )}
                                 {item.what_to_improve && (
-                                    <p className="tw-text-sm tw-text-gold-rich">
+                                    <p className="tw-text-sm tw-text-red-dark">
                                         <i className="fas fa-arrow-up tw-mr-1" />{" "}
                                         {item.what_to_improve}
                                     </p>
@@ -287,7 +287,7 @@ export default function MockInterview() {
                     <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-sm">
                         <div className="tw-flex tw-items-center tw-gap-4 tw-mb-6">
                             <div
-                                className={`tw-text-5xl tw-font-bold ${avgScore >= 70 ? "tw-text-gold-deep" : avgScore >= 50 ? "tw-text-gold-rich" : "tw-text-red-dark"}`}
+                                className={`tw-text-5xl tw-font-bold ${avgScore >= 70 ? "tw-text-ink" : avgScore >= 50 ? "tw-text-navy-deep" : "tw-text-red-dark"}`}
                             >
                                 {avgScore}
                             </div>

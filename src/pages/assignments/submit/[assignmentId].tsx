@@ -132,7 +132,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                     <div className="tw-mx-auto tw-max-w-2xl tw-text-center">
                         <div className="tw-mb-8">
                             <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-gold-light/30">
-                                <i className="fas fa-check tw-text-3xl tw-text-gold" />
+                                <i className="fas fa-check tw-text-3xl tw-text-ink" />
                             </div>
                             <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                                 Assignment Submitted Successfully!

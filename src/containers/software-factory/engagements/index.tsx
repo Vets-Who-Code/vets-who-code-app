@@ -51,7 +51,7 @@ const EngagementsSection = () => {
                         style={{
                             fontSize: "18px",
                             lineHeight: 1.6,
-                            color: "rgba(185, 214, 242, 0.7)",
+                            color: "#F8F9FA",
                             maxWidth: "480px",
                         }}
                     >
