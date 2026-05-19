@@ -80,7 +80,7 @@
     --bg-dark: var(--navy);
     --fg-light: var(--white);
     --muted: #6c757d;
-    --muted-on-dark: rgba(185, 214, 242, 0.7);
+    --muted-on-dark: #f8f9fa;
     --border-subtle: rgba(185, 214, 242, 0.08);
     --accent: var(--red);
 
@@ -381,7 +381,7 @@ nav[aria-label="Main Menu"] a {
 footer .copyright {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: rgba(185, 214, 242, 0.4);
+    color: #f8f9fa;
 }
 
 /* Global body styling */

@@ -16,14 +16,14 @@ const codeBody = {
     lineHeight: "1.75",
 };
 
-const COMMENT = "rgba(185, 214, 242, 0.55)";
+const COMMENT = "rgba(185, 214, 242, 0.85)";
 const KEYWORD = "#FDB330";
 const TYPE = "#FFE169";
 const METHOD = "#84C1FF";
-const PUNCT = "rgba(248, 249, 250, 0.7)";
+const PUNCT = "#F8F9FA";
 const IDENT = "#F8F9FA";
 const PROMPT = "#FDB330";
-const HINT = "rgba(185, 214, 242, 0.55)";
+const HINT = "rgba(185, 214, 242, 0.85)";
 
 type HistoryEntry = {
     cmd: string;
@@ -217,7 +217,7 @@ const HeroCodeSnippet = () => {
                         {/* Terminal title bar */}
                         <div
                             className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-3"
-                            style={{ ...monoLabel, color: "rgba(185, 214, 242, 0.65)" }}
+                            style={{ ...monoLabel, color: "#F8F9FA" }}
                         >
                             <span>vwc-engineer — train.ts — zsh</span>
                             <span className="tw-flex tw-items-center tw-gap-2">

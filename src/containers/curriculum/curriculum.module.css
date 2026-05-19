@@ -28,7 +28,7 @@
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 .briefBar .live {
@@ -81,7 +81,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 .eyebrow::before {
@@ -111,7 +111,7 @@
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.6;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     max-width: 60ch;
     margin: 24px 0 0;
 }
@@ -139,7 +139,7 @@
 }
 
 .heroMetaKey {
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 .heroMetaVal {
@@ -202,7 +202,7 @@
 .btnOutlineLight {
     background: transparent;
     color: #ffffff;
-    border-color: rgba(185, 214, 242, 0.3);
+    border-color: #f8f9fa;
 }
 
 .btnOutlineLight:hover {
@@ -301,7 +301,7 @@
     font-family: var(--font-body);
     font-size: 15px;
     line-height: 1.65;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 /* ========== PHASE NAV ========== */
@@ -328,7 +328,7 @@
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
@@ -346,7 +346,7 @@
     padding: 10px 16px;
     background: transparent;
     border: 1px solid rgba(185, 214, 242, 0.08);
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     font-family: var(--font-mono);
     font-size: 11px;
     font-weight: 500;
@@ -358,7 +358,7 @@
 }
 
 .pnPill:hover {
-    border-color: rgba(185, 214, 242, 0.4);
+    border-color: #f8f9fa;
     color: #ffffff;
 }
 
@@ -432,7 +432,7 @@
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.55;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     max-width: 50ch;
     margin: 18px 0 0;
 }
@@ -458,7 +458,7 @@
     font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.65;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 /* ========== MODULE LIST + ROW ========== */
@@ -549,7 +549,7 @@
     font-family: var(--font-body);
     font-size: 13px;
     line-height: 1.55;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     max-width: 70ch;
 }
 
@@ -571,7 +571,7 @@
     display: inline-block;
     padding: 5px 10px;
     background: rgba(255, 255, 255, 0.06);
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     font-family: var(--font-mono);
     font-size: 10px;
     font-weight: 500;
@@ -584,7 +584,7 @@
     font-family: var(--font-mono);
     font-size: 22px;
     font-weight: 300;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     line-height: 1;
     transition: color 0.18s;
 }
@@ -651,7 +651,7 @@
     font-family: var(--font-body);
     font-size: 14px;
     line-height: 1.55;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 .topicMarker {
@@ -933,7 +933,7 @@
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.6;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
     max-width: 60ch;
     margin: 24px 0 0;
 }
@@ -974,7 +974,7 @@
 }
 
 .ctaAsideKey {
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }
 
 .ctaAsideVal {
@@ -987,5 +987,5 @@
     font-family: var(--font-body);
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(185, 214, 242, 0.7);
+    color: #f8f9fa;
 }

@@ -20,7 +20,7 @@ const HeroSection = () => {
                     className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-3 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-pb-4"
                     style={{
                         ...monoLabel,
-                        color: "rgba(185, 214, 242, 0.65)",
+                        color: "#F8F9FA",
                     }}
                 >
                     <span>OPERATIONS BRIEF · 26-04 / SOFTWARE FACTORY</span>
@@ -56,7 +56,7 @@ const HeroSection = () => {
                                 fontFamily: "var(--font-mono)",
                                 fontSize: "13px",
                                 lineHeight: 1.8,
-                                color: "rgba(185, 214, 242, 0.7)",
+                                color: "#F8F9FA",
                                 maxWidth: "420px",
                             }}
                         >
@@ -72,7 +72,7 @@ const HeroSection = () => {
                                         style={{
                                             ...monoLabel,
                                             fontSize: "11px",
-                                            color: "rgba(185, 214, 242, 0.7)",
+                                            color: "#F8F9FA",
                                         }}
                                     >
                                         {k}
@@ -120,7 +120,7 @@ const HeroSection = () => {
                             style={{
                                 fontSize: "22px",
                                 lineHeight: 1.5,
-                                color: "rgba(185, 214, 242, 0.7)",
+                                color: "#F8F9FA",
                                 maxWidth: "600px",
                             }}
                         >
