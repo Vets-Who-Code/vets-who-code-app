@@ -103,7 +103,7 @@
     "remark-rehype": "^11.1.2",
     "resend": "^6.6.0",
     "rss-parser": "^3.13.0",
-    "swagger-ui-react": "4.19.1",
+    "swagger-ui-react": "5.32.5",
     "swiper": "^8.3.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
