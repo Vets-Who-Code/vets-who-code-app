@@ -127,10 +127,6 @@ const CtaSection = () => {
                             <li>· Currently booking Q3 2026</li>
                             <li>· 2 squads available</li>
                             <li>· Average response time: 1 business day</li>
-                            <li>
-                                · Or email:{" "}
-                                <a href="mailto:factory@vetswhocode.io">factory@vetswhocode.io</a>
-                            </li>
                         </ul>
                     </div>
 
