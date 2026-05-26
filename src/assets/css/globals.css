@@ -647,6 +647,91 @@ h3 {
     align-items: center;
 }
 
+/* =============================================
+   SITE-WIDE SHARP-AESTHETIC ENFORCEMENT
+   Brings legacy containers into the Software-Factory /
+   Career-Guides visual language without per-page rewrites.
+   ============================================= */
+
+/* Zero-radius default on common surfaces. Genuine radius needs opt in
+   via a specific class (focus ring, .vwc-avatar, image corners). */
+.tw-rounded,
+.tw-rounded-md,
+.tw-rounded-lg,
+.tw-rounded-xl,
+.tw-rounded-2xl,
+.tw-rounded-3xl {
+    border-radius: 0 !important;
+}
+
+button.tw-rounded-full,
+a.tw-rounded-full:not(.vwc-avatar) {
+    border-radius: 0 !important;
+}
+
+/* Strip soft drop shadows on dark sections — they fight the 2% grain. */
+.dark-section .tw-shadow,
+.dark-section .tw-shadow-sm,
+.dark-section .tw-shadow-md,
+.dark-section .tw-shadow-lg,
+.dark-section .tw-shadow-xl,
+.dark-section .tw-shadow-2xl {
+    box-shadow: none !important;
+}
+
+/* Kill pastel/blueish-purple gradient leakage. Brand is navy + red + gold.
+   Containers that legitimately want a gradient opt in with .vwc-gradient. */
+.tw-bg-gradient-to-br:not(.vwc-gradient),
+.tw-bg-gradient-to-bl:not(.vwc-gradient),
+.tw-bg-gradient-to-tr:not(.vwc-gradient),
+.tw-bg-gradient-to-tl:not(.vwc-gradient),
+.tw-bg-gradient-to-r:not(.vwc-gradient),
+.tw-bg-gradient-to-l:not(.vwc-gradient),
+.tw-bg-gradient-to-t:not(.vwc-gradient),
+.tw-bg-gradient-to-b:not(.vwc-gradient) {
+    background-image: none !important;
+}
+
+/* Section eyebrow utility — short red bar + mono label, SF/CG signature. */
+.vwc-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+}
+
+.vwc-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: var(--red);
+    flex-shrink: 0;
+}
+
+.dark-section .vwc-eyebrow {
+    color: var(--cream);
+}
+
+/* Sharp headline utility — apply to any heading that should match SF/CG
+   without rewriting the component. */
+.vwc-sharp {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+}
+
+.vwc-sharp-xl {
+    font-size: clamp(40px, 7vw, 84px);
+    line-height: 0.98;
+}
+
 /* Print styles for portfolio checklist */
 @media print {
     header,
