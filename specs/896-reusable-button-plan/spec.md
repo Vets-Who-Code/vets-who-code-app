@@ -107,9 +107,18 @@ all CTAs in the app are using the shared component, not one-off raw buttons.
 
 ---
 
+## Clarifications
+
+### Session 2026-05-27
+
+- Q: Does the Tailwind `secondary` token exist? → A: Yes — `tw-bg-secondary` / `tw-text-secondary` already in use in `button/index.tsx` lines 65 and 115. No fallback needed.
+- Q: Should dead CSS (`btnPrimary`, `btnGhost`) be removed from `cta.module.css` after the callsite update? → A: Yes — remove both selectors as part of T015.
+
+---
+
 ## Assumptions
 
-- The project's Tailwind config has `secondary` color token mapped to VWC navy `#091f40`
+- The project's Tailwind config has `secondary` color token mapped to VWC navy `#091f40` — **confirmed**: `tw-bg-secondary` and `tw-text-secondary` are already used in `src/components/ui/button/index.tsx` lines 65 and 115
 - `clsx` is already available (it is — already used by Button today)
 - The `@testing-library/react` and `vitest` setup works for the `__tests__/components/`
   directory (confirmed by existing test files)
