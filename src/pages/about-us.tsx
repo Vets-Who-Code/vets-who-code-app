@@ -1,4 +1,5 @@
 import SEO from "@components/seo/page-seo";
+import { SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
 import CtaArea from "@containers/cta/layout-01";
 import HeroArea from "@containers/hero/layout-07";
 import TimelineArea from "@containers/timeline";
@@ -70,40 +71,31 @@ const AboutUs: PageWithLayout = ({ data }) => {
                 </div>
             </div>
 
-            {/* Theory of Change Link - Enhanced */}
-            <div className="tw-container tw-my-16">
-                <div className="tw-mx-auto tw-max-w-4xl tw-rounded-2xl tw-border tw-border-gray-200 tw-bg-gradient-to-br tw-from-white tw-to-gray-50 tw-p-8 tw-shadow-xl tw-shadow-primary/5 md:tw-p-12">
-                    <div className="tw-text-center">
-                        <h2 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-secondary md:tw-text-4xl">
-                            Our Methodology
-                        </h2>
-                        <p className="tw-mb-8 tw-text-lg tw-text-body md:tw-text-xl">
-                            Want to understand how we transform veterans into software engineers?
-                            <br />
-                            Explore our comprehensive Theory of Change.
-                        </p>
+            {/* Theory of Change — Sharp link block */}
+            <section className="tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <div className="tw-mx-auto tw-flex tw-max-w-4xl tw-flex-col tw-gap-6 tw-border-t tw-border-silver tw-pt-16 md:tw-flex-row md:tw-items-end md:tw-justify-between">
+                        <div className="tw-flex tw-flex-col tw-gap-4">
+                            <SectionEyebrow
+                                label="Methodology"
+                                subLabel="DOC 03 / THEORY OF CHANGE"
+                            />
+                            <SharpHeadline as="h2" size="h2" tone="navy">
+                                How we turn troops into
+                                <br />
+                                <span className="tw-text-red">software engineers</span>.
+                            </SharpHeadline>
+                        </div>
                         <Link
                             href="/theory-of-change"
-                            className="tw-group tw-inline-flex tw-items-center tw-gap-3 tw-rounded-lg tw-bg-primary tw-px-8 tw-py-4 tw-font-bold tw-text-white tw-shadow-lg tw-shadow-primary/25 tw-transition-all tw-duration-300 hover:tw-scale-105 hover:tw-bg-secondary hover:tw-shadow-xl hover:tw-shadow-primary/35 active:tw-scale-95"
+                            className="tw-inline-flex tw-items-center tw-gap-3 tw-border-2 tw-border-red tw-bg-red tw-px-7 tw-py-4 tw-font-heading tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.08em] tw-text-white tw-transition-colors hover:tw-border-red-crimson hover:tw-bg-red-crimson active:tw-scale-[0.97]"
                         >
-                            View Our Theory of Change
-                            <svg
-                                className="tw-h-5 tw-w-5 tw-transition-transform tw-duration-300 group-hover:tw-translate-x-1"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                                />
-                            </svg>
+                            View Theory of Change
+                            <span aria-hidden="true">→</span>
                         </Link>
                     </div>
                 </div>
-            </div>
+            </section>
 
             <CtaArea data={content?.["cta-area"]} space="bottom" />
         </>

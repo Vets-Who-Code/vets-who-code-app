@@ -1,45 +1,30 @@
 import SEO from "@components/seo/page-seo";
+import { MonoMeta, SectionEyebrow, SharpHeadline, StatStrip } from "@components/ui/design-system";
 import Layout from "@layout/layout-01";
 import type { NextPage } from "next";
-import React from "react";
-
-interface BenefitCardProps {
-    icon: string;
-    title: string;
-    description: string;
-}
 
 type PageWithLayout = NextPage & {
     Layout: typeof Layout;
 };
 
-const BenefitCard: React.FC<BenefitCardProps> = ({ icon, title, description }) => (
-    <div className="tw-text-center">
-        <div className="tw-mb-4 tw-flex tw-justify-center">
-            <i className={`${icon} tw-text-6xl tw-text-accent-dark`} />
-        </div>
-        <h3 className="tw-mb-2 tw-text-xl tw-font-bold tw-text-navy-deep">{title}</h3>
-        <p>{description}</p>
-    </div>
-);
-
-const benefits: BenefitCardProps[] = [
+const benefits = [
     {
-        icon: "fab fa-handshake",
-        title: "INTERNSHIPS",
+        label: "01",
+        title: "Internships",
         description:
-            "Test-drive the talent, increase productivity, enhance perspective with a diverse pool of candidates.",
+            "Test-drive the talent. Increase productivity. Diversify perspective with veteran candidates ready for production code on day one.",
     },
     {
-        icon: "fab fa-comments",
-        title: "GUARANTEED INTERVIEWS",
+        label: "02",
+        title: "Guaranteed interviews",
         description:
-            "Veterans are at risk of unemployment and underemployment. By guaranteeing an interview for veterans who successfully complete our curriculum you will increase their chances of securing gainful employment.",
+            "Veterans are at risk of unemployment and underemployment. Guarantee an interview for troops who complete the Hashflag Stack and you raise their odds of landing the role.",
     },
     {
-        icon: "fab fa-money-bill-alt",
-        title: "DONATIONS",
-        description: "Donate to the VWC organization to enable the training of more veterans.",
+        label: "03",
+        title: "Direct sponsorship",
+        description:
+            "Fund the program. Every dollar trains more veterans. EIN 86-2122804 — VWC is a 501(c)(3).",
     },
 ];
 
@@ -47,94 +32,174 @@ const SponsorPage: PageWithLayout = () => {
     return (
         <>
             <SEO title="Become a Sponsor" />
-            <div className="tw-min-h-screen tw-bg-white">
-                {/* Hero Section */}
-                <section className="tw-bg-navy-deep tw-py-16 tw-text-white">
-                    <div className="tw-container tw-mx-auto tw-px-4">
-                        <h1 className="tw-mb-4 tw-text-center tw-text-5xl tw-font-bold">
-                            WE WANT YOU
-                        </h1>
-                        <div className="tw-flex tw-justify-center">
-                            <div className="tw-relative tw--mb-20 tw-bg-accent tw-p-4 tw-text-secondary">
-                                <div className="tw-text-2xl tw-font-semibold">#VetsWhoCode</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                {/* Main Content */}
-                <main className="tw-container tw-mx-auto tw-px-4 tw-py-16">
-                    <div className="tw-mx-auto tw-mb-16 tw-max-w-4xl tw-text-center">
-                        <p className="tw-text-xl tw-text-navy-deep">
-                            After completing the VWC curriculum, our pool of veterans are able,
-                            willing, and highly qualified to enter the civilian workforce. Become a
-                            VWC Sponsor today and honor our veterans by making a real investment in
-                            helping their career by providing:
-                        </p>
-                    </div>
+            {/* Operations brief bar */}
+            <div className="tw-w-full tw-border-b tw-border-cream/10 tw-bg-navy tw-py-2.5">
+                <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-2">
+                    <MonoMeta tone="bright" size="xs">
+                        <span className="tw-flex tw-items-center tw-gap-2">
+                            <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">
+                                <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-red tw-opacity-75" />
+                                <span className="tw-relative tw-inline-flex tw-h-[7px] tw-w-[7px] tw-rounded-full tw-bg-red tw-shadow-[0_0_10px_#c5203e]" />
+                            </span>
+                            Live · Sponsor Brief v2.0
+                        </span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Classification · <span className="tw-text-cream">Public</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        EIN · <span className="tw-text-cream">86-2122804</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
+                        <span className="tw-text-cream">2026 Cohort Active</span>
+                    </MonoMeta>
+                </div>
+            </div>
 
-                    {/* Benefits Grid */}
-                    <div className="tw-mb-16 tw-grid tw-gap-8 md:tw-grid-cols-3">
-                        {benefits.map((benefit, index) => (
-                            <BenefitCard key={index} {...benefit} />
+            {/* Hero */}
+            <section className="dark-section tw-relative tw-overflow-hidden tw-bg-navy tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <SectionEyebrow
+                        label="Sponsorship"
+                        subLabel="DOC 04 / BECOME A SPONSOR"
+                        tone="dark"
+                    />
+                    <SharpHeadline as="h1" size="h1" tone="white" className="tw-mt-6">
+                        We want you.
+                        <br />
+                        <span className="tw-text-red">#VetsWhoCode</span>
+                    </SharpHeadline>
+                    <p className="tw-mt-10 tw-max-w-[640px] tw-font-body tw-text-[#F8F9FA] tw-leading-[1.5] [font-size:clamp(18px,1.6vw,22px)]">
+                        After completing the Hashflag Stack, our troops are able, willing, and
+                        highly qualified to enter the civilian workforce. Sponsor VWC and make a
+                        real investment in their careers.
+                    </p>
+
+                    <div className="tw-mt-14">
+                        <StatStrip
+                            tone="dark"
+                            cells={[
+                                {
+                                    label: "Placement",
+                                    value: "97%",
+                                    sub: "of graduating troops",
+                                },
+                                {
+                                    label: "Alumni earnings",
+                                    value: "$20M+",
+                                    sub: "collective annual",
+                                },
+                                {
+                                    label: "Tax status",
+                                    value: "501(c)(3)",
+                                    sub: "EIN 86-2122804",
+                                },
+                                { label: "WOTC", value: "Eligible", sub: "no per-hire cap" },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Benefits */}
+            <section className="tw-bg-cream tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <div className="tw-flex tw-flex-col tw-gap-4">
+                        <SectionEyebrow label="Engagement Options" subLabel="03 TRACKS" />
+                        <SharpHeadline as="h2" size="h2" tone="navy">
+                            Three ways
+                            <br />
+                            <span className="tw-text-red">to sponsor.</span>
+                        </SharpHeadline>
+                    </div>
+                    <div className="tw-mt-14 tw-grid tw-gap-8 md:tw-grid-cols-3">
+                        {benefits.map((benefit) => (
+                            <article
+                                key={benefit.label}
+                                className="tw-border-t-2 tw-border-red tw-bg-white tw-p-8"
+                            >
+                                <MonoMeta tone="muted" size="md">
+                                    Option {benefit.label}
+                                </MonoMeta>
+                                <h3 className="tw-mt-4 tw-font-heading tw-text-[22px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
+                                    {benefit.title}
+                                </h3>
+                                <p className="tw-mt-4 tw-font-body tw-text-charcoal tw-leading-[1.6]">
+                                    {benefit.description}
+                                </p>
+                            </article>
                         ))}
                     </div>
+                </div>
+            </section>
 
-                    {/* Benefits Section */}
-                    <section className="tw-mb-16 tw-rounded-lg tw-bg-navy-midnight tw-p-8 tw-text-white">
-                        <h2 className="tw-mb-8 tw-text-center tw-text-3xl tw-font-bold">
-                            BENEFITS OF BECOMING A VWC SPONSOR
-                        </h2>
-                        <div className="tw-space-y-6">
-                            <p className="tw-text-lg">
-                                Add top-quality talent with a wealth of technical and soft skills to
-                                your organization today. Only 1/4 of the U.S. population meet the
-                                military's rigorous physical, behavioral and educational
-                                requirements.
+            {/* The case */}
+            <section className="dark-section tw-bg-navy tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <div className="tw-mx-auto tw-max-w-3xl tw-flex tw-flex-col tw-gap-4">
+                        <SectionEyebrow label="Why Veterans Ship" subLabel="THE CASE" tone="dark" />
+                        <SharpHeadline as="h2" size="h2" tone="white">
+                            Veterans are not
+                            <br />
+                            <span className="tw-text-red">charity hires.</span>
+                        </SharpHeadline>
+                        <div className="tw-mt-8 tw-space-y-6 tw-font-body tw-text-[#F8F9FA] tw-leading-[1.65] [font-size:clamp(16px,1.2vw,18px)]">
+                            <p>
+                                Only 1 in 4 of the U.S. population meets the military&apos;s
+                                physical, behavioral, and educational standards. The people who do
+                                make it through are exceptionally well-trained, disciplined, team-
+                                oriented, goal-driven, and built for leadership.
                             </p>
-                            <p className="tw-text-lg">
-                                Individuals who have served in the military are exceptionally
-                                well-trained, highly-disciplined, accustomed to working in teams,
-                                goal-orientated and possess strong leadership qualities. This
-                                combination of skills and attributes aligns exceptionally well with
-                                the tech industry; veterans are already prepared to work harder and
-                                move faster on day one. Because employers prioritize attitude first
-                                and foremost, military members can fill critical positions and
-                                become valuable members of any team immediately.
+                            <p>
+                                That stack of attributes maps directly to the tech industry.
+                                Veterans are already prepared to work harder and move faster on day
+                                one. Because most engineering teams hire on attitude before skills,
+                                military members can step into critical roles and become valuable
+                                contributors immediately.
                             </p>
-                            <p className="tw-text-lg">
+                            <p>
                                 The Work Opportunity Tax Credit (WOTC) is a federal income tax
-                                credit available to employers who hire and retain veterans and
-                                individuals from targeted groups with significant barriers to
-                                employment. There is no limit on the number of individuals an
-                                employer can hire to qualify to claim the WOTC.
+                                credit available to employers who hire and retain veterans and other
+                                targeted groups facing significant barriers to employment. There is
+                                no per-hire cap.
                             </p>
                         </div>
-                    </section>
+                    </div>
+                </div>
+            </section>
 
-                    {/* Contact Section */}
-                    <section className="tw-rounded-lg tw-bg-secondary tw-p-8 tw-text-center tw-text-white">
-                        <h2 className="tw-mb-4 tw-text-2xl tw-font-bold">
-                            Contact Ayumi Bennett, Technical Program Manager
-                        </h2>
-                        <p className="tw-mb-6 tw-text-xl">
-                            ayumi@vetswhocode.io to learn how you can support a veteran today.
-                        </p>
-                        <p className="tw-text-sm">
-                            Vets Who Code Inc. is an exempt organization as described in Section
-                            501(c)(3) of the Internal Revenue Code. EIN 86-2122804
-                        </p>
-                    </section>
-                </main>
-
-                {/* Footer */}
-                <footer className="tw-bg-navy-deep tw-py-4 tw-text-center tw-text-white">
-                    <p>
-                        VISIT HTTPS://VETSWHOCODE.IO/SYLLABUS TO LEARN MORE ABOUT OUR FLAGSHIP
-                        CURRICULUM.
-                    </p>
-                </footer>
-            </div>
+            {/* Contact */}
+            <section className="cta-banner tw-bg-navy-deep tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <div className="tw-mx-auto tw-max-w-3xl tw-text-center tw-flex tw-flex-col tw-gap-6">
+                        <SectionEyebrow
+                            label="Contact"
+                            subLabel="SPONSORSHIP DESK"
+                            tone="dark"
+                            align="center"
+                        />
+                        <SharpHeadline as="h2" size="h2" tone="white" align="center">
+                            Talk to
+                            <br />
+                            <span className="tw-text-red">Ayumi Bennett</span>.
+                        </SharpHeadline>
+                        <MonoMeta tone="bright" size="md">
+                            Technical Program Manager
+                        </MonoMeta>
+                        <a
+                            href="mailto:ayumi@vetswhocode.io"
+                            className="tw-inline-flex tw-self-center tw-items-center tw-gap-3 tw-border-2 tw-border-red tw-bg-red tw-px-7 tw-py-4 tw-font-heading tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.08em] tw-text-white tw-transition-colors hover:tw-border-red-crimson hover:tw-bg-red-crimson active:tw-scale-[0.97]"
+                        >
+                            ayumi@vetswhocode.io
+                            <span aria-hidden="true">→</span>
+                        </a>
+                        <MonoMeta tone="muted" size="xs" className="tw-mt-4">
+                            Vets Who Code Inc. · 501(c)(3) · EIN 86-2122804
+                        </MonoMeta>
+                    </div>
+                </div>
+            </section>
         </>
     );
 };
