@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { Button } from "@ui";
+import Button from "@ui/button";
 import { Player } from "../../utils/types";
 
 interface PlayerSetupProps {

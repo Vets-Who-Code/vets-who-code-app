@@ -1,9 +1,14 @@
+/**
+ * @module button.test
+ * Unit tests for the Button UI component — covers rendering, disabled state,
+ * ref forwarding, native attribute pass-through, variant/color matrix, and link mode.
+ */
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Button from "@ui/button";
 
 describe("Button", () => {
-    // T009 — renders children, default type, disabled state
+    // renders children, default type, disabled state
     it("renders children", () => {
         render(<Button>Click me</Button>);
         expect(screen.getByRole("button", { name: "Click me" })).toBeInTheDocument();
@@ -21,7 +26,7 @@ describe("Button", () => {
         expect(btn).toHaveClass("tw-opacity-50", "tw-cursor-not-allowed");
     });
 
-    // T010 — forwardRef, aria-label, data-testid pass-through
+    // forwardRef, aria-label, data-testid pass-through
     it("forwards ref to the underlying HTMLButtonElement", () => {
         const ref = React.createRef<HTMLButtonElement>();
         render(<Button ref={ref}>Ref</Button>);
@@ -38,7 +43,7 @@ describe("Button", () => {
         expect(screen.getByTestId("my-btn")).toBeInTheDocument();
     });
 
-    // T011 — path→Anchor, className merge, ghost variant
+    // path→Anchor, className merge, ghost variant
     it("renders as an anchor element when path is set", () => {
         render(<Button path="/about">About</Button>);
         expect(screen.queryByRole("button")).not.toBeInTheDocument();
@@ -61,7 +66,7 @@ describe("Button", () => {
         expect(baseBgClasses).toHaveLength(0);
     });
 
-    // T012 — variant × color matrix
+    // variant × color matrix
     const variants = ["contained", "outlined", "ghost"] as const;
     const colors = ["primary", "light", "secondary", "danger"] as const;
 

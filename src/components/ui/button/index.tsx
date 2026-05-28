@@ -1,3 +1,9 @@
+/**
+ * @module ui/button
+ * Reusable Button component supporting contained/outlined/ghost/texted variants,
+ * semantic colors (primary, light, secondary, danger), forwardRef, and native attribute pass-through.
+ * Renders as `<button>` by default or as `<Anchor>` when `path` is set.
+ */
 /* eslint-disable react/button-has-type */
 import React from "react";
 import clsx from "clsx";

@@ -1,4 +1,4 @@
-import { Button } from "@ui";
+import Button from "@ui/button";
 import { BUDGET_CHIPS, SERVICE_CHIPS } from "@data/software-factory";
 import axios from "axios";
 import { useState } from "react";
