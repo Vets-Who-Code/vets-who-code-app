@@ -41,8 +41,7 @@ automatically so I don't have to maintain a growing explicit prop list.
 
 **Acceptance criteria:**
 - A forwarded ref resolves to the underlying `HTMLButtonElement`
-- `aria-label`, `data-testid`, `form`, and `name` attributes appear on the rendered
-  element when passed as props
+- All `React.ButtonHTMLAttributes` pass through to the underlying `<button>` element; `aria-label` and `data-testid` are verified by test — remaining attributes are guaranteed by TypeScript type extension and `...rest` spread
 - `onClick`, `disabled`, and `type` continue to behave identically to today
 
 ### US3 — Test coverage (P1)

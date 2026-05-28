@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { Button } from "@ui";
 import { Player } from "../../utils/types";
 
 interface PlayerSetupProps {
@@ -90,12 +91,9 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                     })}
                 </div>
                 {error && <div className="tw-mb-2 tw-text-center tw-text-red-dark">{error}</div>}
-                <button
-                    type="submit"
-                    className="tw-w-full tw-rounded-lg tw-bg-primary tw-px-4 tw-py-3 tw-font-semibold tw-text-white tw-transition-colors hover:tw-bg-opacity-80 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary focus:tw-ring-offset-2"
-                >
+                <Button type="submit" fullwidth>
                     Start Game
-                </button>
+                </Button>
             </form>
         </div>
     );

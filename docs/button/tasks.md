@@ -2,7 +2,7 @@
 
 **Feature:** 896-reusable-button-plan  
 **Issue:** [#896](https://github.com/Vets-Who-Code/vets-who-code-app/issues/896)  
-**Total tasks:** 18  
+**Total tasks:** 22  
 **Date:** 2026-05-26
 
 ---
@@ -100,8 +100,9 @@
 T001 (baseline) → T002 (audit) → T003–T005 (US1) → T006 (gate)
                                                    → T007 (US2) → T008 (gate)
                                                                  → T009–T012 (US3) → T013 (gate)
-                                                                                    → T014, T015, T016, T017, T018 (US4)
-                                                                                                                      → T019–T022 (polish)
+                                                                                    → T014 (barrel)
+                                                                                        → T015, T016, T017, T018 (US4)
+                                                                                                                   → T019–T022 (polish)
 ```
 
 T014 and T017 are [P] — they touch different files from each other and can run in
@@ -115,7 +116,7 @@ parallel once T013 (test gate) passes.
 **Wave 1** (sequential): T003 → T004 → T005 → T006  
 **Wave 2** (sequential): T007 → T008  
 **Wave 3** (sequential): T009 → T010 → T011 → T012 → T013  
-**Wave 4** (parallel): T014 ‖ T017; then T015 → T016 → T018 (sequential among themselves)  
+**Wave 4**: T014 → T017; then T015 → T016 → T018 (sequential among themselves)  
 **Wave 5** (parallel): T019 ‖ T020 ‖ T021 → T022  
 
 ---
