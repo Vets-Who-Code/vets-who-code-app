@@ -1,3 +1,4 @@
+import UserMenu from "@components/header/user-menu";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
@@ -57,9 +58,10 @@ const Header = ({ shadow, fluid }: TProps) => {
                             className="tw-hidden xl:tw-block"
                         />
                         <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
-                        <div className="tw-flex tw-items-center tw-justify-end">
+                        <div className="tw-flex tw-items-center tw-justify-end tw-gap-3">
+                            <UserMenu mode="dark" />
                             <BurgerButton
-                                className="tw-pl-5 xl:tw-hidden"
+                                className="tw-pl-2 xl:tw-hidden"
                                 color="dark"
                                 onClick={() => setOffcanvas(true)}
                                 label="Toggle Menu"
