@@ -52,10 +52,31 @@ interface ProgressData {
     overall_total: number;
 }
 
+interface XpData {
+    total_xp?: number;
+    level?: number | string;
+    xp_to_next_level?: number;
+}
+
+interface StreakData {
+    current_streak?: number;
+    longest_streak?: number;
+}
+
+interface TodayData {
+    xp_earned?: number;
+    lessons_completed?: number;
+    challenges_completed?: number;
+    minutes_active?: number;
+}
+
 export default function TroopDashboard() {
     const [data, setData] = useState<DashboardData | null>(null);
     const [warmups, setWarmups] = useState<WarmupChallenge[]>([]);
     const [progress, setProgress] = useState<ProgressData | null>(null);
+    const [xp, setXp] = useState<XpData | null>(null);
+    const [streak, setStreak] = useState<StreakData | null>(null);
+    const [today, setToday] = useState<TodayData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isLoadingWarmups, setIsLoadingWarmups] = useState(true);
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
@@ -133,11 +154,41 @@ export default function TroopDashboard() {
         }
     }, []);
 
+    const fetchXp = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/xp");
+            if (res.ok) setXp(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchStreak = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/streak");
+            if (res.ok) setStreak(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchToday = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/today");
+            if (res.ok) setToday(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
     useEffect(() => {
         fetchDashboard();
         fetchWarmups();
         fetchProgress();
-    }, [fetchDashboard, fetchWarmups, fetchProgress]);
+        fetchXp();
+        fetchStreak();
+        fetchToday();
+    }, [fetchDashboard, fetchWarmups, fetchProgress, fetchXp, fetchStreak, fetchToday]);
 
     if (isLoading) {
         return (
@@ -164,6 +215,9 @@ export default function TroopDashboard() {
 
     return (
         <div className="tw-space-y-6">
+            {/* Today / XP / Streak summary */}
+            <TodayStrip xp={xp} streak={streak} today={today} />
+
             {/* Reps tray — confidence loop entry point */}
             <RepsTray warmups={warmups} loading={isLoadingWarmups} />
 
@@ -366,6 +420,58 @@ export default function TroopDashboard() {
                     </div>
                 </div>
             )}
+        </div>
+    );
+}
+
+function TodayStrip({
+    xp,
+    streak,
+    today,
+}: {
+    xp: XpData | null;
+    streak: StreakData | null;
+    today: TodayData | null;
+}) {
+    const tiles: { label: string; value: string | number; sub?: string }[] = [];
+    if (xp?.total_xp != null) {
+        tiles.push({
+            label: "XP",
+            value: xp.total_xp,
+            sub: xp.level != null ? `Level ${xp.level}` : undefined,
+        });
+    }
+    if (streak?.current_streak != null) {
+        tiles.push({
+            label: "Streak",
+            value: `${streak.current_streak}d`,
+            sub:
+                streak.longest_streak != null && streak.longest_streak > 0
+                    ? `Best ${streak.longest_streak}d`
+                    : undefined,
+        });
+    }
+    if (today?.xp_earned != null) {
+        tiles.push({ label: "XP Today", value: today.xp_earned });
+    }
+    if (today?.minutes_active != null) {
+        tiles.push({ label: "Active Today", value: `${today.minutes_active}m` });
+    }
+    if (tiles.length === 0) return null;
+    return (
+        <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-3">
+            {tiles.map((tile) => (
+                <div
+                    key={tile.label}
+                    className="tw-rounded-md tw-border tw-border-primary/20 tw-bg-white tw-p-4 tw-shadow-sm"
+                >
+                    <div className="tw-font-mono tw-text-[10px] tw-font-bold tw-uppercase tw-tracking-widest tw-text-primary">
+                        {tile.label}
+                    </div>
+                    <div className="tw-text-2xl tw-font-bold tw-text-ink tw-mt-1">{tile.value}</div>
+                    {tile.sub && <div className="tw-text-xs tw-text-ink/60">{tile.sub}</div>}
+                </div>
+            ))}
         </div>
     );
 }
