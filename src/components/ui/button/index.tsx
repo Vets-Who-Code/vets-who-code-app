@@ -27,18 +27,16 @@ interface ButtonProps
     path?: string;
     label?: string;
     hover?: "default" | "light" | false;
-    /** string | number to accept data-layer ids (HTML id is string-only) */
+    /** Accepts number IDs from data types (e.g. ButtonType); coerced to string for the DOM */
     id?: string | number;
-    /** () => void to stay compatible with Anchor's onClick signature */
-    onClick?: () => void;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     (
         {
             children,
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
-            id: _id,
+            id,
             type = "button",
             variant = "contained",
             color = "primary",
@@ -219,19 +217,30 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         fullBtn,
         fontUpgrade,
         "tw-uppercase tw-tracking-wider tw-text-xs",
+        disabled && "tw-opacity-50 tw-cursor-not-allowed",
         className
     );
 
+    const domId = id !== undefined ? String(id) : undefined;
+
     if (path) {
         return (
-            <Anchor path={path} className={classnames} onClick={onClick} aria-label={label}>
+            <Anchor
+                path={path}
+                id={domId}
+                className={classnames}
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                onClick={onClick as any}
+                aria-label={label}
+                {...(rest as React.HTMLAttributes<HTMLAnchorElement>)}
+            >
                 {children}
             </Anchor>
         );
     }
 
     return (
-        <button ref={ref} type={type} disabled={disabled} className={classnames} onClick={onClick} aria-label={label} {...rest}>
+        <button ref={ref} id={domId} type={type} disabled={disabled} className={classnames} onClick={onClick} aria-label={label} {...rest}>
             {children}
         </button>
     );

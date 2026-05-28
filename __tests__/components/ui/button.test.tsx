@@ -18,6 +18,7 @@ describe("Button", () => {
         render(<Button disabled>Disabled</Button>);
         const btn = screen.getByRole("button");
         expect(btn).toBeDisabled();
+        expect(btn).toHaveClass("tw-opacity-50", "tw-cursor-not-allowed");
     });
 
     // T010 — forwardRef, aria-label, data-testid pass-through
