@@ -87,8 +87,8 @@ export const PHASES: Phase[] = [
                 text: "Learners contribute to internal and external open-source projects — scalable, readable code that integrates into production.",
             },
             {
-                label: "products/aegis.md",
-                text: "Veterans work on real nonprofit apps used by real users — the PTSD Toolkit, AEGIS — portfolio-ready with real-world scope.",
+                label: "products/shipped.md",
+                text: "Troops ship into real VWC products — this Next.js platform, VetsAI's MOS translator, the Hashflag VS Code theme, the API List. Production code with real users.",
             },
             {
                 label: "career/weekly.md",
