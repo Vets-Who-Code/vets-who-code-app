@@ -40,6 +40,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                             alt={images[0]?.alt || "bg"}
                             loading="eager"
                             className="tw-h-full tw-w-full tw-object-cover"
+                            fetchPriority="high"
                         />
                         <div
                             style={{
@@ -77,6 +78,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 >
                                     {headings[0].content}
                                 </h1>
+
                                 <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
                                     <span
                                         style={{
