@@ -17,10 +17,18 @@ async function dispatch(
     injectTroopId: boolean
 ) {
     const troopId = req.user!.troopId;
+    const troopToken = req.user!.troopToken;
+
     if (injectTroopId && !troopId) {
         return res
             .status(400)
             .json({ error: "No J0dI3 troop profile linked. Please sign out and back in." });
+    }
+
+    if (injectTroopId && !troopToken) {
+        return res.status(400).json({
+            error: "Missing J0dI3 troop access token. Please sign out and back in to refresh.",
+        });
     }
 
     try {
@@ -38,7 +46,9 @@ async function dispatch(
                     : req.query
                 : undefined;
 
-        const { data } = await j0di3({ method, url, data: body, params });
+        const headers = injectTroopId && troopToken ? { "X-Troop-Token": troopToken } : undefined;
+
+        const { data } = await j0di3({ method, url, data: body, params, headers });
         res.json(data);
     } catch (error: unknown) {
         if (axios.isAxiosError(error) && error.response) {

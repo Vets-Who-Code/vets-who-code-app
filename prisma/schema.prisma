@@ -62,7 +62,8 @@ model User {
   notes         Note[]
 
   // J0dI3 AI backend
-  troopId       String?         // J0dI3 troop UUID
+  troopId          String?      // J0dI3 troop UUID
+  troopAccessToken String?      // J0dI3 X-Troop-Token, minted on registration or via admin rotate
 
   // E-commerce relationships
   orders        Order[]

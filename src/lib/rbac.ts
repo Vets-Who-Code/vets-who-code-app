@@ -12,6 +12,7 @@ export interface AuthenticatedRequest extends NextApiRequest {
         email: string;
         role: Role;
         troopId: string | null;
+        troopToken: string | null;
     };
 }
 
@@ -34,10 +35,10 @@ export function requireAuth(
             return res.status(401).json({ error: "Unauthorized - Please sign in" });
         }
 
-        // Fetch troopId from database
+        // Fetch troopId and troopAccessToken from database
         const dbUser = await prisma.user.findUnique({
             where: { id: session.user.id },
-            select: { troopId: true },
+            select: { troopId: true, troopAccessToken: true },
         });
 
         req.user = {
@@ -46,6 +47,7 @@ export function requireAuth(
             email: session.user.email || "",
             role: (session.user.role as Role) || "STUDENT",
             troopId: dbUser?.troopId || null,
+            troopToken: dbUser?.troopAccessToken || null,
         };
 
         return handler(req, res);
