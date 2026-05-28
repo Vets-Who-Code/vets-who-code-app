@@ -169,10 +169,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
                 />
             </div>
             <div className="tw-w-full">
-                <Button
-                    type="submit"
-                    className="tw-w-full tw-transform tw-rounded-lg tw-bg-red tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-red-crimson focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-red focus:tw-ring-offset-2"
-                >
+                <Button type="submit" fullwidth>
                     Submit
                 </Button>
             </div>
