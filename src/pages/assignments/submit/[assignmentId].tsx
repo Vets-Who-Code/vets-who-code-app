@@ -39,6 +39,88 @@ type PageWithLayout = NextPage<PageProps> & {
     Layout?: typeof Layout01;
 };
 
+const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10 MB per file — matches the upload route's body limit
+const ALLOWED_EXTENSIONS = [
+    "pdf",
+    "zip",
+    "jpg",
+    "jpeg",
+    "png",
+    "gif",
+    "webp",
+    "txt",
+    "md",
+    "doc",
+    "docx",
+];
+
+function fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = () => reject(reader.error || new Error("Failed to read file"));
+        reader.readAsDataURL(file);
+    });
+}
+
+function getExtension(name: string): string {
+    const idx = name.lastIndexOf(".");
+    return idx === -1 ? "" : name.slice(idx + 1).toLowerCase();
+}
+
+type UploadedFileMeta = {
+    name: string;
+    size: number;
+    url: string;
+    public_id: string;
+    format?: string;
+};
+
+async function uploadAttachments(fileList: FileList, folder: string): Promise<UploadedFileMeta[]> {
+    const fileArr = Array.from(fileList);
+
+    // Pre-flight validation so users get a specific message instead of a
+    // generic Cloudinary 4xx after the upload kicks off.
+    for (const f of fileArr) {
+        if (f.size > MAX_FILE_BYTES) {
+            throw new Error(`${f.name} exceeds the 10 MB per-file limit.`);
+        }
+        const ext = getExtension(f.name);
+        if (!ALLOWED_EXTENSIONS.includes(ext)) {
+            throw new Error(
+                `${f.name}: ".${ext}" is not an accepted file type. Allowed: ${ALLOWED_EXTENSIONS.join(", ")}.`
+            );
+        }
+    }
+
+    const payloads = await Promise.all(
+        fileArr.map(async (f) => ({ name: f.name, data: await fileToBase64(f) }))
+    );
+
+    const uploadRes = await fetch("/api/upload/file", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ files: payloads, folder }),
+    });
+    const uploadData = await uploadRes.json();
+    if (!uploadRes.ok || !uploadData.success) {
+        throw new Error(uploadData.error || "Failed to upload attachments.");
+    }
+
+    return uploadData.files.map(
+        (
+            result: { url: string; public_id: string; format?: string },
+            idx: number
+        ): UploadedFileMeta => ({
+            name: fileArr[idx]?.name ?? "file",
+            size: fileArr[idx]?.size ?? 0,
+            url: result.url,
+            public_id: result.public_id,
+            format: result.format,
+        })
+    );
+}
+
 const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
     const { data: session, status } = useSession();
     const router = useRouter();
@@ -56,13 +138,13 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
         setError(null);
 
         try {
-            // TODO: Upload files to Cloudinary if provided
-            let filesJson = null;
+            let filesJson: string | null = null;
             if (files && files.length > 0) {
-                // For now, we'll store file names until Cloudinary integration is complete
-                filesJson = JSON.stringify(
-                    Array.from(files).map((f) => ({ name: f.name, size: f.size }))
+                const uploaded = await uploadAttachments(
+                    files,
+                    `assignments/${assignment.course.id}/${assignment.id}`
                 );
+                filesJson = JSON.stringify(uploaded);
             }
 
             const response = await fetch("/api/lms/submissions", {
@@ -326,6 +408,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                 type="file"
                                                 id="files"
                                                 multiple={true}
+                                                accept=".pdf,.zip,.jpg,.jpeg,.png,.gif,.webp,.txt,.md,.doc,.docx"
                                                 onChange={handleFileChange}
                                                 className="tw-sr-only"
                                             />
@@ -345,7 +428,8 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                                         or drag and drop
                                                     </p>
                                                     <p className="tw-text-xs tw-text-gray-500">
-                                                        Common formats: ZIP, PDF, images
+                                                        PDF, ZIP, DOC/DOCX, TXT/MD, or images — 10
+                                                        MB max per file.
                                                     </p>
                                                 </div>
                                             </label>
