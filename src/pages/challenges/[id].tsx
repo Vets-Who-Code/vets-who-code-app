@@ -48,6 +48,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const [isLoadingHint, setIsLoadingHint] = useState(false);
     const [solutionText, setSolutionText] = useState<string | null>(null);
     const [showSolution, setShowSolution] = useState(false);
+    const [coachReply, setCoachReply] = useState<string | null>(null);
+    const [coachQuestion, setCoachQuestion] = useState("");
+    const [isCoaching, setIsCoaching] = useState(false);
 
     const fetchChallenge = useCallback(async () => {
         if (!id) return;
@@ -140,6 +143,26 @@ const ChallengeDetailPage: PageWithLayout = () => {
             // non-critical
         } finally {
             setIsLoadingHint(false);
+        }
+    };
+
+    const handleCoach = async () => {
+        if (!challenge || !coachQuestion.trim()) return;
+        setIsCoaching(true);
+        try {
+            const res = await fetch(`/api/j0di3/challenges/${challenge.id}/coach`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: coachQuestion, code }),
+            });
+            if (res.ok) {
+                const body = await res.json();
+                setCoachReply(body.reply || body.message || body.coaching || "No reply.");
+            }
+        } catch {
+            // non-critical
+        } finally {
+            setIsCoaching(false);
         }
     };
 
@@ -303,6 +326,38 @@ const ChallengeDetailPage: PageWithLayout = () => {
                             )}
                         </div>
 
+                        <div className="tw-mb-4 tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-p-3">
+                            <label
+                                htmlFor="coach-input"
+                                className="tw-block tw-text-xs tw-font-semibold tw-text-navy/70 tw-uppercase tw-mb-2"
+                            >
+                                Ask the coach
+                            </label>
+                            <div className="tw-flex tw-gap-2">
+                                <input
+                                    id="coach-input"
+                                    type="text"
+                                    value={coachQuestion}
+                                    onChange={(e) => setCoachQuestion(e.target.value)}
+                                    placeholder="Where am I stuck?"
+                                    className="tw-flex-1 tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={handleCoach}
+                                    disabled={isCoaching || !coachQuestion.trim()}
+                                    className="tw-rounded-md tw-bg-navy-deep tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white disabled:tw-opacity-50"
+                                >
+                                    {isCoaching ? "Thinking..." : "Ask"}
+                                </button>
+                            </div>
+                            {coachReply && (
+                                <p className="tw-mt-3 tw-text-sm tw-text-ink tw-whitespace-pre-wrap">
+                                    {coachReply}
+                                </p>
+                            )}
+                        </div>
+
                         {hints.length > 0 && (
                             <div className="tw-mb-4 tw-space-y-2">
                                 {hints.map((hint, i) => (
@@ -358,9 +413,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                             />
                                             <span
                                                 className={`tw-font-semibold ${
-                                                    passed
-                                                        ? "tw-text-ink"
-                                                        : "tw-text-red-dark"
+                                                    passed ? "tw-text-ink" : "tw-text-red-dark"
                                                 }`}
                                             >
                                                 {passed ? "Challenge Passed!" : "Not quite right"}
