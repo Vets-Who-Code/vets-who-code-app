@@ -40,4 +40,22 @@ describe("form element error feedback accessibility", () => {
         expect(alert).toHaveAttribute("id", "message-error");
         expect(alert).toHaveTextContent("Message is required");
     });
+
+    it("uses a custom feedback id when provided", () => {
+        render(
+            <Input
+                id="email"
+                name="email"
+                state="error"
+                feedbackId="signup-email-feedback"
+                feedbackText="Enter a valid email address"
+            />
+        );
+
+        const input = screen.getByRole("textbox");
+        const alert = screen.getByRole("alert");
+
+        expect(input).toHaveAttribute("aria-describedby", "signup-email-feedback");
+        expect(alert).toHaveAttribute("id", "signup-email-feedback");
+    });
 });

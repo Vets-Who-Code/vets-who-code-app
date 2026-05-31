@@ -14,7 +14,6 @@ export interface IInputProps extends IFeedback {
     disabled?: boolean;
     readonly?: boolean;
     feedbackText?: string;
-    feedbackId?: string;
     id: string;
     name: string;
     placeholder?: string;
@@ -26,4 +25,8 @@ export interface IInputProps extends IFeedback {
     onClick?: (e: MouseEvent<TInput>) => void;
     onBlur?: (e: FocusEvent<TInput>) => void;
     customStyle?: TCustomStyle;
+}
+
+export interface ITextInputProps extends IInputProps {
+    feedbackId?: string;
 }

@@ -1,9 +1,9 @@
 import cn from "clsx";
 import { forwardRef } from "react";
 import Feedback from "./feedback";
-import { IInputProps } from "./types";
+import { ITextInputProps } from "./types";
 
-interface IProps extends IInputProps {
+interface IProps extends ITextInputProps {
     type?: string;
     bg?: "white" | "light";
 }
