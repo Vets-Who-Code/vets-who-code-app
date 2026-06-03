@@ -71,6 +71,7 @@ eslint-report.json
 biome-report.json
 score-output.md
 
+# Storybook
 *storybook.log
 storybook-static
 
