@@ -75,23 +75,19 @@ const StatBelt = () => {
 
                 <ul className="tw-grid tw-grid-cols-1 tw-gap-8 sm:tw-grid-cols-3 sm:tw-gap-6 md:tw-gap-10">
                     {STATS.map((stat) => (
-                        <li
-                            key={stat.label}
-                            className="tw-flex tw-flex-col tw-gap-2"
-                        >
+                        <li key={stat.label} className="tw-flex tw-flex-col tw-gap-2">
                             {/* Top row: pulse dot + label */}
                             <div
                                 className="tw-flex tw-items-center tw-gap-2.5"
                                 style={{
                                     ...monoLabel,
-                                    color: "rgba(185, 214, 242, 0.7)",
+                                    color: "#F8F9FA",
                                 }}
                             >
                                 <span
                                     className="tw-inline-block tw-h-[6px] tw-w-[6px] tw-rounded-full tw-bg-gold"
                                     style={{
-                                        animation:
-                                            "pulse-soft 2.4s ease-in-out infinite",
+                                        animation: "pulse-soft 2.4s ease-in-out infinite",
                                     }}
                                     aria-hidden="true"
                                 />
@@ -119,7 +115,7 @@ const StatBelt = () => {
                                         fontFamily: "var(--font-body)",
                                         fontSize: "13px",
                                         lineHeight: 1.5,
-                                        color: "rgba(185, 214, 242, 0.55)",
+                                        color: "#F8F9FA",
                                     }}
                                 >
                                     {stat.sub}

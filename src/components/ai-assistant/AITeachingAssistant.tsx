@@ -5,6 +5,8 @@ interface Message {
     role: "user" | "assistant";
     content: string;
     timestamp: Date;
+    messageId?: string;
+    feedback?: "up" | "down";
 }
 
 interface LessonContext {
@@ -85,7 +87,12 @@ export default function AITeachingAssistant({
 
             if (!response.ok) {
                 const errorData = await response.json();
-                const msg = errorData.error || (Array.isArray(errorData.detail) ? errorData.detail.map((d: any) => d.msg).join(", ") : errorData.detail) || "Failed to get response";
+                const msg =
+                    errorData.error ||
+                    (Array.isArray(errorData.detail)
+                        ? errorData.detail.map((d: any) => d.msg).join(", ")
+                        : errorData.detail) ||
+                    "Failed to get response";
                 throw new Error(msg);
             }
 
@@ -95,6 +102,7 @@ export default function AITeachingAssistant({
                 role: "assistant",
                 content: data.response || data.explanation || data.answer || JSON.stringify(data),
                 timestamp: new Date(),
+                messageId: data.message_id,
             };
             setMessages((prev) => [...prev, assistantMessageObj]);
         } catch (err) {
@@ -108,6 +116,21 @@ export default function AITeachingAssistant({
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         sendMessage();
+    };
+
+    const sendFeedback = async (index: number, rating: "up" | "down") => {
+        const msg = messages[index];
+        if (!msg?.messageId || msg.feedback) return;
+        setMessages((prev) => prev.map((m, i) => (i === index ? { ...m, feedback: rating } : m)));
+        try {
+            await fetch("/api/j0di3/learning/feedback", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message_id: msg.messageId, rating }),
+            });
+        } catch {
+            // non-critical — optimistic update stays
+        }
     };
 
     if (!isOpen) return null;
@@ -173,20 +196,48 @@ export default function AITeachingAssistant({
                                 </div>
                                 <div
                                     className={clsx(
-                                        "tw-text-xs tw-mt-1",
+                                        "tw-text-xs tw-mt-1 tw-flex tw-items-center tw-gap-2",
                                         msg.role === "user"
                                             ? "tw-text-white tw-opacity-70"
                                             : "tw-text-ink/60"
                                     )}
                                 >
-                                    {msg.timestamp.toLocaleTimeString()}
+                                    <span>{msg.timestamp.toLocaleTimeString()}</span>
+                                    {msg.role === "assistant" && msg.messageId && (
+                                        <span className="tw-flex tw-gap-1">
+                                            <button
+                                                type="button"
+                                                onClick={() => sendFeedback(index, "up")}
+                                                disabled={!!msg.feedback}
+                                                className={clsx(
+                                                    "tw-px-1 tw-rounded hover:tw-bg-navy/10",
+                                                    msg.feedback === "up" && "tw-text-navy-deep"
+                                                )}
+                                                aria-label="Helpful"
+                                            >
+                                                👍
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => sendFeedback(index, "down")}
+                                                disabled={!!msg.feedback}
+                                                className={clsx(
+                                                    "tw-px-1 tw-rounded hover:tw-bg-navy/10",
+                                                    msg.feedback === "down" && "tw-text-red-dark"
+                                                )}
+                                                aria-label="Not helpful"
+                                            >
+                                                👎
+                                            </button>
+                                        </span>
+                                    )}
                                 </div>
                             </div>
                         </div>
                     ))}
 
                     {error && (
-                        <div className="tw-bg-red-50 tw-border tw-border-red-200 tw-text-red-700 tw-px-4 tw-py-3 tw-rounded">
+                        <div className="tw-bg-cream tw-border tw-border-red tw-text-red-dark tw-px-4 tw-py-3 tw-rounded">
                             <p className="tw-text-sm">
                                 <strong>Error:</strong> {error}
                             </p>

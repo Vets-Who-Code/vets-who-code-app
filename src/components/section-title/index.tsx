@@ -57,7 +57,15 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                             gap: "12px",
                         }}
                     >
-                        <span style={{ width: "16px", height: "2px", background: "var(--red, #c5203e)", display: "inline-block", flexShrink: 0 }} />
+                        <span
+                            style={{
+                                width: "16px",
+                                height: "2px",
+                                background: "var(--red, #c5203e)",
+                                display: "inline-block",
+                                flexShrink: 0,
+                            }}
+                        />
                         <SafeHTML content={subtitle} as="span" className={subtitleClass} />
                     </div>
                 )}

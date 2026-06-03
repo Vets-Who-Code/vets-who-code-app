@@ -1,4 +1,5 @@
 import SEO from "@components/seo/page-seo";
+import { MonoMeta } from "@components/ui/design-system";
 import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
@@ -54,6 +55,33 @@ const Home: PageProps = ({ data }) => {
     return (
         <>
             <SEO title="Home" />
+
+            {/* Operations brief — status bar across the top, SF/CG signature */}
+            <div className="tw-w-full tw-border-b tw-border-cream/10 tw-bg-navy tw-py-2.5">
+                <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-2">
+                    <MonoMeta tone="bright" size="xs">
+                        <span className="tw-flex tw-items-center tw-gap-2">
+                            <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">
+                                <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-red tw-opacity-75" />
+                                <span className="tw-relative tw-inline-flex tw-h-[7px] tw-w-[7px] tw-rounded-full tw-bg-red tw-shadow-[0_0_10px_#c5203e]" />
+                            </span>
+                            Live · 2026 Cohort
+                        </span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Placement · <span className="tw-text-cream">97%</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Alumni earnings · <span className="tw-text-cream">$20M+</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Status · <span className="tw-text-cream">501(c)(3)</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
+                        <span className="tw-text-cream">Applications Open</span>
+                    </MonoMeta>
+                </div>
+            </div>
 
             {/* Hero — full navy, dark-section for grain overlay */}
             <HeroArea data={content?.["hero-area"]} />

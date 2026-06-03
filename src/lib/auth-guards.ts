@@ -7,9 +7,7 @@ type GuardOk = { ok: true; session: Session };
 type GuardRedirect = { ok: false; result: GetServerSidePropsResult<never> };
 export type GuardResult = GuardOk | GuardRedirect;
 
-export async function requireAuthSSR(
-    context: GetServerSidePropsContext
-): Promise<GuardResult> {
+export async function requireAuthSSR(context: GetServerSidePropsContext): Promise<GuardResult> {
     const session = await getServerSession(context.req, context.res, options);
 
     if (!session?.user) {
@@ -17,9 +15,7 @@ export async function requireAuthSSR(
             ok: false,
             result: {
                 redirect: {
-                    destination: `/login?callbackUrl=${encodeURIComponent(
-                        context.resolvedUrl
-                    )}`,
+                    destination: `/login?callbackUrl=${encodeURIComponent(context.resolvedUrl)}`,
                     permanent: false,
                 },
             },
@@ -29,9 +25,7 @@ export async function requireAuthSSR(
     return { ok: true, session };
 }
 
-export async function requireAdminSSR(
-    context: GetServerSidePropsContext
-): Promise<GuardResult> {
+export async function requireAdminSSR(context: GetServerSidePropsContext): Promise<GuardResult> {
     const auth = await requireAuthSSR(context);
     if (!auth.ok) return auth;
 

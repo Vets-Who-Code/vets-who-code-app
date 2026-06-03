@@ -35,6 +35,7 @@ function createMockReqRes(
             email: "test@test.com",
             role: "STUDENT",
             troopId: "troop-uuid-123",
+            troopToken: "troop-token-abc",
         },
         ...overrides,
     } as unknown as NextApiRequest;
@@ -61,6 +62,7 @@ describe("j0di3Proxy", () => {
             url: "/api/v1/learning/explain",
             data: { question: "What is React?", troop_id: "troop-uuid-123" },
             params: undefined,
+            headers: { "X-Troop-Token": "troop-token-abc" },
         });
         expect(res.json).toHaveBeenCalledWith({ response: "React is a library" });
     });
@@ -78,6 +80,7 @@ describe("j0di3Proxy", () => {
             url: "/api/v1/challenges/recommended",
             data: undefined,
             params: expect.objectContaining({ troop_id: "troop-uuid-123" }),
+            headers: { "X-Troop-Token": "troop-token-abc" },
         });
     });
 
@@ -107,6 +110,19 @@ describe("j0di3Proxy", () => {
         expect(res.status).toHaveBeenCalledWith(400);
         expect(res.json).toHaveBeenCalledWith(
             expect.objectContaining({ error: expect.stringContaining("No J0dI3 troop profile") })
+        );
+    });
+
+    it("returns 400 when user has troopId but no troopToken", async () => {
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const { req, res } = createMockReqRes();
+        (req as any).user.troopToken = null;
+
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.json).toHaveBeenCalledWith(
+            expect.objectContaining({ error: expect.stringContaining("troop access token") })
         );
     });
 

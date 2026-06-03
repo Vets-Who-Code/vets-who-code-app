@@ -28,10 +28,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
         return (
             <div className="tw-space-y-6">
                 {[1, 2].map((i) => (
-                    <div
-                        key={i}
-                        className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse"
-                    />
+                    <div key={i} className="tw-h-32 tw-rounded-lg tw-bg-navy/5 tw-animate-pulse" />
                 ))}
             </div>
         );
@@ -100,7 +97,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                     <span
                                         className={`tw-rounded-full tw-px-2.5 tw-py-0.5 tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-wider ${
                                             enrollment.status === "COMPLETED"
-                                                ? "tw-bg-gold/10 tw-text-gold-deep"
+                                                ? "tw-bg-gold/10 tw-text-ink"
                                                 : enrollment.status === "ACTIVE"
                                                   ? "tw-bg-navy/5 tw-text-navy"
                                                   : "tw-bg-gray-50 tw-text-gray-300"
@@ -112,14 +109,18 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                 <div className="tw-h-2 tw-w-full tw-overflow-hidden tw-rounded-full tw-bg-navy/5">
                                     <motion.div
                                         initial={{ width: 0 }}
-                                        animate={{ width: `${Math.min(enrollment.progress, 100)}%` }}
+                                        animate={{
+                                            width: `${Math.min(enrollment.progress, 100)}%`,
+                                        }}
                                         transition={{ duration: 0.8, delay: i * 0.1 }}
                                         className="tw-h-full tw-rounded-full tw-bg-gradient-to-r tw-from-navy tw-to-gold"
                                     />
                                 </div>
                                 <div className="tw-mt-2 tw-flex tw-justify-between tw-font-mono tw-text-[10px] tw-text-gray-300">
                                     <span>{Math.round(enrollment.progress)}% complete</span>
-                                    <span>Last active: {relativeDate(enrollment.lastActivity)}</span>
+                                    <span>
+                                        Last active: {relativeDate(enrollment.lastActivity)}
+                                    </span>
                                 </div>
                             </motion.div>
                         ))}
@@ -140,7 +141,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                 className="tw-flex tw-items-center tw-gap-4 tw-rounded-lg tw-border tw-border-gold/20 tw-bg-gradient-to-r tw-from-gold/5 tw-to-transparent tw-p-4"
                             >
                                 <div className="tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-gold/10">
-                                    <i className="fas fa-certificate tw-text-gold" />
+                                    <i className="fas fa-certificate tw-text-navy-deep" />
                                 </div>
                                 <div>
                                     <div className="tw-font-mono tw-text-sm tw-font-bold tw-text-navy">
@@ -169,7 +170,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                 key={i}
                                 className="tw-flex tw-items-center tw-gap-3 tw-rounded tw-py-2 tw-px-3 hover:tw-bg-navy/3"
                             >
-                                <div className="tw-h-1.5 tw-w-1.5 tw-rounded-full tw-bg-gold tw-flex-shrink-0" />
+                                <div className="tw-h-1.5 tw-w-1.5 tw-rounded-full tw-bg-navy tw-flex-shrink-0" />
                                 <div className="tw-flex-1 tw-min-w-0">
                                     <span className="tw-font-mono tw-text-xs tw-text-ink tw-truncate tw-block">
                                         {activity.lessonTitle}
@@ -179,8 +180,11 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
                                     </span>
                                 </div>
                                 <span className="tw-font-mono tw-text-[10px] tw-text-gray-300 tw-flex-shrink-0">
-                                    {activity.completedAt ? relativeDate(activity.completedAt) : "In progress"}
-                                    {activity.timeSpent > 0 && ` • ${formatMinutes(activity.timeSpent)}`}
+                                    {activity.completedAt
+                                        ? relativeDate(activity.completedAt)
+                                        : "In progress"}
+                                    {activity.timeSpent > 0 &&
+                                        ` • ${formatMinutes(activity.timeSpent)}`}
                                 </span>
                             </div>
                         ))}
@@ -194,7 +198,7 @@ const LearningProgress = ({ data, isLoading, error }: LearningProgressProps) => 
 function StatCard({ label, value, icon }: { label: string; value: string; icon: string }) {
     return (
         <div className="tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-5 tw-text-center tw-shadow-sm">
-            <i className={`${icon} tw-text-gold/60 tw-mb-1`} />
+            <i className={`${icon} tw-text-navy-deep tw-mb-1`} />
             <div className="tw-font-mono tw-text-2xl tw-font-bold tw-text-navy">{value}</div>
             <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-ink/60">
                 {label}

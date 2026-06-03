@@ -28,20 +28,18 @@ const CertPathwaysCard: React.FC<CertPathwaysCardProps> = ({ certPathways }) => 
 
             {directQualifies.length > 0 && (
                 <div className="tw-space-y-2">
-                    <p className="tw-text-xs tw-font-semibold tw-text-green-700 tw-uppercase tw-tracking-wide">
+                    <p className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase tw-tracking-wide">
                         Ready to Certify
                     </p>
                     {directQualifies.map((cert) => (
                         <div
                             key={cert}
-                            className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-bg-green-50 tw-border tw-border-green-200 tw-px-4 tw-py-3"
+                            className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-bg-gold-light tw-border tw-border-gold tw-px-4 tw-py-3"
                         >
-                            <i className="fas fa-check-circle tw-text-green-600" />
+                            <i className="fas fa-check-circle tw-text-ink" />
                             <div>
-                                <p className="tw-text-sm tw-font-medium tw-text-green-800">
-                                    {cert}
-                                </p>
-                                <p className="tw-text-xs tw-text-green-600">
+                                <p className="tw-text-sm tw-font-medium tw-text-ink">{cert}</p>
+                                <p className="tw-text-xs tw-text-ink/70">
                                     Your training likely qualifies you to sit for this exam now
                                 </p>
                             </div>
@@ -52,31 +50,29 @@ const CertPathwaysCard: React.FC<CertPathwaysCardProps> = ({ certPathways }) => 
 
             {partialCoverage.length > 0 && (
                 <div className="tw-space-y-2">
-                    <p className="tw-text-xs tw-font-semibold tw-text-blue-700 tw-uppercase tw-tracking-wide">
+                    <p className="tw-text-xs tw-font-semibold tw-text-navy-deep tw-uppercase tw-tracking-wide">
                         Partial Coverage
                     </p>
                     {partialCoverage.map((item) => (
                         <div
                             key={item.cert}
-                            className="tw-rounded-lg tw-bg-blue-50 tw-border tw-border-blue-200 tw-px-4 tw-py-3"
+                            className="tw-rounded-lg tw-bg-navy-sky/20 tw-border tw-border-navy-sky tw-px-4 tw-py-3"
                         >
                             <div className="tw-flex tw-items-center tw-justify-between tw-mb-2">
-                                <p className="tw-text-sm tw-font-medium tw-text-blue-800">
+                                <p className="tw-text-sm tw-font-medium tw-text-navy-deep">
                                     {item.cert}
                                 </p>
-                                <span className="tw-text-xs tw-font-semibold tw-text-blue-600">
+                                <span className="tw-text-xs tw-font-semibold tw-text-navy-ocean">
                                     ~{item.coverage}% covered
                                 </span>
                             </div>
-                            <div className="tw-h-2 tw-rounded-full tw-bg-blue-200 tw-overflow-hidden tw-mb-2">
+                            <div className="tw-h-2 tw-rounded-full tw-bg-navy-sky tw-overflow-hidden tw-mb-2">
                                 <div
-                                    className="tw-h-full tw-rounded-full tw-bg-blue-500"
+                                    className="tw-h-full tw-rounded-full tw-bg-navy-ocean"
                                     style={{ width: `${item.coverage}%` }}
                                 />
                             </div>
-                            <p className="tw-text-xs tw-text-blue-600">
-                                {item.gaps}
-                            </p>
+                            <p className="tw-text-xs tw-text-navy-ocean">{item.gaps}</p>
                         </div>
                     ))}
                 </div>

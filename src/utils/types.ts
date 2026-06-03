@@ -105,7 +105,17 @@ export type ListContentType = {
 export interface IContent {
     id: IDType;
     text: string;
-    type: "text" | "heading" | "image" | "iframe" | "h3" | "h4" | "h5" | "list" | "order-list" | "blockquote";
+    type:
+        | "text"
+        | "heading"
+        | "image"
+        | "iframe"
+        | "h3"
+        | "h4"
+        | "h5"
+        | "list"
+        | "order-list"
+        | "blockquote";
     content: string | { src: string; alt?: string } | string[] | ListContentType[];
 }
 

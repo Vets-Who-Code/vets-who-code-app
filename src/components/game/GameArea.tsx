@@ -45,7 +45,7 @@ const GameArea: React.FC<GameAreaProps> = ({
             {showFeedback && feedbackMessage && (
                 <p
                     className={`tw-mt-6 tw-text-center tw-text-2xl tw-font-bold ${
-                        isAnswerCorrect ? "tw-text-green-500" : "tw-text-primary"
+                        isAnswerCorrect ? "tw-text-navy-deep" : "tw-text-primary"
                     }`}
                 >
                     {feedbackMessage}

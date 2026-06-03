@@ -11,10 +11,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
     ({ className, image, path, title, category, postedAt }, ref) => {
         return (
             <div
-                className={clsx(
-                    "blog-card card-upgraded tw-group tw-bg-white tw-p-5",
-                    className
-                )}
+                className={clsx("blog-card card-upgraded tw-group tw-bg-white tw-p-5", className)}
                 ref={ref}
             >
                 <div className="tw-relative tw-h-[250px] tw-overflow-hidden">
@@ -62,7 +59,9 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             color: "#091f40",
                         }}
                     >
-                        <Anchor path={path} className="tw-text-navy hover:tw-text-primary">{title}</Anchor>
+                        <Anchor path={path} className="tw-text-navy hover:tw-text-primary">
+                            {title}
+                        </Anchor>
                     </h3>
 
                     <ul>

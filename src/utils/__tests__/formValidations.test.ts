@@ -1,10 +1,10 @@
 import {
-    isValidUrl,
-    isValidLinkedIn,
     isValidGithub,
-    validateProfileLink,
+    isValidLinkedIn,
+    isValidUrl,
     validateGithubLink,
     validateLinkedInLink,
+    validateProfileLink,
 } from "../formValidations";
 
 describe("formValidations", () => {

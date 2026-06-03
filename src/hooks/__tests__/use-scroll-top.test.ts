@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react";
 import useScrollTop from "../use-scroll-top";
 
 describe("useScrollTop", () => {

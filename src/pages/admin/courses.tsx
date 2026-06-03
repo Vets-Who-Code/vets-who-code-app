@@ -4,8 +4,8 @@ import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import React, { useState } from "react";
-import prisma from "@/lib/prisma";
 import { requireAdminSSR } from "@/lib/auth-guards";
+import prisma from "@/lib/prisma";
 
 type Course = {
     id: string;
@@ -58,7 +58,7 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
     const getStatusBadge = (isPublished: boolean) => {
         if (isPublished) {
             return (
-                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-ink">
                     Published
                 </span>
             );
@@ -72,9 +72,9 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
 
     const getDifficultyBadge = (difficulty: string) => {
         const styles = {
-            BEGINNER: "tw-bg-green-100 tw-text-green-800",
-            INTERMEDIATE: "tw-bg-yellow-100 tw-text-yellow-800",
-            ADVANCED: "tw-bg-red-100 tw-text-red-800",
+            BEGINNER: "tw-bg-gold-light tw-text-ink",
+            INTERMEDIATE: "tw-bg-gold-light tw-text-ink",
+            ADVANCED: "tw-bg-cream tw-text-red-dark",
         };
         return (
             <span
@@ -216,21 +216,21 @@ const AdminCoursesPage: PageWithLayout = ({ courses: initialCourses }) => {
                                 <div className="tw-flex tw-space-x-1">
                                     <button
                                         type="button"
-                                        className="tw-text-navy-royal hover:tw-text-blue-900"
+                                        className="tw-text-navy-royal hover:tw-text-navy-deep"
                                         title="Edit Course"
                                     >
                                         <i className="fas fa-edit" />
                                     </button>
                                     <button
                                         type="button"
-                                        className="tw-text-gold hover:tw-text-green-900"
+                                        className="tw-text-navy hover:tw-text-navy-deep"
                                         title="View Course"
                                     >
                                         <i className="fas fa-eye" />
                                     </button>
                                     <button
                                         type="button"
-                                        className="tw-text-red-600 hover:tw-text-red-900"
+                                        className="tw-text-red-dark hover:tw-text-red-maroon"
                                         title="Delete Course"
                                     >
                                         <i className="fas fa-trash" />

@@ -7,26 +7,26 @@ import type { GetServerSideProps, NextPage } from "next";
 import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
-import { options } from "@/pages/api/auth/options";
-import prisma from "@/lib/prisma";
-import useGitHubProfile from "@/hooks/use-github-profile";
-import useLearningStats from "@/hooks/use-learning-stats";
-import useProfileForm from "@/hooks/use-profile-form";
-import type { ProfileUser, ProfileTab } from "@/types/profile";
 import {
+    ActivityFeed,
+    GitHubReadme,
+    GitHubStatsGrid,
+    LanguageBreakdown,
+    LearningProgress,
     NotificationToast,
     ProfileHeader,
     ProfileNav,
-    GitHubStatsGrid,
-    RepositoryShowcase,
-    LanguageBreakdown,
-    ActivityFeed,
-    ServiceRecord,
-    LearningProgress,
     ProfileSettings,
-    GitHubReadme,
+    RepositoryShowcase,
+    ServiceRecord,
     TroopDashboard,
 } from "@/components/profile";
+import useGitHubProfile from "@/hooks/use-github-profile";
+import useLearningStats from "@/hooks/use-learning-stats";
+import useProfileForm from "@/hooks/use-profile-form";
+import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
+import type { ProfileTab, ProfileUser } from "@/types/profile";
 
 type PageProps = {
     user: ProfileUser;
@@ -101,11 +101,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                     onLogout={handleLogout}
                 />
 
-                <ProfileNav
-                    activeTab={activeTab}
-                    onTabChange={setActiveTab}
-                    isOwner={isOwner}
-                />
+                <ProfileNav activeTab={activeTab} onTabChange={setActiveTab} isOwner={isOwner} />
 
                 {/* Command Center — GitHub overview */}
                 {activeTab === "command-center" && (
@@ -118,10 +114,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                                 </p>
                             </div>
                         )}
-                        <GitHubStatsGrid
-                            github={github.data}
-                            isLoading={github.isLoading}
-                        />
+                        <GitHubStatsGrid github={github.data} isLoading={github.isLoading} />
                         <LanguageBreakdown
                             languages={github.data?.languages || []}
                             isLoading={github.isLoading}

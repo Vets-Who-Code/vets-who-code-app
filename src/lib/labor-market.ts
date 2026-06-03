@@ -3,8 +3,12 @@
  * Three-tier fallback: Lightcast → Census ACS → static curated data
  */
 
-import { isLightcastConfigured, fetchSalaryBySOC, validateLightcastConfig } from "./lightcast-client";
-import { isCensusConfigured, fetchCensusSalary, validateCensusConfig } from "./census-client";
+import { fetchCensusSalary, isCensusConfigured, validateCensusConfig } from "./census-client";
+import {
+    fetchSalaryBySOC,
+    isLightcastConfigured,
+    validateLightcastConfig,
+} from "./lightcast-client";
 
 export interface EnrichedSalaryData {
     avgSalary: number;
@@ -27,8 +31,8 @@ function validateOnce(): void {
     if (!isLightcastConfigured() && !isCensusConfigured()) {
         console.info(
             "Labor market: no external APIs configured. " +
-            "Career pathways will use curated salary data. " +
-            "Set LIGHTCAST_CLIENT_ID + LIGHTCAST_CLIENT_SECRET and/or CENSUS_API_KEY for live data."
+                "Career pathways will use curated salary data. " +
+                "Set LIGHTCAST_CLIENT_ID + LIGHTCAST_CLIENT_SECRET and/or CENSUS_API_KEY for live data."
         );
     }
 }
@@ -49,7 +53,8 @@ export async function fetchLaborMarketData(
                     avgSalary: lightcast.medianSalary,
                     salaryRange: { p25: lightcast.pct25Salary, p75: lightcast.pct75Salary },
                     demand: lightcast.demandLevel,
-                    topSkillsInDemand: lightcast.topSkills.length > 0 ? lightcast.topSkills : undefined,
+                    topSkillsInDemand:
+                        lightcast.topSkills.length > 0 ? lightcast.topSkills : undefined,
                     dataSource: "lightcast",
                     dataAge: "Updated monthly",
                 };
