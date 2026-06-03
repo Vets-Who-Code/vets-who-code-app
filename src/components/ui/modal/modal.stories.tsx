@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 import { useState } from 'react';
 import { Modal } from './index';
 import ModalHeader from './modal-header';
@@ -25,7 +26,7 @@ type Story = StoryObj<typeof Modal>;
 
 export const Default: Story = {
   args: {
-    show: true,
+    show: false,
     size: 'md',
     centered: true,
   },
@@ -45,6 +46,13 @@ export const Default: Story = {
         </Modal>
       </>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const openButton = canvas.getByText('Open Modal');
+    await userEvent.click(openButton);
+    const body = within(document.body);
+    await expect(body.getByRole('dialog')).toBeInTheDocument();
   },
 };
 
