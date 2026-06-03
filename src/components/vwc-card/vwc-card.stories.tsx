@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { VWCGridCard } from './index';
 
 const meta: Meta<typeof VWCGridCard> = {
-  title: 'UI/VWCGridCard',
+  title: 'UI/Cards/VWCGridCard',
   component: VWCGridCard,
   tags: ['autodocs'],
 };

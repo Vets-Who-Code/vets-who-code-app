@@ -3,7 +3,7 @@ import { useState } from 'react';
 import VideoModal from './index';
 
 const meta: Meta<typeof VideoModal> = {
-  title: 'UI/VideoModal',
+  title: 'UI/Modals/VideoModal',
   component: VideoModal,
   tags: ['autodocs'],
 };

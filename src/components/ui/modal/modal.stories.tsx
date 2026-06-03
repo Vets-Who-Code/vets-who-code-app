@@ -6,7 +6,7 @@ import ModalBody from './modal-body';
 import ModalClose from './modal-close';
 
 const meta: Meta<typeof Modal> = {
-  title: 'UI/Modal',
+  title: 'UI/Modals/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {

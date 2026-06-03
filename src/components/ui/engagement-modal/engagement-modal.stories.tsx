@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EngagementModal } from './EngagementModal';
 
 const meta: Meta<typeof EngagementModal> = {
-  title: 'UI/EngagementModal',
+  title: 'UI/Modals/EngagementModal',
   component: EngagementModal,
   tags: ['autodocs'],
 };
