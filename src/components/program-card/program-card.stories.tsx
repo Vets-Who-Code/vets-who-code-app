@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ProgramCard from './index';
 
 const meta: Meta<typeof ProgramCard> = {
-  title: 'UI/ProgramCard',
+  title: 'UI/Cards/ProgramCard',
   component: ProgramCard,
   tags: ['autodocs'],
 };
