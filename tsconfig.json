@@ -101,6 +101,7 @@
   ],
   "exclude": [
     "node_modules",
-    "src/scripts"
+    "src/scripts",
+    "src/**/*.stories.*"
   ]
 }
