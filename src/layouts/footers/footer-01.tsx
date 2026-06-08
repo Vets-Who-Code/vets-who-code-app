@@ -23,9 +23,41 @@ const Footer01 = ({ mode }: TProps) => {
         >
             <h2 className="tw-sr-only">Footer</h2>
             <div className="tw-container">
+<<<<<<< feat/Add-Lighthouse-CI-for-automation-performance-monitoring-(#922)
+                {/* Top row — nav links and content */}
+                <div className="tw-grid tw-grid-cols-12 tw-gap-y-8">
+                    <TextWidget
+                        mode={mode}
+                        className="tw-col-span-12 tw-mb-[43px] lg:tw-col-span-5 xl:tw-col-span-5"
+                    />
+                    <TwoColumnListWidget
+                        mode={mode}
+                        className="tw-col-span-12 tw-mb-[25px] md:tw-col-span-7 lg:tw-col-span-4 xl:tw-col-span-3"
+                    />
+
+                    <ListWidget
+                        mode={mode}
+                        className="tw-col-span-12 tw-mb-7.5 md:tw-col-span-5 lg:tw-col-span-3"
+                    />
+                    <div className="sm:tw-col-span-2 xl:tw-col-span-1 maxSm:tw-col-span-3">
+                        <a
+                            href="https://app.candid.org/profile/9981881/vets-who-code-86-2122804"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <img
+                                src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
+                                alt="Candid/Guidestar Transparency Seal"
+                                title="Candid/Guidestar Transparency Seal"
+                                loading="lazy"
+                            />{" "}
+                        </a>
+                    </div>
+=======
                 <div className="tw-grid tw-grid-cols-1 tw-gap-y-10 lg:tw-grid-cols-12 lg:tw-gap-x-8">
                     <TextWidget mode={mode} className="lg:tw-col-span-4" />
                     <SitemapNav mode={mode} className="lg:tw-col-span-8" />
+>>>>>>> master
                 </div>
 
                 <div
@@ -61,6 +93,19 @@ const Footer01 = ({ mode }: TProps) => {
                                 margin: 0,
                             }}
                         >
+<<<<<<< feat/Add-Lighthouse-CI-for-automation-performance-monitoring-(#922)
+                            All Rights Reserved
+                        </a>
+                    </p>
+                    <p
+                        style={{
+                            fontFamily: "var(--font-mono)",
+                            fontSize: "10px",
+                            color: mode === "dark" ? "rgba(185, 214, 242, 0.4)" : "#6B7280",
+                            letterSpacing: "0.06em",
+                            margin: 0,
+                        }}
+=======
                             Vets Who Code is a registered 501(c)(3) nonprofit — EIN 86-2122804.
                             Donations are tax-deductible to the fullest extent allowable under the
                             law.
@@ -72,6 +117,7 @@ const Footer01 = ({ mode }: TProps) => {
                         rel="noopener noreferrer"
                         className="tw-shrink-0"
                         aria-label="Vets Who Code Candid/Guidestar Transparency Seal"
+>>>>>>> master
                     >
                         <img
                             src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
