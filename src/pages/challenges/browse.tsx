@@ -126,13 +126,13 @@ const BrowseChallengesPage: PageWithLayout = () => {
     const difficultyColor = (d: Difficulty) => {
         switch (d) {
             case "warmup":
-                return "tw-bg-emerald-100 tw-text-emerald-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "easy":
-                return "tw-bg-green-100 tw-text-green-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "medium":
-                return "tw-bg-yellow-100 tw-text-yellow-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "hard":
-                return "tw-bg-red-100 tw-text-red-800";
+                return "tw-bg-cream tw-text-red-dark";
         }
     };
 
@@ -174,7 +174,9 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                 value={moduleFilter}
                                 onChange={(e) => {
                                     setOffset(0);
-                                    setModuleFilter(e.target.value === "" ? "" : Number(e.target.value));
+                                    setModuleFilter(
+                                        e.target.value === "" ? "" : Number(e.target.value)
+                                    );
                                 }}
                                 className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
                             >
@@ -255,7 +257,7 @@ const BrowseChallengesPage: PageWithLayout = () => {
 
                 {/* Results */}
                 {error && (
-                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                         {error}
                     </div>
                 )}
@@ -282,7 +284,7 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                         </h3>
                                     </div>
                                     <div className="tw-flex tw-flex-wrap tw-gap-1.5 tw-mb-2">
-                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-blue-800">
+                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-navy-deep">
                                             {item.topic}
                                         </span>
                                         <span

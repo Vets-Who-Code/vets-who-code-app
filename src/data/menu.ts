@@ -65,19 +65,14 @@ const navigation: NavigationItem[] = [
                 path: "/programs/core-curriculum",
             },
             {
-                id: 903,
-                label: "Mission-Ready",
-                path: "/programs/mission-ready",
-            },
-            {
                 id: 904,
                 label: "Mentorship",
                 path: "/programs/mentorship",
             },
             {
                 id: 905,
-                label: "Studio",
-                path: "/programs/studio",
+                label: "Software Factory",
+                path: "/programs/software-factory",
             },
         ],
     },
@@ -131,19 +126,9 @@ const navigation: NavigationItem[] = [
                 path: "/assessment",
             },
             {
-                id: 1103,
-                label: "Subjects & Skills",
-                path: "/subjects/all",
-            },
-            {
                 id: 1104,
                 label: "J0d!e",
                 path: "/jodie",
-            },
-            {
-                id: 1105,
-                label: "Portfolio Checklist",
-                path: "/portfolio-checklist",
             },
         ],
     },
@@ -190,6 +175,11 @@ const navigation: NavigationItem[] = [
                 label: "Game",
                 path: "/game",
             },
+            {
+                id: 705,
+                label: "Portfolio Checklist",
+                path: "/portfolio-checklist",
+            },
         ],
     },
     {
@@ -211,20 +201,22 @@ export function filterMenuByAuth(items: NavigationItem[], isAuthed: boolean): Na
         return true;
     };
 
-    return items
-        .filter(visible)
-        .map((item) => {
-            if ("submenu" in item && item.submenu) {
-                return { ...item, submenu: item.submenu.filter(visible) };
-            }
-            return item;
-        })
-        // Drop parents whose submenu became empty after filtering — a parent
-        // that hovers but reveals nothing is worse than a hidden parent.
-        .filter((item) => {
-            if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
-            return true;
-        });
+    return (
+        items
+            .filter(visible)
+            .map((item) => {
+                if ("submenu" in item && item.submenu) {
+                    return { ...item, submenu: item.submenu.filter(visible) };
+                }
+                return item;
+            })
+            // Drop parents whose submenu became empty after filtering — a parent
+            // that hovers but reveals nothing is worse than a hidden parent.
+            .filter((item) => {
+                if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
+                return true;
+            })
+    );
 }
 
 export default navigation;

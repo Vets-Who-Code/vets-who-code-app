@@ -1,11 +1,12 @@
 import SEO from "@components/seo/page-seo";
+import { MonoMeta } from "@components/ui/design-system";
 import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal";
 import BlogArea from "@containers/blog/layout-03";
 import BrandArea from "@containers/brand/layout-01";
-import CourseArea from "@containers/course/layout-05";
 import EventArea from "@containers/event/layout-02";
 import FunfactArea from "@containers/funfact/layout-04";
 import HeroArea from "@containers/hero/layout-04";
+import CurriculumColumns from "@containers/home/curriculum-columns";
 import MediaArea from "@containers/media/layout-01";
 import NewsletterArea from "@containers/newsletter/layout-02";
 import ServiceArea from "@containers/service/layout-03";
@@ -18,177 +19,180 @@ import PullQuote from "@ui/pull-quote";
 import StatBelt from "@ui/stat-belt";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
-import { IBlog, ICourse, IEvent, IMedia } from "@utils/types";
+import { IBlog, IEvent, IMedia } from "@utils/types";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import { getAllBlogs } from "../lib/blog";
-import { getallCourses } from "../lib/course";
 import { getallEvents } from "../lib/event";
 import { getAllMediaPosts } from "../lib/mdx-pages";
 import { getPageData } from "../lib/page";
 
 interface PageContent {
-  section: string;
-  [key: string]: unknown;
+    section: string;
+    [key: string]: unknown;
 }
 
 interface PageData {
-  page: {
-    content: PageContent[];
-  };
-  courses: ICourse[];
-  events: IEvent[];
-  media: IMedia[];
-  blogs: IBlog[];
+    page: {
+        content: PageContent[];
+    };
+    events: IEvent[];
+    media: IMedia[];
+    blogs: IBlog[];
 }
 
 type TProps = {
-  data: PageData;
+    data: PageData;
 };
 
 type PageProps = NextPage<TProps> & {
-  Layout: typeof Layout;
+    Layout: typeof Layout;
 };
 
 const Home: PageProps = ({ data }) => {
-  const content = normalizedData<PageContent>(data.page?.content, "section");
+    const content = normalizedData<PageContent>(data.page?.content, "section");
 
-  return (
-    <>
-      <SEO title="Home" />
+    return (
+        <>
+            <SEO title="Home" />
 
-      {/* Hero — full navy, dark-section for grain overlay */}
-      <HeroArea data={content?.["hero-area"]} />
+            {/* Operations brief — status bar across the top, SF/CG signature */}
+            <div className="tw-w-full tw-border-b tw-border-cream/10 tw-bg-navy tw-py-2.5">
+                <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-gap-x-6 tw-gap-y-2">
+                    <MonoMeta tone="bright" size="xs">
+                        <span className="tw-flex tw-items-center tw-gap-2">
+                            <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">
+                                <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-red tw-opacity-75" />
+                                <span className="tw-relative tw-inline-flex tw-h-[7px] tw-w-[7px] tw-rounded-full tw-bg-red tw-shadow-[0_0_10px_#c5203e]" />
+                            </span>
+                            Live · 2026 Cohort
+                        </span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Placement · <span className="tw-text-cream">97%</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Alumni earnings · <span className="tw-text-cream">$20M+</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs">
+                        Status · <span className="tw-text-cream">501(c)(3)</span>
+                    </MonoMeta>
+                    <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
+                        <span className="tw-text-cream">Applications Open</span>
+                    </MonoMeta>
+                </div>
+            </div>
 
-      <Wrapper className="tw-mb-[140px]">
-        <ServiceArea data={content?.["service-area"]} space="none" />
+            {/* Hero — full navy, dark-section for grain overlay */}
+            <HeroArea data={content?.["hero-area"]} />
 
-        {/* Code snippet — "what you'll ship" beat after the service pitch */}
-        <HeroCodeSnippet />
+            <Wrapper className="tw-mb-[140px]">
+                <ServiceArea data={content?.["service-area"]} space="none" />
 
-        {/* Section divider */}
-        <div className="tw-container">
-          <div className="section-divider" />
-        </div>
+                {/* Code snippet — "what you'll ship" beat after the service pitch */}
+                <HeroCodeSnippet />
 
-        <FunfactArea data={content?.["funfact-area"]} titleSize="large" />
-        <VideoArea data={content?.["video-area"]} space="top" />
-      </Wrapper>
+                {/* Section divider */}
+                <div className="tw-container">
+                    <div className="section-divider" />
+                </div>
 
-      {/* Section divider */}
-      <div className="tw-container">
-        <div className="section-divider" />
-      </div>
+                <FunfactArea data={content?.["funfact-area"]} titleSize="large" />
+                <VideoArea data={content?.["video-area"]} space="top" />
+            </Wrapper>
 
-      {/* Outcomes belt — results gate before the subjects/courses section */}
-      <StatBelt />
+            {/* Section divider */}
+            <div className="tw-container">
+                <div className="section-divider" />
+            </div>
 
-      <CourseArea
-        data={{ ...content?.["course-area"], courses: data.courses }}
-        titleSize="large"
-      />
+            {/* Outcomes belt — results gate before the curriculum preview */}
+            <StatBelt />
 
-      {/* Testimonials — dark background with subtle contrast */}
-      <div className="dark-section">
-        <TestimonialArea
-          data={content?.["testimonial-area"]}
-          titleSize="large"
-        />
-      </div>
+            <CurriculumColumns />
 
-      <EventArea
-        data={{ ...content?.["event-area"], events: data.events }}
-        titleSize="large"
-      />
+            {/* Testimonials — light */}
+            <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
 
-      {/* Mission pull-quote + alumni proof — dark section */}
-      <div className="dark-section tw-bg-navy tw-py-20 md:tw-py-[120px]">
-        <div className="tw-container">
-          <PullQuote
-            emphasis="We don't train veterans to fill seats."
-            continuation="We train them to be impactful on their engineering teams at companies that shape the world."
-          />
-          <div className="tw-mt-14 md:tw-mt-20">
-            <AlumniStrip align="center" />
-          </div>
-        </div>
-      </div>
+            {/* Events — navy */}
+            <div className="dark-section tw-bg-navy">
+                <EventArea
+                    data={{ ...content?.["event-area"], events: data.events }}
+                    titleSize="large"
+                />
+            </div>
 
-      <MediaArea
-        data={{ ...content?.["media-area"], media: data.media }}
-        titleSize="large"
-      />
+            {/* Mission pull-quote + alumni proof — light */}
+            <div className="tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <PullQuote
+                        theme="light"
+                        emphasis="We don't train veterans to fill seats."
+                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
+                    />
+                    <div className="tw-mt-14 md:tw-mt-20">
+                        <AlumniStrip align="center" theme="light" />
+                    </div>
+                </div>
+            </div>
 
-      {/* Blog — dark background */}
-      <div className="dark-section">
-        <BlogArea
-          data={{ ...content?.["blog-area"], blogs: data.blogs }}
-          titleSize="large"
-        />
-      </div>
+            {/* Media — navy */}
+            <div className="dark-section tw-bg-navy">
+                <MediaArea
+                    data={{ ...content?.["media-area"], media: data.media }}
+                    titleSize="large"
+                />
+            </div>
 
-      <BrandArea data={content?.["brand-area"]} />
+            {/* Blog — light */}
+            <BlogArea data={{ ...content?.["blog-area"], blogs: data.blogs }} titleSize="large" />
 
-      {/* Newsletter — CTA banner feel */}
-      <div className="dark-section cta-banner">
-        <NewsletterArea data={content?.["newsletter-area"]} />
-      </div>
+            {/* Brand / partners — navy */}
+            <div className="dark-section tw-bg-navy">
+                <BrandArea data={content?.["brand-area"]} />
+            </div>
 
-      <EngagementModal
-        headline="Your Next Mission Starts Here."
-        body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
-        cta1={{ label: "Donate Now", href: "/donate" }}
-        cta2={{ label: "Join the Mission", href: "#newsletter" }}
-      />
-    </>
-  );
+            {/* Newsletter — CTA banner feel */}
+            <div className="dark-section cta-banner">
+                <NewsletterArea data={content?.["newsletter-area"]} />
+            </div>
+
+            <EngagementModal
+                headline="Your Next Mission Starts Here."
+                body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
+                cta1={{ label: "Donate Now", href: "/donate" }}
+                cta2={{ label: "Join the Mission", href: "#newsletter" }}
+            />
+        </>
+    );
 };
 
 Home.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
-  const page = getPageData("home", "index");
-  const courses = getallCourses(["title", "thumbnail"], 0, 6);
-  const events = getallEvents(
-    ["title", "thumbnail", "start_date", "location"],
-    0,
-    6,
-  );
-  const allMedia = getAllMediaPosts<IMedia>(
-    [
-      "slug",
-      "title",
-      "mediaType",
-      "url",
-      "publication",
-      "date",
-      "image",
-      "description",
-    ],
-    "media",
-  );
-  const media = allMedia
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
-  const { blogs } = getAllBlogs(
-    ["title", "image", "category", "postedAt"],
-    0,
-    3,
-  );
-  return {
-    props: {
-      data: {
-        page,
-        courses,
-        events,
-        media,
-        blogs,
-      },
-      layout: {
-        footerMode: "light",
-      },
-    },
-  };
+    const page = getPageData("home", "index");
+    const events = getallEvents(["title", "thumbnail", "start_date", "location"], 0, 6);
+    const allMedia = getAllMediaPosts<IMedia>(
+        ["slug", "title", "mediaType", "url", "publication", "date", "image", "description"],
+        "media"
+    );
+    const media = allMedia
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 3);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt"], 0, 3);
+    return {
+        props: {
+            data: {
+                page,
+                events,
+                media,
+                blogs,
+            },
+            layout: {
+                footerMode: "light",
+            },
+        },
+    };
 };
 
 export default Home;

@@ -1,15 +1,15 @@
 import { generateText } from "ai";
-import type { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
+import type { NextApiRequest, NextApiResponse } from "next";
 import path from "path";
 import { getAIModelWithFallback } from "@/lib/ai-provider";
-import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import type {
-    TrainingEntry,
-    CertEquivalency,
     CareerPathway,
+    CertEquivalency,
     CognitiveProfile,
+    TrainingEntry,
 } from "@/lib/military-translator";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export interface TranslateRequest {
     jobTitle: string;
@@ -84,11 +84,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     try {
         const {
-            jobTitle, rank, branch, duties, achievements,
-            jobCode, jobCodeBranch, targetJobTitle,
-            yearsOfService, securityClearance,
-            skillLevel, deploymentHistory,
-            leadershipCourses, collateralDuties, certificationsEarned,
+            jobTitle,
+            rank,
+            branch,
+            duties,
+            achievements,
+            jobCode,
+            jobCodeBranch,
+            targetJobTitle,
+            yearsOfService,
+            securityClearance,
+            skillLevel,
+            deploymentHistory,
+            leadershipCourses,
+            collateralDuties,
+            certificationsEarned,
         } = req.body as TranslateRequest;
 
         // Validate required fields
@@ -108,15 +118,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const MAX_FIELD = 2_000;
         const MAX_SHORT = 200;
         if (duties.length > MAX_FIELD || (achievements && achievements.length > MAX_FIELD)) {
-            return res.status(400).json({ error: "Duties and achievements must be under 2,000 characters each." });
+            return res
+                .status(400)
+                .json({ error: "Duties and achievements must be under 2,000 characters each." });
         }
         if (
-            jobTitle.length > MAX_SHORT || rank.length > MAX_SHORT || branch.length > MAX_SHORT ||
+            jobTitle.length > MAX_SHORT ||
+            rank.length > MAX_SHORT ||
+            branch.length > MAX_SHORT ||
             (targetJobTitle && targetJobTitle.length > MAX_SHORT) ||
             (deploymentHistory && deploymentHistory.length > MAX_FIELD) ||
             (certificationsEarned && certificationsEarned.length > MAX_FIELD)
         ) {
-            return res.status(400).json({ error: "One or more fields exceed the maximum allowed length." });
+            return res
+                .status(400)
+                .json({ error: "One or more fields exceed the maximum allowed length." });
         }
 
         // Get AI model with fallback
@@ -136,7 +152,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let officialDescription = "";
         if (jobCode && jobCodeBranch) {
             try {
-                const descriptions = (await import("@data/job-codes-descriptions.json")).default as Record<string, string>;
+                const descriptions = (await import("@data/job-codes-descriptions.json"))
+                    .default as Record<string, string>;
                 const key = `${jobCodeBranch}:${jobCode}`;
                 officialDescription = descriptions[key] ?? "";
             } catch (err) {
@@ -173,7 +190,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (mosKey) {
             try {
                 const systemsMap = JSON.parse(
-                    fs.readFileSync(path.join(process.cwd(), "src/data/military-systems-map.json"), "utf-8")
+                    fs.readFileSync(
+                        path.join(process.cwd(), "src/data/military-systems-map.json"),
+                        "utf-8"
+                    )
                 ) as Record<string, { systems: Array<{ military: string; civilian: string }> }>;
                 const entry = systemsMap[mosKey];
                 if (entry?.systems) {
@@ -195,11 +215,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (mosKey) {
             try {
                 const pipeline = JSON.parse(
-                    fs.readFileSync(path.join(process.cwd(), "src/data/training-pipeline.json"), "utf-8")
-                ) as Record<string, {
-                    program: string; hours: number; weeks?: number;
-                    topics: string[]; civilian_certs: string[]; ace_credits?: string;
-                }>;
+                    fs.readFileSync(
+                        path.join(process.cwd(), "src/data/training-pipeline.json"),
+                        "utf-8"
+                    )
+                ) as Record<
+                    string,
+                    {
+                        program: string;
+                        hours: number;
+                        weeks?: number;
+                        topics: string[];
+                        civilian_certs: string[];
+                        ace_credits?: string;
+                    }
+                >;
                 const entry = pipeline[mosKey];
                 if (entry) {
                     trainingData = {
@@ -222,8 +252,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         let rankScopeContext = "";
         if (rank) {
             try {
-                const rankToPaygrade = (await import("@data/rank-to-paygrade.json")).default as Record<string, string>;
-                const rankScopeMatrix = (await import("@data/rank-scope-matrix.json")).default as Record<string, { direct_reports: string; equipment_value: string; decision_scope: string; civilian_equivalent: string }>;
+                const rankToPaygrade = (await import("@data/rank-to-paygrade.json"))
+                    .default as Record<string, string>;
+                const rankScopeMatrix = (await import("@data/rank-scope-matrix.json"))
+                    .default as Record<
+                    string,
+                    {
+                        direct_reports: string;
+                        equipment_value: string;
+                        decision_scope: string;
+                        civilian_equivalent: string;
+                    }
+                >;
                 const paygrade = rankToPaygrade[rank.toLowerCase().trim()];
                 if (paygrade && rankScopeMatrix[paygrade]) {
                     const scope = rankScopeMatrix[paygrade];
@@ -244,7 +284,8 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         let collateralContext = "";
         if (collateralDuties && collateralDuties.length > 0) {
             try {
-                const dutiesMap = (await import("@data/collateral-duties-map.json")).default as Record<string, { label: string; bullet: string; skills: string[] }>;
+                const dutiesMap = (await import("@data/collateral-duties-map.json"))
+                    .default as Record<string, { label: string; bullet: string; skills: string[] }>;
                 const bullets: string[] = [];
                 for (const dutyKey of collateralDuties) {
                     const entry = dutiesMap[dutyKey];
@@ -265,7 +306,8 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         let deploymentContext = "";
         if (deploymentHistory && deploymentHistory !== "none") {
             try {
-                const contextMap = (await import("@data/deployment-context-map.json")).default as Record<string, { summary_addition: string; bullets: string[] }>;
+                const contextMap = (await import("@data/deployment-context-map.json"))
+                    .default as Record<string, { summary_addition: string; bullets: string[] }>;
                 const entry = contextMap[deploymentHistory];
                 if (entry) {
                     deploymentContext = `\nDEPLOYMENT EXPERIENCE: ${entry.summary_addition}. Add to professional summary.`;
@@ -284,7 +326,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         let adjacentContext = "";
         if (mosKey) {
             try {
-                const adjacentMap = (await import("@data/adjacent-mos-map.json")).default as Record<string, { works_with: string[]; civilian_statement: string }>;
+                const adjacentMap = (await import("@data/adjacent-mos-map.json")).default as Record<
+                    string,
+                    { works_with: string[]; civilian_statement: string }
+                >;
                 const entry = adjacentMap[mosKey];
                 if (entry) {
                     adjacentContext = `\nCROSS-FUNCTIONAL EXPERIENCE: ${entry.civilian_statement}. Weave this into the summary or add as a bullet.\n`;
@@ -301,12 +346,18 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         if (mosKey) {
             try {
                 const certMap = JSON.parse(
-                    fs.readFileSync(path.join(process.cwd(), "src/data/cert-equivalencies.json"), "utf-8")
-                ) as Record<string, {
-                    direct_qualifies: string[];
-                    partial_coverage: Array<{ cert: string; coverage: number; gaps: string }>;
-                    recommended_next: string[];
-                }>;
+                    fs.readFileSync(
+                        path.join(process.cwd(), "src/data/cert-equivalencies.json"),
+                        "utf-8"
+                    )
+                ) as Record<
+                    string,
+                    {
+                        direct_qualifies: string[];
+                        partial_coverage: Array<{ cert: string; coverage: number; gaps: string }>;
+                        recommended_next: string[];
+                    }
+                >;
                 const entry = certMap[mosKey];
                 if (entry) {
                     certData = {
@@ -342,7 +393,10 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
         if (mosKey) {
             try {
                 const cognitiveMap = JSON.parse(
-                    fs.readFileSync(path.join(process.cwd(), "src/data/cognitive-skills-map.json"), "utf-8")
+                    fs.readFileSync(
+                        path.join(process.cwd(), "src/data/cognitive-skills-map.json"),
+                        "utf-8"
+                    )
                 ) as Record<string, CognitiveProfile>;
                 const entry = cognitiveMap[mosKey];
                 if (entry) {
@@ -359,17 +413,19 @@ Use these metrics to quantify leadership in summary and bullets.\n`;
             ? `\nYEARS: ${yearsOfService} years of military service. Quantify in summary.\n`
             : "";
 
-        const clearanceContext = securityClearance && securityClearance !== "None"
-            ? `\nSECURITY CLEARANCE: ${securityClearance}. Mention in summary — high-value differentiator.\n`
-            : "";
+        const clearanceContext =
+            securityClearance && securityClearance !== "None"
+                ? `\nSECURITY CLEARANCE: ${securityClearance}. Mention in summary — high-value differentiator.\n`
+                : "";
 
         const certsEarnedContext = certificationsEarned
             ? `\nCERTIFICATIONS EARNED: ${certificationsEarned}. Include in resume output.\n`
             : "";
 
-        const leadershipContext = leadershipCourses && leadershipCourses.length > 0
-            ? `\nLEADERSHIP COURSES COMPLETED: ${leadershipCourses.join(", ")}. These represent formal leadership development — mention in summary or bullets.\n`
-            : "";
+        const leadershipContext =
+            leadershipCourses && leadershipCourses.length > 0
+                ? `\nLEADERSHIP COURSES COMPLETED: ${leadershipCourses.join(", ")}. These represent formal leadership development — mention in summary or bullets.\n`
+                : "";
 
         // ─── 4-6 Year Veteran Value Framework ──────────────────────────────
         let valueFrameworkContext = "";
@@ -456,7 +512,6 @@ DO NOT:
 - Use vague language like "responsible for" or "duties included"
 - Use military acronyms (MOS, NCO, NCOER, NCODP, SOP, ROE, IFV, NBC, CMF, etc.)`;
 
-
         // Generate translation using AI
         const { text } = await generateText({
             model: aiModel.model,
@@ -476,7 +531,8 @@ DO NOT:
                     ...parsed,
                     // Attach enrichment data from data files
                     training: trainingData,
-                    technicalSystems: technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
+                    technicalSystems:
+                        technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
                     certPathways: certData,
                     cognitiveProfile: cognitiveData,
                 };
@@ -499,7 +555,8 @@ DO NOT:
                     "Include the results or outcomes of your work",
                 ],
                 training: trainingData,
-                technicalSystems: technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
+                technicalSystems:
+                    technicalSystemsData.length > 0 ? technicalSystemsData : undefined,
                 certPathways: certData,
                 cognitiveProfile: cognitiveData,
             };

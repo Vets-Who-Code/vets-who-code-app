@@ -6,16 +6,16 @@ interface CareerPathwaysCardProps {
 }
 
 const DEMAND_COLORS: Record<string, string> = {
-    "Very high demand": "tw-text-green-700 tw-bg-green-50",
-    "High demand": "tw-text-green-600 tw-bg-green-50",
-    "Growing demand": "tw-text-blue-600 tw-bg-blue-50",
-    "Stable demand": "tw-text-gray-600 tw-bg-gray-100",
+    "Very high demand": "tw-text-ink tw-bg-gold-light",
+    "High demand": "tw-text-ink tw-bg-gold-light",
+    "Growing demand": "tw-text-navy-deep tw-bg-navy-sky",
+    "Stable demand": "tw-text-gray-400 tw-bg-gray-100",
 };
 
 const MATCH_COLORS: Record<string, string> = {
-    "High match": "tw-text-green-700",
-    "Good match": "tw-text-blue-700",
-    "Moderate match": "tw-text-gray-600",
+    "High match": "tw-text-red",
+    "Good match": "tw-text-navy-deep",
+    "Moderate match": "tw-text-gray-400",
 };
 
 const DATA_SOURCE_LABELS: Record<string, string> = {
@@ -28,22 +28,17 @@ function formatSalaryCompact(salary: number): string {
     return `$${Math.round(salary / 1000)}K`;
 }
 
-const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({
-    careerPathways,
-}) => {
+const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({ careerPathways }) => {
     if (!careerPathways || careerPathways.length === 0) return null;
 
-    const allSkillGaps = [
-        ...new Set(
-            careerPathways.flatMap((p) => p.skillsToClose || [])
-        ),
-    ].slice(0, 5);
+    const allSkillGaps = [...new Set(careerPathways.flatMap((p) => p.skillsToClose || []))].slice(
+        0,
+        5
+    );
 
     // Collect trending skills from live data
     const trendingSkills = [
-        ...new Set(
-            careerPathways.flatMap((p) => p.topSkillsInDemand || [])
-        ),
+        ...new Set(careerPathways.flatMap((p) => p.topSkillsInDemand || [])),
     ].slice(0, 5);
 
     // Determine the primary data source from the first pathway
@@ -55,7 +50,7 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({
                 <i className="fas fa-route tw-mr-2 tw-text-[#c5203e]" />
                 Career Pathways
             </h3>
-            <p className="tw-text-sm tw-text-gray-500">
+            <p className="tw-text-sm tw-text-gray-300">
                 Your military experience maps to these civilian roles.
             </p>
 
@@ -86,12 +81,14 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({
                             </p>
                             {pathway.salaryRange && (
                                 <p className="tw-text-[10px] tw-text-gray-500">
-                                    {formatSalaryCompact(pathway.salaryRange.p25)}&ndash;{formatSalaryCompact(pathway.salaryRange.p75)} range
+                                    {formatSalaryCompact(pathway.salaryRange.p25)}&ndash;
+                                    {formatSalaryCompact(pathway.salaryRange.p75)} range
                                 </p>
                             )}
                             <span
                                 className={`tw-inline-block tw-rounded-full tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-semibold ${
-                                    DEMAND_COLORS[pathway.demand] || "tw-text-gray-500 tw-bg-gray-100"
+                                    DEMAND_COLORS[pathway.demand] ||
+                                    "tw-text-gray-500 tw-bg-gray-100"
                                 }`}
                             >
                                 {pathway.demand}
@@ -102,8 +99,8 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({
             </div>
 
             {trendingSkills.length > 0 && (
-                <div className="tw-rounded-lg tw-bg-green-50 tw-px-4 tw-py-3">
-                    <p className="tw-text-xs tw-font-semibold tw-text-green-800 tw-uppercase tw-tracking-wide tw-mb-2">
+                <div className="tw-rounded-lg tw-bg-gold-light tw-px-4 tw-py-3">
+                    <p className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase tw-tracking-wide tw-mb-2">
                         <i className="fas fa-chart-line tw-mr-1" />
                         Skills in Demand
                     </p>
@@ -111,7 +108,7 @@ const CareerPathwaysCard: React.FC<CareerPathwaysCardProps> = ({
                         {trendingSkills.map((skill) => (
                             <span
                                 key={skill}
-                                className="tw-inline-block tw-rounded-full tw-border tw-border-green-200 tw-bg-white tw-px-3 tw-py-1 tw-text-xs tw-font-medium tw-text-green-800"
+                                className="tw-inline-block tw-rounded-full tw-border tw-border-gold tw-bg-white tw-px-3 tw-py-1 tw-text-xs tw-font-medium tw-text-ink"
                             >
                                 {skill}
                             </span>

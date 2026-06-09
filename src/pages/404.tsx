@@ -41,7 +41,7 @@ const Error404Page = () => {
 };
 
 export function getStaticProps() {
-    return { props: { className: "error-404 tw-bg-dark-50" } };
+    return { props: { className: "error-404 tw-bg-dark" } };
 }
 
 export default Error404Page;

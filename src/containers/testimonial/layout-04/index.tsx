@@ -134,7 +134,7 @@ const TestimonialArea = ({
                             {...section_title}
                             align="left"
                             titleSize={titleSize}
-                            color="C"
+                            color="A"
                         />
                     )}
 
@@ -150,7 +150,7 @@ const TestimonialArea = ({
 };
 
 TestimonialArea.defaultProps = {
-    bg: "tw-bg-navy",
+    bg: "tw-bg-white",
 };
 
 export default TestimonialArea;

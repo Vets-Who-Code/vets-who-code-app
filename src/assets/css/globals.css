@@ -63,31 +63,143 @@
 :root {
     /* Brand Colors */
     --navy: #091f40;
+    --navy-midnight: #061a40;
     --navy-deep: #003559;
-    --navy-royal: #0353A4;
-    --navy-ocean: #006DAA;
-    --navy-sky: #B9D6F2;
+    --navy-royal: #0353a4;
+    --navy-ocean: #006daa;
+    --navy-sky: #b9d6f2;
     --red: #c5203e;
-    --red-crimson: #A51C30;
-    --red-dark: #74121D;
-    --gold: #FDB330;
-    --gold-light: #FFE169;
-    --cream: #EEEDE9;
-    --ink: #1A1823;
+    --red-signal: #c52233;
+    --red-crimson: #a51c30;
+    --red-dark: #74121d;
+    --red-maroon: #580c1f;
+    --gold: #fdb330;
+    --gold-light: #ffe169;
+    --gold-bright: #fad643;
+    --gold-rich: #dbb42c;
+    --gold-deep: #c9a227;
+    --cream: #eeede9;
+    --ink: #1a1823;
     --white: #ffffff;
+    --black: #000000;
+
+    /* Neutrals (UI grays, light mode) */
+    --off-white: #f8f9fa;
+    --silver: #dee2e6;
+    --slate: #6c757d;
+    --charcoal: #495057;
+    --dark-gray: #343a40;
+
+    /* Dark surface scale */
+    --dark-bg: #1a1823;
+    --dark-surface: #212529;
+    --dark-elevated: #343a40;
+
+    /* Dark-mode text + accents */
+    --on-dark: #f8f9fa;
+    --on-dark-muted: #dee2e6;
+    --on-dark-disabled: #6c757d;
+    --link-on-dark: #84c1ff;
+    --link-on-dark-hover: #b9d6f2;
+    --coral-on-dark: #f38375;
 
     /* Semantic Aliases */
     --bg-dark: var(--navy);
+    --bg-dark-deeper: var(--dark-bg);
     --fg-light: var(--white);
-    --muted: #6C757D;
-    --muted-on-dark: rgba(185, 214, 242, 0.7);
+    --muted: #6c757d;
+    --muted-on-dark: #f8f9fa;
     --border-subtle: rgba(185, 214, 242, 0.08);
+    --muted-on-dark-rgba: rgba(185, 214, 242, 0.7);
     --accent: var(--red);
+    --primary: var(--red);
+    --secondary: var(--navy);
+    --success: var(--gold);
+    --warning: var(--gold-bright);
+    --danger: var(--red);
+    --info: var(--navy-ocean);
+
+    /* Foreground aliases */
+    --fg1: var(--ink);
+    --fg2: var(--charcoal);
+    --fg3: var(--slate);
+
+    /* Overlays / gradients */
+    --hero-gradient: linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%);
+    --dark-gradient: linear-gradient(-180deg, transparent 0, rgba(0, 0, 0, 0.3) 100%);
 
     /* Font Stacks */
     --font-headline: "GothamPro", system-ui, sans-serif;
     --font-body: "Gilroy", system-ui, sans-serif;
+    --font-serif: "Playfair Display", Georgia, serif;
     --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", "Fira Code", monospace;
+
+    /* Type scale (fluid) */
+    --fs-h1: clamp(36px, 6vw, 64px);
+    --fs-h2: clamp(28px, 5vw, 48px);
+    --fs-h3: clamp(20px, 3vw, 28px);
+    --fs-h4: 21px;
+    --fs-h5: 17.5px;
+    --fs-h6: 15px;
+    --fs-body: 15px;
+    --fs-body-lg: 18px;
+    --fs-meta: 12px;
+    --fs-button: 12px;
+    --lh-body: 1.74;
+    --lh-heading: 1.05;
+    --ls-heading: -0.02em;
+    --ls-button: 0.08em;
+    --ls-meta: 0.1em;
+
+    /* Spacing (8px grid) */
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --space-section: 140px;
+    --gutter-grid: 30px;
+    --gutter-grid-lg: 60px;
+    --gutter-mobile: 15px;
+
+    /* Radius — sharp edges signal precision */
+    --radius-0: 0;
+    --radius-sm: 4px;
+    --radius-focus: 4px;
+
+    /* Shadow */
+    --shadow-2xs: 0 0 10px rgba(0, 0, 0, 0.08);
+    --shadow-sm: 0 3px 9px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 0 30px rgba(0, 0, 0, 0.1);
+    --shadow-3md: 0 8px 20px rgba(0, 0, 0, 0.12);
+    --shadow-4md: 0 10px 30px rgba(0, 0, 0, 0.18);
+    --shadow-lg: 0 0 40px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+    --shadow-cta-red: 0 8px 20px rgba(197, 32, 62, 0.2);
+
+    /* Motion */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --ease-in-expo: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-card: cubic-bezier(0.3, 0.2, 0.3, 0.3);
+    --dur-fast: 200ms;
+    --dur-base: 300ms;
+    --dur-mid: 500ms;
+    --dur-slide: 950ms;
+
+    /* Layout */
+    --container-sm: 576px;
+    --container-md: 768px;
+    --container-lg: 992px;
+    --container-xl: 1230px;
+    --container-2xl: 1400px;
+    --container-3xl: 1600px;
+
+    /* Focus */
+    --focus-ring: 3px solid var(--gold);
+    --focus-offset: 2px;
 }
 
 /* =============================================
@@ -136,8 +248,13 @@
 }
 
 @keyframes statusBlink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
 }
 
 @keyframes fadeUp {
@@ -158,13 +275,27 @@
     animation: fadeUp 0.5s ease-out forwards;
     opacity: 0;
 }
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.2s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
-.delay-5 { animation-delay: 0.5s; }
-.delay-6 { animation-delay: 0.6s; }
-.delay-7 { animation-delay: 0.7s; }
+.delay-1 {
+    animation-delay: 0.1s;
+}
+.delay-2 {
+    animation-delay: 0.2s;
+}
+.delay-3 {
+    animation-delay: 0.3s;
+}
+.delay-4 {
+    animation-delay: 0.4s;
+}
+.delay-5 {
+    animation-delay: 0.5s;
+}
+.delay-6 {
+    animation-delay: 0.6s;
+}
+.delay-7 {
+    animation-delay: 0.7s;
+}
 
 /* =============================================
    NAVIGATION UPGRADE — Premium styling
@@ -242,6 +373,10 @@ nav[aria-label="Main Menu"] a {
     transform: translateY(-1px);
 }
 
+.btn-primary-upgraded:active {
+    transform: scale(0.95);
+}
+
 .btn-secondary-upgraded {
     font-family: var(--font-headline) !important;
     font-weight: 700 !important;
@@ -258,6 +393,10 @@ nav[aria-label="Main Menu"] a {
 
 .btn-secondary-upgraded:hover {
     border-color: var(--red) !important;
+}
+
+.btn-secondary-upgraded:active {
+    transform: scale(0.95);
 }
 
 .btn-ghost-upgraded {
@@ -362,7 +501,7 @@ nav[aria-label="Main Menu"] a {
 footer .copyright {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: rgba(185, 214, 242, 0.4);
+    color: #f8f9fa;
 }
 
 /* Global body styling */
@@ -377,7 +516,7 @@ body {
 
 /* Improved focus states for accessibility */
 *:focus-visible {
-    outline: 3px solid #FDB330;
+    outline: 3px solid #fdb330;
     outline-offset: 2px;
     border-radius: 4px;
 }
@@ -386,6 +525,36 @@ body {
 @media (prefers-contrast: high) {
     body {
         color: #000;
+    }
+}
+
+/* =============================================
+   REDUCED MOTION — honor user preference globally
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-up {
+        opacity: 1;
+        animation: none !important;
+        transform: none !important;
+    }
+
+    .emoji-fall {
+        animation: none !important;
+    }
+
+    .btn-primary-upgraded:hover,
+    .btn-secondary-upgraded:hover,
+    .card-upgraded:hover {
+        transform: none !important;
     }
 }
 
@@ -400,7 +569,9 @@ html {
    ============================================= */
 
 /* Headlines — bold, geometric, authoritative */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-headline);
     font-weight: 800;
     text-transform: uppercase;
@@ -410,9 +581,15 @@ h1, h2, h3 {
 }
 
 /* White headlines on dark backgrounds */
-.tw-bg-navy h1, .tw-bg-navy h2, .tw-bg-navy h3,
-.tw-bg-secondary h1, .tw-bg-secondary h2, .tw-bg-secondary h3,
-.dark-section h1, .dark-section h2, .dark-section h3 {
+.tw-bg-navy h1,
+.tw-bg-navy h2,
+.tw-bg-navy h3,
+.tw-bg-secondary h1,
+.tw-bg-secondary h2,
+.tw-bg-secondary h3,
+.dark-section h1,
+.dark-section h2,
+.dark-section h3 {
     color: var(--white);
 }
 
@@ -447,7 +624,8 @@ h3 {
 }
 
 .section-title[data-align="left"] .title::before,
-.section-title .section-accent::before {
+.section-title .section-accent::before,
+.eyebrow::before {
     content: "";
     display: inline-block;
     width: 16px;
@@ -455,6 +633,103 @@ h3 {
     background: var(--red);
     margin-right: 12px;
     vertical-align: middle;
+}
+
+/* Standalone eyebrow label — monospace, uppercase, tracked */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--fs-meta);
+    text-transform: uppercase;
+    letter-spacing: var(--ls-meta);
+    color: var(--muted);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* =============================================
+   SITE-WIDE SHARP-AESTHETIC ENFORCEMENT
+   Brings legacy containers into the Software-Factory /
+   Career-Guides visual language without per-page rewrites.
+   ============================================= */
+
+/* Zero-radius default on common surfaces. Genuine radius needs opt in
+   via a specific class (focus ring, .vwc-avatar, image corners). */
+.tw-rounded,
+.tw-rounded-md,
+.tw-rounded-lg,
+.tw-rounded-xl,
+.tw-rounded-2xl,
+.tw-rounded-3xl {
+    border-radius: 0 !important;
+}
+
+button.tw-rounded-full,
+a.tw-rounded-full:not(.vwc-avatar) {
+    border-radius: 0 !important;
+}
+
+/* Strip soft drop shadows on dark sections — they fight the 2% grain. */
+.dark-section .tw-shadow,
+.dark-section .tw-shadow-sm,
+.dark-section .tw-shadow-md,
+.dark-section .tw-shadow-lg,
+.dark-section .tw-shadow-xl,
+.dark-section .tw-shadow-2xl {
+    box-shadow: none !important;
+}
+
+/* Kill pastel/blueish-purple gradient leakage. Brand is navy + red + gold.
+   Containers that legitimately want a gradient opt in with .vwc-gradient. */
+.tw-bg-gradient-to-br:not(.vwc-gradient),
+.tw-bg-gradient-to-bl:not(.vwc-gradient),
+.tw-bg-gradient-to-tr:not(.vwc-gradient),
+.tw-bg-gradient-to-tl:not(.vwc-gradient),
+.tw-bg-gradient-to-r:not(.vwc-gradient),
+.tw-bg-gradient-to-l:not(.vwc-gradient),
+.tw-bg-gradient-to-t:not(.vwc-gradient),
+.tw-bg-gradient-to-b:not(.vwc-gradient) {
+    background-image: none !important;
+}
+
+/* Section eyebrow utility — short red bar + mono label, SF/CG signature. */
+.vwc-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--slate);
+}
+
+.vwc-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: var(--red);
+    flex-shrink: 0;
+}
+
+.dark-section .vwc-eyebrow {
+    color: var(--cream);
+}
+
+/* Sharp headline utility — apply to any heading that should match SF/CG
+   without rewriting the component. */
+.vwc-sharp {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+}
+
+.vwc-sharp-xl {
+    font-size: clamp(40px, 7vw, 84px);
+    line-height: 0.98;
 }
 
 /* Print styles for portfolio checklist */

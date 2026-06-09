@@ -52,10 +52,31 @@ interface ProgressData {
     overall_total: number;
 }
 
+interface XpData {
+    total_xp?: number;
+    level?: number | string;
+    xp_to_next_level?: number;
+}
+
+interface StreakData {
+    current_streak?: number;
+    longest_streak?: number;
+}
+
+interface TodayData {
+    xp_earned?: number;
+    lessons_completed?: number;
+    challenges_completed?: number;
+    minutes_active?: number;
+}
+
 export default function TroopDashboard() {
     const [data, setData] = useState<DashboardData | null>(null);
     const [warmups, setWarmups] = useState<WarmupChallenge[]>([]);
     const [progress, setProgress] = useState<ProgressData | null>(null);
+    const [xp, setXp] = useState<XpData | null>(null);
+    const [streak, setStreak] = useState<StreakData | null>(null);
+    const [today, setToday] = useState<TodayData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isLoadingWarmups, setIsLoadingWarmups] = useState(true);
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
@@ -71,10 +92,16 @@ export default function TroopDashboard() {
                 body: JSON.stringify({ current_module: newModule }),
             });
             if (res.ok) {
-                setData((prev) => prev ? {
-                    ...prev,
-                    troop: prev.troop ? { ...prev.troop, current_module: newModule } : prev.troop,
-                } : prev);
+                setData((prev) =>
+                    prev
+                        ? {
+                              ...prev,
+                              troop: prev.troop
+                                  ? { ...prev.troop, current_module: newModule }
+                                  : prev.troop,
+                          }
+                        : prev
+                );
             }
         } catch {
             // non-critical
@@ -127,11 +154,41 @@ export default function TroopDashboard() {
         }
     }, []);
 
+    const fetchXp = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/xp");
+            if (res.ok) setXp(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchStreak = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/streak");
+            if (res.ok) setStreak(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchToday = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/today");
+            if (res.ok) setToday(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
     useEffect(() => {
         fetchDashboard();
         fetchWarmups();
         fetchProgress();
-    }, [fetchDashboard, fetchWarmups, fetchProgress]);
+        fetchXp();
+        fetchStreak();
+        fetchToday();
+    }, [fetchDashboard, fetchWarmups, fetchProgress, fetchXp, fetchStreak, fetchToday]);
 
     if (isLoading) {
         return (
@@ -153,13 +210,14 @@ export default function TroopDashboard() {
     const challengesCompleted = data?.challenges_completed ?? 0;
     const challengesAttempted = data?.challenges_attempted ?? 0;
     const passRate =
-        challengesAttempted > 0
-            ? Math.round((challengesCompleted / challengesAttempted) * 100)
-            : 0;
+        challengesAttempted > 0 ? Math.round((challengesCompleted / challengesAttempted) * 100) : 0;
     const conversationCount = data?.recent_conversations?.length ?? 0;
 
     return (
         <div className="tw-space-y-6">
+            {/* Today / XP / Streak summary */}
+            <TodayStrip xp={xp} streak={streak} today={today} />
+
             {/* Reps tray — confidence loop entry point */}
             <RepsTray warmups={warmups} loading={isLoadingWarmups} />
 
@@ -176,19 +234,19 @@ export default function TroopDashboard() {
                         label: "Attempted",
                         value: challengesAttempted,
                         icon: "fa-clipboard-check",
-                        color: "tw-text-blue-600",
+                        color: "tw-text-navy-ocean",
                     },
                     {
                         label: "Pass Rate",
                         value: `${passRate}%`,
                         icon: "fa-chart-line",
-                        color: passRate >= 70 ? "tw-text-green-600" : "tw-text-yellow-600",
+                        color: passRate >= 70 ? "tw-text-navy-deep" : "tw-text-red-dark",
                     },
                     {
                         label: "Conversations",
                         value: conversationCount,
                         icon: "fa-comments",
-                        color: "tw-text-blue-600",
+                        color: "tw-text-navy-ocean",
                     },
                 ].map((stat) => (
                     <div
@@ -205,7 +263,9 @@ export default function TroopDashboard() {
             </div>
 
             {/* Scores */}
-            {(data?.resume_score != null || data?.github_score != null || data?.portfolio_score != null) && (
+            {(data?.resume_score != null ||
+                data?.github_score != null ||
+                data?.portfolio_score != null) && (
                 <div className="tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-6 tw-shadow-sm">
                     <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-navy/60 tw-mb-4">
                         Scores
@@ -213,19 +273,25 @@ export default function TroopDashboard() {
                     <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-text-center">
                         {data.resume_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.resume_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.resume_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">Resume</div>
                             </div>
                         )}
                         {data.github_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.github_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.github_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">GitHub</div>
                             </div>
                         )}
                         {data.portfolio_score != null && (
                             <div>
-                                <div className="tw-text-2xl tw-font-bold tw-text-ink">{data.portfolio_score}</div>
+                                <div className="tw-text-2xl tw-font-bold tw-text-ink">
+                                    {data.portfolio_score}
+                                </div>
                                 <div className="tw-text-xs tw-text-gray-400">Portfolio</div>
                             </div>
                         )}
@@ -250,7 +316,9 @@ export default function TroopDashboard() {
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
                                     {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
-                                        <option key={m} value={m}>Module {m}</option>
+                                        <option key={m} value={m}>
+                                            Module {m}
+                                        </option>
                                     ))}
                                 </select>
                                 <span className="tw-text-xs tw-text-gray-400">of 25</span>
@@ -259,7 +327,9 @@ export default function TroopDashboard() {
                         {data.troop.skill_level && (
                             <div>
                                 <span className="tw-text-gray-400">Skill Level</span>
-                                <p className="tw-font-semibold tw-text-ink tw-capitalize">{data.troop.skill_level}</p>
+                                <p className="tw-font-semibold tw-text-ink tw-capitalize">
+                                    {data.troop.skill_level}
+                                </p>
                             </div>
                         )}
                         {data.troop.branch && (
@@ -271,13 +341,17 @@ export default function TroopDashboard() {
                         {data.troop.mos_afsc && (
                             <div>
                                 <span className="tw-text-gray-400">MOS/AFSC</span>
-                                <p className="tw-font-semibold tw-text-ink">{data.troop.mos_afsc}</p>
+                                <p className="tw-font-semibold tw-text-ink">
+                                    {data.troop.mos_afsc}
+                                </p>
                             </div>
                         )}
                         {data.troop.target_role && (
                             <div>
                                 <span className="tw-text-gray-400">Target Role</span>
-                                <p className="tw-font-semibold tw-text-ink">{data.troop.target_role}</p>
+                                <p className="tw-font-semibold tw-text-ink">
+                                    {data.troop.target_role}
+                                </p>
                             </div>
                         )}
                         <div>
@@ -300,7 +374,7 @@ export default function TroopDashboard() {
                         {data.current_module_topics.map((topic) => (
                             <span
                                 key={topic}
-                                className="tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800"
+                                className="tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-navy-deep"
                             >
                                 {topic}
                             </span>
@@ -326,7 +400,7 @@ export default function TroopDashboard() {
                             >
                                 <div className="tw-flex tw-items-center tw-justify-between">
                                     {conv.pillar && (
-                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800 tw-capitalize">
+                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-navy-deep tw-capitalize">
                                             {conv.pillar}
                                         </span>
                                     )}
@@ -337,7 +411,9 @@ export default function TroopDashboard() {
                                     )}
                                 </div>
                                 {conv.summary && (
-                                    <p className="tw-text-sm tw-text-gray-200 tw-mt-1 tw-line-clamp-2">{conv.summary}</p>
+                                    <p className="tw-text-sm tw-text-gray-200 tw-mt-1 tw-line-clamp-2">
+                                        {conv.summary}
+                                    </p>
                                 )}
                             </div>
                         ))}
@@ -348,13 +424,59 @@ export default function TroopDashboard() {
     );
 }
 
-function RepsTray({
-    warmups,
-    loading,
+function TodayStrip({
+    xp,
+    streak,
+    today,
 }: {
-    warmups: WarmupChallenge[];
-    loading: boolean;
+    xp: XpData | null;
+    streak: StreakData | null;
+    today: TodayData | null;
 }) {
+    const tiles: { label: string; value: string | number; sub?: string }[] = [];
+    if (xp?.total_xp != null) {
+        tiles.push({
+            label: "XP",
+            value: xp.total_xp,
+            sub: xp.level != null ? `Level ${xp.level}` : undefined,
+        });
+    }
+    if (streak?.current_streak != null) {
+        tiles.push({
+            label: "Streak",
+            value: `${streak.current_streak}d`,
+            sub:
+                streak.longest_streak != null && streak.longest_streak > 0
+                    ? `Best ${streak.longest_streak}d`
+                    : undefined,
+        });
+    }
+    if (today?.xp_earned != null) {
+        tiles.push({ label: "XP Today", value: today.xp_earned });
+    }
+    if (today?.minutes_active != null) {
+        tiles.push({ label: "Active Today", value: `${today.minutes_active}m` });
+    }
+    if (tiles.length === 0) return null;
+    return (
+        <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-3">
+            {tiles.map((tile) => (
+                <div
+                    key={tile.label}
+                    className="tw-rounded-md tw-border tw-border-primary/20 tw-bg-white tw-p-4 tw-shadow-sm"
+                >
+                    <div className="tw-font-mono tw-text-[10px] tw-font-bold tw-uppercase tw-tracking-widest tw-text-primary">
+                        {tile.label}
+                    </div>
+                    <div className="tw-text-2xl tw-font-bold tw-text-ink tw-mt-1">{tile.value}</div>
+                    {tile.sub && <div className="tw-text-xs tw-text-ink/60">{tile.sub}</div>}
+                </div>
+            ))}
+        </div>
+    );
+}
+
+function RepsTray({ warmups, loading }: { warmups: WarmupChallenge[]; loading: boolean }) {
     if (loading) {
         return null;
     }
@@ -386,10 +508,10 @@ function RepsTray({
                                     {w.title}
                                 </div>
                                 <div className="tw-flex tw-flex-wrap tw-gap-1">
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-blue-800">
+                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-navy-deep">
                                         {w.topic}
                                     </span>
-                                    <span className="tw-rounded-full tw-bg-green-100 tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-green-800">
+                                    <span className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-ink">
                                         warmup
                                     </span>
                                 </div>

@@ -91,9 +91,7 @@ const ActivityFeed = ({ events, isLoading }: ActivityFeedProps) => {
         return (
             <div className="tw-rounded-lg tw-border tw-border-dashed tw-border-navy/20 tw-p-12 tw-text-center">
                 <i className="fas fa-satellite-dish tw-text-4xl tw-text-navy/20 tw-mb-3" />
-                <p className="tw-font-mono tw-text-sm tw-text-gray-300">
-                    No recent ops detected
-                </p>
+                <p className="tw-font-mono tw-text-sm tw-text-gray-300">No recent ops detected</p>
             </div>
         );
     }

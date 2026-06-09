@@ -47,7 +47,8 @@ const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProp
                         maxWidth: "720px",
                     }}
                 >
-                    Vets Who Code is a registered 501(c)(3) nonprofit — EIN 86-2122804. Donations are tax-deductible to the fullest extent allowable under the law.
+                    Vets Who Code is a registered 501(c)(3) nonprofit — EIN 86-2122804. Donations
+                    are tax-deductible to the fullest extent allowable under the law.
                 </p>
             </motion.div>
         </Section>

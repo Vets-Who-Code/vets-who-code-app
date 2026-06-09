@@ -16,14 +16,14 @@ const codeBody = {
     lineHeight: "1.75",
 };
 
-const COMMENT = "rgba(185, 214, 242, 0.55)";
+const COMMENT = "rgba(185, 214, 242, 0.85)";
 const KEYWORD = "#FDB330";
 const TYPE = "#FFE169";
 const METHOD = "#84C1FF";
-const PUNCT = "rgba(248, 249, 250, 0.7)";
+const PUNCT = "#F8F9FA";
 const IDENT = "#F8F9FA";
 const PROMPT = "#FDB330";
-const HINT = "rgba(185, 214, 242, 0.55)";
+const HINT = "rgba(185, 214, 242, 0.85)";
 
 type HistoryEntry = {
     cmd: string;
@@ -39,7 +39,11 @@ type CommandResult = {
 const HELP_LINES = [
     "available commands:",
     "  apply      start your application",
+    "  mentor     become a mentor",
     "  donate     support the mission",
+    "  programs   explore our programs",
+    "  jobs       browse / post tech roles",
+    "  careers    translate your MOS to tech",
     "  about      our story",
     "  contact    reach the team",
     "  train      run the function above",
@@ -66,10 +70,32 @@ const runCommand = (raw: string): CommandResult => {
                 output: ["→ redirecting to /apply ..."],
                 navigateTo: "/apply",
             };
+        case "mentor":
+            return {
+                output: ["→ redirecting to /mentor ..."],
+                navigateTo: "/mentor",
+            };
         case "donate":
             return {
                 output: ["→ redirecting to /donate ..."],
                 navigateTo: "/donate",
+            };
+        case "programs":
+            return {
+                output: ["→ redirecting to /programs ..."],
+                navigateTo: "/programs",
+            };
+        case "jobs":
+        case "hire":
+            return {
+                output: ["→ redirecting to /jobs ..."],
+                navigateTo: "/jobs",
+            };
+        case "careers":
+        case "mos":
+            return {
+                output: ["→ redirecting to /career-guides ..."],
+                navigateTo: "/career-guides",
             };
         case "about":
             return {
@@ -118,10 +144,7 @@ const HeroCodeSnippet = () => {
         if (result.clear) {
             setHistory([]);
         } else {
-            setHistory((prev) => [
-                ...prev,
-                { cmd: inputValue, output: result.output },
-            ]);
+            setHistory((prev) => [...prev, { cmd: inputValue, output: result.output }]);
         }
         setInputValue("");
         setHistoryIdx(-1);
@@ -194,15 +217,14 @@ const HeroCodeSnippet = () => {
                         {/* Terminal title bar */}
                         <div
                             className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-3"
-                            style={{ ...monoLabel, color: "rgba(185, 214, 242, 0.65)" }}
+                            style={{ ...monoLabel, color: "#F8F9FA" }}
                         >
                             <span>vwc-engineer — train.ts — zsh</span>
                             <span className="tw-flex tw-items-center tw-gap-2">
                                 <span
                                     className="tw-inline-block tw-h-[6px] tw-w-[6px] tw-rounded-full tw-bg-gold"
                                     style={{
-                                        animation:
-                                            "pulse-soft 2.4s ease-in-out infinite",
+                                        animation: "pulse-soft 2.4s ease-in-out infinite",
                                     }}
                                 />
                                 <span>since 2014 · live</span>
@@ -212,7 +234,7 @@ const HeroCodeSnippet = () => {
                         {/* Clickable terminal body — focuses input on desktop */}
                         <div
                             ref={scrollerRef}
-                            className="tw-max-h-[60vh] tw-overflow-y-auto tw-bg-[#0a1f40] md:tw-cursor-text"
+                            className="tw-max-h-[60vh] tw-overflow-y-auto tw-bg-navy md:tw-cursor-text"
                             onClick={focusInput}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" || e.key === " ") {
@@ -257,7 +279,6 @@ const HeroCodeSnippet = () => {
                                     <span
                                         style={{ color: COMMENT }}
                                     >{`// 300+ deployed · $20M+ collective earnings · <1% acceptance`}</span>
-
                                     {/* Command history */}
                                     {history.map((entry, i) => (
                                         <span
@@ -265,26 +286,19 @@ const HeroCodeSnippet = () => {
                                             key={i}
                                         >
                                             {`\n\n`}
-                                            <span style={{ color: PROMPT }}>
-                                                ❯
-                                            </span>
+                                            <span style={{ color: PROMPT }}>❯</span>
                                             {` ${entry.cmd}`}
                                             {entry.output.length > 0 &&
                                                 `\n${entry.output.join("\n")}`}
                                         </span>
                                     ))}
-
                                     {/* Mobile: static prompt + cursor (read-only) */}
                                     <span className="md:tw-hidden">
                                         {`\n\n`}
                                         <span style={{ color: PROMPT }}>❯</span>
                                         {` `}
-                                        <span
-                                            className={styles.cursor}
-                                            aria-hidden="true"
-                                        />
+                                        <span className={styles.cursor} aria-hidden="true" />
                                     </span>
-
                                     {/* Desktop: live input */}
                                     <span className="tw-hidden md:tw-inline">
                                         {`\n\n`}
@@ -294,9 +308,7 @@ const HeroCodeSnippet = () => {
                                             ref={inputRef}
                                             type="text"
                                             value={inputValue}
-                                            onChange={(e) =>
-                                                setInputValue(e.target.value)
-                                            }
+                                            onChange={(e) => setInputValue(e.target.value)}
                                             onKeyDown={handleKeyDown}
                                             onFocus={() => setIsFocused(true)}
                                             onBlur={() => setIsFocused(false)}
@@ -313,10 +325,7 @@ const HeroCodeSnippet = () => {
                                             }}
                                         />
                                         {!isFocused && (
-                                            <span
-                                                className={styles.cursor}
-                                                aria-hidden="true"
-                                            />
+                                            <span className={styles.cursor} aria-hidden="true" />
                                         )}
                                     </span>
                                 </code>
@@ -338,9 +347,7 @@ const HeroCodeSnippet = () => {
                                     ? "↑↓ history · esc to defocus · ⌘L clear"
                                     : "click to type · try 'help'"}
                             </span>
-                            <span className="md:tw-hidden">
-                                LF · UTF-8 · spaces:2
-                            </span>
+                            <span className="md:tw-hidden">LF · UTF-8 · spaces:2</span>
                         </div>
                     </div>
                 </div>

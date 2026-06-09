@@ -115,6 +115,10 @@ module.exports = {
                 ink: "#1A1823",
 
                 // ===== UI GRAYS (Light Mode) =====
+                // Brand neutrals (per docs/brand-style-guide.md). The 500-900 stops
+                // alias the same brand hex values to match conventional Tailwind
+                // scale expectations and ensure all `tw-*-gray-{n}` tokens render a
+                // valid brand color (avoids invisible/cascading text).
                 gray: {
                     DEFAULT: "#6C757D", // Slate - secondary text
                     50: "#F8F9FA", // Off White - light cards
@@ -122,6 +126,11 @@ module.exports = {
                     200: "#6C757D", // Slate - secondary text, captions
                     300: "#495057", // Charcoal - muted labels
                     400: "#343A40", // Dark Gray - softer text blocks
+                    500: "#6C757D", // Slate (alias of 200) — secondary text
+                    600: "#495057", // Charcoal (alias of 300) — muted labels
+                    700: "#343A40", // Dark Gray (alias of 400) — body text blocks
+                    800: "#212529", // Charcoal (dark.surface) — deeper text
+                    900: "#1A1823", // Ink — strongest neutral text
                 },
 
                 // ===== SEMANTIC COLORS (Mapped to Brand Colors) =====

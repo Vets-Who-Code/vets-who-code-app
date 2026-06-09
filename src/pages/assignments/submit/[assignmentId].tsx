@@ -132,7 +132,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                     <div className="tw-mx-auto tw-max-w-2xl tw-text-center">
                         <div className="tw-mb-8">
                             <div className="tw-mx-auto tw-mb-4 tw-flex tw-h-20 tw-w-20 tw-items-center tw-justify-center tw-rounded-full tw-bg-gold-light/30">
-                                <i className="fas fa-check tw-text-3xl tw-text-gold" />
+                                <i className="fas fa-check tw-text-3xl tw-text-ink" />
                             </div>
                             <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-text-ink">
                                 Assignment Submitted Successfully!
@@ -144,10 +144,10 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                         </div>
 
                         <div className="tw-mb-8 tw-rounded-lg tw-bg-navy-sky/20 tw-p-6">
-                            <h3 className="tw-mb-2 tw-font-semibold tw-text-blue-900">
+                            <h3 className="tw-mb-2 tw-font-semibold tw-text-navy-deep">
                                 What happens next?
                             </h3>
-                            <ul className="tw-space-y-2 tw-text-left tw-text-blue-800">
+                            <ul className="tw-space-y-2 tw-text-left tw-text-navy-deep">
                                 <li className="tw-flex tw-items-center">
                                     <i className="fas fa-clock tw-mr-2 tw-text-navy-royal" />
                                     Your mentor will review your submission within 2-3 business days
@@ -229,7 +229,7 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                                     <i className="fas fa-info-circle tw-mr-2" />
                                     Assignment Details
                                 </h3>
-                                <div className="tw-space-y-2 tw-text-sm tw-text-blue-900">
+                                <div className="tw-space-y-2 tw-text-sm tw-text-navy-deep">
                                     {assignment.dueDate && (
                                         <p>
                                             <strong>Due Date:</strong>{" "}
@@ -262,9 +262,9 @@ const AssignmentSubmissionPage: PageWithLayout = ({ assignment }) => {
                         <div className="lg:tw-col-span-2">
                             <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
                                 {error && (
-                                    <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4 tw-text-red-800">
+                                    <div className="tw-mb-6 tw-rounded-md tw-bg-cream tw-p-4 tw-text-red-dark">
                                         <div className="tw-flex">
-                                            <i className="fas fa-exclamation-circle tw-mr-2 tw-text-red-400" />
+                                            <i className="fas fa-exclamation-circle tw-mr-2 tw-text-red" />
                                             <span>{error}</span>
                                         </div>
                                     </div>

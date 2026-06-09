@@ -1,15 +1,15 @@
 import {
-    slugify,
-    unslugify,
-    isObjectEmpty,
-    toCapitalize,
-    normalizePath,
-    minutesToHours,
     flatDeep,
-    hasKey,
     getFocusableElements,
+    hasKey,
+    isObjectEmpty,
+    minutesToHours,
     nextFocus,
     normalizedData,
+    normalizePath,
+    slugify,
+    toCapitalize,
+    unslugify,
 } from "../methods";
 
 describe("methods utilities", () => {

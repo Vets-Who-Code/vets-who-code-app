@@ -286,7 +286,7 @@ const Assessment: PageWithLayout = () => {
                             </button>
                             <button
                                 type="button"
-                                onClick={() => router.push("/subjects/all")}
+                                onClick={() => router.push("/programs/core-curriculum")}
                                 className="tw-rounded-lg tw-border tw-border-gray-300 tw-bg-white tw-px-6 tw-py-3 tw-font-semibold tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50"
                             >
                                 <i className="fas fa-book tw-mr-2" />
@@ -316,10 +316,10 @@ const Assessment: PageWithLayout = () => {
                 <div
                     className={`tw-fixed tw-right-4 tw-top-4 tw-z-50 tw-rounded-lg tw-p-4 tw-shadow-lg tw-duration-300 tw-animate-in tw-fade-in tw-slide-in-from-top-5 ${
                         notification.type === "success"
-                            ? "tw-border tw-border-green-200 tw-bg-gold-light/20 tw-text-gold-deep"
+                            ? "tw-border tw-border-gold tw-bg-gold-light/20 tw-text-ink"
                             : notification.type === "error"
-                              ? "tw-border tw-border-red-200 tw-bg-red-50 tw-text-red-800"
-                              : "tw-border tw-border-blue-200 tw-bg-navy-sky/20 tw-text-blue-800"
+                              ? "tw-border tw-border-red tw-bg-cream tw-text-red-dark"
+                              : "tw-border tw-border-navy-sky tw-bg-navy-sky/20 tw-text-navy-deep"
                     }`}
                 >
                     <div className="tw-flex tw-items-center tw-space-x-2">
@@ -416,23 +416,23 @@ const Assessment: PageWithLayout = () => {
                             <div
                                 className={`tw-rounded-lg tw-p-4 ${
                                     testResults.passed === testResults.total
-                                        ? "tw-border tw-border-green-200 tw-bg-gold-light/20"
-                                        : "tw-border tw-border-red-200 tw-bg-red-50"
+                                        ? "tw-border tw-border-gold tw-bg-gold-light/20"
+                                        : "tw-border tw-border-red tw-bg-cream"
                                 }`}
                             >
                                 <div className="tw-flex tw-items-center tw-space-x-2">
                                     <i
                                         className={`fas ${
                                             testResults.passed === testResults.total
-                                                ? "fa-check-circle tw-text-gold"
-                                                : "fa-times-circle tw-text-red-600"
+                                                ? "fa-check-circle tw-text-navy-deep"
+                                                : "fa-times-circle tw-text-red-dark"
                                         }`}
                                     />
                                     <span
                                         className={
                                             testResults.passed === testResults.total
-                                                ? "tw-text-gold-deep"
-                                                : "tw-text-red-800"
+                                                ? "tw-text-navy-deep"
+                                                : "tw-text-red-dark"
                                         }
                                     >
                                         {testResults.message}
@@ -447,7 +447,7 @@ const Assessment: PageWithLayout = () => {
                                 Est. {currentQuestion.timeEstimate} min
                             </span>
                             <span>
-                                <i className="fas fa-star tw-mr-1 tw-text-gold-light/200" />
+                                <i className="fas fa-star tw-mr-1 tw-text-navy-deep" />
                                 {currentQuestion.points} points
                             </span>
                         </div>

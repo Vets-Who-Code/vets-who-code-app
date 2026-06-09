@@ -112,9 +112,9 @@ export default function URLPreviewCard({ url, className = "" }: URLPreviewCardPr
     if (error || !metadata) {
         return (
             <div
-                className={`tw-border tw-border-red-200 tw-rounded-lg tw-p-4 tw-bg-red-50 ${className}`}
+                className={`tw-border tw-border-red tw-rounded-lg tw-p-4 tw-bg-cream ${className}`}
             >
-                <p className="tw-text-red-600 tw-text-sm">{error || "Failed to load preview"}</p>
+                <p className="tw-text-red-dark tw-text-sm">{error || "Failed to load preview"}</p>
                 <a
                     href={url}
                     target="_blank"

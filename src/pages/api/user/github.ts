@@ -1,12 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
 import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
 import type {
     GitHubData,
+    GitHubEvent,
     GitHubProfileData,
     GitHubRepo,
-    GitHubEvent,
     LanguageBreakdownEntry,
 } from "@/types/profile";
 import { GITHUB_LANGUAGE_COLORS } from "@/types/profile";
@@ -41,7 +41,7 @@ function aggregateLanguages(repos: GitHubRepo[]): LanguageBreakdownEntry[] {
         .map(([language, count]) => ({
             language,
             percentage: Math.round((count / total) * 100),
-            color: GITHUB_LANGUAGE_COLORS[language] || "#8b8b8b",
+            color: GITHUB_LANGUAGE_COLORS[language] || "#6C757D",
         }));
 }
 
@@ -76,10 +76,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const token = account.access_token;
 
         // Fetch profile first to get the GitHub login
-        const profile = await githubFetch(
+        const profile = (await githubFetch(
             "https://api.github.com/user",
             token
-        ) as GitHubProfileData;
+        )) as GitHubProfileData;
 
         // Then fetch repos, events, and profile README in parallel
         const [repos, events, readme] = await Promise.all([
@@ -92,16 +92,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 token
             ).catch(() => [] as GitHubEvent[]),
             // Profile README — fetch as rendered HTML from GitHub
-            fetch(
-                `https://api.github.com/repos/${profile.login}/${profile.login}/readme`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                        Accept: "application/vnd.github.html+json",
-                        "User-Agent": "VetsWhoCode-App",
-                    },
-                }
-            )
+            fetch(`https://api.github.com/repos/${profile.login}/${profile.login}/readme`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept: "application/vnd.github.html+json",
+                    "User-Agent": "VetsWhoCode-App",
+                },
+            })
                 .then((r) => (r.ok ? r.text() : null))
                 .catch(() => null),
         ]);
