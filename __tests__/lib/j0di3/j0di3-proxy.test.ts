@@ -15,16 +15,17 @@ vi.mock("axios", () => ({
     },
 }));
 
-import j0di3 from "@/lib/j0di3-client";
 import axios from "axios";
+import j0di3 from "@/lib/j0di3-client";
 import { j0di3Proxy } from "@/lib/j0di3-proxy";
 
 const mockJ0di3 = j0di3 as unknown as Mock;
 const mockIsAxiosError = axios.isAxiosError as Mock;
 
-function createMockReqRes(
-    overrides: Partial<NextApiRequest> = {}
-): { req: NextApiRequest; res: NextApiResponse } {
+function createMockReqRes(overrides: Partial<NextApiRequest> = {}): {
+    req: NextApiRequest;
+    res: NextApiResponse;
+} {
     const req = {
         method: "POST",
         body: { question: "What is React?" },
@@ -43,6 +44,7 @@ function createMockReqRes(
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
+        setHeader: vi.fn().mockReturnThis(),
     } as unknown as NextApiResponse;
 
     return { req, res };
@@ -98,6 +100,44 @@ describe("j0di3Proxy", () => {
         expect(mockJ0di3).toHaveBeenCalledWith(
             expect.objectContaining({ url: "/api/v1/challenges/challenge-42/hint" })
         );
+    });
+
+    it("forwards Idempotency-Key and X-Request-ID headers when supplied", async () => {
+        mockJ0di3.mockResolvedValue({ data: { ok: true } });
+
+        const handler = j0di3Proxy("POST", "/api/v1/challenges/c-1/submit");
+        const { req, res } = createMockReqRes({
+            headers: {
+                "idempotency-key": "idem-key-789",
+                "x-request-id": "req-id-456",
+            } as unknown as NextApiRequest["headers"],
+        });
+
+        await handler(req, res);
+
+        expect(mockJ0di3).toHaveBeenCalledWith(
+            expect.objectContaining({
+                headers: {
+                    "X-Troop-Token": "troop-token-abc",
+                    "Idempotency-Key": "idem-key-789",
+                    "X-Request-ID": "req-id-456",
+                },
+            })
+        );
+    });
+
+    it("echoes the J0dI3 X-Request-ID back on the response", async () => {
+        mockJ0di3.mockResolvedValue({
+            data: { ok: true },
+            headers: { "x-request-id": "echoed-req-id" },
+        });
+
+        const handler = j0di3Proxy("POST", "/api/v1/challenges/c-1/submit");
+        const { req, res } = createMockReqRes();
+
+        await handler(req, res);
+
+        expect(res.setHeader).toHaveBeenCalledWith("X-Request-ID", "echoed-req-id");
     });
 
     it("returns 400 when user has no troopId", async () => {

@@ -46,10 +46,29 @@ async function dispatch(
                     : req.query
                 : undefined;
 
-        const headers = injectTroopId && troopToken ? { "X-Troop-Token": troopToken } : undefined;
+        const headers: Record<string, string> = {};
+        if (injectTroopId && troopToken) {
+            headers["X-Troop-Token"] = troopToken;
+        }
+        // Forward idempotency + correlation headers when the caller supplies them.
+        const idempotencyKey = req.headers?.["idempotency-key"];
+        if (typeof idempotencyKey === "string") {
+            headers["Idempotency-Key"] = idempotencyKey;
+        }
+        const requestId = req.headers?.["x-request-id"];
+        if (typeof requestId === "string") {
+            headers["X-Request-ID"] = requestId;
+        }
 
-        const { data } = await j0di3({ method, url, data: body, params, headers });
-        res.json(data);
+        const response = await j0di3({ method, url, data: body, params, headers });
+
+        // J0dI3 echoes X-Request-ID back; surface it for support correlation.
+        const echoedRequestId = response.headers?.["x-request-id"];
+        if (typeof echoedRequestId === "string") {
+            res.setHeader("X-Request-ID", echoedRequestId);
+        }
+
+        res.json(response.data);
     } catch (error: unknown) {
         if (axios.isAxiosError(error) && error.response) {
             const status = error.response.status;
