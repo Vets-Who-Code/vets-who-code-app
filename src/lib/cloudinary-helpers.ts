@@ -102,11 +102,12 @@ export function getBlogHeaderUrl(imageSource: string): string {
 
     // Otherwise, treat it as a public ID and generate the URL with blog header optimizations
     return getCloudinaryUrl(imageSource, {
-        width: 1200,
-        crop: "limit",
-        quality: "auto",
+        width: 1600,
+        height: 840,
+        crop: "fill",
+        quality: "auto:good",
         format: "auto",
-        gravity: "auto",
+        dpr: "auto",
     });
 }
 
