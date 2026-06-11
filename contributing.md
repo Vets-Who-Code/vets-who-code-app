@@ -102,10 +102,21 @@ Include a clear title, description, and why the feature would be useful.
 
 1. Create a new branch for your work:
 ```bash
-git checkout -b feature/your-feature-name
+git checkout -b <label>/<github-username>/<issue-number>-<short-description>
 ```
 
-2. Make your changes
+Example:
+```bash
+git checkout -b documentation/msgem0523/901-add-contributing-guidelines
+```
+
+Where:
+  - **`label`** = the issue label/category (see [Allowed Types](#allowed-types))
+  - **`github-username`** = your GitHub username
+  - **`issue-number`** = the GitHub issue number
+  - **`short-description`** = a brief description of the work being completed
+
+1. Make your changes
 When making changes:
 - Follow the existing project structure
 - Use clear and meaningful names
@@ -113,14 +124,14 @@ When making changes:
 - Comment complex logic when needed
 - Update documentation when your change affects setup, usage, or behavior
 
-3. Test your changes locally
+1. Test your changes locally
 ```bash
 npm test
 npm run lint
 npm run typecheck
 ```
 
-4. Commit your changes using a Conventional Commit message.
+1. Commit your changes using a Conventional Commit message.
 ```bash
 git add .
 git commit -m "docs: Update contributing guidelines"
