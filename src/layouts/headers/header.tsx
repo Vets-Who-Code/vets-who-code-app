@@ -1,6 +1,7 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import Social01 from "@components/socials/social-01";
+import UserMenu from "@components/user-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
@@ -112,6 +113,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                     </span>
                                 </div>
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
