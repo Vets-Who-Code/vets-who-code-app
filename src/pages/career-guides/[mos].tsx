@@ -146,6 +146,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const training = trainingMap[mosCode];
     if (!training) return { notFound: true };
 
+    // Branch-prefixed keys (e.g. "marine_corps:6333") disambiguate code collisions
+    // across branches; display only the bare code.
+    const colonIdx = mosCode.indexOf(":");
+    const displayCode = colonIdx === -1 ? mosCode : mosCode.slice(colonIdx + 1);
+
     const techBundle = techPathwaysMap[mosCode];
     const techPathway: TechPathway | null = techBundle
         ? {
@@ -171,7 +176,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         : null;
 
     const detail = buildDetail({
-        code: mosCode,
+        code: displayCode,
         training,
         certs: certsMap[mosCode] || {
             direct_qualifies: [],
