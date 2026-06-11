@@ -1,11 +1,6 @@
-import type { Mock } from "vitest";
-
 vi.mock("@/lib/j0di3-proxy", () => ({
-    j0di3Proxy: vi.fn((_method: string, _path: string | Function) => {
-        const handler = vi.fn();
-        handler._method = _method;
-        handler._path = _path;
-        return handler;
+    j0di3Proxy: vi.fn((_method: string, _path: string | ((req: unknown) => string)) => {
+        return Object.assign(vi.fn(), { _method, _path });
     }),
 }));
 
