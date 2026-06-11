@@ -53376,6 +53376,28 @@
         ],
         "ace_credits": "Up to 6 semester hours recommended in aviation management or air transportation."
     },
+    "1D7X1K": {
+        "branch": "Air Force",
+        "title": "Knowledge Operations Management",
+        "program": "Knowledge Operations Management Apprentice Course, Keesler AFB, MS",
+        "hours": 400,
+        "weeks": 10,
+        "topics": [
+            "Knowledge management principles and practices",
+            "SharePoint administration and content management",
+            "Records management and disposition",
+            "Information governance and compliance",
+            "Data stewardship and information lifecycle management",
+            "Workflow automation and business process improvement",
+            "Electronic communications and publishing management"
+        ],
+        "civilian_certs": [
+            "CompTIA Project+ (partial)",
+            "Microsoft 365 Certified: Fundamentals (partial)",
+            "Certified Records Manager (CRM) (partial)"
+        ],
+        "ace_credits": "Up to 9 semester hours recommended in information systems, records management, or business administration"
+    },
     "1N030": {
         "branch": "Air Force",
         "title": "Imagery Analyst",
