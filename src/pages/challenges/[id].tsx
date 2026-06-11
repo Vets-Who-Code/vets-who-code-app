@@ -1,6 +1,7 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { handleClientError } from "@utils/handle-client-error";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -130,17 +131,16 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const handleGetHint = async () => {
         if (!challenge) return;
         setIsLoadingHint(true);
+        setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/hint`);
-            if (res.ok) {
-                const body = await res.json();
-                setHints((prev) => [
-                    ...prev,
-                    body.hint || body.message || "No more hints available.",
-                ]);
+            if (!res.ok) {
+                throw new Error("Failed to load a hint — try again.");
             }
-        } catch {
-            // non-critical
+            const body = await res.json();
+            setHints((prev) => [...prev, body.hint || body.message || "No more hints available."]);
+        } catch (err) {
+            setError(handleClientError(err, "challenge:hint"));
         } finally {
             setIsLoadingHint(false);
         }
@@ -149,18 +149,20 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const handleCoach = async () => {
         if (!challenge || !coachQuestion.trim()) return;
         setIsCoaching(true);
+        setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/coach`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ question: coachQuestion, code }),
             });
-            if (res.ok) {
-                const body = await res.json();
-                setCoachReply(body.reply || body.message || body.coaching || "No reply.");
+            if (!res.ok) {
+                throw new Error("Failed to get a coaching reply — try again.");
             }
-        } catch {
-            // non-critical
+            const body = await res.json();
+            setCoachReply(body.reply || body.message || body.coaching || "No reply.");
+        } catch (err) {
+            setError(handleClientError(err, "challenge:coach"));
         } finally {
             setIsCoaching(false);
         }
@@ -168,15 +170,17 @@ const ChallengeDetailPage: PageWithLayout = () => {
 
     const handleShowSolution = async () => {
         if (!challenge) return;
+        setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/solution`);
-            if (res.ok) {
-                const body = await res.json();
-                setSolutionText(body.solution || body.code || "Solution not available.");
-                setShowSolution(true);
+            if (!res.ok) {
+                throw new Error("Failed to load the solution — try again.");
             }
-        } catch {
-            // non-critical
+            const body = await res.json();
+            setSolutionText(body.solution || body.code || "Solution not available.");
+            setShowSolution(true);
+        } catch (err) {
+            setError(handleClientError(err, "challenge:solution"));
         }
     };
 

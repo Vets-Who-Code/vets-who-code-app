@@ -1,9 +1,10 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { handleClientError } from "@utils/handle-client-error";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { requireAuthSSR } from "@/lib/auth-guards";
 
 type PageProps = {
@@ -30,29 +31,34 @@ const CommunityPage: PageWithLayout = () => {
     const [pairs, setPairs] = useState<Candidate[]>([]);
     const [mentors, setMentors] = useState<Candidate[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [loadError, setLoadError] = useState<string | null>(null);
+
+    const fetchCandidates = useCallback(async () => {
+        setIsLoading(true);
+        setLoadError(null);
+        try {
+            const [pRes, mRes] = await Promise.all([
+                fetch("/api/j0di3/troops/pair-candidates"),
+                fetch("/api/j0di3/troops/mentor-candidates"),
+            ]);
+            if (pRes.ok) {
+                const body = await pRes.json();
+                setPairs(Array.isArray(body) ? body : (body.candidates ?? []));
+            }
+            if (mRes.ok) {
+                const body = await mRes.json();
+                setMentors(Array.isArray(body) ? body : (body.candidates ?? []));
+            }
+        } catch (err) {
+            setLoadError(handleClientError(err, "community:candidates"));
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
 
     useEffect(() => {
-        (async () => {
-            try {
-                const [pRes, mRes] = await Promise.all([
-                    fetch("/api/j0di3/troops/pair-candidates"),
-                    fetch("/api/j0di3/troops/mentor-candidates"),
-                ]);
-                if (pRes.ok) {
-                    const body = await pRes.json();
-                    setPairs(Array.isArray(body) ? body : (body.candidates ?? []));
-                }
-                if (mRes.ok) {
-                    const body = await mRes.json();
-                    setMentors(Array.isArray(body) ? body : (body.candidates ?? []));
-                }
-            } catch {
-                // non-critical
-            } finally {
-                setIsLoading(false);
-            }
-        })();
-    }, []);
+        fetchCandidates();
+    }, [fetchCandidates]);
 
     return (
         <>
@@ -73,7 +79,20 @@ const CommunityPage: PageWithLayout = () => {
 
                 {isLoading && <p className="tw-text-ink/60">Loading candidates...</p>}
 
-                {!isLoading && (
+                {!isLoading && loadError && (
+                    <div>
+                        <p className="tw-text-red-dark">{loadError}</p>
+                        <button
+                            type="button"
+                            onClick={fetchCandidates}
+                            className="tw-mt-2 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-1.5 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                )}
+
+                {!isLoading && !loadError && (
                     <>
                         <CandidateSection
                             title="Pair candidates"

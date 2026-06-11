@@ -1,10 +1,11 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { handleClientError } from "@utils/handle-client-error";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { requireAuthSSR } from "@/lib/auth-guards";
 
 type PageProps = {
@@ -31,27 +32,32 @@ const LessonPage: PageWithLayout = () => {
 
     const [lesson, setLesson] = useState<LessonPayload | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [loadError, setLoadError] = useState<string | null>(null);
     const [isCompleting, setIsCompleting] = useState(false);
     const [completed, setCompleted] = useState(false);
 
-    useEffect(() => {
+    const fetchLesson = useCallback(async () => {
         if (!id) return;
-        (async () => {
-            setIsLoading(true);
-            try {
-                const res = await fetch(`/api/j0di3/lessons/${id}`);
-                if (res.ok) {
-                    const body = (await res.json()) as LessonPayload;
-                    setLesson(body);
-                    setCompleted(!!body.completed);
-                }
-            } catch {
-                // non-critical
-            } finally {
-                setIsLoading(false);
+        setIsLoading(true);
+        setLoadError(null);
+        try {
+            const res = await fetch(`/api/j0di3/lessons/${id}`);
+            if (!res.ok) {
+                throw new Error("Failed to load this lesson");
             }
-        })();
+            const body = (await res.json()) as LessonPayload;
+            setLesson(body);
+            setCompleted(!!body.completed);
+        } catch (err) {
+            setLoadError(handleClientError(err, "lesson:load"));
+        } finally {
+            setIsLoading(false);
+        }
     }, [id]);
+
+    useEffect(() => {
+        fetchLesson();
+    }, [fetchLesson]);
 
     const markComplete = async () => {
         if (!id) return;
@@ -80,6 +86,19 @@ const LessonPage: PageWithLayout = () => {
 
             <div className="tw-container tw-py-12 tw-max-w-3xl tw-space-y-6">
                 {isLoading && <p className="tw-text-ink/60">Loading lesson...</p>}
+
+                {!isLoading && loadError && (
+                    <div>
+                        <p className="tw-text-red-dark">{loadError}</p>
+                        <button
+                            type="button"
+                            onClick={fetchLesson}
+                            className="tw-mt-2 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-1.5 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                )}
 
                 {!isLoading && lesson && (
                     <>
