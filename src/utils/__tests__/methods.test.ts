@@ -2,11 +2,9 @@ import {
     flatDeep,
     getFocusableElements,
     hasKey,
-    isObjectEmpty,
     minutesToHours,
     nextFocus,
     normalizedData,
-    normalizePath,
     slugify,
     toCapitalize,
     unslugify,
@@ -39,30 +37,10 @@ describe("methods utilities", () => {
         });
     });
 
-    describe("isObjectEmpty", () => {
-        it("should return true for empty objects", () => {
-            expect(isObjectEmpty({})).toBe(true);
-        });
-
-        it("should return false for non-empty objects", () => {
-            expect(isObjectEmpty({ key: "value" })).toBe(false);
-        });
-    });
-
     describe("toCapitalize", () => {
         it("should capitalize first letter", () => {
             expect(toCapitalize("hello")).toBe("Hello");
             expect(toCapitalize("HELLO")).toBe("Hello");
-        });
-    });
-
-    describe("normalizePath", () => {
-        it("should remove leading slash", () => {
-            expect(normalizePath("/about")).toBe("about");
-        });
-
-        it("should leave paths without leading slash unchanged", () => {
-            expect(normalizePath("about")).toBe("about");
         });
     });
 

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "./api-helpers";
 
 // Define the ParsedBody interface to type-check the request body
@@ -110,7 +110,7 @@ async function postToSlack(text: string): Promise<void> {
     );
 }
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const parsedBody = req.body as ParsedBody;
 

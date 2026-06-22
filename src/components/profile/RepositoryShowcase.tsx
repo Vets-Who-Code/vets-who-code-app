@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useState } from "react";
 import type { GitHubRepo } from "@/types/profile";
 import { GITHUB_LANGUAGE_COLORS } from "@/types/profile";
