@@ -3,7 +3,7 @@
 
 import type { Dispatch, SetStateAction } from "react";
 import { getStartOfDay } from "@/utils/date";
-import { IEvent, SectionType } from "./types";
+import type { IEvent, SectionType } from "./types";
 
 /**
  * Normalizes an array of objects keyed off an identifier,
