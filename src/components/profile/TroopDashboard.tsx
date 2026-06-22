@@ -317,6 +317,8 @@ export default function TroopDashboard() {
                                     value={data.troop.current_module}
                                     onChange={(e) => handleModuleChange(Number(e.target.value))}
                                     disabled={isUpdatingModule}
+                                    title="Current Module"
+                                    aria-label="Current Module"
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
                                     {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
