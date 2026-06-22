@@ -41,14 +41,14 @@ const CommunityPage: PageWithLayout = () => {
                 fetch("/api/j0di3/troops/pair-candidates"),
                 fetch("/api/j0di3/troops/mentor-candidates"),
             ]);
-            if (pRes.ok) {
-                const body = await pRes.json();
-                setPairs(Array.isArray(body) ? body : (body.candidates ?? []));
+            if (!pRes.ok || !mRes.ok) {
+                throw new Error(
+                    `Failed to load candidates (${!pRes.ok ? pRes.status : mRes.status})`
+                );
             }
-            if (mRes.ok) {
-                const body = await mRes.json();
-                setMentors(Array.isArray(body) ? body : (body.candidates ?? []));
-            }
+            const [pBody, mBody] = await Promise.all([pRes.json(), mRes.json()]);
+            setPairs(Array.isArray(pBody) ? pBody : (pBody.candidates ?? []));
+            setMentors(Array.isArray(mBody) ? mBody : (mBody.candidates ?? []));
         } catch (err) {
             setLoadError(handleClientError(err, "community:candidates"));
         } finally {
