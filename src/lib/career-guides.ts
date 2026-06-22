@@ -131,8 +131,8 @@ export const loadCareerGuides = (): GuideEntry[] => {
         const family = detectFamily(entry.title);
         const certs = entry.civilian_certs ?? [];
 
-        // Pathway lookup: try raw code first, then full key
-        const matches = pathways[code] ?? pathways[stripBranchPrefix(key)] ?? [];
+        // Pathway lookup: exact full key first (branch-prefixed entries), then bare code
+        const matches = pathways[key] ?? pathways[code] ?? pathways[stripBranchPrefix(key)] ?? [];
         const top = matches[0];
         const civilian = top?.role ?? entry.title;
         const salaries = matches.map((m) => m.avgSalary).filter((s) => typeof s === "number");
@@ -142,6 +142,7 @@ export const loadCareerGuides = (): GuideEntry[] => {
 
         guides.push({
             code,
+            slug: key.toLowerCase(),
             title: entry.title,
             branch,
             rank,
