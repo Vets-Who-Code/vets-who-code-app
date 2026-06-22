@@ -1,12 +1,14 @@
+import UserMenu from "@components/header/user-menu";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
-import menu from "@data/menu";
+import menu, { filterMenuByAuth } from "@data/menu";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useEffect, useMemo, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
@@ -23,6 +25,11 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
     const router = useRouter();
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
+    const { status } = useSession();
+    const filteredMenu = useMemo(
+        () => filterMenuByAuth(menu, status === "authenticated"),
+        [status]
+    );
 
     useEffect(() => {
         setOffcanvas(false);
@@ -62,22 +69,29 @@ const Header = ({ shadow, fluid, transparent, mode }: TProps) => {
                         <MainMenu
                             className="tw-hidden xl:tw-block"
                             align="center"
-                            menu={menu}
+                            menu={filteredMenu}
                             color={mode}
                         />
-                        <div className="tw-overflow-hidden md:tw-hidden">
-                            <BurgerButton
-                                className="tw-pl-5 xl:tw-hidden"
-                                onClick={() => setOffcanvas(true)}
-                                color={mode}
-                                label="Toggle Menu"
-                            />
+                        <div className="tw-flex tw-items-center tw-justify-end tw-gap-3">
+                            <UserMenu mode={mode} />
+                            <div className="tw-overflow-hidden md:tw-hidden">
+                                <BurgerButton
+                                    className="tw-pl-2 xl:tw-hidden"
+                                    onClick={() => setOffcanvas(true)}
+                                    color={mode}
+                                    label="Toggle Menu"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="tw-h-20" />
             </header>
-            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
+            <MobileMenu
+                isOpen={offcanvas}
+                onClose={() => setOffcanvas(false)}
+                menu={filteredMenu}
+            />
         </>
     );
 };
