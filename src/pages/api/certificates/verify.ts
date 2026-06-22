@@ -1,19 +1,49 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma";
+import { getCertificateByNumber } from "@/lib/certificates";
 
 /**
- * GET /api/certificates/verify?number=CERT_NUMBER
- *
- * Verify a certificate by its certificate number
- * This endpoint is public to allow employers and others to verify certificates
- * No authentication required
- *
- * Query params:
- * - number: Certificate number (same as certificate ID)
- *
- * Returns:
- * - valid: boolean indicating if certificate exists
- * - certificate: Certificate details if valid
+ * @swagger
+ * /api/certificates/verify:
+ *   get:
+ *     summary: Verify a certificate
+ *     description: Public endpoint to verify a certificate by its printed certificate number (e.g. VWC-2026-000123). Legacy certificate ids are also accepted. No authentication required.
+ *     tags:
+ *       - Certificates
+ *     parameters:
+ *       - in: query
+ *         name: number
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: Printed certificate number (VWC-YYYY-XXXXXX) or legacy certificate id
+ *     responses:
+ *       200:
+ *         description: Verification result
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 valid:
+ *                   type: boolean
+ *                 message:
+ *                   type: string
+ *                 certificate:
+ *                   type: object
+ *                   properties:
+ *                     certificateNumber:
+ *                       type: string
+ *                     student:
+ *                       type: object
+ *                     course:
+ *                       type: object
+ *                     issuedAt:
+ *                       type: string
+ *                       format: date-time
+ *       400:
+ *         description: Missing required query parameter
+ *       405:
+ *         description: Method not allowed
  */
 async function handleGet(req: NextApiRequest, res: NextApiResponse) {
     try {
@@ -25,29 +55,7 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
             });
         }
 
-        // Look up certificate by ID (which is the certificate number)
-        const certificate = await prisma.certificate.findUnique({
-            where: { id: number },
-            include: {
-                user: {
-                    select: {
-                        id: true,
-                        name: true,
-                        email: true,
-                    },
-                },
-                course: {
-                    select: {
-                        id: true,
-                        title: true,
-                        description: true,
-                        difficulty: true,
-                        estimatedHours: true,
-                        category: true,
-                    },
-                },
-            },
-        });
+        const certificate = await getCertificateByNumber(number);
 
         if (!certificate) {
             return res.json({
@@ -61,7 +69,7 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
             valid: true,
             message: "Certificate is valid and authenticated.",
             certificate: {
-                certificateNumber: certificate.id,
+                certificateNumber: certificate.certificateNumber ?? certificate.id,
                 student: {
                     name: certificate.user.name || "Unknown",
                     email: certificate.user.email,

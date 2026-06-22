@@ -104,36 +104,52 @@ export async function checkCertificateEligibility(
     return { eligible: true };
 }
 
+// Shape of Prisma cuid row ids (e.g. "clxyz..."); legacy certificates printed these
+const CUID_PATTERN = /^c[a-z0-9]{20,}$/;
+
 /**
- * Get certificate by certificate number (from ID)
- * Certificate number is derived from the certificate ID
+ * Get certificate by its printed certificate number (e.g. VWC-2026-000123).
+ * Falls back to looking up by row id for legacy certificates that were
+ * issued before certificateNumber existed and printed the cuid id instead.
  */
 export async function getCertificateByNumber(certificateNumber: string): Promise<any> {
-    // For now, certificate number is the same as the ID
-    // In production, you might want to use a more sophisticated mapping
-    const certificate = await prisma.certificate.findUnique({
-        where: { id: certificateNumber },
-        include: {
-            user: {
-                select: {
-                    id: true,
-                    name: true,
-                    email: true,
-                },
-            },
-            course: {
-                select: {
-                    id: true,
-                    title: true,
-                    description: true,
-                    difficulty: true,
-                    estimatedHours: true,
-                },
+    const include = {
+        user: {
+            select: {
+                id: true,
+                name: true,
+                email: true,
             },
         },
+        course: {
+            select: {
+                id: true,
+                title: true,
+                description: true,
+                difficulty: true,
+                estimatedHours: true,
+                category: true,
+            },
+        },
+    };
+
+    const certificate = await prisma.certificate.findUnique({
+        where: { certificateNumber },
+        include,
     });
 
-    return certificate;
+    if (certificate) {
+        return certificate;
+    }
+
+    if (CUID_PATTERN.test(certificateNumber)) {
+        return prisma.certificate.findUnique({
+            where: { id: certificateNumber },
+            include,
+        });
+    }
+
+    return null;
 }
 
 /**
@@ -142,7 +158,7 @@ export async function getCertificateByNumber(certificateNumber: string): Promise
 export function formatCertificateData(certificate: any) {
     return {
         id: certificate.id,
-        certificateNumber: certificate.id, // Using ID as certificate number
+        certificateNumber: certificate.certificateNumber ?? certificate.id,
         studentName: certificate.user.name || certificate.user.email,
         courseName: certificate.course.title,
         courseDescription: certificate.course.description,
