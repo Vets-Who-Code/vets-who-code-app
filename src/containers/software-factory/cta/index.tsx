@@ -1,3 +1,4 @@
+import Button from "@ui/button";
 import { BUDGET_CHIPS, SERVICE_CHIPS } from "@data/software-factory";
 import axios from "axios";
 import { useState } from "react";
@@ -146,9 +147,9 @@ const CtaSection = () => {
                                     We&rsquo;ll be in touch within one business day. In the
                                     meantime, expect a calendar link for a 30-minute discovery call.
                                 </p>
-                                <button type="button" onClick={reset} className={styles.btnGhost}>
+                                <Button type="button" onClick={reset} variant="ghost" color="light">
                                     Send another →
-                                </button>
+                                </Button>
                             </div>
                         ) : (
                             <>
@@ -251,13 +252,14 @@ const CtaSection = () => {
 
                                 <div className={styles.formFoot}>
                                     <span>NDA AVAILABLE ON REQUEST · NO MARKETING LISTS</span>
-                                    <button
+                                    <Button
                                         type="submit"
                                         disabled={state === "sending"}
-                                        className={styles.btnPrimary}
+                                        color="primary"
+                                        fullwidth
                                     >
                                         {state === "sending" ? "Transmitting…" : "Transmit →"}
-                                    </button>
+                                    </Button>
                                 </div>
                             </>
                         )}
