@@ -1,6 +1,7 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { handleClientError } from "@utils/handle-client-error";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
@@ -76,6 +77,8 @@ const ChallengesPage: PageWithLayout = () => {
     const [history, setHistory] = useState<ChallengeAttempt[]>([]);
     const [isLoadingRec, setIsLoadingRec] = useState(true);
     const [isLoadingHist, setIsLoadingHist] = useState(true);
+    const [recError, setRecError] = useState<string | null>(null);
+    const [histError, setHistError] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
 
     // Start challenge form
@@ -96,28 +99,34 @@ const ChallengesPage: PageWithLayout = () => {
     const [solution, setSolution] = useState<string | null>(null);
 
     const fetchRecommended = useCallback(async () => {
+        setIsLoadingRec(true);
+        setRecError(null);
         try {
             const res = await fetch("/api/j0di3/challenges/recommended");
-            if (res.ok) {
-                const data = await res.json();
-                setRecommended(Array.isArray(data) ? data : data.challenges || []);
+            if (!res.ok) {
+                throw new Error("Failed to load recommendations");
             }
-        } catch {
-            // non-critical
+            const data = await res.json();
+            setRecommended(Array.isArray(data) ? data : data.challenges || []);
+        } catch (err) {
+            setRecError(handleClientError(err, "challenges:recommended"));
         } finally {
             setIsLoadingRec(false);
         }
     }, []);
 
     const fetchHistory = useCallback(async () => {
+        setIsLoadingHist(true);
+        setHistError(null);
         try {
             const res = await fetch("/api/j0di3/challenges/history");
-            if (res.ok) {
-                const data = await res.json();
-                setHistory(Array.isArray(data) ? data : data.attempts || []);
+            if (!res.ok) {
+                throw new Error("Failed to load your history");
             }
-        } catch {
-            // non-critical
+            const data = await res.json();
+            setHistory(Array.isArray(data) ? data : data.attempts || []);
+        } catch (err) {
+            setHistError(handleClientError(err, "challenges:history"));
         } finally {
             setIsLoadingHist(false);
         }
@@ -226,18 +235,17 @@ const ChallengesPage: PageWithLayout = () => {
     const handleGetHint = async () => {
         if (!activeChallenge) return;
         setIsLoadingHint(true);
+        setError(null);
 
         try {
             const res = await fetch(`/api/j0di3/challenges/${activeChallenge.id}/hint`);
-            if (res.ok) {
-                const data = await res.json();
-                setHints((prev) => [
-                    ...prev,
-                    data.hint || data.message || "No more hints available.",
-                ]);
+            if (!res.ok) {
+                throw new Error("Failed to load a hint — try again.");
             }
-        } catch {
-            // non-critical
+            const data = await res.json();
+            setHints((prev) => [...prev, data.hint || data.message || "No more hints available."]);
+        } catch (err) {
+            setError(handleClientError(err, "challenges:hint"));
         } finally {
             setIsLoadingHint(false);
         }
@@ -245,16 +253,18 @@ const ChallengesPage: PageWithLayout = () => {
 
     const handleShowSolution = async () => {
         if (!activeChallenge) return;
+        setError(null);
 
         try {
             const res = await fetch(`/api/j0di3/challenges/${activeChallenge.id}/solution`);
-            if (res.ok) {
-                const data = await res.json();
-                setSolution(data.solution || data.code || "Solution not available.");
-                setShowSolution(true);
+            if (!res.ok) {
+                throw new Error("Failed to load the solution — try again.");
             }
-        } catch {
-            // non-critical
+            const data = await res.json();
+            setSolution(data.solution || data.code || "Solution not available.");
+            setShowSolution(true);
+        } catch (err) {
+            setError(handleClientError(err, "challenges:solution"));
         }
     };
 
@@ -384,6 +394,17 @@ const ChallengesPage: PageWithLayout = () => {
                                 </h2>
                                 {isLoadingRec ? (
                                     <p className="tw-text-navy/60">Loading recommendations...</p>
+                                ) : recError ? (
+                                    <div>
+                                        <p className="tw-text-red-dark">{recError}</p>
+                                        <button
+                                            type="button"
+                                            onClick={fetchRecommended}
+                                            className="tw-mt-2 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-1.5 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
+                                        >
+                                            Retry
+                                        </button>
+                                    </div>
                                 ) : recommended.length === 0 ? (
                                     <p className="tw-text-navy/60">
                                         Complete some challenges to get personalized
@@ -631,6 +652,17 @@ const ChallengesPage: PageWithLayout = () => {
                             </h2>
                             {isLoadingHist ? (
                                 <p className="tw-text-navy/60 tw-text-sm">Loading...</p>
+                            ) : histError ? (
+                                <div>
+                                    <p className="tw-text-sm tw-text-red-dark">{histError}</p>
+                                    <button
+                                        type="button"
+                                        onClick={fetchHistory}
+                                        className="tw-mt-2 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-1.5 tw-text-sm tw-font-medium tw-text-ink/80 hover:tw-bg-navy/5"
+                                    >
+                                        Retry
+                                    </button>
+                                </div>
                             ) : history.length === 0 ? (
                                 <p className="tw-text-navy/60 tw-text-sm">
                                     No challenges attempted yet. Start one!

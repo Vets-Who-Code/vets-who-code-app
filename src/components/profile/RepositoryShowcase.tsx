@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { useState } from "react";
 import type { GitHubRepo } from "@/types/profile";
 import { GITHUB_LANGUAGE_COLORS } from "@/types/profile";
@@ -85,15 +84,12 @@ const RepositoryShowcase = ({ repos, isLoading }: RepositoryShowcaseProps) => {
 
             {/* Repo list */}
             <div className="tw-grid tw-gap-4 md:tw-grid-cols-2">
-                {sorted.map((repo, i) => (
-                    <motion.a
+                {sorted.map((repo) => (
+                    <a
                         key={repo.id}
                         href={repo.html_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: i * 0.05 }}
                         className="tw-block tw-rounded-lg tw-border tw-border-navy/10 tw-bg-white tw-p-5 tw-shadow-sm tw-transition-all hover:tw-border-gold/30 hover:tw-shadow-md hover:-tw-translate-y-0.5"
                     >
                         <div className="tw-flex tw-items-start tw-justify-between">
@@ -142,7 +138,7 @@ const RepositoryShowcase = ({ repos, isLoading }: RepositoryShowcaseProps) => {
                                 </span>
                             ))}
                         </div>
-                    </motion.a>
+                    </a>
                 ))}
             </div>
         </div>

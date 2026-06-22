@@ -301,6 +301,7 @@
    NAVIGATION UPGRADE — Premium styling
    ============================================= */
 .header-inner {
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
 }
 
