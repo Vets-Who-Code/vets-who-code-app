@@ -1,6 +1,7 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { type AuthenticatedRequest, requireAuth, requireRole } from "@/lib/rbac";
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
@@ -18,6 +19,16 @@ async function dispatch(
 ) {
     const troopId = req.user!.troopId;
     const troopToken = req.user!.troopToken;
+
+    // 30 req/min per troop (falls back to user id, then client IP).
+    const rateKey = troopId ? `troop:${troopId}` : req.user?.id ? `user:${req.user.id}` : undefined;
+    const limited = !enforceRateLimit(req, res, {
+        name: "j0di3",
+        maxRequests: 30,
+        windowMs: 60 * 1000,
+        key: rateKey,
+    });
+    if (limited) return;
 
     if (injectTroopId && !troopId) {
         return res

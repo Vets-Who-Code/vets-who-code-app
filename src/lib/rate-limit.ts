@@ -5,7 +5,7 @@
  * swap the Map for Redis or similar.
  */
 
-import type { NextApiRequest } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 interface RateLimitEntry {
     count: number;
@@ -69,4 +69,33 @@ export function checkRateLimit(
 
     entry.count++;
     return { allowed: true, remaining: maxRequests - entry.count, resetAt: entry.resetAt };
+}
+
+/**
+ * One-line opt-in rate limiting for API routes.
+ * Buckets are namespaced by `name` so endpoints with different limits
+ * never share counters. Defaults to keying by client IP; pass `key`
+ * to key by something else (e.g. troopId or user id).
+ * When the limit is exceeded, sends a 429 with a Retry-After header
+ * and returns false — the caller should stop handling the request.
+ */
+export function enforceRateLimit(
+    req: NextApiRequest,
+    res: NextApiResponse,
+    options: { name: string; maxRequests: number; windowMs: number; key?: string }
+): boolean {
+    const bucket = `${options.name}:${options.key ?? getClientIp(req)}`;
+    const result = checkRateLimit(bucket, options.maxRequests, options.windowMs);
+
+    res.setHeader("X-RateLimit-Remaining", result.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(result.resetAt / 1000));
+
+    if (!result.allowed) {
+        const retryAfter = Math.max(1, Math.ceil((result.resetAt - Date.now()) / 1000));
+        res.setHeader("Retry-After", retryAfter);
+        res.status(429).json({ error: "Too many requests. Please try again later." });
+        return false;
+    }
+
+    return true;
 }
