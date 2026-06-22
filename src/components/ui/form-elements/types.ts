@@ -26,3 +26,7 @@ export interface IInputProps extends IFeedback {
     onBlur?: (e: FocusEvent<TInput>) => void;
     customStyle?: TCustomStyle;
 }
+
+export interface ITextInputProps extends IInputProps {
+    feedbackId?: string;
+}

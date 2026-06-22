@@ -1,9 +1,9 @@
 import cn from "clsx";
 import { forwardRef } from "react";
 import Feedback from "./feedback";
-import { IInputProps } from "./types";
+import { ITextInputProps } from "./types";
 
-interface IProps extends IInputProps {
+interface IProps extends ITextInputProps {
     type?: string;
     bg?: "white" | "light";
 }
@@ -17,6 +17,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
             disabled,
             state,
             feedbackText,
+            feedbackId,
             id,
             name,
             onChange,
@@ -49,6 +50,8 @@ const Input = forwardRef<HTMLInputElement, IProps>(
         const errorClass = state === "error" && "!tw-border-danger";
         const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-primary";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
+        const errorFeedbackId = feedbackId || `${id}-error`;
+        const showErrorFeedback = !!feedbackText && showState && state === "error";
 
         return (
             <>
@@ -80,10 +83,16 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                     readOnly={readonly}
                     min={min}
                     max={max}
+                    aria-invalid={state === "error" ? true : undefined}
+                    aria-describedby={showErrorFeedback ? errorFeedbackId : undefined}
                     {...restProps}
                 />
                 {feedbackText && showState && (
-                    <Feedback state={state} showErrorOnly={showErrorOnly}>
+                    <Feedback
+                        id={showErrorFeedback ? errorFeedbackId : undefined}
+                        state={state}
+                        showErrorOnly={showErrorOnly}
+                    >
                         {feedbackText}
                     </Feedback>
                 )}
