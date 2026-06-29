@@ -2,6 +2,7 @@ import { streamText } from "ai";
 import { NextApiResponse } from "next";
 import { getAIModelWithFallback, JODIE_SYSTEM_PROMPT } from "@/lib/ai-provider";
 import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { applyRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const maxDuration = 30; // 30 seconds max for streaming responses
@@ -45,6 +46,10 @@ interface ChatRequestBody {
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    if (!applyRateLimit(req, res, "ai")) {
+        return;
     }
 
     try {
