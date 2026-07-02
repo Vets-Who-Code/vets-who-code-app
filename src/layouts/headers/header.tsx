@@ -1,3 +1,4 @@
+import UserMenu from "@components/header/user-menu";
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import Social01 from "@components/socials/social-01";
@@ -112,6 +113,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                     </span>
                                 </div>
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                <UserMenu mode="dark" />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
