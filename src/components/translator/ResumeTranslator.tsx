@@ -12,7 +12,8 @@ interface ResumeTranslatorProps {
 }
 
 const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeIndex }) => {
-    const { activeResult, isTranslating, error, resultSource, translate, reset } = useTranslator();
+    const { activeResult, isTranslating, error, resultSource, warnings, translate, reset } =
+        useTranslator();
 
     const [lastTargetJobTitle, setLastTargetJobTitle] = useState<string | undefined>();
     const [lastLeadershipCourses, setLastLeadershipCourses] = useState<string[] | undefined>();
@@ -62,6 +63,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeI
                     onReset={handleReset}
                     targetJobTitle={lastTargetJobTitle}
                     leadershipCourses={lastLeadershipCourses}
+                    warnings={warnings}
                 />
             )}
         </div>
