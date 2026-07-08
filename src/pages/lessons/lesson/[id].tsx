@@ -1,3 +1,4 @@
+import { AITeachingAssistant } from "@components/ai-assistant";
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
@@ -35,6 +36,7 @@ const LessonPage: PageWithLayout = () => {
     const [loadError, setLoadError] = useState<string | null>(null);
     const [isCompleting, setIsCompleting] = useState(false);
     const [completed, setCompleted] = useState(false);
+    const [isAssistantOpen, setIsAssistantOpen] = useState(false);
 
     const fetchLesson = useCallback(async () => {
         if (!id) return;
@@ -141,6 +143,32 @@ const LessonPage: PageWithLayout = () => {
                     </>
                 )}
             </div>
+
+            <button
+                type="button"
+                onClick={() => setIsAssistantOpen(true)}
+                className="tw-fixed tw-bottom-6 tw-right-6 tw-z-40 tw-rounded-full tw-bg-navy tw-px-5 tw-py-3 tw-font-medium tw-text-white tw-shadow-lg tw-transition-colors hover:tw-bg-navy-royal focus-visible:tw-ring-2 focus-visible:tw-ring-gold"
+                aria-label="Open AI teaching assistant"
+            >
+                Ask J0d!e
+            </button>
+
+            <AITeachingAssistant
+                isOpen={isAssistantOpen}
+                onClose={() => setIsAssistantOpen(false)}
+                lessonContext={
+                    lesson && id
+                        ? {
+                              lessonId: id,
+                              lessonTitle: lesson.title ?? "Lesson",
+                              moduleTitle:
+                                  lesson.module != null ? `Module ${lesson.module}` : "Curriculum",
+                              courseTitle: "Vets Who Code",
+                              content: body || undefined,
+                          }
+                        : undefined
+                }
+            />
         </>
     );
 };
