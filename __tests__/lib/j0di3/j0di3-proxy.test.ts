@@ -231,4 +231,35 @@ describe("j0di3Proxy", () => {
         expect(res.json).toHaveBeenCalledWith({ error: "Internal server error" });
         consoleSpy.mockRestore();
     });
+
+    it("returns 429 with Retry-After after 30 requests per minute for one troop", async () => {
+        mockJ0di3.mockResolvedValue({ data: { ok: true } });
+
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const user = {
+            id: "user-rl",
+            name: "Rate Limited",
+            email: "rl@test.com",
+            role: "STUDENT",
+            troopId: "troop-rate-limit-test",
+            troopToken: "troop-token-rl",
+        };
+
+        for (let i = 0; i < 30; i++) {
+            const { req, res } = createMockReqRes({ user } as Partial<NextApiRequest>);
+            await handler(req, res);
+            expect(res.status).not.toHaveBeenCalledWith(429);
+        }
+        expect(mockJ0di3).toHaveBeenCalledTimes(30);
+
+        const { req, res } = createMockReqRes({ user } as Partial<NextApiRequest>);
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(429);
+        expect(res.json).toHaveBeenCalledWith({
+            error: "Too many requests. Please try again later.",
+        });
+        expect(res.setHeader).toHaveBeenCalledWith("Retry-After", expect.any(Number));
+        expect(mockJ0di3).toHaveBeenCalledTimes(30);
+    });
 });

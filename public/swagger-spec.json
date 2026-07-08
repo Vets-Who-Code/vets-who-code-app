@@ -157,6 +157,86 @@
           }
         }
       }
+    },
+    "/api/contact": {
+      "post": {
+        "summary": "Submit the contact form",
+        "description": "Validates the submission, filters spam, and forwards it to Slack. Rate limited to 5 requests per minute per IP.",
+        "tags": [
+          "Contact"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "message"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "subject": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message accepted"
+          },
+          "400": {
+            "description": "Message too short"
+          },
+          "422": {
+            "description": "Missing required fields"
+          },
+          "429": {
+            "description": "Rate limit exceeded. Retry after the number of seconds in the Retry-After header."
+          },
+          "500": {
+            "description": "Failed to deliver the message"
+          }
+        }
+      }
+    },
+    "/api/health": {
+      "get": {
+        "summary": "Service health check",
+        "description": "Reports database and environment health. Rate limited to 30 requests per minute per IP.",
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "Service is healthy or degraded"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "429": {
+            "description": "Rate limit exceeded. Retry after the number of seconds in the Retry-After header."
+          },
+          "503": {
+            "description": "Service is unhealthy"
+          }
+        }
+      }
     }
   },
   "tags": []
