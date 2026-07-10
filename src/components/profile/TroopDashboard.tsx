@@ -1,3 +1,4 @@
+import { handleClientError } from "@utils/handle-client-error";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
@@ -82,29 +83,32 @@ export default function TroopDashboard() {
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isUpdatingModule, setIsUpdatingModule] = useState(false);
+    const [moduleUpdateError, setModuleUpdateError] = useState<string | null>(null);
 
     const handleModuleChange = async (newModule: number) => {
         setIsUpdatingModule(true);
+        setModuleUpdateError(null);
         try {
             const res = await fetch("/api/j0di3/troops/me", {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ current_module: newModule }),
             });
-            if (res.ok) {
-                setData((prev) =>
-                    prev
-                        ? {
-                              ...prev,
-                              troop: prev.troop
-                                  ? { ...prev.troop, current_module: newModule }
-                                  : prev.troop,
-                          }
-                        : prev
-                );
+            if (!res.ok) {
+                throw new Error("Failed to update your module — try again.");
             }
-        } catch {
-            // non-critical
+            setData((prev) =>
+                prev
+                    ? {
+                          ...prev,
+                          troop: prev.troop
+                              ? { ...prev.troop, current_module: newModule }
+                              : prev.troop,
+                      }
+                    : prev
+            );
+        } catch (err) {
+            setModuleUpdateError(handleClientError(err, "troop:module-update"));
         } finally {
             setIsUpdatingModule(false);
         }
@@ -313,6 +317,8 @@ export default function TroopDashboard() {
                                     value={data.troop.current_module}
                                     onChange={(e) => handleModuleChange(Number(e.target.value))}
                                     disabled={isUpdatingModule}
+                                    title="Current Module"
+                                    aria-label="Current Module"
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
                                     {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
@@ -323,6 +329,11 @@ export default function TroopDashboard() {
                                 </select>
                                 <span className="tw-text-xs tw-text-gray-400">of 25</span>
                             </div>
+                            {moduleUpdateError && (
+                                <p className="tw-mt-1 tw-text-xs tw-text-red-dark">
+                                    {moduleUpdateError}
+                                </p>
+                            )}
                         </div>
                         {data.troop.skill_level && (
                             <div>

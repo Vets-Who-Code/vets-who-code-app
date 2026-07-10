@@ -12424,6 +12424,29 @@
         "civilian_certs": [],
         "ace_credits": "Up to 3 semester hours in management"
     },
+    "marine_corps:6333": {
+        "branch": "Marine Corps",
+        "title": "Aviation Electronics Technician",
+        "program": "Aviation Electronics Technician Course, Center for Naval Aviation Technical Training (CNATT), NAS Pensacola, FL",
+        "hours": 960,
+        "weeks": 24,
+        "topics": [
+            "Basic Electricity and Electronics Theory",
+            "Aircraft Electrical Systems",
+            "Avionics Troubleshooting and Fault Isolation",
+            "Wiring Schematics and MIL-SPEC Standards",
+            "Electronic Test Equipment Operation (Multimeters, Oscilloscopes, Avionics Test Sets)",
+            "Aircraft Communication and Navigation Systems Maintenance",
+            "Technical Documentation and Procedures",
+            "Safety Procedures for Avionics Maintenance"
+        ],
+        "civilian_certs": [
+            "FCC General Radiotelephone Operator License (partial)",
+            "CompTIA A+ (partial)",
+            "ETA-I Certified Electronics Technician (CET) Associate (partial)"
+        ],
+        "ace_credits": "Up to 15 semester hours recommended in avionics technology or electronics engineering technology."
+    },
     "6335": {
         "branch": "Navy",
         "title": "Aviation Maintenance Management Officer",

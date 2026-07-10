@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { checkLength, checkParams, contactErrors } from "./api-helpers";
 import { classifyContact } from "./api-helpers/classify-contact";
 
@@ -39,7 +40,50 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
     await axios(axiosConfig);
 }
 
+/**
+ * @swagger
+ * /api/contact:
+ *   post:
+ *     summary: Submit the contact form
+ *     description: Validates the submission, filters spam, and forwards it to Slack. Rate limited to 5 requests per minute per IP.
+ *     tags:
+ *       - Contact
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, message]
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               phone:
+ *                 type: string
+ *               subject:
+ *                 type: string
+ *               message:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Message accepted
+ *       400:
+ *         description: Message too short
+ *       422:
+ *         description: Missing required fields
+ *       429:
+ *         description: Rate limit exceeded. Retry after the number of seconds in the Retry-After header.
+ *       500:
+ *         description: Failed to deliver the message
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    // 5 req/min per IP — strict, this endpoint triggers AI classification and Slack posts.
+    if (!enforceRateLimit(req, res, { name: "contact", maxRequests: 5, windowMs: 60 * 1000 })) {
+        return;
+    }
+
     const parsedBody: ParsedBody = req.body as ParsedBody;
     const { name, email, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];

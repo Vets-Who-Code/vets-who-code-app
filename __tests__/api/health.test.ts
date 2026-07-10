@@ -12,14 +12,27 @@ import prisma from "@/lib/prisma";
 
 const mockQueryRaw = prisma.$queryRaw as Mock;
 
-function createMockReqRes(method = "GET"): {
+// Each call gets a unique IP by default so the per-IP rate limiter
+// never interferes across tests. Pass `ip` to share a bucket on purpose.
+let nextIp = 0;
+
+function createMockReqRes(
+    method = "GET",
+    ip?: string
+): {
     req: NextApiRequest;
     res: NextApiResponse;
 } {
-    const req = { method } as NextApiRequest;
+    nextIp++;
+    const req = {
+        method,
+        headers: { "x-forwarded-for": ip ?? `198.51.100.${nextIp}` },
+        socket: {},
+    } as unknown as NextApiRequest;
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
+        setHeader: vi.fn().mockReturnThis(),
     } as unknown as NextApiResponse;
     return { req, res };
 }
@@ -151,5 +164,24 @@ describe("GET /api/health", () => {
         const dbCheck = body.checks.find((c: { name: string }) => c.name === "database");
         expect(dbCheck.status).toBe("unhealthy");
         expect(typeof dbCheck.responseTime).toBe("number");
+    });
+
+    it("returns 429 with Retry-After after 30 requests per minute from one IP", async () => {
+        const ip = "203.0.113.50";
+
+        for (let i = 0; i < 30; i++) {
+            const { req, res } = createMockReqRes("GET", ip);
+            await handler(req, res);
+            expect(res.status).toHaveBeenCalledWith(200);
+        }
+
+        const { req, res } = createMockReqRes("GET", ip);
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(429);
+        expect(res.json).toHaveBeenCalledWith({
+            error: "Too many requests. Please try again later.",
+        });
+        expect(res.setHeader).toHaveBeenCalledWith("Retry-After", expect.any(Number));
     });
 });

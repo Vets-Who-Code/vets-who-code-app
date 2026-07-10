@@ -14,23 +14,65 @@ cloudinary.config({
 });
 
 /**
- * GET /api/lms/progress
- * Fetch user's lesson progress (optionally filtered by courseId or moduleId)
- *
- * Query params:
- * - courseId?: string - Filter by course
- * - moduleId?: string - Filter by module
- * - lessonId?: string - Get specific lesson progress
- *
- * POST /api/lms/progress
- * Update lesson progress (mark as started, completed, or update time spent)
- *
- * Request body:
- * {
- *   lessonId: string,
- *   completed?: boolean,
- *   timeSpent?: number (in minutes)
- * }
+ * @swagger
+ * /api/lms/progress:
+ *   get:
+ *     summary: Fetch user's lesson progress
+ *     description: Returns the authenticated user's lesson progress, optionally filtered by courseId, moduleId, or lessonId.
+ *     tags:
+ *       - LMS
+ *     security:
+ *       - SessionCookie: []
+ *     parameters:
+ *       - in: query
+ *         name: courseId
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: moduleId
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: lessonId
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Progress records
+ *   post:
+ *     summary: Update lesson progress
+ *     description: Marks a lesson as started or completed and updates time spent. The course transitions to COMPLETED (and a certificate is issued) only when all lessons are complete AND every course assignment has a GRADED submission from the user. Outstanding assignments are returned in courseProgress.pendingAssignments.
+ *     tags:
+ *       - LMS
+ *     security:
+ *       - SessionCookie: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - lessonId
+ *             properties:
+ *               lessonId:
+ *                 type: string
+ *               completed:
+ *                 type: boolean
+ *               timeSpent:
+ *                 type: number
+ *                 description: Time spent in minutes
+ *     responses:
+ *       200:
+ *         description: Progress updated. courseProgress includes completed/total lesson counts, percentage, isComplete, and pendingAssignments (count and titles) when assignments still need grading.
+ *       201:
+ *         description: Progress tracking started
+ *       400:
+ *         description: Missing lessonId
+ *       403:
+ *         description: Not enrolled in the course
+ *       404:
+ *         description: Lesson not found
  */
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     const userId = req.user?.id;
@@ -234,8 +276,32 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
         const progressPercentage =
             totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
-        // Check if course is complete
-        const isComplete = progressPercentage === 100;
+        // All lessons done — but completion also requires every course assignment
+        // to have a GRADED submission from this user
+        const lessonsComplete = progressPercentage === 100;
+
+        let pendingAssignments: { id: string; title: string }[] = [];
+
+        if (lessonsComplete) {
+            const assignments = await prisma.assignment.findMany({
+                where: { courseId },
+                select: {
+                    id: true,
+                    title: true,
+                    submissions: {
+                        where: { userId, status: "GRADED" },
+                        select: { id: true },
+                    },
+                },
+            });
+
+            pendingAssignments = assignments
+                .filter((assignment) => assignment.submissions.length === 0)
+                .map((assignment) => ({ id: assignment.id, title: assignment.title }));
+        }
+
+        // Check if course is complete (lessons + graded assignments)
+        const isComplete = lessonsComplete && pendingAssignments.length === 0;
 
         // Update enrollment with progress and completion status
         await prisma.enrollment.updateMany({
@@ -372,6 +438,12 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
                 total: totalLessons,
                 percentage: progressPercentage,
                 isComplete,
+                ...(pendingAssignments.length > 0 && {
+                    pendingAssignments: {
+                        count: pendingAssignments.length,
+                        titles: pendingAssignments.map((assignment) => assignment.title),
+                    },
+                }),
             },
             ...(certificateGenerated && {
                 certificate: {

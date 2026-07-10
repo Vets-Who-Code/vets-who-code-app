@@ -14,7 +14,7 @@ const GuideCard = ({ g }: { g: GuideEntry }) => {
 
     return (
         <Link
-            href={`/career-guides/${g.code.toLowerCase()}`}
+            href={`/career-guides/${g.slug}`}
             className={clsx(
                 "tw-group tw-relative tw-flex tw-flex-col tw-gap-5 tw-border-t tw-border-l tw-border-cream/10 tw-bg-secondary tw-p-6 tw-transition-colors tw-duration-150",
                 "hover:tw-border-accent hover:tw-bg-[#003559]"
