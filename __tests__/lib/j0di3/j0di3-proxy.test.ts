@@ -241,7 +241,7 @@ describe("j0di3Proxy", () => {
             name: "Rate Limited",
             email: "rl@test.com",
             role: "STUDENT",
-            troopId: "troop-rate-limit-test",
+            troopId: "99999999-9999-4999-8999-999999999999",
             troopToken: "troop-token-rl",
         };
 
