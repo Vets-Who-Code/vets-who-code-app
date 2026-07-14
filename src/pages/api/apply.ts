@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { checkParams } from "./api-helpers";
 
 // Define the ParsedBody interface to type-check the request body
@@ -110,14 +111,33 @@ async function postToSlack(text: string): Promise<void> {
     );
 }
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(
+    req: NextApiRequest, 
+    res: NextApiResponse
+) {
+    if (req.method !== "POST") {
+        return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    if (
+        !enforceRateLimit(req, res, {
+            name: "apply",
+            maxRequests: 3,
+            windowMs: 10 * 60 * 1000 // 10 miniutes
+        })
+    ) {
+        return;
+    }
+
     try {
         const parsedBody = req.body as ParsedBody;
 
         const hasErrors = validateBody(parsedBody);
 
         if (hasErrors) {
-            return res.status(422).json({ error: "Missing or incorrect required property" });
+            return res
+            .status(422)
+            .json({ error: "Missing or incorrect required property" });
         }
 
         const text = buildSlackMessage(parsedBody);
@@ -126,6 +146,8 @@ export default async function handler(req: Request, res: Response) {
 
         return res.status(200).json({ message: "SUCCESS" });
     } catch (_err) {
-        return res.status(500).json({ message: "Failed to post to #apply channel" });
+        return res
+            .status(500)
+            .json({ message: "Failed to post to #apply channel" });
     }
 }

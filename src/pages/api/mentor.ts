@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Request, Response } from "express";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "./api-helpers";
 
 // Define the ParsedBody type
@@ -13,7 +13,7 @@ interface ParsedBody {
     "employer-restrictions": string;
 }
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const parsedBody = req.body as ParsedBody; // Cast to ensure body matches ParsedBody interface
         const requiredParams: (keyof ParsedBody)[] = [

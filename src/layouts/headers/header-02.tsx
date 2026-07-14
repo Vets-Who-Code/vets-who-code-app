@@ -1,5 +1,6 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
+import UserMenu from "@components/user-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
@@ -57,7 +58,8 @@ const Header = ({ shadow, fluid }: TProps) => {
                             className="tw-hidden xl:tw-block"
                         />
                         <Logo variant="dark" className="tw-max-w-[120px] sm:tw-max-w-[158px]" />
-                        <div className="tw-flex tw-items-center tw-justify-end">
+                        <div className="tw-flex tw-items-center tw-justify-end tw-gap-4">
+                            <UserMenu />
                             <BurgerButton
                                 className="tw-pl-5 xl:tw-hidden"
                                 color="dark"

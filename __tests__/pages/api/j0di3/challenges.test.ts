@@ -1,18 +1,18 @@
 vi.mock("@/lib/j0di3-proxy", () => ({
-    j0di3Proxy: vi.fn((_method: string, _path: string | Function) => vi.fn()),
+    j0di3Proxy: vi.fn((_method: string, _path: string | ((req: unknown) => string)) => vi.fn()),
 }));
 
 vi.mock("@/lib/rbac", () => ({
     requireAuth: vi.fn((handler) => handler),
 }));
 
-import { j0di3Proxy } from "@/lib/j0di3-proxy";
-
 describe("J0dI3 Challenges API routes", () => {
     beforeEach(() => {
         vi.resetModules();
         vi.mock("@/lib/j0di3-proxy", () => ({
-            j0di3Proxy: vi.fn((_method: string, _path: string | Function) => vi.fn()),
+            j0di3Proxy: vi.fn((_method: string, _path: string | ((req: unknown) => string)) =>
+                vi.fn()
+            ),
         }));
     });
 

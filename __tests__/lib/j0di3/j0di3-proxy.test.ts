@@ -20,7 +20,7 @@ import j0di3 from "@/lib/j0di3-client";
 import { j0di3Proxy } from "@/lib/j0di3-proxy";
 
 const mockJ0di3 = j0di3 as unknown as Mock;
-const mockIsAxiosError = axios.isAxiosError as Mock;
+const mockIsAxiosError = axios.isAxiosError as unknown as Mock;
 
 function createMockReqRes(overrides: Partial<NextApiRequest> = {}): {
     req: NextApiRequest;
@@ -35,7 +35,7 @@ function createMockReqRes(overrides: Partial<NextApiRequest> = {}): {
             name: "Test",
             email: "test@test.com",
             role: "STUDENT",
-            troopId: "troop-uuid-123",
+            troopId: "3f2504e0-4f89-41d3-9a0c-0305e82c3301",
             troopToken: "troop-token-abc",
         },
         ...overrides,
@@ -62,7 +62,7 @@ describe("j0di3Proxy", () => {
         expect(mockJ0di3).toHaveBeenCalledWith({
             method: "POST",
             url: "/api/v1/learning/explain",
-            data: { question: "What is React?", troop_id: "troop-uuid-123" },
+            data: { question: "What is React?", troop_id: "3f2504e0-4f89-41d3-9a0c-0305e82c3301" },
             params: undefined,
             headers: { "X-Troop-Token": "troop-token-abc" },
         });
@@ -81,7 +81,7 @@ describe("j0di3Proxy", () => {
             method: "GET",
             url: "/api/v1/challenges/recommended",
             data: undefined,
-            params: expect.objectContaining({ troop_id: "troop-uuid-123" }),
+            params: expect.objectContaining({ troop_id: "3f2504e0-4f89-41d3-9a0c-0305e82c3301" }),
             headers: { "X-Troop-Token": "troop-token-abc" },
         });
     });
@@ -153,6 +153,38 @@ describe("j0di3Proxy", () => {
         );
     });
 
+    it("returns 400 without calling upstream when troopId is malformed", async () => {
+        const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const { req, res } = createMockReqRes();
+        (req as any).user.troopId = "not-a-uuid";
+
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(400);
+        expect(res.json).toHaveBeenCalledWith({
+            error: "Invalid troop profile. Please sign out and sign back in.",
+        });
+        expect(mockJ0di3).not.toHaveBeenCalled();
+        consoleSpy.mockRestore();
+    });
+
+    it("logs the rejected troopId redacted, never the full value", async () => {
+        const consoleSpy = vi.spyOn(console, "warn").mockImplementation(() => {});
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const { req, res } = createMockReqRes();
+        (req as any).user.troopId = "bogus-troop-id-value";
+
+        await handler(req, res);
+
+        expect(consoleSpy).toHaveBeenCalledTimes(1);
+        const logged = String(consoleSpy.mock.calls[0][0]);
+        expect(logged).toContain("bogu");
+        expect(logged).toContain("length 20");
+        expect(logged).not.toContain("bogus-troop-id-value");
+        consoleSpy.mockRestore();
+    });
+
     it("returns 400 when user has troopId but no troopToken", async () => {
         const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
         const { req, res } = createMockReqRes();
@@ -198,5 +230,36 @@ describe("j0di3Proxy", () => {
         expect(res.status).toHaveBeenCalledWith(500);
         expect(res.json).toHaveBeenCalledWith({ error: "Internal server error" });
         consoleSpy.mockRestore();
+    });
+
+    it("returns 429 with Retry-After after 30 requests per minute for one troop", async () => {
+        mockJ0di3.mockResolvedValue({ data: { ok: true } });
+
+        const handler = j0di3Proxy("POST", "/api/v1/learning/explain");
+        const user = {
+            id: "user-rl",
+            name: "Rate Limited",
+            email: "rl@test.com",
+            role: "STUDENT",
+            troopId: "troop-rate-limit-test",
+            troopToken: "troop-token-rl",
+        };
+
+        for (let i = 0; i < 30; i++) {
+            const { req, res } = createMockReqRes({ user } as Partial<NextApiRequest>);
+            await handler(req, res);
+            expect(res.status).not.toHaveBeenCalledWith(429);
+        }
+        expect(mockJ0di3).toHaveBeenCalledTimes(30);
+
+        const { req, res } = createMockReqRes({ user } as Partial<NextApiRequest>);
+        await handler(req, res);
+
+        expect(res.status).toHaveBeenCalledWith(429);
+        expect(res.json).toHaveBeenCalledWith({
+            error: "Too many requests. Please try again later.",
+        });
+        expect(res.setHeader).toHaveBeenCalledWith("Retry-After", expect.any(Number));
+        expect(mockJ0di3).toHaveBeenCalledTimes(30);
     });
 });

@@ -1,9 +1,14 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { type AuthenticatedRequest, requireAuth, requireRole } from "@/lib/rbac";
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
+
+// J0dI3 troop IDs are UUIDs (see prisma/schema.prisma User.troopId). Accept any
+// UUID version rather than over-restricting to v4.
+const TROOP_ID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 interface ProxyOptions {
     injectTroopId?: boolean;
@@ -19,10 +24,30 @@ async function dispatch(
     const troopId = req.user!.troopId;
     const troopToken = req.user!.troopToken;
 
+    // 30 req/min per troop (falls back to user id, then client IP).
+    const rateKey = troopId ? `troop:${troopId}` : req.user?.id ? `user:${req.user.id}` : undefined;
+    const limited = !enforceRateLimit(req, res, {
+        name: "j0di3",
+        maxRequests: 30,
+        windowMs: 60 * 1000,
+        key: rateKey,
+    });
+    if (limited) return;
+
     if (injectTroopId && !troopId) {
         return res
             .status(400)
             .json({ error: "No J0dI3 troop profile linked. Please sign out and back in." });
+    }
+
+    if (injectTroopId && troopId && !TROOP_ID_PATTERN.test(troopId)) {
+        // Log redacted so the origin of the bad value can be investigated.
+        console.warn(
+            `[j0di3-proxy] Rejected malformed troopId: ${troopId.slice(0, 4)}… (length ${troopId.length})`
+        );
+        return res
+            .status(400)
+            .json({ error: "Invalid troop profile. Please sign out and sign back in." });
     }
 
     if (injectTroopId && !troopToken) {
