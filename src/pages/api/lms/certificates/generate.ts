@@ -1,6 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import { NextApiResponse } from "next";
-import { checkCertificateEligibility, generateCertificateNumber } from "@/lib/certificates";
+import { checkCertificateEligibility, issueCertificateWithUniqueNumber } from "@/lib/certificates";
 import { generateCertificateFilename, generateCertificatePDF } from "@/lib/pdf-certificate";
 import prisma from "@/lib/prisma";
 import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
@@ -96,73 +96,60 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
             return res.status(404).json({ error: "User, course, or enrollment not found" });
         }
 
-        // Generate certificate number
-        const certificateNumber = await generateCertificateNumber();
-
-        // Generate PDF
-        const pdfBytes = await generateCertificatePDF({
-            studentName: user.name || user.email,
-            courseName: course.title,
-            completionDate: enrollment.completedAt || new Date(),
-            certificateNumber,
-            estimatedHours: course.estimatedHours || undefined,
-        });
-
-        // Generate filename
-        const filename = generateCertificateFilename(
-            user.name || user.email,
-            course.title,
-            certificateNumber
-        );
-
-        // Upload to Cloudinary
-        const uploadResult = await new Promise<{ secure_url: string; public_id: string }>(
-            (resolve, reject) => {
-                const uploadStream = cloudinary.uploader.upload_stream(
-                    {
-                        folder: "certificates",
-                        public_id: filename.replace(".pdf", ""),
-                        resource_type: "raw",
-                        format: "pdf",
-                    },
-                    (error, result) => {
-                        if (error) {
-                            reject(error);
-                        } else {
-                            resolve(result as { secure_url: string; public_id: string });
-                        }
-                    }
-                );
-
-                uploadStream.end(Buffer.from(pdfBytes));
-            }
-        );
-
-        // Create certificate record in database
-        const certificate = await prisma.certificate.create({
-            data: {
-                userId,
-                courseId,
-                certificateUrl: uploadResult.secure_url,
+        // Allocate a unique certificate number, build the PDF with it, upload, and
+        // persist — retrying atomically if a concurrent issuance grabs the number.
+        // The DB insert is the last step so a collision never leaves an orphan row.
+        const certificate = await issueCertificateWithUniqueNumber(async (certificateNumber) => {
+            const pdfBytes = await generateCertificatePDF({
+                studentName: user.name || user.email,
+                courseName: course.title,
+                completionDate: enrollment.completedAt || new Date(),
                 certificateNumber,
-            },
-            include: {
-                user: {
-                    select: {
-                        id: true,
-                        name: true,
-                        email: true,
+                estimatedHours: course.estimatedHours || undefined,
+            });
+
+            const filename = generateCertificateFilename(
+                user.name || user.email,
+                course.title,
+                certificateNumber
+            );
+
+            const uploadResult = await new Promise<{ secure_url: string; public_id: string }>(
+                (resolve, reject) => {
+                    const uploadStream = cloudinary.uploader.upload_stream(
+                        {
+                            folder: "certificates",
+                            public_id: filename.replace(".pdf", ""),
+                            resource_type: "raw",
+                            format: "pdf",
+                        },
+                        (error, result) => {
+                            if (error) {
+                                reject(error);
+                            } else {
+                                resolve(result as { secure_url: string; public_id: string });
+                            }
+                        }
+                    );
+
+                    uploadStream.end(Buffer.from(pdfBytes));
+                }
+            );
+
+            return prisma.certificate.create({
+                data: {
+                    userId,
+                    courseId,
+                    certificateUrl: uploadResult.secure_url,
+                    certificateNumber,
+                },
+                include: {
+                    user: { select: { id: true, name: true, email: true } },
+                    course: {
+                        select: { id: true, title: true, difficulty: true, estimatedHours: true },
                     },
                 },
-                course: {
-                    select: {
-                        id: true,
-                        title: true,
-                        difficulty: true,
-                        estimatedHours: true,
-                    },
-                },
-            },
+            });
         });
 
         // Send certificate email to user
@@ -170,8 +157,8 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
             to: certificate.user.email || user.email,
             studentName: certificate.user.name || certificate.user.email || "Student",
             courseName: certificate.course.title,
-            certificateUrl: certificate.certificateUrl || uploadResult.secure_url,
-            certificateNumber: certificate.certificateNumber || certificateNumber,
+            certificateUrl: certificate.certificateUrl || "",
+            certificateNumber: certificate.certificateNumber || "",
             completionDate: enrollment.completedAt || new Date(),
         });
 

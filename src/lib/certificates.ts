@@ -26,6 +26,48 @@ export async function generateCertificateNumber(): Promise<string> {
     return `VWC-${year}-${sequence}`;
 }
 
+/** True when `error` is a Prisma unique-constraint violation (P2002) on `field`. */
+export function isUniqueViolation(error: unknown, field: string): boolean {
+    if (typeof error !== "object" || error === null) return false;
+    const e = error as { code?: string; meta?: { target?: unknown }; message?: string };
+    if (e.code !== "P2002") return false;
+    const target = e.meta?.target;
+    if (Array.isArray(target)) return target.includes(field);
+    if (typeof target === "string") return target.includes(field);
+    return typeof e.message === "string" && e.message.includes(field);
+}
+
+/**
+ * Allocate a unique certificate number and persist the row, retrying on a
+ * concurrent collision. `generateCertificateNumber` is count-based and therefore
+ * racy — two simultaneous issuances can compute the same number and one hits the
+ * `certificateNumber` unique constraint. Here we recompute and retry so the number
+ * (and the PDF built with it) always matches the stored row.
+ *
+ * `create` receives the freshly generated number, does any work bound to it
+ * (PDF, upload), and performs the DB insert — so a collision cleanly redoes that
+ * attempt rather than leaving an orphaned row.
+ */
+export async function issueCertificateWithUniqueNumber<T>(
+    create: (certificateNumber: string) => Promise<T>,
+    maxAttempts = 5
+): Promise<T> {
+    let lastError: unknown;
+    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+        const certificateNumber = await generateCertificateNumber();
+        try {
+            return await create(certificateNumber);
+        } catch (error) {
+            lastError = error;
+            if (isUniqueViolation(error, "certificateNumber") && attempt < maxAttempts) {
+                continue;
+            }
+            throw error;
+        }
+    }
+    throw lastError ?? new Error("Failed to allocate a unique certificate number");
+}
+
 /**
  * Check if a user has completed a course
  * Completion criteria:
