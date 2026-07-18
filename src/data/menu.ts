@@ -95,43 +95,9 @@ const navigation: NavigationItem[] = [
             },
         ],
     },
-    {
-        id: 10,
-        label: "My Cohort",
-        path: "#!",
-        requiresAuth: true,
-        submenu: [
-            {
-                id: 1001,
-                label: "Profile",
-                path: "/profile",
-            },
-        ],
-    },
-    {
-        id: 11,
-        label: "Train",
-        path: "#!",
-        requiresAuth: true,
-        submenu: [
-            {
-                id: 1101,
-                label: "Reps",
-                path: "/challenges",
-                status: "new",
-            },
-            {
-                id: 1102,
-                label: "Assessment",
-                path: "/assessment",
-            },
-            {
-                id: 1104,
-                label: "J0d!e",
-                path: "/jodie",
-            },
-        ],
-    },
+    // Signed-in destinations (Learn, Reps, Assessment, J0d!e, Profile) live in the
+    // user/avatar menu (see src/components/user-menu), not the global top nav —
+    // keeps the public nav lean and on one line.
     {
         id: 3,
         label: "Hire",
