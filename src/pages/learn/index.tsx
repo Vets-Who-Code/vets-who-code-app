@@ -29,10 +29,13 @@ const LearnIndexPage: PageWithLayout = ({ groups }) => (
                 <p className="tw-mb-2 tw-text-sm tw-font-semibold tw-uppercase tw-tracking-widest tw-text-gold">
                     The Hashflag Stack
                 </p>
-                <h1 className="tw-m-0 tw-font-heading tw-text-4xl md:tw-text-5xl">
+                {/* tw-text-cream is explicit (not inherited): the design system's global
+                    h1 color rule would otherwise override the parent's light color and
+                    render the heading dark navy on this navy hero. */}
+                <h1 className="tw-m-0 tw-font-heading tw-text-4xl tw-text-cream md:tw-text-5xl">
                     Learn by Building
                 </h1>
-                <p className="tw-mt-4 tw-max-w-2xl tw-text-lg tw-text-gray-300">
+                <p className="tw-mt-4 tw-max-w-2xl tw-text-lg tw-text-gray-100">
                     No videos to watch passively. Write every line by hand, run it live, and prove
                     it with tests — the way real engineers work.
                 </p>
