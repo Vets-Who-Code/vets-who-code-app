@@ -27,10 +27,8 @@ const Header = ({ shadow, fluid }: TProps) => {
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
     const { status } = useSession();
-    const filteredMenu = useMemo(
-        () => filterMenuByAuth(menu, status === "authenticated"),
-        [status]
-    );
+    const isAuthed = status === "authenticated";
+    const filteredMenu = useMemo(() => filterMenuByAuth(menu, isAuthed), [isAuthed]);
 
     useEffect(() => {
         setOffcanvas(false);
@@ -90,7 +88,15 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 hoverStyle="B"
                             />
                             <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
-                                <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
+                                <div
+                                    className={clsx(
+                                        "tw-hidden lg:tw-flex tw-items-center tw-gap-2",
+                                        // Signed-in nav is longer; drop this pill on desktop to keep
+                                        // the menu on one line. It's redundant with the cohort
+                                        // countdown already in the top bar. Social links stay.
+                                        isAuthed && "xl:tw-hidden"
+                                    )}
+                                >
                                     <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
                                         <span
                                             className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75"
