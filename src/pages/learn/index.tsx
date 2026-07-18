@@ -1,8 +1,9 @@
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import { ArrowRight } from "lucide-react";
-import type { GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
+import { requireAuthSSR } from "@/lib/auth-guards";
 import { getLessonsGroupedByModule, type LessonModuleGroup } from "@/lib/interactive-lessons";
 
 type PageProps = {
@@ -74,11 +75,17 @@ const LearnIndexPage: PageWithLayout = ({ groups }) => (
 
 LearnIndexPage.Layout = Layout01;
 
-export const getStaticProps: GetStaticProps<PageProps> = async () => ({
-    props: {
-        groups: getLessonsGroupedByModule(),
-        layout: { headerShadow: true, headerFluid: false, footerMode: "light" },
-    },
-});
+// Members-only: gate the catalog behind sign-in, matching the individual lessons.
+export const getServerSideProps: GetServerSideProps<PageProps> = async (ctx) => {
+    const auth = await requireAuthSSR(ctx);
+    if (!auth.ok) return auth.result;
+
+    return {
+        props: {
+            groups: getLessonsGroupedByModule(),
+            layout: { headerShadow: true, headerFluid: false, footerMode: "light" },
+        },
+    };
+};
 
 export default LearnIndexPage;

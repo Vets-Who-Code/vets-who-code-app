@@ -1,8 +1,9 @@
 import SEO from "@components/seo/page-seo";
 import InteractiveLessonWorkspace from "@containers/interactive-lesson";
 import Layout01 from "@layout/layout-01";
-import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import { getAdjacentLessons, getAllLessonSlugs, getLessonBySlug } from "@/lib/interactive-lessons";
+import type { GetServerSideProps, NextPage } from "next";
+import { requireAuthSSR } from "@/lib/auth-guards";
+import { getAdjacentLessons, getLessonBySlug } from "@/lib/interactive-lessons";
 import type { InteractiveLesson, LessonNavRef } from "@/lib/interactive-lessons/types";
 
 type PageProps = {
@@ -35,13 +36,13 @@ const LessonPage: PageWithLayout = ({ lesson, prev, next }) => (
 
 LessonPage.Layout = Layout01;
 
-export const getStaticPaths: GetStaticPaths = async () => ({
-    paths: getAllLessonSlugs().map((slug) => ({ params: { slug } })),
-    fallback: false,
-});
+// Server-rendered + auth-gated: lessons are a members-only benefit, so a signed-out
+// visitor is redirected to /login (progress is already auth-gated to match).
+export const getServerSideProps: GetServerSideProps<PageProps> = async (ctx) => {
+    const auth = await requireAuthSSR(ctx);
+    if (!auth.ok) return auth.result;
 
-export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
-    const slug = typeof params?.slug === "string" ? params.slug : "";
+    const slug = typeof ctx.params?.slug === "string" ? ctx.params.slug : "";
     const lesson = getLessonBySlug(slug);
     if (!lesson) return { notFound: true };
 
