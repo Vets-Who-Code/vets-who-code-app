@@ -19,24 +19,63 @@ interface UpdateProfileBody {
     deployments?: string[];
 }
 
-async function handleGetProfile(userId: string, res: NextApiResponse) {
+// Field allowlists. troopAccessToken and troopId (J0dI3 bearer credentials) are
+// NEVER selected, so they can never appear in a response.
+const PUBLIC_PROFILE_SELECT = {
+    id: true,
+    name: true,
+    image: true,
+    bio: true,
+    title: true,
+    location: true,
+    githubUrl: true,
+    linkedinUrl: true,
+    websiteUrl: true,
+    skills: true,
+    branch: true,
+    rank: true,
+    yearsServed: true,
+    mos: true,
+    deployments: true,
+    role: true,
+    skillLevel: true,
+    cohortId: true,
+    graduationDate: true,
+    createdAt: true,
+} as const;
+
+// Self/admin additionally see private-but-not-secret fields.
+const PRIVATE_PROFILE_SELECT = {
+    ...PUBLIC_PROFILE_SELECT,
+    email: true,
+    isActive: true,
+    assessmentScore: true,
+    assessmentDate: true,
+    updatedAt: true,
+} as const;
+
+type ProfileRow = { skills?: string | null; deployments?: string | null } & Record<string, unknown>;
+
+function parseJsonFields(user: ProfileRow) {
+    return {
+        ...user,
+        skills: user.skills ? JSON.parse(user.skills) : [],
+        deployments: user.deployments ? JSON.parse(user.deployments) : [],
+    };
+}
+
+async function handleGetProfile(userId: string, privileged: boolean, res: NextApiResponse) {
     try {
         const user = await prisma.user.findUnique({
             where: { id: userId },
+            select: privileged ? PRIVATE_PROFILE_SELECT : PUBLIC_PROFILE_SELECT,
         });
 
         if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
 
-        // Parse JSON strings back to arrays
-        const userData = {
-            ...user,
-            skills: user.skills ? JSON.parse(user.skills) : [],
-            deployments: user.deployments ? JSON.parse(user.deployments) : [],
-        };
-
-        return res.status(200).json(userData);
+        return res.status(200).json(parseJsonFields(user as ProfileRow));
     } catch (_error) {
         return res.status(500).json({ error: "Internal server error" });
     }
@@ -77,16 +116,11 @@ async function handleUpdateProfile(userId: string, body: UpdateProfileBody, res:
                 mos,
                 deployments: deployments ? JSON.stringify(deployments) : null,
             },
+            // The owner is updating their own profile — return the private set, never the token.
+            select: PRIVATE_PROFILE_SELECT,
         });
 
-        // Parse JSON strings back to arrays
-        const userData = {
-            ...updatedUser,
-            skills: updatedUser.skills ? JSON.parse(updatedUser.skills) : [],
-            deployments: updatedUser.deployments ? JSON.parse(updatedUser.deployments) : [],
-        };
-
-        return res.status(200).json(userData);
+        return res.status(200).json(parseJsonFields(updatedUser as ProfileRow));
     } catch (_error) {
         return res.status(500).json({ error: "Internal server error" });
     }
@@ -99,17 +133,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const userId = session.user.id;
+    const requesterId = session.user.id;
+    const isAdmin = session.user.role === "ADMIN";
 
     if (req.method === "GET") {
-        // Allow viewing another member's profile via ?userId=
-        const targetUserId = (req.query.userId as string) || userId;
-        return handleGetProfile(targetUserId, res);
+        // Viewing another member via ?userId= yields public fields only; self/admin see more.
+        const targetUserId = (req.query.userId as string) || requesterId;
+        const privileged = targetUserId === requesterId || isAdmin;
+        return handleGetProfile(targetUserId, privileged, res);
     }
 
     if (req.method === "PUT") {
-        // Only the owner can update their own profile
-        return handleUpdateProfile(userId, req.body, res);
+        // Only the owner can update their own profile.
+        return handleUpdateProfile(requesterId, req.body, res);
     }
 
     res.setHeader("Allow", ["GET", "PUT"]);
