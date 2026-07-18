@@ -60,6 +60,7 @@ model User {
   certificates  Certificate[]
   bookmarks     Bookmark[]
   notes         Note[]
+  interactiveProgress InteractiveProgress[]
 
   // J0dI3 AI backend
   troopId          String?      // J0dI3 troop UUID
@@ -270,6 +271,24 @@ model Progress {
   lesson     Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   
   @@unique([userId, lessonId])
+}
+
+// Interactive Lesson Progress - completion tracking for the /learn engine.
+// Lessons themselves are git content (src/data/interactive-lessons), keyed by slug;
+// this table stores only per-user completion, so there is no FK to a Lesson row.
+model InteractiveProgress {
+  id          String    @id @default(cuid())
+  userId      String
+  lessonSlug  String    // matches InteractiveLesson.slug in src/data/interactive-lessons
+  completed   Boolean   @default(false)
+  completedAt DateTime?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonSlug])
 }
 
 model Assignment {

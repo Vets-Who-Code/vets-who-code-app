@@ -3,6 +3,14 @@ import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 
+// Signed-in destinations live here (behind the avatar), not in the public top nav.
+const USER_NAV_LINKS = [
+    { label: "Learn", path: "/learn" },
+    { label: "Reps", path: "/challenges" },
+    { label: "Assessment", path: "/assessment" },
+    { label: "J0d!e", path: "/jodie" },
+];
+
 const UserMenu = () => {
     const { data: session, status } = useSession();
     const [open, setOpen] = useState(false);
@@ -90,6 +98,16 @@ const UserMenu = () => {
             </button>
             {open && (
                 <div className="tw-absolute tw-right-0 tw-top-full tw-z-[60] tw-mt-2 tw-w-44 tw-rounded-md tw-border tw-border-gray-200 tw-bg-white tw-py-1 tw-shadow-lg">
+                    {USER_NAV_LINKS.map((link) => (
+                        <Anchor
+                            key={link.path}
+                            path={link.path}
+                            className="tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-secondary hover:tw-bg-gray-50"
+                            onClick={() => setOpen(false)}
+                        >
+                            {link.label}
+                        </Anchor>
+                    ))}
                     <Anchor
                         path={`/profile/${user.id}`}
                         className="tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-secondary hover:tw-bg-gray-50"
@@ -97,6 +115,7 @@ const UserMenu = () => {
                     >
                         Profile
                     </Anchor>
+                    <div className="tw-my-1 tw-border-t tw-border-gray-100" />
                     <button
                         type="button"
                         onClick={handleLogout}
