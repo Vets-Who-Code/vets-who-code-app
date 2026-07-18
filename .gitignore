@@ -83,3 +83,7 @@ storybook-static
 CLAUDE.md
 AGENTS.md
 .cursorrules
+
+# Local SQLite dev database (never commit)
+prisma/dev.db
+*.db
