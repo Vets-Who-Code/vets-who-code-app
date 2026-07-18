@@ -136,13 +136,25 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
             return res.status(403).json({ error: "Access denied" });
         }
 
-        // Verify lesson exists
+        // Only active enrollments accept progress writes.
+        if (enrollment.status !== "ACTIVE") {
+            return res.status(400).json({ error: "Enrollment is not active" });
+        }
+
+        // Verify lesson exists AND belongs to this enrollment's course.
         const lesson = await prisma.lesson.findUnique({
             where: { id: lessonId },
+            include: { module: { select: { courseId: true } } },
         });
 
         if (!lesson) {
             return res.status(404).json({ error: "Lesson not found" });
+        }
+
+        if (lesson.module.courseId !== enrollment.courseId) {
+            return res
+                .status(400)
+                .json({ error: "Lesson does not belong to this enrollment's course" });
         }
 
         // Upsert progress record
