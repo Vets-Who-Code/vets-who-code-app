@@ -34,7 +34,8 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                 className
             )}
         >
-            <ul aria-label="Main Menu">
+            {/* nowrap keeps the nav on one row; the header frees the needed width. */}
+            <ul aria-label="Main Menu" className="tw-whitespace-nowrap">
                 {menu.map(({ id, label, path, submenu, megamenu }) => {
                     const hasSubmenu = !!submenu || !!megamenu;
                     return (
