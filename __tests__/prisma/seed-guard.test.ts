@@ -28,14 +28,12 @@ describe("assertSafeToSeed", () => {
         expect(() =>
             assertSafeToSeed({
                 DATABASE_URL: "postgresql://o:p@x.neon.tech/db",
-            } as NodeJS.ProcessEnv)
+            })
         ).toThrow(/Refusing to run the destructive seed/);
     });
 
     it("passes for a local URL", () => {
-        expect(() =>
-            assertSafeToSeed({ DATABASE_URL: "file:./dev.db" } as NodeJS.ProcessEnv)
-        ).not.toThrow();
+        expect(() => assertSafeToSeed({ DATABASE_URL: "file:./dev.db" })).not.toThrow();
     });
 
     it("honors the explicit override", () => {
@@ -43,7 +41,7 @@ describe("assertSafeToSeed", () => {
             assertSafeToSeed({
                 DATABASE_URL: "postgresql://o:p@x.neon.tech/db",
                 ALLOW_DESTRUCTIVE_SEED: "true",
-            } as NodeJS.ProcessEnv)
+            })
         ).not.toThrow();
     });
 });

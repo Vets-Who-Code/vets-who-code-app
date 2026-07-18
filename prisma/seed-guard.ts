@@ -14,7 +14,9 @@ export function isSafeSeedTarget(url: string | undefined): boolean {
     return host === "localhost" || host === "127.0.0.1" || host === "::1";
 }
 
-export function assertSafeToSeed(env: NodeJS.ProcessEnv = process.env): void {
+export function assertSafeToSeed(
+    env: Record<string, string | undefined> = process.env
+): void {
     if (env.ALLOW_DESTRUCTIVE_SEED === "true") return;
     if (!isSafeSeedTarget(env.DATABASE_URL)) {
         throw new Error(
