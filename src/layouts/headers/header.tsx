@@ -27,10 +27,8 @@ const Header = ({ shadow, fluid }: TProps) => {
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
     const { status } = useSession();
-    const filteredMenu = useMemo(
-        () => filterMenuByAuth(menu, status === "authenticated"),
-        [status]
-    );
+    const isAuthed = status === "authenticated";
+    const filteredMenu = useMemo(() => filterMenuByAuth(menu, isAuthed), [isAuthed]);
 
     useEffect(() => {
         setOffcanvas(false);
@@ -90,7 +88,15 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 hoverStyle="B"
                             />
                             <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
-                                <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
+                                <div
+                                    className={clsx(
+                                        "tw-hidden lg:tw-flex tw-items-center tw-gap-2",
+                                        // When signed in, the menu gains items and needs the room —
+                                        // drop this secondary indicator on desktop (the countdown in
+                                        // the top bar already conveys the active cohort).
+                                        isAuthed && "xl:tw-hidden"
+                                    )}
+                                >
                                     <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
                                         <span
                                             className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75"
@@ -112,7 +118,14 @@ const Header = ({ shadow, fluid }: TProps) => {
                                         2026 Cohort Active
                                     </span>
                                 </div>
-                                <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                <Social01
+                                    className={clsx(
+                                        "tw-hidden md:tw-flex md:tw-items-center",
+                                        // Signed-in desktop hides social here to fit the longer menu on
+                                        // one line; the footer still carries the social links.
+                                        isAuthed && "xl:tw-hidden"
+                                    )}
+                                />
                                 <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"

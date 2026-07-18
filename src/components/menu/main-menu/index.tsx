@@ -34,14 +34,16 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                 className
             )}
         >
-            <ul aria-label="Main Menu">
+            {/* nowrap keeps the nav on a single row — with a long (logged-in) menu it
+                would otherwise wrap; the header frees space by hiding secondary items. */}
+            <ul aria-label="Main Menu" className="tw-whitespace-nowrap">
                 {menu.map(({ id, label, path, submenu, megamenu }) => {
                     const hasSubmenu = !!submenu || !!megamenu;
                     return (
                         <li
                             key={id}
                             className={clsx(
-                                "tw-group tw-inline-block tw-px-2.5 tw-py-[29px] 2xl:tw-px-[15px]",
+                                "tw-group tw-inline-block tw-px-2 tw-py-[29px] 2xl:tw-px-[15px]",
                                 submenu && "tw-relative"
                             )}
                             role="none"
