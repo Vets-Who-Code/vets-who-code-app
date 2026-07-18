@@ -14,7 +14,8 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
 
     res.status(200).json({
         message: "Success! You have admin access.",
-        user: req.user,
+        // Sanitized identity only — req.user carries the troop access token.
+        user: { id: req.user?.id, role: req.user?.role },
         timestamp: new Date().toISOString(),
     });
 }
