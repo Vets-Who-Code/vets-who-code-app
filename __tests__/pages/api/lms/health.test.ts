@@ -31,12 +31,17 @@ describe("GET /api/lms/health", () => {
         await handler({ method: "GET" } as never, res as never);
 
         expect(res.statusCode).toBe(200);
+        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual(["database", "status", "timestamp"]);
+        expect(res.body).toMatchObject({ status: "healthy", database: "connected" });
+
         const serialized = JSON.stringify(res.body);
-        // Must NOT leak any counts/sample/schema fields.
+        // Defense-in-depth: ensure common operational fields don't appear anywhere in the payload.
         for (const leak of [
             "users",
             "courses",
             "cohorts",
+            "modules",
+            "lessons",
             "stats",
             "sampleData",
             "features",
@@ -44,8 +49,6 @@ describe("GET /api/lms/health", () => {
         ]) {
             expect(serialized).not.toContain(leak);
         }
-        expect((res.body as { database?: string }).database).toBe("connected");
-    });
 
     it("returns 503 with no error details when the DB is down", async () => {
         queryRaw.mockRejectedValue(new Error("connect ECONNREFUSED 10.0.0.1:5432"));
