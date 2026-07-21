@@ -144,7 +144,7 @@ async function handlePost(req: AuthenticatedRequest, res: NextApiResponse) {
         // Verify lesson exists AND belongs to this enrollment's course.
         const lesson = await prisma.lesson.findUnique({
             where: { id: lessonId },
-            include: { module: { select: { courseId: true } } },
+            select: { id: true, module: { select: { courseId: true } } },
         });
 
         if (!lesson) {
