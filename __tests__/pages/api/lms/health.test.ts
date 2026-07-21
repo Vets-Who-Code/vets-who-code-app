@@ -54,6 +54,7 @@ describe("GET /api/lms/health", () => {
         await handler({ method: "GET" } as never, res as never);
 
         expect(res.statusCode).toBe(503);
+        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual(["database", "status", "timestamp"]);
+        expect(res.body).toMatchObject({ status: "unhealthy", database: "disconnected" });
         expect(JSON.stringify(res.body)).not.toContain("ECONNREFUSED");
-    });
 });
