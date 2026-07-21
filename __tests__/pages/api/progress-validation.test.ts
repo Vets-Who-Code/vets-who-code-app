@@ -108,6 +108,7 @@ describe("GET /api/courses unpublished leak", () => {
         db.course.findMany.mockResolvedValue([]);
         db.course.count.mockResolvedValue(0);
         db.lesson.groupBy.mockResolvedValue([]);
+        db.module.findMany.mockResolvedValue([]);
     });
 
     it("forces isPublished=true for a student even with ?isPublished=false", async () => {
