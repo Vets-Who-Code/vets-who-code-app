@@ -63,6 +63,21 @@ const CareerGuideDetailContainer = ({ detail }: Props) => (
         <TrainingSection training={detail.training} certs={detail.certs} />
         <SystemsTable systems={detail.systems} />
         <CtaBand code={detail.code} />
+        {detail.training.generatedAt && (
+            <footer className="tw-border-t tw-border-cream/10 tw-bg-secondary tw-py-8">
+                <div className="tw-container">
+                    <p className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                        Career guide data last generated:{" "}
+                        {new Date(detail.training.generatedAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            timeZone: "UTC",
+                        })}
+                    </p>
+                </div>
+            </footer>
+        )}
     </>
 );
 
