@@ -21,6 +21,8 @@ export type Family =
 
 export interface GuideEntry {
     code: string;
+    /** Full training-pipeline key (lowercased); unique even when codes collide across branches */
+    slug: string;
     title: string;
     branch: Branch;
     rank: Rank;

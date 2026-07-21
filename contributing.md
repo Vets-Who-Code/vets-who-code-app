@@ -102,8 +102,19 @@ Include a clear title, description, and why the feature would be useful.
 
 1. Create a new branch for your work:
 ```bash
-git checkout -b feature/your-feature-name
+git checkout -b <label>/<github-username>/<issue-number>-<short-description>
 ```
+
+Example:
+```bash
+git checkout -b documentation/msgem0523/901-add-contributing-guidelines
+```
+
+Where:
+  - **`label`** = the issue label/category (see [Allowed Types](#allowed-types))
+  - **`github-username`** = your GitHub username
+  - **`issue-number`** = the GitHub issue number
+  - **`short-description`** = a brief description of the work being completed
 
 2. Make your changes
 When making changes:

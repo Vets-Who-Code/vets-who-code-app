@@ -3,7 +3,7 @@
 
 import type { Dispatch, SetStateAction } from "react";
 import { getStartOfDay } from "@/utils/date";
-import { ICourse, IEvent, SectionType } from "./types";
+import type { IEvent, SectionType } from "./types";
 
 /**
  * Normalizes an array of objects keyed off an identifier,
@@ -84,16 +84,6 @@ export const unslugify = (text: string): string => {
 };
 
 /**
- * Checks if an object is empty (i.e., has no own properties)
- *
- * @param object - The object to check
- * @returns True if object is empty, otherwise False
- */
-export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
-    return Object.keys(object).length === 0;
-};
-
-/**
  * Capitalizes only the first letter of a string and leaves the rest in lowercase
  *
  * @param text - The string to capitalize
@@ -101,48 +91,6 @@ export const isObjectEmpty = (object: { [key: string]: unknown }): boolean => {
  */
 export const toCapitalize = (text: string): string => {
     return text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase();
-};
-
-/**
- * Normalizes a path by removing the leading slash in a string, if present.
- *
- * @param path - The string to normalize
- * @returns The normalized string
- */
-export const normalizePath = (path: string): string => {
-    return path.startsWith("/") ? path.slice(1) : path;
-};
-
-/**
- * Sorts courses based on the provided sort value and updates the state
- *      A sort value of "latest" sorts the courses by their published date in descending order
- *      Any other sort value resets the courses to the default order
- *
- * @param sortValue The string to sort by
- * @param courses The collection of courses
- * @param defaultCourses A collection of default courses
- * @param setSort The function to update the state with the sorted courses
- */
-export const courseSorting = (
-    sortValue: string,
-    courses: ICourse[],
-    defaultCourses: ICourse[],
-    setSort: Dispatch<SetStateAction<ICourse[]>>
-): void => {
-    const coursesCopy = [...courses];
-
-    switch (sortValue) {
-        case "latest": {
-            const sorted = coursesCopy.sort((a, b) =>
-                new Date(a.published_at).getTime() > new Date(b.published_at).getTime() ? -1 : 1
-            );
-            setSort(sorted);
-            break;
-        }
-        default: {
-            setSort(defaultCourses);
-        }
-    }
 };
 
 /**

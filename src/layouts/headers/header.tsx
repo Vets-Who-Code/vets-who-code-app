@@ -1,11 +1,14 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
 import Social01 from "@components/socials/social-01";
+import UserMenu from "@components/user-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
+import siteConfig from "@data/site-config";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
+import { getCohortStartDate, isCohortUpcoming } from "@utils/cohort";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -26,6 +29,8 @@ const Header = ({ shadow, fluid }: TProps) => {
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
     const { status } = useSession();
+    const cohortStartDate = getCohortStartDate(siteConfig.cohortStartDate);
+    const cohortUpcoming = isCohortUpcoming(cohortStartDate);
     const filteredMenu = useMemo(
         () => filterMenuByAuth(menu, status === "authenticated"),
         [status]
@@ -45,13 +50,18 @@ const Header = ({ shadow, fluid }: TProps) => {
                     )}
                 >
                     <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
-                        <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
-                            New Cohort Starts:
-                        </p>
-                        <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
-                            <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
-                            <CountdownTimer targetDate="2026/04/07" />
-                        </div>
+                        {/* Hidden once the cohort date passes (no dead 0:0:0:0 timer). */}
+                        {cohortUpcoming && (
+                            <>
+                                <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
+                                    New Cohort Starts:
+                                </p>
+                                <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
+                                    <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
+                                    <CountdownTimer targetDate={cohortStartDate || ""} />
+                                </div>
+                            </>
+                        )}
                         <Button
                             size="sm"
                             path="/donate"
@@ -112,6 +122,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                     </span>
                                 </div>
                                 <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"

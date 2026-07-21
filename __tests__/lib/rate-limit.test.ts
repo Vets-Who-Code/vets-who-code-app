@@ -1,5 +1,5 @@
-import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
-import type { NextApiRequest } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { checkRateLimit, enforceRateLimit, getClientIp } from "@/lib/rate-limit";
 
 describe("rate-limit", () => {
     describe("checkRateLimit", () => {
@@ -81,6 +81,85 @@ describe("rate-limit", () => {
             } as unknown as NextApiRequest;
 
             expect(getClientIp(req)).toBe("unknown");
+        });
+    });
+
+    describe("enforceRateLimit", () => {
+        function createMockReqRes(ip: string): { req: NextApiRequest; res: NextApiResponse } {
+            const req = {
+                headers: { "x-forwarded-for": ip },
+                socket: { remoteAddress: ip },
+            } as unknown as NextApiRequest;
+            const res = {
+                status: vi.fn().mockReturnThis(),
+                json: vi.fn().mockReturnThis(),
+                setHeader: vi.fn().mockReturnThis(),
+            } as unknown as NextApiResponse;
+            return { req, res };
+        }
+
+        it("should allow requests under the limit and set rate limit headers", () => {
+            const { req, res } = createMockReqRes("20.0.0.1");
+
+            const allowed = enforceRateLimit(req, res, {
+                name: "test-allow",
+                maxRequests: 2,
+                windowMs: 60000,
+            });
+
+            expect(allowed).toBe(true);
+            expect(res.status).not.toHaveBeenCalled();
+            expect(res.setHeader).toHaveBeenCalledWith("X-RateLimit-Remaining", 1);
+        });
+
+        it("should send 429 with Retry-After when the limit is exceeded", () => {
+            const options = { name: "test-block", maxRequests: 2, windowMs: 60000 };
+            for (let i = 0; i < 2; i++) {
+                const { req, res } = createMockReqRes("20.0.0.2");
+                enforceRateLimit(req, res, options);
+            }
+
+            const { req, res } = createMockReqRes("20.0.0.2");
+            const allowed = enforceRateLimit(req, res, options);
+
+            expect(allowed).toBe(false);
+            expect(res.status).toHaveBeenCalledWith(429);
+            expect(res.json).toHaveBeenCalledWith({
+                error: "Too many requests. Please try again later.",
+            });
+            expect(res.setHeader).toHaveBeenCalledWith("Retry-After", expect.any(Number));
+        });
+
+        it("should not share buckets between different names", () => {
+            const ip = "20.0.0.3";
+            const first = createMockReqRes(ip);
+            enforceRateLimit(first.req, first.res, {
+                name: "endpoint-a",
+                maxRequests: 1,
+                windowMs: 60000,
+            });
+
+            const { req, res } = createMockReqRes(ip);
+            const allowed = enforceRateLimit(req, res, {
+                name: "endpoint-b",
+                maxRequests: 1,
+                windowMs: 60000,
+            });
+
+            expect(allowed).toBe(true);
+        });
+
+        it("should use the provided key instead of the client IP", () => {
+            const options = { name: "test-key", maxRequests: 1, windowMs: 60000 };
+            const first = createMockReqRes("20.0.0.4");
+            enforceRateLimit(first.req, first.res, { ...options, key: "troop:abc" });
+
+            // Different IP, same key — still blocked.
+            const { req, res } = createMockReqRes("20.0.0.5");
+            const allowed = enforceRateLimit(req, res, { ...options, key: "troop:abc" });
+
+            expect(allowed).toBe(false);
+            expect(res.status).toHaveBeenCalledWith(429);
         });
     });
 });

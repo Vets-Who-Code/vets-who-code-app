@@ -64,9 +64,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({ error: "Method not allowed" });
     }
 
+    let rawBody = "";
     try {
         // Get raw body for signature verification
-        const rawBody = await getRawBody(req);
+        rawBody = await getRawBody(req);
         const hmacHeader = req.headers["x-shopify-hmac-sha256"] as string;
 
         // Verify webhook signature
@@ -153,13 +154,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             orderId: createdOrder.id,
         });
     } catch (error) {
-        console.error("Error processing Shopify webhook:", error);
+        // A duplicate delivery that races past the existing-order check hits the
+        // unique constraint on shopifyId — that's an idempotent success, not a failure.
+        if (error && typeof error === "object" && (error as { code?: string }).code === "P2002") {
+            return res.status(200).json({ received: true, existing: true });
+        }
 
-        // Still return 200 to prevent Shopify from retrying
-        // Log the error for manual investigation
-        return res.status(200).json({
-            received: true,
-            error: "Internal error logged",
+        // Real failure (e.g. the DB write): log with context and return 5xx so Shopify
+        // retries. Previously this returned 200 and the order silently never reached Neon.
+        console.error("[shopify-webhook] order create failed:", {
+            shopifyId: (() => {
+                try {
+                    return JSON.parse(rawBody)?.id;
+                } catch {
+                    return undefined;
+                }
+            })(),
+            error: error instanceof Error ? error.message : String(error),
         });
+        return res.status(500).json({ received: false, error: "Order processing failed" });
     }
 }
