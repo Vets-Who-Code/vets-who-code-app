@@ -11,6 +11,7 @@ const db = {
     lesson: { findUnique: vi.fn(), count: vi.fn(), groupBy: vi.fn() },
     progress: { upsert: vi.fn(), count: vi.fn() },
     course: { findMany: vi.fn(), count: vi.fn() },
+    module: { findMany: vi.fn() },
 };
 vi.mock("@/lib/prisma", () => ({ default: db }));
 
