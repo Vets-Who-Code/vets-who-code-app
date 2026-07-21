@@ -114,9 +114,10 @@ describe("GET /api/courses unpublished leak", () => {
     it("forces isPublished=true for a student even with ?isPublished=false", async () => {
         const { default: handler } = await import("@/pages/api/courses");
         const req = { method: "GET", query: { isPublished: "false" }, headers: {} } as never;
-        await handler(req, makeRes() as never);
+        const res = makeRes();
+        await handler(req, res as never);
+        expect(res.statusCode).toBe(200);
         expect(db.course.findMany.mock.calls[0][0].where.isPublished).toBe(true);
-    });
 
     it("lets an admin filter unpublished courses", async () => {
         role = "ADMIN";
