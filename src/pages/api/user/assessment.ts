@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { getSession } from "next-auth/react";
+import { NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
+import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
 
 interface SaveAssessmentBody {
     score: number;
@@ -75,23 +75,10 @@ async function handleSaveAssessment(
     }
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await getSession({ req });
-
-    // Support dev mode: check for dev-user-id header
-    const devUserId = req.headers["x-dev-user-id"] as string;
-
-    let userId: string;
-
-    if (devUserId) {
-        // Dev mode - use the provided dev user ID
-        userId = devUserId;
-    } else if (session?.user?.id) {
-        // Production mode - use NextAuth session
-        userId = session.user.id;
-    } else {
-        return res.status(401).json({ error: "Unauthorized" });
-    }
+// Identity comes from the authenticated session ONLY. The old x-dev-user-id
+// header bypass let any caller read/write any user's assessment in production.
+export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
+    const userId = req.user?.id as string;
 
     if (req.method === "GET") {
         return handleGetAssessment(userId, res);
@@ -103,4 +90,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     res.setHeader("Allow", ["GET", "POST"]);
     return res.status(405).json({ error: "Method not allowed" });
-}
+});
