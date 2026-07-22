@@ -30,7 +30,17 @@ export default function JobMatch() {
             });
             if (!res.ok) {
                 const errData = await res.json().catch(() => ({}));
-                throw new Error(errData.error || "Failed to load matches");
+                // Backend errors come in two shapes:
+                //   { error: "string" }                       — generic proxy errors
+                //   { error: { code, message, request_id } }  — structured product errors (e.g. 503 SERVICE_UNAVAILABLE)
+                // Read the structured message first so intentional product copy is shown verbatim.
+                const message =
+                    (errData?.error &&
+                        typeof errData.error === "object" &&
+                        errData.error.message) ||
+                    (typeof errData?.error === "string" && errData.error) ||
+                    "Failed to load matches";
+                throw new Error(message);
             }
             const body = (await res.json()) as MatchResponse;
             const list = Array.isArray(body.matched_jobs) ? body.matched_jobs : [];
