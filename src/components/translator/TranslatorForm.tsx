@@ -784,11 +784,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                 </Button>
             </div>
 
-            <p className="tw-mt-3 tw-text-xs tw-text-gray-500">
-                <i className="fas fa-lock tw-mr-1.5" aria-hidden={true} />
-                Your information is processed securely. Personal details (names, SSNs, contact info)
-                are automatically redacted before being sent to our AI service.
-            </p>
+<p className="tw-mt-3 tw-text-xs tw-text-gray-500">
+    <i className="fas fa-lock tw-mr-1.5" aria-hidden={true} />
+    Your information is processed securely. Please do not include personal details (names, SSNs, contact info) in the text you submit.
+</p>
 
             {error && <Feedback state="error">{error}</Feedback>}
         </form>
