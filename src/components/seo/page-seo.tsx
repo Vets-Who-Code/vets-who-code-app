@@ -1,6 +1,6 @@
 import siteConfig from "@data/site-config";
+import { useRouter } from "next/router";
 import { ArticleJsonLd, CourseJsonLd, NextSeo, NextSeoProps } from "next-seo";
-import { useEffect, useState } from "react";
 
 interface SeoProps extends NextSeoProps {
     template?: string;
@@ -28,29 +28,28 @@ const PageSeo = ({
     image,
     instructor,
 }: SeoProps) => {
-    const [href, setHref] = useState("");
-    useEffect(() => {
-        setHref(window.location.href);
-    }, []);
+    // Built from the router, not window.location in an effect — scrapers don't
+    // run JS, so the effect version left og:url empty and every share fell back
+    // to the site-wide canonical (the homepage).
+    const { asPath } = useRouter();
+    // asPath can be absent when the router is mocked or not yet mounted; fall
+    // back to the bare site URL rather than rendering "undefined" into og:url.
+    const path = asPath?.split(/[?#]/)[0] ?? "";
+    const href = `${siteConfig.url}${path === "/" ? "" : path}`;
 
-    const articleMeta = jsonLdType === "article" && {
-        type: "article",
-        ...article,
-        images: [
-            {
-                url: image as string,
-                width: 1230,
-                height: 630,
-                alt: title,
-            },
-            {
-                url: image as string,
-                width: 1230,
-                height: 630,
-                alt: title,
-            },
-        ],
-    };
+    const articleMeta = jsonLdType === "article" &&
+        image && {
+            type: "article",
+            ...article,
+            images: [
+                {
+                    url: image,
+                    width: 1200,
+                    height: 630,
+                    alt: title,
+                },
+            ],
+        };
 
     return (
         <>
@@ -60,6 +59,7 @@ const PageSeo = ({
                     template ? `${title ?? ""} - ${template}` : `%s - ${siteConfig.titleTemplate}`
                 }
                 description={description}
+                canonical={href}
                 openGraph={{
                     url: href,
                     title,
