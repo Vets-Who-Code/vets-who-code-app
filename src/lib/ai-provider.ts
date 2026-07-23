@@ -24,8 +24,8 @@ function initializeProviders(): ProviderConfig[] {
         });
         providers.push({
             name: "gemini",
-            model: "gemini-2.0-flash",
-            instance: google("gemini-2.0-flash"),
+            model: "gemini-3.5-flash-lite",
+            instance: google("gemini-3.5-flash-lite"),
         });
     }
 
