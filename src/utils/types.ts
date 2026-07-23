@@ -239,6 +239,8 @@ export interface IBlog {
     slug: string;
     path: string;
     postedAt: string;
+    /** Raw ISO 8601 timestamp from front-matter; `postedAt` is display-formatted. */
+    postedAtISO?: string;
     image: ImageType;
     category: BlogMetaType;
     tags: BlogMetaType[];
