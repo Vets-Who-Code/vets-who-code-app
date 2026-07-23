@@ -18,11 +18,22 @@ const RED = "#c5203e";
 const CREAM = "#EEEDE9";
 const GOLD = "#FDB330";
 
+const NAVY_LIFT = "#0f2d5c"; // radial highlight so the field isn't flat
+
 const FONT_DIR = "/fonts/gotham";
 const SITE_URL = "https://vetswhocode.io";
-// Fixed label. Deliberately not a query param: nothing sets one, and every
+// Fixed labels. Deliberately not query params: nothing sets one, and every
 // attacker-controlled string drawn on first-party branding is a liability.
-const EYEBROW = "vetswhocode.io";
+const EYEBROW = "Software Engineering Accelerator";
+const DOMAIN = "vetswhocode.io";
+
+// The wordmark ships as navy type on transparency, which disappears on a navy
+// field. e_colorize repaints it cream; f_png because satori decodes PNG/JPEG,
+// and f_auto would hand it a webp.
+const LOGO_URL =
+    "https://res.cloudinary.com/vetswhocode/image/upload/e_colorize:100,co_rgb:EEEDE9,f_png/v1627489505/VWC_Logo_Horizontal_gsxn3h.png";
+const LOGO_W = 300;
+const LOGO_H = 75; // 426x107 native, kept to ratio
 
 /**
  * Fonts are fetched over HTTP because the edge runtime has no filesystem. Only
@@ -44,6 +55,24 @@ const fontOrigin = (requestOrigin: string) => {
     }
 };
 
+/**
+ * Inline the wordmark as a data URI. Satori would happily fetch the URL itself,
+ * but then a Cloudinary hiccup takes the whole card down; resolving it here lets
+ * the card fall back to a type-only lockup instead of 500ing.
+ */
+const loadLogo = async (): Promise<string | null> => {
+    try {
+        const res = await fetch(LOGO_URL);
+        if (!res.ok) return null;
+        const bytes = new Uint8Array(await res.arrayBuffer());
+        let binary = "";
+        for (const byte of bytes) binary += String.fromCharCode(byte);
+        return `data:image/png;base64,${btoa(binary)}`;
+    } catch {
+        return null;
+    }
+};
+
 const loadFont = async (origin: string, file: string) => {
     const res = await fetch(`${origin}${FONT_DIR}/${file}`);
     // arrayBuffer() happily returns an HTML 404 body. Satori then fails *after*
@@ -59,9 +88,10 @@ const handler = async (req: Request) => {
     const title = cardTitle(searchParams.get("title"));
     const assetOrigin = fontOrigin(origin);
 
-    const [black, medium] = await Promise.all([
+    const [black, medium, logo] = await Promise.all([
         loadFont(assetOrigin, "GothamPro-Black.ttf"),
         loadFont(assetOrigin, "GothamPro-Medium.ttf"),
+        loadLogo(),
     ]);
 
     return new ImageResponse(
@@ -71,57 +101,100 @@ const handler = async (req: Request) => {
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "space-between",
                 backgroundColor: NAVY,
-                padding: "64px 72px",
+                backgroundImage: `radial-gradient(circle at 78% 18%, ${NAVY_LIFT} 0%, ${NAVY} 58%)`,
             }}
         >
-            {/* Wordmark with the red bar that fronts the brand's headings */}
-            <div style={{ display: "flex", alignItems: "center" }}>
-                <div style={{ width: 10, height: 44, backgroundColor: RED }} />
-                <div
-                    style={{
-                        marginLeft: 20,
-                        fontFamily: "Gotham",
-                        fontWeight: 900,
-                        fontSize: 30,
-                        letterSpacing: "0.06em",
-                        color: CREAM,
-                    }}
-                >
-                    VETS WHO CODE
-                </div>
-            </div>
+            {/* Full-bleed accent rule: red into gold, the two brand accents */}
+            <div
+                style={{
+                    display: "flex",
+                    height: 10,
+                    width: "100%",
+                    backgroundImage: `linear-gradient(90deg, ${RED} 0%, #d9542f 45%, ${GOLD} 100%)`,
+                }}
+            />
 
             <div
                 style={{
                     display: "flex",
-                    fontFamily: "Gotham",
-                    fontWeight: 900,
-                    fontSize: title.length > 48 ? 68 : 84,
-                    lineHeight: 1.08,
-                    letterSpacing: "-0.02em",
-                    color: CREAM,
-                    textTransform: "uppercase",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    flex: 1,
+                    padding: "58px 72px 62px 72px",
                 }}
             >
-                {title}
-            </div>
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    {logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={logo} width={LOGO_W} height={LOGO_H} alt="Vets Who Code" />
+                    ) : (
+                        <div
+                            style={{
+                                display: "flex",
+                                fontFamily: "Gotham",
+                                fontWeight: 900,
+                                fontSize: 40,
+                                letterSpacing: "-0.01em",
+                                color: CREAM,
+                            }}
+                        >
+                            VetsWhoCode
+                        </div>
+                    )}
+                    <div
+                        style={{
+                            marginTop: 22,
+                            fontFamily: "Gotham",
+                            fontWeight: 500,
+                            fontSize: 21,
+                            letterSpacing: "0.16em",
+                            color: GOLD,
+                            textTransform: "uppercase",
+                        }}
+                    >
+                        {EYEBROW}
+                    </div>
+                </div>
 
-            <div style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ width: 96, height: 4, backgroundColor: GOLD }} />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                    <div
+                        style={{
+                            display: "flex",
+                            fontFamily: "Gotham",
+                            fontWeight: 900,
+                            fontSize: title.length > 48 ? 66 : 82,
+                            lineHeight: 1.06,
+                            letterSpacing: "-0.02em",
+                            color: CREAM,
+                            textTransform: "uppercase",
+                        }}
+                    >
+                        {title}
+                    </div>
+                    <div
+                        style={{
+                            display: "flex",
+                            marginTop: 26,
+                            width: 110,
+                            height: 6,
+                            backgroundColor: RED,
+                        }}
+                    />
+                </div>
+
                 <div
                     style={{
-                        marginTop: 20,
+                        display: "flex",
                         fontFamily: "Gotham",
                         fontWeight: 500,
-                        fontSize: 24,
+                        fontSize: 23,
                         letterSpacing: "0.1em",
-                        color: "rgba(238, 237, 233, 0.65)",
+                        color: GOLD,
                         textTransform: "uppercase",
                     }}
                 >
-                    {EYEBROW}
+                    {DOMAIN}
                 </div>
             </div>
         </div>,
