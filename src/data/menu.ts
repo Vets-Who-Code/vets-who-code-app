@@ -21,7 +21,9 @@ interface SubMenuItem extends MenuItem {
     megamenu?: MegaMenuColumn[];
 }
 
-type NavigationItem = SubMenuItem | MenuItem;
+// Not a union with MenuItem — submenu/megamenu are already optional, so the
+// union only hid those fields from callers.
+type NavigationItem = SubMenuItem;
 
 const navigation: NavigationItem[] = [
     {
