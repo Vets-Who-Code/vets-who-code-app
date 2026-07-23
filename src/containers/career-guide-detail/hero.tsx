@@ -171,7 +171,7 @@ const Hero = ({ detail }: Props) => {
                         value={detail.stats.aceCredit !== "—" ? "ACE" : "—"}
                         sub={
                             detail.stats.aceCredit !== "—"
-                                ? detail.stats.aceCredit
+                                ? `${detail.stats.aceCredit} (estimated)`
                                 : "no recommendation"
                         }
                     />

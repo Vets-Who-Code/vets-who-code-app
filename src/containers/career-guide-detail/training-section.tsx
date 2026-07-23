@@ -66,7 +66,7 @@ const TrainingSection = ({ training, certs }: Props) => (
                     </div>
                     {training.ace_credits && (
                         <p className="tw-font-body tw-text-[13px] tw-leading-[1.55] tw-text-[#6C757D]">
-                            {training.ace_credits}
+                            {training.ace_credits} (estimated)
                         </p>
                     )}
                 </div>

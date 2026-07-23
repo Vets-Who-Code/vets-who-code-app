@@ -4,6 +4,7 @@ import path from "path";
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
+import { withGeneratedAt } from "./lib/generated-at";
 
 const BRANCH_DISPLAY: Record<string, string> = {
     army: "Army",
@@ -23,7 +24,10 @@ const TrainingSchema = z.object({
     ace_credits: z.string(),
 });
 
-type TrainingEntry = z.infer<typeof TrainingSchema> & { branch: string };
+type TrainingEntry = z.infer<typeof TrainingSchema> & {
+    branch: string;
+    generatedAt?: string;
+};
 
 const BATCH_SIZE = 10;
 const BATCH_DELAY_MS = 1000;
@@ -141,7 +145,10 @@ async function main() {
 
         for (const r of results) {
             if (r.status === "fulfilled" && r.value.result) {
-                generated[r.value.code] = { branch: r.value.branch, ...r.value.result };
+                generated[r.value.code] = withGeneratedAt({
+                    branch: r.value.branch,
+                    ...r.value.result,
+                });
                 process.stdout.write(".");
             } else {
                 failedCount++;
