@@ -39,10 +39,13 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                 description={blog.description as string}
                 jsonLdType="article"
                 article={{
-                    publishedTime: blog.postedAt,
-                    modifiedTime: blog.postedAt,
-                    authors: [blog.author.name],
-                    tags: tags.map((tag) => tag.title),
+                    // ISO 8601, not the display string — Open Graph requires it.
+                    publishedTime: blog.postedAtISO ?? blog.postedAt,
+                    modifiedTime: blog.postedAtISO ?? blog.postedAt,
+                    authors: blog.author?.name ? [blog.author.name] : [],
+                    // This post's tags. `tags` is the sidebar's sitewide tag
+                    // cloud — using it emitted every tag on the site per post.
+                    tags: blog.tags.map((tag) => tag.title),
                 }}
                 image={ogImageUrl}
             />
