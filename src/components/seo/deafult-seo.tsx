@@ -15,9 +15,10 @@ const DefaultSEO = () => {
                 site_name: siteConfig.name,
                 // One entry only: the second was the same asset declared 1230 wide,
                 // which is a lie about a 1200px image and gave scrapers a coin flip.
+                // The generated card replaces a 2020 VS Code screenshot.
                 images: [
                     {
-                        url: "https://res.cloudinary.com/vetswhocode/image/upload/v1609084190/hashflag-white-vscode_n5k5db.jpg",
+                        url: `${siteConfig.url}/api/og`,
                         width: 1200,
                         height: 630,
                         alt: `${siteConfig.name} — free software engineering training for veterans and military spouses`,
