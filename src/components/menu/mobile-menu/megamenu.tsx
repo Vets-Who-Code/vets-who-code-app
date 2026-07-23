@@ -14,7 +14,11 @@ const Megamenu = ({ menu, isExpand, className }: TProps) => {
         <div className={clsx("tw-border-t tw-border-t-white/[.15] tw-py-[14px]", className)}>
             {menu.map(({ id, title, submenu, banner }) => (
                 <div key={id}>
-                    <h2 className="tw-sr-only">{title}</h2>
+                    {title ? (
+                        <h2 className="tw-mb-1 tw-mt-2 tw-font-heading tw-text-xs tw-uppercase tw-tracking-wide tw-text-white/50 first:tw-mt-0">
+                            {title}
+                        </h2>
+                    ) : null}
                     {submenu && (
                         <ul>
                             {submenu?.map((nav) => (

@@ -12,8 +12,11 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
     return (
         <div
             className={clsx(
-                "tw-invisible tw-absolute tw-top-full tw-z-20 tw-mt-5 tw-flex tw-w-[1170px] tw-flex-wrap tw-border-b-4 tw-border-b-primary tw-bg-white tw-px-3.8 tw-pb-[34px] tw-pt-7.5 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-300",
+                // tw-w-max so the panel sizes to its columns — a fixed width leaves
+                // dead space on menus with fewer than four columns.
+                "tw-pointer-events-none tw-invisible tw-absolute tw-top-full tw-z-20 tw-mt-5 tw-flex tw-w-max tw-max-w-[1170px] tw-flex-wrap tw-border-b-4 tw-border-b-primary tw-bg-white tw-px-3.8 tw-pb-[34px] tw-pt-7.5 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-300",
                 align === "left" && "tw-left-0",
+                align === "right" && "tw-right-0",
                 align === "center" && "tw-left-1/2 -tw-translate-x-1/2",
                 className
             )}
@@ -24,11 +27,15 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                     key={id}
                     className={clsx(
                         "tw-shrink-0 tw-grow-0 tw-px-3.8",
-                        submenu && "tw-w-1/4 tw-basis-1/4",
+                        submenu && "tw-w-56",
                         banner && "tw-w-1/2 tw-basis-1/2"
                     )}
                 >
-                    <h2 className="tw-sr-only">{title}</h2>
+                    {title ? (
+                        <h2 className="tw-mb-2 tw-font-heading tw-text-xs tw-uppercase tw-tracking-wide tw-text-secondary">
+                            {title}
+                        </h2>
+                    ) : null}
                     {submenu && (
                         <ul>
                             {submenu?.map((nav) => (

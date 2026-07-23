@@ -10,8 +10,15 @@ interface MenuItem {
     hideWhenAuth?: boolean;
 }
 
+interface MegaMenuColumn {
+    id: number;
+    title?: string;
+    submenu?: MenuItem[];
+}
+
 interface SubMenuItem extends MenuItem {
     submenu?: MenuItem[];
+    megamenu?: MegaMenuColumn[];
 }
 
 type NavigationItem = SubMenuItem | MenuItem;
@@ -120,31 +127,55 @@ const navigation: NavigationItem[] = [
         id: 5,
         label: "Community",
         path: "#!",
-        submenu: [
+        megamenu: [
             {
-                id: 701,
-                label: "Events",
-                path: "/events",
+                id: 51,
+                title: "Stay Current",
+                submenu: [
+                    {
+                        id: 701,
+                        label: "Events",
+                        path: "/events",
+                    },
+                    {
+                        id: 702,
+                        label: "Blog",
+                        path: "/blogs/blog",
+                    },
+                    {
+                        id: 703,
+                        label: "Media",
+                        path: "/media",
+                    },
+                ],
             },
             {
-                id: 702,
-                label: "Blog",
-                path: "/blogs/blog",
+                id: 52,
+                title: "Sharpen Skills",
+                submenu: [
+                    {
+                        id: 705,
+                        label: "Portfolio Checklist",
+                        path: "/portfolio-checklist",
+                    },
+                    {
+                        id: 706,
+                        label: "Engineering Playbooks",
+                        path: "https://vets-who-code.github.io/",
+                        external: true,
+                    },
+                ],
             },
             {
-                id: 703,
-                label: "Media",
-                path: "/media",
-            },
-            {
-                id: 704,
-                label: "Game",
-                path: "/game",
-            },
-            {
-                id: 705,
-                label: "Portfolio Checklist",
-                path: "/portfolio-checklist",
+                id: 53,
+                title: "R&R",
+                submenu: [
+                    {
+                        id: 704,
+                        label: "Game",
+                        path: "/game",
+                    },
+                ],
             },
         ],
     },
@@ -174,12 +205,25 @@ export function filterMenuByAuth(items: NavigationItem[], isAuthed: boolean): Na
                 if ("submenu" in item && item.submenu) {
                     return { ...item, submenu: item.submenu.filter(visible) };
                 }
+                if ("megamenu" in item && item.megamenu) {
+                    return {
+                        ...item,
+                        megamenu: item.megamenu
+                            .map((col) => ({
+                                ...col,
+                                submenu: col.submenu?.filter(visible),
+                            }))
+                            // An empty column leaves a hole in the grid — drop it.
+                            .filter((col) => col.submenu?.length),
+                    };
+                }
                 return item;
             })
             // Drop parents whose submenu became empty after filtering — a parent
             // that hovers but reveals nothing is worse than a hidden parent.
             .filter((item) => {
                 if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
+                if ("megamenu" in item && item.megamenu && item.megamenu.length === 0) return false;
                 return true;
             })
     );
