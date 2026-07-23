@@ -8,7 +8,8 @@ interface SeoProps extends NextSeoProps {
     article?: {
         publishedTime: string;
         modifiedTime: string;
-        authors: string[];
+        /** Optional: bylines aren't tracked, so this is usually absent. */
+        authors?: string[];
         tags: string[];
     };
     image?: string;
@@ -100,7 +101,14 @@ const PageSeo = ({
                     images={[ogImage]}
                     datePublished={article.publishedTime}
                     dateModified={article.modifiedTime}
-                    authorName={article.authors[0]}
+                    // Vets Who Code publishes these; per-author bylines aren't
+                    // tracked, and an undefined authorName is invalid JSON-LD.
+                    // Organization, not Person — the org is the author.
+                    authorName={
+                        article.authors?.[0]
+                            ? { name: article.authors[0], type: "Person" }
+                            : { name: siteConfig.name, type: "Organization", url: siteConfig.url }
+                    }
                     description={description as string}
                 />
             )}

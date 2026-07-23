@@ -42,7 +42,8 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
                     // ISO 8601, not the display string — Open Graph requires it.
                     publishedTime: blog.postedAtISO ?? blog.postedAt,
                     modifiedTime: blog.postedAtISO ?? blog.postedAt,
-                    authors: blog.author?.name ? [blog.author.name] : [],
+                    // No authors: bylines aren't tracked, so JSON-LD credits the
+                    // organisation and article:author is simply not emitted.
                     // This post's tags. `tags` is the sidebar's sitewide tag
                     // cloud — using it emitted every tag on the site per post.
                     tags: blog.tags.map((tag) => tag.title),
