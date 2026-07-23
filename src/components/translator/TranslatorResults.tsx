@@ -196,7 +196,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
             {resultSource === "ai" && (
                 <div className="tw-space-y-2">
                     <div className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-gold tw-bg-gold-light tw-px-4 tw-py-3">
-                        <i className="fas fa-check-circle tw-text-ink" />
+                        <i className="fas fa-check-circle tw-text-ink" aria-hidden={true} />
                         <p className="tw-text-sm tw-text-ink">AI-enhanced translation complete.</p>
                     </div>
                     <p className="tw-text-xs tw-text-gray-500">
