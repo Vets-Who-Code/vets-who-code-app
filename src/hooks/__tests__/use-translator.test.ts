@@ -2,9 +2,16 @@ import { act, renderHook, waitFor } from "@testing-library/react";
 import type { MilitaryProfile } from "@/lib/military-translator";
 import useTranslator from "../use-translator";
 
+const originalFetch = global.fetch;
 const mockFetch = vi.fn();
-global.fetch = mockFetch;
 
+beforeAll(() => {
+    global.fetch = mockFetch as unknown as typeof fetch;
+});
+
+afterAll(() => {
+    global.fetch = originalFetch;
+});
 const PROFILE: MilitaryProfile = {
     jobTitle: "11B",
     rank: "Sergeant",
