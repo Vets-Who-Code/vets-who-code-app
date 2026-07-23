@@ -213,7 +213,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                     role="status"
                     aria-live="polite"
                 >
-                    <i className="fas fa-exclamation-triangle tw-text-yellow-600" />
+                    <i className="fas fa-exclamation-triangle tw-text-yellow-600" aria-hidden={true} />
                     <p className="tw-text-sm tw-text-yellow-800">
                         Some enrichment data was unavailable for this MOS code. Results may be less
                         detailed.
