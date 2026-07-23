@@ -31,7 +31,11 @@ describe("GET /api/lms/health", () => {
         await handler({ method: "GET" } as never, res as never);
 
         expect(res.statusCode).toBe(200);
-        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual(["database", "status", "timestamp"]);
+        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual([
+            "database",
+            "status",
+            "timestamp",
+        ]);
         expect(res.body).toMatchObject({ status: "healthy", database: "connected" });
 
         const serialized = JSON.stringify(res.body);
@@ -49,6 +53,7 @@ describe("GET /api/lms/health", () => {
         ]) {
             expect(serialized).not.toContain(leak);
         }
+    });
 
     it("returns 503 with no error details when the DB is down", async () => {
         queryRaw.mockRejectedValue(new Error("connect ECONNREFUSED 10.0.0.1:5432"));
@@ -57,7 +62,12 @@ describe("GET /api/lms/health", () => {
         await handler({ method: "GET" } as never, res as never);
 
         expect(res.statusCode).toBe(503);
-        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual(["database", "status", "timestamp"]);
+        expect(Object.keys(res.body as Record<string, unknown>).sort()).toEqual([
+            "database",
+            "status",
+            "timestamp",
+        ]);
         expect(res.body).toMatchObject({ status: "unhealthy", database: "disconnected" });
         expect(JSON.stringify(res.body)).not.toContain("ECONNREFUSED");
+    });
 });

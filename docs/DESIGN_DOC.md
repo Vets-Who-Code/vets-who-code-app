@@ -66,6 +66,7 @@ No shadcn/ui. No global dark-mode toggle (see §8).
 
 ### Dark-surface tokens
 - Background `#1A1823` • Surface `#212529` • Elevated `#343A40`
+- Code/terminal surface: obsidian `#0B1215` — darker and cooler than ink, so syntax colors and gold read cleanly
 - Text `#F8F9FA` • Muted `#DEE2E6` • Disabled `#6C757D`
 - Link/interactive `#84C1FF` (hover → sky `#B9D6F2`)
 - Error-on-dark `#F38375` (coral)
@@ -308,6 +309,7 @@ primary:   #c5203e   (red, CTAs)
 secondary: #091f40   (navy, authority)
 accent:    #FDB330   (gold, highlights/focus)
 ink:       #1A1823   (body text)
+obsidian:  #0B1215   (code/terminal surfaces)
 cream:     #EEEDE9   (light backgrounds)
 white:     #FFFFFF
 

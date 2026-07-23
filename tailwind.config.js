@@ -114,6 +114,9 @@ module.exports = {
                 // Ink Black - Body Text
                 ink: "#1A1823",
 
+                // Obsidian - Terminal/code surfaces (cooler and darker than ink)
+                obsidian: "#0B1215",
+
                 // ===== UI GRAYS (Light Mode) =====
                 // Brand neutrals (per docs/brand-style-guide.md). The 500-900 stops
                 // alias the same brand hex values to match conventional Tailwind

@@ -1,4 +1,5 @@
 import Anchor from "@ui/anchor";
+import Button from "@ui/button";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
@@ -50,19 +51,20 @@ const UserMenu = () => {
             <span
                 data-testid="user-menu-skeleton"
                 aria-hidden="true"
-                className="tw-block tw-h-9 tw-w-9 tw-animate-pulse tw-rounded-full tw-bg-gray-200"
+                // Sized to the signed-out Sign in button, not the avatar — the header
+                // container has no slack, so a narrower placeholder reflows the nav.
+                className="tw-block tw-h-11 tw-w-[104px] tw-animate-pulse tw-bg-gray-200"
             />
         );
     }
 
     if (!session?.user) {
+        // Button geometry matches Donate, outlined not contained — Donate owns the
+        // solid red so the two CTAs read as equal weight without competing.
         return (
-            <Anchor
-                path="/login"
-                className="tw-whitespace-nowrap tw-text-sm tw-font-medium tw-text-secondary hover:tw-text-primary"
-            >
+            <Button path="/login" size="sm" variant="outlined" className="tw-whitespace-nowrap">
                 Sign in
-            </Anchor>
+            </Button>
         );
     }
 

@@ -68,13 +68,13 @@ const Home: PageProps = ({ data }) => {
                             Live · 2026 Cohort
                         </span>
                     </MonoMeta>
-                    <MonoMeta tone="muted" size="xs">
+                    <MonoMeta tone="gold" size="xs">
                         Placement · <span className="tw-text-cream">97%</span>
                     </MonoMeta>
-                    <MonoMeta tone="muted" size="xs">
+                    <MonoMeta tone="gold" size="xs">
                         Alumni earnings · <span className="tw-text-cream">$20M+</span>
                     </MonoMeta>
-                    <MonoMeta tone="muted" size="xs">
+                    <MonoMeta tone="gold" size="xs">
                         Status · <span className="tw-text-cream">501(c)(3)</span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">

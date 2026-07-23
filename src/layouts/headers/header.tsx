@@ -1,6 +1,5 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
-import Social01 from "@components/socials/social-01";
 import UserMenu from "@components/user-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
 import siteConfig from "@data/site-config";
@@ -49,7 +48,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                         sticky && "tw-fixed tw-top-0 tw-left-0 tw-shadow-md"
                     )}
                 >
-                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center md:tw-justify-end">
                         {/* Hidden once the cohort date passes (no dead 0:0:0:0 timer). */}
                         {cohortUpcoming && (
                             <>
@@ -121,7 +120,9 @@ const Header = ({ shadow, fluid }: TProps) => {
                                         2026 Cohort Active
                                     </span>
                                 </div>
-                                <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                {/* Socials moved out of the header — the container has no
+                                    slack, and the nav needs their 145px to stay on one line.
+                                    They still render in the footer. */}
                                 <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"

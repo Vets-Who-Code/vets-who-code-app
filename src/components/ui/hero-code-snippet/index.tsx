@@ -216,7 +216,7 @@ const HeroCodeSnippet = () => {
                     <div className="tw-overflow-hidden tw-border tw-border-[rgba(185,214,242,0.08)] tw-shadow-2xl">
                         {/* Terminal title bar */}
                         <div
-                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-3"
+                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-b tw-border-[rgba(185,214,242,0.08)] tw-bg-red tw-px-5 tw-py-3"
                             style={{ ...monoLabel, color: "#F8F9FA" }}
                         >
                             <span>vwc-engineer — train.ts — zsh</span>
@@ -234,7 +234,7 @@ const HeroCodeSnippet = () => {
                         {/* Clickable terminal body — focuses input on desktop */}
                         <div
                             ref={scrollerRef}
-                            className="tw-max-h-[60vh] tw-overflow-y-auto tw-bg-navy md:tw-cursor-text"
+                            className="tw-max-h-[60vh] tw-overflow-y-auto tw-bg-obsidian md:tw-cursor-text"
                             onClick={focusInput}
                             onKeyDown={(e) => {
                                 if (e.key === "Enter" || e.key === " ") {
@@ -334,7 +334,7 @@ const HeroCodeSnippet = () => {
 
                         {/* Status bar — shifts hints when interactive */}
                         <div
-                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-t tw-border-[rgba(185,214,242,0.08)] tw-bg-[#061a40] tw-px-5 tw-py-2.5"
+                            className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-2 tw-border-t tw-border-[rgba(185,214,242,0.08)] tw-bg-red tw-px-5 tw-py-2.5"
                             style={{
                                 ...monoLabel,
                                 fontSize: "10px",
