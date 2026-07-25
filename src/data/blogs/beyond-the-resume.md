@@ -35,7 +35,7 @@ When Darnell Settles III, Director of Web and Digital Strategy at Methodist Le B
 Darnell reflects on the hiring process: "One aspect that stood out to me the most was the sense that candidates from Vets Who Code are known commodities. I expected our hire to hit the ground running, and I must say, my expectations were not only met but exceeded." This initial impression was crucial, highlighting the rigorous training and discipline instilled in veterans through programs like Vets Who Code, which equips them with the necessary technical skills and industry knowledge to excel in the tech industry.
 
 <p align="center">
-  <img src="v1714768081/adrian_grimm_blog_image_rfyamx.png" alt="Adrian Grimm">
+  <img src="v1714768081/adrian_grimm_blog_image_rfyamx.png" alt="Adrian Grimm, Marine Corps veteran and Vets Who Code alumnus hired by Methodist Le Bonheur Healthcare">
 </p>
 
 ### **Adrian's Impact at Methodist**

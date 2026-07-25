@@ -56,10 +56,15 @@ describe("cloudinary-helpers", () => {
             expect(getBlogHeaderUrl("http://example.com/img.jpg")).toBe("http://example.com/img.jpg");
         });
 
-        it("should generate Cloudinary URL for public IDs", () => {
+        it("should generate optimized Cloudinary URL for blog headders", () => {
             const url = getBlogHeaderUrl("blog_header");
-            expect(url).toContain("w_1200");
-            expect(url).toContain("c_limit");
+
+            expect(url).toContain("w_1600");
+            expect(url).toContain("h_840");
+            expect(url).toContain("c_fill");
+            expect(url).toContain("q_auto:good");
+            expect(url).toContain("f_auto");
+            expect(url).toContain("dpr_auto");
         });
     });
 
