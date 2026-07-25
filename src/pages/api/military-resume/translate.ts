@@ -272,7 +272,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 - Accountable for ${scope.equipment_value} in equipment/resources
 - Decision scope: ${scope.decision_scope}
 - Civilian equivalent: ${scope.civilian_equivalent}
-Use these metrics to quantify leadership in summary and bullets.\n`;
+Use these metrics to quantify leadership in summary and bullets. Present scope as ranges (e.g., "4-10 team members", "$100K-$2M in assets"). Do NOT pick a single number from a range. Keep the range to maintain accuracy.\n`;
                 }
             } catch (err) {
                 console.warn("Layer 5 (rank-scope matrix) failed:", err);

@@ -11,6 +11,7 @@ export interface TrainingData {
     topics: string[];
     civilian_certs: string[];
     ace_credits?: string;
+    generatedAt?: string;
 }
 
 export interface CertData {

@@ -13,6 +13,7 @@ export interface TranslatorState {
     isTranslating: boolean;
     error: string | null;
     resultSource: "none" | "dictionary" | "ai";
+    warnings: string[];
 }
 
 export interface UseTranslatorReturn extends TranslatorState {
@@ -27,6 +28,7 @@ const INITIAL_STATE: TranslatorState = {
     isTranslating: false,
     error: null,
     resultSource: "none",
+    warnings: [],
 };
 
 export default function useTranslator(): UseTranslatorReturn {
@@ -50,6 +52,7 @@ export default function useTranslator(): UseTranslatorReturn {
             aiResult: null,
             activeResult: null,
             resultSource: "none",
+            warnings: [],
         }));
 
         // Phase 1: Instant dictionary translation
@@ -135,6 +138,10 @@ export default function useTranslator(): UseTranslatorReturn {
                     aiResult.careerPathways = careerData.pathways;
                 }
 
+                // Enrichment layers that failed to load are reported via header
+                const warningsHeader = translateRes.headers.get("X-Enrichment-Warnings");
+                const warnings = warningsHeader ? warningsHeader.split(",") : [];
+
                 trackTranslatorEvent({
                     action: "translate_complete",
                     mosCode: profile.jobCode,
@@ -147,6 +154,7 @@ export default function useTranslator(): UseTranslatorReturn {
                     activeResult: aiResult,
                     isTranslating: false,
                     resultSource: "ai",
+                    warnings,
                 }));
             })
             .catch(() => {

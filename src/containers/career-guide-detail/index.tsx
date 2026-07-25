@@ -31,6 +31,18 @@ const CareerGuideDetailContainer = ({ detail }: Props) => (
         <StatusBar code={detail.code} />
         <AnchorNav items={ANCHORS} />
         <Hero detail={detail} />
+        <div className="tw-bg-secondary tw-py-4">
+            <div className="tw-container">
+                <p className="tw-flex tw-items-start tw-gap-2.5 tw-rounded-md tw-border tw-border-cream/15 tw-bg-cream/5 tw-px-4 tw-py-3 tw-font-body tw-text-[12.5px] tw-leading-[1.55] tw-text-[#6C757D]">
+                    <i className="fas fa-info-circle tw-mt-0.5 tw-text-accent" aria-hidden={true} />
+                    <span>
+                        This career guide was generated using AI analysis of military job code
+                        data. Salary figures, certification coverage percentages, and career matches
+                        are estimates — verify with official sources before making career decisions.
+                    </span>
+                </p>
+            </div>
+        </div>
         {detail.techPathway && (
             <TechRolesSection code={detail.code} roles={detail.techPathway.roles} />
         )}
@@ -51,6 +63,21 @@ const CareerGuideDetailContainer = ({ detail }: Props) => (
         <TrainingSection training={detail.training} certs={detail.certs} />
         <SystemsTable systems={detail.systems} />
         <CtaBand code={detail.code} />
+        {detail.training.generatedAt && (
+            <footer className="tw-border-t tw-border-cream/10 tw-bg-secondary tw-py-8">
+                <div className="tw-container">
+                    <p className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                        Career guide data last generated:{" "}
+                        {new Date(detail.training.generatedAt).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                            timeZone: "UTC",
+                        })}
+                    </p>
+                </div>
+            </footer>
+        )}
     </>
 );
 

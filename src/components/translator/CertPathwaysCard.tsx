@@ -25,11 +25,15 @@ const CertPathwaysCard: React.FC<CertPathwaysCardProps> = ({ certPathways }) => 
             <p className="tw-text-sm tw-text-gray-500">
                 Based on your MOS training, here are your certification opportunities.
             </p>
+            <p className="tw-text-xs tw-text-gray-500">
+                Certification readiness is an AI estimate. Check each certification body&apos;s
+                official prerequisites before registering for exams.
+            </p>
 
             {directQualifies.length > 0 && (
                 <div className="tw-space-y-2">
                     <p className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase tw-tracking-wide">
-                        Ready to Certify
+                        Potentially Ready to Certify
                     </p>
                     {directQualifies.map((cert) => (
                         <div
