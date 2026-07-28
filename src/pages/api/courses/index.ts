@@ -29,7 +29,12 @@ async function handleGet(req: AuthenticatedRequest, res: NextApiResponse) {
             where.difficulty = difficulty as string;
         }
 
-        if (isPublished !== undefined) {
+        // Non-admins only ever see published courses, regardless of the query param.
+        // Admins may filter by published status.
+        const isAdmin = req.user?.role === "ADMIN";
+        if (!isAdmin) {
+            where.isPublished = true;
+        } else if (isPublished !== undefined) {
             where.isPublished = isPublished === "true";
         }
 
