@@ -4,9 +4,9 @@ import { useMount } from "@hooks";
 import Layout01 from "@layout/layout-01";
 import Spinner from "@ui/spinner";
 import type { GetServerSideProps, NextPage } from "next";
+import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { signOut } from "next-auth/react";
-import { useState } from "react";
 import {
     ActivityFeed,
     GitHubReadme,
@@ -25,6 +25,7 @@ import useGitHubProfile from "@/hooks/use-github-profile";
 import useLearningStats from "@/hooks/use-learning-stats";
 import useProfileForm from "@/hooks/use-profile-form";
 import prisma from "@/lib/prisma";
+import { resolveProfileTab } from "@/lib/profile-tabs";
 import { options } from "@/pages/api/auth/options";
 import type { ProfileTab, ProfileUser } from "@/types/profile";
 
@@ -44,7 +45,10 @@ type PageWithLayout = NextPage<PageProps> & {
 
 const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
     const mounted = useMount();
-    const [activeTab, setActiveTab] = useState<ProfileTab>("command-center");
+    const router = useRouter();
+    const requestedTab = resolveProfileTab(router.query.tab);
+    // Settings is owner-only; fall back for non-owners deep-linking ?tab=settings
+    const activeTab = requestedTab === "settings" && !isOwner ? "command-center" : requestedTab;
 
     // Pass the target user's ID to hooks so they fetch that member's data
     const targetId = isOwner ? undefined : user.id;
@@ -59,6 +63,10 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
             </div>
         );
     }
+
+    const handleTabChange = (tab: ProfileTab) => {
+        void router.push({ query: { ...router.query, tab } }, undefined, { shallow: true });
+    };
 
     const handleLogout = async () => {
         try {
@@ -101,7 +109,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                     onLogout={handleLogout}
                 />
 
-                <ProfileNav activeTab={activeTab} onTabChange={setActiveTab} isOwner={isOwner} />
+                <ProfileNav activeTab={activeTab} onTabChange={handleTabChange} isOwner={isOwner} />
 
                 {/* Command Center — GitHub overview */}
                 {activeTab === "command-center" && (
