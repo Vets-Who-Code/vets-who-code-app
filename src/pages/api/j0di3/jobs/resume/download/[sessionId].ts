@@ -17,10 +17,15 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
     // lets J0dI3 enforce that the session belongs to the requesting troop.
     const troopId = req.user?.troopId;
     const troopToken = req.user?.troopToken;
-    if (!troopId || !troopToken) {
+    if (!troopId) {
         return res
             .status(400)
             .json({ error: "No J0dI3 troop profile linked. Please sign out and back in." });
+    }
+    if (!troopToken) {
+        return res.status(400).json({
+            error: "Missing J0dI3 troop access token. Please sign out and back in to refresh.",
+        });
     }
 
     try {
