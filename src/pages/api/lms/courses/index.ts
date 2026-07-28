@@ -67,8 +67,8 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
             },
         }));
 
+        // Do not echo req.user — it carries the caller's troop access token.
         res.status(200).json({
-            user: req.user,
             courses: coursesWithStats,
             message: "Courses retrieved successfully",
         });

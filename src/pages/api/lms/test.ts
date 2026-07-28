@@ -44,7 +44,8 @@ async function handler(req: AuthenticatedRequest, res: NextApiResponse) {
             message: "LMS API test successful!",
             auth: {
                 authenticated: true,
-                user: req.user,
+                // Sanitized identity only — req.user carries the troop access token.
+                user: { id: req.user?.id, email: req.user?.email, role: req.user?.role },
                 fullUserDetails: currentUser,
             },
             database: {
