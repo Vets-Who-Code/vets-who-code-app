@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "@ui/button";
 
 interface User {
     id: number;
@@ -205,12 +206,9 @@ export const UserManagement = () => {
         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow-md">
             <div className="tw-mb-6 tw-flex tw-items-center tw-justify-between">
                 <h3 className="tw-text-xl tw-font-semibold tw-text-gray-400">User Management</h3>
-                <button
-                    type="button"
-                    className="tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-white hover:tw-bg-primary/90"
-                >
+                <Button type="button" size="sm">
                     Add User
-                </button>
+                </Button>
             </div>
 
             <div className="tw-overflow-x-auto">

@@ -52,6 +52,9 @@
       "@lib/*": [
         "lib/*"
       ],
+      "@ui": [
+        "components/ui"
+      ],
       "@ui/*": [
         "components/ui/*"
       ],
