@@ -91,7 +91,7 @@ describe("GET /api/j0di3/jobs/resume/download/[sessionId]", () => {
         );
         // isAxiosError is checked via axios.isAxiosError; emulate it.
         const axios = await import("axios");
-        vi.spyOn(axios.default, "isAxiosError").mockReturnValue(true);
+        const isAxiosErrorSpy = vi.spyOn(axios.default, "isAxiosError").mockReturnValue(true);
 
         const { default: handler } = await import(
             "@/pages/api/j0di3/jobs/resume/download/[sessionId]"
@@ -101,5 +101,5 @@ describe("GET /api/j0di3/jobs/resume/download/[sessionId]", () => {
         await handler({ method: "GET", query: { sessionId: "not-mine" } } as never, res as never);
 
         expect(res.status).toHaveBeenCalledWith(403);
-    });
+        isAxiosErrorSpy.mockRestore();
 });
