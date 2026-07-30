@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
-import { join } from "path";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { join } from "path";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {

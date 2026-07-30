@@ -36,7 +36,7 @@ const DevAccess: NextPage = () => {
         return (
             <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center tw-bg-gray-100">
                 <div className="tw-rounded-lg tw-bg-white tw-p-8 tw-shadow-md">
-                    <h1 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-red-600">
+                    <h1 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-red-dark">
                         Not Available in Production
                     </h1>
                     <p className="tw-text-gray-200">

@@ -70,7 +70,7 @@ export default function JobMatch() {
             </div>
 
             {error && (
-                <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                     {error}
                 </div>
             )}
@@ -100,9 +100,9 @@ export default function JobMatch() {
 
 function JobMatchCard({ job }: { job: MatchedJob }) {
     const fitColor = (pct: number) => {
-        if (pct >= 80) return "tw-bg-green-100 tw-text-green-800";
-        if (pct >= 60) return "tw-bg-yellow-100 tw-text-yellow-800";
-        return "tw-bg-red-100 tw-text-red-800";
+        if (pct >= 80) return "tw-bg-gold-light tw-text-ink";
+        if (pct >= 60) return "tw-bg-gold-light tw-text-ink";
+        return "tw-bg-cream tw-text-red-dark";
     };
     return (
         <li className="tw-rounded-md tw-border tw-border-navy/10 tw-p-4 tw-transition-shadow hover:tw-shadow-sm">
@@ -136,7 +136,7 @@ function JobMatchCard({ job }: { job: MatchedJob }) {
                         {job.matched_skills.map((s) => (
                             <span
                                 key={`m-${s}`}
-                                className="tw-rounded-full tw-bg-green-100 tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-green-800"
+                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-ink"
                             >
                                 {s}
                             </span>
@@ -154,7 +154,7 @@ function JobMatchCard({ job }: { job: MatchedJob }) {
                         {job.gap_skills.map((s) => (
                             <span
                                 key={`g-${s}`}
-                                className="tw-rounded-full tw-bg-amber-100 tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-amber-800"
+                                className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[11px] tw-font-medium tw-text-ink"
                             >
                                 {s}
                             </span>

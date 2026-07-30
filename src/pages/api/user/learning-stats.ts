@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
 import prisma from "@/lib/prisma";
+import { options } from "@/pages/api/auth/options";
 import type { LearningStatsData } from "@/types/profile";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

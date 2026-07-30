@@ -30,83 +30,71 @@ export default function usePdfUpload(): UsePdfUploadReturn {
         setFileName(null);
     }, []);
 
-    const upload = useCallback(
-        async (file: File): Promise<string> => {
-            setUploading(true);
-            setError(null);
-            setProgress(0);
-            setFileName(file.name);
+    const upload = useCallback(async (file: File): Promise<string> => {
+        setUploading(true);
+        setError(null);
+        setProgress(0);
+        setFileName(file.name);
 
-            try {
-                // Validate file type
-                if (!ACCEPTED_TYPES.includes(file.type)) {
-                    throw new Error(
-                        "Please upload a PDF or DOCX file. Other formats are not supported."
-                    );
-                }
-
-                // Validate file size
-                if (file.size > MAX_SIZE_BYTES) {
-                    throw new Error(
-                        `File is too large. Maximum size is ${MAX_SIZE_MB}MB.`
-                    );
-                }
-
-                setProgress(20);
-
-                // Determine file type for the API
-                const fileType = file.type === "application/pdf" ? "pdf" : "docx";
-
-                // Convert to base64
-                const base64 = await new Promise<string>((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.onload = () => {
-                        const result = reader.result as string;
-                        // Strip data URL prefix
-                        const base64Data = result.split(",")[1];
-                        resolve(base64Data);
-                    };
-                    reader.onerror = () =>
-                        reject(new Error("Failed to read file"));
-                    reader.readAsDataURL(file);
-                });
-
-                setProgress(50);
-
-                // Send to API
-                const response = await fetch(
-                    "/api/military-resume/parse-pdf",
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ pdf: base64, fileType }),
-                    }
+        try {
+            // Validate file type
+            if (!ACCEPTED_TYPES.includes(file.type)) {
+                throw new Error(
+                    "Please upload a PDF or DOCX file. Other formats are not supported."
                 );
-
-                setProgress(80);
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(
-                        data.error || "Failed to parse file"
-                    );
-                }
-
-                setProgress(100);
-                setUploading(false);
-                return data.text;
-            } catch (err) {
-                const message =
-                    err instanceof Error ? err.message : "Failed to parse file";
-                setError(message);
-                setUploading(false);
-                setFileName(null);
-                throw err;
             }
-        },
-        []
-    );
+
+            // Validate file size
+            if (file.size > MAX_SIZE_BYTES) {
+                throw new Error(`File is too large. Maximum size is ${MAX_SIZE_MB}MB.`);
+            }
+
+            setProgress(20);
+
+            // Determine file type for the API
+            const fileType = file.type === "application/pdf" ? "pdf" : "docx";
+
+            // Convert to base64
+            const base64 = await new Promise<string>((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const result = reader.result as string;
+                    // Strip data URL prefix
+                    const base64Data = result.split(",")[1];
+                    resolve(base64Data);
+                };
+                reader.onerror = () => reject(new Error("Failed to read file"));
+                reader.readAsDataURL(file);
+            });
+
+            setProgress(50);
+
+            // Send to API
+            const response = await fetch("/api/military-resume/parse-pdf", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ pdf: base64, fileType }),
+            });
+
+            setProgress(80);
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Failed to parse file");
+            }
+
+            setProgress(100);
+            setUploading(false);
+            return data.text;
+        } catch (err) {
+            const message = err instanceof Error ? err.message : "Failed to parse file";
+            setError(message);
+            setUploading(false);
+            setFileName(null);
+            throw err;
+        }
+    }, []);
 
     return { upload, uploading, error, progress, fileName, reset };
 }

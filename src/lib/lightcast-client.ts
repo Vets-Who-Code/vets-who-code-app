@@ -52,9 +52,9 @@ export function validateLightcastConfig(): void {
     } else if (hasId || hasSecret) {
         console.warn(
             "Lightcast: partially configured — " +
-            `LIGHTCAST_CLIENT_ID: ${hasId ? "set" : "MISSING"}, ` +
-            `LIGHTCAST_CLIENT_SECRET: ${hasSecret ? "set" : "MISSING"}. ` +
-            "Both are required. Salary data will fall back to Census/curated."
+                `LIGHTCAST_CLIENT_ID: ${hasId ? "set" : "MISSING"}, ` +
+                `LIGHTCAST_CLIENT_SECRET: ${hasSecret ? "set" : "MISSING"}. ` +
+                "Both are required. Salary data will fall back to Census/curated."
         );
     }
     // If neither is set, it's intentionally unconfigured — no warning needed
@@ -92,8 +92,8 @@ async function getAccessToken(): Promise<string | null> {
             if (!authFailureLogged) {
                 console.error(
                     `Lightcast: OAuth token request failed (${response.status}). ` +
-                    "Check LIGHTCAST_CLIENT_ID and LIGHTCAST_CLIENT_SECRET. " +
-                    "Falling back to Census/curated salary data."
+                        "Check LIGHTCAST_CLIENT_ID and LIGHTCAST_CLIENT_SECRET. " +
+                        "Falling back to Census/curated salary data."
                 );
                 authFailureLogged = true;
             }
@@ -152,36 +152,30 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
         const dateRange = getTrailing12Months();
 
         // Fetch job posting counts for demand
-        const postingsRes = await fetchWithTimeout(
-            `${API_BASE}/jpa/totals`,
-            {
-                method: "POST",
-                headers,
-                body: JSON.stringify({
-                    filter: {
-                        when: dateRange,
-                        soc5: [socCode],
-                    },
-                    metrics: ["unique_postings"],
-                }),
-            }
-        );
+        const postingsRes = await fetchWithTimeout(`${API_BASE}/jpa/totals`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({
+                filter: {
+                    when: dateRange,
+                    soc5: [socCode],
+                },
+                metrics: ["unique_postings"],
+            }),
+        });
 
         // Fetch in-demand skills for this SOC
-        const skillsRes = await fetchWithTimeout(
-            `${API_BASE}/jpa/rankings/skills`,
-            {
-                method: "POST",
-                headers,
-                body: JSON.stringify({
-                    filter: {
-                        when: dateRange,
-                        soc5: [socCode],
-                    },
-                    rank: { by: "unique_postings", limit: 5 },
-                }),
-            }
-        );
+        const skillsRes = await fetchWithTimeout(`${API_BASE}/jpa/rankings/skills`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify({
+                filter: {
+                    when: dateRange,
+                    soc5: [socCode],
+                },
+                rank: { by: "unique_postings", limit: 5 },
+            }),
+        });
 
         if (!salaryRes.ok) {
             console.warn(`Lightcast: salary fetch failed for SOC ${socCode} (${salaryRes.status})`);

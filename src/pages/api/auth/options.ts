@@ -1,8 +1,8 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
 import GithubProvider, { GithubProfile } from "next-auth/providers/github";
-import prisma from "@/lib/prisma";
 import { ensureTroop } from "@/lib/ensure-troop";
+import prisma from "@/lib/prisma";
 
 const fetchWithTimeout = async (
     url: string,
@@ -48,27 +48,9 @@ export const options: NextAuthOptions = {
                     return false;
                 }
 
-                // Dev-only escape hatch. Requires BOTH NODE_ENV=development AND
-                // explicit ALLOW_ANY_GITHUB_USER=true. Never set the flag in
-                // production or on preview deployments.
-                if (
-                    process.env.NODE_ENV === "development" &&
-                    process.env.ALLOW_ANY_GITHUB_USER === "true"
-                ) {
-                    return true;
-                }
-
-                // Configured admin allowlist bypasses org-membership check.
-                // Used for founders/external admins not on the org roster.
-                const adminLogins = (process.env.ADMIN_GITHUB_LOGINS || "")
-                    .split(",")
-                    .map((s) => s.trim().toLowerCase())
-                    .filter(Boolean);
-                if (adminLogins.includes(githubProfile.login.toLowerCase())) {
-                    return true;
-                }
-
-                // For all other users, check organization membership
+                // GitHub organization membership is the sole login gate — there are
+                // no allowlist or dev bypasses. Anyone who must sign in has to be a
+                // member of GITHUB_ORG (admins/founders included).
                 const githubOrg = process.env.GITHUB_ORG;
                 if (!githubOrg) {
                     console.error("[Auth] GITHUB_ORG env var is not set");
@@ -98,7 +80,9 @@ export const options: NextAuthOptions = {
                         return true;
                     }
 
-                    console.error(`[Auth] Org membership check failed for ${githubProfile.login}: status ${res.status}`);
+                    console.error(
+                        `[Auth] Org membership check failed for ${githubProfile.login}: status ${res.status}`
+                    );
                     return false;
                 } catch (error) {
                     console.error("[Auth] Org membership check error:", error);

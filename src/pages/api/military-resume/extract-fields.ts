@@ -15,10 +15,7 @@ interface ExtractedFields {
     achievements: string;
 }
 
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -38,9 +35,7 @@ export default async function handler(
         const { text } = req.body as ExtractFieldsRequest;
 
         if (!text || text.trim().length < 20) {
-            return res
-                .status(400)
-                .json({ error: "Insufficient text to extract fields from." });
+            return res.status(400).json({ error: "Insufficient text to extract fields from." });
         }
 
         const aiModel = await getAIModelWithFallback();
@@ -81,9 +76,7 @@ RULES:
 
         const jsonMatch = responseText.match(/\{[\s\S]*\}/);
         if (!jsonMatch) {
-            return res
-                .status(422)
-                .json({ error: "Failed to extract structured fields." });
+            return res.status(422).json({ error: "Failed to extract structured fields." });
         }
 
         const fields: ExtractedFields = JSON.parse(jsonMatch[0]);

@@ -32,9 +32,10 @@ describe("ensureTroop", () => {
         expect(result).toBeNull();
     });
 
-    it("returns existing troopId if user already has one", async () => {
+    it("returns existing troopId if user already has one with an access token", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: "existing-troop-uuid",
+            troopAccessToken: "existing-token",
             name: "Test User",
             email: "test@example.com",
             branch: null,
@@ -50,9 +51,38 @@ describe("ensureTroop", () => {
         expect(mockPost).not.toHaveBeenCalled();
     });
 
-    it("registers a new troop with J0dI3 when user has no troopId", async () => {
+    it("rotates a new access token when user has troopId but no token", async () => {
+        mockFindUnique.mockResolvedValue({
+            troopId: "existing-troop-uuid",
+            troopAccessToken: null,
+            name: "Test User",
+            email: "test@example.com",
+            branch: null,
+            mos: null,
+            skillLevel: null,
+            cohortId: null,
+            enrollments: [],
+        });
+
+        mockPost.mockResolvedValue({ data: { access_token: "rotated-token" } });
+        mockUpdate.mockResolvedValue({});
+
+        const result = await ensureTroop("user-rotate");
+
+        expect(result).toBe("existing-troop-uuid");
+        expect(mockPost).toHaveBeenCalledWith(
+            "/api/v1/troops/existing-troop-uuid/access-token/rotate"
+        );
+        expect(mockUpdate).toHaveBeenCalledWith({
+            where: { id: "user-rotate" },
+            data: { troopAccessToken: "rotated-token" },
+        });
+    });
+
+    it("registers a new troop with J0dI3 and stores access_token when user has no troopId", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: null,
+            troopAccessToken: null,
             name: "New User",
             email: "new@example.com",
             branch: "Army",
@@ -62,7 +92,9 @@ describe("ensureTroop", () => {
             enrollments: [{ id: "enrollment-1" }],
         });
 
-        mockPost.mockResolvedValue({ data: { id: "new-troop-uuid" } });
+        mockPost.mockResolvedValue({
+            data: { id: "new-troop-uuid", access_token: "fresh-token" },
+        });
         mockUpdate.mockResolvedValue({});
 
         const result = await ensureTroop("user-456");
@@ -78,13 +110,14 @@ describe("ensureTroop", () => {
         });
         expect(mockUpdate).toHaveBeenCalledWith({
             where: { id: "user-456" },
-            data: { troopId: "new-troop-uuid" },
+            data: { troopId: "new-troop-uuid", troopAccessToken: "fresh-token" },
         });
     });
 
     it("sends enrolled: false when user has no active enrollments", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: null,
+            troopAccessToken: null,
             name: "User",
             email: "user@example.com",
             branch: null,
@@ -94,7 +127,7 @@ describe("ensureTroop", () => {
             enrollments: [],
         });
 
-        mockPost.mockResolvedValue({ data: { id: "troop-uuid" } });
+        mockPost.mockResolvedValue({ data: { id: "troop-uuid", access_token: "token" } });
         mockUpdate.mockResolvedValue({});
 
         await ensureTroop("user-789");
@@ -112,6 +145,7 @@ describe("ensureTroop", () => {
     it("returns null and logs error when J0dI3 registration fails", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: null,
+            troopAccessToken: null,
             name: "User",
             email: "user@example.com",
             branch: null,

@@ -1,6 +1,6 @@
+import { handleClientError } from "@utils/handle-client-error";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
-import { handleClientError } from "@/utils/handle-client-error";
 
 interface DashboardData {
     troop?: {
@@ -53,25 +53,50 @@ interface ProgressData {
     overall_total: number;
 }
 
+interface XpData {
+    total_xp?: number;
+    level?: number | string;
+    xp_to_next_level?: number;
+}
+
+interface StreakData {
+    current_streak?: number;
+    longest_streak?: number;
+}
+
+interface TodayData {
+    xp_earned?: number;
+    lessons_completed?: number;
+    challenges_completed?: number;
+    minutes_active?: number;
+}
+
 export default function TroopDashboard() {
     const [data, setData] = useState<DashboardData | null>(null);
     const [warmups, setWarmups] = useState<WarmupChallenge[]>([]);
     const [progress, setProgress] = useState<ProgressData | null>(null);
+    const [xp, setXp] = useState<XpData | null>(null);
+    const [streak, setStreak] = useState<StreakData | null>(null);
+    const [today, setToday] = useState<TodayData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
     const [isLoadingWarmups, setIsLoadingWarmups] = useState(true);
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isUpdatingModule, setIsUpdatingModule] = useState(false);
+    const [moduleUpdateError, setModuleUpdateError] = useState<string | null>(null);
 
     const handleModuleChange = async (newModule: number) => {
         setIsUpdatingModule(true);
+        setModuleUpdateError(null);
         try {
             const res = await fetch("/api/j0di3/troops/me", {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ current_module: newModule }),
             });
-            if (!res.ok) throw new Error(`Module update failed (${res.status}).`);
+            if (!res.ok) {
+                throw new Error("Failed to update your module — try again.");
+            }
             setData((prev) =>
                 prev
                     ? {
@@ -83,8 +108,7 @@ export default function TroopDashboard() {
                     : prev
             );
         } catch (err) {
-            handleClientError(err, { context: "TroopDashboard:handleModuleChange" });
-            setError("Couldn't update your current module. Try again in a moment.");
+            setModuleUpdateError(handleClientError(err, "troop:module-update"));
         } finally {
             setIsUpdatingModule(false);
         }
@@ -100,8 +124,7 @@ export default function TroopDashboard() {
             } else {
                 setError("Failed to load dashboard");
             }
-        } catch (err) {
-            handleClientError(err, { context: "TroopDashboard:fetchDashboard" });
+        } catch {
             setError("Failed to load dashboard");
         } finally {
             setIsLoading(false);
@@ -111,12 +134,12 @@ export default function TroopDashboard() {
     const fetchWarmups = useCallback(async () => {
         try {
             const res = await fetch("/api/j0di3/challenges/recommended-warmups?count=5");
-            if (!res.ok) throw new Error(`Warmups request failed (${res.status}).`);
-            const body = await res.json();
-            setWarmups(Array.isArray(body) ? body : (body.challenges ?? []));
-        } catch (err) {
-            // Tray gracefully hides on failure, but log so devs can see it.
-            handleClientError(err, { context: "TroopDashboard:fetchWarmups" });
+            if (res.ok) {
+                const body = await res.json();
+                setWarmups(Array.isArray(body) ? body : (body.challenges ?? []));
+            }
+        } catch {
+            // non-critical — tray just stays hidden
         } finally {
             setIsLoadingWarmups(false);
         }
@@ -125,13 +148,40 @@ export default function TroopDashboard() {
     const fetchProgress = useCallback(async () => {
         try {
             const res = await fetch("/api/j0di3/troops/progress");
-            if (!res.ok) throw new Error(`Progress request failed (${res.status}).`);
-            setProgress(await res.json());
-        } catch (err) {
-            // Progress is purely informational; section hides on failure.
-            handleClientError(err, { context: "TroopDashboard:fetchProgress" });
+            if (res.ok) {
+                setProgress(await res.json());
+            }
+        } catch {
+            // non-critical
         } finally {
             setIsLoadingProgress(false);
+        }
+    }, []);
+
+    const fetchXp = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/xp");
+            if (res.ok) setXp(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchStreak = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/streak");
+            if (res.ok) setStreak(await res.json());
+        } catch {
+            // non-critical
+        }
+    }, []);
+
+    const fetchToday = useCallback(async () => {
+        try {
+            const res = await fetch("/api/j0di3/troops/today");
+            if (res.ok) setToday(await res.json());
+        } catch {
+            // non-critical
         }
     }, []);
 
@@ -139,7 +189,10 @@ export default function TroopDashboard() {
         fetchDashboard();
         fetchWarmups();
         fetchProgress();
-    }, [fetchDashboard, fetchWarmups, fetchProgress]);
+        fetchXp();
+        fetchStreak();
+        fetchToday();
+    }, [fetchDashboard, fetchWarmups, fetchProgress, fetchXp, fetchStreak, fetchToday]);
 
     if (isLoading) {
         return (
@@ -166,6 +219,9 @@ export default function TroopDashboard() {
 
     return (
         <div className="tw-space-y-6">
+            {/* Today / XP / Streak summary */}
+            <TodayStrip xp={xp} streak={streak} today={today} />
+
             {/* Reps tray — confidence loop entry point */}
             <RepsTray warmups={warmups} loading={isLoadingWarmups} />
 
@@ -182,19 +238,19 @@ export default function TroopDashboard() {
                         label: "Attempted",
                         value: challengesAttempted,
                         icon: "fa-clipboard-check",
-                        color: "tw-text-blue-600",
+                        color: "tw-text-navy-ocean",
                     },
                     {
                         label: "Pass Rate",
                         value: `${passRate}%`,
                         icon: "fa-chart-line",
-                        color: passRate >= 70 ? "tw-text-green-600" : "tw-text-yellow-600",
+                        color: passRate >= 70 ? "tw-text-navy-deep" : "tw-text-red-dark",
                     },
                     {
                         label: "Conversations",
                         value: conversationCount,
                         icon: "fa-comments",
-                        color: "tw-text-blue-600",
+                        color: "tw-text-navy-ocean",
                     },
                 ].map((stat) => (
                     <div
@@ -261,6 +317,8 @@ export default function TroopDashboard() {
                                     value={data.troop.current_module}
                                     onChange={(e) => handleModuleChange(Number(e.target.value))}
                                     disabled={isUpdatingModule}
+                                    title="Current Module"
+                                    aria-label="Current Module"
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
                                     {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
@@ -271,6 +329,11 @@ export default function TroopDashboard() {
                                 </select>
                                 <span className="tw-text-xs tw-text-gray-400">of 25</span>
                             </div>
+                            {moduleUpdateError && (
+                                <p className="tw-mt-1 tw-text-xs tw-text-red-dark">
+                                    {moduleUpdateError}
+                                </p>
+                            )}
                         </div>
                         {data.troop.skill_level && (
                             <div>
@@ -322,7 +385,7 @@ export default function TroopDashboard() {
                         {data.current_module_topics.map((topic) => (
                             <span
                                 key={topic}
-                                className="tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-blue-800"
+                                className="tw-rounded-full tw-bg-navy-sky tw-px-3 tw-py-1 tw-text-sm tw-font-medium tw-text-navy-deep"
                             >
                                 {topic}
                             </span>
@@ -348,7 +411,7 @@ export default function TroopDashboard() {
                             >
                                 <div className="tw-flex tw-items-center tw-justify-between">
                                     {conv.pillar && (
-                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800 tw-capitalize">
+                                        <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-navy-deep tw-capitalize">
                                             {conv.pillar}
                                         </span>
                                     )}
@@ -368,6 +431,58 @@ export default function TroopDashboard() {
                     </div>
                 </div>
             )}
+        </div>
+    );
+}
+
+function TodayStrip({
+    xp,
+    streak,
+    today,
+}: {
+    xp: XpData | null;
+    streak: StreakData | null;
+    today: TodayData | null;
+}) {
+    const tiles: { label: string; value: string | number; sub?: string }[] = [];
+    if (xp?.total_xp != null) {
+        tiles.push({
+            label: "XP",
+            value: xp.total_xp,
+            sub: xp.level != null ? `Level ${xp.level}` : undefined,
+        });
+    }
+    if (streak?.current_streak != null) {
+        tiles.push({
+            label: "Streak",
+            value: `${streak.current_streak}d`,
+            sub:
+                streak.longest_streak != null && streak.longest_streak > 0
+                    ? `Best ${streak.longest_streak}d`
+                    : undefined,
+        });
+    }
+    if (today?.xp_earned != null) {
+        tiles.push({ label: "XP Today", value: today.xp_earned });
+    }
+    if (today?.minutes_active != null) {
+        tiles.push({ label: "Active Today", value: `${today.minutes_active}m` });
+    }
+    if (tiles.length === 0) return null;
+    return (
+        <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-3">
+            {tiles.map((tile) => (
+                <div
+                    key={tile.label}
+                    className="tw-rounded-md tw-border tw-border-primary/20 tw-bg-white tw-p-4 tw-shadow-sm"
+                >
+                    <div className="tw-font-mono tw-text-[10px] tw-font-bold tw-uppercase tw-tracking-widest tw-text-primary">
+                        {tile.label}
+                    </div>
+                    <div className="tw-text-2xl tw-font-bold tw-text-ink tw-mt-1">{tile.value}</div>
+                    {tile.sub && <div className="tw-text-xs tw-text-ink/60">{tile.sub}</div>}
+                </div>
+            ))}
         </div>
     );
 }
@@ -404,10 +519,10 @@ function RepsTray({ warmups, loading }: { warmups: WarmupChallenge[]; loading: b
                                     {w.title}
                                 </div>
                                 <div className="tw-flex tw-flex-wrap tw-gap-1">
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-blue-800">
+                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-navy-deep">
                                         {w.topic}
                                     </span>
-                                    <span className="tw-rounded-full tw-bg-green-100 tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-green-800">
+                                    <span className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-ink">
                                         warmup
                                     </span>
                                 </div>

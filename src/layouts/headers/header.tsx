@@ -1,15 +1,17 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
-import Social01 from "@components/socials/social-01";
+import UserMenu from "@components/user-menu";
 import menu, { filterMenuByAuth } from "@data/menu";
+import siteConfig from "@data/site-config";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
+import { getCohortStartDate, isCohortUpcoming } from "@utils/cohort";
 import clsx from "clsx";
-import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import { useEffect, useMemo, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
@@ -26,6 +28,8 @@ const Header = ({ shadow, fluid }: TProps) => {
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
     const { status } = useSession();
+    const cohortStartDate = getCohortStartDate(siteConfig.cohortStartDate);
+    const cohortUpcoming = isCohortUpcoming(cohortStartDate);
     const filteredMenu = useMemo(
         () => filterMenuByAuth(menu, status === "authenticated"),
         [status]
@@ -44,14 +48,19 @@ const Header = ({ shadow, fluid }: TProps) => {
                         sticky && "tw-fixed tw-top-0 tw-left-0 tw-shadow-md"
                     )}
                 >
-                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center">
-                        <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
-                            New Cohort Starts:
-                        </p>
-                        <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
-                            <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
-                            <CountdownTimer targetDate="2026/04/07" />
-                        </div>
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-center md:tw-justify-end">
+                        {/* Hidden once the cohort date passes (no dead 0:0:0:0 timer). */}
+                        {cohortUpcoming && (
+                            <>
+                                <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
+                                    New Cohort Starts:
+                                </p>
+                                <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
+                                    <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
+                                    <CountdownTimer targetDate={cohortStartDate || ""} />
+                                </div>
+                            </>
+                        )}
                         <Button
                             size="sm"
                             path="/donate"
@@ -91,14 +100,30 @@ const Header = ({ shadow, fluid }: TProps) => {
                             <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
                                 <div className="tw-hidden lg:tw-flex tw-items-center tw-gap-2">
                                     <span className="tw-relative tw-flex tw-h-[5px] tw-w-[5px]">
-                                        <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75" style={{ animation: "statusBlink 2s ease-in-out infinite" }} />
+                                        <span
+                                            className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-rounded-full tw-bg-red tw-opacity-75"
+                                            style={{
+                                                animation: "statusBlink 2s ease-in-out infinite",
+                                            }}
+                                        />
                                         <span className="tw-relative tw-inline-flex tw-h-[5px] tw-w-[5px] tw-rounded-full tw-bg-red" />
                                     </span>
-                                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.06em", color: "rgba(9, 31, 64, 0.5)" }}>
+                                    <span
+                                        style={{
+                                            fontFamily: "var(--font-mono)",
+                                            fontSize: "10px",
+                                            textTransform: "uppercase",
+                                            letterSpacing: "0.06em",
+                                            color: "rgba(9, 31, 64, 0.5)",
+                                        }}
+                                    >
                                         2026 Cohort Active
                                     </span>
                                 </div>
-                                <Social01 className="tw-hidden md:tw-flex md:tw-items-center" />
+                                {/* Socials moved out of the header — the container has no
+                                    slack, and the nav needs their 145px to stay on one line.
+                                    They still render in the footer. */}
+                                <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
@@ -111,7 +136,11 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div className="tw-h-20" />
                 </div>
             </header>
-            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={filteredMenu} />
+            <MobileMenu
+                isOpen={offcanvas}
+                onClose={() => setOffcanvas(false)}
+                menu={filteredMenu}
+            />
         </>
     );
 };

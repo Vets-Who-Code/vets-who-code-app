@@ -12,14 +12,8 @@ interface ResumeTranslatorProps {
 }
 
 const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeIndex }) => {
-    const {
-        activeResult,
-        isTranslating,
-        error,
-        resultSource,
-        translate,
-        reset,
-    } = useTranslator();
+    const { activeResult, isTranslating, error, resultSource, warnings, translate, reset } =
+        useTranslator();
 
     const [lastTargetJobTitle, setLastTargetJobTitle] = useState<string | undefined>();
     const [lastLeadershipCourses, setLastLeadershipCourses] = useState<string[] | undefined>();
@@ -46,9 +40,9 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeI
                     Military-to-Civilian Translator
                 </h1>
                 <p className="tw-text-lg tw-text-gray-300 tw-max-w-2xl tw-mx-auto">
-                    Transform your military experience into civilian-friendly
-                    resume language. You&apos;ll receive instant dictionary results,
-                    then Gemini AI enhances them automatically.
+                    Transform your military experience into civilian-friendly resume language.
+                    You&apos;ll receive instant dictionary results, then Gemini AI enhances them
+                    automatically.
                 </p>
             </div>
 
@@ -69,6 +63,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeI
                     onReset={handleReset}
                     targetJobTitle={lastTargetJobTitle}
                     leadershipCourses={lastLeadershipCourses}
+                    warnings={warnings}
                 />
             )}
         </div>

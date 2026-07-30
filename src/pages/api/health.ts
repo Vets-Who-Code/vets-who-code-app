@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
-import { applyRateLimit } from "@/lib/rate-limit";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { version } from "../../../package.json";
 
 interface CheckResult {
@@ -57,20 +57,35 @@ function aggregateStatus(checks: CheckResult[]): "healthy" | "degraded" | "unhea
     return "healthy";
 }
 
+/**
+ * @swagger
+ * /api/health:
+ *   get:
+ *     summary: Service health check
+ *     description: Reports database and environment health. Rate limited to 30 requests per minute per IP.
+ *     tags:
+ *       - Health
+ *     responses:
+ *       200:
+ *         description: Service is healthy or degraded
+ *       405:
+ *         description: Method not allowed
+ *       429:
+ *         description: Rate limit exceeded. Retry after the number of seconds in the Retry-After header.
+ *       503:
+ *         description: Service is unhealthy
+ */
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<HealthResponse | { error: string }>
 ) {
-    if (req.method !== "GET") {
-        return res.status(405).json({ error: "Method not allowed" });
+    // 30 req/min per IP — health checks are cheap but hit the database.
+    if (!enforceRateLimit(req, res, { name: "health", maxRequests: 30, windowMs: 60 * 1000 })) {
+        return;
     }
 
-    // Cap /health to prevent tight-loop pings from a misbehaving uptime
-    // checker. Real uptime probes ping every 30–60s — 60/min per IP is
-    // generous.
-    const rl = applyRateLimit(req, res, { scope: "health", max: 60, windowMs: 60_000 });
-    if (!rl.allowed) {
-        return res.status(429).json({ error: "Rate limit exceeded" });
+    if (req.method !== "GET") {
+        return res.status(405).json({ error: "Method not allowed" });
     }
 
     const dbCheck = await checkDatabase();

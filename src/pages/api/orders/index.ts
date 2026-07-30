@@ -1,6 +1,7 @@
 import { NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
 import { AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { normalizeEmail } from "@/lib/shopify-webhook";
 
 /**
  * GET /api/orders
@@ -31,7 +32,8 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
 
     try {
         const userId = req.user?.id;
-        const userEmail = req.user?.email;
+        // Orders store customerEmail normalized (see the webhook); match the same way.
+        const userEmail = normalizeEmail(req.user?.email);
 
         // Fetch orders for this user
         // Match by userId OR by email (for orders before user logged in)

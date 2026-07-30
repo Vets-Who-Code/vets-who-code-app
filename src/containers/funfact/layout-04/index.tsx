@@ -21,17 +21,27 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
         <Section className="funfact-area" space={space} bg={bg}>
             <div className="tw-container">
                 {/* Section label — Evil Rabbit pattern */}
-                <div className="tw-mb-2" style={{
-                    fontFamily: "var(--font-mono)",
-                    fontSize: "12px",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.1em",
-                    color: "#091f40",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                }}>
-                    <span style={{ width: "16px", height: "2px", background: "var(--red, #c5203e)", display: "inline-block" }} />
+                <div
+                    className="tw-mb-2"
+                    style={{
+                        fontFamily: "var(--font-mono)",
+                        fontSize: "12px",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.1em",
+                        color: "#091f40",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "12px",
+                    }}
+                >
+                    <span
+                        style={{
+                            width: "16px",
+                            height: "2px",
+                            background: "var(--red, #c5203e)",
+                            display: "inline-block",
+                        }}
+                    />
                     Our Impact
                 </div>
 

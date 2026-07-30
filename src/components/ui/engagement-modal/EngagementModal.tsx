@@ -1,5 +1,5 @@
 import { SafeSessionStorage } from "@utils/safe-storage";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./EngagementModal.module.css";

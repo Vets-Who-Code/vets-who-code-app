@@ -2,6 +2,7 @@ import Breadcrumb from "@components/breadcrumb";
 import TextBlock from "@components/common/text-block";
 import MentorForm from "@components/forms/mentor-form";
 import SEO from "@components/seo/page-seo";
+import { SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
 import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import GradationArea from "@containers/gradation";
@@ -66,24 +67,27 @@ const MentorPage: PageProps = ({ data }) => {
                 <FunfactArea data={content["funfact-area"]} />
             </Wrapper>
             <GradationArea data={content["gradation-area"]} />
-            <section className="tw-py-16 md:tw-py-20">
+            <section className="tw-py-20 md:tw-py-[120px]">
                 <div className="tw-container">
-                    <div className="tw-mx-auto tw-max-w-4xl">
-                        <h2 className="tw-mb-8 tw-text-3xl tw-font-bold tw-text-secondary md:tw-text-4xl">
-                            Who We&apos;re Looking For
-                        </h2>
-                        <ul className="tw-space-y-4 tw-text-lg tw-text-body">
+                    <div className="tw-mx-auto tw-flex tw-max-w-4xl tw-flex-col tw-gap-6">
+                        <SectionEyebrow label="Mentor Profile" subLabel="QUALIFICATIONS" />
+                        <SharpHeadline as="h2" size="h2" tone="navy">
+                            Who we&apos;re
+                            <br />
+                            <span className="tw-text-red">looking for.</span>
+                        </SharpHeadline>
+                        <ul className="tw-mt-6 tw-space-y-4 tw-font-body tw-text-charcoal tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
                             {lookingFor.map((item) => (
-                                <li key={item} className="tw-flex tw-gap-3">
+                                <li key={item} className="tw-flex tw-gap-4">
                                     <span
                                         aria-hidden="true"
-                                        className="tw-mt-2 tw-h-2 tw-w-2 tw-shrink-0 tw-rounded-full tw-bg-primary"
+                                        className="tw-mt-[10px] tw-h-[2px] tw-w-4 tw-shrink-0 tw-bg-red"
                                     />
                                     <span>{item}</span>
                                 </li>
                             ))}
                         </ul>
-                        <p className="tw-mt-8 tw-text-lg tw-text-body">
+                        <p className="tw-mt-6 tw-font-body tw-text-charcoal tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
                             You don&apos;t need to be a veteran to mentor. You need to be good at
                             your job and willing to invest time in someone who&apos;s working to get
                             where you are.
@@ -91,19 +95,26 @@ const MentorPage: PageProps = ({ data }) => {
                     </div>
                 </div>
             </section>
-            <section className="tw-bg-gray-50 tw-py-16 md:tw-py-20">
+            <section className="tw-bg-cream tw-py-20 md:tw-py-[120px]">
                 <div className="tw-container">
-                    <div className="tw-mx-auto tw-max-w-4xl">
-                        <h2 className="tw-mb-10 tw-text-3xl tw-font-bold tw-text-secondary md:tw-text-4xl">
-                            Why Engineers Mentor With Us
-                        </h2>
-                        <div className="tw-grid tw-gap-8 md:tw-grid-cols-2">
-                            <div className="tw-rounded-lg tw-border-l-4 tw-border-primary tw-bg-white tw-p-6 tw-shadow-sm">
-                                <h3 className="tw-mb-3 tw-text-xl tw-font-bold tw-text-secondary">
-                                    It&apos;s not charity work. It&apos;s engineering leadership
-                                    practice.
+                    <div className="tw-mx-auto tw-max-w-5xl">
+                        <div className="tw-flex tw-flex-col tw-gap-4">
+                            <SectionEyebrow
+                                label="Why Engineers Mentor"
+                                subLabel="LEADERSHIP / IMPACT"
+                            />
+                            <SharpHeadline as="h2" size="h2" tone="navy">
+                                It&apos;s practice.
+                                <br />
+                                <span className="tw-text-red">It&apos;s impact.</span>
+                            </SharpHeadline>
+                        </div>
+                        <div className="tw-mt-12 tw-grid tw-gap-6 md:tw-grid-cols-2">
+                            <article className="tw-border-t-2 tw-border-red tw-bg-white tw-p-8">
+                                <h3 className="tw-mb-4 tw-font-heading tw-text-[20px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
+                                    Not charity. Engineering leadership practice.
                                 </h3>
-                                <p className="tw-text-body">
+                                <p className="tw-font-body tw-text-charcoal tw-leading-[1.6]">
                                     Mentoring a VWC troop is the closest thing to managing a junior
                                     engineer without the HR paperwork. You&apos;ll practice giving
                                     code reviews that teach, running 1-on-1s that develop people,
@@ -112,18 +123,18 @@ const MentorPage: PageProps = ({ data }) => {
                                     tell us that mentoring with VWC made them better at their day
                                     job.
                                 </p>
-                            </div>
-                            <div className="tw-rounded-lg tw-border-l-4 tw-border-primary tw-bg-white tw-p-6 tw-shadow-sm">
-                                <h3 className="tw-mb-3 tw-text-xl tw-font-bold tw-text-secondary">
+                            </article>
+                            <article className="tw-border-t-2 tw-border-red tw-bg-white tw-p-8">
+                                <h3 className="tw-mb-4 tw-font-heading tw-text-[20px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
                                     Your time has measurable impact.
                                 </h3>
-                                <p className="tw-text-body">
+                                <p className="tw-font-body tw-text-charcoal tw-leading-[1.6]">
                                     This isn&apos;t a pen-pal program. Our troops ship code, pass
                                     technical interviews, and get hired. When your mentee lands a
                                     role at a company you respect, you&apos;ll know your Thursday
                                     evening code reviews had something to do with it.
                                 </p>
-                            </div>
+                            </article>
                         </div>
                     </div>
                 </div>

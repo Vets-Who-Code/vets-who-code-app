@@ -33,11 +33,7 @@ function detectFunctionName(code: string): string | null {
     return null;
 }
 
-function failedResult(
-    index: number,
-    tc: TestCase,
-    error: string
-): ClientTestResult {
+function failedResult(index: number, tc: TestCase, error: string): ClientTestResult {
     return {
         test_case_index: index,
         input: tc.input,

@@ -17,7 +17,7 @@ const ProgramCard = ({ program }: Props) => {
             <p className="tw-mb-4 tw-text-gray-200">{program.description}</p>
             <Link
                 href={`/programs/${program.slug}`}
-                className="tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-blue-400 tw-mt-auto tw-inline-block tw-font-medium tw-text-navy tw-underline"
+                className="tw-focus:tw-outline-none tw-focus:tw-ring-2 tw-focus:tw-ring-navy-sky tw-mt-auto tw-inline-block tw-font-medium tw-text-navy tw-underline"
                 aria-label={`Learn more about ${program.title}`}
             >
                 Learn more

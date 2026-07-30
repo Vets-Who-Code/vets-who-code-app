@@ -92,7 +92,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
     return (
         <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>
             {/* Header */}
-            <div style={{ padding: "20px", borderBottom: "1px solid #e0e0e0" }}>
+            <div style={{ padding: "20px", borderBottom: "1px solid #DEE2E6" }}>
                 <div
                     style={{
                         display: "flex",
@@ -128,7 +128,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             style={{
                                 flex: 1,
                                 padding: "10px",
-                                border: "1px solid #ccc",
+                                border: "1px solid #DEE2E6",
                                 borderRadius: "4px",
                             }}
                         />
@@ -136,7 +136,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             type="submit"
                             style={{
                                 padding: "10px 20px",
-                                backgroundColor: "#4caf50",
+                                backgroundColor: "#FDB330",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "4px",
@@ -150,7 +150,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             onClick={refresh}
                             style={{
                                 padding: "10px 20px",
-                                backgroundColor: "#2196f3",
+                                backgroundColor: "#0353A4",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "4px",
@@ -163,7 +163,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                 </form>
 
                 {folder && (
-                    <p style={{ marginTop: "10px", color: "#666", fontSize: "14px" }}>
+                    <p style={{ marginTop: "10px", color: "#6C757D", fontSize: "14px" }}>
                         Folder: {folder}
                     </p>
                 )}
@@ -175,8 +175,8 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                     <div
                         style={{
                             padding: "15px",
-                            backgroundColor: "#ffebee",
-                            color: "#c62828",
+                            backgroundColor: "#EEEDE9",
+                            color: "#74121D",
                             borderRadius: "4px",
                             marginBottom: "20px",
                         }}
@@ -190,7 +190,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                         <p>Loading images...</p>
                     </div>
                 ) : images.length === 0 ? (
-                    <div style={{ textAlign: "center", padding: "40px", color: "#666" }}>
+                    <div style={{ textAlign: "center", padding: "40px", color: "#6C757D" }}>
                         <p>No images found</p>
                     </div>
                 ) : (
@@ -210,8 +210,8 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                                         position: "relative",
                                         cursor: "pointer",
                                         border: isSelected(image)
-                                            ? "3px solid #4caf50"
-                                            : "1px solid #e0e0e0",
+                                            ? "3px solid #FDB330"
+                                            : "1px solid #DEE2E6",
                                         borderRadius: "8px",
                                         overflow: "hidden",
                                         transition: "all 0.2s",
@@ -246,7 +246,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                                                 right: "10px",
                                                 width: "30px",
                                                 height: "30px",
-                                                backgroundColor: "#4caf50",
+                                                backgroundColor: "#FDB330",
                                                 borderRadius: "50%",
                                                 display: "flex",
                                                 alignItems: "center",
@@ -281,7 +281,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                                             style={{
                                                 margin: "5px 0 0 0",
                                                 fontSize: "11px",
-                                                color: "#ccc",
+                                                color: "#DEE2E6",
                                             }}
                                         >
                                             {image.width} × {image.height} •{" "}
@@ -300,7 +300,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                                     disabled={loading}
                                     style={{
                                         padding: "10px 30px",
-                                        backgroundColor: "#2196f3",
+                                        backgroundColor: "#0353A4",
                                         color: "white",
                                         border: "none",
                                         borderRadius: "4px",
@@ -321,8 +321,8 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                 <div
                     style={{
                         padding: "20px",
-                        borderTop: "1px solid #e0e0e0",
-                        backgroundColor: "#f5f5f5",
+                        borderTop: "1px solid #DEE2E6",
+                        backgroundColor: "#F8F9FA",
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
@@ -338,7 +338,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             onClick={() => setSelectedImages([])}
                             style={{
                                 padding: "10px 20px",
-                                backgroundColor: "#757575",
+                                backgroundColor: "#495057",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "4px",
@@ -352,7 +352,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             onClick={handleSelect}
                             style={{
                                 padding: "10px 20px",
-                                backgroundColor: "#4caf50",
+                                backgroundColor: "#FDB330",
                                 color: "white",
                                 border: "none",
                                 borderRadius: "4px",

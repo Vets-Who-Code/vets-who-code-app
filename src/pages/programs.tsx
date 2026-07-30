@@ -1,5 +1,6 @@
 import ProgramCard from "@components/program-card";
 import SEO from "@components/seo/page-seo";
+import { MonoMeta, SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
 import HeroArea from "@containers/hero/layout-07";
 import Layout from "@layout/layout-01";
 import { GetStaticProps, NextPage } from "next";
@@ -46,23 +47,41 @@ const ProgramsPage: PageWithLayout = ({ allPrograms, page }) => {
         <>
             <SEO title={`${page.title} | Vets Who Code`} />
             <HeroArea data={heroData} />
-            <main className="tw-container tw-mx-auto tw-max-w-6xl tw-px-4">
-                <div className="tw-mx-auto tw-mb-12 tw-mt-16 tw-max-w-4xl">
-                    <p className="tw-text-center tw-text-lg tw-text-gray-200">
-                        Our programs are designed to empower veterans with real-world skills,
-                        mentorship, and a supportive community—helping you transition, grow, and
-                        lead in tech.
-                    </p>
-                </div>
-                {/* Program Cards Grid - project card style */}
-                <section className="tw-mb-16">
-                    <div className="tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
-                        {allPrograms.map((program) => (
-                            <ProgramCard key={program.slug} program={program} />
-                        ))}
+            <main>
+                {/* Programs index header — SF/CG aesthetic */}
+                <section className="tw-bg-cream tw-py-20 md:tw-py-[120px]">
+                    <div className="tw-container">
+                        <div className="tw-flex tw-flex-col tw-gap-6 md:tw-flex-row md:tw-items-end md:tw-justify-between">
+                            <div className="tw-flex tw-flex-col tw-gap-4">
+                                <SectionEyebrow
+                                    label="Programs Index"
+                                    subLabel={`${allPrograms.length} Active`}
+                                />
+                                <SharpHeadline as="h2" size="h2" tone="navy">
+                                    What we run.
+                                    <br />
+                                    <span className="tw-text-red">How troops engage.</span>
+                                </SharpHeadline>
+                            </div>
+                            <MonoMeta tone="muted" size="sm" className="md:tw-text-right">
+                                Sourced · VWC · Validated · Cohort Outcomes
+                            </MonoMeta>
+                        </div>
+
+                        <p className="tw-mt-10 tw-max-w-[720px] tw-font-body tw-text-charcoal tw-leading-[1.5] [font-size:clamp(18px,1.4vw,22px)]">
+                            Every program is mapped to verified labor-market demand. Pick the
+                            engagement that fits your stage: pre-troop assessment, full 17-week
+                            Hashflag Stack, or a Forward Deployed engagement through the Software
+                            Factory.
+                        </p>
+
+                        <div className="tw-mt-14 tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-3">
+                            {allPrograms.map((program) => (
+                                <ProgramCard key={program.slug} program={program} />
+                            ))}
+                        </div>
                     </div>
                 </section>
-                <hr className="tw-my-12 tw-border-t tw-border-gray-200" />
             </main>
         </>
     );

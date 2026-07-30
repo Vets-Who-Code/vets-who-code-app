@@ -1,6 +1,6 @@
-import crypto from "crypto";
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
+import { normalizeEmail, verifyShopifyHmac } from "@/lib/shopify-webhook";
 
 /**
  * Webhook handler for Shopify order creation
@@ -34,7 +34,7 @@ async function getRawBody(req: NextApiRequest): Promise<string> {
     });
 }
 
-// Verify Shopify HMAC signature
+// Verify Shopify HMAC signature (timing-safe, see @/lib/shopify-webhook)
 function verifyShopifyWebhook(rawBody: string, hmacHeader: string): boolean {
     // Use the Shopify API Secret Key (Client Secret) for webhook verification
     // Try multiple possible env var names for flexibility
@@ -50,12 +50,7 @@ function verifyShopifyWebhook(rawBody: string, hmacHeader: string): boolean {
         return false;
     }
 
-    const hash = crypto
-        .createHmac("sha256", shopifySecret)
-        .update(rawBody, "utf8")
-        .digest("base64");
-
-    return hash === hmacHeader;
+    return verifyShopifyHmac(rawBody, hmacHeader, shopifySecret);
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -64,9 +59,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).json({ error: "Method not allowed" });
     }
 
+    let rawBody = "";
     try {
         // Get raw body for signature verification
-        const rawBody = await getRawBody(req);
+        rawBody = await getRawBody(req);
         const hmacHeader = req.headers["x-shopify-hmac-sha256"] as string;
 
         // Verify webhook signature
@@ -85,11 +81,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Parse the order data
         const order = JSON.parse(rawBody);
 
-        // Find or link to user by email
+        // Find or link to user by email (normalized for consistent matching)
+        const normalizedEmail = normalizeEmail(order.email);
         let userId: string | null = null;
-        if (order.email) {
+        if (normalizedEmail) {
             const user = await prisma.user.findUnique({
-                where: { email: order.email.toLowerCase() },
+                where: { email: normalizedEmail },
                 select: { id: true },
             });
 
@@ -113,7 +110,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 shopifyId: order.id.toString(),
                 orderNumber: order.order_number?.toString() || order.name || `#${order.id}`,
                 userId,
-                customerEmail: order.email || "unknown@example.com",
+                customerEmail: normalizedEmail || "unknown@example.com",
                 customerName: order.customer
                     ? `${order.customer.first_name || ""} ${order.customer.last_name || ""}`.trim()
                     : order.billing_address?.name || null,
@@ -153,13 +150,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             orderId: createdOrder.id,
         });
     } catch (error) {
-        console.error("Error processing Shopify webhook:", error);
+        // A duplicate delivery that races past the existing-order check hits the
+        // unique constraint on shopifyId — that's an idempotent success, not a failure.
+        if (error && typeof error === "object" && (error as { code?: string }).code === "P2002") {
+            return res.status(200).json({ received: true, existing: true });
+        }
 
-        // Still return 200 to prevent Shopify from retrying
-        // Log the error for manual investigation
-        return res.status(200).json({
-            received: true,
-            error: "Internal error logged",
+        // Real failure (e.g. the DB write): log with context and return 5xx so Shopify
+        // retries. Previously this returned 200 and the order silently never reached Neon.
+        console.error("[shopify-webhook] order create failed:", {
+            shopifyId: (() => {
+                try {
+                    return JSON.parse(rawBody)?.id;
+                } catch {
+                    return undefined;
+                }
+            })(),
+            error: error instanceof Error ? error.message : String(error),
         });
+        return res.status(500).json({ received: false, error: "Order processing failed" });
     }
 }

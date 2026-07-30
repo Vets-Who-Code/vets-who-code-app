@@ -96,11 +96,11 @@ const AuthError: PageWithLayout = () => {
                         <h2 className="tw-mb-4 tw-text-2xl tw-font-bold tw-text-ink">
                             {error.title}
                         </h2>
-                        <div className="tw-mb-6 tw-rounded-md tw-bg-red-50 tw-p-4">
+                        <div className="tw-mb-6 tw-rounded-md tw-bg-cream tw-p-4">
                             <div className="tw-flex tw-justify-center">
                                 <div className="tw-flex-shrink-0">
                                     <svg
-                                        className="tw-h-5 tw-w-5 tw-text-red-400"
+                                        className="tw-h-5 tw-w-5 tw-text-red"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20"
                                         fill="currentColor"
@@ -114,8 +114,8 @@ const AuthError: PageWithLayout = () => {
                                     </svg>
                                 </div>
                                 <div className="tw-ml-3">
-                                    <p className="tw-text-sm tw-text-red-700">{error.message}</p>
-                                    <p className="tw-mt-2 tw-text-sm tw-text-red-700">
+                                    <p className="tw-text-sm tw-text-red-dark">{error.message}</p>
+                                    <p className="tw-mt-2 tw-text-sm tw-text-red-dark">
                                         {error.action}
                                     </p>
                                 </div>

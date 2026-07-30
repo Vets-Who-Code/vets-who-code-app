@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { CareerPathway } from "@/lib/military-translator";
 import { fetchLaborMarketData } from "@/lib/labor-market";
+import type { CareerPathway } from "@/lib/military-translator";
 
 interface CareerPathwaysRequest {
     jobCode?: string;
@@ -39,7 +39,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Look up career pathways
         let pathways: CareerPathway[] = [];
         try {
-            const pathwaysMap = (await import("@data/career-pathways-map.json")).default as Record<string, CareerPathway[]>;
+            const pathwaysMap = (await import("@data/career-pathways-map.json")).default as Record<
+                string,
+                CareerPathway[]
+            >;
             pathways = pathwaysMap[mosKey] || [];
         } catch (err) {
             console.warn("Career pathways: failed to load career-pathways-map.json:", err);
@@ -58,7 +61,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         // Enrich pathways with live labor market data
         if (pathways.length > 0) {
             try {
-                const socMap = (await import("@data/mos-to-soc-map.json")).default as Record<string, SocEntry[]>;
+                const socMap = (await import("@data/mos-to-soc-map.json")).default as Record<
+                    string,
+                    SocEntry[]
+                >;
                 const socEntries = socMap[mosKey] || [];
 
                 if (socEntries.length > 0) {

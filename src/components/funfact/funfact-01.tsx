@@ -12,21 +12,11 @@ type TProps = Omit<HTMLMotionProps<"div">, "children"> & {
 
 const DURATION_MS = 2200;
 
-const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+const easeOutCubic = (t: number) => 1 - (1 - t) ** 3;
 
 const FunFact = forwardRef<HTMLDivElement, TProps>(
     (
-        {
-            counter,
-            suffix,
-            prefix,
-            title,
-            note,
-            index = 0,
-            className,
-            style,
-            ...rest
-        },
+        { counter, suffix, prefix, title, note, index = 0, className, style, ...rest },
         containerRef
     ) => {
         const [hasRun, setHasRun] = useState(false);
@@ -97,7 +87,8 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                     ...style,
                 }}
                 onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLDivElement).style.background = "var(--navy-deep, #003559)";
+                    (e.currentTarget as HTMLDivElement).style.background =
+                        "var(--navy-deep, #003559)";
                 }}
                 onMouseLeave={(e) => {
                     (e.currentTarget as HTMLDivElement).style.background = "var(--navy, #091f40)";

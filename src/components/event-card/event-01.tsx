@@ -13,10 +13,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
     ({ thumbnail, title, path, start_date, location, className }, ref) => {
         return (
             <div
-                className={clsx(
-                    "event card-upgraded tw-group tw-relative tw-h-full",
-                    className
-                )}
+                className={clsx("event card-upgraded tw-group tw-relative tw-h-full", className)}
                 style={{
                     background: "var(--cream, #EEEDE9)",
                 }}

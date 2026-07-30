@@ -89,7 +89,7 @@ const BlogImageManager: React.FC = () => {
     return (
         <div style={{ padding: "20px", maxWidth: "1200px", margin: "0 auto" }}>
             <h1>Blog Image Manager</h1>
-            <p style={{ color: "#666", marginBottom: "30px" }}>
+            <p style={{ color: "#6C757D", marginBottom: "30px" }}>
                 Browse your Cloudinary images and generate optimized URLs for blog posts
             </p>
 
@@ -125,7 +125,7 @@ const BlogImageManager: React.FC = () => {
                                 style={{
                                     marginTop: "15px",
                                     padding: "15px",
-                                    backgroundColor: "#f5f5f5",
+                                    backgroundColor: "#F8F9FA",
                                     borderRadius: "4px",
                                     fontSize: "14px",
                                 }}
@@ -175,14 +175,14 @@ const BlogImageManager: React.FC = () => {
                                         style={{
                                             width: "100%",
                                             padding: "10px",
-                                            border: "1px solid #ccc",
+                                            border: "1px solid #DEE2E6",
                                             borderRadius: "4px",
                                         }}
                                     />
                                     <p
                                         style={{
                                             fontSize: "12px",
-                                            color: "#666",
+                                            color: "#6C757D",
                                             marginTop: "5px",
                                         }}
                                     >
@@ -213,7 +213,7 @@ const BlogImageManager: React.FC = () => {
                                         style={{
                                             width: "100%",
                                             padding: "10px",
-                                            border: "1px solid #ccc",
+                                            border: "1px solid #DEE2E6",
                                             borderRadius: "4px",
                                         }}
                                     >
@@ -252,7 +252,7 @@ const BlogImageManager: React.FC = () => {
                                         style={{
                                             width: "100%",
                                             padding: "10px",
-                                            border: "1px solid #ccc",
+                                            border: "1px solid #DEE2E6",
                                             borderRadius: "4px",
                                         }}
                                     >
@@ -287,7 +287,7 @@ const BlogImageManager: React.FC = () => {
                                         style={{
                                             width: "100%",
                                             padding: "10px",
-                                            border: "1px solid #ccc",
+                                            border: "1px solid #DEE2E6",
                                             borderRadius: "4px",
                                         }}
                                     >
@@ -309,15 +309,15 @@ const BlogImageManager: React.FC = () => {
                     {/* Generated Code */}
                     <div style={{ marginTop: "30px" }}>
                         <h2>Blog Frontmatter (YAML) - Recommended</h2>
-                        <p style={{ color: "#666", marginBottom: "10px" }}>
+                        <p style={{ color: "#6C757D", marginBottom: "10px" }}>
                             Use this format with just the public ID. Transformations are applied
                             automatically:
                         </p>
                         <div style={{ position: "relative" }}>
                             <pre
                                 style={{
-                                    backgroundColor: "#1e1e1e",
-                                    color: "#d4d4d4",
+                                    backgroundColor: "#212529",
+                                    color: "#DEE2E6",
                                     padding: "20px",
                                     borderRadius: "8px",
                                     overflow: "auto",
@@ -334,7 +334,7 @@ const BlogImageManager: React.FC = () => {
                                     top: "10px",
                                     right: "10px",
                                     padding: "8px 16px",
-                                    backgroundColor: "#4caf50",
+                                    backgroundColor: "#FDB330",
                                     color: "white",
                                     border: "none",
                                     borderRadius: "4px",
@@ -348,14 +348,14 @@ const BlogImageManager: React.FC = () => {
                         </div>
 
                         <h2 style={{ marginTop: "30px" }}>Legacy Format (Full URL)</h2>
-                        <p style={{ color: "#666", marginBottom: "10px" }}>
+                        <p style={{ color: "#6C757D", marginBottom: "10px" }}>
                             Or use the full URL with custom transformations (also works):
                         </p>
                         <div style={{ position: "relative" }}>
                             <pre
                                 style={{
-                                    backgroundColor: "#1e1e1e",
-                                    color: "#d4d4d4",
+                                    backgroundColor: "#212529",
+                                    color: "#DEE2E6",
                                     padding: "20px",
                                     borderRadius: "8px",
                                     overflow: "auto",
@@ -372,7 +372,7 @@ const BlogImageManager: React.FC = () => {
                                     top: "10px",
                                     right: "10px",
                                     padding: "8px 16px",
-                                    backgroundColor: "#4caf50",
+                                    backgroundColor: "#FDB330",
                                     color: "white",
                                     border: "none",
                                     borderRadius: "4px",
@@ -389,14 +389,14 @@ const BlogImageManager: React.FC = () => {
                     {/* Public ID Display */}
                     <div style={{ marginTop: "30px" }}>
                         <h2>Cloudinary Public ID</h2>
-                        <p style={{ color: "#666", marginBottom: "10px" }}>
+                        <p style={{ color: "#6C757D", marginBottom: "10px" }}>
                             This is the identifier for this image in your Cloudinary account:
                         </p>
                         <div style={{ position: "relative" }}>
                             <pre
                                 style={{
-                                    backgroundColor: "#1e1e1e",
-                                    color: "#d4d4d4",
+                                    backgroundColor: "#212529",
+                                    color: "#DEE2E6",
                                     padding: "20px",
                                     borderRadius: "8px",
                                     overflow: "auto",
@@ -413,7 +413,7 @@ const BlogImageManager: React.FC = () => {
                                     top: "10px",
                                     right: "10px",
                                     padding: "8px 16px",
-                                    backgroundColor: "#4caf50",
+                                    backgroundColor: "#FDB330",
                                     color: "white",
                                     border: "none",
                                     borderRadius: "4px",
@@ -427,14 +427,14 @@ const BlogImageManager: React.FC = () => {
                         </div>
 
                         <h2 style={{ marginTop: "30px" }}>Direct URL</h2>
-                        <p style={{ color: "#666", marginBottom: "10px" }}>
+                        <p style={{ color: "#6C757D", marginBottom: "10px" }}>
                             Use this URL directly in your application:
                         </p>
                         <div style={{ position: "relative" }}>
                             <pre
                                 style={{
-                                    backgroundColor: "#1e1e1e",
-                                    color: "#d4d4d4",
+                                    backgroundColor: "#212529",
+                                    color: "#DEE2E6",
                                     padding: "20px",
                                     borderRadius: "8px",
                                     overflow: "auto",
@@ -451,7 +451,7 @@ const BlogImageManager: React.FC = () => {
                                     top: "10px",
                                     right: "10px",
                                     padding: "8px 16px",
-                                    backgroundColor: "#4caf50",
+                                    backgroundColor: "#FDB330",
                                     color: "white",
                                     border: "none",
                                     borderRadius: "4px",

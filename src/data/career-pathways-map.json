@@ -34662,6 +34662,67 @@
             "dataSource": "curated"
         }
     ],
+    "marine_corps:6333": [
+        {
+            "role": "Avionics Technician",
+            "matchLevel": "High match",
+            "avgSalary": 75000,
+            "demand": "High demand",
+            "skillsToClose": [
+                "FAA repair station experience",
+                "Civilian avionics installation standards"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Junior Software Engineer",
+            "matchLevel": "Good match",
+            "avgSalary": 85000,
+            "demand": "High demand",
+            "skillsToClose": [
+                "JavaScript/TypeScript or Python fundamentals",
+                "Version control with Git",
+                "Web application frameworks"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Software Developer in Test",
+            "matchLevel": "Good match",
+            "avgSalary": 90000,
+            "demand": "Growing demand",
+            "skillsToClose": [
+                "Test automation frameworks (Selenium, Playwright)",
+                "Scripting in Python or JavaScript",
+                "CI/CD pipeline fundamentals"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Systems Software Developer",
+            "matchLevel": "Moderate match",
+            "avgSalary": 95000,
+            "demand": "Growing demand",
+            "skillsToClose": [
+                "C/C++ or Rust programming",
+                "Embedded systems development",
+                "Real-time operating systems"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "DevOps Engineer",
+            "matchLevel": "Moderate match",
+            "avgSalary": 105000,
+            "demand": "Very high demand",
+            "skillsToClose": [
+                "Linux administration",
+                "Cloud platforms (AWS, Azure)",
+                "Infrastructure as code (Terraform)"
+            ],
+            "dataSource": "curated"
+        }
+    ],
     "6335": [
         {
             "role": "Aircraft Maintenance Manager",

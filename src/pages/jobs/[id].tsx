@@ -83,7 +83,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                             </div>
                             <div className="tw-flex tw-flex-wrap tw-gap-2">
                                 {job.category && (
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-blue-800">
+                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-navy-deep">
                                         <i className="fas fa-tag tw-mr-1" />
                                         {job.category}
                                     </span>
@@ -255,7 +255,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                         </div>
 
                         {/* Tips */}
-                        <div className="tw-rounded-lg tw-border-2 tw-border-blue-200 tw-bg-navy-sky/20 tw-p-6">
+                        <div className="tw-rounded-lg tw-border-2 tw-border-navy-sky tw-bg-navy-sky/20 tw-p-6">
                             <h3 className="tw-mb-3 tw-text-lg tw-font-semibold tw-text-ink">
                                 <i className="fas fa-lightbulb tw-mr-2 tw-text-navy-royal" />
                                 Application Tips

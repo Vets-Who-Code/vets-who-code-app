@@ -89,7 +89,10 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                         aria-label="Close video"
                                         className="tw-absolute -tw-top-9 tw-right-0 tw-flex tw-h-9 tw-w-9 tw-items-center tw-justify-center tw-bg-black tw-text-white"
                                     >
-                                        <i className="linea-arrows-circle-remove" aria-hidden="true" />
+                                        <i
+                                            className="linea-arrows-circle-remove"
+                                            aria-hidden="true"
+                                        />
                                     </button>
                                     <iframe
                                         className="modal__video-style"

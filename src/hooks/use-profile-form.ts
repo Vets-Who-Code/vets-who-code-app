@@ -1,5 +1,5 @@
-import { useEffect, useState, useCallback, useRef } from "react";
 import { useSession } from "next-auth/react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import type { ProfileFormData, ProfileUser } from "@/types/profile";
 
 const EMPTY_FORM: ProfileFormData = {
@@ -54,9 +54,10 @@ export default function useProfileForm(user: ProfileUser): UseProfileFormReturn 
         async function fetchProfile() {
             if (!session?.user) return;
             try {
-                const url = user.id && user.id !== session.user.id
-                    ? `/api/user/profile?userId=${encodeURIComponent(user.id)}`
-                    : "/api/user/profile";
+                const url =
+                    user.id && user.id !== session.user.id
+                        ? `/api/user/profile?userId=${encodeURIComponent(user.id)}`
+                        : "/api/user/profile";
                 const response = await fetch(url);
                 if (response.ok) {
                     const userData = await response.json();

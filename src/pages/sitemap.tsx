@@ -1,6 +1,6 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
-import { sitemapColumns, sitemapExtraColumns, SitemapColumn } from "@data/sitemap-links";
+import { SitemapColumn, sitemapColumns, sitemapExtraColumns } from "@data/sitemap-links";
 import Layout from "@layout/layout-01";
 import Anchor from "@ui/anchor";
 import type { GetStaticProps, NextPage } from "next";
@@ -41,10 +41,7 @@ const SitemapPage: PageProps = () => {
                     <p className="tw-mb-10 tw-text-lg tw-text-body">
                         Every page on vetswhocode.io, grouped by what you&apos;re trying to do.
                         Looking for our XML sitemap?{" "}
-                        <a
-                            href="/sitemap.xml"
-                            className="tw-text-primary hover:tw-underline"
-                        >
+                        <a href="/sitemap.xml" className="tw-text-primary hover:tw-underline">
                             View sitemap.xml
                         </a>
                         .

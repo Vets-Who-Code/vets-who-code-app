@@ -20,9 +20,27 @@ export default class MyDocument extends Document {
                     <link rel="apple-touch-icon" href="/images/favicon.png" />
 
                     {/* Preload GothamPro fonts */}
-                    <link rel="preload" href="/fonts/gotham/GothamPro.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-                    <link rel="preload" href="/fonts/gotham/GothamPro-Bold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-                    <link rel="preload" href="/fonts/gotham/GothamPro-Medium.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro-Bold.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
+                    <link
+                        rel="preload"
+                        href="/fonts/gotham/GothamPro-Medium.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossOrigin="anonymous"
+                    />
 
                     <link
                         rel="stylesheet"

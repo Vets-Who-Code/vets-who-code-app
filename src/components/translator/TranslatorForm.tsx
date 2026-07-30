@@ -10,7 +10,6 @@ import { usePdfUpload } from "@/hooks";
 import type { MilitaryProfile } from "@/lib/military-translator";
 import { trackTranslatorEvent } from "@/lib/translator-analytics";
 import type { JobCodeEntry } from "@/types/job-codes";
-import { handleClientError } from "@/utils/handle-client-error";
 import JobCodeCombobox from "./JobCodeCombobox";
 
 interface IFormValues {
@@ -158,9 +157,8 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     setValue("duties", formatted, { shouldValidate: true });
                     setDutiesAutoFilled(true);
                 }
-            } catch (err) {
-                // Soft fail — user can still type duties manually. Log for devs.
-                handleClientError(err, { context: "TranslatorForm:fetchDescription" });
+            } catch {
+                // Silently fail — user can still type duties manually
             } finally {
                 setFetchingDescription(false);
             }
@@ -205,17 +203,13 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         }
                         if (fields.achievements) setValue("achievements", fields.achievements);
                     }
-                } catch (err) {
-                    // Raw PDF text is already in duties, so this is a soft
-                    // fail; AI auto-fill just doesn't run.
-                    handleClientError(err, { context: "TranslatorForm:extractFields" });
+                } catch {
+                    // Silent fallback — raw text is already in duties
                 } finally {
                     setExtractingFields(false);
                 }
-            } catch (err) {
-                // PDF parse error is surfaced via uploadPdf's hook state;
-                // log so devs can see the underlying failure too.
-                handleClientError(err, { context: "TranslatorForm:handlePdfUpload" });
+            } catch {
+                // Error is already tracked via the hook state
             }
         },
         [uploadPdf, setValue]
@@ -478,7 +472,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                 )}
 
                 {pdfError && (
-                    <div className="tw-flex tw-items-start tw-gap-2 tw-rounded-md tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                    <div className="tw-flex tw-items-start tw-gap-2 tw-rounded-md tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                         <i className="fas fa-exclamation-circle tw-mt-0.5" />
                         <span>{pdfError}</span>
                     </div>
@@ -486,12 +480,12 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
 
                 {pdfFileName && !pdfUploading && !pdfError && (
                     <div className="tw-space-y-3">
-                        <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-green-600">
+                        <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-navy-deep">
                             <i className="fas fa-check-circle" />
                             Extracted text from {pdfFileName}
                         </div>
                         {extractingFields && (
-                            <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-blue-600">
+                            <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-navy-ocean">
                                 <i className="fas fa-spinner fa-spin" />
                                 AI is analyzing your resume...
                             </div>
@@ -500,7 +494,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                             type="button"
                             onClick={handleTranslateNow}
                             disabled={isTranslating}
-                            className="tw-rounded-lg tw-bg-[#091f40] tw-px-5 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-white tw-transition hover:tw-bg-[#0d2d5e] disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+                            className="tw-rounded-lg tw-bg-navy tw-px-5 tw-py-2.5 tw-text-sm tw-font-semibold tw-text-white tw-transition hover:tw-bg-navy-deep disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                         >
                             {isTranslating ? (
                                 <>
@@ -531,7 +525,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         : "List each duty on a new line. Be specific about what you did."}
                 </p>
                 {dutiesAutoFilled && (
-                    <p className="tw-text-xs tw-font-medium tw-text-green-600">
+                    <p className="tw-text-xs tw-font-medium tw-text-navy-deep">
                         <i className="fas fa-check-circle tw-mr-1" />
                         Auto-filled from MOS database. Edit as needed.
                     </p>
@@ -774,7 +768,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                 <Button
                     type="submit"
                     disabled={isTranslating}
-                    className="tw-flex-1 tw-transform tw-rounded-lg tw-bg-[#c5203e] tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-[#a91b35] focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#c5203e] focus:tw-ring-offset-2 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+                    className="tw-flex-1 tw-transform tw-rounded-lg tw-bg-red tw-px-6 tw-py-4 tw-font-semibold tw-text-white tw-transition tw-duration-200 tw-ease-in-out hover:tw-bg-red-crimson focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-red focus:tw-ring-offset-2 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
                 >
                     {isTranslating ? (
                         <>
@@ -789,6 +783,11 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     )}
                 </Button>
             </div>
+
+<p className="tw-mt-3 tw-text-xs tw-text-gray-500">
+    <i className="fas fa-lock tw-mr-1.5" aria-hidden={true} />
+    Your information is processed securely. Please do not include personal details (names, SSNs, contact info) in the text you submit.
+</p>
 
             {error && <Feedback state="error">{error}</Feedback>}
         </form>

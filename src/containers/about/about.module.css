@@ -1,0 +1,246 @@
+/* Shared primitives for the About Us redesign. */
+
+@keyframes vwcBlink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    50.01%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.blink {
+    display: inline-block;
+    animation: vwcBlink 1.2s steps(2) infinite;
+}
+
+.blinkSlow {
+    animation: vwcBlink 1.1s steps(2) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blink,
+    .blinkSlow {
+        animation: none;
+        opacity: 1;
+    }
+}
+
+/* Pillar card — hover lifts, drops shadow, slides in a 2px red top border. */
+.pillarCard {
+    position: relative;
+    background: #fff;
+    border: 1px solid var(--silver, #dee2e6);
+    padding: 40px 36px 44px;
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 280ms cubic-bezier(0.3, 0.2, 0.3, 0.3),
+        box-shadow 280ms cubic-bezier(0.3, 0.2, 0.3, 0.3);
+    box-shadow: 0 1px 0 rgba(9, 31, 64, 0.02);
+}
+
+.pillarCard:hover,
+.pillarCard:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(9, 31, 64, 0.1);
+}
+
+.pillarCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--red, #c5203e);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.3, 0.2, 0.3, 0.3);
+}
+
+.pillarCard:hover::before,
+.pillarCard:focus-within::before {
+    transform: scaleX(1);
+}
+
+/* Spine chapter button — adjacent left-border accent when active. */
+.spineItem {
+    position: relative;
+    margin-left: -1px;
+    padding: 12px 0 12px 24px;
+    border-left: 2px solid transparent;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 220ms ease;
+}
+
+.spineItemActive {
+    border-left-color: var(--red, #c5203e);
+}
+
+.spineItem:focus-visible {
+    outline: 2px solid var(--gold, #fdb330);
+    outline-offset: 4px;
+}
+
+/* JoinCTA pathway card — full surface flips to navy on hover/focus. */
+.pathwayCard {
+    position: relative;
+    background: #fff;
+    color: var(--ink, #1a1823);
+    border: 1px solid var(--silver, #dee2e6);
+    padding: 48px 40px 40px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-height: 360px;
+    text-decoration: none;
+    transition:
+        transform 320ms cubic-bezier(0.3, 0.2, 0.3, 0.3),
+        background-color 320ms cubic-bezier(0.3, 0.2, 0.3, 0.3),
+        color 320ms cubic-bezier(0.3, 0.2, 0.3, 0.3),
+        box-shadow 320ms cubic-bezier(0.3, 0.2, 0.3, 0.3);
+    box-shadow: 0 1px 0 rgba(9, 31, 64, 0.02);
+}
+
+.pathwayCard::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--red, #c5203e);
+}
+
+.pathwayCard:hover,
+.pathwayCard:focus-visible {
+    background: var(--navy, #091f40);
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: 0 22px 50px rgba(9, 31, 64, 0.18);
+}
+
+.pathwayCard:hover .pathwayKind,
+.pathwayCard:focus-visible .pathwayKind,
+.pathwayCard:hover .pathwayCta,
+.pathwayCard:focus-visible .pathwayCta {
+    color: var(--gold, #fdb330);
+}
+
+.pathwayCard:hover .pathwayTitle,
+.pathwayCard:focus-visible .pathwayTitle {
+    color: #fff;
+}
+
+.pathwayCard:hover .pathwayBody,
+.pathwayCard:focus-visible .pathwayBody {
+    color: rgba(248, 249, 250, 0.85);
+}
+
+.pathwayCard:hover .pathwayCta,
+.pathwayCard:focus-visible .pathwayCta {
+    border-top-color: rgba(185, 214, 242, 0.2);
+}
+
+.pathwayCard:hover .pathwayArrow,
+.pathwayCard:focus-visible .pathwayArrow {
+    transform: translateX(6px);
+}
+
+.pathwayKind,
+.pathwayCta {
+    color: var(--red, #c5203e);
+    transition: color 240ms;
+}
+
+.pathwayCta {
+    border-top: 1px solid var(--silver, #dee2e6);
+    transition:
+        color 240ms,
+        border-top-color 240ms;
+}
+
+.pathwayTitle {
+    color: var(--navy, #091f40);
+    transition: color 240ms;
+}
+
+.pathwayBody {
+    color: var(--charcoal, #495057);
+    transition: color 240ms;
+}
+
+.pathwayArrow {
+    display: inline-block;
+    transition: transform 240ms;
+}
+
+/* Alumni cell hover tint. */
+.alumniCell {
+    background: #fff;
+    transition: background-color 200ms;
+}
+
+.alumniCell:hover {
+    background: rgba(197, 32, 62, 0.04);
+}
+
+/* Theory primary CTA — uses VWC button press semantics. */
+.theoryCtaPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--red, #c5203e);
+    color: #fff;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 28px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 8px 20px rgba(197, 32, 62, 0.3);
+    transition:
+        transform 200ms ease,
+        background-color 200ms ease;
+    text-decoration: none;
+}
+
+.theoryCtaPrimary:hover {
+    transform: translateY(-1px);
+    background: var(--red-crimson, #a51c30);
+}
+
+.theoryCtaPrimary:active {
+    transform: scale(0.97);
+}
+
+.theoryCtaSecondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: transparent;
+    color: #fff;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 28px;
+    border: 1px solid rgba(185, 214, 242, 0.4);
+    border-radius: 0;
+    transition: border-color 200ms ease;
+    text-decoration: none;
+}
+
+.theoryCtaSecondary:hover {
+    border-color: #fff;
+}

@@ -1,0 +1,208 @@
+/* Shared primitives for the Theory of Change redesign. */
+
+/* Faint 60px grid wash on the hero background, masked to the left half. */
+.heroGrid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(185, 214, 242, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(185, 214, 242, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(
+        circle at 0% 50%,
+        #000 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle at 0% 50%,
+        #000 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        transparent 100%
+    );
+}
+
+/* Red radial glow on the hero right side. */
+.heroGlow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 100% 50%, rgba(197, 32, 62, 0.12) 0%, transparent 60%);
+}
+
+/* Gold status dot with a glow + soft pulse. */
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold, #fdb330);
+    box-shadow: 0 0 12px rgba(253, 179, 48, 0.6);
+    animation: tocPulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+@keyframes tocPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.3);
+        opacity: 0.55;
+    }
+}
+
+/* Vertical scroll cue line that wipes top→bottom→top. */
+.scrollCue {
+    position: relative;
+    width: 1px;
+    height: 40px;
+    overflow: hidden;
+    background: rgba(185, 214, 242, 0.18);
+}
+
+.scrollCue::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--red, #c5203e) 0%, transparent 100%);
+    animation: tocScrollCue 2s ease-in-out infinite;
+}
+
+@keyframes tocScrollCue {
+    0%,
+    100% {
+        transform: translateY(-100%);
+    }
+    50% {
+        transform: translateY(100%);
+    }
+}
+
+/* Diff row hover tint (light + dark variants). */
+.diffRow {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: stretch;
+    transition: background-color 200ms ease;
+}
+
+.diffRow:hover {
+    background-color: rgba(197, 32, 62, 0.04);
+}
+
+.diffRowDark:hover {
+    background-color: rgba(197, 32, 62, 0.08);
+}
+
+@media (max-width: 767px) {
+    .diffRow {
+        grid-template-columns: 44px 1fr;
+    }
+
+    .diffIndex {
+        display: none !important;
+    }
+}
+
+/* Commit timeline rail — vertical fading gradient line at the left edge. */
+.timelineRail {
+    position: relative;
+}
+
+.timelineRail::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(9, 31, 64, 0.18) 8%,
+        rgba(9, 31, 64, 0.18) 92%,
+        transparent 100%
+    );
+}
+
+.timelineRail.dark::before {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(185, 214, 242, 0.18) 8%,
+        rgba(185, 214, 242, 0.18) 92%,
+        transparent 100%
+    );
+}
+
+@media (max-width: 767px) {
+    .timelineRail::before {
+        left: 14px;
+    }
+}
+
+/* CTA buttons — primary (red) + ghost (outlined). */
+.ctaPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--red, #c5203e);
+    color: #fff;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 8px 20px rgba(197, 32, 62, 0.2);
+    transition:
+        transform 200ms ease,
+        background-color 200ms ease,
+        box-shadow 200ms ease;
+    text-decoration: none;
+}
+
+.ctaPrimary:hover {
+    transform: translateY(-1px);
+    background: var(--red-crimson, #a51c30);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.ctaPrimary:active {
+    transform: scale(0.95);
+}
+
+.ctaGhost {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    color: #fff;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 28px;
+    border: 1px solid rgba(185, 214, 242, 0.4);
+    border-radius: 0;
+    text-decoration: none;
+    transition: border-color 200ms ease;
+}
+
+.ctaGhost:hover {
+    border-color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .statusDot,
+    .scrollCue::after {
+        animation: none;
+    }
+}

@@ -10,6 +10,7 @@ export interface ContactClassification {
 interface ClassificationInput {
     name: string;
     email: string;
+    subject?: string;
     message: string;
 }
 
@@ -42,8 +43,8 @@ const CLASSIFICATION_PROMPT = `You are a spam filter for a nonprofit software en
 Classify the following contact form submission.
 
 Rules:
-- "relevant": Genuine inquiries about the program, mentorship, donations, partnerships, volunteering, hiring veterans, or personal messages to the team.
-- "spam": SEO pitches, backlink or guest post requests, marketing/advertising services, unsolicited sales, crypto/forex/gambling, adult content, link-building requests, auto-generated gibberish, or phishing attempts.
+- "relevant": Genuine inquiries about the program, mentorship, donations, partnerships, volunteering, hiring veterans, personal messages to the team, OR inbound buyers asking to engage the VWC Software Factory (paid software engineering services — web apps, dashboards, internal tools, AI integrations, prototypes, audits). Treat budget ranges, scope briefs, and requests for a discovery call as STRONG signals of relevance, not spam.
+- "spam": SEO pitches, backlink or guest post requests, agencies pitching THEIR services to VWC, unsolicited offers to "grow your traffic" or "rank higher," crypto/forex/gambling, adult content, link-building requests, auto-generated gibberish, or phishing attempts. The key signal: the sender is selling TO VWC, not asking VWC to do work FOR them.
 - "unclear": The message is ambiguous or you cannot determine intent with reasonable confidence.
 
 For sendToSlack:
@@ -52,6 +53,7 @@ For sendToSlack:
 
 Name: {name}
 Email: {email}
+Subject: {subject}
 Message:
 {message}`;
 
@@ -77,6 +79,7 @@ export async function classifyContact(
 
         const prompt: string = CLASSIFICATION_PROMPT.replace("{name}", input.name)
             .replace("{email}", input.email)
+            .replace("{subject}", input.subject ?? "(none)")
             .replace("{message}", input.message);
 
         const response = await ai.models.generateContent({

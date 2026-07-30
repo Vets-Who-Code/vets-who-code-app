@@ -1,9 +1,13 @@
 import type { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import type { SwaggerUIProps } from "swagger-ui-react";
 import { getApiDocs } from "../swagger";
 
-const SwaggerUI = dynamic(() => import("swagger-ui-react"), { ssr: false });
+const SwaggerUI = dynamic<SwaggerUIProps>(
+    () => import("swagger-ui-react"),
+    { ssr: false },
+);
 
 export default function ApiDoc({ spec }: { spec: object }) {
     return (

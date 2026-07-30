@@ -8,7 +8,7 @@ export const sitemapColumns: SitemapColumn[] = [
             { label: "Overview", path: "/programs" },
             { label: "Core Curriculum", path: "/programs/core-curriculum" },
             { label: "Mentorship", path: "/programs/mentorship" },
-            { label: "Studio", path: "/programs/studio" },
+            { label: "Software Factory", path: "/programs/software-factory" },
         ],
     },
     {

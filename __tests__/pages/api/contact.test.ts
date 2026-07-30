@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
 import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
 import handler from "@/pages/api/contact";
-import { _resetRateLimitForTests } from "@/lib/rate-limit";
 
 vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
     classifyContact: vi.fn(),
@@ -11,26 +10,33 @@ vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
 
 vi.mock("axios");
 
-function createMockReqRes(body: Record<string, unknown>): {
+// Each call gets a unique IP by default so the per-IP rate limiter
+// never interferes across tests. Pass `ip` to share a bucket on purpose.
+let nextIp = 0;
+
+function createMockReqRes(
+    body: Record<string, unknown>,
+    ip?: string
+): {
     req: NextApiRequest;
     res: NextApiResponse;
 } {
+    nextIp++;
     const req = {
         body,
-        headers: {},
-        socket: { remoteAddress: "127.0.0.1" },
+        headers: { "x-forwarded-for": ip ?? `198.51.100.${nextIp}` },
+        socket: {},
     } as unknown as NextApiRequest;
     const res = {
         status: vi.fn().mockReturnThis(),
         json: vi.fn().mockReturnThis(),
-        setHeader: vi.fn(),
+        setHeader: vi.fn().mockReturnThis(),
     } as unknown as NextApiResponse;
     return { req, res };
 }
 
 describe("POST /api/contact", () => {
     beforeEach(() => {
-        _resetRateLimitForTests();
         process.env.CONTACT_WEBHOOK_ID = "T00/B00/xxx";
     });
 
@@ -161,6 +167,7 @@ describe("POST /api/contact", () => {
             expect(classifyContact).toHaveBeenCalledWith({
                 name: "Jane",
                 email: "jane@test.com",
+                subject: "",
                 message: "I heard about your program and would like to apply",
             });
         });
@@ -179,6 +186,7 @@ describe("POST /api/contact", () => {
             expect(classifyContact).toHaveBeenCalledWith({
                 name: "Unknown",
                 email: "test@example.com",
+                subject: "",
                 message: "Test message for the bootcamp",
             });
         });
@@ -246,6 +254,28 @@ describe("POST /api/contact", () => {
             expect(payload.text).toContain("john@example.com");
             expect(payload.text).toContain("555-0000");
             expect(payload.text).toContain("I want to join the bootcamp");
+        });
+    });
+
+    describe("rate limiting", () => {
+        it("should return 429 with Retry-After after 5 requests per minute from one IP", async () => {
+            const ip = "203.0.113.99";
+
+            for (let i = 0; i < 5; i++) {
+                const { req, res } = createMockReqRes({}, ip);
+                await handler(req, res);
+                // Under the limit: requests reach validation, not the limiter.
+                expect(res.status).toHaveBeenCalledWith(422);
+            }
+
+            const { req, res } = createMockReqRes({}, ip);
+            await handler(req, res);
+
+            expect(res.status).toHaveBeenCalledWith(429);
+            expect(res.json).toHaveBeenCalledWith({
+                error: "Too many requests. Please try again later.",
+            });
+            expect(res.setHeader).toHaveBeenCalledWith("Retry-After", expect.any(Number));
         });
     });
 });

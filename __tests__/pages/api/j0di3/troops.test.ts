@@ -18,8 +18,6 @@ vi.mock("axios", () => ({
     },
 }));
 
-import j0di3 from "@/lib/j0di3-client";
-
 function createRes() {
     return {
         status: vi.fn().mockReturnThis(),
@@ -108,7 +106,9 @@ describe("troops/dashboard API route", () => {
     it("wires to GET with dynamic troop path", async () => {
         vi.resetModules();
         vi.mock("@/lib/j0di3-proxy", () => ({
-            j0di3Proxy: vi.fn((_method: string, _path: string | Function) => vi.fn()),
+            j0di3Proxy: vi.fn((_method: string, _path: string | ((req: unknown) => string)) =>
+                vi.fn()
+            ),
         }));
         vi.mock("@/lib/rbac", () => ({
             requireAuth: vi.fn((h) => h),

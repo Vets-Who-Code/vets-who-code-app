@@ -45,22 +45,23 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
                         __html: JSON.stringify({
                             "@context": "https://schema.org",
                             "@type": "WebApplication",
-                            "name": "Military-to-Civilian Resume Translator",
-                            "description": "Free AI-powered tool that translates military experience (MOS codes, rank, duties) into civilian resume language. Instant results with 10-layer extraction engine.",
-                            "url": "https://vetswhocode.io/resume-translator",
-                            "applicationCategory": "BusinessApplication",
-                            "operatingSystem": "Any",
-                            "offers": {
+                            name: "Military-to-Civilian Resume Translator",
+                            description:
+                                "Free AI-powered tool that translates military experience (MOS codes, rank, duties) into civilian resume language. Instant results with 10-layer extraction engine.",
+                            url: "https://vetswhocode.io/resume-translator",
+                            applicationCategory: "BusinessApplication",
+                            operatingSystem: "Any",
+                            offers: {
                                 "@type": "Offer",
-                                "price": "0",
-                                "priceCurrency": "USD",
+                                price: "0",
+                                priceCurrency: "USD",
                             },
-                            "creator": {
+                            creator: {
                                 "@type": "Organization",
-                                "name": "Vets Who Code",
-                                "url": "https://vetswhocode.io",
+                                name: "Vets Who Code",
+                                url: "https://vetswhocode.io",
                             },
-                            "featureList": [
+                            featureList: [
                                 "Military MOS/AFSC to civilian job title translation",
                                 "AI-powered resume bullet generation",
                                 "ATS-optimized output",
@@ -82,23 +83,22 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
             />
 
             <div className="tw-container tw-py-16">
-                <ResumeTranslator
-                    className="tw-mx-auto tw-max-w-5xl"
-                    jobCodeIndex={jobCodeIndex}
-                />
+                <ResumeTranslator className="tw-mx-auto tw-max-w-5xl" jobCodeIndex={jobCodeIndex} />
 
                 {/* Career Guides CTA */}
                 <div className="tw-mt-16 tw-mx-auto tw-max-w-5xl">
-                    <div className="tw-bg-gradient-to-r tw-from-[#091f40] tw-to-[#1a3a6b] tw-rounded-lg tw-p-8 tw-text-white">
+                    <div className="tw-bg-gradient-to-r tw-from-navy tw-to-navy-deep tw-rounded-lg tw-p-8 tw-text-white">
                         <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-white">
                             Browse Career Guides by Job Code
                         </h2>
                         <p className="tw-text-white tw-mb-4">
-                            Explore detailed career guides for every military job code — including civilian career pathways, certification equivalencies, training data, and salary information.
+                            Explore detailed career guides for every military job code — including
+                            civilian career pathways, certification equivalencies, training data,
+                            and salary information.
                         </p>
                         <Link
                             href="/career-guides"
-                            className="tw-inline-block tw-bg-[#c5a44e] tw-text-[#091f40] tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-[#d4b55e] tw-transition-colors"
+                            className="tw-inline-block tw-bg-gold-rich tw-text-navy tw-font-bold tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-gold tw-transition-colors"
                         >
                             Browse All Career Guides
                         </Link>
@@ -119,13 +119,8 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
                                 </h3>
                                 <ul className="tw-space-y-2 tw-text-gray-700">
                                     {RESUME_TIPS.dos.map((tip) => (
-                                        <li
-                                            key={tip}
-                                            className="tw-flex tw-items-start"
-                                        >
-                                            <span className="tw-mr-2">
-                                                &bull;
-                                            </span>
+                                        <li key={tip} className="tw-flex tw-items-start">
+                                            <span className="tw-mr-2">&bull;</span>
                                             <span>{tip}</span>
                                         </li>
                                     ))}
@@ -138,13 +133,8 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
                                 </h3>
                                 <ul className="tw-space-y-2 tw-text-gray-700">
                                     {RESUME_TIPS.donts.map((tip) => (
-                                        <li
-                                            key={tip}
-                                            className="tw-flex tw-items-start"
-                                        >
-                                            <span className="tw-mr-2">
-                                                &bull;
-                                            </span>
+                                        <li key={tip} className="tw-flex tw-items-start">
+                                            <span className="tw-mr-2">&bull;</span>
                                             <span>{tip}</span>
                                         </li>
                                     ))}

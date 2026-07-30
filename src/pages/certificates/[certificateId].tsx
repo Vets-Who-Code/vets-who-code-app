@@ -243,10 +243,10 @@ const CertificatePage: PageWithLayout = () => {
 
                 {/* Verification Notice - Hidden on print */}
                 <div className="tw-mx-auto tw-mt-8 tw-max-w-2xl tw-rounded-lg tw-bg-navy-sky/20 tw-p-6 print:tw-hidden">
-                    <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-blue-900">
+                    <h3 className="tw-mb-2 tw-text-lg tw-font-semibold tw-text-navy-deep">
                         Certificate Verification
                     </h3>
-                    <p className="tw-text-sm tw-text-blue-800">
+                    <p className="tw-text-sm tw-text-navy-deep">
                         This certificate can be verified by anyone using the certificate number
                         shown above. Employers and others can verify the authenticity of this
                         certificate by visiting our verification page or using the API endpoint.

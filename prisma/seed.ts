@@ -1,8 +1,12 @@
 import { PrismaClient } from "@prisma/client";
+import { assertSafeToSeed } from "./seed-guard";
 
 const prisma = new PrismaClient();
 
 async function main() {
+    // Never wipe a non-local database.
+    assertSafeToSeed();
+
     await prisma.progress.deleteMany();
     await prisma.bookmark.deleteMany();
     await prisma.note.deleteMany();

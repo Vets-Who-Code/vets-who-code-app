@@ -4,9 +4,7 @@ interface TechnicalSkillsSectionProps {
     systems: Array<{ military: string; civilian: string }>;
 }
 
-const TechnicalSkillsSection: React.FC<TechnicalSkillsSectionProps> = ({
-    systems,
-}) => {
+const TechnicalSkillsSection: React.FC<TechnicalSkillsSectionProps> = ({ systems }) => {
     if (!systems || systems.length === 0) return null;
 
     return (
@@ -31,11 +29,7 @@ const TechnicalSkillsSection: React.FC<TechnicalSkillsSectionProps> = ({
                         {systems.map((sys, idx) => (
                             <tr
                                 key={sys.military}
-                                className={
-                                    idx % 2 === 0
-                                        ? "tw-bg-white"
-                                        : "tw-bg-gray-50"
-                                }
+                                className={idx % 2 === 0 ? "tw-bg-white" : "tw-bg-gray-50"}
                             >
                                 <td className="tw-px-4 tw-py-2.5 tw-text-gray-500 tw-font-mono tw-text-xs">
                                     {sys.military}

@@ -2,7 +2,9 @@ describe("J0dI3 Jobs API routes", () => {
     beforeEach(() => {
         vi.resetModules();
         vi.mock("@/lib/j0di3-proxy", () => ({
-            j0di3Proxy: vi.fn((_method: string, _path: string | Function) => vi.fn()),
+            j0di3Proxy: vi.fn((_method: string, _path: string | ((req: unknown) => string)) =>
+                vi.fn()
+            ),
         }));
     });
 
@@ -11,8 +13,14 @@ describe("J0dI3 Jobs API routes", () => {
         { module: "@/pages/api/j0di3/jobs/resume/tailor", endpoint: "/api/v1/jobs/resume/tailor" },
         { module: "@/pages/api/j0di3/jobs/match", endpoint: "/api/v1/jobs/match" },
         { module: "@/pages/api/j0di3/jobs/apply-coach", endpoint: "/api/v1/jobs/apply-coach" },
-        { module: "@/pages/api/j0di3/jobs/interview/start", endpoint: "/api/v1/jobs/interview/start" },
-        { module: "@/pages/api/j0di3/jobs/offer/evaluate", endpoint: "/api/v1/jobs/offer/evaluate" },
+        {
+            module: "@/pages/api/j0di3/jobs/interview/start",
+            endpoint: "/api/v1/jobs/interview/start",
+        },
+        {
+            module: "@/pages/api/j0di3/jobs/offer/evaluate",
+            endpoint: "/api/v1/jobs/offer/evaluate",
+        },
     ];
 
     for (const { module, endpoint } of postRoutes) {

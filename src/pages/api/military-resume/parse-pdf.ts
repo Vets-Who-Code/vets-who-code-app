@@ -73,7 +73,9 @@ export default async function handler(
 
         // Determine file type from explicit param or magic bytes
         const isDocx = fileType === "docx" || (!fileType && isDocxBuffer(buffer));
-        const isPdf = fileType === "pdf" || (!fileType && buffer.length >= 4 && buffer.toString("ascii", 0, 4) === "%PDF");
+        const isPdf =
+            fileType === "pdf" ||
+            (!fileType && buffer.length >= 4 && buffer.toString("ascii", 0, 4) === "%PDF");
 
         if (!isDocx && !isPdf) {
             return res
@@ -92,9 +94,7 @@ export default async function handler(
         } else {
             // Validate PDF magic bytes (%PDF)
             if (buffer.length < 4 || buffer.toString("ascii", 0, 4) !== "%PDF") {
-                return res
-                    .status(400)
-                    .json({ error: "Invalid file. Please upload a valid PDF." });
+                return res.status(400).json({ error: "Invalid file. Please upload a valid PDF." });
             }
 
             const { PDFParse } = await import("pdf-parse");
@@ -115,7 +115,9 @@ export default async function handler(
 
         // Truncate if the extracted text is abnormally large (decompression bomb defense)
         if (text.length > MAX_TEXT_LENGTH) {
-            console.warn(`Extracted text truncated: ${text.length} chars -> ${MAX_TEXT_LENGTH} chars`);
+            console.warn(
+                `Extracted text truncated: ${text.length} chars -> ${MAX_TEXT_LENGTH} chars`
+            );
             text = text.slice(0, MAX_TEXT_LENGTH);
         }
 

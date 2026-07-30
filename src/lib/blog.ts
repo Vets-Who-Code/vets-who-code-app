@@ -134,9 +134,19 @@ export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" =
         );
     }
 
+    // formatDate throws away the timestamp, but article:published_time and
+    // JSON-LD both need the ISO 8601 original. Normalise it: front-matter dates
+    // are strings when quoted and Date objects when not, and getStaticProps can
+    // serialize neither a Date nor undefined.
+    const rawPostedAt: unknown = blogData.postedAt;
+    let postedAtISO: string | undefined;
+    if (rawPostedAt instanceof Date) postedAtISO = rawPostedAt.toISOString();
+    else if (typeof rawPostedAt === "string" && rawPostedAt) postedAtISO = rawPostedAt;
+
     return {
         ...blog,
         postedAt: formatDate(blogData.postedAt),
+        ...(postedAtISO ? { postedAtISO } : {}),
         path: `/blogs/${realSlug}`,
     };
 }

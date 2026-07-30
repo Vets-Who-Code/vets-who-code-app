@@ -30,11 +30,32 @@ const ServiceRecord = ({
                         Personnel Data
                     </h3>
                     <div className="tw-grid tw-gap-4 md:tw-grid-cols-2">
-                        <Field label="Full Name" name="name" value={formData.name} onChange={onInputChange} placeholder="Your name" />
-                        <Field label="Current Title" name="title" value={formData.title} onChange={onInputChange} placeholder="e.g., Software Engineer" />
-                        <Field label="Location" name="location" value={formData.location} onChange={onInputChange} placeholder="City, State" />
+                        <Field
+                            label="Full Name"
+                            name="name"
+                            value={formData.name}
+                            onChange={onInputChange}
+                            placeholder="Your name"
+                        />
+                        <Field
+                            label="Current Title"
+                            name="title"
+                            value={formData.title}
+                            onChange={onInputChange}
+                            placeholder="e.g., Software Engineer"
+                        />
+                        <Field
+                            label="Location"
+                            name="location"
+                            value={formData.location}
+                            onChange={onInputChange}
+                            placeholder="City, State"
+                        />
                         <div>
-                            <label htmlFor="bio" className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1">
+                            <label
+                                htmlFor="bio"
+                                className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1"
+                            >
                                 Bio
                             </label>
                             <textarea
@@ -57,7 +78,10 @@ const ServiceRecord = ({
                     </h3>
                     <div className="tw-grid tw-gap-4 md:tw-grid-cols-2">
                         <div>
-                            <label htmlFor="branch" className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1">
+                            <label
+                                htmlFor="branch"
+                                className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1"
+                            >
                                 Branch
                             </label>
                             <select
@@ -70,13 +94,33 @@ const ServiceRecord = ({
                             >
                                 <option value="">Select Branch</option>
                                 {BRANCHES.map((b) => (
-                                    <option key={b} value={b}>{b}</option>
+                                    <option key={b} value={b}>
+                                        {b}
+                                    </option>
                                 ))}
                             </select>
                         </div>
-                        <Field label="Rank" name="rank" value={formData.rank} onChange={onInputChange} placeholder="e.g., E-5, O-3" />
-                        <Field label="Years Served" name="yearsServed" value={formData.yearsServed} onChange={onInputChange} placeholder="e.g., 4" />
-                        <Field label="MOS / AFSC / Rating" name="mos" value={formData.mos} onChange={onInputChange} placeholder="e.g., 25B, 0311" />
+                        <Field
+                            label="Rank"
+                            name="rank"
+                            value={formData.rank}
+                            onChange={onInputChange}
+                            placeholder="e.g., E-5, O-3"
+                        />
+                        <Field
+                            label="Years Served"
+                            name="yearsServed"
+                            value={formData.yearsServed}
+                            onChange={onInputChange}
+                            placeholder="e.g., 4"
+                        />
+                        <Field
+                            label="MOS / AFSC / Rating"
+                            name="mos"
+                            value={formData.mos}
+                            onChange={onInputChange}
+                            placeholder="e.g., 25B, 0311"
+                        />
                     </div>
                 </section>
 
@@ -86,9 +130,27 @@ const ServiceRecord = ({
                         Comms Links
                     </h3>
                     <div className="tw-grid tw-gap-4 md:tw-grid-cols-2">
-                        <Field label="GitHub URL" name="githubUrl" value={formData.githubUrl} onChange={onInputChange} placeholder="https://github.com/..." />
-                        <Field label="LinkedIn URL" name="linkedinUrl" value={formData.linkedinUrl} onChange={onInputChange} placeholder="https://linkedin.com/in/..." />
-                        <Field label="Website URL" name="websiteUrl" value={formData.websiteUrl} onChange={onInputChange} placeholder="https://..." />
+                        <Field
+                            label="GitHub URL"
+                            name="githubUrl"
+                            value={formData.githubUrl}
+                            onChange={onInputChange}
+                            placeholder="https://github.com/..."
+                        />
+                        <Field
+                            label="LinkedIn URL"
+                            name="linkedinUrl"
+                            value={formData.linkedinUrl}
+                            onChange={onInputChange}
+                            placeholder="https://linkedin.com/in/..."
+                        />
+                        <Field
+                            label="Website URL"
+                            name="websiteUrl"
+                            value={formData.websiteUrl}
+                            onChange={onInputChange}
+                            placeholder="https://..."
+                        />
                     </div>
                 </section>
 
@@ -157,9 +219,9 @@ const ServiceRecord = ({
                     Comms Links
                 </h3>
                 <div className="tw-grid tw-gap-4 md:tw-grid-cols-2">
-                    <InfoRow label="GitHub" value={formData.githubUrl} isLink />
-                    <InfoRow label="LinkedIn" value={formData.linkedinUrl} isLink />
-                    <InfoRow label="Website" value={formData.websiteUrl} isLink />
+                    <InfoRow label="GitHub" value={formData.githubUrl} isLink={true} />
+                    <InfoRow label="LinkedIn" value={formData.linkedinUrl} isLink={true} />
+                    <InfoRow label="Website" value={formData.websiteUrl} isLink={true} />
                 </div>
             </section>
         </div>
@@ -181,7 +243,10 @@ function Field({
 }) {
     return (
         <div>
-            <label htmlFor={name} className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1">
+            <label
+                htmlFor={name}
+                className="tw-block tw-font-mono tw-text-xs tw-font-semibold tw-uppercase tw-tracking-wider tw-text-navy/50 tw-mb-1"
+            >
                 {label}
             </label>
             <input
@@ -197,15 +262,7 @@ function Field({
     );
 }
 
-function InfoRow({
-    label,
-    value,
-    isLink,
-}: {
-    label: string;
-    value: string;
-    isLink?: boolean;
-}) {
+function InfoRow({ label, value, isLink }: { label: string; value: string; isLink?: boolean }) {
     return (
         <div>
             <div className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-widest tw-text-ink/60">

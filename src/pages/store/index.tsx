@@ -73,7 +73,7 @@ const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
                     />
                 </svg>
                 {cartCount > 0 && (
-                    <span className="tw-absolute -tw-top-2 -tw-right-2 tw-bg-red-600 tw-text-white tw-rounded-full tw-w-7 tw-h-7 tw-flex tw-items-center tw-justify-center tw-text-sm tw-font-bold tw-shadow-lg">
+                    <span className="tw-absolute -tw-top-2 -tw-right-2 tw-bg-red tw-text-white tw-rounded-full tw-w-7 tw-h-7 tw-flex tw-items-center tw-justify-center tw-text-sm tw-font-bold tw-shadow-lg">
                         {cartCount}
                     </span>
                 )}

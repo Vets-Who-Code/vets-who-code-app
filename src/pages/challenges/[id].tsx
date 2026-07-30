@@ -1,6 +1,7 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
+import { handleClientError } from "@utils/handle-client-error";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -9,7 +10,6 @@ import { useCallback, useEffect, useState } from "react";
 import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import { runChallenge } from "@/lib/challenge-runner";
 import { options } from "@/pages/api/auth/options";
-import { handleClientError } from "@/utils/handle-client-error";
 
 interface SubmissionResponse {
     passed?: boolean;
@@ -49,6 +49,9 @@ const ChallengeDetailPage: PageWithLayout = () => {
     const [isLoadingHint, setIsLoadingHint] = useState(false);
     const [solutionText, setSolutionText] = useState<string | null>(null);
     const [showSolution, setShowSolution] = useState(false);
+    const [coachReply, setCoachReply] = useState<string | null>(null);
+    const [coachQuestion, setCoachQuestion] = useState("");
+    const [isCoaching, setIsCoaching] = useState(false);
 
     const fetchChallenge = useCallback(async () => {
         if (!id) return;
@@ -131,14 +134,37 @@ const ChallengeDetailPage: PageWithLayout = () => {
         setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/hint`);
-            if (!res.ok) throw new Error(`Hint request failed (${res.status}).`);
+            if (!res.ok) {
+                throw new Error("Failed to load a hint — try again.");
+            }
             const body = await res.json();
             setHints((prev) => [...prev, body.hint || body.message || "No more hints available."]);
         } catch (err) {
-            handleClientError(err, { context: "challenges/[id]:handleGetHint" });
-            setError("Couldn't fetch a hint. Try again in a moment.");
+            setError(handleClientError(err, "challenge:hint"));
         } finally {
             setIsLoadingHint(false);
+        }
+    };
+
+    const handleCoach = async () => {
+        if (!challenge || !coachQuestion.trim()) return;
+        setIsCoaching(true);
+        setError(null);
+        try {
+            const res = await fetch(`/api/j0di3/challenges/${challenge.id}/coach`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: coachQuestion, code }),
+            });
+            if (!res.ok) {
+                throw new Error("Failed to get a coaching reply — try again.");
+            }
+            const body = await res.json();
+            setCoachReply(body.reply || body.message || body.coaching || "No reply.");
+        } catch (err) {
+            setError(handleClientError(err, "challenge:coach"));
+        } finally {
+            setIsCoaching(false);
         }
     };
 
@@ -147,26 +173,27 @@ const ChallengeDetailPage: PageWithLayout = () => {
         setError(null);
         try {
             const res = await fetch(`/api/j0di3/challenges/${challenge.id}/solution`);
-            if (!res.ok) throw new Error(`Solution request failed (${res.status}).`);
+            if (!res.ok) {
+                throw new Error("Failed to load the solution — try again.");
+            }
             const body = await res.json();
             setSolutionText(body.solution || body.code || "Solution not available.");
             setShowSolution(true);
         } catch (err) {
-            handleClientError(err, { context: "challenges/[id]:handleShowSolution" });
-            setError("Couldn't load the solution. Try again in a moment.");
+            setError(handleClientError(err, "challenge:solution"));
         }
     };
 
     const difficultyColor = (d: string) => {
         switch (d.toLowerCase()) {
             case "warmup":
-                return "tw-bg-emerald-100 tw-text-emerald-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "easy":
-                return "tw-bg-green-100 tw-text-green-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "medium":
-                return "tw-bg-yellow-100 tw-text-yellow-800";
+                return "tw-bg-gold-light tw-text-ink";
             case "hard":
-                return "tw-bg-red-100 tw-text-red-800";
+                return "tw-bg-cream tw-text-red-dark";
             default:
                 return "tw-bg-gray-100 tw-text-gray-800";
         }
@@ -196,8 +223,8 @@ const ChallengeDetailPage: PageWithLayout = () => {
                 )}
 
                 {loadError && !isLoading && (
-                    <div className="tw-rounded-lg tw-border tw-border-red-200 tw-bg-red-50 tw-p-6 tw-text-center">
-                        <p className="tw-text-red-700 tw-mb-3">{loadError}</p>
+                    <div className="tw-rounded-lg tw-border tw-border-red tw-bg-cream tw-p-6 tw-text-center">
+                        <p className="tw-text-red-dark tw-mb-3">{loadError}</p>
                         <Link
                             href="/challenges"
                             className="tw-text-sm tw-text-primary hover:tw-underline"
@@ -215,7 +242,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                     {challenge.title}
                                 </h1>
                                 <div className="tw-flex tw-gap-2 tw-mt-2">
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-blue-800">
+                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-xs tw-font-medium tw-text-navy-deep">
                                         {challenge.topic}
                                     </span>
                                     <span
@@ -256,7 +283,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                         </div>
 
                         {error && (
-                            <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
+                            <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                                 {error}
                             </div>
                         )}
@@ -296,10 +323,42 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                 <button
                                     type="button"
                                     onClick={handleShowSolution}
-                                    className="tw-rounded-md tw-border tw-border-red-300 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-red-600 hover:tw-bg-red-50"
+                                    className="tw-rounded-md tw-border tw-border-red tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-red-dark hover:tw-bg-cream"
                                 >
                                     Reveal Solution
                                 </button>
+                            )}
+                        </div>
+
+                        <div className="tw-mb-4 tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-p-3">
+                            <label
+                                htmlFor="coach-input"
+                                className="tw-block tw-text-xs tw-font-semibold tw-text-navy/70 tw-uppercase tw-mb-2"
+                            >
+                                Ask the coach
+                            </label>
+                            <div className="tw-flex tw-gap-2">
+                                <input
+                                    id="coach-input"
+                                    type="text"
+                                    value={coachQuestion}
+                                    onChange={(e) => setCoachQuestion(e.target.value)}
+                                    placeholder="Where am I stuck?"
+                                    className="tw-flex-1 tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={handleCoach}
+                                    disabled={isCoaching || !coachQuestion.trim()}
+                                    className="tw-rounded-md tw-bg-navy-deep tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-white disabled:tw-opacity-50"
+                                >
+                                    {isCoaching ? "Thinking..." : "Ask"}
+                                </button>
+                            </div>
+                            {coachReply && (
+                                <p className="tw-mt-3 tw-text-sm tw-text-ink tw-whitespace-pre-wrap">
+                                    {coachReply}
+                                </p>
                             )}
                         </div>
 
@@ -308,12 +367,12 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                 {hints.map((hint, i) => (
                                     <div
                                         key={i}
-                                        className="tw-rounded-md tw-bg-blue-50 tw-border tw-border-blue-200 tw-p-3"
+                                        className="tw-rounded-md tw-bg-navy-sky/20 tw-border tw-border-navy-sky tw-p-3"
                                     >
-                                        <span className="tw-text-xs tw-font-semibold tw-text-blue-600 tw-uppercase">
+                                        <span className="tw-text-xs tw-font-semibold tw-text-navy-ocean tw-uppercase">
                                             Hint {i + 1}
                                         </span>
-                                        <p className="tw-text-sm tw-text-blue-800 tw-mt-1">
+                                        <p className="tw-text-sm tw-text-navy-deep tw-mt-1">
                                             {hint}
                                         </p>
                                     </div>
@@ -322,11 +381,11 @@ const ChallengeDetailPage: PageWithLayout = () => {
                         )}
 
                         {showSolution && solutionText && (
-                            <div className="tw-mb-4 tw-rounded-md tw-bg-amber-50 tw-border tw-border-amber-200 tw-p-4">
-                                <span className="tw-text-xs tw-font-semibold tw-text-amber-600 tw-uppercase">
+                            <div className="tw-mb-4 tw-rounded-md tw-bg-gold-light tw-border tw-border-gold tw-p-4">
+                                <span className="tw-text-xs tw-font-semibold tw-text-ink tw-uppercase">
                                     Solution
                                 </span>
-                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-amber-900 tw-whitespace-pre-wrap">
+                                <pre className="tw-mt-2 tw-text-sm tw-font-mono tw-text-ink tw-whitespace-pre-wrap">
                                     {solutionText}
                                 </pre>
                             </div>
@@ -344,21 +403,21 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                     <div
                                         className={`tw-mt-4 tw-rounded-md tw-p-4 tw-border ${
                                             passed
-                                                ? "tw-bg-green-50 tw-border-green-200"
-                                                : "tw-bg-red-50 tw-border-red-200"
+                                                ? "tw-bg-gold-light tw-border-gold"
+                                                : "tw-bg-cream tw-border-red"
                                         }`}
                                     >
                                         <div className="tw-flex tw-items-center tw-gap-2 tw-mb-2">
                                             <i
                                                 className={`fas ${
                                                     passed
-                                                        ? "fa-check-circle tw-text-green-600"
-                                                        : "fa-times-circle tw-text-red-600"
+                                                        ? "fa-check-circle tw-text-ink"
+                                                        : "fa-times-circle tw-text-red-dark"
                                                 }`}
                                             />
                                             <span
                                                 className={`tw-font-semibold ${
-                                                    passed ? "tw-text-green-800" : "tw-text-red-800"
+                                                    passed ? "tw-text-ink" : "tw-text-red-dark"
                                                 }`}
                                             >
                                                 {passed ? "Challenge Passed!" : "Not quite right"}
@@ -388,8 +447,8 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
     const passedCount = results.test_results.filter((r) => r.passed).length;
     const total = results.test_results.length;
     const headerClass = results.all_passed
-        ? "tw-bg-green-50 tw-border-green-200"
-        : "tw-bg-red-50 tw-border-red-200";
+        ? "tw-bg-gold-light tw-border-gold"
+        : "tw-bg-cream tw-border-red";
 
     return (
         <div className={`tw-rounded-md tw-p-4 tw-border ${headerClass}`}>
@@ -397,13 +456,13 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
                 <i
                     className={`fas ${
                         results.all_passed
-                            ? "fa-check-circle tw-text-green-600"
-                            : "fa-times-circle tw-text-red-600"
+                            ? "fa-check-circle tw-text-ink"
+                            : "fa-times-circle tw-text-red-dark"
                     }`}
                 />
                 <span
                     className={`tw-font-semibold ${
-                        results.all_passed ? "tw-text-green-800" : "tw-text-red-800"
+                        results.all_passed ? "tw-text-ink" : "tw-text-red-dark"
                     }`}
                 >
                     {passedCount} / {total} tests passing
@@ -424,15 +483,13 @@ function TestResultsPanel({ results }: { results: ClientResults }) {
 }
 
 function TestResultRow({ result }: { result: ClientTestResult }) {
-    const rowClass = result.passed
-        ? "tw-border-green-200 tw-bg-white"
-        : "tw-border-red-200 tw-bg-white";
+    const rowClass = result.passed ? "tw-border-gold tw-bg-white" : "tw-border-red tw-bg-white";
     return (
         <li className={`tw-rounded-md tw-border tw-p-3 tw-text-sm ${rowClass}`}>
             <div className="tw-flex tw-items-center tw-gap-2 tw-mb-1">
                 <i
                     className={`fas ${
-                        result.passed ? "fa-check tw-text-green-600" : "fa-times tw-text-red-600"
+                        result.passed ? "fa-check tw-text-navy-deep" : "fa-times tw-text-red-dark"
                     }`}
                 />
                 <span className="tw-font-semibold tw-text-ink">
@@ -453,7 +510,7 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
                         <span className="tw-text-ink/50">Expected:</span> {result.expected_output}
                     </div>
                     {!result.passed && (
-                        <div className="tw-text-red-700">
+                        <div className="tw-text-red-dark">
                             <span className="tw-text-ink/50">Got:</span>{" "}
                             {result.actual_output ?? "(no output)"}
                         </div>
@@ -461,12 +518,12 @@ function TestResultRow({ result }: { result: ClientTestResult }) {
                 </div>
             )}
             {result.hidden && !result.passed && (
-                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                <div className="tw-mt-1 tw-text-xs tw-text-red-dark">
                     Hidden test failed — adjust your solution and try again.
                 </div>
             )}
             {result.error && (
-                <div className="tw-mt-1 tw-text-xs tw-text-red-700">
+                <div className="tw-mt-1 tw-text-xs tw-text-red-dark">
                     <span className="tw-text-ink/50">Error:</span> {result.error}
                 </div>
             )}

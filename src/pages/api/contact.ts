@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import { applyRateLimit } from "@/lib/rate-limit";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import { checkLength, checkParams, contactErrors } from "./api-helpers";
 import { classifyContact } from "./api-helpers/classify-contact";
 
@@ -14,14 +14,19 @@ interface ParsedBody {
 }
 
 async function postToSlack(parsedBody: ParsedBody): Promise<void> {
-    const { name, email, phone, message } = parsedBody;
+    const { name, email, phone, subject, message } = parsedBody;
 
-    const text: string = [
+    const lines: string[] = [
         `Name: \`${name ?? "Sent from footer form."}\``,
         `\nEmail: \`${email ?? "Not provided."}\``,
         `\nPhone: \`${phone ?? "Not provided."}\``,
-        `\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``,
-    ].join("");
+    ];
+    if (subject) {
+        lines.push(`\nSubject: \`${subject}\``);
+    }
+    lines.push(`\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``);
+
+    const text: string = lines.join("");
 
     const payload: string = JSON.stringify({ text });
 
@@ -35,14 +40,48 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
     await axios(axiosConfig);
 }
 
+/**
+ * @swagger
+ * /api/contact:
+ *   post:
+ *     summary: Submit the contact form
+ *     description: Validates the submission, filters spam, and forwards it to Slack. Rate limited to 5 requests per minute per IP.
+ *     tags:
+ *       - Contact
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [email, message]
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               phone:
+ *                 type: string
+ *               subject:
+ *                 type: string
+ *               message:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Message accepted
+ *       400:
+ *         description: Message too short
+ *       422:
+ *         description: Missing required fields
+ *       429:
+ *         description: Rate limit exceeded. Retry after the number of seconds in the Retry-After header.
+ *       500:
+ *         description: Failed to deliver the message
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    // Per-IP rate limit on the contact form. The Gemini classifier handles
-    // semantic spam; this caps the volume that classifier even has to score.
-    const rl = applyRateLimit(req, res, { scope: "contact", max: 5, windowMs: 15 * 60 * 1000 });
-    if (!rl.allowed) {
-        return res.status(429).json({
-            error: "Too many messages sent recently. Please try again in a few minutes.",
-        });
+    // 5 req/min per IP — strict, this endpoint triggers AI classification and Slack posts.
+    if (!enforceRateLimit(req, res, { name: "contact", maxRequests: 5, windowMs: 60 * 1000 })) {
+        return;
     }
 
     const parsedBody: ParsedBody = req.body as ParsedBody;
@@ -68,6 +107,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const classification = await classifyContact({
         name: name ?? "Unknown",
         email: email ?? "",
+        subject: parsedBody.subject ?? "",
         message: message ?? "",
     });
 

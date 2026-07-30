@@ -9,16 +9,16 @@ interface StorageItem<T> {
     timestamp: number;
 }
 
-type StorageType = 'local' | 'session';
+type StorageType = "local" | "session";
 
 class SafeStorageClass {
     private storage: Storage | null = null;
     private storageType: StorageType;
 
-    constructor(type: StorageType = 'local') {
+    constructor(type: StorageType = "local") {
         this.storageType = type;
         // Delay initialization until first use to avoid SSR issues
-        if (typeof window !== 'undefined') {
+        if (typeof window !== "undefined") {
             this.initStorage();
         }
     }
@@ -28,17 +28,18 @@ class SafeStorageClass {
      */
     private initStorage(): void {
         // Check if we're in a browser environment
-        if (typeof window === 'undefined') {
+        if (typeof window === "undefined") {
             this.storage = null;
             return;
         }
 
         try {
-            const testKey = '__storage_test__';
-            const storage = this.storageType === 'local' ? window.localStorage : window.sessionStorage;
+            const testKey = "__storage_test__";
+            const storage =
+                this.storageType === "local" ? window.localStorage : window.sessionStorage;
 
             // Test if storage is available and working
-            storage.setItem(testKey, 'test');
+            storage.setItem(testKey, "test");
             storage.removeItem(testKey);
 
             this.storage = storage;
@@ -52,7 +53,7 @@ class SafeStorageClass {
      * Ensure storage is initialized (for client-side usage)
      */
     private ensureInitialized(): void {
-        if (!this.storage && typeof window !== 'undefined') {
+        if (!this.storage && typeof window !== "undefined") {
             this.initStorage();
         }
     }
@@ -131,8 +132,8 @@ class SafeStorageClass {
 
             const item: StorageItem<T> = {
                 value,
-                expiry: ttlMinutes ? Date.now() + (ttlMinutes * 60 * 1000) : null,
-                timestamp: Date.now()
+                expiry: ttlMinutes ? Date.now() + ttlMinutes * 60 * 1000 : null,
+                timestamp: Date.now(),
             };
 
             const serialized = JSON.stringify(item);
@@ -147,7 +148,7 @@ class SafeStorageClass {
             return true;
         } catch (error) {
             // Handle quota exceeded error
-            if (error instanceof Error && error.name === 'QuotaExceededError') {
+            if (error instanceof Error && error.name === "QuotaExceededError") {
                 console.error(`Storage quota exceeded for ${key}`);
 
                 // Try to clear expired items and retry once
@@ -156,8 +157,8 @@ class SafeStorageClass {
                 try {
                     const item: StorageItem<T> = {
                         value,
-                        expiry: ttlMinutes ? Date.now() + (ttlMinutes * 60 * 1000) : null,
-                        timestamp: Date.now()
+                        expiry: ttlMinutes ? Date.now() + ttlMinutes * 60 * 1000 : null,
+                        timestamp: Date.now(),
                     };
                     this.storage?.setItem(key, JSON.stringify(item));
                     return true;
@@ -327,8 +328,8 @@ class SafeStorageClass {
 }
 
 // Create singleton instances
-export const SafeLocalStorage = new SafeStorageClass('local');
-export const SafeSessionStorage = new SafeStorageClass('session');
+export const SafeLocalStorage = new SafeStorageClass("local");
+export const SafeSessionStorage = new SafeStorageClass("session");
 
 // Default export for backward compatibility
 export default SafeLocalStorage;
@@ -344,7 +345,7 @@ export function useSafeStorage<T>(
         ttlMinutes?: number;
     }
 ) {
-    const storage = options?.type === 'session' ? SafeSessionStorage : SafeLocalStorage;
+    const storage = options?.type === "session" ? SafeSessionStorage : SafeLocalStorage;
 
     const getValue = (): T => {
         return storage.getItem(key, defaultValue);
@@ -362,6 +363,6 @@ export function useSafeStorage<T>(
         value: getValue(),
         setValue,
         removeValue,
-        isAvailable: storage.isAvailable()
+        isAvailable: storage.isAvailable(),
     };
 }

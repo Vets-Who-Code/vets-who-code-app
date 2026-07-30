@@ -1,8 +1,8 @@
 import Section from "@components/ui/engagement-modal";
 import Social, { SocialLink } from "@components/ui/social";
+import { handleClientError } from "@utils/handle-client-error";
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
-import { handleClientError } from "@/utils/handle-client-error";
 
 interface UserProfile {
     id: string;
@@ -17,7 +17,9 @@ const ProfileBio = () => {
     const { data: session } = useSession();
     const [profile, setProfile] = useState<UserProfile | null>(null);
     const [loading, setLoading] = useState(true);
+    const [loadError, setLoadError] = useState<string | null>(null);
     const [saving, setSaving] = useState(false);
+    const [saveError, setSaveError] = useState<string | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState<Partial<UserProfile>>({});
 
@@ -27,17 +29,19 @@ const ProfileBio = () => {
         }
     }, [session]);
 
-    const [saveError, setSaveError] = useState<string | null>(null);
-
     const fetchProfile = async () => {
+        setLoading(true);
+        setLoadError(null);
         try {
             const response = await fetch("/api/user/profile-basic");
-            if (!response.ok) throw new Error(`Profile request failed (${response.status}).`);
+            if (!response.ok) {
+                throw new Error("Failed to load your profile");
+            }
             const userData = await response.json();
             setProfile(userData);
             setFormData(userData);
-        } catch (err) {
-            handleClientError(err, { context: "ProfileBio:fetchProfile" });
+        } catch (error) {
+            setLoadError(handleClientError(error, "profile:load"));
         } finally {
             setLoading(false);
         }
@@ -55,17 +59,37 @@ const ProfileBio = () => {
                 body: JSON.stringify(formData),
             });
 
-            if (!response.ok) throw new Error(`Profile update failed (${response.status}).`);
+            if (!response.ok) {
+                throw new Error("Failed to save your profile");
+            }
             const updatedProfile = await response.json();
             setProfile(updatedProfile);
             setIsEditing(false);
-        } catch (err) {
-            handleClientError(err, { context: "ProfileBio:handleSave" });
-            setSaveError("Couldn't save your profile. Please try again.");
+        } catch (error) {
+            setSaveError(handleClientError(error, "profile:save"));
         } finally {
             setSaving(false);
         }
     };
+
+    if (!loading && loadError) {
+        return (
+            <Section className="profile-area" space="bottom">
+                <div className="tw-container tw-flex tw-min-h-[400px] tw-items-center tw-justify-center">
+                    <div className="tw-text-center">
+                        <p className="tw-text-red-dark">{loadError}</p>
+                        <button
+                            type="button"
+                            onClick={fetchProfile}
+                            className="hover:tw-bg-primary-dark tw-mt-4 tw-rounded-md tw-bg-primary tw-px-4 tw-py-2 tw-text-white"
+                        >
+                            Retry
+                        </button>
+                    </div>
+                </div>
+            </Section>
+        );
+    }
 
     if (loading || !profile) {
         return (
@@ -84,12 +108,6 @@ const ProfileBio = () => {
         <Section className="profile-area" space="bottom">
             <div className="tw-container">
                 {/* Header with Edit Button */}
-                {saveError && (
-                    <div className="tw-mb-4 tw-rounded-md tw-border tw-border-red-200 tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-700">
-                        {saveError}
-                    </div>
-                )}
-
                 <div className="tw-mb-8 tw-flex tw-items-center tw-justify-between">
                     <h1 className="tw-text-3xl tw-font-bold tw-text-ink">Your Profile</h1>
                     <div className="tw-flex tw-space-x-3">
@@ -100,6 +118,7 @@ const ProfileBio = () => {
                                     onClick={() => {
                                         setIsEditing(false);
                                         setFormData(profile);
+                                        setSaveError(null);
                                     }}
                                     className="tw-rounded-md tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-200 hover:tw-bg-gray-50"
                                 >
@@ -125,6 +144,8 @@ const ProfileBio = () => {
                         )}
                     </div>
                 </div>
+
+                {saveError && <p className="tw-mb-6 tw-text-red-dark">{saveError}</p>}
 
                 {/* Main Profile Content */}
                 <div className="tw-grid tw-grid-cols-1 tw-items-start tw-gap-7.5 md:tw-grid-cols-12 lg:tw-items-center">

@@ -35,7 +35,9 @@ export default function useLearningStats(userId?: string): UseLearningStatsRetur
         }
 
         fetchStats();
-        return () => { cancelled = true; };
+        return () => {
+            cancelled = true;
+        };
     }, [userId]);
 
     return { data, isLoading, error };

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 // Mock next/router
 vi.mock("next/router", () => ({
@@ -23,6 +23,7 @@ vi.mock("@/lib/challenge-runner", () => ({
 }));
 
 import { runChallenge } from "@/lib/challenge-runner";
+
 const mockRunChallenge = vi.mocked(runChallenge);
 
 const mockFetch = vi.fn();
@@ -103,15 +104,16 @@ describe("ChallengesPage", () => {
             if (url.includes("start") && opts?.method === "POST") {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve({
-                        id: "ch-1",
-                        title: "FizzBuzz",
-                        description: "Write a FizzBuzz function",
-                        topic: "javascript",
-                        difficulty: "easy",
-                        language: "javascript",
-                        starter_code: "function fizzBuzz(n) {\n  // your code\n}",
-                    }),
+                    json: () =>
+                        Promise.resolve({
+                            id: "ch-1",
+                            title: "FizzBuzz",
+                            description: "Write a FizzBuzz function",
+                            topic: "javascript",
+                            difficulty: "easy",
+                            language: "javascript",
+                            starter_code: "function fizzBuzz(n) {\n  // your code\n}",
+                        }),
                 });
             }
             return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
@@ -155,27 +157,29 @@ describe("ChallengesPage", () => {
             if (url.includes("start") && opts?.method === "POST") {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve({
-                        id: "ch-2",
-                        title: "Sum Array",
-                        description: "Sum all elements",
-                        topic: "javascript",
-                        difficulty: "easy",
-                        language: "javascript",
-                        test_cases: [
-                            { input: "[1, 2, 3]", expected_output: "6", hidden: false },
-                        ],
-                    }),
+                    json: () =>
+                        Promise.resolve({
+                            id: "ch-2",
+                            title: "Sum Array",
+                            description: "Sum all elements",
+                            topic: "javascript",
+                            difficulty: "easy",
+                            language: "javascript",
+                            test_cases: [
+                                { input: "[1, 2, 3]", expected_output: "6", hidden: false },
+                            ],
+                        }),
                 });
             }
             if (url.includes("submit") && opts?.method === "POST") {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve({
-                        passed: true,
-                        score: 100,
-                        feedback: "Perfect solution!",
-                    }),
+                    json: () =>
+                        Promise.resolve({
+                            passed: true,
+                            score: 100,
+                            feedback: "Perfect solution!",
+                        }),
                 });
             }
             return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
@@ -200,8 +204,8 @@ describe("ChallengesPage", () => {
         });
 
         // The submit POST must include the runner's structured client_results.
-        const submitCall = mockFetch.mock.calls.find(([url, opts]) =>
-            String(url).includes("submit") && opts?.method === "POST"
+        const submitCall = mockFetch.mock.calls.find(
+            ([url, opts]) => String(url).includes("submit") && opts?.method === "POST"
         );
         expect(submitCall).toBeDefined();
         const body = JSON.parse(submitCall![1].body);
@@ -215,16 +219,17 @@ describe("ChallengesPage", () => {
             if (url.includes("recommended")) {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve([
-                        {
-                            id: "rec-1",
-                            title: "Binary Search",
-                            description: "Implement binary search",
-                            topic: "algorithms",
-                            difficulty: "medium",
-                            language: "javascript",
-                        },
-                    ]),
+                    json: () =>
+                        Promise.resolve([
+                            {
+                                id: "rec-1",
+                                title: "Binary Search",
+                                description: "Implement binary search",
+                                topic: "algorithms",
+                                difficulty: "medium",
+                                language: "javascript",
+                            },
+                        ]),
                 });
             }
             return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
@@ -244,26 +249,27 @@ describe("ChallengesPage", () => {
             if (url.includes("history")) {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve([
-                        {
-                            id: "att-1",
-                            challenge_id: "ch-1",
-                            title: "Two Sum",
-                            topic: "arrays",
-                            difficulty: "easy",
-                            passed: true,
-                            submitted_at: "2026-04-01T10:00:00Z",
-                        },
-                        {
-                            id: "att-2",
-                            challenge_id: "ch-2",
-                            title: "Merge Sort",
-                            topic: "algorithms",
-                            difficulty: "hard",
-                            passed: false,
-                            submitted_at: "2026-04-02T10:00:00Z",
-                        },
-                    ]),
+                    json: () =>
+                        Promise.resolve([
+                            {
+                                id: "att-1",
+                                challenge_id: "ch-1",
+                                title: "Two Sum",
+                                topic: "arrays",
+                                difficulty: "easy",
+                                passed: true,
+                                submitted_at: "2026-04-01T10:00:00Z",
+                            },
+                            {
+                                id: "att-2",
+                                challenge_id: "ch-2",
+                                title: "Merge Sort",
+                                topic: "algorithms",
+                                difficulty: "hard",
+                                passed: false,
+                                submitted_at: "2026-04-02T10:00:00Z",
+                            },
+                        ]),
                 });
             }
             return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
@@ -297,19 +303,117 @@ describe("ChallengesPage", () => {
         });
     });
 
+    it("shows an error with retry when the recommended fetch rejects", async () => {
+        const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+        mockFetch.mockImplementation((url: string) => {
+            if (url.includes("recommended")) {
+                return Promise.reject(new TypeError("Failed to fetch"));
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
+        });
+
+        render(<ChallengesPage />);
+
+        await waitFor(() => {
+            expect(screen.getByText("Failed to fetch")).toBeInTheDocument();
+        });
+        expect(screen.getByText("Retry")).toBeInTheDocument();
+
+        // Retry refetches and renders the recovered list
+        mockFetch.mockImplementation((url: string) => {
+            if (url.includes("recommended")) {
+                return Promise.resolve({
+                    ok: true,
+                    json: () =>
+                        Promise.resolve([
+                            {
+                                id: "rec-1",
+                                title: "Binary Search",
+                                topic: "algorithms",
+                                difficulty: "medium",
+                            },
+                        ]),
+                });
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
+        });
+
+        fireEvent.click(screen.getByText("Retry"));
+
+        await waitFor(() => {
+            expect(screen.getByText("Binary Search")).toBeInTheDocument();
+        });
+        consoleSpy.mockRestore();
+    });
+
+    it("shows an error when the history request returns non-ok", async () => {
+        const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+        mockFetch.mockImplementation((url: string) => {
+            if (url.includes("history")) {
+                return Promise.resolve({ ok: false, json: () => Promise.resolve({}) });
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
+        });
+
+        render(<ChallengesPage />);
+
+        await waitFor(() => {
+            expect(screen.getByText("Failed to load your history")).toBeInTheDocument();
+        });
+        consoleSpy.mockRestore();
+    });
+
+    it("surfaces an error when fetching a hint fails", async () => {
+        const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+        mockFetch.mockImplementation((url: string, opts?: any) => {
+            if (url.includes("start") && opts?.method === "POST") {
+                return Promise.resolve({
+                    ok: true,
+                    json: () =>
+                        Promise.resolve({
+                            id: "ch-1",
+                            title: "Test",
+                            description: "Test desc",
+                            topic: "js",
+                            difficulty: "easy",
+                            language: "javascript",
+                        }),
+                });
+            }
+            if (url.includes("hint")) {
+                return Promise.reject(new TypeError("Failed to fetch"));
+            }
+            return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });
+        });
+
+        render(<ChallengesPage />);
+
+        fireEvent.click(screen.getByText("Start Challenge"));
+
+        await waitFor(() => screen.getByText("Test"));
+
+        fireEvent.click(screen.getByText("Get Hint (0 used)"));
+
+        await waitFor(() => {
+            expect(screen.getByText("Failed to fetch")).toBeInTheDocument();
+        });
+        consoleSpy.mockRestore();
+    });
+
     it("navigates back from active challenge", async () => {
         mockFetch.mockImplementation((url: string, opts?: any) => {
             if (url.includes("start") && opts?.method === "POST") {
                 return Promise.resolve({
                     ok: true,
-                    json: () => Promise.resolve({
-                        id: "ch-1",
-                        title: "Test",
-                        description: "Test desc",
-                        topic: "js",
-                        difficulty: "easy",
-                        language: "javascript",
-                    }),
+                    json: () =>
+                        Promise.resolve({
+                            id: "ch-1",
+                            title: "Test",
+                            description: "Test desc",
+                            topic: "js",
+                            difficulty: "easy",
+                            language: "javascript",
+                        }),
                 });
             }
             return Promise.resolve({ ok: true, json: () => Promise.resolve([]) });

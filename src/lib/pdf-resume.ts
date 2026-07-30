@@ -1,4 +1,4 @@
-import { PDFDocument, rgb, StandardFonts, type PDFFont, type PDFPage } from "pdf-lib";
+import { PDFDocument, type PDFFont, type PDFPage, rgb, StandardFonts } from "pdf-lib";
 import type { TranslatedProfile } from "./military-translator";
 
 const MARGIN_LEFT = 60;
@@ -71,7 +71,10 @@ export async function generateResumePDF(
 
     // Job Title (centered, large)
     const titleFontSize = 22;
-    const titleWidth = helveticaBold.widthOfTextAtSize(profile.jobTitle.toUpperCase(), titleFontSize);
+    const titleWidth = helveticaBold.widthOfTextAtSize(
+        profile.jobTitle.toUpperCase(),
+        titleFontSize
+    );
     page.drawText(profile.jobTitle.toUpperCase(), {
         x: (PAGE_WIDTH - titleWidth) / 2,
         y,
@@ -124,7 +127,17 @@ export async function generateResumePDF(
     });
     y -= 16;
 
-    y = drawWrappedText(page, profile.summary, MARGIN_LEFT, y, helvetica, 10.5, CONTENT_WIDTH, GRAY, 15);
+    y = drawWrappedText(
+        page,
+        profile.summary,
+        MARGIN_LEFT,
+        y,
+        helvetica,
+        10.5,
+        CONTENT_WIDTH,
+        GRAY,
+        15
+    );
     y -= 15;
 
     // Key Responsibilities section

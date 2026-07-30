@@ -18,6 +18,20 @@ type PageWithLayout = NextPage<LoginProps> & {
     Layout?: typeof Layout;
 };
 
+/**
+ * Resolve the post-login destination from a `callbackUrl` query param, guarding
+ * against open redirects: only a same-origin absolute path is honored, never a
+ * protocol-relative (`//evil.com`) or external URL. Defaults to `/profile`.
+ */
+export function safeCallbackUrl(raw: string | string[] | undefined): string {
+    const value = Array.isArray(raw) ? raw[0] : raw;
+    if (typeof value !== "string" || value.length === 0) return "/profile";
+    if (!value.startsWith("/") || value.startsWith("//") || value.startsWith("/\\")) {
+        return "/profile";
+    }
+    return value;
+}
+
 const Login: PageWithLayout = () => {
     const mounted = useMount();
     const { status, data: session } = useSession();
@@ -28,9 +42,10 @@ const Login: PageWithLayout = () => {
     useEffect(() => {
         if (status === "authenticated" && session && !isRedirecting) {
             setIsRedirecting(true);
-            router.replace("/profile").catch((error) => {
+            const destination = safeCallbackUrl(router.query.callbackUrl);
+            router.replace(destination).catch((error) => {
                 console.error("Redirect error:", error);
-                setErrorMessage("Failed to redirect to profile. Please try refreshing the page.");
+                setErrorMessage("Failed to redirect. Please try refreshing the page.");
                 setIsRedirecting(false);
             });
         }
@@ -72,7 +87,7 @@ const Login: PageWithLayout = () => {
                             Sign in to continue your journey with #VetsWhoCode
                         </p>
                         {errorMessage && (
-                            <div className="tw-rounded tw-bg-red-50 tw-p-3 tw-text-sm tw-text-red-600">
+                            <div className="tw-rounded tw-bg-cream tw-p-3 tw-text-sm tw-text-red-dark">
                                 {errorMessage}
                             </div>
                         )}
@@ -87,7 +102,6 @@ const Login: PageWithLayout = () => {
                             <i className="fab fa-github" />
                             Sign in with GitHub
                         </button>
-
                     </div>
                     <div className="tw-px-8 tw-pb-8">
                         <p className="tw-text-center tw-text-sm tw-text-secondary">
@@ -115,7 +129,7 @@ const Login: PageWithLayout = () => {
 
     return (
         <div className="tw-fixed tw-top-0 tw-z-50 tw-flex tw-h-screen tw-w-screen tw-flex-col tw-items-center tw-justify-center tw-gap-4 tw-bg-white">
-            <span className="tw-text-secondary">{errorMessage || "Redirecting to profile..."}</span>
+            <span className="tw-text-secondary">{errorMessage || "Redirecting..."}</span>
             <Spinner />
         </div>
     );

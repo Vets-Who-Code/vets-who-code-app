@@ -107,6 +107,7 @@ Surface hierarchy for dark interfaces.
 
 | Color     | Hex       | Role                              |
 | --------- | --------- | --------------------------------- |
+| Obsidian  | `#0B1215` | Code and terminal surfaces        |
 | Ink Black | `#1A1823` | Primary dark background           |
 | Charcoal  | `#212529` | Elevated surfaces (cards, modals) |
 | Dark Gray | `#343A40` | Tertiary surfaces, hover states   |

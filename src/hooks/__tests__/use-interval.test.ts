@@ -38,15 +38,22 @@ describe("useInterval", () => {
 
     it("should use the latest callback", () => {
         let count = 0;
-        const { rerender } = renderHook(
-            ({ cb }) => useInterval(cb, 1000),
-            { initialProps: { cb: () => { count += 1; } } }
-        );
+        const { rerender } = renderHook(({ cb }) => useInterval(cb, 1000), {
+            initialProps: {
+                cb: () => {
+                    count += 1;
+                },
+            },
+        });
 
         vi.advanceTimersByTime(1000);
         expect(count).toBe(1);
 
-        rerender({ cb: () => { count += 10; } });
+        rerender({
+            cb: () => {
+                count += 10;
+            },
+        });
 
         vi.advanceTimersByTime(1000);
         expect(count).toBe(11);

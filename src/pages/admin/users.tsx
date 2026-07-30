@@ -4,8 +4,8 @@ import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import React, { useState } from "react";
-import prisma from "@/lib/prisma";
 import { requireAdminSSR } from "@/lib/auth-guards";
+import prisma from "@/lib/prisma";
 
 type User = {
     id: string;
@@ -66,7 +66,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
     const getStatusBadge = (isActive: boolean) => {
         if (isActive) {
             return (
-                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-gold-deep">
+                <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-2 tw-py-1 tw-text-xs tw-font-medium tw-text-ink">
                     Active
                 </span>
             );
@@ -80,10 +80,10 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
 
     const getRoleBadge = (role: string) => {
         const styles = {
-            ADMIN: "tw-bg-red-100 tw-text-red-800",
-            INSTRUCTOR: "tw-bg-blue-100 tw-text-blue-800",
-            MENTOR: "tw-bg-purple-100 tw-text-purple-800",
-            STUDENT: "tw-bg-green-100 tw-text-green-800",
+            ADMIN: "tw-bg-cream tw-text-red-dark",
+            INSTRUCTOR: "tw-bg-navy-sky tw-text-navy-deep",
+            MENTOR: "tw-bg-gold-light tw-text-ink",
+            STUDENT: "tw-bg-gold-light tw-text-ink",
         };
         return (
             <span
@@ -294,14 +294,14 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="tw-text-gold hover:tw-text-green-900"
+                                                    className="tw-text-navy hover:tw-text-navy-deep"
                                                     title="Send Message"
                                                 >
                                                     <i className="fas fa-envelope" />
                                                 </button>
                                                 <button
                                                     type="button"
-                                                    className="tw-text-red-600 hover:tw-text-red-900"
+                                                    className="tw-text-red-dark hover:tw-text-red-maroon"
                                                     title="Manage Access"
                                                 >
                                                     <i className="fas fa-cog" />

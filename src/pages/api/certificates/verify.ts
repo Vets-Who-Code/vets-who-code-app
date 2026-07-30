@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "@/lib/prisma";
+import { enforceRateLimit } from "@/lib/rate-limit";
 
 /**
  * GET /api/certificates/verify?number=CERT_NUMBER
@@ -30,10 +31,10 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
             where: { id: number },
             include: {
                 user: {
+                    // Public endpoint — expose name only, never the student's email.
                     select: {
                         id: true,
                         name: true,
-                        email: true,
                     },
                 },
                 course: {
@@ -64,7 +65,6 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
                 certificateNumber: certificate.id,
                 student: {
                     name: certificate.user.name || "Unknown",
-                    email: certificate.user.email,
                 },
                 course: {
                     title: certificate.course.title,
@@ -85,6 +85,11 @@ async function handleGet(req: NextApiRequest, res: NextApiResponse) {
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
+    }
+
+    // Public + unauthenticated: throttle per IP so the endpoint can't be enumerated.
+    if (!enforceRateLimit(req, res, { name: "cert-verify", maxRequests: 30, windowMs: 60_000 })) {
+        return undefined;
     }
 
     return handleGet(req, res);
