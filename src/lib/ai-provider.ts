@@ -1,13 +1,14 @@
 import { createAzure } from "@ai-sdk/azure";
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createOpenAI } from "@ai-sdk/openai";
+import type { LanguageModel } from "ai";
 
 export type AIProvider = "gemini" | "azure" | "openai" | "phi3";
 
 interface ProviderConfig {
     name: AIProvider;
     model: string;
-    instance: any;
+    instance: LanguageModel;
 }
 
 /**
@@ -131,7 +132,7 @@ export function getPrimaryProvider(): ProviderConfig | null {
  * Attempts to use primary provider, falls back to others if unavailable
  */
 export async function getAIModelWithFallback(): Promise<{
-    model: any;
+    model: LanguageModel;
     provider: AIProvider;
     modelName: string;
 } | null> {
@@ -161,7 +162,7 @@ export async function getAIModelWithFallback(): Promise<{
  * If primary provider fails, tries next available provider
  */
 export async function tryProvidersWithFallback<T>(
-    operation: (model: any) => Promise<T>
+    operation: (model: LanguageModel) => Promise<T>
 ): Promise<{ result: T; provider: AIProvider } | null> {
     const providers = getAvailableProviders();
 
