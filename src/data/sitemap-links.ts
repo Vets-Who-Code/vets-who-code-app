@@ -54,9 +54,7 @@ export const sitemapExtraColumns: SitemapColumn[] = [
         heading: "Member Tools",
         links: [
             { label: "Profile", path: "/profile" },
-            { label: "Reps (Challenges)", path: "/challenges" },
             { label: "Assessment", path: "/assessment" },
-            { label: "J0d!e", path: "/jodie" },
         ],
     },
     {

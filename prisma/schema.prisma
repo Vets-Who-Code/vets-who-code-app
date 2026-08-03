@@ -44,8 +44,6 @@ model User {
   // Platform metadata
   role           UserRole  @default(STUDENT)
   isActive       Boolean   @default(true)
-  cohortId       String? // Which cohort they belong to
-  cohort         Cohort?   @relation(fields: [cohortId], references: [id])
   graduationDate DateTime? // When they graduated/completed program
 
   // Assessment and skill level
@@ -132,22 +130,6 @@ model Authenticator {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@id([userId, credentialID])
-}
-
-// Cohort Model - Groups of students learning together
-model Cohort {
-  id          String    @id @default(cuid())
-  name        String // e.g., "Class #13", "Spring 2025 Cohort"
-  description String? // Description of the cohort
-  startDate   DateTime // When the cohort starts
-  endDate     DateTime? // When the cohort ends (optional for ongoing)
-  isElite     Boolean   @default(false) // Elite/advanced cohort designation
-
-  // Relationships
-  members User[] // Students in this cohort
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 // E-Commerce Models - Shopify order tracking

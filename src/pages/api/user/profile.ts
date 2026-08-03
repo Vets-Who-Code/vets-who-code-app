@@ -39,7 +39,6 @@ const PUBLIC_PROFILE_SELECT = {
     deployments: true,
     role: true,
     skillLevel: true,
-    cohortId: true,
     graduationDate: true,
     createdAt: true,
 } as const;

@@ -19,7 +19,6 @@ export async function ensureTroop(userId: string): Promise<string | null> {
             branch: true,
             mos: true,
             skillLevel: true,
-            cohortId: true,
         },
     });
 

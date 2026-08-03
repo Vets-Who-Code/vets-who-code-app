@@ -12,10 +12,4 @@ describe("J0dI3 Learning API routes", () => {
 
         expect(j0di3Proxy).toHaveBeenCalledWith("POST", "/api/v1/learning/explain");
     });
-
-    it("learning/debug wires to POST /api/v1/learning/debug", async () => {
-        await import("@/pages/api/j0di3/learning/debug");
-
-        expect(j0di3Proxy).toHaveBeenCalledWith("POST", "/api/v1/learning/debug");
-    });
 });

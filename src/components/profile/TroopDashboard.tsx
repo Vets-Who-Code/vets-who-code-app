@@ -1,5 +1,4 @@
 import { handleClientError } from "@utils/handle-client-error";
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
 interface DashboardData {
@@ -27,14 +26,6 @@ interface DashboardData {
         summary?: string;
         created_at?: string;
     }[];
-}
-
-interface WarmupChallenge {
-    id?: string;
-    challenge_id?: string;
-    title: string;
-    topic: string;
-    difficulty: string;
 }
 
 interface ModuleProgress {
@@ -73,13 +64,11 @@ interface TodayData {
 
 export default function TroopDashboard() {
     const [data, setData] = useState<DashboardData | null>(null);
-    const [warmups, setWarmups] = useState<WarmupChallenge[]>([]);
     const [progress, setProgress] = useState<ProgressData | null>(null);
     const [xp, setXp] = useState<XpData | null>(null);
     const [streak, setStreak] = useState<StreakData | null>(null);
     const [today, setToday] = useState<TodayData | null>(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoadingWarmups, setIsLoadingWarmups] = useState(true);
     const [isLoadingProgress, setIsLoadingProgress] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [isUpdatingModule, setIsUpdatingModule] = useState(false);
@@ -131,20 +120,6 @@ export default function TroopDashboard() {
         }
     }, []);
 
-    const fetchWarmups = useCallback(async () => {
-        try {
-            const res = await fetch("/api/j0di3/challenges/recommended-warmups?count=5");
-            if (res.ok) {
-                const body = await res.json();
-                setWarmups(Array.isArray(body) ? body : (body.challenges ?? []));
-            }
-        } catch {
-            // non-critical — tray just stays hidden
-        } finally {
-            setIsLoadingWarmups(false);
-        }
-    }, []);
-
     const fetchProgress = useCallback(async () => {
         try {
             const res = await fetch("/api/j0di3/troops/progress");
@@ -187,12 +162,11 @@ export default function TroopDashboard() {
 
     useEffect(() => {
         fetchDashboard();
-        fetchWarmups();
         fetchProgress();
         fetchXp();
         fetchStreak();
         fetchToday();
-    }, [fetchDashboard, fetchWarmups, fetchProgress, fetchXp, fetchStreak, fetchToday]);
+    }, [fetchDashboard, fetchProgress, fetchXp, fetchStreak, fetchToday]);
 
     if (isLoading) {
         return (
@@ -221,9 +195,6 @@ export default function TroopDashboard() {
         <div className="tw-space-y-6">
             {/* Today / XP / Streak summary */}
             <TodayStrip xp={xp} streak={streak} today={today} />
-
-            {/* Reps tray — confidence loop entry point */}
-            <RepsTray warmups={warmups} loading={isLoadingWarmups} />
 
             {/* Stats Grid */}
             <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4">
@@ -483,54 +454,6 @@ function TodayStrip({
                     {tile.sub && <div className="tw-text-xs tw-text-ink/60">{tile.sub}</div>}
                 </div>
             ))}
-        </div>
-    );
-}
-
-function RepsTray({ warmups, loading }: { warmups: WarmupChallenge[]; loading: boolean }) {
-    if (loading) {
-        return null;
-    }
-    if (warmups.length === 0) {
-        return null;
-    }
-    return (
-        <div className="tw-rounded-lg tw-border tw-border-primary/20 tw-bg-white tw-p-6 tw-shadow-sm">
-            <div className="tw-flex tw-items-center tw-justify-between tw-mb-4">
-                <div>
-                    <h3 className="tw-font-mono tw-text-xs tw-font-bold tw-uppercase tw-tracking-widest tw-text-primary tw-mb-1">
-                        Reps
-                    </h3>
-                    <p className="tw-text-sm tw-text-ink/70">
-                        Knock one out — most take 30 seconds.
-                    </p>
-                </div>
-            </div>
-            <ul className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-5 tw-gap-3">
-                {warmups.map((w) => {
-                    const id = w.id ?? w.challenge_id ?? "";
-                    return (
-                        <li key={id || w.title}>
-                            <Link
-                                href={`/challenges/${id}`}
-                                className="tw-block tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-p-3 tw-transition-shadow hover:tw-shadow-md hover:tw-border-primary"
-                            >
-                                <div className="tw-text-sm tw-font-semibold tw-text-ink tw-line-clamp-2 tw-mb-2">
-                                    {w.title}
-                                </div>
-                                <div className="tw-flex tw-flex-wrap tw-gap-1">
-                                    <span className="tw-rounded-full tw-bg-navy-sky tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-navy-deep">
-                                        {w.topic}
-                                    </span>
-                                    <span className="tw-rounded-full tw-bg-gold-light tw-px-2 tw-py-0.5 tw-text-[10px] tw-font-medium tw-text-ink">
-                                        warmup
-                                    </span>
-                                </div>
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
         </div>
     );
 }

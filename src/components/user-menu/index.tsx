@@ -5,11 +5,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useEffect, useRef, useState } from "react";
 
 // Signed-in destinations live here (behind the avatar), not in the public top nav.
-const USER_NAV_LINKS = [
-    { label: "Reps", path: "/challenges" },
-    { label: "Assessment", path: "/assessment" },
-    { label: "J0d!e", path: "/jodie" },
-];
+const USER_NAV_LINKS = [{ label: "Assessment", path: "/assessment" }];
 
 const UserMenu = () => {
     const { data: session, status } = useSession();
