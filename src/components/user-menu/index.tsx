@@ -61,8 +61,16 @@ const UserMenu = () => {
     if (!session?.user) {
         // Button geometry matches Donate, outlined not contained — Donate owns the
         // solid red so the two CTAs read as equal weight without competing.
+        // Sign-in hands off to J0dI3; it does not return here, so Anchor's external
+        // default (target=_blank) keeps the current page alive behind it. The local
+        // /login page stays put for auth-guard redirects.
         return (
-            <Button path="/login" size="sm" variant="outlined" className="tw-whitespace-nowrap">
+            <Button
+                path="https://j0di3.vetswhocode.io/login"
+                size="sm"
+                variant="outlined"
+                className="tw-whitespace-nowrap"
+            >
                 Sign in
             </Button>
         );
