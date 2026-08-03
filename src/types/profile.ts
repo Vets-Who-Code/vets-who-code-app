@@ -61,41 +61,6 @@ export interface GitHubData {
     };
 }
 
-// Learning stats types
-
-export interface EnrollmentData {
-    id: string;
-    courseTitle: string;
-    courseCategory: string;
-    progress: number;
-    status: string;
-    enrolledAt: string;
-    lastActivity: string;
-}
-
-export interface CertificateData {
-    id: string;
-    courseTitle: string;
-    certificateNumber: string | null;
-    issuedAt: string;
-}
-
-export interface RecentLessonActivity {
-    lessonTitle: string;
-    moduleTitle: string;
-    courseTitle: string;
-    completedAt: string | null;
-    timeSpent: number;
-}
-
-export interface LearningStatsData {
-    enrollments: EnrollmentData[];
-    completedLessons: number;
-    totalTimeSpent: number;
-    certificates: CertificateData[];
-    recentActivity: RecentLessonActivity[];
-}
-
 // Profile form types
 
 export interface ProfileFormData {
@@ -126,7 +91,6 @@ export type ProfileTab =
     | "arsenal"
     | "ops-log"
     | "service-record"
-    | "training"
     | "j0di3"
     | "settings";
 
@@ -141,7 +105,6 @@ export const PROFILE_TABS: ProfileTabDef[] = [
     { id: "arsenal", label: "Arsenal", icon: "fas fa-tools" },
     { id: "ops-log", label: "Ops Log", icon: "fas fa-clipboard-list" },
     { id: "service-record", label: "Service Record", icon: "fas fa-medal" },
-    { id: "training", label: "Training", icon: "fas fa-graduation-cap" },
     { id: "j0di3", label: "J0dI3", icon: "fas fa-robot" },
     { id: "settings", label: "Settings", icon: "fas fa-cog" },
 ];

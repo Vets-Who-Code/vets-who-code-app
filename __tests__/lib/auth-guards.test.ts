@@ -49,7 +49,7 @@ describe("auth-guards", () => {
     describe("requireAuthSSR", () => {
         it("redirects to /login with URI-encoded resolvedUrl when unauthenticated", async () => {
             mockGetServerSession.mockResolvedValueOnce(null);
-            const context = buildContext("/admin/courses?page=2&sort=new");
+            const context = buildContext("/admin/users?page=2&sort=new");
 
             const result = await requireAuthSSR(context);
 
@@ -57,8 +57,7 @@ describe("auth-guards", () => {
             if (result.ok) return; // type narrow
             expect(result.result).toEqual({
                 redirect: {
-                    destination:
-                        "/login?callbackUrl=%2Fadmin%2Fcourses%3Fpage%3D2%26sort%3Dnew",
+                    destination: "/login?callbackUrl=%2Fadmin%2Fusers%3Fpage%3D2%26sort%3Dnew",
                     permanent: false,
                 },
             });

@@ -15,9 +15,9 @@ vi.mock("@/lib/j0di3-client", () => ({
     },
 }));
 
-import prisma from "@/lib/prisma";
-import j0di3 from "@/lib/j0di3-client";
 import { ensureTroop } from "@/lib/ensure-troop";
+import j0di3 from "@/lib/j0di3-client";
+import prisma from "@/lib/prisma";
 
 const mockFindUnique = prisma.user.findUnique as Mock;
 const mockUpdate = prisma.user.update as Mock;
@@ -42,7 +42,6 @@ describe("ensureTroop", () => {
             mos: null,
             skillLevel: null,
             cohortId: null,
-            enrollments: [],
         });
 
         const result = await ensureTroop("user-123");
@@ -61,7 +60,6 @@ describe("ensureTroop", () => {
             mos: null,
             skillLevel: null,
             cohortId: null,
-            enrollments: [],
         });
 
         mockPost.mockResolvedValue({ data: { access_token: "rotated-token" } });
@@ -89,7 +87,6 @@ describe("ensureTroop", () => {
             mos: "11B",
             skillLevel: "BEGINNER",
             cohortId: "cohort-1",
-            enrollments: [{ id: "enrollment-1" }],
         });
 
         mockPost.mockResolvedValue({
@@ -114,34 +111,6 @@ describe("ensureTroop", () => {
         });
     });
 
-    it("sends enrolled: false when user has no active enrollments", async () => {
-        mockFindUnique.mockResolvedValue({
-            troopId: null,
-            troopAccessToken: null,
-            name: "User",
-            email: "user@example.com",
-            branch: null,
-            mos: null,
-            skillLevel: null,
-            cohortId: null,
-            enrollments: [],
-        });
-
-        mockPost.mockResolvedValue({ data: { id: "troop-uuid", access_token: "token" } });
-        mockUpdate.mockResolvedValue({});
-
-        await ensureTroop("user-789");
-
-        expect(mockPost).toHaveBeenCalledWith("/api/v1/troops/", {
-            name: "User",
-            email: "user@example.com",
-            branch: "",
-            mos: "",
-            current_module: 1,
-            enrolled: false,
-        });
-    });
-
     it("returns null and logs error when J0dI3 registration fails", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: null,
@@ -152,7 +121,6 @@ describe("ensureTroop", () => {
             mos: null,
             skillLevel: null,
             cohortId: null,
-            enrollments: [],
         });
 
         const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});

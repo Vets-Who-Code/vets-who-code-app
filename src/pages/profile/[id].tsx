@@ -12,7 +12,6 @@ import {
     GitHubReadme,
     GitHubStatsGrid,
     LanguageBreakdown,
-    LearningProgress,
     NotificationToast,
     ProfileHeader,
     ProfileNav,
@@ -22,7 +21,6 @@ import {
     TroopDashboard,
 } from "@/components/profile";
 import useGitHubProfile from "@/hooks/use-github-profile";
-import useLearningStats from "@/hooks/use-learning-stats";
 import useProfileForm from "@/hooks/use-profile-form";
 import prisma from "@/lib/prisma";
 import { options } from "@/pages/api/auth/options";
@@ -49,7 +47,6 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
     // Pass the target user's ID to hooks so they fetch that member's data
     const targetId = isOwner ? undefined : user.id;
     const github = useGitHubProfile(targetId);
-    const learning = useLearningStats(targetId);
     const form = useProfileForm(user);
 
     if (!mounted) {
@@ -157,15 +154,6 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                         onInputChange={form.handleInputChange}
                         onSave={form.handleSave}
                         onCancel={form.handleCancel}
-                    />
-                )}
-
-                {/* Training — Learning progress */}
-                {activeTab === "training" && (
-                    <LearningProgress
-                        data={learning.data}
-                        isLoading={learning.isLoading}
-                        error={learning.error}
                     />
                 )}
 

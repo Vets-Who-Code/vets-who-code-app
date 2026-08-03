@@ -8,9 +8,6 @@ import { requireAdminSSR } from "@/lib/auth-guards";
 
 type DashboardStats = {
     totalStudents: number;
-    activeCourses: number;
-    totalEnrollments: number;
-    completedEnrollments: number;
 };
 
 type PageProps = {
@@ -28,11 +25,6 @@ type PageWithLayout = NextPage<PageProps> & {
 };
 
 const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
-    const completionRate =
-        stats.totalEnrollments > 0
-            ? Math.round((stats.completedEnrollments / stats.totalEnrollments) * 100)
-            : 0;
-
     return (
         <>
             <SEO title="Admin Dashboard" />
@@ -51,7 +43,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                         </p>
                     </div>
 
-                    {/* Statistics */}
+                    {/* Statistics — course and enrollment numbers live in J0dI3 now */}
                     <div className="tw-mb-8 tw-grid tw-grid-cols-1 tw-gap-6 md:tw-grid-cols-2 lg:tw-grid-cols-4">
                         <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
                             <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
@@ -66,40 +58,6 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                             >
                                 View all users →
                             </Link>
-                        </div>
-                        <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
-                            <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                Active Courses
-                            </h3>
-                            <p className="tw-text-3xl tw-font-bold tw-text-primary">
-                                {stats.activeCourses}
-                            </p>
-                            <Link
-                                href="/admin/courses"
-                                className="tw-mt-2 tw-text-sm tw-text-gold hover:tw-underline"
-                            >
-                                Manage courses →
-                            </Link>
-                        </div>
-                        <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
-                            <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                Total Enrollments
-                            </h3>
-                            <p className="tw-text-3xl tw-font-bold tw-text-primary">
-                                {stats.totalEnrollments}
-                            </p>
-                            <p className="tw-mt-2 tw-text-sm tw-text-gray-500">
-                                {stats.completedEnrollments} completed
-                            </p>
-                        </div>
-                        <div className="tw-rounded-lg tw-bg-white tw-p-6 tw-shadow">
-                            <h3 className="tw-text-sm tw-font-medium tw-text-gray-500">
-                                Completion Rate
-                            </h3>
-                            <p className="tw-text-3xl tw-font-bold tw-text-primary">
-                                {completionRate}%
-                            </p>
-                            <p className="tw-mt-2 tw-text-sm tw-text-gray-500">Platform average</p>
                         </div>
                     </div>
 
@@ -122,14 +80,14 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                                 </div>
                             </Link>
                             <Link
-                                href="/admin/courses"
+                                href="/admin/j0di3"
                                 className="tw-flex tw-items-center tw-rounded-lg tw-border tw-border-gray-200 tw-p-4 tw-transition-colors hover:tw-bg-gray-50"
                             >
-                                <i className="fas fa-book tw-mr-3 tw-text-2xl tw-text-primary" />
+                                <i className="fas fa-robot tw-mr-3 tw-text-2xl tw-text-primary" />
                                 <div>
-                                    <h3 className="tw-font-medium tw-text-ink">Manage Courses</h3>
+                                    <h3 className="tw-font-medium tw-text-ink">J0dI3 Console</h3>
                                     <p className="tw-text-sm tw-text-gray-500">
-                                        Create and edit courses
+                                        Cohorts, lessons, and placements
                                     </p>
                                 </div>
                             </Link>
@@ -161,42 +119,15 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
 
     const { default: prisma } = await import("@/lib/prisma");
 
-    // Fetch real statistics from database
-    const [totalStudents, activeCourses, enrollmentStats] = await Promise.all([
-        // Count total students (users with STUDENT role)
-        prisma.user.count({
-            where: {
-                role: "STUDENT",
-            },
-        }),
-        // Count published courses
-        prisma.course.count({
-            where: {
-                isPublished: true,
-            },
-        }),
-        // Get enrollment statistics
-        prisma.enrollment.groupBy({
-            by: ["status"],
-            _count: true,
-        }),
-    ]);
-
-    // Calculate enrollment totals
-    const totalEnrollments = enrollmentStats.reduce((sum, stat) => sum + stat._count, 0);
-    const completedEnrollments =
-        enrollmentStats.find((stat) => stat.status === "COMPLETED")?._count || 0;
-
-    const stats: DashboardStats = {
-        totalStudents,
-        activeCourses,
-        totalEnrollments,
-        completedEnrollments,
-    };
+    const totalStudents = await prisma.user.count({
+        where: {
+            role: "STUDENT",
+        },
+    });
 
     return {
         props: {
-            stats,
+            stats: { totalStudents },
             userName: guard.session.user.name || "User",
             layout: {
                 headerShadow: true,

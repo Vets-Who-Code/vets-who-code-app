@@ -2,7 +2,6 @@ import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout01 from "@layout/layout-01";
 import { getCategories, getJobs, getJobTypes, type Job } from "@lib/jobboardly";
-import prisma from "@lib/prisma";
 import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
@@ -16,12 +15,6 @@ type PageProps = {
     jobs: Job[];
     categories: string[];
     jobTypes: string[];
-    user: {
-        id: string;
-        name: string | null;
-        email: string;
-        hasEnrollment: boolean;
-    };
     layout?: {
         headerShadow: boolean;
         headerFluid: boolean;
@@ -35,7 +28,7 @@ type PageWithLayout = NextPage<PageProps> & {
 
 type JobsTab = "board" | "matches" | "resume" | "interview";
 
-const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
+const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes }) => {
     const [activeTab, setActiveTab] = useState<JobsTab>("board");
     const [searchQuery, setSearchQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState<string>("");
@@ -93,12 +86,6 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes, user }) => {
                 <div className="tw-mb-8">
                     <div className="tw-mb-4 tw-flex tw-items-center tw-justify-between">
                         <h1 className="tw-text-4xl tw-font-bold tw-text-ink">Career Hub</h1>
-                        {user.hasEnrollment && (
-                            <span className="tw-rounded-full tw-bg-gold-light/30 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-text-ink">
-                                <i className="fas fa-check-circle tw-mr-2" />
-                                VWC Alumni
-                            </span>
-                        )}
                     </div>
                     <p className="tw-text-xl tw-text-navy/60">
                         Job board, resume tools, and interview prep
@@ -405,26 +392,11 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     const categories = getCategories(jobs);
     const jobTypes = getJobTypes(jobs);
 
-    // Check if user has course enrollment (optional - for badge display)
-    const enrollmentCount = session?.user?.id
-        ? await prisma.enrollment.count({
-              where: {
-                  userId: session.user.id,
-              },
-          })
-        : 0;
-
     return {
         props: {
             jobs,
             categories,
             jobTypes,
-            user: {
-                id: session?.user?.id || "dev-user",
-                name: session?.user?.name || "Dev User",
-                email: session?.user?.email || "dev@vetswhocode.io",
-                hasEnrollment: enrollmentCount > 0,
-            },
             layout: {
                 headerShadow: true,
                 headerFluid: false,

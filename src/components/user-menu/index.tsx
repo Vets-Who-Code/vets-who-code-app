@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from "react";
 
 // Signed-in destinations live here (behind the avatar), not in the public top nav.
 const USER_NAV_LINKS = [
-    { label: "Learn", path: "/learn" },
     { label: "Reps", path: "/challenges" },
     { label: "Assessment", path: "/assessment" },
     { label: "J0d!e", path: "/jodie" },

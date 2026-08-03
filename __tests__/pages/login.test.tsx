@@ -7,7 +7,7 @@ import { safeCallbackUrl } from "@/pages/login";
  */
 describe("safeCallbackUrl", () => {
     it("honors a same-origin absolute path", () => {
-        expect(safeCallbackUrl("/learn/js-render-table-rows")).toBe("/learn/js-render-table-rows");
+        expect(safeCallbackUrl("/challenges/two-sum")).toBe("/challenges/two-sum");
         expect(safeCallbackUrl("/jobs?role=eng")).toBe("/jobs?role=eng");
     });
 

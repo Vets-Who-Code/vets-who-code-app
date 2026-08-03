@@ -18,7 +18,6 @@ type User = {
     isActive: boolean;
     branch: string | null;
     rank: string | null;
-    enrollmentCount: number;
 };
 
 type PageProps = {
@@ -37,7 +36,7 @@ type PageWithLayout = NextPage<PageProps> & {
 const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, setStatusFilter] = useState<"all" | "active" | "inactive">("all");
-    const [sortBy, setSortBy] = useState<"name" | "createdAt" | "enrollments">("createdAt");
+    const [sortBy, setSortBy] = useState<"name" | "createdAt">("createdAt");
 
     // Filter and sort users
     const filteredUsers = initialUsers
@@ -55,8 +54,6 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
             switch (sortBy) {
                 case "name":
                     return (a.name || "").localeCompare(b.name || "");
-                case "enrollments":
-                    return b.enrollmentCount - a.enrollmentCount;
                 case "createdAt":
                 default:
                     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -187,7 +184,6 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                             >
                                 <option value="createdAt">Join Date</option>
                                 <option value="name">Name</option>
-                                <option value="enrollments">Enrollments</option>
                             </select>
                         </div>
 
@@ -214,9 +210,6 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
                                         Military Info
-                                    </th>
-                                    <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
-                                        Enrollments
                                     </th>
                                     <th className="tw-px-6 tw-py-3 tw-text-left tw-text-xs tw-font-medium tw-uppercase tw-tracking-wider tw-text-gray-500">
                                         Status
@@ -274,9 +267,6 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                                 </span>
                                             )}
                                         </td>
-                                        <td className="tw-whitespace-nowrap tw-px-6 tw-py-4 tw-text-sm tw-text-ink">
-                                            {user.enrollmentCount}
-                                        </td>
                                         <td className="tw-whitespace-nowrap tw-px-6 tw-py-4">
                                             {getStatusBadge(user.isActive)}
                                         </td>
@@ -332,8 +322,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     const guard = await requireAdminSSR(context);
     if (!guard.ok) return guard.result;
 
-    // Fetch all users with enrollment counts
-    const usersWithEnrollments = await prisma.user.findMany({
+    const allUsers = await prisma.user.findMany({
         select: {
             id: true,
             name: true,
@@ -345,11 +334,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
             rank: true,
             createdAt: true,
             updatedAt: true,
-            _count: {
-                select: {
-                    enrollments: true,
-                },
-            },
         },
         orderBy: {
             createdAt: "desc",
@@ -357,7 +341,7 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
     });
 
     // Transform data for component
-    const users: User[] = usersWithEnrollments.map((user) => ({
+    const users: User[] = allUsers.map((user) => ({
         id: user.id,
         name: user.name,
         email: user.email,
@@ -368,7 +352,6 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (context)
         rank: user.rank,
         createdAt: user.createdAt.toISOString(),
         updatedAt: user.updatedAt.toISOString(),
-        enrollmentCount: user._count.enrollments,
     }));
 
     return {

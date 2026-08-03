@@ -6,7 +6,6 @@ export { default as useGitHubProfile } from "./use-github-profile";
 export { default as useDynamicIconImport } from "./use-icon";
 export { default as useInterval } from "./use-interval";
 export { default as useKeyboardFocus } from "./use-keyboard-focus";
-export { default as useLearningStats } from "./use-learning-stats";
 export { default as useLoadMore } from "./use-load-more";
 export { default as useMount } from "./use-mount";
 export { default as usePdfUpload } from "./use-pdf-upload";
