@@ -78,7 +78,7 @@ The sprint below is not about becoming a different person in ten days. It's abou
 
 Ten blocks. One per day. Ninety minutes each, give or take. Do them in order — each one feeds the next, and the sequence matters more than the speed. If you miss a day, don't double up; just pick up where you left off. You have slack built in.
 
-![The Labor Day Sprint: ten days to legibility, one block per day from cutting your target list to setting your surge cadence.](v1787397585/ten-days-legibility_isnevm.jpg)
+![The Labor Day Sprint: ten days to legibility, one block per day from cutting your target list to setting your surge cadence.](v1787402787/legibility-take-2_p4rjdj.jpg)
 
 #### Day 1: Cut your target list to fifteen companies
 
