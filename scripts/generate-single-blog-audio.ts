@@ -192,7 +192,8 @@ export async function main() {
   // Clean the content: remove markdown formatting and extract readable text
   const cleanContent = cleanMarkdownToText(content);
   const audioBuffer = await generateAudioWithGemini(cleanContent, apiKey);
-  uploadToCloudinary(audioBuffer, blogSlug);
+  const url = await uploadToCloudinary(audioBuffer, blogSlug);
+  console.log(`Uploaded audio: ${url}`);
 }
 
 if (require.main === module) {
