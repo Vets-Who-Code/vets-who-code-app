@@ -117,8 +117,7 @@ async function generateAudioWithGemini(
     throw new Error("No audio data returned from Gemini TTS API");
   }
 
-  const pcmData = Buffer.from(audioData.inlineData.data, "base64");
-  return pcmToWav(pcmData, 24000, 1);
+  return Buffer.from(audioData.inlineData.data, "base64");
 }
 
 async function uploadToCloudinary(
@@ -191,7 +190,16 @@ export async function main() {
 
   // Clean the content: remove markdown formatting and extract readable text
   const cleanContent = cleanMarkdownToText(content);
-  const audioBuffer = await generateAudioWithGemini(cleanContent, apiKey);
+  const chunks = chunkForTts(cleanContent);
+
+  const pcmParts: Buffer[] = [];
+  for (const [index, chunk] of chunks.entries()) {
+    console.log(`Generating audio ${index + 1}/${chunks.length}...`);
+    // biome-ignore lint/performance/noAwaitInLoops: sequential to respect API rate limits
+    pcmParts.push(await generateAudioWithGemini(chunk, apiKey));
+  }
+
+  const audioBuffer = pcmToWav(Buffer.concat(pcmParts));
   const url = await uploadToCloudinary(audioBuffer, blogSlug);
   console.log(`Uploaded audio: ${url}`);
 }
@@ -203,8 +211,37 @@ if (require.main === module) {
   });
 }
 
+// The TTS model caps a response at 16,384 audio tokens (~655s, ~2,040 words at
+// the Kore voice's 187 wpm) and returns finishReason STOP without warning, so
+// anything longer must be generated in pieces and concatenated.
+export function chunkForTts(text: string): string[] {
+  const WORDS_PER_CHUNK = 1500;
+  const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim());
+  const chunks: string[] = [];
+  let current: string[] = [];
+  let words = 0;
+
+  for (const paragraph of paragraphs) {
+    const count = paragraph.split(/\s+/).length;
+    if (words + count > WORDS_PER_CHUNK && current.length > 0) {
+      chunks.push(current.join("\n\n"));
+      current = [];
+      words = 0;
+    }
+    current.push(paragraph);
+    words += count;
+  }
+
+  if (current.length > 0) {
+    chunks.push(current.join("\n\n"));
+  }
+
+  return chunks;
+}
+
 export function cleanMarkdownToText(markdown: string): string {
   return markdown
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, "") // Remove images (alt text is not narration)
     .replace(/^#{1,6}\s+/gm, "") // Remove headers
     .replace(/\*\*/g, "") // Remove bold
     .replace(/\*/g, "") // Remove italics
