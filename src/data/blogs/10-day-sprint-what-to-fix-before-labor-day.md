@@ -48,7 +48,7 @@ What survived the rewrite is instructive. It wasn't the routine execution skills
 
 Think of every job as two layers. The bottom layer is doing the routine work. The top layer is judgment about the work. AI ate most of the bottom layer. Everything in the top layer got more valuable, not less — because now every worker with AI tools produces more output, and somebody still has to be accountable for whether that output is any good.
 
-![The 2021 job market pyramid versus 2026: AI absorbs the routine execution layer, leaving the judgment layer as the premium.](v1787397585/2026-job-market_s96dij.jpg)
+![The 2021 job market pyramid versus 2026: AI absorbs the routine execution layer, leaving the judgment layer as the premium.](v1787402924/job-market-2026-take-2_k5m2oz.jpg)
 
 That reframe — rebundling, not replacement — is the single most useful lens for understanding 2026 hiring. Companies aren't eliminating jobs so much as consolidating them around people who can hold the judgment layer. One person with AI leverage and good judgment now does what three people did in 2021. The question every hiring manager is silently asking is: can this candidate be that one person?
 
