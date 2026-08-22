@@ -122,6 +122,7 @@ async function uploadToCloudinary(
         public_id: slug,
         folder: "blog-images",
         overwrite: true,
+        invalidate: true,
       },
       (error, result) => {
         if (error) {

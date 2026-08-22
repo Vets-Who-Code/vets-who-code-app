@@ -131,6 +131,10 @@ async function uploadToCloudinary(
         public_id: publicId,
         folder: "blog-audio",
         format: "wav",
+        overwrite: true,
+        // The site builds versionless URLs, so a re-upload must purge the CDN
+        // copy and its derived f_mp3 transcode or viewers keep the old audio.
+        invalidate: true,
       },
       (error, result) => {
         if (error) {
