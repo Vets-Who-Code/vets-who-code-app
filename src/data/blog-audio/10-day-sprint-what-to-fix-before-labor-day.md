@@ -1,75 +1,55 @@
-Labor Day is September seventh. If you served, and you've learned to code, and you're trying to land an engineering job, you've got about two weeks. This is what to do with them.
+Labor Day is right around the corner. So if you wore a uniform and you're aiming for a software engineering role, that gives you about two weeks to make your experience legible to the market.
 
-I want to start with why these two weeks are different from the same two weeks last year.
+I'm writing this first for our troops at Vets Who Code, but the principles apply to any early-career builder trying to break through the noise. This is a ten-day sprint. Treat it like a high-density training block. Do the reps, put in the work, and leave a little breathing room for when life happens.
 
-For decades, the September Surge worked one way. Companies came back from summer and looked at the books. At the big calendar-year tech companies, it was a scramble to spend the headcount they had left before December. At the federal contractors, it was the opposite. Fresh budgets landed October first, and they staffed up to spend them. Either way, the money unlocked, and the applications you sent after Labor Day hit desks that were actually staffed.
+I'm speaking to you from the unincentivized middle. I don't get a kickback for telling you this. But as an A.I. and L.L.M. manager who actually reviews pull requests and trains engineers, I need to be honest with you about what's happening in the market right now.
 
-That still happens. It just got narrower. Companies are hiring hard through the fourth quarter, but for one specific profile, and quietly passing on everybody else.
+The September Surge is still real. It just got picky.
 
-Two numbers tell you what that profile is.
+The seasonal rhythm, where companies drop first quarter budgets or scramble to burn fourth quarter headcount, didn't disappear. It narrowed. Companies are still hiring hard, but they're hiring for a specific profile and quietly passing on everything else.
 
-The first is twenty-eight percent. That's how much more a posting pays when it asks for A.I. skills. Lightcast found that across more than a billion postings. In real money, about eighteen thousand dollars a year, before you negotiate anything.
+The numbers tell the story. Postings that ask for A.I. skills are paying a premium, around twenty-eight percent more, according to Lightcast data. But here is the kicker. In those same A.I. enabled roles, the most requested skills aren't LangChain or vector databases. They are communication, problem solving, and judgment.
 
-The second is the one people don't see coming. In those same higher-paying roles, eight of the top ten most-requested skills are human skills. Not PyTorch. Not vector databases. Communication. Problem solving. Judgment. Collaboration. The stuff that doesn't go in a requirements file.
+Tool fluency is table stakes. Judgment is the premium.
 
-Put those together and you get the profile: somebody who can run an A.I. system, and be trusted with whatever comes out of it. Knowing the tools is the price of entry. The judgment is what they're paying extra for.
+So let's talk about what actually moved.
 
-Here's the shift underneath that, and it's the thing most career advice hasn't caught up to.
+A lot of career advice from twenty twenty-two is now actively harmful.
 
-Think about any job as two layers. The bottom layer is the routine work. First drafts. Data entry. Boilerplate code. The top layer is judgment about that work. Deciding what's worth doing. Checking whether it's right. Explaining it to somebody who has to act on it.
+Think of every job as two layers. The bottom layer is routine execution. Report formatting, boilerplate code, ticket triage. The top layer is judgment. Deciding what's worth doing, verifying the output, and knowing when a system is hallucinating.
 
-A.I. ate most of the bottom layer, and the top layer got more valuable, not less, because now everybody produces more output and somebody still has to be accountable for whether any of it is good.
+A.I. ate the bottom layer. Companies aren't necessarily doing mass layoffs. They are just practicing hiring avoidance. When a junior seat opens, they don't backfill it, because a mid-level engineer with a large language model and good judgment can now do the work of three juniors from twenty twenty-one.
 
-So companies aren't eliminating jobs. They're consolidating them. One person with A.I. leverage and good judgment does what three people did in twenty twenty-one. Every hiring manager is quietly asking the same thing: is this candidate that one person?
+Here is why you need to sit up straight. That judgment layer is exactly what you brought home from the military.
 
-Now, the hard part. This is landing worst on the youngest workers.
+You've maintained multi-million-dollar equipment on a flightline. You've owned the readiness of your troops. You've worked problems with incomplete information, hard deadlines, and real consequences for being wrong. You've made the call when the checklist ran out.
 
-Employment for twenty-two to twenty-five year olds in the most exposed jobs is running about nineteen percent below where it would be otherwise. That's Stanford payroll research. And it's not layoffs. A junior seat opens up, and nobody backfills it. The work gets absorbed by A.I. plus one mid-level person. Economists call it hiring avoidance. Nothing dramatic happens. The door just doesn't open.
+That is the judgment layer. It is fully formed, built under pressure, and the market just stopped subsidizing it for civilians. The execution layer, Python, FastAPI, Postgres, is teachable. We can fast-track execution. We cannot fast-track judgment.
 
-Why that age group? Because a twenty-three year old with a fresh degree brought exactly one thing: the routine execution layer. That was the deal. You do the grunt work for a few years, and you build the judgment that makes you worth something later. A.I. broke the deal by automating the grunt work, so nobody wants to pay for the apprenticeship anymore.
+This sprint is about making that judgment legible.
 
-Now hold that up against what you brought home.
+Ten blocks. One per day. Ninety minutes each. Do them in order.
 
-You've briefed somebody who outranked you and didn't want to hear it. You've been responsible for equipment worth more than the building you're sitting in. You've been responsible for people. Their training. Their readiness. Their mistakes. You've worked a problem with bad information, a hard deadline, and real consequences for getting it wrong. You've made the call when the checklist ran out.
+Day one. Cut your target list to fifteen companies. The spray-and-pray approach is dead. Pick fifteen organizations you have a legitimate reason to apply to. Maybe they have a real veteran hiring pipeline. Maybe they're a federal contractor where your clearance is leverage. Maybe they sit in your specific domain, like healthcare, logistics, or defense. They are hiring is not a reason.
 
-That's the judgment layer. Already built. Under pressure, with real stakes, which is the only way anybody ever builds it.
+Day two. Rewrite the top third of your resume. Nobody reads the bottom of a resume on the first pass, so delete the fluffy objective statement. You aren't asking for a favor. You are offering scope and judgment. Use this formula. Scope, plus outcome, plus stack. Here's what that sounds like. Led a twelve person maintenance section responsible for forty million dollars in equipment at ninety-eight percent operational readiness. Now building production A.I. systems in Python and FastAPI, most recently an evaluation harness that catches model errors before they reach users.
 
-What you're missing is the technical layer underneath. And here's the asymmetry I want you to sit with. The technical layer is the teachable one. It has a curriculum. It takes months. The judgment layer has no curriculum, and the market just stopped paying for the reps that create it.
+Day three. Translate one role, completely. Take your last duty position and rewrite it for a reader who thinks an N.C.O. is a radio component. Strip the jargon. No M.O.S. codes, no unit designations. Before, it reads: S2 N.C.O.I.C., produced intelligence summaries. After, it reads: led a six person analysis team producing daily risk assessments for a seven hundred person organization, and recommended mitigations that reduced route incidents by twenty-two percent over ninety days.
 
-So the same thing closing doors on new graduates is opening one for you. They have execution and no judgment. You have judgment and incomplete execution. One of those is fixable by September. The other one isn't fixable by twenty twenty-nine.
+Day four. Ship proof that you check the machine. This is the highest-leverage day. Anyone can build a chatbot wrapper over a weekend, and as an engineering manager, I don't care about that. I want to see you catch the machine when it's wrong. Build a small artifact that verifies instead of generates. Write an eval script using a tool like Google Pinpoint or the Gemini A.P.I. Take fifty test cases, score the model, and report the drift. Build a validation layer that rejects hallucinated JSON fields, to prove that you can be accountable for an A.I.'s output.
 
-None of what follows turns you into a different person in ten days. It makes what you already have legible. To a recruiter skimming four hundred resumes. To a hiring manager deciding who gets thirty minutes.
+Day five. Lock down LinkedIn. Recruiters aren't the only ones searching your profile. Applicant tracking aggregators scrape LinkedIn to score keyword matches and evaluate the recency of those skills. We optimize this for the systems and for the human reviewers on the other end. If your headline says transitioning veteran, or aspiring developer, you are invisible to both. The formula is target role, plus stack, plus differentiator. Something like: A.I. engineer. Python, FastAPI, Google Cloud. Air Force veteran, eight years leading technical teams. And make sure your skills section and your recent activity explicitly reflect the tools you are building with today, because recency weighting is real.
 
-Ten days. One block a day. About ninety minutes each. Do them in order, because each one feeds the next.
+Day six. Fix the proof of work. Pin exactly three repositories to your GitHub. Your eval artifact from day four, your best full-stack project, and one that shows range. Write the README for a hiring manager who has ninety seconds. Cover what problem it solves, how it works, and diagrams help here, how to run it, and what you'd build next, to prove you understand tradeoffs.
 
-Day one, cut your target list to fifteen companies. Fifteen you can name a reason for, in one sentence, written down. They hire veterans and can prove it. They're in your sector. Somebody you know works there. If you can't write the sentence, they don't make the list. They're hiring is not a reason.
+Day seven. Record your pitch. Record a three minute video walking through your best project. Explain the problem in plain language, show the decision you made, and explain the outcome. You briefed senior officers up the chain all the time. This is the exact same rep, just about software. Do it until it's clean.
 
-Day two, rewrite the top third of your resume. That's all anybody reads on the first pass, and the first pass is about eight seconds. Kill the objective statement. Anything that starts with transitioning service member seeking opportunities is asking for a favor, and you're not asking for a favor. Replace it with scope, outcome, and stack. Led a twelve person section responsible for forty million dollars in equipment at ninety-eight percent readiness. Now building production A.I. systems in Python. Two sentences. The first one proves judgment with numbers. The second one proves you can build.
+Day eight. Contact five actual humans. Specificity is respect. Reach out to five people at your target companies. Don't ask to pick their brain. Ask a specific, technical question about their work that they can answer in ninety seconds.
 
-Day three, take one role and translate it completely. Every line, for somebody who has never served and never will. No acronyms. No unit designations. No equipment nomenclature. Instead of supervised preventive maintenance checks on sixteen airframes, you write: supervised a twelve person team maintaining sixteen helicopters at a ninety-eight percent mission ready rate across four hundred flight hours a month. That's not dumbed down, that's translated. Numbers, people, outcomes, timeframes are the four things a recruiter can price.
+Day nine. Prep the A.I. judgment questions. Interviews today are judgment audits, so have your answers ready. How do you verify A.I. output? Point to your day four eval harness. Tell me about a time the model was wrong. What did you decide not to automate? And how would you explain this system to non-technical stakeholders?
 
-Day four is the most important day, and almost nobody will tell you to do it. Ship one small thing that proves you can catch the machine being wrong.
+Day ten. Set your cadence. Motivation dies, but routines don't. Set a battle rhythm you can hold for six weeks. Two tailored applications. One human contacted. One hour of building. And one log entry of what you did.
 
-A chatbot demo is a weekend project. Hiring managers have seen hundreds. What they haven't seen is somebody who can verify. So build the opposite of a demo. An eval script: fifty test cases with known answers, scored, results written down. Or a validation layer that checks model output before a user sees it and rejects the bad ones. Or, if you don't want to write code at all, a failure log. Three times a tool got it wrong, how you caught it, what you changed.
+Here's the bottom line. The twenty twenty-six market doesn't have a shortage of people who can write Python. It has a shortage of people who can be trusted to own the output. You spent years being exactly that person, and the translation steps above make it visible.
 
-Every company deploying this has learned the same lesson the hard way. The expensive part isn't generating things. It's trusting them.
-
-Day five, fix your LinkedIn. Recruiters don't browse it, they search it, using the exact words from their own postings. If your headline says veteran, aspiring developer, open to work, you don't come up in any of them. Lead with the role, the stack, and one differentiator. A.I. engineer. Python, FastAPI, retrieval pipelines. Army veteran, eight years leading technical teams.
-
-Day six, fix the proof layer. Pin three repositories, exactly three, and write every README for somebody who controls a budget and has never written code. What problem this solves. Why you built it. How it works. How to run it, last, not first. And what you'd build next, which is you answering an interview question before anybody asks it.
-
-Day seven, record yourself explaining your best project. Three minutes. Phone against a coffee mug is fine. No code on screen for the first minute. You don't have to publish it. The point is that when somebody says walk me through this, the clean version comes out first try, because for you it's the third. You've done this rep hundreds of times, every time you briefed somebody who needed the situation and not the details. You've just never done it about software.
-
-Day eight, contact five people. Not applications. People. Reference something specific they did, ask one question they can answer in two sentences, and don't ask for a job. Can I pick your brain hands somebody homework. A precise question costs them ninety seconds and often starts a real conversation.
-
-Day nine, prepare for four questions. How do you verify A.I. output before you trust it. Tell me about a time the model was wrong and you caught it. What did you decide not to automate, and why. And how would you explain this system to somebody in finance. Not one of them is a coding question. The coding became table stakes. The interview is a judgment audit now, and you're walking in with more judgment reps than anybody else in that lobby.
-
-Day ten, set your cadence for the six weeks after. Two tailored applications. One person contacted. One hour building. One line in a log. Small enough that you can hold it on a bad day, because deciding your routine fresh at nine at night is how routines die.
-
-That's it. That's the sprint.
-
-Here's the frame to carry into September. The shortage in this market isn't Python. Python is everywhere. The shortage is people who can be trusted with the output. To verify it. To own it. To explain it. To know when not to ship it.
-
-You spent years being that person, under conditions most candidates can't imagine. The market can't see it yet, because it's written in a language the market doesn't read.
-
-Ten days is enough to translate it. The surge starts September eighth. Be legible by then.
+Get your reps in. Be legible by September eighth. And make the surge work for you.
