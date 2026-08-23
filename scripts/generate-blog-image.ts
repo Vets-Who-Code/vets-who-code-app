@@ -58,7 +58,7 @@ Rules:
 - No references to text or typography`;
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-pro-preview",
+    model: "gemini-3.1-pro-preview",
     contents: prompt,
   });
 
@@ -86,21 +86,22 @@ export function buildImagenPrompt(theme: Theme, variantIndex = 0): string {
 
 async function generateImage(prompt: string): Promise<string> {
   console.log(
-    "\n\x1b[34m\x1b[43m\x1b[1m🖼️ Generating image with Imagen 4...\x1b[0m",
+    "\n\x1b[34m\x1b[43m\x1b[1m🖼️ Generating image with Gemini...\x1b[0m",
   );
 
-  const response = await ai.models.generateImages({
-    model: "imagen-4.0-generate-001",
-    prompt,
+  const response = await ai.models.generateContent({
+    model: "gemini-3-pro-image",
+    contents: prompt,
     config: {
-      numberOfImages: 1,
-      aspectRatio: "16:9",
+      imageConfig: { aspectRatio: "16:9" },
     },
   });
 
-  const imageBytes = response.generatedImages?.[0]?.image?.imageBytes;
+  const imageBytes = response.candidates?.[0]?.content?.parts?.find(
+    (part) => part.inlineData?.data,
+  )?.inlineData?.data;
   if (!imageBytes) {
-    throw new Error("Imagen returned no image bytes.");
+    throw new Error("Gemini returned no image bytes.");
   }
 
   return imageBytes;
@@ -121,6 +122,7 @@ async function uploadToCloudinary(
         public_id: slug,
         folder: "blog-images",
         overwrite: true,
+        invalidate: true,
       },
       (error, result) => {
         if (error) {
@@ -179,7 +181,7 @@ async function detectTextInImage(
   console.log("  🔍 Checking image for text...");
 
   const response = await ai.models.generateContent({
-    model: "gemini-3-pro-preview",
+    model: "gemini-3.1-pro-preview",
     contents: [
       {
         role: "user",

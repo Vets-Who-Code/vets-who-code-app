@@ -1,0 +1,84 @@
+/* Brand tokens mirrored from tailwind.config.js. Keep these in sync by hand —
+   these files render outside the Next build, so they cannot import the config. */
+@font-face {
+    font-family: "Gilroy";
+    src: url("../../../public/fonts/gilroy/Gilroy-Medium.woff2") format("woff2");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("../../../public/fonts/gilroy/Gilroy-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "GothamPro";
+    src: url("../../../public/fonts/gotham/GothamPro-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+@font-face {
+    font-family: "GothamPro";
+    src: url("../../../public/fonts/gotham/GothamPro-Black.woff2") format("woff2");
+    font-weight: 900;
+}
+
+:root {
+    --navy: #091f40;
+    --navy-midnight: #061a40;
+    --navy-deep: #003559;
+    --navy-royal: #0353a4;
+    --navy-ocean: #006daa;
+    --navy-sky: #b9d6f2;
+    --red: #c5203e;
+    --red-crimson: #a51c30;
+    --gold: #fdb330;
+    --gold-bright: #fad643;
+    --gold-deep: #c9a227;
+    --cream: #eeede9;
+    --ink: #1a1823;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: "Gilroy", system-ui, sans-serif;
+    color: var(--ink);
+}
+
+/* The render script screenshots this element, so its size is the output size. */
+.artboard {
+    width: 1400px;
+    height: 760px;
+    background: var(--cream);
+    padding: 56px;
+    display: flex;
+    flex-direction: column;
+}
+
+.artboard h1 {
+    font-family: "GothamPro", system-ui, sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.footer {
+    margin-top: auto;
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+}
+
+.footer .brand {
+    color: var(--red);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 17px;
+}

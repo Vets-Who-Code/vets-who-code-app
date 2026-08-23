@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="../_brand.css" />
+<style>
+    .artboard { background: var(--navy); padding: 0; }
+    .card { flex: 1; margin: 40px; border: 4px solid var(--gold); border-radius: 12px; padding: 44px 48px; display: flex; flex-direction: column; }
+    .kicker {
+        font-family: "GothamPro", sans-serif; font-weight: 700; font-size: 26px;
+        color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em;
+        padding-bottom: 18px; border-bottom: 3px solid var(--gold-deep);
+    }
+    .row { display: flex; gap: 46px; flex: 1; align-items: center; }
+    .left { flex: 1.05; }
+    .left h2 {
+        font-family: "GothamPro", sans-serif; font-weight: 900; font-size: 47px;
+        color: var(--gold); text-transform: uppercase; line-height: 1.06; letter-spacing: -0.01em;
+    }
+    .left p { font-size: 21px; color: #cfd9e6; line-height: 1.45; margin-top: 22px; }
+    .right { flex: 1; display: flex; flex-direction: column; gap: 26px; }
+    .item { display: flex; gap: 16px; align-items: flex-start; }
+    .tick { flex: none; width: 34px; height: 34px; margin-top: 2px; }
+    .item .text { color: #fff; font-size: 20px; line-height: 1.35; }
+    .item .text b { color: var(--gold-bright); }
+    .strap {
+        background: var(--gold); color: var(--navy); text-align: center;
+        font-family: "GothamPro", sans-serif; font-weight: 700; font-size: 22px;
+        padding: 15px; margin-top: 30px; border-radius: 6px;
+    }
+</style>
+
+<div class="artboard">
+    <div class="card">
+        <div class="kicker">The Day 4 Challenge</div>
+        <div class="row">
+            <div class="left">
+                <h2>Prove you don't trust the bot.</h2>
+                <p>Anyone can build a chatbot wrapper over a weekend. I want to see you catch the machine when it's wrong.</p>
+            </div>
+            <div class="right">
+                <div class="item">
+                    <svg class="tick" viewBox="0 0 34 34">
+                        <circle cx="17" cy="17" r="15" fill="none" stroke="#FDB330" stroke-width="3" />
+                        <path d="M10 17.5 L15 22.5 L24 11.5" fill="none" stroke="#FDB330" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="text"><b>An eval script.</b> Fifty test cases, scored against the model, drift reported.</div>
+                </div>
+                <div class="item">
+                    <svg class="tick" viewBox="0 0 34 34">
+                        <circle cx="17" cy="17" r="15" fill="none" stroke="#FDB330" stroke-width="3" />
+                        <path d="M10 17.5 L15 22.5 L24 11.5" fill="none" stroke="#FDB330" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="text"><b>A validation layer.</b> Rejects hallucinated JSON fields before a user ever sees them.</div>
+                </div>
+            </div>
+        </div>
+        <div class="strap">Tool fluency is table stakes. Accountability is the premium.</div>
+    </div>
+</div>
