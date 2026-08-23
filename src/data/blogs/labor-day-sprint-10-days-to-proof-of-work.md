@@ -4,7 +4,7 @@ postedAt: "2026-08-22T10:00:00.000Z"
 author: "Jerome Hardaway"
 description: "The September Surge is still real, it just got picky. Ten days of reps to make the judgment you built in uniform legible to a market that pays a premium for it."
 image:
-    src: "blog-images/10-day-sprint-what-to-fix-before-labor-day"
+    src: "blog-images/labor-day-sprint-10-days-to-proof-of-work"
 category: "Career Development"
 tags:
     - Career Development
