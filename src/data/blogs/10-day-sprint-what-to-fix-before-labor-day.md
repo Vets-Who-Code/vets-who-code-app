@@ -38,7 +38,7 @@ A lot of career advice from 2022 is now actively harmful.
 
 Think of every job as two layers. The bottom layer is routine execution—report formatting, boilerplate code, ticket triage. The top layer is judgment—deciding what's worth doing, verifying the output, and knowing when a system is hallucinating.
 
-![The 2021 job market pyramid versus 2026: AI absorbs the routine execution layer, leaving the judgment layer as the premium.](v1787402924/job-market-2026-take-2_k5m2oz.jpg)
+![AI ate the bottom layer: the 2021 pyramid of routine execution versus the 2026 judgment layer sitting on top of AI automation.](blog-graphics/10-day-sprint-job-market)
 
 AI ate the bottom layer. Companies aren't necessarily doing mass layoffs, they are just practicing "hiring avoidance." When a junior seat opens, they don't backfill it, because a mid-level engineer with an LLM and good judgment can now do the work of three 2021-era juniors.
 
@@ -54,7 +54,7 @@ This sprint is about making that judgment legible.
 
 Ten blocks, one per day, ninety minutes each. Do them in order.
 
-![The Labor Day Sprint: ten days, one block per day from cutting your target list to setting your surge cadence.](v1787402787/legibility-take-2_p4rjdj.jpg)
+![The Labor Day Sprint: ten days to proof of work, one block per day from cutting your target list to setting your cadence.](blog-graphics/10-day-sprint-sprint-overview)
 
 #### Day 1: Cut your target list to 15 companies
 
@@ -66,7 +66,7 @@ Nobody reads the bottom of a resume on the first pass, so delete the fluffy obje
 
 Example: Led a 12-person maintenance section responsible for $40M in equipment at 98% operational readiness. Now building production AI systems in Python and FastAPI—most recently an evaluation harness that catches model errors before they reach users.
 
-![The old way versus the scope plus outcome plus stack formula for the top of your resume.](v1787397585/third-top-resume_w9mwz7.jpg)
+![The old objective statement versus the scope plus outcome plus stack formula for the top third of your resume.](blog-graphics/10-day-sprint-resume-formula)
 
 #### Day 3: Translate one role, completely
 
@@ -79,7 +79,7 @@ Take your last duty position and rewrite it for a reader who thinks an NCO is a 
 
 This is the highest-leverage day. Anyone can build a chatbot wrapper over a weekend, and as an engineering manager, I don't care about that. I want to see you catch the machine when it’s wrong. Build a small artifact that verifies instead of generates. Write an eval script using a tool like Google Pinpoint or the Gemini API, take 50 test cases, score the model, and report the drift. Build a validation layer that rejects hallucinated JSON fields to prove that you can be accountable for an AI's output.
 
-![The Day 4 challenge: prove you don't trust the bot, with an eval script, a validation layer, or a failure log.](v1787397585/four-day-challenge_ufc3dk.jpg)
+![The Day 4 challenge: prove you don't trust the bot, with an eval script or a validation layer.](blog-graphics/10-day-sprint-day-4-challenge)
 
 #### Day 5: Lock down LinkedIn
 

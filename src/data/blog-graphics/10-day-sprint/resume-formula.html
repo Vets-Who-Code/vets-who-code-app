@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="../_brand.css" />
+<style>
+    .title { font-size: 34px; color: var(--navy); text-align: center; }
+    .lede { font-weight: 500; font-size: 20px; color: #4a5568; margin-top: 10px; text-align: center; }
+    .panels { display: flex; gap: 30px; margin-top: 28px; flex: 1; }
+    .panel { flex: 1; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+    .cap {
+        font-family: "GothamPro", sans-serif; font-weight: 700; font-size: 21px;
+        padding: 16px 22px; text-transform: uppercase; letter-spacing: 0.01em;
+    }
+    .cap small { display: block; font-size: 15px; font-weight: 500; text-transform: none; letter-spacing: 0; opacity: 0.85; margin-top: 3px; }
+    .old .cap { background: #dedcd6; color: #5b6472; }
+    .new .cap { background: var(--gold); color: var(--navy); }
+    .content { padding: 26px 24px; flex: 1; display: flex; flex-direction: column; gap: 18px; }
+    .struck { font-size: 20px; line-height: 1.45; color: #8a919c; text-decoration: line-through; text-decoration-color: var(--red); text-decoration-thickness: 3px; }
+    .formula {
+        background: var(--navy); color: var(--gold); border-radius: 6px; padding: 11px 16px;
+        font-family: "GothamPro", sans-serif; font-weight: 700; font-size: 18px;
+        text-align: center; letter-spacing: 0.03em;
+    }
+    .example { font-size: 19px; line-height: 1.45; color: var(--ink); }
+    .example b { color: var(--navy); }
+    .note { font-size: 16px; font-weight: 700; }
+    .old .note { color: #8a919c; }
+    .new .note { color: var(--navy); }
+</style>
+
+<div class="artboard">
+    <h1 class="title">The top third is the whole document</h1>
+    <div class="lede">Six to eleven seconds. Lead with what you ran and what happened because of it.</div>
+
+    <div class="panels">
+        <div class="panel old">
+            <div class="cap">The Old Way<small>Requesting a favor</small></div>
+            <div class="content">
+                <div class="struck">"Transitioning service member seeking opportunities to leverage my leadership skills in a dynamic environment."</div>
+                <div class="note">Vague. Passive. Tells the recruiter nothing.</div>
+            </div>
+        </div>
+
+        <div class="panel new">
+            <div class="cap">The VWC Formula<small>Offering scope and judgment</small></div>
+            <div class="content">
+                <div class="formula">Scope + Outcome + Stack</div>
+                <div class="example">
+                    Led a <b>12-person maintenance section</b> responsible for <b>$40M in equipment at 98% operational readiness</b>. Now building production AI systems in <b>Python and FastAPI</b> — most recently an evaluation harness that catches model errors before they reach users.
+                </div>
+                <div class="note">Specific. Active. Proves judgment and technical fluency.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>You aren't asking for a favor. You're offering scope and judgment.</span>
+        <span class="brand">Vets Who Code</span>
+    </div>
+</div>

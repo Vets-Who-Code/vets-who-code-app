@@ -22,6 +22,7 @@
     "test": "vitest run",
     "generate:blog-audio": "tsx -r dotenv/config scripts/generate-blog-audio-overviews.ts",
     "commitlint": "commitlint --from-HEAD~1",
+    "generate:blog-graphic": "tsx -r dotenv/config scripts/generate-blog-graphic.ts",
     "generate:blog-image": "tsx -r dotenv/config scripts/generate-blog-image.ts",
     "generate:blog-media": "tsx -r dotenv/config scripts/generate-blog-media.ts",
     "generate:job-codes": "tsx scripts/parse-job-codes.ts",

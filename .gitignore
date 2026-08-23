@@ -66,6 +66,7 @@ npm_output.log
 /src/generated/prisma
 audio-cloudinary-urls.json
 graphify-out/
+src/data/blog-graphics/**/out/
 
 # Linter/scoring artifacts
 eslint-report.json
