@@ -190,36 +190,116 @@ export async function main() {
     process.exit(1);
   }
 
-  const content = contentMatch[1];
+  // A post read verbatim sounds like a document being recited. Where a spoken
+  // script exists in src/data/blogs/audio, narrate that instead.
+  const scriptPath = path.join(
+    process.cwd(),
+    "src/data/blogs/audio",
+    `${blogSlug}.md`,
+  );
+  const content = fs.existsSync(scriptPath)
+    ? fs.readFileSync(scriptPath, "utf-8")
+    : contentMatch[1];
+  console.log(
+    fs.existsSync(scriptPath)
+      ? "Narrating the spoken script."
+      : "No spoken script found; narrating the post body.",
+  );
 
   // Clean the content: remove markdown formatting and extract readable text
   const cleanContent = cleanMarkdownToText(content);
   const chunks = chunkForTts(cleanContent);
 
+  const pause = Buffer.alloc(24000 * 2 * 0.35); // 350ms between chunks
   const pcmParts: Buffer[] = [];
   for (const [index, chunk] of chunks.entries()) {
     console.log(`Generating audio ${index + 1}/${chunks.length}...`);
     // biome-ignore lint/performance/noAwaitInLoops: sequential to respect API rate limits
-    pcmParts.push(await generateAudioWithGemini(chunk, apiKey));
+    const pcm = await generateAudioWithGemini(
+      `${NARRATION_STYLE}\n\n${chunk}`,
+      apiKey,
+    );
+    if (index > 0) {
+      pcmParts.push(pause);
+    }
+    pcmParts.push(pcm);
   }
 
-  const audioBuffer = pcmToWav(Buffer.concat(pcmParts));
+  const audioBuffer = pcmToWav(normalizeLoudness(Buffer.concat(pcmParts)));
   const url = await uploadToCloudinary(audioBuffer, blogSlug);
   console.log(`Uploaded audio: ${url}`);
 }
 
-if (require.main === module) {
-  main().catch((error) => {
-    console.error("Script failed:", error);
-    process.exit(1);
-  });
-}
 
 // The TTS model caps a response at 16,384 audio tokens (~655s, ~2,040 words at
 // the Kore voice's 187 wpm) and returns finishReason STOP without warning, so
 // anything longer must be generated in pieces and concatenated.
+// Each chunk is a separate request, so without a fixed directive the model
+// picks its own delivery per chunk and the pieces sound like different reads.
+export const NARRATION_STYLE =
+  "Read the following blog post aloud in a single, steady, clear narration voice. " +
+  "Keep an even pace and consistent volume throughout. Do not add commentary.";
+
+// Levels drift within and between chunks (measured at 6.8dB across one post) and
+// the raw output clips at 0dBFS. Ride the gain toward a target RMS, slowly enough
+// not to pump, then leave a decibel of headroom.
+export function normalizeLoudness(pcm: Buffer, sampleRate = 24000): Buffer {
+  const TARGET_RMS = 0.158; // -16 dBFS
+  const PEAK_CEILING = 0.891; // -1 dBFS
+  const SILENCE_RMS = 0.00316; // -50 dBFS
+  const MAX_GAIN = 4;
+  const MIN_GAIN = 0.25;
+
+  const samples = new Float32Array(pcm.length / 2);
+  for (let i = 0; i < samples.length; i++) {
+    samples[i] = pcm.readInt16LE(i * 2) / 32768;
+  }
+
+  const hop = Math.round(sampleRate * 0.1);
+  const smoothing = Math.exp(-0.1 / 1.5); // one-pole, ~1.5s time constant
+  const gains: number[] = [];
+  let gain = 1;
+
+  for (let start = 0; start < samples.length; start += hop) {
+    const end = Math.min(start + hop, samples.length);
+    let sum = 0;
+    for (let i = start; i < end; i++) {
+      sum += samples[i] * samples[i];
+    }
+    const rms = Math.sqrt(sum / (end - start));
+
+    if (rms > SILENCE_RMS) {
+      const wanted = Math.min(MAX_GAIN, Math.max(MIN_GAIN, TARGET_RMS / rms));
+      gain = smoothing * gain + (1 - smoothing) * wanted;
+    }
+    gains.push(gain);
+  }
+
+  let peak = 0;
+  for (let i = 0; i < samples.length; i++) {
+    const frame = Math.min(gains.length - 1, Math.floor(i / hop));
+    const next = Math.min(gains.length - 1, frame + 1);
+    const blend = (i % hop) / hop;
+    samples[i] *= gains[frame] * (1 - blend) + gains[next] * blend;
+    peak = Math.max(peak, Math.abs(samples[i]));
+  }
+
+  const limiter = peak > PEAK_CEILING ? PEAK_CEILING / peak : 1;
+
+  const out = Buffer.alloc(pcm.length);
+  for (let i = 0; i < samples.length; i++) {
+    const v = Math.round(samples[i] * limiter * 32767);
+    out.writeInt16LE(Math.max(-32768, Math.min(32767, v)), i * 2);
+  }
+  return out;
+}
+
 export function chunkForTts(text: string): string[] {
-  const WORDS_PER_CHUNK = 1500;
+  // Rates measured across the blog run 170-213 wpm for anything longer than a
+  // few hundred words, so the 655s cap holds ~1,850 words at the slow end.
+  // 1,700 keeps headroom, and a script written to fit under it is narrated in
+  // one take with no seam to hear.
+  const WORDS_PER_CHUNK = 1700;
   const paragraphs = text.split(/\n\s*\n/).filter((p) => p.trim());
   const chunks: string[] = [];
   let current: string[] = [];
@@ -253,4 +333,11 @@ export function cleanMarkdownToText(markdown: string): string {
     .replace(/<[^>]+>/g, "") // Remove HTML tags
     .replace(/^[-*+]\s+/gm, "") // Remove list markers
     .trim();
+}
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error("Script failed:", error);
+    process.exit(1);
+  });
 }
