@@ -191,10 +191,11 @@ export async function main() {
   }
 
   // A post read verbatim sounds like a document being recited. Where a spoken
-  // script exists in src/data/blogs/audio, narrate that instead.
+  // script exists in src/data/blog-audio, narrate that instead. It lives
+  // outside src/data/blogs because getSlugs treats every entry there as a post.
   const scriptPath = path.join(
     process.cwd(),
-    "src/data/blogs/audio",
+    "src/data/blog-audio",
     `${blogSlug}.md`,
   );
   const content = fs.existsSync(scriptPath)
