@@ -66,8 +66,6 @@ Nobody reads the bottom of a resume on the first pass, so delete the fluffy obje
 
 Example: Led a 12-person maintenance section responsible for $40M in equipment at 98% operational readiness. Now building production AI systems in Python and FastAPI—most recently an evaluation harness that catches model errors before they reach users.
 
-![The old objective statement versus the scope plus outcome plus stack formula for the top third of your resume.](blog-graphics/10-day-sprint-resume-formula)
-
 #### Day 3: Translate one role, completely
 
 Take your last duty position and rewrite it for a reader who thinks an NCO is a radio component. Strip the jargon, meaning no MOS codes and no unit designations.
