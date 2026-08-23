@@ -3,6 +3,10 @@ import { NextAuthOptions } from "next-auth";
 import GithubProvider, { GithubProfile } from "next-auth/providers/github";
 import { ensureTroop } from "@/lib/ensure-troop";
 import prisma from "@/lib/prisma";
+import {
+    mapGitHubProfileToUser,
+    type GitHubProfileData,
+} from "@/lib/github-profile";
 
 const fetchWithTimeout = async (
     url: string,
@@ -39,7 +43,7 @@ export const options: NextAuthOptions = {
     ],
     adapter: PrismaAdapter(prisma),
     callbacks: {
-        async signIn({ account, profile }) {
+        async signIn({ user, account, profile }) {
             if (account?.provider === "github") {
                 const githubProfile = profile as GithubProfile;
 
@@ -77,6 +81,51 @@ export const options: NextAuthOptions = {
 
                     // 204 = member, 302 = requester not in org, 404 = not a member
                     if (res.status === 204) {
+                        const existingAccount = await prisma.account.findUnique({
+                            where: {
+                                provider_providerAccountId: {
+                                    provider: "github",
+                                    providerAccountId: account.providerAccountId,
+                                },
+                            },
+                        });
+
+                        if (existingAccount) {
+                            return true;
+                        }
+
+                        try {
+                            const profileResponse = await fetchWithTimeout(
+                                "https://api.github.com/user",
+                                {
+                                    headers: {
+                                        Accept: "application/vnd.github.v3+json",
+                                        Authorization: `Bearer ${account.access_token}`,
+                                        "User-Agent": "NextAuth.js",
+                                    },
+                                },
+                                5000
+                            );
+
+                            if (!profileResponse.ok) {
+                                console.error(
+                                    `[Auth] GitHub profile fetch failed for ${githubProfile.login}: status ${profileResponse.status}`
+                                );
+                                return true;
+                            }
+
+                            const githubUser = (await profileResponse.json()) as GitHubProfileData;
+                            const mappedProfile = mapGitHubProfileToUser(githubUser);
+
+                            Object.assign(user, {
+                                ...mappedProfile,
+                                email: mappedProfile.email ?? user.email,
+                            });
+                        } catch (error) {
+                            console.error("[Auth] GitHub profile fetch error:", error);
+                            return true;
+                        }
+
                         return true;
                     }
 
