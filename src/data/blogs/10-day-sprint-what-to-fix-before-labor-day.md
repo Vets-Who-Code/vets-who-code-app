@@ -18,25 +18,24 @@ tags:
 is_featured: true
 ---
 
-Labor Day falls on September 7 this year. If you wore a uniform and you're aiming for a civilian tech role, that gives you about two weeks to make your experience legible to the market. This sprint is written first for veterans who've learned to code and want engineering roles — but the principles and steps apply to any early-career builder who needs to show judgment and technical fluency. This sprint takes ten days of it, and leaves you slack for the things that always come up — the appointment you forgot, the kid's practice, the day your brain just won't cooperate.
+Labor Day falls on September 7 this year. If you wore a uniform and you're aiming for a civilian tech role, that gives you about two weeks to make your experience legible to the market. This sprint is written first for veterans who’ve learned to code and want engineering roles — but the principles and steps apply to any early-career builder who needs to show judgment and technical fluency. This plan takes ten days, leaving you a little breathing room for when life happens — the appointment you forgot, the kid’s practice, the day your brain just won't cooperate.
 
-Here's why these two weeks matter more than they did last year.
+So why the urgency? Here’s why these two weeks matter more than they did last year.
 
 ### The surge is still real. It just got picky.
 
-For as long as most recruiters have been alive, the September Surge worked the same way: companies came back from summer, looked at their Q4 budgets, realized they had headcount to spend before the fiscal year closed, and hired in a wave. Applications sent the week after Labor Day landed on desks that were actually staffed, with budgets that were actually approved. If you were job hunting, September and October were the best eight weeks of the year to be in the market.
+For as long as most recruiters have been alive, the September Surge worked the same way: companies came back from summer and looked at the books. For the FAANGs and standard calendar-year tech shops, it was the Q4 scramble to burn remaining headcount before December. For the LARP companies and federal contractors, it was the exact opposite—gearing up to execute on massive, fresh Q1 budgets dropping on October 1st. Either way, the money unlocked, applications landed on desks that were actually staffed, and they hired in a wave. If you were job hunting, September and October were the best eight weeks of the year to be in the market.
 
-That seasonal rhythm didn't disappear in 2026. It narrowed. Companies are still hiring hard through Q4 — but they're hiring for a specific profile and quietly passing on everything else. The broad wave became a targeted one, and the targeting has two numbers behind it that you should be able to recite.
+That seasonal rhythm didn't disappear in 2026. It narrowed. Companies are still hiring hard through Q4 — but they're hiring for a specific profile and quietly passing on everything else. The broad wave became a targeted one, and two numbers tell the whole story.
 
-The first number: 28%. Job postings that ask for AI skills pay roughly 28% more than postings that don't. That's Lightcast's finding from an analysis of over 1.3 billion job postings — around $18,000 a year in real money, before you negotiate anything. Other trackers put the premium higher — PwC's Jobs Barometer has measured it in the 50s. Use 28% as your floor. It's the number that survives an argument.
-
-The second number is the one nobody expects: eight out of ten. In those same AI-enabled roles — the ones paying the premium — eight of the top ten most-requested skills are human skills. Not PyTorch. Not LangChain. Not vector databases. Communication. Problem-solving. Judgment. Collaboration. Adaptability. The durable stuff that doesn't fit in a requirements.txt.
+- The first number: 28%. Job postings that ask for AI skills pay roughly 28% more than postings that don't. That’s from a Lightcast analysis of over a billion job postings. It works out to around $18,000 a year in real money, before you even start to negotiate. Some trackers put the premium higher; use 28% as your floor.
+- The second number is the one nobody expects: eight out of ten. In those same AI-enabled roles — the ones paying the premium — eight of the top ten most-requested skills are human skills. Not PyTorch. Not LangChain. Not vector databases. Communication. Problem-solving. Judgment. Collaboration. Adaptability. The durable stuff that doesn't fit in a requirements.txt.
 
 And this isn't just an AI-role phenomenon. Across the entire job market, 76% of postings now ask for at least one durable human skill, and 47% ask for three or more — a share that's climbed double digits since 2021. The technical demand and the human demand are rising together, in the same postings, for the same seats.
 
 Put those two numbers side by side and you get the actual 2026 hiring profile: someone who can operate an AI system and be trusted with what comes out of it. The tool fluency is table stakes. The judgment is the premium.
 
-One more data point to round out the picture: about half of all postings that require AI skills are now outside IT and computer science entirely — marketing, HR, operations, finance, logistics. The skill set stopped being a tech-industry credential and became a general workforce credential. That matters for you because it means the doors aren't just at software companies. They're at hospitals, banks, defense contractors, and city governments — places that already know how to hire veterans. And if you didn't serve, it means your domain — from healthcare ops to logistics — is in play, too.
+One more data point to round out the picture: about half of all postings that require AI skills are now outside IT and computer science entirely — marketing, HR, operations, finance, logistics. The skill set stopped being a tech-industry credential and became a general workforce credential. That matters for you because it means the doors aren't just at software companies. They're at hospitals, banks, defense contractors, and city governments — places that already know how to hire veterans. And if you didn’t serve, it means your domain — from healthcare ops to logistics — is in play, too.
 
 ### The ground is moving under everyone's feet
 
@@ -60,7 +59,7 @@ Employment among 22-to-25-year-olds in AI-exposed occupations — customer suppo
 
 Why is it hitting that age group specifically? Because a 23-year-old with a fresh degree brought exactly one thing to the table: the routine execution layer. Competent first drafts. Clean data entry. Boilerplate code. Ticket triage. That was always the deal — you do the routine work for a few years, and in exchange you build the judgment that makes you valuable later. AI broke the deal by automating the routine work, which means nobody wants to pay for the apprenticeship anymore.
 
-Workforce economists are already warning companies that this is a slow-motion mistake — cut every junior seat and in five years you have no internal pipeline and you're paying through the nose for external senior hires. They're right. But that correction is years away, and you're job hunting now.
+(Workforce economists are already warning companies that this is a slow-motion mistake — cut every junior seat and in five years you have no internal pipeline and you're paying through the nose for external senior hires. They're right. But that correction is years away, and you're job hunting now.)
 
 Now hold that picture up next to what you brought home from service.
 
@@ -72,9 +71,9 @@ What you're missing is the technical layer underneath it. And here's the asymmet
 
 So the same shift that's closing doors on new graduates is opening one for you. They have execution and no judgment, and judgment can't be fast-tracked. You have judgment and incomplete execution, and execution can. One of those positions is fixable by September. The other one isn't fixable by 2029.
 
-The sprint below is not about becoming a different person in ten days. It's about making what you already have legible — to a recruiter skimming 400 resumes, to an ATS parsing for keywords, to a hiring manager deciding who gets thirty minutes of their calendar. If you didn't serve, read "judgment layer" as the decisions you've made under pressure in any domain — the translation work is the same. We're translating judgment and proving teachability.
+The sprint below is not about becoming a different person in ten days. It's about making what you already have legible — to a recruiter skimming 400 resumes, to an ATS parsing for keywords, to a hiring manager deciding who gets thirty minutes of their calendar. If you didn’t serve, read “judgment layer” as the decisions you’ve made under pressure in any domain — the translation work is the same. We’re translating judgment and proving teachability.
 
-### The sprint
+### The Sprint
 
 Ten blocks. One per day. Ninety minutes each, give or take. Do them in order — each one feeds the next, and the sequence matters more than the speed. If you miss a day, don't double up; just pick up where you left off. You have slack built in.
 
@@ -108,19 +107,17 @@ Two sentences. The first proves the judgment layer with numbers. The second prov
 
 #### Day 3: Translate one role, completely
 
-Take your most recent duty position and rewrite every single line of it for a reader who has never served, never will, and thinks an NCO might be a type of radio. If you didn't serve, do the same translation from your domain: strip jargon, map functions to civilian terms, and quantify scope, people, outcomes, and timeframes.
+Take your most recent duty position and rewrite every single line of it for a reader who has never served, never will, and thinks an NCO might be a type of radio. If you didn’t serve, do the same translation from your domain: strip jargon, map functions to civilian terms, and quantify scope, people, outcomes, and timeframes.
 
 The rules: no acronyms, no unit designations, no rank abbreviations, no MOS codes, no equipment nomenclature. Every term gets translated into its civilian function.
 
-**Before:** NCOIC, maintenance section, 2-227 GSAB. Supervised PMCS on 16 airframes IAW TM standards.
+- **Before:** NCOIC, maintenance section, 2-227 GSAB. Supervised PMCS on 16 airframes IAW TM standards.
+- **After:** Supervised a 12-person team performing scheduled preventive maintenance on 16 helicopters, sustaining a 98% mission-ready rate across 400+ flight hours per month. Trained and evaluated 4 junior technicians to full certification.
 
-**After:** Supervised a 12-person team performing scheduled preventive maintenance on 16 helicopters, sustaining a 98% mission-ready rate across 400+ flight hours per month. Trained and evaluated 4 junior technicians to full certification.
+Another example (intel/ops):
 
-Another example, this one from intel and operations:
-
-**Before:** S2 NCOIC, 1-504 PIR. Produced INTSUMs and led ASCOPE/PMESII-PT analysis.
-
-**After:** Led a 6-person analysis team producing daily intelligence summaries and risk assessments for a 700-person organization; briefed senior leaders on likely courses of action and recommended mitigations that reduced route incidents by 22% over 90 days.
+- **Before:** S2 NCOIC, 1-504 PIR. Produced INTSUMs and led ASCOPE/PMESII-PT analysis.
+- **After:** Led a 6-person analysis team producing daily intelligence summaries and risk assessments for a 700-person organization; briefed senior leaders on likely courses of action and recommended mitigations that reduced route incidents by 22% over 90 days.
 
 The second version isn't dumbed down — it's translated. It carries more information to a civilian reader, not less. Numbers, people, outcomes, timeframes. Those are the four things a recruiter can price.
 
@@ -128,13 +125,13 @@ Do one role fully rather than five roles halfway. The first full translation is 
 
 #### Day 4: Ship one thing that proves you can check the machine
 
-Ship a small artifact that verifies model output and shows you know when to reject it.
+TL;DR: Ship a small artifact that verifies model output and shows you know when to reject it.
 
 This is the highest-leverage day in the sprint. Most people skip it because almost no one tells them to do it.
 
-Here's the reality: a basic chatbot demo is a weekend project. Hiring managers have seen hundreds. It doesn't prove judgment. What they want to see is the hard part — catching the machine when it's wrong.
+Here’s the reality: a basic chatbot demo is a weekend project. Hiring managers have seen hundreds. It doesn’t prove judgment. What they want to see is the hard part — catching the machine when it’s wrong.
 
-Call it "AI literacy with restraint": the ability to verify, edit, and explain machine output — and to withhold it when it's not good enough. Every company deploying AI has discovered, usually the hard way, that the expensive part isn't generation. It's trust.
+Call it “AI literacy with restraint”: the ability to verify, edit, and explain machine output — and to withhold it when it’s not good enough. Every company deploying AI has discovered, usually the hard way, that the expensive part isn't generation. It's trust.
 
 ![The Day 4 challenge: prove you don't trust the bot, with an eval script, a validation layer, or a failure log.](v1787397585/four-day-challenge_ufc3dk.jpg)
 
@@ -144,13 +141,13 @@ So build something small that verifies instead of generates. Concrete options, a
 - **A validation layer.** A function that inspects model output before it reaches a user — checks the JSON schema, rejects hallucinated fields, flags responses that cite sources that don't exist.
 - **A failure log.** A README documenting three specific cases where your AI system (or a public tool you evaluated) produced something wrong, how you caught each one, and what you changed. This option requires no original coding and still proves verification skill.
 
-Make it concrete: say your RAG feature summarizes incident reports. Your eval set includes 40 reports with known answers. On test 17, the model invents a date. Your validator rejects it, logs the miss, and you tighten the retrieval window. That's the story a hiring manager remembers.
+Make it concrete: say your RAG feature summarizes incident reports. Your eval set includes 40 reports with known answers. On test 17, the model invents a date. Your validator rejects it, logs the miss, and you tighten the retrieval window. That’s the story a hiring manager remembers.
 
 Whichever you pick, the artifact says something no chatbot demo can say: this person doesn't just use the tool — this person can be accountable for it. That's the seat companies are consolidating around. That's the one-person-doing-three-jobs profile. Prove you're it.
 
 #### Day 5: Rewrite your LinkedIn headline and About section
 
-Recruiters don't browse LinkedIn. They search it, using the same words that appear in their job postings. If your headline says "Veteran | Aspiring Developer | Open to Work," you are invisible in every one of those searches — "veteran" isn't a search term recruiters use for engineering roles, "aspiring" is a self-disqualification, and "open to work" is a toggle, not a keyword. If you're not a veteran, the same rule applies: lead with the role, stack, and one differentiator tied to outcomes.
+Recruiters don't browse LinkedIn. They search it, using the same words that appear in their job postings. If your headline says "Veteran | Aspiring Developer | Open to Work," you are invisible in every one of those searches — "veteran" isn't a search term recruiters use for engineering roles, "aspiring" is a self-disqualification, and "open to work" is a toggle, not a keyword. If you’re not a veteran, the same rule applies: lead with the role, stack, and one differentiator tied to outcomes.
 
 The headline formula: target role + stack + one differentiator.
 
@@ -158,7 +155,13 @@ The headline formula: target role + stack + one differentiator.
 
 Every phrase in that headline is something a recruiter actually types into the search bar, and the veteran credential is positioned as evidence of leadership, not as the lead identity.
 
-The About section is where the judgment layer lives. Three short paragraphs, written like a person: (1) what you build now and the problems you're drawn to, (2) what you were trusted with in uniform — people, equipment, decisions, with numbers, (3) what you're looking for and what you're currently building. First person. No third-person résumé voice. No "results-oriented professional."
+The About section is where the judgment layer lives. Three short paragraphs, written like a person:
+
+1. What you build now and the problems you're drawn to.
+2. What you were trusted with in uniform — people, equipment, decisions, with numbers.
+3. What you're looking for and what you're currently building.
+
+First person. No third-person résumé voice. No "results-oriented professional."
 
 While you're in there: set your location to your target metro, turn on the recruiter-visible open-to-work setting, and make sure your profile skills list matches the actual postings from your Day 1 target list. Recruiters filter on those checkboxes.
 
@@ -168,11 +171,11 @@ Pin three repositories. Exactly three — the eval artifact from Day 4, your bes
 
 Then write each README as if the reader controls a budget and has never written code. Structure:
 
-1. **What problem this solves** — two sentences, no jargon.
-2. **Why I built it** — one paragraph. This is where your domain knowledge shows.
-3. **How it works** — a short walkthrough with a diagram or screenshot if you have one.
-4. **How to run it** — the install commands, last, not first.
-5. **What I'd build next** — three bullets. This section quietly demonstrates judgment about scope and tradeoffs, which is an interview question you're now answering in advance.
+- **What problem this solves** — two sentences, no jargon.
+- **Why I built it** — one paragraph. This is where your domain knowledge shows.
+- **How it works** — a short walkthrough with a diagram or screenshot if you have one.
+- **How to run it** — the install commands, last, not first.
+- **What I'd build next** — three bullets. This section quietly demonstrates judgment about scope and tradeoffs, which is an interview question you're now answering in advance.
 
 Most portfolios die here. The code is fine; the README is a wall of pip install. Remember who opens your repo: usually a hiring manager with ninety seconds, not a senior engineer with an hour. Write for the ninety seconds.
 
@@ -188,17 +191,16 @@ Watch the recording once (yes, it's uncomfortable; do it anyway), note where you
 
 If you do want to publish it: a three-minute walkthrough pinned to your LinkedIn profile puts you in roughly the top 2% of candidate profiles for effort alone.
 
-#### Day 8: Contact five humans
+#### Day 8: Contact five people
 
-Not applications. People. The surge favors anyone with a human inside the building — and two weeks is enough time to become one.
+Not applications. People. The surge favors candidates with a human inside the building — and two weeks is enough time to become one.
 
-Five specific messages to five specific people, drawn from your Day 1 target list where possible: someone doing the job you want, someone who served in your branch and now works where you want to work, someone whose project or post you actually read, an alum of your training program, a hiring manager whose team just shipped something. Not a veteran? Swap in domain peers, alumni, and collaborators in your field — the specificity rule doesn't change.
+Five specific messages to five specific people, drawn from your Day 1 target list where possible: someone doing the job you want, someone who served in your branch and now works where you want to work, someone whose project or post you actually read, an alum of your training program, a hiring manager whose team just shipped something. Not a veteran? Swap in domain peers, alumni, and collaborators in your field — the specificity rule doesn’t change.
 
 The formula: reference the specific thing, ask one question they can answer in two sentences, don't ask for a job.
 
-**Bad:** "Hi, I'm a transitioning veteran looking for opportunities in tech. Would love to connect and pick your brain!" This gets ignored, not because people are unkind, but because it hands them homework with no starting point.
-
-**Good:** "Saw your post in June about evaluating RAG pipelines — I'm building an eval harness now and hitting the same drift problem you described. Did the reference-set refresh cadence you landed on hold up? (Army vet, 8 years aviation maintenance, moved into AI engineering this year.)" This gets a reply, because it's specific, it's answerable in ninety seconds, and it signals you're already in the work.
+- **Bad:** "Hi, I'm a transitioning veteran looking for opportunities in tech. Would love to connect and pick your brain!" — This gets ignored, not because people are unkind, but because it hands them homework with no starting point.
+- **Good:** "Saw your post in June about evaluating RAG pipelines — I'm building an eval harness now and hitting the same drift problem you described. Did the reference-set refresh cadence you landed on hold up? (Army vet, 8 years aviation maintenance, moved into AI engineering this year.)" — This gets a reply, because it's specific, it's answerable in ninety seconds, and it signals you're already in the work.
 
 One veteran-specific note: the veteran network in tech is unusually generous, but it responds to the same rule as everyone else — specificity is respect. "Can I pick your brain" costs the other person effort. A precise question costs them nothing and often starts a real conversation.
 
@@ -208,7 +210,7 @@ Interviews in 2026 have converged on a small set of questions that are really on
 
 1. **"How do you verify AI output before you trust it?"** Your Day 4 artifact is this answer. Walk through it: what you check, in what order, and what triggers a rejection.
 2. **"Tell me about a time the model was wrong and you caught it."** Have the specific case: what it got wrong, what tipped you off, what you changed so the same failure can't recur. If your Day 4 option was the failure log, you have three of these ready.
-3. **"What did you decide not to automate, and why?"** This is a judgment question, full stop. Good answers involve stakes: you kept a human in the loop where an error was expensive, irreversible, or fell on someone who couldn't absorb it. Your military instinct for "what requires a human decision" is precisely the instinct being tested. If you didn't serve, lean on times you protected customers, revenue, or safety by keeping a human in the loop.
+3. **"What did you decide not to automate, and why?"** This is a judgment question, full stop. Good answers involve stakes: you kept a human in the loop where an error was expensive, irreversible, or fell on someone who couldn't absorb it. If you didn’t serve, lean on times you protected customers, revenue, or safety by keeping a human in the loop.
 4. **"How would you explain this system to someone in finance?"** Your Day 7 recording is this answer, rehearsed. Bonus move: answer it, then add the one risk the finance person should know about. Naming the risk unprompted is the most senior thing a junior candidate can do.
 
 Notice what's happening across all four: not one of them is a coding question. The coding got table-staked. The interview is now a judgment audit, and you're walking in with more judgment reps than anyone else in the lobby.
