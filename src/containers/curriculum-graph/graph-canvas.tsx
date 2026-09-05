@@ -243,7 +243,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                     ctx.stroke();
                 }
                 if (isUnlock) {
-                    // Hollow: state rides on shape so it never collides with the phase hue.
+                    // Hollow: state rides on shape so it never collides with the band hue.
                     ctx.strokeStyle = hue;
                     ctx.lineWidth = 2.2;
                     ctx.fillStyle = NAVY;
@@ -390,7 +390,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             ref={canvasRef}
             className={styles.canvas}
             role="img"
-            aria-label="Three-dimensional prerequisite map of the Hashflag curriculum. Every concept sits below the concepts it depends on. The concept index below this map lists the same nodes as buttons."
+            aria-label="Three-dimensional map of the Hashflag curriculum. Every concept sits below whatever holds it up, and every link carries a written reason. The concept index beside this map lists the same concepts as buttons."
         />
     );
 };

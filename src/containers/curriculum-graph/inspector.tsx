@@ -25,9 +25,9 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
                 <p className={styles.monoLabel}>Node inspector</p>
                 <h3 className={styles.inspectorHeading}>Pick a concept</h3>
                 <p className={styles.inspectorBody}>
-                    Selecting a dot lights every idea a learner must already hold before it and
-                    prints the written reason on each link. Depth runs top to bottom: a concept sits
-                    below everything it depends on.
+                    Selecting a dot lights everything the idea rests on and prints the written
+                    reason for each link. Depth runs top to bottom: a concept sits below whatever
+                    holds it up. Nothing here gates you — it maps what a skill is made of.
                 </p>
                 <p className={`${styles.monoLabel} ${styles.monoLabelSpaced}`}>Concept index</p>
                 {groups.map((group) => (
@@ -102,7 +102,7 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
 
             {prereqs.length === 0 ? (
                 <p className={styles.inspectorNote}>
-                    Nothing blocks this one. It is an entry point: day one, week one.
+                    Nothing sits under this one. It is an entry point — you can start here.
                 </p>
             ) : (
                 <div className={styles.prereqList}>
@@ -118,7 +118,7 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
                                         : styles.kindHelpful
                                 }`}
                             >
-                                {edge.strength === "hard" ? "required" : "helpful"}
+                                {edge.strength === "hard" ? "load-bearing" : "supporting"}
                             </span>
                             <div>
                                 <button
@@ -136,10 +136,10 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
             )}
 
             <hr className={styles.rule} />
-            <p className={styles.monoLabel}>Unlocks next &nbsp;·&nbsp; {unlocks.length}</p>
+            <p className={styles.monoLabel}>Holds up &nbsp;·&nbsp; {unlocks.length}</p>
             {unlocks.length === 0 ? (
                 <p className={styles.inspectorNote}>
-                    Nothing waits on it — this concept is a terminal node in the graph.
+                    Nothing in the map rests on this one yet — it is a leaf.
                 </p>
             ) : (
                 <div className={styles.chipRow}>

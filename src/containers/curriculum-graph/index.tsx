@@ -86,21 +86,21 @@ const NODE_RECORD: [string, React.ReactNode][] = [
     ["Market anchor", SAMPLE.marketAnchor.join(" · ")],
     ["Evidence criterion", SAMPLE.evidence],
     ["Source", SAMPLE.source],
-    ["Prerequisite depth", `${SAMPLE.depth} — longest blocking path to an entry point`],
+    ["Prerequisite depth", `${SAMPLE.depth} — longest chain of load-bearing links beneath it`],
 ];
 
 const QUESTIONS = [
     {
         title: "Where does this person actually start?",
-        body: "The frontier of unlocked concepts, given what they already hold. A veteran who has run Linux for a decade skips to the two ideas they're missing.",
+        body: "Whatever they already hold, the map shows what it reaches. A veteran who has run Linux for a decade starts from what that covers, not from week one.",
     },
     {
         title: "What's the shortest path to this specific job?",
         body: "Name the target concept set from a real posting and the graph returns the minimum set of nodes that reaches it, in order.",
     },
     {
-        title: "Why is this locked?",
-        body: "Answered by the written reason on the blocking edge. Nobody is told no without being told what to do about it.",
+        title: "Why is this taught at all?",
+        body: "Every concept carries its market anchor and its evidence criterion, and every link carries its reason. You can audit the whole thing without taking our word for any of it.",
     },
 ];
 
@@ -140,7 +140,9 @@ const CurriculumGraphContainer = () => (
                 </h1>
                 <p className={styles.heroLede}>
                     Most curricula are ordered by subject — chapter three follows chapter two
-                    because someone put it there. Ours is ordered by dependency.
+                    because someone put it there. Ours is a map of how skills actually rest on each
+                    other, so you can see how we decide what to teach, how we train it, and what any
+                    one idea is built from.
                 </p>
             </div>
         </section>
@@ -204,8 +206,8 @@ const CurriculumGraphContainer = () => (
                     align="left"
                     color="C"
                     subtitle="Edge anatomy"
-                    title="Two edge types"
-                    description="This is the reason adults move fast: an edge either blocks you or it doesn't, and the graph says which."
+                    title="Two kinds of link"
+                    description="Every link says how much weight it carries, and why. That is what makes the map checkable rather than a matter of opinion."
                 />
                 <div className={styles.edgeGrid}>
                     <div className={styles.edgeCard}>
@@ -222,9 +224,9 @@ const CurriculumGraphContainer = () => (
                                 />
                                 <polygon points="22,0 30,4 22,8" fill="#ffffff" />
                             </svg>
-                            Required — solid, arrowed
+                            Load-bearing — solid, arrowed
                         </p>
-                        <h3 className={styles.edgeCardTitle}>It blocks</h3>
+                        <h3 className={styles.edgeCardTitle}>It carries weight</h3>
                         <div className={styles.edgeDiagram}>
                             <span className={styles.edgeNode}>Embed and retrieve</span>
                             <svg width="46" height="10" aria-hidden="true">
@@ -242,7 +244,8 @@ const CurriculumGraphContainer = () => (
                             <span className={styles.edgeNode}>Assemble a RAG pipeline</span>
                         </div>
                         <p className={styles.edgeCardBody}>
-                            Retrieval has nothing to search without stored vectors.
+                            Retrieval has nothing to search without stored vectors. Teach it the
+                            other way round and the second idea has nothing to stand on.
                         </p>
                     </div>
                     <div className={styles.edgeCard}>
@@ -259,9 +262,9 @@ const CurriculumGraphContainer = () => (
                                     strokeDasharray="5 4"
                                 />
                             </svg>
-                            Helpful — dashed, open
+                            Supporting — dashed, open
                         </p>
-                        <h3 className={styles.edgeCardTitle}>It only smooths</h3>
+                        <h3 className={styles.edgeCardTitle}>It smooths the way</h3>
                         <div className={styles.edgeDiagram}>
                             <span className={styles.edgeNode}>Build an eval ladder</span>
                             <svg width="46" height="10" aria-hidden="true">
@@ -379,8 +382,9 @@ const CurriculumGraphContainer = () => (
             <div className="tw-container">
                 <SectionTitle
                     align="left"
-                    subtitle="Why a graph"
+                    subtitle="Why a map"
                     title="Three questions a syllabus can't answer"
+                    description="A list of modules can tell you what is covered. It cannot tell you how the pieces hold each other up, which is the part you need in order to trust it or build on it."
                 />
                 <div className={styles.questionGrid}>
                     {QUESTIONS.map((q, i) => (
@@ -424,7 +428,7 @@ const CurriculumGraphContainer = () => (
                     <p className={styles.ctaTitle}>Retool. Retrain. Relaunch.</p>
                     <p className={styles.monoMeta}>Free · Remote · 17 weeks · EIN 86-2122804</p>
                 </div>
-                <Button path="/apply" size="lg" color="primary" hover="default">
+                <Button path="/apply" size="md" color="primary" hover="default">
                     Apply now
                 </Button>
             </div>

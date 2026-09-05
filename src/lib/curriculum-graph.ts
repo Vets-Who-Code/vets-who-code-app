@@ -5,7 +5,7 @@ import topicsJson from "@data/curriculum-graph/topics.json";
 
 export type TopicType = "conceptual" | "procedural" | "representational" | "language" | "meta";
 export type ExitDepth = "guided" | "scaffolded" | "unassisted";
-/** `hard` blocks; `soft` only smooths. Only hard edges contribute to depth. */
+/** `hard` is load-bearing; `soft` only supports. Only hard links contribute to depth. */
 export type EdgeStrength = "hard" | "soft";
 
 export type Topic = {
@@ -89,7 +89,7 @@ export type Graph = {
     byId: Record<string, Topic>;
     /** Edges into a topic — the things it rests on. */
     preds: Record<string, GraphEdge[]>;
-    /** Edges out of a topic — the things it unlocks. */
+    /** Links out of a topic — the things that rest on it. */
     succs: Record<string, GraphEdge[]>;
     positions: Record<string, Point>;
     /** Bounding-sphere radius of the cloud. Rotation-invariant, so the camera can frame it. */
@@ -100,7 +100,7 @@ export type Graph = {
  * Layered DAG layout relaxed in 3D.
  *
  * Depth (y) is structural: longest-path layer assignment over hard edges only, never
- * smoothed. A soft edge does not block, so it must not push a concept deeper — layering
+ * smoothed. A soft link is not load-bearing, so it must not push a concept deeper — layering
  * over every edge inflates depth and contradicts the dataset's own `depth` field. Only
  * the XZ plane is relaxed, so a concept always sits below everything it depends on.
  *
@@ -133,7 +133,7 @@ export function buildGraph(
         succs[e.prerequisiteId].push(e);
     }
 
-    // Longest-path relaxation over blocking edges. Bounded by node count; valid because
+    // Longest-path relaxation over load-bearing links only. Bounded by node count; valid because
     // the graph is a DAG.
     const hardEdges = edges.filter((e) => e.strength === "hard");
     for (let i = 0; i < topics.length; i += 1) {

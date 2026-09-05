@@ -34,7 +34,7 @@ const GraphPanel = () => {
         <div className={styles.panel}>
             <div className={styles.toolbar}>
                 <p className={styles.monoMeta}>
-                    Prerequisite graph &nbsp;·&nbsp; tap a dot to trace what it rests on
+                    Skill map &nbsp;·&nbsp; tap a dot to trace what it rests on
                 </p>
                 <div className={styles.legend}>
                     {SUBJECT_BANDS.map((band) => (
@@ -51,14 +51,14 @@ const GraphPanel = () => {
                     ))}
                     <span className={styles.legendItem}>
                         <span className={`${styles.legendDot} ${styles.dotHollow}`} />
-                        Unlocks next
+                        Rests on it
                     </span>
                     <span className={styles.legendItem}>
                         <svg width="30" height="8" aria-hidden="true">
                             <title>Solid line</title>
                             <line x1="0" y1="4" x2="30" y2="4" stroke="#091f40" strokeWidth="1.5" />
                         </svg>
-                        Required
+                        Load-bearing
                     </span>
                     <span className={styles.legendItem}>
                         <svg width="30" height="8" aria-hidden="true">
@@ -73,7 +73,7 @@ const GraphPanel = () => {
                                 strokeDasharray="5 4"
                             />
                         </svg>
-                        Helpful
+                        Supporting
                     </span>
                 </div>
             </div>
