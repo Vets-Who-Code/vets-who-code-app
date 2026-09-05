@@ -72,7 +72,7 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
         ["Exit depth", node.exitDepth],
         ["Market anchor", node.marketAnchor.join(" · ")],
         ["Evidence", node.evidence],
-        ["Source", node.source],
+        ["Curriculum ref", node.source],
     ];
 
     return (

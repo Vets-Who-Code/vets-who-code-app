@@ -85,7 +85,7 @@ const NODE_RECORD: [string, React.ReactNode][] = [
     ],
     ["Market anchor", SAMPLE.marketAnchor.join(" · ")],
     ["Evidence criterion", SAMPLE.evidence],
-    ["Source", SAMPLE.source],
+    ["Curriculum ref", SAMPLE.source],
     ["Prerequisite depth", `${SAMPLE.depth} — longest chain of load-bearing links beneath it`],
 ];
 
@@ -327,9 +327,10 @@ const CurriculumGraphContainer = () => (
                         </p>
                         <p className={styles.longForm}>
                             Type tells an instructor how to teach it. Exit depth tells them how much
-                            support to remove. Role band tells a learner what the idea is worth in a
-                            job description. Market anchor is the receipt for why it is in the graph
-                            at all.
+                            support to remove. Market anchor is the receipt for why the concept is
+                            in the map at all. And the curriculum ref cites the written source it
+                            came from, by module and section — {MANIFEST.derivedFrom} — so nothing
+                            here is a claim you have to take on trust.
                         </p>
                         <p className={styles.footnote}>
                             Tap any dot in the map above to read the same record for it.

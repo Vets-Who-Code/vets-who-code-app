@@ -18,7 +18,7 @@ export type Topic = {
     exitDepth: ExitDepth;
     evidence: string;
     marketAnchor: string[];
-    /** Curriculum citation, e.g. "M19 §19.3". */
+    /** Citation into `MANIFEST.derivedFrom`: module and section, e.g. "M19 §19.3". */
     source: string;
     /** Longest path over hard edges. Authoritative; recomputed per visible subgraph. */
     depth: number;
@@ -41,6 +41,8 @@ export type Subject = {
 export type Manifest = {
     name: string;
     version: string;
+    /** The written curriculum each topic's `source` cites by module and section. */
+    derivedFrom: string;
     counts: {
         topics: number;
         edges: number;
