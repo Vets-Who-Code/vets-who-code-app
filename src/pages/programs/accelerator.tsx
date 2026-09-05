@@ -12,7 +12,7 @@ const AcceleratorPage: AcceleratorPageProps = () => {
         <>
             <SEO
                 title="Software Engineering Accelerator"
-                description="Seventeen weeks, remote, free. A software engineering accelerator for U.S. veterans, service members and spouses — trained to a standard, with the artifacts to prove it."
+                description="Seventeen weeks, remote-first, free. A software engineering accelerator for U.S. veterans, service members and spouses. The learning platform teaches what doesn't change so the human hours go to pairing and building."
             />
             <AcceleratorContainer />
         </>

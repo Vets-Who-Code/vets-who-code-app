@@ -518,7 +518,7 @@ export const STACK_INVENTORY: StackGroup[] = [
 export const HERO_META: Array<[string, string]> = [
     ["Duration", "17 weeks · part-time"],
     ["Hours/week", "20–30 hrs"],
-    ["Format", "Remote · async + live"],
+    ["Format", "Remote-first · platform + sessions"],
     ["Tuition", "$0 · for veterans"],
     ["Phases", "4 · sequenced"],
     ["Skills", "128 · market-validated"],

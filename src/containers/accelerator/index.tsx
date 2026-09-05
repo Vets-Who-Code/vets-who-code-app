@@ -22,9 +22,9 @@ const AcceleratorContainer = () => (
                     A software engineering accelerator for people who already know how to train.
                 </h1>
                 <p className={styles.heroLede}>
-                    Seventeen weeks, remote, free, built around the life you already have. You will
-                    not be taught to code. You will be trained to engineer software, to a standard,
-                    with the receipts to prove it.
+                    Seventeen weeks, remote-first, free. The learning platform carries the things
+                    that don&rsquo;t change, so the hours with people go where they actually count —
+                    pairing, reviewing and building real software with you.
                 </p>
                 <div className={styles.heroActions}>
                     <Button path="/apply" size="md" color="primary" hover="default">
@@ -85,7 +85,7 @@ const AcceleratorContainer = () => (
                     align="left"
                     subtitle="How it runs"
                     title="Trained, not taught"
-                    description="The difference between a course and an accelerator is what closes the work. Here, an artifact does."
+                    description="A course hands you a video library. An accelerator puts the durable material on a platform and spends the human hours on the work that needs a human."
                 />
                 <div className={styles.howGrid}>
                     {HOW_IT_RUNS.map((item) => (
