@@ -48,7 +48,7 @@ const SYLLABUS = [
     { code: "M05", name: "Systems Design", n: 20 },
     { code: "M06", name: "AI Integration", n: 14 },
     { code: "M07", name: "Production Engineering", n: 12 },
-    { code: "M08", name: "Capstone · Crucible Project", n: 12 },
+    { code: "M08", name: "Shipped Work · Body of Evidence", n: 12 },
 ];
 
 const TIMEZONES = [

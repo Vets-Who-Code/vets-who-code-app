@@ -46,8 +46,32 @@ export const HOW_IT_RUNS = [
     },
     {
         index: "04",
-        title: "An artifact closes the work",
-        body: "Nothing completes because a video ended. Each concept names the thing you produce and the criterion it is judged against, and you meet it three times at decreasing support. Trained to standard, or not trained.",
+        title: "Every rep leaves an artifact",
+        body: "Nothing completes because a video ended. Each concept names the thing you produce and the criterion it is judged against, and you meet it three times at decreasing support. Trained to standard, or not trained — and the artifacts accumulate.",
+    },
+];
+
+/**
+ * There is no capstone. Engineers do not finish; they accumulate evidence. This section
+ * exists to say that plainly, because "capstone" implies a finish line the program does
+ * not have.
+ */
+export const BODY_OF_WORK = [
+    {
+        kind: "Blogs",
+        body: "Engineers think in writing. Explaining a decision is how you find out whether you actually understood it — and it is the thing a hiring manager can read before they ever speak to you.",
+    },
+    {
+        kind: "Pull requests",
+        body: "Opened, reviewed, revised, merged, with the conversation still attached. A PR history is the most honest record there is of how someone works with other people.",
+    },
+    {
+        kind: "Features",
+        body: "Real functionality in real codebases, shipped to real users — not a demo built to be graded and then abandoned.",
+    },
+    {
+        kind: "Verified work",
+        body: "Every concept names the artifact that proves it and the criterion it is judged against, and the learning platform records what you met. The claim is checkable, not asserted.",
     },
 ];
 

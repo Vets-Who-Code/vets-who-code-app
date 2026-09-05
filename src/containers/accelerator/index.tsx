@@ -1,5 +1,12 @@
 import SectionTitle from "@components/section-title";
-import { FOR_YOU, HOW_IT_RUNS, NOT_FOR_YOU, PROGRAM_FACTS, PROOF } from "@data/accelerator";
+import {
+    BODY_OF_WORK,
+    FOR_YOU,
+    HOW_IT_RUNS,
+    NOT_FOR_YOU,
+    PROGRAM_FACTS,
+    PROOF,
+} from "@data/accelerator";
 import { MANIFEST } from "@lib/curriculum-graph";
 import Button from "@ui/button";
 import Link from "next/link";
@@ -92,6 +99,25 @@ const AcceleratorContainer = () => (
                         <div key={item.index} className={styles.howCard}>
                             <span className={styles.howIndex}>{item.index}</span>
                             <h3 className={styles.cardHeading}>{item.title}</h3>
+                            <p className={styles.cardBody}>{item.body}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <section className={styles.workSection}>
+            <div className="tw-container">
+                <SectionTitle
+                    align="left"
+                    subtitle="What you leave with"
+                    title="A body of work, not a finish line"
+                    description="There is no capstone. Engineers are always building, learning, writing and thinking — seventeen weeks is where that habit starts, not where it ends. What you carry out is the evidence that accumulated while you trained."
+                />
+                <div className={styles.workGrid}>
+                    {BODY_OF_WORK.map((item) => (
+                        <div key={item.kind} className={styles.workCard}>
+                            <h3 className={styles.workKind}>{item.kind}</h3>
                             <p className={styles.cardBody}>{item.body}</p>
                         </div>
                     ))}

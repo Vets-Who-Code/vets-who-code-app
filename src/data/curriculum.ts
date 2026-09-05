@@ -26,14 +26,6 @@ export type Phase = {
     modules: Module[];
 };
 
-export type Capstone = {
-    title: string;
-    subtitle: string;
-    blurb: string;
-    required: string[];
-    stack: Record<string, string[]>;
-};
-
 export type Principle = {
     n: string;
     t: string;
@@ -382,11 +374,11 @@ export const PHASES: Phase[] = [
         weeks: "Weeks 15–17",
         weekRange: [15, 17],
         moduleRange: [22, 32],
-        durationLabel: "3 weeks · 5 modules + capstone",
+        durationLabel: "3 weeks · 5 modules",
         tagline: "Ship, monitor, and maintain AI systems at scale.",
         intro: "Building is only half the job. This phase teaches you to ship, monitor, and maintain AI systems at scale. Testing AI output, observability, containerized deployment, and responsible AI governance — this is what separates engineers from hobbyists.",
         outcome:
-            "Ship, monitor, and scale real AI applications. Complete a production capstone that proves mastery of the entire Hashflag Stack.",
+            "Ship, monitor, and scale real AI applications, and leave with a body of work — blogs, pull requests, shipped features and verified reps — that keeps growing after week 17.",
         modules: [
             {
                 n: 22,
@@ -467,28 +459,6 @@ export const PHASES: Phase[] = [
     },
 ];
 
-export const CAPSTONE: Capstone = {
-    title: "Ship to production. The same codebases veterans use.",
-    subtitle: "Capstone · Forward-Deployed Reps",
-    blurb: "Your capstone isn't a demo. You own a real feature end-to-end — issue to PR to production — on the VWC Next.js application or the J0dI3 FastAPI service. Same codebases the team works in every day. Real review, real CI gates, real users.",
-    required: [
-        "Take a feature from issue → design → PR",
-        "Pass typecheck, lint, and the full CI gate",
-        "Tests that the team will run after you leave",
-        "Update runbooks and docs the next cohort will read",
-        "Senior-engineer code review on every change",
-        "Watch it ship and stay green for 7 days",
-    ],
-    stack: {
-        Frontend: ["Next.js", "TypeScript", "React", "Tailwind"],
-        Backend: ["FastAPI", "Pydantic v2", "Async Python"],
-        AI: ["Google Gemini", "RAG", "Function calling"],
-        Data: ["Postgres", "pgvector", "Prisma"],
-        Infra: ["Vercel", "Cloud Run", "Docker"],
-        Ops: ["GitHub Actions", "LangSmith", "pytest", "Playwright"],
-    },
-};
-
 export const PRINCIPLES: Principle[] = [
     {
         n: "01",
@@ -540,7 +510,7 @@ export const HERO_META: Array<[string, string]> = [
     ["Tuition", "$0 · for veterans"],
     ["Phases", "4 · sequenced"],
     ["Skills", "128 · market-validated"],
-    ["Capstone", "Production system"],
+    ["Body of work", "Blogs · PRs · features"],
     ["Outcome", "Software Engineer, AI · $85–130K"],
 ];
 

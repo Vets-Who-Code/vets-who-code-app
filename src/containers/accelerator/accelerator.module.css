@@ -222,6 +222,39 @@
     margin: 0;
 }
 
+/* ========== BODY OF WORK ========== */
+.workSection {
+    background: #fff;
+    padding: 104px 0;
+}
+
+.workGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    border-top: 1px solid #091f40;
+    margin-top: 48px;
+}
+
+.workCard {
+    padding: 28px 24px 30px;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.workCard:last-child {
+    border-right: 0;
+}
+
+.workKind {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 0 0 14px;
+}
+
 /* ========== METHOD ========== */
 .methodSection {
     background:
