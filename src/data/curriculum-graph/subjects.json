@@ -1,0 +1,270 @@
+[
+  {
+    "id": "systems",
+    "title": "Systems & Tooling",
+    "topicCount": 57,
+    "domains": [
+      {
+        "id": "filesystem",
+        "topicCount": 9
+      },
+      {
+        "id": "text-processing",
+        "topicCount": 6
+      },
+      {
+        "id": "shell-streams",
+        "topicCount": 4
+      },
+      {
+        "id": "shell-config",
+        "topicCount": 5
+      },
+      {
+        "id": "packages",
+        "topicCount": 4
+      },
+      {
+        "id": "processes",
+        "topicCount": 3
+      },
+      {
+        "id": "remote",
+        "topicCount": 4
+      },
+      {
+        "id": "scripting",
+        "topicCount": 4
+      },
+      {
+        "id": "editor",
+        "topicCount": 5
+      },
+      {
+        "id": "version-control",
+        "topicCount": 13
+      }
+    ]
+  },
+  {
+    "id": "practice",
+    "title": "Engineering Practice",
+    "topicCount": 30,
+    "domains": [
+      {
+        "id": "requirements",
+        "topicCount": 4
+      },
+      {
+        "id": "design-practice",
+        "topicCount": 2
+      },
+      {
+        "id": "agile",
+        "topicCount": 4
+      },
+      {
+        "id": "documentation",
+        "topicCount": 4
+      },
+      {
+        "id": "code-review",
+        "topicCount": 3
+      },
+      {
+        "id": "algorithms",
+        "topicCount": 13
+      }
+    ]
+  },
+  {
+    "id": "interface",
+    "title": "Web Interface",
+    "topicCount": 49,
+    "domains": [
+      {
+        "id": "markup",
+        "topicCount": 5
+      },
+      {
+        "id": "styling",
+        "topicCount": 12
+      },
+      {
+        "id": "dom",
+        "topicCount": 5
+      },
+      {
+        "id": "react",
+        "topicCount": 5
+      },
+      {
+        "id": "nextjs",
+        "topicCount": 13
+      },
+      {
+        "id": "ai-interface",
+        "topicCount": 5
+      },
+      {
+        "id": "media",
+        "topicCount": 4
+      }
+    ]
+  },
+  {
+    "id": "language",
+    "title": "Programming Languages",
+    "topicCount": 61,
+    "domains": [
+      {
+        "id": "js-core",
+        "topicCount": 25
+      },
+      {
+        "id": "ts-types",
+        "topicCount": 8
+      },
+      {
+        "id": "py-core",
+        "topicCount": 17
+      },
+      {
+        "id": "py-production",
+        "topicCount": 11
+      }
+    ]
+  },
+  {
+    "id": "data",
+    "title": "Data & Storage",
+    "topicCount": 25,
+    "domains": [
+      {
+        "id": "sql",
+        "topicCount": 9
+      },
+      {
+        "id": "modeling",
+        "topicCount": 5
+      },
+      {
+        "id": "ingestion",
+        "topicCount": 5
+      },
+      {
+        "id": "vectors",
+        "topicCount": 6
+      }
+    ]
+  },
+  {
+    "id": "services",
+    "title": "Services & APIs",
+    "topicCount": 29,
+    "domains": [
+      {
+        "id": "http",
+        "topicCount": 6
+      },
+      {
+        "id": "contracts",
+        "topicCount": 4
+      },
+      {
+        "id": "validation",
+        "topicCount": 7
+      },
+      {
+        "id": "fastapi",
+        "topicCount": 9
+      },
+      {
+        "id": "streaming",
+        "topicCount": 3
+      }
+    ]
+  },
+  {
+    "id": "ai",
+    "title": "AI Systems",
+    "topicCount": 58,
+    "domains": [
+      {
+        "id": "model-foundations",
+        "topicCount": 9
+      },
+      {
+        "id": "model-integration",
+        "topicCount": 12
+      },
+      {
+        "id": "tools",
+        "topicCount": 6
+      },
+      {
+        "id": "prompting",
+        "topicCount": 5
+      },
+      {
+        "id": "context",
+        "topicCount": 7
+      },
+      {
+        "id": "retrieval",
+        "topicCount": 8
+      },
+      {
+        "id": "agents",
+        "topicCount": 11
+      }
+    ]
+  },
+  {
+    "id": "reliability",
+    "title": "Reliability & Operations",
+    "topicCount": 66,
+    "domains": [
+      {
+        "id": "testing-foundations",
+        "topicCount": 4
+      },
+      {
+        "id": "testing-frontend",
+        "topicCount": 6
+      },
+      {
+        "id": "testing-backend",
+        "topicCount": 6
+      },
+      {
+        "id": "evals",
+        "topicCount": 8
+      },
+      {
+        "id": "observability",
+        "topicCount": 7
+      },
+      {
+        "id": "performance",
+        "topicCount": 3
+      },
+      {
+        "id": "delivery",
+        "topicCount": 12
+      },
+      {
+        "id": "harness",
+        "topicCount": 7
+      },
+      {
+        "id": "safety",
+        "topicCount": 10
+      },
+      {
+        "id": "career",
+        "topicCount": 3
+      }
+    ]
+  }
+]

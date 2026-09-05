@@ -1,0 +1,5737 @@
+[
+  {
+    "id": "fs-hierarchy",
+    "label": "Read the Unix directory hierarchy",
+    "description": "Knows what lives in /, /home, /usr, /etc, /var and why",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains where a config or log would live before looking",
+    "marketAnchor": [
+      "Linux",
+      "Unix"
+    ],
+    "source": "M01 \u00a71.1",
+    "depth": 0
+  },
+  {
+    "id": "fs-navigate",
+    "label": "Navigate the filesystem from the command line",
+    "description": "Moves between directories with cd, pwd and ls confidently",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reaches any path in a repo without a file browser",
+    "marketAnchor": [
+      "Command line",
+      "Linux"
+    ],
+    "source": "M01 \u00a71.1",
+    "depth": 1
+  },
+  {
+    "id": "fs-paths",
+    "label": "Distinguish absolute from relative paths",
+    "description": "Chooses the right path form for the situation",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a script that works from any working directory",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.1",
+    "depth": 2
+  },
+  {
+    "id": "fs-hidden",
+    "label": "Work with hidden files and dotfiles",
+    "description": "Finds and edits configuration that ls hides by default",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Locates and edits a dotfile without being told its path",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.1",
+    "depth": 2
+  },
+  {
+    "id": "fs-create",
+    "label": "Create files and directories",
+    "description": "Uses touch and mkdir -p to build structure",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Scaffolds a nested project tree in one command",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.2",
+    "depth": 2
+  },
+  {
+    "id": "fs-move",
+    "label": "Copy, move and rename from the shell",
+    "description": "Applies cp and mv, including recursively",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reorganizes a directory tree without a GUI",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.2",
+    "depth": 3
+  },
+  {
+    "id": "fs-delete",
+    "label": "Delete safely",
+    "description": "Understands what rm -rf does before running it",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "States the blast radius of a delete before executing",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.2",
+    "depth": 4
+  },
+  {
+    "id": "fs-view",
+    "label": "Inspect file contents",
+    "description": "Reads with cat, less, head, tail and follows with tail -f",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Tails a running log and finds the failing line",
+    "marketAnchor": [
+      "Linux",
+      "troubleshooting"
+    ],
+    "source": "M01 \u00a71.2",
+    "depth": 2
+  },
+  {
+    "id": "fs-find",
+    "label": "Locate files on disk",
+    "description": "Searches with find, locate, which and whereis",
+    "subject": "systems",
+    "domain": "filesystem",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Finds every file matching a pattern under a tree",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.2",
+    "depth": 3
+  },
+  {
+    "id": "txt-grep",
+    "label": "Search text with grep",
+    "description": "Filters lines by pattern, recursively and with regex",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Extracts matching lines from a directory of logs",
+    "marketAnchor": [
+      "Command line",
+      "regex"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 3
+  },
+  {
+    "id": "txt-regex",
+    "label": "Read and write basic regular expressions",
+    "description": "Builds patterns for matching and capture",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "language",
+    "exitDepth": "scaffolded",
+    "evidence": "Writes a pattern that matches the intended set and no more",
+    "marketAnchor": [
+      "Regular expressions"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 0
+  },
+  {
+    "id": "txt-sed",
+    "label": "Transform streams with sed",
+    "description": "Performs find and replace on a stream",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Rewrites a field across a file without opening an editor",
+    "marketAnchor": [
+      "Shell scripting"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 1
+  },
+  {
+    "id": "txt-awk",
+    "label": "Process columns with awk",
+    "description": "Selects and computes over structured text",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Sums a column from a delimited file",
+    "marketAnchor": [
+      "Shell scripting",
+      "data processing"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 4
+  },
+  {
+    "id": "txt-sortuniq",
+    "label": "Sort and deduplicate",
+    "description": "Combines sort and uniq to count and order",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Produces a ranked frequency count from raw lines",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 0
+  },
+  {
+    "id": "txt-count",
+    "label": "Count and compare text",
+    "description": "Uses wc, diff and comm to quantify differences",
+    "subject": "systems",
+    "domain": "text-processing",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reports what changed between two files",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.3",
+    "depth": 3
+  },
+  {
+    "id": "sh-streams",
+    "label": "Reason about stdin, stdout and stderr",
+    "description": "Knows which stream output is going to",
+    "subject": "systems",
+    "domain": "shell-streams",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Separates errors from results in a single command",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.4",
+    "depth": 3
+  },
+  {
+    "id": "sh-redirect",
+    "label": "Redirect output to files",
+    "description": "Applies >, >>, 2> and 2>&1 correctly",
+    "subject": "systems",
+    "domain": "shell-streams",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Captures errors and output to separate files",
+    "marketAnchor": [
+      "Command line"
+    ],
+    "source": "M01 \u00a71.4",
+    "depth": 4
+  },
+  {
+    "id": "sh-pipe",
+    "label": "Compose commands with pipes",
+    "description": "Chains tools so one's output feeds the next",
+    "subject": "systems",
+    "domain": "shell-streams",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Answers a question about a log with a three-stage pipeline",
+    "marketAnchor": [
+      "Command line",
+      "data processing"
+    ],
+    "source": "M01 \u00a71.4",
+    "depth": 4
+  },
+  {
+    "id": "sh-subst",
+    "label": "Substitute command output",
+    "description": "Uses $(command) and xargs to pass values along",
+    "subject": "systems",
+    "domain": "shell-streams",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Feeds one command's results into another as arguments",
+    "marketAnchor": [
+      "Shell scripting"
+    ],
+    "source": "M01 \u00a71.4",
+    "depth": 5
+  },
+  {
+    "id": "cfg-startup",
+    "label": "Explain shell startup files",
+    "description": "Distinguishes .zshrc, .zprofile and .zshenv",
+    "subject": "systems",
+    "domain": "shell-config",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Puts a setting in the file that actually loads it",
+    "marketAnchor": [
+      "Linux",
+      "shell"
+    ],
+    "source": "M01 \u00a71.5",
+    "depth": 3
+  },
+  {
+    "id": "cfg-env",
+    "label": "Manage environment variables",
+    "description": "Exports and inspects variables with export and printenv",
+    "subject": "systems",
+    "domain": "shell-config",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Sets a variable a child process can read",
+    "marketAnchor": [
+      "Linux",
+      "configuration"
+    ],
+    "source": "M01 \u00a71.5",
+    "depth": 4
+  },
+  {
+    "id": "cfg-path",
+    "label": "Configure PATH",
+    "description": "Adds directories and understands why order matters",
+    "subject": "systems",
+    "domain": "shell-config",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Resolves a wrong-binary problem by reordering PATH",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.5",
+    "depth": 5
+  },
+  {
+    "id": "cfg-alias",
+    "label": "Write aliases and shell functions",
+    "description": "Shortens repeated commands into named ones",
+    "subject": "systems",
+    "domain": "shell-config",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Ships a .zshrc with working aliases for daily work",
+    "marketAnchor": [
+      "Shell scripting"
+    ],
+    "source": "M01 \u00a71.5",
+    "depth": 4
+  },
+  {
+    "id": "cfg-prompt",
+    "label": "Customize the shell prompt",
+    "description": "Encodes useful state into PROMPT",
+    "subject": "systems",
+    "domain": "shell-config",
+    "type": "procedural",
+    "exitDepth": "guided",
+    "evidence": "Shows branch and directory in the prompt",
+    "marketAnchor": [
+      "Shell"
+    ],
+    "source": "M01 \u00a71.5",
+    "depth": 0
+  },
+  {
+    "id": "pkg-system",
+    "label": "Install system packages",
+    "description": "Uses apt or brew for OS-level software",
+    "subject": "systems",
+    "domain": "packages",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Installs a required tool on a clean machine",
+    "marketAnchor": [
+      "Linux",
+      "macOS"
+    ],
+    "source": "M01 \u00a71.6",
+    "depth": 6
+  },
+  {
+    "id": "pkg-node",
+    "label": "Manage Node packages",
+    "description": "Installs with npm, global versus local",
+    "subject": "systems",
+    "domain": "packages",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Explains why a package is a dependency and not global",
+    "marketAnchor": [
+      "Node.js",
+      "npm"
+    ],
+    "source": "M01 \u00a71.6",
+    "depth": 0
+  },
+  {
+    "id": "pkg-python",
+    "label": "Manage Python packages",
+    "description": "Installs with pip and reads requirements.txt",
+    "subject": "systems",
+    "domain": "packages",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reproduces an environment from a manifest",
+    "marketAnchor": [
+      "Python",
+      "pip"
+    ],
+    "source": "M01 \u00a71.6",
+    "depth": 0
+  },
+  {
+    "id": "pkg-manifest",
+    "label": "Read a dependency manifest",
+    "description": "Interprets package.json and pyproject.toml",
+    "subject": "systems",
+    "domain": "packages",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Explains what a project needs to run from its manifest alone",
+    "marketAnchor": [
+      "Dependency management"
+    ],
+    "source": "M01 \u00a71.6",
+    "depth": 1
+  },
+  {
+    "id": "proc-view",
+    "label": "Inspect running processes",
+    "description": "Reads ps, top and htop output",
+    "subject": "systems",
+    "domain": "processes",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Identifies the process holding a port",
+    "marketAnchor": [
+      "Linux",
+      "systems administration"
+    ],
+    "source": "M01 \u00a71.7",
+    "depth": 0
+  },
+  {
+    "id": "proc-control",
+    "label": "Control jobs and signals",
+    "description": "Backgrounds, foregrounds and kills processes",
+    "subject": "systems",
+    "domain": "processes",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Stops a runaway process without rebooting",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.7",
+    "depth": 1
+  },
+  {
+    "id": "proc-resources",
+    "label": "Check system resources",
+    "description": "Uses df, du and free to find pressure",
+    "subject": "systems",
+    "domain": "processes",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Diagnoses a disk-full or memory-pressure failure",
+    "marketAnchor": [
+      "Systems administration"
+    ],
+    "source": "M01 \u00a71.7",
+    "depth": 0
+  },
+  {
+    "id": "rem-ssh",
+    "label": "Connect to remote systems with SSH",
+    "description": "Authenticates and runs commands on another host",
+    "subject": "systems",
+    "domain": "remote",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reaches a remote box and runs a command",
+    "marketAnchor": [
+      "SSH",
+      "Linux"
+    ],
+    "source": "M01 \u00a71.8",
+    "depth": 2
+  },
+  {
+    "id": "rem-keys",
+    "label": "Manage SSH keys",
+    "description": "Generates keys and uses ssh-agent",
+    "subject": "systems",
+    "domain": "remote",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Sets up key auth and disables password login",
+    "marketAnchor": [
+      "Security",
+      "SSH"
+    ],
+    "source": "M01 \u00a71.8",
+    "depth": 3
+  },
+  {
+    "id": "rem-transfer",
+    "label": "Transfer files between hosts",
+    "description": "Moves data with scp and rsync",
+    "subject": "systems",
+    "domain": "remote",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Syncs a directory to a remote host without re-copying",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.8",
+    "depth": 4
+  },
+  {
+    "id": "rem-persist",
+    "label": "Keep sessions alive",
+    "description": "Uses tmux or screen across disconnects",
+    "subject": "systems",
+    "domain": "remote",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Resumes work after a dropped connection",
+    "marketAnchor": [
+      "Linux"
+    ],
+    "source": "M01 \u00a71.8",
+    "depth": 0
+  },
+  {
+    "id": "scr-execute",
+    "label": "Write and run a shell script",
+    "description": "Adds a shebang and makes a file executable",
+    "subject": "systems",
+    "domain": "scripting",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Runs a script by name from anywhere",
+    "marketAnchor": [
+      "Shell scripting"
+    ],
+    "source": "M01 \u00a71.9",
+    "depth": 6
+  },
+  {
+    "id": "scr-vars",
+    "label": "Use variables and parameter expansion",
+    "description": "Passes and defaults arguments in scripts",
+    "subject": "systems",
+    "domain": "scripting",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a script that takes arguments safely",
+    "marketAnchor": [
+      "Shell scripting"
+    ],
+    "source": "M01 \u00a71.9",
+    "depth": 7
+  },
+  {
+    "id": "scr-control",
+    "label": "Branch and loop in shell",
+    "description": "Applies if, test, for and while",
+    "subject": "systems",
+    "domain": "scripting",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Automates a repeated task with conditions",
+    "marketAnchor": [
+      "Shell scripting",
+      "automation"
+    ],
+    "source": "M01 \u00a71.9",
+    "depth": 8
+  },
+  {
+    "id": "scr-exit",
+    "label": "Handle exit codes and errors",
+    "description": "Checks status and fails loudly",
+    "subject": "systems",
+    "domain": "scripting",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Makes a script stop on first failure with a useful message",
+    "marketAnchor": [
+      "Shell scripting",
+      "automation"
+    ],
+    "source": "M01 \u00a71.9",
+    "depth": 9
+  },
+  {
+    "id": "ed-navigate",
+    "label": "Navigate an editor without the mouse",
+    "description": "Uses palette, quick open and go-to-symbol",
+    "subject": "systems",
+    "domain": "editor",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reaches any symbol in a repo by keyboard",
+    "marketAnchor": [
+      "Visual Studio Code"
+    ],
+    "source": "M02 \u00a72.1",
+    "depth": 0
+  },
+  {
+    "id": "ed-extensions",
+    "label": "Configure editor extensions",
+    "description": "Installs and tunes linting, formatting and git tooling",
+    "subject": "systems",
+    "domain": "editor",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Ships a workspace others can adopt",
+    "marketAnchor": [
+      "Developer tooling"
+    ],
+    "source": "M02 \u00a72.2",
+    "depth": 1
+  },
+  {
+    "id": "ed-workspace",
+    "label": "Separate user and workspace settings",
+    "description": "Knows which settings travel with a repo",
+    "subject": "systems",
+    "domain": "editor",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Commits settings a teammate inherits correctly",
+    "marketAnchor": [
+      "Developer tooling"
+    ],
+    "source": "M02 \u00a72.3",
+    "depth": 2
+  },
+  {
+    "id": "ed-debug",
+    "label": "Debug with breakpoints",
+    "description": "Sets breakpoints, inspects state and walks the call stack",
+    "subject": "systems",
+    "domain": "editor",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Finds a bug by stepping rather than by print",
+    "marketAnchor": [
+      "Debugging"
+    ],
+    "source": "M02 \u00a72.5",
+    "depth": 1
+  },
+  {
+    "id": "ed-launch",
+    "label": "Configure a debug launcher",
+    "description": "Writes launch.json for a real stack",
+    "subject": "systems",
+    "domain": "editor",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Attaches a debugger to a running server",
+    "marketAnchor": [
+      "Debugging",
+      "developer tooling"
+    ],
+    "source": "M02 \u00a72.5",
+    "depth": 2
+  },
+  {
+    "id": "git-model",
+    "label": "Explain Git's object and reference model",
+    "description": "Knows working directory, staging, commits, HEAD and refs",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Predicts what a command will do to history before running it",
+    "marketAnchor": [
+      "Git",
+      "version control"
+    ],
+    "source": "M03 \u00a73.1",
+    "depth": 2
+  },
+  {
+    "id": "git-commit",
+    "label": "Stage and commit changes",
+    "description": "Uses add, add -p and writes atomic messages",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Produces a readable history of small commits",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.2",
+    "depth": 3
+  },
+  {
+    "id": "git-history",
+    "label": "Read and search history",
+    "description": "Navigates log, diff and status",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Finds when and why a line changed",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.2",
+    "depth": 4
+  },
+  {
+    "id": "git-undo",
+    "label": "Undo work safely",
+    "description": "Chooses between restore, reset and revert",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Recovers from a bad commit without losing work",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.2",
+    "depth": 5
+  },
+  {
+    "id": "git-branch",
+    "label": "Branch for parallel work",
+    "description": "Creates and switches branches with a naming convention",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Runs a feature branch end to end",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.3",
+    "depth": 3
+  },
+  {
+    "id": "git-merge",
+    "label": "Merge branches",
+    "description": "Understands fast-forward and three-way merges",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Integrates a branch and explains the resulting history",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.4",
+    "depth": 4
+  },
+  {
+    "id": "git-rebase",
+    "label": "Rebase and rewrite history",
+    "description": "Applies rebase and interactive rebase deliberately",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Cleans a messy branch before review",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.4",
+    "depth": 5
+  },
+  {
+    "id": "git-conflict",
+    "label": "Resolve merge conflicts",
+    "description": "Reads conflict markers and picks the right resolution",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Resolves a real conflict and explains the choice",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.4",
+    "depth": 5
+  },
+  {
+    "id": "git-remote",
+    "label": "Manage remotes",
+    "description": "Works with origin and upstream across forks",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Keeps a fork current with upstream",
+    "marketAnchor": [
+      "Git",
+      "GitHub"
+    ],
+    "source": "M03 \u00a73.5",
+    "depth": 4
+  },
+  {
+    "id": "git-pr",
+    "label": "Open and review pull requests",
+    "description": "Writes reviewable PRs and gives useful feedback",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Merges a PR after addressing review comments",
+    "marketAnchor": [
+      "GitHub",
+      "code review"
+    ],
+    "source": "M03 \u00a73.5",
+    "depth": 5
+  },
+  {
+    "id": "git-recover",
+    "label": "Recover with stash, cherry-pick and reflog",
+    "description": "Rescues work from awkward states",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Restores a commit that appeared lost",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.6",
+    "depth": 6
+  },
+  {
+    "id": "git-bisect",
+    "label": "Find a regression with bisect",
+    "description": "Binary-searches history for the breaking commit",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "guided",
+    "evidence": "Identifies the commit that introduced a bug",
+    "marketAnchor": [
+      "Git",
+      "debugging"
+    ],
+    "source": "M03 \u00a73.6",
+    "depth": 5
+  },
+  {
+    "id": "git-config",
+    "label": "Configure Git and ignore rules",
+    "description": "Sets identity, aliases, .gitignore and .gitattributes",
+    "subject": "systems",
+    "domain": "version-control",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Keeps generated files out of a repo permanently",
+    "marketAnchor": [
+      "Git"
+    ],
+    "source": "M03 \u00a73.7",
+    "depth": 4
+  },
+  {
+    "id": "req-stories",
+    "label": "Write user stories with acceptance criteria",
+    "description": "States who, what and how it will be judged",
+    "subject": "practice",
+    "domain": "requirements",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a story a second person can build from",
+    "marketAnchor": [
+      "Agile",
+      "requirements"
+    ],
+    "source": "M07 \u00a77.1",
+    "depth": 0
+  },
+  {
+    "id": "req-decompose",
+    "label": "Decompose an epic into stories",
+    "description": "Splits work into shippable increments",
+    "subject": "practice",
+    "domain": "requirements",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Breaks a feature into stories sized for one sprint",
+    "marketAnchor": [
+      "Agile"
+    ],
+    "source": "M07 \u00a77.1",
+    "depth": 1
+  },
+  {
+    "id": "req-prioritize",
+    "label": "Prioritize scope",
+    "description": "Applies a method like MoSCoW to cut to an MVP",
+    "subject": "practice",
+    "domain": "requirements",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Defends what was cut and why",
+    "marketAnchor": [
+      "Product management"
+    ],
+    "source": "M07 \u00a77.1",
+    "depth": 2
+  },
+  {
+    "id": "req-stakeholder",
+    "label": "Communicate with stakeholders",
+    "description": "Translates technical constraints into business terms",
+    "subject": "practice",
+    "domain": "requirements",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Explains a tradeoff to a non-engineer who then decides",
+    "marketAnchor": [
+      "Communication"
+    ],
+    "source": "M07 \u00a77.1",
+    "depth": 0
+  },
+  {
+    "id": "des-architecture",
+    "label": "Diagram a system before building it",
+    "description": "Draws components and their interactions",
+    "subject": "practice",
+    "domain": "design-practice",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Produces a diagram a reviewer can critique",
+    "marketAnchor": [
+      "System design"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 0
+  },
+  {
+    "id": "des-adr",
+    "label": "Write an architecture decision record",
+    "description": "Captures context, decision and consequences",
+    "subject": "practice",
+    "domain": "design-practice",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Records a real decision with its rejected alternatives",
+    "marketAnchor": [
+      "Technical documentation"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 1
+  },
+  {
+    "id": "agl-principles",
+    "label": "Explain agile principles",
+    "description": "Knows what the practices are for",
+    "subject": "practice",
+    "domain": "agile",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Distinguishes a ceremony's purpose from its ritual",
+    "marketAnchor": [
+      "Agile"
+    ],
+    "source": "M07 \u00a77.3",
+    "depth": 0
+  },
+  {
+    "id": "agl-scrum",
+    "label": "Work in sprints",
+    "description": "Participates in planning, standup and retro",
+    "subject": "practice",
+    "domain": "agile",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Completes a sprint with a demonstrable increment",
+    "marketAnchor": [
+      "Scrum",
+      "Agile"
+    ],
+    "source": "M07 \u00a77.3",
+    "depth": 1
+  },
+  {
+    "id": "agl-kanban",
+    "label": "Run a kanban board with WIP limits",
+    "description": "Manages flow rather than assignment",
+    "subject": "practice",
+    "domain": "agile",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Keeps work in progress under the limit for a full cycle",
+    "marketAnchor": [
+      "Kanban",
+      "project management"
+    ],
+    "source": "M07 \u00a77.3",
+    "depth": 1
+  },
+  {
+    "id": "agl-estimate",
+    "label": "Estimate and track velocity",
+    "description": "Sizes work and reads a burndown honestly",
+    "subject": "practice",
+    "domain": "agile",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Produces an estimate and reviews the variance after",
+    "marketAnchor": [
+      "Agile"
+    ],
+    "source": "M07 \u00a77.3",
+    "depth": 2
+  },
+  {
+    "id": "doc-readme",
+    "label": "Write a README people can act on",
+    "description": "Covers what it is, how to run it, how to contribute",
+    "subject": "practice",
+    "domain": "documentation",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "A stranger runs the project from the README alone",
+    "marketAnchor": [
+      "Technical writing"
+    ],
+    "source": "M07 \u00a77.4",
+    "depth": 0
+  },
+  {
+    "id": "doc-api",
+    "label": "Document an API",
+    "description": "Describes endpoints, shapes and errors",
+    "subject": "practice",
+    "domain": "documentation",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Publishes docs a client developer builds against",
+    "marketAnchor": [
+      "Technical writing",
+      "API design"
+    ],
+    "source": "M07 \u00a77.4",
+    "depth": 4
+  },
+  {
+    "id": "doc-comments",
+    "label": "Comment for the reader who follows",
+    "description": "Explains why, not what",
+    "subject": "practice",
+    "domain": "documentation",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Leaves a comment that survives review",
+    "marketAnchor": [
+      "Technical writing"
+    ],
+    "source": "M07 \u00a77.4",
+    "depth": 0
+  },
+  {
+    "id": "doc-runbook",
+    "label": "Write a runbook",
+    "description": "Turns an operational procedure into steps under pressure",
+    "subject": "practice",
+    "domain": "documentation",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Someone else executes the procedure at 3am",
+    "marketAnchor": [
+      "Operations",
+      "technical writing"
+    ],
+    "source": "M07 \u00a77.4",
+    "depth": 0
+  },
+  {
+    "id": "rev-read",
+    "label": "Review code for correctness and risk",
+    "description": "Looks past style to behavior and edge cases",
+    "subject": "practice",
+    "domain": "code-review",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Finds a real defect in someone else's diff",
+    "marketAnchor": [
+      "Code review"
+    ],
+    "source": "M07 \u00a77.5",
+    "depth": 6
+  },
+  {
+    "id": "rev-write",
+    "label": "Write a reviewable pull request",
+    "description": "Scopes and explains a change so review is fast",
+    "subject": "practice",
+    "domain": "code-review",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Opens a PR merged without a round of confusion",
+    "marketAnchor": [
+      "Code review"
+    ],
+    "source": "M07 \u00a77.5",
+    "depth": 7
+  },
+  {
+    "id": "rev-feedback",
+    "label": "Give and take feedback constructively",
+    "description": "Separates the code from the person",
+    "subject": "practice",
+    "domain": "code-review",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Resolves a disagreement in review without escalation",
+    "marketAnchor": [
+      "Collaboration"
+    ],
+    "source": "M07 \u00a77.5",
+    "depth": 7
+  },
+  {
+    "id": "alg-arrays",
+    "label": "Solve array and string problems",
+    "description": "Manipulates sequences under constraints",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Solves reversal, palindrome and subarray problems unaided",
+    "marketAnchor": [
+      "Data structures",
+      "algorithms"
+    ],
+    "source": "M08 \u00a78.5",
+    "depth": 2
+  },
+  {
+    "id": "alg-hashing",
+    "label": "Solve problems with hash maps and sets",
+    "description": "Trades space for lookup speed",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Converts a nested-loop solution to a single pass",
+    "marketAnchor": [
+      "Data structures",
+      "algorithms"
+    ],
+    "source": "M08 \u00a78.6",
+    "depth": 2
+  },
+  {
+    "id": "alg-stackqueue",
+    "label": "Use stacks and queues",
+    "description": "Chooses the structure the traversal implies",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Solves a matching or ordering problem with the right structure",
+    "marketAnchor": [
+      "Data structures"
+    ],
+    "source": "M08 \u00a78.1",
+    "depth": 3
+  },
+  {
+    "id": "alg-linked",
+    "label": "Work with linked lists",
+    "description": "Traverses and rewires pointer structures",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Reverses and detects cycles in a list",
+    "marketAnchor": [
+      "Data structures"
+    ],
+    "source": "M08 \u00a78.1",
+    "depth": 0
+  },
+  {
+    "id": "alg-trees",
+    "label": "Traverse trees",
+    "description": "Implements depth-first and breadth-first traversal",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Solves a path or sum problem on a tree",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.7",
+    "depth": 6
+  },
+  {
+    "id": "alg-recursion",
+    "label": "Think recursively",
+    "description": "Identifies base and recursive cases",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a correct recursive solution and its base case",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.7",
+    "depth": 5
+  },
+  {
+    "id": "alg-backtrack",
+    "label": "Apply backtracking",
+    "description": "Explores and abandons partial solutions",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "guided",
+    "evidence": "Solves a constraint problem by search",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.7",
+    "depth": 7
+  },
+  {
+    "id": "alg-twopointer",
+    "label": "Apply the two-pointer technique",
+    "description": "Walks a sequence from both ends or at two speeds",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reduces a quadratic scan to linear",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.2",
+    "depth": 3
+  },
+  {
+    "id": "alg-window",
+    "label": "Apply sliding window",
+    "description": "Maintains a moving range over a sequence",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Solves a contiguous-subarray problem in one pass",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.2",
+    "depth": 4
+  },
+  {
+    "id": "alg-dp",
+    "label": "Apply dynamic programming basics",
+    "description": "Memoizes overlapping subproblems",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Converts an exponential recursion to a memoized solution",
+    "marketAnchor": [
+      "Algorithms"
+    ],
+    "source": "M08 \u00a78.2",
+    "depth": 6
+  },
+  {
+    "id": "alg-bigo",
+    "label": "Analyze time and space complexity",
+    "description": "States Big-O for a solution and defends it",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Gives correct complexity for their own code under questioning",
+    "marketAnchor": [
+      "Algorithms",
+      "computer science"
+    ],
+    "source": "M08 \u00a78.3",
+    "depth": 0
+  },
+  {
+    "id": "alg-strategy",
+    "label": "Work a problem systematically",
+    "description": "Restates, examples, plan, code, test, optimize",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Talks through an unseen problem without freezing",
+    "marketAnchor": [
+      "Technical interviewing"
+    ],
+    "source": "M08 \u00a78.4",
+    "depth": 1
+  },
+  {
+    "id": "alg-timed",
+    "label": "Perform under time pressure",
+    "description": "Solves within an interview time box",
+    "subject": "practice",
+    "domain": "algorithms",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Passes a timed three-problem assessment",
+    "marketAnchor": [
+      "Technical interviewing"
+    ],
+    "source": "M08 \u00a78.10",
+    "depth": 4
+  },
+  {
+    "id": "html-document",
+    "label": "Structure an HTML document",
+    "description": "Assembles doctype, head and body correctly",
+    "subject": "interface",
+    "domain": "markup",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Produces a valid document that passes the validator",
+    "marketAnchor": [
+      "HTML5"
+    ],
+    "source": "M04 \u00a74.1",
+    "depth": 0
+  },
+  {
+    "id": "html-semantic",
+    "label": "Choose semantic elements",
+    "description": "Uses header, nav, main, section, article, aside, footer",
+    "subject": "interface",
+    "domain": "markup",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Marks up a page that outlines correctly for assistive tech",
+    "marketAnchor": [
+      "HTML5",
+      "accessibility"
+    ],
+    "source": "M04 \u00a74.1",
+    "depth": 1
+  },
+  {
+    "id": "html-content",
+    "label": "Use content elements correctly",
+    "description": "Applies headings, lists, links, images and tables",
+    "subject": "interface",
+    "domain": "markup",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Builds a content page with a correct heading hierarchy",
+    "marketAnchor": [
+      "HTML5"
+    ],
+    "source": "M04 \u00a74.2",
+    "depth": 2
+  },
+  {
+    "id": "html-forms",
+    "label": "Build accessible forms",
+    "description": "Pairs labels with inputs and groups related fields",
+    "subject": "interface",
+    "domain": "markup",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Ships a form usable by keyboard and screen reader",
+    "marketAnchor": [
+      "HTML5",
+      "accessibility"
+    ],
+    "source": "M04 \u00a74.3",
+    "depth": 3
+  },
+  {
+    "id": "html-validation",
+    "label": "Constrain input in markup",
+    "description": "Applies required, pattern, min and max",
+    "subject": "interface",
+    "domain": "markup",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Blocks bad input before any JavaScript runs",
+    "marketAnchor": [
+      "Web development"
+    ],
+    "source": "M04 \u00a74.3",
+    "depth": 4
+  },
+  {
+    "id": "css-selectors",
+    "label": "Target elements with selectors",
+    "description": "Combines element, class, attribute and pseudo-selectors",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Styles a target set without touching the markup",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.4",
+    "depth": 2
+  },
+  {
+    "id": "css-cascade",
+    "label": "Reason about specificity and the cascade",
+    "description": "Predicts which rule wins",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains why a rule lost and fixes it without !important",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.4",
+    "depth": 3
+  },
+  {
+    "id": "css-boxmodel",
+    "label": "Control the box model",
+    "description": "Manages content, padding, border and margin",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Reproduces a spaced layout to spec",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.5",
+    "depth": 3
+  },
+  {
+    "id": "css-display",
+    "label": "Choose display and position",
+    "description": "Applies block, inline, relative, absolute, fixed and sticky",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Places an element deliberately rather than by trial",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.6",
+    "depth": 4
+  },
+  {
+    "id": "css-stacking",
+    "label": "Manage stacking context",
+    "description": "Uses z-index with an understanding of context",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Fixes an overlap bug at its source",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.6",
+    "depth": 5
+  },
+  {
+    "id": "css-flex",
+    "label": "Build one-dimensional layouts with Flexbox",
+    "description": "Controls axes, alignment, wrapping and growth",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Builds a responsive bar and card row without hacks",
+    "marketAnchor": [
+      "CSS",
+      "Flexbox"
+    ],
+    "source": "M04 \u00a74.7",
+    "depth": 5
+  },
+  {
+    "id": "css-grid",
+    "label": "Build two-dimensional layouts with Grid",
+    "description": "Defines tracks, areas and auto placement",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reproduces a page layout with named grid areas",
+    "marketAnchor": [
+      "CSS",
+      "Grid"
+    ],
+    "source": "M04 \u00a74.8",
+    "depth": 5
+  },
+  {
+    "id": "css-choose",
+    "label": "Choose between Grid and Flexbox",
+    "description": "Matches the tool to the dimensionality",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Justifies the choice in review",
+    "marketAnchor": [
+      "CSS"
+    ],
+    "source": "M04 \u00a74.8",
+    "depth": 6
+  },
+  {
+    "id": "css-responsive",
+    "label": "Make layouts responsive",
+    "description": "Applies media queries and relative units mobile-first",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "One layout works from 320px to desktop",
+    "marketAnchor": [
+      "Responsive design"
+    ],
+    "source": "M04 \u00a74.9",
+    "depth": 4
+  },
+  {
+    "id": "css-type",
+    "label": "Style typography and color",
+    "description": "Controls families, scale, rhythm and color formats",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Implements a type scale from a design",
+    "marketAnchor": [
+      "CSS",
+      "UI design"
+    ],
+    "source": "M04 \u00a74.10",
+    "depth": 3
+  },
+  {
+    "id": "css-variables",
+    "label": "Use custom properties",
+    "description": "Centralizes design tokens in CSS variables",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Themes a page by changing variables only",
+    "marketAnchor": [
+      "CSS",
+      "design systems"
+    ],
+    "source": "M04 \u00a74.10",
+    "depth": 0
+  },
+  {
+    "id": "css-motion",
+    "label": "Add transitions and animations",
+    "description": "Applies transition, keyframes and transform with restraint",
+    "subject": "interface",
+    "domain": "styling",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Adds motion that respects reduced-motion preferences",
+    "marketAnchor": [
+      "CSS",
+      "accessibility"
+    ],
+    "source": "M04 \u00a74.11",
+    "depth": 4
+  },
+  {
+    "id": "dom-select",
+    "label": "Select elements from script",
+    "description": "Uses getElementById and querySelector",
+    "subject": "interface",
+    "domain": "dom",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reaches any element from JavaScript",
+    "marketAnchor": [
+      "JavaScript",
+      "DOM"
+    ],
+    "source": "M05 \u00a74.7",
+    "depth": 5
+  },
+  {
+    "id": "dom-modify",
+    "label": "Modify content, classes and styles",
+    "description": "Changes the page after load",
+    "subject": "interface",
+    "domain": "dom",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Updates the UI in response to data",
+    "marketAnchor": [
+      "JavaScript",
+      "DOM"
+    ],
+    "source": "M05 \u00a74.7",
+    "depth": 6
+  },
+  {
+    "id": "dom-create",
+    "label": "Create and remove elements",
+    "description": "Builds nodes programmatically",
+    "subject": "interface",
+    "domain": "dom",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Renders a list from an array",
+    "marketAnchor": [
+      "JavaScript",
+      "DOM"
+    ],
+    "source": "M05 \u00a74.7",
+    "depth": 7
+  },
+  {
+    "id": "dom-events",
+    "label": "Handle events",
+    "description": "Attaches listeners and reads the event object",
+    "subject": "interface",
+    "domain": "dom",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Wires an interactive control end to end",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.7",
+    "depth": 6
+  },
+  {
+    "id": "dom-delegation",
+    "label": "Delegate events",
+    "description": "Handles events for dynamic children from a parent",
+    "subject": "interface",
+    "domain": "dom",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Handles clicks on rows added after load",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.7",
+    "depth": 7
+  },
+  {
+    "id": "rct-components",
+    "label": "Compose components",
+    "description": "Splits UI into functions that return markup",
+    "subject": "interface",
+    "domain": "react",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Builds a screen from reusable components",
+    "marketAnchor": [
+      "React"
+    ],
+    "source": "M10 \u00a710.2",
+    "depth": 5
+  },
+  {
+    "id": "rct-props",
+    "label": "Pass data with props",
+    "description": "Moves data down a tree explicitly",
+    "subject": "interface",
+    "domain": "react",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Renders a list of components from one data source",
+    "marketAnchor": [
+      "React"
+    ],
+    "source": "M10 \u00a710.2",
+    "depth": 6
+  },
+  {
+    "id": "rct-state",
+    "label": "Manage component state",
+    "description": "Holds and updates state with hooks",
+    "subject": "interface",
+    "domain": "react",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Builds an interactive component whose state survives review",
+    "marketAnchor": [
+      "React"
+    ],
+    "source": "M10 \u00a710.2",
+    "depth": 7
+  },
+  {
+    "id": "rct-effects",
+    "label": "Synchronize with effects",
+    "description": "Runs and cleans up side effects",
+    "subject": "interface",
+    "domain": "react",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Loads data on mount without leaks or double fetches",
+    "marketAnchor": [
+      "React"
+    ],
+    "source": "M10 \u00a710.3",
+    "depth": 8
+  },
+  {
+    "id": "rct-boundaries",
+    "label": "Handle errors at component boundaries",
+    "description": "Catches render failures without blanking the app",
+    "subject": "interface",
+    "domain": "react",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A failing widget degrades instead of taking the page down",
+    "marketAnchor": [
+      "React"
+    ],
+    "source": "M09 \u00a79.6",
+    "depth": 6
+  },
+  {
+    "id": "nxt-routing",
+    "label": "Route with the file system",
+    "description": "Maps directories to URLs including dynamic segments",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Adds a dynamic route with a working URL",
+    "marketAnchor": [
+      "Next.js"
+    ],
+    "source": "M10 \u00a710.1",
+    "depth": 6
+  },
+  {
+    "id": "nxt-layouts",
+    "label": "Compose layouts and templates",
+    "description": "Shares chrome across routes",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Builds nested layouts without duplication",
+    "marketAnchor": [
+      "Next.js"
+    ],
+    "source": "M10 \u00a710.1",
+    "depth": 7
+  },
+  {
+    "id": "nxt-states",
+    "label": "Handle loading and error states",
+    "description": "Uses route-level loading and error boundaries",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Every route has a defined loading and failure state",
+    "marketAnchor": [
+      "Next.js"
+    ],
+    "source": "M10 \u00a710.1",
+    "depth": 7
+  },
+  {
+    "id": "nxt-server-client",
+    "label": "Choose server or client components",
+    "description": "Places the boundary deliberately",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Justifies each 'use client' in a diff",
+    "marketAnchor": [
+      "Next.js",
+      "React"
+    ],
+    "source": "M10 \u00a710.2",
+    "depth": 7
+  },
+  {
+    "id": "nxt-fetch",
+    "label": "Fetch data on the server",
+    "description": "Fetches with caching and revalidation",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Serves fresh data without refetching on every request",
+    "marketAnchor": [
+      "Next.js"
+    ],
+    "source": "M10 \u00a710.3",
+    "depth": 8
+  },
+  {
+    "id": "nxt-render",
+    "label": "Choose static, dynamic or incremental rendering",
+    "description": "Matches strategy to content volatility",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Explains why a route is static or dynamic",
+    "marketAnchor": [
+      "Next.js",
+      "web performance"
+    ],
+    "source": "M10 \u00a710.3",
+    "depth": 9
+  },
+  {
+    "id": "nxt-actions",
+    "label": "Mutate with server actions",
+    "description": "Handles forms and mutations server-side",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Submits a form that validates and revalidates data",
+    "marketAnchor": [
+      "Next.js"
+    ],
+    "source": "M10 \u00a710.4",
+    "depth": 9
+  },
+  {
+    "id": "nxt-optimistic",
+    "label": "Apply optimistic updates",
+    "description": "Shows the result before the server confirms",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "UI responds instantly and reconciles on failure",
+    "marketAnchor": [
+      "Next.js",
+      "UX"
+    ],
+    "source": "M10 \u00a710.4",
+    "depth": 10
+  },
+  {
+    "id": "nxt-routes",
+    "label": "Build route handlers",
+    "description": "Serves HTTP endpoints inside the app",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Exposes an endpoint with correct methods and status codes",
+    "marketAnchor": [
+      "Next.js",
+      "REST"
+    ],
+    "source": "M10 \u00a710.5",
+    "depth": 7
+  },
+  {
+    "id": "nxt-middleware",
+    "label": "Apply middleware",
+    "description": "Intercepts requests for auth and rate limiting",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Protects a route before the handler runs",
+    "marketAnchor": [
+      "Next.js",
+      "security"
+    ],
+    "source": "M10 \u00a710.5",
+    "depth": 8
+  },
+  {
+    "id": "nxt-tailwind",
+    "label": "Style with a utility framework",
+    "description": "Applies Tailwind alongside component styles",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Implements a design without leaving the markup",
+    "marketAnchor": [
+      "Tailwind CSS"
+    ],
+    "source": "M10 \u00a710.6",
+    "depth": 5
+  },
+  {
+    "id": "nxt-perf",
+    "label": "Optimize for Core Web Vitals",
+    "description": "Tunes images, fonts, splitting and caching",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Moves a real metric on a real page",
+    "marketAnchor": [
+      "Web performance"
+    ],
+    "source": "M10 \u00a710.7",
+    "depth": 10
+  },
+  {
+    "id": "nxt-stream-ui",
+    "label": "Stream UI with Suspense",
+    "description": "Renders progressively as data arrives",
+    "subject": "interface",
+    "domain": "nextjs",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "First paint precedes the slowest query",
+    "marketAnchor": [
+      "Next.js",
+      "React"
+    ],
+    "source": "M10 \u00a710.3",
+    "depth": 9
+  },
+  {
+    "id": "aif-sse-client",
+    "label": "Consume server-sent events in the browser",
+    "description": "Reads a token stream from a React client",
+    "subject": "interface",
+    "domain": "ai-interface",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Renders tokens as they arrive without buffering",
+    "marketAnchor": [
+      "Streaming",
+      "React"
+    ],
+    "source": "M21 \u00a721.2",
+    "depth": 9
+  },
+  {
+    "id": "aif-tokenrender",
+    "label": "Render streamed output progressively",
+    "description": "Handles partial markdown and code safely",
+    "subject": "interface",
+    "domain": "ai-interface",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Streamed markdown never renders broken mid-token",
+    "marketAnchor": [
+      "Frontend engineering"
+    ],
+    "source": "M21 \u00a721.2",
+    "depth": 10
+  },
+  {
+    "id": "aif-history",
+    "label": "Manage conversation history in the UI",
+    "description": "Persists and replays messages",
+    "subject": "interface",
+    "domain": "ai-interface",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Reload restores the conversation",
+    "marketAnchor": [
+      "Frontend engineering"
+    ],
+    "source": "M21 \u00a721.2",
+    "depth": 8
+  },
+  {
+    "id": "aif-upload",
+    "label": "Handle multimodal file input",
+    "description": "Accepts drag-and-drop with preview and progress",
+    "subject": "interface",
+    "domain": "ai-interface",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Uploads a document with visible progress and errors",
+    "marketAnchor": [
+      "Frontend engineering"
+    ],
+    "source": "M21 \u00a721.4",
+    "depth": 4
+  },
+  {
+    "id": "aif-typesafe",
+    "label": "Keep types safe across the stack",
+    "description": "Generates clients from OpenAPI and mirrors schemas",
+    "subject": "interface",
+    "domain": "ai-interface",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "A backend schema change breaks the build, not production",
+    "marketAnchor": [
+      "TypeScript",
+      "API design"
+    ],
+    "source": "M21 \u00a721.3",
+    "depth": 5
+  },
+  {
+    "id": "med-formats",
+    "label": "Choose image formats and sizes",
+    "description": "Balances WebP, AVIF and legacy formats",
+    "subject": "interface",
+    "domain": "media",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Cuts page weight without visible quality loss",
+    "marketAnchor": [
+      "Web performance"
+    ],
+    "source": "M13 \u00a713.2",
+    "depth": 3
+  },
+  {
+    "id": "med-lazy",
+    "label": "Lazy-load and placeholder media",
+    "description": "Defers offscreen images with a placeholder",
+    "subject": "interface",
+    "domain": "media",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Largest contentful paint improves measurably",
+    "marketAnchor": [
+      "Web performance"
+    ],
+    "source": "M13 \u00a713.2",
+    "depth": 4
+  },
+  {
+    "id": "med-cdn",
+    "label": "Deliver media through a CDN",
+    "description": "Uploads, transforms and serves assets",
+    "subject": "interface",
+    "domain": "media",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Serves responsive variants from one upload",
+    "marketAnchor": [
+      "Cloudinary",
+      "CDN"
+    ],
+    "source": "M13 \u00a713.1",
+    "depth": 0
+  },
+  {
+    "id": "med-analytics",
+    "label": "Instrument user behavior",
+    "description": "Captures sessions, heatmaps and events with consent",
+    "subject": "interface",
+    "domain": "media",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Identifies a UX problem from recorded behavior",
+    "marketAnchor": [
+      "Analytics"
+    ],
+    "source": "M13 \u00a713.3",
+    "depth": 1
+  },
+  {
+    "id": "js-variables",
+    "label": "Declare variables deliberately",
+    "description": "Chooses const, let and knows why not var",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Uses const by default and justifies each let",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.1",
+    "depth": 0
+  },
+  {
+    "id": "js-types",
+    "label": "Reason about primitive types and coercion",
+    "description": "Predicts what == and typeof will do",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains a coercion bug rather than guessing",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.1",
+    "depth": 1
+  },
+  {
+    "id": "js-strings",
+    "label": "Manipulate strings",
+    "description": "Applies template literals and string methods",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Formats and parses text without a library",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.1",
+    "depth": 2
+  },
+  {
+    "id": "js-operators",
+    "label": "Use operators and precedence",
+    "description": "Applies comparison, logical and ternary operators",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Writes conditions that read correctly and short-circuit",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.2",
+    "depth": 2
+  },
+  {
+    "id": "js-control",
+    "label": "Control flow with conditionals and loops",
+    "description": "Applies if, switch, for, while, break and continue",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Implements branching logic that terminates",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.3",
+    "depth": 3
+  },
+  {
+    "id": "js-functions",
+    "label": "Write and call functions",
+    "description": "Declares, parameterizes and returns",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Refactors repeated logic into a tested function",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.4",
+    "depth": 4
+  },
+  {
+    "id": "js-arrow",
+    "label": "Use arrow functions and this",
+    "description": "Knows how binding differs",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Fixes a broken this without a workaround",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.4",
+    "depth": 5
+  },
+  {
+    "id": "js-scope",
+    "label": "Reason about scope and hoisting",
+    "description": "Predicts where a binding is visible",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains a reference error from the code alone",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.4",
+    "depth": 5
+  },
+  {
+    "id": "js-closures",
+    "label": "Use closures",
+    "description": "Captures state in a returned function",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Builds a counter or memoizer with closure",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.4",
+    "depth": 6
+  },
+  {
+    "id": "js-arrays",
+    "label": "Manipulate arrays",
+    "description": "Applies mutating and non-mutating methods",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Transforms a dataset without a loop where a method fits",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.5",
+    "depth": 1
+  },
+  {
+    "id": "js-mapfilter",
+    "label": "Transform with map, filter and reduce",
+    "description": "Expresses transformations declaratively",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Replaces a nested loop with a readable chain",
+    "marketAnchor": [
+      "JavaScript",
+      "functional programming"
+    ],
+    "source": "M05 \u00a74.5",
+    "depth": 5
+  },
+  {
+    "id": "js-objects",
+    "label": "Work with objects",
+    "description": "Creates, accesses, and iterates key-value data",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Models a record and reads it safely",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.6",
+    "depth": 1
+  },
+  {
+    "id": "js-destructure",
+    "label": "Destructure and spread",
+    "description": "Pulls values out and copies structures",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a function signature that destructures its input",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.6",
+    "depth": 2
+  },
+  {
+    "id": "js-errors",
+    "label": "Handle errors",
+    "description": "Applies try, catch, finally and throws typed errors",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Fails with a message that identifies the cause",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.8",
+    "depth": 5
+  },
+  {
+    "id": "js-stacktrace",
+    "label": "Read a stack trace",
+    "description": "Locates the origin of a runtime failure",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Names the failing line from the trace alone",
+    "marketAnchor": [
+      "Debugging"
+    ],
+    "source": "M05 \u00a74.8",
+    "depth": 6
+  },
+  {
+    "id": "js-timers",
+    "label": "Schedule work with timers",
+    "description": "Uses setTimeout and setInterval correctly",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Debounces an input without leaking timers",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.9",
+    "depth": 5
+  },
+  {
+    "id": "js-promises",
+    "label": "Work with promises",
+    "description": "Creates, chains and settles asynchronous values",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Sequences dependent async calls without nesting",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.9",
+    "depth": 5
+  },
+  {
+    "id": "js-async",
+    "label": "Write async and await",
+    "description": "Expresses asynchronous flow linearly",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Fetches and renders remote data with errors handled",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M05 \u00a74.9",
+    "depth": 6
+  },
+  {
+    "id": "js-fetch",
+    "label": "Call HTTP APIs from JavaScript",
+    "description": "Uses fetch with methods, headers and bodies",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Consumes a real API including its error cases",
+    "marketAnchor": [
+      "JavaScript",
+      "REST"
+    ],
+    "source": "M05 \u00a74.9",
+    "depth": 7
+  },
+  {
+    "id": "js-modules",
+    "label": "Organize code into modules",
+    "description": "Imports and exports, statically and dynamically",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Splits a file into modules with no circular imports",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M09 \u00a79.3",
+    "depth": 5
+  },
+  {
+    "id": "js-classes",
+    "label": "Use classes and inheritance",
+    "description": "Models behavior with classes where it fits",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Chooses composition or inheritance and defends it",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M09 \u00a79.3",
+    "depth": 2
+  },
+  {
+    "id": "js-hof",
+    "label": "Write higher-order functions",
+    "description": "Passes and returns functions",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Builds a reusable wrapper around a function",
+    "marketAnchor": [
+      "Functional programming"
+    ],
+    "source": "M09 \u00a79.3",
+    "depth": 5
+  },
+  {
+    "id": "js-immutable",
+    "label": "Apply immutability patterns",
+    "description": "Updates without mutating shared state",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Fixes a bug caused by shared mutation",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M09 \u00a79.3",
+    "depth": 3
+  },
+  {
+    "id": "js-concurrency",
+    "label": "Coordinate concurrent promises",
+    "description": "Applies Promise.all, race and allSettled",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Parallelizes independent calls and handles partial failure",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M09 \u00a79.2",
+    "depth": 6
+  },
+  {
+    "id": "js-generators",
+    "label": "Use iterators and generators",
+    "description": "Produces values lazily and asynchronously",
+    "subject": "language",
+    "domain": "js-core",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Consumes an async stream with for-await",
+    "marketAnchor": [
+      "JavaScript"
+    ],
+    "source": "M09 \u00a79.2",
+    "depth": 7
+  },
+  {
+    "id": "ts-annotate",
+    "label": "Annotate types",
+    "description": "Types primitives, arrays and objects",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "language",
+    "exitDepth": "unassisted",
+    "evidence": "Adds types to an existing file with no anys",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 2
+  },
+  {
+    "id": "ts-interfaces",
+    "label": "Model shapes with interfaces and type aliases",
+    "description": "Chooses between them deliberately",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Models a domain object others reuse",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 3
+  },
+  {
+    "id": "ts-unions",
+    "label": "Compose union and intersection types",
+    "description": "Represents alternatives precisely",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Makes an invalid state unrepresentable",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 4
+  },
+  {
+    "id": "ts-narrow",
+    "label": "Narrow types",
+    "description": "Uses guards and control flow to refine",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Removes a cast by narrowing instead",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 5
+  },
+  {
+    "id": "ts-generics",
+    "label": "Write generic functions and types",
+    "description": "Parameterizes over types with constraints",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Writes a reusable typed helper",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 4
+  },
+  {
+    "id": "ts-utility",
+    "label": "Apply utility types",
+    "description": "Uses Partial, Required, Pick and Omit",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Derives a type instead of duplicating it",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.4",
+    "depth": 5
+  },
+  {
+    "id": "ts-advanced",
+    "label": "Use conditional and mapped types",
+    "description": "Computes types from other types",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Derives a response type from a schema type",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.5",
+    "depth": 6
+  },
+  {
+    "id": "ts-config",
+    "label": "Configure the compiler",
+    "description": "Tunes tsconfig for strictness and output",
+    "subject": "language",
+    "domain": "ts-types",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Turns on strict mode and clears the errors",
+    "marketAnchor": [
+      "TypeScript"
+    ],
+    "source": "M09 \u00a79.5",
+    "depth": 3
+  },
+  {
+    "id": "py-variables",
+    "label": "Declare variables and use dynamic typing",
+    "description": "Knows what names bind to",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Predicts aliasing behavior for a mutable value",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.1",
+    "depth": 0
+  },
+  {
+    "id": "py-types",
+    "label": "Distinguish mutable from immutable types",
+    "description": "Predicts what a function can change",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains a surprising in-place mutation",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.1",
+    "depth": 1
+  },
+  {
+    "id": "py-strings",
+    "label": "Format and manipulate strings",
+    "description": "Applies f-strings and string methods",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Builds and parses text without concatenation sprawl",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.1",
+    "depth": 2
+  },
+  {
+    "id": "py-operators",
+    "label": "Apply operators",
+    "description": "Uses arithmetic, comparison, membership and identity",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Chooses is versus == correctly",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.2",
+    "depth": 2
+  },
+  {
+    "id": "py-control",
+    "label": "Control flow in Python",
+    "description": "Applies if, for, while and truthiness",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Implements branching logic that terminates",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.3",
+    "depth": 3
+  },
+  {
+    "id": "py-comprehension",
+    "label": "Write comprehensions",
+    "description": "Expresses transformation and filtering inline",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Replaces an accumulator loop with a comprehension",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.3",
+    "depth": 4
+  },
+  {
+    "id": "py-functions",
+    "label": "Define functions",
+    "description": "Uses positional, keyword and default parameters",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Writes a function with a clear, documented signature",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.4",
+    "depth": 4
+  },
+  {
+    "id": "py-argskwargs",
+    "label": "Use *args and **kwargs",
+    "description": "Accepts variable arguments deliberately",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Wraps a function without losing its signature",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.4",
+    "depth": 5
+  },
+  {
+    "id": "py-scope",
+    "label": "Reason about scope",
+    "description": "Distinguishes local, global and nonlocal",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains an unexpected name error",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.4",
+    "depth": 5
+  },
+  {
+    "id": "py-lists",
+    "label": "Work with lists and tuples",
+    "description": "Indexes, slices and chooses between them",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Slices and sorts a dataset correctly",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.5",
+    "depth": 1
+  },
+  {
+    "id": "py-dicts",
+    "label": "Work with dictionaries and sets",
+    "description": "Uses key-value and unique collections",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Chooses dict or set for a lookup problem",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.6",
+    "depth": 1
+  },
+  {
+    "id": "py-fileio",
+    "label": "Read and write files",
+    "description": "Uses open with context managers",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Processes a file without leaking handles",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.8",
+    "depth": 4
+  },
+  {
+    "id": "py-json",
+    "label": "Serialize and deserialize JSON",
+    "description": "Loads and dumps structured data",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Round-trips a record through JSON",
+    "marketAnchor": [
+      "Python",
+      "data processing"
+    ],
+    "source": "M06 \u00a75.8",
+    "depth": 5
+  },
+  {
+    "id": "py-regex",
+    "label": "Apply regular expressions in Python",
+    "description": "Matches and extracts with the re module",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Extracts fields from semi-structured text",
+    "marketAnchor": [
+      "Python",
+      "regex"
+    ],
+    "source": "M06 \u00a75.7",
+    "depth": 3
+  },
+  {
+    "id": "py-errors",
+    "label": "Handle exceptions",
+    "description": "Catches specific exceptions and raises custom ones",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Fails with a specific exception, never a bare except",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.9",
+    "depth": 5
+  },
+  {
+    "id": "py-classes",
+    "label": "Define classes",
+    "description": "Writes __init__, methods and dunder methods",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Models a domain object with a useful repr",
+    "marketAnchor": [
+      "Python",
+      "object-oriented programming"
+    ],
+    "source": "M06 \u00a75.10",
+    "depth": 5
+  },
+  {
+    "id": "py-inheritance",
+    "label": "Apply inheritance",
+    "description": "Extends behavior without duplicating it",
+    "subject": "language",
+    "domain": "py-core",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Justifies inheritance over composition",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M06 \u00a75.10",
+    "depth": 6
+  },
+  {
+    "id": "pyp-venv",
+    "label": "Manage virtual environments",
+    "description": "Isolates dependencies per project",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reproduces an environment on a clean machine",
+    "marketAnchor": [
+      "Python",
+      "dependency management"
+    ],
+    "source": "M15 \u00a715.1",
+    "depth": 1
+  },
+  {
+    "id": "pyp-structure",
+    "label": "Structure a Python project",
+    "description": "Lays out packages, modules and pyproject.toml",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Another developer runs the project from the repo",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M15 \u00a715.1",
+    "depth": 2
+  },
+  {
+    "id": "pyp-lint",
+    "label": "Format and lint automatically",
+    "description": "Runs formatters and linters in the loop",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Repo passes lint in CI with no manual formatting",
+    "marketAnchor": [
+      "Developer tooling"
+    ],
+    "source": "M15 \u00a715.1",
+    "depth": 3
+  },
+  {
+    "id": "pyp-hints",
+    "label": "Add type hints",
+    "description": "Annotates signatures and collections",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "language",
+    "exitDepth": "unassisted",
+    "evidence": "Adds hints to a module that then passes mypy",
+    "marketAnchor": [
+      "Python",
+      "type safety"
+    ],
+    "source": "M15 \u00a715.2",
+    "depth": 5
+  },
+  {
+    "id": "pyp-typing",
+    "label": "Use the typing module",
+    "description": "Applies Optional, Union, Protocol and TypedDict",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Types a JSON payload precisely",
+    "marketAnchor": [
+      "Python",
+      "type safety"
+    ],
+    "source": "M15 \u00a715.2",
+    "depth": 6
+  },
+  {
+    "id": "pyp-mypy",
+    "label": "Check types statically",
+    "description": "Runs a type checker as a gate",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "A type error fails the build",
+    "marketAnchor": [
+      "Type safety"
+    ],
+    "source": "M15 \u00a715.2",
+    "depth": 7
+  },
+  {
+    "id": "pyp-async",
+    "label": "Write async Python",
+    "description": "Applies async and await for I/O-bound work",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Converts a blocking call path to async",
+    "marketAnchor": [
+      "Python",
+      "asynchronous programming"
+    ],
+    "source": "M15 \u00a715.4",
+    "depth": 5
+  },
+  {
+    "id": "pyp-gather",
+    "label": "Run async calls concurrently",
+    "description": "Uses asyncio.gather for parallel work",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Cuts latency by parallelizing independent calls",
+    "marketAnchor": [
+      "Python"
+    ],
+    "source": "M15 \u00a715.4",
+    "depth": 6
+  },
+  {
+    "id": "pyp-httpx",
+    "label": "Call HTTP APIs asynchronously",
+    "description": "Uses an async client with timeouts",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Calls an upstream API with a timeout and retry",
+    "marketAnchor": [
+      "Python",
+      "REST"
+    ],
+    "source": "M15 \u00a715.4",
+    "depth": 6
+  },
+  {
+    "id": "pyp-asynciter",
+    "label": "Produce async iterators",
+    "description": "Yields values as they arrive",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Streams results without collecting them first",
+    "marketAnchor": [
+      "Python",
+      "streaming"
+    ],
+    "source": "M15 \u00a715.4",
+    "depth": 6
+  },
+  {
+    "id": "pyp-backoff",
+    "label": "Apply rate limiting and backoff",
+    "description": "Retries with jitter and a ceiling",
+    "subject": "language",
+    "domain": "py-production",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Survives a rate-limited upstream without hammering it",
+    "marketAnchor": [
+      "Reliability engineering"
+    ],
+    "source": "M15 \u00a715.4",
+    "depth": 7
+  },
+  {
+    "id": "sql-select",
+    "label": "Query rows with SELECT",
+    "description": "Projects, filters and orders result sets",
+    "subject": "data",
+    "domain": "sql",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Answers a question from one table without help",
+    "marketAnchor": [
+      "SQL"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 0
+  },
+  {
+    "id": "sql-join",
+    "label": "Join across tables",
+    "description": "Chooses inner, left and the join key",
+    "subject": "data",
+    "domain": "sql",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Answers a business question spanning three tables",
+    "marketAnchor": [
+      "SQL"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 1
+  },
+  {
+    "id": "sql-aggregate",
+    "label": "Aggregate and group",
+    "description": "Applies GROUP BY, HAVING and aggregate functions",
+    "subject": "data",
+    "domain": "sql",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Produces a correct grouped report",
+    "marketAnchor": [
+      "SQL",
+      "analytics"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 2
+  },
+  {
+    "id": "sql-subquery",
+    "label": "Compose subqueries and CTEs",
+    "description": "Builds readable multi-step queries",
+    "subject": "data",
+    "domain": "sql",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Rewrites a nested query as a readable CTE chain",
+    "marketAnchor": [
+      "SQL"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 3
+  },
+  {
+    "id": "sql-window",
+    "label": "Apply window functions",
+    "description": "Ranks and aggregates over partitions",
+    "subject": "data",
+    "domain": "sql",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Produces a running total or per-group rank",
+    "marketAnchor": [
+      "SQL",
+      "analytics"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 4
+  },
+  {
+    "id": "sql-mutate",
+    "label": "Insert, update and delete safely",
+    "description": "Writes mutations with a WHERE that is verified first",
+    "subject": "data",
+    "domain": "sql",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Runs a mutation in a transaction after checking the row count",
+    "marketAnchor": [
+      "SQL"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 1
+  },
+  {
+    "id": "sql-transaction",
+    "label": "Use transactions",
+    "description": "Groups statements into an atomic unit",
+    "subject": "data",
+    "domain": "sql",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Rolls back a partial failure cleanly",
+    "marketAnchor": [
+      "SQL",
+      "databases"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 2
+  },
+  {
+    "id": "sql-index",
+    "label": "Reason about indexes",
+    "description": "Knows what an index costs and what it buys",
+    "subject": "data",
+    "domain": "sql",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Explains a slow query from its plan",
+    "marketAnchor": [
+      "Databases",
+      "performance"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 2
+  },
+  {
+    "id": "sql-explain",
+    "label": "Read a query plan",
+    "description": "Interprets what the database will actually do",
+    "subject": "data",
+    "domain": "sql",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Identifies a sequential scan and fixes it",
+    "marketAnchor": [
+      "Databases",
+      "performance"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 3
+  },
+  {
+    "id": "mdl-normalize",
+    "label": "Normalize a schema",
+    "description": "Removes duplication and update anomalies",
+    "subject": "data",
+    "domain": "modeling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Designs a schema and defends its keys",
+    "marketAnchor": [
+      "Data modeling"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 1
+  },
+  {
+    "id": "mdl-keys",
+    "label": "Choose primary and foreign keys",
+    "description": "Enforces identity and referential integrity",
+    "subject": "data",
+    "domain": "modeling",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Picks a key that survives a real-world edge case",
+    "marketAnchor": [
+      "Data modeling"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 2
+  },
+  {
+    "id": "mdl-relations",
+    "label": "Model one-to-many and many-to-many",
+    "description": "Expresses cardinality in tables",
+    "subject": "data",
+    "domain": "modeling",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Implements a join table with correct constraints",
+    "marketAnchor": [
+      "Data modeling"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 3
+  },
+  {
+    "id": "mdl-migrate",
+    "label": "Version schema changes with migrations",
+    "description": "Applies and reverses schema changes in order",
+    "subject": "data",
+    "domain": "modeling",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Ships a migration that runs forward and back",
+    "marketAnchor": [
+      "Databases",
+      "DevOps"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 4
+  },
+  {
+    "id": "mdl-denormalize",
+    "label": "Denormalize deliberately",
+    "description": "Trades duplication for read speed knowingly",
+    "subject": "data",
+    "domain": "modeling",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Justifies a denormalization with a measured read path",
+    "marketAnchor": [
+      "Data engineering"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 2
+  },
+  {
+    "id": "ing-sources",
+    "label": "Ingest from files and APIs",
+    "description": "Pulls data from CSV, JSON and HTTP sources",
+    "subject": "data",
+    "domain": "ingestion",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Loads an external dataset into a table",
+    "marketAnchor": [
+      "Data engineering"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 7
+  },
+  {
+    "id": "ing-clean",
+    "label": "Clean and normalize records",
+    "description": "Handles nulls, duplicates and inconsistent types",
+    "subject": "data",
+    "domain": "ingestion",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Turns a messy export into a loadable dataset",
+    "marketAnchor": [
+      "Data engineering"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 8
+  },
+  {
+    "id": "ing-pipeline",
+    "label": "Build a repeatable ingestion pipeline",
+    "description": "Makes ingestion idempotent and resumable",
+    "subject": "data",
+    "domain": "ingestion",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Reruns a failed load without duplicating rows",
+    "marketAnchor": [
+      "Data engineering",
+      "ETL"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 9
+  },
+  {
+    "id": "ing-checkpoint",
+    "label": "Checkpoint long-running jobs",
+    "description": "Records progress so work resumes",
+    "subject": "data",
+    "domain": "ingestion",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Resumes a job after a crash mid-batch",
+    "marketAnchor": [
+      "Data engineering"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 10
+  },
+  {
+    "id": "ing-schedule",
+    "label": "Schedule and monitor batch jobs",
+    "description": "Runs work on a cadence with failure alerts",
+    "subject": "data",
+    "domain": "ingestion",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "A failed nightly job pages someone",
+    "marketAnchor": [
+      "Data engineering",
+      "operations"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 10
+  },
+  {
+    "id": "vec-embeddings",
+    "label": "Explain embeddings",
+    "description": "Knows what a dense vector represents",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains why two texts are near in vector space",
+    "marketAnchor": [
+      "Embeddings",
+      "machine learning"
+    ],
+    "source": "M14 \u00a714.4",
+    "depth": 2
+  },
+  {
+    "id": "vec-chunking",
+    "label": "Chunk documents for retrieval",
+    "description": "Splits text so chunks are self-contained",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Chooses a chunk size and defends it against retrieval results",
+    "marketAnchor": [
+      "Retrieval-augmented generation"
+    ],
+    "source": "M19 \u00a719.1",
+    "depth": 9
+  },
+  {
+    "id": "vec-generate",
+    "label": "Generate embeddings at scale",
+    "description": "Batches, rate-limits and stores vectors",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Embeds a corpus without exceeding limits or cost",
+    "marketAnchor": [
+      "Embeddings"
+    ],
+    "source": "M19 \u00a719.1",
+    "depth": 10
+  },
+  {
+    "id": "vec-pgvector",
+    "label": "Store and query vectors in Postgres",
+    "description": "Uses pgvector alongside relational data",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Runs a similarity query joined to metadata",
+    "marketAnchor": [
+      "pgvector",
+      "Postgres"
+    ],
+    "source": "M19 \u00a719.2",
+    "depth": 11
+  },
+  {
+    "id": "vec-index",
+    "label": "Choose a vector index",
+    "description": "Trades recall against latency with IVF or HNSW",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Justifies an index choice with measured recall",
+    "marketAnchor": [
+      "Vector search"
+    ],
+    "source": "M19 \u00a719.2",
+    "depth": 12
+  },
+  {
+    "id": "vec-filter",
+    "label": "Filter retrieval by metadata",
+    "description": "Combines vector similarity with structured predicates",
+    "subject": "data",
+    "domain": "vectors",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Restricts results to a tenant or date range",
+    "marketAnchor": [
+      "Vector search"
+    ],
+    "source": "M19 \u00a719.2",
+    "depth": 12
+  },
+  {
+    "id": "http-model",
+    "label": "Explain the request-response model",
+    "description": "Knows what a client and server exchange",
+    "subject": "services",
+    "domain": "http",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Traces a request end to end",
+    "marketAnchor": [
+      "HTTP",
+      "web development"
+    ],
+    "source": "M10 \u00a710.5",
+    "depth": 0
+  },
+  {
+    "id": "http-methods",
+    "label": "Choose HTTP methods",
+    "description": "Applies GET, POST, PUT, PATCH and DELETE by semantics",
+    "subject": "services",
+    "domain": "http",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Picks correct methods under review",
+    "marketAnchor": [
+      "REST",
+      "HTTP"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 1
+  },
+  {
+    "id": "http-status",
+    "label": "Return correct status codes",
+    "description": "Distinguishes client from server failure",
+    "subject": "services",
+    "domain": "http",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Returns 4xx and 5xx correctly for real failures",
+    "marketAnchor": [
+      "REST",
+      "HTTP"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 2
+  },
+  {
+    "id": "http-headers",
+    "label": "Work with headers and content types",
+    "description": "Sets and reads content negotiation and caching headers",
+    "subject": "services",
+    "domain": "http",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Debugs a failure caused by a wrong content type",
+    "marketAnchor": [
+      "HTTP"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 1
+  },
+  {
+    "id": "http-idempotent",
+    "label": "Reason about idempotency",
+    "description": "Knows which operations are safe to retry",
+    "subject": "services",
+    "domain": "http",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Makes a retryable endpoint safe under duplication",
+    "marketAnchor": [
+      "Reliability engineering"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 2
+  },
+  {
+    "id": "http-cors",
+    "label": "Configure CORS",
+    "description": "Knows what the browser is enforcing and why",
+    "subject": "services",
+    "domain": "http",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Fixes a CORS failure at the server, not with a proxy",
+    "marketAnchor": [
+      "Web security"
+    ],
+    "source": "M16 \u00a716.4",
+    "depth": 2
+  },
+  {
+    "id": "con-design",
+    "label": "Design an API contract",
+    "description": "Specifies resources, shapes and errors before code",
+    "subject": "services",
+    "domain": "contracts",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Publishes a contract a second developer builds against",
+    "marketAnchor": [
+      "API design"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 3
+  },
+  {
+    "id": "con-openapi",
+    "label": "Express a contract in OpenAPI",
+    "description": "Writes and generates an OpenAPI 3.1 specification",
+    "subject": "services",
+    "domain": "contracts",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Ships a spec that generates a working client",
+    "marketAnchor": [
+      "OpenAPI",
+      "API design"
+    ],
+    "source": "M16 \u00a716.2",
+    "depth": 4
+  },
+  {
+    "id": "con-versioning",
+    "label": "Version an API",
+    "description": "Evolves a contract without breaking clients",
+    "subject": "services",
+    "domain": "contracts",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Ships a breaking change behind a version",
+    "marketAnchor": [
+      "API design"
+    ],
+    "source": "M16 \u00a716.2",
+    "depth": 5
+  },
+  {
+    "id": "con-errors",
+    "label": "Design error responses",
+    "description": "Returns machine-readable, actionable errors",
+    "subject": "services",
+    "domain": "contracts",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "A client can branch on the error body",
+    "marketAnchor": [
+      "API design"
+    ],
+    "source": "M16 \u00a716.2",
+    "depth": 4
+  },
+  {
+    "id": "val-boundary",
+    "label": "Validate at the boundary",
+    "description": "Rejects malformed input before it reaches logic",
+    "subject": "services",
+    "domain": "validation",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Bad input fails at the edge with a useful message",
+    "marketAnchor": [
+      "Data validation"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 4
+  },
+  {
+    "id": "val-models",
+    "label": "Define schemas with Pydantic",
+    "description": "Models request and response shapes",
+    "subject": "services",
+    "domain": "validation",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Models a payload that rejects an invalid field",
+    "marketAnchor": [
+      "Pydantic",
+      "Python"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 6
+  },
+  {
+    "id": "val-field",
+    "label": "Write field validators",
+    "description": "Enforces rules a type cannot express",
+    "subject": "services",
+    "domain": "validation",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Enforces a domain rule like a token ceiling",
+    "marketAnchor": [
+      "Pydantic"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 7
+  },
+  {
+    "id": "val-model",
+    "label": "Write model validators",
+    "description": "Enforces cross-field consistency",
+    "subject": "services",
+    "domain": "validation",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Rejects a payload where two fields disagree",
+    "marketAnchor": [
+      "Pydantic"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 8
+  },
+  {
+    "id": "val-serialize",
+    "label": "Control serialization",
+    "description": "Shapes output with model_dump and aliases",
+    "subject": "services",
+    "domain": "validation",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Excludes internal fields from a response",
+    "marketAnchor": [
+      "Pydantic"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 7
+  },
+  {
+    "id": "val-settings",
+    "label": "Manage configuration as typed settings",
+    "description": "Loads and validates environment configuration",
+    "subject": "services",
+    "domain": "validation",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "A missing environment variable fails at startup",
+    "marketAnchor": [
+      "Configuration management"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 7
+  },
+  {
+    "id": "val-schema",
+    "label": "Generate JSON Schema from models",
+    "description": "Derives documentation and clients from types",
+    "subject": "services",
+    "domain": "validation",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Schema and code cannot drift",
+    "marketAnchor": [
+      "Pydantic",
+      "OpenAPI"
+    ],
+    "source": "M15 \u00a715.3",
+    "depth": 7
+  },
+  {
+    "id": "api-routing",
+    "label": "Route requests in FastAPI",
+    "description": "Declares paths, methods and parameters",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Serves a working endpoint with typed parameters",
+    "marketAnchor": [
+      "FastAPI"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 6
+  },
+  {
+    "id": "api-body",
+    "label": "Bind request bodies to models",
+    "description": "Parses and validates input automatically",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Endpoint rejects a malformed body with 422",
+    "marketAnchor": [
+      "FastAPI",
+      "Pydantic"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 7
+  },
+  {
+    "id": "api-response",
+    "label": "Declare response models",
+    "description": "Constrains and documents what goes out",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Response shape is guaranteed by type",
+    "marketAnchor": [
+      "FastAPI"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 8
+  },
+  {
+    "id": "api-di",
+    "label": "Use dependency injection",
+    "description": "Shares resources and enforces preconditions",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Injects a database session and a current user",
+    "marketAnchor": [
+      "FastAPI"
+    ],
+    "source": "M16 \u00a716.1",
+    "depth": 7
+  },
+  {
+    "id": "api-auth",
+    "label": "Authenticate API requests",
+    "description": "Applies API keys or tokens at the edge",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Unauthenticated requests are rejected before handlers",
+    "marketAnchor": [
+      "API security"
+    ],
+    "source": "M16 \u00a716.4",
+    "depth": 8
+  },
+  {
+    "id": "api-ratelimit",
+    "label": "Rate-limit endpoints",
+    "description": "Protects upstreams and budgets from abuse",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A burst is throttled rather than passed through",
+    "marketAnchor": [
+      "API security",
+      "reliability"
+    ],
+    "source": "M16 \u00a716.4",
+    "depth": 0
+  },
+  {
+    "id": "api-logging",
+    "label": "Log requests with correlation",
+    "description": "Emits structured logs tied to a request id",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "One request is traceable across services",
+    "marketAnchor": [
+      "Observability"
+    ],
+    "source": "M16 \u00a716.4",
+    "depth": 7
+  },
+  {
+    "id": "api-background",
+    "label": "Run background tasks",
+    "description": "Defers work after the response",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Returns immediately and completes work after",
+    "marketAnchor": [
+      "FastAPI"
+    ],
+    "source": "M16 \u00a716.5",
+    "depth": 7
+  },
+  {
+    "id": "api-lifespan",
+    "label": "Manage lifespan and pooling",
+    "description": "Opens and closes shared resources cleanly",
+    "subject": "services",
+    "domain": "fastapi",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "No connection leaks across restarts",
+    "marketAnchor": [
+      "FastAPI",
+      "operations"
+    ],
+    "source": "M16 \u00a716.5",
+    "depth": 8
+  },
+  {
+    "id": "str-sse",
+    "label": "Serve server-sent events",
+    "description": "Streams tokens over a long-lived response",
+    "subject": "services",
+    "domain": "streaming",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Streams a completion token by token",
+    "marketAnchor": [
+      "Streaming",
+      "FastAPI"
+    ],
+    "source": "M16 \u00a716.3",
+    "depth": 8
+  },
+  {
+    "id": "str-asynciter",
+    "label": "Stream from an async iterator",
+    "description": "Yields chunks as they are produced",
+    "subject": "services",
+    "domain": "streaming",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Time-to-first-token drops measurably",
+    "marketAnchor": [
+      "Streaming"
+    ],
+    "source": "M16 \u00a716.3",
+    "depth": 7
+  },
+  {
+    "id": "str-errors",
+    "label": "Handle errors mid-stream",
+    "description": "Signals failure after the response has begun",
+    "subject": "services",
+    "domain": "streaming",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "A mid-stream failure is visible to the client",
+    "marketAnchor": [
+      "Streaming",
+      "reliability"
+    ],
+    "source": "M16 \u00a716.3",
+    "depth": 9
+  },
+  {
+    "id": "mdf-hierarchy",
+    "label": "Distinguish AI, ML, deep learning and LLMs",
+    "description": "Places each term inside the next",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Corrects a conflated claim in plain language",
+    "marketAnchor": [
+      "Artificial intelligence"
+    ],
+    "source": "M14 \u00a714.1",
+    "depth": 0
+  },
+  {
+    "id": "mdf-paradigms",
+    "label": "Compare learning paradigms",
+    "description": "Separates supervised, unsupervised and reinforcement learning",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Classifies a described system by paradigm",
+    "marketAnchor": [
+      "Machine learning"
+    ],
+    "source": "M14 \u00a714.2",
+    "depth": 1
+  },
+  {
+    "id": "mdf-incontext",
+    "label": "Explain in-context learning",
+    "description": "Knows the model is not learning between calls",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains why a correction does not persist across sessions",
+    "marketAnchor": [
+      "Large language models"
+    ],
+    "source": "M14 \u00a714.2",
+    "depth": 2
+  },
+  {
+    "id": "mdf-transformer",
+    "label": "Explain the transformer at a working level",
+    "description": "Knows attention, parallelism and scaling",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Explains why context length costs what it costs",
+    "marketAnchor": [
+      "Machine learning"
+    ],
+    "source": "M14 \u00a714.3",
+    "depth": 2
+  },
+  {
+    "id": "mdf-tokens",
+    "label": "Explain tokenization",
+    "description": "Knows text becomes integer ids, not words",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Predicts why a string costs more tokens than expected",
+    "marketAnchor": [
+      "Large language models"
+    ],
+    "source": "M14 \u00a714.4",
+    "depth": 1
+  },
+  {
+    "id": "mdf-context",
+    "label": "Explain the context window",
+    "description": "Knows the hard limit and what fills it",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Counts tokens for a real payload before sending",
+    "marketAnchor": [
+      "Large language models"
+    ],
+    "source": "M14 \u00a714.4",
+    "depth": 2
+  },
+  {
+    "id": "mdf-economics",
+    "label": "Compute token economics",
+    "description": "Converts usage into cost per request",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Estimates monthly spend for a feature before building it",
+    "marketAnchor": [
+      "AI cost management"
+    ],
+    "source": "M14 \u00a714.4",
+    "depth": 3
+  },
+  {
+    "id": "mdf-landscape",
+    "label": "Navigate the model landscape",
+    "description": "Compares families and their tradeoffs",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Chooses a model for a task and defends it on cost and latency",
+    "marketAnchor": [
+      "Large language models"
+    ],
+    "source": "M14 \u00a714.5",
+    "depth": 3
+  },
+  {
+    "id": "mdf-nondeterminism",
+    "label": "Reason about nondeterministic output",
+    "description": "Knows the same input may not give the same output",
+    "subject": "ai",
+    "domain": "model-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Designs a test that tolerates variation without being useless",
+    "marketAnchor": [
+      "AI engineering"
+    ],
+    "source": "M14 \u00a714.5",
+    "depth": 3
+  },
+  {
+    "id": "mdi-client",
+    "label": "Configure a model client",
+    "description": "Authenticates and instantiates a client",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Calls a model from application code",
+    "marketAnchor": [
+      "Google Gemini",
+      "AI integration"
+    ],
+    "source": "M17 \u00a717.1",
+    "depth": 4
+  },
+  {
+    "id": "mdi-params",
+    "label": "Tune generation parameters",
+    "description": "Adjusts temperature and sampling deliberately",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains a parameter change by its effect on output",
+    "marketAnchor": [
+      "AI integration"
+    ],
+    "source": "M17 \u00a717.1",
+    "depth": 5
+  },
+  {
+    "id": "mdi-safety",
+    "label": "Configure safety settings",
+    "description": "Sets model-side content controls",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Justifies each safety threshold chosen",
+    "marketAnchor": [
+      "AI safety"
+    ],
+    "source": "M17 \u00a717.1",
+    "depth": 5
+  },
+  {
+    "id": "mdi-sync-async",
+    "label": "Choose sync or async calls",
+    "description": "Matches call style to the workload",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Converts a blocking model call to async",
+    "marketAnchor": [
+      "AI integration",
+      "Python"
+    ],
+    "source": "M17 \u00a717.2",
+    "depth": 6
+  },
+  {
+    "id": "mdi-stream",
+    "label": "Stream model output",
+    "description": "Consumes a token stream from the provider",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Streams a completion end to end",
+    "marketAnchor": [
+      "Streaming",
+      "AI integration"
+    ],
+    "source": "M17 \u00a717.2",
+    "depth": 7
+  },
+  {
+    "id": "mdi-session",
+    "label": "Maintain chat context",
+    "description": "Carries history across turns deliberately",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Multi-turn conversation stays coherent within budget",
+    "marketAnchor": [
+      "AI integration"
+    ],
+    "source": "M17 \u00a717.2",
+    "depth": 5
+  },
+  {
+    "id": "mdi-system",
+    "label": "Write system instructions",
+    "description": "Sets durable behavior separate from user input",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Behavior holds across varied user messages",
+    "marketAnchor": [
+      "AI integration"
+    ],
+    "source": "M17 \u00a717.2",
+    "depth": 6
+  },
+  {
+    "id": "mdi-structured",
+    "label": "Get structured output",
+    "description": "Constrains responses with a response schema",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Parses a typed object with no string cleanup",
+    "marketAnchor": [
+      "Structured output",
+      "Pydantic"
+    ],
+    "source": "M17 \u00a717.3",
+    "depth": 7
+  },
+  {
+    "id": "mdi-schemafail",
+    "label": "Handle schema validation failures",
+    "description": "Recovers when output does not match the schema",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Retries or degrades instead of crashing",
+    "marketAnchor": [
+      "AI engineering",
+      "reliability"
+    ],
+    "source": "M17 \u00a717.3",
+    "depth": 8
+  },
+  {
+    "id": "mdi-multimodal",
+    "label": "Process images and documents",
+    "description": "Sends non-text inputs to a model",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Answers a question about an uploaded PDF",
+    "marketAnchor": [
+      "Multimodal AI"
+    ],
+    "source": "M17 \u00a717.4",
+    "depth": 5
+  },
+  {
+    "id": "mdi-costcap",
+    "label": "Enforce spend caps in code",
+    "description": "Blocks calls that would exceed a budget",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A runaway loop hits the cap, not the invoice",
+    "marketAnchor": [
+      "AI cost management"
+    ],
+    "source": "M23 \u00a723.4",
+    "depth": 5
+  },
+  {
+    "id": "mdi-circuit",
+    "label": "Apply a circuit breaker to model calls",
+    "description": "Stops calling a failing upstream",
+    "subject": "ai",
+    "domain": "model-integration",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Repeated upstream failure trips the breaker",
+    "marketAnchor": [
+      "Reliability engineering"
+    ],
+    "source": "M23 \u00a723.4",
+    "depth": 8
+  },
+  {
+    "id": "tol-declare",
+    "label": "Declare tools for a model",
+    "description": "Describes callable functions and their schemas",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "A model calls the right tool with valid arguments",
+    "marketAnchor": [
+      "Function calling"
+    ],
+    "source": "M17 \u00a717.5",
+    "depth": 8
+  },
+  {
+    "id": "tol-execute",
+    "label": "Execute and return tool results",
+    "description": "Runs the call and feeds the result back",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Completes a round trip through a real tool",
+    "marketAnchor": [
+      "Function calling"
+    ],
+    "source": "M17 \u00a717.5",
+    "depth": 9
+  },
+  {
+    "id": "tol-parallel",
+    "label": "Orchestrate multiple tools",
+    "description": "Handles several calls, including in parallel",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Resolves a task requiring two different tools",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M17 \u00a717.5",
+    "depth": 10
+  },
+  {
+    "id": "tol-recover",
+    "label": "Recover from tool failure",
+    "description": "Handles a tool that errors or returns nothing",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A failed tool call does not end the interaction",
+    "marketAnchor": [
+      "Reliability engineering"
+    ],
+    "source": "M17 \u00a717.5",
+    "depth": 10
+  },
+  {
+    "id": "tol-mcp",
+    "label": "Expose capability over MCP",
+    "description": "Serves tools through a standard protocol",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "representational",
+    "exitDepth": "guided",
+    "evidence": "A separate client uses the same tools unmodified",
+    "marketAnchor": [
+      "Model Context Protocol"
+    ],
+    "source": "M20 \u00a720.2",
+    "depth": 9
+  },
+  {
+    "id": "tol-boundary",
+    "label": "Draw the model boundary",
+    "description": "Decides what the model does and what code does",
+    "subject": "ai",
+    "domain": "tools",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Justifies why a step is deterministic code, not a prompt",
+    "marketAnchor": [
+      "AI architecture"
+    ],
+    "source": "M20 \u00a720.4",
+    "depth": 10
+  },
+  {
+    "id": "prm-instruction",
+    "label": "Write direct instructions",
+    "description": "States the task plainly with the needed constraints",
+    "subject": "ai",
+    "domain": "prompting",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "A zero-shot instruction produces usable output",
+    "marketAnchor": [
+      "Prompt engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 5
+  },
+  {
+    "id": "prm-examples",
+    "label": "Use examples deliberately",
+    "description": "Adds examples where format matters and omits them where it does not",
+    "subject": "ai",
+    "domain": "prompting",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Justifies including or dropping few-shot examples",
+    "marketAnchor": [
+      "Prompt engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 6
+  },
+  {
+    "id": "prm-structure",
+    "label": "Structure prompts for reliable parsing",
+    "description": "Uses delimiters and format constraints",
+    "subject": "ai",
+    "domain": "prompting",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Output parses on the first attempt across a test set",
+    "marketAnchor": [
+      "Prompt engineering"
+    ],
+    "source": "M18 \u00a718.3",
+    "depth": 6
+  },
+  {
+    "id": "prm-templates",
+    "label": "Version prompts as templates",
+    "description": "Treats prompts as code with variables and history",
+    "subject": "ai",
+    "domain": "prompting",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "A prompt change is reviewable in a diff",
+    "marketAnchor": [
+      "Prompt engineering",
+      "MLOps"
+    ],
+    "source": "M18 \u00a718.5",
+    "depth": 7
+  },
+  {
+    "id": "prm-decay",
+    "label": "Recognize obsolete prompting tricks",
+    "description": "Knows which techniques stopped paying and why",
+    "subject": "ai",
+    "domain": "prompting",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Removes an incantation and shows the score did not drop",
+    "marketAnchor": [
+      "AI engineering"
+    ],
+    "source": "M18 \u00a718.2",
+    "depth": 0
+  },
+  {
+    "id": "ctx-budget",
+    "label": "Treat the context window as a budget",
+    "description": "Allocates tokens against cost, latency and accuracy",
+    "subject": "ai",
+    "domain": "context",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Cuts token spend on a working endpoint with no eval drop",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 4
+  },
+  {
+    "id": "ctx-position",
+    "label": "Account for position effects",
+    "description": "Knows the middle of a long context is weakest",
+    "subject": "ai",
+    "domain": "context",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Moves critical instructions and measures the difference",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 5
+  },
+  {
+    "id": "ctx-rot",
+    "label": "Recognize context rot",
+    "description": "Knows long histories degrade rather than accumulate",
+    "subject": "ai",
+    "domain": "context",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Identifies degradation across a long session",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 5
+  },
+  {
+    "id": "ctx-state",
+    "label": "Carry structured state instead of transcripts",
+    "description": "Replays a compact state object, not raw history",
+    "subject": "ai",
+    "domain": "context",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Replaces transcript replay and holds quality",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 6
+  },
+  {
+    "id": "ctx-compress",
+    "label": "Compress and summarize history",
+    "description": "Keeps meaning while dropping tokens",
+    "subject": "ai",
+    "domain": "context",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Halves history tokens without losing task state",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 7
+  },
+  {
+    "id": "ctx-cache",
+    "label": "Cache reusable context",
+    "description": "Reuses a stable prefix across calls",
+    "subject": "ai",
+    "domain": "context",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Cost per request drops measurably",
+    "marketAnchor": [
+      "AI cost management"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 5
+  },
+  {
+    "id": "ctx-evict",
+    "label": "Decide what to evict",
+    "description": "Chooses what leaves the window when it is full",
+    "subject": "ai",
+    "domain": "context",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Defends an eviction policy against a failure case",
+    "marketAnchor": [
+      "Context engineering"
+    ],
+    "source": "M18 \u00a718.1",
+    "depth": 6
+  },
+  {
+    "id": "ret-architecture",
+    "label": "Design a retriever-generator system",
+    "description": "Separates retrieval from generation",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Diagrams a RAG system and names its failure points",
+    "marketAnchor": [
+      "Retrieval-augmented generation"
+    ],
+    "source": "M19 \u00a719.1",
+    "depth": 12
+  },
+  {
+    "id": "ret-inject",
+    "label": "Inject retrieved context",
+    "description": "Places retrieved text where the model will use it",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Answers are grounded in retrieved chunks",
+    "marketAnchor": [
+      "Retrieval-augmented generation"
+    ],
+    "source": "M19 \u00a719.1",
+    "depth": 13
+  },
+  {
+    "id": "ret-hybrid",
+    "label": "Combine keyword and semantic search",
+    "description": "Runs hybrid retrieval and fuses results",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Hybrid beats vector-only on a held-out query set",
+    "marketAnchor": [
+      "Search",
+      "retrieval"
+    ],
+    "source": "M19 \u00a719.3",
+    "depth": 13
+  },
+  {
+    "id": "ret-rerank",
+    "label": "Rerank retrieved candidates",
+    "description": "Refines the top-k with a stronger model",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Precision at k improves on the eval set",
+    "marketAnchor": [
+      "Retrieval",
+      "ranking"
+    ],
+    "source": "M19 \u00a719.3",
+    "depth": 14
+  },
+  {
+    "id": "ret-expand",
+    "label": "Expand and rewrite queries",
+    "description": "Improves recall for badly phrased questions",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Poorly worded queries return the right documents",
+    "marketAnchor": [
+      "Retrieval"
+    ],
+    "source": "M19 \u00a719.3",
+    "depth": 13
+  },
+  {
+    "id": "ret-cite",
+    "label": "Return grounded citations",
+    "description": "Attributes each claim to its source chunk",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Every answer links to the chunk supporting it",
+    "marketAnchor": [
+      "Retrieval-augmented generation"
+    ],
+    "source": "M19 \u00a719.5",
+    "depth": 14
+  },
+  {
+    "id": "ret-metrics",
+    "label": "Measure retrieval quality",
+    "description": "Applies precision at k, recall at k and MRR",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Reports retrieval metrics before and after a change",
+    "marketAnchor": [
+      "Information retrieval"
+    ],
+    "source": "M19 \u00a719.4",
+    "depth": 13
+  },
+  {
+    "id": "ret-faithful",
+    "label": "Measure generation faithfulness",
+    "description": "Detects answers unsupported by context",
+    "subject": "ai",
+    "domain": "retrieval",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Catches a fabricated answer with a scored check",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M19 \u00a719.4",
+    "depth": 14
+  },
+  {
+    "id": "agt-loop",
+    "label": "Run an agent loop",
+    "description": "Cycles perceive, decide, act and observe",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Completes a multi-step task with a stop condition",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.1",
+    "depth": 10
+  },
+  {
+    "id": "agt-plan",
+    "label": "Plan before acting",
+    "description": "Decomposes a goal into ordered steps",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Produces a plan a human can approve before execution",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.1",
+    "depth": 11
+  },
+  {
+    "id": "agt-reflect",
+    "label": "Reflect on results",
+    "description": "Evaluates its own output and retries",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "A failed step is retried differently, not identically",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.1",
+    "depth": 11
+  },
+  {
+    "id": "agt-budget",
+    "label": "Bound loops with budgets",
+    "description": "Caps iterations, tokens and wall time",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A stuck loop terminates at the ceiling",
+    "marketAnchor": [
+      "AI agents",
+      "reliability"
+    ],
+    "source": "M20 \u00a720.4",
+    "depth": 11
+  },
+  {
+    "id": "agt-memory-short",
+    "label": "Manage working memory",
+    "description": "Holds task state across steps",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "State survives a step without replaying everything",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.3",
+    "depth": 11
+  },
+  {
+    "id": "agt-memory-long",
+    "label": "Persist long-term memory",
+    "description": "Stores and retrieves across sessions",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "A prior session's fact is recalled correctly",
+    "marketAnchor": [
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.3",
+    "depth": 12
+  },
+  {
+    "id": "agt-state-graph",
+    "label": "Model an agent as a state graph",
+    "description": "Makes transitions explicit rather than emergent",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "representational",
+    "exitDepth": "guided",
+    "evidence": "Draws the graph and names each transition condition",
+    "marketAnchor": [
+      "LangGraph",
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.4",
+    "depth": 12
+  },
+  {
+    "id": "agt-checkpoint",
+    "label": "Checkpoint and resume agent state",
+    "description": "Persists position so a run recovers",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "A crashed run resumes from its last checkpoint",
+    "marketAnchor": [
+      "AI agents",
+      "reliability"
+    ],
+    "source": "M20 \u00a720.4",
+    "depth": 13
+  },
+  {
+    "id": "agt-boundary",
+    "label": "Decide when a step needs an agent",
+    "description": "Uses an agent only where a step chooses its own next step",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Replaces an agent with a deterministic chain and defends it",
+    "marketAnchor": [
+      "AI architecture"
+    ],
+    "source": "M20 \u00a720.4",
+    "depth": 12
+  },
+  {
+    "id": "agt-multi",
+    "label": "Coordinate multiple agents",
+    "description": "Specializes roles and defines handoffs",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Two agents complete a task neither could alone",
+    "marketAnchor": [
+      "Multi-agent systems"
+    ],
+    "source": "M20 \u00a720.5",
+    "depth": 13
+  },
+  {
+    "id": "agt-hitl",
+    "label": "Insert human approval",
+    "description": "Pauses for a person at consequential steps",
+    "subject": "ai",
+    "domain": "agents",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "An irreversible action requires approval",
+    "marketAnchor": [
+      "AI safety",
+      "AI agents"
+    ],
+    "source": "M20 \u00a720.5",
+    "depth": 11
+  },
+  {
+    "id": "tst-pyramid",
+    "label": "Reason about the testing pyramid",
+    "description": "Places unit, integration and end-to-end tests",
+    "subject": "reliability",
+    "domain": "testing-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Justifies where a given test belongs",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M11 \u00a711.1",
+    "depth": 0
+  },
+  {
+    "id": "tst-tdd",
+    "label": "Write tests first",
+    "description": "Drives design from a failing test",
+    "subject": "reliability",
+    "domain": "testing-foundations",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Produces a feature with tests written before code",
+    "marketAnchor": [
+      "Test-driven development"
+    ],
+    "source": "M11 \u00a711.1",
+    "depth": 1
+  },
+  {
+    "id": "tst-coverage",
+    "label": "Interpret coverage honestly",
+    "description": "Knows what coverage does and does not prove",
+    "subject": "reliability",
+    "domain": "testing-foundations",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Explains why a covered line is still untested",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M11 \u00a711.1",
+    "depth": 1
+  },
+  {
+    "id": "tst-flaky",
+    "label": "Diagnose flaky tests",
+    "description": "Removes nondeterminism from a test suite",
+    "subject": "reliability",
+    "domain": "testing-foundations",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Fixes an intermittent failure at its cause",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M11 \u00a711.1",
+    "depth": 0
+  },
+  {
+    "id": "tsf-unit",
+    "label": "Unit test JavaScript",
+    "description": "Structures tests with describe, it and matchers",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Covers a utility module with meaningful assertions",
+    "marketAnchor": [
+      "Jest",
+      "JavaScript"
+    ],
+    "source": "M11 \u00a711.2",
+    "depth": 5
+  },
+  {
+    "id": "tsf-mock",
+    "label": "Mock dependencies",
+    "description": "Isolates the unit under test",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Tests a function without hitting the network",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M11 \u00a711.2",
+    "depth": 6
+  },
+  {
+    "id": "tsf-component",
+    "label": "Test components as a user would",
+    "description": "Queries by role and text, not implementation",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Test survives a refactor that changes internals",
+    "marketAnchor": [
+      "React Testing Library"
+    ],
+    "source": "M11 \u00a711.3",
+    "depth": 6
+  },
+  {
+    "id": "tsf-interaction",
+    "label": "Test user interactions",
+    "description": "Simulates clicks, typing and selection",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Asserts on outcome after an interaction",
+    "marketAnchor": [
+      "React Testing Library"
+    ],
+    "source": "M11 \u00a711.3",
+    "depth": 7
+  },
+  {
+    "id": "tsf-e2e",
+    "label": "Write end-to-end tests",
+    "description": "Drives a real browser through a real flow",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "A critical path is covered end to end",
+    "marketAnchor": [
+      "Playwright"
+    ],
+    "source": "M11 \u00a711.5",
+    "depth": 7
+  },
+  {
+    "id": "tsf-selectors",
+    "label": "Write durable selectors",
+    "description": "Locates elements without brittle coupling",
+    "subject": "reliability",
+    "domain": "testing-frontend",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Test survives a markup change",
+    "marketAnchor": [
+      "Playwright"
+    ],
+    "source": "M11 \u00a711.5",
+    "depth": 8
+  },
+  {
+    "id": "tsb-pytest",
+    "label": "Test Python with pytest",
+    "description": "Uses fixtures and parameterization",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Covers a module with fixtures instead of setup duplication",
+    "marketAnchor": [
+      "pytest",
+      "Python"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 5
+  },
+  {
+    "id": "tsb-async",
+    "label": "Test async code",
+    "description": "Awaits and asserts in async tests",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Covers an async path without event-loop errors",
+    "marketAnchor": [
+      "Python",
+      "software testing"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 6
+  },
+  {
+    "id": "tsb-client",
+    "label": "Test API endpoints",
+    "description": "Drives endpoints with a test client",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Covers happy path, validation failure and auth failure",
+    "marketAnchor": [
+      "FastAPI",
+      "software testing"
+    ],
+    "source": "M22 \u00a722.2",
+    "depth": 7
+  },
+  {
+    "id": "tsb-mockapi",
+    "label": "Mock external APIs",
+    "description": "Replaces upstreams with controlled responses",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Suite runs offline with no live API calls",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M22 \u00a722.1",
+    "depth": 7
+  },
+  {
+    "id": "tsb-stream",
+    "label": "Test streaming endpoints",
+    "description": "Asserts on a response that arrives in parts",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "guided",
+    "evidence": "Verifies chunk order and stream termination",
+    "marketAnchor": [
+      "Software testing",
+      "streaming"
+    ],
+    "source": "M22 \u00a722.2",
+    "depth": 9
+  },
+  {
+    "id": "tsb-integration",
+    "label": "Test against a real database",
+    "description": "Runs integration tests with fixtures and teardown",
+    "subject": "reliability",
+    "domain": "testing-backend",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Integration suite is repeatable and isolated",
+    "marketAnchor": [
+      "Software testing"
+    ],
+    "source": "M22 \u00a722.2",
+    "depth": 8
+  },
+  {
+    "id": "evl-silent",
+    "label": "Recognize silent LLM failure",
+    "description": "Knows fluent output can be wrong",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Identifies a confident wrong answer in review",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 4
+  },
+  {
+    "id": "evl-dataset",
+    "label": "Build an evaluation dataset",
+    "description": "Collects representative cases with expected outcomes",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "Assembles a 20-case set covering known failure modes",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 5
+  },
+  {
+    "id": "evl-deterministic",
+    "label": "Write deterministic checks",
+    "description": "Asserts on structure, format and constraints",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Catches malformed output without a model",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 6
+  },
+  {
+    "id": "evl-judge",
+    "label": "Use a model as a judge",
+    "description": "Scores output with a rubric-driven model",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Runs a judged eval over a dataset",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 8
+  },
+  {
+    "id": "evl-validate",
+    "label": "Validate the judge",
+    "description": "Checks the judge against human labels",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Reports judge agreement rates before trusting it",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 9
+  },
+  {
+    "id": "evl-human",
+    "label": "Run human evaluation",
+    "description": "Samples output for review where it matters",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "A human review round changes a shipping decision",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 0
+  },
+  {
+    "id": "evl-regression",
+    "label": "Gate changes on evals",
+    "description": "Blocks a regression before it ships",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "A prompt change that lowers the score fails CI",
+    "marketAnchor": [
+      "MLOps"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 9
+  },
+  {
+    "id": "evl-ladder",
+    "label": "Sequence evals by cost",
+    "description": "Runs cheap checks before expensive ones",
+    "subject": "reliability",
+    "domain": "evals",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Most failures are caught before a judge is invoked",
+    "marketAnchor": [
+      "LLM evaluation"
+    ],
+    "source": "M22 \u00a722.4",
+    "depth": 9
+  },
+  {
+    "id": "obs-tracing",
+    "label": "Trace LLM applications",
+    "description": "Captures spans across a request",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Reconstructs one request's full path from traces",
+    "marketAnchor": [
+      "LangSmith",
+      "observability"
+    ],
+    "source": "M23 \u00a723.1",
+    "depth": 5
+  },
+  {
+    "id": "obs-logging",
+    "label": "Emit structured logs",
+    "description": "Logs machine-readable events, not prose",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Queries logs by field to answer a question",
+    "marketAnchor": [
+      "Observability"
+    ],
+    "source": "M23 \u00a723.2",
+    "depth": 6
+  },
+  {
+    "id": "obs-correlate",
+    "label": "Correlate logs across services",
+    "description": "Threads a request id end to end",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Follows one user request across two services",
+    "marketAnchor": [
+      "Observability"
+    ],
+    "source": "M23 \u00a723.2",
+    "depth": 7
+  },
+  {
+    "id": "obs-pii",
+    "label": "Keep sensitive data out of logs",
+    "description": "Redacts before writing",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "A log review finds no user secrets",
+    "marketAnchor": [
+      "Security",
+      "privacy"
+    ],
+    "source": "M23 \u00a723.2",
+    "depth": 7
+  },
+  {
+    "id": "obs-metrics",
+    "label": "Instrument key metrics",
+    "description": "Records latency, tokens, errors and cost",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "A dashboard shows the four numbers that matter",
+    "marketAnchor": [
+      "Observability"
+    ],
+    "source": "M23 \u00a723.3",
+    "depth": 0
+  },
+  {
+    "id": "obs-alert",
+    "label": "Configure alerts",
+    "description": "Pages on symptoms, not causes",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "An alert fires on a real degradation, not on noise",
+    "marketAnchor": [
+      "Site reliability engineering"
+    ],
+    "source": "M23 \u00a723.3",
+    "depth": 1
+  },
+  {
+    "id": "obs-cost",
+    "label": "Track and control AI cost",
+    "description": "Attributes spend to features and users",
+    "subject": "reliability",
+    "domain": "observability",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Reports cost per request and reduces it",
+    "marketAnchor": [
+      "AI cost management"
+    ],
+    "source": "M23 \u00a723.4",
+    "depth": 4
+  },
+  {
+    "id": "prf-load",
+    "label": "Load-test a service",
+    "description": "Models virtual users and scenarios",
+    "subject": "reliability",
+    "domain": "performance",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Establishes a throughput ceiling with evidence",
+    "marketAnchor": [
+      "K6",
+      "performance testing"
+    ],
+    "source": "M22 \u00a722.3",
+    "depth": 7
+  },
+  {
+    "id": "prf-threshold",
+    "label": "Set performance thresholds",
+    "description": "Turns latency targets into pass-fail gates",
+    "subject": "reliability",
+    "domain": "performance",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "A regression fails the pipeline",
+    "marketAnchor": [
+      "Performance engineering"
+    ],
+    "source": "M22 \u00a722.3",
+    "depth": 8
+  },
+  {
+    "id": "prf-streamload",
+    "label": "Load-test streaming endpoints",
+    "description": "Measures time to first token under load",
+    "subject": "reliability",
+    "domain": "performance",
+    "type": "procedural",
+    "exitDepth": "guided",
+    "evidence": "Reports first-token latency at concurrency",
+    "marketAnchor": [
+      "Performance engineering"
+    ],
+    "source": "M22 \u00a722.3",
+    "depth": 9
+  },
+  {
+    "id": "del-container",
+    "label": "Containerize an application",
+    "description": "Writes a Dockerfile with multi-stage builds",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Image builds and runs identically anywhere",
+    "marketAnchor": [
+      "Docker"
+    ],
+    "source": "M24 \u00a724.1",
+    "depth": 7
+  },
+  {
+    "id": "del-compose",
+    "label": "Run a local stack",
+    "description": "Composes app, database and dependencies",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "One command brings the whole stack up",
+    "marketAnchor": [
+      "Docker"
+    ],
+    "source": "M24 \u00a724.1",
+    "depth": 8
+  },
+  {
+    "id": "del-imagesize",
+    "label": "Optimize image size and layers",
+    "description": "Cuts build time and surface area",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Image shrinks measurably without losing function",
+    "marketAnchor": [
+      "Docker",
+      "DevOps"
+    ],
+    "source": "M24 \u00a724.1",
+    "depth": 8
+  },
+  {
+    "id": "del-cloudrun",
+    "label": "Deploy a container to a managed runtime",
+    "description": "Configures service, scaling and secrets",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Service is live on a custom domain",
+    "marketAnchor": [
+      "Google Cloud Run"
+    ],
+    "source": "M24 \u00a724.2",
+    "depth": 8
+  },
+  {
+    "id": "del-secrets",
+    "label": "Manage secrets and environment config",
+    "description": "Separates configuration from code safely",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "No credential appears in the repository",
+    "marketAnchor": [
+      "Security",
+      "DevOps"
+    ],
+    "source": "M24 \u00a724.2",
+    "depth": 9
+  },
+  {
+    "id": "del-vercel",
+    "label": "Deploy a frontend with previews",
+    "description": "Ships preview and production deployments",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "procedural",
+    "exitDepth": "unassisted",
+    "evidence": "Every PR gets a working preview URL",
+    "marketAnchor": [
+      "Vercel"
+    ],
+    "source": "M12 \u00a712.1",
+    "depth": 7
+  },
+  {
+    "id": "del-actions",
+    "label": "Automate workflows with CI",
+    "description": "Writes jobs, steps and triggers",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "representational",
+    "exitDepth": "unassisted",
+    "evidence": "A push runs lint, types and tests automatically",
+    "marketAnchor": [
+      "GitHub Actions",
+      "CI/CD"
+    ],
+    "source": "M12 \u00a712.2",
+    "depth": 5
+  },
+  {
+    "id": "del-gates",
+    "label": "Gate merges on checks",
+    "description": "Requires green status before merge",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "A failing check blocks a merge",
+    "marketAnchor": [
+      "CI/CD"
+    ],
+    "source": "M12 \u00a712.3",
+    "depth": 6
+  },
+  {
+    "id": "del-cd",
+    "label": "Automate deployment",
+    "description": "Ships on merge with a defined path to production",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Merge to main reaches production without manual steps",
+    "marketAnchor": [
+      "CI/CD",
+      "DevOps"
+    ],
+    "source": "M12 \u00a712.4",
+    "depth": 9
+  },
+  {
+    "id": "del-rollback",
+    "label": "Roll back safely",
+    "description": "Reverts a bad release quickly",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Executes a rollback under time pressure",
+    "marketAnchor": [
+      "DevOps",
+      "incident response"
+    ],
+    "source": "M12 \u00a712.4",
+    "depth": 10
+  },
+  {
+    "id": "del-flags",
+    "label": "Ship behind feature flags",
+    "description": "Decouples deploy from release",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A feature ships dark and is enabled separately",
+    "marketAnchor": [
+      "DevOps"
+    ],
+    "source": "M12 \u00a712.4",
+    "depth": 0
+  },
+  {
+    "id": "del-checklist",
+    "label": "Run a production readiness review",
+    "description": "Verifies security, performance, monitoring and docs",
+    "subject": "reliability",
+    "domain": "delivery",
+    "type": "meta",
+    "exitDepth": "scaffolded",
+    "evidence": "Completes a launch checklist with evidence per item",
+    "marketAnchor": [
+      "Site reliability engineering"
+    ],
+    "source": "M24 \u00a724.4",
+    "depth": 11
+  },
+  {
+    "id": "hrn-define",
+    "label": "Distinguish a harness from an execution layer",
+    "description": "Knows what shell access alone does not give you",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Explains why bash access is not a harness",
+    "marketAnchor": [
+      "AI systems reliability"
+    ],
+    "source": "M32",
+    "depth": 11
+  },
+  {
+    "id": "hrn-checker",
+    "label": "Add an independent checker",
+    "description": "Separates the maker from the judge",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "Blocks a known failure mode without blocking correct work",
+    "marketAnchor": [
+      "AI systems reliability"
+    ],
+    "source": "M32",
+    "depth": 12
+  },
+  {
+    "id": "hrn-policy",
+    "label": "Write a policy layer",
+    "description": "Allowlists actions and sandboxes execution",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "representational",
+    "exitDepth": "guided",
+    "evidence": "A disallowed action is refused before it runs",
+    "marketAnchor": [
+      "AI safety",
+      "security"
+    ],
+    "source": "M32",
+    "depth": 15
+  },
+  {
+    "id": "hrn-ceiling",
+    "label": "Set retry and budget ceilings",
+    "description": "Bounds cost and looping at the harness level",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "A failing agent stops instead of retrying forever",
+    "marketAnchor": [
+      "AI systems reliability"
+    ],
+    "source": "M32",
+    "depth": 12
+  },
+  {
+    "id": "hrn-rollback",
+    "label": "Define rollback boundaries",
+    "description": "Makes agent actions reversible",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "An agent change is undone cleanly",
+    "marketAnchor": [
+      "AI systems reliability"
+    ],
+    "source": "M32",
+    "depth": 16
+  },
+  {
+    "id": "hrn-connective",
+    "label": "Separate connective from compensatory harness",
+    "description": "Knows which parts survive a model upgrade",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Labels each harness component and deletes a stale one",
+    "marketAnchor": [
+      "AI architecture"
+    ],
+    "source": "M32",
+    "depth": 13
+  },
+  {
+    "id": "hrn-discover",
+    "label": "Encode a harness after observed failure",
+    "description": "Builds on the second occurrence, not the first",
+    "subject": "reliability",
+    "domain": "harness",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Points to the failure log that justified a component",
+    "marketAnchor": [
+      "AI architecture"
+    ],
+    "source": "M32",
+    "depth": 14
+  },
+  {
+    "id": "saf-bias",
+    "label": "Identify sources of bias",
+    "description": "Traces unfair output to data and design",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "Names a plausible bias source in a real system",
+    "marketAnchor": [
+      "AI ethics"
+    ],
+    "source": "M25 \u00a725.1",
+    "depth": 2
+  },
+  {
+    "id": "saf-fairness",
+    "label": "Measure and mitigate bias",
+    "description": "Applies fairness metrics and monitors over time",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Reports a fairness metric before and after a change",
+    "marketAnchor": [
+      "AI ethics"
+    ],
+    "source": "M25 \u00a725.1",
+    "depth": 6
+  },
+  {
+    "id": "saf-injection",
+    "label": "Defend against prompt injection",
+    "description": "Treats retrieved and user content as untrusted",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "conceptual",
+    "exitDepth": "scaffolded",
+    "evidence": "An injected instruction in a document is not executed",
+    "marketAnchor": [
+      "AI security"
+    ],
+    "source": "M25 \u00a725.2",
+    "depth": 14
+  },
+  {
+    "id": "saf-poisoning",
+    "label": "Recognize data poisoning risk",
+    "description": "Knows how corrupted inputs propagate",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Names the ingestion point an attacker would target",
+    "marketAnchor": [
+      "AI security"
+    ],
+    "source": "M25 \u00a725.2",
+    "depth": 10
+  },
+  {
+    "id": "saf-pii",
+    "label": "Prevent PII leakage",
+    "description": "Keeps personal data out of prompts, logs and outputs",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "conceptual",
+    "exitDepth": "unassisted",
+    "evidence": "A red-team prompt fails to extract stored data",
+    "marketAnchor": [
+      "Privacy",
+      "AI security"
+    ],
+    "source": "M25 \u00a725.2",
+    "depth": 14
+  },
+  {
+    "id": "saf-filters",
+    "label": "Implement content safety filters",
+    "description": "Blocks disallowed content on input and output",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "procedural",
+    "exitDepth": "scaffolded",
+    "evidence": "Filter blocks a harmful request and logs it",
+    "marketAnchor": [
+      "AI safety"
+    ],
+    "source": "M25 \u00a725.5",
+    "depth": 15
+  },
+  {
+    "id": "saf-explain",
+    "label": "Make AI decisions explainable",
+    "description": "Surfaces why a system produced an output",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "A user-facing explanation survives scrutiny",
+    "marketAnchor": [
+      "AI governance"
+    ],
+    "source": "M25 \u00a725.3",
+    "depth": 6
+  },
+  {
+    "id": "saf-audit",
+    "label": "Maintain audit trails",
+    "description": "Records what the system did and on what basis",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "representational",
+    "exitDepth": "scaffolded",
+    "evidence": "Reconstructs a past decision from the audit log",
+    "marketAnchor": [
+      "AI governance",
+      "compliance"
+    ],
+    "source": "M25 \u00a725.3",
+    "depth": 8
+  },
+  {
+    "id": "saf-governance",
+    "label": "Apply AI governance frameworks",
+    "description": "Works within GDPR, ISO 42001 and model cards",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "conceptual",
+    "exitDepth": "guided",
+    "evidence": "Produces a model card for a shipped feature",
+    "marketAnchor": [
+      "AI governance",
+      "compliance"
+    ],
+    "source": "M25 \u00a725.4",
+    "depth": 9
+  },
+  {
+    "id": "saf-incident",
+    "label": "Run an AI incident response",
+    "description": "Detects, contains and reports a failure",
+    "subject": "reliability",
+    "domain": "safety",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Executes an incident runbook in a drill",
+    "marketAnchor": [
+      "Incident response"
+    ],
+    "source": "M25 \u00a725.4",
+    "depth": 11
+  },
+  {
+    "id": "car-portfolio",
+    "label": "Build a portfolio of shipped work",
+    "description": "Presents real commits to a real codebase",
+    "subject": "reliability",
+    "domain": "career",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Portfolio links to merged work with users",
+    "marketAnchor": [
+      "Career development"
+    ],
+    "source": "M08 \u00a78.10",
+    "depth": 6
+  },
+  {
+    "id": "car-behavioral",
+    "label": "Answer behavioral questions from service",
+    "description": "Translates military experience into engineering terms",
+    "subject": "reliability",
+    "domain": "career",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Tells a scoped story with a measurable outcome",
+    "marketAnchor": [
+      "Career development"
+    ],
+    "source": "M08 \u00a78.10",
+    "depth": 0
+  },
+  {
+    "id": "car-system-interview",
+    "label": "Handle a system design interview",
+    "description": "Reasons aloud about tradeoffs under questioning",
+    "subject": "reliability",
+    "domain": "career",
+    "type": "meta",
+    "exitDepth": "guided",
+    "evidence": "Designs a system and defends the tradeoffs",
+    "marketAnchor": [
+      "Technical interviewing",
+      "system design"
+    ],
+    "source": "M07 \u00a77.2",
+    "depth": 1
+  }
+]

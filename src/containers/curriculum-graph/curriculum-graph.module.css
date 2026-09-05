@@ -1,0 +1,963 @@
+/* Curriculum · The Hashflag Method — spec-sheet page around a 3D prerequisite graph.
+   Radius is 0 everywhere by design; the graph dots are the only round thing here. */
+
+.monoMeta,
+.monoLabel {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0;
+}
+
+.monoMeta {
+    font-size: 10.5px;
+    color: #6c757d;
+}
+
+.monoLabel {
+    font-size: 10.5px;
+    color: #6c757d;
+}
+
+.monoLabelSpaced {
+    margin-top: 26px;
+}
+
+/* ========== META STRIP ========== */
+.metaStrip {
+    background: #091f40;
+    border-bottom: 1px solid rgba(185, 214, 242, 0.12);
+    padding: 18px 24px;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.75);
+    text-align: right;
+}
+
+/* ========== HERO ========== */
+.hero {
+    background:
+        linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%), #091f40;
+    padding: 88px 0 170px;
+}
+
+.eyebrowDark,
+.eyebrowLight {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.eyebrowDark {
+    color: rgba(185, 214, 242, 0.7);
+}
+
+.eyebrowLight {
+    color: #6c757d;
+}
+
+.eyebrowBar {
+    display: inline-block;
+    width: 16px;
+    height: 2px;
+    background: #c5203e;
+    flex-shrink: 0;
+}
+
+.heroTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 6.2vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #fff;
+    max-width: 16em;
+    margin: 22px 0 0;
+    text-wrap: pretty;
+}
+
+.heroLede {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(248, 249, 250, 0.82);
+    max-width: 640px;
+    margin: 26px 0 0;
+}
+
+/* ========== GRAPH PANEL ========== */
+.panelSection {
+    padding: 0 0 96px;
+    background: #fff;
+}
+
+.panel {
+    margin-top: -120px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.toolbar {
+    padding: 18px 24px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #495057;
+}
+
+.legendItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legendDot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dotWhite {
+    background: #fff;
+    border: 1px solid #091f40;
+}
+
+.dotGold {
+    background: #fdb330;
+}
+
+.dotRed {
+    background: #c5203e;
+}
+
+.dotHollow {
+    background: transparent;
+    border: 2px solid #091f40;
+}
+
+.filterRow {
+    padding: 14px 24px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.phaseToggle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 7px 10px;
+    border: 1px solid #dee2e6;
+    background: transparent;
+    color: #6c757d;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.phaseToggleOn {
+    background: #091f40;
+    border-color: #091f40;
+    color: #fff;
+}
+
+.panelBody {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 860px) {
+    .panelBody {
+        grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
+    }
+}
+
+.canvasCell {
+    position: relative;
+    background: #091f40;
+    border-right: 1px solid #dee2e6;
+}
+
+.canvas {
+    display: block;
+    width: 100%;
+    height: clamp(430px, 58vh, 620px);
+    touch-action: none;
+    cursor: grab;
+}
+
+.canvasHint {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 16px;
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(185, 214, 242, 0.65);
+}
+
+/* ========== INSPECTOR ========== */
+.inspector {
+    padding: 26px 24px 30px;
+    background: #f8f9fa;
+    max-height: clamp(430px, 58vh, 620px);
+    overflow-y: auto;
+}
+
+.inspectorHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.clearButton {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #c5203e;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.inspectorHeading {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 10px 0 0;
+}
+
+.inspectorBody {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #495057;
+    margin: 14px 0 0;
+}
+
+.inspectorNote {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 10px 0 0;
+}
+
+.indexGroup {
+    margin-top: 14px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* 375 concepts is far too many for a flat list, so each subject collapses. */
+.indexGroupLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #091f40;
+}
+
+.indexGroupLabel::-webkit-details-marker {
+    display: none;
+}
+
+.indexGroupLabel::after {
+    content: "+";
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.indexGroup[open] > .indexGroupLabel::after {
+    content: "−";
+}
+
+.indexGroupCount {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+.inspectorDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 8px 0 0;
+}
+
+.chipRow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.conceptChip,
+.unlockChip {
+    font-family: GothamPro, system-ui, sans-serif;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    color: #091f40;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.conceptChip {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.35;
+    padding: 7px 9px;
+}
+
+.unlockChip {
+    font-weight: 500;
+    font-size: 12.5px;
+    padding: 8px 11px;
+    border-left: 2px solid #fdb330;
+}
+
+.conceptChip:hover,
+.unlockChip:hover,
+.unitChip:hover,
+.phaseToggle:hover {
+    border-color: #c5203e;
+}
+
+.defList {
+    display: grid;
+    gap: 9px 18px;
+    margin: 18px 0 0;
+}
+
+.defRow {
+    display: grid;
+    grid-template-columns: minmax(92px, auto) 1fr;
+    gap: 9px 18px;
+}
+
+.defTerm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+}
+
+.defValue {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #1a1823;
+    margin: 0;
+}
+
+.rule {
+    border: 0;
+    border-top: 1px solid #dee2e6;
+    margin: 22px 0 14px;
+}
+
+.prereqList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 14px;
+}
+
+.prereqRow {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.kindChip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 6px;
+    white-space: nowrap;
+    border: 1px solid currentcolor;
+}
+
+.kindRequired {
+    color: #c5203e;
+}
+
+.kindHelpful {
+    color: #003559;
+}
+
+.prereqName {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #091f40;
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #dee2e6;
+    text-underline-offset: 3px;
+}
+
+.prereqName:hover {
+    text-decoration-color: #c5203e;
+}
+
+.prereqReason {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 6px 0 0;
+}
+
+.panelFooter {
+    padding: 14px 24px;
+    border-top: 1px solid #dee2e6;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6c757d;
+}
+
+/* ========== MANIFEST ========== */
+.manifestSection {
+    background: #fff;
+    padding: 0 0 104px;
+}
+
+.manifestGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    border-top: 1px solid #091f40;
+    margin-top: 26px;
+}
+
+.manifestCell {
+    padding: 26px 22px 24px;
+    border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.manifestCell:last-child {
+    border-right: 0;
+}
+
+.manifestValue {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 4vw, 54px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: #091f40;
+    margin: 0;
+}
+
+.manifestValueAccent {
+    color: #c5203e;
+}
+
+.manifestLabel {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6c757d;
+    margin: 10px 0 0;
+}
+
+.manifestGloss {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 8px 0 0;
+}
+
+/* ========== FOUR LAYERS ========== */
+.layersSection {
+    background: #eeede9;
+    padding: 104px 0;
+}
+
+.layerGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: #dee2e6;
+    margin-top: 48px;
+}
+
+.layerCard {
+    background: #eeede9;
+    padding: 30px 28px 34px;
+}
+
+.layerHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.layerIndex {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    color: #c5203e;
+}
+
+.cardHeading {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 20px 0 12px;
+}
+
+.cardBody {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #495057;
+    margin: 0;
+}
+
+/* ========== EDGE ANATOMY ========== */
+.edgeSection {
+    background:
+        linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%), #091f40;
+    padding: 104px 0;
+}
+
+.edgeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 52px;
+}
+
+.edgeCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(185, 214, 242, 0.14);
+    padding: 32px 30px 34px;
+}
+
+.edgeCardHead {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.75);
+    margin: 0;
+}
+
+.edgeCardTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 16px 0 0;
+}
+
+.edgeDiagram {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 26px 0;
+}
+
+.edgeNode {
+    border: 1px solid rgba(185, 214, 242, 0.4);
+    padding: 9px 12px;
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: #fff;
+}
+
+.edgeCardBody {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(248, 249, 250, 0.86);
+    margin: 0;
+}
+
+.pullQuote {
+    margin: 52px 0 0;
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(19px, 2.2vw, 26px);
+    line-height: 1.4;
+    color: #fff;
+    max-width: 860px;
+    padding-left: 22px;
+    border-left: 2px solid #c5203e;
+}
+
+/* ========== NODE ANATOMY ========== */
+.nodeSection {
+    background: #fff;
+    padding: 104px 0;
+}
+
+.nodeGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
+    margin-top: 48px;
+}
+
+.recordCard {
+    border: 1px solid #091f40;
+}
+
+.recordHeader {
+    background: #091f40;
+    padding: 22px 24px;
+}
+
+.recordKicker {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.75);
+    margin: 0;
+}
+
+.recordTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(22px, 2.6vw, 30px);
+    text-transform: uppercase;
+    color: #fff;
+    margin: 10px 0 0;
+}
+
+.recordTable {
+    margin: 0;
+}
+
+.recordRow {
+    display: grid;
+    grid-template-columns: minmax(120px, auto) 1fr;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.recordRow:last-child {
+    border-bottom: 0;
+}
+
+.recordTerm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 14px 16px;
+}
+
+.recordValue {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 14px 18px;
+    margin: 0;
+    color: #1a1823;
+}
+
+.recordAside {
+    color: #6c757d;
+}
+
+.longForm {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #495057;
+    margin: 0 0 20px;
+}
+
+.footnote {
+    border-top: 1px solid #dee2e6;
+    padding-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6c757d;
+    margin: 24px 0 0;
+}
+
+/* ========== PHASES ========== */
+.phasesSection {
+    background: #eeede9;
+    padding: 104px 0;
+}
+
+.phaseTable {
+    border-top: 1px solid #091f40;
+    margin-top: 48px;
+}
+
+.phaseRow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 8px 30px;
+    padding: 26px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.threadRow {
+    border-bottom: 1px solid #091f40;
+}
+
+.phaseHead {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+}
+
+.phaseIndex,
+.threadLabel {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    color: #c5203e;
+}
+
+.threadLabel {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.phaseName {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 0;
+}
+
+.unitChips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 8px;
+    grid-column: span 2;
+}
+
+.unitChipCount {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+    margin-left: 8px;
+}
+
+.unitChip {
+    display: inline-flex;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 12px;
+    color: #091f40;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding: 8px 11px;
+    transition: border-color 0.2s ease;
+}
+
+/* ========== THREE QUESTIONS ========== */
+.questionsSection {
+    background: #fff;
+    padding: 104px 0;
+}
+
+.questionGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 30px;
+    margin-top: 48px;
+}
+
+.questionCard {
+    border: 1px solid #dee2e6;
+    border-top: 2px solid #091f40;
+    padding: 30px 28px 34px;
+}
+
+.questionTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 16px 0 12px;
+}
+
+/* ========== PROVENANCE ========== */
+.provenanceSection {
+    background:
+        linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%), #091f40;
+    padding: 104px 0;
+}
+
+.provenanceGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1px;
+    background: rgba(185, 214, 242, 0.14);
+    margin-top: 48px;
+}
+
+.provenanceCell {
+    background: #091f40;
+    padding: 28px 26px 30px;
+}
+
+.provenanceKicker {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.7);
+    margin: 0;
+}
+
+.provenanceTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 12px 0;
+}
+
+.provenanceBody {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(248, 249, 250, 0.82);
+    margin: 0;
+}
+
+.provenanceStrip {
+    background: #091f40;
+    border-top: 1px solid rgba(185, 214, 242, 0.12);
+    padding: 26px 24px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.6);
+}
+
+/* ========== CTA ========== */
+.ctaSection {
+    background: #eeede9;
+    padding: 70px 0;
+}
+
+.ctaInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.ctaTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 34px);
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 0 0 10px;
+}
+
+/* Focus ring — gold, per the design system. */
+.panel :focus-visible,
+.ctaSection :focus-visible {
+    outline: 3px solid #fdb330;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .phaseToggle,
+    .conceptChip,
+    .unlockChip,
+    .unitChip {
+        transition: none;
+    }
+}
