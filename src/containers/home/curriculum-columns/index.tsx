@@ -25,11 +25,7 @@ const CurriculumColumns = () => {
 
                 <div className={styles.grid}>
                     {PHASES.map((phase) => (
-                        <Link
-                            key={phase.id}
-                            href={`/programs/core-curriculum#${phase.id}`}
-                            className={styles.card}
-                        >
+                        <Link key={phase.id} href="/curriculum" className={styles.card}>
                             <span className={styles.cardNum}>PHASE / {phase.num}</span>
                             <h3 className={styles.cardName}>{phase.name}</h3>
                             <p className={styles.cardTagline}>{phase.tagline}</p>
@@ -37,7 +33,7 @@ const CurriculumColumns = () => {
                                 <span className={styles.cardDuration}>{phase.durationLabel}</span>
                                 <p className={styles.cardOutcome}>{phase.outcome}</p>
                                 <span className={styles.cardCta}>
-                                    View phase{" "}
+                                    See the skill map{" "}
                                     <span className={styles.arrow} aria-hidden="true">
                                         →
                                     </span>
@@ -48,8 +44,11 @@ const CurriculumColumns = () => {
                 </div>
 
                 <div className={styles.foot}>
-                    <Link href="/programs/core-curriculum" className={styles.viewAll}>
-                        See the full curriculum <span aria-hidden="true">→</span>
+                    <Link href="/curriculum" className={styles.viewAll}>
+                        See the full skill map <span aria-hidden="true">→</span>
+                    </Link>
+                    <Link href="/programs/accelerator" className={styles.viewAll}>
+                        About the program <span aria-hidden="true">→</span>
                     </Link>
                 </div>
             </div>

@@ -29,7 +29,7 @@ const CtaBand = () => (
                     Apply for Cohort 2027 →
                 </Link>
                 <Link
-                    href="/programs/core-curriculum"
+                    href="/programs/accelerator"
                     className="tw-inline-flex tw-items-center tw-gap-2 tw-border tw-border-cream/[0.18] tw-px-7 tw-py-4 tw-font-mono tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-cream tw-transition-colors hover:tw-border-cream hover:tw-bg-cream/5 active:tw-scale-[0.97]"
                 >
                     Read the curriculum

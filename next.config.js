@@ -109,6 +109,11 @@ const nextConfig = {
                 destination: "/programs/software-factory",
                 permanent: true,
             },
+            {
+                source: "/programs/core-curriculum",
+                destination: "/programs/accelerator",
+                permanent: true,
+            },
         ];
     },
 

@@ -70,8 +70,8 @@ const navigation: NavigationItem[] = [
             },
             {
                 id: 902,
-                label: "Core Curriculum",
-                path: "/programs/core-curriculum",
+                label: "Software Engineering Accelerator",
+                path: "/programs/accelerator",
             },
             {
                 id: 904,

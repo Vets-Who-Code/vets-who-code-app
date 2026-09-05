@@ -95,7 +95,7 @@ const SkillBridgeSection = ({ code, skillsYouHave, skillsToLearn }: Props) => {
                                 square one.
                             </p>
                             <Link
-                                href="/programs/core-curriculum"
+                                href="/programs/accelerator"
                                 className="tw-mt-5 tw-inline-flex tw-items-center tw-gap-2 tw-border tw-border-accent tw-px-5 tw-py-3 tw-font-mono tw-text-[11.5px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-accent tw-transition-colors hover:tw-bg-accent hover:tw-text-secondary active:tw-scale-[0.97]"
                             >
                                 See VWC Programs →
