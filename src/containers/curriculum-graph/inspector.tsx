@@ -1,21 +1,22 @@
-import { ancestors, type Graph, type PhaseModule } from "@lib/curriculum-graph";
+import { ancestors, type Graph, type Subject } from "@lib/curriculum-graph";
 import styles from "./curriculum-graph.module.css";
 
 type InspectorProps = {
     graph: Graph | null;
-    phases: PhaseModule[];
+    subjects: Subject[];
     selected: string | null;
     onSelect: (id: string | null) => void;
 };
 
-const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
+const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
     const node = selected && graph ? graph.byId[selected] : null;
 
     if (!node || !graph || !selected) {
-        const groups = phases
-            .map((p) => ({
-                label: `0${p.phaseIndex} · ${p.phase}`,
-                items: (graph?.topics ?? []).filter((t) => t.phaseIndex === p.phaseIndex),
+        const groups = subjects
+            .map((s) => ({
+                id: s.id,
+                title: s.title,
+                items: (graph?.topics ?? []).filter((t) => t.subject === s.id),
             }))
             .filter((g) => g.items.length > 0);
 
@@ -30,8 +31,11 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
                 </p>
                 <p className={`${styles.monoLabel} ${styles.monoLabelSpaced}`}>Concept index</p>
                 {groups.map((group) => (
-                    <div key={group.label} className={styles.indexGroup}>
-                        <p className={styles.indexGroupLabel}>{group.label}</p>
+                    <details key={group.id} className={styles.indexGroup}>
+                        <summary className={styles.indexGroupLabel}>
+                            {group.title}
+                            <span className={styles.indexGroupCount}>{group.items.length}</span>
+                        </summary>
                         <div className={styles.chipRow}>
                             {group.items.map((t) => (
                                 <button
@@ -40,33 +44,35 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
                                     className={styles.conceptChip}
                                     onClick={() => onSelect(t.id)}
                                 >
-                                    {t.name}
+                                    {t.label}
                                 </button>
                             ))}
                         </div>
-                    </div>
+                    </details>
                 ))}
             </div>
         );
     }
 
+    const subjectTitle = subjects.find((s) => s.id === node.subject)?.title ?? node.subject;
     const prereqs = (graph.preds[selected] || [])
         .slice()
         .sort((a, b) => {
-            if (a.kind === b.kind) return 0;
-            return a.kind === "required" ? -1 : 1;
+            if (a.strength === b.strength) return 0;
+            return a.strength === "hard" ? -1 : 1;
         })
-        .map((e) => ({ edge: e, topic: graph.byId[e.from] }));
-    const unlocks = (graph.succs[selected] || []).map((e) => graph.byId[e.to]);
+        .map((e) => ({ edge: e, topic: graph.byId[e.prerequisiteId] }));
+    const unlocks = (graph.succs[selected] || []).map((e) => graph.byId[e.topicId]);
     const upstream = ancestors(graph, selected).size - 1;
 
     const fields: [string, string][] = [
-        ["Unit", node.unit],
-        ["Phase", `0${node.phaseIndex} — ${node.phase}`],
+        ["Subject", subjectTitle],
+        ["Domain", node.domain],
         ["Type", node.type],
         ["Exit depth", node.exitDepth],
-        ["Role band", `${node.roleBand} · ${node.marketAnchor}`],
+        ["Market anchor", node.marketAnchor.join(" · ")],
         ["Evidence", node.evidence],
+        ["Source", node.source],
     ];
 
     return (
@@ -77,7 +83,8 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
                     Clear
                 </button>
             </div>
-            <h3 className={styles.inspectorHeading}>{node.name}</h3>
+            <h3 className={styles.inspectorHeading}>{node.label}</h3>
+            <p className={styles.inspectorDescription}>{node.description}</p>
 
             <dl className={styles.defList}>
                 {fields.map(([term, value]) => (
@@ -100,23 +107,26 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
             ) : (
                 <div className={styles.prereqList}>
                     {prereqs.map(({ edge, topic }) => (
-                        <div key={`${edge.from}-${edge.to}`} className={styles.prereqRow}>
+                        <div
+                            key={`${edge.prerequisiteId}-${edge.topicId}`}
+                            className={styles.prereqRow}
+                        >
                             <span
                                 className={`${styles.kindChip} ${
-                                    edge.kind === "required"
+                                    edge.strength === "hard"
                                         ? styles.kindRequired
                                         : styles.kindHelpful
                                 }`}
                             >
-                                {edge.kind}
+                                {edge.strength === "hard" ? "required" : "helpful"}
                             </span>
                             <div>
                                 <button
                                     type="button"
                                     className={styles.prereqName}
-                                    onClick={() => onSelect(edge.from)}
+                                    onClick={() => onSelect(edge.prerequisiteId)}
                                 >
-                                    {topic.name}
+                                    {topic.label}
                                 </button>
                                 <p className={styles.prereqReason}>{edge.reason}</p>
                             </div>
@@ -126,10 +136,10 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
             )}
 
             <hr className={styles.rule} />
-            <p className={styles.monoLabel}>Unlocks next</p>
+            <p className={styles.monoLabel}>Unlocks next &nbsp;·&nbsp; {unlocks.length}</p>
             {unlocks.length === 0 ? (
                 <p className={styles.inspectorNote}>
-                    Nothing in this subgraph waits on it — it is a terminal node here.
+                    Nothing waits on it — this concept is a terminal node in the graph.
                 </p>
             ) : (
                 <div className={styles.chipRow}>
@@ -140,7 +150,7 @@ const Inspector = ({ graph, phases, selected, onSelect }: InspectorProps) => {
                             className={styles.unlockChip}
                             onClick={() => onSelect(t.id)}
                         >
-                            {t.name}
+                            {t.label}
                         </button>
                     ))}
                 </div>

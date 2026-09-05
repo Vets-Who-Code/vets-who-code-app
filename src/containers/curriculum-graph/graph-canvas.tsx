@@ -1,4 +1,4 @@
-import { ancestors, type Graph, type Point } from "@lib/curriculum-graph";
+import { ancestors, bandColor, type Graph, type Point } from "@lib/curriculum-graph";
 import { useEffect, useRef } from "react";
 import styles from "./curriculum-graph.module.css";
 
@@ -13,18 +13,24 @@ type GraphCanvasProps = {
 
 // Camera distance at zoom 1.
 const BASE_DIST = 710;
-// Fraction of the canvas's short side the cloud's projected radius aims to fill.
-const FRAME_FILL = 0.6;
+// Initial camera tilt; the framing is solved at this pitch.
+const BASE_PITCH = 0.28;
+// Fraction of the canvas the cloud's projected extent should occupy.
+const FRAME_FILL = 0.92;
+// Yaw samples used to solve the framing. The cloud spins, so the framing has to hold for
+// every yaw or it would visibly breathe as it rotates.
+const FIT_SAMPLES = 16;
+
+/**
+ * Dot radii are specified for a couple of dozen nodes. At full dataset size the same radii
+ * collide into a blob, so scale them down with density — floored, so a dot stays a target
+ * you can actually hit.
+ */
+const dotScale = (nodeCount: number) =>
+    Math.max(0.52, Math.min(1, Math.sqrt(120 / Math.max(1, nodeCount))));
 
 const NAVY = "#091f40";
-const GOLD = "#FDB330";
 const RED = "#c5203e";
-
-const phaseColor = (phaseIndex: number) => {
-    if (phaseIndex <= 2) return "#ffffff";
-    if (phaseIndex <= 4) return GOLD;
-    return RED;
-};
 
 /**
  * Canvas 2D prerequisite map with a hand-rolled 3D projection.
@@ -54,16 +60,63 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         /**
-         * Focal length that frames the cloud in the canvas. Derived from the bounding-sphere
-         * radius, which does not change as the camera spins, so the framing holds through a
-         * rotation and re-fits when a phase filter changes the visible node count.
+         * Solve the framing in screen space rather than from a world-space bounding box.
+         * Perspective magnifies the near side of the cloud, so a world-centred cloud still
+         * lands off-centre and clips. This projects at unit focal length across a full turn
+         * of yaw and derives the focal length and centre offset that keep every node inside
+         * the canvas at any rotation.
+         *
+         * Solved once per (graph, canvas size) at the base pitch and zoom 1, so the wheel
+         * still zooms — re-solving on zoom would cancel it out — and so the framing does not
+         * rescale while the cloud spins.
          */
-        const focal = (w: number, h: number, radius: number) => {
-            if (!radius) return 820;
-            // Fixed reference distance, not the live zoom distance — deriving it from the
-            // zoom would cancel out of `f / depth` and leave the wheel doing nothing.
-            return (FRAME_FILL * Math.min(w, h) * BASE_DIST) / radius;
+        const solveFit = (w: number, h: number, g: Graph) => {
+            const cp = Math.cos(BASE_PITCH);
+            const sp = Math.sin(BASE_PITCH);
+            let f = Number.POSITIVE_INFINITY;
+            let sumCx = 0;
+            let sumCy = 0;
+            for (let i = 0; i < FIT_SAMPLES; i += 1) {
+                const yaw = (i / FIT_SAMPLES) * Math.PI * 2;
+                const cyw = Math.cos(yaw);
+                const syw = Math.sin(yaw);
+                let minX = Number.POSITIVE_INFINITY;
+                let maxX = Number.NEGATIVE_INFINITY;
+                let minY = Number.POSITIVE_INFINITY;
+                let maxY = Number.NEGATIVE_INFINITY;
+                for (const t of g.topics) {
+                    const p = g.positions[t.id];
+                    const x1 = p.x * cyw - p.z * syw;
+                    const z1 = p.x * syw + p.z * cyw;
+                    const y1 = p.y * cp - z1 * sp;
+                    const z2 = p.y * sp + z1 * cp;
+                    const depth = Math.max(140, z2 + BASE_DIST);
+                    const sx = x1 / depth;
+                    const sy = y1 / depth;
+                    if (sx < minX) minX = sx;
+                    if (sx > maxX) maxX = sx;
+                    if (sy < minY) minY = sy;
+                    if (sy > maxY) maxY = sy;
+                }
+                // Per-yaw, not pooled across yaws: pooling frames the union of every
+                // rotation, which squeezes the cloud to a fraction of the canvas.
+                f = Math.min(
+                    f,
+                    (FRAME_FILL * w) / (maxX - minX || 1),
+                    (FRAME_FILL * h) / (maxY - minY || 1)
+                );
+                sumCx += (minX + maxX) / 2;
+                sumCy += (minY + maxY) / 2;
+            }
+            return {
+                f,
+                ox: (-f * sumCx) / FIT_SAMPLES,
+                oy: (-f * sumCy) / FIT_SAMPLES,
+            };
         };
+
+        let fit = { f: 820, ox: 0, oy: 0 };
+        let fitKey = "";
 
         const project = (p: Point, cx: number, cy: number, f: number): Projected => {
             const { yaw, pitch, zoom } = cam.current;
@@ -78,7 +131,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             const dist = BASE_DIST / zoom;
             const depth = Math.max(140, z2 + dist);
             const s = f / depth;
-            return { x: cx + x1 * s, y: cy + y1 * s, k: dist / depth, d: depth };
+            return { x: cx + fit.ox + x1 * s, y: cy + fit.oy + y1 * s, k: dist / depth, d: depth };
         };
 
         const draw = () => {
@@ -100,7 +153,13 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
 
             const cx = w / 2;
             const cy = h / 2;
-            const f = focal(w, h, g.radius);
+            const key = `${g.topics.length}:${g.edges.length}:${w}x${h}`;
+            if (key !== fitKey) {
+                fitKey = key;
+                fit = solveFit(w, h, g);
+            }
+            const f = fit.f;
+            const dots = dotScale(g.topics.length);
             const pts: Record<string, Projected> = {};
             for (const t of g.topics) pts[t.id] = project(g.positions[t.id], cx, cy, f);
             points.current = pts;
@@ -108,17 +167,22 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             const sel = selRef.current;
             const anc = ancestors(g, sel);
             const unlocks = new Set<string>();
-            if (sel) for (const e of g.succs[sel] || []) unlocks.add(e.to);
+            if (sel) for (const e of g.succs[sel] || []) unlocks.add(e.topicId);
 
             const sortedEdges = g.edges
                 .slice()
-                .sort((a, b) => pts[b.from].d + pts[b.to].d - (pts[a.from].d + pts[a.to].d));
+                .sort(
+                    (a, b) =>
+                        pts[b.prerequisiteId].d +
+                        pts[b.topicId].d -
+                        (pts[a.prerequisiteId].d + pts[a.topicId].d)
+                );
             for (const e of sortedEdges) {
-                const a = pts[e.from];
-                const b = pts[e.to];
-                const upstream = !!sel && anc.has(e.from) && anc.has(e.to);
-                const touching = !!sel && (e.from === sel || e.to === sel);
-                const required = e.kind === "required";
+                const a = pts[e.prerequisiteId];
+                const b = pts[e.topicId];
+                const upstream = !!sel && anc.has(e.prerequisiteId) && anc.has(e.topicId);
+                const touching = !!sel && (e.prerequisiteId === sel || e.topicId === sel);
+                const required = e.strength === "hard";
                 ctx.save();
                 ctx.setLineDash(required ? [] : [5, 4]);
                 ctx.lineWidth = upstream || touching ? 1.8 : 1;
@@ -152,8 +216,8 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
 
             const direct = new Set<string>();
             if (sel) {
-                for (const e of g.preds[sel] || []) direct.add(e.from);
-                for (const e of g.succs[sel] || []) direct.add(e.to);
+                for (const e of g.preds[sel] || []) direct.add(e.prerequisiteId);
+                for (const e of g.succs[sel] || []) direct.add(e.topicId);
             }
 
             const sortedTopics = g.topics.slice().sort((a, b) => pts[b.id].d - pts[a.id].d);
@@ -166,8 +230,8 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 let radius = 5.2;
                 if (isSel) radius = 8.4;
                 else if (isAnc || isUnlock) radius = 6.4;
-                const r = radius * Math.min(1.5, p.k);
-                const hue = phaseColor(t.phaseIndex);
+                const r = radius * dots * Math.min(1.5, p.k);
+                const hue = bandColor(t.subject);
 
                 ctx.save();
                 ctx.globalAlpha = dim ? 0.18 : 1;
@@ -202,7 +266,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 }
                 if (isSel || direct.has(t.id) || t.id === hover.current) {
                     ctx.font = `${isSel ? "700 13px" : "500 11.5px"} GothamPro, system-ui, sans-serif`;
-                    const tw = ctx.measureText(t.name).width;
+                    const tw = ctx.measureText(t.label).width;
                     const flip = p.x + r + 12 + tw > w - 10;
                     const lx = flip ? Math.max(8, p.x - r - 8 - tw) : p.x + r + 8;
                     const ly = Math.max(16, Math.min(h - 8, p.y + 4));
@@ -211,7 +275,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                     ctx.fillRect(lx - 4, ly - 12, tw + 8, 17);
                     ctx.fillStyle =
                         isSel || isAnc || isUnlock ? "#ffffff" : "rgba(255,255,255,0.86)";
-                    ctx.fillText(t.name, lx, ly);
+                    ctx.fillText(t.label, lx, ly);
                 }
                 ctx.restore();
             }

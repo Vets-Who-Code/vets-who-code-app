@@ -1,33 +1,33 @@
-import { buildGraph, EDGES, PHASE_MODULES, TOPICS } from "@lib/curriculum-graph";
+import {
+    buildGraph,
+    EDGES,
+    MANIFEST,
+    SUBJECT_BANDS,
+    SUBJECTS,
+    TOPICS,
+} from "@lib/curriculum-graph";
 import { useCallback, useMemo, useState } from "react";
 import styles from "./curriculum-graph.module.css";
 import GraphCanvas from "./graph-canvas";
 import Inspector from "./inspector";
 
-const LEGEND_DOTS = [
-    { label: "Phase 01–02", className: styles.dotWhite },
-    { label: "Phase 03–04", className: styles.dotGold },
-    { label: "Phase 05–06", className: styles.dotRed },
-    { label: "Unlocks next", className: styles.dotHollow },
-];
-
 const GraphPanel = () => {
     const [selected, setSelected] = useState<string | null>(null);
-    const [hiddenPhases, setHiddenPhases] = useState<ReadonlySet<number>>(new Set<number>());
+    const [hiddenSubjects, setHiddenSubjects] = useState<ReadonlySet<string>>(new Set<string>());
 
-    const graph = useMemo(() => buildGraph(TOPICS, EDGES, hiddenPhases), [hiddenPhases]);
+    const graph = useMemo(() => buildGraph(TOPICS, EDGES, hiddenSubjects), [hiddenSubjects]);
 
-    const togglePhase = useCallback(
-        (phaseIndex: number) => {
-            const next = new Set(hiddenPhases);
-            if (next.has(phaseIndex)) next.delete(phaseIndex);
-            else next.add(phaseIndex);
-            setHiddenPhases(next);
-            // A selection whose phase just went dark has nothing left to point at.
+    const toggleSubject = useCallback(
+        (subjectId: string) => {
+            const next = new Set(hiddenSubjects);
+            if (next.has(subjectId)) next.delete(subjectId);
+            else next.add(subjectId);
+            setHiddenSubjects(next);
+            // A selection whose subject just went dark has nothing left to point at.
             const node = TOPICS.find((t) => t.id === selected);
-            if (node && next.has(node.phaseIndex)) setSelected(null);
+            if (node && next.has(node.subject)) setSelected(null);
         },
-        [hiddenPhases, selected]
+        [hiddenSubjects, selected]
     );
 
     return (
@@ -37,12 +37,22 @@ const GraphPanel = () => {
                     Prerequisite graph &nbsp;·&nbsp; tap a dot to trace what it rests on
                 </p>
                 <div className={styles.legend}>
-                    {LEGEND_DOTS.map((item) => (
-                        <span key={item.label} className={styles.legendItem}>
-                            <span className={`${styles.legendDot} ${item.className}`} />
-                            {item.label}
+                    {SUBJECT_BANDS.map((band) => (
+                        <span key={band.label} className={styles.legendItem}>
+                            <span
+                                className={styles.legendDot}
+                                style={{
+                                    background: band.color,
+                                    border: band.color === "#FFFFFF" ? "1px solid #091f40" : "none",
+                                }}
+                            />
+                            {band.label}
                         </span>
                     ))}
+                    <span className={styles.legendItem}>
+                        <span className={`${styles.legendDot} ${styles.dotHollow}`} />
+                        Unlocks next
+                    </span>
                     <span className={styles.legendItem}>
                         <svg width="30" height="8" aria-hidden="true">
                             <title>Solid line</title>
@@ -69,18 +79,18 @@ const GraphPanel = () => {
             </div>
 
             <div className={styles.filterRow}>
-                <span className={styles.monoMeta}>Phases · click to toggle</span>
-                {PHASE_MODULES.map((p) => {
-                    const on = !hiddenPhases.has(p.phaseIndex);
+                <span className={styles.monoMeta}>Subjects · click to toggle</span>
+                {SUBJECTS.map((s) => {
+                    const on = !hiddenSubjects.has(s.id);
                     return (
                         <button
-                            key={p.phaseIndex}
+                            key={s.id}
                             type="button"
                             aria-pressed={on}
                             className={`${styles.phaseToggle} ${on ? styles.phaseToggleOn : ""}`}
-                            onClick={() => togglePhase(p.phaseIndex)}
+                            onClick={() => toggleSubject(s.id)}
                         >
-                            {`0${p.phaseIndex} ${p.phase}`}
+                            {s.title}
                         </button>
                     );
                 })}
@@ -102,15 +112,17 @@ const GraphPanel = () => {
                 </div>
                 <Inspector
                     graph={graph}
-                    phases={PHASE_MODULES}
+                    subjects={SUBJECTS}
                     selected={selected}
                     onSelect={setSelected}
                 />
             </div>
 
             <div className={styles.panelFooter}>
-                Rendering {TOPICS.length} of 304 micro-topics — a representative subgraph spanning
-                all six phases. Full v2.3 dataset: topics.json / edges.json / modules.json.
+                Rendering all {MANIFEST.counts.topics} micro-topics and {MANIFEST.counts.edges}{" "}
+                prerequisite edges of Hashflag Graph {MANIFEST.version} —{" "}
+                {MANIFEST.counts.hardEdges} required, {MANIFEST.counts.softEdges} helpful, across{" "}
+                {MANIFEST.counts.subjects} subjects and {MANIFEST.counts.domains} domains.
             </div>
         </div>
     );

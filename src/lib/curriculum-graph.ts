@@ -1,40 +1,85 @@
 import edgesJson from "@data/curriculum-graph/edges.json";
-import modulesJson from "@data/curriculum-graph/modules.json";
+import manifestJson from "@data/curriculum-graph/manifest.json";
+import subjectsJson from "@data/curriculum-graph/subjects.json";
 import topicsJson from "@data/curriculum-graph/topics.json";
 
 export type TopicType = "conceptual" | "procedural" | "representational" | "language" | "meta";
-export type ExitDepth = "demonstrated" | "practiced with a spotter" | "performed alone";
-export type EdgeKind = "required" | "helpful";
+export type ExitDepth = "guided" | "scaffolded" | "unassisted";
+/** `hard` blocks; `soft` only smooths. Only hard edges contribute to depth. */
+export type EdgeStrength = "hard" | "soft";
 
 export type Topic = {
     id: string;
-    name: string;
-    unit: string;
-    phase: string;
-    phaseIndex: number;
+    label: string;
+    description: string;
+    subject: string;
+    domain: string;
     type: TopicType;
     exitDepth: ExitDepth;
-    roleBand: string;
-    marketAnchor: string;
     evidence: string;
+    marketAnchor: string[];
+    /** Curriculum citation, e.g. "M19 §19.3". */
+    source: string;
+    /** Longest path over hard edges. Authoritative; recomputed per visible subgraph. */
+    depth: number;
 };
 
 export type GraphEdge = {
-    from: string;
-    to: string;
-    kind: EdgeKind;
+    topicId: string;
+    prerequisiteId: string;
+    strength: EdgeStrength;
     reason: string;
 };
 
-export type PhaseModule = {
-    phaseIndex: number;
-    phase: string;
-    units: string[];
+export type Subject = {
+    id: string;
+    title: string;
+    topicCount: number;
+    domains: { id: string; topicCount: number }[];
+};
+
+export type Manifest = {
+    name: string;
+    version: string;
+    counts: {
+        topics: number;
+        edges: number;
+        hardEdges: number;
+        softEdges: number;
+        subjects: number;
+        domains: number;
+        maxDepth: number;
+        roots: number;
+        terminals: number;
+    };
+    acyclic: boolean;
+    structureAdaptedFrom: { name: string; url: string; license: string };
 };
 
 export const TOPICS = topicsJson as Topic[];
 export const EDGES = edgesJson as GraphEdge[];
-export const PHASE_MODULES = modulesJson as PhaseModule[];
+export const SUBJECTS = subjectsJson as Subject[];
+export const MANIFEST = manifestJson as Manifest;
+
+/**
+ * Colour bands. Eight subjects is too many hues to stay legible on navy, and the design
+ * rule is that fill encodes grouping while state rides on shape and opacity. The dataset
+ * pairs naturally into four bands (its own source files do the same pairing), which runs
+ * light-to-hot across the curriculum the way the original three-band ramp did.
+ */
+export const SUBJECT_BANDS: { subjects: string[]; label: string; color: string }[] = [
+    { subjects: ["systems", "practice"], label: "Systems & practice", color: "#FFFFFF" },
+    { subjects: ["interface", "language"], label: "Interface & language", color: "#B9D6F2" },
+    { subjects: ["data", "services"], label: "Data & services", color: "#FDB330" },
+    { subjects: ["ai", "reliability"], label: "AI & reliability", color: "#c5203e" },
+];
+
+const BAND_BY_SUBJECT: Record<string, string> = {};
+for (const band of SUBJECT_BANDS) {
+    for (const id of band.subjects) BAND_BY_SUBJECT[id] = band.color;
+}
+
+export const bandColor = (subject: string) => BAND_BY_SUBJECT[subject] ?? "#FFFFFF";
 
 export type Point = { x: number; y: number; z: number };
 
@@ -42,7 +87,9 @@ export type Graph = {
     topics: Topic[];
     edges: GraphEdge[];
     byId: Record<string, Topic>;
+    /** Edges into a topic — the things it rests on. */
     preds: Record<string, GraphEdge[]>;
+    /** Edges out of a topic — the things it unlocks. */
     succs: Record<string, GraphEdge[]>;
     positions: Record<string, Point>;
     /** Bounding-sphere radius of the cloud. Rotation-invariant, so the camera can frame it. */
@@ -52,24 +99,26 @@ export type Graph = {
 /**
  * Layered DAG layout relaxed in 3D.
  *
- * Depth (y) is structural: longest-path layer assignment, never smoothed. Only the
- * XZ plane is relaxed, so a concept always sits below everything it depends on.
+ * Depth (y) is structural: longest-path layer assignment over hard edges only, never
+ * smoothed. A soft edge does not block, so it must not push a concept deeper — layering
+ * over every edge inflates depth and contradicts the dataset's own `depth` field. Only
+ * the XZ plane is relaxed, so a concept always sits below everything it depends on.
  *
- * Runs synchronously on mount and on every phase toggle. Measured on a 304-node /
- * 442-edge fixture: ~46ms warm, which is inside a frame budget for a click. If the
- * dataset grows past roughly 4× that, move it to a worker or precompute at build time.
+ * Runs synchronously on mount and on every subject toggle. Measured on the full 375-node /
+ * 528-edge dataset: see the perf test. If it grows several times larger, move it to a
+ * worker or precompute at build time.
  */
 export function buildGraph(
     allTopics: Topic[],
     allEdges: GraphEdge[],
-    hiddenPhases: ReadonlySet<number> = new Set()
+    hiddenSubjects: ReadonlySet<string> = new Set()
 ): Graph | null {
-    const topics = allTopics.filter((t) => !hiddenPhases.has(t.phaseIndex));
+    const topics = allTopics.filter((t) => !hiddenSubjects.has(t.subject));
     if (topics.length === 0) return null;
 
     const byId: Record<string, Topic> = {};
     for (const t of topics) byId[t.id] = t;
-    const edges = allEdges.filter((e) => byId[e.from] && byId[e.to]);
+    const edges = allEdges.filter((e) => byId[e.topicId] && byId[e.prerequisiteId]);
 
     const preds: Record<string, GraphEdge[]> = {};
     const succs: Record<string, GraphEdge[]> = {};
@@ -80,16 +129,18 @@ export function buildGraph(
         layer[t.id] = 0;
     }
     for (const e of edges) {
-        preds[e.to].push(e);
-        succs[e.from].push(e);
+        preds[e.topicId].push(e);
+        succs[e.prerequisiteId].push(e);
     }
 
-    // Longest-path relaxation. Bounded by node count; valid because the graph is a DAG.
+    // Longest-path relaxation over blocking edges. Bounded by node count; valid because
+    // the graph is a DAG.
+    const hardEdges = edges.filter((e) => e.strength === "hard");
     for (let i = 0; i < topics.length; i += 1) {
         let moved = false;
-        for (const e of edges) {
-            if (layer[e.from] + 1 > layer[e.to]) {
-                layer[e.to] = layer[e.from] + 1;
+        for (const e of hardEdges) {
+            if (layer[e.prerequisiteId] + 1 > layer[e.topicId]) {
+                layer[e.topicId] = layer[e.prerequisiteId] + 1;
                 moved = true;
             }
         }
@@ -128,15 +179,17 @@ export function buildGraph(
 
     const layerRows = Object.values(rows);
     const MIN_SEPARATION = 124;
-    // Target xz radius as a fraction of the y span. Tuned so the cloud fills a landscape
-    // canvas without flattening into a pancake — depth still has to read top-to-bottom.
-    const XZ_SPREAD = 0.42;
+    // Target xz radius as a fraction of the y span. The layout is naturally much taller
+    // than it is wide (the y span grows with every layer, the xz spread only with the
+    // widest layer), which wastes the width of a landscape canvas. Keep y the longest
+    // axis — depth still has to read top-to-bottom — but not by a factor of 1.5.
+    const XZ_SPREAD = 0.55;
     for (let it = 0; it < 240; it += 1) {
         // Attraction: 5% of the way toward the mean XZ of neighbours.
         for (const t of topics) {
             const neighbours = preds[t.id]
-                .map((e) => positions[e.from])
-                .concat(succs[t.id].map((e) => positions[e.to]));
+                .map((e) => positions[e.prerequisiteId])
+                .concat(succs[t.id].map((e) => positions[e.topicId]));
             if (neighbours.length === 0) continue;
             let mx = 0;
             let mz = 0;
@@ -180,9 +233,15 @@ export function buildGraph(
     // the xz spread only grows with the widest layer. Widen xz against the y span so the
     // cloud reads as a volume instead of a column, whatever the node count.
     const points = Object.values(positions);
-    const ys = points.map((p) => p.y);
-    const ySpan = Math.max(...ys) - Math.min(...ys);
-    const xzRadius = Math.max(...points.map((p) => Math.hypot(p.x, p.z)));
+    let minY = Number.POSITIVE_INFINITY;
+    let maxY = Number.NEGATIVE_INFINITY;
+    let xzRadius = 0;
+    for (const p of points) {
+        if (p.y < minY) minY = p.y;
+        if (p.y > maxY) maxY = p.y;
+        xzRadius = Math.max(xzRadius, Math.hypot(p.x, p.z));
+    }
+    const ySpan = maxY - minY;
     if (xzRadius > 0 && ySpan > 0) {
         const spread = (XZ_SPREAD * ySpan) / xzRadius;
         for (const p of points) {
@@ -191,9 +250,58 @@ export function buildGraph(
         }
     }
 
-    const radius = Math.max(...points.map((p) => Math.hypot(p.x, p.y, p.z)));
+    // Centre on the bounding box, not the origin. Layer seeding plus relaxation leaves the
+    // cloud drifting off-axis, which reads as the graph being badly placed in the panel.
+    let cx = 0;
+    let cy = 0;
+    let cz = 0;
+    {
+        let x0 = Number.POSITIVE_INFINITY;
+        let x1 = Number.NEGATIVE_INFINITY;
+        let z0 = Number.POSITIVE_INFINITY;
+        let z1 = Number.NEGATIVE_INFINITY;
+        let y0 = Number.POSITIVE_INFINITY;
+        let y1 = Number.NEGATIVE_INFINITY;
+        for (const p of points) {
+            if (p.x < x0) x0 = p.x;
+            if (p.x > x1) x1 = p.x;
+            if (p.y < y0) y0 = p.y;
+            if (p.y > y1) y1 = p.y;
+            if (p.z < z0) z0 = p.z;
+            if (p.z > z1) z1 = p.z;
+        }
+        cx = (x0 + x1) / 2;
+        cy = (y0 + y1) / 2;
+        cz = (z0 + z1) / 2;
+    }
+    for (const p of points) {
+        p.x -= cx;
+        p.y -= cy;
+        p.z -= cz;
+    }
+
+    let radius = 0;
+    for (const p of points) radius = Math.max(radius, Math.hypot(p.x, p.y, p.z));
 
     return { topics, edges, byId, preds, succs, positions, radius };
+}
+
+/** Layer index of every topic: longest path over hard edges. Exposed for verification. */
+export function computeDepths(topics: Topic[], edges: GraphEdge[]): Record<string, number> {
+    const depth: Record<string, number> = {};
+    for (const t of topics) depth[t.id] = 0;
+    const hard = edges.filter((e) => e.strength === "hard");
+    for (let i = 0; i < topics.length; i += 1) {
+        let moved = false;
+        for (const e of hard) {
+            if (depth[e.prerequisiteId] + 1 > depth[e.topicId]) {
+                depth[e.topicId] = depth[e.prerequisiteId] + 1;
+                moved = true;
+            }
+        }
+        if (!moved) break;
+    }
+    return depth;
 }
 
 /** Transitive prerequisite closure of `id`, including `id` itself. */
@@ -205,9 +313,9 @@ export function ancestors(graph: Graph | null, id: string | null): Set<string> {
     while (stack.length) {
         const cur = stack.pop() as string;
         for (const e of graph.preds[cur] || []) {
-            if (!seen.has(e.from)) {
-                seen.add(e.from);
-                stack.push(e.from);
+            if (!seen.has(e.prerequisiteId)) {
+                seen.add(e.prerequisiteId);
+                stack.push(e.prerequisiteId);
             }
         }
     }

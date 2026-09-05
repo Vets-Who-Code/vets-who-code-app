@@ -1,8 +1,0 @@
-[
-  {"phaseIndex":1,"phase":"Foundations","units":["Terminal Mastery","Editor & AI-Assisted Development","Git & GitHub","HTML & CSS","SDLC & Agile"]},
-  {"phaseIndex":2,"phase":"Frontend Engineering","units":["JavaScript Fundamentals","Modern JavaScript & TypeScript","React with Vite","Next.js Full-Stack","Frontend Testing & Quality"]},
-  {"phaseIndex":3,"phase":"Data Layer","units":["SQL & Data Modeling","System Design & API Contracts"]},
-  {"phaseIndex":4,"phase":"Backend Engineering","units":["Python Fundamentals","Production Python","Streamlit Data Apps","Pydantic & Data Validation","FastAPI","Backend Testing","CI/CD & Docker"]},
-  {"phaseIndex":5,"phase":"AI Engineering","units":["Model Integration","Tools & MCP","Data Engineering for AI","RAG Systems","Context Engineering & Evals","AI Agents","Streaming AI Interfaces","AI Safety & Security"]},
-  {"phaseIndex":6,"phase":"Production & Career","units":["Deployment & Observability","Full-Stack AI Throughline","Technical Interviews","Portfolio & Career","Harness Engineering"]}
-]

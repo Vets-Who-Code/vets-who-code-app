@@ -1,0 +1,37 @@
+{
+  "name": "Hashflag Graph",
+  "version": "v2.3",
+  "derivedFrom": "Hashflag Stack Curriculum v2.0 (December 2025)",
+  "topology": "subject + domain + computed prerequisite depth",
+  "counts": {
+    "topics": 375,
+    "edges": 528,
+    "hardEdges": 435,
+    "softEdges": 93,
+    "subjects": 8,
+    "domains": 53,
+    "maxDepth": 16,
+    "roots": 35,
+    "terminals": 170
+  },
+  "acyclic": true,
+  "files": [
+    {
+      "file": "topics.json",
+      "sha256": "7da8f1b8a4816c7b25877c4723cdb8159e18d58cd544755b09351dd8f992248a"
+    },
+    {
+      "file": "edges.json",
+      "sha256": "c93aa5e337d089bfa059620ec9b3f21fcf4c7ab1de141a0e11cc6bb623699313"
+    },
+    {
+      "file": "subjects.json",
+      "sha256": "ff86dfcbf393a2ad7a84b5261750a16f5109d7162a612210d8fedd37634dc102"
+    }
+  ],
+  "structureAdaptedFrom": {
+    "name": "Marble open curriculum taxonomy",
+    "url": "https://github.com/withmarbleapp/os-taxonomy",
+    "license": "ODbL-1.0"
+  }
+}

@@ -1,34 +1,3170 @@
 [
-  {"from":"T01","to":"T02","kind":"required","reason":"Git operates on a working tree you have to be able to move around in first."},
-  {"from":"T01","to":"T03","kind":"helpful","reason":"You can write markup in any editor; every tool that serves it lives behind a prompt."},
-  {"from":"T03","to":"T04","kind":"required","reason":"The array work is taught against a rendered document, so the document has to exist first."},
-  {"from":"T04","to":"T05","kind":"required","reason":"You cannot annotate a signature until you can read what a function does to its arguments."},
-  {"from":"T05","to":"T06","kind":"required","reason":"Component state is declared through typed props and hooks; untyped state hides its own bugs."},
-  {"from":"T04","to":"T06","kind":"required","reason":"Every state update is an array or object transform; mutation in place breaks rendering."},
-  {"from":"T06","to":"T07","kind":"required","reason":"Server rendering is a decision about where state resolves, so you need state first."},
-  {"from":"T01","to":"T08","kind":"helpful","reason":"Schema work runs fine in a GUI client; the shell is how you load and dump it fast."},
-  {"from":"T08","to":"T09","kind":"required","reason":"An index is a promise about a schema. No schema, nothing to index."},
-  {"from":"T08","to":"T10","kind":"helpful","reason":"A contract can be written before the schema, but it will leak whatever the schema got wrong."},
-  {"from":"T05","to":"T10","kind":"helpful","reason":"Types make a contract executable; you can still specify one in prose."},
-  {"from":"T01","to":"T11","kind":"required","reason":"Interpreters, virtual environments and test runners are all invoked from the shell."},
-  {"from":"T11","to":"T12","kind":"required","reason":"Validation is a function over input. Write the function first."},
-  {"from":"T12","to":"T13","kind":"required","reason":"An endpoint's request and response models are the validation layer, exposed."},
-  {"from":"T10","to":"T13","kind":"helpful","reason":"Versioning discipline shapes the route surface, but a first endpoint ships without it."},
-  {"from":"T13","to":"T14","kind":"required","reason":"You containerize a service. There has to be a service."},
-  {"from":"T01","to":"T14","kind":"required","reason":"Builds, tags and runs are shell operations, and the failures are read in logs."},
-  {"from":"T12","to":"T15","kind":"required","reason":"Structured output is a schema you hand the model; unvalidated output is just a string."},
-  {"from":"T15","to":"T16","kind":"required","reason":"A tool call is a model call with a contract at both ends."},
-  {"from":"T13","to":"T16","kind":"helpful","reason":"Serving experience makes the transport obvious; MCP can be learned from the spec alone."},
-  {"from":"T11","to":"T17","kind":"required","reason":"Chunking is text processing: pure functions over strings, tested."},
-  {"from":"T17","to":"T18","kind":"required","reason":"You embed chunks, and the chunk boundary decides what a vector can mean."},
-  {"from":"T09","to":"T18","kind":"required","reason":"Vector retrieval is an indexed query; without index literacy top-k is a mystery."},
-  {"from":"T18","to":"T19","kind":"required","reason":"Retrieval has nothing to search without stored vectors."},
-  {"from":"T15","to":"T19","kind":"required","reason":"The pipeline ends in a generation call that has to hold a schema."},
-  {"from":"T21","to":"T19","kind":"helpful","reason":"You can build it unmeasured, you just won't know if it works."},
-  {"from":"T15","to":"T20","kind":"required","reason":"A budget is only meaningful once you are the one filling the window."},
-  {"from":"T20","to":"T21","kind":"helpful","reason":"Knowing what you spent context on tells you what to measure; the ladder can be built either way."},
-  {"from":"T15","to":"T21","kind":"required","reason":"You cannot score outputs you cannot reliably produce."},
-  {"from":"T14","to":"T22","kind":"required","reason":"Observability is configured at the image and platform boundary."},
-  {"from":"T19","to":"T22","kind":"required","reason":"The thing being observed in the capstone is the pipeline."},
-  {"from":"T07","to":"T22","kind":"helpful","reason":"A deployed interface is the usual first consumer of your traces; a service alone will do."}
+  {
+    "topicId": "fs-navigate",
+    "prerequisiteId": "fs-hierarchy",
+    "strength": "hard",
+    "reason": "You cannot move through a structure you cannot describe."
+  },
+  {
+    "topicId": "fs-paths",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "Path forms only matter once you are moving between directories."
+  },
+  {
+    "topicId": "fs-hidden",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "Hidden files are found by listing directories you can already reach."
+  },
+  {
+    "topicId": "fs-create",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "You create files somewhere, and you have to get there first."
+  },
+  {
+    "topicId": "fs-move",
+    "prerequisiteId": "fs-create",
+    "strength": "hard",
+    "reason": "Moving and copying assume files exist to move."
+  },
+  {
+    "topicId": "fs-delete",
+    "prerequisiteId": "fs-move",
+    "strength": "hard",
+    "reason": "Deletion is the destructive end of the same file operations."
+  },
+  {
+    "topicId": "fs-view",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "You open files by path."
+  },
+  {
+    "topicId": "fs-find",
+    "prerequisiteId": "fs-paths",
+    "strength": "hard",
+    "reason": "Search returns paths you have to be able to interpret."
+  },
+  {
+    "topicId": "txt-grep",
+    "prerequisiteId": "fs-view",
+    "strength": "hard",
+    "reason": "Filtering text assumes you can already read the file."
+  },
+  {
+    "topicId": "txt-regex",
+    "prerequisiteId": "txt-grep",
+    "strength": "soft",
+    "reason": "Patterns are learned fastest against a tool that uses them immediately."
+  },
+  {
+    "topicId": "txt-sed",
+    "prerequisiteId": "txt-regex",
+    "strength": "hard",
+    "reason": "Stream editing is find and replace over a pattern."
+  },
+  {
+    "topicId": "txt-awk",
+    "prerequisiteId": "txt-grep",
+    "strength": "hard",
+    "reason": "Column processing is filtering with structure added."
+  },
+  {
+    "topicId": "txt-sortuniq",
+    "prerequisiteId": "txt-grep",
+    "strength": "soft",
+    "reason": "Counting is usually the second step after filtering."
+  },
+  {
+    "topicId": "txt-count",
+    "prerequisiteId": "fs-view",
+    "strength": "hard",
+    "reason": "Counting operates on files you can already open."
+  },
+  {
+    "topicId": "sh-streams",
+    "prerequisiteId": "fs-view",
+    "strength": "hard",
+    "reason": "Streams are the abstraction behind reading and writing files."
+  },
+  {
+    "topicId": "sh-redirect",
+    "prerequisiteId": "sh-streams",
+    "strength": "hard",
+    "reason": "Redirection sends a stream somewhere, so the stream comes first."
+  },
+  {
+    "topicId": "sh-pipe",
+    "prerequisiteId": "sh-streams",
+    "strength": "hard",
+    "reason": "A pipe connects one command's stdout to another's stdin."
+  },
+  {
+    "topicId": "sh-pipe",
+    "prerequisiteId": "txt-grep",
+    "strength": "soft",
+    "reason": "Pipelines are only worth building once you have tools to chain."
+  },
+  {
+    "topicId": "sh-subst",
+    "prerequisiteId": "sh-pipe",
+    "strength": "hard",
+    "reason": "Substitution is the next step after chaining output."
+  },
+  {
+    "topicId": "cfg-startup",
+    "prerequisiteId": "fs-hidden",
+    "strength": "hard",
+    "reason": "Startup files are dotfiles."
+  },
+  {
+    "topicId": "cfg-env",
+    "prerequisiteId": "cfg-startup",
+    "strength": "hard",
+    "reason": "Variables are set in the files that load at startup."
+  },
+  {
+    "topicId": "cfg-path",
+    "prerequisiteId": "cfg-env",
+    "strength": "hard",
+    "reason": "PATH is an environment variable with rules."
+  },
+  {
+    "topicId": "cfg-alias",
+    "prerequisiteId": "cfg-startup",
+    "strength": "hard",
+    "reason": "Aliases live in the startup file."
+  },
+  {
+    "topicId": "cfg-prompt",
+    "prerequisiteId": "cfg-alias",
+    "strength": "soft",
+    "reason": "Prompt customization is the same file and the same syntax."
+  },
+  {
+    "topicId": "pkg-system",
+    "prerequisiteId": "cfg-path",
+    "strength": "hard",
+    "reason": "Installed binaries are only usable if PATH resolves them."
+  },
+  {
+    "topicId": "pkg-node",
+    "prerequisiteId": "pkg-system",
+    "strength": "soft",
+    "reason": "Package manager concepts transfer across ecosystems."
+  },
+  {
+    "topicId": "pkg-python",
+    "prerequisiteId": "pkg-system",
+    "strength": "soft",
+    "reason": "Package manager concepts transfer across ecosystems."
+  },
+  {
+    "topicId": "pkg-manifest",
+    "prerequisiteId": "pkg-node",
+    "strength": "hard",
+    "reason": "A manifest describes what the package manager installs."
+  },
+  {
+    "topicId": "pkg-manifest",
+    "prerequisiteId": "pkg-python",
+    "strength": "hard",
+    "reason": "A manifest describes what the package manager installs."
+  },
+  {
+    "topicId": "proc-view",
+    "prerequisiteId": "fs-view",
+    "strength": "soft",
+    "reason": "Reading process output is reading structured text."
+  },
+  {
+    "topicId": "proc-control",
+    "prerequisiteId": "proc-view",
+    "strength": "hard",
+    "reason": "You signal processes you have identified."
+  },
+  {
+    "topicId": "proc-resources",
+    "prerequisiteId": "proc-view",
+    "strength": "soft",
+    "reason": "Resource inspection is the same class of system query."
+  },
+  {
+    "topicId": "rem-ssh",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "A remote session drops you into a filesystem you must navigate."
+  },
+  {
+    "topicId": "rem-keys",
+    "prerequisiteId": "rem-ssh",
+    "strength": "hard",
+    "reason": "Key authentication replaces the password on a connection you can already make."
+  },
+  {
+    "topicId": "rem-transfer",
+    "prerequisiteId": "rem-keys",
+    "strength": "hard",
+    "reason": "Secure transfer runs over the connection you authenticated."
+  },
+  {
+    "topicId": "rem-persist",
+    "prerequisiteId": "rem-ssh",
+    "strength": "soft",
+    "reason": "Persistent sessions solve a problem you only meet after connecting."
+  },
+  {
+    "topicId": "scr-execute",
+    "prerequisiteId": "sh-pipe",
+    "strength": "hard",
+    "reason": "A script is a saved pipeline plus control flow."
+  },
+  {
+    "topicId": "scr-execute",
+    "prerequisiteId": "cfg-path",
+    "strength": "hard",
+    "reason": "Running a script by name requires PATH resolution."
+  },
+  {
+    "topicId": "scr-vars",
+    "prerequisiteId": "scr-execute",
+    "strength": "hard",
+    "reason": "Variables parameterize a script that already runs."
+  },
+  {
+    "topicId": "scr-control",
+    "prerequisiteId": "scr-vars",
+    "strength": "hard",
+    "reason": "Conditions and loops act on variables."
+  },
+  {
+    "topicId": "scr-exit",
+    "prerequisiteId": "scr-control",
+    "strength": "hard",
+    "reason": "Error handling requires the branches that detect the error."
+  },
+  {
+    "topicId": "scr-exit",
+    "prerequisiteId": "proc-control",
+    "strength": "soft",
+    "reason": "Exit codes are the signal side of process control."
+  },
+  {
+    "topicId": "ed-navigate",
+    "prerequisiteId": "fs-navigate",
+    "strength": "soft",
+    "reason": "Editor navigation mirrors filesystem navigation with a UI on top."
+  },
+  {
+    "topicId": "ed-extensions",
+    "prerequisiteId": "ed-navigate",
+    "strength": "hard",
+    "reason": "You install extensions through the interface you can navigate."
+  },
+  {
+    "topicId": "ed-workspace",
+    "prerequisiteId": "ed-extensions",
+    "strength": "hard",
+    "reason": "Workspace settings configure the extensions you installed."
+  },
+  {
+    "topicId": "ed-debug",
+    "prerequisiteId": "ed-navigate",
+    "strength": "hard",
+    "reason": "Debugging happens in the editor you can operate."
+  },
+  {
+    "topicId": "ed-launch",
+    "prerequisiteId": "ed-debug",
+    "strength": "hard",
+    "reason": "A launch configuration automates the debug session you can already run."
+  },
+  {
+    "topicId": "git-model",
+    "prerequisiteId": "fs-navigate",
+    "strength": "hard",
+    "reason": "Git's working directory is a filesystem."
+  },
+  {
+    "topicId": "git-commit",
+    "prerequisiteId": "git-model",
+    "strength": "hard",
+    "reason": "Staging and committing only make sense against the object model."
+  },
+  {
+    "topicId": "git-history",
+    "prerequisiteId": "git-commit",
+    "strength": "hard",
+    "reason": "History is the record of commits you made."
+  },
+  {
+    "topicId": "git-undo",
+    "prerequisiteId": "git-history",
+    "strength": "hard",
+    "reason": "Undoing requires reading what you are undoing."
+  },
+  {
+    "topicId": "git-branch",
+    "prerequisiteId": "git-model",
+    "strength": "hard",
+    "reason": "A branch is a reference, which is part of the object model."
+  },
+  {
+    "topicId": "git-merge",
+    "prerequisiteId": "git-branch",
+    "strength": "hard",
+    "reason": "Merging integrates branches."
+  },
+  {
+    "topicId": "git-rebase",
+    "prerequisiteId": "git-merge",
+    "strength": "hard",
+    "reason": "Rebasing is the alternative to a merge you already understand."
+  },
+  {
+    "topicId": "git-conflict",
+    "prerequisiteId": "git-merge",
+    "strength": "hard",
+    "reason": "Conflicts arise from integration."
+  },
+  {
+    "topicId": "git-remote",
+    "prerequisiteId": "git-branch",
+    "strength": "hard",
+    "reason": "Remotes track branches on another machine."
+  },
+  {
+    "topicId": "git-pr",
+    "prerequisiteId": "git-remote",
+    "strength": "hard",
+    "reason": "A pull request proposes merging a pushed branch."
+  },
+  {
+    "topicId": "git-recover",
+    "prerequisiteId": "git-undo",
+    "strength": "hard",
+    "reason": "Recovery extends the undo operations to harder cases."
+  },
+  {
+    "topicId": "git-bisect",
+    "prerequisiteId": "git-history",
+    "strength": "hard",
+    "reason": "Bisecting searches history."
+  },
+  {
+    "topicId": "git-config",
+    "prerequisiteId": "cfg-alias",
+    "strength": "soft",
+    "reason": "Git aliases are the same idea as shell aliases."
+  },
+  {
+    "topicId": "git-config",
+    "prerequisiteId": "git-commit",
+    "strength": "hard",
+    "reason": "Ignore rules matter once you are choosing what to stage."
+  },
+  {
+    "topicId": "req-decompose",
+    "prerequisiteId": "req-stories",
+    "strength": "hard",
+    "reason": "You split stories into stories."
+  },
+  {
+    "topicId": "req-prioritize",
+    "prerequisiteId": "req-decompose",
+    "strength": "hard",
+    "reason": "Prioritization operates on a decomposed backlog."
+  },
+  {
+    "topicId": "req-stakeholder",
+    "prerequisiteId": "req-prioritize",
+    "strength": "soft",
+    "reason": "Scope conversations are easier with a prioritized list in hand."
+  },
+  {
+    "topicId": "des-architecture",
+    "prerequisiteId": "req-stories",
+    "strength": "soft",
+    "reason": "A diagram is easier to draw once the requirement is stated."
+  },
+  {
+    "topicId": "des-adr",
+    "prerequisiteId": "des-architecture",
+    "strength": "hard",
+    "reason": "A decision record documents a choice made during design."
+  },
+  {
+    "topicId": "agl-principles",
+    "prerequisiteId": "req-stories",
+    "strength": "soft",
+    "reason": "The practices make sense once you have written the artifact they produce."
+  },
+  {
+    "topicId": "agl-scrum",
+    "prerequisiteId": "agl-principles",
+    "strength": "hard",
+    "reason": "Ceremonies are instances of the principles."
+  },
+  {
+    "topicId": "agl-kanban",
+    "prerequisiteId": "agl-principles",
+    "strength": "hard",
+    "reason": "Flow management is an application of the principles."
+  },
+  {
+    "topicId": "agl-estimate",
+    "prerequisiteId": "agl-scrum",
+    "strength": "hard",
+    "reason": "Estimation happens inside planning."
+  },
+  {
+    "topicId": "doc-api",
+    "prerequisiteId": "doc-readme",
+    "strength": "soft",
+    "reason": "API docs are a specialized README skill."
+  },
+  {
+    "topicId": "doc-api",
+    "prerequisiteId": "con-design",
+    "strength": "hard",
+    "reason": "You document a contract you have designed."
+  },
+  {
+    "topicId": "doc-runbook",
+    "prerequisiteId": "doc-readme",
+    "strength": "soft",
+    "reason": "A runbook is a README for an operation."
+  },
+  {
+    "topicId": "rev-read",
+    "prerequisiteId": "git-pr",
+    "strength": "hard",
+    "reason": "Review happens on pull requests."
+  },
+  {
+    "topicId": "rev-write",
+    "prerequisiteId": "rev-read",
+    "strength": "hard",
+    "reason": "You write for reviewers once you know what reviewers look for."
+  },
+  {
+    "topicId": "rev-feedback",
+    "prerequisiteId": "rev-read",
+    "strength": "hard",
+    "reason": "Feedback is the delivery of a review."
+  },
+  {
+    "topicId": "alg-arrays",
+    "prerequisiteId": "js-arrays",
+    "strength": "hard",
+    "reason": "Array problems require array manipulation."
+  },
+  {
+    "topicId": "alg-arrays",
+    "prerequisiteId": "py-lists",
+    "strength": "hard",
+    "reason": "List problems require list manipulation."
+  },
+  {
+    "topicId": "alg-hashing",
+    "prerequisiteId": "js-objects",
+    "strength": "hard",
+    "reason": "Hash-based solutions use objects and maps."
+  },
+  {
+    "topicId": "alg-hashing",
+    "prerequisiteId": "py-dicts",
+    "strength": "hard",
+    "reason": "Hash-based solutions use dictionaries and sets."
+  },
+  {
+    "topicId": "alg-stackqueue",
+    "prerequisiteId": "alg-arrays",
+    "strength": "hard",
+    "reason": "Stacks and queues are disciplined sequences."
+  },
+  {
+    "topicId": "alg-linked",
+    "prerequisiteId": "alg-stackqueue",
+    "strength": "soft",
+    "reason": "Pointer intuition builds from sequential structures."
+  },
+  {
+    "topicId": "alg-trees",
+    "prerequisiteId": "alg-linked",
+    "strength": "hard",
+    "reason": "A tree is a branching pointer structure."
+  },
+  {
+    "topicId": "alg-recursion",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Recursion is a function calling itself."
+  },
+  {
+    "topicId": "alg-recursion",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Recursion is a function calling itself."
+  },
+  {
+    "topicId": "alg-trees",
+    "prerequisiteId": "alg-recursion",
+    "strength": "hard",
+    "reason": "Traversal is naturally recursive."
+  },
+  {
+    "topicId": "alg-backtrack",
+    "prerequisiteId": "alg-trees",
+    "strength": "hard",
+    "reason": "Backtracking is a search over a decision tree."
+  },
+  {
+    "topicId": "alg-twopointer",
+    "prerequisiteId": "alg-arrays",
+    "strength": "hard",
+    "reason": "The technique moves indices through a sequence."
+  },
+  {
+    "topicId": "alg-window",
+    "prerequisiteId": "alg-twopointer",
+    "strength": "hard",
+    "reason": "A window is two pointers with a maintained range."
+  },
+  {
+    "topicId": "alg-dp",
+    "prerequisiteId": "alg-recursion",
+    "strength": "hard",
+    "reason": "Memoization caches recursive results."
+  },
+  {
+    "topicId": "alg-bigo",
+    "prerequisiteId": "alg-arrays",
+    "strength": "soft",
+    "reason": "Complexity is easiest to see against code you have written."
+  },
+  {
+    "topicId": "alg-strategy",
+    "prerequisiteId": "alg-bigo",
+    "strength": "hard",
+    "reason": "Optimization is a step in the strategy."
+  },
+  {
+    "topicId": "alg-strategy",
+    "prerequisiteId": "alg-hashing",
+    "strength": "soft",
+    "reason": "Pattern recognition comes from having solved with several patterns."
+  },
+  {
+    "topicId": "alg-timed",
+    "prerequisiteId": "alg-strategy",
+    "strength": "hard",
+    "reason": "Working under time requires a method to fall back on."
+  },
+  {
+    "topicId": "alg-timed",
+    "prerequisiteId": "alg-twopointer",
+    "strength": "hard",
+    "reason": "Timed sets assume the common patterns are available."
+  },
+  {
+    "topicId": "car-behavioral",
+    "prerequisiteId": "alg-timed",
+    "strength": "soft",
+    "reason": "Interview preparation covers both halves of the same loop."
+  },
+  {
+    "topicId": "car-behavioral",
+    "prerequisiteId": "car-portfolio",
+    "strength": "soft",
+    "reason": "Stories are stronger when they point at shipped work."
+  },
+  {
+    "topicId": "car-system-interview",
+    "prerequisiteId": "des-architecture",
+    "strength": "hard",
+    "reason": "A design interview asks you to do this aloud."
+  },
+  {
+    "topicId": "car-system-interview",
+    "prerequisiteId": "alg-strategy",
+    "strength": "soft",
+    "reason": "Thinking aloud under questioning transfers between formats."
+  },
+  {
+    "topicId": "html-semantic",
+    "prerequisiteId": "html-document",
+    "strength": "hard",
+    "reason": "Semantic elements are placed inside a document structure."
+  },
+  {
+    "topicId": "html-content",
+    "prerequisiteId": "html-semantic",
+    "strength": "hard",
+    "reason": "Content elements sit inside semantic regions."
+  },
+  {
+    "topicId": "html-forms",
+    "prerequisiteId": "html-content",
+    "strength": "hard",
+    "reason": "A form is built from content elements and labels."
+  },
+  {
+    "topicId": "html-validation",
+    "prerequisiteId": "html-forms",
+    "strength": "hard",
+    "reason": "Constraint attributes apply to inputs you can already build."
+  },
+  {
+    "topicId": "css-selectors",
+    "prerequisiteId": "html-semantic",
+    "strength": "hard",
+    "reason": "You style elements you can already name."
+  },
+  {
+    "topicId": "css-cascade",
+    "prerequisiteId": "css-selectors",
+    "strength": "hard",
+    "reason": "Specificity is a property of selectors."
+  },
+  {
+    "topicId": "css-boxmodel",
+    "prerequisiteId": "css-cascade",
+    "strength": "soft",
+    "reason": "Box behavior is easier to debug when you know which rule won."
+  },
+  {
+    "topicId": "css-boxmodel",
+    "prerequisiteId": "html-content",
+    "strength": "hard",
+    "reason": "Every element you write is a box."
+  },
+  {
+    "topicId": "css-display",
+    "prerequisiteId": "css-boxmodel",
+    "strength": "hard",
+    "reason": "Display changes how the box behaves."
+  },
+  {
+    "topicId": "css-stacking",
+    "prerequisiteId": "css-display",
+    "strength": "hard",
+    "reason": "Stacking context is created by positioning."
+  },
+  {
+    "topicId": "css-flex",
+    "prerequisiteId": "css-display",
+    "strength": "hard",
+    "reason": "Flex is a display mode."
+  },
+  {
+    "topicId": "css-grid",
+    "prerequisiteId": "css-flex",
+    "strength": "soft",
+    "reason": "Grid concepts land faster after one-dimensional layout."
+  },
+  {
+    "topicId": "css-grid",
+    "prerequisiteId": "css-display",
+    "strength": "hard",
+    "reason": "Grid is a display mode."
+  },
+  {
+    "topicId": "css-choose",
+    "prerequisiteId": "css-grid",
+    "strength": "hard",
+    "reason": "Choosing requires knowing both."
+  },
+  {
+    "topicId": "css-choose",
+    "prerequisiteId": "css-flex",
+    "strength": "hard",
+    "reason": "Choosing requires knowing both."
+  },
+  {
+    "topicId": "css-responsive",
+    "prerequisiteId": "css-boxmodel",
+    "strength": "hard",
+    "reason": "Responsive layout is the box model under changing widths."
+  },
+  {
+    "topicId": "css-responsive",
+    "prerequisiteId": "css-choose",
+    "strength": "soft",
+    "reason": "Responsive work is easier when the layout tool is already chosen well."
+  },
+  {
+    "topicId": "css-type",
+    "prerequisiteId": "css-selectors",
+    "strength": "hard",
+    "reason": "Type styles are applied through selectors."
+  },
+  {
+    "topicId": "css-variables",
+    "prerequisiteId": "css-type",
+    "strength": "soft",
+    "reason": "Tokens are introduced where repetition first hurts."
+  },
+  {
+    "topicId": "css-motion",
+    "prerequisiteId": "css-boxmodel",
+    "strength": "hard",
+    "reason": "Transitions animate properties of the box."
+  },
+  {
+    "topicId": "css-motion",
+    "prerequisiteId": "css-display",
+    "strength": "soft",
+    "reason": "Transform behavior depends on how the element is displayed."
+  },
+  {
+    "topicId": "dom-select",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "DOM APIs are function calls."
+  },
+  {
+    "topicId": "dom-select",
+    "prerequisiteId": "html-semantic",
+    "strength": "hard",
+    "reason": "You select elements that exist in the document."
+  },
+  {
+    "topicId": "dom-modify",
+    "prerequisiteId": "dom-select",
+    "strength": "hard",
+    "reason": "You modify what you have selected."
+  },
+  {
+    "topicId": "dom-create",
+    "prerequisiteId": "dom-modify",
+    "strength": "hard",
+    "reason": "Creating nodes extends modifying them."
+  },
+  {
+    "topicId": "dom-events",
+    "prerequisiteId": "dom-select",
+    "strength": "hard",
+    "reason": "Listeners are attached to selected elements."
+  },
+  {
+    "topicId": "dom-delegation",
+    "prerequisiteId": "dom-events",
+    "strength": "hard",
+    "reason": "Delegation is event handling moved up the tree."
+  },
+  {
+    "topicId": "dom-delegation",
+    "prerequisiteId": "dom-create",
+    "strength": "soft",
+    "reason": "Delegation solves a problem that appears once you add nodes dynamically."
+  },
+  {
+    "topicId": "rct-components",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "A component is a function that returns markup."
+  },
+  {
+    "topicId": "rct-components",
+    "prerequisiteId": "html-semantic",
+    "strength": "hard",
+    "reason": "Components return markup you must be able to write."
+  },
+  {
+    "topicId": "rct-props",
+    "prerequisiteId": "rct-components",
+    "strength": "hard",
+    "reason": "Props are the arguments to a component."
+  },
+  {
+    "topicId": "rct-state",
+    "prerequisiteId": "rct-props",
+    "strength": "hard",
+    "reason": "State is what props cannot express."
+  },
+  {
+    "topicId": "rct-state",
+    "prerequisiteId": "js-closures",
+    "strength": "soft",
+    "reason": "Hook behavior makes more sense once closures do."
+  },
+  {
+    "topicId": "rct-effects",
+    "prerequisiteId": "rct-state",
+    "strength": "hard",
+    "reason": "Effects synchronize state you already hold."
+  },
+  {
+    "topicId": "rct-effects",
+    "prerequisiteId": "js-async",
+    "strength": "hard",
+    "reason": "Fetching inside an effect is asynchronous."
+  },
+  {
+    "topicId": "rct-boundaries",
+    "prerequisiteId": "rct-components",
+    "strength": "hard",
+    "reason": "A boundary is a component that catches its children's failures."
+  },
+  {
+    "topicId": "rct-boundaries",
+    "prerequisiteId": "js-errors",
+    "strength": "hard",
+    "reason": "Boundaries handle thrown errors."
+  },
+  {
+    "topicId": "nxt-routing",
+    "prerequisiteId": "rct-components",
+    "strength": "hard",
+    "reason": "Routes render components."
+  },
+  {
+    "topicId": "nxt-routing",
+    "prerequisiteId": "fs-hierarchy",
+    "strength": "soft",
+    "reason": "File-based routing rewards filesystem intuition."
+  },
+  {
+    "topicId": "nxt-layouts",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "Layouts wrap routes."
+  },
+  {
+    "topicId": "nxt-states",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "Loading and error states belong to a route."
+  },
+  {
+    "topicId": "nxt-states",
+    "prerequisiteId": "rct-boundaries",
+    "strength": "hard",
+    "reason": "Route error states are boundaries."
+  },
+  {
+    "topicId": "nxt-server-client",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "The boundary is drawn between components inside routes."
+  },
+  {
+    "topicId": "nxt-server-client",
+    "prerequisiteId": "rct-effects",
+    "strength": "soft",
+    "reason": "Knowing what client effects cost clarifies where the boundary belongs."
+  },
+  {
+    "topicId": "nxt-fetch",
+    "prerequisiteId": "nxt-server-client",
+    "strength": "hard",
+    "reason": "Where you fetch depends on which side the component runs."
+  },
+  {
+    "topicId": "nxt-fetch",
+    "prerequisiteId": "js-fetch",
+    "strength": "hard",
+    "reason": "Server fetching is the same API in a different place."
+  },
+  {
+    "topicId": "nxt-render",
+    "prerequisiteId": "nxt-fetch",
+    "strength": "hard",
+    "reason": "Caching and revalidation determine the rendering strategy."
+  },
+  {
+    "topicId": "nxt-actions",
+    "prerequisiteId": "nxt-fetch",
+    "strength": "hard",
+    "reason": "Mutations complete the read path you can already build."
+  },
+  {
+    "topicId": "nxt-actions",
+    "prerequisiteId": "html-forms",
+    "strength": "hard",
+    "reason": "Server actions handle form submissions."
+  },
+  {
+    "topicId": "nxt-optimistic",
+    "prerequisiteId": "nxt-actions",
+    "strength": "hard",
+    "reason": "Optimistic updates anticipate a mutation you can already perform."
+  },
+  {
+    "topicId": "nxt-routes",
+    "prerequisiteId": "http-methods",
+    "strength": "hard",
+    "reason": "A route handler implements HTTP semantics."
+  },
+  {
+    "topicId": "nxt-routes",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "Handlers are placed by the same file conventions."
+  },
+  {
+    "topicId": "nxt-middleware",
+    "prerequisiteId": "nxt-routes",
+    "strength": "hard",
+    "reason": "Middleware runs in front of handlers."
+  },
+  {
+    "topicId": "nxt-middleware",
+    "prerequisiteId": "api-auth",
+    "strength": "soft",
+    "reason": "Auth at the edge is the same idea in another runtime."
+  },
+  {
+    "topicId": "nxt-tailwind",
+    "prerequisiteId": "css-responsive",
+    "strength": "hard",
+    "reason": "Utility classes express layout you must already understand."
+  },
+  {
+    "topicId": "nxt-perf",
+    "prerequisiteId": "nxt-render",
+    "strength": "hard",
+    "reason": "Performance work starts from the rendering strategy."
+  },
+  {
+    "topicId": "nxt-perf",
+    "prerequisiteId": "med-formats",
+    "strength": "soft",
+    "reason": "Image weight is usually the first performance win available."
+  },
+  {
+    "topicId": "nxt-stream-ui",
+    "prerequisiteId": "nxt-fetch",
+    "strength": "hard",
+    "reason": "Streaming UI is progressive data fetching."
+  },
+  {
+    "topicId": "nxt-stream-ui",
+    "prerequisiteId": "rct-components",
+    "strength": "hard",
+    "reason": "Suspense boundaries are components."
+  },
+  {
+    "topicId": "aif-sse-client",
+    "prerequisiteId": "str-sse",
+    "strength": "hard",
+    "reason": "Something has to serve the stream you consume."
+  },
+  {
+    "topicId": "aif-sse-client",
+    "prerequisiteId": "js-async",
+    "strength": "hard",
+    "reason": "Stream consumption is asynchronous iteration."
+  },
+  {
+    "topicId": "aif-tokenrender",
+    "prerequisiteId": "aif-sse-client",
+    "strength": "hard",
+    "reason": "You render what you are receiving."
+  },
+  {
+    "topicId": "aif-tokenrender",
+    "prerequisiteId": "rct-state",
+    "strength": "hard",
+    "reason": "Progressive rendering updates state on every chunk."
+  },
+  {
+    "topicId": "aif-history",
+    "prerequisiteId": "rct-state",
+    "strength": "hard",
+    "reason": "History is state."
+  },
+  {
+    "topicId": "aif-history",
+    "prerequisiteId": "mdi-session",
+    "strength": "soft",
+    "reason": "The UI mirrors how context is carried on the server."
+  },
+  {
+    "topicId": "aif-upload",
+    "prerequisiteId": "html-forms",
+    "strength": "hard",
+    "reason": "File input is a form control."
+  },
+  {
+    "topicId": "aif-upload",
+    "prerequisiteId": "mdi-multimodal",
+    "strength": "soft",
+    "reason": "Upload UI exists to feed multimodal input."
+  },
+  {
+    "topicId": "aif-typesafe",
+    "prerequisiteId": "ts-annotate",
+    "strength": "hard",
+    "reason": "End-to-end types require typed clients."
+  },
+  {
+    "topicId": "aif-typesafe",
+    "prerequisiteId": "con-openapi",
+    "strength": "hard",
+    "reason": "Generated clients come from a specification."
+  },
+  {
+    "topicId": "med-formats",
+    "prerequisiteId": "html-content",
+    "strength": "hard",
+    "reason": "Images are content elements."
+  },
+  {
+    "topicId": "med-lazy",
+    "prerequisiteId": "med-formats",
+    "strength": "hard",
+    "reason": "Loading strategy applies to images you can already choose."
+  },
+  {
+    "topicId": "med-cdn",
+    "prerequisiteId": "med-lazy",
+    "strength": "soft",
+    "reason": "A CDN is the delivery layer under the same optimization goals."
+  },
+  {
+    "topicId": "med-analytics",
+    "prerequisiteId": "html-document",
+    "strength": "hard",
+    "reason": "Analytics scripts load in the document head."
+  },
+  {
+    "topicId": "med-analytics",
+    "prerequisiteId": "obs-pii",
+    "strength": "soft",
+    "reason": "Behavioral capture raises the same privacy questions."
+  },
+  {
+    "topicId": "js-types",
+    "prerequisiteId": "js-variables",
+    "strength": "hard",
+    "reason": "Types describe what variables hold."
+  },
+  {
+    "topicId": "js-strings",
+    "prerequisiteId": "js-types",
+    "strength": "hard",
+    "reason": "Strings are a primitive type."
+  },
+  {
+    "topicId": "js-operators",
+    "prerequisiteId": "js-types",
+    "strength": "hard",
+    "reason": "Operator behavior depends on types."
+  },
+  {
+    "topicId": "js-control",
+    "prerequisiteId": "js-operators",
+    "strength": "hard",
+    "reason": "Conditions are expressions."
+  },
+  {
+    "topicId": "js-functions",
+    "prerequisiteId": "js-control",
+    "strength": "hard",
+    "reason": "Functions contain the control flow you can already write."
+  },
+  {
+    "topicId": "js-arrow",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Arrow functions are an alternate form."
+  },
+  {
+    "topicId": "js-scope",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Scope is created by functions."
+  },
+  {
+    "topicId": "js-closures",
+    "prerequisiteId": "js-scope",
+    "strength": "hard",
+    "reason": "A closure captures its enclosing scope."
+  },
+  {
+    "topicId": "js-arrays",
+    "prerequisiteId": "js-variables",
+    "strength": "hard",
+    "reason": "An array is a value bound to a name."
+  },
+  {
+    "topicId": "js-mapfilter",
+    "prerequisiteId": "js-arrays",
+    "strength": "hard",
+    "reason": "These are array methods."
+  },
+  {
+    "topicId": "js-mapfilter",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "They take functions as arguments."
+  },
+  {
+    "topicId": "js-objects",
+    "prerequisiteId": "js-variables",
+    "strength": "hard",
+    "reason": "An object is a value bound to a name."
+  },
+  {
+    "topicId": "js-destructure",
+    "prerequisiteId": "js-objects",
+    "strength": "hard",
+    "reason": "Destructuring pulls values out of objects and arrays."
+  },
+  {
+    "topicId": "js-destructure",
+    "prerequisiteId": "js-arrays",
+    "strength": "hard",
+    "reason": "Destructuring pulls values out of objects and arrays."
+  },
+  {
+    "topicId": "js-errors",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Errors propagate out of function calls."
+  },
+  {
+    "topicId": "js-stacktrace",
+    "prerequisiteId": "js-errors",
+    "strength": "hard",
+    "reason": "A trace is a record of calls that threw."
+  },
+  {
+    "topicId": "js-timers",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Timers take callbacks."
+  },
+  {
+    "topicId": "js-promises",
+    "prerequisiteId": "js-timers",
+    "strength": "soft",
+    "reason": "Callback pain is what motivates promises."
+  },
+  {
+    "topicId": "js-promises",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "A promise wraps a deferred function result."
+  },
+  {
+    "topicId": "js-async",
+    "prerequisiteId": "js-promises",
+    "strength": "hard",
+    "reason": "Await consumes promises."
+  },
+  {
+    "topicId": "js-fetch",
+    "prerequisiteId": "js-async",
+    "strength": "hard",
+    "reason": "Fetch returns a promise."
+  },
+  {
+    "topicId": "js-fetch",
+    "prerequisiteId": "js-objects",
+    "strength": "hard",
+    "reason": "Requests and responses are objects."
+  },
+  {
+    "topicId": "js-modules",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Modules export functions and values."
+  },
+  {
+    "topicId": "js-classes",
+    "prerequisiteId": "js-objects",
+    "strength": "hard",
+    "reason": "A class is a template for objects."
+  },
+  {
+    "topicId": "js-hof",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "Higher-order functions take and return functions."
+  },
+  {
+    "topicId": "js-hof",
+    "prerequisiteId": "js-mapfilter",
+    "strength": "soft",
+    "reason": "These methods are the first higher-order functions you meet."
+  },
+  {
+    "topicId": "js-immutable",
+    "prerequisiteId": "js-objects",
+    "strength": "hard",
+    "reason": "Immutability is about how you update structures."
+  },
+  {
+    "topicId": "js-immutable",
+    "prerequisiteId": "js-destructure",
+    "strength": "hard",
+    "reason": "Spread is the tool for non-mutating updates."
+  },
+  {
+    "topicId": "js-concurrency",
+    "prerequisiteId": "js-promises",
+    "strength": "hard",
+    "reason": "These are promise combinators."
+  },
+  {
+    "topicId": "js-generators",
+    "prerequisiteId": "js-async",
+    "strength": "hard",
+    "reason": "Async iteration builds on await."
+  },
+  {
+    "topicId": "js-generators",
+    "prerequisiteId": "js-control",
+    "strength": "hard",
+    "reason": "A generator is a function whose loop yields."
+  },
+  {
+    "topicId": "ts-annotate",
+    "prerequisiteId": "js-types",
+    "strength": "hard",
+    "reason": "You annotate the types JavaScript already has."
+  },
+  {
+    "topicId": "ts-interfaces",
+    "prerequisiteId": "ts-annotate",
+    "strength": "hard",
+    "reason": "Interfaces name annotated shapes."
+  },
+  {
+    "topicId": "ts-unions",
+    "prerequisiteId": "ts-interfaces",
+    "strength": "hard",
+    "reason": "Unions compose the shapes you can define."
+  },
+  {
+    "topicId": "ts-narrow",
+    "prerequisiteId": "ts-unions",
+    "strength": "hard",
+    "reason": "Narrowing resolves a union to one member."
+  },
+  {
+    "topicId": "ts-narrow",
+    "prerequisiteId": "js-control",
+    "strength": "hard",
+    "reason": "Narrowing follows control flow."
+  },
+  {
+    "topicId": "ts-generics",
+    "prerequisiteId": "ts-interfaces",
+    "strength": "hard",
+    "reason": "Generics parameterize the shapes you can define."
+  },
+  {
+    "topicId": "ts-utility",
+    "prerequisiteId": "ts-generics",
+    "strength": "hard",
+    "reason": "Utility types are generic types."
+  },
+  {
+    "topicId": "ts-advanced",
+    "prerequisiteId": "ts-utility",
+    "strength": "hard",
+    "reason": "Conditional and mapped types extend the same machinery."
+  },
+  {
+    "topicId": "ts-config",
+    "prerequisiteId": "ts-annotate",
+    "strength": "hard",
+    "reason": "Compiler options govern how your annotations are checked."
+  },
+  {
+    "topicId": "js-modules",
+    "prerequisiteId": "ts-annotate",
+    "strength": "soft",
+    "reason": "Type-aware imports are easier once annotations exist."
+  },
+  {
+    "topicId": "py-types",
+    "prerequisiteId": "py-variables",
+    "strength": "hard",
+    "reason": "Types describe what names are bound to."
+  },
+  {
+    "topicId": "py-strings",
+    "prerequisiteId": "py-types",
+    "strength": "hard",
+    "reason": "Strings are a type."
+  },
+  {
+    "topicId": "py-operators",
+    "prerequisiteId": "py-types",
+    "strength": "hard",
+    "reason": "Operator behavior depends on types."
+  },
+  {
+    "topicId": "py-control",
+    "prerequisiteId": "py-operators",
+    "strength": "hard",
+    "reason": "Conditions are expressions."
+  },
+  {
+    "topicId": "py-comprehension",
+    "prerequisiteId": "py-control",
+    "strength": "hard",
+    "reason": "A comprehension is a loop in expression form."
+  },
+  {
+    "topicId": "py-functions",
+    "prerequisiteId": "py-control",
+    "strength": "hard",
+    "reason": "Functions contain control flow."
+  },
+  {
+    "topicId": "py-argskwargs",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Variable arguments extend the signature."
+  },
+  {
+    "topicId": "py-scope",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Scope is created by functions."
+  },
+  {
+    "topicId": "py-lists",
+    "prerequisiteId": "py-variables",
+    "strength": "hard",
+    "reason": "A list is a value bound to a name."
+  },
+  {
+    "topicId": "py-comprehension",
+    "prerequisiteId": "py-lists",
+    "strength": "hard",
+    "reason": "Comprehensions build lists."
+  },
+  {
+    "topicId": "py-dicts",
+    "prerequisiteId": "py-lists",
+    "strength": "soft",
+    "reason": "Collection intuition transfers from sequences to mappings."
+  },
+  {
+    "topicId": "py-dicts",
+    "prerequisiteId": "py-variables",
+    "strength": "hard",
+    "reason": "A dictionary is a value bound to a name."
+  },
+  {
+    "topicId": "py-fileio",
+    "prerequisiteId": "py-control",
+    "strength": "hard",
+    "reason": "File processing loops over content."
+  },
+  {
+    "topicId": "py-json",
+    "prerequisiteId": "py-fileio",
+    "strength": "hard",
+    "reason": "JSON is read from and written to files and strings."
+  },
+  {
+    "topicId": "py-json",
+    "prerequisiteId": "py-dicts",
+    "strength": "hard",
+    "reason": "JSON decodes into dictionaries and lists."
+  },
+  {
+    "topicId": "py-regex",
+    "prerequisiteId": "py-strings",
+    "strength": "hard",
+    "reason": "Patterns operate on strings."
+  },
+  {
+    "topicId": "py-regex",
+    "prerequisiteId": "txt-regex",
+    "strength": "soft",
+    "reason": "The pattern language is the same one you met in the shell."
+  },
+  {
+    "topicId": "py-errors",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Exceptions propagate out of calls."
+  },
+  {
+    "topicId": "py-fileio",
+    "prerequisiteId": "py-errors",
+    "strength": "soft",
+    "reason": "File operations are where exception handling first pays."
+  },
+  {
+    "topicId": "py-classes",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Methods are functions."
+  },
+  {
+    "topicId": "py-classes",
+    "prerequisiteId": "py-dicts",
+    "strength": "soft",
+    "reason": "Objects generalize the record you were modeling with a dict."
+  },
+  {
+    "topicId": "py-inheritance",
+    "prerequisiteId": "py-classes",
+    "strength": "hard",
+    "reason": "Inheritance extends classes."
+  },
+  {
+    "topicId": "pyp-venv",
+    "prerequisiteId": "pkg-python",
+    "strength": "hard",
+    "reason": "Environments isolate the installs you can already perform."
+  },
+  {
+    "topicId": "pyp-structure",
+    "prerequisiteId": "pyp-venv",
+    "strength": "hard",
+    "reason": "Layout assumes an isolated environment to run in."
+  },
+  {
+    "topicId": "pyp-structure",
+    "prerequisiteId": "pkg-manifest",
+    "strength": "hard",
+    "reason": "Project metadata lives in the manifest."
+  },
+  {
+    "topicId": "pyp-lint",
+    "prerequisiteId": "pyp-structure",
+    "strength": "hard",
+    "reason": "Tooling is configured at the project level."
+  },
+  {
+    "topicId": "pyp-hints",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Hints annotate signatures."
+  },
+  {
+    "topicId": "pyp-hints",
+    "prerequisiteId": "ts-annotate",
+    "strength": "soft",
+    "reason": "Type annotation transfers across languages."
+  },
+  {
+    "topicId": "pyp-typing",
+    "prerequisiteId": "pyp-hints",
+    "strength": "hard",
+    "reason": "The typing module extends basic annotations."
+  },
+  {
+    "topicId": "pyp-typing",
+    "prerequisiteId": "py-dicts",
+    "strength": "hard",
+    "reason": "TypedDict describes dictionary shapes."
+  },
+  {
+    "topicId": "pyp-mypy",
+    "prerequisiteId": "pyp-typing",
+    "strength": "hard",
+    "reason": "A checker verifies the annotations you wrote."
+  },
+  {
+    "topicId": "pyp-mypy",
+    "prerequisiteId": "pyp-lint",
+    "strength": "soft",
+    "reason": "Type checking joins the same pre-merge gate."
+  },
+  {
+    "topicId": "pyp-async",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "Async functions are functions."
+  },
+  {
+    "topicId": "pyp-async",
+    "prerequisiteId": "js-async",
+    "strength": "soft",
+    "reason": "The await model transfers between languages."
+  },
+  {
+    "topicId": "pyp-gather",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "Gathering runs coroutines you can already write."
+  },
+  {
+    "topicId": "pyp-httpx",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "An async client is awaited."
+  },
+  {
+    "topicId": "pyp-httpx",
+    "prerequisiteId": "py-json",
+    "strength": "hard",
+    "reason": "API responses are decoded as JSON."
+  },
+  {
+    "topicId": "pyp-asynciter",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "Async iteration extends async functions."
+  },
+  {
+    "topicId": "pyp-backoff",
+    "prerequisiteId": "pyp-httpx",
+    "strength": "hard",
+    "reason": "Retries wrap the calls you are making."
+  },
+  {
+    "topicId": "mdi-circuit",
+    "prerequisiteId": "pyp-backoff",
+    "strength": "hard",
+    "reason": "A breaker is the escalation of a retry policy."
+  },
+  {
+    "topicId": "sql-join",
+    "prerequisiteId": "sql-select",
+    "strength": "hard",
+    "reason": "A join extends a select across tables."
+  },
+  {
+    "topicId": "sql-aggregate",
+    "prerequisiteId": "sql-join",
+    "strength": "hard",
+    "reason": "Grouping usually operates on joined results."
+  },
+  {
+    "topicId": "sql-subquery",
+    "prerequisiteId": "sql-aggregate",
+    "strength": "hard",
+    "reason": "CTEs organize multi-step aggregation."
+  },
+  {
+    "topicId": "sql-window",
+    "prerequisiteId": "sql-subquery",
+    "strength": "hard",
+    "reason": "Window functions extend grouped computation."
+  },
+  {
+    "topicId": "sql-mutate",
+    "prerequisiteId": "sql-select",
+    "strength": "hard",
+    "reason": "A safe mutation starts as a verified select."
+  },
+  {
+    "topicId": "sql-transaction",
+    "prerequisiteId": "sql-mutate",
+    "strength": "hard",
+    "reason": "Transactions group mutations."
+  },
+  {
+    "topicId": "sql-index",
+    "prerequisiteId": "sql-join",
+    "strength": "hard",
+    "reason": "Index cost is felt on joins and filters."
+  },
+  {
+    "topicId": "sql-explain",
+    "prerequisiteId": "sql-index",
+    "strength": "hard",
+    "reason": "A plan is read in terms of index use."
+  },
+  {
+    "topicId": "mdl-normalize",
+    "prerequisiteId": "sql-select",
+    "strength": "hard",
+    "reason": "You normalize toward the queries you can write."
+  },
+  {
+    "topicId": "mdl-keys",
+    "prerequisiteId": "mdl-normalize",
+    "strength": "hard",
+    "reason": "Normalization is defined by keys."
+  },
+  {
+    "topicId": "mdl-relations",
+    "prerequisiteId": "mdl-keys",
+    "strength": "hard",
+    "reason": "Cardinality is expressed with keys."
+  },
+  {
+    "topicId": "mdl-migrate",
+    "prerequisiteId": "mdl-relations",
+    "strength": "hard",
+    "reason": "Migrations change a schema you designed."
+  },
+  {
+    "topicId": "mdl-migrate",
+    "prerequisiteId": "git-commit",
+    "strength": "soft",
+    "reason": "Migrations are versioned artifacts, and versioning habits carry over."
+  },
+  {
+    "topicId": "mdl-denormalize",
+    "prerequisiteId": "mdl-normalize",
+    "strength": "hard",
+    "reason": "You cannot denormalize deliberately without the normal form."
+  },
+  {
+    "topicId": "mdl-denormalize",
+    "prerequisiteId": "sql-explain",
+    "strength": "soft",
+    "reason": "Denormalization is justified by a measured read path."
+  },
+  {
+    "topicId": "ing-sources",
+    "prerequisiteId": "py-fileio",
+    "strength": "hard",
+    "reason": "Ingestion reads files."
+  },
+  {
+    "topicId": "ing-sources",
+    "prerequisiteId": "pyp-httpx",
+    "strength": "hard",
+    "reason": "Ingestion pulls from APIs."
+  },
+  {
+    "topicId": "ing-clean",
+    "prerequisiteId": "ing-sources",
+    "strength": "hard",
+    "reason": "You clean what you have loaded."
+  },
+  {
+    "topicId": "ing-pipeline",
+    "prerequisiteId": "ing-clean",
+    "strength": "hard",
+    "reason": "A pipeline formalizes ingestion and cleaning."
+  },
+  {
+    "topicId": "ing-pipeline",
+    "prerequisiteId": "mdl-keys",
+    "strength": "hard",
+    "reason": "Idempotent loads require a key to upsert on."
+  },
+  {
+    "topicId": "ing-checkpoint",
+    "prerequisiteId": "ing-pipeline",
+    "strength": "hard",
+    "reason": "Checkpointing makes a pipeline resumable."
+  },
+  {
+    "topicId": "ing-schedule",
+    "prerequisiteId": "ing-pipeline",
+    "strength": "hard",
+    "reason": "Scheduling automates a pipeline that already runs."
+  },
+  {
+    "topicId": "ing-schedule",
+    "prerequisiteId": "obs-alert",
+    "strength": "soft",
+    "reason": "Unattended jobs need alerting to be trustworthy."
+  },
+  {
+    "topicId": "vec-embeddings",
+    "prerequisiteId": "mdf-tokens",
+    "strength": "hard",
+    "reason": "Embeddings operate on tokenized text."
+  },
+  {
+    "topicId": "vec-chunking",
+    "prerequisiteId": "vec-embeddings",
+    "strength": "hard",
+    "reason": "Chunk size is chosen against what gets embedded."
+  },
+  {
+    "topicId": "vec-chunking",
+    "prerequisiteId": "ing-clean",
+    "strength": "hard",
+    "reason": "You chunk cleaned documents."
+  },
+  {
+    "topicId": "vec-generate",
+    "prerequisiteId": "vec-chunking",
+    "strength": "hard",
+    "reason": "You embed chunks."
+  },
+  {
+    "topicId": "vec-generate",
+    "prerequisiteId": "pyp-gather",
+    "strength": "soft",
+    "reason": "Embedding a corpus is a batch of concurrent calls."
+  },
+  {
+    "topicId": "vec-pgvector",
+    "prerequisiteId": "vec-generate",
+    "strength": "hard",
+    "reason": "Vectors must exist before they are stored."
+  },
+  {
+    "topicId": "vec-pgvector",
+    "prerequisiteId": "mdl-relations",
+    "strength": "hard",
+    "reason": "Vectors live in a schema alongside their metadata."
+  },
+  {
+    "topicId": "vec-index",
+    "prerequisiteId": "vec-pgvector",
+    "strength": "hard",
+    "reason": "An index is built over stored vectors."
+  },
+  {
+    "topicId": "vec-index",
+    "prerequisiteId": "sql-index",
+    "strength": "soft",
+    "reason": "Index tradeoffs are the same shape you met in SQL."
+  },
+  {
+    "topicId": "vec-filter",
+    "prerequisiteId": "vec-pgvector",
+    "strength": "hard",
+    "reason": "Metadata filtering combines vector and relational predicates."
+  },
+  {
+    "topicId": "vec-filter",
+    "prerequisiteId": "sql-select",
+    "strength": "hard",
+    "reason": "The filter half is an ordinary predicate."
+  },
+  {
+    "topicId": "http-model",
+    "prerequisiteId": "js-fetch",
+    "strength": "soft",
+    "reason": "You have already made requests; this names what happened."
+  },
+  {
+    "topicId": "http-methods",
+    "prerequisiteId": "http-model",
+    "strength": "hard",
+    "reason": "Methods are part of the request."
+  },
+  {
+    "topicId": "http-status",
+    "prerequisiteId": "http-methods",
+    "strength": "hard",
+    "reason": "Responses answer requests."
+  },
+  {
+    "topicId": "http-headers",
+    "prerequisiteId": "http-model",
+    "strength": "hard",
+    "reason": "Headers are part of every message."
+  },
+  {
+    "topicId": "http-idempotent",
+    "prerequisiteId": "http-methods",
+    "strength": "hard",
+    "reason": "Idempotency is a property of methods."
+  },
+  {
+    "topicId": "http-cors",
+    "prerequisiteId": "http-headers",
+    "strength": "hard",
+    "reason": "CORS is enforced through headers."
+  },
+  {
+    "topicId": "con-design",
+    "prerequisiteId": "http-status",
+    "strength": "hard",
+    "reason": "A contract specifies responses including failures."
+  },
+  {
+    "topicId": "con-design",
+    "prerequisiteId": "mdl-relations",
+    "strength": "soft",
+    "reason": "Resource shapes usually mirror the data model."
+  },
+  {
+    "topicId": "con-openapi",
+    "prerequisiteId": "con-design",
+    "strength": "hard",
+    "reason": "The specification expresses a contract."
+  },
+  {
+    "topicId": "con-versioning",
+    "prerequisiteId": "con-openapi",
+    "strength": "hard",
+    "reason": "Versioning evolves a published specification."
+  },
+  {
+    "topicId": "con-errors",
+    "prerequisiteId": "con-design",
+    "strength": "hard",
+    "reason": "Error shapes are part of the contract."
+  },
+  {
+    "topicId": "con-errors",
+    "prerequisiteId": "http-status",
+    "strength": "hard",
+    "reason": "Error responses carry status codes."
+  },
+  {
+    "topicId": "val-boundary",
+    "prerequisiteId": "con-design",
+    "strength": "hard",
+    "reason": "The boundary is where the contract is enforced."
+  },
+  {
+    "topicId": "val-models",
+    "prerequisiteId": "py-classes",
+    "strength": "hard",
+    "reason": "Models are classes."
+  },
+  {
+    "topicId": "val-models",
+    "prerequisiteId": "pyp-hints",
+    "strength": "hard",
+    "reason": "Fields are declared with type annotations."
+  },
+  {
+    "topicId": "val-models",
+    "prerequisiteId": "val-boundary",
+    "strength": "soft",
+    "reason": "Models are the mechanism for the principle."
+  },
+  {
+    "topicId": "val-field",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "Validators attach to fields you have declared."
+  },
+  {
+    "topicId": "val-model",
+    "prerequisiteId": "val-field",
+    "strength": "hard",
+    "reason": "Cross-field rules build on single-field rules."
+  },
+  {
+    "topicId": "val-serialize",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "Serialization emits the models you defined."
+  },
+  {
+    "topicId": "val-settings",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "Settings are models loaded from the environment."
+  },
+  {
+    "topicId": "val-settings",
+    "prerequisiteId": "cfg-env",
+    "strength": "hard",
+    "reason": "Configuration comes from environment variables."
+  },
+  {
+    "topicId": "val-schema",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "Schema is generated from models."
+  },
+  {
+    "topicId": "val-schema",
+    "prerequisiteId": "con-openapi",
+    "strength": "soft",
+    "reason": "Generated schema is what makes the spec trustworthy."
+  },
+  {
+    "topicId": "api-routing",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "Handlers are async functions."
+  },
+  {
+    "topicId": "api-routing",
+    "prerequisiteId": "http-methods",
+    "strength": "hard",
+    "reason": "A route binds a method and a path."
+  },
+  {
+    "topicId": "api-body",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "Bodies are bound to routes."
+  },
+  {
+    "topicId": "api-body",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "Request bodies are validated by models."
+  },
+  {
+    "topicId": "api-response",
+    "prerequisiteId": "api-body",
+    "strength": "hard",
+    "reason": "Response models are the outbound half."
+  },
+  {
+    "topicId": "api-response",
+    "prerequisiteId": "val-serialize",
+    "strength": "hard",
+    "reason": "Responses are serialized models."
+  },
+  {
+    "topicId": "api-di",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "Dependencies are injected into handlers."
+  },
+  {
+    "topicId": "api-auth",
+    "prerequisiteId": "api-di",
+    "strength": "hard",
+    "reason": "Auth is enforced as a dependency."
+  },
+  {
+    "topicId": "api-ratelimit",
+    "prerequisiteId": "api-auth",
+    "strength": "soft",
+    "reason": "Both are edge policies applied before the handler."
+  },
+  {
+    "topicId": "api-logging",
+    "prerequisiteId": "obs-logging",
+    "strength": "hard",
+    "reason": "Request logging is structured logging applied at the edge."
+  },
+  {
+    "topicId": "api-logging",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "You log the requests your routes receive."
+  },
+  {
+    "topicId": "api-background",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "Background work is scheduled from a handler."
+  },
+  {
+    "topicId": "api-lifespan",
+    "prerequisiteId": "api-background",
+    "strength": "soft",
+    "reason": "Both concern work outside the request cycle."
+  },
+  {
+    "topicId": "api-lifespan",
+    "prerequisiteId": "api-di",
+    "strength": "hard",
+    "reason": "Shared resources are what dependencies hand out."
+  },
+  {
+    "topicId": "api-lifespan",
+    "prerequisiteId": "del-secrets",
+    "strength": "soft",
+    "reason": "Startup is where credentials are loaded."
+  },
+  {
+    "topicId": "str-asynciter",
+    "prerequisiteId": "pyp-asynciter",
+    "strength": "hard",
+    "reason": "Streaming yields from an async iterator."
+  },
+  {
+    "topicId": "str-sse",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "A stream is served from a route."
+  },
+  {
+    "topicId": "str-sse",
+    "prerequisiteId": "str-asynciter",
+    "strength": "hard",
+    "reason": "The events come from an iterator."
+  },
+  {
+    "topicId": "str-sse",
+    "prerequisiteId": "http-headers",
+    "strength": "hard",
+    "reason": "SSE is defined by its content type and connection behavior."
+  },
+  {
+    "topicId": "str-errors",
+    "prerequisiteId": "str-sse",
+    "strength": "hard",
+    "reason": "Mid-stream failure only exists once you are streaming."
+  },
+  {
+    "topicId": "str-errors",
+    "prerequisiteId": "con-errors",
+    "strength": "soft",
+    "reason": "Error design carries over, but the response has already begun."
+  },
+  {
+    "topicId": "mdf-paradigms",
+    "prerequisiteId": "mdf-hierarchy",
+    "strength": "hard",
+    "reason": "Paradigms are how the systems in the hierarchy learn."
+  },
+  {
+    "topicId": "mdf-incontext",
+    "prerequisiteId": "mdf-paradigms",
+    "strength": "hard",
+    "reason": "In-context learning is contrasted against training."
+  },
+  {
+    "topicId": "mdf-transformer",
+    "prerequisiteId": "mdf-paradigms",
+    "strength": "hard",
+    "reason": "The architecture is what made the scaling work."
+  },
+  {
+    "topicId": "mdf-tokens",
+    "prerequisiteId": "mdf-hierarchy",
+    "strength": "hard",
+    "reason": "Tokenization is how an LLM receives input."
+  },
+  {
+    "topicId": "mdf-context",
+    "prerequisiteId": "mdf-tokens",
+    "strength": "hard",
+    "reason": "The window is measured in tokens."
+  },
+  {
+    "topicId": "mdf-economics",
+    "prerequisiteId": "mdf-context",
+    "strength": "hard",
+    "reason": "Cost is a function of tokens in and out."
+  },
+  {
+    "topicId": "mdf-landscape",
+    "prerequisiteId": "mdf-economics",
+    "strength": "soft",
+    "reason": "Model choice is mostly a cost and latency decision."
+  },
+  {
+    "topicId": "mdf-landscape",
+    "prerequisiteId": "mdf-context",
+    "strength": "hard",
+    "reason": "Models differ by window and capability."
+  },
+  {
+    "topicId": "mdf-nondeterminism",
+    "prerequisiteId": "mdf-incontext",
+    "strength": "hard",
+    "reason": "Sampling is why the same prompt varies."
+  },
+  {
+    "topicId": "mdi-client",
+    "prerequisiteId": "mdf-landscape",
+    "strength": "hard",
+    "reason": "You configure a specific model."
+  },
+  {
+    "topicId": "mdi-client",
+    "prerequisiteId": "pyp-httpx",
+    "strength": "soft",
+    "reason": "Provider clients are HTTP clients with a wrapper."
+  },
+  {
+    "topicId": "mdi-params",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Parameters are set on a configured client."
+  },
+  {
+    "topicId": "mdi-params",
+    "prerequisiteId": "mdf-nondeterminism",
+    "strength": "hard",
+    "reason": "Sampling parameters control the variation."
+  },
+  {
+    "topicId": "mdi-safety",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Safety settings are client configuration."
+  },
+  {
+    "topicId": "mdi-sync-async",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Both call styles use the same client."
+  },
+  {
+    "topicId": "mdi-sync-async",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "The async path requires async Python."
+  },
+  {
+    "topicId": "mdi-stream",
+    "prerequisiteId": "mdi-sync-async",
+    "strength": "hard",
+    "reason": "Streaming is the async call style."
+  },
+  {
+    "topicId": "mdi-session",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Sessions carry state across calls."
+  },
+  {
+    "topicId": "mdi-session",
+    "prerequisiteId": "mdf-context",
+    "strength": "hard",
+    "reason": "History consumes the window."
+  },
+  {
+    "topicId": "mdi-system",
+    "prerequisiteId": "mdi-session",
+    "strength": "hard",
+    "reason": "System instructions are separated from turn history."
+  },
+  {
+    "topicId": "mdi-system",
+    "prerequisiteId": "prm-instruction",
+    "strength": "hard",
+    "reason": "A system instruction is an instruction."
+  },
+  {
+    "topicId": "mdi-structured",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Structured output is a request configuration."
+  },
+  {
+    "topicId": "mdi-structured",
+    "prerequisiteId": "val-models",
+    "strength": "hard",
+    "reason": "The schema is a model."
+  },
+  {
+    "topicId": "mdi-schemafail",
+    "prerequisiteId": "mdi-structured",
+    "strength": "hard",
+    "reason": "Failure handling assumes you asked for a schema."
+  },
+  {
+    "topicId": "mdi-circuit",
+    "prerequisiteId": "mdi-schemafail",
+    "strength": "soft",
+    "reason": "Both are failure paths around an unreliable call."
+  },
+  {
+    "topicId": "mdi-multimodal",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "Non-text input is sent through the same client."
+  },
+  {
+    "topicId": "mdi-costcap",
+    "prerequisiteId": "mdf-economics",
+    "strength": "hard",
+    "reason": "A cap requires knowing what a call costs."
+  },
+  {
+    "topicId": "mdi-costcap",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "The cap wraps the call."
+  },
+  {
+    "topicId": "tol-declare",
+    "prerequisiteId": "con-design",
+    "strength": "hard",
+    "reason": "A tool declaration is a contract for the model."
+  },
+  {
+    "topicId": "tol-declare",
+    "prerequisiteId": "mdi-structured",
+    "strength": "hard",
+    "reason": "Tool arguments arrive as structured output."
+  },
+  {
+    "topicId": "tol-execute",
+    "prerequisiteId": "tol-declare",
+    "strength": "hard",
+    "reason": "You execute a call you declared."
+  },
+  {
+    "topicId": "tol-parallel",
+    "prerequisiteId": "tol-execute",
+    "strength": "hard",
+    "reason": "Multiple calls extend one call."
+  },
+  {
+    "topicId": "tol-recover",
+    "prerequisiteId": "tol-execute",
+    "strength": "hard",
+    "reason": "Recovery handles a call that ran and failed."
+  },
+  {
+    "topicId": "agt-loop",
+    "prerequisiteId": "tol-recover",
+    "strength": "soft",
+    "reason": "Loops depend on surviving individual tool failures."
+  },
+  {
+    "topicId": "tol-mcp",
+    "prerequisiteId": "tol-declare",
+    "strength": "hard",
+    "reason": "MCP standardizes declarations you can already write."
+  },
+  {
+    "topicId": "tol-mcp",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "A server exposes the tools."
+  },
+  {
+    "topicId": "tol-boundary",
+    "prerequisiteId": "tol-execute",
+    "strength": "hard",
+    "reason": "You can only draw the line once you have seen both sides run."
+  },
+  {
+    "topicId": "tol-boundary",
+    "prerequisiteId": "mdf-nondeterminism",
+    "strength": "hard",
+    "reason": "The boundary exists because model output varies."
+  },
+  {
+    "topicId": "prm-instruction",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "You need something to prompt."
+  },
+  {
+    "topicId": "prm-examples",
+    "prerequisiteId": "prm-instruction",
+    "strength": "hard",
+    "reason": "Examples supplement an instruction."
+  },
+  {
+    "topicId": "prm-structure",
+    "prerequisiteId": "prm-instruction",
+    "strength": "hard",
+    "reason": "Structure organizes an instruction."
+  },
+  {
+    "topicId": "prm-templates",
+    "prerequisiteId": "prm-structure",
+    "strength": "hard",
+    "reason": "Templates parameterize structured prompts."
+  },
+  {
+    "topicId": "prm-templates",
+    "prerequisiteId": "git-commit",
+    "strength": "hard",
+    "reason": "Versioning prompts requires version control."
+  },
+  {
+    "topicId": "prm-decay",
+    "prerequisiteId": "prm-examples",
+    "strength": "soft",
+    "reason": "You can only retire a technique you have used."
+  },
+  {
+    "topicId": "ctx-budget",
+    "prerequisiteId": "mdf-context",
+    "strength": "hard",
+    "reason": "A budget requires a limit."
+  },
+  {
+    "topicId": "ctx-budget",
+    "prerequisiteId": "mdf-economics",
+    "strength": "hard",
+    "reason": "The budget has money and latency on its axes."
+  },
+  {
+    "topicId": "ctx-position",
+    "prerequisiteId": "ctx-budget",
+    "strength": "hard",
+    "reason": "Placement matters once you are deciding what goes in."
+  },
+  {
+    "topicId": "ctx-rot",
+    "prerequisiteId": "ctx-budget",
+    "strength": "hard",
+    "reason": "Rot is what happens when the budget is spent badly over time."
+  },
+  {
+    "topicId": "ctx-state",
+    "prerequisiteId": "ctx-rot",
+    "strength": "hard",
+    "reason": "Structured state is the answer to transcript growth."
+  },
+  {
+    "topicId": "ctx-state",
+    "prerequisiteId": "mdi-session",
+    "strength": "hard",
+    "reason": "You replace history replay with state."
+  },
+  {
+    "topicId": "ctx-compress",
+    "prerequisiteId": "ctx-state",
+    "strength": "hard",
+    "reason": "Compression assumes a representation to compress."
+  },
+  {
+    "topicId": "ctx-cache",
+    "prerequisiteId": "ctx-budget",
+    "strength": "hard",
+    "reason": "Caching is a cost lever on the budget."
+  },
+  {
+    "topicId": "ctx-evict",
+    "prerequisiteId": "ctx-position",
+    "strength": "hard",
+    "reason": "Eviction decisions depend on what position costs."
+  },
+  {
+    "topicId": "ctx-evict",
+    "prerequisiteId": "ctx-compress",
+    "strength": "soft",
+    "reason": "Compression and eviction are the same tradeoff at different intensities."
+  },
+  {
+    "topicId": "ctx-budget",
+    "prerequisiteId": "prm-structure",
+    "strength": "soft",
+    "reason": "Prompt structure is the first thing that fills the window."
+  },
+  {
+    "topicId": "ret-architecture",
+    "prerequisiteId": "vec-pgvector",
+    "strength": "hard",
+    "reason": "Retrieval needs stored vectors."
+  },
+  {
+    "topicId": "ret-architecture",
+    "prerequisiteId": "ctx-budget",
+    "strength": "hard",
+    "reason": "Retrieval is a decision about what goes in the window."
+  },
+  {
+    "topicId": "ret-inject",
+    "prerequisiteId": "ret-architecture",
+    "strength": "hard",
+    "reason": "Injection is the generation half of the design."
+  },
+  {
+    "topicId": "ret-inject",
+    "prerequisiteId": "mdi-session",
+    "strength": "hard",
+    "reason": "Retrieved text is placed into the request."
+  },
+  {
+    "topicId": "ret-hybrid",
+    "prerequisiteId": "ret-inject",
+    "strength": "soft",
+    "reason": "Retrieval quality work starts once the pipeline runs."
+  },
+  {
+    "topicId": "ret-hybrid",
+    "prerequisiteId": "sql-select",
+    "strength": "hard",
+    "reason": "The keyword half is a text query."
+  },
+  {
+    "topicId": "ret-hybrid",
+    "prerequisiteId": "vec-filter",
+    "strength": "hard",
+    "reason": "Fusing results requires filtered vector search."
+  },
+  {
+    "topicId": "ret-rerank",
+    "prerequisiteId": "ret-hybrid",
+    "strength": "hard",
+    "reason": "Reranking refines a candidate set."
+  },
+  {
+    "topicId": "ret-expand",
+    "prerequisiteId": "ret-architecture",
+    "strength": "hard",
+    "reason": "Query rewriting sits in front of retrieval."
+  },
+  {
+    "topicId": "ret-cite",
+    "prerequisiteId": "ret-inject",
+    "strength": "hard",
+    "reason": "Citations point at the chunks you injected."
+  },
+  {
+    "topicId": "ret-metrics",
+    "prerequisiteId": "ret-architecture",
+    "strength": "hard",
+    "reason": "You measure a system that exists."
+  },
+  {
+    "topicId": "ret-metrics",
+    "prerequisiteId": "evl-dataset",
+    "strength": "hard",
+    "reason": "Metrics are computed over an evaluation set."
+  },
+  {
+    "topicId": "ret-faithful",
+    "prerequisiteId": "ret-metrics",
+    "strength": "soft",
+    "reason": "Retrieval quality is measured before generation quality."
+  },
+  {
+    "topicId": "ret-faithful",
+    "prerequisiteId": "evl-judge",
+    "strength": "hard",
+    "reason": "Faithfulness is scored by a judge."
+  },
+  {
+    "topicId": "ret-faithful",
+    "prerequisiteId": "ret-inject",
+    "strength": "hard",
+    "reason": "Faithfulness compares an answer to its context."
+  },
+  {
+    "topicId": "agt-loop",
+    "prerequisiteId": "tol-execute",
+    "strength": "hard",
+    "reason": "The loop calls tools."
+  },
+  {
+    "topicId": "agt-loop",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "The tools it calls have to be served."
+  },
+  {
+    "topicId": "agt-plan",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "Planning organizes iterations of a loop that runs."
+  },
+  {
+    "topicId": "agt-reflect",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "Reflection evaluates the last iteration."
+  },
+  {
+    "topicId": "agt-reflect",
+    "prerequisiteId": "evl-deterministic",
+    "strength": "soft",
+    "reason": "Self-evaluation borrows from how you score output."
+  },
+  {
+    "topicId": "agt-budget",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "A ceiling bounds a loop."
+  },
+  {
+    "topicId": "agt-budget",
+    "prerequisiteId": "mdi-costcap",
+    "strength": "hard",
+    "reason": "Spend caps are the same mechanism at the loop level."
+  },
+  {
+    "topicId": "agt-memory-short",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "Working state persists across iterations."
+  },
+  {
+    "topicId": "agt-memory-short",
+    "prerequisiteId": "ctx-state",
+    "strength": "hard",
+    "reason": "Working memory is structured state."
+  },
+  {
+    "topicId": "agt-memory-long",
+    "prerequisiteId": "agt-memory-short",
+    "strength": "hard",
+    "reason": "Persistence extends working memory."
+  },
+  {
+    "topicId": "agt-memory-long",
+    "prerequisiteId": "vec-pgvector",
+    "strength": "soft",
+    "reason": "Semantic recall is usually vector retrieval."
+  },
+  {
+    "topicId": "agt-state-graph",
+    "prerequisiteId": "agt-plan",
+    "strength": "hard",
+    "reason": "A graph makes a plan's transitions explicit."
+  },
+  {
+    "topicId": "agt-checkpoint",
+    "prerequisiteId": "agt-state-graph",
+    "strength": "hard",
+    "reason": "You checkpoint at defined states."
+  },
+  {
+    "topicId": "agt-checkpoint",
+    "prerequisiteId": "ing-checkpoint",
+    "strength": "soft",
+    "reason": "Resumability is the same pattern as in batch jobs."
+  },
+  {
+    "topicId": "agt-boundary",
+    "prerequisiteId": "tol-boundary",
+    "strength": "hard",
+    "reason": "The agent question is the model boundary drawn one level up."
+  },
+  {
+    "topicId": "agt-boundary",
+    "prerequisiteId": "agt-plan",
+    "strength": "hard",
+    "reason": "You need to have built one to know when not to."
+  },
+  {
+    "topicId": "agt-multi",
+    "prerequisiteId": "agt-state-graph",
+    "strength": "hard",
+    "reason": "Handoffs are transitions between agents."
+  },
+  {
+    "topicId": "agt-hitl",
+    "prerequisiteId": "agt-budget",
+    "strength": "soft",
+    "reason": "Approval and budget are the two ways a loop is bounded."
+  },
+  {
+    "topicId": "agt-hitl",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "A pause interrupts a loop."
+  },
+  {
+    "topicId": "agt-hitl",
+    "prerequisiteId": "saf-audit",
+    "strength": "soft",
+    "reason": "Approvals are only meaningful if they are recorded."
+  },
+  {
+    "topicId": "tst-pyramid",
+    "prerequisiteId": "js-functions",
+    "strength": "soft",
+    "reason": "Test placement is easier once you have code worth testing."
+  },
+  {
+    "topicId": "tst-tdd",
+    "prerequisiteId": "tst-pyramid",
+    "strength": "hard",
+    "reason": "TDD assumes you know what kind of test to write."
+  },
+  {
+    "topicId": "tst-coverage",
+    "prerequisiteId": "tst-pyramid",
+    "strength": "hard",
+    "reason": "Coverage is interpreted against test type."
+  },
+  {
+    "topicId": "tst-flaky",
+    "prerequisiteId": "tst-coverage",
+    "strength": "soft",
+    "reason": "Both are lessons about what a green suite does not prove."
+  },
+  {
+    "topicId": "tsf-unit",
+    "prerequisiteId": "tst-pyramid",
+    "strength": "hard",
+    "reason": "Unit tests are the base of the pyramid."
+  },
+  {
+    "topicId": "tsf-unit",
+    "prerequisiteId": "js-functions",
+    "strength": "hard",
+    "reason": "You unit test functions."
+  },
+  {
+    "topicId": "tsf-mock",
+    "prerequisiteId": "tsf-unit",
+    "strength": "hard",
+    "reason": "Mocking isolates a unit under test."
+  },
+  {
+    "topicId": "tsf-component",
+    "prerequisiteId": "rct-components",
+    "strength": "hard",
+    "reason": "You test components."
+  },
+  {
+    "topicId": "tsf-component",
+    "prerequisiteId": "tsf-unit",
+    "strength": "hard",
+    "reason": "Component tests use the same runner and matchers."
+  },
+  {
+    "topicId": "tsf-interaction",
+    "prerequisiteId": "tsf-component",
+    "strength": "hard",
+    "reason": "Interaction tests act on rendered components."
+  },
+  {
+    "topicId": "tsf-interaction",
+    "prerequisiteId": "dom-events",
+    "strength": "hard",
+    "reason": "Simulated events mirror real ones."
+  },
+  {
+    "topicId": "tsf-e2e",
+    "prerequisiteId": "tsf-interaction",
+    "strength": "soft",
+    "reason": "End-to-end is the same idea against a real browser."
+  },
+  {
+    "topicId": "tsf-e2e",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "End-to-end tests drive real routes."
+  },
+  {
+    "topicId": "tsf-selectors",
+    "prerequisiteId": "tsf-e2e",
+    "strength": "hard",
+    "reason": "Selector durability is a lesson learned from brittle E2E tests."
+  },
+  {
+    "topicId": "tsb-pytest",
+    "prerequisiteId": "py-functions",
+    "strength": "hard",
+    "reason": "You test Python functions."
+  },
+  {
+    "topicId": "tsb-pytest",
+    "prerequisiteId": "tst-pyramid",
+    "strength": "hard",
+    "reason": "The same placement logic applies."
+  },
+  {
+    "topicId": "tsb-async",
+    "prerequisiteId": "tsb-pytest",
+    "strength": "hard",
+    "reason": "Async tests extend ordinary tests."
+  },
+  {
+    "topicId": "tsb-async",
+    "prerequisiteId": "pyp-async",
+    "strength": "hard",
+    "reason": "You test async code."
+  },
+  {
+    "topicId": "tsb-client",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "You test endpoints that exist."
+  },
+  {
+    "topicId": "tsb-client",
+    "prerequisiteId": "tsb-pytest",
+    "strength": "hard",
+    "reason": "API tests are written in the same framework."
+  },
+  {
+    "topicId": "tsb-mockapi",
+    "prerequisiteId": "tsf-mock",
+    "strength": "soft",
+    "reason": "Mocking transfers across languages."
+  },
+  {
+    "topicId": "tsb-mockapi",
+    "prerequisiteId": "pyp-httpx",
+    "strength": "hard",
+    "reason": "You mock the client you use."
+  },
+  {
+    "topicId": "tsb-stream",
+    "prerequisiteId": "str-sse",
+    "strength": "hard",
+    "reason": "You test the stream you serve."
+  },
+  {
+    "topicId": "tsb-stream",
+    "prerequisiteId": "tsb-client",
+    "strength": "hard",
+    "reason": "Stream tests extend endpoint tests."
+  },
+  {
+    "topicId": "tsb-integration",
+    "prerequisiteId": "tsb-client",
+    "strength": "hard",
+    "reason": "Integration tests add real dependencies."
+  },
+  {
+    "topicId": "tsb-integration",
+    "prerequisiteId": "mdl-migrate",
+    "strength": "hard",
+    "reason": "A test database is created and torn down by migrations."
+  },
+  {
+    "topicId": "evl-silent",
+    "prerequisiteId": "mdf-nondeterminism",
+    "strength": "hard",
+    "reason": "Variation is why fluent output can be wrong."
+  },
+  {
+    "topicId": "evl-dataset",
+    "prerequisiteId": "evl-silent",
+    "strength": "hard",
+    "reason": "You build a dataset because you cannot trust a single result."
+  },
+  {
+    "topicId": "evl-dataset",
+    "prerequisiteId": "tst-pyramid",
+    "strength": "soft",
+    "reason": "An eval set is a test suite for a nondeterministic system."
+  },
+  {
+    "topicId": "evl-deterministic",
+    "prerequisiteId": "evl-dataset",
+    "strength": "hard",
+    "reason": "Checks run over the dataset."
+  },
+  {
+    "topicId": "evl-deterministic",
+    "prerequisiteId": "val-schema",
+    "strength": "soft",
+    "reason": "Structural checks are the same validation applied to output."
+  },
+  {
+    "topicId": "evl-judge",
+    "prerequisiteId": "evl-deterministic",
+    "strength": "hard",
+    "reason": "You reach for a judge only when cheap checks cannot decide."
+  },
+  {
+    "topicId": "evl-judge",
+    "prerequisiteId": "mdi-structured",
+    "strength": "hard",
+    "reason": "A judge returns a structured score."
+  },
+  {
+    "topicId": "evl-validate",
+    "prerequisiteId": "evl-judge",
+    "strength": "hard",
+    "reason": "A judge must be checked before it is trusted."
+  },
+  {
+    "topicId": "evl-human",
+    "prerequisiteId": "evl-validate",
+    "strength": "soft",
+    "reason": "Human labels are the reference the judge is measured against."
+  },
+  {
+    "topicId": "evl-regression",
+    "prerequisiteId": "evl-judge",
+    "strength": "hard",
+    "reason": "Gating requires a score."
+  },
+  {
+    "topicId": "evl-regression",
+    "prerequisiteId": "del-actions",
+    "strength": "hard",
+    "reason": "The gate runs in CI."
+  },
+  {
+    "topicId": "evl-ladder",
+    "prerequisiteId": "evl-deterministic",
+    "strength": "hard",
+    "reason": "The ladder orders checks by cost."
+  },
+  {
+    "topicId": "evl-ladder",
+    "prerequisiteId": "evl-judge",
+    "strength": "hard",
+    "reason": "The expensive rung is the judge."
+  },
+  {
+    "topicId": "evl-ladder",
+    "prerequisiteId": "ctx-budget",
+    "strength": "soft",
+    "reason": "Both are resource allocation decisions."
+  },
+  {
+    "topicId": "obs-tracing",
+    "prerequisiteId": "mdi-client",
+    "strength": "hard",
+    "reason": "You trace model calls."
+  },
+  {
+    "topicId": "obs-metrics",
+    "prerequisiteId": "obs-tracing",
+    "strength": "soft",
+    "reason": "Traces are where the metrics first become visible."
+  },
+  {
+    "topicId": "obs-logging",
+    "prerequisiteId": "py-json",
+    "strength": "hard",
+    "reason": "Structured logs are serialized records."
+  },
+  {
+    "topicId": "obs-correlate",
+    "prerequisiteId": "obs-logging",
+    "strength": "hard",
+    "reason": "Correlation adds an identifier to structured logs."
+  },
+  {
+    "topicId": "obs-pii",
+    "prerequisiteId": "obs-logging",
+    "strength": "hard",
+    "reason": "Redaction happens at the point of writing."
+  },
+  {
+    "topicId": "obs-alert",
+    "prerequisiteId": "obs-metrics",
+    "strength": "hard",
+    "reason": "Alerts fire on metrics."
+  },
+  {
+    "topicId": "obs-cost",
+    "prerequisiteId": "obs-metrics",
+    "strength": "hard",
+    "reason": "Cost is a tracked metric."
+  },
+  {
+    "topicId": "obs-cost",
+    "prerequisiteId": "mdf-economics",
+    "strength": "hard",
+    "reason": "You must know the unit cost to attribute spend."
+  },
+  {
+    "topicId": "obs-cost",
+    "prerequisiteId": "mdi-costcap",
+    "strength": "soft",
+    "reason": "Caps and attribution are two halves of budget control."
+  },
+  {
+    "topicId": "prf-load",
+    "prerequisiteId": "api-routing",
+    "strength": "hard",
+    "reason": "You load-test a running service."
+  },
+  {
+    "topicId": "prf-threshold",
+    "prerequisiteId": "prf-load",
+    "strength": "hard",
+    "reason": "Thresholds are set against measured behavior."
+  },
+  {
+    "topicId": "prf-threshold",
+    "prerequisiteId": "del-actions",
+    "strength": "soft",
+    "reason": "A threshold becomes useful when CI enforces it."
+  },
+  {
+    "topicId": "prf-streamload",
+    "prerequisiteId": "prf-load",
+    "strength": "hard",
+    "reason": "Streaming load tests extend ordinary ones."
+  },
+  {
+    "topicId": "prf-streamload",
+    "prerequisiteId": "str-sse",
+    "strength": "hard",
+    "reason": "You measure the stream you serve."
+  },
+  {
+    "topicId": "del-container",
+    "prerequisiteId": "pkg-manifest",
+    "strength": "hard",
+    "reason": "An image installs a project's declared dependencies."
+  },
+  {
+    "topicId": "del-container",
+    "prerequisiteId": "scr-execute",
+    "strength": "hard",
+    "reason": "A Dockerfile is a build script."
+  },
+  {
+    "topicId": "del-compose",
+    "prerequisiteId": "del-container",
+    "strength": "hard",
+    "reason": "Composition orchestrates images."
+  },
+  {
+    "topicId": "del-imagesize",
+    "prerequisiteId": "del-container",
+    "strength": "hard",
+    "reason": "Optimization operates on a working image."
+  },
+  {
+    "topicId": "del-cloudrun",
+    "prerequisiteId": "del-container",
+    "strength": "hard",
+    "reason": "You deploy a container."
+  },
+  {
+    "topicId": "del-secrets",
+    "prerequisiteId": "del-cloudrun",
+    "strength": "hard",
+    "reason": "Secrets are supplied to a deployed service."
+  },
+  {
+    "topicId": "del-secrets",
+    "prerequisiteId": "cfg-env",
+    "strength": "hard",
+    "reason": "Configuration reaches the process as environment."
+  },
+  {
+    "topicId": "del-vercel",
+    "prerequisiteId": "nxt-routing",
+    "strength": "hard",
+    "reason": "You deploy an application that routes."
+  },
+  {
+    "topicId": "del-actions",
+    "prerequisiteId": "git-remote",
+    "strength": "hard",
+    "reason": "Workflows are triggered by pushes to a remote."
+  },
+  {
+    "topicId": "del-gates",
+    "prerequisiteId": "del-actions",
+    "strength": "hard",
+    "reason": "Gates are required checks from workflows."
+  },
+  {
+    "topicId": "del-gates",
+    "prerequisiteId": "git-pr",
+    "strength": "hard",
+    "reason": "Checks block a merge."
+  },
+  {
+    "topicId": "del-gates",
+    "prerequisiteId": "tsf-unit",
+    "strength": "soft",
+    "reason": "A gate needs something worth blocking on."
+  },
+  {
+    "topicId": "del-cd",
+    "prerequisiteId": "del-gates",
+    "strength": "hard",
+    "reason": "Deployment follows a passing gate."
+  },
+  {
+    "topicId": "del-cd",
+    "prerequisiteId": "del-cloudrun",
+    "strength": "hard",
+    "reason": "Automation deploys to a target you can deploy to manually."
+  },
+  {
+    "topicId": "del-rollback",
+    "prerequisiteId": "del-cd",
+    "strength": "hard",
+    "reason": "Rollback reverses a deployment."
+  },
+  {
+    "topicId": "del-flags",
+    "prerequisiteId": "del-cd",
+    "strength": "soft",
+    "reason": "Flags separate release from the deploy you automated."
+  },
+  {
+    "topicId": "del-checklist",
+    "prerequisiteId": "del-rollback",
+    "strength": "hard",
+    "reason": "A readiness review asks whether you can undo."
+  },
+  {
+    "topicId": "del-checklist",
+    "prerequisiteId": "obs-alert",
+    "strength": "hard",
+    "reason": "Readiness includes verified monitoring."
+  },
+  {
+    "topicId": "del-checklist",
+    "prerequisiteId": "saf-filters",
+    "strength": "soft",
+    "reason": "Safety measures are part of the launch review."
+  },
+  {
+    "topicId": "hrn-define",
+    "prerequisiteId": "agt-loop",
+    "strength": "hard",
+    "reason": "A harness wraps a loop that runs."
+  },
+  {
+    "topicId": "hrn-define",
+    "prerequisiteId": "scr-exit",
+    "strength": "soft",
+    "reason": "Exit codes are the simplest pass-fail signal a harness reads."
+  },
+  {
+    "topicId": "hrn-checker",
+    "prerequisiteId": "hrn-define",
+    "strength": "hard",
+    "reason": "The checker is the component the definition demands."
+  },
+  {
+    "topicId": "hrn-checker",
+    "prerequisiteId": "evl-deterministic",
+    "strength": "hard",
+    "reason": "A checker needs a definition of correct."
+  },
+  {
+    "topicId": "hrn-policy",
+    "prerequisiteId": "hrn-checker",
+    "strength": "hard",
+    "reason": "Policy decides what the checker's verdict permits."
+  },
+  {
+    "topicId": "hrn-policy",
+    "prerequisiteId": "saf-injection",
+    "strength": "hard",
+    "reason": "Untrusted input is the reason the policy exists."
+  },
+  {
+    "topicId": "hrn-ceiling",
+    "prerequisiteId": "agt-budget",
+    "strength": "hard",
+    "reason": "The ceiling moves the loop's budget into the harness."
+  },
+  {
+    "topicId": "hrn-ceiling",
+    "prerequisiteId": "hrn-define",
+    "strength": "hard",
+    "reason": "Bounding is a harness responsibility."
+  },
+  {
+    "topicId": "hrn-rollback",
+    "prerequisiteId": "hrn-policy",
+    "strength": "hard",
+    "reason": "Reversibility is what makes a permissive policy survivable."
+  },
+  {
+    "topicId": "hrn-rollback",
+    "prerequisiteId": "del-rollback",
+    "strength": "soft",
+    "reason": "Reversibility is the same discipline applied to agent actions."
+  },
+  {
+    "topicId": "hrn-connective",
+    "prerequisiteId": "hrn-checker",
+    "strength": "hard",
+    "reason": "You classify components you have built."
+  },
+  {
+    "topicId": "hrn-discover",
+    "prerequisiteId": "hrn-connective",
+    "strength": "hard",
+    "reason": "Knowing which kind you are building tells you when to build it."
+  },
+  {
+    "topicId": "hrn-discover",
+    "prerequisiteId": "obs-tracing",
+    "strength": "hard",
+    "reason": "You encode failures you observed."
+  },
+  {
+    "topicId": "saf-bias",
+    "prerequisiteId": "mdf-paradigms",
+    "strength": "hard",
+    "reason": "Bias enters through training data."
+  },
+  {
+    "topicId": "saf-fairness",
+    "prerequisiteId": "saf-bias",
+    "strength": "hard",
+    "reason": "You measure the thing you can name."
+  },
+  {
+    "topicId": "saf-fairness",
+    "prerequisiteId": "evl-dataset",
+    "strength": "hard",
+    "reason": "Fairness metrics run over an evaluation set."
+  },
+  {
+    "topicId": "saf-injection",
+    "prerequisiteId": "prm-structure",
+    "strength": "hard",
+    "reason": "Injection attacks the boundary between instruction and data."
+  },
+  {
+    "topicId": "saf-injection",
+    "prerequisiteId": "ret-inject",
+    "strength": "hard",
+    "reason": "Retrieved content is untrusted input in the prompt."
+  },
+  {
+    "topicId": "saf-poisoning",
+    "prerequisiteId": "ing-pipeline",
+    "strength": "hard",
+    "reason": "Poisoning targets the ingestion path."
+  },
+  {
+    "topicId": "saf-poisoning",
+    "prerequisiteId": "saf-injection",
+    "strength": "soft",
+    "reason": "Both treat inputs as an attack surface."
+  },
+  {
+    "topicId": "saf-pii",
+    "prerequisiteId": "obs-pii",
+    "strength": "hard",
+    "reason": "Redaction in logs is the first version of this control."
+  },
+  {
+    "topicId": "saf-pii",
+    "prerequisiteId": "ret-inject",
+    "strength": "hard",
+    "reason": "Retrieval can pull personal data into a prompt."
+  },
+  {
+    "topicId": "saf-filters",
+    "prerequisiteId": "mdi-safety",
+    "strength": "hard",
+    "reason": "Provider settings are the first filter; yours is the second."
+  },
+  {
+    "topicId": "saf-filters",
+    "prerequisiteId": "saf-injection",
+    "strength": "hard",
+    "reason": "Filters implement the defense."
+  },
+  {
+    "topicId": "saf-explain",
+    "prerequisiteId": "obs-tracing",
+    "strength": "hard",
+    "reason": "Explanation draws on the recorded path."
+  },
+  {
+    "topicId": "saf-audit",
+    "prerequisiteId": "obs-correlate",
+    "strength": "hard",
+    "reason": "An audit trail is correlated logging with retention."
+  },
+  {
+    "topicId": "saf-governance",
+    "prerequisiteId": "saf-audit",
+    "strength": "hard",
+    "reason": "Compliance requires evidence."
+  },
+  {
+    "topicId": "saf-governance",
+    "prerequisiteId": "saf-explain",
+    "strength": "hard",
+    "reason": "Model cards and disclosures are explanation artifacts."
+  },
+  {
+    "topicId": "saf-incident",
+    "prerequisiteId": "saf-governance",
+    "strength": "hard",
+    "reason": "Reporting obligations shape the response."
+  },
+  {
+    "topicId": "saf-incident",
+    "prerequisiteId": "del-rollback",
+    "strength": "hard",
+    "reason": "Containment usually means reverting."
+  },
+  {
+    "topicId": "saf-incident",
+    "prerequisiteId": "doc-runbook",
+    "strength": "hard",
+    "reason": "Incident response runs from a runbook."
+  },
+  {
+    "topicId": "car-portfolio",
+    "prerequisiteId": "git-pr",
+    "strength": "hard",
+    "reason": "The portfolio is merged work."
+  },
+  {
+    "topicId": "car-portfolio",
+    "prerequisiteId": "del-cd",
+    "strength": "soft",
+    "reason": "Shipped beats built."
+  }
 ]

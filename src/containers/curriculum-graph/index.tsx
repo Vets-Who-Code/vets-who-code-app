@@ -1,15 +1,34 @@
 import SectionTitle from "@components/section-title";
-import { PHASE_MODULES } from "@lib/curriculum-graph";
+import { MANIFEST, SUBJECTS, TOPICS } from "@lib/curriculum-graph";
 import Button from "@ui/button";
 import styles from "./curriculum-graph.module.css";
 import GraphPanel from "./graph-panel";
 
-const MANIFEST = [
-    { value: "304", label: "Micro-topics", gloss: "One teachable idea each." },
-    { value: "442", label: "Prerequisite edges", gloss: "Every one carries a written reason." },
-    { value: "33", label: "Units", gloss: "Including a continuous code-challenge thread." },
-    { value: "6", label: "Phases", gloss: "17 weeks, remote, full-time." },
-    { value: "0", label: "Cycles", gloss: "Validated DAG. Nothing is its own prerequisite." },
+// Counts come from the dataset manifest, not from copy — the page's claim is that the
+// data is the argument, so nothing here is allowed to drift from the data.
+const COUNTS = MANIFEST.counts;
+const MANIFEST_CELLS = [
+    { value: String(COUNTS.topics), label: "Micro-topics", gloss: "One teachable idea each." },
+    {
+        value: String(COUNTS.edges),
+        label: "Prerequisite edges",
+        gloss: `${COUNTS.hardEdges} required, ${COUNTS.softEdges} helpful. Every one carries a written reason.`,
+    },
+    {
+        value: String(COUNTS.domains),
+        label: "Domains",
+        gloss: `Grouped into ${COUNTS.subjects} subjects.`,
+    },
+    {
+        value: String(COUNTS.maxDepth),
+        label: "Deepest path",
+        gloss: `${COUNTS.roots} entry points, ${COUNTS.terminals} terminal concepts.`,
+    },
+    {
+        value: MANIFEST.acyclic ? "0" : "!",
+        label: "Cycles",
+        gloss: "Validated DAG. Nothing is its own prerequisite.",
+    },
 ];
 
 const LAYERS = [
@@ -39,26 +58,35 @@ const LAYERS = [
     },
 ];
 
+// A real record, read straight out of the dataset — the section's claim is that every
+// node is specified to this level, so it must not be a hand-written mock.
+const SAMPLE = TOPICS.find((t) => t.id === "ret-faithful") ?? TOPICS[0];
+const SAMPLE_SUBJECT = SUBJECTS.find((s) => s.id === SAMPLE.subject)?.title ?? SAMPLE.subject;
 const NODE_RECORD: [string, React.ReactNode][] = [
-    ["Concept name", "Budget the context window"],
-    ["Unit", "Context Engineering & Evals"],
-    ["Phase", "05 — AI Engineering"],
+    ["Concept", SAMPLE.label],
+    ["Description", SAMPLE.description],
+    ["Subject", SAMPLE_SUBJECT],
+    ["Domain", SAMPLE.domain],
     [
         "Type",
         <>
-            Conceptual{" "}
+            {SAMPLE.type}{" "}
             <span className={styles.recordAside}>
                 (of: conceptual / procedural / representational / language / meta)
             </span>
         </>,
     ],
-    ["Exit depth", "Performed alone — third encounter, no spotter"],
-    ["Role band", "Mid — AI engineer, applied"],
-    ["Market anchor", "Lightcast: prompt & context engineering"],
     [
-        "Evidence criterion",
-        "Fits a task under a fixed token ceiling and states what was dropped and why.",
+        "Exit depth",
+        <>
+            {SAMPLE.exitDepth}{" "}
+            <span className={styles.recordAside}>(of: guided / scaffolded / unassisted)</span>
+        </>,
     ],
+    ["Market anchor", SAMPLE.marketAnchor.join(" · ")],
+    ["Evidence criterion", SAMPLE.evidence],
+    ["Source", SAMPLE.source],
+    ["Prerequisite depth", `${SAMPLE.depth} — longest blocking path to an entry point`],
 ];
 
 const QUESTIONS = [
@@ -127,10 +155,10 @@ const CurriculumGraphContainer = () => (
             <div className="tw-container">
                 <span className={styles.eyebrowLight}>
                     <span className={styles.eyebrowBar} />
-                    Manifest &nbsp;·&nbsp; Hashflag Graph v2.3
+                    {`Manifest \u00a0·\u00a0 ${MANIFEST.name} ${MANIFEST.version}`}
                 </span>
                 <div className={styles.manifestGrid}>
-                    {MANIFEST.map((cell) => (
+                    {MANIFEST_CELLS.map((cell) => (
                         <div key={cell.label} className={styles.manifestCell}>
                             <p
                                 className={`${styles.manifestValue} ${
@@ -256,8 +284,8 @@ const CurriculumGraphContainer = () => (
                     </div>
                 </div>
                 <p className={styles.pullQuote}>
-                    All 442 edges carry a written sentence like that. If we can&rsquo;t write the
-                    reason, the edge doesn&rsquo;t go in.
+                    All {COUNTS.edges} edges carry a written sentence like that. If we can&rsquo;t
+                    write the reason, the edge doesn&rsquo;t go in.
                 </p>
             </div>
         </section>
@@ -276,7 +304,7 @@ const CurriculumGraphContainer = () => (
                             <p className={styles.recordKicker}>
                                 Node T20 &nbsp;·&nbsp; sample record
                             </p>
-                            <p className={styles.recordTitle}>Budget the context window</p>
+                            <p className={styles.recordTitle}>{SAMPLE.label}</p>
                         </div>
                         <dl className={styles.recordTable}>
                             {NODE_RECORD.map(([term, value]) => (
@@ -312,43 +340,37 @@ const CurriculumGraphContainer = () => (
             <div className="tw-container">
                 <SectionTitle
                     align="left"
-                    subtitle="Six phases · 33 units"
-                    title="The phase order is an argument"
-                    description="Build an interface, hit the data problem, own the data, serve the data, make it intelligent, ship it."
+                    subtitle={`${COUNTS.subjects} subjects \u00b7 ${COUNTS.domains} domains`}
+                    title="The graph is grouped, not sequenced"
+                    description="Subjects say what a concept is about. They do not say when you meet it — the prerequisite edges decide that, and a single subject can run the whole length of the graph."
                 />
                 <div className={styles.phaseTable}>
-                    {PHASE_MODULES.map((phase) => (
-                        <div key={phase.phaseIndex} className={styles.phaseRow}>
+                    {SUBJECTS.map((subject, i) => (
+                        <div key={subject.id} className={styles.phaseRow}>
                             <div>
                                 <div className={styles.phaseHead}>
-                                    <span
-                                        className={styles.phaseIndex}
-                                    >{`0${phase.phaseIndex}`}</span>
-                                    <h3 className={styles.phaseName}>{phase.phase}</h3>
+                                    <span className={styles.phaseIndex}>
+                                        {String(i + 1).padStart(2, "0")}
+                                    </span>
+                                    <h3 className={styles.phaseName}>{subject.title}</h3>
                                 </div>
-                                <p className={styles.monoMeta}>{phase.units.length} units</p>
+                                <p className={styles.monoMeta}>
+                                    {subject.topicCount} topics &nbsp;·&nbsp;{" "}
+                                    {subject.domains.length} domains
+                                </p>
                             </div>
                             <div className={styles.unitChips}>
-                                {phase.units.map((unit) => (
-                                    <span key={unit} className={styles.unitChip}>
-                                        {unit}
+                                {subject.domains.map((domain) => (
+                                    <span key={domain.id} className={styles.unitChip}>
+                                        {domain.id}
+                                        <span className={styles.unitChipCount}>
+                                            {domain.topicCount}
+                                        </span>
                                     </span>
                                 ))}
                             </div>
                         </div>
                     ))}
-                    <div className={`${styles.phaseRow} ${styles.threadRow}`}>
-                        <div>
-                            <div className={styles.phaseHead}>
-                                <span className={styles.threadLabel}>Thread</span>
-                            </div>
-                            <h3 className={styles.phaseName}>Code Challenges</h3>
-                        </div>
-                        <p className={styles.cardBody}>
-                            Runs as a continuous weekly thread across all six phases. It is the 33rd
-                            unit and the only one that never closes.
-                        </p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -409,7 +431,9 @@ const CurriculumGraphContainer = () => (
         </section>
 
         <div className={styles.provenanceStrip}>
-            <span>Hashflag Graph v2.3 · 304 nodes · 442 edges · 0 cycles</span>
+            <span>
+                {`${MANIFEST.name} ${MANIFEST.version} · ${COUNTS.topics} nodes · ${COUNTS.edges} edges · ${MANIFEST.acyclic ? 0 : "!"} cycles`}
+            </span>
             <span>Graph structure adapted from Marble open taxonomy under ODbL 1.0</span>
         </div>
     </>

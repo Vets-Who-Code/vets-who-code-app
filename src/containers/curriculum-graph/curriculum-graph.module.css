@@ -283,16 +283,56 @@
 }
 
 .indexGroup {
-    margin-top: 16px;
+    margin-top: 14px;
+    border-top: 1px solid #dee2e6;
 }
 
+/* 375 concepts is far too many for a flat list, so each subject collapses. */
 .indexGroupLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #091f40;
+}
+
+.indexGroupLabel::-webkit-details-marker {
+    display: none;
+}
+
+.indexGroupLabel::after {
+    content: "+";
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.indexGroup[open] > .indexGroupLabel::after {
+    content: "−";
+}
+
+.indexGroupCount {
     font-family: var(--font-mono);
     font-size: 9.5px;
-    text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #6c757d;
-    margin: 0 0 8px;
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+.inspectorDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 8px 0 0;
 }
 
 .chipRow {
@@ -773,10 +813,20 @@
     grid-column: span 2;
 }
 
+.unitChipCount {
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    color: #6c757d;
+    margin-left: 8px;
+}
+
 .unitChip {
-    font-family: GothamPro, system-ui, sans-serif;
+    display: inline-flex;
+    align-items: baseline;
+    font-family: var(--font-mono);
     font-weight: 400;
-    font-size: 13.5px;
+    font-size: 12px;
     color: #091f40;
     background: #fff;
     border: 1px solid #dee2e6;
