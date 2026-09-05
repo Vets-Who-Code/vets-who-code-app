@@ -1,3 +1,4 @@
+import { PHASES } from "@data/curriculum";
 import {
     ancestors,
     bandColor,
@@ -179,5 +180,27 @@ describe("ancestors", () => {
         expect(Array.from(ancestors(graph, "b")).sort()).toEqual(["a", "b"]);
         // Soft edge, so no depth separation: both sit on the same layer.
         expect(graph?.positions.a.y).toBe(graph?.positions.b.y);
+    });
+});
+
+describe("citations", () => {
+    // Every topic cites the module it came from, e.g. "M03 §3.6". Those numbers have to
+    // resolve against the module list, or the graph is quoting a document the site does
+    // not have. This is the check that caught Harness Engineering (M32) missing entirely.
+    it("cites only modules the curriculum actually defines", () => {
+        const defined = new Set(PHASES.flatMap((p) => p.modules.map((m) => m.n)));
+        const missing = new Set(
+            TOPICS.map((t) => Number(t.source.match(/^M(\d+)/)?.[1])).filter(
+                (n) => Number.isFinite(n) && !defined.has(n)
+            )
+        );
+        expect(Array.from(missing).sort((a, b) => a - b)).toEqual([]);
+    });
+
+    it("gives every topic a parseable citation", () => {
+        const unparseable = TOPICS.filter((t) => !/^M\d+( §[\d.]+)?$/.test(t.source)).map(
+            (t) => `${t.id}: "${t.source}"`
+        );
+        expect(unparseable).toEqual([]);
     });
 });

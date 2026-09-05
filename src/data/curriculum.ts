@@ -381,8 +381,8 @@ export const PHASES: Phase[] = [
         name: "Production Mastery",
         weeks: "Weeks 15–17",
         weekRange: [15, 17],
-        moduleRange: [22, 25],
-        durationLabel: "3 weeks · 4 modules + capstone",
+        moduleRange: [22, 32],
+        durationLabel: "3 weeks · 5 modules + capstone",
         tagline: "Ship, monitor, and maintain AI systems at scale.",
         intro: "Building is only half the job. This phase teaches you to ship, monitor, and maintain AI systems at scale. Testing AI output, observability, containerized deployment, and responsible AI governance — this is what separates engineers from hobbyists.",
         outcome:
@@ -443,6 +443,24 @@ export const PHASES: Phase[] = [
                     "GDPR and ISO 42001 for AI",
                     "Model cards and content safety filters",
                     "Incident response",
+                ],
+            },
+            {
+                // Keeps the module number the Hashflag Graph cites (reliability/harness).
+                // The numbering is not contiguous with M25 because the source curriculum
+                // carries modules this mirror does not.
+                n: 32,
+                title: "Harness Engineering",
+                oneLiner: "Agents fail. A harness is what makes the failure safe.",
+                stack: ["Harness", "AI reliability"],
+                topics: [
+                    "Harness vs execution layer: what shell access alone does not give you",
+                    "Independent checkers: separating the maker from the judge",
+                    "Retry and budget ceilings: bounding cost and looping",
+                    "Connective vs compensatory harness: what survives a model upgrade",
+                    "Encoding a harness after observed failure, not on the first occurrence",
+                    "Policy layers: allowlisted actions and sandboxed execution",
+                    "Rollback boundaries: making agent actions reversible",
                 ],
             },
         ],
