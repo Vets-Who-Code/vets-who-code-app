@@ -36,6 +36,7 @@ export const sitemapColumns: SitemapColumn[] = [
         heading: "Company",
         links: [
             { label: "About Us", path: "/about-us" },
+            { label: "Curriculum", path: "/curriculum" },
             { label: "Theory of Change", path: "/theory-of-change" },
             { label: "Team", path: "/team" },
             { label: "Open Source Projects", path: "/projects" },

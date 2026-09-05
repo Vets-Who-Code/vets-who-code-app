@@ -37,6 +37,11 @@ const navigation: NavigationItem[] = [
                 path: "/about-us",
             },
             {
+                id: 107,
+                label: "Curriculum",
+                path: "/curriculum",
+            },
+            {
                 id: 105,
                 label: "Theory of Change",
                 path: "/theory-of-change",
