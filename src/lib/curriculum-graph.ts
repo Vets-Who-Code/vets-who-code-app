@@ -45,6 +45,8 @@ export type Graph = {
     preds: Record<string, GraphEdge[]>;
     succs: Record<string, GraphEdge[]>;
     positions: Record<string, Point>;
+    /** Bounding-sphere radius of the cloud. Rotation-invariant, so the camera can frame it. */
+    radius: number;
 };
 
 /**
@@ -122,6 +124,9 @@ export function buildGraph(
     }
 
     const MIN_SEPARATION = 124;
+    // Target xz radius as a fraction of the y span. Tuned so the cloud fills a landscape
+    // canvas without flattening into a pancake — depth still has to read top-to-bottom.
+    const XZ_SPREAD = 0.42;
     for (let it = 0; it < 240; it += 1) {
         // Attraction: 5% of the way toward the mean XZ of neighbours.
         for (const t of topics) {
@@ -163,7 +168,24 @@ export function buildGraph(
         }
     }
 
-    return { topics, edges, byId, preds, succs, positions };
+    // Relaxation leaves a tall, narrow ribbon: the y span grows with the layer count while
+    // the xz spread only grows with the widest layer. Widen xz against the y span so the
+    // cloud reads as a volume instead of a column, whatever the node count.
+    const points = Object.values(positions);
+    const ys = points.map((p) => p.y);
+    const ySpan = Math.max(...ys) - Math.min(...ys);
+    const xzRadius = Math.max(...points.map((p) => Math.hypot(p.x, p.z)));
+    if (xzRadius > 0 && ySpan > 0) {
+        const spread = (XZ_SPREAD * ySpan) / xzRadius;
+        for (const p of points) {
+            p.x *= spread;
+            p.z *= spread;
+        }
+    }
+
+    const radius = Math.max(...points.map((p) => Math.hypot(p.x, p.y, p.z)));
+
+    return { topics, edges, byId, preds, succs, positions, radius };
 }
 
 /** Transitive prerequisite closure of `id`, including `id` itself. */

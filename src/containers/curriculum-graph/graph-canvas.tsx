@@ -2,13 +2,19 @@ import { ancestors, type Graph, type Point } from "@lib/curriculum-graph";
 import { useEffect, useRef } from "react";
 import styles from "./curriculum-graph.module.css";
 
-type Projected = { x: number; y: number; s: number; d: number };
+/** `k` is depth relative to the cloud centre, so dot radii stay put as the framing changes. */
+type Projected = { x: number; y: number; k: number; d: number };
 
 type GraphCanvasProps = {
     graph: Graph | null;
     selected: string | null;
     onSelect: (id: string | null) => void;
 };
+
+// Camera distance at zoom 1.
+const BASE_DIST = 710;
+// Fraction of the canvas's short side the cloud's projected radius aims to fill.
+const FRAME_FILL = 0.6;
 
 const NAVY = "#091f40";
 const GOLD = "#FDB330";
@@ -47,7 +53,19 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             typeof window.matchMedia === "function" &&
             window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        const project = (p: Point, cx: number, cy: number): Projected => {
+        /**
+         * Focal length that frames the cloud in the canvas. Derived from the bounding-sphere
+         * radius, which does not change as the camera spins, so the framing holds through a
+         * rotation and re-fits when a phase filter changes the visible node count.
+         */
+        const focal = (w: number, h: number, radius: number) => {
+            if (!radius) return 820;
+            // Fixed reference distance, not the live zoom distance — deriving it from the
+            // zoom would cancel out of `f / depth` and leave the wheel doing nothing.
+            return (FRAME_FILL * Math.min(w, h) * BASE_DIST) / radius;
+        };
+
+        const project = (p: Point, cx: number, cy: number, f: number): Projected => {
             const { yaw, pitch, zoom } = cam.current;
             const cyw = Math.cos(yaw);
             const syw = Math.sin(yaw);
@@ -57,9 +75,10 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             const sp = Math.sin(pitch);
             const y1 = p.y * cp - z1 * sp;
             const z2 = p.y * sp + z1 * cp;
-            const depth = Math.max(140, z2 + 710 / zoom);
-            const s = 820 / depth;
-            return { x: cx + x1 * s, y: cy + y1 * s, s, d: depth };
+            const dist = BASE_DIST / zoom;
+            const depth = Math.max(140, z2 + dist);
+            const s = f / depth;
+            return { x: cx + x1 * s, y: cy + y1 * s, k: dist / depth, d: depth };
         };
 
         const draw = () => {
@@ -81,8 +100,9 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
 
             const cx = w / 2;
             const cy = h / 2;
+            const f = focal(w, h, g.radius);
             const pts: Record<string, Projected> = {};
-            for (const t of g.topics) pts[t.id] = project(g.positions[t.id], cx, cy);
+            for (const t of g.topics) pts[t.id] = project(g.positions[t.id], cx, cy, f);
             points.current = pts;
 
             const sel = selRef.current;
@@ -146,7 +166,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 let radius = 5.2;
                 if (isSel) radius = 8.4;
                 else if (isAnc || isUnlock) radius = 6.4;
-                const r = radius * Math.min(1.5, p.s);
+                const r = radius * Math.min(1.5, p.k);
                 const hue = phaseColor(t.phaseIndex);
 
                 ctx.save();
