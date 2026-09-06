@@ -128,30 +128,7 @@ const CurriculumGraphContainer = () => (
             Curriculum &nbsp;·&nbsp; Hashflag Graph v2.3 &nbsp;·&nbsp; Validated DAG
         </div>
 
-        {/* Hero — the graph panel pulls up into its oversized bottom padding. */}
-        <section className={`dark-section ${styles.hero}`} aria-labelledby="curriculum-graph-title">
-            <div className="tw-container">
-                <span className={styles.eyebrowDark}>
-                    <span className={styles.eyebrowBar} />
-                    The Hashflag Method
-                </span>
-                <h1 id="curriculum-graph-title" className={styles.heroTitle}>
-                    We don&rsquo;t write a syllabus. We compute a path.
-                </h1>
-                <p className={styles.heroLede}>
-                    Most curricula are ordered by subject — chapter three follows chapter two
-                    because someone put it there. Ours is a map of how skills actually rest on each
-                    other, so you can see how we decide what to teach, how we train it, and what any
-                    one idea is built from.
-                </p>
-            </div>
-        </section>
-
-        <section className={styles.panelSection}>
-            <div className="tw-container">
-                <GraphPanel />
-            </div>
-        </section>
+        <GraphPanel />
 
         <section className={styles.manifestSection}>
             <div className="tw-container">

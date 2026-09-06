@@ -37,12 +37,143 @@
 }
 
 /* ========== HERO ========== */
+/* The graph is the background of the hero, bleeding off the right edge — not a card sitting
+   under it. Copy sits on the left in the normal container; the canvas spans the whole
+   section behind it and is transparent, so the gradient and grain read through. */
 .hero {
+    position: relative;
     background:
         linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%), #091f40;
-    padding: 88px 0 170px;
+    padding: 72px 0 40px;
+    overflow: hidden;
 }
 
+.heroCanvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.heroInner {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: clamp(520px, 74vh, 760px);
+}
+
+/* Only the text block blocks pointer events; everywhere else the canvas stays draggable. */
+.heroCopy {
+    pointer-events: auto;
+    max-width: 48%;
+    /* Keeps long labels behind the copy legible without drawing a visible panel. */
+    background: linear-gradient(
+        90deg,
+        rgba(9, 31, 64, 0.92) 0%,
+        rgba(9, 31, 64, 0.86) 62%,
+        rgba(9, 31, 64, 0) 100%
+    );
+    padding: 8px 96px 24px 0;
+    margin-left: -8px;
+    padding-left: 8px;
+}
+
+.heroTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 3.5vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 20px 0 0;
+    text-wrap: pretty;
+}
+
+.heroLede {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(248, 249, 250, 0.82);
+    max-width: 34em;
+    margin: 22px 0 0;
+}
+
+.heroCounts {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.75);
+    margin: 24px 0 0;
+}
+
+.heroHint {
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 28px;
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(185, 214, 242, 0.6);
+}
+
+@media (max-width: 900px) {
+    .hero {
+        padding: 56px 0 32px;
+    }
+
+    /* Stack on small screens: copy first, then the graph as its own block. */
+    .heroInner {
+        min-height: 0;
+    }
+
+    .heroCopy {
+        max-width: 100%;
+        background: none;
+        padding-right: 0;
+    }
+
+    .heroCanvas {
+        position: relative;
+        inset: auto;
+        height: clamp(360px, 52vh, 520px);
+        margin-top: 28px;
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+/* ========== CONTROLS ========== */
+.controlsBar {
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+    padding: 16px 0;
+}
+
+.canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    cursor: grab;
+}
+
+.inspectorSection {
+    background: #fff;
+    padding: 56px 0 96px;
+}
+
+/* ========== EYEBROWS ========== */
 .eyebrowDark,
 .eyebrowLight {
     display: inline-flex;
@@ -70,53 +201,11 @@
     flex-shrink: 0;
 }
 
-.heroTitle {
-    font-family: GothamPro, system-ui, sans-serif;
-    font-weight: 900;
-    font-size: clamp(38px, 6.2vw, 84px);
-    line-height: 0.98;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: #fff;
-    max-width: 16em;
-    margin: 22px 0 0;
-    text-wrap: pretty;
-}
-
-.heroLede {
-    font-size: 18px;
-    line-height: 1.7;
-    color: rgba(248, 249, 250, 0.82);
-    max-width: 640px;
-    margin: 26px 0 0;
-}
-
-/* ========== GRAPH PANEL ========== */
-.panelSection {
-    padding: 0 0 96px;
-    background: #fff;
-}
-
-.panel {
-    margin-top: -120px;
-    background: #fff;
-    border: 1px solid #dee2e6;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-}
-
-.toolbar {
-    padding: 18px 24px;
-    border-bottom: 1px solid #dee2e6;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 18px;
-    align-items: center;
-}
-
+/* ========== LEGEND ========== */
 .legend {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 20px;
     font-family: var(--font-mono);
     font-size: 10px;
@@ -138,32 +227,17 @@
     flex-shrink: 0;
 }
 
-.dotWhite {
-    background: #fff;
-    border: 1px solid #091f40;
-}
-
-.dotGold {
-    background: #fdb330;
-}
-
-.dotRed {
-    background: #c5203e;
-}
-
 .dotHollow {
     background: transparent;
     border: 2px solid #091f40;
 }
 
 .filterRow {
-    padding: 14px 24px;
-    background: #f8f9fa;
-    border-bottom: 1px solid #dee2e6;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
+    margin-top: 14px;
 }
 
 .phaseToggle {
@@ -187,55 +261,10 @@
     color: #fff;
 }
 
-.panelBody {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-}
-
-@media (min-width: 860px) {
-    .panelBody {
-        grid-template-columns: minmax(0, 1.45fr) minmax(320px, 1fr);
-    }
-}
-
-.canvasCell {
-    position: relative;
-    background: #091f40;
-    border-right: 1px solid #dee2e6;
-}
-
-.canvas {
-    display: block;
-    width: 100%;
-    height: clamp(430px, 58vh, 620px);
-    touch-action: none;
-    cursor: grab;
-}
-
-.canvasHint {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 12px 16px;
-    pointer-events: none;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-family: var(--font-mono);
-    font-size: 9.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: rgba(185, 214, 242, 0.65);
-}
-
 /* ========== INSPECTOR ========== */
 .inspector {
-    padding: 26px 24px 30px;
-    background: #f8f9fa;
-    max-height: clamp(430px, 58vh, 620px);
-    overflow-y: auto;
+    padding: 0;
+    background: transparent;
 }
 
 .inspectorHead {
@@ -468,7 +497,8 @@
 }
 
 .panelFooter {
-    padding: 14px 24px;
+    padding: 18px 0 0;
+    margin-top: 32px;
     border-top: 1px solid #dee2e6;
     font-family: var(--font-mono);
     font-size: 10px;

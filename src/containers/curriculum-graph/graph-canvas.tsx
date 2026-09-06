@@ -17,6 +17,15 @@ const BASE_DIST = 710;
 const BASE_PITCH = 0.28;
 // Fraction of the canvas the cloud's projected extent should occupy.
 const FRAME_FILL = 0.92;
+/**
+ * On a wide hero the copy occupies the left, so the graph is framed into the right-hand
+ * portion of the canvas rather than the whole of it. Below the breakpoint the canvas is its
+ * own stacked block and gets the full width.
+ */
+const GRAPH_BOX_WIDTH = 0.62;
+const GRAPH_BOX_CENTRE = 0.69;
+const WIDE_LAYOUT_MIN = 900;
+
 // Yaw samples used to solve the framing. The cloud spins, so the framing has to hold for
 // every yaw or it would visibly breathe as it rotates.
 const FIT_SAMPLES = 16;
@@ -71,6 +80,9 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
          * rescale while the cloud spins.
          */
         const solveFit = (w: number, h: number, g: Graph) => {
+            const wide = w >= WIDE_LAYOUT_MIN;
+            const boxW = wide ? w * GRAPH_BOX_WIDTH : w;
+            const centreX = wide ? w * GRAPH_BOX_CENTRE : w / 2;
             const cp = Math.cos(BASE_PITCH);
             const sp = Math.sin(BASE_PITCH);
             let f = Number.POSITIVE_INFINITY;
@@ -102,7 +114,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 // rotation, which squeezes the cloud to a fraction of the canvas.
                 f = Math.min(
                     f,
-                    (FRAME_FILL * w) / (maxX - minX || 1),
+                    (FRAME_FILL * boxW) / (maxX - minX || 1),
                     (FRAME_FILL * h) / (maxY - minY || 1)
                 );
                 sumCx += (minX + maxX) / 2;
@@ -110,7 +122,8 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             }
             return {
                 f,
-                ox: (-f * sumCx) / FIT_SAMPLES,
+                // Shift the whole cloud into the box, then centre it within the box.
+                ox: centreX - w / 2 - (f * sumCx) / FIT_SAMPLES,
                 oy: (-f * sumCy) / FIT_SAMPLES,
             };
         };
