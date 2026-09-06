@@ -88,11 +88,11 @@ const SkillBridgeSection = ({ code, skillsYouHave, skillsToLearn }: Props) => {
                                 How VWC fits
                             </span>
                             <p className="tw-mt-3 tw-font-body tw-text-[15px] tw-leading-[1.55] tw-text-[#DEE2E6]">
-                                Vets Who Code is a free, full-time software engineering accelerator
-                                for veterans, active duty, and military spouses. We close the
-                                fundamentals — terminal, web platform, AI tooling, portfolio
-                                projects — so the rest of this list becomes specialization, not
-                                square one.
+                                Vets Who Code is a free, remote-first software engineering
+                                accelerator for veterans, active duty, and military spouses. We
+                                close the fundamentals — terminal, web platform, AI tooling,
+                                portfolio projects — so the rest of this list becomes
+                                specialization, not square one.
                             </p>
                             <Link
                                 href="/programs/accelerator"

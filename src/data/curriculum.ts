@@ -463,7 +463,7 @@ export const PRINCIPLES: Principle[] = [
     {
         n: "01",
         t: "Built for adults",
-        d: "We don't ask you to put your life on hold. 20–30 hrs/week, mostly async, instructor support during evenings and weekends.",
+        d: "We don't ask you to put your life on hold. 20–30 hrs/week, remote-first, with the learning platform carrying the fundamentals and scheduled sessions for pairing and review.",
     },
     {
         n: "02",

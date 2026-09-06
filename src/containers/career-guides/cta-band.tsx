@@ -17,8 +17,9 @@ const CtaBand = () => (
             </h2>
 
             <p className="tw-mt-7 tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#DEE2E6]">
-                Vets Who Code is a free, full-time software engineering accelerator for active duty,
-                veterans, and military spouses. 17 weeks, 25 modules, and a portfolio that ships.
+                Vets Who Code is a free, remote-first software engineering accelerator for active
+                duty, veterans, and military spouses. 17 weeks at 20–30 hours a week, and a body of
+                work that ships.
             </p>
 
             <div className="tw-mt-9 tw-flex tw-flex-wrap tw-gap-4">
