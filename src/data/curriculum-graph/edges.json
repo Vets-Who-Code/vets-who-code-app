@@ -456,6 +456,12 @@
     "reason": "Feedback is the delivery of a review."
   },
   {
+    "topicId": "rev-write",
+    "prerequisiteId": "doc-comments",
+    "strength": "soft",
+    "reason": "A comment is the same act as a review note, written for whoever arrives next instead of today."
+  },
+  {
     "topicId": "alg-arrays",
     "prerequisiteId": "js-arrays",
     "strength": "hard",

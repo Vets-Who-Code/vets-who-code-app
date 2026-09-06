@@ -1060,21 +1060,6 @@
     "depth": 4
   },
   {
-    "id": "doc-comments",
-    "label": "Comment for the reader who follows",
-    "description": "Explains why, not what",
-    "subject": "practice",
-    "domain": "documentation",
-    "type": "meta",
-    "exitDepth": "unassisted",
-    "evidence": "Leaves a comment that survives review",
-    "marketAnchor": [
-      "Technical writing"
-    ],
-    "source": "M07 \u00a77.4",
-    "depth": 0
-  },
-  {
     "id": "doc-runbook",
     "label": "Write a runbook",
     "description": "Turns an operational procedure into steps under pressure",
@@ -1134,6 +1119,21 @@
     ],
     "source": "M07 \u00a77.5",
     "depth": 7
+  },
+  {
+    "id": "doc-comments",
+    "label": "Comment for the reader who follows",
+    "description": "Explains why, not what",
+    "subject": "practice",
+    "domain": "code-review",
+    "type": "meta",
+    "exitDepth": "unassisted",
+    "evidence": "Leaves a comment that survives review",
+    "marketAnchor": [
+      "Technical writing"
+    ],
+    "source": "M07 \u00a77.4",
+    "depth": 0
   },
   {
     "id": "alg-arrays",
