@@ -1,4 +1,4 @@
-import { ancestors, bandColor, type Graph, type Point } from "@lib/curriculum-graph";
+import { ancestors, bandColor, type Graph, type Point, type Topic } from "@lib/curriculum-graph";
 import { useEffect, useRef } from "react";
 import styles from "./curriculum-graph.module.css";
 
@@ -153,6 +153,95 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             return { x: cx + fit.ox + x1 * s, y: cy + fit.oy + y1 * s, k: dist / depth, d: depth };
         };
 
+        /** Greedy word wrap against the current ctx font. */
+        const wrap = (ctx: CanvasRenderingContext2D, text: string, max: number) => {
+            const out: string[] = [];
+            let line = "";
+            for (const word of text.split(" ")) {
+                const next = line ? `${line} ${word}` : word;
+                if (ctx.measureText(next).width > max && line) {
+                    out.push(line);
+                    line = word;
+                } else {
+                    line = next;
+                }
+            }
+            if (line) out.push(line);
+            return out;
+        };
+
+        /**
+         * Explainer panel for the hovered concept. Opens on what the learner will be able to
+         * do, because a bare topic label reads as a task on a list rather than a capability.
+         */
+        const drawExplainer = (
+            ctx: CanvasRenderingContext2D,
+            t: Topic,
+            p: Projected,
+            w: number,
+            h: number
+        ) => {
+            const PAD = 14;
+            const BOX = 288;
+            const inner = BOX - PAD * 2;
+
+            ctx.save();
+            ctx.font = "600 15px GothamPro, system-ui, sans-serif";
+            // Labels are imperative ("Budget the context window"), so they complete the
+            // sentence once the first letter is lowered.
+            const claim = t.label.charAt(0).toLowerCase() + t.label.slice(1);
+            const claimLines = wrap(ctx, claim, inner);
+            ctx.font = "12.5px system-ui, sans-serif";
+            const descLines = wrap(ctx, t.description, inner);
+
+            const height =
+                PAD + 12 + 10 + claimLines.length * 19 + 8 + descLines.length * 17 + 12 + 11 + PAD;
+
+            let bx = p.x + 18;
+            if (bx + BOX > w - 8) bx = p.x - 18 - BOX;
+            bx = Math.max(8, Math.min(bx, w - BOX - 8));
+            const by = Math.max(8, Math.min(p.y - height / 2, h - height - 8));
+
+            ctx.fillStyle = "rgba(6,20,44,0.96)";
+            ctx.fillRect(bx, by, BOX, height);
+            ctx.strokeStyle = "rgba(185,214,242,0.28)";
+            ctx.lineWidth = 1;
+            ctx.strokeRect(bx + 0.5, by + 0.5, BOX - 1, height - 1);
+            ctx.fillStyle = bandColor(t.subject);
+            ctx.fillRect(bx, by, 3, height);
+
+            let y = by + PAD + 10;
+            ctx.fillStyle = "rgba(185,214,242,0.72)";
+            ctx.font = "10px ui-monospace, SFMono-Regular, monospace";
+            ctx.fillText("AS AN ENGINEER, YOU WILL BE ABLE TO", bx + PAD, y);
+
+            y += 20;
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "600 15px GothamPro, system-ui, sans-serif";
+            for (const line of claimLines) {
+                ctx.fillText(line, bx + PAD, y);
+                y += 19;
+            }
+
+            y += 6;
+            ctx.fillStyle = "rgba(248,249,250,0.78)";
+            ctx.font = "12.5px system-ui, sans-serif";
+            for (const line of descLines) {
+                ctx.fillText(line, bx + PAD, y);
+                y += 17;
+            }
+
+            y += 12;
+            ctx.fillStyle = "rgba(185,214,242,0.55)";
+            ctx.font = "9.5px ui-monospace, SFMono-Regular, monospace";
+            ctx.fillText(
+                `${t.subject.toUpperCase()} · ${t.domain.toUpperCase()} · ${t.exitDepth.toUpperCase()}`,
+                bx + PAD,
+                y
+            );
+            ctx.restore();
+        };
+
         const draw = (): boolean => {
             const w = canvas.clientWidth;
             const h = canvas.clientHeight;
@@ -289,7 +378,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                     ctx.arc(p.x, p.y, r + 5, 0, Math.PI * 2);
                     ctx.stroke();
                 }
-                if (isSel || direct.has(t.id) || t.id === hover.current) {
+                if (isSel || direct.has(t.id)) {
                     ctx.font = `${isSel ? "700 13px" : "500 11.5px"} GothamPro, system-ui, sans-serif`;
                     const tw = ctx.measureText(t.label).width;
                     const flip = p.x + r + 12 + tw > w - 10;
@@ -303,6 +392,11 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                     ctx.fillText(t.label, lx, ly);
                 }
                 ctx.restore();
+            }
+
+            const hovered = hover.current ? g.byId[hover.current] : null;
+            if (hovered && pts[hovered.id]) {
+                drawExplainer(ctx, hovered, pts[hovered.id], w, h);
             }
 
             return true;

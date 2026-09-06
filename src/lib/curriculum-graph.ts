@@ -154,11 +154,30 @@ export function buildGraph(
     let maxLayer = 0;
     for (const t of topics) maxLayer = Math.max(maxLayer, layer[t.id]);
 
-    // Seed each layer on a circle in the XZ plane; the per-layer phase offset stops
-    // layers from stacking into visible rings.
     // Vertical distance between layers. Must stay above the 70-unit reach of the repulsion
     // force below, which is what makes the per-layer bucketing exact.
     const LAYER_GAP = 78;
+
+    // Each subject owns an angular sector, held for every layer. Seeding purely by index
+    // scatters subjects around the circle differently at every depth, which is what made
+    // the cloud read as an undifferentiated pile of dots rather than as eight bodies of
+    // skill. Sector order follows SUBJECTS so the wedges match the filter row; anything
+    // not in that list (synthetic topics in tests) falls in after, in first-seen order.
+    const subjectOrder: string[] = [];
+    for (const s of SUBJECTS) {
+        if (topics.some((t) => t.subject === s.id)) subjectOrder.push(s.id);
+    }
+    for (const t of topics) {
+        if (!subjectOrder.includes(t.subject)) subjectOrder.push(t.subject);
+    }
+    const sectorAngle: Record<string, number> = {};
+    subjectOrder.forEach((id, i) => {
+        sectorAngle[id] = (i / subjectOrder.length) * Math.PI * 2;
+    });
+    // Fraction of its own sector a subject is allowed to spread across. Below 1 so
+    // neighbouring subjects keep a visible gap between them.
+    const SECTOR_FILL = 0.72;
+    const sectorWidth = ((Math.PI * 2) / subjectOrder.length) * SECTOR_FILL;
     const rows: Record<number, Topic[]> = {};
     for (const t of topics) {
         const l = layer[t.id];
@@ -169,16 +188,23 @@ export function buildGraph(
     for (const key of Object.keys(rows)) {
         const l = Number(key);
         const row = rows[l];
-        const n = row.length;
-        const radius = n === 1 ? 0 : 74 + n * 20;
-        row.forEach((t, i) => {
-            const a = (i / n) * Math.PI * 2 + l * 1.1;
-            positions[t.id] = {
-                x: Math.cos(a) * radius,
-                y: (l - maxLayer / 2) * LAYER_GAP,
-                z: Math.sin(a) * radius,
-            };
-        });
+        const radius = row.length === 1 ? 0 : 74 + row.length * 20;
+        // Within a layer, place each node inside its subject's sector rather than at an
+        // arbitrary point on the circle.
+        const perSubject: Record<string, Topic[]> = {};
+        for (const t of row) (perSubject[t.subject] = perSubject[t.subject] || []).push(t);
+        for (const [subject, members] of Object.entries(perSubject)) {
+            const base = sectorAngle[subject] ?? 0;
+            members.forEach((t, i) => {
+                const spread = members.length === 1 ? 0 : (i / (members.length - 1) - 0.5);
+                const a = base + spread * sectorWidth;
+                positions[t.id] = {
+                    x: Math.cos(a) * radius,
+                    y: (l - maxLayer / 2) * LAYER_GAP,
+                    z: Math.sin(a) * radius,
+                };
+            });
+        }
     }
 
     const layerRows = Object.values(rows);
@@ -188,6 +214,9 @@ export function buildGraph(
     // widest layer), which wastes the width of a landscape canvas. Keep y the longest
     // axis — depth still has to read top-to-bottom — but not by a factor of 1.5.
     const XZ_SPREAD = 0.55;
+    // Nodes are kept at least this far out so their angle — and so their subject — stays
+    // legible instead of collapsing into an undifferentiated core.
+    const SECTOR_MIN_RADIUS = 90;
     for (let it = 0; it < 240; it += 1) {
         // Attraction: 5% of the way toward the mean XZ of neighbours.
         for (const t of topics) {
@@ -203,6 +232,25 @@ export function buildGraph(
             }
             positions[t.id].x += (mx / neighbours.length - positions[t.id].x) * 0.05;
             positions[t.id].z += (mz / neighbours.length - positions[t.id].z) * 0.05;
+        }
+        // Hold each node inside its subject's wedge. A soft pull loses to attraction — a
+        // node dragged toward the centre has no meaningful angle left — so this is a hard
+        // clamp on angle plus a floor on radius. Attraction still places nodes freely
+        // within the wedge, which is where the dependency structure stays visible.
+        const half = sectorWidth / 2;
+        for (const t of topics) {
+            const p = positions[t.id];
+            const home = sectorAngle[t.subject];
+            if (home === undefined) continue;
+            const r = Math.max(Math.hypot(p.x, p.z), SECTOR_MIN_RADIUS);
+            let delta = Math.atan2(p.z, p.x) - home;
+            while (delta > Math.PI) delta -= Math.PI * 2;
+            while (delta < -Math.PI) delta += Math.PI * 2;
+            if (delta > half) delta = half;
+            else if (delta < -half) delta = -half;
+            const a = home + delta;
+            p.x = Math.cos(a) * r;
+            p.z = Math.sin(a) * r;
         }
         // Repulsion between nodes sharing a depth. Layers sit LAYER_GAP apart and the force
         // only reaches 70 units vertically, so same-layer pairs are the only ones that can
@@ -254,35 +302,20 @@ export function buildGraph(
         }
     }
 
-    // Centre on the bounding box, not the origin. Layer seeding plus relaxation leaves the
-    // cloud drifting off-axis, which reads as the graph being badly placed in the panel.
-    let cx = 0;
+    // Centre vertically only. The subject sectors are angles about the origin, so shifting
+    // x or z would rotate every node out of its wedge — and the camera already centres the
+    // cloud in screen space, so a world-space xz shift would buy nothing anyway.
     let cy = 0;
-    let cz = 0;
     {
-        let x0 = Number.POSITIVE_INFINITY;
-        let x1 = Number.NEGATIVE_INFINITY;
-        let z0 = Number.POSITIVE_INFINITY;
-        let z1 = Number.NEGATIVE_INFINITY;
         let y0 = Number.POSITIVE_INFINITY;
         let y1 = Number.NEGATIVE_INFINITY;
         for (const p of points) {
-            if (p.x < x0) x0 = p.x;
-            if (p.x > x1) x1 = p.x;
             if (p.y < y0) y0 = p.y;
             if (p.y > y1) y1 = p.y;
-            if (p.z < z0) z0 = p.z;
-            if (p.z > z1) z1 = p.z;
         }
-        cx = (x0 + x1) / 2;
         cy = (y0 + y1) / 2;
-        cz = (z0 + z1) / 2;
     }
-    for (const p of points) {
-        p.x -= cx;
-        p.y -= cy;
-        p.z -= cz;
-    }
+    for (const p of points) p.y -= cy;
 
     let radius = 0;
     for (const p of points) radius = Math.max(radius, Math.hypot(p.x, p.y, p.z));
