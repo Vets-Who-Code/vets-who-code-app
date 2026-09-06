@@ -1,4 +1,4 @@
-import { PHASES } from "@data/curriculum";
+import { durationLabel, PHASES } from "@data/curriculum";
 import Link from "next/link";
 import styles from "./curriculum-columns.module.css";
 
@@ -30,7 +30,7 @@ const CurriculumColumns = () => {
                             <h3 className={styles.cardName}>{phase.name}</h3>
                             <p className={styles.cardTagline}>{phase.tagline}</p>
                             <div className={styles.cardMeta}>
-                                <span className={styles.cardDuration}>{phase.durationLabel}</span>
+                                <span className={styles.cardDuration}>{durationLabel(phase)}</span>
                                 <p className={styles.cardOutcome}>{phase.outcome}</p>
                                 <span className={styles.cardCta}>
                                     See the skill map{" "}

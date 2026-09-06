@@ -1,4 +1,4 @@
-import { PHASES } from "@data/curriculum";
+import { ALL_MODULES, durationLabel, PHASES } from "@data/curriculum";
 import {
     ancestors,
     bandColor,
@@ -202,5 +202,49 @@ describe("citations", () => {
             (t) => `${t.id}: "${t.source}"`
         );
         expect(unparseable).toEqual([]);
+    });
+});
+
+describe("one source of truth", () => {
+    // The site used to carry four hand-maintained copies of the curriculum, quoting four
+    // different numbers for it. These assert the registry and the graph are the only two
+    // sources left and that they agree.
+    it("derives duration labels rather than storing them", () => {
+        for (const p of PHASES) {
+            expect(durationLabel(p)).toBe(
+                `${p.weekRange[1] - p.weekRange[0] + 1} weeks · ${p.modules.length} modules`
+            );
+        }
+    });
+
+    it("flattens every module exactly once, with unique numbers", () => {
+        const total = PHASES.reduce((n, p) => n + p.modules.length, 0);
+        expect(ALL_MODULES).toHaveLength(total);
+        const numbers = ALL_MODULES.map((m) => m.n);
+        expect(new Set(numbers).size).toBe(numbers.length);
+    });
+
+    it("keeps every subject's topic count equal to the topics that claim it", () => {
+        for (const subject of SUBJECTS) {
+            const actual = TOPICS.filter((t) => t.subject === subject.id).length;
+            expect(`${subject.id}=${subject.topicCount}`).toBe(`${subject.id}=${actual}`);
+        }
+    });
+
+    it("keeps every domain's topic count equal to the topics that claim it", () => {
+        const mismatched: string[] = [];
+        for (const subject of SUBJECTS) {
+            for (const domain of subject.domains) {
+                const actual = TOPICS.filter(
+                    (t) => t.subject === subject.id && t.domain === domain.id
+                ).length;
+                if (actual !== domain.topicCount) {
+                    mismatched.push(
+                        `${subject.id}/${domain.id}: ${domain.topicCount} vs ${actual}`
+                    );
+                }
+            }
+        }
+        expect(mismatched).toEqual([]);
     });
 });
