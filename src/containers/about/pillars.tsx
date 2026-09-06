@@ -1,3 +1,4 @@
+import { MANIFEST, SUBJECTS } from "@lib/curriculum-graph";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import styles from "./about.module.css";
@@ -18,8 +19,8 @@ const PILLARS: Pillar[] = [
         n: "01",
         kind: "Pedagogy",
         title: "Focus on Impactful Learning",
-        body: "128 Lightcast-validated skills. Every module maps to what employers are hiring for — nothing we teach is decorative. If our students can't make money with it, we don't bother teaching it.",
-        footnote: "128 skills · Lightcast-validated",
+        body: "Every concept we teach carries a market anchor and an evidence criterion — nothing we teach is decorative. If our students can't make money with it, we don't bother teaching it.",
+        footnote: `${MANIFEST.counts.topics} micro-topics · market-anchored`,
         treatment: "syllabus",
     },
     {
@@ -40,16 +41,15 @@ const PILLARS: Pillar[] = [
     },
 ];
 
-const SYLLABUS = [
-    { code: "M01", name: "Foundations · JavaScript", n: 14 },
-    { code: "M02", name: "React · TypeScript", n: 22 },
-    { code: "M03", name: "APIs · Data · Auth", n: 18 },
-    { code: "M04", name: "Testing · CI/CD", n: 16 },
-    { code: "M05", name: "Systems Design", n: 20 },
-    { code: "M06", name: "AI Integration", n: 14 },
-    { code: "M07", name: "Production Engineering", n: 12 },
-    { code: "M08", name: "Capstone · Crucible Project", n: 12 },
-];
+// Read straight off the Hashflag Graph rather than typed out here. The old list named
+// eight modules that did not match the curriculum at all (M01 "Foundations · JavaScript"
+// against a real M01 of Terminal Mastery), which is exactly what happens when a marketing
+// visual keeps its own copy of the data.
+const SYLLABUS = SUBJECTS.map((subject, i) => ({
+    code: `S${String(i + 1).padStart(2, "0")}`,
+    name: subject.title,
+    n: subject.topicCount,
+}));
 
 const TIMEZONES = [
     { city: "Fort Bragg, NC", z: "EST  —  0900" },
@@ -101,7 +101,7 @@ const SyllabusVisual = () => (
         style={{ aspectRatio: "5 / 3", padding: "18px 22px" }}
     >
         <div style={visualHeader}>
-            <span>Syllabus · 128 skills</span>
+            <span>{`Skill map · ${MANIFEST.counts.topics} micro-topics`}</span>
             <span
                 className="tw-text-gold"
                 style={{
@@ -137,9 +137,9 @@ const SyllabusVisual = () => (
             ))}
         </ul>
         <div style={visualFooter}>
-            <span>Total · validated</span>
+            <span>Total · mapped</span>
             <span className="tw-text-red" style={{ fontSize: 11, letterSpacing: "0.10em" }}>
-                128 / 128
+                {`${MANIFEST.counts.topics} / ${MANIFEST.counts.topics}`}
             </span>
         </div>
     </div>

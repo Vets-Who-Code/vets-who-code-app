@@ -1,5 +1,6 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
+import { ALL_MODULES } from "@data/curriculum";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
@@ -181,9 +182,9 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                 className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
                             >
                                 <option value="">All modules</option>
-                                {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
-                                    <option key={m} value={m}>
-                                        Module {m}
+                                {ALL_MODULES.map((m) => (
+                                    <option key={m.n} value={m.n}>
+                                        Module {m.n}
                                     </option>
                                 ))}
                             </select>

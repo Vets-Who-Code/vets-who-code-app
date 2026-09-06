@@ -1,0 +1,27 @@
+--- a/src/01-systems-practice.txt	2026-09-04 22:24:37
++++ b/src/01-systems-practice.txt	2026-09-05 21:10:47
+@@ -98,13 +98,13 @@
+ # documentation
+ doc-readme|Write a README people can act on|Covers what it is, how to run it, how to contribute|r|u|A stranger runs the project from the README alone|Technical writing|M07 §7.4
+ doc-api|Document an API|Describes endpoints, shapes and errors|r|u|Publishes docs a client developer builds against|Technical writing, API design|M07 §7.4
+-doc-comments|Comment for the reader who follows|Explains why, not what|m|u|Leaves a comment that survives review|Technical writing|M07 §7.4
+ doc-runbook|Write a runbook|Turns an operational procedure into steps under pressure|r|s|Someone else executes the procedure at 3am|Operations, technical writing|M07 §7.4
+ 
+ # code-review
+ rev-read|Review code for correctness and risk|Looks past style to behavior and edge cases|m|s|Finds a real defect in someone else's diff|Code review|M07 §7.5
+ rev-write|Write a reviewable pull request|Scopes and explains a change so review is fast|m|u|Opens a PR merged without a round of confusion|Code review|M07 §7.5
+ rev-feedback|Give and take feedback constructively|Separates the code from the person|m|u|Resolves a disagreement in review without escalation|Collaboration|M07 §7.5
++doc-comments|Comment for the reader who follows|Explains why, not what|m|u|Leaves a comment that survives review|Technical writing|M07 §7.4
+ 
+ # algorithms
+ alg-arrays|Solve array and string problems|Manipulates sequences under constraints|p|u|Solves reversal, palindrome and subarray problems unaided|Data structures, algorithms|M08 §8.5
+--- a/src/edges.txt	2026-09-04 22:24:37
++++ b/src/edges.txt	2026-09-05 21:10:47
+@@ -79,6 +79,7 @@
+ git-pr>rev-read|H|Review happens on pull requests.
+ rev-read>rev-write|H|You write for reviewers once you know what reviewers look for.
+ rev-read>rev-feedback|H|Feedback is the delivery of a review.
++doc-comments>rev-write|S|A comment is the same act as a review note, written for whoever arrives next instead of today.
+ js-arrays>alg-arrays|H|Array problems require array manipulation.
+ py-lists>alg-arrays|H|List problems require list manipulation.
+ js-objects>alg-hashing|H|Hash-based solutions use objects and maps.

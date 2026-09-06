@@ -17,8 +17,9 @@ const CtaBand = () => (
             </h2>
 
             <p className="tw-mt-7 tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#DEE2E6]">
-                Vets Who Code is a free, full-time software engineering accelerator for active duty,
-                veterans, and military spouses. 17 weeks, 25 modules, and a portfolio that ships.
+                Vets Who Code is a free, remote-first software engineering accelerator for active
+                duty, veterans, and military spouses. 17 weeks at 20–30 hours a week, and a body of
+                work that ships.
             </p>
 
             <div className="tw-mt-9 tw-flex tw-flex-wrap tw-gap-4">
@@ -29,7 +30,7 @@ const CtaBand = () => (
                     Apply for Cohort 2027 →
                 </Link>
                 <Link
-                    href="/programs/core-curriculum"
+                    href="/curriculum"
                     className="tw-inline-flex tw-items-center tw-gap-2 tw-border tw-border-cream/[0.18] tw-px-7 tw-py-4 tw-font-mono tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-cream tw-transition-colors hover:tw-border-cream hover:tw-bg-cream/5 active:tw-scale-[0.97]"
                 >
                     Read the curriculum

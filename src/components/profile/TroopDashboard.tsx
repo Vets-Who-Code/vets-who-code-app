@@ -1,3 +1,4 @@
+import { ALL_MODULES } from "@data/curriculum";
 import { handleClientError } from "@utils/handle-client-error";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
@@ -321,13 +322,15 @@ export default function TroopDashboard() {
                                     aria-label="Current Module"
                                     className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
                                 >
-                                    {Array.from({ length: 25 }, (_, i) => i + 1).map((m) => (
-                                        <option key={m} value={m}>
-                                            Module {m}
+                                    {ALL_MODULES.map((m) => (
+                                        <option key={m.n} value={m.n}>
+                                            Module {m.n}
                                         </option>
                                     ))}
                                 </select>
-                                <span className="tw-text-xs tw-text-gray-400">of 25</span>
+                                <span className="tw-text-xs tw-text-gray-400">
+                                    of {ALL_MODULES.length}
+                                </span>
                             </div>
                             {moduleUpdateError && (
                                 <p className="tw-mt-1 tw-text-xs tw-text-red-dark">

@@ -16,11 +16,13 @@ type PageWithLayout = NextPage<TProps> & {
     Layout?: typeof Layout01;
 };
 
+// The guide count in the meta description is read from the same array the page renders,
+// so a search preview can never advertise a different number from the one on screen.
 const CareerGuidesPage: PageWithLayout = ({ guides, branchCounts, familiesCount, certsCount }) => (
     <>
         <SEO
             title="Career Guides — Military Job Code Translator"
-            description="From job code to civilian career. Search 4,201 military career guides across all five branches with civilian salary bands, certifications, and demand signals sourced from Lightcast labor data."
+            description={`From job code to civilian career. Search ${guides.length.toLocaleString()} military career guides across all five branches with civilian salary bands, certifications, and demand signals sourced from Lightcast labor data.`}
         />
         <CareerGuidesContainer
             guides={guides}
