@@ -106,9 +106,11 @@ export type Graph = {
  * over every edge inflates depth and contradicts the dataset's own `depth` field. Only
  * the XZ plane is relaxed, so a concept always sits below everything it depends on.
  *
- * Runs synchronously on mount and on every subject toggle. Measured on the full 375-node /
- * 528-edge dataset: see the perf test. If it grows several times larger, move it to a
- * worker or precompute at build time.
+ * Runs synchronously on mount and on every subject toggle, so it has to stay inside a
+ * click. Measured at ~39ms median on the dataset as shipped — MANIFEST.counts is the live
+ * size, 375 topics / 529 edges at the time of writing. The bound is enforced by the perf
+ * test rather than by this comment. If the graph grows several times larger, move it to a
+ * worker or precompute the layout at build time.
  */
 export function buildGraph(
     allTopics: Topic[],
