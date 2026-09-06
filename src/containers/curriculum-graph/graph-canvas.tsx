@@ -57,8 +57,14 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
     // Read by the draw loop; kept in refs so the loop never needs re-subscribing.
     const graphRef = useRef(graph);
     const selRef = useRef(selected);
+    // Set whenever something that changes the picture changes. While the cloud is spinning
+    // every frame redraws anyway; when rotation is suspended — a selection is open, or the
+    // viewer prefers reduced motion — redrawing 375 nodes and re-sorting 529 links at 60fps
+    // produces identical pixels, so the loop idles until something actually invalidates.
+    const needsDraw = useRef(true);
     graphRef.current = graph;
     selRef.current = selected;
+    needsDraw.current = true;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -147,22 +153,28 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             return { x: cx + fit.ox + x1 * s, y: cy + fit.oy + y1 * s, k: dist / depth, d: depth };
         };
 
-        const draw = () => {
+        const draw = (): boolean => {
             const w = canvas.clientWidth;
             const h = canvas.clientHeight;
-            if (!w || !h) return;
+            if (!w || !h) return false;
             const dpr = Math.min(window.devicePixelRatio || 1, 2);
             if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
                 canvas.width = Math.round(w * dpr);
                 canvas.height = Math.round(h * dpr);
             }
             const ctx = canvas.getContext("2d");
-            if (!ctx) return;
+            if (!ctx) return false;
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             ctx.clearRect(0, 0, w, h);
 
             const g = graphRef.current;
-            if (!g) return;
+            if (!g) {
+                // Nothing visible: drop the projected points too, or a click on the empty
+                // canvas would still hit-test against the last graph and select a node the
+                // filter has removed.
+                points.current = {};
+                return true;
+            }
 
             const cx = w / 2;
             const cy = h / 2;
@@ -292,15 +304,30 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 }
                 ctx.restore();
             }
+
+            return true;
         };
 
         let raf = 0;
         const frame = () => {
             raf = requestAnimationFrame(frame);
-            if (!drag.current.active && !selRef.current && !reduced) cam.current.yaw += 0.0022;
-            draw();
+            const spinning = !drag.current.active && !selRef.current && !reduced;
+            if (spinning) {
+                cam.current.yaw += 0.0022;
+            } else if (!needsDraw.current) {
+                return;
+            }
+            if (draw()) needsDraw.current = false;
         };
         raf = requestAnimationFrame(frame);
+
+        const invalidate = () => {
+            needsDraw.current = true;
+        };
+
+        // The draw loop is what notices a size change, so a paused canvas needs telling.
+        const ro = typeof ResizeObserver === "function" ? new ResizeObserver(invalidate) : null;
+        ro?.observe(canvas);
 
         const local = (e: PointerEvent) => {
             const rect = canvas.getBoundingClientRect();
@@ -329,8 +356,10 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
             pointers.current.set(e.pointerId, local(e));
             drag.current = { active: true, moved: 0, pinch: 0 };
             canvas.style.cursor = "grabbing";
+            invalidate();
         };
         const onMove = (e: PointerEvent) => {
+            invalidate();
             const pos = local(e);
             const prev = pointers.current.get(e.pointerId);
             if (!prev) {
@@ -365,6 +394,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
                 drag.current.pinch = 0;
             }
             canvas.style.cursor = "grab";
+            invalidate();
             if (tracked && drag.current.moved < 6) {
                 const hit = pick(pos);
                 if (hit) onSelect(hit === selRef.current ? null : hit);
@@ -373,11 +403,13 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
         };
         const onLeave = () => {
             hover.current = null;
+            invalidate();
         };
         const onWheel = (e: WheelEvent) => {
             e.preventDefault();
             const next = cam.current.zoom * (1 - e.deltaY * 0.0012);
             cam.current.zoom = Math.max(0.5, Math.min(3, next));
+            invalidate();
         };
 
         canvas.addEventListener("pointerdown", onDown);
@@ -389,6 +421,7 @@ const GraphCanvas = ({ graph, selected, onSelect }: GraphCanvasProps) => {
 
         return () => {
             cancelAnimationFrame(raf);
+            ro?.disconnect();
             canvas.removeEventListener("pointerdown", onDown);
             canvas.removeEventListener("pointermove", onMove);
             canvas.removeEventListener("pointerup", onUp);

@@ -1,5 +1,6 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
+import { ALL_MODULES } from "@data/curriculum";
 import Layout01 from "@layout/layout-01";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
@@ -40,7 +41,7 @@ const LessonsIndex: PageWithLayout = () => {
         })();
     }, []);
 
-    const modules = Array.from({ length: 25 }, (_, i) => i + 1);
+    const modules = ALL_MODULES.map((m) => m.n);
 
     return (
         <>

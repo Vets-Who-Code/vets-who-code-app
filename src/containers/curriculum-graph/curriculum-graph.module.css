@@ -976,7 +976,8 @@
 }
 
 /* Focus ring — gold, per the design system. */
-.panel :focus-visible,
+.controlsBar :focus-visible,
+.inspectorSection :focus-visible,
 .ctaSection :focus-visible {
     outline: 3px solid #fdb330;
     outline-offset: 2px;
