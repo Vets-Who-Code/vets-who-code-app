@@ -100,15 +100,6 @@
     margin: 22px 0 0;
 }
 
-.heroCounts {
-    font-family: var(--font-mono);
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(185, 214, 242, 0.75);
-    margin: 24px 0 0;
-}
-
 .heroHint {
     pointer-events: none;
     display: flex;
@@ -508,9 +499,28 @@
 }
 
 /* ========== MANIFEST ========== */
+.insideSection {
+    background: #fff;
+    padding: 0 0 88px;
+}
+
+.insideGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 48px;
+    margin-top: 26px;
+}
+
 .manifestSection {
     background: #fff;
     padding: 0 0 104px;
+}
+
+.manifestLede {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #495057;
+    margin: 18px 0 0;
 }
 
 .manifestGrid {
@@ -964,6 +974,20 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 24px;
+}
+
+.ctaBody {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #495057;
+    max-width: 58ch;
+    margin: 0 0 14px;
+}
+
+.ctaActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
 }
 
 .ctaTitle {

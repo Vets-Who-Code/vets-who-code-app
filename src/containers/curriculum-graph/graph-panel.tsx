@@ -46,24 +46,21 @@ const GraphPanel = () => {
                             The Hashflag Method
                         </span>
                         <h1 id="curriculum-title" className={styles.heroTitle}>
-                            We don&rsquo;t write a syllabus. We compute a path.
+                            We didn&rsquo;t write a syllabus. We drew a map.
                         </h1>
                         <p className={styles.heroLede}>
-                            Most curricula are ordered by subject — chapter three follows chapter
-                            two because someone put it there. Ours is a map of how skills actually
-                            rest on each other, so you can see how we decide what to teach, how we
-                            train it, and what any one idea is built from.
-                        </p>
-                        <p className={styles.heroCounts}>
-                            {MANIFEST.counts.topics} micro-topics · {MANIFEST.counts.edges}{" "}
-                            prerequisite links · {MANIFEST.acyclic ? "validated DAG" : "cycles"}
+                            A syllabus tells you what comes next. It can&rsquo;t tell you{" "}
+                            <em>why</em>. Ours is a map of {MANIFEST.counts.topics} ideas and the{" "}
+                            {MANIFEST.counts.edges} places they hold each other up — so before a
+                            veteran writes a line of code, they can see the whole route, where they
+                            already stand on it, and what every step is load-bearing for.
                         </p>
                     </div>
 
                     <div className={styles.heroHint}>
                         <span>
-                            Drag to spin &nbsp;·&nbsp; scroll to zoom &nbsp;·&nbsp; tap a dot to
-                            trace what it rests on
+                            Drag to spin. Scroll to zoom. Tap any dot to see what it rests on, and
+                            why.
                         </span>
                         <span>
                             {graph?.topics.length ?? 0} nodes &nbsp;·&nbsp;{" "}
