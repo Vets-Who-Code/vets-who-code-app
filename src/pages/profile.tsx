@@ -1,6 +1,6 @@
 import type { GetServerSideProps } from "next";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 // Redirect /profile to /profile/[currentUserId]
 export const getServerSideProps: GetServerSideProps = async (context) => {

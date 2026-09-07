@@ -6,7 +6,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type Difficulty = "warmup" | "easy" | "medium" | "hard";
 type Language = "javascript" | "typescript" | "python";

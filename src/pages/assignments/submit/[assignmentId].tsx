@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth/next";
 import { useSession } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 import prisma from "@/lib/prisma";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type AssignmentData = {
     id: string;

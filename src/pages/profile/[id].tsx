@@ -25,7 +25,7 @@ import useGitHubProfile from "@/hooks/use-github-profile";
 import useLearningStats from "@/hooks/use-learning-stats";
 import useProfileForm from "@/hooks/use-profile-form";
 import prisma from "@/lib/prisma";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 import type { ProfileTab, ProfileUser } from "@/types/profile";
 
 type PageProps = {

@@ -9,7 +9,7 @@ vi.mock("next-auth/next", () => ({
 
 // Stub the auth options import chain — the real module pulls in prisma and
 // ensure-troop, neither of which we need for pure guard logic.
-vi.mock("@/pages/api/auth/options", () => ({
+vi.mock("@/lib/auth-options", () => ({
     options: {},
 }));
 

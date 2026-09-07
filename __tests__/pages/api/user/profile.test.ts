@@ -19,7 +19,7 @@ let sessionUser: { id: string; role?: string } | null = { id: "self", role: "STU
 vi.mock("next-auth/next", () => ({
     getServerSession: vi.fn(async () => (sessionUser ? { user: sessionUser } : null)),
 }));
-vi.mock("@/pages/api/auth/options", () => ({ options: {} }));
+vi.mock("@/lib/auth-options", () => ({ options: {} }));
 
 function makeRes() {
     const res: Record<string, unknown> = { statusCode: 200, body: undefined };

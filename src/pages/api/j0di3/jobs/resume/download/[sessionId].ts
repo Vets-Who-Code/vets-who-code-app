@@ -15,9 +15,10 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
         const response = await j0di3.get(`/api/v1/jobs/resume/download/${sessionId}`, {
             responseType: "arraybuffer",
         });
-        const contentType = response.headers["content-type"] || "application/octet-stream";
-        const disposition =
-            response.headers["content-disposition"] || `attachment; filename="resume-${sessionId}"`;
+        const contentType = String(response.headers["content-type"] || "application/octet-stream");
+        const disposition = String(
+            response.headers["content-disposition"] || `attachment; filename="resume-${sessionId}"`
+        );
         res.setHeader("Content-Type", contentType);
         res.setHeader("Content-Disposition", disposition);
         return res.send(Buffer.from(response.data));

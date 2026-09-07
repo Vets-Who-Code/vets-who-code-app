@@ -7,7 +7,7 @@ import { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import React from "react";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type PageProps = {
     job: Job;

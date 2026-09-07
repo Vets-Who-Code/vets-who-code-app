@@ -11,7 +11,7 @@ vi.mock("next-auth/next", () => ({
 }));
 
 // Mock auth options
-vi.mock("@/pages/api/auth/options", () => ({
+vi.mock("@/lib/auth-options", () => ({
     options: {},
 }));
 

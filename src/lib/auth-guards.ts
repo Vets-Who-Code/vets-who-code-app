@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import type { Session } from "next-auth";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type GuardOk = { ok: true; session: Session };
 type GuardRedirect = { ok: false; result: GetServerSidePropsResult<never> };

@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { enforceRateLimit } from "@/lib/rate-limit";
-import { checkParams } from "./api-helpers";
+import { checkParams } from "@/lib/api-helpers";
 
 // Define the ParsedBody interface to type-check the request body
 interface ParsedBody {
