@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { checkParams } from "./api-helpers";
+import { checkParams } from "@/lib/api-helpers";
 
 // Define the ParsedBody type for mentee
 interface ParsedBody {

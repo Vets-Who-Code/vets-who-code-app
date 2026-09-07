@@ -9,7 +9,7 @@ import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
 import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import { runChallenge } from "@/lib/challenge-runner";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 interface SubmissionResponse {
     passed?: boolean;

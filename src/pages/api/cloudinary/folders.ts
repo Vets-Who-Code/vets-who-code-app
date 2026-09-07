@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { getSubfolders, listFolders } from "@/lib/cloudinary";
-import { options as authOptions } from "../auth/options";
+import { options as authOptions } from "@/lib/auth-options";
 
 interface FoldersResponse {
     success: boolean;

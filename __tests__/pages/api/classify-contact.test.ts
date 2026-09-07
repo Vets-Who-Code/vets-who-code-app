@@ -3,7 +3,7 @@ import type { Mock } from "vitest";
 import {
     ContactClassification,
     classifyContact,
-} from "../../../src/pages/api/api-helpers/classify-contact";
+} from "../../../src/lib/api-helpers/classify-contact";
 
 vi.mock("@google/genai", () => ({
     GoogleGenAI: vi.fn(),

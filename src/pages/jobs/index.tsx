@@ -10,7 +10,7 @@ import React, { useMemo, useState } from "react";
 import JobMatch from "@/components/jobs/JobMatch";
 import MockInterview from "@/components/jobs/MockInterview";
 import ResumeScorer from "@/components/jobs/ResumeScorer";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type PageProps = {
     jobs: Job[];

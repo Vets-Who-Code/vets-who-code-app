@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import { enforceRateLimit } from "@/lib/rate-limit";
-import { checkLength, checkParams, contactErrors } from "./api-helpers";
-import { classifyContact } from "./api-helpers/classify-contact";
+import { checkLength, checkParams, contactErrors } from "@/lib/api-helpers";
+import { classifyContact } from "@/lib/api-helpers/classify-contact";
 
 interface ParsedBody {
     name?: string;

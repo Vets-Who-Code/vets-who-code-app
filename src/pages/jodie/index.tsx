@@ -6,7 +6,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useState } from "react";
-import { options } from "@/pages/api/auth/options";
+import { options } from "@/lib/auth-options";
 
 type Pillar = "learn" | "code" | "debug";
 

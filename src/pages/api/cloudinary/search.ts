@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { ListImagesResult, searchImages } from "@/lib/cloudinary";
-import { options as authOptions } from "../auth/options";
+import { options as authOptions } from "@/lib/auth-options";
 
 interface SearchResponse extends Partial<ListImagesResult> {
     success: boolean;

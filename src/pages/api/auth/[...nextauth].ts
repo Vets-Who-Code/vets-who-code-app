@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import { options } from "./options";
+import { options } from "@/lib/auth-options";
 
 /**
  * @swagger

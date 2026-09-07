@@ -11,10 +11,10 @@ export default requireRole("ADMIN")(async (req: AuthenticatedRequest, res: NextA
             responseType: "arraybuffer",
             params: req.query,
         });
-        res.setHeader("Content-Type", response.headers["content-type"] || "text/csv");
+        res.setHeader("Content-Type", String(response.headers["content-type"] || "text/csv"));
         res.setHeader(
             "Content-Disposition",
-            response.headers["content-disposition"] || "attachment; filename=placements.csv"
+            String(response.headers["content-disposition"] || "attachment; filename=placements.csv")
         );
         return res.send(Buffer.from(response.data));
     } catch (error: unknown) {

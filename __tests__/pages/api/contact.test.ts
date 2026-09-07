@@ -1,10 +1,10 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
-import { classifyContact } from "@/pages/api/api-helpers/classify-contact";
+import { classifyContact } from "@/lib/api-helpers/classify-contact";
 import handler from "@/pages/api/contact";
 
-vi.mock("@/pages/api/api-helpers/classify-contact", () => ({
+vi.mock("@/lib/api-helpers/classify-contact", () => ({
     classifyContact: vi.fn(),
 }));
 
