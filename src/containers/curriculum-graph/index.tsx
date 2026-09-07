@@ -418,7 +418,7 @@ const CurriculumGraphContainer = () => (
                     ))}
                 </div>
                 <p className={styles.pullQuote}>
-                    None of these four is ours alone. Assembling them, and aiming the result
+                    None of these three is ours alone. Assembling them, and aiming the result
                     squarely at what employers pay veterans for, is.
                 </p>
             </div>
