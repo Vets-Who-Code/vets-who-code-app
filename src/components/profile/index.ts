@@ -2,7 +2,6 @@ export { default as ActivityFeed } from "./ActivityFeed";
 export { default as GitHubReadme } from "./GitHubReadme";
 export { default as GitHubStatsGrid } from "./GitHubStatsGrid";
 export { default as LanguageBreakdown } from "./LanguageBreakdown";
-export { default as LearningProgress } from "./LearningProgress";
 export { default as NotificationToast } from "./NotificationToast";
 export { default as ProfileHeader } from "./ProfileHeader";
 export { default as ProfileNav } from "./ProfileNav";

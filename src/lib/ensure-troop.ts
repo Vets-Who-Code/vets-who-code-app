@@ -19,12 +19,6 @@ export async function ensureTroop(userId: string): Promise<string | null> {
             branch: true,
             mos: true,
             skillLevel: true,
-            cohortId: true,
-            enrollments: {
-                where: { status: "ACTIVE" },
-                select: { id: true },
-                take: 1,
-            },
         },
     });
 
@@ -60,7 +54,7 @@ export async function ensureTroop(userId: string): Promise<string | null> {
             branch: dbUser.branch || "",
             mos: dbUser.mos || "",
             current_module: 1,
-            enrolled: dbUser.enrollments.length > 0,
+            enrolled: true,
         });
 
         const token = data?.access_token || data?.troop_access_token || data?.token || null;

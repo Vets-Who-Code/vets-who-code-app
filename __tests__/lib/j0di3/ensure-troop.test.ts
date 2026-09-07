@@ -15,9 +15,9 @@ vi.mock("@/lib/j0di3-client", () => ({
     },
 }));
 
-import prisma from "@/lib/prisma";
-import j0di3 from "@/lib/j0di3-client";
 import { ensureTroop } from "@/lib/ensure-troop";
+import j0di3 from "@/lib/j0di3-client";
+import prisma from "@/lib/prisma";
 
 const mockFindUnique = prisma.user.findUnique as Mock;
 const mockUpdate = prisma.user.update as Mock;
@@ -41,8 +41,6 @@ describe("ensureTroop", () => {
             branch: null,
             mos: null,
             skillLevel: null,
-            cohortId: null,
-            enrollments: [],
         });
 
         const result = await ensureTroop("user-123");
@@ -60,8 +58,6 @@ describe("ensureTroop", () => {
             branch: null,
             mos: null,
             skillLevel: null,
-            cohortId: null,
-            enrollments: [],
         });
 
         mockPost.mockResolvedValue({ data: { access_token: "rotated-token" } });
@@ -88,8 +84,6 @@ describe("ensureTroop", () => {
             branch: "Army",
             mos: "11B",
             skillLevel: "BEGINNER",
-            cohortId: "cohort-1",
-            enrollments: [{ id: "enrollment-1" }],
         });
 
         mockPost.mockResolvedValue({
@@ -114,7 +108,7 @@ describe("ensureTroop", () => {
         });
     });
 
-    it("sends enrolled: false when user has no active enrollments", async () => {
+    it("sends enrolled: true and defaults null profile fields to empty strings", async () => {
         mockFindUnique.mockResolvedValue({
             troopId: null,
             troopAccessToken: null,
@@ -123,8 +117,6 @@ describe("ensureTroop", () => {
             branch: null,
             mos: null,
             skillLevel: null,
-            cohortId: null,
-            enrollments: [],
         });
 
         mockPost.mockResolvedValue({ data: { id: "troop-uuid", access_token: "token" } });
@@ -138,7 +130,7 @@ describe("ensureTroop", () => {
             branch: "",
             mos: "",
             current_module: 1,
-            enrolled: false,
+            enrolled: true,
         });
     });
 
@@ -151,8 +143,6 @@ describe("ensureTroop", () => {
             branch: null,
             mos: null,
             skillLevel: null,
-            cohortId: null,
-            enrollments: [],
         });
 
         const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => {});
