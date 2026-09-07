@@ -11,7 +11,7 @@ type CurriculumGraphPageProps = NextPage & {
 // Derived, not typed. A search preview that contradicts the page's own manifest would
 // undercut the exact claim the page is making.
 const DESCRIPTION =
-    `We don't write a syllabus. We compute a path. ${MANIFEST.counts.topics} micro-topics, ` +
+    `We didn't write a syllabus. We drew a map. ${MANIFEST.counts.topics} micro-topics, ` +
     `${MANIFEST.counts.edges} prerequisite links, ` +
     `${MANIFEST.acyclic ? "zero cycles" : "unvalidated"} — the ${MANIFEST.name} ` +
     `${MANIFEST.version} behind the Vets Who Code accelerator.`;

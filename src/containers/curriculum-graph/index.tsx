@@ -8,11 +8,15 @@ import GraphPanel from "./graph-panel";
 // data is the argument, so nothing here is allowed to drift from the data.
 const COUNTS = MANIFEST.counts;
 const MANIFEST_CELLS = [
-    { value: String(COUNTS.topics), label: "Micro-topics", gloss: "One teachable idea each." },
+    {
+        value: String(COUNTS.topics),
+        label: "Micro-topics",
+        gloss: "One teachable idea each. Not a chapter — an idea.",
+    },
     {
         value: String(COUNTS.edges),
-        label: "Prerequisite edges",
-        gloss: `${COUNTS.hardEdges} required, ${COUNTS.softEdges} helpful. Every one carries a written reason.`,
+        label: "Prerequisite links",
+        gloss: `${COUNTS.hardEdges} that carry weight, ${COUNTS.softEdges} that smooth the way.`,
     },
     {
         value: String(COUNTS.domains),
@@ -22,12 +26,12 @@ const MANIFEST_CELLS = [
     {
         value: String(COUNTS.maxDepth),
         label: "Deepest path",
-        gloss: `${COUNTS.roots} entry points, ${COUNTS.terminals} terminal concepts.`,
+        gloss: `${COUNTS.roots} places to start. ${COUNTS.terminals} places to finish.`,
     },
     {
         value: MANIFEST.acyclic ? "0" : "!",
         label: "Cycles",
-        gloss: "Validated DAG. Nothing is its own prerequisite.",
+        gloss: "Nothing is its own prerequisite. We check.",
     },
 ];
 
@@ -35,26 +39,26 @@ const LAYERS = [
     {
         index: "01",
         question: "Where are we going?",
-        title: "The labor market picks the destination",
-        body: "Lightcast skill demand plus O*NET and BLS data set the target concept set. Market moves, graph gets rebuilt behind it.",
+        title: "The job market picks the destination, not us",
+        body: "We look at what employers are actually paying people to do — Lightcast demand data, O*NET, BLS wages — and let that decide what belongs on the map. When the market moves, we rebuild behind it. Nobody here teaches a thing because we happen to know it.",
     },
     {
         index: "02",
         question: "In what order?",
-        title: "The dependency graph picks the route",
-        body: "Every concept decomposed to one teachable idea, wired to what it rests on. Sequence falls out of the graph; nobody hand-orders a table of contents.",
+        title: "What a skill rests on picks the route",
+        body: "We broke every concept down to a single teachable idea and wired it to what it stands on. The order isn't a judgment call and it isn't a table of contents — it falls out of the map. If we can't say what an idea rests on, it isn't ready to teach.",
     },
     {
         index: "03",
         question: "To what depth?",
-        title: "Gradual Release of Responsibility picks the depth",
-        body: "Each concept encountered three times at decreasing support — demonstrated, practiced with a spotter, performed alone. Veterans know this as crawl, walk, run.",
+        title: "Crawl, walk, run picks the depth",
+        body: "Every idea gets met three times, with less help each time: we show it, then you do it with a spotter, then you do it alone. Educators call this Gradual Release of Responsibility. Every veteran we've ever trained already knows it by the other name.",
     },
     {
         index: "04",
-        question: "How do we know?",
-        title: "An artifact closes the node",
-        body: "Nothing completes because a video ended. Each node names the thing produced and the criterion it's judged against. Trained to standard, or not trained.",
+        question: "How do we know it took?",
+        title: "An artifact closes it out, or nothing does",
+        body: "Nothing gets checked off because a video ended. Each idea names the thing you have to produce and the standard it gets judged against. You built it and it meets the criterion, or you're not done. Trained to standard, or not trained.",
     },
 ];
 
@@ -85,22 +89,21 @@ const NODE_RECORD: [string, React.ReactNode][] = [
     ],
     ["Market anchor", SAMPLE.marketAnchor.join(" · ")],
     ["Evidence criterion", SAMPLE.evidence],
-    ["Curriculum ref", SAMPLE.source],
     ["Prerequisite depth", `${SAMPLE.depth} — longest chain of load-bearing links beneath it`],
 ];
 
 const QUESTIONS = [
     {
-        title: "Where does this person actually start?",
-        body: "Whatever they already hold, the map shows what it reaches. A veteran who has run Linux for a decade starts from what that covers, not from week one.",
+        title: "Where does this specific person start?",
+        body: "A veteran who's run Linux for a decade shouldn't sit through week one of the command line. The map already knows what that decade covers and what it reaches, so we start them at the edge of it instead of the beginning of everything.",
     },
     {
-        title: "What's the shortest path to this specific job?",
-        body: "Name the target concept set from a real posting and the graph returns the minimum set of nodes that reaches it, in order.",
+        title: "What does this specific job actually require?",
+        body: "Take a real posting, name the ideas it asks for, and the map returns the set that reaches them and the order they have to come in. Not “learn React” — the eleven things under React that make React make sense.",
     },
     {
-        title: "Why is this taught at all?",
-        body: "Every concept carries its market anchor and its evidence criterion, and every link carries its reason. You can audit the whole thing without taking our word for any of it.",
+        title: "Why is any of this being taught?",
+        body: `Every idea carries the market anchor that put it there and the artifact that closes it. Every link carries its reason. When a donor asks what their giving made possible, the answer isn't hours logged — it's ${COUNTS.topics} standards met, each one named.`,
     },
 ];
 
@@ -108,27 +111,48 @@ const PROVENANCE = [
     {
         kicker: "Graph structure",
         title: "Marble open taxonomy",
-        body: "1,590 topics, 3,221 edges, ODbL 1.0. Different subject, same architecture.",
+        body: "1,590 topics, 3,221 edges, ODbL 1.0. A different subject entirely, but the architecture was right and we didn't need to reinvent it.",
     },
     {
         kicker: "Market layer",
         title: "Lightcast · O*NET · BLS",
-        body: "Skill demand, occupational profiles and wage data set the target concept set.",
+        body: "Skill demand, occupational profiles, and wage data. This is what sets the target.",
     },
     {
         kicker: "Depth model",
         title: "Gradual Release of Responsibility",
-        body: "Demonstrated, then practiced with support, then performed alone.",
+        body: "Fifty years of instructional research behind the thing veterans already call crawl, walk, run.",
     },
 ];
 
 const CurriculumGraphContainer = () => (
     <>
         <div className={styles.metaStrip}>
-            Curriculum &nbsp;·&nbsp; Hashflag Graph v2.3 &nbsp;·&nbsp; Validated DAG
+            2026 Cohort Active &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free &nbsp;·&nbsp; Remote
         </div>
 
         <GraphPanel />
+
+        <section className={styles.insideSection}>
+            <div className="tw-container">
+                <SectionTitle align="left" title="What this looks like from the inside" />
+                <div className={styles.insideGrid}>
+                    <p className={styles.longForm}>
+                        Someone shows up having run Linux boxes for ten years and never touched
+                        JavaScript. Someone else has written Python scripts for a shop that
+                        didn&rsquo;t call it engineering. Both of them can find themselves on this
+                        map on day one — not at week one of a course, but at the actual edge of what
+                        they already hold.
+                    </p>
+                    <p className={styles.longForm}>
+                        Then they walk the whole thing. Every veteran in a cohort covers all{" "}
+                        {COUNTS.topics} ideas in 17 weeks, because the graph tells us exactly how
+                        much has to sit under each one, and nothing gets taught before its
+                        foundation exists.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <section className={styles.manifestSection}>
             <div className="tw-container">
@@ -136,6 +160,7 @@ const CurriculumGraphContainer = () => (
                     <span className={styles.eyebrowBar} />
                     {`Manifest \u00a0·\u00a0 ${MANIFEST.name} ${MANIFEST.version}`}
                 </span>
+                <p className={styles.manifestLede}>Here&rsquo;s the map by the numbers.</p>
                 <div className={styles.manifestGrid}>
                     {MANIFEST_CELLS.map((cell) => (
                         <div key={cell.label} className={styles.manifestCell}>
@@ -159,8 +184,8 @@ const CurriculumGraphContainer = () => (
                 <SectionTitle
                     align="left"
                     subtitle="Method"
-                    title="Four layers, in order"
-                    description="Each layer answers a different question, and most curricula only answer the last one."
+                    title="Four decisions, in order"
+                    description="Most curricula only ever answer the last one. Here's all four, and who makes each call."
                 />
                 <div className={styles.layerGrid}>
                     {LAYERS.map((layer) => (
@@ -183,8 +208,8 @@ const CurriculumGraphContainer = () => (
                     align="left"
                     color="C"
                     subtitle="Edge anatomy"
-                    title="Two kinds of link"
-                    description="Every link says how much weight it carries, and why. That is what makes the map checkable rather than a matter of opinion."
+                    title="Two kinds of link, and both say why"
+                    description="A line on this map isn't decoration. It's a claim about what holds what up, and every one of them carries the sentence explaining it."
                 />
                 <div className={styles.edgeGrid}>
                     <div className={styles.edgeCard}>
@@ -221,8 +246,8 @@ const CurriculumGraphContainer = () => (
                             <span className={styles.edgeNode}>Assemble a RAG pipeline</span>
                         </div>
                         <p className={styles.edgeCardBody}>
-                            Retrieval has nothing to search without stored vectors. Teach it the
-                            other way round and the second idea has nothing to stand on.
+                            Retrieval has nothing to search until the vectors exist. Teach it the
+                            other way around and the second idea is standing on air.
                         </p>
                     </div>
                     <div className={styles.edgeCard}>
@@ -259,13 +284,14 @@ const CurriculumGraphContainer = () => (
                             <span className={styles.edgeNode}>Assemble a RAG pipeline</span>
                         </div>
                         <p className={styles.edgeCardBody}>
-                            You can build it unmeasured, you just won&rsquo;t know if it works.
+                            You can build the pipeline without it. You just won&rsquo;t know whether
+                            it works.
                         </p>
                     </div>
                 </div>
                 <p className={styles.pullQuote}>
-                    All {COUNTS.edges} edges carry a written sentence like that. If we can&rsquo;t
-                    write the reason, the edge doesn&rsquo;t go in.
+                    Every one of the {COUNTS.edges} links has a sentence like that behind it. If we
+                    couldn&rsquo;t write the reason, the link didn&rsquo;t go in.
                 </p>
             </div>
         </section>
@@ -275,8 +301,8 @@ const CurriculumGraphContainer = () => (
                 <SectionTitle
                     align="left"
                     subtitle="Node anatomy"
-                    title="What one micro-topic carries"
-                    description="Every node in the graph is specified to this level. These fields are what the graph is built from, not prose written after the fact."
+                    title="What one idea carries"
+                    description={`This is the level every one of the ${COUNTS.topics} is specified to — written before the lesson, not after.`}
                 />
                 <div className={styles.nodeGrid}>
                     <div className={styles.recordCard}>
@@ -297,20 +323,19 @@ const CurriculumGraphContainer = () => (
                     </div>
                     <div>
                         <p className={styles.longForm}>
-                            The evidence criterion is the whole point of the record. A node does not
-                            close when a lesson is watched or a box is checked; it closes when the
-                            named artifact exists and meets the criterion. That is what an employer
-                            is buying, and it is what a funder can audit.
+                            The line that matters is the evidence criterion. It&rsquo;s the
+                            difference between a veteran who watched a lesson on measuring
+                            faithfulness and one who built a check that caught a fabricated answer.
+                            The first is a completion. The second is something a hiring manager can
+                            look at.
                         </p>
                         <p className={styles.longForm}>
                             Type tells an instructor how to teach it. Exit depth tells them how much
-                            support to remove. Market anchor is the receipt for why the concept is
-                            in the map at all. And the curriculum ref cites the written source it
-                            came from, by module and section — {MANIFEST.derivedFrom} — so nothing
-                            here is a claim you have to take on trust.
+                            help to take away. Market anchor is the reason it&rsquo;s on the map at
+                            all — the receipt that says an employer is paying for this.
                         </p>
                         <p className={styles.footnote}>
-                            Tap any dot in the map above to read the same record for it.
+                            Tap any dot above to read the same record.
                         </p>
                     </div>
                 </div>
@@ -322,8 +347,8 @@ const CurriculumGraphContainer = () => (
                 <SectionTitle
                     align="left"
                     subtitle={`${COUNTS.subjects} subjects \u00b7 ${COUNTS.domains} domains`}
-                    title="The graph is grouped, not sequenced"
-                    description="Subjects say what a concept is about. They do not say when you meet it — the prerequisite edges decide that, and a single subject can run the whole length of the graph."
+                    title="Grouped by subject, sequenced by dependency"
+                    description="Subjects say what an idea is about. They don't say when you meet it — the links decide that, and a single subject can run the entire length of the map. Testing shows up early and never stops. So does version control."
                 />
                 <div className={styles.phaseTable}>
                     {SUBJECTS.map((subject, i) => (
@@ -361,8 +386,7 @@ const CurriculumGraphContainer = () => (
                 <SectionTitle
                     align="left"
                     subtitle="Why a map"
-                    title="Three questions a syllabus can't answer"
-                    description="A list of modules can tell you what is covered. It cannot tell you how the pieces hold each other up, which is the part you need in order to trust it or build on it."
+                    title="Three things a course list can't tell you"
                 />
                 <div className={styles.questionGrid}>
                     {QUESTIONS.map((q, i) => (
@@ -382,7 +406,7 @@ const CurriculumGraphContainer = () => (
                     align="left"
                     color="C"
                     subtitle="Provenance"
-                    title="Where the four layers come from"
+                    title="What we built and what we borrowed"
                 />
                 <div className={styles.provenanceGrid}>
                     {PROVENANCE.map((cell) => (
@@ -394,8 +418,8 @@ const CurriculumGraphContainer = () => (
                     ))}
                 </div>
                 <p className={styles.pullQuote}>
-                    None of the four layers is ours alone. Assembling them and aiming the result at
-                    what employers pay veterans for is.
+                    None of these three is ours alone. Assembling them, and aiming the result
+                    squarely at what employers pay veterans for, is.
                 </p>
             </div>
         </section>
@@ -403,12 +427,30 @@ const CurriculumGraphContainer = () => (
         <section className={styles.ctaSection}>
             <div className={`tw-container ${styles.ctaInner}`}>
                 <div>
-                    <p className={styles.ctaTitle}>Retool. Retrain. Relaunch.</p>
+                    <p className={styles.monoMeta}>Retool. Retrain. Relaunch.</p>
+                    <p className={styles.ctaTitle}>
+                        {COUNTS.topics} ideas. 17 weeks. No tuition, ever.
+                    </p>
+                    <p className={styles.ctaBody}>
+                        Vets Who Code is a veteran-run 501(c)(3). The accelerator is free, remote,
+                        and we don&rsquo;t take a share of your first paycheck.
+                    </p>
                     <p className={styles.monoMeta}>Free · Remote · 17 weeks · EIN 86-2122804</p>
                 </div>
-                <Button path="/apply" size="md" color="primary" hover="default">
-                    Apply now
-                </Button>
+                <div className={styles.ctaActions}>
+                    <Button path="/apply" size="md" color="primary" hover="default">
+                        Apply now
+                    </Button>
+                    <Button
+                        path="/contact-us"
+                        size="md"
+                        color="primary"
+                        variant="outlined"
+                        hover="default"
+                    >
+                        Talk to us first
+                    </Button>
+                </div>
             </div>
         </section>
 
