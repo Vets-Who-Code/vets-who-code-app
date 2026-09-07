@@ -6,7 +6,7 @@ interface ButtonProps {
     children: React.ReactNode;
     type?: "button" | "submit" | "reset";
     variant?: "contained" | "outlined" | "texted";
-    color?: "primary" | "light";
+    color?: "primary" | "light" | "gold";
     size?: "xs" | "sm" | "md" | "lg";
     shape?: "tw-rounded" | "square" | "ellipse";
     fullwidth?: boolean;
@@ -106,6 +106,26 @@ const Button = ({
         lightHoverClass,
     ];
 
+    // Gold Button — reserved for Donate. Red carries every other CTA, so the
+    // single most important ask on a nonprofit site gets its own colour rather
+    // than competing with Apply. Navy on gold is 9.1:1, comfortably past AAA.
+    const containedGoldClass =
+        "tw-bg-gold tw-border-gold tw-text-navy tw-shadow-md tw-shadow-gold/30";
+    const containedGoldHoverClass =
+        !disabled &&
+        !active &&
+        hover === "default" &&
+        "hover:tw-bg-gold-rich hover:tw-border-gold-rich hover:tw-text-navy hover:tw-shadow-lg hover:tw-shadow-gold/40 hover:-tw-translate-y-px active:tw-scale-95";
+    const containedGoldActiveClass =
+        !disabled &&
+        active &&
+        "tw-bg-gold-deep tw-border-gold-deep active:tw-bg-gold-deep active:tw-border-gold-deep tw-shadow-xl tw-shadow-gold/40";
+    const containedGoldBtn = color === "gold" && [
+        containedGoldClass,
+        containedGoldHoverClass,
+        containedGoldActiveClass,
+    ];
+
     const outlinedLightClass = "tw-border-white/15 tw-text-white";
     const outlinedLightHoverClass =
         !disabled && !active && hover === "default" && "hover:tw-border-red hover:tw-text-white";
@@ -138,7 +158,7 @@ const Button = ({
     const classnames = clsx(
         variant !== "texted" && baseClass,
         variant !== "texted" && baseNotFullWidthClass,
-        variant === "contained" && [containedPrimaryBtn, containedLightBtn],
+        variant === "contained" && [containedPrimaryBtn, containedLightBtn, containedGoldBtn],
         variant === "outlined" && [outlinedPrimaryBtn, outlinedLightBtn],
         !iconButton && variant !== "texted" && [mdBtn, smBtn, xsBtn],
         sharpEdges,

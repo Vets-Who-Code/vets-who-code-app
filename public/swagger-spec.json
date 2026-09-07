@@ -237,6 +237,61 @@
           }
         }
       }
+    },
+    "/api/learn/progress": {
+      "get": {
+        "summary": "List the signed-in user's completed interactive lessons",
+        "tags": [
+          "Interactive Lessons"
+        ],
+        "responses": {
+          "200": {
+            "description": "Completed lesson slugs"
+          },
+          "401": {
+            "description": "Not signed in"
+          }
+        }
+      },
+      "post": {
+        "summary": "Mark an interactive lesson complete (or incomplete) for the signed-in user",
+        "tags": [
+          "Interactive Lessons"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "slug"
+                ],
+                "properties": {
+                  "slug": {
+                    "type": "string"
+                  },
+                  "completed": {
+                    "type": "boolean",
+                    "default": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated progress"
+          },
+          "400": {
+            "description": "Unknown or missing lesson slug"
+          },
+          "401": {
+            "description": "Not signed in"
+          }
+        }
+      }
     }
   },
   "tags": []
