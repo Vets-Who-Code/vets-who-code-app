@@ -103,7 +103,7 @@ const QUESTIONS = [
     },
     {
         title: "Why is any of this being taught?",
-        body: `Every idea carries the market anchor that put it there and the artifact that closes it. Every link carries its reason. When a funder asks what their money bought, the answer isn't hours logged — it's ${COUNTS.topics} standards met, each one named.`,
+        body: `Every idea carries the market anchor that put it there and the artifact that closes it. Every link carries its reason. When a donor asks what their giving made possible, the answer isn't hours logged — it's ${COUNTS.topics} standards met, each one named.`,
     },
 ];
 
