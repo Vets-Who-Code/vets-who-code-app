@@ -2,6 +2,7 @@ import Breadcrumb from "@components/breadcrumb";
 import ThankYouBlock from "@components/common/thank-you-block";
 import SEO from "@components/seo/page-seo";
 import DonateFormArea from "@containers/donate-form/layout-01";
+import WaysToGive from "@containers/ways-to-give";
 import Layout from "@layout/layout-01";
 import { normalizedData } from "@utils/methods";
 import type { NextPage } from "next";
@@ -39,6 +40,7 @@ const Donate: PageProps = ({ data }) => {
                 showTitle={false}
             />
             <DonateFormArea data={content?.["donorbox-area"]} space="none" />
+            <WaysToGive data={content?.["ways-to-give"]} space="bottom" />
             <ThankYouBlock message={message} />
         </>
     );
