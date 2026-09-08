@@ -36,7 +36,7 @@ const palette: Record<Theme, { eyebrow: string; name: string; divider: string }>
 };
 
 const AlumniStrip = ({
-    eyebrow = "Where Our Alumni Engineer",
+    eyebrow = "Where Our Alumni Code",
     companies = DEFAULT_COMPANIES,
     className,
     align = "left",
