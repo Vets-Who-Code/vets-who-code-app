@@ -116,8 +116,11 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img
-                                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto,g_auto/v1721082085/josh-morton.jpg"
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1721082085/josh-morton.jpg"
                                     alt="Josh Morton"
+                                    width={40}
+                                    height={40}
+                                    loading="lazy"
                                     className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
                                 />
                                 <div className="tw-ml-3">
@@ -139,8 +142,11 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img
-                                    src="https://res.cloudinary.com/vetswhocode/image/upload/v1721086509/Image_from_iOS_pdujsr.jpg"
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1721086509/Image_from_iOS_pdujsr.jpg"
                                     alt="Cameron Porter"
+                                    width={40}
+                                    height={40}
+                                    loading="lazy"
                                     className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
                                 />
                                 <div className="tw-ml-3">
@@ -159,8 +165,11 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                             </p>
                             <div className="tw-flex tw-items-center">
                                 <img
-                                    src="https://res.cloudinary.com/vetswhocode/image/upload/v1748652090/AB1_6721_towfh2.jpg"
+                                    src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1748652090/AB1_6721_towfh2.jpg"
                                     alt="Darnell Settles"
+                                    width={40}
+                                    height={40}
+                                    loading="lazy"
                                     className="tw-h-10 tw-w-10 tw-rounded-full tw-object-cover"
                                 />
                                 <div className="tw-ml-3">
