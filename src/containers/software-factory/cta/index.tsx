@@ -124,7 +124,7 @@ const CtaSection = () => {
                             up. If we&rsquo;re not, we&rsquo;ll tell you who is.
                         </p>
                         <ul className={styles.bullets}>
-                            <li>· Currently booking Q3 2026</li>
+                            <li>· Currently booking Q4 2026 and Q1 2027</li>
                             <li>· 2 squads available</li>
                             <li>· Average response time: 1 business day</li>
                         </ul>
