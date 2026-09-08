@@ -45,7 +45,7 @@ const Alumni = () => {
                                 aria-hidden="true"
                                 className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-red"
                             />
-                            Where Our Alumni Engineer
+                            Where Our Alumni Code
                         </span>
                         <h2
                             id="about-alumni-headline"
