@@ -46,14 +46,26 @@
                     "title": "Benevity",
                     "description": "If your employer matches donations through Benevity, you can direct your match and your workplace giving to us.",
                     "path": "https://causes.benevity.org/causes/840-862122804",
-                    "pathText": "Find VWC on Benevity"
+                    "pathText": "Find VWC on Benevity",
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1788883799/donate-logos/benevity.svg",
+                            "alt": "Benevity"
+                        }
+                    ]
                 },
                 {
                     "id": 4,
                     "title": "Brightfunds",
                     "description": "Another corporate giving route. Brightfunds makes it simple for your company and its employees to donate together.",
                     "path": "https://www.brightfunds.org/organizations/vets-who-code-inc",
-                    "pathText": "Donate on Brightfunds"
+                    "pathText": "Donate on Brightfunds",
+                    "images": [
+                        {
+                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/v1788883800/donate-logos/brightfunds.svg",
+                            "alt": "Brightfunds"
+                        }
+                    ]
                 }
             ]
         }
