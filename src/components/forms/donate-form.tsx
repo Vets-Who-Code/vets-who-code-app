@@ -73,8 +73,24 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             src="https://donorbox.org/embed/vetswhocode-donation?show_content=true&default_interval=o&amount=25&hide_donation_meter=true&compact=true"
                             name="vwc-donorbox"
                             seamless={true}
-                            className="tw-h-[950px] tw-w-full tw-border-none"
+                            className="tw-h-[720px] tw-w-full tw-border-none sm:tw-h-[860px] lg:tw-h-[950px]"
                         />
+                        {/* Content blockers on mobile Safari and Brave block the Donorbox
+                            iframe outright, leaving no way to give. A blocked iframe cannot
+                            be detected reliably across browsers, so this route out is always
+                            rendered rather than shown on a failure we cannot observe. */}
+                        <p className="tw-border-t tw-border-gray-200 tw-px-4 tw-py-3 tw-text-center tw-text-sm tw-text-navy/70">
+                            Form not loading?{" "}
+                            <a
+                                href="https://donorbox.org/vetswhocode-donation"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="tw-font-medium tw-text-primary tw-underline"
+                            >
+                                Donate on Donorbox directly
+                            </a>
+                            .
+                        </p>
                     </div>
                 </div>
             </div>
