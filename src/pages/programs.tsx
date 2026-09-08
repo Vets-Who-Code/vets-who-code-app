@@ -41,10 +41,10 @@ const COMPARISON = [
     },
     {
         program: "Mentorship",
-        who: "Anyone already building who needs a second set of eyes",
+        who: "Veterans inside a cohort, and graduates working through the job search",
         length: "17 weeks + 6 mo",
         cost: "$0",
-        outcome: "A working plan and someone who holds you to it",
+        outcome: "Work that survives code review, and support through the offer",
     },
     {
         program: "Software Factory",
@@ -87,15 +87,15 @@ const buildPrograms = (factoryStatus: string): ProgramCard[] => [
     },
     {
         number: "Program 02",
-        kicker: "One to One",
+        kicker: "Mentor Corps",
         title: "Mentorship",
         description:
-            "One engineer in your corner for the length of your cohort, then six months past it. A standing weekly appointment with someone who has already done the thing you are trying to do — not a networking app, not a coffee chat.",
+            "Two tracks, running the length of your cohort and six months past it. Technical mentors read your work before each gate and say whether it would survive code review at a real company. Translation mentors turn mission experience into offers. Scoped above syntax — the harness covers that.",
         specs: [
             ["Term", "17 weeks, then opt-in"],
             ["Cadence", "Weekly, 45 min"],
             ["Cost", "$0"],
-            ["Outcome", "A plan, and accountability"],
+            ["Outcome", "Through to the offer"],
         ],
         cta: "View Mentorship",
         path: "/programs/mentorship",
