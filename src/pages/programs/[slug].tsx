@@ -31,7 +31,7 @@ const ProgramPage: NextPage<ProgramPageProps> & { Layout: typeof Layout } = ({
                 <h1 className="tw-mb-6 tw-text-3xl tw-font-bold md:tw-text-4xl">
                     {frontmatter.title}
                 </h1>
-                <div className="prose md:prose-lg max-w-none">
+                <div className="tw-prose md:tw-prose-lg tw-max-w-none prose-headings:tw-text-navy prose-a:tw-text-red prose-strong:tw-text-navy">
                     <MDXRemote {...mdxSource} />
                 </div>
             </div>
