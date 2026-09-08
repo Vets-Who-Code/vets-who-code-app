@@ -271,6 +271,6 @@ export const HERO_META: Array<[string, string]> = [
     ["UNIT", "VWC SOFTWARE FACTORY"],
     ["ESTABLISHED", "2014 · FACTORY 2022"],
     ["CO", "JEROME HARDAWAY · USAF"],
-    ["STATUS", "BOOKING Q3 2026"],
+    ["STATUS", "BOOKING Q4 2026 · Q1 2027"],
     ["POSTURE", "1 FIRE TEAM · 2 ENGINEERS AVAILABLE"],
 ];
