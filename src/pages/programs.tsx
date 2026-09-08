@@ -42,7 +42,7 @@ const COMPARISON = [
     {
         program: "Mentorship",
         who: "Anyone already building who needs a second set of eyes",
-        length: "6 months",
+        length: "17 weeks + 6 mo",
         cost: "$0",
         outcome: "A working plan and someone who holds you to it",
     },
@@ -90,10 +90,10 @@ const buildPrograms = (factoryStatus: string): ProgramCard[] => [
         kicker: "One to One",
         title: "Mentorship",
         description:
-            "One engineer in your corner for six months. A standing appointment with someone who has already done the thing you are trying to do — not a networking app, not a coffee chat.",
+            "One engineer in your corner for the length of your cohort, then six months past it. A standing weekly appointment with someone who has already done the thing you are trying to do — not a networking app, not a coffee chat.",
         specs: [
-            ["Term", "6 months, renewable"],
-            ["Cadence", "Every other week"],
+            ["Term", "17 weeks, then opt-in"],
+            ["Cadence", "Weekly, 45 min"],
             ["Cost", "$0"],
             ["Outcome", "A plan, and accountability"],
         ],
