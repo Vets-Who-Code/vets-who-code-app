@@ -80,7 +80,12 @@ const nextConfig = {
                             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pro.fontawesome.com",
                             "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://github.githubassets.com https://www.paypalobjects.com https://cdn.shopify.com https://*.myshopify.com https://cdn.jsdelivr.net https://widgets.guidestar.org https://maps.googleapis.com https://maps.gstatic.com https://*.googleapis.com https://images.huffingtonpost.com https://images.ctfassets.net https://www.hackerrank.com https://*.businessinsider.com https://i.insider.com https://cdn.sstatic.net https://i.stack.imgur.com https://stackoverflow.blog https://cdn.stackoverflow.co",
                             "font-src 'self' data: https://fonts.gstatic.com https://pro.fontawesome.com",
-                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://maps.googleapis.com https://cdn.jsdelivr.net https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs-us-1.huggingface.co",
+                            // These headers apply to /sw.js too, and a service worker's own
+                            // fetch() is governed by connect-src, not img-src. next-pwa's
+                            // runtime caching intercepts every cross-origin image, so any
+                            // host listed in img-src also needs to be here or the image
+                            // silently fails to load for anyone with the SW registered.
+                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://github.githubassets.com https://www.paypalobjects.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://maps.googleapis.com https://cdn.jsdelivr.net https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs-us-1.huggingface.co",
                             "worker-src 'self' https://cdn.jsdelivr.net",
                             "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org",
                             "media-src 'self' https://res.cloudinary.com",
