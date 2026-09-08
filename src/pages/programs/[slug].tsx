@@ -42,10 +42,21 @@ const ProgramPage: NextPage<ProgramPageProps> & { Layout: typeof Layout } = ({
 ProgramPage.Layout = Layout;
 
 export const getStaticPaths: GetStaticPaths = async () => {
+    // A program with its own page file (e.g. mentorship.tsx) shadows this route at
+    // runtime, but getStaticPaths would still emit the same path and fail the
+    // production build with a conflicting-ssg-paths error. Skip those slugs.
+    const dedicated = new Set(
+        fs
+            .readdirSync(path.join(process.cwd(), "src/pages/programs"))
+            .filter((file) => file.endsWith(".tsx") && !file.startsWith("["))
+            .map((file) => file.replace(/\.tsx$/, ""))
+    );
     const programs = getAllMediaPosts<{ slug: string }>(["slug"], "programs");
-    const paths = programs.map((program) => ({
-        params: { slug: program.slug },
-    }));
+    const paths = programs
+        .filter((program) => !dedicated.has(program.slug))
+        .map((program) => ({
+            params: { slug: program.slug },
+        }));
     return { paths, fallback: false };
 };
 
