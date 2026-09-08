@@ -9,44 +9,51 @@
             }
         },
         {
-            "section": "service-area",
-            "section_title": "Partners",
+            "section": "ways-to-give",
+            "section_title": {
+                "title": "More Ways to Give",
+                "subtitle": "Every Route Supports a Veteran"
+            },
             "items": [
                 {
                     "id": 1,
+                    "title": "GitHub Sponsors",
+                    "description": "We build in the open. Sponsor Vets Who Code on GitHub and back the platform veterans learn on.",
+                    "path": "https://github.com/sponsors/Vets-Who-Code",
+                    "pathText": "Sponsor VWC on GitHub",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667458/website-images/vetswhocode-self-paced.jpg"
+                            "src": "https://github.githubassets.com/images/modules/site/sponsors/logo-mona.svg",
+                            "alt": "GitHub Sponsors"
                         }
-                    ],
-                    "title": "GitHub Sponsors",
-                    "description": "We are an open source project and are a part of the GitHub Sponsors program. If you would like to sponsor us, please visit our Github Sponsors page to learn more.",
-                    "path": "https://github.com/sponsors/Vets-Who-Code",
-                    "pathText": "Sponsor VWC on GitHub"
+                    ]
                 },
                 {
                     "id": 2,
+                    "title": "PayPal Giving Fund",
+                    "description": "Give through PayPal Giving Fund. One hundred percent of your donation reaches us, with no processing fees taken out.",
+                    "path": "https://www.paypal.com/fundraiser/charity/4413751",
+                    "pathText": "Donate via PayPal Giving Fund",
                     "images": [
                         {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667460/website-images/vetswhocode-remote.jpg"
+                            "src": "https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png",
+                            "alt": "PayPal"
                         }
-                    ],
-                    "title": "Benevity",
-                    "description": "To ensure ease for those interested in supporting on the corporate level, we have created accounts on Benevity and Brightfunds to make it easy for your employees and company to donate to our cause.",
-                    "path": "https://causes.benevity.org/causes/840-862122804",
-                    "pathText": "Visit VWC on Benevity"
+                    ]
                 },
                 {
                     "id": 3,
-                    "images": [
-                        {
-                            "src": "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1678667458/website-images/vetswhocode-learn-with-peers.jpg"
-                        }
-                    ],
+                    "title": "Benevity",
+                    "description": "If your employer matches donations through Benevity, you can direct your match and your workplace giving to us.",
+                    "path": "https://causes.benevity.org/causes/840-862122804",
+                    "pathText": "Find VWC on Benevity"
+                },
+                {
+                    "id": 4,
                     "title": "Brightfunds",
-                    "description": "To ensure ease for those interested in supporting on the corporate level, we have created accounts on Benevity and Brightfunds to make it easy for your employees and company to donate to our cause.",
+                    "description": "Another corporate giving route. Brightfunds makes it simple for your company and its employees to donate together.",
                     "path": "https://www.brightfunds.org/organizations/vets-who-code-inc",
-                    "pathText": "Donate to VWC on Brightfunds"
+                    "pathText": "Donate on Brightfunds"
                 }
             ]
         }
