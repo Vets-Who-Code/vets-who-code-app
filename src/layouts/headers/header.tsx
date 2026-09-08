@@ -61,11 +61,8 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 </div>
                             </>
                         )}
-                        <Button
-                            size="sm"
-                            path="/donate"
-                            className="tw-shadow-lg tw-shadow-primary/25"
-                        >
+                        <Button size="sm" color="gold" path="/donate" className="tw-gap-2">
+                            <i className="fas fa-heart tw-text-[13px]" aria-hidden="true" />
                             Donate
                         </Button>
                     </div>
