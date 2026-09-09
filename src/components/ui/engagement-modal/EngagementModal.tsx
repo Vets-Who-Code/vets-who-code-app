@@ -1,4 +1,4 @@
-import { SafeSessionStorage } from "@utils/safe-storage";
+import { SafeLocalStorage, SafeSessionStorage } from "@utils/safe-storage";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
@@ -18,7 +18,16 @@ interface CustomWindow extends Window {
 
 declare let window: CustomWindow;
 
-const MODAL_FLAG = "vwc_engagement_modal_shown";
+// Dismissal is permanent (localStorage), not per-session. The previous flag lived in
+// sessionStorage, so a visitor who closed the modal saw it again on their next visit.
+const DISMISSED_KEY = "vwc_engagement_modal_dismissed";
+const VISIT_COUNT_KEY = "vwc_visit_count";
+const VISIT_COUNTED_KEY = "vwc_visit_counted";
+
+/** Cold traffic converts badly on a financial ask. Wait for the second visit. */
+const MIN_VISITS = 2;
+/** Fraction of the page a visitor must reach before the ask is earned. */
+const SCROLL_THRESHOLD = 0.7;
 
 export const EngagementModal: React.FC<EngagementModalProps> = ({
     headline,
@@ -49,24 +58,52 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
             return () => clearTimeout(timer);
         }
 
-        // Use SafeSessionStorage to check if modal was shown
-        const modalShown = SafeSessionStorage.getItem<boolean>(MODAL_FLAG, false);
-        if (modalShown) return;
+        if (SafeLocalStorage.getItem<boolean>(DISMISSED_KEY, false)) return;
 
-        const timer = setTimeout(() => {
+        // Count each browsing session once, so "visits" means visits and not page views.
+        let visits = SafeLocalStorage.getItem<number>(VISIT_COUNT_KEY, 0);
+        if (!SafeSessionStorage.getItem<boolean>(VISIT_COUNTED_KEY, false)) {
+            visits += 1;
+            SafeLocalStorage.setItem(VISIT_COUNT_KEY, visits);
+            SafeSessionStorage.setItem(VISIT_COUNTED_KEY, true);
+        }
+
+        // First-time visitors are still deciding what this place is. Never interrupt them.
+        if (visits < MIN_VISITS) return;
+
+        const reveal = () => {
             setOpen(true);
-            // Mark modal as shown with SafeSessionStorage
-            SafeSessionStorage.setItem(MODAL_FLAG, true);
-        }, 3000);
+            SafeLocalStorage.setItem(DISMISSED_KEY, true);
+        };
 
-        return () => clearTimeout(timer);
+        // Earned by reading: 70% of the page.
+        const onScroll = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            if (scrollable <= 0) return;
+            if (window.scrollY / scrollable >= SCROLL_THRESHOLD) reveal();
+        };
+
+        // Exit intent: cursor leaving through the top of the viewport. Pointer-based,
+        // so it never fires on touch devices, where a takeover hurts most.
+        const onMouseOut = (e: MouseEvent) => {
+            if (e.clientY <= 0 && !e.relatedTarget) reveal();
+        };
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        const finePointer = window.matchMedia("(pointer: fine)").matches;
+        if (finePointer) document.addEventListener("mouseout", onMouseOut);
+
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            if (finePointer) document.removeEventListener("mouseout", onMouseOut);
+        };
     }, [forceShow]);
 
     // Accessibility: close on ESC
     useEffect(() => {
         if (!open) return;
         const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "Escape") setOpen(false);
+            if (e.key === "Escape") dismiss();
         };
         window.addEventListener("keydown", onKeyDown);
         return () => window.removeEventListener("keydown", onKeyDown);
@@ -82,8 +119,13 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
     }, [open]);
 
     // Dismiss on click outside
+    const dismiss = () => {
+        setOpen(false);
+        SafeLocalStorage.setItem(DISMISSED_KEY, true);
+    };
+
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (e.target === e.currentTarget) setOpen(false);
+        if (e.target === e.currentTarget) dismiss();
     };
 
     return (
@@ -124,7 +166,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 type="button"
                                 aria-label="Close"
                                 className="tw-absolute tw-right-6 tw-top-6 tw-text-4xl tw-text-secondary hover:tw-text-primary focus:tw-outline-none"
-                                onClick={() => setOpen(false)}
+                                onClick={dismiss}
                             >
                                 &times;
                             </button>
@@ -163,7 +205,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                         passHref={true}
                                         onClick={(e) => {
                                             e.preventDefault();
-                                            setOpen(false);
+                                            dismiss();
                                             const targetId = cta2.href.substring(1);
                                             const targetElement = document.getElementById(targetId);
                                             if (targetElement) {
