@@ -45,7 +45,8 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                                     className="tw-min-w-[250px] tw-border-gray-500"
                                     onClick={handlerLoadMore}
                                 >
-                                    Load More <i className="fal fa-redo tw-ml-4" />
+                                    Load More{" "}
+                                    <i className="fal fa-redo tw-ml-4" aria-hidden="true" />
                                 </Button>
                             ) : (
                                 <p>No course to show</p>

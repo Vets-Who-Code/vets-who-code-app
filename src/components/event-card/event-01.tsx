@@ -65,7 +65,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                         <Anchor path={path}>{title}</Anchor>
                     </h3>
                     <p className="tw-mb-0 tw-mt-6.1 tw-text-[17px]">
-                        <i className="far fa-map-marker-alt tw-mr-2.5" />
+                        <i className="far fa-map-marker-alt tw-mr-2.5" aria-hidden="true" />
                         {location.city}, {location.country}
                     </p>
                 </div>

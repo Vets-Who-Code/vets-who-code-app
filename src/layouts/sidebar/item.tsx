@@ -26,6 +26,7 @@ const Item = ({ title, type, duration, video, access, path }: IProps) => {
                         type === "lesson" && "fa-file-alt",
                         type === "quiz" && "fa-clock"
                     )}
+                    aria-hidden="true"
                 />
                 <span>{title}</span>
             </div>
@@ -51,7 +52,7 @@ const Item = ({ title, type, duration, video, access, path }: IProps) => {
                 )}
                 {access === "paid" && video && (
                     <span className="tw-ml-2.5 tw-px-3.8 tw-font-medium">
-                        <i className="far fa-video" />
+                        <i className="far fa-video" role="img" aria-label="Video" />
                     </span>
                 )}
             </div>

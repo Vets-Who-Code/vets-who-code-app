@@ -23,7 +23,7 @@ const Event02 = forwardRef<HTMLDivElement, TProps>(
             >
                 <div className="tw-grow tw-pb-3.8 tw-pr-0 sm:tw-pb-0 sm:tw-pr-7.5">
                     <div className="tw-mb-[7px] tw-text-base tw-text-gray-300">
-                        <i className="far fa-map-marker-alt tw-mr-[5px]" />
+                        <i className="far fa-map-marker-alt tw-mr-[5px]" aria-hidden="true" />
                         {location.city}, {location.country}
                     </div>
                     <h3 className="tw-mb-0 tw-text-xl tw-leading-normal">{title}</h3>

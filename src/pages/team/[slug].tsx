@@ -60,7 +60,11 @@ const MemberProfile: PageProps = ({ data: { member } }) => {
                                             title={social.label}
                                             className="tw-text-primary tw-transition-colors hover:tw-text-secondary"
                                         >
-                                            <i className={`${social.icon} tw-text-3xl`} />
+                                            <i
+                                                className={`${social.icon} tw-text-3xl`}
+                                                aria-hidden="true"
+                                            />
+                                            <span className="tw-sr-only">{social.label}</span>
                                         </a>
                                     ))}
                                 </div>

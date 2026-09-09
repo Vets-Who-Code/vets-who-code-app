@@ -62,13 +62,13 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                 className="tw-flex tw-min-h-[52px] tw-w-full tw-items-center tw-py-[3px] tw-pl-5 tw-pr-10"
             >
                 <span className="label tw-flex tw-items-center tw-text-body">
-                    <i className="fa fa-align-left tw-mr-3.8" /> {prefix}
+                    <i className="fa fa-align-left tw-mr-3.8" aria-hidden="true" /> {prefix}
                     <span className="tw-ml-[3px] tw-font-medium tw-text-heading">
                         {selected?.label}
                     </span>
                 </span>
                 <span className="arrow tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-w-10 tw-items-center tw-justify-center tw-bg-transparent tw-text-lg">
-                    <i className="far fa-angle-down" />
+                    <i className="far fa-angle-down" aria-hidden="true" />
                 </span>
             </button>
             <ul
@@ -91,7 +91,10 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                         onKeyPress={(e) => e}
                     >
                         {item.value === selected?.value && (
-                            <i className="fa fa-check tw-mr-2.5 tw-text-primary tw-transition-colors group-hover:tw-text-white" />
+                            <i
+                                className="fa fa-check tw-mr-2.5 tw-text-primary tw-transition-colors group-hover:tw-text-white"
+                                aria-hidden="true"
+                            />
                         )}
                         {item.label}
                     </li>

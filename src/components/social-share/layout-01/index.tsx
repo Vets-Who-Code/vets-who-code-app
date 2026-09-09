@@ -21,7 +21,7 @@ const SocialShare = () => {
     return (
         <div className="tw-group tw-relative tw-inline-flex tw-cursor-pointer tw-items-center tw-text-body tw-transition-colors hover:tw-text-primary">
             <h6 className="tw-mb-0 tw-mr-3.8 tw-text-md tw-text-current">Share this course</h6>
-            <i className="far fa-share-alt" />
+            <i className="far fa-share-alt" aria-hidden="true" />
 
             <div
                 className={clsx(
@@ -37,21 +37,21 @@ const SocialShare = () => {
                     href={`https://www.facebook.com/sharer/sharer.php?u=${href}`}
                     onClick={clickHandler}
                 >
-                    <i className="fab fa-facebook-f" />
+                    <i className="fab fa-facebook-f" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink
                     label="Twitter"
                     href={`https://twitter.com/intent/tweet?url=${href}`}
                     onClick={clickHandler}
                 >
-                    <i className="fab fa-twitter" />
+                    <i className="fab fa-twitter" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink
                     label="Linkedin"
                     href={`https://www.linkedin.com/shareArticle?url=${href}`}
                     onClick={clickHandler}
                 >
-                    <i className="fab fa-linkedin" />
+                    <i className="fab fa-linkedin" aria-hidden="true" />
                 </SocialLink>
             </div>
         </div>

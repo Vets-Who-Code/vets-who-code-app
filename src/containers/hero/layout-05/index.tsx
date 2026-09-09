@@ -40,7 +40,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images } }: TProps) => {
                     ))}
                     {buttons?.map(({ id, content, icon, ...rest }) => (
                         <Button key={id} className="tw-mt-5" {...rest}>
-                            {icon && <i className={clsx(icon, "tw-mr-3")} />}
+                            {icon && <i className={clsx(icon, "tw-mr-3")} aria-hidden="true" />}
                             {content}
                         </Button>
                     ))}

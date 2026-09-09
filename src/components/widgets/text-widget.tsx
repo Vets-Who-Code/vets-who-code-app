@@ -32,16 +32,16 @@ const TextWidget = ({ className, mode }: TProps) => {
                     href="https://www.facebook.com/TheOfficialVetsWhoCode/"
                     label="Facebook"
                 >
-                    <i className="fab fa-facebook-square" />
+                    <i className="fab fa-facebook-square" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink href="https://github.com/Vets-Who-Code" label="Github">
-                    <i className="fab fa-github" />
+                    <i className="fab fa-github" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink href="https://www.linkedin.com/company/vets-who-code" label="linkedin">
-                    <i className="fab fa-linkedin" />
+                    <i className="fab fa-linkedin" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink href="https://www.youtube.com/@vetswhocode" label="youtube">
-                    <i className="fab fa-youtube" />
+                    <i className="fab fa-youtube" aria-hidden="true" />
                 </SocialLink>
             </Social>
         </div>

@@ -71,11 +71,17 @@ const FaqArea = ({ data: { images, items } }: TProps) => {
                                 variants={scrollUpVariants}
                             >
                                 <h4 className="tw-relative tw-pl-8 tw-text-lg tw-font-semibold md:tw-max-w-[310px]">
-                                    <i className="far fa-long-arrow-right tw-absolute tw-left-0 tw-top-2 tw-text-primary" />
+                                    <i
+                                        className="far fa-long-arrow-right tw-absolute tw-left-0 tw-top-2 tw-text-primary"
+                                        aria-hidden="true"
+                                    />
                                     {item.title}
                                 </h4>
                                 <div className="tw-relative tw-mt-5 tw-pl-8 md:tw-mt-0">
-                                    <i className="far fa-check tw-absolute tw-left-0 tw-top-2 tw-text-primary" />
+                                    <i
+                                        className="far fa-check tw-absolute tw-left-0 tw-top-2 tw-text-primary"
+                                        aria-hidden="true"
+                                    />
                                     {item.texts?.map((text) => (
                                         <p key={text.id}>{text.content}</p>
                                     ))}

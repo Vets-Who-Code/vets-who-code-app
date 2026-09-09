@@ -8,7 +8,10 @@ const PriceInfo = ({ title, currency, price }: TProps) => {
     return (
         <div className="course-price tw-mb-[7px] tw-flex tw-items-center tw-justify-between">
             <h3 className="tw-mb-0 tw-text-h6">
-                <i className="far fa-money-bill-wave tw-min-w-[28px] tw-text-center tw-text-body" />{" "}
+                <i
+                    className="far fa-money-bill-wave tw-min-w-[28px] tw-text-center tw-text-body"
+                    aria-hidden="true"
+                />{" "}
                 {title}
             </h3>
             <span className="tw-text-right">

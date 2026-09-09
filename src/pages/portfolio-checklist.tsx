@@ -556,7 +556,7 @@ const PortfolioChecklist: PageProps = () => {
                             title="Print or save as PDF"
                             aria-label="Print checklist or save as PDF"
                         >
-                            <i className="fas fa-print tw-mr-1.5" />
+                            <i className="fas fa-print tw-mr-1.5" aria-hidden="true" />
                             Print / PDF
                         </button>
                         <button
@@ -566,7 +566,7 @@ const PortfolioChecklist: PageProps = () => {
                             title="Reset all checkboxes"
                             aria-label="Reset all checkboxes to unchecked"
                         >
-                            <i className="fas fa-undo tw-mr-1.5" />
+                            <i className="fas fa-undo tw-mr-1.5" aria-hidden="true" />
                             Reset
                         </button>
                     </div>
@@ -674,6 +674,7 @@ const PortfolioChecklist: PageProps = () => {
                                                 ? "fas fa-check-circle tw-text-navy-ocean"
                                                 : "far fa-circle tw-text-gray-100"
                                         )}
+                                        aria-hidden="true"
                                     />
                                     <span className="tw-truncate">
                                         {section.number}. {section.title}
@@ -687,7 +688,10 @@ const PortfolioChecklist: PageProps = () => {
                             href="#quality-bar"
                             className="tw-flex tw-items-center tw-gap-2 tw-rounded-md tw-px-2 tw-py-1 tw-text-sm tw-text-gray-300 tw-transition-colors hover:tw-bg-gray-50"
                         >
-                            <i className="far fa-star tw-text-xs tw-text-primary" />
+                            <i
+                                className="far fa-star tw-text-xs tw-text-primary"
+                                aria-hidden="true"
+                            />
                             <span className="tw-truncate">Quality Bar</span>
                         </a>
                     </li>

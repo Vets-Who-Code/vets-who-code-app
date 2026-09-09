@@ -29,9 +29,15 @@ const AccordionItem = ({ id, title, description, onClick, isOpen }: TProps) => {
                 </button>
                 <span className="tw-absolute tw-right-4 tw-top-1/2 -tw-translate-y-1/2">
                     {isOpen ? (
-                        <i className="fa fa-minus-circle tw-text-xl tw-text-white" />
+                        <i
+                            className="fa fa-minus-circle tw-text-xl tw-text-white"
+                            aria-hidden="true"
+                        />
                     ) : (
-                        <i className="fa fa-plus-circle tw-text-xl tw-text-secondary-light" />
+                        <i
+                            className="fa fa-plus-circle tw-text-xl tw-text-secondary-light"
+                            aria-hidden="true"
+                        />
                     )}
                 </span>
             </h3>

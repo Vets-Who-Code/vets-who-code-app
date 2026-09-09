@@ -80,7 +80,10 @@ const QuoteArea = ({
                                             className="tw-text-md tw-font-bold tw-text-secondary-light"
                                         >
                                             {anchors[0].content}{" "}
-                                            <i className="far fa-long-arrow-right" />
+                                            <i
+                                                className="far fa-long-arrow-right"
+                                                aria-hidden="true"
+                                            />
                                         </Anchor>
                                     )}
                                 </div>

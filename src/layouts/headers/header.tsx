@@ -56,7 +56,10 @@ const Header = ({ shadow, fluid }: TProps) => {
                                     New Cohort Starts:
                                 </p>
                                 <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
-                                    <i className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary" />
+                                    <i
+                                        className="far fa-clock tw-mr-[5px] tw-text-lg tw-text-secondary"
+                                        aria-hidden="true"
+                                    />
                                     <CountdownTimer targetDate={cohortStartDate || ""} />
                                 </div>
                             </>

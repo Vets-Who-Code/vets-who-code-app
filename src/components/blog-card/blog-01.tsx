@@ -71,7 +71,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             color: "#495057",
                         }}
                     >
-                        <i className="far fa-calendar tw-mr-2.5" />
+                        <i className="far fa-calendar tw-mr-2.5" aria-hidden="true" />
                         {postedAt}
                     </li>
                 </ul>
