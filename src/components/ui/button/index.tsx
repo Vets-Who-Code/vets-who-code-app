@@ -179,7 +179,13 @@ const Button = ({
     }
 
     return (
-        <button type={type} className={classnames} onClick={onClick} aria-label={label}>
+        <button
+            type={type}
+            className={classnames}
+            onClick={onClick}
+            aria-label={label}
+            disabled={disabled}
+        >
             {children}
         </button>
     );
