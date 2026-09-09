@@ -16,11 +16,14 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
             >
                 <div className="tw-relative tw-h-[250px] tw-overflow-hidden">
                     {image?.src && (
-                        <figure className="tw-h-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110">
+                        <figure
+                            role="none"
+                            className="tw-h-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110"
+                        >
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={image.src}
-                                alt={image?.alt || "Blog"}
+                                alt={image?.alt || title}
                                 width={image.width || 480}
                                 height={image.height || 250}
                                 loading={image.loading || "lazy"}
