@@ -53,6 +53,13 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
         }
     };
 
+    const emailField = register("newsletter_email", {
+        validate: (value) => {
+            const result = validateEmail(value);
+            return result.isValid ? true : result.error || "";
+        },
+    });
+
     return (
         <form
             className={clsx("tw-relative tw-flex tw-max-w-[570px] tw-flex-wrap", className)}
@@ -71,15 +78,11 @@ const NewsletterForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) 
                     feedbackText={errors?.newsletter_email?.message}
                     state={hasKey(errors, "newsletter_email") ? "error" : "success"}
                     showState={!!hasKey(errors, "newsletter_email")}
-                    {...register("newsletter_email", {
-                        validate: (value) => {
-                            const result = validateEmail(value);
-                            return result.isValid ? true : result.error || "";
-                        },
-                    })}
-                    onChange={() => {
+                    {...emailField}
+                    onChange={(e) => {
                         setErrorMessage("");
                         setMessage("");
+                        emailField.onChange(e);
                     }}
                 />
             </div>
