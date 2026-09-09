@@ -1,5 +1,6 @@
 import ApplyForm from "@components/forms/apply-form";
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { githubRegex, linkedinRegex } from "@utils/formValidations";
 import axios from "axios";
 
 vi.mock("axios");
@@ -76,8 +77,9 @@ const STEP_FIELDS: Array<Array<[keyof Values, RegExp]>> = [
 ];
 
 const LINKEDIN_ERROR =
-    "Please enter a valid LinkedIn profile URL (e.g., linkedin.com/in/your-name)";
-const GITHUB_ERROR = "Please enter a valid GitHub profile URL (e.g., github.com/your-username)";
+    "Please enter a valid LinkedIn profile URL (e.g., https://linkedin.com/in/your-name)";
+const GITHUB_ERROR =
+    "Please enter a valid GitHub profile URL (e.g., https://github.com/your-username)";
 const SUCCESS_MESSAGE = "Thank you for your application! We'll review it and get back to you soon.";
 const FAILURE_MESSAGE = "Failed to submit the form. Please try again later.";
 
@@ -228,7 +230,20 @@ describe("ApplyForm", () => {
         expect(screen.queryByText(GITHUB_ERROR)).not.toBeInTheDocument();
     });
 
-    it("posts the parsed application, celebrates, and stops the rain after 5s", async () => {
+    it("the profile URL hints are accepted by their own validators", async () => {
+        render(<ApplyForm />);
+        await walkToStep(5);
+
+        const linkedInHint = screen
+            .getByLabelText(/linkedin profile url/i)
+            .getAttribute("placeholder");
+        const githubHint = screen.getByLabelText(/github profile url/i).getAttribute("placeholder");
+
+        expect(linkedinRegex.test(linkedInHint ?? "")).toBe(true);
+        expect(githubRegex.test(githubHint ?? "")).toBe(true);
+    });
+
+    it("posts the parsed application, celebrates, and keeps the confirmation after the rain", async () => {
         mockPost.mockResolvedValue({ data: {} } as never);
         render(<ApplyForm />);
 
@@ -254,6 +269,8 @@ describe("ApplyForm", () => {
         });
 
         expect(screen.queryByTestId("emoji-rain")).not.toBeInTheDocument();
+        expect(screen.getByRole("heading", { name: "Application Submitted!" })).toBeInTheDocument();
+        expect(screen.getByText(SUCCESS_MESSAGE)).toBeInTheDocument();
     });
 
     it("sends null for a postal code that is not numeric", async () => {
@@ -270,7 +287,7 @@ describe("ApplyForm", () => {
         });
     });
 
-    it("shows the failure message without emoji rain when the request fails", async () => {
+    it("shows the failure message in the form and keeps it usable when the request fails", async () => {
         mockPost.mockRejectedValue(new Error("network down"));
         render(<ApplyForm />);
 
@@ -279,6 +296,17 @@ describe("ApplyForm", () => {
         expect(await screen.findByText(FAILURE_MESSAGE)).toBeInTheDocument();
         expect(screen.queryByTestId("emoji-rain")).not.toBeInTheDocument();
         expect(screen.queryByText(SUCCESS_MESSAGE)).not.toBeInTheDocument();
+        expect(
+            screen.queryByRole("heading", { name: "Application Submitted!" })
+        ).not.toBeInTheDocument();
+        expect(screen.getByRole("button", { name: "Submit Application" })).toBeInTheDocument();
+
+        // Retrying clears the error while the new request is pending.
+        mockPost.mockReturnValue(new Promise(() => {}) as never);
+        clickSubmit();
+
+        expect(await screen.findByRole("button", { name: "Submitting..." })).toBeDisabled();
+        expect(screen.queryByText(FAILURE_MESSAGE)).not.toBeInTheDocument();
     });
 
     it("shows a pending submit state until the request resolves", async () => {
