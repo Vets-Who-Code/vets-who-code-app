@@ -48,7 +48,6 @@ const SingleEvent: PageProps = ({ data: { event } }) => {
                 start_time={event.start_time}
             />
             <Summary
-                location={event.location}
                 start_date={event.start_date}
                 start_time={event.start_time}
                 end_date={event.end_date}
