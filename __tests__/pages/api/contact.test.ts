@@ -40,6 +40,40 @@ describe("POST /api/contact", () => {
         process.env.CONTACT_WEBHOOK_ID = "T00/B00/xxx";
     });
 
+    describe("honeypot", () => {
+        it("drops a submission that fills the hidden website field", async () => {
+            const { req, res } = createMockReqRes({
+                website: "http://spam.example",
+                name: "wYrHwDwEgDCxnKLwrBPfpyeH",
+                email: "uc.i.toja.bave.21@gmail.com",
+                message: "Organization: LsMgDElDUaYiqcPDr\nServices: Web App\nBudget: $10-25k",
+            });
+
+            await handler(req, res);
+
+            expect(res.status).toHaveBeenCalledWith(200);
+            expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ filtered: true }));
+            // Never reaches Slack, and never spends a classifier call.
+            expect(axios).not.toHaveBeenCalled();
+            expect(classifyContact).not.toHaveBeenCalled();
+        });
+
+        it("lets a submission through when the honeypot is untouched", async () => {
+            (classifyContact as Mock).mockResolvedValue(null);
+            const { req, res } = createMockReqRes({
+                website: "",
+                name: "Jane Engineer",
+                email: "jane@example.com",
+                message: "We need an internal dashboard built and would like to talk scope.",
+            });
+
+            await handler(req, res);
+
+            expect(res.status).toHaveBeenCalledWith(200);
+            expect(axios).toHaveBeenCalled();
+        });
+    });
+
     describe("validation", () => {
         it("should return 422 when email is missing", async () => {
             const { req, res } = createMockReqRes({

@@ -19,6 +19,7 @@ const CtaSection = () => {
     const [brief, setBrief] = useState("");
     const [services, setServices] = useState<Set<string>>(new Set(["Web App"]));
     const [budget, setBudget] = useState("$10–25k");
+    const [website, setWebsite] = useState(""); // honeypot
     const [state, setState] = useState<SubmitState>("ready");
     const [errorMsg, setErrorMsg] = useState("");
 
@@ -48,6 +49,7 @@ const CtaSection = () => {
             const res = await axios.post("/api/contact", {
                 name,
                 email,
+                website,
                 subject: "Software Factory — Discovery Request",
                 message,
             });
@@ -69,6 +71,7 @@ const CtaSection = () => {
         setEmail("");
         setOrg("");
         setBrief("");
+        setWebsite("");
         setServices(new Set(["Web App"]));
         setBudget("$10–25k");
         setState("ready");
@@ -131,6 +134,27 @@ const CtaSection = () => {
                     </div>
 
                     <form className={styles.formCard} onSubmit={submit}>
+                        {/*
+                            Honeypot. Positioned off-screen rather than display:none —
+                            some bots skip undisplayed inputs but fill positioned ones.
+                            aria-hidden and tabIndex keep it away from real users.
+                        */}
+                        <input
+                            type="text"
+                            name="website"
+                            value={website}
+                            onChange={(e) => setWebsite(e.target.value)}
+                            tabIndex={-1}
+                            autoComplete="off"
+                            aria-hidden="true"
+                            style={{
+                                position: "absolute",
+                                left: "-9999px",
+                                width: "1px",
+                                height: "1px",
+                                opacity: 0,
+                            }}
+                        />
                         <div className={styles.formHead}>
                             <span>FORM-09 / DISCOVERY REQUEST</span>
                             <span className={submitted ? styles.statusDone : styles.statusReady}>

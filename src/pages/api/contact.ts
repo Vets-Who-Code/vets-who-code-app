@@ -1,10 +1,12 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import { enforceRateLimit } from "@/lib/rate-limit";
 import { checkLength, checkParams, contactErrors } from "@/lib/api-helpers";
 import { classifyContact } from "@/lib/api-helpers/classify-contact";
+import { enforceRateLimit } from "@/lib/rate-limit";
 
 interface ParsedBody {
+    /** Honeypot. Any value means a bot filled a field humans never see. */
+    website?: string;
     name?: string;
     email?: string;
     phone?: string;
@@ -85,6 +87,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     const parsedBody: ParsedBody = req.body as ParsedBody;
+
+    // Honeypot: a field hidden off-screen that no human fills in. Bots fill every
+    // input they find. Checked before the classifier so obvious bots cost nothing,
+    // and answered with 200 so they can't tell the submission was dropped.
+    if (parsedBody.website) {
+        return res.status(200).json({ message: "Message received", filtered: true });
+    }
+
     const { name, email, message } = parsedBody;
     const requiredParams: string[] = ["email", "message"];
 
