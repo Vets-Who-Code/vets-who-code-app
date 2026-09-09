@@ -1,6 +1,7 @@
 import EmojiRain from "@components/EmojiRain";
 import Button from "@ui/button";
 import Checkbox from "@ui/form-elements/checkbox";
+import Feedback from "@ui/form-elements/feedback";
 import Input from "@ui/form-elements/input";
 import TextArea from "@ui/form-elements/textarea";
 import { githubRegex, linkedinRegex } from "@utils/formValidations";
@@ -60,6 +61,7 @@ const STEPS = [
 const ApplyForm = () => {
     const [currentStep, setCurrentStep] = useState(1);
     const [message, setMessage] = useState("");
+    const [submitError, setSubmitError] = useState("");
     const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -67,7 +69,6 @@ const ApplyForm = () => {
         register,
         handleSubmit,
         formState: { errors },
-        reset,
         watch,
         trigger,
     } = useForm<IFormValues>({
@@ -101,6 +102,7 @@ const ApplyForm = () => {
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
             setIsSubmitting(true);
+            setSubmitError("");
 
             // Transform data to match API expectations
             const parseOrNull = (value: string) => {
@@ -120,11 +122,9 @@ const ApplyForm = () => {
 
             setTimeout(() => {
                 setShowEmojiRain(false);
-                setCurrentStep(1);
-                reset();
             }, 5000);
         } catch (_error) {
-            setMessage("Failed to submit the form. Please try again later.");
+            setSubmitError("Failed to submit the form. Please try again later.");
         } finally {
             setIsSubmitting(false);
         }
@@ -547,7 +547,7 @@ const ApplyForm = () => {
                                         <div className="tw-space-y-6">
                                             <div className="tw-rounded-lg tw-bg-gray-50 tw-p-4">
                                                 <Checkbox
-                                                    label="Have you previously attended any coding bootcamps or tech education programs?"
+                                                    label="Have you previously attended any coding or tech education programs?"
                                                     id="hasAttendedPreviousCourse"
                                                     {...register("hasAttendedPreviousCourse")}
                                                 />
@@ -611,7 +611,7 @@ const ApplyForm = () => {
                                                     </label>
                                                     <TextArea
                                                         id="otherCourses"
-                                                        placeholder="e.g., Web Development Bootcamp, Data Science Course, etc."
+                                                        placeholder="e.g., Web Development Course, Data Science Course, etc."
                                                         bg="light"
                                                         feedbackText={errors?.otherCourses?.message}
                                                         state={
@@ -654,7 +654,7 @@ const ApplyForm = () => {
                                                 </label>
                                                 <Input
                                                     id="linkedInAccountName"
-                                                    placeholder="linkedin.com/in/your-name"
+                                                    placeholder="https://linkedin.com/in/your-name"
                                                     bg="light"
                                                     feedbackText={
                                                         errors?.linkedInAccountName?.message
@@ -673,7 +673,7 @@ const ApplyForm = () => {
                                                         pattern: {
                                                             value: linkedinRegex,
                                                             message:
-                                                                "Please enter a valid LinkedIn profile URL (e.g., linkedin.com/in/your-name)",
+                                                                "Please enter a valid LinkedIn profile URL (e.g., https://linkedin.com/in/your-name)",
                                                         },
                                                     })}
                                                 />
@@ -687,7 +687,7 @@ const ApplyForm = () => {
                                                 </label>
                                                 <Input
                                                     id="githubAccountName"
-                                                    placeholder="github.com/your-username"
+                                                    placeholder="https://github.com/your-username"
                                                     bg="light"
                                                     feedbackText={
                                                         errors?.githubAccountName?.message
@@ -705,7 +705,7 @@ const ApplyForm = () => {
                                                         pattern: {
                                                             value: githubRegex,
                                                             message:
-                                                                "Please enter a valid GitHub profile URL (e.g., github.com/your-username)",
+                                                                "Please enter a valid GitHub profile URL (e.g., https://github.com/your-username)",
                                                         },
                                                     })}
                                                 />
@@ -824,6 +824,7 @@ const ApplyForm = () => {
                                     </Button>
                                 )}
                             </div>
+                            {submitError && <Feedback state="error">{submitError}</Feedback>}
                         </div>
                     </form>
                 </>
