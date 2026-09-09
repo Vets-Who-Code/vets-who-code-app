@@ -76,7 +76,7 @@ const MentorPage: PageProps = ({ data }) => {
                             <br />
                             <span className="tw-text-red">looking for.</span>
                         </SharpHeadline>
-                        <ul className="tw-mt-6 tw-space-y-4 tw-font-body tw-text-charcoal tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
+                        <ul className="tw-mt-6 tw-space-y-4 tw-font-body tw-text-gray-300 tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
                             {lookingFor.map((item) => (
                                 <li key={item} className="tw-flex tw-gap-4">
                                     <span
@@ -87,7 +87,7 @@ const MentorPage: PageProps = ({ data }) => {
                                 </li>
                             ))}
                         </ul>
-                        <p className="tw-mt-6 tw-font-body tw-text-charcoal tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
+                        <p className="tw-mt-6 tw-font-body tw-text-gray-300 tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
                             You don&apos;t need to be a veteran to mentor. You need to be good at
                             your job and willing to invest time in someone who&apos;s working to get
                             where you are.
@@ -114,7 +114,7 @@ const MentorPage: PageProps = ({ data }) => {
                                 <h3 className="tw-mb-4 tw-font-heading tw-text-[20px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
                                     Not charity. Engineering leadership practice.
                                 </h3>
-                                <p className="tw-font-body tw-text-charcoal tw-leading-[1.6]">
+                                <p className="tw-font-body tw-text-gray-300 tw-leading-[1.6]">
                                     Mentoring a VWC troop is the closest thing to managing a junior
                                     engineer without the HR paperwork. You&apos;ll practice giving
                                     code reviews that teach, running 1-on-1s that develop people,
@@ -128,7 +128,7 @@ const MentorPage: PageProps = ({ data }) => {
                                 <h3 className="tw-mb-4 tw-font-heading tw-text-[20px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
                                     Your time has measurable impact.
                                 </h3>
-                                <p className="tw-font-body tw-text-charcoal tw-leading-[1.6]">
+                                <p className="tw-font-body tw-text-gray-300 tw-leading-[1.6]">
                                     This isn&apos;t a pen-pal program. Our troops ship code, pass
                                     technical interviews, and get hired. When your mentee lands a
                                     role at a company you respect, you&apos;ll know your Thursday
