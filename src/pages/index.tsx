@@ -23,7 +23,7 @@ import { IBlog, IEvent, IMedia } from "@utils/types";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import { getAllBlogs } from "../lib/blog";
-import { getallEvents } from "../lib/event";
+import { getUpcomingEvents } from "../lib/event";
 import { getAllMediaPosts } from "../lib/mdx-pages";
 import { getPageData } from "../lib/page";
 
@@ -114,13 +114,15 @@ const Home: PageProps = ({ data }) => {
             {/* Testimonials — light */}
             <TestimonialArea data={content?.["testimonial-area"]} titleSize="large" />
 
-            {/* Events — navy */}
-            <div className="dark-section tw-bg-navy">
-                <EventArea
-                    data={{ ...content?.["event-area"], events: data.events }}
-                    titleSize="large"
-                />
-            </div>
+            {/* Events — navy, only while there is something upcoming */}
+            {data.events.length > 0 && (
+                <div className="dark-section tw-bg-navy">
+                    <EventArea
+                        data={{ ...content?.["event-area"], events: data.events }}
+                        titleSize="large"
+                    />
+                </div>
+            )}
 
             {/* Mission pull-quote + alumni proof — light */}
             <div className="tw-py-20 md:tw-py-[120px]">
@@ -171,7 +173,7 @@ Home.Layout = Layout;
 
 export const getStaticProps: GetStaticProps = () => {
     const page = getPageData("home", "index");
-    const events = getallEvents(["title", "thumbnail", "start_date", "location"], 0, 6);
+    const events = getUpcomingEvents(["title", "thumbnail", "start_date", "location"]).slice(0, 6);
     const allMedia = getAllMediaPosts<IMedia>(
         ["slug", "title", "mediaType", "url", "publication", "date", "image", "description"],
         "media"
