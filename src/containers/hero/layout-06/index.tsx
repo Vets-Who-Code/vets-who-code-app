@@ -46,7 +46,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, video } }: TProps)
                     {buttons?.map(({ id, content, icon, ...rest }) => (
                         <Button key={id} {...rest}>
                             {content}
-                            {icon && <i className={clsx(icon, "tw-ml-4")} />}
+                            {icon && <i className={clsx(icon, "tw-ml-4")} aria-hidden="true" />}
                         </Button>
                     ))}
                 </motion.div>

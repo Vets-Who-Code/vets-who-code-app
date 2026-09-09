@@ -72,7 +72,10 @@ const WaysToGive = ({ data: { section_title, items }, space, bg }: TProps) => {
 
                                 <span className="tw-inline-flex tw-items-center tw-text-md tw-font-bold tw-leading-none tw-text-secondary-light tw-transition-colors tw-duration-300 group-hover:tw-text-primary">
                                     {item.pathText}
-                                    <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
+                                    <i
+                                        className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]"
+                                        aria-hidden="true"
+                                    />
                                 </span>
 
                                 {/* Anchor defaults to target=_blank rel=noopener for external paths */}

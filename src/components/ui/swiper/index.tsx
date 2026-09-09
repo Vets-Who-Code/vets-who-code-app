@@ -121,11 +121,19 @@ const SwiperSlider = forwardRef<HTMLDivElement, TProps>(
 
                 {sliderOptions?.navigation && (
                     <>
-                        <button type="button" className={`swiper-btn swiper-btn-prev ${prevClass}`}>
-                            <i className={cn(prevIcon, "icon")} />
+                        <button
+                            type="button"
+                            aria-label="Previous slide"
+                            className={`swiper-btn swiper-btn-prev ${prevClass}`}
+                        >
+                            <i className={cn(prevIcon, "icon")} aria-hidden="true" />
                         </button>
-                        <button type="button" className={`swiper-btn swiper-btn-next ${nextClass}`}>
-                            <i className={cn(nextIcon, "icon")} />
+                        <button
+                            type="button"
+                            aria-label="Next slide"
+                            className={`swiper-btn swiper-btn-next ${nextClass}`}
+                        >
+                            <i className={cn(nextIcon, "icon")} aria-hidden="true" />
                         </button>
                     </>
                 )}

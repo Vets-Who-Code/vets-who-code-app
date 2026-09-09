@@ -17,14 +17,20 @@ function Summary({ start_date, end_date, start_time, end_time, venue, title, bod
                 </h2>
                 <div className="tw-mb-10 tw-flex tw-flex-wrap tw-items-center tw-justify-center lg:tw-mb-15">
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-calendar tw-mr-[5px] tw-text-primary" />
+                        <i
+                            className="fal fa-calendar tw-mr-[5px] tw-text-primary"
+                            aria-hidden="true"
+                        />
                         <span>
                             {formatDate(start_date)} - {formatDate(end_date)}
                         </span>
                     </div>
 
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-clock tw-mr-[5px] tw-text-primary" />
+                        <i
+                            className="fal fa-clock tw-mr-[5px] tw-text-primary"
+                            aria-hidden="true"
+                        />
                         <span>
                             {formatDate(`${start_date} ${start_time}`, "h:mm a")} -{" "}
                             {formatDate(`${end_date} ${end_time}`, "h:mm a")}
@@ -32,7 +38,10 @@ function Summary({ start_date, end_date, start_time, end_time, venue, title, bod
                     </div>
 
                     <div className="tw-mx-3 tw-mb-[5px]">
-                        <i className="fal fa-video tw-mr-[5px] tw-text-primary" />
+                        <i
+                            className="fal fa-video tw-mr-[5px] tw-text-primary"
+                            aria-hidden="true"
+                        />
                         <span>{venue}</span>
                     </div>
                 </div>

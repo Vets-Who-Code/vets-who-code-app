@@ -65,7 +65,7 @@ const HeroArea = ({ data: { headings, texts, buttons, images, popularCourse } }:
                         ))}
                         {buttons?.map(({ id, content, icon, ...rest }) => (
                             <Button key={id} className="tw-mt-3" {...rest}>
-                                <i className={clsx(icon, "tw-mr-3")} />
+                                <i className={clsx(icon, "tw-mr-3")} aria-hidden="true" />
                                 {content}
                             </Button>
                         ))}

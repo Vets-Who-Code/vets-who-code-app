@@ -31,7 +31,7 @@ const MottoText = forwardRef<HTMLParagraphElement, TProps>(
                     "hover:before:tw-scale-x-0 hover:before:tw-delay-75 hover:after:tw-scale-x-100 hover:after:tw-delay-300"
                 )}
             >
-                {pathText} <i className="far fa-long-arrow-right" />
+                {pathText} <i className="far fa-long-arrow-right" aria-hidden="true" />
             </Anchor>
         </p>
     )

@@ -31,7 +31,7 @@ const SearchForm02 = ({ className }: TProps) => {
                 aria-label="Search"
                 className="tw-absolute tw-right-2.5 tw-top-0 tw-mx-2.5 tw-h-full tw-w-4 tw-text-white"
             >
-                <i className="far fa-search" />
+                <i className="far fa-search" aria-hidden="true" />
             </button>
         </form>
     );
