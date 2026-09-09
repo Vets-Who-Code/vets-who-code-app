@@ -11,6 +11,8 @@ import React, { forwardRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface IFormValues {
+    /** Honeypot. Any value means a bot filled a field humans never see. */
+    website: string;
     name: string;
     phone: string;
     email: string;
@@ -55,6 +57,26 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
             ref={ref}
             onSubmit={handleSubmit(onSubmit)}
         >
+            {/*
+                Honeypot. Positioned off-screen rather than display:none — some bots
+                skip undisplayed inputs but fill positioned ones. aria-hidden and
+                tabIndex keep it away from real users. The API drops any submission
+                that fills it.
+            */}
+            <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{
+                    position: "absolute",
+                    left: "-9999px",
+                    width: "1px",
+                    height: "1px",
+                    opacity: 0,
+                }}
+                {...register("website")}
+            />
             <div className="tw-grid tw-grid-cols-1 tw-gap-5 md:tw-grid-cols-2 md:tw-gap-7.5">
                 <div className="tw-space-y-2">
                     <label
