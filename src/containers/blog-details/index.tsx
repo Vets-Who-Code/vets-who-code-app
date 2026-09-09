@@ -12,7 +12,7 @@ function BlogDetails({ image, title, category, author, postedAt, content, tags, 
         <article className="blog-details tw-mb-10 tw-border-b tw-border-b-gray-500 tw-pb-7.5">
             <div className="entry-header tw-mb-5">
                 {image?.src && (
-                    <figure className="tw-mb-7">
+                    <figure role="none" className="tw-mb-7">
                         <img
                             className="tw-w-full tw-rounded tw-object-cover"
                             src={image.src}
