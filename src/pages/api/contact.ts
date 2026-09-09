@@ -16,7 +16,7 @@ interface ParsedBody {
 }
 
 async function postToSlack(parsedBody: ParsedBody): Promise<void> {
-    const { name, email, phone, subject, message } = parsedBody;
+    const { name, email, phone, subject, message, role, reason } = parsedBody;
 
     const lines: string[] = [
         `Name: \`${name ?? "Sent from footer form."}\``,
@@ -25,6 +25,13 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
     ];
     if (subject) {
         lines.push(`\nSubject: \`${subject}\``);
+    }
+    // Routing metadata, so the channel can triage without reading the whole message.
+    if (role) {
+        lines.push(`\nRole: \`${role}\``);
+    }
+    if (reason) {
+        lines.push(`\nReason: \`${reason}\``);
     }
     lines.push(`\nMessage: \n\`\`\`${message ?? "No message provided."}\`\`\``);
 
