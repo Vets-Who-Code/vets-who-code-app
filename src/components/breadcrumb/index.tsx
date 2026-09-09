@@ -9,10 +9,12 @@ type TProps = {
     }>;
     currentPage: string;
     showTitle?: boolean;
+    /** Set when the page renders its own visible h1, to avoid a duplicate. */
+    hideHeading?: boolean;
     title?: string;
 };
 
-const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps) => {
+const Breadcrumb = ({ className, pages, currentPage, showTitle, hideHeading, title }: TProps) => {
     return (
         <div
             className={clsx(
@@ -30,7 +32,7 @@ const Breadcrumb = ({ className, pages, currentPage, showTitle, title }: TProps)
                     </h1>
                 </div>
             )}
-            {!showTitle && <h1 className="tw-sr-only">{title || currentPage}</h1>}
+            {!showTitle && !hideHeading && <h1 className="tw-sr-only">{title || currentPage}</h1>}
 
             <div
                 className={clsx(

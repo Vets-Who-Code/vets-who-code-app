@@ -6,11 +6,12 @@
             "section_title": {
                 "title": "Contact Us"
             },
+            "eyebrow": "Get in touch",
+            "lede": "Questions about the program, hiring our troops, or partnering with us. Write in and a person on the team will answer.",
             "items": [
                 {
                     "id": 1,
                     "title": "Address",
-                    "icon": "fal fa-map-marker-alt",
                     "texts": [
                         {
                             "id": 1,
@@ -21,7 +22,6 @@
                 {
                     "id": 2,
                     "title": "Contact",
-                    "icon": "fal fa-laptop",
                     "texts": [
                         {
                             "id": 1,
@@ -32,7 +32,6 @@
                 {
                     "id": 3,
                     "title": "Hours of Operation",
-                    "icon": "fal fa-clock",
                     "texts": [
                         {
                             "id": 1,
@@ -40,13 +39,56 @@
                         }
                     ]
                 }
-            ]
+            ],
+            "response_time": {
+                "title": "Response time",
+                "content": "We answer inside two business days. Application status questions go to the team that reviews your cohort."
+            }
         },
         {
             "section": "contact-form",
             "section_title": {
                 "title": "Contact us with this form and we will get back to you as soon as possible"
             }
+        },
+        {
+            "section": "faq",
+            "eyebrow": "Before you write",
+            "section_title": {
+                "title": "Answers we give most often"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "What does it cost?",
+                    "description": "Nothing. Vets Who Code is a 501(c)(3) nonprofit and the program is free to every troop who is accepted. EIN 86-2122804."
+                },
+                {
+                    "id": 2,
+                    "title": "Who is eligible?",
+                    "description": "U.S. military veterans and military spouses. No prior experience with software is required."
+                },
+                {
+                    "id": 3,
+                    "title": "How long is the program?",
+                    "description": "17 weeks, remote-first. It is not a bootcamp. Every hour of instruction maps to verified labor market demand."
+                },
+                {
+                    "id": 4,
+                    "title": "Do I apply through this form?",
+                    "description": "No. Applications run through Apply Now. Use this form for questions the application does not cover."
+                },
+                {
+                    "id": 5,
+                    "title": "Can I visit the address listed?",
+                    "description": "The Marietta address is a mailing address for official correspondence, not a campus. Instruction is remote."
+                },
+                {
+                    "id": 6,
+                    "title": "We want to hire or partner.",
+                    "description": "Pick the hiring or partnership reason above, or mail hello@vetswhocode.io directly. Veterans are stakeholders, not charity cases."
+                }
+            ]
         }
     ]
 }

@@ -1,7 +1,6 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
-import ContactForm from "@containers/contact-form/layout-02";
-import ContactInfo from "@containers/contact-info/layout-02";
+import ContactUsArea from "@containers/contact-us";
 import Layout from "@layout/layout-01";
 import { normalizedData } from "@utils/methods";
 import type { GetStaticProps, NextPage } from "next";
@@ -30,9 +29,13 @@ const ContactUs: NextPage<Props> & { Layout: typeof Layout } = ({ data }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Contact Us"
                 showTitle={false}
+                hideHeading={true}
             />
-            <ContactInfo data={content?.["contact-info"]} />
-            <ContactForm data={content?.["contact-form"]} />
+            <ContactUsArea
+                info={content?.["contact-info"]}
+                form={content?.["contact-form"]}
+                faq={content?.faq}
+            />
         </>
     );
 };
