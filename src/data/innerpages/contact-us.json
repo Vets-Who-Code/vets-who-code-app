@@ -40,16 +40,7 @@
                         }
                     ]
                 }
-            ],
-            "images": [
-                {
-                    "src": "/images/contact/contact.jpg"
-                }
-            ],
-            "location": {
-                "latitude": 40.758062,
-                "longitude": -73.9699129
-            }
+            ]
         },
         {
             "section": "contact-form",

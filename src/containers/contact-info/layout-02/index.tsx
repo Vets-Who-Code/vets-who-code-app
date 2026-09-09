@@ -1,6 +1,5 @@
 import SafeHTML from "@components/safe-html";
 import Section from "@components/ui/engagement-modal";
-import GoogleMap from "@ui/google-map";
 import { ItemType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
@@ -10,20 +9,10 @@ type TProps = TSection & {
     data: {
         section_title?: SectionTitleType;
         items?: ItemType[];
-        location?: {
-            latitude: number;
-            longitude: number;
-        };
     };
 };
 
 const ContactInfo = ({ data: { section_title, items } }: TProps) => {
-    // Hardcoded Atlanta coordinates
-    const atlantaLocation = {
-        latitude: 33.7488,
-        longitude: -84.3877,
-    };
-
     return (
         <Section className="contact-info-area" space="none">
             <div className="tw-container">
@@ -39,7 +28,7 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
                     </motion.h2>
                 )}
                 <motion.div
-                    className="tw-mb-10 tw-grid tw-grid-cols-1 tw-gap-x-7.5 tw-gap-y-10 md:tw-mb-15 md:tw-grid-cols-3"
+                    className="tw-grid tw-grid-cols-1 tw-gap-x-7.5 tw-gap-y-10 md:tw-grid-cols-3"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
@@ -64,21 +53,6 @@ const ContactInfo = ({ data: { section_title, items } }: TProps) => {
                             ))}
                         </div>
                     ))}
-                </motion.div>
-                <motion.div
-                    className="tw-h-[300px] lg:tw-h-[400px]"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{ once: true, amount: 0.4 }}
-                    variants={scrollUpVariants}
-                >
-                    <GoogleMap
-                        center={{
-                            lat: atlantaLocation.latitude,
-                            lng: atlantaLocation.longitude,
-                        }}
-                        zoom={14}
-                    />
                 </motion.div>
             </div>
         </Section>
