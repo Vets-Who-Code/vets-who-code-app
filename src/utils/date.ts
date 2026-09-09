@@ -1,4 +1,4 @@
-import { format, isPast } from "date-fns";
+import { format, isPast, parseISO } from "date-fns";
 
 /**
  * Format date to readable string
@@ -21,7 +21,9 @@ export function isDatePast(date: Date | string): boolean {
  * Get start of day
  */
 export function getStartOfDay(date: Date | string = new Date()): Date {
-    const dateObj = typeof date === "string" ? new Date(date) : date;
+    // parseISO reads "YYYY-MM-DD" as local midnight; `new Date` reads it as UTC midnight,
+    // which is the previous day anywhere west of UTC.
+    const dateObj = typeof date === "string" ? parseISO(date) : date;
     const newDate = new Date(dateObj);
     newDate.setHours(0, 0, 0, 0);
     return newDate;

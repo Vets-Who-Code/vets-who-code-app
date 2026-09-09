@@ -1,4 +1,5 @@
 import {
+    eventFilter,
     flatDeep,
     getFocusableElements,
     hasKey,
@@ -9,6 +10,7 @@ import {
     toCapitalize,
     unslugify,
 } from "../methods";
+import type { IEvent } from "../types";
 
 describe("methods utilities", () => {
     describe("slugify", () => {
@@ -125,6 +127,49 @@ describe("methods utilities", () => {
 
             nextFocus([el1, el2]);
             expect(el1.focus).toHaveBeenCalled();
+        });
+    });
+
+    describe("eventFilter", () => {
+        const originalTz = process.env.TZ;
+        const event = (startDate: string) => ({ start_date: startDate }) as IEvent;
+        const yesterday = event("2026-09-08");
+        const today = event("2026-09-09");
+        const tomorrow = event("2026-09-10");
+        const events = [yesterday, today, tomorrow];
+
+        beforeAll(() => {
+            // West of UTC, so "YYYY-MM-DD" read as UTC midnight would land on the previous day.
+            process.env.TZ = "America/Los_Angeles";
+            vi.useFakeTimers();
+            vi.setSystemTime(new Date(2026, 8, 9, 12, 0, 0));
+        });
+
+        afterAll(() => {
+            vi.useRealTimers();
+            if (originalTz === undefined) {
+                delete process.env.TZ;
+            } else {
+                process.env.TZ = originalTz;
+            }
+        });
+
+        it("should return today's event for the happening filter", () => {
+            const setFilteredEvents = vi.fn();
+            eventFilter("happening", events, setFilteredEvents);
+            expect(setFilteredEvents).toHaveBeenCalledWith([today]);
+        });
+
+        it("should return tomorrow's event for the upcoming filter", () => {
+            const setFilteredEvents = vi.fn();
+            eventFilter("upcoming", events, setFilteredEvents);
+            expect(setFilteredEvents).toHaveBeenCalledWith([tomorrow]);
+        });
+
+        it("should return yesterday's event for the expired filter", () => {
+            const setFilteredEvents = vi.fn();
+            eventFilter("expired", events, setFilteredEvents);
+            expect(setFilteredEvents).toHaveBeenCalledWith([yesterday]);
         });
     });
 });
