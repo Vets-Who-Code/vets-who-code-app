@@ -18,7 +18,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                     {image?.src && (
                         <figure
                             role="none"
-                            className="tw-h-full tw-transition-transform tw-duration-1500 tw-group-hover:tw-scale-110"
+                            className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
                         >
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
