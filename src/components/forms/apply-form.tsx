@@ -89,6 +89,7 @@ const ApplyForm = () => {
 
     const prevStep = () => {
         if (currentStep > 1) {
+            setSubmitError("");
             setCurrentStep(currentStep - 1);
         }
     };
