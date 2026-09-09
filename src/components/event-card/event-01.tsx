@@ -21,7 +21,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
             >
                 <div className="tw-relative tw-h-[230px] tw-overflow-hidden max-w-full">
                     {thumbnail?.src && (
-                        <figure className="tw-group-hover:tw-scale-110 tw-h-full tw-transition-transform tw-duration-1500">
+                        <figure className="group-hover:tw-scale-110 tw-h-full tw-transition-transform tw-duration-1500">
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={thumbnail.src}
