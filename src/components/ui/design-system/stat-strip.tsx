@@ -15,7 +15,7 @@ interface Props {
 const StatStrip = ({ cells, tone = "dark", className }: Props) => {
     const cellLabelColor = tone === "dark" ? "tw-text-[#6C757D]" : "tw-text-[#495057]";
     const cellValueColor = tone === "dark" ? "tw-text-cream" : "tw-text-navy";
-    const borderColor = tone === "dark" ? "tw-border-cream/10" : "tw-border-silver";
+    const borderColor = tone === "dark" ? "tw-border-cream/10" : "tw-border-gray-100";
     const cols =
         cells.length === 4
             ? "md:tw-grid-cols-4"

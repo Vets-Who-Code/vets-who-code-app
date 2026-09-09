@@ -42,6 +42,7 @@ export const sitemapColumns: SitemapColumn[] = [
             { label: "Open Source Projects", path: "/projects" },
             { label: "FAQ", path: "/faq" },
             { label: "Contact", path: "/contact-us" },
+            { label: "Press Kit", path: "/press-kit" },
             { label: "Sitemap", path: "/sitemap" },
             { label: "Code of Conduct", path: "/code-of-conduct" },
         ],
