@@ -51,6 +51,13 @@ describe("Press kit page", () => {
         expect(screen.getByAltText(/Jerome Hardaway/)).toBeInTheDocument();
     });
 
+    it("shows the founder designation from the team data", () => {
+        render(<PressKitPage />);
+        const designation = screen.getByText(founder.designation);
+        expect(designation).toBeInTheDocument();
+        expect(designation).toHaveTextContent(/Founder/);
+    });
+
     it("labels every swatch with its hex value", () => {
         render(<PressKitPage />);
         for (const hex of ["#091f40", "#c5203e", "#EEEDE9", "#1A1823", "#FDB330"]) {
