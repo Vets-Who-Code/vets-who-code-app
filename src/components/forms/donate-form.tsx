@@ -18,7 +18,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                         <h3 className="tw-text-xl tw-font-bold tw-text-white">
                             Make a Difference Today
                         </h3>
-                        <p className="tw-mt-1 tw-text-sm tw-text-gray-100">
+                        <p className="tw-mt-1 tw-text-sm tw-text-cream">
                             Your donation directly supports veterans learning to code
                         </p>
 

@@ -52,6 +52,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                         fontSize: "17px",
                         textTransform: "none",
                         letterSpacing: "0",
+                        color: "#091f40",
                     }}
                 >
                     <a

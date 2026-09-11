@@ -36,7 +36,7 @@ const PathwaysGrid = ({ pathways }: Props) => {
                             key={p.role}
                             className="tw-flex tw-flex-col tw-gap-4 tw-border-b tw-border-r tw-border-cream/10 tw-p-6 tw-min-h-[290px]"
                         >
-                            <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                            <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                 P.{String(idx + 1).padStart(2, "0")}
                             </span>
                             <h3 className="tw-font-heading tw-text-[21px] tw-font-medium tw-uppercase tw-leading-[1.2] tw-text-cream [letter-spacing:-0.01em]">
@@ -45,8 +45,8 @@ const PathwaysGrid = ({ pathways }: Props) => {
                             <span className="tw-font-mono tw-text-[18px] tw-text-cream">
                                 {formatSalary(p.avgSalary)}
                             </span>
-                            <div className="tw-flex tw-flex-col tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
-                                <span className="tw-flex tw-items-center tw-gap-2 tw-text-[#DEE2E6]">
+                            <div className="tw-flex tw-flex-col tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
+                                <span className="tw-flex tw-items-center tw-gap-2">
                                     <span
                                         aria-hidden={true}
                                         className="tw-h-2 tw-w-2"
@@ -54,14 +54,14 @@ const PathwaysGrid = ({ pathways }: Props) => {
                                     />
                                     {p.matchLevel}
                                 </span>
-                                <span className="tw-flex tw-items-center tw-gap-2 tw-text-[#DEE2E6]">
+                                <span className="tw-flex tw-items-center tw-gap-2">
                                     <DemandBars level={demandLevel(p.demand)} />
                                     {p.demand}
                                 </span>
                             </div>
                             {p.skillsToClose && p.skillsToClose.length > 0 && (
                                 <div className="tw-mt-auto tw-flex tw-flex-col tw-gap-2 tw-border-t tw-border-dashed tw-border-cream/10 tw-pt-3">
-                                    <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                                    <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                                         Skills to develop
                                     </span>
                                     <ul className="tw-flex tw-flex-col tw-gap-1">

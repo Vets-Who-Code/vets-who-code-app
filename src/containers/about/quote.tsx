@@ -58,7 +58,7 @@ const Quote = () => {
                     }}
                 >
                     We don&apos;t train veterans to fill seats. We train them to be{" "}
-                    <span className="tw-text-red">impactful</span> on their engineering teams at
+                    <span className="tw-text-gold">impactful</span> on their engineering teams at
                     companies that shape the world.
                 </blockquote>
                 <div
@@ -76,10 +76,7 @@ const Quote = () => {
                         }}
                     >
                         Vets Who Code &middot; Founding Charter
-                        <span style={{ color: "rgba(185,214,242,0.5)" }}>
-                            {" "}
-                            &mdash; ratified 2014
-                        </span>
+                        <span style={{ color: "var(--silver)" }}> &mdash; ratified 2014</span>
                     </span>
                 </div>
             </motion.div>

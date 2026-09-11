@@ -45,10 +45,10 @@ const SponsorPage: PageWithLayout = () => {
                             Live · Sponsor Brief v2.0
                         </span>
                     </MonoMeta>
-                    <MonoMeta tone="muted" size="xs">
+                    <MonoMeta tone="gold" size="xs">
                         Classification · <span className="tw-text-cream">Public</span>
                     </MonoMeta>
-                    <MonoMeta tone="muted" size="xs">
+                    <MonoMeta tone="gold" size="xs">
                         EIN · <span className="tw-text-cream">86-2122804</span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
@@ -68,7 +68,7 @@ const SponsorPage: PageWithLayout = () => {
                     <SharpHeadline as="h1" size="h1" tone="white" className="tw-mt-6">
                         We want you.
                         <br />
-                        <span className="tw-text-red">#VetsWhoCode</span>
+                        <span className="tw-text-gold">#VetsWhoCode</span>
                     </SharpHeadline>
                     <p className="tw-mt-10 tw-max-w-[640px] tw-font-body tw-text-[#F8F9FA] tw-leading-[1.5] [font-size:clamp(18px,1.6vw,22px)]">
                         After completing the Hashflag Stack, our troops are able, willing, and
@@ -142,7 +142,7 @@ const SponsorPage: PageWithLayout = () => {
                         <SharpHeadline as="h2" size="h2" tone="white">
                             Veterans are not
                             <br />
-                            <span className="tw-text-red">charity hires.</span>
+                            <span className="tw-text-gold">charity hires.</span>
                         </SharpHeadline>
                         <div className="tw-mt-8 tw-space-y-6 tw-font-body tw-text-[#F8F9FA] tw-leading-[1.65] [font-size:clamp(16px,1.2vw,18px)]">
                             <p>
@@ -182,7 +182,7 @@ const SponsorPage: PageWithLayout = () => {
                         <SharpHeadline as="h2" size="h2" tone="white" align="center">
                             Talk to
                             <br />
-                            <span className="tw-text-red">Ayumi Bennett</span>.
+                            <span className="tw-text-gold">Ayumi Bennett</span>.
                         </SharpHeadline>
                         <MonoMeta tone="bright" size="md">
                             Technical Program Manager
@@ -194,7 +194,7 @@ const SponsorPage: PageWithLayout = () => {
                             ayumi@vetswhocode.io
                             <span aria-hidden="true">→</span>
                         </a>
-                        <MonoMeta tone="muted" size="xs" className="tw-mt-4">
+                        <MonoMeta tone="bright" size="xs" className="tw-mt-4">
                             Vets Who Code Inc. · 501(c)(3) · EIN 86-2122804
                         </MonoMeta>
                     </div>

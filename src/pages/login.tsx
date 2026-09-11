@@ -80,7 +80,7 @@ const Login: PageWithLayout = () => {
             <div className="tw-flex tw-min-h-screen tw-items-center tw-justify-center tw-bg-secondary">
                 <div className="tw-w-full tw-max-w-md tw-overflow-hidden tw-rounded-lg tw-bg-white tw-shadow-lg">
                     <div className="tw-space-y-3 tw-p-8">
-                        <h1 className="tw-text-center tw-text-2xl tw-font-bold tw-text-secondary">
+                        <h1 className="tw-text-center tw-text-2xl tw-font-bold !tw-text-secondary">
                             Retool. Retrain. Relaunch.
                         </h1>
                         <p className="tw-text-center tw-text-secondary">

@@ -18,7 +18,7 @@ export const SectionHeader = ({
             <div className="tw-flex tw-flex-col tw-gap-3">
                 <div className="tw-flex tw-items-center tw-gap-3">
                     <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                         {number} · {eyebrow}
                     </span>
                 </div>
@@ -27,7 +27,7 @@ export const SectionHeader = ({
                 </h2>
             </div>
             {meta && (
-                <span className="tw-shrink-0 tw-pt-2 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                <span className="tw-shrink-0 tw-pt-2 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                     {meta}
                 </span>
             )}
@@ -48,7 +48,7 @@ export const DemandBars = ({ level }: { level: number }) => (
                 aria-hidden={true}
                 className={clsx(
                     "tw-h-[11px] tw-w-[3px]",
-                    b <= level ? "tw-bg-accent" : "tw-bg-[#495057]"
+                    b <= level ? "tw-bg-accent" : "tw-bg-[#6C757D]"
                 )}
             />
         ))}

@@ -119,7 +119,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                 textTransform: "uppercase",
                                 letterSpacing: "0.08em",
                                 background: "var(--red, #c5203e)",
-                                color: "var(--gold, #FDB330)",
+                                color: "var(--white, #FFFFFF)",
                                 padding: "4px 12px",
                                 borderRadius: "2px",
                                 fontWeight: 500,

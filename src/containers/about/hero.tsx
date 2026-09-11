@@ -63,7 +63,7 @@ const Hero = () => {
                             <br />
                             seats. We build
                             <br />
-                            <span className="tw-text-red">engineers</span>
+                            <span className="tw-text-gold">engineers</span>
                             <span
                                 aria-hidden="true"
                                 className={styles.blink}
@@ -108,7 +108,7 @@ const Hero = () => {
                                             fontSize: 10,
                                             letterSpacing: "0.16em",
                                             textTransform: "uppercase",
-                                            color: "rgba(185,214,242,0.55)",
+                                            color: "var(--silver)",
                                         }}
                                     >
                                         {item.label}
@@ -192,7 +192,7 @@ const Hero = () => {
                                 <br />
                                 Retrain<span className="tw-text-gold">.</span>
                                 <br />
-                                <span className="tw-text-red">Relaunch</span>
+                                <span className="tw-text-gold">Relaunch</span>
                                 <span className="tw-text-gold">.</span>
                             </p>
                             <p
@@ -223,7 +223,7 @@ const Hero = () => {
                                         fontSize: 9,
                                         letterSpacing: "0.22em",
                                         textTransform: "uppercase",
-                                        color: "rgba(185,214,242,0.5)",
+                                        color: "var(--silver)",
                                     }}
                                 >
                                     Issued by

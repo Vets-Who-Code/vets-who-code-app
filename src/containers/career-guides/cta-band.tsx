@@ -5,7 +5,7 @@ const CtaBand = () => (
         <div className="tw-container">
             <div className="tw-mb-6 tw-flex tw-items-center tw-gap-3">
                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                     Cohort 2027 · Intake Open
                 </span>
             </div>

@@ -63,6 +63,7 @@ export interface MottoType {
     text: string;
     path: string;
     pathText: string;
+    color?: "A" | "C";
 }
 
 export interface ItemType {

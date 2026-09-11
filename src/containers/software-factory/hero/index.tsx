@@ -111,7 +111,7 @@ const HeroSection = () => {
                         >
                             We ship
                             <br />
-                            <span style={{ color: "#c5203e" }}>production</span>
+                            <span style={{ color: "#FDB330" }}>production</span>
                             <br />
                             code.
                         </h1>

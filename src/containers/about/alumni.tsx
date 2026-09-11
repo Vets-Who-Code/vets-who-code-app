@@ -33,7 +33,7 @@ const Alumni = () => {
                 >
                     <div>
                         <span
-                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#6C757D]"
+                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 11,
@@ -94,7 +94,7 @@ const Alumni = () => {
                                 }}
                             >
                                 <span
-                                    className="tw-text-[#6C757D]"
+                                    className="tw-text-[#495057]"
                                     style={{
                                         position: "absolute",
                                         top: 14,
@@ -102,7 +102,6 @@ const Alumni = () => {
                                         fontFamily: "var(--font-mono)",
                                         fontSize: 10,
                                         letterSpacing: "0.14em",
-                                        opacity: 0.6,
                                     }}
                                 >
                                     {String(i + 1).padStart(2, "0")}
@@ -124,7 +123,7 @@ const Alumni = () => {
                 </div>
 
                 <div
-                    className="tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-4 tw-text-[#6C757D]"
+                    className="tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-4 tw-text-[#495057]"
                     style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: 11,

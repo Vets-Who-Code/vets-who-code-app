@@ -66,7 +66,7 @@ const Team: PageWithLayout = ({ data }) => {
                     <nav
                         aria-label="Breadcrumb"
                         style={mono}
-                        className="tw-flex tw-shrink-0 tw-items-center tw-gap-2.5 tw-whitespace-nowrap tw-text-[11px] tw-uppercase tw-text-gray-200"
+                        className="tw-flex tw-shrink-0 tw-items-center tw-gap-2.5 tw-whitespace-nowrap tw-text-[11px] tw-uppercase tw-text-gray-300"
                     >
                         <Anchor path="/" className="tw-text-secondary">
                             Home
@@ -78,7 +78,7 @@ const Team: PageWithLayout = ({ data }) => {
                     </nav>
                     <div
                         style={mono}
-                        className="tw-flex tw-shrink-0 tw-items-center tw-gap-3.5 tw-whitespace-nowrap tw-text-[11px] tw-uppercase tw-text-gray-200"
+                        className="tw-flex tw-shrink-0 tw-items-center tw-gap-3.5 tw-whitespace-nowrap tw-text-[11px] tw-uppercase tw-text-gray-300"
                     >
                         <span>{pad(data.teamMembers.length)} Staff</span>
                         <span

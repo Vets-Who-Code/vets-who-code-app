@@ -11,15 +11,16 @@ const TextWidget = ({ className, mode }: TProps) => {
     return (
         <div className={clsx(className)}>
             <WidgetTitle mode={mode}>Mailing Address</WidgetTitle>
-            <div className={clsx("content", mode === "dark" && "tw-text-gray-400")}>
+            <div className={clsx("content", mode === "dark" && "tw-text-gray-100")}>
                 <p className="tw-mb-[11px]">31860 Sandy Plains Road, Ste 204 PMB 206</p>
                 <p className="tw-mb-[11px]">Marietta, GA 30066</p>
                 <p className="tw-mb-[11px]">
                     <a
                         href="mailto:hello@vetswhocode.io"
                         className={clsx(
-                            "hover:tw-text-primary",
-                            mode === "dark" && "tw-text-gray-400"
+                            mode === "dark"
+                                ? "tw-text-gray-100 hover:tw-text-gold"
+                                : "hover:tw-text-primary"
                         )}
                     >
                         hello@vetswhocode.io

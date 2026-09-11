@@ -20,7 +20,7 @@ const SitemapNav = ({ className, mode }: TProps) => {
                     <ul
                         className={clsx(
                             "tw-text-md tw-font-medium",
-                            mode === "dark" && "tw-text-gray-400"
+                            mode === "dark" && "tw-text-gray-100"
                         )}
                     >
                         {column.links.map((link) => (

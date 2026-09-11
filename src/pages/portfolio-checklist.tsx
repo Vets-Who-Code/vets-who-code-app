@@ -590,7 +590,7 @@ const PortfolioChecklist: PageProps = () => {
                                             <h2 className="tw-text-xl tw-font-bold tw-text-secondary md:tw-text-2xl print:tw-text-lg">
                                                 {section.title}
                                             </h2>
-                                            <span className="tw-rounded-full tw-bg-gray-50 tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium tw-text-gray-200 print:tw-bg-gray-100">
+                                            <span className="tw-rounded-full tw-bg-gray-50 tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium tw-text-gray-300 print:tw-bg-gray-100">
                                                 {done}/{total}
                                             </span>
                                         </div>

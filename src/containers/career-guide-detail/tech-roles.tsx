@@ -65,7 +65,7 @@ const TechRolesSection = ({ code, roles }: Props) => {
                             );
                         })}
                     </div>
-                    <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                    <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                         Sort · Match descending
                     </span>
                 </div>
@@ -97,14 +97,14 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                     aria-expanded={isOpen}
                                     className="tw-grid tw-w-full tw-grid-cols-[60px_1fr_36px] tw-gap-4 tw-px-2 tw-py-5 tw-text-left tw-transition-colors hover:tw-bg-[#003559] md:tw-grid-cols-[60px_1fr_220px_140px_130px_36px]"
                                 >
-                                    <span className="tw-font-mono tw-text-[12px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                                    <span className="tw-font-mono tw-text-[12px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                         {idxLabel}
                                     </span>
                                     <div className="tw-flex tw-flex-col tw-gap-1">
                                         <span className="tw-font-heading tw-text-[20px] tw-font-medium tw-uppercase tw-leading-[1.15] tw-text-cream [letter-spacing:-0.01em]">
                                             {role.title}
                                         </span>
-                                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                             SOC {role.socCode} · {role.track}
                                         </span>
                                     </div>
@@ -118,13 +118,13 @@ const TechRolesSection = ({ code, roles }: Props) => {
                                     </span>
                                     <span className="tw-hidden md:tw-flex tw-items-center tw-gap-3">
                                         <DemandBars level={matchDemand(role.matchLevel)} />
-                                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                             Demand
                                         </span>
                                     </span>
                                     <span className="tw-hidden md:tw-block tw-font-mono tw-text-[13px] tw-text-cream tw-text-right">
                                         See pathways
-                                        <span className="tw-block tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                                        <span className="tw-block tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                             typical · civilian
                                         </span>
                                     </span>

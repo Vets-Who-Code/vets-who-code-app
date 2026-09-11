@@ -73,7 +73,7 @@ const Filters = ({
                     <span
                         className={clsx(
                             "tw-tabular-nums",
-                            branch === "all" ? "tw-text-secondary/60" : "tw-text-[#6C757D]"
+                            branch === "all" ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
                         )}
                     >
                         {allCount.toLocaleString()}
@@ -102,7 +102,7 @@ const Filters = ({
                             <span
                                 className={clsx(
                                     "tw-tabular-nums",
-                                    active ? "tw-text-secondary/60" : "tw-text-[#6C757D]"
+                                    active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
                                 )}
                             >
                                 {branchCounts[b].toLocaleString()}
@@ -116,7 +116,7 @@ const Filters = ({
             <div className="tw-flex tw-flex-col tw-gap-6 tw-border-t tw-border-cream/10 tw-border-b tw-py-5 lg:tw-flex-row lg:tw-flex-wrap lg:tw-items-center">
                 {/* Rank segmented */}
                 <div className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                         Rank
                     </span>
                     <div className="tw-flex tw-border tw-border-cream/[0.18]">
@@ -140,7 +140,7 @@ const Filters = ({
 
                 {/* Family */}
                 <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                         Family
                     </span>
                     <select
@@ -159,7 +159,7 @@ const Filters = ({
 
                 {/* Sort */}
                 <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                         Sort
                     </span>
                     <select
@@ -175,7 +175,7 @@ const Filters = ({
                     </select>
                 </label>
 
-                <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                     Showing{" "}
                     <span className="tw-font-bold tw-text-cream tw-tabular-nums">
                         {showing.toLocaleString()}

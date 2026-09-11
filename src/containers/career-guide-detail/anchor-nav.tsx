@@ -65,7 +65,7 @@ const AnchorNav = ({ items }: Props) => {
                                         "tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-transition-opacity",
                                         isActive
                                             ? "tw-text-cream tw-opacity-100"
-                                            : "tw-text-[#6C757D] tw-opacity-0 group-hover:tw-opacity-100"
+                                            : "tw-text-[#DEE2E6] tw-opacity-0 group-hover:tw-opacity-100"
                                     )}
                                 >
                                     {item.label}

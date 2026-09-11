@@ -111,7 +111,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                             fontSize: "10px",
                                             textTransform: "uppercase",
                                             letterSpacing: "0.06em",
-                                            color: "rgba(9, 31, 64, 0.5)",
+                                            color: "#495057",
                                         }}
                                     >
                                         2026 Cohort Active

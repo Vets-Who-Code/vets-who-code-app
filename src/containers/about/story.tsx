@@ -123,7 +123,7 @@ const Story = () => {
                 <div className="tw-mb-24 tw-grid tw-grid-cols-1 tw-gap-12 lg:tw-grid-cols-[1fr_1.4fr] lg:tw-items-end lg:tw-gap-20">
                     <div>
                         <span
-                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#6C757D]"
+                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 11,
@@ -169,7 +169,7 @@ const Story = () => {
                         style={{ top: 120, alignSelf: "start" }}
                     >
                         <div
-                            className="tw-mb-6 tw-flex tw-items-center tw-gap-2.5 tw-text-[#6C757D]"
+                            className="tw-mb-6 tw-flex tw-items-center tw-gap-2.5 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 10,
@@ -205,7 +205,8 @@ const Story = () => {
                                                 fontSize: 10,
                                                 letterSpacing: "0.16em",
                                                 textTransform: "uppercase",
-                                                color: active === i ? "var(--red)" : "var(--slate)",
+                                                color:
+                                                    active === i ? "var(--red)" : "var(--charcoal)",
                                                 fontWeight: 500,
                                                 transition: "color 220ms",
                                             }}
@@ -262,7 +263,7 @@ const Story = () => {
                                         {c.n}
                                     </span>
                                     <span
-                                        className="tw-text-[#6C757D]"
+                                        className="tw-text-[#495057]"
                                         style={{
                                             fontFamily: "var(--font-mono)",
                                             fontSize: 11,
@@ -306,7 +307,7 @@ const Story = () => {
                                             />
                                         </div>
                                         <div
-                                            className="tw-mt-4 tw-flex tw-items-center tw-gap-2.5 tw-text-[#6C757D]"
+                                            className="tw-mt-4 tw-flex tw-items-center tw-gap-2.5 tw-text-[#495057]"
                                             style={{
                                                 fontFamily: "var(--font-mono)",
                                                 fontSize: 10,

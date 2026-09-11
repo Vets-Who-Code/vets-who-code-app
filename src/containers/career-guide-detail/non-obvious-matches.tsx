@@ -31,7 +31,7 @@ const NonObviousMatches = ({ matches }: Props) => {
                                 <h3 className="tw-font-heading tw-text-[22px] tw-font-medium tw-uppercase tw-leading-[1.2] tw-text-cream [letter-spacing:-0.01em]">
                                     {m.role}
                                 </h3>
-                                <span className="tw-shrink-0 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                                <span className="tw-shrink-0 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                                     SOC {m.socCode}
                                 </span>
                             </header>

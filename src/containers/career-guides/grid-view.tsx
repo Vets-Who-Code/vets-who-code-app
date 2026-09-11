@@ -45,18 +45,18 @@ const GuideCard = ({ g }: { g: GuideEntry }) => {
                 <span className="tw-font-heading tw-text-[19px] tw-font-medium tw-uppercase tw-leading-[1.2] tw-text-cream [letter-spacing:-0.01em]">
                     {g.title}
                 </span>
-                <span className="tw-font-body tw-text-[13.5px] tw-leading-[1.45] tw-text-[#6C757D]">
+                <span className="tw-font-body tw-text-[13.5px] tw-leading-[1.45] tw-text-[#DEE2E6]">
                     → {g.civilian}
                 </span>
             </div>
 
             {/* Salary + rank */}
-            <div className="tw-flex tw-items-center tw-justify-between tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+            <div className="tw-flex tw-items-center tw-justify-between tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                 <span>
                     <span className="tw-text-cream tw-tabular-nums">
                         ${g.salaryLow}–{g.salaryHigh}
                     </span>
-                    <span className="tw-ml-1 tw-text-[#495057]">K</span> civilian
+                    <span className="tw-ml-1">K</span> civilian
                 </span>
                 <span>{g.rank}</span>
             </div>
@@ -73,14 +73,14 @@ const GuideCard = ({ g }: { g: GuideEntry }) => {
                         </span>
                     ))}
                     {extra > 0 && (
-                        <span className="tw-border tw-border-dashed tw-border-cream/[0.18] tw-px-2 tw-py-1 tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
+                        <span className="tw-border tw-border-dashed tw-border-cream/[0.18] tw-px-2 tw-py-1 tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]">
                             +{extra}
                         </span>
                     )}
                 </div>
                 <span
                     aria-hidden={true}
-                    className="tw-shrink-0 tw-font-mono tw-text-[16px] tw-text-[#6C757D] tw-transition-colors group-hover:tw-text-accent"
+                    className="tw-shrink-0 tw-font-mono tw-text-[16px] tw-text-[#DEE2E6] tw-transition-colors group-hover:tw-text-accent"
                 >
                     →
                 </span>
@@ -96,7 +96,7 @@ const GridView = ({ rows }: Props) => {
                 <span className="tw-font-heading tw-text-[28px] tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em]">
                     No matches.
                 </span>
-                <span className="tw-font-body tw-text-[15px] tw-text-[#6C757D]">
+                <span className="tw-font-body tw-text-[15px] tw-text-[#DEE2E6]">
                     Try a different code, branch, or career family.
                 </span>
             </div>
