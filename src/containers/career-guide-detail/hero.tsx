@@ -17,7 +17,7 @@ const StatCell = ({
     accent?: boolean;
 }) => (
     <div className="tw-flex tw-flex-col tw-gap-3 tw-px-6 tw-py-7 md:tw-border-l md:tw-border-cream/10 first:md:tw-border-l-0">
-        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
             {label}
         </span>
         <span
@@ -27,7 +27,7 @@ const StatCell = ({
         >
             {value}
         </span>
-        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
+        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]">
             {sub}
         </span>
     </div>
@@ -45,7 +45,7 @@ const SummaryRow = ({
     mono?: boolean;
 }) => (
     <div className="tw-flex tw-items-baseline tw-justify-between tw-gap-4 tw-border-b tw-border-dashed tw-border-cream/10 tw-py-3 last:tw-border-b-0">
-        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
             {label}
         </span>
         <span
@@ -72,11 +72,11 @@ const Hero = ({ detail }: Props) => {
         <section id="sec-overview" className="tw-bg-secondary tw-pt-16 md:tw-pt-20">
             <div className="tw-container">
                 {/* Breadcrumb */}
-                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                     <span>Home</span>
-                    <span className="tw-mx-2 tw-text-[#495057]">/</span>
+                    <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
                     <span>Career Guides</span>
-                    <span className="tw-mx-2 tw-text-[#495057]">/</span>
+                    <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
                     <span className="tw-text-cream">{detail.code}</span>
                 </div>
 
@@ -92,7 +92,7 @@ const Hero = ({ detail }: Props) => {
                     </span>
                     <span className="tw-flex tw-items-center tw-gap-3">
                         <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                             Career Guide · {detail.family} · {detail.summary.docId}
                         </span>
                     </span>
@@ -102,7 +102,7 @@ const Hero = ({ detail }: Props) => {
                 <div className="tw-mt-12 tw-grid tw-grid-cols-1 tw-gap-14 lg:tw-grid-cols-[1.5fr_1fr]">
                     {/* Left — display title + lede */}
                     <div className="tw-flex tw-flex-col tw-gap-6">
-                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#495057]">
+                        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                             {detail.code} · {meta.short} · {detail.rank}
                         </span>
                         <h1 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98] [font-size:clamp(48px,8.5vw,116px)]">
@@ -131,7 +131,7 @@ const Hero = ({ detail }: Props) => {
                     {/* Right — summary card */}
                     <aside className="tw-border tw-border-cream/[0.18] tw-bg-[#003559]">
                         <header className="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-cream/10 tw-px-5 tw-py-4">
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                                 Summary · Lightcast
                             </span>
                             <span className="tw-relative tw-flex tw-h-[7px] tw-w-[7px]">

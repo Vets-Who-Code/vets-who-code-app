@@ -55,7 +55,7 @@ const Hero = () => {
                     >
                         Service.
                         <br />
-                        <span className="tw-text-red">Software.</span>
+                        <span className="tw-text-gold">Software.</span>
                         <br />
                         <span
                             style={{
@@ -92,7 +92,7 @@ const Hero = () => {
                                         fontSize: 10,
                                         letterSpacing: "0.16em",
                                         textTransform: "uppercase",
-                                        color: "rgba(185,214,242,0.55)",
+                                        color: "var(--silver)",
                                         marginBottom: 6,
                                     }}
                                 >
@@ -119,10 +119,10 @@ const Hero = () => {
                             fontSize: 11,
                             letterSpacing: "0.14em",
                             textTransform: "uppercase",
-                            color: "rgba(185,214,242,0.55)",
+                            color: "var(--silver)",
                         }}
                     >
-                        <span className="tw-text-red">$</span>
+                        <span className="tw-text-gold">$</span>
                         <span>git checkout theory-of-change</span>
                         <span
                             aria-hidden="true"
@@ -153,7 +153,7 @@ const Hero = () => {
                     fontSize: 10,
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
-                    color: "rgba(185,214,242,0.45)",
+                    color: "var(--silver)",
                 }}
             >
                 <span>scroll · git log</span>

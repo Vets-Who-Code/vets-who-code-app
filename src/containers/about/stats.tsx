@@ -120,7 +120,7 @@ const Stats = () => {
                                 }}
                             >
                                 {s.n}
-                                <span className="tw-text-red">{s.suffix}</span>
+                                <span className="tw-text-gold">{s.suffix}</span>
                             </span>
                             <p
                                 className="tw-m-0 tw-font-body"
@@ -145,7 +145,7 @@ const Stats = () => {
                         fontSize: 11,
                         letterSpacing: "0.14em",
                         textTransform: "uppercase",
-                        color: "rgba(185,214,242,0.55)",
+                        color: "var(--silver)",
                     }}
                 >
                     <span>EIN 86-2122804 · 501(c)(3) Nonprofit · Tax-deductible</span>

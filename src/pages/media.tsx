@@ -63,7 +63,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="mediaTypeFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-300"
                             >
                                 Filter by Type
                             </label>
@@ -86,7 +86,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="yearFilter"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-300"
                             >
                                 Filter by Year
                             </label>
@@ -109,7 +109,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                         <div className="tw-flex-1">
                             <label
                                 htmlFor="searchTerm"
-                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-200"
+                                className="tw-block tw-text-sm tw-font-medium tw-text-gray-300"
                             >
                                 Search
                             </label>

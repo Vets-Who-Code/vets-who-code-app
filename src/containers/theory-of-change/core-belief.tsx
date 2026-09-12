@@ -13,7 +13,7 @@ const CoreBelief = () => {
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.3 }}
                     variants={scrollUpVariants}
-                    className="tw-mb-14 tw-flex tw-flex-wrap tw-items-center tw-gap-4 tw-text-[#6C757D]"
+                    className="tw-mb-14 tw-flex tw-flex-wrap tw-items-center tw-gap-4 tw-text-[#495057]"
                     style={{
                         fontFamily: "var(--font-mono)",
                         fontSize: 11,

@@ -22,13 +22,13 @@ const CtaBand = ({ code }: Props) => (
         <div className="tw-relative tw-container tw-flex tw-flex-col tw-gap-7">
             <div className="tw-flex tw-items-center tw-gap-3">
                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                     / Translator · Live
                 </span>
             </div>
 
             <h2 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em] [line-height:1] [font-size:clamp(32px,4.5vw,56px)]">
-                Translate <span className="tw-text-primary">{code}</span> into a resume that ships.
+                Translate <span className="tw-text-accent">{code}</span> into a resume that ships.
             </h2>
 
             <p className="tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#DEE2E6]">

@@ -167,7 +167,7 @@ const MentorshipPage: PageWithLayout = () => {
                         <h1 className="tw-mt-7 tw-font-heading tw-font-black tw-uppercase tw-leading-[0.94] tw-tracking-[-0.02em] tw-text-white [font-size:clamp(48px,7.4vw,104px)]">
                             Staff the
                             <br />
-                            <span className="tw-text-red">middle.</span>
+                            <span className="tw-text-gold">middle.</span>
                         </h1>
                         <p className="tw-mt-8 tw-max-w-[60ch] tw-font-body tw-text-[18px] tw-leading-[1.7] tw-text-[rgba(185,214,242,0.86)]">
                             The accelerator teaches in a gradual release model. Units are{" "}
@@ -314,7 +314,7 @@ const MentorshipPage: PageWithLayout = () => {
                         <h2 className="tw-m-0 tw-mt-4 tw-font-heading tw-font-black tw-uppercase tw-leading-[1.02] tw-tracking-[-0.02em] tw-text-white [font-size:clamp(34px,4.4vw,60px)]">
                             What you
                             <br />
-                            <span className="tw-text-red">owe them.</span>
+                            <span className="tw-text-gold">owe them.</span>
                         </h2>
                         <p className="tw-mt-6 tw-max-w-[46ch] tw-font-body tw-text-[17px] tw-leading-[1.7] tw-text-[rgba(185,214,242,0.86)]">
                             Four to five hours a month, for one cohort. Standing appointments, not
@@ -329,7 +329,7 @@ const MentorshipPage: PageWithLayout = () => {
                                 className={`tw-grid tw-grid-cols-[44px_1fr] tw-gap-5 tw-border-t tw-border-[rgba(185,214,242,0.12)] tw-py-[26px] ${i === COMMITMENT.length - 1 ? "tw-border-b" : ""}`}
                             >
                                 <span
-                                    className={`tw-text-[11px] tw-tracking-[0.1em] tw-text-red ${MONO}`}
+                                    className={`tw-text-[11px] tw-tracking-[0.1em] tw-text-gold ${MONO}`}
                                 >
                                     {n}
                                 </span>

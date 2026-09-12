@@ -27,7 +27,7 @@ const SkillBridgeSection = ({ code, skillsYouHave, skillsToLearn }: Props) => {
                     {/* Already have */}
                     <div className="tw-flex tw-flex-col tw-gap-4 lg:tw-pr-10">
                         <div className="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-cream/10 tw-pb-4">
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                                 Already have
                             </span>
                             <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-cream">
@@ -40,14 +40,14 @@ const SkillBridgeSection = ({ code, skillsYouHave, skillsToLearn }: Props) => {
                                     key={`${s.from}-${idx}`}
                                     className="tw-grid tw-grid-cols-[40px_1fr] tw-gap-4 tw-border-b tw-border-cream/10 tw-py-4 last:tw-border-b-0"
                                 >
-                                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                                         {String(idx + 1).padStart(2, "0")}
                                     </span>
                                     <div className="tw-flex tw-flex-col tw-gap-1">
                                         <span className="tw-font-body tw-text-[17px] tw-text-cream">
                                             {s.from}
                                         </span>
-                                        <span className="tw-font-body tw-text-[13px] tw-text-[#6C757D]">
+                                        <span className="tw-font-body tw-text-[13px] tw-text-[#DEE2E6]">
                                             → {s.to}
                                         </span>
                                     </div>
@@ -59,7 +59,7 @@ const SkillBridgeSection = ({ code, skillsYouHave, skillsToLearn }: Props) => {
                     {/* To learn */}
                     <div className="tw-flex tw-flex-col tw-gap-6 tw-pt-12 lg:tw-pl-10 lg:tw-pt-0">
                         <div className="tw-flex tw-items-center tw-justify-between tw-border-b tw-border-cream/10 tw-pb-4">
-                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                            <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                                 To learn
                             </span>
                             <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-cream">

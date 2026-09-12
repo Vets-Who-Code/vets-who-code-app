@@ -48,7 +48,7 @@ const Theory = () => {
                         }}
                     >
                         How we turn troops into{" "}
-                        <span className="tw-text-red">software engineers.</span>
+                        <span className="tw-text-gold">software engineers.</span>
                     </h2>
                 </motion.div>
 

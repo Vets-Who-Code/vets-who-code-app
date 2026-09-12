@@ -11,7 +11,7 @@
 
 .monoMeta {
     font-size: 10.5px;
-    color: #6c757d;
+    color: #495057;
 }
 
 .monoLabel {
@@ -757,7 +757,7 @@
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #6c757d;
+    color: #495057;
     background: #f8f9fa;
     padding: 14px 16px;
 }

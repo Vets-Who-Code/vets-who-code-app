@@ -43,7 +43,7 @@ const Vision = () => {
                 >
                     A platform is not a curriculum.
                     <br />
-                    It is a <span className="tw-text-red">launchpad.</span>
+                    It is a <span className="tw-text-gold">launchpad.</span>
                 </motion.h2>
 
                 <motion.p
@@ -121,10 +121,10 @@ const Vision = () => {
                         fontSize: 10.5,
                         letterSpacing: "0.14em",
                         textTransform: "uppercase",
-                        color: "rgba(185,214,242,0.45)",
+                        color: "var(--silver)",
                     }}
                 >
-                    <span className="tw-text-red">$</span>
+                    <span className="tw-text-gold">$</span>
                     <span>
                         git log · 5 phases · 23 commits · #VetsWhoCode · 501(c)(3) · EIN 86-2122804
                     </span>

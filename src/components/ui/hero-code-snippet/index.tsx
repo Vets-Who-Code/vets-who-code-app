@@ -23,7 +23,7 @@ const METHOD = "#84C1FF";
 const PUNCT = "#F8F9FA";
 const IDENT = "#F8F9FA";
 const PROMPT = "#FDB330";
-const HINT = "rgba(185, 214, 242, 0.85)";
+const HINT = "#F8F9FA";
 
 type HistoryEntry = {
     cmd: string;
@@ -232,6 +232,8 @@ const HeroCodeSnippet = () => {
                         </div>
 
                         {/* Clickable terminal body — focuses input on desktop */}
+                        {/* biome-ignore lint/a11y/noStaticElementInteractions: mouse convenience only; the labelled <input> inside is the accessible control */}
+                        {/* biome-ignore lint/a11y/noNoninteractiveElementInteractions: same as above */}
                         <div
                             ref={scrollerRef}
                             className="tw-max-h-[60vh] tw-overflow-y-auto tw-bg-obsidian md:tw-cursor-text"
@@ -241,9 +243,6 @@ const HeroCodeSnippet = () => {
                                     focusInput();
                                 }
                             }}
-                            role="button"
-                            tabIndex={-1}
-                            aria-label="Interactive terminal — desktop only"
                         >
                             <pre
                                 className="tw-overflow-x-auto tw-px-6 tw-py-7 md:tw-px-9 md:tw-py-9"

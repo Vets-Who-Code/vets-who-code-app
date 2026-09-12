@@ -224,7 +224,8 @@
                 "color": "C"
             },
             "motto": {
-                "text": "We'd love to see you at our events.​",
+                "text": "We hold virtual events to enrich our troops' learning.",
+                "color": "C",
                 "path": "/events",
                 "pathText": "Check out our events"
             }
@@ -238,6 +239,7 @@
             },
             "motto": {
                 "text": "See our impact and recognition in the media.​",
+                "color": "C",
                 "path": "/media",
                 "pathText": "View all media"
             }

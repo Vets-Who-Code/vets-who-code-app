@@ -48,7 +48,7 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
             <div className="tw-container">
                 <div className="tw-mb-10 tw-flex tw-items-center tw-gap-3">
                     <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                         Pathways that ship in civilian roles
                     </span>
                 </div>
@@ -70,7 +70,7 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
                                         "sm:tw-border-l sm:tw-border-cream/10"
                                 )}
                             >
-                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#495057] group-hover:tw-text-accent">
+                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6] group-hover:tw-text-accent">
                                     {number}
                                 </span>
                                 <span className="tw-font-heading tw-text-[22px] tw-font-medium tw-uppercase tw-text-cream [letter-spacing:-0.01em]">
@@ -79,7 +79,7 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
                                 <span className="tw-font-body tw-text-[14px] tw-leading-[1.55] tw-text-[#DEE2E6]">
                                     {blurb}
                                 </span>
-                                <span className="tw-mt-auto tw-flex tw-flex-col tw-gap-1 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
+                                <span className="tw-mt-auto tw-flex tw-flex-col tw-gap-1 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]">
                                     <span>
                                         <span className="tw-text-cream">
                                             {rows.length.toLocaleString()}

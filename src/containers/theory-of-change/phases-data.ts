@@ -231,3 +231,13 @@ export const BRANCH_COLOR_DARK: Record<BranchId, string> = {
 
 export const branchColor = (b: BranchId, theme: "light" | "dark") =>
     theme === "dark" ? BRANCH_COLOR_DARK[b] : BRANCH_COLOR_LIGHT[b];
+
+/* Branch colors that fail WCAG AA as text get a passing brand color for text only;
+   markers and borders keep the palette so they still match the hero git graph. */
+const BRANCH_TEXT_OVERRIDE: Record<"light" | "dark", Partial<Record<BranchId, string>>> = {
+    light: { b2: "var(--charcoal)", b5: "var(--charcoal)" },
+    dark: { b1: "var(--gold)" },
+};
+
+export const branchTextColor = (b: BranchId, theme: "light" | "dark") =>
+    BRANCH_TEXT_OVERRIDE[theme][b] ?? branchColor(b, theme);

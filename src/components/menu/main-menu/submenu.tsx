@@ -17,10 +17,9 @@ const Submenu = ({ menu, className, onFocus, ...rest }: TProps) => {
             {...rest}
         >
             {menu.map(({ id, label, path }) => (
-                <li key={id} role="none" className="tw-relative">
+                <li key={id} className="tw-relative">
                     <Anchor
                         path={path}
-                        role="menuitem"
                         className="tw-flex tw-items-center tw-px-7.5 tw-py-2 tw-text-secondary"
                     >
                         {label}

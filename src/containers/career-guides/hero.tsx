@@ -10,13 +10,13 @@ interface Props {
 
 const Cell = ({ label, value, sub }: { label: string; value: string; sub: string }) => (
     <div className="tw-flex tw-flex-col tw-gap-3 tw-px-6 tw-py-7 md:tw-border-l md:tw-border-cream/10 first:md:tw-border-l-0">
-        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
             {label}
         </span>
         <span className="tw-font-heading tw-text-[30px] tw-font-semibold tw-leading-none tw-text-cream">
             {value}
         </span>
-        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#6C757D]">
+        <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]">
             {sub}
         </span>
     </div>
@@ -29,17 +29,17 @@ const Hero = ({ total, branchCount, familiesCount, certsCount, branches }: Props
         <section className="tw-bg-secondary tw-pt-20 md:tw-pt-24">
             <div className="tw-container">
                 {/* Breadcrumb */}
-                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#6C757D]">
+                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
                     <span>Home</span>
-                    <span className="tw-mx-2 tw-text-[#495057]">/</span>
+                    <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
                     <span className="tw-text-cream">Career Guides</span>
                 </div>
 
                 {/* Eyebrow */}
                 <div className="tw-mt-10 tw-flex tw-items-center tw-gap-3">
                     <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
-                        Career Guides <span className="tw-text-[#495057]">/</span> Hashflag Index
+                    <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
+                        Career Guides <span className="tw-text-[#B9D6F2]/70">/</span> Hashflag Index
                         v1.0
                     </span>
                 </div>

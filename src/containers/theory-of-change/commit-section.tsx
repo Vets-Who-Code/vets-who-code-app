@@ -1,7 +1,7 @@
 import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion } from "motion/react";
-import { branchColor, type Phase } from "./phases-data";
+import { branchColor, branchTextColor, type Phase } from "./phases-data";
 import styles from "./theory.module.css";
 
 interface Props {
@@ -11,9 +11,10 @@ interface Props {
 const CommitSection = ({ phase }: Props) => {
     const dark = phase.theme === "dark";
     const color = branchColor(phase.branchId, phase.theme);
+    const textColor = branchTextColor(phase.branchId, phase.theme);
     const bodyText = dark ? "rgba(248,249,250,0.78)" : "var(--charcoal)";
     const headlineColor = dark ? "#fff" : "var(--navy)";
-    const eyebrowColor = dark ? "rgba(185,214,242,0.65)" : "var(--slate)";
+    const eyebrowColor = dark ? "rgba(185,214,242,0.65)" : "var(--charcoal)";
     const borderColor = dark ? "1px solid rgba(185,214,242,0.12)" : "1px solid rgba(9,31,64,0.12)";
     const diffBg = dark ? "#212529" : "#fff";
     const diffBorder = dark ? "1px solid rgba(185,214,242,0.10)" : "1px solid var(--silver)";
@@ -49,7 +50,9 @@ const CommitSection = ({ phase }: Props) => {
                         }}
                     >
                         {phase.title}
-                        <span className="tw-text-red">{phase.accent}</span>
+                        <span className={dark ? "tw-text-gold" : "tw-text-red"}>
+                            {phase.accent}
+                        </span>
                     </h2>
                     <div className="tw-flex tw-flex-col tw-gap-1.5 md:tw-text-right">
                         <span
@@ -57,7 +60,7 @@ const CommitSection = ({ phase }: Props) => {
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 13,
                                 fontWeight: 700,
-                                color: "var(--red)",
+                                color: dark ? "var(--gold)" : "var(--red)",
                                 letterSpacing: "0.1em",
                                 textTransform: "uppercase",
                             }}
@@ -135,12 +138,12 @@ const CommitSection = ({ phase }: Props) => {
                                 textTransform: "uppercase",
                             }}
                         >
-                            <span style={{ color }}>{phase.hash}</span>
+                            <span style={{ color: textColor }}>{phase.hash}</span>
                             <span
                                 style={{
                                     border: `1px solid ${color}`,
                                     padding: "3px 8px",
-                                    color,
+                                    color: textColor,
                                 }}
                             >
                                 {phase.tag}
@@ -212,7 +215,7 @@ const CommitSection = ({ phase }: Props) => {
                                     <div
                                         className="tw-flex tw-items-start tw-justify-center"
                                         style={{
-                                            color,
+                                            color: textColor,
                                             background: markerBg,
                                             borderRight: diffBorder,
                                             fontFamily: "var(--font-mono)",
@@ -232,7 +235,7 @@ const CommitSection = ({ phase }: Props) => {
                                                 fontFamily: "var(--font-mono)",
                                                 fontSize: 10,
                                                 fontWeight: 700,
-                                                color,
+                                                color: textColor,
                                                 letterSpacing: "0.14em",
                                                 textTransform: "uppercase",
                                             }}
@@ -278,7 +281,9 @@ const CommitSection = ({ phase }: Props) => {
                                 color: eyebrowColor,
                             }}
                         >
-                            <span style={{ color, fontWeight: 700 }}>{phase.footAdd}</span>
+                            <span style={{ color: textColor, fontWeight: 700 }}>
+                                {phase.footAdd}
+                            </span>
                             <span>{phase.footMiddle}</span>
                             <span>build: passing</span>
                         </div>

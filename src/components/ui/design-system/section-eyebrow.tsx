@@ -17,7 +17,7 @@ const SectionEyebrow = ({
     align = "left",
     className,
 }: Props) => {
-    const labelColor = tone === "dark" ? "tw-text-cream" : "tw-text-[#6C757D]";
+    const labelColor = tone === "dark" ? "tw-text-cream" : "tw-text-navy";
     const subColor = tone === "dark" ? "tw-text-[#B9D6F2]/70" : "tw-text-[#495057]";
     const fontSize = size === "md" ? "tw-text-[12px]" : "tw-text-[11px]";
 

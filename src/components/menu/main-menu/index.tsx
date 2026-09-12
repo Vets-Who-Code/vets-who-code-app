@@ -18,8 +18,9 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
     const handleFocusEvent = (e: React.FocusEvent<HTMLAnchorElement>) => {
         setFocusId(e.target.id);
     };
-    const handleBlurEvent = (e: React.FocusEvent<HTMLAnchorElement>) => {
-        if (e.currentTarget.contains(e.relatedTarget)) {
+    // On the <li>: collapse only when focus leaves the item and its submenu entirely.
+    const handleBlurEvent = (e: React.FocusEvent<HTMLLIElement>) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
             setFocusId("");
         }
     };
@@ -38,23 +39,22 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                 {menu.map(({ id, label, path, submenu, megamenu }) => {
                     const hasSubmenu = !!submenu || !!megamenu;
                     return (
+                        // biome-ignore lint/a11y/noNoninteractiveElementInteractions: only observes focus leaving the item's own links; the <li> is not an interaction target
                         <li
                             key={id}
                             className={clsx(
                                 "tw-group tw-inline-block tw-px-2.5 tw-py-[29px] 2xl:tw-px-[15px]",
                                 submenu && "tw-relative"
                             )}
-                            role="none"
+                            onBlur={handleBlurEvent}
                         >
                             <NavLink
                                 id={`nav-${id}`}
                                 path={path}
                                 hoverStyle={hoverStyle}
                                 color={color}
-                                aria-haspopup={hasSubmenu ? true : undefined}
                                 aria-expanded={hasSubmenu ? focusId === `nav-${id}` : undefined}
                                 onFocus={handleFocusEvent}
-                                onBlur={handleBlurEvent}
                             >
                                 {label}
                                 {hasSubmenu && (
@@ -65,7 +65,6 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 <Submenu
                                     menu={submenu}
                                     className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
-                                    role="menu"
                                 />
                             )}
                             {megamenu && (

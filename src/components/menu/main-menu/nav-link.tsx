@@ -39,7 +39,6 @@ const NavLink = ({
             onKeyPress={onKeyPress}
             onFocus={onFocus}
             onBlur={onBlur}
-            role="menuitem"
             tabIndex={0}
             {...rest}
         >

@@ -92,3 +92,6 @@ gemini.md
 # Local SQLite dev database (never commit)
 prisma/dev.db
 *.db
+
+# Personal editor workspace settings
+.vscode/settings.json

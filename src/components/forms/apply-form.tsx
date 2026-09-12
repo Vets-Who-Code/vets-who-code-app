@@ -172,7 +172,7 @@ const ApplyForm = () => {
                                                 ? "tw-bg-primary tw-text-white"
                                                 : currentStep === index + 1
                                                   ? "tw-bg-secondary tw-text-white tw-ring-4 tw-ring-navy-sky"
-                                                  : "tw-bg-gray-50 tw-text-gray-500"
+                                                  : "tw-bg-gray-50 tw-text-gray-300"
                                         }`}
                                     >
                                         {currentStep > index + 1 ? "✓" : step.id}

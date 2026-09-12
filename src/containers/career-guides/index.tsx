@@ -106,7 +106,7 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
                         <div className="tw-flex tw-flex-col tw-gap-3">
                             <div className="tw-flex tw-items-center tw-gap-3">
                                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
-                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                                <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                                     Database · {guides.length.toLocaleString()} Guides
                                 </span>
                             </div>
@@ -114,7 +114,7 @@ const CareerGuidesContainer = ({ guides, branchCounts, familiesCount, certsCount
                                 Search the index.
                             </h2>
                         </div>
-                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                        <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                             Sourced · DoD · Validated · Lightcast
                         </span>
                     </div>

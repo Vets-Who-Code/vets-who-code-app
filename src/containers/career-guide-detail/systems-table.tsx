@@ -37,13 +37,13 @@ const SystemsTable = ({ systems }: Props) => {
                     <table className="tw-w-full">
                         <thead>
                             <tr className="tw-bg-secondary">
-                                <th className="tw-w-[35%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                                <th className="tw-w-[35%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                                     Military System
                                 </th>
-                                <th className="tw-w-[50%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                                <th className="tw-w-[50%] tw-px-4 tw-py-4 tw-text-left tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                                     Civilian Equivalent
                                 </th>
-                                <th className="tw-px-4 tw-py-4 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#6C757D]">
+                                <th className="tw-px-4 tw-py-4 tw-text-right tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
                                     Domain
                                 </th>
                             </tr>

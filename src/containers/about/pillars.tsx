@@ -92,7 +92,7 @@ const visualFooter = {
     fontSize: 9,
     letterSpacing: "0.16em",
     textTransform: "uppercase" as const,
-    color: "rgba(185,214,242,0.55)",
+    color: "var(--silver)",
 };
 
 const SyllabusVisual = () => (
@@ -128,7 +128,7 @@ const SyllabusVisual = () => (
                         letterSpacing: "0.03em",
                     }}
                 >
-                    <span style={{ color: "rgba(185,214,242,0.5)", fontSize: 9 }}>{m.code}</span>
+                    <span style={{ color: "var(--silver)", fontSize: 9 }}>{m.code}</span>
                     <span className="tw-text-white">{m.name}</span>
                     <span className="tw-text-gold" style={{ fontSize: 10, fontWeight: 600 }}>
                         {m.n}
@@ -138,7 +138,7 @@ const SyllabusVisual = () => (
         </ul>
         <div style={visualFooter}>
             <span>Total · mapped</span>
-            <span className="tw-text-red" style={{ fontSize: 11, letterSpacing: "0.10em" }}>
+            <span className="tw-text-gold" style={{ fontSize: 11, letterSpacing: "0.10em" }}>
                 {`${MANIFEST.counts.topics} / ${MANIFEST.counts.topics}`}
             </span>
         </div>
@@ -177,7 +177,7 @@ const TimezonesVisual = () => (
                         letterSpacing: "0.04em",
                     }}
                 >
-                    <span style={{ color: "rgba(185,214,242,0.45)", fontSize: 9 }}>
+                    <span style={{ color: "var(--silver)", fontSize: 9 }}>
                         {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="tw-text-white">{t.city}</span>
@@ -240,7 +240,7 @@ const TerminalVisual = () => (
                     fontFamily: "var(--font-mono)",
                     fontSize: 9,
                     letterSpacing: "0.12em",
-                    color: "rgba(248,249,250,0.45)",
+                    color: "var(--silver)",
                     marginRight: 30,
                 }}
             >
@@ -264,7 +264,7 @@ const TerminalVisual = () => (
                             l.kind === "prompt"
                                 ? "#fff"
                                 : l.kind === "ship"
-                                  ? "var(--red)"
+                                  ? "var(--gold)"
                                   : "rgba(185,214,242,0.7)",
                         fontWeight: l.kind === "ship" ? 700 : 400,
                         letterSpacing: l.kind === "ship" ? "0.08em" : 0,
@@ -312,7 +312,7 @@ const Pillars = () => {
                 >
                     <div>
                         <span
-                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#6C757D]"
+                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 11,
@@ -350,7 +350,7 @@ const Pillars = () => {
                             commitments.
                         </p>
                         <span
-                            className="tw-mt-5 tw-inline-flex tw-items-center tw-gap-2.5 tw-text-[#6C757D]"
+                            className="tw-mt-5 tw-inline-flex tw-items-center tw-gap-2.5 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 11,

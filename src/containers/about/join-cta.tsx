@@ -51,7 +51,7 @@ const JoinCta = () => {
                 >
                     <div>
                         <span
-                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#6C757D]"
+                            className="tw-inline-flex tw-items-center tw-gap-3 tw-text-[#495057]"
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: 11,

@@ -38,7 +38,7 @@ const StrengthsGrid = ({ code, skills }: Props) => {
                                 {s.militaryContext}
                             </p>
                             <div className="tw-mt-auto tw-flex tw-flex-col tw-gap-2 tw-border-t tw-border-dashed tw-border-cream/10 tw-pt-3">
-                                <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.14em] tw-text-[#6C757D]">
+                                <span className="tw-font-mono tw-text-[10px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                                     Transfers to
                                 </span>
                                 <p className="tw-font-body tw-text-[12px] tw-leading-[1.5] tw-text-[#DEE2E6]">
