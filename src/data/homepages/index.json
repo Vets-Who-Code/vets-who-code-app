@@ -24,14 +24,14 @@
             "texts": [
                 {
                     "id": 1,
-                    "content": "We've trained over 300 veterans and military spouses into software engineers — generating $20M+ in first-year earnings across our alumni network. No tuition. No gimmicks. Just a battle-tested curriculum built by veterans who made the same transition. We've been doing this for over a decade."
+                    "content": "We train veterans and military spouses into software engineers. No tuition. No gimmicks. Just a battle-tested curriculum built by veterans who made the same transition — and have been running it for over a decade."
                 }
             ],
             "buttons": [
                 {
                     "id":1,
-                    "path": "/about-us",
-                    "content":"Learn More",
+                    "path": "/apply",
+                    "content":"Apply",
                     "color": "light"
                 },
                 {
@@ -65,8 +65,8 @@
                     ],
                     "title": "Remote-First",
                     "description": "A computer, internet, and discipline. That's the barrier to entry. We train from anywhere because the military taught us how to operate anywhere.",
-                    "path": "/about-us",
-                    "pathText": "Start here"
+                    "path": "/programs",
+                    "pathText": "How it works"
                 },
                 {
                     "id": 2,
@@ -77,8 +77,8 @@
                     ],
                     "title": "Market-Driven Curriculum",
                     "description": "128 Lightcast-validated skills across 25 modules. Every skill maps to actual job postings. If employers aren't hiring for it, we don't teach it.",
-                    "path": "/about-us",
-                    "pathText": "Start here"
+                    "path": "/curriculum",
+                    "pathText": "See the curriculum"
                 },
                 {
                     "id": 3,
@@ -89,22 +89,17 @@
                     ],
                     "title": "Mentorship, Not Hand-Holding",
                     "description": "Your mentors operate as engineering managers, not tutors. You'll learn to think, debug, and ship under the same pressure you'll face on the job.",
-                    "path": "/about-us",
-                    "pathText": "Start here"
+                    "path": "/mentor",
+                    "pathText": "Mentor a troop"
                 }
-            ],
-            "motto": {
-                "text": "Empowering Veterans through Software Engineering.",
-                "path": "/about-us",
-                "pathText": "Let’s get started"
-            }
+            ]
         },
         {
             "section": "funfact-area",
             "section_title": {
                 "title": "Who We <span> Are</span>",
                 "subtitle": "Rooted in Experience,<strong>Focused on Outcomes</strong>",
-                "description": "We were founded by veterans who went through the same broken transition pipeline and decided to build something that actually works. Our filter is simple: if it doesn't lead to a job, we don't teach it. Every module in our curriculum maps to skills that employers are actively hiring for — validated by Lightcast labor market data, not guesswork. We keep cohorts small, mentorship direct, and outcomes measurable. Ten years, 300+ graduates, $20M+ in collective earnings. That's the mission statement."
+                "description": "We were founded by veterans who went through the same broken transition pipeline and decided to build something that actually works. Our filter is simple: if it doesn't lead to a job, we don't teach it. Every module in our curriculum maps to skills that employers are actively hiring for, validated against labor market data rather than guesswork. We keep cohorts small, mentorship direct, and outcomes measurable."
             },
             "motto": {
                 "text": "Want To Learn More?​",
