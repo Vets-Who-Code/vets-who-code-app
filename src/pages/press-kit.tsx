@@ -249,7 +249,7 @@ const PressKitPage: PageWithLayout = () => {
                                 <span className="tw-text-red">Hardaway.</span>
                             </SharpHeadline>
                             <MonoMeta tone="accent" size="md">
-                                Founder &amp; Executive Director
+                                {founder?.designation}
                             </MonoMeta>
                             <p className="tw-mt-4 tw-font-heading tw-text-[20px] tw-font-bold tw-text-navy [line-height:1.35]">
                                 Jerome Hardaway is an Air Force veteran, a self-taught software
