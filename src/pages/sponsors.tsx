@@ -125,7 +125,7 @@ const SponsorPage: PageWithLayout = () => {
                                 <h3 className="tw-mt-4 tw-font-heading tw-text-[22px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
                                     {benefit.title}
                                 </h3>
-                                <p className="tw-mt-4 tw-font-body tw-text-charcoal tw-leading-[1.6]">
+                                <p className="tw-mt-4 tw-font-body tw-text-gray-300 tw-leading-[1.6]">
                                     {benefit.description}
                                 </p>
                             </article>
