@@ -33,7 +33,13 @@ const SystemsTable = ({ systems }: Props) => {
                     lede="Military systems you operated and their civilian equivalents for your resume."
                 />
 
-                <div className="tw-overflow-x-auto tw-border-t tw-border-cream/10">
+                <div
+                    className="tw-overflow-x-auto tw-border-t tw-border-cream/10"
+                    role="region"
+                    aria-label="Military systems"
+                    // biome-ignore lint/a11y/noNoninteractiveTabindex: WCAG 2.1.1 — a scrollable region must be reachable by keyboard (axe scrollable-region-focusable)
+                    tabIndex={0}
+                >
                     <table className="tw-w-full">
                         <thead>
                             <tr className="tw-bg-secondary">

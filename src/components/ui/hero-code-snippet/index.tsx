@@ -246,6 +246,8 @@ const HeroCodeSnippet = () => {
                         >
                             <pre
                                 className="tw-overflow-x-auto tw-px-6 tw-py-7 md:tw-px-9 md:tw-py-9"
+                                // biome-ignore lint/a11y/noNoninteractiveTabindex: WCAG 2.1.1 — a scrollable region must be reachable by keyboard (axe scrollable-region-focusable)
+                                tabIndex={0}
                                 style={{ ...codeBody, color: IDENT }}
                             >
                                 <code>

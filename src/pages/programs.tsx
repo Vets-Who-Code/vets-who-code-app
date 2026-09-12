@@ -255,7 +255,13 @@ const ProgramsPage: PageWithLayout = ({ data }) => {
                         subLabel="Compare Before You Commit"
                         className="tw-mb-7"
                     />
-                    <div className="tw-overflow-x-auto">
+                    <div
+                        className="tw-overflow-x-auto"
+                        role="region"
+                        aria-label="Program comparison"
+                        // biome-ignore lint/a11y/noNoninteractiveTabindex: WCAG 2.1.1 — a scrollable region must be reachable by keyboard (axe scrollable-region-focusable)
+                        tabIndex={0}
+                    >
                         <table className="tw-w-full tw-min-w-[780px] tw-border tw-border-gray-100 tw-bg-white tw-text-left">
                             <thead>
                                 <tr className="tw-bg-navy">
