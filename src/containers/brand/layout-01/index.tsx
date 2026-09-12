@@ -37,7 +37,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
 
     return (
         <Section className="brand-area" space={space} bg={bg}>
-            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-primary">
+            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-white">
                 Technology Partners
             </h2>
             <div className="tw-container">

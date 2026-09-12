@@ -581,16 +581,13 @@ h3 {
     color: var(--navy);
 }
 
-/* White headlines on dark backgrounds */
-.tw-bg-navy h1,
-.tw-bg-navy h2,
-.tw-bg-navy h3,
-.tw-bg-secondary h1,
-.tw-bg-secondary h2,
-.tw-bg-secondary h3,
-.dark-section h1,
-.dark-section h2,
-.dark-section h3 {
+/* White headlines on dark backgrounds. The container sits in :where() so the
+   selector keeps only h1-h3 specificity: it still beats the base heading color
+   above, but any utility class on the heading (e.g. a navy title inside a white
+   card on a navy section) wins. */
+:where(.tw-bg-navy, .tw-bg-secondary, .dark-section) h1,
+:where(.tw-bg-navy, .tw-bg-secondary, .dark-section) h2,
+:where(.tw-bg-navy, .tw-bg-secondary, .dark-section) h3 {
     color: var(--white);
 }
 
