@@ -309,6 +309,19 @@ describe("ApplyForm", () => {
         expect(screen.queryByText(FAILURE_MESSAGE)).not.toBeInTheDocument();
     });
 
+    it("clears the failure message when stepping back after a failed submit", async () => {
+        mockPost.mockRejectedValue(new Error("network down"));
+        render(<ApplyForm />);
+
+        await submitValidApplication();
+        expect(await screen.findByText(FAILURE_MESSAGE)).toBeInTheDocument();
+
+        clickPrevious();
+
+        expect(screen.queryByText(FAILURE_MESSAGE)).not.toBeInTheDocument();
+        expectStep(4);
+    });
+
     it("shows a pending submit state until the request resolves", async () => {
         let resolvePost = (_value: unknown) => {};
         mockPost.mockReturnValue(
