@@ -16,7 +16,7 @@ import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
 import HeroCodeSnippet from "@ui/hero-code-snippet";
 import PullQuote from "@ui/pull-quote";
-import StatBelt from "@ui/stat-belt";
+import WorkBelt from "@ui/work-belt";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
 import { IBlog, IEvent, IMedia } from "@utils/types";
@@ -68,15 +68,6 @@ const Home: PageProps = ({ data }) => {
                             Live · 2026 Cohort
                         </span>
                     </MonoMeta>
-                    <MonoMeta tone="gold" size="xs">
-                        Placement · <span className="tw-text-cream">97%</span>
-                    </MonoMeta>
-                    <MonoMeta tone="gold" size="xs">
-                        Alumni earnings · <span className="tw-text-cream">$20M+</span>
-                    </MonoMeta>
-                    <MonoMeta tone="gold" size="xs">
-                        Status · <span className="tw-text-cream">501(c)(3)</span>
-                    </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
                         <span className="tw-text-cream">Applications Open</span>
                     </MonoMeta>
@@ -106,8 +97,8 @@ const Home: PageProps = ({ data }) => {
                 <div className="section-divider" />
             </div>
 
-            {/* Outcomes belt — results gate before the curriculum preview */}
-            <StatBelt />
+            {/* Work belt — points at shipped projects before the curriculum preview */}
+            <WorkBelt />
 
             <CurriculumColumns />
 

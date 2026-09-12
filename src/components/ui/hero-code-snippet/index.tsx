@@ -279,7 +279,7 @@ const HeroCodeSnippet = () => {
                                     {`\n\n`}
                                     <span
                                         style={{ color: COMMENT }}
-                                    >{`// 300+ deployed · $20M+ collective earnings · <1% acceptance`}</span>
+                                    >{`// no tuition · remote · veterans and military spouses only`}</span>
                                     {/* Command history */}
                                     {history.map((entry, i) => (
                                         <span
