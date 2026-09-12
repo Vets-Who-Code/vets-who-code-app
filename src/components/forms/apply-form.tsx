@@ -194,7 +194,7 @@ const ApplyForm = () => {
                         </div>
                         <div className="tw-h-2 tw-w-full tw-overflow-hidden tw-rounded-full tw-bg-gray-50">
                             <motion.div
-                                className="tw-h-full tw-bg-gradient-to-r tw-from-secondary tw-to-primary"
+                                className="tw-h-full tw-bg-secondary tw-bg-gradient-to-r tw-from-secondary tw-to-primary"
                                 initial={{ width: 0 }}
                                 animate={{ width: `${progressPercentage}%` }}
                                 transition={{ duration: 0.3 }}
