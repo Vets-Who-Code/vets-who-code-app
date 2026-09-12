@@ -23,7 +23,7 @@ const BlogAuthor = ({ name, image, bio, socials }: IInstructor) => {
                                 label={label}
                                 className="tw-px-2.5 tw-py-1.5"
                             >
-                                <i className={icon} />
+                                <i className={icon} aria-hidden="true" />
                             </SocialLink>
                         ))}
                     </Social>

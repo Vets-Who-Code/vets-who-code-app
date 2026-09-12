@@ -50,7 +50,7 @@ const TeamCard = forwardRef<HTMLDivElement, TProps>(
                                     label={social.label}
                                     className="tw-px-3.5"
                                 >
-                                    <i className={social.icon} />
+                                    <i className={social.icon} aria-hidden="true" />
                                 </SocialLink>
                             ))}
                         </Social>

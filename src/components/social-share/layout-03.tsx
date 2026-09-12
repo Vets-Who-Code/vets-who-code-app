@@ -32,7 +32,10 @@ const SocialShare = ({ label, className }: TProps) => {
         >
             <p className="tw-mb-0 tw-mr-3.8 tw-hidden tw-font-medium sm:tw-block">{label}</p>
 
-            <i className="fas fa-share-alt tw-h-14 tw-w-14 tw-rounded-full tw-border-2 tw-border-gray-300 tw-text-center tw-text-lg tw-leading-[52px] tw-text-primary tw-transition-colors tw-duration-300 group-hover:tw-border-primary group-hover:tw-bg-primary group-hover:tw-text-white" />
+            <i
+                className="fas fa-share-alt tw-h-14 tw-w-14 tw-rounded-full tw-border-2 tw-border-gray-300 tw-text-center tw-text-lg tw-leading-[52px] tw-text-primary tw-transition-colors tw-duration-300 group-hover:tw-border-primary group-hover:tw-bg-primary group-hover:tw-text-white"
+                aria-hidden="true"
+            />
             <Social color="light" tooltip={true} flyout={true}>
                 <SocialLink
                     label="Facebook"
@@ -40,7 +43,7 @@ const SocialShare = ({ label, className }: TProps) => {
                     onClick={clickHandler}
                     className="tw-px-3 tw-py-2.5"
                 >
-                    <i className="fab fa-facebook-f" />
+                    <i className="fab fa-facebook-f" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink
                     label="Twitter"
@@ -48,7 +51,7 @@ const SocialShare = ({ label, className }: TProps) => {
                     onClick={clickHandler}
                     className="tw-px-3 tw-py-2.5"
                 >
-                    <i className="fab fa-twitter" />
+                    <i className="fab fa-twitter" aria-hidden="true" />
                 </SocialLink>
                 <SocialLink
                     label="Linkedin"
@@ -56,7 +59,7 @@ const SocialShare = ({ label, className }: TProps) => {
                     onClick={clickHandler}
                     className="tw-px-3 tw-py-2.5"
                 >
-                    <i className="fab fa-linkedin" />
+                    <i className="fab fa-linkedin" aria-hidden="true" />
                 </SocialLink>
             </Social>
         </div>

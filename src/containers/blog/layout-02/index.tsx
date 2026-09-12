@@ -45,8 +45,14 @@ const BlogArea = ({
                             path={path}
                             className="tw-group tw-relative tw-mt-5 tw-block tw-pl-7.5 tw-font-bold tw-leading-[1.78] tw-text-secondary first:tw-mt-0"
                         >
-                            <i className="fa fa-long-arrow-alt-right tw-absolute tw-left-0 tw-top-[5px] tw-text-base tw-transition-all tw-duration-300 group-hover:tw-invisible group-hover:tw-translate-x-full group-hover:tw-opacity-0" />
-                            <i className="fa fa-long-arrow-alt-right tw-invisible tw-absolute tw-left-0 tw-top-[5px] -tw-translate-x-full tw-text-base tw-text-primary tw-opacity-0 tw-transition-all tw-duration-300 group-hover:tw-visible group-hover:tw-translate-x-0 group-hover:tw-opacity-100" />
+                            <i
+                                className="fa fa-long-arrow-alt-right tw-absolute tw-left-0 tw-top-[5px] tw-text-base tw-transition-all tw-duration-300 group-hover:tw-invisible group-hover:tw-translate-x-full group-hover:tw-opacity-0"
+                                aria-hidden="true"
+                            />
+                            <i
+                                className="fa fa-long-arrow-alt-right tw-invisible tw-absolute tw-left-0 tw-top-[5px] -tw-translate-x-full tw-text-base tw-text-primary tw-opacity-0 tw-transition-all tw-duration-300 group-hover:tw-visible group-hover:tw-translate-x-0 group-hover:tw-opacity-100"
+                                aria-hidden="true"
+                            />
                             <span>{title}</span>
                         </Anchor>
                     ))}

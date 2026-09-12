@@ -35,7 +35,7 @@ const SocialShare = ({ className }: TProps) => {
                 onClick={clickHandler}
                 className="tw-mr-2.5"
             >
-                <i className="fab fa-facebook-f" />
+                <i className="fab fa-facebook-f" aria-hidden="true" />
             </SocialLink>
             <SocialLink
                 label="Twitter"
@@ -43,7 +43,7 @@ const SocialShare = ({ className }: TProps) => {
                 onClick={clickHandler}
                 className="tw-mr-2.5"
             >
-                <i className="fab fa-twitter" />
+                <i className="fab fa-twitter" aria-hidden="true" />
             </SocialLink>
             <SocialLink
                 label="Linkedin"
@@ -51,7 +51,7 @@ const SocialShare = ({ className }: TProps) => {
                 onClick={clickHandler}
                 className="tw-mr-2.5"
             >
-                <i className="fab fa-linkedin" />
+                <i className="fab fa-linkedin" aria-hidden="true" />
             </SocialLink>
         </Social>
     );

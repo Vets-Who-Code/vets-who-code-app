@@ -48,7 +48,7 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                 </h3>
                 <ul>
                     <li className="tw-mb-0 tw-mt-3.8 tw-text-md tw-text-white">
-                        <i className="far fa-calendar tw-mr-2.5" />
+                        <i className="far fa-calendar tw-mr-2.5" aria-hidden="true" />
                         {postedAt}
                     </li>
                 </ul>

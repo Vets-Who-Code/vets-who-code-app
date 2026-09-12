@@ -148,7 +148,10 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                     variant="outlined"
                                     onClick={() => setOpen(true)}
                                 >
-                                    <i className={clsx(buttons[1]?.icon, "tw-mr-4")} />
+                                    <i
+                                        className={clsx(buttons[1]?.icon, "tw-mr-4")}
+                                        aria-hidden="true"
+                                    />
                                     {buttons[1].content}
                                 </Button>
                             )}

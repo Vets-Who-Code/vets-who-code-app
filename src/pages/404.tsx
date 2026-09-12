@@ -27,10 +27,10 @@ const Error404Page = () => {
                         </p>
                         <div className="tw-mt-8">
                             <Button className="tw-m-2.5" onClick={() => router.back()}>
-                                <i className="far fa-history tw-mr-3" /> Go back
+                                <i className="far fa-history tw-mr-3" aria-hidden="true" /> Go back
                             </Button>
                             <Button className="tw-m-2.5" path="/">
-                                <i className="far fa-home tw-mr-3" /> Homepage
+                                <i className="far fa-home tw-mr-3" aria-hidden="true" /> Homepage
                             </Button>
                         </div>
                     </div>

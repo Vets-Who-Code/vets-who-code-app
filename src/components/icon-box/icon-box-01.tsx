@@ -23,7 +23,10 @@ const IconBox = forwardRef<HTMLDivElement, IconBoxProps>(
                     <p className="tw-mt-3 tw-px-2.5 tw-leading-normal">{description}</p>
                     <span className="tw-mt-5 tw-inline-flex tw-items-center tw-p-1.3 tw-text-md tw-font-bold tw-leading-none tw-text-secondary-light group-hover:tw-text-primary">
                         {pathText}{" "}
-                        <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
+                        <i
+                            className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]"
+                            aria-hidden="true"
+                        />
                     </span>
                 </div>
                 <Anchor className="link-overlay" path={path}>

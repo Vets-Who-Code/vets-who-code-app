@@ -58,7 +58,10 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                             >
                                 {label}
                                 {hasSubmenu && (
-                                    <i className="fa fa-chevron-down tw-ml-2 tw-text-xs" />
+                                    <i
+                                        className="fa fa-chevron-down tw-ml-2 tw-text-xs"
+                                        aria-hidden="true"
+                                    />
                                 )}
                             </NavLink>
                             {submenu && (

@@ -20,7 +20,11 @@ const ImageBox = forwardRef<HTMLDivElement, ImageBoxProps>(
                 <h3 className="tw-m-0 tw-text-xl tw-leading-normal">{title}</h3>
                 <p className="tw-mb-[34px] tw-mt-2.5 tw-leading-relaxed">{description}</p>
                 <span className="tw-flex tw-min-h-[40px] tw-items-center tw-justify-center tw-rounded tw-bg-transparent tw-px-5 tw-text-md tw-font-bold tw-leading-none tw-text-secondary-light tw-transition group-hover:tw-bg-light-100 group-hover:tw-text-primary">
-                    {pathText} <i className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]" />
+                    {pathText}{" "}
+                    <i
+                        className="far fa-long-arrow-right tw-ml-3.5 tw-text-[16px]"
+                        aria-hidden="true"
+                    />
                 </span>
                 <Anchor className="link-overlay" path={path}>
                     {title}

@@ -80,7 +80,7 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                                 color: "#495057",
                             }}
                         >
-                            <i className="far fa-calendar tw-mr-1.5" />
+                            <i className="far fa-calendar tw-mr-1.5" aria-hidden="true" />
                             {new Date(date).toLocaleDateString("en-US", {
                                 year: "numeric",
                                 month: "long",
@@ -102,7 +102,8 @@ const MediaCard = forwardRef<HTMLDivElement, TProps>(
                             transition: "color 0.3s ease",
                         }}
                     >
-                        View Media <i className="fas fa-external-link-alt tw-ml-1" />
+                        View Media{" "}
+                        <i className="fas fa-external-link-alt tw-ml-1" aria-hidden="true" />
                     </Anchor>
                 </div>
             </div>
