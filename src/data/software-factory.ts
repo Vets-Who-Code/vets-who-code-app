@@ -208,7 +208,7 @@ export const TEAM: TeamMember[] = [
         branch: "USAF Security Forces · 2004–2009",
         specialty: "Google Developer Expert · GitHub Star · White House honoree",
         body: "Jerome is a working software engineer first and a founder second — the rare nonprofit leader who still ships code on Monday and teaches it on Tuesday. An Air Force Security Forces veteran with 15+ years of production AI experience at Microsoft, Vista Equity Partners, and now Accenture Federal Services, he runs Vets Who Code the way he runs engineering teams: in the work, not above it. He's a Google Developer Expert, GitHub Star, and White House honoree, with courses on LinkedIn Learning and Frontend Masters. Since founding VWC in 2014, he's trained over 300 veterans and military spouses, unlocking $20M+ in graduate earnings — and personally mentored many of them.",
-        image: "https://res.cloudinary.com/vetswhocode/image/upload/v1683429329/jerome-headshot-bw-3900.jpg",
+        image: "https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,c_fill,g_face,w_1200,h_1474/v1683429329/jerome-headshot-bw-3900.jpg",
     },
     {
         name: "Ayumi Fukuda Bennett",
