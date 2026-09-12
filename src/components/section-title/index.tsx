@@ -75,7 +75,8 @@ const SectionTitle = forwardRef<HTMLDivElement, TProps>(
                     content={title}
                     as="h2"
                     className={clsx(
-                        "title tw-m-0 child:tw-font-normal child:tw-text-primary [font-family:var(--font-headline)] tw-font-extrabold",
+                        "title tw-m-0 child:tw-font-normal tw-font-extrabold [font-family:var(--font-headline)]",
+                        color === "C" ? "child:tw-text-gold" : "child:tw-text-primary",
                         color === "A" && "tw-text-secondary",
                         color === "C" && "tw-text-white",
                         titleSize === "large" &&
