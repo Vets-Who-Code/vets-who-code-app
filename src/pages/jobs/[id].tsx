@@ -204,7 +204,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                     {/* Sidebar */}
                     <div>
                         {/* Quick Apply */}
-                        <div className="tw-mb-8 tw-rounded-lg tw-bg-gradient-to-br tw-from-secondary tw-to-secondary-dark tw-p-6 tw-text-white tw-shadow-md">
+                        <div className="tw-mb-8 tw-rounded-lg tw-bg-secondary tw-bg-gradient-to-br tw-from-secondary tw-to-secondary-dark tw-p-6 tw-text-white tw-shadow-md">
                             <h3 className="tw-mb-3 tw-text-xl tw-font-bold">Ready to Apply?</h3>
                             <p className="tw-mb-4 tw-text-sm tw-opacity-90">
                                 Click below to submit your application through Job Boardly.

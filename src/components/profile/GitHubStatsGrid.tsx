@@ -57,7 +57,7 @@ const GitHubStatsGrid = ({ github, isLoading }: GitHubStatsGridProps) => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="tw-rounded-lg tw-bg-gradient-to-br tw-from-navy tw-to-navy-deep tw-p-6 tw-text-center tw-border tw-border-gold/10 tw-shadow-lg"
+                    className="tw-rounded-lg tw-bg-navy tw-bg-gradient-to-br tw-from-navy tw-to-navy-deep tw-p-6 tw-text-center tw-border tw-border-gold/10 tw-shadow-lg"
                 >
                     <i className={`${card.icon} tw-text-gold/60 tw-text-lg tw-mb-2`} />
                     <div className="tw-font-mono tw-text-3xl tw-font-bold tw-text-gold">

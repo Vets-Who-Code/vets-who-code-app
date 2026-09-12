@@ -32,7 +32,7 @@ const ProfileHeader = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="tw-mb-8 tw-rounded-xl tw-bg-gradient-to-br tw-from-navy tw-via-navy-deep tw-to-secondary-dark tw-p-8 tw-text-white tw-relative tw-overflow-hidden"
+            className="tw-mb-8 tw-rounded-xl tw-bg-navy tw-bg-gradient-to-br tw-from-navy tw-via-navy-deep tw-to-secondary-dark tw-p-8 tw-text-white tw-relative tw-overflow-hidden"
         >
             {/* Subtle grid overlay */}
             <div

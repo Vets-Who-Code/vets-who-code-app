@@ -515,7 +515,7 @@ const PortfolioChecklist: PageProps = () => {
             />
 
             {/* Hero */}
-            <section className="tw-bg-gradient-to-br tw-from-secondary tw-to-navy-deep tw-py-16 tw-text-white md:tw-py-24 print:tw-bg-white print:tw-py-8 print:tw-text-body">
+            <section className="tw-bg-secondary tw-bg-gradient-to-br tw-from-secondary tw-to-navy-deep tw-py-16 tw-text-white md:tw-py-24 print:tw-bg-white print:tw-py-8 print:tw-text-body">
                 <div className="tw-container tw-max-w-4xl">
                     <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-leading-tight tw-text-white md:tw-text-5xl print:tw-text-2xl print:tw-text-secondary">
                         Portfolio Checklist for Software Engineers
@@ -543,7 +543,7 @@ const PortfolioChecklist: PageProps = () => {
                         </div>
                         <div className="tw-mt-1.5 tw-h-2 tw-overflow-hidden tw-rounded-full tw-bg-gray-100">
                             <div
-                                className="tw-h-full tw-rounded-full tw-bg-gradient-to-r tw-from-navy-ocean tw-to-navy-royal tw-transition-all tw-duration-500"
+                                className="tw-h-full tw-rounded-full tw-bg-navy-royal tw-bg-gradient-to-r tw-from-navy-ocean tw-to-navy-royal tw-transition-all tw-duration-500"
                                 style={{ width: `${progressPercent}%` }}
                             />
                         </div>

@@ -87,7 +87,7 @@ const ResumeTranslatorPage: PageWithLayout = ({ jobCodeIndex }) => {
 
                 {/* Career Guides CTA */}
                 <div className="tw-mt-16 tw-mx-auto tw-max-w-5xl">
-                    <div className="tw-bg-gradient-to-r tw-from-navy tw-to-navy-deep tw-rounded-lg tw-p-8 tw-text-white">
+                    <div className="tw-bg-navy tw-bg-gradient-to-r tw-from-navy tw-to-navy-deep tw-rounded-lg tw-p-8 tw-text-white">
                         <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-white">
                             Browse Career Guides by Job Code
                         </h2>
