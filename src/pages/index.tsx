@@ -121,7 +121,7 @@ const Home: PageProps = ({ data }) => {
                     <PullQuote
                         theme="light"
                         emphasis="We don't train veterans to fill seats."
-                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
+                        continuation="We train them to be the engineer their team can’t afford to lose."
                     />
                     <div className="tw-mt-14 md:tw-mt-20">
                         <AlumniStrip align="center" theme="light" />
@@ -152,9 +152,9 @@ const Home: PageProps = ({ data }) => {
 
             <EngagementModal
                 headline="Your Next Mission Starts Here."
-                body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
-                cta1={{ label: "Donate Now", href: "/donate" }}
-                cta2={{ label: "Join the Mission", href: "#newsletter" }}
+                body="Every troop trains free. Donors, alumni, and partners cover the seat."
+                cta1={{ label: "Donate", href: "/donate" }}
+                cta2={{ label: "Get the SITREP", href: "#newsletter" }}
             />
         </>
     );
