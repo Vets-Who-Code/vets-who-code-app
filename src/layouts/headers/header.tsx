@@ -12,7 +12,7 @@ import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
@@ -27,6 +27,10 @@ const Header = ({ shadow, fluid }: TProps) => {
     const router = useRouter();
     const [offcanvas, setOffcanvas] = useState(false);
     const { sticky, measuredRef } = useSticky();
+    const topBarRef = useRef<HTMLDivElement>(null);
+    // The sticky nav pins below the top bar, whose height changes with the cohort
+    // countdown (present or not, one row or two). Measure it instead of guessing.
+    const [topBarHeight, setTopBarHeight] = useState(52);
     const { status } = useSession();
     const cohortStartDate = getCohortStartDate(siteConfig.cohortStartDate);
     const cohortUpcoming = isCohortUpcoming(cohortStartDate);
@@ -39,10 +43,21 @@ const Header = ({ shadow, fluid }: TProps) => {
         setOffcanvas(false);
     }, [router]);
 
+    useEffect(() => {
+        const el = topBarRef.current;
+        if (!el) return undefined;
+        const measure = () => setTopBarHeight(el.offsetHeight);
+        measure();
+        const observer = new ResizeObserver(measure);
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <>
             <header className="header tw-relative">
                 <div
+                    ref={topBarRef}
                     className={clsx(
                         "header-top tw-bg-gray-50 tw-py-2.5 tw-z-[60] tw-w-full tw-transition-all",
                         sticky && "tw-fixed tw-top-0 tw-left-0 tw-shadow-md"
@@ -77,9 +92,10 @@ const Header = ({ shadow, fluid }: TProps) => {
                             "header-inner tw-left-0 tw-z-50 tw-h-auto tw-w-full tw-py-[25px] tw-transition-all xl:tw-py-0",
                             !sticky && "tw-absolute tw-top-0 tw-bg-white",
                             sticky &&
-                                "tw-fixed tw-top-[52px] tw-animate-headerSlideDown tw-backdrop-blur-lg tw-bg-white/90 tw-border-b tw-border-gray-200/50 tw-shadow-lg tw-shadow-black/5",
+                                "tw-fixed tw-animate-headerSlideDown tw-backdrop-blur-lg tw-bg-white/90 tw-border-b tw-border-gray-200/50 tw-shadow-lg tw-shadow-black/5",
                             shadow && "tw-shadow-sm tw-shadow-black/5"
                         )}
+                        style={sticky ? { top: topBarHeight } : undefined}
                     >
                         <div
                             className={clsx(
