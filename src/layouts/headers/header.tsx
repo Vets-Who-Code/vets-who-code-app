@@ -133,7 +133,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                             color: "#495057",
                                         }}
                                     >
-                                        {siteConfig.cohortStatus}
+                                        {siteConfig.cohortStatusShort}
                                     </span>
                                 </div>
                                 {/* Socials moved out of the header — the container has no

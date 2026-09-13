@@ -16,4 +16,6 @@ export default {
     cohortYear,
     // Status badge printed across the marketing surfaces.
     cohortStatus: `${cohortYear} Cohort · Applications Open`,
+    // The header nav row has no spare pixels — the long form wraps the menu.
+    cohortStatusShort: `${cohortYear} Cohort · Open`,
 };
