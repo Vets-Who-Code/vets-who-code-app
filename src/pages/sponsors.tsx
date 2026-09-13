@@ -53,7 +53,7 @@ const SponsorPage: PageWithLayout = () => {
                         EIN · <span className="tw-text-cream">86-2122804</span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
-                        <span className="tw-text-cream">{siteConfig.cohortYear} Cohort Active</span>
+                        <span className="tw-text-cream">{siteConfig.cohortStatus}</span>
                     </MonoMeta>
                 </div>
             </div>

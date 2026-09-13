@@ -23,7 +23,7 @@ const StatusBar = ({ code }: Props) => (
             <span>
                 Updated · <span className="tw-text-cream">Q2 2026</span>
             </span>
-            <span className="tw-ml-auto tw-text-cream">{siteConfig.cohortYear} Cohort Active</span>
+            <span className="tw-ml-auto tw-text-cream">{siteConfig.cohortStatus}</span>
         </div>
     </div>
 );

@@ -130,7 +130,7 @@ const Hero = () => {
                             className="tw-ml-auto tw-flex tw-items-center tw-gap-2"
                         >
                             <span className={styles.statusDot} />
-                            {siteConfig.cohortYear} cohort active
+                            {siteConfig.cohortStatus}
                         </span>
                     </div>
                 </motion.div>

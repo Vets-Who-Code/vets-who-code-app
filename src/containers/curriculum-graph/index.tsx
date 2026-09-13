@@ -129,8 +129,7 @@ const PROVENANCE = [
 const CurriculumGraphContainer = () => (
     <>
         <div className={styles.metaStrip}>
-            {siteConfig.cohortYear} Cohort Active &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free
-            &nbsp;·&nbsp; Remote
+            {siteConfig.cohortStatus} &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free &nbsp;·&nbsp; Remote
         </div>
 
         <GraphPanel />

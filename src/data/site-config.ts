@@ -1,6 +1,7 @@
-// Next cohort start date (YYYY/MM/DD). The countdown and the "Cohort Active"
-// badges both read it, so the year can never drift from the date.
+// Next cohort start date (YYYY/MM/DD). The countdown and the status badges both
+// read it, so the year can never drift from the date.
 const cohortStartDate = "2027/04/05";
+const cohortYear = Number(cohortStartDate.slice(0, 4));
 
 export default {
     name: "Vets Who Code",
@@ -12,5 +13,7 @@ export default {
     // of showing a dead 0:0:0:0. Override per-environment without a code change via
     // NEXT_PUBLIC_COHORT_START_DATE.
     cohortStartDate,
-    cohortYear: Number(cohortStartDate.slice(0, 4)),
+    cohortYear,
+    // Status badge printed across the marketing surfaces.
+    cohortStatus: `${cohortYear} Cohort · Applications Open`,
 };
