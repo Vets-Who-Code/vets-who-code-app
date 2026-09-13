@@ -8,4 +8,7 @@ export default {
     // the past (or unset), the countdown is hidden instead of showing a dead 0:0:0:0.
     // Override per-environment without a code change via NEXT_PUBLIC_COHORT_START_DATE.
     cohortStartDate: "2026/04/07",
+    // Year printed on the "Cohort Active" badges. Separate from cohortStartDate
+    // because the badges go up before the exact start date is set.
+    cohortYear: 2027,
 };

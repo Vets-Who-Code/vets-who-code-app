@@ -1,5 +1,6 @@
 import SEO from "@components/seo/page-seo";
 import { MonoMeta, SectionEyebrow, SharpHeadline, StatStrip } from "@components/ui/design-system";
+import siteConfig from "@data/site-config";
 import Layout from "@layout/layout-01";
 import type { NextPage } from "next";
 
@@ -52,7 +53,7 @@ const SponsorPage: PageWithLayout = () => {
                         EIN · <span className="tw-text-cream">86-2122804</span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
-                        <span className="tw-text-cream">2026 Cohort Active</span>
+                        <span className="tw-text-cream">{siteConfig.cohortYear} Cohort Active</span>
                     </MonoMeta>
                 </div>
             </div>

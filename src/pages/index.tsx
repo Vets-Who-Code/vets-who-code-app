@@ -12,6 +12,7 @@ import NewsletterArea from "@containers/newsletter/layout-02";
 import ServiceArea from "@containers/service/layout-03";
 import TestimonialArea from "@containers/testimonial/layout-04";
 import VideoArea from "@containers/video/layout-04";
+import siteConfig from "@data/site-config";
 import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
 import HeroCodeSnippet from "@ui/hero-code-snippet";
@@ -65,7 +66,7 @@ const Home: PageProps = ({ data }) => {
                                 <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-red tw-opacity-75" />
                                 <span className="tw-relative tw-inline-flex tw-h-[7px] tw-w-[7px] tw-rounded-full tw-bg-red tw-shadow-[0_0_10px_#c5203e]" />
                             </span>
-                            Live · 2026 Cohort
+                            Live · {siteConfig.cohortYear} Cohort
                         </span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">

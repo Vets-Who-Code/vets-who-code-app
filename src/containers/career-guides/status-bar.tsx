@@ -1,3 +1,5 @@
+import siteConfig from "@data/site-config";
+
 interface Props {
     total: number;
 }
@@ -21,7 +23,7 @@ const StatusBar = ({ total }: Props) => (
             <span>
                 Updated · <span className="tw-text-cream">Q2 2026</span>
             </span>
-            <span className="tw-ml-auto tw-text-cream">2026 Cohort Active</span>
+            <span className="tw-ml-auto tw-text-cream">{siteConfig.cohortYear} Cohort Active</span>
         </div>
     </div>
 );

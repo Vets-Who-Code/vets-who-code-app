@@ -1,3 +1,4 @@
+import siteConfig from "@data/site-config";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import HeroGitGraph from "./hero-git-graph";
@@ -6,7 +7,7 @@ import styles from "./theory.module.css";
 const META = [
     { label: "Repository", value: "vetswhocode/troops" },
     { label: "Branch", value: "main → production" },
-    { label: "Cohort", value: "2026 · open" },
+    { label: "Cohort", value: `${siteConfig.cohortYear} · open` },
     { label: "License", value: "501(c)(3) · free" },
 ];
 
@@ -129,7 +130,7 @@ const Hero = () => {
                             className="tw-ml-auto tw-flex tw-items-center tw-gap-2"
                         >
                             <span className={styles.statusDot} />
-                            2026 cohort active
+                            {siteConfig.cohortYear} cohort active
                         </span>
                     </div>
                 </motion.div>

@@ -117,7 +117,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                             color: "#495057",
                                         }}
                                     >
-                                        2026 Cohort Active
+                                        {siteConfig.cohortYear} Cohort Active
                                     </span>
                                 </div>
                                 {/* Socials moved out of the header — the container has no
