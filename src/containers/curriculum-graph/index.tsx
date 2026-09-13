@@ -1,4 +1,5 @@
 import SectionTitle from "@components/section-title";
+import siteConfig from "@data/site-config";
 import { MANIFEST, SUBJECTS, TOPICS } from "@lib/curriculum-graph";
 import Button from "@ui/button";
 import styles from "./curriculum-graph.module.css";
@@ -128,7 +129,7 @@ const PROVENANCE = [
 const CurriculumGraphContainer = () => (
     <>
         <div className={styles.metaStrip}>
-            2026 Cohort Active &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free &nbsp;·&nbsp; Remote
+            {siteConfig.cohortStatus} &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free &nbsp;·&nbsp; Remote
         </div>
 
         <GraphPanel />

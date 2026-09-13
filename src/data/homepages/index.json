@@ -6,37 +6,37 @@
             "headings": [
                 {
                     "id":1,
-                    "content":"Learn"
+                    "content":"From Service To"
                 },
                 {
                     "id":2,
-                    "content":"Software Engineering"
+                    "content":"Software Engineer"
                 },
                 {
                     "id":3,
-                    "content":"With The Best Tools"
+                    "content":"Production Code"
                 },
                 {
                     "id":4,
-                    "content":"With #VetsWhoCode"
+                    "content":"Shipping Software"
                 }
             ],
             "texts": [
                 {
                     "id": 1,
-                    "content": "We train veterans and military spouses into software engineers. No tuition. No gimmicks. Just a battle-tested curriculum built by veterans who made the same transition — and have been running it for over a decade."
+                    "content": "We train veterans and military spouses into software engineers. Free, remote, and taught by veterans who made the same transition — with mentors who run engineering teams for a living, not tutors."
                 }
             ],
             "buttons": [
                 {
                     "id":1,
                     "path": "/apply",
-                    "content":"Apply",
+                    "content":"Apply for 2027",
                     "color": "light"
                 },
                 {
                     "id": 2,
-                    "content":"About Us",
+                    "content":"Watch the Brief",
                     "icon": "fas fa-play",
                     "variant": "outlined",
                     "color": "light"
@@ -98,13 +98,13 @@
             "section": "funfact-area",
             "section_title": {
                 "title": "Who We <span> Are</span>",
-                "subtitle": "Rooted in Experience,<strong>Focused on Outcomes</strong>",
+                "subtitle": "Built By Veterans,<strong>Measured By Outcomes</strong>",
                 "description": "We were founded by veterans who went through the same broken transition pipeline and decided to build something that actually works. Our filter is simple: if it doesn't lead to a job, we don't teach it. Every module in our curriculum maps to skills that employers are actively hiring for, validated against labor market data rather than guesswork. We keep cohorts small, mentorship direct, and outcomes measurable."
             },
             "motto": {
-                "text": "Want To Learn More?​",
+                "text": "Ten years. One way of doing this.",
                 "path": "/about-us",
-                "pathText": "Start here"
+                "pathText": "Read our story"
             },
             "items": [
                 {
@@ -117,10 +117,10 @@
                 },
                 {
                     "id": 2,
-                    "title": "Veterans Trained",
+                    "title": "Troops Trained",
                     "suffix": "+",
                     "counter": 300,
-                    "description": "Since 2014"
+                    "description": "Veterans and military spouses since 2014"
                 },
                 {
                     "id": 3,
@@ -160,9 +160,9 @@
         {
             "section": "testimonial-area",
             "section_title": {
-                "title": "Embrace the Strength of Our <span>Community</span>",
-                "subtitle": "Where Coding Meets Camaraderie",
-                "description": "Experience the power of connection as you join a supportive network of veterans and spouses passionate about coding and personal growth. Together, we'll foster camaraderie, exchange ideas, and provide unwavering support to help each other succeed in the world of technology. Together, let's embark on a transformative journey towards new opportunities and a brighter future."
+                "title": "The <span>Network</span> You Graduate Into",
+                "subtitle": "Cohorts end. The network doesn't.",
+                "description": "Alumni review your pull requests, refer you into their companies, and answer when a deploy breaks at 0200. You finish the program once. You keep the people."
             },
             "buttons": [
                 {
@@ -219,10 +219,10 @@
                 "color": "C"
             },
             "motto": {
-                "text": "We hold virtual events to enrich our troops' learning.",
+                "text": "Virtual events all year — open to troops and anyone considering the program.",
                 "color": "C",
                 "path": "/events",
-                "pathText": "Check out our events"
+                "pathText": "See what’s coming"
             }
         },
         {
@@ -233,17 +233,17 @@
                 "color": "C"
             },
             "motto": {
-                "text": "See our impact and recognition in the media.​",
+                "text": "Where the press has covered our troops.",
                 "color": "C",
                 "path": "/media",
-                "pathText": "View all media"
+                "pathText": "View all coverage"
             }
         },
         {
             "section": "blog-area",
             "section_title": {
                 "title": "Trending on <span>Our Blogs</span>",
-                "subtitle":"Insights from the #VetsWhoCode community"
+                "subtitle":"Field notes from veterans building software."
             }
         },
         {
@@ -308,8 +308,8 @@
         {
             "section": "newsletter-area",
             "section_title": {
-                "title": "Subscribe to Our <span>Newsletter</span>",
-                "description":"Enter your email address to get our monthly newsletter, the SITREP <br class='tw-hidden md:tw-block'>and other exciting updates from our organization!"
+                "title": "Get the <span>SITREP</span>",
+                "description":"One email a month: what our troops shipped, who got hired, <br class='tw-hidden md:tw-block'>and what’s open right now."
             }
         }
     ]

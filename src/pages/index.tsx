@@ -12,6 +12,7 @@ import NewsletterArea from "@containers/newsletter/layout-02";
 import ServiceArea from "@containers/service/layout-03";
 import TestimonialArea from "@containers/testimonial/layout-04";
 import VideoArea from "@containers/video/layout-04";
+import siteConfig from "@data/site-config";
 import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
 import HeroCodeSnippet from "@ui/hero-code-snippet";
@@ -65,7 +66,7 @@ const Home: PageProps = ({ data }) => {
                                 <span className="tw-absolute tw-inline-flex tw-h-full tw-w-full tw-animate-ping tw-rounded-full tw-bg-red tw-opacity-75" />
                                 <span className="tw-relative tw-inline-flex tw-h-[7px] tw-w-[7px] tw-rounded-full tw-bg-red tw-shadow-[0_0_10px_#c5203e]" />
                             </span>
-                            Live · 2026 Cohort
+                            Live · {siteConfig.cohortYear} Cohort
                         </span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
@@ -121,7 +122,7 @@ const Home: PageProps = ({ data }) => {
                     <PullQuote
                         theme="light"
                         emphasis="We don't train veterans to fill seats."
-                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
+                        continuation="We train them to be the engineer their team can’t afford to lose."
                     />
                     <div className="tw-mt-14 md:tw-mt-20">
                         <AlumniStrip align="center" theme="light" />
@@ -152,9 +153,9 @@ const Home: PageProps = ({ data }) => {
 
             <EngagementModal
                 headline="Your Next Mission Starts Here."
-                body="Support Vets Who Code — help veterans code, launch tech careers, and change their lives."
-                cta1={{ label: "Donate Now", href: "/donate" }}
-                cta2={{ label: "Join the Mission", href: "#newsletter" }}
+                body="Every troop trains free. Donors, alumni, and partners cover the seat."
+                cta1={{ label: "Donate", href: "/donate" }}
+                cta2={{ label: "Get the SITREP", href: "#newsletter" }}
             />
         </>
     );
