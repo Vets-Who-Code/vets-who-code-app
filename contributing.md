@@ -161,9 +161,11 @@ git push origin feature/your-feature-name
 
 ## Code Style and Linting
 
-- We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
+- We use [Biome](https://biomejs.dev/) for code styling and linting. Make sure your code adheres to our configuration in `biome.json`.
 - Run the linter before submitting a PR to ensure your code passes.
-- A pre-commit hook runs `biome check --write` on staged `*.{js,jsx,ts,tsx}` files (via lint-staged) and then a full `npm run typecheck`. Both must pass before a commit is accepted.
+- A pre-commit hook runs `biome check --write` on staged `*.{js,jsx,ts,tsx}` files (via lint-staged), then runs `npm run typecheck` when the commit includes TypeScript. Both must pass before a commit is accepted.
+- `npm run typecheck` covers the whole working tree under `src/`, not just your staged files, so an unstaged or untracked `.ts`/`.tsx` file with a type error will block the commit too. Fix or remove it instead of bypassing the hook.
+- Biome can also report pre-existing errors in a file you touched (the outstanding set is tracked in [#1221](https://github.com/Vets-Who-Code/vets-who-code-app/issues/1221)). Fix them as part of your commit — do not commit with `--no-verify`.
 
 ## Commit Message Guidelines
 
