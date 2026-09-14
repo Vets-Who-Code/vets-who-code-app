@@ -5,6 +5,7 @@ import Script from "next/script";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { ElementType, useEffect } from "react";
+import ErrorBoundary from "@/components/error-boundary";
 import SEO from "@/components/seo/deafult-seo";
 import FallbackLayout from "@/layouts/fallback";
 // CSS must be imported in this order for proper cascade: fonts -> framework -> overrides
@@ -68,7 +69,9 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
 
                     <Layout {...layoutProps}>
                         <SEO />
-                        <Component {...pageProps} />
+                        <ErrorBoundary resetKey={router.asPath}>
+                            <Component {...pageProps} />
+                        </ErrorBoundary>
                         <Analytics />
                     </Layout>
                 </CartProvider>
