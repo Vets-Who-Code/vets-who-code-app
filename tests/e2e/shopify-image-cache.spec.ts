@@ -1,6 +1,13 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Shopify Image Caching", () => {
+    // The explicit waits below (service-worker activation, two cache probes, the
+    // decoded-pixels poll) allow more than Playwright's 30s default per-test
+    // timeout on their own, so without this the bounds never get to do their job:
+    // the run aborts on the test timeout instead of skipping or failing on the
+    // assertion that actually matters.
+    test.describe.configure({ timeout: 90000 });
+
     test.afterEach(async ({ page }) => {
         // Never leave the context offline when an assertion above fails.
         await page.context().setOffline(false);
