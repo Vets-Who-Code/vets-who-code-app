@@ -109,6 +109,35 @@ SHOPIFY_ADMIN_ACCESS_TOKEN="your-admin-access-token" # Optional for admin featur
    - Products will be cached and revalidated every 5 minutes
    - This provides fast page loads with fresh data
 
+### Step 5: Register Webhooks
+
+Orders only reach Neon (and `/orders`) if Shopify is pointed at the webhook endpoints. In Shopify admin, go to **Settings → Notifications → Webhooks** and add one subscription per topic below. Format is **JSON** for all of them.
+
+| Topic | Endpoint |
+| --- | --- |
+| Order creation | `https://your-domain.com/api/shopify/webhooks/orders/create` |
+| Order updated | `https://your-domain.com/api/shopify/webhooks/orders/updated` |
+| Order payment | `https://your-domain.com/api/shopify/webhooks/orders/updated` |
+| Order fulfillment | `https://your-domain.com/api/shopify/webhooks/orders/updated` |
+| Order cancellation | `https://your-domain.com/api/shopify/webhooks/orders/updated` |
+
+All four status topics post the full Order payload, so they share one handler that syncs `financialStatus` and `fulfillmentStatus`.
+
+**Both endpoints verify the HMAC signature** and reject anything unsigned with a 401. Set the signing secret in your hosting environment under any one of these names — the handlers check them in this order:
+
+```bash
+SHOPIFY_WEBHOOK_SECRET="..."   # Primary option
+SHOPIFY_API_SECRET="..."       # Alternative name
+SHOPIFY_CLIENT_SECRET="..."    # Alternative name
+```
+
+The value is the **API Secret Key** from your Shopify app's API credentials.
+
+Notes:
+
+- `orders/updated` only syncs orders that already exist in Neon. Register it alongside `orders/create`, not instead of it — a status change for an order that was never created returns a 500 so Shopify retries.
+- Failures return 5xx on purpose so Shopify's retry schedule kicks in. Watch your server logs for `[shopify-webhook]` entries.
+
 ## Usage
 
 ### Adding Products to Your Store
