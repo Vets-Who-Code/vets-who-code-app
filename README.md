@@ -249,6 +249,12 @@ npx playwright test tests/e2e/interactive-lesson.spec.ts  # one file
 
 Projects defined in `playwright.config.ts`: `chromium`, `firefox`, `Mobile Chrome`, `Microsoft Edge`, `Google Chrome`.
 
+The `Microsoft Edge` and `Google Chrome` projects drive system-installed branded browsers, which plain `npx playwright install` does not download — a bare `npx playwright test` fails those two projects with `Chromium distribution 'msedge' is not found`. Either run `npx playwright install msedge chrome` first, or stay on the bundled browsers:
+
+```sh
+npx playwright test --project=chromium --project=firefox --project="Mobile Chrome"
+```
+
 Locally, Playwright runs `npm run build && npm run start` before the specs, so the first run takes a couple of minutes. Specs that need Shopify or NextAuth credentials skip themselves when those environment variables are missing.
 
 ### Best Practices
