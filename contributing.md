@@ -163,6 +163,7 @@ git push origin feature/your-feature-name
 
 - We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
 - Run the linter before submitting a PR to ensure your code passes.
+- A pre-commit hook runs `biome check --write` on staged `*.{js,jsx,ts,tsx}` files (via lint-staged) and then a full `npm run typecheck`. Both must pass before a commit is accepted.
 
 ## Commit Message Guidelines
 

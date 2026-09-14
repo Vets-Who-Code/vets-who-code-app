@@ -7,7 +7,7 @@
 .cache
 .eslintcache
 .next
-.husky
+.husky/_/
 
 # testing
 /coverage
