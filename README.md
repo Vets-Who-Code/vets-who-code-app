@@ -72,6 +72,16 @@ Copy the template, then fill in the values you need:
 
 ```sh
 $ cp .env.example .env.local
+```
+
+Set `DATABASE_URL` to a Postgres server you can reach before you bootstrap the database — the schema's provider is `postgresql`, so a SQLite `file:` URL is rejected outright. Run one locally, or point at a free [Neon](https://neon.tech) branch:
+
+```sh
+# one way to get a local Postgres — skip if you are using Neon
+$ docker run --rm -d -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=vwc_dev -p 5432:5432 postgres:16-alpine
+# DATABASE_URL="postgresql://postgres:postgres@localhost:5432/vwc_dev"
+
+# then, with DATABASE_URL set in .env.local:
 $ npm run dev:setup   # first-time database bootstrap (prisma generate && prisma db push)
 ```
 
@@ -81,7 +91,7 @@ $ npm run dev:setup   # first-time database bootstrap (prisma generate && prisma
 
 | Variable | Purpose |
 | --- | --- |
-| `DATABASE_URL` | Prisma connection string (`prisma/schema.prisma`). `file:./dev.db` for local SQLite, Postgres in production. |
+| `DATABASE_URL` | Prisma connection string (`prisma/schema.prisma`). Must be `postgresql://` — the datasource provider is `postgresql`, so a `file:` SQLite URL fails validation with `P1012`. |
 | `NEXTAUTH_SECRET` | Session encryption key. Generate one with `openssl rand -base64 32`. |
 | `NEXTAUTH_URL` | Base URL of the app. `http://localhost:3000` in development. |
 | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` | GitHub OAuth app credentials. Create an app at [github.com/settings/developers](https://github.com/settings/developers) with the callback URL `http://localhost:3000/api/auth/callback/github`. |
@@ -104,11 +114,12 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 | Shopify commerce | `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_ACCESS_TOKEN`, `SHOPIFY_WEBHOOK_SECRET` (or `SHOPIFY_API_SECRET` / `SHOPIFY_CLIENT_SECRET`) |
 | Labor-market data | `LIGHTCAST_CLIENT_ID`, `LIGHTCAST_CLIENT_SECRET`, `CENSUS_API_KEY` |
 | Public site config | `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`, `NEXT_PUBLIC_COHORT_START_DATE`, `NEXT_PUBLIC_SITE_URL` |
+| Database seeding | `ALLOW_DESTRUCTIVE_SEED` — `"true"` lets `npx prisma db seed` wipe a non-local database (`prisma/seed-guard.ts`) |
 
 ### Development vs production
 
 - `NEXTAUTH_URL` is `http://localhost:3000` locally and the deployed origin in production.
-- `DATABASE_URL` points at local SQLite (`file:./dev.db`) in development and at Neon Postgres in production.
+- `DATABASE_URL` is Postgres in both environments — your own local or Neon branch in development, the project's Neon database in production.
 - Production values live in the Vercel project settings, not in any file in this repo.
 - `NEXT_PUBLIC_*` values are inlined into the browser bundle at build time. Never put a secret behind that prefix.
 
