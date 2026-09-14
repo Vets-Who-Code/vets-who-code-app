@@ -65,6 +65,10 @@ npm_output.log
 
 /src/generated/prisma
 audio-cloudinary-urls.json
+
+# Blog audio staging (generated locally, uploaded to Cloudinary)
+public/audio/blogs/
+
 graphify-out/
 src/data/blog-graphics/**/out/
 
