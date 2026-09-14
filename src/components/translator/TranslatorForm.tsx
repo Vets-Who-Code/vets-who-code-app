@@ -94,6 +94,24 @@ const COLLATERAL_DUTIES = [
     { value: "public_affairs", label: "Unit Public Affairs Representative" },
 ];
 
+// Matches MAX_FIELD in src/pages/api/military-resume/translate.ts — anything
+// longer comes back as a 400. The full MOS description is still sent to the AI
+// server-side via jobCode/jobCodeBranch, so nothing is lost by trimming here.
+const MAX_DUTIES = 2000;
+
+function capDuties(text: string) {
+    if (text.length <= MAX_DUTIES) return text;
+    const out: string[] = [];
+    let len = 0;
+    for (const line of text.split("\n")) {
+        if (len + line.length + 1 > MAX_DUTIES) break;
+        out.push(line);
+        len += line.length + 1;
+    }
+    // A parsed PDF can be one long line with no breaks — fall back to a hard cut.
+    return out.length > 0 ? out.join("\n") : text.slice(0, MAX_DUTIES);
+}
+
 const TranslatorForm: React.FC<TranslatorFormProps> = ({
     onSubmit,
     isTranslating,
@@ -154,7 +172,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                             return clean.charAt(0).toUpperCase() + clean.slice(1);
                         })
                         .join("\n");
-                    setValue("duties", formatted, { shouldValidate: true });
+                    setValue("duties", capDuties(formatted), { shouldValidate: true });
                     setDutiesAutoFilled(true);
                 }
             } catch {
@@ -179,7 +197,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
             try {
                 const text = await uploadPdf(file);
                 setPdfParsedText(text);
-                setValue("duties", text, { shouldValidate: true });
+                setValue("duties", capDuties(text), { shouldValidate: true });
                 setDutiesAutoFilled(false);
 
                 // Try AI-powered field extraction
@@ -198,7 +216,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         if (fields.jobTitle)
                             setValue("jobTitle", fields.jobTitle, { shouldValidate: true });
                         if (fields.duties) {
-                            setValue("duties", fields.duties, { shouldValidate: true });
+                            setValue("duties", capDuties(fields.duties), { shouldValidate: true });
                             setDutiesAutoFilled(true);
                         }
                         if (fields.achievements) setValue("achievements", fields.achievements);
@@ -540,6 +558,10 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     showState={!!hasKey(errors, "duties")}
                     {...register("duties", {
                         required: "Duties are required",
+                        maxLength: {
+                            value: MAX_DUTIES,
+                            message: "Duties must be 2,000 characters or fewer.",
+                        },
                         onChange: () => {
                             if (dutiesAutoFilled) setDutiesAutoFilled(false);
                         },

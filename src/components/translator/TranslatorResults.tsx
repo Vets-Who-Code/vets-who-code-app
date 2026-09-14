@@ -16,6 +16,7 @@ interface TranslatorResultsProps {
     targetJobTitle?: string;
     leadershipCourses?: string[];
     warnings?: string[];
+    error?: string | null;
 }
 
 const TranslatorResults: React.FC<TranslatorResultsProps> = ({
@@ -26,6 +27,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
     targetJobTitle,
     leadershipCourses,
     warnings = [],
+    error,
 }) => {
     const [editableResult, setEditableResult] = useState<TranslatedProfile>(result);
     const [generatingPdf, setGeneratingPdf] = useState(false);
@@ -179,7 +181,7 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
     return (
         <div className="tw-space-y-6">
             {/* Source indicator */}
-            {resultSource === "dictionary" && (
+            {resultSource === "dictionary" && isTranslating && (
                 <div
                     className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-navy-sky tw-bg-navy-sky/20 tw-px-4 tw-py-3"
                     role="status"
@@ -190,6 +192,17 @@ const TranslatorResults: React.FC<TranslatorResultsProps> = ({
                         Showing instant dictionary translation. Gemini AI-enhanced results will
                         replace this automatically.
                     </p>
+                </div>
+            )}
+
+            {resultSource === "dictionary" && !isTranslating && error && (
+                <div
+                    className="tw-flex tw-items-center tw-gap-3 tw-rounded-lg tw-border tw-border-danger tw-bg-danger/10 tw-px-4 tw-py-3"
+                    role="status"
+                    aria-live="polite"
+                >
+                    <i className="fas fa-exclamation-circle tw-text-danger" aria-hidden={true} />
+                    <p className="tw-text-sm tw-text-navy-deep">{error}</p>
                 </div>
             )}
 
