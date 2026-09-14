@@ -97,19 +97,22 @@ const COLLATERAL_DUTIES = [
 // Matches MAX_FIELD in src/pages/api/military-resume/translate.ts — anything
 // longer comes back as a 400. The full MOS description is still sent to the AI
 // server-side via jobCode/jobCodeBranch, so nothing is lost by trimming here.
-const MAX_DUTIES = 2000;
+const MAX_FIELD = 2000;
 
-function capDuties(text: string) {
-    if (text.length <= MAX_DUTIES) return text;
-    const out: string[] = [];
-    let len = 0;
-    for (const line of text.split("\n")) {
-        if (len + line.length + 1 > MAX_DUTIES) break;
-        out.push(line);
-        len += line.length + 1;
-    }
-    // A parsed PDF can be one long line with no breaks — fall back to a hard cut.
-    return out.length > 0 ? out.join("\n") : text.slice(0, MAX_DUTIES);
+/**
+ * Trim text to MAX_FIELD, preferring a whole-line boundary so the textarea stays
+ * readable. When the last line break falls in the first half of the budget — a
+ * description built from a few very long lines, or parsed PDF text with no line
+ * breaks at all — cutting there would throw most of the text away, so fall back
+ * to the last word boundary instead.
+ */
+export function capField(text: string) {
+    if (text.length <= MAX_FIELD) return text;
+    const cut = text.slice(0, MAX_FIELD);
+    const lineBreak = cut.lastIndexOf("\n");
+    if (lineBreak >= MAX_FIELD / 2) return cut.slice(0, lineBreak);
+    const wordBreak = cut.lastIndexOf(" ");
+    return wordBreak > 0 ? cut.slice(0, wordBreak) : cut;
 }
 
 const TranslatorForm: React.FC<TranslatorFormProps> = ({
@@ -172,7 +175,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                             return clean.charAt(0).toUpperCase() + clean.slice(1);
                         })
                         .join("\n");
-                    setValue("duties", capDuties(formatted), { shouldValidate: true });
+                    setValue("duties", capField(formatted), { shouldValidate: true });
                     setDutiesAutoFilled(true);
                 }
             } catch {
@@ -197,7 +200,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
             try {
                 const text = await uploadPdf(file);
                 setPdfParsedText(text);
-                setValue("duties", capDuties(text), { shouldValidate: true });
+                setValue("duties", capField(text), { shouldValidate: true });
                 setDutiesAutoFilled(false);
 
                 // Try AI-powered field extraction
@@ -216,10 +219,11 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                         if (fields.jobTitle)
                             setValue("jobTitle", fields.jobTitle, { shouldValidate: true });
                         if (fields.duties) {
-                            setValue("duties", capDuties(fields.duties), { shouldValidate: true });
+                            setValue("duties", capField(fields.duties), { shouldValidate: true });
                             setDutiesAutoFilled(true);
                         }
-                        if (fields.achievements) setValue("achievements", fields.achievements);
+                        if (fields.achievements)
+                            setValue("achievements", capField(fields.achievements));
                     }
                 } catch {
                     // Silent fallback — raw text is already in duties
@@ -559,7 +563,7 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     {...register("duties", {
                         required: "Duties are required",
                         maxLength: {
-                            value: MAX_DUTIES,
+                            value: MAX_FIELD,
                             message: "Duties must be 2,000 characters or fewer.",
                         },
                         onChange: () => {
@@ -585,7 +589,15 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                     placeholder="Example:&#10;Received Army Commendation Medal for superior performance&#10;Reduced equipment loss by 40% through improved inventory procedures&#10;Mentored 15 junior soldiers for promotion"
                     rows={5}
                     className="tw-w-full tw-resize-none tw-rounded-lg tw-border tw-border-[#091f40] tw-bg-white tw-px-4 tw-py-3 tw-text-[#091f40] tw-transition tw-duration-200 focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-[#091f40]"
-                    {...register("achievements")}
+                    feedbackText={errors?.achievements?.message}
+                    state={hasKey(errors, "achievements") ? "error" : "success"}
+                    showState={!!hasKey(errors, "achievements")}
+                    {...register("achievements", {
+                        maxLength: {
+                            value: MAX_FIELD,
+                            message: "Achievements must be 2,000 characters or fewer.",
+                        },
+                    })}
                 />
             </div>
 
@@ -806,10 +818,11 @@ const TranslatorForm: React.FC<TranslatorFormProps> = ({
                 </Button>
             </div>
 
-<p className="tw-mt-3 tw-text-xs tw-text-gray-500">
-    <i className="fas fa-lock tw-mr-1.5" aria-hidden={true} />
-    Your information is processed securely. Please do not include personal details (names, SSNs, contact info) in the text you submit.
-</p>
+            <p className="tw-mt-3 tw-text-xs tw-text-gray-500">
+                <i className="fas fa-lock tw-mr-1.5" aria-hidden={true} />
+                Your information is processed securely. Please do not include personal details
+                (names, SSNs, contact info) in the text you submit.
+            </p>
 
             {error && <Feedback state="error">{error}</Feedback>}
         </form>
