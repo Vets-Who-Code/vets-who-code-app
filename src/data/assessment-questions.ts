@@ -1,3 +1,19 @@
+/**
+ * Assessment questions for /assessment.
+ *
+ * Every `starterCode` value is STUDENT-FACING scaffolding. src/pages/assessment.tsx
+ * loads it verbatim into the learner's editor (`setUserCode(savedAnswer ||
+ * currentQuestion.starterCode)` -> `<CodeEditor value={userCode} ... />`), so its
+ * text is read by students, not by maintainers.
+ *
+ * The `console.log(...)` lines inside those template literals are intentional worked
+ * examples, each paired with an inline `// Should output: ...` annotation. Do NOT
+ * remove them as stray debug code, and do NOT add maintainer notes inside the
+ * template literals — students would see that text in their editor.
+ *
+ * Biome's suspicious/noConsole rule cannot see inside string literals, so these will
+ * never be flagged by lint; this comment is the guard.
+ */
 export type AssessmentQuestion = {
     id: number;
     level: "newbie" | "beginner" | "junior" | "mid" | "senior";
