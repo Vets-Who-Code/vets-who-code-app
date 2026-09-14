@@ -21,6 +21,13 @@ export interface UseTranslatorReturn extends TranslatorState {
     reset: () => void;
 }
 
+const AI_UNAVAILABLE = "AI enhancement unavailable. Showing dictionary translation.";
+
+async function readErrorMessage(res: Response): Promise<string> {
+    const body = await res.json().catch(() => null);
+    return body?.error ?? AI_UNAVAILABLE;
+}
+
 const INITIAL_STATE: TranslatorState = {
     dictionaryResult: null,
     aiResult: null,
@@ -111,8 +118,10 @@ export default function useTranslator(): UseTranslatorReturn {
                 if (requestIdRef.current !== requestId) return;
 
                 if (!translateRes.ok) {
-                    // AI failed — enrich the dictionary result with career pathways
-                    // so the user still sees enrichment cards
+                    // AI failed — surface why, and enrich the dictionary result with
+                    // career pathways so the user still sees enrichment cards
+                    const message = await readErrorMessage(translateRes);
+
                     if (careerData?.pathways?.length > 0) {
                         setState((prev) => {
                             const enriched = prev.dictionaryResult
@@ -123,10 +132,11 @@ export default function useTranslator(): UseTranslatorReturn {
                                 dictionaryResult: enriched,
                                 activeResult: enriched,
                                 isTranslating: false,
+                                error: message,
                             };
                         });
                     } else {
-                        setState((prev) => ({ ...prev, isTranslating: false }));
+                        setState((prev) => ({ ...prev, isTranslating: false, error: message }));
                     }
                     return;
                 }
@@ -159,7 +169,7 @@ export default function useTranslator(): UseTranslatorReturn {
             })
             .catch(() => {
                 if (requestIdRef.current !== requestId) return;
-                setState((prev) => ({ ...prev, isTranslating: false }));
+                setState((prev) => ({ ...prev, isTranslating: false, error: AI_UNAVAILABLE }));
             });
     }, []);
 

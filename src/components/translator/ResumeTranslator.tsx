@@ -64,6 +64,7 @@ const ResumeTranslator: React.FC<ResumeTranslatorProps> = ({ className, jobCodeI
                     targetJobTitle={lastTargetJobTitle}
                     leadershipCourses={lastLeadershipCourses}
                     warnings={warnings}
+                    error={error}
                 />
             )}
         </div>
