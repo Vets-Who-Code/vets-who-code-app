@@ -19,6 +19,13 @@ interface SeoProps extends NextSeoProps {
     };
 }
 
+/** Absolute canonical for a router path, with query and hash stripped. Shared
+ * with DefaultSEO so the routes that render no PageSeo normalize identically. */
+export const canonicalFor = (asPath?: string) => {
+    const path = asPath?.split(/[?#]/)[0] ?? "";
+    return `${siteConfig.url}${path === "/" ? "" : path}`;
+};
+
 const PageSeo = ({
     title,
     description,
@@ -36,7 +43,7 @@ const PageSeo = ({
     // asPath can be absent when the router is mocked or not yet mounted; fall
     // back to the bare site URL rather than rendering "undefined" into og:url.
     const path = asPath?.split(/[?#]/)[0] ?? "";
-    const href = `${siteConfig.url}${path === "/" ? "" : path}`;
+    const href = canonicalFor(asPath);
 
     // The homepage's title is literally "Home", which would print HOME as the
     // headline on the most-shared URL on the site. Fall through to the card's
@@ -78,9 +85,7 @@ const PageSeo = ({
         <>
             <NextSeo
                 title={title}
-                titleTemplate={
-                    template ? `${title ?? ""} - ${template}` : `%s - ${siteConfig.titleTemplate}`
-                }
+                titleTemplate={template ? `${title ?? ""} - ${template}` : siteConfig.titleTemplate}
                 description={description}
                 canonical={href}
                 openGraph={{
