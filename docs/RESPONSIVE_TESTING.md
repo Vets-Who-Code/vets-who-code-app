@@ -73,7 +73,7 @@ Test the boundaries, not round numbers a designer picked. These seven cover ever
 | 576px | `sm` and `smToMd` both turn on; `maxSm` turns off |
 | 768px | `md` turns on; `smToMd` turns off |
 | 992px | `lg` turns on; `maxLg` turns off |
-| 1200px | `xl` turns on; `maxXl` turns off; container jumps to 1230px |
+| 1200px | `xl` turns on; `maxXl` turns off; the container cap rises 992px → 1230px, so the container stops being capped and fills the viewport |
 | 1440px | Typical laptop — container is already capped, gutters grow |
 | 1600px | `3xl` turns on |
 
@@ -126,16 +126,27 @@ form input, open it on at least one real phone. See
 ### 4. Playwright at a phone viewport
 
 ```bash
-npx playwright test --project="Mobile Chrome"
+npx playwright test --project="Mobile Chrome" tests/e2e/interactive-lesson.spec.ts
 ```
 
-The `Mobile Chrome` project (`playwright.config.ts:49-52`) runs the suite with
-`devices["Pixel 5"]`.
+The `Mobile Chrome` project (`playwright.config.ts:49-52`) runs whatever specs you point it at
+with `devices["Pixel 5"]`. Name the spec you are iterating on — read the second caveat below
+before running the whole `tests/` directory.
 
-**Start `npm run dev` first.** Locally, `playwright.config.ts:66` runs
+**Start `npm run dev` first to skip the build.** Locally, `playwright.config.ts:67` runs
 `npm run build && npm run start` before the specs, which costs a full production build. Because
-`reuseExistingServer: !process.env.CI` (`:68`) is set, an already-running dev server on port 3000
-is reused and the build is skipped.
+`reuseExistingServer: !process.env.CI` (`:69`) is set, an already-running dev server on port 3000
+is reused instead. The tradeoff: `next-pwa` is disabled when `NODE_ENV === "development"`
+(`next.config.js:4`), so a reused dev server registers no service worker — fine for layout, wrong
+for anything offline.
+
+**`tests/e2e/shopify-image-cache.spec.ts` fails locally, and not because of your change.** It
+skips itself when Shopify is unconfigured, so most contributors never see it. With
+`SHOPIFY_STORE_DOMAIN` and `SHOPIFY_STOREFRONT_ACCESS_TOKEN` set it runs, and it fails at the
+offline reload with `page.reload: net::ERR_INTERNET_DISCONNECTED` — against a dev server because
+there is no service worker at all, and against the production build because Playwright gives every
+test a fresh browser context, so the newly registered service worker has not taken control by the
+time the spec goes offline. Scope your run past it rather than chasing it.
 
 **Be honest about what this covers.** There is currently **no responsive regression suite**. The
 `tests/` directory holds three specs — `tests/e2e/interactive-lesson.spec.ts`,
