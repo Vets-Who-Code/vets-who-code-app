@@ -26,6 +26,34 @@ export const config = {
     },
 };
 
+/**
+ * How long after an order was created an orders/updated delivery can still be
+ * losing a race with orders/create. Inside the window a missing row is worth a
+ * retry; outside it the row is never coming (the order predates webhook
+ * registration, or its orders/create exhausted Shopify's retries).
+ */
+const CREATE_RACE_WINDOW_MS = 60 * 60 * 1000;
+
+/** True while a missing Order row could still be an orders/create that hasn't landed. */
+function isCreateRace(createdAt: unknown): boolean {
+    const ms = Date.parse(typeof createdAt === "string" ? createdAt : "");
+    return Number.isFinite(ms) && Date.now() - ms < CREATE_RACE_WINDOW_MS;
+}
+
+/** Pull out only the status fields the payload actually carries. */
+function statusUpdate(order: { financial_status?: unknown; fulfillment_status?: unknown }) {
+    // financialStatus is NOT NULL, so defaulting a missing value would clobber a paid
+    // order back to "pending"; fulfillment_status is legitimately null when unfulfilled.
+    const data: { financialStatus?: string; fulfillmentStatus?: string | null } = {};
+    if (typeof order.financial_status === "string" && order.financial_status) {
+        data.financialStatus = order.financial_status;
+    }
+    if (order.fulfillment_status !== undefined) {
+        data.fulfillmentStatus = (order.fulfillment_status as string | null) ?? null;
+    }
+    return data;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
@@ -56,33 +84,39 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const order = JSON.parse(rawBody);
 
-        // Only copy the status fields the payload actually carries. financialStatus is
-        // NOT NULL, so defaulting a missing value would clobber a paid order back to
-        // "pending"; fulfillment_status is legitimately null on unfulfilled orders.
-        const data: { financialStatus?: string; fulfillmentStatus?: string | null } = {};
-        if (typeof order.financial_status === "string" && order.financial_status) {
-            data.financialStatus = order.financial_status;
-        }
-        if (order.fulfillment_status !== undefined) {
-            data.fulfillmentStatus = order.fulfillment_status ?? null;
+        // Prisma drops `undefined` filter values instead of matching nothing, so an
+        // id-less payload would collapse the where clause to {} and updateMany would
+        // rewrite the status columns on every Order row. Reject it before the query.
+        const shopifyId = order?.id == null ? "" : String(order.id);
+        if (!shopifyId) {
+            console.error("[shopify-webhook] order update payload has no id");
+            return res.status(400).json({ error: "Missing order id" });
         }
 
+        const data = statusUpdate(order);
         if (Object.keys(data).length === 0) {
             return res.status(200).json({ received: true, noop: true });
         }
 
         const { count } = await prisma.order.updateMany({
-            where: { shopifyId: order.id?.toString() },
+            where: { shopifyId },
             data,
         });
 
         if (count === 0) {
-            // The order isn't in Neon yet — most likely an orders/updated delivery that
-            // beat orders/create. Fail loud so Shopify retries and the race resolves.
+            // A fresh order is probably an orders/updated delivery that beat
+            // orders/create, so fail loud and let Shopify's retry resolve the race. An
+            // older one is never going to appear, and 500ing it forever burns the full
+            // 48-hour retry schedule on every status change and risks Shopify removing
+            // the subscription — ack it instead.
+            const retry = isCreateRace(order.created_at);
             console.error("[shopify-webhook] order updated for unknown shopifyId", {
-                shopifyId: order.id,
+                shopifyId,
+                retry,
             });
-            return res.status(500).json({ received: false, error: "Order not found" });
+            return retry
+                ? res.status(500).json({ received: false, error: "Order not found" })
+                : res.status(200).json({ received: true, skipped: "unknown order" });
         }
 
         return res.status(200).json({ received: true, updated: count });

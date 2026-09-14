@@ -108,10 +108,38 @@ describe("POST /api/shopify/webhooks/orders/updated", () => {
         expect(db.order.updateMany).not.toHaveBeenCalled();
     });
 
-    it("returns 500 when no order matches (so Shopify retries the create race)", async () => {
+    it("rejects a payload with no id instead of matching every order", async () => {
+        const res = await post(JSON.stringify({ financial_status: "refunded" }));
+        expect(res.statusCode).toBe(400);
+        // Prisma strips `undefined` filter values, so an id-less where clause would
+        // collapse to {} and rewrite the status columns on the whole table.
+        expect(db.order.updateMany).not.toHaveBeenCalled();
+    });
+
+    it("returns 500 when a recently created order is missing (the create race)", async () => {
         db.order.updateMany.mockResolvedValue({ count: 0 });
-        const res = await post(PAID_AND_FULFILLED);
+        const res = await post(
+            JSON.stringify({
+                id: 555,
+                financial_status: "paid",
+                created_at: new Date(Date.now() - 60_000).toISOString(),
+            })
+        );
         expect(res.statusCode).toBe(500);
+    });
+
+    it("acks an unknown order that is too old to be the create race", async () => {
+        db.order.updateMany.mockResolvedValue({ count: 0 });
+        const res = await post(
+            JSON.stringify({
+                id: 555,
+                financial_status: "paid",
+                created_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+            })
+        );
+        // Retrying forever would burn Shopify's 48-hour schedule on an order that
+        // predates webhook registration and risk the subscription being removed.
+        expect(res.statusCode).toBe(200);
     });
 
     it("returns 500 when the DB write fails (so Shopify retries)", async () => {

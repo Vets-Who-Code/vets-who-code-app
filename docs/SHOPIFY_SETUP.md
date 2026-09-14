@@ -135,8 +135,9 @@ The value is the **API Secret Key** from your Shopify app's API credentials.
 
 Notes:
 
-- `orders/updated` only syncs orders that already exist in Neon. Register it alongside `orders/create`, not instead of it — a status change for an order that was never created returns a 500 so Shopify retries.
-- Failures return 5xx on purpose so Shopify's retry schedule kicks in. Watch your server logs for `[shopify-webhook]` entries.
+- `orders/updated` only syncs orders that already exist in Neon. Register it alongside `orders/create`, not instead of it.
+- A status change for an order that is not in Neon returns a 500 — so Shopify retries and the `orders/create`/`orders/updated` race resolves — but only for the first hour after the order was created. Past that the handler logs and returns 200, because orders placed before you registered these webhooks are never going to appear and retrying every status change forever would get the subscription removed.
+- Other failures return 5xx on purpose so Shopify's retry schedule kicks in. Watch your server logs for `[shopify-webhook]` entries.
 
 ## Usage
 
