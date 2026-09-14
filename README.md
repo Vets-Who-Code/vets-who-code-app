@@ -66,6 +66,33 @@ $ npm run dev
 
 Navigate to `http://localhost:3000/` to see the app in action.
 
+### Database Setup and Seed Data :floppy_disk:
+
+`prisma/schema.prisma` declares `provider = "postgresql"`, so local development needs a Postgres database — the commented-out SQLite line in `.env.example` is rejected by `prisma db push`. Point `DATABASE_URL` at a local instance in `.env` — not `.env.local`, which the Prisma CLI never loads; Next.js reads `.env` too, so one file serves both:
+
+```sh
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/vets_who_code_dev"
+```
+
+Then generate the Prisma client, push the schema, and load the development accounts:
+
+```sh
+$ npm run dev:setup   # prisma generate && prisma db push
+$ npm run db:seed     # prisma db seed
+```
+
+`npm run db:seed` refuses to run unless `DATABASE_URL` points at a local database (localhost Postgres, or a `file:` SQLite path). If you get `Refusing to run the destructive seed`, `DATABASE_URL` is either missing from `.env` or still aimed at a remote host — fix the URL rather than reaching for the `ALLOW_DESTRUCTIVE_SEED=true` override.
+
+The seed upserts, so it is safe to re-run. It creates three accounts:
+
+| Email                       | Role         |
+| --------------------------- | ------------ |
+| `admin@vetswhocode.io`      | `ADMIN`      |
+| `instructor@vetswhocode.io` | `INSTRUCTOR` |
+| `student@vetswhocode.io`    | `STUDENT`    |
+
+There are no seed passwords. Sign-in is GitHub OAuth gated on membership of the `GITHUB_ORG` organization, so the `User` model has no password field — these rows exist to give local roles and profile data something to hang on.
+
 ## Development using Dev Container (Optional) 🐳
 
 We support development containers for an easier setup experience.

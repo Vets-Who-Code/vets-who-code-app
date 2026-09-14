@@ -6,6 +6,7 @@
     "preinstall": "npx only-allow npm",
     "dev": "next dev",
     "dev:setup": "prisma generate && prisma db push",
+    "db:seed": "prisma db seed",
     "build": "tsx src/scripts/generate-swagger-spec.ts && next build",
     "vercel-build": "prisma migrate deploy && prisma generate && tsx src/scripts/generate-swagger-spec.ts && next build",
     "start": "next start",
