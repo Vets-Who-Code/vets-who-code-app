@@ -1,0 +1,87 @@
+name: Security
+
+on:
+    push:
+        branches: [master]
+    pull_request:
+        branches: [master]
+    schedule:
+        # Monday 08:00 UTC — catches advisories published against unchanged code.
+        - cron: "0 8 * * 1"
+
+# Least privilege by default; the CodeQL job widens this for itself only.
+permissions:
+    contents: read
+
+jobs:
+    codeql:
+        name: CodeQL
+        runs-on: ubuntu-latest
+        timeout-minutes: 20
+        permissions:
+            contents: read
+            security-events: write
+            actions: read
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Initialize CodeQL
+              uses: github/codeql-action/init@v3
+              with:
+                  languages: javascript-typescript
+                  queries: security-and-quality
+
+            # No build step: CodeQL analyses JS/TS from source, and `npm run build`
+            # needs secrets this job deliberately does not have.
+            - name: Perform CodeQL analysis
+              uses: github/codeql-action/analyze@v3
+              with:
+                  category: "/language:javascript-typescript"
+
+    audit:
+        name: npm audit
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js from .nvmrc
+              uses: actions/setup-node@v4
+              with:
+                  node-version-file: ".nvmrc"
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm ci
+
+            # REPORTING ONLY, deliberately. master currently carries 29 advisories
+            # (2 critical, 13 high), so a blocking gate would fail every PR on day
+            # one and teach everyone to ignore it. Clear the backlog first, then
+            # drop `continue-on-error` to make this a real gate. Tracked in #923.
+            - name: Audit production dependencies
+              id: audit
+              continue-on-error: true
+              run: npm audit --omit=dev --audit-level=high
+
+            - name: Write audit summary
+              if: always()
+              run: |
+                  {
+                    echo "## npm audit"
+                    echo
+                    if [ "${{ steps.audit.outcome }}" = "success" ]; then
+                      echo "No high or critical advisories in production dependencies."
+                    else
+                      echo "High or critical advisories found in production dependencies."
+                      echo
+                      echo "This step is reporting-only until the existing backlog is cleared."
+                    fi
+                    echo
+                    echo '```'
+                    npm audit --omit=dev 2>&1 | tail -40 || true
+                    echo '```'
+                  } >> "$GITHUB_STEP_SUMMARY"
