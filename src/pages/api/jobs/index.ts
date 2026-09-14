@@ -1,3 +1,4 @@
+import { handleApiError } from "@lib/api-error-handler";
 import { getJobs } from "@lib/jobboardly";
 import { requireAuth } from "@lib/rbac";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -21,11 +22,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             jobs,
         });
     } catch (error) {
-        console.error("Error fetching jobs:", error);
-        return res.status(500).json({
-            error: "Failed to fetch jobs",
-            message: error instanceof Error ? error.message : "Unknown error",
-        });
+        handleApiError(error, res, "Failed to fetch jobs");
+        return;
     }
 }
 

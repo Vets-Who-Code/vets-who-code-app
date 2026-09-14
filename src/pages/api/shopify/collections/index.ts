@@ -1,3 +1,4 @@
+import { handleApiError } from "@lib/api-error-handler";
 import { getCollections } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -19,10 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return res.status(200).json({ collections });
     } catch (error) {
-        console.error("Error fetching collections:", error);
-        return res.status(500).json({
-            error: "Failed to fetch collections",
-            message: error instanceof Error ? error.message : "Unknown error",
-        });
+        handleApiError(error, res, "Failed to fetch collections");
+        return;
     }
 }
