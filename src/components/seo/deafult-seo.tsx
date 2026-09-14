@@ -1,17 +1,24 @@
 import siteConfig from "@data/site-config";
+import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
+import { canonicalFor } from "./page-seo";
 
 const DefaultSEO = () => {
+    // Router-derived, not the site URL: the routes that render no PageSeo used to
+    // inherit a homepage canonical, which told crawlers to drop them. Pages that
+    // do render PageSeo override this — next/head keeps the last keyed tag.
+    const { asPath } = useRouter();
     return (
         <DefaultSeo
-            title={siteConfig.name}
-            titleTemplate={`%s - ${siteConfig.titleTemplate}`}
+            // No `title`: with one here, next-seo fills the template with it and
+            // the brand prints twice. `defaultTitle` carries it instead.
+            titleTemplate={siteConfig.titleTemplate}
             defaultTitle={siteConfig.name}
             description={siteConfig.description}
-            canonical={siteConfig.url}
+            canonical={canonicalFor(asPath)}
             openGraph={{
                 type: "website",
-                locale: "en_IE",
+                locale: "en_US",
                 site_name: siteConfig.name,
                 // One entry only: the second was the same asset declared 1230 wide,
                 // which is a lie about a 1200px image and gave scrapers a coin flip.
