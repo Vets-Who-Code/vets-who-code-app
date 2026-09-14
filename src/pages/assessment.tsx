@@ -14,6 +14,8 @@ import {
     determineSkillLevel,
 } from "@/data/assessment-questions";
 
+const NOTIFICATION_DURATION = 3000; // 3 seconds before the toast auto-dismisses
+
 type PageProps = {
     layout?: {
         headerShadow: boolean;
@@ -122,13 +124,13 @@ const Assessment: PageWithLayout = () => {
                     type: "success",
                     message: `Correct! +${currentQuestion.points} points`,
                 });
-                setTimeout(() => setNotification(null), 3000);
+                setTimeout(() => setNotification(null), NOTIFICATION_DURATION);
             } else {
                 setNotification({
                     type: "error",
                     message: "Some tests failed. Keep trying!",
                 });
-                setTimeout(() => setNotification(null), 3000);
+                setTimeout(() => setNotification(null), NOTIFICATION_DURATION);
             }
         } catch (_error) {
             setTestResults({
@@ -140,7 +142,7 @@ const Assessment: PageWithLayout = () => {
                 type: "error",
                 message: "There was an error running your code",
             });
-            setTimeout(() => setNotification(null), 3000);
+            setTimeout(() => setNotification(null), NOTIFICATION_DURATION);
         }
     };
 
