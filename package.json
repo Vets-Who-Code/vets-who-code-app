@@ -37,9 +37,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@ai-sdk/azure": "^2.0.69",
-    "@ai-sdk/google": "^2.0.32",
-    "@ai-sdk/openai": "^2.0.67",
+    "@ai-sdk/azure": "^4.0.63",
+    "@ai-sdk/google": "^4.0.64",
+    "@ai-sdk/openai": "^4.0.60",
     "@emotion/is-prop-valid": "^1.4.0",
     "@google-cloud/text-to-speech": "^6.4.0",
     "@google/genai": "1.40.0",
@@ -56,7 +56,7 @@
     "@shopify/shopify-api": "^12.1.2",
     "@vercel/analytics": "^1.4.1",
     "ace-builds": "^1.33.1",
-    "ai": "^5.0.93",
+    "ai": "^7.0.93",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "2.9.0",
@@ -91,8 +91,8 @@
     "react-simple-typewriter": "^3.0.1",
     "resend": "^6.6.0",
     "rss-parser": "^3.13.0",
-    "swagger-ui-react": "5.32.5",
-    "swiper": "^8.3.1",
+    "swagger-ui-react": "5.32.15",
+    "swiper": "^12.1.2",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "ws": "^8.18.2"
