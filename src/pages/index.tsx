@@ -70,7 +70,7 @@ const Home: PageProps = ({ data }) => {
                         </span>
                     </MonoMeta>
                     <MonoMeta tone="muted" size="xs" className="tw-ml-auto">
-                        <span className="tw-text-cream">Applications Open</span>
+                        <span className="tw-text-cream">{siteConfig.applicationsStatus}</span>
                     </MonoMeta>
                 </div>
             </div>
