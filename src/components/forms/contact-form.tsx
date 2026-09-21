@@ -24,6 +24,8 @@ interface TProps {
     className?: string;
 }
 
+const EMOJI_RAIN_DURATION = 5000; // 5 seconds of emoji rain after a successful submit
+
 const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => {
     const [serverMessage, setServerMessage] = useState<string>("");
     const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
@@ -41,7 +43,7 @@ const ContactForm = forwardRef<HTMLFormElement, TProps>(({ className }, ref) => 
             if (response.status === 200) {
                 setServerMessage("Thank you for your message!");
                 setShowEmojiRain(true);
-                setTimeout(() => setShowEmojiRain(false), 5000);
+                setTimeout(() => setShowEmojiRain(false), EMOJI_RAIN_DURATION);
                 reset();
             } else {
                 setServerMessage("There was an error. Please try again later.");

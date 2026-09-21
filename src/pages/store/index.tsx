@@ -12,6 +12,8 @@ interface StorePageProps {
     isConfigured: boolean;
 }
 
+const MAX_PRODUCTS_PER_PAGE = 100;
+
 const StorePage: React.FC<StorePageProps> = ({ products, isConfigured }) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const { cartCount } = useCart();
@@ -123,7 +125,7 @@ export const getServerSideProps: GetServerSideProps<StorePageProps> = async () =
     }
 
     try {
-        const products = await getProducts(100);
+        const products = await getProducts(MAX_PRODUCTS_PER_PAGE);
 
         return {
             props: {
