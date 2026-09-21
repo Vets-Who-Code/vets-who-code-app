@@ -117,6 +117,10 @@ Remember, this is optional. If you prefer to set up your development environment
 To get a local copy up and running, you'll need a few things installed on your machine.
 `npx tsx scripts/generate-blog-image.ts`
 
+## Blog Audio
+
+`public/audio/blogs/` is a **local staging directory** — it is gitignored and never committed. `npm run generate:blog-audio` writes WAVs there on the way to Cloudinary; the site itself always plays from Cloudinary (see `src/lib/blog.ts`), and `.vercelignore` keeps the directory out of deploys. The newer per-post script (`npm run generate:blog-media`) streams straight to Cloudinary and does not use this directory at all.
+
 ## Contributing :handshake:
 
 We love contributions! Please read our [Contributing Guidelines](contributing.md) to get started.
