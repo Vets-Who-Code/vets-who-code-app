@@ -91,7 +91,7 @@
     "react-dom": "^18.3.1",
     "react-email": "^5.1.1",
     "react-hook-form": "^7.45.0",
-    "react-simple-typewriter": "^3.0.1",
+    "react-simple-typewriter": "^5.0.1",
     "resend": "^6.6.0",
     "rss-parser": "^3.13.0",
     "swagger-ui-react": "5.32.5",
