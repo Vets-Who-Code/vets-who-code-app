@@ -6,7 +6,6 @@
 ```bash
 SHOPIFY_STORE_DOMAIN="your-store.myshopify.com"
 SHOPIFY_STOREFRONT_ACCESS_TOKEN="your-storefront-token"
-SHOPIFY_ADMIN_ACCESS_TOKEN="your-admin-token"
 ```
 
 ## 1. Cart to Checkout Flow ✅

@@ -68,7 +68,6 @@ Add these variables to your `.env` or `.env.local` file:
 # Shopify Configuration
 SHOPIFY_STORE_DOMAIN="your-store.myshopify.com"
 SHOPIFY_STOREFRONT_ACCESS_TOKEN="your-storefront-access-token"
-SHOPIFY_ADMIN_ACCESS_TOKEN="your-admin-access-token" # Optional for admin features
 ```
 
 **Important Notes:**
