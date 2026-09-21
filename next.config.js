@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+    enabled: process.env.ANALYZE === "true",
+});
 const withPWA = require("next-pwa")({
     dest: "public",
     disable: process.env.NODE_ENV === "development",
@@ -138,6 +141,8 @@ const nextConfig = {
         "/**": [
             "node_modules/@playwright/**",
             "node_modules/ace-builds/**",
+            "node_modules/@next/bundle-analyzer/**",
+            "node_modules/webpack-bundle-analyzer/**",
             "node_modules/@swc/core-linux-x64-gnu/**",
             "node_modules/@swc/core-linux-x64-musl/**",
             "node_modules/@swc/core-darwin-x64/**",
@@ -210,4 +215,4 @@ const nextConfig = {
 
 require("dotenv").config();
 
-module.exports = withPWA(nextConfig);
+module.exports = withBundleAnalyzer(withPWA(nextConfig));
