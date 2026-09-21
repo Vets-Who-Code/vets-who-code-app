@@ -1,0 +1,43 @@
+version: 2
+
+updates:
+    - package-ecosystem: "npm"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+          day: "monday"
+          time: "08:00"
+      open-pull-requests-limit: 10
+      labels:
+          - "dependencies"
+      commit-message:
+          # Matches the repo's Conventional Commits rule (commitlint enforces it).
+          prefix: "chore"
+          include: "scope"
+      groups:
+          # One PR per week for routine bumps instead of ten separate ones.
+          minor-and-patch:
+              patterns:
+                  - "*"
+              update-types:
+                  - "minor"
+                  - "patch"
+      ignore:
+          # next is pinned exact on purpose; major bumps are a deliberate migration.
+          - dependency-name: "next"
+            update-types: ["version-update:semver-major"]
+          - dependency-name: "react"
+            update-types: ["version-update:semver-major"]
+          - dependency-name: "react-dom"
+            update-types: ["version-update:semver-major"]
+
+    - package-ecosystem: "github-actions"
+      directory: "/"
+      schedule:
+          interval: "weekly"
+          day: "monday"
+          time: "08:00"
+      labels:
+          - "dependencies"
+      commit-message:
+          prefix: "ci"
