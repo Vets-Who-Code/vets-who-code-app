@@ -30,9 +30,26 @@ type TModal = {
      * Pass extra classes
      */
     className?: string;
+    /**
+     * id of the element that labels the dialog
+     */
+    labelledBy?: string;
+    /**
+     * id of the element that describes the dialog
+     */
+    describedBy?: string;
 };
 
-const Modal = ({ className, show, size, centered, children, onClose }: TModal) => {
+const Modal = ({
+    className,
+    show,
+    size,
+    centered,
+    children,
+    onClose,
+    labelledBy,
+    describedBy,
+}: TModal) => {
     const modalRef = useKeyboardFocus<HTMLDivElement>(show, onClose);
 
     return (
@@ -57,6 +74,8 @@ const Modal = ({ className, show, size, centered, children, onClose }: TModal) =
                             )}
                             role="dialog"
                             aria-modal="true"
+                            aria-labelledby={labelledBy}
+                            aria-describedby={describedBy}
                             tabIndex={-1}
                             onClick={onClose}
                             onKeyPress={(e) => e}
