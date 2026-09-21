@@ -5,10 +5,6 @@ vi.mock("@components/seo/page-seo", () => ({
     default: () => <div data-testid="seo" />,
 }));
 
-vi.mock("@components/breadcrumb", () => ({
-    default: () => <nav aria-label="Breadcrumb" />,
-}));
-
 const STORAGE_KEY = "vwc-portfolio-checklist-2027";
 
 const seed = (value: Record<string, boolean>, key = STORAGE_KEY) =>
@@ -36,6 +32,13 @@ describe("Portfolio checklist page", () => {
         ).toHaveLength(11);
         expect(screen.getAllByRole("checkbox")).toHaveLength(7);
         expect(screen.getByText("81 items · 10 sections · gate")).toBeInTheDocument();
+    });
+
+    it("has exactly one h1, the visible hero title", () => {
+        render(<PortfolioChecklist />);
+        expect(screen.getAllByRole("heading", { level: 1 }).map((h) => h.textContent)).toEqual([
+            "Portfolio Checklist for Software Engineers",
+        ]);
     });
 
     it("swaps the panel when a section tile is clicked", () => {

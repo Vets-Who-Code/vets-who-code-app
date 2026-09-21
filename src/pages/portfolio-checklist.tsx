@@ -596,7 +596,8 @@ const PortfolioChecklist: PageProps = () => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Portfolio Checklist"
                 showTitle={false}
-                className="tw-bg-gray-50"
+                hideHeading={true}
+                className="tw-bg-gray-50 print:tw-hidden"
             />
 
             <div className="tw-bg-cream tw-pb-24 [-webkit-print-color-adjust:exact] [print-color-adjust:exact]">
