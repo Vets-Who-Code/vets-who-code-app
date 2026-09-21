@@ -3,6 +3,11 @@
 const cohortStartDate = "2027/04/05";
 const cohortYear = Number(cohortStartDate.slice(0, 4));
 
+// Applications window. Close it without a code change via
+// NEXT_PUBLIC_APPLICATIONS_OPEN="false".
+const applicationsOpen = process.env.NEXT_PUBLIC_APPLICATIONS_OPEN !== "false";
+const applicationsStatus = applicationsOpen ? "Applications Open" : "Applications Closed";
+
 export default {
     name: "Vets Who Code",
     titleTemplate: "%s | Vets Who Code",
@@ -14,8 +19,10 @@ export default {
     // NEXT_PUBLIC_COHORT_START_DATE.
     cohortStartDate,
     cohortYear,
+    applicationsOpen,
+    applicationsStatus,
     // Status badge printed across the marketing surfaces.
-    cohortStatus: `${cohortYear} Cohort · Applications Open`,
+    cohortStatus: `${cohortYear} Cohort · ${applicationsStatus}`,
     // The header nav row has no spare pixels — the long form wraps the menu.
-    cohortStatusShort: `${cohortYear} Cohort · Open`,
+    cohortStatusShort: `${cohortYear} Cohort · ${applicationsOpen ? "Open" : "Closed"}`,
 };

@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+    enabled: process.env.ANALYZE === "true",
+});
 const withPWA = require("next-pwa")({
     dest: "public",
     disable: process.env.NODE_ENV === "development",
@@ -24,6 +27,10 @@ const withPWA = require("next-pwa")({
         /middleware-runtime\.js$/,
         /_middleware\.js$/,
         /^.+\\_middleware\.js$/,
+        // Next 15 writes .next/dynamic-css-manifest.json but never serves it at
+        // /_next/dynamic-css-manifest.json. Precaching a 404 makes the whole
+        // workbox install reject, so no service worker ever activates.
+        /dynamic-css-manifest\.json$/,
     ],
     publicExcludes: ["!robots.txt"],
     fallbacks: {
@@ -84,7 +91,7 @@ const nextConfig = {
                             // runtime caching intercepts every cross-origin image, so any
                             // host listed in img-src also needs to be here or the image
                             // silently fails to load for anyone with the SW registered.
-                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://github.githubassets.com https://www.paypalobjects.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://cdn.jsdelivr.net https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs-us-1.huggingface.co",
+                            "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://github.githubassets.com https://www.paypalobjects.com https://cdn.shopify.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://cdn.jsdelivr.net https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs-us-1.huggingface.co",
                             "worker-src 'self' https://cdn.jsdelivr.net",
                             "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org",
                             "media-src 'self' https://res.cloudinary.com",
@@ -134,6 +141,8 @@ const nextConfig = {
         "/**": [
             "node_modules/@playwright/**",
             "node_modules/ace-builds/**",
+            "node_modules/@next/bundle-analyzer/**",
+            "node_modules/webpack-bundle-analyzer/**",
             "node_modules/@swc/core-linux-x64-gnu/**",
             "node_modules/@swc/core-linux-x64-musl/**",
             "node_modules/@swc/core-darwin-x64/**",
@@ -206,4 +215,4 @@ const nextConfig = {
 
 require("dotenv").config();
 
-module.exports = withPWA(nextConfig);
+module.exports = withBundleAnalyzer(withPWA(nextConfig));

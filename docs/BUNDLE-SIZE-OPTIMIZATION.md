@@ -72,12 +72,63 @@ Verify ace-builds exclusion:
 find .next/server -name "*ace-builds*" | wc -l
 ```
 
+## Bundle Analyzer
+
+`@next/bundle-analyzer` is wired into `next.config.js` behind an `ANALYZE` env flag. With `ANALYZE`
+unset the plugin is a pass-through, so `npm run build` and `vercel-build` are unchanged.
+
+```bash
+npm run analyze
+```
+
+Writes three treemaps to `.next/analyze/` (`client.html`, `nodejs.html`, `edge.html`) and opens them
+in a browser. That directory is build output under `.next/` and is not committed.
+
+### Baseline (`npm run analyze`, 2026-09-14)
+
+Route weights as reported by `next build`:
+
+- First Load JS shared by all: **148 kB**
+- 17 of 215 routes exceed 200 kB First Load JS. Heaviest: `/` 259 kB, `/about-us` 242 kB,
+  `/apply` 240 kB, `/mentor` 237 kB, `/curriculum` 220 kB
+- Page data over Next's 128 kB warning threshold: `/career-guides` 1.22 MB, `/blogs/search` 225 kB,
+  `/resume-translator` 159 kB, `/projects` 129 kB
+
+Largest dependencies in the client build, parsed and uncompressed, read off `client.html`:
+
+| Package | Parsed | Where it loads |
+| --- | --- | --- |
+| `swagger-client` + `swagger-ui-react` | 694 kB | async chunk, `/api-docs` only |
+| `ace-builds` | 556 kB | async chunk (the dynamic import above) |
+| `pdf-lib` | 369 kB | async chunk, certificate and resume PDFs |
+| `gray-matter` | 176 kB | eager on `/admin/blog-images` |
+| `motion` | 117 kB | eager on `/`, `/about-us`, `/apply`, blog author pages |
+| `swiper` | 92 kB | eager on `/`, `/events/[slug]` |
+
+The three heaviest are already split into async chunks and never enter First Load JS, so the
+existing dynamic imports are doing their job. The eager entries are where the remaining wins are,
+and the largest one is app source rather than a dependency: `src/lib/curriculum-graph.ts` pulls
+`src/data/curriculum-graph/topics.json` (115 kB) and `edges.json` (65 kB) into a 196 kB chunk that
+`build-manifest.json` lists on `/about-us`, `/curriculum`, and `/programs/accelerator`.
+
+### Optimization work tracked elsewhere
+
+This is tooling. The fixes it points at are owned by open issues:
+
+- #1270 — marketing and blog route weight, including the 196 kB curriculum-graph chunk above
+- #1271 — the `/career-guides` 1.22 MB page-data payload
+- #1273 — unused dependencies and unreferenced images
+
+**Bundle size budgets are deliberately not set yet.** A `size-limit` CI gate is deferred until
+#1270 lands: the target is First Load JS under 200 kB, and 17 routes exceed that today, so a gate
+at that threshold would fail the build the day it merged.
+
 ## Future Recommendations
 
 1. **Regular Dependency Audits**
    - Run `npm ls` or `yarn why` to check dependency tree
    - Use `npm dedupe` to remove duplicate packages
-   - Review bundle sizes with `@next/bundle-analyzer`
+   - Review bundle sizes with `npm run analyze` (see Bundle Analyzer above)
 
 2. **Monitor Bundle Sizes**
    - Set up bundle size monitoring in CI/CD
