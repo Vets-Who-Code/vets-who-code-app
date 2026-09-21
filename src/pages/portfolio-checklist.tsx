@@ -33,344 +33,237 @@ const CHECKLIST_DATA: ChecklistSection[] = [
         number: "1",
         title: "First Impression",
         description:
-            "You have 8 seconds. Every element either moves a hiring manager toward \u201cI need to talk to this person\u201d or it\u2019s noise.",
+            "You have 8 seconds. Every element either moves a hiring manager toward “I need to talk to this person” or it’s noise.",
         items: [
-            {
-                id: "1-1",
-                text: "Headline positioning statement \u2014 one sentence that says what you build and who it\u2019s for. Not a tool list.",
-            },
-            {
-                id: "1-2",
-                text: "Target roles stated clearly \u2014 say what you\u2019re looking for so the right people self-select.",
-            },
-            {
-                id: "1-3",
-                text: 'CTA above the fold \u2014 a recruiter should see "View Artifacts" or "Book an Intro" without scrolling.',
-            },
-            {
-                id: "1-4",
-                text: "Email capture popup \u2014 offer your r\u00e9sum\u00e9 as a download or send it to their inbox. Name, email, done.",
-            },
+            { id: "1-1", text: "Headline positioning statement" },
+            { id: "1-2", text: "Target roles stated, each linked to its role page" },
+            { id: "1-3", text: "CTA above the fold" },
+            { id: "1-4", text: "Contact links visible on every page" },
             {
                 id: "1-5",
-                text: "Contact surface obvious \u2014 email, LinkedIn, and GitHub links visible from every page.",
+                text: "Clean nav: About, Artifacts, How I Build, Writing, Résumé, Contact",
             },
-            {
-                id: "1-6",
-                text: "Clean navigation \u2014 About, Projects, Artifacts, Blog, Press/Talks, Contact. That\u2019s it.",
-            },
-            {
-                id: "1-7",
-                text: "Custom domain with HTTPS \u2014 yourname.dev or similar. No default subdomain URLs.",
-            },
-            {
-                id: "1-8",
-                text: "Mobile-responsive, accessible \u2014 recruiters browse on phones between meetings.",
-            },
+            { id: "1-6", text: "Custom domain with HTTPS" },
+            { id: "1-7", text: "Mobile-responsive and accessible" },
+        ],
+    },
+    {
+        id: "hiring-channels",
+        number: "2",
+        title: "Hiring Channels",
+        description:
+            "Different readers need different doors. Recruiters, referrers, and hiring managers each get a page built for the way they actually read.",
+        items: [
+            { id: "2-1", text: "Role-specific landing pages (/for/[role])" },
+            { id: "2-2", text: "Recruiter fast lane (/recruiters)" },
+            { id: "2-3", text: "Referral kit (/refer)" },
+            { id: "2-4", text: "HTML résumé per track (/resume/[role])" },
+            { id: "2-5", text: "Recruiter CTA banner on artifact pages" },
         ],
     },
     {
         id: "proof-of-work",
-        number: "2",
+        number: "3",
         title: "Proof of Work",
         description:
             "This is your product catalog. Every card should make someone want to click through.",
         items: [
-            {
-                id: "2-1",
-                text: 'Each project card shows an outcome, not a description \u2014 "Cut API response time 60% for 50K daily users" not "Built a REST API with Express."',
-            },
-            {
-                id: "2-2",
-                text: "1-sentence business impact visible on the card without clicking in.",
-            },
-            {
-                id: "2-3",
-                text: "Tech scope tags \u2014 secondary to the outcome. Tags are filters, not headlines.",
-            },
-            {
-                id: "2-4",
-                text: "Live demo link or demo video \u2014 a working app is best, but a short video walkthrough works.",
-            },
-            {
-                id: "2-5",
-                text: "Repo link obvious \u2014 if there\u2019s no live demo and no video, the project shouldn\u2019t be on the index.",
-            },
-            {
-                id: "2-6",
-                text: "Visual proof strip \u2014 tests passing badge, last deploy date, uptime or performance snapshot.",
-            },
-            {
-                id: "2-7",
-                text: 'No "coming soon" cards \u2014 either it ships or it doesn\u2019t exist on this page.',
-            },
+            { id: "3-1", text: "Cards show outcomes, not descriptions" },
+            { id: "3-2", text: "One-sentence business impact on each card" },
+            { id: "3-3", text: "Skill tags in market-standard terms" },
+            { id: "3-4", text: "Live demo or demo video" },
+            { id: "3-5", text: "Repo link" },
+            { id: "3-6", text: "Visual proof strip (tests, deploy date, performance)" },
+            { id: "3-7", text: "No tutorial clones or single-prompt projects" },
+            { id: "3-8", text: 'No "coming soon" cards' },
         ],
     },
     {
         id: "artifact-deep-dives",
-        number: "3",
+        number: "4",
         title: "Artifact Deep Dives",
         description:
-            "This is where you convert interest into a conversation. Each artifact is a story: situation \u2192 approach \u2192 result \u2192 reflection.",
+            "This is where you convert interest into a conversation. Each artifact is a story: situation → approach → result → reflection.",
         subsections: [
             {
                 title: "The Story",
                 items: [
+                    { id: "4-1", text: "Problem statement with business context" },
+                    { id: "4-2", text: "Success criteria up front" },
+                    { id: "4-3", text: "Approach and architecture" },
+                    { id: "4-4", text: "Key tradeoffs, linked to decision records" },
+                    { id: "4-5", text: "Measurable outcome" },
+                    { id: "4-6", text: "What I’d change in v2" },
+                    { id: "4-7", text: "“Walk me through it” (10-minute spoken version)" },
+                ],
+            },
+            {
+                title: "AI Collaboration",
+                items: [
                     {
-                        id: "3-1",
-                        text: "Problem statement with business context \u2014 who had the problem, what it cost them, what constraints you operated under.",
+                        id: "4-8",
+                        text: "AI collaboration note (tools used, what AI did, what you owned)",
                     },
-                    {
-                        id: "3-2",
-                        text: "Success criteria defined upfront \u2014 what \u201cdone\u201d looked like, stated in measurable terms.",
-                    },
-                    {
-                        id: "3-3",
-                        text: "Your approach and architecture \u2014 architecture diagram + brief stack summary. This is \u201chow I think.\u201d",
-                    },
-                    {
-                        id: "3-4",
-                        text: "Key tradeoffs you made and why \u2014 serverless vs containers, SQL vs NoSQL, build vs buy. The senior engineer signal.",
-                    },
-                    {
-                        id: "3-5",
-                        text: "Measurable outcome \u2014 tie back to success criteria. Numbers. Before/after. Business impact a non-engineer VP can understand.",
-                    },
-                    {
-                        id: "3-6",
-                        text: "What I\u2019d change in v2 \u2014 shows self-awareness, learning orientation, and honesty.",
-                    },
+                    { id: "4-9", text: "Where AI got it wrong" },
                 ],
             },
             {
                 title: "The Evidence",
                 items: [
-                    {
-                        id: "3-7",
-                        text: "Live demo or demo video \u2014 working app, recorded walkthrough, or Loom-style video.",
-                    },
-                    {
-                        id: "3-8",
-                        text: "Repo link \u2014 clean, documented, CI green.",
-                    },
-                    {
-                        id: "3-9",
-                        text: "Architecture diagram \u2014 Mermaid, Excalidraw, or a clean image. Doesn\u2019t need to be fancy, needs to be clear.",
-                    },
-                    {
-                        id: "3-10",
-                        text: "Links to related blog posts \u2014 cross-link your deeper technical writing.",
-                    },
+                    { id: "4-10", text: "Tradeoff video with you on camera" },
+                    { id: "4-11", text: "Live demo or demo video" },
+                    { id: "4-12", text: "Repo link" },
+                    { id: "4-13", text: "Architecture diagram" },
+                    { id: "4-14", text: "Links to decision records and related posts" },
                 ],
             },
         ],
     },
     {
+        id: "ai-fluency",
+        number: "5",
+        title: "AI Fluency & Judgment",
+        description:
+            "Everyone ships with AI now. What separates you is the judgment around it: evals, cost, fallbacks, and the calls you owned.",
+        items: [
+            { id: "5-1", text: "How I Build page (/how-i-build)" },
+            {
+                id: "5-2",
+                text: "At least one LLM artifact with evals, cost, latency, and fallback",
+            },
+            { id: "5-3", text: "Prompts versioned in the repo (/prompts)" },
+            { id: "5-4", text: "Evals in the repo (/evals)" },
+            { id: "5-5", text: "Decision records index (/decisions)" },
+            { id: "5-6", text: "LLM data handling statement" },
+        ],
+    },
+    {
         id: "technical-credibility",
-        number: "4",
+        number: "6",
         title: "Technical Credibility Signals",
         description:
-            "Hiring managers and senior engineers will click into your repos. They\u2019re looking for professional habits, not perfection.",
+            "Hiring managers and senior engineers will click into your repos. They’re looking for professional habits, not perfection.",
         subsections: [
             {
                 title: "Repository Basics",
                 items: [
-                    {
-                        id: "4-1",
-                        text: "README that gets someone running in 5 minutes \u2014 quickstart, env vars, scripts, and deploy steps.",
-                    },
-                    {
-                        id: "4-2",
-                        text: "Architecture diagram in /docs \u2014 Mermaid or Excalidraw. Shows you think in systems.",
-                    },
-                    {
-                        id: "4-3",
-                        text: "Strict language settings and linting config checked in \u2014 signals you care about code quality.",
-                    },
-                    {
-                        id: "4-4",
-                        text: "Dependency management visible \u2014 automated updates enabled, security audits in CI.",
-                    },
+                    { id: "6-1", text: "README that gets someone running in 5 minutes" },
+                    { id: "6-2", text: "Architecture diagram in /docs" },
+                    { id: "6-3", text: "ADRs in /docs/adr" },
+                    { id: "6-4", text: "Strict language settings and linting" },
+                    { id: "6-5", text: "Dependency management visible" },
                 ],
             },
             {
                 title: "Testing",
                 items: [
-                    {
-                        id: "4-5",
-                        text: "Tests exist and pass \u2014 unit tests with a coverage badge or report. Table stakes.",
-                    },
-                    {
-                        id: "4-6",
-                        text: "CI runs tests on PR and main \u2014 the badge should be green.",
-                    },
-                    {
-                        id: "4-7",
-                        text: "Integration or E2E tests present \u2014 even one meaningful E2E test signals production thinking.",
-                    },
+                    { id: "6-6", text: "Tests exist and pass" },
+                    { id: "6-7", text: "CI runs tests on PR and main" },
+                    { id: "6-8", text: "Integration or E2E tests" },
                 ],
             },
             {
                 title: "CI/CD",
                 items: [
-                    {
-                        id: "4-8",
-                        text: "Pipeline config in the repo \u2014 GitHub Actions, CircleCI, whatever. Visible and automated.",
-                    },
-                    {
-                        id: "4-9",
-                        text: 'Deploy process described \u2014 doesn\u2019t need to be complex. "Push to main deploys to Vercel" is fine.',
-                    },
-                    {
-                        id: "4-10",
-                        text: "Environment promotion noted \u2014 if you have staging \u2192 production, say so.",
-                    },
+                    { id: "6-9", text: "Pipeline config in the repo" },
+                    { id: "6-10", text: "Deploy process described" },
+                    { id: "6-11", text: "Environment promotion noted" },
                 ],
             },
             {
                 title: "Observability",
                 items: [
+                    { id: "6-12", text: "Logging approach" },
                     {
-                        id: "4-11",
-                        text: "Logging approach noted \u2014 what logger, structured logs, correlation IDs if applicable.",
+                        id: "6-13",
+                        text: "Key metrics, including token cost and eval score for AI features",
                     },
-                    {
-                        id: "4-12",
-                        text: "Key metrics identified \u2014 latency, error rate, what you\u2019d alert on.",
-                    },
-                    {
-                        id: "4-13",
-                        text: 'Uptime or performance target stated \u2014 "99.9% uptime target" or "p95 under 200ms."',
-                    },
+                    { id: "6-14", text: "Uptime or performance target" },
                 ],
             },
             {
                 title: "Security",
                 items: [
-                    {
-                        id: "4-14",
-                        text: "Auth approach described \u2014 how users authenticate and how permissions work.",
-                    },
-                    {
-                        id: "4-15",
-                        text: "No secrets in the repo \u2014 state your secrets management approach.",
-                    },
-                    {
-                        id: "4-16",
-                        text: "Input validation called out \u2014 mention your validation strategy.",
-                    },
+                    { id: "6-15", text: "Auth approach described" },
+                    { id: "6-16", text: "No secrets in the repo, including model API keys" },
+                    { id: "6-17", text: "Input validation" },
+                    { id: "6-18", text: "Prompt injection and output validation" },
                 ],
             },
         ],
     },
     {
         id: "authority-social-proof",
-        number: "5",
+        number: "7",
         title: "Authority & Social Proof",
         description:
             "Why you, not someone else. Build credibility through content, visibility, and community contribution.",
-        subsections: [
+        items: [
+            { id: "7-1", text: "Blog posts on real decisions" },
+            { id: "7-2", text: "At least one deep-dive post" },
+            { id: "7-3", text: "Artifacts link to related posts" },
+            { id: "7-4", text: "Press and talks on About" },
+            { id: "7-5", text: "Testimonials" },
+            { id: "7-6", text: "Meaningful open source contributions" },
+        ],
+    },
+    {
+        id: "ai-search-visibility",
+        number: "8",
+        title: "AI Search Visibility",
+        description:
+            "Recruiters ask an assistant about you before they ask you. Make sure the answer it gives is accurate and comes from your site.",
+        items: [
             {
-                title: "Content",
-                items: [
-                    {
-                        id: "5-1",
-                        text: "Blog posts that unpack real decisions \u2014 design choices, performance wins, lessons from outages.",
-                    },
-                    {
-                        id: "5-2",
-                        text: 'At least one "deep dive" post \u2014 mirrors a real engineering writeup. Your writing sample for async-first teams.',
-                    },
-                    {
-                        id: "5-3",
-                        text: "Artifacts link to related posts \u2014 cross-pollinate your content. Keep people on your site.",
-                    },
-                ],
+                id: "8-1",
+                text: "Let AI read your site: no blocked AI crawlers, and key information in plain text",
             },
             {
-                title: "Press & Talks",
-                items: [
-                    {
-                        id: "5-4",
-                        text: "Dedicated press/talks page \u2014 interviews, articles, conference talks, awards, media features.",
-                    },
-                    {
-                        id: "5-5",
-                        text: "Testimonials or recommendations \u2014 brief quotes with names and titles.",
-                    },
-                ],
+                id: "8-2",
+                text: "Be the same person everywhere: same name, title, and headline across profiles, all linked",
             },
             {
-                title: "Open Source",
-                items: [
-                    {
-                        id: "5-6",
-                        text: "Highlight meaningful contributions \u2014 merged PRs, maintained packages, issues resolved. Quality over quantity.",
-                    },
-                ],
+                id: "8-3",
+                text: "Answer the recruiter’s question in plain sentences: role, skills, location, remote preference, availability",
             },
+            { id: "8-4", text: "One quotable fact per project, with a number" },
         ],
     },
     {
         id: "discoverability",
-        number: "6",
+        number: "9",
         title: "Discoverability & Distribution",
         description:
-            "Getting found. Make sure your portfolio works for you even when you\u2019re not sharing it directly.",
+            "Getting found. Make sure your portfolio works for you even when you’re not sharing it directly.",
         items: [
             {
-                id: "6-1",
-                text: "Basic SEO \u2014 page titles, meta descriptions, canonical URLs, sitemap, robots.txt.",
+                id: "9-1",
+                text: "Basic SEO (titles, meta descriptions, canonical URLs, sitemap, robots.txt)",
             },
+            { id: "9-2", text: "JSON-LD Person schema (optional)" },
+            { id: "9-3", text: "llms.txt at the root (optional)" },
             {
-                id: "6-2",
-                text: "Social preview images (OG tags) \u2014 when shared on Slack or LinkedIn, it should look intentional.",
+                id: "9-4",
+                text: "Consistent skills language across tags, role pages, résumés, and LinkedIn",
             },
-            {
-                id: "6-3",
-                text: "Favicons set \u2014 small detail that signals professionalism.",
-            },
-            {
-                id: "6-4",
-                text: "LinkedIn profile linked and active \u2014 pinned post linking to your portfolio or best artifact.",
-            },
-            {
-                id: "6-5",
-                text: "GitHub profile polished \u2014 pinned repos match your portfolio, profile README exists.",
-            },
-            {
-                id: "6-6",
-                text: 'Recruiter CTA banner \u2014 "Hiring a senior engineer? See my artifacts \u2192" Make the next step obvious.',
-            },
+            { id: "9-5", text: "OG preview images" },
+            { id: "9-6", text: "Favicons" },
+            { id: "9-7", text: "Active LinkedIn with pinned portfolio post" },
+            { id: "9-8", text: "Polished GitHub profile with pinned repos matching the portfolio" },
         ],
     },
     {
         id: "maintenance",
-        number: "7",
+        number: "10",
         title: "Maintenance",
         description:
             "A stale portfolio works against you. Keep it alive or it signals abandonment.",
         items: [
-            {
-                id: "7-1",
-                text: "All links work, all demos are live \u2014 broken links signal abandonment. Check monthly.",
-            },
-            {
-                id: "7-2",
-                text: "CI is green on showcased repos \u2014 if the badge is red, you\u2019re advertising that you don\u2019t maintain your work.",
-            },
-            {
-                id: "7-3",
-                text: "Add a new artifact or post at least monthly \u2014 shows you\u2019re active and growing.",
-            },
-            {
-                id: "7-4",
-                text: "Quarterly review \u2014 update screenshots, metrics, links. Archive stale projects with a \u201cretired\u201d note.",
-            },
-            {
-                id: "7-5",
-                text: "\u201cWhat\u2019s New\u201d section or changelog \u2014 optional but strong. Shows continuous improvement.",
-            },
+            { id: "10-1", text: "All links and demos working (check monthly)" },
+            { id: "10-2", text: "CI green on showcased repos" },
+            { id: "10-3", text: "New artifact, decision record, or post monthly" },
+            { id: "10-4", text: "Quarterly review of metrics, evals, and role pages" },
+            { id: "10-5", text: "“What’s new” section or changelog" },
         ],
     },
 ];
@@ -378,27 +271,20 @@ const CHECKLIST_DATA: ChecklistSection[] = [
 const QUALITY_BAR_ITEMS: ChecklistItem[] = [
     {
         id: "qb-1",
-        text: "Every project has: live link or demo video, repo, architecture diagram, test evidence, deployment note, and an observability note.",
+        text: "Every artifact has a demo, repo, diagram, tests, deploy note, observability note, and AI note",
     },
-    {
-        id: "qb-2",
-        text: "Homepage clearly states your target roles and how to contact you.",
-    },
-    {
-        id: "qb-3",
-        text: 'No "coming soon" placeholders anywhere.',
-    },
-    {
-        id: "qb-4",
-        text: "You can explain every technical choice on your portfolio in a live conversation \u2014 if you can\u2019t defend it, don\u2019t display it.",
-    },
+    { id: "qb-2", text: "Target roles stated, each with its own page and matching résumé" },
+    { id: "qb-3", text: "Recruiters and referrers can act in under a minute" },
+    { id: "qb-4", text: 'No "coming soon" placeholders' },
+    { id: "qb-5", text: "You can defend every line, including code AI wrote" },
 ];
 
 // --- Storage Key ---
 
-const STORAGE_KEY = "vwc-portfolio-checklist";
+// 2027 edition: new items and ids, so progress starts fresh under a new key.
+const STORAGE_KEY = "vwc-portfolio-checklist-2027";
 
-// --- Steps: the seven sections plus the Quality Bar, one panel each ---
+// --- Steps: every section plus the Quality Bar, one panel each ---
 
 interface Step {
     id: string;
@@ -431,13 +317,14 @@ const STEP_IDS = STEPS.map((step) =>
     step.groups.flatMap((group) => group.items.map((item) => item.id))
 );
 
-const TOTAL_ITEMS = STEP_IDS.reduce((sum, ids) => sum + ids.length, 0);
+// The Quality Bar is a gate, not part of the item count.
+const TOTAL_ITEMS = STEP_IDS.reduce((sum, ids, i) => (STEPS[i].gate ? sum : sum + ids.length), 0);
 
 const GRAIN =
     "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 const GHOST_BUTTON =
-    "tw-inline-flex tw-min-h-[38px] tw-items-center tw-bg-transparent tw-px-2.5 tw-font-mono tw-text-[11px] tw-font-medium tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-transition-colors tw-duration-300 hover:tw-text-navy hover:tw-underline";
+    "tw-inline-flex tw-min-h-[38px] tw-items-center tw-bg-transparent tw-px-[18px] tw-font-mono tw-text-[11px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-transition-all tw-duration-300 tw-ease-out hover:-tw-translate-y-px hover:tw-text-navy hover:tw-underline active:tw-scale-95";
 
 const ACTIVE_TILE = {
     bg: "tw-bg-navy",
@@ -493,13 +380,19 @@ const PortfolioChecklist: PageProps = () => {
         done: ids.filter((id) => checked[id]).length,
         total: ids.length,
     }));
-    const checkedCount = counts.reduce((sum, count) => sum + count.done, 0);
+    const checkedCount = counts.reduce(
+        (sum, count, i) => (STEPS[i].gate ? sum : sum + count.done),
+        0
+    );
     const progressPercent = Math.round((checkedCount / TOTAL_ITEMS) * 100);
 
     useEffect(() => {
         const stored = SafeLocalStorage.getItem<Record<string, boolean>>(STORAGE_KEY, {});
         setChecked(stored);
         setMounted(true);
+        // Old #section links from the single-scroll page open that section.
+        const fromHash = STEPS.findIndex((step) => `#${step.id}` === window.location.hash);
+        if (fromHash > 0) setActive(fromHash);
     }, []);
 
     useEffect(() => {
@@ -541,13 +434,30 @@ const PortfolioChecklist: PageProps = () => {
         headingRef.current?.focus();
     };
 
+    // With "Hide completed" on, checking an item unmounts its row. Hand focus to the
+    // next (or previous) item first so keyboard and screen reader users keep their place.
+    const handleToggle = (id: string, input: HTMLInputElement) => {
+        if (!hideDone || checked[id]) {
+            toggleItem(id);
+            return;
+        }
+        const boxes = Array.from(
+            input.closest("section")?.querySelectorAll<HTMLInputElement>("input[type=checkbox]") ??
+                []
+        );
+        const index = boxes.indexOf(input);
+        const target = boxes[index + 1] ?? boxes[index - 1] ?? headingRef.current;
+        flushSync(() => toggleItem(id));
+        target?.focus();
+    };
+
     const renderItem = (item: ChecklistItem) => {
         const isDone = !!checked[item.id];
         return (
             <label
                 key={item.id}
                 className={clsx(
-                    "tw-flex tw-cursor-pointer tw-items-start tw-gap-4 tw-border tw-border-l-2 tw-border-gray-100 tw-px-5 tw-py-[15px] tw-transition-all tw-duration-300 tw-ease-[var(--ease-card)] hover:tw-border-l-red hover:tw-shadow-sm hover:tw-shadow-black/10",
+                    "tw-flex tw-cursor-pointer tw-break-inside-avoid tw-items-start tw-gap-4 tw-border tw-border-l-2 tw-border-gray-100 tw-px-5 tw-py-[15px] tw-transition-all tw-duration-300 hover:tw-border-l-red hover:tw-shadow-sm hover:tw-shadow-black/10 [transition-timing-function:var(--ease-card)]",
                     isDone
                         ? "tw-border-l-navy tw-bg-gray-50"
                         : "tw-border-l-transparent tw-bg-white"
@@ -557,7 +467,7 @@ const PortfolioChecklist: PageProps = () => {
                     <input
                         type="checkbox"
                         checked={isDone}
-                        onChange={() => toggleItem(item.id)}
+                        onChange={(event) => handleToggle(item.id, event.currentTarget)}
                         className={clsx(
                             "tw-m-0 tw-block tw-h-5 tw-w-5 tw-cursor-pointer tw-appearance-none tw-rounded-none tw-border-2 tw-border-solid tw-transition-all tw-duration-200 tw-ease-out",
                             isDone ? "tw-border-navy tw-bg-navy" : "tw-border-gray-200 tw-bg-white"
@@ -616,7 +526,7 @@ const PortfolioChecklist: PageProps = () => {
                             : "tw-border-t-navy tw-bg-white"
                     )}
                 >
-                    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-start sm:tw-gap-[22px]">
+                    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-start sm:tw-gap-[22px] print:tw-break-after-avoid">
                         <span
                             aria-hidden="true"
                             className={clsx(
@@ -647,7 +557,7 @@ const PortfolioChecklist: PageProps = () => {
                                             : "tw-bg-navy/[0.06] tw-text-navy"
                                     )}
                                 >
-                                    {done} / {total} done
+                                    {done} / {total} {step.gate ? "cleared" : "done"}
                                 </span>
                             </div>
                             <p className="tw-mb-0 tw-mt-3 tw-max-w-[72ch] tw-text-base tw-leading-body tw-text-gray-300 [text-wrap:pretty]">
@@ -659,7 +569,10 @@ const PortfolioChecklist: PageProps = () => {
                     {groups.map((group) => (
                         <div key={group.title || step.id} className="tw-mt-[30px]">
                             {group.title && (
-                                <Eyebrow as="h3" className="tw-mb-3.5 tw-text-navy-ocean">
+                                <Eyebrow
+                                    as="h3"
+                                    className="tw-mb-3.5 tw-text-navy-ocean print:tw-break-after-avoid"
+                                >
                                     {group.title}
                                 </Eyebrow>
                             )}
@@ -691,13 +604,13 @@ const PortfolioChecklist: PageProps = () => {
                 <section className="tw-relative tw-overflow-hidden tw-bg-navy tw-pb-16 tw-pt-20">
                     <div
                         aria-hidden="true"
-                        className="tw-pointer-events-none tw-absolute tw-inset-0 tw-opacity-[0.02]"
+                        className="tw-pointer-events-none tw-absolute tw-inset-0 tw-opacity-[0.02] print:tw-hidden"
                         style={{ backgroundImage: GRAIN }}
                     />
                     <div className="tw-container tw-flex tw-flex-wrap tw-items-end tw-justify-between tw-gap-12">
                         <div className="tw-min-w-0 tw-flex-[1_1_520px]">
                             <Eyebrow className="tw-mb-7 tw-text-gray-100">
-                                Sharpen Skills &middot; 2026 Edition
+                                Sharpen Skills &middot; 2027 Edition
                             </Eyebrow>
                             <h1 className="tw-mb-[26px] tw-mt-0 tw-max-w-[20ch] tw-text-white [font-size:clamp(34px,5vw,58px)]">
                                 Portfolio Checklist for Software Engineers
@@ -731,6 +644,7 @@ const PortfolioChecklist: PageProps = () => {
                             </div>
                             <div className="tw-mt-3 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-navy-sky/70">
                                 {TOTAL_ITEMS} items &middot; {CHECKLIST_DATA.length} sections
+                                &middot; gate
                             </div>
                         </div>
                     </div>
@@ -768,7 +682,7 @@ const PortfolioChecklist: PageProps = () => {
                                     className={clsx(
                                         "tw-block tw-h-3 tw-w-3 tw-border-2",
                                         hideDone
-                                            ? "tw-border-red tw-bg-red"
+                                            ? "tw-border-red tw-bg-red forced-colors:tw-bg-[color:CanvasText]"
                                             : "tw-border-gray-200 tw-bg-transparent"
                                     )}
                                 />
@@ -797,7 +711,9 @@ const PortfolioChecklist: PageProps = () => {
                             const complete = done === total;
                             const tone = isActive ? ACTIVE_TILE : REST_TILE;
                             let rule = "tw-border-t-transparent";
-                            if (isActive) rule = "tw-border-t-red";
+                            if (isActive)
+                                rule =
+                                    "tw-border-t-red forced-colors:tw-border-t-[6px] forced-colors:tw-border-t-[color:Highlight]";
                             else if (complete) rule = "tw-border-t-gold";
                             return (
                                 <button
@@ -806,9 +722,10 @@ const PortfolioChecklist: PageProps = () => {
                                     aria-current={isActive ? "step" : undefined}
                                     onClick={() => setActive(index)}
                                     className={clsx(
-                                        "tw-flex tw-min-h-[132px] tw-flex-col tw-gap-2.5 tw-border-t-2 tw-px-5 tw-pb-4 tw-pt-[18px] tw-text-left tw-transition-all tw-duration-300 tw-ease-[var(--ease-card)] hover:tw-border-t-red",
+                                        "tw-relative tw-flex tw-min-h-[132px] tw-flex-col tw-gap-2.5 tw-border-t-2 tw-px-5 tw-pb-4 tw-pt-[18px] tw-text-left tw-transition-all tw-duration-300 hover:tw-border-t-red focus-visible:tw-z-10 [transition-timing-function:var(--ease-card)]",
                                         rule,
-                                        tone.bg
+                                        tone.bg,
+                                        step.gate && "sm:tw-col-span-2"
                                     )}
                                 >
                                     <span
