@@ -91,10 +91,13 @@ describe("Portfolio checklist page", () => {
         expect(screen.getByRole("button", { name: "End of checklist" })).toBeDisabled();
     });
 
-    it("opens the section named in the URL hash", () => {
+    it("opens and focuses the section named in the URL hash", () => {
         window.location.hash = "#ai-search-visibility";
         render(<PortfolioChecklist />);
         expect(panelHeadings().map((h) => h.textContent)).toEqual(["AI Search Visibility"]);
+        expect(
+            screen.getByRole("heading", { level: 2, name: "AI Search Visibility" })
+        ).toHaveFocus();
     });
 
     it("hides completed items and drops subsections left empty", () => {

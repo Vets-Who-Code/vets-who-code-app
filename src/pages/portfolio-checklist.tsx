@@ -326,6 +326,10 @@ const GRAIN =
 const GHOST_BUTTON =
     "tw-inline-flex tw-min-h-[38px] tw-items-center tw-bg-transparent tw-px-[18px] tw-font-mono tw-text-[11px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-transition-all tw-duration-300 tw-ease-out hover:-tw-translate-y-px hover:tw-text-navy hover:tw-underline active:tw-scale-95";
 
+// Inline: PurgeCSS strips arbitrary-property classes, and tw-ease-[...] clashes with
+// tailwindcss-animate's ease-* utility.
+const EASE_CARD = { transitionTimingFunction: "var(--ease-card)" };
+
 const ACTIVE_TILE = {
     bg: "tw-bg-navy",
     ink: "tw-text-white",
@@ -375,6 +379,7 @@ const PortfolioChecklist: PageProps = () => {
     const [hideDone, setHideDone] = useState(false);
     const [printing, setPrinting] = useState(false);
     const headingRef = useRef<HTMLHeadingElement>(null);
+    const hashTarget = useRef<number | null>(null);
 
     const counts = STEP_IDS.map((ids) => ({
         done: ids.filter((id) => checked[id]).length,
@@ -392,7 +397,10 @@ const PortfolioChecklist: PageProps = () => {
         setMounted(true);
         // Old #section links from the single-scroll page open that section.
         const fromHash = STEPS.findIndex((step) => `#${step.id}` === window.location.hash);
-        if (fromHash > 0) setActive(fromHash);
+        if (fromHash > 0) {
+            hashTarget.current = fromHash;
+            setActive(fromHash);
+        }
     }, []);
 
     useEffect(() => {
@@ -400,6 +408,14 @@ const PortfolioChecklist: PageProps = () => {
             SafeLocalStorage.setItem(STORAGE_KEY, checked);
         }
     }, [checked, mounted]);
+
+    // Once the hash-linked panel has rendered, focus its heading, which also scrolls it
+    // into view below the sticky header.
+    useEffect(() => {
+        if (hashTarget.current !== active) return;
+        hashTarget.current = null;
+        headingRef.current?.focus();
+    }, [active]);
 
     // Print stacks every section. flushSync commits before the browser lays out the print.
     useEffect(() => {
@@ -456,8 +472,9 @@ const PortfolioChecklist: PageProps = () => {
         return (
             <label
                 key={item.id}
+                style={EASE_CARD}
                 className={clsx(
-                    "tw-flex tw-cursor-pointer tw-break-inside-avoid tw-items-start tw-gap-4 tw-border tw-border-l-2 tw-border-gray-100 tw-px-5 tw-py-[15px] tw-transition-all tw-duration-300 hover:tw-border-l-red hover:tw-shadow-sm hover:tw-shadow-black/10 [transition-timing-function:var(--ease-card)]",
+                    "tw-flex tw-cursor-pointer tw-break-inside-avoid tw-items-start tw-gap-4 tw-border tw-border-l-2 tw-border-gray-100 tw-px-5 tw-py-[15px] tw-transition-all tw-duration-300 hover:tw-border-l-red hover:tw-shadow-sm hover:tw-shadow-black/10",
                     isDone
                         ? "tw-border-l-navy tw-bg-gray-50"
                         : "tw-border-l-transparent tw-bg-white"
@@ -492,7 +509,7 @@ const PortfolioChecklist: PageProps = () => {
                 </span>
                 <span
                     className={clsx(
-                        "tw-text-base tw-leading-[1.68] [text-wrap:pretty]",
+                        "tw-text-base tw-leading-[1.68] tw-text-pretty",
                         isDone ? "tw-text-gray-300 tw-line-through" : "tw-text-ink"
                     )}
                 >
@@ -526,7 +543,7 @@ const PortfolioChecklist: PageProps = () => {
                             : "tw-border-t-navy tw-bg-white"
                     )}
                 >
-                    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-start sm:tw-gap-[22px] print:tw-break-after-avoid">
+                    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-start sm:tw-gap-[22px] print:tw-break-after-avoid print:tw-break-inside-avoid">
                         <span
                             aria-hidden="true"
                             className={clsx(
@@ -543,7 +560,7 @@ const PortfolioChecklist: PageProps = () => {
                                     ref={printing ? undefined : headingRef}
                                     tabIndex={-1}
                                     className={clsx(
-                                        "tw-m-0 tw-scroll-mt-[calc(var(--header-sticky-offset,0px)+8rem)] [font-size:clamp(22px,3vw,30px)]",
+                                        "tw-m-0 tw-scroll-mt-[calc(var(--header-sticky-offset,0px)+8rem)] tw-text-[clamp(22px,3vw,30px)]",
                                         step.gate ? "tw-text-red" : "tw-text-navy"
                                     )}
                                 >
@@ -560,7 +577,7 @@ const PortfolioChecklist: PageProps = () => {
                                     {done} / {total} {step.gate ? "cleared" : "done"}
                                 </span>
                             </div>
-                            <p className="tw-mb-0 tw-mt-3 tw-max-w-[72ch] tw-text-base tw-leading-body tw-text-gray-300 [text-wrap:pretty]">
+                            <p className="tw-mb-0 tw-mt-3 tw-max-w-[72ch] tw-text-base tw-leading-body tw-text-gray-300 tw-text-pretty">
                                 {step.description}
                             </p>
                         </div>
@@ -600,7 +617,10 @@ const PortfolioChecklist: PageProps = () => {
                 className="tw-bg-gray-50 print:tw-hidden"
             />
 
-            <div className="tw-bg-cream tw-pb-24 [-webkit-print-color-adjust:exact] [print-color-adjust:exact]">
+            <div
+                className="tw-bg-cream tw-pb-24"
+                style={{ printColorAdjust: "exact", WebkitPrintColorAdjust: "exact" }}
+            >
                 {/* Hero */}
                 <section className="tw-relative tw-overflow-hidden tw-bg-navy tw-pb-16 tw-pt-20">
                     <div
@@ -613,10 +633,10 @@ const PortfolioChecklist: PageProps = () => {
                             <Eyebrow className="tw-mb-7 tw-text-gray-100">
                                 Sharpen Skills &middot; 2027 Edition
                             </Eyebrow>
-                            <h1 className="tw-mb-[26px] tw-mt-0 tw-max-w-[20ch] tw-text-white [font-size:clamp(34px,5vw,58px)]">
+                            <h1 className="tw-mb-[26px] tw-mt-0 tw-max-w-[20ch] tw-text-white tw-text-[clamp(34px,5vw,58px)]">
                                 Portfolio Checklist for Software Engineers
                             </h1>
-                            <p className="tw-m-0 tw-max-w-[60ch] tw-text-lg tw-leading-[1.6] tw-text-navy-sky [text-wrap:pretty]">
+                            <p className="tw-m-0 tw-max-w-[60ch] tw-text-lg tw-leading-[1.6] tw-text-navy-sky tw-text-pretty">
                                 The portfolio is a sales site. Every element either moves a hiring
                                 manager toward &ldquo;I need to talk to this person&rdquo; or
                                 it&rsquo;s noise. Build accordingly.
@@ -681,9 +701,9 @@ const PortfolioChecklist: PageProps = () => {
                                 <span
                                     aria-hidden="true"
                                     className={clsx(
-                                        "tw-block tw-h-3 tw-w-3 tw-border-2",
+                                        "tw-block tw-h-3 tw-w-3 tw-border-2 tw-forced-color-adjust-none",
                                         hideDone
-                                            ? "tw-border-red tw-bg-red forced-colors:tw-bg-[color:CanvasText]"
+                                            ? "tw-border-red tw-bg-red"
                                             : "tw-border-gray-200 tw-bg-transparent"
                                     )}
                                 />
@@ -714,16 +734,17 @@ const PortfolioChecklist: PageProps = () => {
                             let rule = "tw-border-t-transparent";
                             if (isActive)
                                 rule =
-                                    "tw-border-t-red forced-colors:tw-border-t-[6px] forced-colors:tw-border-t-[color:Highlight]";
+                                    "tw-border-t-red forced-colors:tw-outline forced-colors:tw-outline-2 forced-colors:-tw-outline-offset-4";
                             else if (complete) rule = "tw-border-t-gold";
                             return (
                                 <button
                                     key={step.id}
                                     type="button"
+                                    style={EASE_CARD}
                                     aria-current={isActive ? "step" : undefined}
                                     onClick={() => setActive(index)}
                                     className={clsx(
-                                        "tw-relative tw-flex tw-min-h-[132px] tw-flex-col tw-gap-2.5 tw-border-t-2 tw-px-5 tw-pb-4 tw-pt-[18px] tw-text-left tw-transition-all tw-duration-300 hover:tw-border-t-red focus-visible:tw-z-10 [transition-timing-function:var(--ease-card)]",
+                                        "tw-relative tw-flex tw-min-h-[132px] tw-flex-col tw-gap-2.5 tw-border-t-2 tw-px-5 tw-pb-4 tw-pt-[18px] tw-text-left tw-transition-all tw-duration-300 hover:tw-border-t-red focus-visible:tw-z-10",
                                         rule,
                                         tone.bg,
                                         step.gate && "sm:tw-col-span-2"
@@ -789,7 +810,7 @@ const PortfolioChecklist: PageProps = () => {
                             size="sm"
                             disabled={!prev}
                             onClick={() => goToStep(active - 1)}
-                            className="tw-max-w-full !tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
+                            className="tw-max-w-full maxSm:tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                         >
                             <span aria-hidden="true">&larr;</span>
                             {prev ? (
@@ -805,7 +826,7 @@ const PortfolioChecklist: PageProps = () => {
                             size="sm"
                             disabled={!next}
                             onClick={() => goToStep(active + 1)}
-                            className="tw-max-w-full !tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
+                            className="tw-max-w-full maxSm:tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                         >
                             {next ? (
                                 <>
