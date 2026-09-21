@@ -72,7 +72,7 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.378.0",
     "mammoth": "^1.11.0",
-    "marked": "^4.0.18",
+    "marked": "^18.0.13",
     "motion": "^11.13.3",
     "next": "15.5.25",
     "next-auth": "^4.24.11",
