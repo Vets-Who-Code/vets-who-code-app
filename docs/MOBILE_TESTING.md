@@ -1,5 +1,7 @@
 # Mobile Testing Checklist
 
+For breakpoint-level verification — Tailwind breakpoint values, the widths to test, and container behavior — see [RESPONSIVE_TESTING.md](RESPONSIVE_TESTING.md). This checklist covers device, PWA, offline, and orientation concerns.
+
 ## Prerequisites
 - [ ] App builds successfully
 - [ ] No console errors

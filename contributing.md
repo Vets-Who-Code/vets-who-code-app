@@ -22,6 +22,7 @@ Hello and thank you for your interest in contributing to the Vets Who Code web a
     - [Allowed Types](#allowed-types)
     - [Examples](#examples)
   - [Testing](#testing)
+    - [Responsive Design Testing](#responsive-design-testing)
   - [Further Help](#further-help)
 
 ## Code of Conduct
@@ -156,6 +157,7 @@ git push origin feature/your-feature-name
 - Tests pass locally
 - New code has tests when needed
 - Documentation has now been upgraded when needed
+- UI changes verified at mobile, tablet, and desktop widths (see [Responsive Design Testing](#responsive-design-testing))
 - Commit message follow project conventions
 - PR description is clear
 
@@ -224,6 +226,10 @@ Run tests locally
 ```bash
 npm test
 ```
+
+### Responsive Design Testing
+
+UI changes also need to be checked across breakpoints before they ship. [docs/RESPONSIVE_TESTING.md](docs/RESPONSIVE_TESTING.md) documents this project's custom Tailwind breakpoints, the widths to test, and the per-area checklist. For device, PWA, and offline checks, see [docs/MOBILE_TESTING.md](docs/MOBILE_TESTING.md).
 
 ## Further Help
 
