@@ -41,7 +41,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@ai-sdk/azure": "^2.0.69",
+    "@ai-sdk/azure": "^4.0.73",
     "@ai-sdk/google": "^2.0.32",
     "@ai-sdk/openai": "^4.0.69",
     "@emotion/is-prop-valid": "^1.4.0",
