@@ -60,7 +60,7 @@
     "@shopify/shopify-api": "^12.1.2",
     "@vercel/analytics": "^1.4.1",
     "ace-builds": "^1.33.1",
-    "ai": "^5.0.93",
+    "ai": "^7.0.106",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "2.9.0",
