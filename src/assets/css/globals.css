@@ -1,3 +1,6 @@
+/* Authored CSS: keep every rule in production. PurgeCSS can't match selectors such as
+   nav[aria-label="Main Menu"] (its extractor splits the value at the space). */
+/* purgecss start ignore */
 /* =============================================
    FONTS — GothamPro + Gilroy via Tailwind config
    ============================================= */
@@ -752,3 +755,4 @@ a.tw-rounded-full:not(.vwc-avatar) {
         margin: 1.5cm;
     }
 }
+/* purgecss end ignore */
