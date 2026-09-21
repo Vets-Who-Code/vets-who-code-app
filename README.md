@@ -11,8 +11,7 @@
   <a href="https://github.com/Vets-Who-Code/vets-who-code-app">
     <img src="https://img.shields.io/github/package-json/v/Vets-Who-Code/vets-who-code-app?style=flat-square" alt="Version" />
   </a>
-  <img src="https://img.shields.io/badge/node-v18.18.0-brightgreen.svg?style=flat-square" alt="node" />
-  <img src="https://img.shields.io/badge/npm-v9.0.0-blue.svg?style=flat-square" alt="npm" />
+  <img src="https://img.shields.io/badge/node-v20-brightgreen.svg?style=flat-square" alt="Node 20" />
   <a href="https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License: MIT" />
   </a>
