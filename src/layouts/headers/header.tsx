@@ -26,7 +26,7 @@ type TProps = {
 const Header = ({ shadow, fluid }: TProps) => {
     const router = useRouter();
     const [offcanvas, setOffcanvas] = useState(false);
-    const { sticky, measuredRef } = useSticky();
+    const { sticky, measuredRef, headerHeight } = useSticky();
     const topBarRef = useRef<HTMLDivElement>(null);
     // The sticky nav pins below the top bar, whose height changes with the cohort
     // countdown (present or not, one row or two). Measure it instead of guessing.
@@ -52,6 +52,18 @@ const Header = ({ shadow, fluid }: TProps) => {
         observer.observe(el);
         return () => observer.disconnect();
     }, []);
+
+    // Publish the fixed header's height so page-level sticky bars can pin below it
+    // (`top: var(--header-sticky-offset, 0px)`) instead of sliding underneath.
+    useEffect(() => {
+        document.documentElement.style.setProperty(
+            "--header-sticky-offset",
+            sticky ? `${topBarHeight + headerHeight}px` : "0px"
+        );
+        return () => {
+            document.documentElement.style.removeProperty("--header-sticky-offset");
+        };
+    }, [sticky, topBarHeight, headerHeight]);
 
     return (
         <>

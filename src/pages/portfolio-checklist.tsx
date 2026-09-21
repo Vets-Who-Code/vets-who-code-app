@@ -1,10 +1,12 @@
 import Breadcrumb from "@components/breadcrumb";
 import SEO from "@components/seo/page-seo";
 import Layout from "@layout/layout-01";
+import Button from "@ui/button";
 import { SafeLocalStorage } from "@utils/safe-storage";
 import clsx from "clsx";
 import type { GetStaticProps, NextPage } from "next";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { flushSync } from "react-dom";
 
 // --- Checklist Data ---
 
@@ -396,29 +398,80 @@ const QUALITY_BAR_ITEMS: ChecklistItem[] = [
 
 const STORAGE_KEY = "vwc-portfolio-checklist";
 
-// --- Helper: get all item IDs ---
+// --- Steps: the seven sections plus the Quality Bar, one panel each ---
 
-function getAllItemIds(): string[] {
-    const ids: string[] = [];
-    for (const section of CHECKLIST_DATA) {
-        if (section.items) {
-            for (const item of section.items) {
-                ids.push(item.id);
-            }
-        }
-        if (section.subsections) {
-            for (const sub of section.subsections) {
-                for (const item of sub.items) {
-                    ids.push(item.id);
-                }
-            }
-        }
-    }
-    for (const item of QUALITY_BAR_ITEMS) {
-        ids.push(item.id);
-    }
-    return ids;
+interface Step {
+    id: string;
+    num: string;
+    title: string;
+    description: string;
+    groups: { title: string; items: ChecklistItem[] }[];
+    gate?: boolean;
 }
+
+const STEPS: Step[] = [
+    ...CHECKLIST_DATA.map((section) => ({
+        id: section.id,
+        num: section.number.padStart(2, "0"),
+        title: section.title,
+        description: section.description,
+        groups: section.subsections ?? [{ title: "", items: section.items ?? [] }],
+    })),
+    {
+        id: "quality-bar",
+        num: "QB",
+        title: "The Quality Bar",
+        description: "Don’t share until every one of these is true.",
+        groups: [{ title: "", items: QUALITY_BAR_ITEMS }],
+        gate: true,
+    },
+];
+
+const STEP_IDS = STEPS.map((step) =>
+    step.groups.flatMap((group) => group.items.map((item) => item.id))
+);
+
+const TOTAL_ITEMS = STEP_IDS.reduce((sum, ids) => sum + ids.length, 0);
+
+const GRAIN =
+    "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
+const GHOST_BUTTON =
+    "tw-inline-flex tw-min-h-[38px] tw-items-center tw-bg-transparent tw-px-2.5 tw-font-mono tw-text-[11px] tw-font-medium tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-transition-colors tw-duration-300 hover:tw-text-navy hover:tw-underline";
+
+const ACTIVE_TILE = {
+    bg: "tw-bg-navy",
+    ink: "tw-text-white",
+    meta: "tw-text-navy-sky",
+    track: "tw-bg-navy-sky/20",
+};
+
+const REST_TILE = {
+    bg: "tw-bg-white",
+    ink: "tw-text-navy",
+    meta: "tw-text-gray-200",
+    track: "tw-bg-gray-100",
+};
+
+const Eyebrow = ({
+    as: Tag = "div",
+    className,
+    children,
+}: {
+    as?: "div" | "h3";
+    className?: string;
+    children: ReactNode;
+}) => (
+    <Tag
+        className={clsx(
+            "tw-m-0 tw-flex tw-items-center tw-font-mono tw-text-[12px] tw-font-medium tw-uppercase tw-leading-body tw-tracking-[0.1em]",
+            className
+        )}
+    >
+        <span aria-hidden="true" className="tw-mr-3 tw-inline-block tw-h-[2px] tw-w-4 tw-bg-red" />
+        {children}
+    </Tag>
+);
 
 // --- Page Component ---
 
@@ -431,14 +484,17 @@ type PageProps = NextPage<TProps> & {
 const PortfolioChecklist: PageProps = () => {
     const [checked, setChecked] = useState<Record<string, boolean>>({});
     const [mounted, setMounted] = useState(false);
+    const [active, setActive] = useState(0);
+    const [hideDone, setHideDone] = useState(false);
+    const [printing, setPrinting] = useState(false);
+    const headingRef = useRef<HTMLHeadingElement>(null);
 
-    const allIds = useMemo(() => getAllItemIds(), []);
-    const totalItems = allIds.length;
-    const checkedCount = useMemo(
-        () => allIds.filter((id) => checked[id]).length,
-        [allIds, checked]
-    );
-    const progressPercent = totalItems > 0 ? Math.round((checkedCount / totalItems) * 100) : 0;
+    const counts = STEP_IDS.map((ids) => ({
+        done: ids.filter((id) => checked[id]).length,
+        total: ids.length,
+    }));
+    const checkedCount = counts.reduce((sum, count) => sum + count.done, 0);
+    const progressPercent = Math.round((checkedCount / TOTAL_ITEMS) * 100);
 
     useEffect(() => {
         const stored = SafeLocalStorage.getItem<Record<string, boolean>>(STORAGE_KEY, {});
@@ -451,6 +507,18 @@ const PortfolioChecklist: PageProps = () => {
             SafeLocalStorage.setItem(STORAGE_KEY, checked);
         }
     }, [checked, mounted]);
+
+    // Print stacks every section. flushSync commits before the browser lays out the print.
+    useEffect(() => {
+        const before = () => flushSync(() => setPrinting(true));
+        const after = () => setPrinting(false);
+        window.addEventListener("beforeprint", before);
+        window.addEventListener("afterprint", after);
+        return () => {
+            window.removeEventListener("beforeprint", before);
+            window.removeEventListener("afterprint", after);
+        };
+    }, []);
 
     const toggleItem = useCallback((id: string) => {
         setChecked((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -466,43 +534,147 @@ const PortfolioChecklist: PageProps = () => {
         window.print();
     }, []);
 
-    const renderItem = (item: ChecklistItem) => (
-        <label
-            key={item.id}
-            className="tw-flex tw-cursor-pointer tw-items-start tw-gap-3 tw-rounded-lg tw-border tw-border-gray-100 tw-bg-white tw-px-4 tw-py-3 tw-transition-all tw-duration-200 hover:tw-border-navy-ocean/30 hover:tw-shadow-sm print:tw-border-gray-200 print:tw-px-2 print:tw-py-1.5"
-        >
-            <input
-                type="checkbox"
-                checked={!!checked[item.id]}
-                onChange={() => toggleItem(item.id)}
-                className="tw-mt-0.5 tw-h-5 tw-w-5 tw-shrink-0 tw-cursor-pointer tw-appearance-none tw-rounded tw-border-2 tw-border-gray-300 tw-bg-white tw-transition-colors checked:tw-border-navy-ocean checked:tw-bg-navy-ocean print:tw-appearance-auto"
-            />
-            <span
+    // Stepping moves focus to the new panel's heading so keyboard and screen reader
+    // users land on the content that just swapped in.
+    const goToStep = (index: number) => {
+        flushSync(() => setActive(index));
+        headingRef.current?.focus();
+    };
+
+    const renderItem = (item: ChecklistItem) => {
+        const isDone = !!checked[item.id];
+        return (
+            <label
+                key={item.id}
                 className={clsx(
-                    "tw-text-base tw-leading-relaxed tw-transition-colors print:tw-text-sm",
-                    checked[item.id]
-                        ? "tw-text-gray-400 tw-line-through print:tw-no-underline print:tw-text-body"
-                        : "tw-text-body"
+                    "tw-flex tw-cursor-pointer tw-items-start tw-gap-4 tw-border tw-border-l-2 tw-border-gray-100 tw-px-5 tw-py-[15px] tw-transition-all tw-duration-300 tw-ease-[var(--ease-card)] hover:tw-border-l-red hover:tw-shadow-sm hover:tw-shadow-black/10",
+                    isDone
+                        ? "tw-border-l-navy tw-bg-gray-50"
+                        : "tw-border-l-transparent tw-bg-white"
                 )}
             >
-                {item.text}
-            </span>
-        </label>
-    );
-
-    const getSectionProgress = (section: ChecklistSection) => {
-        const sectionIds: string[] = [];
-        if (section.items) {
-            for (const item of section.items) sectionIds.push(item.id);
-        }
-        if (section.subsections) {
-            for (const sub of section.subsections) {
-                for (const item of sub.items) sectionIds.push(item.id);
-            }
-        }
-        const done = sectionIds.filter((id) => checked[id]).length;
-        return { done, total: sectionIds.length };
+                <span className="tw-relative tw-mt-[3px] tw-h-5 tw-w-5 tw-shrink-0">
+                    <input
+                        type="checkbox"
+                        checked={isDone}
+                        onChange={() => toggleItem(item.id)}
+                        className={clsx(
+                            "tw-m-0 tw-block tw-h-5 tw-w-5 tw-cursor-pointer tw-appearance-none tw-rounded-none tw-border-2 tw-border-solid tw-transition-all tw-duration-200 tw-ease-out",
+                            isDone ? "tw-border-navy tw-bg-navy" : "tw-border-gray-200 tw-bg-white"
+                        )}
+                    />
+                    <svg
+                        aria-hidden="true"
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3.5"
+                        strokeLinecap="square"
+                        className={clsx(
+                            "tw-pointer-events-none tw-absolute tw-left-1 tw-top-1 tw-text-white",
+                            isDone ? "tw-opacity-100" : "tw-opacity-0"
+                        )}
+                    >
+                        <polyline points="4 12.5 9.5 18 20 6" />
+                    </svg>
+                </span>
+                <span
+                    className={clsx(
+                        "tw-text-base tw-leading-[1.68] [text-wrap:pretty]",
+                        isDone ? "tw-text-gray-300 tw-line-through" : "tw-text-ink"
+                    )}
+                >
+                    {item.text}
+                </span>
+            </label>
+        );
     };
+
+    const renderPanel = (step: Step, index: number) => {
+        const { done, total } = counts[index];
+        const groups = step.groups
+            .map((group) => ({
+                title: group.title,
+                items: hideDone ? group.items.filter((item) => !checked[item.id]) : group.items,
+            }))
+            .filter((group) => group.items.length > 0);
+
+        return (
+            <section
+                key={step.id}
+                id={step.id}
+                aria-labelledby={`${step.id}-title`}
+                className="tw-container tw-pt-10"
+            >
+                <div
+                    className={clsx(
+                        "tw-border tw-border-t-[3px] tw-border-gray-100 tw-px-5 tw-pb-11 tw-pt-10 sm:tw-px-[34px]",
+                        step.gate
+                            ? "tw-border-t-red tw-bg-[#FCF6F7]"
+                            : "tw-border-t-navy tw-bg-white"
+                    )}
+                >
+                    <div className="tw-flex tw-flex-col tw-gap-3 sm:tw-flex-row sm:tw-items-start sm:tw-gap-[22px]">
+                        <span
+                            aria-hidden="true"
+                            className={clsx(
+                                "tw-font-heading tw-text-[46px] tw-font-black tw-leading-[0.9]",
+                                step.gate ? "tw-text-red/35" : "tw-text-gray-100"
+                            )}
+                        >
+                            {step.num}
+                        </span>
+                        <div className="tw-min-w-0 tw-flex-1">
+                            <div className="tw-flex tw-flex-wrap tw-items-center tw-gap-3.5">
+                                <h2
+                                    id={`${step.id}-title`}
+                                    ref={printing ? undefined : headingRef}
+                                    tabIndex={-1}
+                                    className={clsx(
+                                        "tw-m-0 tw-scroll-mt-[calc(var(--header-sticky-offset,0px)+8rem)] [font-size:clamp(22px,3vw,30px)]",
+                                        step.gate ? "tw-text-red" : "tw-text-navy"
+                                    )}
+                                >
+                                    {step.title}
+                                </h2>
+                                <span
+                                    className={clsx(
+                                        "tw-px-2.5 tw-py-[5px] tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em]",
+                                        step.gate
+                                            ? "tw-bg-red/10 tw-text-red"
+                                            : "tw-bg-navy/[0.06] tw-text-navy"
+                                    )}
+                                >
+                                    {done} / {total} done
+                                </span>
+                            </div>
+                            <p className="tw-mb-0 tw-mt-3 tw-max-w-[72ch] tw-text-base tw-leading-body tw-text-gray-300 [text-wrap:pretty]">
+                                {step.description}
+                            </p>
+                        </div>
+                    </div>
+
+                    {groups.map((group) => (
+                        <div key={group.title || step.id} className="tw-mt-[30px]">
+                            {group.title && (
+                                <Eyebrow as="h3" className="tw-mb-3.5 tw-text-navy-ocean">
+                                    {group.title}
+                                </Eyebrow>
+                            )}
+                            <div className="tw-flex tw-flex-col tw-gap-2">
+                                {group.items.map(renderItem)}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
+        );
+    };
+
+    const prev = STEPS[active - 1];
+    const next = STEPS[active + 1];
 
     return (
         <>
@@ -514,189 +686,234 @@ const PortfolioChecklist: PageProps = () => {
                 className="tw-bg-gray-50"
             />
 
-            {/* Hero */}
-            <section className="tw-bg-secondary tw-bg-gradient-to-br tw-from-secondary tw-to-navy-deep tw-py-16 tw-text-white md:tw-py-24 print:tw-bg-white print:tw-py-8 print:tw-text-body">
-                <div className="tw-container tw-max-w-4xl">
-                    <h1 className="tw-mb-4 tw-text-3xl tw-font-bold tw-leading-tight tw-text-white md:tw-text-5xl print:tw-text-2xl print:tw-text-secondary">
-                        Portfolio Checklist for Software Engineers
-                    </h1>
-                    <p className="tw-mb-6 tw-text-lg tw-leading-relaxed tw-text-white/90 md:tw-text-xl print:tw-text-body">
-                        The portfolio is a sales site. Every element either moves a hiring manager
-                        toward &ldquo;I need to talk to this person&rdquo; or it&rsquo;s noise.
-                        Build accordingly.
-                    </p>
-                    <p className="tw-text-sm tw-text-white/70 print:tw-text-gray-200">
-                        2026 Edition &middot; {totalItems} items across 7 sections
-                    </p>
-                </div>
-            </section>
-
-            {/* Progress Bar + Actions */}
-            <div className="tw-sticky tw-top-0 tw-z-10 tw-border-b tw-border-gray-100 tw-bg-white/95 tw-backdrop-blur-sm print:tw-relative print:tw-bg-white">
-                <div className="tw-container tw-flex tw-max-w-4xl tw-items-center tw-gap-4 tw-py-3">
-                    <div className="tw-flex-1">
-                        <div className="tw-flex tw-items-center tw-justify-between tw-text-sm tw-font-medium">
-                            <span className="tw-text-secondary">
-                                {checkedCount} / {totalItems} completed
-                            </span>
-                            <span className="tw-text-navy-ocean">{progressPercent}%</span>
-                        </div>
-                        <div className="tw-mt-1.5 tw-h-2 tw-overflow-hidden tw-rounded-full tw-bg-gray-100">
-                            <div
-                                className="tw-h-full tw-rounded-full tw-bg-navy-royal tw-bg-gradient-to-r tw-from-navy-ocean tw-to-navy-royal tw-transition-all tw-duration-500"
-                                style={{ width: `${progressPercent}%` }}
-                            />
-                        </div>
-                    </div>
-                    <div className="tw-flex tw-gap-2 print:tw-hidden">
-                        <button
-                            onClick={handlePrint}
-                            type="button"
-                            className="tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-secondary tw-transition-colors hover:tw-bg-gray-50"
-                            title="Print or save as PDF"
-                            aria-label="Print checklist or save as PDF"
-                        >
-                            <i className="fas fa-print tw-mr-1.5" aria-hidden="true" />
-                            Print / PDF
-                        </button>
-                        <button
-                            onClick={resetAll}
-                            type="button"
-                            className="tw-rounded-lg tw-border tw-border-gray-200 tw-bg-white tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-gray-200 tw-transition-colors hover:tw-bg-gray-50 hover:tw-text-danger"
-                            title="Reset all checkboxes"
-                            aria-label="Reset all checkboxes to unchecked"
-                        >
-                            <i className="fas fa-undo tw-mr-1.5" aria-hidden="true" />
-                            Reset
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            {/* Checklist Sections */}
-            <div className="tw-container tw-max-w-4xl tw-py-12 print:tw-py-4">
-                <div className="tw-space-y-12 print:tw-space-y-6">
-                    {CHECKLIST_DATA.map((section) => {
-                        const { done, total } = getSectionProgress(section);
-                        return (
-                            <section key={section.id} id={section.id} className="tw-scroll-mt-20">
-                                {/* Section Header */}
-                                <div className="tw-mb-6 tw-flex tw-items-start tw-gap-4 print:tw-mb-3">
-                                    <span className="tw-flex tw-h-10 tw-w-10 tw-shrink-0 tw-items-center tw-justify-center tw-rounded-full tw-bg-secondary tw-text-lg tw-font-bold tw-text-white print:tw-bg-gray-200 print:tw-text-secondary">
-                                        {section.number}
-                                    </span>
-                                    <div className="tw-flex-1">
-                                        <div className="tw-flex tw-items-center tw-gap-3">
-                                            <h2 className="tw-text-xl tw-font-bold tw-text-secondary md:tw-text-2xl print:tw-text-lg">
-                                                {section.title}
-                                            </h2>
-                                            <span className="tw-rounded-full tw-bg-gray-50 tw-px-2.5 tw-py-0.5 tw-text-xs tw-font-medium tw-text-gray-300 print:tw-bg-gray-100">
-                                                {done}/{total}
-                                            </span>
-                                        </div>
-                                        <p className="tw-mt-1 tw-text-base tw-text-gray-200 print:tw-text-sm">
-                                            {section.description}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                {/* Items (flat) */}
-                                {section.items && (
-                                    <div className="tw-space-y-2 print:tw-space-y-1">
-                                        {section.items.map(renderItem)}
-                                    </div>
-                                )}
-
-                                {/* Items (with subsections) */}
-                                {section.subsections && (
-                                    <div className="tw-space-y-6 print:tw-space-y-3">
-                                        {section.subsections.map((sub) => (
-                                            <div key={sub.title}>
-                                                <h3 className="tw-mb-3 tw-ml-1 tw-text-sm tw-font-bold tw-uppercase tw-tracking-wider tw-text-navy-ocean print:tw-mb-1 print:tw-text-xs">
-                                                    {sub.title}
-                                                </h3>
-                                                <div className="tw-space-y-2 print:tw-space-y-1">
-                                                    {sub.items.map(renderItem)}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </section>
-                        );
-                    })}
-
-                    {/* Quality Bar */}
-                    <section
-                        id="quality-bar"
-                        className="tw-scroll-mt-20 tw-rounded-2xl tw-border-2 tw-border-primary/20 tw-bg-gradient-to-br tw-from-primary/5 tw-to-transparent tw-p-6 md:tw-p-8 print:tw-border-gray-200 print:tw-bg-white print:tw-p-4"
-                    >
-                        <div className="tw-mb-6 print:tw-mb-3">
-                            <h2 className="tw-text-xl tw-font-bold tw-text-primary md:tw-text-2xl print:tw-text-lg">
-                                The Quality Bar
-                            </h2>
-                            <p className="tw-mt-1 tw-text-base tw-text-gray-200 print:tw-text-sm">
-                                Don&rsquo;t share until every one of these is true.
+            <div className="tw-bg-cream tw-pb-24 [-webkit-print-color-adjust:exact] [print-color-adjust:exact]">
+                {/* Hero */}
+                <section className="tw-relative tw-overflow-hidden tw-bg-navy tw-pb-16 tw-pt-20">
+                    <div
+                        aria-hidden="true"
+                        className="tw-pointer-events-none tw-absolute tw-inset-0 tw-opacity-[0.02]"
+                        style={{ backgroundImage: GRAIN }}
+                    />
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-end tw-justify-between tw-gap-12">
+                        <div className="tw-min-w-0 tw-flex-[1_1_520px]">
+                            <Eyebrow className="tw-mb-7 tw-text-gray-100">
+                                Sharpen Skills &middot; 2026 Edition
+                            </Eyebrow>
+                            <h1 className="tw-mb-[26px] tw-mt-0 tw-max-w-[20ch] tw-text-white [font-size:clamp(34px,5vw,58px)]">
+                                Portfolio Checklist for Software Engineers
+                            </h1>
+                            <p className="tw-m-0 tw-max-w-[60ch] tw-text-lg tw-leading-[1.6] tw-text-navy-sky [text-wrap:pretty]">
+                                The portfolio is a sales site. Every element either moves a hiring
+                                manager toward &ldquo;I need to talk to this person&rdquo; or
+                                it&rsquo;s noise. Build accordingly.
                             </p>
                         </div>
-                        <div className="tw-space-y-2 print:tw-space-y-1">
-                            {QUALITY_BAR_ITEMS.map(renderItem)}
+                        <div className="tw-min-w-[240px] tw-flex-[0_1_300px] tw-border-l-2 tw-border-red tw-pl-6">
+                            <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-navy-sky/70">
+                                Completed
+                            </div>
+                            <div className="tw-mt-2.5 tw-flex tw-items-baseline tw-gap-2.5 tw-font-heading tw-font-black">
+                                <span className="tw-text-[62px] tw-leading-none tw-text-white">
+                                    {checkedCount}
+                                </span>
+                                <span className="tw-text-[22px] tw-text-navy-sky/70">
+                                    / {TOTAL_ITEMS}
+                                </span>
+                            </div>
+                            <div
+                                aria-hidden="true"
+                                className="tw-mt-[22px] tw-h-1 tw-bg-navy-sky/[0.18]"
+                            >
+                                <div
+                                    className="tw-h-1 tw-bg-red tw-transition-[width] tw-duration-500 tw-ease-out-expo"
+                                    style={{ width: `${progressPercent}%` }}
+                                />
+                            </div>
+                            <div className="tw-mt-3 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-navy-sky/70">
+                                {TOTAL_ITEMS} items &middot; {CHECKLIST_DATA.length} sections
+                            </div>
                         </div>
-                    </section>
-                </div>
-            </div>
+                    </div>
+                </section>
 
-            {/* Table of Contents (sidebar on large screens) */}
-            <nav
-                className="tw-fixed tw-bottom-6 tw-right-6 tw-z-20 tw-hidden tw-w-56 tw-rounded-xl tw-border tw-border-gray-100 tw-bg-white tw-p-4 tw-shadow-lg xl:tw-block print:tw-hidden"
-                aria-label="Checklist sections"
-            >
-                <p className="tw-mb-3 tw-text-xs tw-font-bold tw-uppercase tw-tracking-wider tw-text-gray-200">
-                    Sections
-                </p>
-                <ul className="tw-space-y-1.5">
-                    {CHECKLIST_DATA.map((section) => {
-                        const { done, total } = getSectionProgress(section);
-                        const complete = done === total;
-                        return (
-                            <li key={section.id}>
-                                <a
-                                    href={`#${section.id}`}
+                {/* Control strip */}
+                <div className="tw-top-[var(--header-sticky-offset,0px)] tw-z-30 md:tw-sticky tw-border-b tw-border-gray-100 tw-bg-gray-50/[0.92] tw-backdrop-blur-md print:tw-hidden">
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-x-6 tw-gap-y-4 tw-py-3">
+                        <div className="tw-flex tw-min-w-0 tw-items-center tw-gap-4">
+                            <span className="tw-whitespace-nowrap tw-font-mono tw-text-[12px] tw-font-medium tw-uppercase tw-tracking-[0.1em] tw-text-navy">
+                                {checkedCount} / {TOTAL_ITEMS} completed
+                            </span>
+                            <span
+                                aria-hidden="true"
+                                className="tw-block tw-h-[2px] tw-w-40 tw-max-w-[30vw] tw-bg-gray-100"
+                            >
+                                <span
+                                    className="tw-block tw-h-[2px] tw-bg-red tw-transition-[width] tw-duration-500 tw-ease-out-expo"
+                                    style={{ width: `${progressPercent}%` }}
+                                />
+                            </span>
+                            <span className="tw-whitespace-nowrap tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-gray-300">
+                                {progressPercent}% &middot; {TOTAL_ITEMS - checkedCount} remaining
+                            </span>
+                        </div>
+                        <div className="tw-flex tw-flex-wrap tw-items-center tw-gap-2">
+                            <button
+                                type="button"
+                                aria-pressed={hideDone}
+                                onClick={() => setHideDone((prevHide) => !prevHide)}
+                                className="tw-inline-flex tw-min-h-[38px] tw-items-center tw-gap-2.5 tw-border tw-border-gray-100 tw-bg-transparent tw-px-3.5 tw-py-[9px] tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-navy tw-transition-all tw-duration-200 tw-ease-out hover:tw-border-navy"
+                            >
+                                <span
+                                    aria-hidden="true"
                                     className={clsx(
-                                        "tw-flex tw-items-center tw-gap-2 tw-rounded-md tw-px-2 tw-py-1 tw-text-sm tw-transition-colors hover:tw-bg-gray-50",
-                                        complete ? "tw-text-navy-ocean" : "tw-text-gray-300"
+                                        "tw-block tw-h-3 tw-w-3 tw-border-2",
+                                        hideDone
+                                            ? "tw-border-red tw-bg-red"
+                                            : "tw-border-gray-200 tw-bg-transparent"
+                                    )}
+                                />
+                                Hide completed
+                            </button>
+                            <button type="button" onClick={handlePrint} className={GHOST_BUTTON}>
+                                Print / PDF
+                            </button>
+                            <button type="button" onClick={resetAll} className={GHOST_BUTTON}>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Section map */}
+                <nav
+                    aria-label="Checklist sections"
+                    className="tw-container tw-pt-14 print:tw-hidden"
+                >
+                    <Eyebrow className="tw-mb-5 tw-text-gray-300">Sections</Eyebrow>
+                    <div className="tw-grid tw-grid-cols-1 tw-gap-px tw-border tw-border-gray-100 tw-bg-gray-100 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
+                        {STEPS.map((step, index) => {
+                            const { done, total } = counts[index];
+                            const isActive = index === active;
+                            const complete = done === total;
+                            const tone = isActive ? ACTIVE_TILE : REST_TILE;
+                            let rule = "tw-border-t-transparent";
+                            if (isActive) rule = "tw-border-t-red";
+                            else if (complete) rule = "tw-border-t-gold";
+                            return (
+                                <button
+                                    key={step.id}
+                                    type="button"
+                                    aria-current={isActive ? "step" : undefined}
+                                    onClick={() => setActive(index)}
+                                    className={clsx(
+                                        "tw-flex tw-min-h-[132px] tw-flex-col tw-gap-2.5 tw-border-t-2 tw-px-5 tw-pb-4 tw-pt-[18px] tw-text-left tw-transition-all tw-duration-300 tw-ease-[var(--ease-card)] hover:tw-border-t-red",
+                                        rule,
+                                        tone.bg
                                     )}
                                 >
-                                    <i
+                                    <span
                                         className={clsx(
-                                            "tw-text-xs",
-                                            complete
-                                                ? "fas fa-check-circle tw-text-navy-ocean"
-                                                : "far fa-circle tw-text-gray-100"
+                                            "tw-font-mono tw-text-[11px] tw-tracking-[0.1em]",
+                                            tone.meta
                                         )}
-                                        aria-hidden="true"
-                                    />
-                                    <span className="tw-truncate">
-                                        {section.number}. {section.title}
+                                    >
+                                        {step.num}
                                     </span>
-                                </a>
-                            </li>
-                        );
-                    })}
-                    <li>
-                        <a
-                            href="#quality-bar"
-                            className="tw-flex tw-items-center tw-gap-2 tw-rounded-md tw-px-2 tw-py-1 tw-text-sm tw-text-gray-300 tw-transition-colors hover:tw-bg-gray-50"
+                                    <span
+                                        className={clsx(
+                                            "tw-font-heading tw-text-[15px] tw-font-bold tw-uppercase tw-leading-[1.25] tw-tracking-[-0.02em]",
+                                            tone.ink
+                                        )}
+                                    >
+                                        {step.title}
+                                    </span>
+                                    <span className="tw-mt-auto tw-flex tw-w-full tw-items-center tw-gap-2.5 tw-pt-3.5">
+                                        <span
+                                            aria-hidden="true"
+                                            className={clsx(
+                                                "tw-block tw-h-[2px] tw-flex-1",
+                                                tone.track
+                                            )}
+                                        >
+                                            <span
+                                                className={clsx(
+                                                    "tw-block tw-h-[2px] tw-transition-[width] tw-duration-500 tw-ease-out-expo",
+                                                    complete ? "tw-bg-gold" : "tw-bg-red"
+                                                )}
+                                                style={{
+                                                    width: `${Math.round((done / total) * 100)}%`,
+                                                }}
+                                            />
+                                        </span>
+                                        <span
+                                            className={clsx(
+                                                "tw-font-mono tw-text-[11px] tw-tracking-[0.06em]",
+                                                tone.meta
+                                            )}
+                                        >
+                                            {done}/{total}
+                                        </span>
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </nav>
+
+                {/* Section panel — one at a time, all stacked when printing */}
+                {printing ? STEPS.map(renderPanel) : renderPanel(STEPS[active], active)}
+
+                {/* Step navigation */}
+                {!printing && (
+                    <div className="tw-container tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-3 tw-pt-5 print:tw-hidden">
+                        <Button
+                            variant="outlined"
+                            size="sm"
+                            disabled={!prev}
+                            onClick={() => goToStep(active - 1)}
+                            className="tw-max-w-full !tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
                         >
-                            <i
-                                className="far fa-star tw-text-xs tw-text-primary"
-                                aria-hidden="true"
-                            />
-                            <span className="tw-truncate">Quality Bar</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+                            <span aria-hidden="true">&larr;</span>
+                            {prev ? (
+                                <span>
+                                    <span className="tw-sr-only">Previous section: </span>
+                                    {prev.title}
+                                </span>
+                            ) : (
+                                "Previous"
+                            )}
+                        </Button>
+                        <Button
+                            size="sm"
+                            disabled={!next}
+                            onClick={() => goToStep(active + 1)}
+                            className="tw-max-w-full !tw-min-w-0 tw-gap-2 disabled:tw-cursor-not-allowed disabled:tw-opacity-50"
+                        >
+                            {next ? (
+                                <>
+                                    <span>
+                                        <span className="tw-sr-only">Next section: </span>
+                                        {next.title}
+                                    </span>
+                                    <span aria-hidden="true">&rarr;</span>
+                                </>
+                            ) : (
+                                "End of checklist"
+                            )}
+                        </Button>
+                    </div>
+                )}
+
+                {/* Closing rule */}
+                <div className="tw-container tw-pt-14">
+                    <div className="tw-relative tw-h-px tw-bg-gray-100">
+                        <span className="tw-absolute tw-left-0 tw-top-0 tw-block tw-h-px tw-w-12 tw-bg-red" />
+                    </div>
+                    <div className="tw-mt-5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-gray-300">
+                        Vets Who Code &middot; Retool. Retrain. Relaunch.
+                    </div>
+                </div>
+            </div>
         </>
     );
 };
