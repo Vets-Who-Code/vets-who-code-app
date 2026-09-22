@@ -9,7 +9,8 @@ type TProps = TSection & {
     };
 };
 
-// A static grid, not a carousel: every partner stays visible without swiping or autoplay.
+// A static, centred wrap, not a carousel: every partner stays visible without swiping or
+// autoplay. One row of 11 from lg up; rows of 6 (md) and 4 (mobile) below.
 const BrandArea = ({ data: { items }, space, bg }: TProps) => {
     return (
         <Section className="brand-area" space={space} bg={bg}>
@@ -17,7 +18,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
             <div className="tw-container">
                 {items && (
                     <motion.ul
-                        className="tw-grid tw-grid-cols-5 tw-items-center tw-gap-x-6 tw-gap-y-10 lg:tw-grid-cols-10"
+                        className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-gap-y-10"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -29,7 +30,7 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                             return (
                                 <li
                                     key={item.id}
-                                    className="tw-flex tw-items-center tw-justify-center"
+                                    className="tw-flex tw-w-1/4 tw-items-center tw-justify-center tw-px-3 md:tw-w-1/6 lg:tw-w-[9.0909%]"
                                 >
                                     {logoSrc ? (
                                         <img

@@ -13,7 +13,7 @@ describe("Technology partners", () => {
     it("shows every partner at once, without a carousel", () => {
         render(<BrandArea data={brandArea} />);
         expect(screen.getAllByRole("listitem")).toHaveLength(brandArea.items.length);
-        for (const name of ["Cloudflare", "Atlassian", "ElevenLabs", "Splunk"]) {
+        for (const name of ["Cloudflare", "Atlassian", "ElevenLabs", "Splunk", "Vercel"]) {
             expect(screen.getByRole("img", { name })).toBeInTheDocument();
         }
     });

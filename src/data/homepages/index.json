@@ -338,6 +338,15 @@
                             "alt": "Splunk"
                         }
                     ]
+                },
+                {
+                    "id": 11,
+                    "images": [
+                        {
+                            "src": "/images/partners/vercel-logo.svg",
+                            "alt": "Vercel"
+                        }
+                    ]
                 }
             ]
         },
