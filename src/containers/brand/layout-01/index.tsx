@@ -1,11 +1,7 @@
 import Section from "@components/ui/engagement-modal";
-import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import { ItemType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
-import { useMemo } from "react";
-
-const AnimatedSwiper = motion(SwiperSlider);
 
 type TProps = TSection & {
     data: {
@@ -13,37 +9,15 @@ type TProps = TSection & {
     };
 };
 
+// A static grid, not a carousel: every partner stays visible without swiping or autoplay.
 const BrandArea = ({ data: { items }, space, bg }: TProps) => {
-    const options = useMemo(() => {
-        return {
-            slidesPerView: 1,
-            autoplay: false,
-            breakpoints: {
-                320: {
-                    slidesPerView: 2,
-                },
-                576: {
-                    slidesPerView: 4,
-                },
-                768: {
-                    slidesPerView: 5,
-                },
-                992: {
-                    slidesPerView: 6,
-                },
-            },
-        };
-    }, []);
-
     return (
         <Section className="brand-area" space={space} bg={bg}>
-            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-white">
-                Technology Partners
-            </h2>
+            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-white">Technology Partners</h2>
             <div className="tw-container">
                 {items && (
-                    <AnimatedSwiper
-                        options={options}
+                    <motion.ul
+                        className="tw-grid tw-grid-cols-5 tw-items-center tw-gap-x-6 tw-gap-y-10 lg:tw-grid-cols-10"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -53,13 +27,13 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                             const logoSrc = item.images?.[0]?.src;
                             const name = item.images?.[0]?.alt || item.title;
                             return (
-                                <SwiperSlide
+                                <li
                                     key={item.id}
-                                    className="tw-my-auto tw-flex tw-justify-center tw-items-center"
+                                    className="tw-flex tw-items-center tw-justify-center"
                                 >
                                     {logoSrc ? (
                                         <img
-                                            className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
+                                            className="tw-w-full tw-max-w-[96px] tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
                                             src={logoSrc}
                                             alt={name || "logo"}
                                             loading="lazy"
@@ -94,10 +68,10 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                             {name}
                                         </span>
                                     )}
-                                </SwiperSlide>
+                                </li>
                             );
                         })}
-                    </AnimatedSwiper>
+                    </motion.ul>
                 )}
             </div>
         </Section>
