@@ -31,7 +31,7 @@ describe("Portfolio checklist page", () => {
             )
         ).toHaveLength(11);
         expect(screen.getAllByRole("checkbox")).toHaveLength(7);
-        expect(screen.getByText("81 items · 10 sections · gate")).toBeInTheDocument();
+        expect(screen.getByText("83 items · 10 sections · gate")).toBeInTheDocument();
     });
 
     it("has exactly one h1, the visible hero title", () => {
@@ -54,8 +54,8 @@ describe("Portfolio checklist page", () => {
         render(<PortfolioChecklist />);
         fireEvent.click(screen.getByRole("checkbox", { name: "Headline positioning statement" }));
 
-        expect(screen.getByText("1 / 81 completed")).toBeInTheDocument();
-        expect(screen.getByText("1% · 80 remaining")).toBeInTheDocument();
+        expect(screen.getByText("1 / 83 completed")).toBeInTheDocument();
+        expect(screen.getByText("1% · 82 remaining")).toBeInTheDocument();
         expect(screen.getByText("1 / 7 done")).toBeInTheDocument();
         expect(tile(/First Impression/)).toHaveTextContent("1/7");
         expect(JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? "{}").value).toMatchObject({
@@ -66,14 +66,14 @@ describe("Portfolio checklist page", () => {
     it("leaves the Quality Bar gate out of the item count", () => {
         seed({ "1-1": true, "qb-1": true, "qb-2": true });
         render(<PortfolioChecklist />);
-        expect(screen.getByText("1 / 81 completed")).toBeInTheDocument();
+        expect(screen.getByText("1 / 83 completed")).toBeInTheDocument();
         expect(tile(/Quality Bar/)).toHaveTextContent("2/5");
     });
 
     it("starts the 2027 edition fresh instead of reusing 2026 progress", () => {
         seed({ "1-1": true, "1-2": true }, "vwc-portfolio-checklist");
         render(<PortfolioChecklist />);
-        expect(screen.getByText("0 / 81 completed")).toBeInTheDocument();
+        expect(screen.getByText("0 / 83 completed")).toBeInTheDocument();
     });
 
     it("steps through sections and moves focus to the new panel heading", () => {
@@ -113,7 +113,7 @@ describe("Portfolio checklist page", () => {
         expect(toggle).toHaveAttribute("aria-pressed", "true");
         expect(screen.queryByRole("heading", { level: 3, name: "AI Collaboration" })).toBeNull();
         expect(screen.queryByRole("checkbox", { name: /Problem statement/ })).toBeNull();
-        expect(screen.getAllByRole("checkbox")).toHaveLength(11);
+        expect(screen.getAllByRole("checkbox")).toHaveLength(12);
     });
 
     it("keeps focus on the next item when checking one hides it", () => {
@@ -136,7 +136,7 @@ describe("Portfolio checklist page", () => {
             window.dispatchEvent(new Event("beforeprint"));
         });
         expect(panelHeadings()).toHaveLength(11);
-        expect(screen.getAllByRole("checkbox")).toHaveLength(86);
+        expect(screen.getAllByRole("checkbox")).toHaveLength(88);
 
         act(() => {
             window.dispatchEvent(new Event("afterprint"));
@@ -153,11 +153,11 @@ describe("Portfolio checklist page", () => {
 
         confirm.mockReturnValueOnce(false);
         fireEvent.click(screen.getByRole("button", { name: "Reset" }));
-        expect(screen.getByText("1 / 81 completed")).toBeInTheDocument();
+        expect(screen.getByText("1 / 83 completed")).toBeInTheDocument();
 
         confirm.mockReturnValueOnce(true);
         fireEvent.click(screen.getByRole("button", { name: "Reset" }));
-        expect(screen.getByText("0 / 81 completed")).toBeInTheDocument();
+        expect(screen.getByText("0 / 83 completed")).toBeInTheDocument();
         vi.unstubAllGlobals();
     });
 });
