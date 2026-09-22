@@ -33,9 +33,9 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                     className="tw-flex tw-w-1/3 tw-items-center tw-justify-center tw-px-3 md:tw-w-1/4 lg:tw-w-1/6"
                                 >
                                     {logoSrc ? (
-                                        // Gold fill via the logo as a mask (exact brand color), red outline via the
-                                        // wrapper's drop-shadow filter, which traces the masked shape.
-                                        <span className="tw-outline-brand-red tw-block tw-w-full tw-max-w-[140px] tw-transition-transform tw-duration-300 tw-ease-out hover:tw-scale-110">
+                                        // Gold fill via the logo as a mask (exact brand color). The wrapper's
+                                        // drop-shadow filter traces a red outline on hover (tw-partner-logo).
+                                        <span className="tw-partner-logo tw-block tw-w-full tw-max-w-[140px]">
                                             <span
                                                 role="img"
                                                 aria-label={name || "logo"}

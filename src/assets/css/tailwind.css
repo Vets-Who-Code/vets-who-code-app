@@ -8,10 +8,19 @@
 @tailwind utilities;
 
 @layer utilities {
-    /* Red (#c5203e) outline that traces a shape's edges, e.g. a gold masked partner logo. */
-    .tw-outline-brand-red {
+    /* Gold partner logo: on hover a brand-red outline traces the mark and it lifts.
+       The transparent shadows are the same filter chain, so the color fades in. */
+    .tw-partner-logo {
+        filter: drop-shadow(2px 0 0 transparent) drop-shadow(-2px 0 0 transparent)
+            drop-shadow(0 2px 0 transparent) drop-shadow(0 -2px 0 transparent);
+        transition:
+            filter 300ms ease-out,
+            transform 300ms ease-out;
+    }
+    .tw-partner-logo:hover {
         filter: drop-shadow(2px 0 0 #c5203e) drop-shadow(-2px 0 0 #c5203e)
             drop-shadow(0 2px 0 #c5203e) drop-shadow(0 -2px 0 #c5203e);
+        transform: scale(1.1);
     }
 }
 
