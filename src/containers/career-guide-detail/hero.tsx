@@ -1,9 +1,23 @@
+import { Fragment } from "react";
 import { BRANCH_META } from "./branch-meta";
 import type { CareerGuideDetail } from "./types";
 
 interface Props {
     detail: CareerGuideDetail;
 }
+
+// Let slash-joined titles (PERSONNEL/ADMINISTRATIVE) wrap after the slash.
+const withSlashBreaks = (text: string) =>
+    text.split("/").map((part, i) => (
+        <Fragment key={part + String(i)}>
+            {i > 0 && (
+                <>
+                    /<wbr />
+                </>
+            )}
+            {part}
+        </Fragment>
+    ));
 
 const StatCell = ({
     label,
@@ -67,6 +81,14 @@ const Hero = ({ detail }: Props) => {
     const titleWords = detail.training.title.trim().split(/\s+/);
     const lastWord = titleWords.pop() ?? detail.training.title;
     const leadWords = titleWords.join(" ");
+    // Fit the display title to its longest unbreakable word (titles like
+    // PERSONNEL/ADMINISTRATIVE otherwise overflow and push the summary panel off-screen).
+    // A slash stays on the line before the break, so it counts. 0.78em covers wide
+    // uppercase GothamPro glyphs like M and W; cqi is the title column's width.
+    const longestWord = Math.max(
+        ...(`${detail.training.title}.`.match(/[^\s/]+\/?/g) ?? [""]).map((w) => w.length)
+    );
+    const titleSize = `min(clamp(36px, 8.5vw, 116px), calc(100cqi / ${(longestWord * 0.78).toFixed(2)}))`;
 
     return (
         <section id="sec-overview" className="tw-bg-secondary tw-pt-16 md:tw-pt-20">
@@ -99,20 +121,23 @@ const Hero = ({ detail }: Props) => {
                 </div>
 
                 {/* Two-col grid */}
-                <div className="tw-mt-12 tw-grid tw-grid-cols-1 tw-gap-14 lg:tw-grid-cols-[1.5fr_1fr]">
+                <div className="tw-mt-12 tw-grid tw-grid-cols-1 tw-gap-14 lg:tw-grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
                     {/* Left — display title + lede */}
-                    <div className="tw-flex tw-flex-col tw-gap-6">
+                    <div className="tw-flex tw-min-w-0 tw-flex-col tw-gap-6 [container-type:inline-size]">
                         <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                             {detail.code} · {meta.short} · {detail.rank}
                         </span>
-                        <h1 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98] [font-size:clamp(48px,8.5vw,116px)]">
+                        <h1
+                            className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98]"
+                            style={{ fontSize: titleSize }}
+                        >
                             {leadWords && (
                                 <>
-                                    {leadWords}
+                                    {withSlashBreaks(leadWords)}
                                     <br />
                                 </>
                             )}
-                            <span className="tw-text-accent">{lastWord}.</span>
+                            <span className="tw-text-accent">{withSlashBreaks(lastWord)}.</span>
                         </h1>
                         <p className="tw-max-w-[640px] tw-font-body tw-text-[#DEE2E6] [font-size:clamp(17px,1.4vw,20px)] tw-leading-[1.55]">
                             <span className="tw-font-semibold tw-text-cream">
