@@ -1,3 +1,8 @@
+/* Tailwind already emits only the classes it finds in src/, so the production-only
+   PurgeCSS pass (postcss.config.js) must not prune its output. PurgeCSS's extractor
+   splits arbitrary values like [font-size:clamp(...)] and !tw-* and drops classes
+   that are in use. */
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -100,3 +105,4 @@
         backface-visibility: hidden;
     }
 }
+/* purgecss end ignore */

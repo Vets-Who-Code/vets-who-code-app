@@ -66,7 +66,12 @@ const SponsorPage: PageWithLayout = () => {
                         subLabel="DOC 04 / BECOME A SPONSOR"
                         tone="dark"
                     />
-                    <SharpHeadline as="h1" size="h1" tone="white" className="tw-mt-6">
+                    <SharpHeadline
+                        as="h1"
+                        size="h1"
+                        tone="white"
+                        className="tw-mt-6 maxSm:tw-text-[32px]"
+                    >
                         We want you.
                         <br />
                         <span className="tw-text-gold">#VetsWhoCode</span>
