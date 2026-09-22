@@ -10,7 +10,7 @@ type TProps = TSection & {
 };
 
 // A static, centred wrap, not a carousel: every partner stays visible without swiping or
-// autoplay. One row of 11 from lg up; rows of 6 (md) and 4 (mobile) below.
+// autoplay. Rows of 6 from lg up, 4 at md, and 3 on phones.
 const BrandArea = ({ data: { items }, space, bg }: TProps) => {
     return (
         <Section className="brand-area" space={space} bg={bg}>
@@ -30,15 +30,28 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                             return (
                                 <li
                                     key={item.id}
-                                    className="tw-flex tw-w-1/4 tw-items-center tw-justify-center tw-px-3 md:tw-w-1/6 lg:tw-w-[9.0909%]"
+                                    className="tw-flex tw-w-1/3 tw-items-center tw-justify-center tw-px-3 md:tw-w-1/4 lg:tw-w-1/6"
                                 >
                                     {logoSrc ? (
-                                        <img
-                                            className="tw-w-full tw-max-w-[96px] tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
-                                            src={logoSrc}
-                                            alt={name || "logo"}
-                                            loading="lazy"
-                                        />
+                                        // Gold fill via the logo as a mask (exact brand color), red outline via the
+                                        // wrapper's drop-shadow filter, which traces the masked shape.
+                                        <span className="tw-outline-brand-red tw-block tw-w-full tw-max-w-[140px] tw-transition-transform tw-duration-300 tw-ease-out hover:tw-scale-110">
+                                            <span
+                                                role="img"
+                                                aria-label={name || "logo"}
+                                                className="tw-block tw-aspect-square tw-w-full tw-bg-gold"
+                                                style={{
+                                                    WebkitMaskImage: `url(${logoSrc})`,
+                                                    maskImage: `url(${logoSrc})`,
+                                                    WebkitMaskSize: "contain",
+                                                    maskSize: "contain",
+                                                    WebkitMaskRepeat: "no-repeat",
+                                                    maskRepeat: "no-repeat",
+                                                    WebkitMaskPosition: "center",
+                                                    maskPosition: "center",
+                                                }}
+                                            />
+                                        </span>
                                     ) : (
                                         <span
                                             className="partner-text"

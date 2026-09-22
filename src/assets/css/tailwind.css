@@ -8,9 +8,10 @@
 @tailwind utilities;
 
 @layer utilities {
-    .tw-filter-brand-primary {
-        filter: invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%)
-            contrast(95%);
+    /* Red (#c5203e) outline that traces a shape's edges, e.g. a gold masked partner logo. */
+    .tw-outline-brand-red {
+        filter: drop-shadow(2px 0 0 #c5203e) drop-shadow(-2px 0 0 #c5203e)
+            drop-shadow(0 2px 0 #c5203e) drop-shadow(0 -2px 0 #c5203e);
     }
 }
 
