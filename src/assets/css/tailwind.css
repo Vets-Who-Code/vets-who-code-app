@@ -8,9 +8,19 @@
 @tailwind utilities;
 
 @layer utilities {
-    .tw-filter-brand-primary {
-        filter: invert(18%) sepia(83%) saturate(4000%) hue-rotate(340deg) brightness(75%)
-            contrast(95%);
+    /* Gold partner logo: on hover a brand-red outline traces the mark and it lifts.
+       The transparent shadows are the same filter chain, so the color fades in. */
+    .tw-partner-logo {
+        filter: drop-shadow(2px 0 0 transparent) drop-shadow(-2px 0 0 transparent)
+            drop-shadow(0 2px 0 transparent) drop-shadow(0 -2px 0 transparent);
+        transition:
+            filter 300ms ease-out,
+            transform 300ms ease-out;
+    }
+    .tw-partner-logo:hover {
+        filter: drop-shadow(2px 0 0 #c5203e) drop-shadow(-2px 0 0 #c5203e)
+            drop-shadow(0 2px 0 #c5203e) drop-shadow(0 -2px 0 #c5203e);
+        transform: scale(1.1);
     }
 }
 

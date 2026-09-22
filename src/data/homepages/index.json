@@ -302,6 +302,51 @@
                             "alt": "Microsoft"
                         }
                     ]
+                },
+                {
+                    "id": 7,
+                    "images": [
+                        {
+                            "src": "/images/partners/cloudflare-logo.svg",
+                            "alt": "Cloudflare"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "images": [
+                        {
+                            "src": "/images/partners/atlassian-logo.svg",
+                            "alt": "Atlassian"
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "images": [
+                        {
+                            "src": "/images/partners/elevenlabs-logo.svg",
+                            "alt": "ElevenLabs"
+                        }
+                    ]
+                },
+                {
+                    "id": 10,
+                    "images": [
+                        {
+                            "src": "/images/partners/splunk-logo.svg",
+                            "alt": "Splunk"
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "images": [
+                        {
+                            "src": "/images/partners/vercel-logo.svg",
+                            "alt": "Vercel"
+                        }
+                    ]
                 }
             ]
         },

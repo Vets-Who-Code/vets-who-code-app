@@ -1,11 +1,7 @@
 import Section from "@components/ui/engagement-modal";
-import SwiperSlider, { SwiperSlide } from "@ui/swiper";
 import { ItemType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
-import { useMemo } from "react";
-
-const AnimatedSwiper = motion(SwiperSlider);
 
 type TProps = TSection & {
     data: {
@@ -13,37 +9,16 @@ type TProps = TSection & {
     };
 };
 
+// A static, centred wrap, not a carousel: every partner stays visible without swiping or
+// autoplay. Rows of 6 from lg up, 4 at md, and 3 on phones.
 const BrandArea = ({ data: { items }, space, bg }: TProps) => {
-    const options = useMemo(() => {
-        return {
-            slidesPerView: 1,
-            autoplay: false,
-            breakpoints: {
-                320: {
-                    slidesPerView: 2,
-                },
-                576: {
-                    slidesPerView: 4,
-                },
-                768: {
-                    slidesPerView: 5,
-                },
-                992: {
-                    slidesPerView: 6,
-                },
-            },
-        };
-    }, []);
-
     return (
         <Section className="brand-area" space={space} bg={bg}>
-            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-white">
-                Technology Partners
-            </h2>
+            <h2 className="tw-m-20 tw-flex tw-justify-center tw-text-white">Technology Partners</h2>
             <div className="tw-container">
                 {items && (
-                    <AnimatedSwiper
-                        options={options}
+                    <motion.ul
+                        className="tw-flex tw-flex-wrap tw-items-center tw-justify-center tw-gap-y-10"
                         initial="offscreen"
                         whileInView="onscreen"
                         viewport={{ once: true, amount: 0.4 }}
@@ -53,17 +28,30 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                             const logoSrc = item.images?.[0]?.src;
                             const name = item.images?.[0]?.alt || item.title;
                             return (
-                                <SwiperSlide
+                                <li
                                     key={item.id}
-                                    className="tw-my-auto tw-flex tw-justify-center tw-items-center"
+                                    className="tw-flex tw-w-1/3 tw-items-center tw-justify-center tw-px-3 md:tw-w-1/4 lg:tw-w-1/6"
                                 >
                                     {logoSrc ? (
-                                        <img
-                                            className="tw-opacity-50 tw-transition-opacity hover:tw-opacity-100 tw-filter-brand-primary"
-                                            src={logoSrc}
-                                            alt={name || "logo"}
-                                            loading="lazy"
-                                        />
+                                        // Gold fill via the logo as a mask (exact brand color). The wrapper's
+                                        // drop-shadow filter traces a red outline on hover (tw-partner-logo).
+                                        <span className="tw-partner-logo tw-block tw-w-full tw-max-w-[140px]">
+                                            <span
+                                                role="img"
+                                                aria-label={name || "logo"}
+                                                className="tw-block tw-aspect-square tw-w-full tw-bg-gold"
+                                                style={{
+                                                    WebkitMaskImage: `url(${logoSrc})`,
+                                                    maskImage: `url(${logoSrc})`,
+                                                    WebkitMaskSize: "contain",
+                                                    maskSize: "contain",
+                                                    WebkitMaskRepeat: "no-repeat",
+                                                    maskRepeat: "no-repeat",
+                                                    WebkitMaskPosition: "center",
+                                                    maskPosition: "center",
+                                                }}
+                                            />
+                                        </span>
                                     ) : (
                                         <span
                                             className="partner-text"
@@ -94,10 +82,10 @@ const BrandArea = ({ data: { items }, space, bg }: TProps) => {
                                             {name}
                                         </span>
                                     )}
-                                </SwiperSlide>
+                                </li>
                             );
                         })}
-                    </AnimatedSwiper>
+                    </motion.ul>
                 )}
             </div>
         </Section>
