@@ -12,7 +12,7 @@ import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
@@ -31,6 +31,17 @@ const Header = ({ shadow, fluid }: TProps) => {
     // The sticky nav pins below the top bar, whose height changes with the cohort
     // countdown (present or not, one row or two). Measure it instead of guessing.
     const [topBarHeight, setTopBarHeight] = useState(52);
+    // useSticky measures the nav once on mount, before the session loads and before
+    // the sticky border appears. The published offset needs the live height.
+    const navRef = useRef<HTMLDivElement | null>(null);
+    const [navHeight, setNavHeight] = useState(0);
+    const setNavNode = useCallback(
+        (node: HTMLDivElement | null) => {
+            navRef.current = node;
+            if (node) measuredRef(node);
+        },
+        [measuredRef]
+    );
     const { status } = useSession();
     const cohortStartDate = getCohortStartDate(siteConfig.cohortStartDate);
     const cohortUpcoming = isCohortUpcoming(cohortStartDate);
@@ -52,6 +63,29 @@ const Header = ({ shadow, fluid }: TProps) => {
         observer.observe(el);
         return () => observer.disconnect();
     }, []);
+
+    useEffect(() => {
+        const el = navRef.current;
+        if (!el) return undefined;
+        const measure = () => setNavHeight(el.offsetHeight);
+        measure();
+        const observer = new ResizeObserver(measure);
+        // border-box, so the 1px border the nav gains when it goes sticky is picked up
+        observer.observe(el, { box: "border-box" });
+        return () => observer.disconnect();
+    }, []);
+
+    // Publish the fixed header's height so page-level sticky bars can pin below it
+    // (`top: var(--header-sticky-offset, 0px)`) instead of sliding underneath.
+    useEffect(() => {
+        document.documentElement.style.setProperty(
+            "--header-sticky-offset",
+            sticky ? `${topBarHeight + navHeight}px` : "0px"
+        );
+        return () => {
+            document.documentElement.style.removeProperty("--header-sticky-offset");
+        };
+    }, [sticky, topBarHeight, navHeight]);
 
     return (
         <>
@@ -87,7 +121,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                 </div>
                 <div className="header-bottom tw-relative">
                     <div
-                        ref={measuredRef}
+                        ref={setNavNode}
                         className={clsx(
                             "header-inner tw-left-0 tw-z-50 tw-h-auto tw-w-full tw-py-[25px] tw-transition-all xl:tw-py-0",
                             !sticky && "tw-absolute tw-top-0 tw-bg-white",
