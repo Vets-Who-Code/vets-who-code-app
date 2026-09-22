@@ -114,6 +114,7 @@ const CHECKLIST_DATA: ChecklistSection[] = [
                     { id: "4-11", text: "Live demo or demo video" },
                     { id: "4-12", text: "Repo link" },
                     { id: "4-13", text: "Architecture diagram" },
+                    { id: "4-15", text: "Data model (ER diagram or schema summary)" },
                     { id: "4-14", text: "Links to decision records and related posts" },
                 ],
             },
@@ -129,9 +130,9 @@ const CHECKLIST_DATA: ChecklistSection[] = [
             { id: "5-1", text: "How I Build page (/how-i-build)" },
             {
                 id: "5-2",
-                text: "At least one LLM artifact with evals, cost, latency, and fallback",
+                text: "At least one LLM artifact with evals, cost, latency, fallback, and known limits",
             },
-            { id: "5-3", text: "Prompts versioned in the repo (/prompts)" },
+            { id: "5-3", text: "Prompts and pinned model versions in the repo (/prompts)" },
             { id: "5-4", text: "Evals in the repo (/evals)" },
             { id: "5-5", text: "Decision records index (/decisions)" },
             { id: "5-6", text: "LLM data handling statement" },
@@ -205,6 +206,7 @@ const CHECKLIST_DATA: ChecklistSection[] = [
             { id: "7-4", text: "Press and talks on About" },
             { id: "7-5", text: "Testimonials" },
             { id: "7-6", text: "Meaningful open source contributions" },
+            { id: "7-7", text: "Code reviews you gave on merged PRs" },
         ],
     },
     {
