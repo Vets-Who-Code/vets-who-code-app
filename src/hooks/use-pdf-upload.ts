@@ -70,7 +70,7 @@ export default function usePdfUpload(): UsePdfUploadReturn {
             setProgress(50);
 
             // Send to API
-            const response = await fetch("/api/military-resume/parse-pdf", {
+            const response = await fetch("/api/jobs/parse-resume", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ pdf: base64, fileType }),
