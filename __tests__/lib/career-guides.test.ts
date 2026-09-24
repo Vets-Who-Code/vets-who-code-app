@@ -67,6 +67,17 @@ describe("career-guides", () => {
         it("returns null for an unknown slug", () => {
             expect(getCareerGuideDetail("does-not-exist")).toBeNull();
         });
+
+        // /career-guides/01g (Army chemical engineer) drew 15k impressions for
+        // "software testing strategies" from a generated QA pathway. Issue #1328.
+        it("keeps software-testing pathways off the 01G chemical engineer guide", () => {
+            const detail = detailFor("01G");
+            const roleKeys = detail.techPathway?.roles.map((r) => r.roleKey) ?? [];
+            expect(roleKeys).not.toContain("qa_test_automation_engineer");
+            expect(JSON.stringify(detail)).not.toMatch(
+                /software testing|test automation|testing protocols/i
+            );
+        });
     });
 
     // Walks the LIVE training-pipeline.json, so a regenerated data file is what gets
