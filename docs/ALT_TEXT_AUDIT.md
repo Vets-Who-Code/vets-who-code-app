@@ -39,12 +39,11 @@ Live call sites fixed:
 - `src/components/menu/main-menu/megamenu.tsx`, `src/components/menu/mobile-menu/megamenu.tsx` — banner `<img>` is the sole child of its link, so the fallback is the column title (`banner.image?.alt || title || ""`), never a bare `""`. No banner exists in `src/data/menu.ts` today; if one is added, give its `image.alt` a real name.
 - `src/components/url-preview-card/index.tsx` — "Preview image" fallback contained a forbidden word; now `""`.
 - `src/data/mdx-pages/code-of-conduct.md` — `![alt text](...)` placeholder replaced by the text the graphic shows ("Code of Conduct").
+- `src/pages/projects.tsx` — the static hashflag badge on the modal's column divider announced "<project name> screenshot"; it is an ornament, so `alt=""`.
 
-Skipped on purpose: `src/containers/contact-info/layout-01/index.tsx` (removed by #1210) and
-`src/pages/projects.tsx` (rewritten by #1327, which fixes the "screenshot" alt on the static
-hashflag badge).
+Skipped on purpose: `src/containers/contact-info/layout-01/index.tsx` (removed by #1210).
 
-Regression coverage: `__tests__/components/image-alt-fallbacks.test.tsx`.
+Regression coverage: `__tests__/components/image-alt-fallbacks.test.tsx` and `__tests__/pages/projects.tests.tsx`.
 
 ## Images that need content-team wording
 

@@ -203,7 +203,7 @@ export const ProjectDetailModal = ({ project, className }: ProjectModalProps) =>
                 <div className="tw-col-start-1 tw-row-start-1 tw-m-0 tw-flex tw-items-center tw-justify-center tw-p-0">
                     <img
                         src="https://res.cloudinary.com/vetswhocode/image/upload/e_bgremoval/f_auto,q_auto/v1609084190/hashflag-white-vscode_n5k5db.jpg"
-                        alt={`${project.details.name} screenshot`}
+                        alt=""
                         className="tw-w-14 tw-rounded-full tw-bg-white"
                     />
                 </div>
