@@ -13,7 +13,15 @@ describe("Technology partners", () => {
     it("shows every partner at once, without a carousel", () => {
         render(<BrandArea data={brandArea} />);
         expect(screen.getAllByRole("listitem")).toHaveLength(brandArea.items.length);
-        for (const name of ["Cloudflare", "Atlassian", "ElevenLabs", "Splunk", "Vercel"]) {
+        for (const name of [
+            "Cloudflare",
+            "Atlassian",
+            "ElevenLabs",
+            "Splunk",
+            "Vercel",
+            "monday dev",
+            "New Relic",
+        ]) {
             expect(screen.getByRole("img", { name })).toBeInTheDocument();
         }
     });
