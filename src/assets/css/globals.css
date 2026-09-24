@@ -312,8 +312,10 @@
     border-bottom: 1px solid var(--border-subtle);
 }
 
-/* Nav link styling — uppercase precision */
-nav[aria-label="Main Menu"] a {
+/* Nav link styling — uppercase precision. Parents with a submenu are
+   disclosure <button>s, so they take the same treatment as the links. */
+nav[aria-label="Main Menu"] a,
+nav[aria-label="Main Menu"] button {
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
