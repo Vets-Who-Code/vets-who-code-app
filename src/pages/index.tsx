@@ -12,6 +12,7 @@ import NewsletterArea from "@containers/newsletter/layout-02";
 import ServiceArea from "@containers/service/layout-03";
 import TestimonialArea from "@containers/testimonial/layout-04";
 import VideoArea from "@containers/video/layout-04";
+import { outcomesSummary } from "@data/outcomes";
 import siteConfig from "@data/site-config";
 import Layout from "@layout/layout-03";
 import AlumniStrip from "@ui/alumni-strip";
@@ -55,7 +56,11 @@ const Home: PageProps = ({ data }) => {
 
     return (
         <>
-            <SEO title="Home" />
+            <SEO
+                title="Home"
+                description={outcomesSummary}
+                additionalMetaTags={[{ name: "twitter:description", content: outcomesSummary }]}
+            />
 
             {/* Operations brief — status bar across the top, SF/CG signature */}
             <div className="tw-w-full tw-border-b tw-border-cream/10 tw-bg-navy tw-py-2.5">
