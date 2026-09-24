@@ -105866,11 +105866,6 @@
                 "whyItFits": "Your background in chemical engineering provides a solid foundation for understanding complex systems and processes. Your experience with system modeling and resource optimization can be applied to analyzing an organization's computer systems and recommending improvements. Knowledge of Army administrative procedures and military leadership fundamentals can be leveraged to gather requirements, evaluate solutions, and communicate effectively with stakeholders."
             },
             {
-                "roleKey": "qa_test_automation_engineer",
-                "matchLevel": "moderate",
-                "whyItFits": "Your background in chemical engineering principles, laboratory safety procedures, experiment design and data analysis, and operation of chemical engineering equipment will help. Your attention to detail and your experience with procedural compliance, especially in conducting chemical engineering tests, are assets in testing software. The ability to recognize the validity of recorded roll and strip chart data aligns with validating software outputs."
-            },
-            {
                 "roleKey": "data_engineer",
                 "matchLevel": "moderate",
                 "whyItFits": "As a Chemical Engineering Research Specialist, you have worked with chemical engineering equipment, recorded data, made control analyses, and tabulated results of experiments. You have experience with analyzing data and flows, which are transferable skills. Your experience in experiment design and data analysis, combined with your knowledge of statistical analysis software (TDA), will be valuable in learning the skills required to become a data engineer."
@@ -105894,10 +105889,6 @@
                 "to": "A/B testing and statistical modeling"
             },
             {
-                "from": "Procedural compliance",
-                "to": "Adherence to coding standards and testing protocols"
-            },
-            {
                 "from": "Technical report writing",
                 "to": "Documenting code, creating API documentation"
             }
@@ -105918,14 +105909,6 @@
             {
                 "skill": "Data warehousing concepts and technologies",
                 "forRole": "data_engineer"
-            },
-            {
-                "skill": "At least one programming language (e.g., Python, Java)",
-                "forRole": "qa_test_automation_engineer"
-            },
-            {
-                "skill": "Software testing methodologies and tools",
-                "forRole": "qa_test_automation_engineer"
             },
             {
                 "skill": "Network infrastructure and security principles",

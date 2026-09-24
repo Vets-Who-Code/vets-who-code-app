@@ -1,25 +1,73 @@
+import { buildDetail } from "@containers/career-guide-detail/derive";
+import type {
+    CareerGuideDetail,
+    CertData,
+    CognitiveProfile,
+    PathwayEntry,
+    SystemsData,
+    TechPathway,
+    TrainingData,
+} from "@containers/career-guide-detail/types";
 import type { Branch, Demand, Family, GuideEntry, Rank } from "@containers/career-guides/types";
 import fs from "fs";
 import path from "path";
 
-type TrainingEntry = {
-    branch: string;
+export interface TechRoleSeed {
+    key: string;
     title: string;
-    program?: string;
-    hours?: number;
-    weeks?: number;
-    topics?: string[];
-    civilian_certs?: string[];
-    ace_credits?: string;
+    track: string;
+    socCode: string;
+    description: string;
+    stack: string[];
+}
+
+export interface TechPathwayBundle {
+    techRoles: Array<{
+        roleKey: string;
+        matchLevel: "high" | "good" | "moderate";
+        whyItFits: string;
+    }>;
+    skillsYouHave: Array<{ from: string; to: string }>;
+    skillsToLearn: Array<{ skill: string; forRole: string }>;
+}
+
+export interface CareerGuideData {
+    training: Record<string, TrainingData>;
+    certs: Record<string, CertData>;
+    systems: Record<string, SystemsData>;
+    pathways: Record<string, PathwayEntry[]>;
+    cognitive: Record<string, CognitiveProfile>;
+    techPathways: Record<string, TechPathwayBundle>;
+    taxonomyByKey: Map<string, TechRoleSeed>;
+    /** Lowercased training-pipeline key -> exact key, so a URL slug resolves without an O(n) scan */
+    keyBySlug: Map<string, string>;
+}
+
+const readJson = <T>(name: string): T =>
+    JSON.parse(fs.readFileSync(path.join(process.cwd(), "src/data", name), "utf-8")) as T;
+
+const loadCareerGuideData = (): CareerGuideData => {
+    const training = readJson<Record<string, TrainingData>>("training-pipeline.json");
+    const taxonomy = readJson<{ roles: TechRoleSeed[] }>("tech-roles-taxonomy.json");
+    return {
+        training,
+        certs: readJson("cert-equivalencies.json"),
+        systems: readJson("military-systems-map.json"),
+        pathways: readJson("career-pathways-map.json"),
+        cognitive: readJson("cognitive-skills-map.json"),
+        techPathways: readJson("tech-pathways-map.json"),
+        taxonomyByKey: new Map(taxonomy.roles.map((r) => [r.key, r])),
+        keyBySlug: new Map(Object.keys(training).map((k) => [k.toLowerCase(), k])),
+    };
 };
 
-type PathwayEntry = {
-    role: string;
-    matchLevel: string;
-    avgSalary: number;
-    demand: string;
-    skillsToClose?: string[];
-    dataSource?: string;
+let cached: CareerGuideData | undefined;
+
+// The seven data files total ~59 MB. Parsing them once per process (rather than
+// once per getStaticProps call) is what makes every guide page cheap to render.
+export const getCareerGuideData = (): CareerGuideData => {
+    if (!cached) cached = loadCareerGuideData();
+    return cached;
 };
 
 const BRANCH_NORMAL: Record<string, Branch> = {
@@ -114,13 +162,7 @@ const stripBranchPrefix = (key: string): string => {
 };
 
 export const loadCareerGuides = (): GuideEntry[] => {
-    const root = process.cwd();
-    const training = JSON.parse(
-        fs.readFileSync(path.join(root, "src/data/training-pipeline.json"), "utf-8")
-    ) as Record<string, TrainingEntry>;
-    const pathways = JSON.parse(
-        fs.readFileSync(path.join(root, "src/data/career-pathways-map.json"), "utf-8")
-    ) as Record<string, PathwayEntry[]>;
+    const { training, pathways } = getCareerGuideData();
 
     const guides: GuideEntry[] = [];
 
@@ -157,6 +199,57 @@ export const loadCareerGuides = (): GuideEntry[] => {
     }
 
     return guides.sort((a, b) => a.code.localeCompare(b.code));
+};
+
+export const getCareerGuideDetail = (slug: string): CareerGuideDetail | null => {
+    const data = getCareerGuideData();
+    const key = data.keyBySlug.get(slug.toLowerCase());
+    if (!key) return null;
+    const training = data.training[key];
+
+    const techBundle = data.techPathways[key];
+    const techPathway: TechPathway | null = techBundle
+        ? {
+              roles: techBundle.techRoles
+                  .map((r) => {
+                      const seed = data.taxonomyByKey.get(r.roleKey);
+                      if (!seed) return null;
+                      return {
+                          roleKey: r.roleKey,
+                          matchLevel: r.matchLevel,
+                          whyItFits: r.whyItFits,
+                          title: seed.title,
+                          track: seed.track,
+                          socCode: seed.socCode,
+                          description: seed.description,
+                          stack: seed.stack,
+                      };
+                  })
+                  .filter((r): r is NonNullable<typeof r> => r !== null),
+              skillsYouHave: techBundle.skillsYouHave,
+              skillsToLearn: techBundle.skillsToLearn,
+          }
+        : null;
+
+    return buildDetail({
+        // Branch-prefixed keys (e.g. "marine_corps:6333") disambiguate code collisions
+        // across branches; display only the bare code.
+        code: stripBranchPrefix(key),
+        training,
+        certs: data.certs[key] || {
+            direct_qualifies: [],
+            partial_coverage: [],
+            recommended_next: [],
+        },
+        systems: data.systems[key] || {
+            branch: training.branch,
+            title: training.title,
+            systems: [],
+        },
+        pathways: data.pathways[key] || [],
+        cognitiveProfile: data.cognitive[key] || null,
+        techPathway,
+    });
 };
 
 export const computeBranchCounts = (guides: GuideEntry[]) => {
