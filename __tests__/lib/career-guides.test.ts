@@ -1,5 +1,6 @@
 import { buildGuideMeta } from "@containers/career-guide-detail/derive";
 import type { CareerGuideDetail } from "@containers/career-guide-detail/types";
+import prerender from "@data/career-guides-prerender.json";
 import { getCareerGuideData, getCareerGuideDetail, loadCareerGuides } from "@/lib/career-guides";
 
 const detailFor = (slug: string): CareerGuideDetail => {
@@ -77,6 +78,17 @@ describe("career-guides", () => {
             expect(JSON.stringify(detail)).not.toMatch(
                 /software testing|test automation|testing protocols/i
             );
+        });
+    });
+
+    describe("career-guides-prerender.json", () => {
+        it("lists unique, lowercase slugs in the training-pipeline key space", () => {
+            const slugs = prerender.guides.map((g) => g.slug);
+            expect(new Set(slugs).size).toBe(slugs.length);
+            for (const slug of slugs) {
+                expect(slug).toBe(slug.toLowerCase());
+                expect(getCareerGuideData().keyBySlug.has(slug), slug).toBe(true);
+            }
         });
     });
 

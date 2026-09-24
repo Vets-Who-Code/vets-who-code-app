@@ -2,27 +2,11 @@ import SEO from "@components/seo/page-seo";
 import CareerGuideDetailContainer from "@containers/career-guide-detail";
 import { buildGuideMeta } from "@containers/career-guide-detail/derive";
 import type { CareerGuideDetail } from "@containers/career-guide-detail/types";
+import prerender from "@data/career-guides-prerender.json";
 import Layout01 from "@layout/layout-01";
-import { getCareerGuideDetail } from "@lib/career-guides";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-
-const SEO_MOS_CODES = [
-    "11B",
-    "25B",
-    "35F",
-    "68W",
-    "31B",
-    "42A",
-    "92Y",
-    "88M",
-    "91B",
-    "3P0X1",
-    "HM",
-    "CTN",
-    "0311",
-    "2651",
-] as const;
+import { getCareerGuideDetail } from "@/lib/career-guides";
 
 interface MosPageProps {
     detail: CareerGuideDetail;
@@ -69,10 +53,10 @@ const MosPage: PageWithLayout = ({ detail }) => {
 
 MosPage.Layout = Layout01;
 
+// The prerendered set is the Search Console-fed list in career-guides-prerender.json
+// (see its refresh steps); every other guide still renders through fallback: "blocking".
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = SEO_MOS_CODES.map((mos) => ({
-        params: { mos: mos.toLowerCase() },
-    }));
+    const paths = prerender.guides.map((g) => ({ params: { mos: g.slug } }));
     return { paths, fallback: "blocking" };
 };
 

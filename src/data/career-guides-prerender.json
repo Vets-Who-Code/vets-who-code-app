@@ -1,0 +1,105 @@
+{
+    "source": "Google Search Console, property sc-domain:vetswhocode.io, Search results report, dimension=page, filter: page contains /career-guides/",
+    "window": "90 days",
+    "fetchedAt": null,
+    "minImpressions": 1,
+    "refresh": [
+        "When Search Console is reachable, query the sc-domain:vetswhocode.io property for the last 90 days with dimension=page and the filter page contains /career-guides/ (GSC MCP: get_search_by_page_query or get_advanced_search_analytics; or the Search Console UI Pages report).",
+        "For each row with impressions >= minImpressions: slug = the path segment after /career-guides/, lowercased. Drop any slug that is not a key of src/data/training-pipeline.json once that key is lowercased.",
+        "Write { slug, impressions, clicks, source } rows sorted by impressions descending, replacing the seed rows, and set fetchedAt to the fetch date.",
+        "Run npm test (the guards validate every slug) and npm run build, then check that grep -c career-guides/ public/sitemap-0.xml equals guides.length.",
+        "To widen the sitemap tranche, lower minImpressions and re-run. The final tranche is switching additionalPaths in next-sitemap.config.js to Object.keys(training-pipeline.json)."
+    ],
+    "guides": [
+        {
+            "slug": "01g",
+            "impressions": 15022,
+            "clicks": 0,
+            "source": "issue #1328, 90d window"
+        },
+        {
+            "slug": "11b",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "25b",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "35f",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "68w",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "31b",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "42a",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "92y",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "88m",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "91b",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "3p0x1",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "hm",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "ctn",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "0311",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        },
+        {
+            "slug": "2651",
+            "impressions": null,
+            "clicks": null,
+            "source": "seed (hand-picked list retired from [mos].tsx)"
+        }
+    ]
+}
