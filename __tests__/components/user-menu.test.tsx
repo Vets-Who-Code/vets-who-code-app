@@ -59,7 +59,7 @@ describe("UserMenu", () => {
         expect(screen.queryByText("Sign in")).not.toBeInTheDocument();
     });
 
-    it("shows a sign-in link to /login when unauthenticated", () => {
+    it("shows a same-tab sign-in link to the J0dI3 login when unauthenticated", () => {
         mockUseSession.mockReturnValue({
             data: null,
             status: "unauthenticated",
@@ -69,7 +69,8 @@ describe("UserMenu", () => {
         render(<UserMenu />);
 
         const link = screen.getByRole("link", { name: "Sign in" });
-        expect(link).toHaveAttribute("href", "/login");
+        expect(link).toHaveAttribute("href", "https://j0di3.vetswhocode.io/login");
+        expect(link).toHaveAttribute("target", "_self");
         expect(screen.queryByTestId("user-menu-skeleton")).not.toBeInTheDocument();
     });
 

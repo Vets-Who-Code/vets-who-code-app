@@ -62,7 +62,13 @@ const UserMenu = () => {
         // Button geometry matches Donate, outlined not contained — Donate owns the
         // solid red so the two CTAs read as equal weight without competing.
         return (
-            <Button path="/login" size="sm" variant="outlined" className="tw-whitespace-nowrap">
+            <Button
+                path="https://j0di3.vetswhocode.io/login"
+                target="_self"
+                size="sm"
+                variant="outlined"
+                className="tw-whitespace-nowrap"
+            >
                 Sign in
             </Button>
         );
