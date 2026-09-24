@@ -256,7 +256,7 @@ const CareerGuidesContainer = ({
                         </p>
                     ) : (
                         <>
-                            <GridView rows={filtered} />
+                            <GridView rows={filtered} searching={q !== ""} />
                             <Pagination
                                 facet={facet}
                                 page={page}

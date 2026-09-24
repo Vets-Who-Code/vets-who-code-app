@@ -167,6 +167,22 @@ describe("career-guides listing", () => {
         expect(fetchMock).not.toHaveBeenCalled();
     });
 
+    it("says the whole facet is empty when a filter, not a search, finds nothing", async () => {
+        // Every Army guide here is Enlisted.
+        renderListing(
+            "/career-guides/branch/army?rank=officer",
+            { kind: "branch", value: "Army" },
+            army
+        );
+        await waitFor(() =>
+            expect(
+                screen.getByText("Try a different branch, career family, or rank.")
+            ).toBeInTheDocument()
+        );
+        expect(screen.getByText("No matches.")).toBeInTheDocument();
+        expect(screen.queryByText(/Search only looks at/)).not.toBeInTheDocument();
+    });
+
     it("restarts at page 1 when rank changes on a later page", () => {
         renderListing(
             "/career-guides/family/cyber/page/2",

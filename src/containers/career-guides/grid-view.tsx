@@ -5,6 +5,8 @@ import type { GuideEntry } from "./types";
 
 interface Props {
     rows: GuideEntry[];
+    /** A search is active; it only covers the guides this page loaded. */
+    searching: boolean;
 }
 
 const GuideCard = ({ g }: { g: GuideEntry }) => {
@@ -89,7 +91,20 @@ const GuideCard = ({ g }: { g: GuideEntry }) => {
     );
 };
 
-const GridView = ({ rows }: Props) => {
+const GridView = ({ rows, searching }: Props) => {
+    if (rows.length === 0 && !searching) {
+        return (
+            <div className="tw-flex tw-flex-col tw-items-center tw-gap-2 tw-py-24 tw-text-center">
+                <span className="tw-font-heading tw-text-[28px] tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em]">
+                    No matches.
+                </span>
+                <span className="tw-font-body tw-text-[15px] tw-text-[#DEE2E6]">
+                    Try a different branch, career family, or rank.
+                </span>
+            </div>
+        );
+    }
+
     if (rows.length === 0) {
         return (
             <div className="tw-flex tw-flex-col tw-items-center tw-gap-2 tw-py-24 tw-text-center">
