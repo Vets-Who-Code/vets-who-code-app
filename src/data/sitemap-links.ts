@@ -1,6 +1,27 @@
 export type SitemapLink = { label: string; path: string };
 export type SitemapColumn = { heading: string; links: SitemapLink[] };
 
+// Decision landing pages, one per search query veterans use when choosing a
+// program. Also linked from /apply and /programs.
+export const decisionGuideLinks: SitemapLink[] = [
+    {
+        label: "Free Software Engineering Training",
+        path: "/for-veterans/free-software-engineering-training",
+    },
+    {
+        label: "Software Engineer After the Military",
+        path: "/for-veterans/become-a-software-engineer-after-the-military",
+    },
+    {
+        label: "What a Veteran Software Engineer Earns",
+        path: "/for-veterans/software-engineer-salary",
+    },
+    {
+        label: "Learn to Code Without a Degree",
+        path: "/for-veterans/learn-to-code-without-a-degree",
+    },
+];
+
 export const sitemapColumns: SitemapColumn[] = [
     {
         heading: "Programs",
@@ -26,6 +47,7 @@ export const sitemapColumns: SitemapColumn[] = [
         links: [
             { label: "Blog", path: "/blogs/blog" },
             { label: "Career Guides", path: "/career-guides" },
+            ...decisionGuideLinks,
             { label: "Portfolio Checklist", path: "/portfolio-checklist" },
             { label: "Events", path: "/events" },
             { label: "Media", path: "/media" },

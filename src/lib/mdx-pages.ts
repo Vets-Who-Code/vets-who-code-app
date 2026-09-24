@@ -34,6 +34,24 @@ export function getPageBySlug(slug: string) {
     return content;
 }
 
+export type LandingFrontmatter = {
+    title: string;
+    seoTitle: string;
+    description: string;
+    lede: string;
+    /** The search query the page is written to answer. */
+    query: string;
+    faq: Array<{ question: string; answer: string }>;
+};
+
+// Decision landing pages keep their front-matter, which getPageBySlug drops.
+export function getLandingPage(slug: string) {
+    const fullPath = join(mdxPagesDirectory, "landing", `${slug}.mdx`);
+    if (!fs.existsSync(fullPath)) return null;
+    const { data, content } = matter(fs.readFileSync(fullPath, "utf8"));
+    return { frontmatter: data as LandingFrontmatter, content };
+}
+
 // Utility to get all media posts with selected fields
 export function getAllMediaPosts<T extends object = Record<string, unknown>>(
     fields: string[] = [],
