@@ -49,6 +49,7 @@ const StuckTroopsAdmin: PageWithLayout = () => {
                 ]}
                 currentPage="Stuck troops"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12 tw-space-y-6">

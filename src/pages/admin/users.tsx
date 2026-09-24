@@ -103,6 +103,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                 ]}
                 currentPage="User Management"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-8">

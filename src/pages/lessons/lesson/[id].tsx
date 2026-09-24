@@ -84,6 +84,7 @@ const LessonPage: PageWithLayout = () => {
                 ]}
                 currentPage={lesson?.title ?? "Lesson"}
                 showTitle={false}
+                hideHeading={!isLoading && lesson !== null}
             />
 
             <div className="tw-container tw-py-12 tw-max-w-3xl tw-space-y-6">

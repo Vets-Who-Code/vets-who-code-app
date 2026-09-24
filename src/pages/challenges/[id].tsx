@@ -213,6 +213,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                 ]}
                 currentPage={challenge?.title ?? "Challenge"}
                 showTitle={false}
+                hideHeading={Boolean(challenge) && !isLoading && !loadError}
             />
 
             <div className="tw-container tw-py-12">

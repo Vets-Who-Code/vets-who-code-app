@@ -36,6 +36,7 @@ const JobDetailPage: PageWithLayout = ({ job }) => {
                 ]}
                 currentPage={job.title}
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-16">

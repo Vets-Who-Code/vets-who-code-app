@@ -295,6 +295,7 @@ const ChallengesPage: PageWithLayout = () => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Challenges"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-16">

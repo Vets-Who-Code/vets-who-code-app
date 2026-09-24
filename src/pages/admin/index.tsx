@@ -32,6 +32,7 @@ const AdminDashboard: PageWithLayout = ({ stats, userName }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Admin Dashboard"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-min-h-screen tw-bg-gray-50 tw-py-8">

@@ -54,6 +54,7 @@ const J0di3AdminHome: PageWithLayout = () => {
                 ]}
                 currentPage="J0dI3"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12 tw-space-y-8">

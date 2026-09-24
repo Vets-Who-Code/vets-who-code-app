@@ -72,6 +72,7 @@ const ModuleLessonsPage: PageWithLayout = () => {
                 ]}
                 currentPage={`Module ${module ?? ""}`}
                 showTitle={false}
+                hideHeading={!isLoading && !error}
             />
 
             <div className="tw-container tw-py-12 tw-space-y-6">

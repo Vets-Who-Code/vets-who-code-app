@@ -207,6 +207,7 @@ const JodiePage: PageWithLayout = () => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="J0d!e"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12">

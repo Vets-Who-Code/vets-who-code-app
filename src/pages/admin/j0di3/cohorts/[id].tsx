@@ -95,6 +95,7 @@ const CohortDetail: PageWithLayout = () => {
                 ]}
                 currentPage={cohort?.name ?? "Cohort"}
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12 tw-space-y-6">

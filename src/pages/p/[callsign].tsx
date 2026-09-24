@@ -50,6 +50,7 @@ const PublicProfilePage: PageWithLayout = ({ troop }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage={troop.callsign || troop.name || "Troop"}
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12 tw-max-w-3xl tw-space-y-6">
