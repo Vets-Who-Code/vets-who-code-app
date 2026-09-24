@@ -59,7 +59,7 @@ const HTMLContent = ({ body, className }: TProps) => {
                     return (
                         <img
                             key={id}
-                            alt={content?.alt || "Image"}
+                            alt={content?.alt || ""}
                             src={content.src}
                             className="tw-w-full tw-rounded-lg"
                         />

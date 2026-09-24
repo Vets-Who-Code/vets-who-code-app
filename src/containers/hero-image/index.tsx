@@ -13,7 +13,7 @@ const HeroImageArea = ({ data: { images } }: TProps) => (
                 <img
                     className="image"
                     src={images[0].src}
-                    alt={images[0]?.alt || "Hero"}
+                    alt={images[0]?.alt || ""}
                     width={837}
                     height={522}
                 />

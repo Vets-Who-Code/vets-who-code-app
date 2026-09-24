@@ -12,7 +12,7 @@ function HeroSection({ thumbnail, title, start_date, start_time }: TProps) {
                     <img
                         className="tw-h-full tw-w-full tw-object-cover"
                         src={thumbnail.src}
-                        alt={thumbnail?.alt || title}
+                        alt=""
                         width="1920"
                     />
                 )}

@@ -36,14 +36,14 @@ const FaqArea = ({ data: { images, items } }: TProps) => {
                     {images?.[0]?.src && (
                         <img
                             src={images[0].src}
-                            alt={images[0]?.alt || "Faq"}
+                            alt={images[0]?.alt || ""}
                             className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                         />
                     )}
                     {images?.[1]?.src && (
                         <img
                             src={images[1].src}
-                            alt={images[1]?.alt || "Faq"}
+                            alt={images[1]?.alt || ""}
                             className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                         />
                     )}
