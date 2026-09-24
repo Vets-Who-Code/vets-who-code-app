@@ -16,6 +16,8 @@ interface ButtonProps {
     onClick?: () => void;
     className?: string;
     path?: string;
+    /** Only for external paths, which Anchor opens in a new tab by default. */
+    target?: "_self" | "_blank";
     label?: string;
     hover?: "default" | "light" | false;
 }
@@ -34,6 +36,7 @@ const Button = ({
     label,
     className,
     path,
+    target,
     onClick,
     hover,
 }: ButtonProps) => {
@@ -172,7 +175,13 @@ const Button = ({
 
     if (path) {
         return (
-            <Anchor path={path} className={classnames} onClick={onClick} aria-label={label}>
+            <Anchor
+                path={path}
+                className={classnames}
+                onClick={onClick}
+                aria-label={label}
+                {...(target ? { target } : {})}
+            >
                 {children}
             </Anchor>
         );
