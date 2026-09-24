@@ -137,7 +137,10 @@ const CareerGuidesContainer = ({
             {isIndex && <CategoryShowcase stats={familyStats} />}
 
             {/* Database */}
-            <section id="database" className="tw-bg-secondary tw-py-16 md:tw-py-20">
+            <section
+                id="database"
+                className="tw-scroll-mt-40 tw-bg-secondary tw-py-16 md:tw-scroll-mt-24 md:tw-py-20"
+            >
                 <div className="tw-container tw-flex tw-flex-col tw-gap-10">
                     {/* Section title */}
                     <div className="tw-flex tw-flex-col tw-gap-4 md:tw-flex-row md:tw-items-end md:tw-justify-between">
@@ -149,7 +152,7 @@ const CareerGuidesContainer = ({
                                 </span>
                             </div>
                             <h2 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em] [line-height:1] [font-size:clamp(32px,4.5vw,56px)]">
-                                Search the index.
+                                Browse the index.
                             </h2>
                         </div>
                         <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
@@ -169,6 +172,7 @@ const CareerGuidesContainer = ({
                         sort={sort}
                         onSort={(s) => update(query, rank, s)}
                         showing={filtered.length}
+                        pageRows={rows.length}
                         total={count}
                     />
 

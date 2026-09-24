@@ -27,6 +27,7 @@ const renderFilters = (overrides: Partial<ComponentProps<typeof Filters>> = {}) 
         sort: "code",
         onSort: vi.fn(),
         showing: 60,
+        pageRows: 60,
         total: 990,
         ...overrides,
     };
@@ -37,14 +38,14 @@ const renderFilters = (overrides: Partial<ComponentProps<typeof Filters>> = {}) 
 const hrefOf = (name: RegExp) => screen.getByRole("link", { name }).getAttribute("href");
 
 describe("career-guides Filters", () => {
-    it("navigates between facets with plain links instead of local state", () => {
+    it("navigates between facets with plain links that land on the results", () => {
         renderFilters();
-        expect(hrefOf(/^All/)).toBe("/career-guides");
-        expect(hrefOf(/^ARMY/)).toBe("/career-guides/branch/army");
-        expect(hrefOf(/^USAF/)).toBe("/career-guides/branch/air-force");
-        expect(hrefOf(/^USMC/)).toBe("/career-guides/branch/marine-corps");
-        expect(hrefOf(/^IT \/ Comms/)).toBe("/career-guides/family/it-comms");
-        expect(hrefOf(/^Other/)).toBe("/career-guides/family/other");
+        expect(hrefOf(/^All/)).toBe("/career-guides#database");
+        expect(hrefOf(/^ARMY/)).toBe("/career-guides/branch/army#database");
+        expect(hrefOf(/^USAF/)).toBe("/career-guides/branch/air-force#database");
+        expect(hrefOf(/^USMC/)).toBe("/career-guides/branch/marine-corps#database");
+        expect(hrefOf(/^IT \/ Comms/)).toBe("/career-guides/family/it-comms#database");
+        expect(hrefOf(/^Other/)).toBe("/career-guides/family/other#database");
         // The family facet is links now, not a <select>: only the sort control remains.
         expect(screen.getAllByRole("combobox")).toHaveLength(1);
     });
@@ -61,9 +62,18 @@ describe("career-guides Filters", () => {
 
     it("carries the current rank, sort and search onto the facet links", () => {
         renderFilters({ search: "?rank=officer&sort=salaryHigh" });
-        expect(hrefOf(/^NAVY/)).toBe("/career-guides/branch/navy?rank=officer&sort=salaryHigh");
+        expect(hrefOf(/^NAVY/)).toBe(
+            "/career-guides/branch/navy?rank=officer&sort=salaryHigh#database"
+        );
         expect(hrefOf(/^Medical/)).toBe(
-            "/career-guides/family/medical?rank=officer&sort=salaryHigh"
+            "/career-guides/family/medical?rank=officer&sort=salaryHigh#database"
+        );
+    });
+
+    it("counts the rank and search results against this page, not the whole facet", () => {
+        renderFilters({ showing: 19, pageRows: 60, total: 4202 });
+        expect(screen.getByText(/^Showing/)).toHaveTextContent(
+            "Showing 19 of 60 on this page · 4,202 total"
         );
     });
 

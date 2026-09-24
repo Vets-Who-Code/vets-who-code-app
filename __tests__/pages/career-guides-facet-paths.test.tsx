@@ -110,11 +110,11 @@ describe("career-guides/[...facet]", () => {
         const hrefs = screen.getAllByRole("link").map((a) => a.getAttribute("href"));
         for (const g of props.rows) expect(hrefs).toContain(`/career-guides/${g.slug}`);
         for (let n = 2; n <= props.totalPages; n += 1) {
-            expect(hrefs).toContain(`/career-guides/branch/army/page/${n}`);
+            expect(hrefs).toContain(`/career-guides/branch/army/page/${n}#database`);
         }
-        expect(hrefs).toContain("/career-guides/branch/navy");
-        expect(hrefs).toContain("/career-guides/family/it-comms");
-        expect(hrefs).not.toContain("/career-guides/branch/army/page/1");
+        expect(hrefs).toContain("/career-guides/branch/navy#database");
+        expect(hrefs).toContain("/career-guides/family/it-comms#database");
+        expect(hrefs).not.toContain("/career-guides/branch/army/page/1#database");
         const pagination = screen.getByRole("navigation", { name: "Pagination" });
         expect(within(pagination).getByText("1")).toHaveAttribute("aria-current", "page");
     });

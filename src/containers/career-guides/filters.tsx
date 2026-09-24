@@ -15,6 +15,8 @@ interface Props {
     sort: SortKey;
     onSort: (v: SortKey) => void;
     showing: number;
+    /** Guides loaded on this page; rank, sort and search work within these */
+    pageRows: number;
     total: number;
 }
 
@@ -52,6 +54,7 @@ const Filters = ({
     sort,
     onSort,
     showing,
+    pageRows,
     total,
 }: Props) => {
     const allCount = BRANCH_ORDER.reduce((sum, b) => sum + branchCounts[b], 0);
@@ -61,7 +64,7 @@ const Filters = ({
             {/* Branch chips */}
             <div className="tw-flex tw-flex-wrap tw-gap-2">
                 <Link
-                    href={`${facetHref({ kind: "all" }, 1)}${search}`}
+                    href={`${facetHref({ kind: "all" }, 1)}${search}#database`}
                     prefetch={false}
                     aria-current={facet.kind === "all" ? "true" : undefined}
                     className={clsx(CHIP, facet.kind === "all" ? CHIP_ACTIVE : CHIP_IDLE)}
@@ -86,7 +89,7 @@ const Filters = ({
                     return (
                         <Link
                             key={b}
-                            href={`${facetHref({ kind: "branch", value: b }, 1)}${search}`}
+                            href={`${facetHref({ kind: "branch", value: b }, 1)}${search}#database`}
                             prefetch={false}
                             aria-current={active ? "true" : undefined}
                             className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
@@ -120,7 +123,7 @@ const Filters = ({
                     return (
                         <Link
                             key={f}
-                            href={`${facetHref({ kind: "family", value: f }, 1)}${search}`}
+                            href={`${facetHref({ kind: "family", value: f }, 1)}${search}#database`}
                             prefetch={false}
                             aria-current={active ? "true" : undefined}
                             className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
@@ -190,9 +193,13 @@ const Filters = ({
                     </span>{" "}
                     of{" "}
                     <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                        {pageRows.toLocaleString()}
+                    </span>{" "}
+                    on this page ·{" "}
+                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
                         {total.toLocaleString()}
                     </span>{" "}
-                    Guides
+                    total
                 </span>
             </div>
         </div>

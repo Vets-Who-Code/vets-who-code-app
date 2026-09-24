@@ -19,7 +19,7 @@ const LINK = "tw-border-cream/[0.18] tw-text-[#DEE2E6] hover:tw-border-accent ho
 // pages are prerendered at /page/N paths.
 const Pagination = ({ facet, page, totalPages, search }: Props) => {
     if (totalPages < 2) return null;
-    const href = (n: number) => `${facetHref(facet, n)}${search}`;
+    const href = (n: number) => `${facetHref(facet, n)}${search}#database`;
 
     return (
         <nav aria-label="Pagination" className="tw-flex tw-flex-wrap tw-justify-center tw-gap-2">

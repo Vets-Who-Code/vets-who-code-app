@@ -54,7 +54,7 @@ const CategoryShowcase = ({ stats }: Props) => {
                         return (
                             <Link
                                 key={family}
-                                href={facetHref({ kind: "family", value: family }, 1)}
+                                href={`${facetHref({ kind: "family", value: family }, 1)}#database`}
                                 prefetch={false}
                                 className={clsx(
                                     "tw-group tw-flex tw-flex-col tw-gap-5 tw-px-6 tw-py-8 tw-text-left tw-transition-colors tw-duration-150",

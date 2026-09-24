@@ -94,10 +94,11 @@ const GridView = ({ rows }: Props) => {
         return (
             <div className="tw-flex tw-flex-col tw-items-center tw-gap-2 tw-py-24 tw-text-center">
                 <span className="tw-font-heading tw-text-[28px] tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em]">
-                    No matches.
+                    No matches on this page.
                 </span>
                 <span className="tw-font-body tw-text-[15px] tw-text-[#DEE2E6]">
-                    Try a different code, branch, or career family.
+                    Search and rank only look at the guides on this page. Pick a branch or career
+                    family above to see a different set.
                 </span>
             </div>
         );
