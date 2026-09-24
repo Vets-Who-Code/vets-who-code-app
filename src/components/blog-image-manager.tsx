@@ -4,14 +4,18 @@
  * Provides the proper markdown format for blog frontmatter
  */
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import CloudinaryMediaLibrary from "@/components/cloudinary-media-library";
 import MyImage from "@/components/ui/image";
+import { useKeyboardFocus } from "@/hooks";
 import { CloudinaryImage } from "@/hooks/use-cloudinary-images";
 
 const BlogImageManager: React.FC = () => {
     const [selectedImage, setSelectedImage] = useState<CloudinaryImage | null>(null);
     const [showLibrary, setShowLibrary] = useState(false);
+    const closeLibrary = useCallback(() => setShowLibrary(false), []);
+    // Escape, Tab trapping, initial focus and focus return for the library dialog.
+    const libraryRef = useKeyboardFocus<HTMLDivElement>(showLibrary, closeLibrary);
     const [customTransformations, setCustomTransformations] = useState({
         width: 1200,
         quality: "auto",
@@ -470,7 +474,9 @@ const BlogImageManager: React.FC = () => {
             {/* Media Library Modal */}
             {showLibrary && (
                 // biome-ignore lint/a11y/noNoninteractiveElementInteractions: needs refactor
+                // biome-ignore lint/a11y/useKeyWithClickEvents: Escape is handled by useKeyboardFocus
                 <div
+                    ref={libraryRef}
                     role="dialog"
                     aria-modal="true"
                     tabIndex={-1}
@@ -486,12 +492,7 @@ const BlogImageManager: React.FC = () => {
                         justifyContent: "center",
                         zIndex: 1000,
                     }}
-                    onKeyDown={(e) => {
-                        if (e.key === "Escape") {
-                            setShowLibrary(false);
-                        }
-                    }}
-                    onClick={() => setShowLibrary(false)}
+                    onClick={closeLibrary}
                 >
                     {/** biome-ignore lint/a11y/noNoninteractiveElementInteractions: needs refactor */}
                     {/** biome-ignore lint/a11y/useKeyWithClickEvents: needs refactor */}
