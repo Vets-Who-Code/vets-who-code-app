@@ -45,7 +45,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                     className="tw-text-5xl tw-font-extrabold tw-leading-none tw-text-primary md:tw-text-[64px]"
                     onViewportEnter={viewPortHandler}
                 >
-                    <span ref={nodeRef} />
+                    <span ref={nodeRef}>{counter}</span>
                     {suffix}
                 </motion.div>
                 {description && (

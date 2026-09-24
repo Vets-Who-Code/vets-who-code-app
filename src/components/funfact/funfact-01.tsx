@@ -28,13 +28,17 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
             const el = localRef.current;
             if (!el) return;
 
+            // The final number is already in the server HTML (#1330). A tile that
+            // is on screen when the observer first reports keeps it; only a tile
+            // scrolled into view later counts up, so nothing flashes 97 → 0 → 97.
+            let firstReport = true;
             const observer = new IntersectionObserver(
                 (entries) => {
-                    entries.forEach((entry) => {
-                        if (!entry.isIntersecting) return;
-                        setHasRun(true);
+                    if (entries.some((entry) => entry.isIntersecting)) {
+                        if (!firstReport) setHasRun(true);
                         observer.disconnect();
-                    });
+                    }
+                    firstReport = false;
                 },
                 { threshold: 0, rootMargin: "0px 0px -10% 0px" }
             );
@@ -117,7 +121,7 @@ const FunFact = forwardRef<HTMLDivElement, TProps>(
                     }}
                 >
                     {prefix}
-                    <span ref={nodeRef}>0</span>
+                    <span ref={nodeRef}>{counter.toLocaleString()}</span>
                     {suffix}
                 </motion.div>
                 <h3
