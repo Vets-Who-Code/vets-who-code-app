@@ -1,6 +1,7 @@
 import SEO from "@components/seo/page-seo";
 import { MonoMeta, SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
 import { outcomes } from "@data/outcomes";
+import { decisionGuideLinks } from "@data/sitemap-links";
 import { HERO_META } from "@data/software-factory";
 import Layout from "@layout/layout-01";
 import Anchor from "@ui/anchor";
@@ -483,6 +484,26 @@ const ProgramsPage: PageWithLayout = ({ data }) => {
                             </div>
                         ))}
                     </div>
+                    <nav
+                        aria-label="Guides for veterans"
+                        className="tw-mt-14 tw-border-t tw-border-gray-100 tw-pt-8"
+                    >
+                        <MonoMeta as="p" className="tw-mb-4">
+                            Still deciding? Read the guides.
+                        </MonoMeta>
+                        <ul className="tw-flex tw-flex-wrap tw-gap-x-8 tw-gap-y-3">
+                            {decisionGuideLinks.map((link) => (
+                                <li key={link.path}>
+                                    <Anchor
+                                        path={link.path}
+                                        className="tw-font-heading tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.08em] tw-text-red hover:tw-underline"
+                                    >
+                                        {link.label} →
+                                    </Anchor>
+                                </li>
+                            ))}
+                        </ul>
+                    </nav>
                 </div>
             </section>
 

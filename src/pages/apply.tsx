@@ -6,8 +6,10 @@ import CtaArea from "@containers/cta/layout-01";
 import FunfactArea from "@containers/funfact/layout-02";
 import HeroImageArea from "@containers/hero-image";
 import PreworkButton from "@containers/prework-button";
+import { decisionGuideLinks } from "@data/sitemap-links";
 import Layout from "@layout/layout-01";
 import AlumniStrip from "@ui/alumni-strip";
+import Anchor from "@ui/anchor";
 import PullQuote from "@ui/pull-quote";
 import Wrapper from "@ui/wrapper/wrapper-04";
 import { normalizedData } from "@utils/methods";
@@ -59,6 +61,25 @@ const ApplyPage: PageProps = ({ data }) => {
                     </div>
                 </div>
             </div>
+
+            {/* Decision guides for applicants still comparing programs */}
+            <nav aria-label="Decision guides" className="tw-container tw-mt-20 md:tw-mt-[120px]">
+                <p className="tw-mb-4 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.12em] tw-text-[#495057]">
+                    Still deciding? Read the guides.
+                </p>
+                <ul className="tw-flex tw-flex-wrap tw-gap-x-8 tw-gap-y-3">
+                    {decisionGuideLinks.map((link) => (
+                        <li key={link.path}>
+                            <Anchor
+                                path={link.path}
+                                className="tw-font-heading tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.08em] tw-text-red hover:tw-underline"
+                            >
+                                {link.label} →
+                            </Anchor>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
 
             <Wrapper>
                 <HeroImageArea data={content["hero-image-area"]} />
