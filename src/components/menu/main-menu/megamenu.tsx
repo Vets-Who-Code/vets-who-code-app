@@ -66,7 +66,10 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
                     {banner && (
                         <Anchor path={banner.path}>
                             {banner.image?.src && (
-                                <img src={banner.image.src} alt={banner.image?.alt || "Banner"} />
+                                <img
+                                    src={banner.image.src}
+                                    alt={banner.image?.alt || title || ""}
+                                />
                             )}
                         </Anchor>
                     )}

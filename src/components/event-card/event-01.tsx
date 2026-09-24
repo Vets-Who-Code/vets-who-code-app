@@ -25,7 +25,7 @@ const Event01 = forwardRef<HTMLDivElement, TProps>(
                             <img
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={thumbnail.src}
-                                alt={thumbnail?.alt || "Event"}
+                                alt={thumbnail?.alt || title}
                                 width={thumbnail.width || 371}
                                 height={thumbnail.height || 230}
                                 loading={thumbnail.loading || "lazy"}

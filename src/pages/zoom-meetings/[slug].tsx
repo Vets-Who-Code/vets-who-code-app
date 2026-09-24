@@ -51,6 +51,7 @@ const ZoomMeetingDetails: PageProps = ({ data: { zoomMeeting } }) => {
                 currentPage={zoomMeeting.title}
             />
             <ZoomMeetingDetailsArea
+                title={zoomMeeting.title}
                 host={zoomMeeting.host}
                 start_date={zoomMeeting.start_date}
                 date={zoomMeeting.date}

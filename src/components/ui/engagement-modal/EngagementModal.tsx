@@ -180,7 +180,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                                 >
                                     <img
                                         src="https://res.cloudinary.com/vetswhocode/image/upload/v1627489569/flag_ohssvk.gif"
-                                        alt="Animated Flag Logo"
+                                        alt="Vets Who Code"
                                         className="tw-h-full tw-w-auto"
                                     />
                                 </Link>

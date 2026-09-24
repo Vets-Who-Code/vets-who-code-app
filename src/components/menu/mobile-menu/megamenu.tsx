@@ -53,7 +53,10 @@ const Megamenu = ({ menu, isExpand, className }: TProps) => {
                     {banner && (
                         <Anchor path={banner.path} tabIndex={isExpand ? 0 : -1}>
                             {banner.image?.src && (
-                                <img src={banner.image.src} alt={banner.image?.alt || "Banner"} />
+                                <img
+                                    src={banner.image.src}
+                                    alt={banner.image?.alt || title || ""}
+                                />
                             )}
                         </Anchor>
                     )}
