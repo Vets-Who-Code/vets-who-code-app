@@ -130,6 +130,21 @@ const nextConfig = {
                 destination: "/career-guides",
                 permanent: true,
             },
+            {
+                source: "/blogs/blog-classic/:path*",
+                destination: "/blogs/blog",
+                permanent: true,
+            },
+            {
+                source: "/blogs/blog-grid-sidebar/:path*",
+                destination: "/blogs/blog",
+                permanent: true,
+            },
+            {
+                source: "/blogs/blog-list/:path*",
+                destination: "/blogs/blog",
+                permanent: true,
+            },
         ];
     },
 
