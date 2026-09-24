@@ -347,6 +347,24 @@
                             "alt": "Vercel"
                         }
                     ]
+                },
+                {
+                    "id": 12,
+                    "images": [
+                        {
+                            "src": "/images/partners/monday-dev-logo.svg",
+                            "alt": "monday dev"
+                        }
+                    ]
+                },
+                {
+                    "id": 13,
+                    "images": [
+                        {
+                            "src": "/images/partners/newrelic-logo.svg",
+                            "alt": "New Relic"
+                        }
+                    ]
                 }
             ]
         },
