@@ -1,4 +1,12 @@
+import { buildGuideMeta } from "@containers/career-guide-detail/derive";
+import type { CareerGuideDetail } from "@containers/career-guide-detail/types";
 import { getCareerGuideData, getCareerGuideDetail, loadCareerGuides } from "@/lib/career-guides";
+
+const detailFor = (slug: string): CareerGuideDetail => {
+    const detail = getCareerGuideDetail(slug);
+    if (!detail) throw new Error(`no guide for ${slug}`);
+    return detail;
+};
 
 describe("career-guides", () => {
     describe("loadCareerGuides", () => {
@@ -58,6 +66,58 @@ describe("career-guides", () => {
 
         it("returns null for an unknown slug", () => {
             expect(getCareerGuideDetail("does-not-exist")).toBeNull();
+        });
+    });
+
+    // Walks the LIVE training-pipeline.json, so a regenerated data file is what gets
+    // checked; a fixture list would pass vacuously after regeneration.
+    describe("buildGuideMeta", () => {
+        const keys = Object.keys(getCareerGuideData().training);
+        const metas = keys.map((key) => {
+            const detail = detailFor(key);
+            return { key, detail, ...buildGuideMeta(detail) };
+        });
+        // The code is unique by construction, so uniqueness of the raw strings proves
+        // nothing; the distinctiveness checks compare text with the code removed.
+        const withoutCode = (text: string, code: string) => text.split(code).join("");
+
+        it("emits a distinct title and description for every guide", () => {
+            expect(keys.length).toBeGreaterThan(4000);
+            expect(new Set(metas.map((m) => m.title)).size).toBe(metas.length);
+            expect(new Set(metas.map((m) => m.description)).size).toBe(metas.length);
+        });
+
+        it("leads with the code and job title, then names the branch", () => {
+            for (const { detail, title } of metas) {
+                expect(title.startsWith(`${detail.code} ${detail.training.title}`)).toBe(true);
+                expect(withoutCode(title, detail.code)).toContain(detail.branch);
+            }
+        });
+
+        it("differentiates the most-shared titles beyond the code", () => {
+            const byTitle = new Map<string, typeof metas>();
+            for (const m of metas) {
+                const siblings = byTitle.get(m.detail.training.title) ?? [];
+                siblings.push(m);
+                byTitle.set(m.detail.training.title, siblings);
+            }
+            const clusters = [...byTitle.values()].filter((s) => s.length >= 30);
+            // If this fails the loop below is vacuous and proves nothing.
+            expect(clusters.length).toBeGreaterThan(0);
+            for (const siblings of clusters) {
+                const stripped = siblings.map((m) => withoutCode(m.description, m.detail.code));
+                expect(new Set(stripped).size).toBeGreaterThan(1);
+            }
+        });
+
+        it("tells Client Systems Technician siblings apart by pipeline and outcome", () => {
+            const a = buildGuideMeta(detailFor("2E7X1"));
+            const b = buildGuideMeta(detailFor("2E7X2"));
+            expect(withoutCode(a.description, "2E7X1")).not.toBe(
+                withoutCode(b.description, "2E7X2")
+            );
+            expect(a.description).toContain("16 weeks");
+            expect(b.description).toContain("14 weeks");
         });
     });
 });

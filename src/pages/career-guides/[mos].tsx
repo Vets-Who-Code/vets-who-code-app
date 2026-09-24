@@ -1,5 +1,6 @@
 import SEO from "@components/seo/page-seo";
 import CareerGuideDetailContainer from "@containers/career-guide-detail";
+import { buildGuideMeta } from "@containers/career-guide-detail/derive";
 import type { CareerGuideDetail } from "@containers/career-guide-detail/types";
 import Layout01 from "@layout/layout-01";
 import { getCareerGuideDetail } from "@lib/career-guides";
@@ -32,8 +33,7 @@ type PageWithLayout = NextPage<MosPageProps> & {
 };
 
 const MosPage: PageWithLayout = ({ detail }) => {
-    const pageTitle = `${detail.code} ${detail.training.title} — Military-to-Civilian Career Guide`;
-    const pageDescription = `Free career guide for ${detail.training.branch} ${detail.code} (${detail.training.title}). Civilian career pathways, salary data, certification pathways, and training equivalencies. Built by veterans, for veterans.`;
+    const { title: pageTitle, description: pageDescription } = buildGuideMeta(detail);
 
     return (
         <>

@@ -142,3 +142,21 @@ export const buildDetail = (input: {
         stats: buildStats(input.training, input.certs, input.pathways, input.techPathway),
     };
 };
+
+// 2,905 of the 4,202 guides share their training title with another guide (64 are
+// "Client Systems Technician"), so the page title carries the branch and the
+// description carries the fields that actually differ between siblings: pipeline
+// length, school, and top civilian match.
+export const buildGuideMeta = (
+    detail: CareerGuideDetail
+): { title: string; description: string } => {
+    const { code, branch, training, summary } = detail;
+    const school = training.program.split(",")[0].trim();
+    const duration =
+        training.weeks !== undefined ? `${training.weeks} weeks` : `${training.hours} hours`;
+    const match = summary.topMatch === "—" ? "" : ` → ${summary.topMatch}`;
+    return {
+        title: `${code} ${training.title} — ${branch} Career Guide`,
+        description: `${branch} ${code} (${training.title}) career guide: ${duration} at ${school}${match}, ${summary.salaryBand}.`,
+    };
+};
