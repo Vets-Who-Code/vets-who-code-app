@@ -59,7 +59,7 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
 
                         <div className="tw-mt-2 tw-flex tw-items-center tw-justify-between tw-text-xs">
                             <a
-                                href="mailto:info@vetswhocode.io"
+                                href="mailto:hello@vetswhocode.io"
                                 className="tw-text-white hover:tw-underline"
                             >
                                 Contact us
@@ -160,10 +160,10 @@ const DonateForm = forwardRef<HTMLDivElement, TProps>(({ className }, ref) => {
                             mission, please contact us:
                         </p>
                         <a
-                            href="mailto:info@vetswhocode.io"
+                            href="mailto:hello@vetswhocode.io"
                             className="tw-font-medium tw-text-primary tw-underline"
                         >
-                            jerome@vetswhocode.io
+                            hello@vetswhocode.io
                         </a>
                     </div>
                 </div>
