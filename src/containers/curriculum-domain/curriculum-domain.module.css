@@ -1,0 +1,327 @@
+/* Curriculum · one domain of the Hashflag Method — same spec-sheet language as /curriculum.
+   Radius is 0 everywhere by design. Rules that the graph page also uses are copied, not
+   imported: a container's module is its own. */
+
+.monoMeta {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #495057;
+    margin: 0;
+}
+
+/* ========== HERO ========== */
+.hero {
+    background:
+        linear-gradient(135deg, rgba(9, 31, 64, 0.92) 0%, rgba(6, 26, 64, 0.88) 100%), #091f40;
+    padding: 56px 0 44px;
+}
+
+.backLink {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(185, 214, 242, 0.75);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(185, 214, 242, 0.35);
+    padding-bottom: 2px;
+    margin-bottom: 40px;
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.backLink:hover {
+    color: #fff;
+    border-color: #c5203e;
+}
+
+.heroTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(32px, 3.5vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 20px 0 0;
+    text-wrap: pretty;
+}
+
+.heroLede {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(248, 249, 250, 0.82);
+    max-width: 38em;
+    margin: 22px 0 0;
+}
+
+.heroMeta {
+    padding-top: 28px;
+    margin: 28px 0 0;
+    border-top: 1px solid rgba(185, 214, 242, 0.12);
+    font-family: var(--font-mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(185, 214, 242, 0.6);
+}
+
+/* ========== SECTIONS ========== */
+.sectionWhite {
+    background: #fff;
+    padding: 104px 0;
+}
+
+.sectionCream {
+    background: #eeede9;
+    padding: 104px 0;
+}
+
+.note {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #495057;
+    margin: 32px 0 0;
+    padding: 22px 24px;
+    border-left: 2px solid #c5203e;
+    background: #f8f9fa;
+}
+
+/* ========== CROSS-DOMAIN GROUPS ========== */
+.groupGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 48px;
+}
+
+.group {
+    border: 1px solid #dee2e6;
+    border-top: 2px solid #091f40;
+    padding: 26px 26px 30px;
+}
+
+.groupTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 800;
+    font-size: 19px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 0 0 8px;
+}
+
+.groupTitle a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: #dee2e6;
+    text-underline-offset: 4px;
+}
+
+.groupTitle a:hover {
+    text-decoration-color: #c5203e;
+}
+
+.prereqList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.prereqRow {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+    align-items: start;
+}
+
+.kindChip {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 6px;
+    white-space: nowrap;
+    border: 1px solid currentcolor;
+}
+
+.kindRequired {
+    color: #c5203e;
+}
+
+.kindHelpful {
+    color: #003559;
+}
+
+.prereqName {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #091f40;
+    margin: 0;
+}
+
+.topicLink {
+    color: #091f40;
+    text-decoration: underline;
+    text-decoration-color: #dee2e6;
+    text-underline-offset: 3px;
+}
+
+.topicLink:hover {
+    text-decoration-color: #c5203e;
+}
+
+.prereqReason {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #495057;
+    margin: 6px 0 0;
+}
+
+/* ========== TOPICS ========== */
+.topicList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 48px;
+}
+
+.topic {
+    border: 1px solid #091f40;
+    background: #fff;
+    scroll-margin-top: 96px;
+}
+
+.topicHead {
+    padding: 24px 26px 22px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.topicTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(20px, 2.2vw, 26px);
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 10px 0 0;
+}
+
+.topicBody {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #495057;
+    margin: 12px 0 0;
+    max-width: 62ch;
+}
+
+.recordTable {
+    margin: 0;
+}
+
+.recordRow {
+    display: grid;
+    grid-template-columns: minmax(120px, auto) 1fr;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.recordRow:last-child {
+    border-bottom: 0;
+}
+
+.recordTerm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #495057;
+    background: #f8f9fa;
+    padding: 14px 16px;
+}
+
+.recordValue {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 14px 18px;
+    margin: 0;
+    color: #1a1823;
+}
+
+.recordValue .prereqList {
+    margin-top: 0;
+}
+
+.recordAside {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: #6c757d;
+}
+
+@media (max-width: 640px) {
+    .recordRow {
+        grid-template-columns: 1fr;
+    }
+
+    .recordTerm {
+        padding-bottom: 6px;
+    }
+
+    .recordValue {
+        padding-top: 0;
+    }
+}
+
+/* ========== CTA ========== */
+.ctaSection {
+    background: #eeede9;
+    padding: 70px 0;
+    border-top: 1px solid #dee2e6;
+}
+
+.ctaInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.ctaTitle {
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 34px);
+    text-transform: uppercase;
+    color: #091f40;
+    margin: 0 0 10px;
+}
+
+.ctaBody {
+    font-size: 15.5px;
+    line-height: 1.75;
+    color: #495057;
+    max-width: 58ch;
+    margin: 0 0 14px;
+}
+
+.ctaActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* Focus ring — gold, per the design system. */
+.hero :focus-visible,
+.sectionWhite :focus-visible,
+.sectionCream :focus-visible,
+.ctaSection :focus-visible {
+    outline: 3px solid #fdb330;
+    outline-offset: 2px;
+}

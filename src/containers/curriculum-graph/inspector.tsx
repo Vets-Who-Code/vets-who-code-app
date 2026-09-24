@@ -1,4 +1,6 @@
+import { DOMAIN_TITLES } from "@data/curriculum-domains";
 import { ancestors, type Graph, type Subject } from "@lib/curriculum-graph";
+import Link from "next/link";
 import styles from "./curriculum-graph.module.css";
 
 type InspectorProps = {
@@ -65,9 +67,14 @@ const Inspector = ({ graph, subjects, selected, onSelect }: InspectorProps) => {
     const unlocks = (graph.succs[selected] || []).map((e) => graph.byId[e.topicId]);
     const upstream = ancestors(graph, selected).size - 1;
 
-    const fields: [string, string][] = [
+    const fields: [string, React.ReactNode][] = [
         ["Subject", subjectTitle],
-        ["Domain", node.domain],
+        [
+            "Domain",
+            <Link href={`/curriculum/${node.domain}`} className={styles.prereqName}>
+                {DOMAIN_TITLES[node.domain]}
+            </Link>,
+        ],
         ["Type", node.type],
         ["Exit depth", node.exitDepth],
         ["Market anchor", node.marketAnchor.join(" · ")],
