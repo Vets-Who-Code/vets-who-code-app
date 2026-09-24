@@ -1,4 +1,4 @@
-import { loadCareerGuides } from "@/lib/career-guides";
+import { getCareerGuideData, getCareerGuideDetail, loadCareerGuides } from "@/lib/career-guides";
 
 describe("career-guides", () => {
     describe("loadCareerGuides", () => {
@@ -32,6 +32,32 @@ describe("career-guides", () => {
         it("gives every guide a unique slug", () => {
             const slugs = guides.map((g) => g.slug);
             expect(new Set(slugs).size).toBe(slugs.length);
+        });
+    });
+
+    describe("getCareerGuideData", () => {
+        it("parses the data files once and hands back the same bundle", () => {
+            expect(getCareerGuideData()).toBe(getCareerGuideData());
+        });
+    });
+
+    describe("getCareerGuideDetail", () => {
+        it("resolves a branch-prefixed slug to its own branch, showing the bare code", () => {
+            const marine = getCareerGuideDetail("marine_corps:6333");
+            expect(marine?.code).toBe("6333");
+            expect(marine?.branch).toBe("Marine Corps");
+            expect(marine?.training.title).toBe("Aviation Electronics Technician");
+
+            expect(getCareerGuideDetail("6333")?.branch).toBe("Navy");
+        });
+
+        it("matches slugs case-insensitively", () => {
+            expect(getCareerGuideDetail("1B1S4")?.code).toBe("1B1S4");
+            expect(getCareerGuideDetail("1b1s4")?.code).toBe("1B1S4");
+        });
+
+        it("returns null for an unknown slug", () => {
+            expect(getCareerGuideDetail("does-not-exist")).toBeNull();
         });
     });
 });
