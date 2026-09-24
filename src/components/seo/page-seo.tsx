@@ -1,10 +1,10 @@
 import siteConfig from "@data/site-config";
 import { useRouter } from "next/router";
-import { ArticleJsonLd, CourseJsonLd, NextSeo, NextSeoProps } from "next-seo";
+import { ArticleJsonLd, NextSeo, NextSeoProps } from "next-seo";
 
 interface SeoProps extends NextSeoProps {
     template?: string;
-    jsonLdType?: "article" | "course";
+    jsonLdType?: "article";
     article?: {
         publishedTime: string;
         modifiedTime: string;
@@ -13,10 +13,6 @@ interface SeoProps extends NextSeoProps {
         tags: string[];
     };
     image?: string;
-    instructor?: {
-        name: string;
-        path: string;
-    };
 }
 
 /** Absolute canonical for a router path, with query and hash stripped. Shared
@@ -34,7 +30,6 @@ const PageSeo = ({
     jsonLdType,
     article,
     image,
-    instructor,
 }: SeoProps) => {
     // Built from the router, not window.location in an effect — scrapers don't
     // run JS, so the effect version left og:url empty and every share fell back
@@ -115,16 +110,6 @@ const PageSeo = ({
                             : { name: siteConfig.name, type: "Organization", url: siteConfig.url }
                     }
                     description={description as string}
-                />
-            )}
-            {jsonLdType === "course" && instructor && (
-                <CourseJsonLd
-                    courseName={title as string}
-                    description="Introductory CS course laying out the basics."
-                    provider={{
-                        name: instructor.name,
-                        url: href,
-                    }}
                 />
             )}
         </>
