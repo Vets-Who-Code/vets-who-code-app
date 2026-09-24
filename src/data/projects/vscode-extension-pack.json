@@ -2,6 +2,8 @@
   "index": 7,
   "name": "VS Code Extension Pack",
   "headline": "Curated VS Code Extensions for Veterans Learning JavaScript",
+  "summary": "A Visual Studio Code extension pack that installs the editor tooling used at Vets Who Code (ESLint, Prettier, GitLens, Live Server and more) in one step.",
+  "serves": "Troops setting up VS Code for the first time, and any engineer who wants the same editor setup.",
   "long_description": [
     "The Vets Who Code Extension Pack is a thoughtfully curated collection of Visual Studio Code extensions tailored to enhance the learning experience of veterans embarking on their JavaScript development journey. Recognizing the challenges that new developers face in setting up an efficient development environment, this extension pack simplifies the process by providing essential tools in a single, easy-to-install package.",
     "Key features of the extension pack include:",
@@ -16,6 +18,23 @@
     "Live Server",
     "GitHub Copilot"
   ],
+  "builtBy": [
+    {
+      "login": "jeromehardaway",
+      "profile": "/team/jerome-hardaway"
+    },
+    {
+      "login": "usmcamgrimm"
+    },
+    {
+      "login": "J3ffJessie"
+    },
+    {
+      "login": "axecopfire"
+    }
+  ],
+  "shippedAt": "2020-12-24",
+  "status": "live",
   "owner": "Vets-Who-Code",
   "repo": "vetswhocode-extension-pack",
   "live_url": "https://marketplace.visualstudio.com/items?itemName=VetsWhoCode.vetswhocode-extension-pack",

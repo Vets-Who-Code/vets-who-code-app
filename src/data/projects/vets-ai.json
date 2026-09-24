@@ -2,6 +2,8 @@
   "index": 2,
   "name": "VetsAI",
   "headline": "AI-Powered Employment Assistance for Veterans",
+  "summary": "A Python and Streamlit chat assistant that translates military job codes to civilian roles and reads uploaded PDF or DOCX resumes to give career guidance.",
+  "serves": "Veterans navigating the transition to civilian employment.",
   "long_description": [
     "VetsAI is an AI-powered virtual assistant designed to help veterans navigate employment transitions and find opportunities in civilian careers. The application allows users to interact via chat, upload resumes in PDF or DOCX format, and receive tailored assistance, such as translating military job codes to civilian job suggestions.",
     "Key features include:",
@@ -16,6 +18,20 @@
     "Pandas",
     "NumPy"
   ],
+  "builtBy": [
+    {
+      "login": "jeromehardaway",
+      "profile": "/team/jerome-hardaway"
+    },
+    {
+      "login": "jonulak"
+    },
+    {
+      "login": "Sfayson1"
+    }
+  ],
+  "shippedAt": "2024-10-02",
+  "status": "maintained",
   "owner": "Vets-Who-Code",
   "repo": "VetsAI",
   "live_url": null,

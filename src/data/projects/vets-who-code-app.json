@@ -2,6 +2,8 @@
   "index": 1,
   "name": "Vets Who Code App",
   "headline": "Empowering Veterans Through a Communal Coding Platform",
+  "summary": "The Next.js app that runs vetswhocode.io: public site, blog, application flow, military-to-tech career guides, and the GitHub-authenticated troop platform.",
+  "serves": "Veterans and military spouses applying to or enrolled in Vets Who Code, and the public reading the site.",
   "long_description": [
     "The Vets Who Code App is a communal platform built to empower military veterans and their spouses by enhancing their coding skills. This production-grade application evolves continuously to meet the unique needs of the veteran community, providing real-world coding experience.",
     "Key features of the application include:",
@@ -18,6 +20,26 @@
     "Docker",
     "GitHub Actions"
   ],
+  "builtBy": [
+    {
+      "login": "jeromehardaway",
+      "profile": "/team/jerome-hardaway"
+    },
+    {
+      "login": "andrew-t-james"
+    },
+    {
+      "login": "gixxerblade"
+    },
+    {
+      "login": "ozzievargas"
+    },
+    {
+      "login": "usmcamgrimm"
+    }
+  ],
+  "shippedAt": "2017-02-05",
+  "status": "live",
   "owner": "Vets-Who-Code",
   "repo": "vets-who-code-app",
   "live_url": "https://vetswhocode.io/",
