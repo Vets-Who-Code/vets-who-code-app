@@ -35,7 +35,7 @@ const BlogAuthorPage: PageProps = ({
             <Breadcrumb
                 pages={[
                     { path: "/", label: "home" },
-                    { path: "/blogs/blog-grid-sidebar", label: "blog" },
+                    { path: "/blogs/blog", label: "blog" },
                 ]}
                 currentPage={pageTitle}
                 title={`Author: ${pageTitle}`}
