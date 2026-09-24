@@ -53,8 +53,8 @@ const MosPage: PageWithLayout = ({ detail }) => {
 
 MosPage.Layout = Layout01;
 
-// The prerendered set is the Search Console-fed list in career-guides-prerender.json
-// (see its refresh steps); every other guide still renders through fallback: "blocking".
+// The prerendered set is the list in career-guides-prerender.json (Search Console-fed once its
+// refresh steps are run); every other guide still renders through fallback: "blocking".
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = prerender.guides.map((g) => ({ params: { mos: g.slug } }));
     return { paths, fallback: "blocking" };
