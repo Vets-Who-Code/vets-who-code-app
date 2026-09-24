@@ -9,6 +9,7 @@ import {
     facetHref,
     facetRows,
     facetSeo,
+    loadFacetGuides,
     PAGE_SIZE,
     paginate,
     parseFacetSegments,
@@ -154,5 +155,32 @@ describe("career-guide-facets", () => {
         expect(facetSeo({ kind: "all" }, 3, 4202, 71).title).toBe(
             "Military Job Codes to Civilian Tech Careers — Page 3 of 71"
         );
+    });
+
+    it("reads every page of a facet from Next's page data, and retries after a failed load", async () => {
+        Object.assign(window, { __NEXT_DATA__: { buildId: "b1" } });
+        let missing = true;
+        const fetchMock = vi.fn(async (url: string) => {
+            const n = url.endsWith("/page/2.json") ? 2 : 1;
+            if (missing && n === 2) return { ok: false, status: 404, url };
+            return {
+                ok: true,
+                url,
+                json: async () => ({ pageProps: { rows: [guide({ slug: `g${n}` })] } }),
+            };
+        });
+        vi.stubGlobal("fetch", fetchMock);
+
+        await expect(loadFacetGuides({ kind: "all" }, PAGE_SIZE + 1)).rejects.toThrow("404");
+        missing = false;
+        const all = await loadFacetGuides({ kind: "all" }, PAGE_SIZE + 1);
+        expect(all.map((g) => g.slug)).toEqual(["g1", "g2"]);
+        expect(fetchMock).toHaveBeenLastCalledWith("/_next/data/b1/career-guides/page/2.json");
+        expect(fetchMock).toHaveBeenCalledWith("/_next/data/b1/career-guides.json");
+
+        // Loaded once per visit.
+        await loadFacetGuides({ kind: "all" }, PAGE_SIZE + 1);
+        expect(fetchMock).toHaveBeenCalledTimes(4);
+        vi.unstubAllGlobals();
     });
 });

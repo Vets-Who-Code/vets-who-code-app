@@ -1,22 +1,26 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { FAMILIES, type Facet, type FamilyStat, facetHref } from "@/lib/career-guide-facets";
+import { FAMILIES, type FamilyStat } from "@/lib/career-guide-facets";
 import { BRANCH_META, BRANCH_ORDER } from "./branch-meta";
 import type { Branch, Family, Rank, SortKey } from "./types";
 
 interface Props {
-    facet: Facet;
-    /** Current ?q/?rank/?sort, carried onto the facet links so switching keeps the view */
-    search: string;
+    branch?: Branch;
+    family?: Family;
+    /** Listing URL for a branch and/or family, keeping the current rank, sort and search */
+    hrefFor: (branch?: Branch, family?: Family) => string;
     branchCounts: Record<Branch, number>;
     familyStats: Record<Family, FamilyStat>;
     rank: "all" | Rank;
     onRank: (v: "all" | Rank) => void;
     sort: SortKey;
     onSort: (v: SortKey) => void;
+    /** The rest of the facet is still loading for rank, sort or a branch + family pair */
+    loading?: boolean;
     showing: number;
-    /** Guides loaded on this page; rank, sort and search work within these */
+    /** Guides on this page; search works within these */
     pageRows: number;
+    /** Guides matching the branch, family and rank, across all pages */
     total: number;
 }
 
@@ -45,14 +49,16 @@ const CHIP_IDLE =
     "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream";
 
 const Filters = ({
-    facet,
-    search,
+    branch,
+    family,
+    hrefFor,
     branchCounts,
     familyStats,
     rank,
     onRank,
     sort,
     onSort,
+    loading,
     showing,
     pageRows,
     total,
@@ -64,10 +70,10 @@ const Filters = ({
             {/* Branch chips */}
             <div className="tw-flex tw-flex-wrap tw-gap-2">
                 <Link
-                    href={`${facetHref({ kind: "all" }, 1)}${search}#database`}
+                    href={hrefFor(undefined, family)}
                     prefetch={false}
-                    aria-current={facet.kind === "all" ? "true" : undefined}
-                    className={clsx(CHIP, facet.kind === "all" ? CHIP_ACTIVE : CHIP_IDLE)}
+                    aria-current={branch ? undefined : "true"}
+                    className={clsx(CHIP, branch ? CHIP_IDLE : CHIP_ACTIVE)}
                 >
                     <span
                         aria-hidden={true}
@@ -75,21 +81,23 @@ const Filters = ({
                         style={{ backgroundImage: RAINBOW }}
                     />
                     All
-                    <span
-                        className={clsx(
-                            "tw-tabular-nums",
-                            facet.kind === "all" ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
-                        )}
-                    >
-                        {allCount.toLocaleString()}
-                    </span>
+                    {!family && (
+                        <span
+                            className={clsx(
+                                "tw-tabular-nums",
+                                branch ? "tw-text-[#DEE2E6]" : "tw-text-secondary/80"
+                            )}
+                        >
+                            {allCount.toLocaleString()}
+                        </span>
+                    )}
                 </Link>
                 {BRANCH_ORDER.map((b) => {
-                    const active = facet.kind === "branch" && facet.value === b;
+                    const active = branch === b;
                     return (
                         <Link
                             key={b}
-                            href={`${facetHref({ kind: "branch", value: b }, 1)}${search}#database`}
+                            href={hrefFor(b, family)}
                             prefetch={false}
                             aria-current={active ? "true" : undefined}
                             className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
@@ -100,14 +108,17 @@ const Filters = ({
                                 style={{ backgroundColor: BRANCH_META[b].color }}
                             />
                             {BRANCH_META[b].short}
-                            <span
-                                className={clsx(
-                                    "tw-tabular-nums",
-                                    active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
-                                )}
-                            >
-                                {branchCounts[b].toLocaleString()}
-                            </span>
+                            {/* Whole-branch counts; with a family picked they would overstate the pair */}
+                            {!family && (
+                                <span
+                                    className={clsx(
+                                        "tw-tabular-nums",
+                                        active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                                    )}
+                                >
+                                    {branchCounts[b].toLocaleString()}
+                                </span>
+                            )}
                         </Link>
                     );
                 })}
@@ -118,25 +129,35 @@ const Filters = ({
                 <span className="tw-mr-1 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                     Family
                 </span>
+                <Link
+                    href={hrefFor(branch, undefined)}
+                    prefetch={false}
+                    aria-current={family ? undefined : "true"}
+                    className={clsx(CHIP, family ? CHIP_IDLE : CHIP_ACTIVE)}
+                >
+                    All families
+                </Link>
                 {FAMILIES.map((f) => {
-                    const active = facet.kind === "family" && facet.value === f;
+                    const active = family === f;
                     return (
                         <Link
                             key={f}
-                            href={`${facetHref({ kind: "family", value: f }, 1)}${search}#database`}
+                            href={hrefFor(branch, f)}
                             prefetch={false}
                             aria-current={active ? "true" : undefined}
                             className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
                         >
                             {f}
-                            <span
-                                className={clsx(
-                                    "tw-tabular-nums",
-                                    active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
-                                )}
-                            >
-                                {familyStats[f].count.toLocaleString()}
-                            </span>
+                            {!branch && (
+                                <span
+                                    className={clsx(
+                                        "tw-tabular-nums",
+                                        active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                                    )}
+                                >
+                                    {familyStats[f].count.toLocaleString()}
+                                </span>
+                            )}
                         </Link>
                     );
                 })}
@@ -187,19 +208,25 @@ const Filters = ({
                 </label>
 
                 <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
-                    Showing{" "}
-                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
-                        {showing.toLocaleString()}
-                    </span>{" "}
-                    of{" "}
-                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
-                        {pageRows.toLocaleString()}
-                    </span>{" "}
-                    on this page ·{" "}
-                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
-                        {total.toLocaleString()}
-                    </span>{" "}
-                    total
+                    {loading ? (
+                        "Loading…"
+                    ) : (
+                        <>
+                            Showing{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {showing.toLocaleString()}
+                            </span>{" "}
+                            of{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {pageRows.toLocaleString()}
+                            </span>{" "}
+                            on this page ·{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {total.toLocaleString()}
+                            </span>{" "}
+                            total
+                        </>
+                    )}
                 </span>
             </div>
         </div>

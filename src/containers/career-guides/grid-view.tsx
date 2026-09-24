@@ -97,8 +97,8 @@ const GridView = ({ rows }: Props) => {
                     No matches on this page.
                 </span>
                 <span className="tw-font-body tw-text-[15px] tw-text-[#DEE2E6]">
-                    Search and rank only look at the guides on this page. Pick a branch or career
-                    family above to see a different set.
+                    Search only looks at the guides on this page. Pick another page, branch, career
+                    family, or rank to see a different set.
                 </span>
             </div>
         );

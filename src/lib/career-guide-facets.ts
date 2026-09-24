@@ -97,6 +97,32 @@ export const paginate = <T>(rows: T[], page: number) => ({
     totalPages: Math.ceil(rows.length / PAGE_SIZE),
 });
 
+const facetGuides = new Map<string, Promise<GuideEntry[]>>();
+
+/**
+ * Every guide in a facet of `count` guides, read in the browser from the data Next prerendered
+ * for each of its pages (/_next/data/{buildId}/career-guides/.../page/N.json). Rank, sort and a
+ * second filter need the whole facet, which no single page ships. Kept for the visit; a failed
+ * load (a page from an older deploy) is dropped so the next call retries.
+ */
+export const loadFacetGuides = (facet: Facet, count: number): Promise<GuideEntry[]> => {
+    const key = facetHref(facet, 1);
+    const cached = facetGuides.get(key);
+    if (cached) return cached;
+
+    const { buildId } = window.__NEXT_DATA__;
+    const pages = Array.from({ length: Math.ceil(count / PAGE_SIZE) }, async (_, i) => {
+        const res = await fetch(`/_next/data/${buildId}${facetHref(facet, i + 1)}.json`);
+        if (!res.ok) throw new Error(`${res.status} for ${res.url}`);
+        const data: { pageProps: { rows: GuideEntry[] } } = await res.json();
+        return data.pageProps.rows;
+    });
+    const all = Promise.all(pages).then((rows) => rows.flat());
+    facetGuides.set(key, all);
+    all.catch(() => facetGuides.delete(key));
+    return all;
+};
+
 /** Short name for breadcrumbs: "Army", "Cyber", "All guides". */
 export const facetLabel = (facet: Facet): string =>
     facet.kind === "all" ? "All guides" : facet.value;

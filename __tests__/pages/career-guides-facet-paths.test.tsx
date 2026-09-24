@@ -113,9 +113,22 @@ describe("career-guides/[...facet]", () => {
             expect(hrefs).toContain(`/career-guides/branch/army/page/${n}#database`);
         }
         expect(hrefs).toContain("/career-guides/branch/navy#database");
-        expect(hrefs).toContain("/career-guides/family/it-comms#database");
+        // A family chip on a branch page narrows the branch: one URL per branch + family pair.
+        expect(hrefs).toContain("/career-guides/branch/army?family=it-comms#database");
+        expect(hrefs).toContain("/career-guides#database");
         expect(hrefs).not.toContain("/career-guides/branch/army/page/1#database");
         const pagination = screen.getByRole("navigation", { name: "Pagination" });
         expect(within(pagination).getByText("1")).toHaveAttribute("aria-current", "page");
+    });
+
+    it("pairs a branch chip on a family page with that family", () => {
+        render(<FacetPage {...propsFor(["family", "cyber"])} />);
+        const hrefs = screen.getAllByRole("link").map((a) => a.getAttribute("href"));
+        expect(hrefs).toContain("/career-guides/branch/army?family=cyber#database");
+        expect(hrefs).toContain("/career-guides/family/medical#database");
+        expect(screen.getByRole("link", { name: "All families" })).toHaveAttribute(
+            "href",
+            "/career-guides#database"
+        );
     });
 });

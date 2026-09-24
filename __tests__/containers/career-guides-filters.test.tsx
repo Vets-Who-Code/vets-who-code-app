@@ -16,10 +16,13 @@ const familyStats = Object.fromEntries(
     FAMILIES.map((f) => [f, { count: 10, medianLow: 50, medianHigh: 90 }])
 ) as Record<Family, FamilyStat>;
 
+// Stand-in for the listing's URL builder, so the tests see which pair each chip asks for.
+const hrefFor = (branch?: Branch, family?: Family) => `${branch ?? "any"}|${family ?? "any"}`;
+
 const renderFilters = (overrides: Partial<ComponentProps<typeof Filters>> = {}) => {
     const props: ComponentProps<typeof Filters> = {
-        facet: { kind: "branch", value: "Army" },
-        search: "",
+        branch: "Army",
+        hrefFor,
         branchCounts,
         familyStats,
         rank: "all",
@@ -38,43 +41,53 @@ const renderFilters = (overrides: Partial<ComponentProps<typeof Filters>> = {}) 
 const hrefOf = (name: RegExp) => screen.getByRole("link", { name }).getAttribute("href");
 
 describe("career-guides Filters", () => {
-    it("navigates between facets with plain links that land on the results", () => {
+    it("switches one dimension with plain links and keeps the other", () => {
         renderFilters();
-        expect(hrefOf(/^All/)).toBe("/career-guides#database");
-        expect(hrefOf(/^ARMY/)).toBe("/career-guides/branch/army#database");
-        expect(hrefOf(/^USAF/)).toBe("/career-guides/branch/air-force#database");
-        expect(hrefOf(/^USMC/)).toBe("/career-guides/branch/marine-corps#database");
-        expect(hrefOf(/^IT \/ Comms/)).toBe("/career-guides/family/it-comms#database");
-        expect(hrefOf(/^Other/)).toBe("/career-guides/family/other#database");
+        // On a branch page, a family chip narrows the branch rather than leaving it.
+        expect(hrefOf(/^All \d/)).toBe("any|any");
+        expect(hrefOf(/^USAF/)).toBe("Air Force|any");
+        expect(hrefOf(/^IT \/ Comms/)).toBe("Army|IT / Comms");
+        expect(hrefOf(/^All families/)).toBe("Army|any");
         // The family facet is links now, not a <select>: only the sort control remains.
         expect(screen.getAllByRole("combobox")).toHaveLength(1);
     });
 
-    it("marks the current facet", () => {
-        renderFilters({ facet: { kind: "family", value: "Cyber" } });
-        expect(screen.getByRole("link", { name: /^Cyber/ })).toHaveAttribute(
+    it("marks the current branch and family and drops counts the pair would overstate", () => {
+        renderFilters({ family: "Cyber" });
+        expect(screen.getByRole("link", { name: "ARMY" })).toHaveAttribute("aria-current", "true");
+        expect(screen.getByRole("link", { name: "Cyber" })).toHaveAttribute("aria-current", "true");
+        expect(screen.getByRole("link", { name: "NAVY" })).not.toHaveAttribute("aria-current");
+        expect(hrefOf(/^NAVY/)).toBe("Navy|Cyber");
+        expect(hrefOf(/^All$/)).toBe("any|Cyber");
+        expect(screen.getByRole("link", { name: "All families" })).not.toHaveAttribute(
+            "aria-current"
+        );
+    });
+
+    it("shows whole-branch and whole-family counts when only one is picked", () => {
+        renderFilters({ branch: undefined, family: undefined });
+        expect(screen.getByRole("link", { name: "ARMY 990" })).toHaveAttribute("href", "Army|any");
+        expect(screen.getByRole("link", { name: "Medical 10" })).toHaveAttribute(
+            "href",
+            "any|Medical"
+        );
+        expect(screen.getByRole("link", { name: /^All 4,202/ })).toHaveAttribute(
             "aria-current",
             "true"
         );
-        expect(screen.getByRole("link", { name: /^ARMY/ })).not.toHaveAttribute("aria-current");
-        expect(screen.getByRole("link", { name: /^All/ })).not.toHaveAttribute("aria-current");
     });
 
-    it("carries the current rank, sort and search onto the facet links", () => {
-        renderFilters({ search: "?rank=officer&sort=salaryHigh" });
-        expect(hrefOf(/^NAVY/)).toBe(
-            "/career-guides/branch/navy?rank=officer&sort=salaryHigh#database"
-        );
-        expect(hrefOf(/^Medical/)).toBe(
-            "/career-guides/family/medical?rank=officer&sort=salaryHigh#database"
-        );
-    });
-
-    it("counts the rank and search results against this page, not the whole facet", () => {
-        renderFilters({ showing: 19, pageRows: 60, total: 4202 });
+    it("counts search against this page and the rest against every page", () => {
+        renderFilters({ showing: 19, pageRows: 60, total: 64 });
         expect(screen.getByText(/^Showing/)).toHaveTextContent(
-            "Showing 19 of 60 on this page · 4,202 total"
+            "Showing 19 of 60 on this page · 64 total"
         );
+    });
+
+    it("says so while the rest of the facet loads", () => {
+        renderFilters({ loading: true });
+        expect(screen.getByText("Loading…")).toBeInTheDocument();
+        expect(screen.queryByText(/^Showing/)).not.toBeInTheDocument();
     });
 
     it("hands rank and sort changes back to the listing", () => {

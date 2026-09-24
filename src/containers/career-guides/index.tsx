@@ -1,6 +1,16 @@
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
-import { type Facet, type FamilyStat, facetLabel, facetSubject } from "@/lib/career-guide-facets";
+import {
+    FAMILIES,
+    FAMILY_SLUGS,
+    type Facet,
+    type FamilyStat,
+    facetHref,
+    facetLabel,
+    facetSubject,
+    loadFacetGuides,
+    PAGE_SIZE,
+} from "@/lib/career-guide-facets";
 import CategoryShowcase from "./category-showcase";
 import CtaBand from "./cta-band";
 import Filters from "./filters";
@@ -30,8 +40,9 @@ interface Props {
 const RANKS: Rank[] = ["Enlisted", "Warrant", "Officer"];
 const SORTS: SortKey[] = ["code", "title", "salaryHigh", "salaryLow", "demand"];
 
-const toSearch = (q: string, rank: "all" | Rank, sort: SortKey): string => {
+const toSearch = (q: string, rank: "all" | Rank, sort: SortKey, family?: Family): string => {
     const params = new URLSearchParams();
+    if (family) params.set("family", FAMILY_SLUGS[family]);
     if (q) params.set("q", q);
     if (rank !== "all") params.set("rank", rank.toLowerCase());
     if (sort !== "code") params.set("sort", sort);
@@ -41,6 +52,29 @@ const toSearch = (q: string, rank: "all" | Rank, sort: SortKey): string => {
 
 const demandWeight = (g: GuideEntry) =>
     g.demand === "Very High" ? 3 : g.demand === "High" ? 2 : 1;
+
+const matchesQuery = (g: GuideEntry, q: string) =>
+    g.code.toLowerCase().includes(q) ||
+    g.title.toLowerCase().includes(q) ||
+    g.civilian.toLowerCase().includes(q) ||
+    g.certs.some((c) => c.toLowerCase().includes(q));
+
+const compareBy =
+    (sort: SortKey) =>
+    (a: GuideEntry, b: GuideEntry): number => {
+        switch (sort) {
+            case "title":
+                return a.title.localeCompare(b.title);
+            case "salaryHigh":
+                return b.salaryHigh - a.salaryHigh;
+            case "salaryLow":
+                return a.salaryLow - b.salaryLow;
+            case "demand":
+                return demandWeight(b) - demandWeight(a);
+            default:
+                return a.code.localeCompare(b.code);
+        }
+    };
 
 const CareerGuidesContainer = ({
     rows,
@@ -58,8 +92,10 @@ const CareerGuidesContainer = ({
     const [query, setQuery] = useState("");
     const [rank, setRank] = useState<"all" | Rank>("all");
     const [sort, setSort] = useState<SortKey>("code");
+    const [crossFamily, setCrossFamily] = useState<Family>();
+    const [loaded, setLoaded] = useState<{ key: string; rows: GuideEntry[] | null }>();
 
-    // Static pages hydrate before the router knows the query string, so ?q/?rank/?sort are
+    // Static pages hydrate before the router knows the query string, so ?q/?rank/?sort/?family are
     // applied once it is ready, and again after every navigation. They are read from the
     // address bar because the writes below bypass the Next router.
     useEffect(() => {
@@ -69,11 +105,18 @@ const CareerGuidesContainer = ({
             setQuery(params.get("q") ?? "");
             setRank(RANKS.find((r) => r.toLowerCase() === params.get("rank")) ?? "all");
             setSort(SORTS.find((s) => s === params.get("sort")) ?? "code");
+            setCrossFamily(FAMILIES.find((f) => FAMILY_SLUGS[f] === params.get("family")));
         };
         apply();
         router.events.on("routeChangeComplete", apply);
         return () => router.events.off("routeChangeComplete", apply);
     }, [router.isReady, router.events]);
+
+    // A family picked on a branch page is ?family, so each branch + family pair has one URL.
+    const branch = facet.kind === "branch" ? facet.value : undefined;
+    const cross = branch ? crossFamily : undefined;
+    const family = facet.kind === "family" ? facet.value : cross;
+    const search = toSearch(query, rank, sort, cross);
 
     // history.replaceState rather than router.replace: every router change re-runs the blur
     // effect in _app, which would pull focus out of the search box on each keystroke. Next's
@@ -82,42 +125,64 @@ const CareerGuidesContainer = ({
         setQuery(q);
         setRank(r);
         setSort(s);
-        const url = `${window.location.pathname}${toSearch(q, r, s)}`;
+        const url = `${window.location.pathname}${toSearch(q, r, s, cross)}`;
         window.history.replaceState({ ...window.history.state, as: url }, "", url);
     };
 
-    const search = toSearch(query, rank, sort);
+    // A new rank or sort reorders the whole facet, so it starts again from page 1.
+    const reorder = (r: "all" | Rank, s: SortKey) => {
+        if (page === 1) update(query, r, s);
+        else router.replace(`${facetHref(facet, 1)}${toSearch(query, r, s, cross)}#database`);
+    };
 
-    const filtered = useMemo(() => {
-        const q = query.trim().toLowerCase();
-        let visible = rows;
+    const hrefFor = (b?: Branch, f?: Family) => {
+        let target: Facet = { kind: "all" };
+        if (b) target = { kind: "branch", value: b };
+        else if (f) target = { kind: "family", value: f };
+        return `${facetHref(target, 1)}${toSearch(query, rank, sort, b && f)}#database`;
+    };
+
+    // Rank, sort and a branch + family pair cover every guide in the facet, not just this page's,
+    // so they load the rest of the facet's prerendered pages.
+    const acrossFacet = rank !== "all" || sort !== "code" || cross !== undefined;
+    const facetKey = facetHref(facet, 1);
+
+    useEffect(() => {
+        if (!acrossFacet) return undefined;
+        let current = true;
+        loadFacetGuides(facet, count)
+            .then((all) => current && setLoaded({ key: facetKey, rows: all }))
+            .catch(() => current && setLoaded({ key: facetKey, rows: null }));
+        return () => {
+            current = false;
+        };
+    }, [acrossFacet, facetKey]);
+
+    // undefined while loading; null if it failed (page data from an older deploy 404s), which
+    // leaves the view on this page's guides.
+    const all = acrossFacet && loaded?.key === facetKey ? loaded.rows : undefined;
+    const loading = acrossFacet && all === undefined;
+
+    const matching = useMemo(() => {
+        let visible = all ?? rows;
+        if (branch) visible = visible.filter((g) => g.branch === branch);
+        if (family) visible = visible.filter((g) => g.family === family);
         if (rank !== "all") visible = visible.filter((g) => g.rank === rank);
-        if (q) {
-            visible = visible.filter(
-                (g) =>
-                    g.code.toLowerCase().includes(q) ||
-                    g.title.toLowerCase().includes(q) ||
-                    g.civilian.toLowerCase().includes(q) ||
-                    g.certs.some((c) => c.toLowerCase().includes(q))
-            );
-        }
-        const sorted = [...visible];
-        sorted.sort((a, b) => {
-            switch (sort) {
-                case "title":
-                    return a.title.localeCompare(b.title);
-                case "salaryHigh":
-                    return b.salaryHigh - a.salaryHigh;
-                case "salaryLow":
-                    return a.salaryLow - b.salaryLow;
-                case "demand":
-                    return demandWeight(b) - demandWeight(a);
-                default:
-                    return a.code.localeCompare(b.code);
-            }
-        });
-        return sorted;
-    }, [rows, query, rank, sort]);
+        return [...visible].sort(compareBy(sort));
+    }, [all, rows, branch, family, rank, sort]);
+
+    // The static page is already one page of the facet; the whole facet is paged here.
+    const view = all
+        ? {
+              rows: matching.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE),
+              pages: Math.ceil(matching.length / PAGE_SIZE),
+              total: matching.length,
+          }
+        : { rows: matching, pages: totalPages, total: count };
+
+    // Search stays within this page's guides, so typing never moves to another page.
+    const q = query.trim().toLowerCase();
+    const filtered = view.rows.filter((g) => matchesQuery(g, q));
 
     const isIndex = facet.kind === "all" && page === 1;
     const crumb = page > 1 ? `${facetLabel(facet)} · Page ${page}` : facetLabel(facet);
@@ -160,25 +225,46 @@ const CareerGuidesContainer = ({
                         </span>
                     </div>
 
-                    <SearchBar guides={rows} query={query} onQuery={(q) => update(q, rank, sort)} />
+                    <SearchBar
+                        guides={view.rows}
+                        query={query}
+                        onQuery={(value) => update(value, rank, sort)}
+                    />
 
                     <Filters
-                        facet={facet}
-                        search={search}
+                        branch={branch}
+                        family={family}
+                        hrefFor={hrefFor}
                         branchCounts={branchCounts}
                         familyStats={familyStats}
                         rank={rank}
-                        onRank={(r) => update(query, r, sort)}
+                        onRank={(r) => reorder(r, sort)}
                         sort={sort}
-                        onSort={(s) => update(query, rank, s)}
+                        onSort={(s) => reorder(rank, s)}
+                        loading={loading}
                         showing={filtered.length}
-                        pageRows={rows.length}
-                        total={count}
+                        pageRows={view.rows.length}
+                        total={view.total}
                     />
 
-                    <GridView rows={filtered} />
-
-                    <Pagination facet={facet} page={page} totalPages={totalPages} search={search} />
+                    {loading ? (
+                        <p
+                            role="status"
+                            className="tw-py-24 tw-text-center tw-font-mono tw-text-[12px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]"
+                        >
+                            Loading {count.toLocaleString()} guides…
+                        </p>
+                    ) : (
+                        <>
+                            <GridView rows={filtered} />
+                            <Pagination
+                                facet={facet}
+                                page={page}
+                                totalPages={view.pages}
+                                search={search}
+                            />
+                        </>
+                    )}
                 </div>
             </section>
 
