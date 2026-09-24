@@ -69,4 +69,31 @@ describe("MainMenu", () => {
         expect(submenu).not.toHaveClass("tw-visible");
         expect(document.activeElement).toBe(parent);
     });
+
+    it("toggles the submenu with Enter and Space on the disclosure button", () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+
+        parent.focus();
+        fireEvent.keyDown(parent, { key: "Escape" });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+
+        fireEvent.keyDown(parent, { key: "Enter" });
+        expect(parent).toHaveAttribute("aria-expanded", "true");
+
+        fireEvent.keyDown(parent, { key: " " });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+    });
+
+    it("reopens the submenu when focus enters one of its links", () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+
+        parent.focus();
+        fireEvent.keyDown(parent, { key: "Escape" });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+
+        fireEvent.focusIn(screen.getByRole("link", { name: "Team" }));
+        expect(parent).toHaveAttribute("aria-expanded", "true");
+    });
 });

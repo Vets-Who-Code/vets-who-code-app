@@ -15,9 +15,6 @@ type TProps = {
 
 const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
     const [focusId, setFocusId] = useState<string | number>("");
-    const handleFocusEvent = (e: React.FocusEvent<HTMLElement>) => {
-        setFocusId(e.target.id);
-    };
     // On the <li>: collapse only when focus leaves the item and its submenu entirely.
     const handleBlurEvent = (e: React.FocusEvent<HTMLLIElement>) => {
         if (!e.currentTarget.contains(e.relatedTarget)) {
@@ -58,15 +55,28 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                             document.getElementById(navId)?.focus();
                             setFocusId("");
                         }
+                        // The "#!" disclosure button has no click action: Enter and Space
+                        // toggle it. It already has focus, so blur-to-close still applies.
+                        if (
+                            (e.key === "Enter" || e.key === " ") &&
+                            path === "#!" &&
+                            (e.target as HTMLElement).id === navId
+                        ) {
+                            e.preventDefault();
+                            setFocusId(isOpen ? "" : navId);
+                        }
                     };
                     return (
-                        // biome-ignore lint/a11y/noNoninteractiveElementInteractions: only observes focus leaving the item's own links and Escape inside it; the <li> is not an interaction target
+                        // biome-ignore lint/a11y/noNoninteractiveElementInteractions: only observes focus entering and leaving the item's own links and keys pressed inside it; the <li> is not an interaction target
                         <li
                             key={id}
                             className={clsx(
                                 "tw-group tw-inline-block tw-px-2.5 tw-py-[29px] 2xl:tw-px-[15px]",
                                 submenu && "tw-relative"
                             )}
+                            // Focus entering a submenu link (e.g. Tab during the close
+                            // transition) keeps the submenu open instead of stranding focus.
+                            onFocus={() => setFocusId(navId)}
                             onBlur={handleBlurEvent}
                             onKeyDown={handleKeyDown}
                         >
@@ -77,7 +87,6 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 color={color}
                                 aria-expanded={hasSubmenu ? isOpen : undefined}
                                 aria-controls={hasSubmenu ? `${navId}-submenu` : undefined}
-                                onFocus={handleFocusEvent}
                             >
                                 {label}
                                 {hasSubmenu && (
