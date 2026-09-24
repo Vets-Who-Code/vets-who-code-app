@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import type { ReactElement } from "react";
+import { forwardRef, type ReactElement } from "react";
 import { assessmentQuestions } from "@/data/assessment-questions";
+import donate from "@/data/innerpages/donate.json";
 import AdminDashboard from "@/pages/admin/index";
 import BudgetPage from "@/pages/admin/j0di3/budget";
 import CohortDetail from "@/pages/admin/j0di3/cohorts/[id]";
@@ -18,6 +19,7 @@ import ChallengeDetailPage from "@/pages/challenges/[id]";
 import BrowseChallengesPage from "@/pages/challenges/browse";
 import ChallengesPage from "@/pages/challenges/index";
 import CommunityPage from "@/pages/community/index";
+import Donate from "@/pages/donate";
 import MosPage from "@/pages/jobs/mos/[code]";
 import JodiePage from "@/pages/jodie/index";
 import LessonsIndex from "@/pages/lessons/index";
@@ -64,6 +66,11 @@ vi.mock("@components/code-editor", () => ({
     default: () => <textarea aria-label="editor" />,
 }));
 
+// The real form embeds a Donorbox iframe, which happy-dom would fetch over the network.
+vi.mock("@components/forms/donate-form", () => ({
+    default: forwardRef<HTMLDivElement>((_props, ref) => <div ref={ref} />),
+}));
+
 vi.mock("@/lib/j0di3-client", () => ({
     default: { get: vi.fn() },
 }));
@@ -90,6 +97,7 @@ describe("pages that render their own h1 alongside a hidden breadcrumb title", (
         ["/challenges", () => <ChallengesPage />, "Code Challenges"],
         ["/challenges/browse", () => <BrowseChallengesPage />, "Challenge Catalog"],
         ["/community", () => <CommunityPage />, "Community"],
+        ["/donate", () => <Donate data={{ page: donate }} />, "Support Our Mission"],
         ["/jodie", () => <JodiePage />, "J0d!e"],
         ["/lessons", () => <LessonsIndex />, "Lessons"],
         [
