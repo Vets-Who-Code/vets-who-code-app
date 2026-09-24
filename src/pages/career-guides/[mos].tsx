@@ -6,17 +6,19 @@ import prerender from "@data/career-guides-prerender.json";
 import Layout01 from "@layout/layout-01";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { buildCareerGuideJsonLd } from "@/lib/career-guide-jsonld";
 import { getCareerGuideDetail } from "@/lib/career-guides";
 
 interface MosPageProps {
     detail: CareerGuideDetail;
+    jsonLd: ReturnType<typeof buildCareerGuideJsonLd>;
 }
 
 type PageWithLayout = NextPage<MosPageProps> & {
     Layout?: typeof Layout01;
 };
 
-const MosPage: PageWithLayout = ({ detail }) => {
+const MosPage: PageWithLayout = ({ detail, jsonLd }) => {
     const { title: pageTitle, description: pageDescription } = buildGuideMeta(detail);
 
     return (
@@ -26,23 +28,7 @@ const MosPage: PageWithLayout = ({ detail }) => {
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
-                        __html: JSON.stringify({
-                            "@context": "https://schema.org",
-                            "@type": "WebPage",
-                            name: pageTitle,
-                            description: pageDescription,
-                            url: `https://vetswhocode.io/career-guides/${detail.code.toLowerCase()}`,
-                            isPartOf: {
-                                "@type": "WebSite",
-                                name: "Military Career Guides",
-                                url: "https://vetswhocode.io/career-guides",
-                            },
-                            creator: {
-                                "@type": "Organization",
-                                name: "Vets Who Code",
-                                url: "https://vetswhocode.io",
-                            },
-                        }),
+                        __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
                     }}
                 />
             </Head>
@@ -61,7 +47,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const detail = getCareerGuideDetail(String(params?.mos));
+    const slug = String(params?.mos).toLowerCase();
+    const detail = getCareerGuideDetail(slug);
     if (!detail) return { notFound: true };
 
     return {
@@ -73,6 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
                 bodyClass: "tw-bg-secondary",
             },
             detail,
+            jsonLd: buildCareerGuideJsonLd(detail, slug),
         },
     };
 };
