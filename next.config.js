@@ -145,6 +145,11 @@ const nextConfig = {
                 destination: "/blogs/blog",
                 permanent: true,
             },
+            {
+                source: "/contact-me",
+                destination: "/contact-us",
+                permanent: true,
+            },
         ];
     },
 

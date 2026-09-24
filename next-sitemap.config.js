@@ -34,9 +34,6 @@ const exclude = [
 
     // Search endpoints (index blog posts directly, not search UIs)
     "/blogs/search",
-
-    // Legacy duplicate (canonical contact lives at /contact-us)
-    "/contact-me",
 ];
 
 module.exports = {
