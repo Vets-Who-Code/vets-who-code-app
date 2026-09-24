@@ -111,9 +111,8 @@ export function buildDomainPage(id: string): DomainPage | null {
         // Derived, not typed, like the /curriculum description: the preview must not
         // contradict the page's own counts.
         description:
-            `${topics.length} micro-topics in ${subject.title}, starting with ` +
-            `"${topics[0].label}" — each with the evidence that proves you have it, what it ` +
-            "rests on and what it unlocks. Free, from Vets Who Code.",
+            `${topics.length} micro-topics in ${subject.title} — each with the evidence that ` +
+            "proves you have it, what it rests on and what it unlocks. Free, from Vets Who Code.",
         subject: { id: subject.id, title: subject.title },
         band: SUBJECT_BANDS.find((b) => b.subjects.includes(subject.id))?.label ?? "",
         graph: { topics: MANIFEST.counts.topics, maxDepth: MANIFEST.counts.maxDepth },

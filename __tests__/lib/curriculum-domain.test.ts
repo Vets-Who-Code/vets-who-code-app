@@ -166,6 +166,5 @@ describe("curriculum domain pages", () => {
         const built = page("js-core");
         expect(built.description).toContain(`${built.topics.length} micro-topics`);
         expect(built.description).toContain(built.subject.title);
-        expect(built.description).toContain(built.topics[0].label);
     });
 });
