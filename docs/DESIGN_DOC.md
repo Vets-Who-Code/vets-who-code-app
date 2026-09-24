@@ -211,9 +211,9 @@ Standard Tailwind plus `maxSm`, `smToMd`, `maxLg`, `maxXl` helpers for targeted 
 
 ### Modal (EngagementModal)
 - Framer Motion spring-physics entrance
-- Fires ~3s after page load (once per session, stored in `sessionStorage`)
-- Focus trap, ESC close, backdrop click closes
-- CSS Modules scoped styles, Radix Dialog primitive
+- Fires on a returning visitor's second visit after 70% scroll or exit intent; dismissal is permanent (`localStorage`)
+- Focus trap, ESC close, focus return and backdrop click closes (shared `useKeyboardFocus` hook)
+- CSS Modules scoped styles, hand-rolled `motion/react` dialog (not Radix)
 
 ---
 
