@@ -93,6 +93,9 @@ describe("MockInterview", () => {
                 }),
         });
 
+        expect(screen.getByLabelText("Your answer")).toBe(
+            screen.getByPlaceholderText("Type your answer...")
+        );
         fireEvent.change(screen.getByPlaceholderText("Type your answer..."), {
             target: { value: "My answer about React" },
         });

@@ -20,6 +20,9 @@ describe("AITeachingAssistant", () => {
 
         expect(screen.getByText("J0d!e - AI Teaching Assistant")).toBeInTheDocument();
         expect(screen.getByPlaceholderText("Ask me anything...")).toBeInTheDocument();
+        expect(
+            screen.getByRole("textbox", { name: "Ask the teaching assistant" })
+        ).toBeInTheDocument();
     });
 
     it("does not render when isOpen is false", () => {

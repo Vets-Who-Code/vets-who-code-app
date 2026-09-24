@@ -124,6 +124,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
+                            aria-label="Search images"
                             placeholder="Search images... (e.g., tags:profile, format:jpg)"
                             style={{
                                 flex: 1,

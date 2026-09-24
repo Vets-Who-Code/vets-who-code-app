@@ -264,6 +264,7 @@ export default function MockInterview() {
                         <textarea
                             value={answer}
                             onChange={(e) => setAnswer(e.target.value)}
+                            aria-label="Your answer"
                             rows={6}
                             className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none tw-mb-4"
                             placeholder="Type your answer..."

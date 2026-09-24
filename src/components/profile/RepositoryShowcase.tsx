@@ -70,6 +70,7 @@ const RepositoryShowcase = ({ repos, isLoading }: RepositoryShowcaseProps) => {
                         value={filterLang}
                         onChange={(e) => setFilterLang(e.target.value)}
                         title="Filter by language"
+                        aria-label="Filter by language"
                         className="tw-rounded tw-border tw-border-navy/10 tw-bg-white tw-px-3 tw-py-1 tw-font-mono tw-text-xs tw-text-navy"
                     >
                         <option value="">All Languages</option>

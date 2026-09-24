@@ -29,6 +29,13 @@ describe("ResumeScorer", () => {
         ).toBeInTheDocument();
         expect(screen.getByLabelText("Target Role")).toBeInTheDocument();
         expect(screen.getByPlaceholderText(/Paste the job posting/)).toBeInTheDocument();
+        expect(screen.getByLabelText("Upload resume file")).toHaveAttribute("type", "file");
+        expect(screen.getByLabelText("Resume text")).toBe(
+            screen.getByPlaceholderText("Or paste your resume text here...")
+        );
+        expect(screen.getByLabelText("Job posting")).toBe(
+            screen.getByPlaceholderText(/Paste the job posting/)
+        );
     });
 
     it("renders score and rewrite buttons", () => {

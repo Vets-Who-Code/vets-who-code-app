@@ -255,6 +255,7 @@ export default function AITeachingAssistant({
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
+                            aria-label="Ask the teaching assistant"
                             placeholder="Ask me anything..."
                             disabled={isLoading}
                             className="tw-flex-1 tw-border tw-border-navy/10 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-outline-none focus:tw-border-primary disabled:tw-bg-navy/5 disabled:tw-cursor-not-allowed"

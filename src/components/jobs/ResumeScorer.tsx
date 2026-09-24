@@ -346,6 +346,7 @@ export default function ResumeScorer() {
                             ref={fileInputRef}
                             type="file"
                             accept=".pdf,.docx,.txt"
+                            aria-label="Upload resume file"
                             onChange={handleFileUpload}
                             className="tw-hidden"
                         />
@@ -395,6 +396,7 @@ export default function ResumeScorer() {
                     <textarea
                         value={resumeText}
                         onChange={(e) => setResumeText(e.target.value)}
+                        aria-label="Resume text"
                         rows={8}
                         className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
                         placeholder="Or paste your resume text here..."
@@ -438,6 +440,7 @@ export default function ResumeScorer() {
                     <textarea
                         value={jobDescription}
                         onChange={(e) => setJobDescription(e.target.value)}
+                        aria-label="Job posting"
                         rows={14}
                         className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
                         placeholder="Paste the job posting for JD match analysis and AI rewrite..."
