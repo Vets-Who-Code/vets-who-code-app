@@ -58,6 +58,8 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
         >
             <button
                 type="button"
+                aria-haspopup="listbox"
+                aria-expanded={open}
                 onClick={() => setOpen((prev) => !prev)}
                 className="tw-flex tw-min-h-[52px] tw-w-full tw-items-center tw-py-[3px] tw-pl-5 tw-pr-10"
             >
@@ -71,24 +73,22 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                     <i className="far fa-angle-down" aria-hidden="true" />
                 </span>
             </button>
-            <ul
+            <div
+                role="listbox"
                 className={clsx(
                     "tw-absolute tw-left-0 tw-top-full tw-z-50 tw-w-full tw-min-w-full tw-rounded-md tw-bg-light-50 tw-py-[5px] tw-font-medium tw-shadow-4md tw-shadow-black/20",
                     !open && "tw-hidden",
                     open && "tw-block"
                 )}
-                tabIndex={-1}
-                onClick={(e) => e.stopPropagation()}
-                onKeyPress={(e) => e.stopPropagation()}
             >
                 {options?.map((item) => (
-                    <li
+                    <button
                         key={item.value}
-                        className={clsx(
-                            "tw-group tw-cursor-pointer tw-px-[30px] tw-py-[5px] tw-text-heading tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
-                        )}
+                        type="button"
+                        role="option"
+                        aria-selected={item.value === selected?.value}
                         onClick={() => currentHandler(item)}
-                        onKeyPress={(e) => e}
+                        className="tw-group tw-flex tw-w-full tw-items-center tw-px-[30px] tw-py-[5px] tw-text-left tw-text-heading tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
                     >
                         {item.value === selected?.value && (
                             <i
@@ -97,9 +97,9 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                             />
                         )}
                         {item.label}
-                    </li>
+                    </button>
                 ))}
-            </ul>
+            </div>
         </div>
     );
 };
