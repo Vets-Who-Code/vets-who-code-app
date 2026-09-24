@@ -38,6 +38,7 @@ const Donate: PageProps = ({ data }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Donate"
                 showTitle={false}
+                hideHeading={true}
             />
             <DonateFormArea data={content?.["donorbox-area"]} space="none" />
             <WaysToGive data={content?.["ways-to-give"]} space="bottom" />
