@@ -148,5 +148,17 @@ describe("EngagementModal", () => {
             expect(modal()).not.toBeInTheDocument();
             expect(document.activeElement).toBe(screen.getByRole("button", { name: "Opener" }));
         });
+
+        it("returns focus without scrolling and stays closed on later scrolls", async () => {
+            await openModal();
+            const focus = vi.spyOn(screen.getByRole("button", { name: "Opener" }), "focus");
+
+            fireEvent.keyDown(window, { key: "Escape" });
+            expect(focus).toHaveBeenCalledWith({ preventScroll: true });
+
+            scrollTo(1);
+            fireEvent.mouseOut(document, { clientY: 0, relatedTarget: null });
+            expect(modal()).not.toBeInTheDocument();
+        });
     });
 });

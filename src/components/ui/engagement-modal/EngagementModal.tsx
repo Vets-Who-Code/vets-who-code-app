@@ -45,8 +45,10 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
     }, []);
 
     // Escape closes, Tab cycles inside the panel, focus lands on the close button
-    // on open and returns to the previously focused element on dismiss.
-    const modalRef = useKeyboardFocus<HTMLDivElement>(open, dismiss);
+    // on open and returns to the previously focused element on dismiss. The modal opens
+    // on scroll, not from a control, so that element may be far above the reader:
+    // return focus without scrolling the page back to it.
+    const modalRef = useKeyboardFocus<HTMLDivElement>(open, dismiss, true);
 
     // Expose method to manually open modal for debugging
     // This can be called from browser console: window.openEngagementModal()
@@ -80,7 +82,10 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
         // First-time visitors are still deciding what this place is. Never interrupt them.
         if (visits < MIN_VISITS) return;
 
+        // Once per page view: a scroll or exit-intent after dismissal must not reopen it.
         const reveal = () => {
+            window.removeEventListener("scroll", onScroll);
+            document.removeEventListener("mouseout", onMouseOut);
             setOpen(true);
             SafeLocalStorage.setItem(DISMISSED_KEY, true);
         };
