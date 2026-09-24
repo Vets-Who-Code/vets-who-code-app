@@ -1,7 +1,9 @@
 import SectionTitle from "@components/section-title";
+import { DOMAIN_TITLES } from "@data/curriculum-domains";
 import siteConfig from "@data/site-config";
 import { MANIFEST, SUBJECTS, TOPICS } from "@lib/curriculum-graph";
 import Button from "@ui/button";
+import Link from "next/link";
 import styles from "./curriculum-graph.module.css";
 import GraphPanel from "./graph-panel";
 
@@ -368,12 +370,16 @@ const CurriculumGraphContainer = () => (
                             </div>
                             <div className={styles.unitChips}>
                                 {subject.domains.map((domain) => (
-                                    <span key={domain.id} className={styles.unitChip}>
-                                        {domain.id}
+                                    <Link
+                                        key={domain.id}
+                                        href={`/curriculum/${domain.id}`}
+                                        className={styles.unitChip}
+                                    >
+                                        {DOMAIN_TITLES[domain.id]}
                                         <span className={styles.unitChipCount}>
                                             {domain.topicCount}
                                         </span>
-                                    </span>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
