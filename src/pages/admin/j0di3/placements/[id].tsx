@@ -124,7 +124,7 @@ const PlacementDetail: PageWithLayout = () => {
                             value={data.notes ?? ""}
                             onChange={(e) => setData({ ...data, notes: e.target.value })}
                             rows={3}
-                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                         />
                     </div>
                 </div>
@@ -179,7 +179,7 @@ function Field({
                 type={type}
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
-                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
             />
         </div>
     );

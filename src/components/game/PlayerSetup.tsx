@@ -59,7 +59,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                         id="numPlayers"
                         value={numPlayers}
                         onChange={(e) => setNumPlayers(parseInt(e.target.value, 10))}
-                        className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary"
+                        className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-ring-primary"
                     >
                         {[1, 2, 3, 4].map((n) => (
                             <option key={n} value={n}>
@@ -81,7 +81,7 @@ const PlayerSetup: React.FC<PlayerSetupProps> = ({ onSetupComplete }) => {
                                     id={`playerName${index}`}
                                     value={playerNames[index] || ""}
                                     onChange={(e) => handleNameChange(index, e.target.value)}
-                                    className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary"
+                                    className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-p-3 tw-shadow-sm focus:tw-border-primary focus:tw-ring-primary"
                                     placeholder={`Enter Player ${index + 1} Name`}
                                     autoComplete="off"
                                 />

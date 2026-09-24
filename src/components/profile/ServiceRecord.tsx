@@ -64,7 +64,7 @@ const ServiceRecord = ({
                                 value={formData.bio}
                                 onChange={onInputChange}
                                 rows={3}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-gold/50"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gold"
                                 placeholder="Tell us about yourself..."
                             />
                         </div>
@@ -90,7 +90,7 @@ const ServiceRecord = ({
                                 value={formData.branch}
                                 onChange={onInputChange}
                                 title="Select military branch"
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-gold/50"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gold"
                             >
                                 <option value="">Select Branch</option>
                                 {BRANCHES.map((b) => (
@@ -255,7 +255,7 @@ function Field({
                 name={name}
                 value={value}
                 onChange={onChange}
-                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-gold/50"
+                className="tw-w-full tw-rounded-md tw-border tw-border-navy/15 tw-bg-cream/30 tw-px-3 tw-py-2 tw-font-mono tw-text-sm tw-text-ink focus:tw-border-gold focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-gold"
                 placeholder={placeholder}
             />
         </div>

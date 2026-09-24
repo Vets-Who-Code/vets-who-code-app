@@ -104,7 +104,7 @@ const CohortsAdmin: PageWithLayout = () => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Cohort 12"
-                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                         />
                     </div>
                     <div>
@@ -119,7 +119,7 @@ const CohortsAdmin: PageWithLayout = () => {
                             type="date"
                             value={startDate}
                             onChange={(e) => setStartDate(e.target.value)}
-                            className="tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                            className="tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                         />
                     </div>
                     <button

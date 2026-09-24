@@ -124,7 +124,6 @@
 
 .field input:focus,
 .field textarea:focus {
-    outline: none;
     border-color: #c5203e;
 }
 

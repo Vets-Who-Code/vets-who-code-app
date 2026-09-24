@@ -143,7 +143,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 placeholder="Name or email..."
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary"
                             />
                         </div>
 
@@ -161,7 +161,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                 onChange={(e) =>
                                     setStatusFilter(e.target.value as typeof statusFilter)
                                 }
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary"
                             >
                                 <option value="all">All Status</option>
                                 <option value="active">Active</option>
@@ -181,7 +181,7 @@ const AdminUsersPage: PageWithLayout = ({ users: initialUsers }) => {
                                 id="sort"
                                 value={sortBy}
                                 onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-primary"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border tw-border-gray-300 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-primary"
                             >
                                 <option value="createdAt">Join Date</option>
                                 <option value="name">Name</option>

@@ -180,7 +180,7 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                         e.target.value === "" ? "" : Number(e.target.value)
                                     );
                                 }}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                             >
                                 <option value="">All modules</option>
                                 {ALL_MODULES.map((m) => (
@@ -204,7 +204,7 @@ const BrowseChallengesPage: PageWithLayout = () => {
                                     setOffset(0);
                                     setDifficultyFilter(e.target.value as Difficulty | "");
                                 }}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                             >
                                 <option value="">Any</option>
                                 {DIFFICULTIES.map((d) => (

@@ -320,7 +320,7 @@ export default function TroopDashboard() {
                                     disabled={isUpdatingModule}
                                     title="Current Module"
                                     aria-label="Current Module"
-                                    className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary focus:tw-outline-none disabled:tw-opacity-50"
+                                    className="tw-font-semibold tw-text-ink tw-border tw-border-gray-200 tw-rounded tw-px-2 tw-py-0.5 tw-text-sm focus:tw-border-primary disabled:tw-opacity-50"
                                 >
                                     {ALL_MODULES.map((m) => (
                                         <option key={m.n} value={m.n}>

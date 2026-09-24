@@ -6,9 +6,9 @@ import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
+import { options } from "@/lib/auth-options";
 import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import { runChallenge } from "@/lib/challenge-runner";
-import { options } from "@/lib/auth-options";
 
 interface ChallengeSummary {
     id: string;
@@ -344,7 +344,7 @@ const ChallengesPage: PageWithLayout = () => {
                                             id="topic"
                                             value={selectedTopic}
                                             onChange={(e) => setSelectedTopic(e.target.value)}
-                                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                         >
                                             {TOPICS.map((t) => (
                                                 <option key={t} value={t}>
@@ -366,7 +366,7 @@ const ChallengesPage: PageWithLayout = () => {
                                             id="difficulty"
                                             value={selectedDifficulty}
                                             onChange={(e) => setSelectedDifficulty(e.target.value)}
-                                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                         >
                                             {DIFFICULTIES.map((d) => (
                                                 <option key={d} value={d}>
@@ -499,7 +499,7 @@ const ChallengesPage: PageWithLayout = () => {
                                         value={code}
                                         onChange={(e) => setCode(e.target.value)}
                                         rows={15}
-                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary"
                                         placeholder="Write your solution here..."
                                         spellCheck={false}
                                     />

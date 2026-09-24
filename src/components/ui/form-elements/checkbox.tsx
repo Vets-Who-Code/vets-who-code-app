@@ -72,7 +72,10 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
                             beforeClass,
                             disabledClass,
                             afterClass,
-                            "peer-checked:before:tw-border-primary peer-checked:before:tw-bg-white peer-checked:after:tw-scale-100 peer-hover:before:tw-border-primary"
+                            "peer-checked:before:tw-border-primary peer-checked:before:tw-bg-white peer-checked:after:tw-scale-100 peer-hover:before:tw-border-primary",
+                            // The native input is sr-only, so the global ring lands on a clipped
+                            // 1px box. Draw it on the visible box instead.
+                            "peer-focus-visible:before:tw-outline peer-focus-visible:before:tw-outline-[3px] peer-focus-visible:before:tw-outline-offset-2 peer-focus-visible:before:tw-outline-gold"
                         )}
                     />
                     {label}

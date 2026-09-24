@@ -367,7 +367,7 @@ const JodiePage: PageWithLayout = () => {
                                     aria-label="Ask J0d!e"
                                     placeholder={`Ask about ${currentMod?.title || "the curriculum"}...`}
                                     disabled={isLoading}
-                                    className="tw-flex-1 tw-border tw-border-navy/10 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-outline-none focus:tw-border-primary disabled:tw-bg-navy/5"
+                                    className="tw-flex-1 tw-border tw-border-navy/10 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-border-primary disabled:tw-bg-navy/5"
                                 />
                                 <button
                                     type="submit"
@@ -399,7 +399,7 @@ const JodiePage: PageWithLayout = () => {
                                         onChange={(e) =>
                                             setCodeAction(e.target.value as typeof codeAction)
                                         }
-                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                     >
                                         <option value="review">Code Review</option>
                                         <option value="refactor">Refactor</option>
@@ -419,7 +419,7 @@ const JodiePage: PageWithLayout = () => {
                                         id="code-lang"
                                         value={codeLanguage}
                                         onChange={(e) => setCodeLanguage(e.target.value)}
-                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                     >
                                         <option value="javascript">JavaScript</option>
                                         <option value="typescript">TypeScript</option>
@@ -435,7 +435,7 @@ const JodiePage: PageWithLayout = () => {
                                 onChange={(e) => setCodeInput(e.target.value)}
                                 aria-label="Code or prompt"
                                 rows={12}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary focus:tw-outline-none tw-mb-4"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary tw-mb-4"
                                 placeholder={
                                     codeAction === "generate"
                                         ? "Describe what you want to generate..."
@@ -485,7 +485,7 @@ const JodiePage: PageWithLayout = () => {
                                     id="debug-lang"
                                     value={debugLanguage}
                                     onChange={(e) => setDebugLanguage(e.target.value)}
-                                    className="tw-w-48 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                    className="tw-w-48 tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                 >
                                     <option value="javascript">JavaScript</option>
                                     <option value="typescript">TypeScript</option>
@@ -507,7 +507,7 @@ const JodiePage: PageWithLayout = () => {
                                     value={debugCode}
                                     onChange={(e) => setDebugCode(e.target.value)}
                                     rows={10}
-                                    className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                    className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary"
                                     placeholder="Paste the broken code here..."
                                     spellCheck={false}
                                 />
@@ -525,7 +525,7 @@ const JodiePage: PageWithLayout = () => {
                                     value={debugError}
                                     onChange={(e) => setDebugError(e.target.value)}
                                     rows={3}
-                                    className="tw-w-full tw-rounded-md tw-border tw-border-red tw-bg-cream tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-red focus:tw-outline-none"
+                                    className="tw-w-full tw-rounded-md tw-border tw-border-red tw-bg-cream tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-red"
                                     placeholder="Paste the error message here..."
                                     spellCheck={false}
                                 />
