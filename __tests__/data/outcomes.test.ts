@@ -82,12 +82,11 @@ describe("prose that must stay in step with the module", () => {
 
 describe("no stray outcome claims", () => {
     const ROOTS = ["src/pages", "src/containers", "src/components", "src/data"];
-    // Admin/API code and the translator carry unrelated percentages; blogs and
-    // media are dated editorial and third-party text left as written.
+    // Admin/API code carries unrelated percentages; blogs and media are dated
+    // editorial and third-party text left as written.
     const SKIP = [
         "src/pages/admin",
         "src/pages/api",
-        "src/components/translator",
         "src/components/admin-dashboard-components.tsx",
         "src/data/outcomes.ts",
         "src/data/blogs",
