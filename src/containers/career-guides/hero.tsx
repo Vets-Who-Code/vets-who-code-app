@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Branch } from "./types";
 
 interface Props {
@@ -6,6 +7,10 @@ interface Props {
     familiesCount: number;
     certsCount: number;
     branches: Branch[];
+    /** Facet pages: the last breadcrumb segment, e.g. "Army" */
+    crumb?: string;
+    /** The H1's "From ___": "job code" on the index, "Army MOS" on a facet page */
+    subject: string;
 }
 
 const Cell = ({ label, value, sub }: { label: string; value: string; sub: string }) => (
@@ -22,18 +27,45 @@ const Cell = ({ label, value, sub }: { label: string; value: string; sub: string
     </div>
 );
 
-const Hero = ({ total, branchCount, familiesCount, certsCount, branches }: Props) => {
+const Hero = ({
+    total,
+    branchCount,
+    familiesCount,
+    certsCount,
+    branches,
+    crumb,
+    subject,
+}: Props) => {
     const branchSub = branches.map((b) => b).join(" · ");
 
     return (
         <section className="tw-bg-secondary tw-pt-20 md:tw-pt-24">
             <div className="tw-container">
                 {/* Breadcrumb */}
-                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
-                    <span>Home</span>
+                <nav
+                    aria-label="Breadcrumb"
+                    className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]"
+                >
+                    <Link href="/" className="hover:tw-text-cream">
+                        Home
+                    </Link>
                     <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
-                    <span className="tw-text-cream">Career Guides</span>
-                </div>
+                    {crumb ? (
+                        <>
+                            <Link href="/career-guides" className="hover:tw-text-cream">
+                                Career Guides
+                            </Link>
+                            <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
+                            <span aria-current="page" className="tw-text-cream">
+                                {crumb}
+                            </span>
+                        </>
+                    ) : (
+                        <span aria-current="page" className="tw-text-cream">
+                            Career Guides
+                        </span>
+                    )}
+                </nav>
 
                 {/* Eyebrow */}
                 <div className="tw-mt-10 tw-flex tw-items-center tw-gap-3">
@@ -46,7 +78,7 @@ const Hero = ({ total, branchCount, familiesCount, certsCount, branches }: Props
 
                 {/* H1 */}
                 <h1 className="tw-mt-6 tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98] [font-size:clamp(48px,8.5vw,124px)]">
-                    From job code
+                    From {subject}
                     <br />
                     <span className="tw-text-[#6C757D]">to</span>{" "}
                     <span className="tw-text-accent">civilian</span> career.
@@ -58,7 +90,7 @@ const Hero = ({ total, branchCount, familiesCount, certsCount, branches }: Props
                     <span className="tw-font-semibold tw-text-cream">
                         maps to a civilian career
                     </span>{" "}
-                    — search {total.toLocaleString()} guides across all five branches, see civilian
+                    — browse {total.toLocaleString()} guides across all five branches, see civilian
                     salary bands sourced from Lightcast labor data, and find the certifications that
                     translate your service into{" "}
                     <span className="tw-font-semibold tw-text-cream">

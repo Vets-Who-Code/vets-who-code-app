@@ -1,9 +1,10 @@
 import clsx from "clsx";
-import type { Family, GuideEntry } from "./types";
+import Link from "next/link";
+import { type FamilyStat, facetHref } from "@/lib/career-guide-facets";
+import type { Family } from "./types";
 
 interface Props {
-    guides: GuideEntry[];
-    onPick: (family: Family) => void;
+    stats: Record<Family, FamilyStat>;
 }
 
 const FEATURED_FAMILIES: Array<{
@@ -33,16 +34,10 @@ const FEATURED_FAMILIES: Array<{
     },
 ];
 
-const medianSalary = (rows: GuideEntry[]): string => {
-    if (rows.length === 0) return "—";
-    const lows = rows.map((r) => r.salaryLow).sort((a, b) => a - b);
-    const highs = rows.map((r) => r.salaryHigh).sort((a, b) => a - b);
-    const lo = lows[Math.floor(lows.length / 2)];
-    const hi = highs[Math.floor(highs.length / 2)];
-    return `$${lo}–${hi}K typical`;
-};
+const medianSalary = ({ count, medianLow, medianHigh }: FamilyStat): string =>
+    count === 0 ? "—" : `$${medianLow}–${medianHigh}K typical`;
 
-const CategoryShowcase = ({ guides, onPick }: Props) => {
+const CategoryShowcase = ({ stats }: Props) => {
     return (
         <section className="tw-bg-secondary tw-py-16 md:tw-py-20">
             <div className="tw-container">
@@ -55,12 +50,12 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
 
                 <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 lg:tw-grid-cols-4 tw-border-t tw-border-cream/10">
                     {FEATURED_FAMILIES.map(({ family, number, blurb }, idx) => {
-                        const rows = guides.filter((g) => g.family === family);
+                        const stat = stats[family];
                         return (
-                            <button
-                                type="button"
+                            <Link
                                 key={family}
-                                onClick={() => onPick(family)}
+                                href={facetHref({ kind: "family", value: family }, 1)}
+                                prefetch={false}
                                 className={clsx(
                                     "tw-group tw-flex tw-flex-col tw-gap-5 tw-px-6 tw-py-8 tw-text-left tw-transition-colors tw-duration-150",
                                     "hover:tw-bg-[#003559]",
@@ -82,13 +77,13 @@ const CategoryShowcase = ({ guides, onPick }: Props) => {
                                 <span className="tw-mt-auto tw-flex tw-flex-col tw-gap-1 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.08em] tw-text-[#DEE2E6]">
                                     <span>
                                         <span className="tw-text-cream">
-                                            {rows.length.toLocaleString()}
+                                            {stat.count.toLocaleString()}
                                         </span>{" "}
                                         guides
                                     </span>
-                                    <span>{medianSalary(rows)}</span>
+                                    <span>{medianSalary(stat)}</span>
                                 </span>
-                            </button>
+                            </Link>
                         );
                     })}
                 </div>

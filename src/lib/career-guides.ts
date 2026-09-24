@@ -263,17 +263,3 @@ export const computeBranchCounts = (guides: GuideEntry[]) => {
     for (const g of guides) counts[g.branch] += 1;
     return counts;
 };
-
-export const FAMILIES: Family[] = [
-    "Cyber",
-    "IT / Comms",
-    "Aviation",
-    "Intelligence",
-    "Logistics",
-    "Medical",
-    "Engineering",
-    "Operations",
-    "Maintenance",
-    "Administration",
-    "Other",
-];

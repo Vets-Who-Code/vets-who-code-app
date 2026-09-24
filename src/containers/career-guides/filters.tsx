@@ -1,16 +1,17 @@
 import clsx from "clsx";
-import { FAMILIES } from "@/lib/career-guides";
+import Link from "next/link";
+import { FAMILIES, type Facet, type FamilyStat, facetHref } from "@/lib/career-guide-facets";
 import { BRANCH_META, BRANCH_ORDER } from "./branch-meta";
 import type { Branch, Family, Rank, SortKey } from "./types";
 
 interface Props {
+    facet: Facet;
+    /** Current ?q/?rank/?sort, carried onto the facet links so switching keeps the view */
+    search: string;
     branchCounts: Record<Branch, number>;
-    branch: "all" | Branch;
-    onBranch: (v: "all" | Branch) => void;
+    familyStats: Record<Family, FamilyStat>;
     rank: "all" | Rank;
     onRank: (v: "all" | Rank) => void;
-    family: "all" | Family;
-    onFamily: (v: "all" | Family) => void;
     sort: SortKey;
     onSort: (v: SortKey) => void;
     showing: number;
@@ -35,14 +36,19 @@ const SORT_OPTS: Array<{ key: SortKey; label: string }> = [
 const RAINBOW =
     "linear-gradient(90deg, #6b8050 0%, #6b8050 20%, #5b87c4 20%, #5b87c4 40%, #8eb4d8 40%, #8eb4d8 60%, #d9514a 60%, #d9514a 80%, #e89149 80%, #e89149 100%)";
 
+const CHIP =
+    "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors";
+const CHIP_ACTIVE = "tw-border-accent tw-bg-accent tw-text-secondary";
+const CHIP_IDLE =
+    "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream";
+
 const Filters = ({
+    facet,
+    search,
     branchCounts,
-    branch,
-    onBranch,
+    familyStats,
     rank,
     onRank,
-    family,
-    onFamily,
     sort,
     onSort,
     showing,
@@ -54,15 +60,11 @@ const Filters = ({
         <div className="tw-flex tw-flex-col tw-gap-6">
             {/* Branch chips */}
             <div className="tw-flex tw-flex-wrap tw-gap-2">
-                <button
-                    type="button"
-                    onClick={() => onBranch("all")}
-                    className={clsx(
-                        "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
-                        branch === "all"
-                            ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                            : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
-                    )}
+                <Link
+                    href={`${facetHref({ kind: "all" }, 1)}${search}`}
+                    prefetch={false}
+                    aria-current={facet.kind === "all" ? "true" : undefined}
+                    className={clsx(CHIP, facet.kind === "all" ? CHIP_ACTIVE : CHIP_IDLE)}
                 >
                     <span
                         aria-hidden={true}
@@ -73,25 +75,21 @@ const Filters = ({
                     <span
                         className={clsx(
                             "tw-tabular-nums",
-                            branch === "all" ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                            facet.kind === "all" ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
                         )}
                     >
                         {allCount.toLocaleString()}
                     </span>
-                </button>
+                </Link>
                 {BRANCH_ORDER.map((b) => {
-                    const active = branch === b;
+                    const active = facet.kind === "branch" && facet.value === b;
                     return (
-                        <button
-                            type="button"
+                        <Link
                             key={b}
-                            onClick={() => onBranch(b)}
-                            className={clsx(
-                                "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
-                                active
-                                    ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                                    : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
-                            )}
+                            href={`${facetHref({ kind: "branch", value: b }, 1)}${search}`}
+                            prefetch={false}
+                            aria-current={active ? "true" : undefined}
+                            className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
                         >
                             <span
                                 aria-hidden={true}
@@ -107,7 +105,36 @@ const Filters = ({
                             >
                                 {branchCounts[b].toLocaleString()}
                             </span>
-                        </button>
+                        </Link>
+                    );
+                })}
+            </div>
+
+            {/* Family chips */}
+            <div className="tw-flex tw-flex-wrap tw-items-center tw-gap-2">
+                <span className="tw-mr-1 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
+                    Family
+                </span>
+                {FAMILIES.map((f) => {
+                    const active = facet.kind === "family" && facet.value === f;
+                    return (
+                        <Link
+                            key={f}
+                            href={`${facetHref({ kind: "family", value: f }, 1)}${search}`}
+                            prefetch={false}
+                            aria-current={active ? "true" : undefined}
+                            className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
+                        >
+                            {f}
+                            <span
+                                className={clsx(
+                                    "tw-tabular-nums",
+                                    active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                                )}
+                            >
+                                {familyStats[f].count.toLocaleString()}
+                            </span>
+                        </Link>
                     );
                 })}
             </div>
@@ -137,25 +164,6 @@ const Filters = ({
                         ))}
                     </div>
                 </div>
-
-                {/* Family */}
-                <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
-                        Family
-                    </span>
-                    <select
-                        value={family}
-                        onChange={(e) => onFamily(e.target.value as Family | "all")}
-                        className="tw-border tw-border-cream/[0.18] tw-bg-secondary tw-px-3 tw-py-1.5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-cream tw-outline-none focus:tw-border-accent"
-                    >
-                        <option value="all">All families</option>
-                        {FAMILIES.map((f) => (
-                            <option key={f} value={f}>
-                                {f}
-                            </option>
-                        ))}
-                    </select>
-                </label>
 
                 {/* Sort */}
                 <label className="tw-flex tw-items-center tw-gap-3">
