@@ -55,13 +55,18 @@ describe("MainMenu", () => {
         const parent = screen.getByRole("button", { name: "About" });
         const submenu = document.getElementById("nav-1-submenu");
 
+        expect(submenu).toHaveClass("tw-invisible");
+        expect(submenu).not.toHaveClass("tw-visible");
+
         fireEvent.focusIn(parent);
         expect(parent).toHaveAttribute("aria-expanded", "true");
-        expect(submenu).toHaveClass("tw-opacity-100");
+        expect(submenu).toHaveClass("tw-visible");
+        expect(submenu).not.toHaveClass("tw-invisible");
 
         fireEvent.keyDown(parent, { key: "Escape" });
         expect(parent).toHaveAttribute("aria-expanded", "false");
-        expect(submenu).not.toHaveClass("tw-opacity-100");
+        expect(submenu).toHaveClass("tw-invisible");
+        expect(submenu).not.toHaveClass("tw-visible");
         expect(document.activeElement).toBe(parent);
     });
 });

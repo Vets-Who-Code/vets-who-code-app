@@ -40,6 +40,15 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                     const hasSubmenu = !!submenu || !!megamenu;
                     const navId = `nav-${id}`;
                     const isOpen = focusId === navId;
+                    // Hover reveal stays CSS; keyboard reveal is state. The closed and open
+                    // token sets are exclusive because Tailwind's source order decides ties
+                    // (tw-invisible is emitted after tw-visible and would always win).
+                    const revealClass = clsx(
+                        "group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100",
+                        isOpen
+                            ? "tw-pointer-events-auto tw-visible tw-mt-0 tw-opacity-100"
+                            : "tw-pointer-events-none tw-invisible tw-mt-5 tw-opacity-0"
+                    );
                     // Escape must dismiss the submenu without moving focus (WCAG 1.4.13).
                     // Focus the trigger before clearing state: its onFocus fires
                     // synchronously and would otherwise reopen the submenu.
@@ -82,11 +91,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 <Submenu
                                     id={`${navId}-submenu`}
                                     menu={submenu}
-                                    className={clsx(
-                                        "group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100",
-                                        isOpen &&
-                                            "tw-pointer-events-auto tw-visible tw-mt-0 tw-opacity-100"
-                                    )}
+                                    className={revealClass}
                                 />
                             )}
                             {megamenu && (
@@ -94,11 +99,7 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                     id={`${navId}-submenu`}
                                     menu={megamenu}
                                     align={align}
-                                    className={clsx(
-                                        "group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100",
-                                        isOpen &&
-                                            "tw-pointer-events-auto tw-visible tw-mt-0 tw-opacity-100"
-                                    )}
+                                    className={revealClass}
                                 />
                             )}
                         </li>

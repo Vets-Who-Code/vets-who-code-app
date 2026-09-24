@@ -11,7 +11,9 @@ const Submenu = ({ menu, className, onFocus, ...rest }: TProps) => {
     return (
         <ul
             className={clsx(
-                "tw-pointer-events-none tw-invisible tw-absolute tw-left-0 tw-top-full tw-z-20 tw-mt-5 tw-w-60 tw-border-b-4 tw-border-b-primary tw-bg-white tw-py-4 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-400",
+                // Visibility, margin, opacity and pointer-events come from the caller's
+                // className so the open and closed token sets never coexist.
+                "tw-absolute tw-left-0 tw-top-full tw-z-20 tw-w-60 tw-border-b-4 tw-border-b-primary tw-bg-white tw-py-4 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-400",
                 className
             )}
             {...rest}

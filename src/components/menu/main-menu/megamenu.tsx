@@ -13,8 +13,10 @@ const Megamenu = ({ className, align, menu, ...rest }: TProps) => {
         <div
             className={clsx(
                 // tw-w-max so the panel sizes to its columns — a fixed width leaves
-                // dead space on menus with fewer than four columns.
-                "tw-pointer-events-none tw-invisible tw-absolute tw-top-full tw-z-20 tw-mt-5 tw-flex tw-w-max tw-max-w-[1170px] tw-flex-wrap tw-border-b-4 tw-border-b-primary tw-bg-white tw-px-3.8 tw-pb-[34px] tw-pt-7.5 tw-opacity-0 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-300",
+                // dead space on menus with fewer than four columns. Visibility, margin,
+                // opacity and pointer-events come from the caller's className so the
+                // open and closed token sets never coexist.
+                "tw-absolute tw-top-full tw-z-20 tw-flex tw-w-max tw-max-w-[1170px] tw-flex-wrap tw-border-b-4 tw-border-b-primary tw-bg-white tw-px-3.8 tw-pb-[34px] tw-pt-7.5 tw-shadow-2md tw-shadow-black/5 tw-transition-all tw-duration-300",
                 align === "left" && "tw-left-0",
                 align === "right" && "tw-right-0",
                 align === "center" && "tw-left-1/2 -tw-translate-x-1/2",

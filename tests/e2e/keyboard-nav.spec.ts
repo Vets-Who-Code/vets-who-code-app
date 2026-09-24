@@ -29,16 +29,19 @@ test.describe("Keyboard navigation", () => {
     }) => {
         test.skip(isMobile, "the desktop menu only renders from the xl breakpoint");
         await page.goto("/");
-        const about = page.getByRole("button", { name: "About", exact: true });
+        // Scope to the header nav: the footer has its own "About Us" link.
+        const nav = page.getByRole("navigation", { name: "Main Menu" });
+        const about = nav.getByRole("button", { name: "About", exact: true });
+        const aboutUs = nav.getByRole("link", { name: "About Us" });
 
         await about.focus();
         await expect(about).toHaveAttribute("aria-expanded", "true");
-        await expect(page.getByRole("link", { name: "About Us" })).toBeVisible();
+        await expect(aboutUs).toBeVisible();
 
         await page.keyboard.press("Escape");
         await expect(about).toHaveAttribute("aria-expanded", "false");
         await expect(about).toBeFocused();
-        await expect(page.getByRole("link", { name: "About Us" })).toBeHidden();
+        await expect(aboutUs).toBeHidden();
 
         // Regression: the old <a href="#!" target="_blank"> opened /#! in a new tab.
         await page.keyboard.press("Enter");
@@ -122,7 +125,9 @@ test.describe("Keyboard navigation", () => {
 
     test("carousel pagination bullets show the focus ring", async ({ page }) => {
         await page.goto("/");
+        // Swiper renders bullets on the client, so wait for hydration before deciding.
         const bullet = page.locator(".swiper-pagination-bullet").first();
+        await bullet.waitFor({ state: "attached", timeout: 10000 }).catch(() => undefined);
         test.skip((await bullet.count()) === 0, "no event carousel rendered on the homepage");
 
         // Arrive by keyboard so :focus-visible matches.
