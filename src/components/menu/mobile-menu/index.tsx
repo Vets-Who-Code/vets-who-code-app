@@ -27,19 +27,45 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                 <ul>
                     {menu.map(({ id, label, path, submenu, megamenu }) => {
                         const isExpand = id === expanded;
+                        const hasSubmenu = !!submenu || !!megamenu;
+                        const submenuId = `mobile-submenu-${id}`;
+                        const toggle = () => setExpanded(isExpand ? false : id);
                         return (
                             <li
                                 key={id}
                                 className="group tw-relative tw-border-b tw-border-b-white/[.15] last:tw-border-b-0"
                             >
-                                <NavLink path={path}>{label}</NavLink>
-                                {(submenu || megamenu) && (
-                                    <ExpandButton
-                                        onClick={() => setExpanded(isExpand ? false : id)}
-                                    />
+                                {/* A "#!" parent only reveals its submenu, so the whole row is
+                                    the disclosure button. Anchor would render it as a new-tab link. */}
+                                {path === "#!" && hasSubmenu ? (
+                                    <button
+                                        type="button"
+                                        aria-expanded={isExpand}
+                                        aria-controls={submenuId}
+                                        onClick={toggle}
+                                        className="tw-flex tw-w-full tw-items-center tw-justify-between tw-py-[19px] tw-text-left tw-text-[16px] tw-font-medium tw-leading-normal tw-text-white"
+                                    >
+                                        {label}
+                                        <i
+                                            className="fa fa-chevron-down tw-text-xs"
+                                            aria-hidden="true"
+                                        />
+                                    </button>
+                                ) : (
+                                    <>
+                                        <NavLink path={path}>{label}</NavLink>
+                                        {hasSubmenu && (
+                                            <ExpandButton
+                                                onClick={toggle}
+                                                expanded={isExpand}
+                                                controls={submenuId}
+                                            />
+                                        )}
+                                    </>
                                 )}
                                 {submenu && (
                                     <motion.div
+                                        id={submenuId}
                                         className="tw-overflow-hidden"
                                         initial={{ height: 0 }}
                                         animate={{
@@ -49,13 +75,14 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                             duration: 0.3,
                                             ease: [0.645, 0.045, 0.355, 1],
                                         }}
-                                        aria-expanded={isExpand}
+                                        aria-hidden={!isExpand}
                                     >
                                         <Submenu menu={submenu} isExpand={isExpand} />
                                     </motion.div>
                                 )}
                                 {megamenu && (
                                     <motion.div
+                                        id={submenuId}
                                         className="tw-overflow-hidden"
                                         initial={{ height: 0 }}
                                         animate={{
@@ -65,7 +92,7 @@ const MobileMenu = ({ menu, onClose, isOpen }: TProps) => {
                                             duration: 0.3,
                                             ease: [0.645, 0.045, 0.355, 1],
                                         }}
-                                        aria-expanded={isExpand}
+                                        aria-hidden={!isExpand}
                                     >
                                         <Megamenu menu={megamenu} isExpand={isExpand} />
                                     </motion.div>

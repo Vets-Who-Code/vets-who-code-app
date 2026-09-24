@@ -178,7 +178,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
                                     onClick={() => setOffcanvas(true)}
-                                    label="Toggle Search"
+                                    label="Toggle Menu"
                                 />
                             </div>
                         </div>

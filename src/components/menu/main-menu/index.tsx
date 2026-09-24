@@ -15,7 +15,7 @@ type TProps = {
 
 const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
     const [focusId, setFocusId] = useState<string | number>("");
-    const handleFocusEvent = (e: React.FocusEvent<HTMLAnchorElement>) => {
+    const handleFocusEvent = (e: React.FocusEvent<HTMLElement>) => {
         setFocusId(e.target.id);
     };
     // On the <li>: collapse only when focus leaves the item and its submenu entirely.
@@ -38,8 +38,20 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
             <ul aria-label="Main Menu">
                 {menu.map(({ id, label, path, submenu, megamenu }) => {
                     const hasSubmenu = !!submenu || !!megamenu;
+                    const navId = `nav-${id}`;
+                    const isOpen = focusId === navId;
+                    // Escape must dismiss the submenu without moving focus (WCAG 1.4.13).
+                    // Focus the trigger before clearing state: its onFocus fires
+                    // synchronously and would otherwise reopen the submenu.
+                    const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement>) => {
+                        if (e.key === "Escape" && hasSubmenu && isOpen) {
+                            e.preventDefault();
+                            document.getElementById(navId)?.focus();
+                            setFocusId("");
+                        }
+                    };
                     return (
-                        // biome-ignore lint/a11y/noNoninteractiveElementInteractions: only observes focus leaving the item's own links; the <li> is not an interaction target
+                        // biome-ignore lint/a11y/noNoninteractiveElementInteractions: only observes focus leaving the item's own links and Escape inside it; the <li> is not an interaction target
                         <li
                             key={id}
                             className={clsx(
@@ -47,13 +59,15 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                                 submenu && "tw-relative"
                             )}
                             onBlur={handleBlurEvent}
+                            onKeyDown={handleKeyDown}
                         >
                             <NavLink
-                                id={`nav-${id}`}
+                                id={navId}
                                 path={path}
                                 hoverStyle={hoverStyle}
                                 color={color}
-                                aria-expanded={hasSubmenu ? focusId === `nav-${id}` : undefined}
+                                aria-expanded={hasSubmenu ? isOpen : undefined}
+                                aria-controls={hasSubmenu ? `${navId}-submenu` : undefined}
                                 onFocus={handleFocusEvent}
                             >
                                 {label}
@@ -66,15 +80,25 @@ const MainMenu = ({ className, hoverStyle, menu, color, align }: TProps) => {
                             </NavLink>
                             {submenu && (
                                 <Submenu
+                                    id={`${navId}-submenu`}
                                     menu={submenu}
-                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
+                                    className={clsx(
+                                        "group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100",
+                                        isOpen &&
+                                            "tw-pointer-events-auto tw-visible tw-mt-0 tw-opacity-100"
+                                    )}
                                 />
                             )}
                             {megamenu && (
                                 <Megamenu
+                                    id={`${navId}-submenu`}
                                     menu={megamenu}
                                     align={align}
-                                    className="group-focus-within:tw-pointer-events-auto group-focus-within:tw-visible group-focus-within:tw-mt-0 group-focus-within:tw-opacity-100 group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100"
+                                    className={clsx(
+                                        "group-hover:tw-pointer-events-auto group-hover:tw-visible group-hover:tw-mt-0 group-hover:tw-opacity-100",
+                                        isOpen &&
+                                            "tw-pointer-events-auto tw-visible tw-mt-0 tw-opacity-100"
+                                    )}
                                 />
                             )}
                         </li>

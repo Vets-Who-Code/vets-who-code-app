@@ -16,6 +16,7 @@ const CloseButton = ({ onClose }: { onClose: () => void }) => {
     return (
         <button
             type="button"
+            aria-label="Close menu"
             className="close-btn tw-group tw-relative tw-h-10 tw-w-10"
             onClick={onClose}
         >
