@@ -63,7 +63,10 @@ const ApplyPage: PageProps = ({ data }) => {
             </div>
 
             {/* Decision guides for applicants still comparing programs */}
-            <nav aria-label="Decision guides" className="tw-container tw-mt-20 md:tw-mt-[120px]">
+            <nav
+                aria-label="Decision guides"
+                className="tw-container tw-relative tw-z-10 tw-mt-20 md:tw-mt-[120px]"
+            >
                 <p className="tw-mb-4 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.12em] tw-text-[#495057]">
                     Still deciding? Read the guides.
                 </p>
