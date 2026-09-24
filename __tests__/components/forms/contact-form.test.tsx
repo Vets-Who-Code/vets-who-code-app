@@ -67,6 +67,24 @@ describe("ContactUsForm", () => {
         expect(screen.getByText("Reason is required")).toBeInTheDocument();
         expect(screen.getByText("Message is required")).toBeInTheDocument();
         expect(mockPost).not.toHaveBeenCalled();
+
+        expect(field("Name")).toBeInvalid();
+        expect(field("Name")).toHaveAttribute("aria-invalid", "true");
+        expect(field("Name")).toHaveAccessibleDescription("Name is required");
+        expect(field("Email")).toBeInvalid();
+        expect(field("Email")).toHaveAccessibleDescription("Email is required");
+        expect(field("Reason for reaching out")).toBeInvalid();
+        expect(field("Reason for reaching out")).toHaveAccessibleDescription("Reason is required");
+        expect(field("Message")).toHaveAccessibleDescription("Message is required");
+        expect(field("Phone")).not.toBeInvalid();
+        expect(field("Phone")).not.toHaveAttribute("aria-describedby");
+        expect(screen.getAllByRole("alert").map((el) => el.textContent)).toEqual([
+            "Name is required",
+            "Email is required",
+            "Subject is required",
+            "Reason is required",
+            "Message is required",
+        ]);
     });
 
     it("rejects a malformed email address", async () => {
@@ -79,6 +97,8 @@ describe("ContactUsForm", () => {
         submit();
 
         expect(await screen.findByText("Invalid email format")).toBeInTheDocument();
+        expect(field("Email")).toHaveAttribute("aria-invalid", "true");
+        expect(field("Email")).toHaveAccessibleDescription("Invalid email format");
         expect(mockPost).not.toHaveBeenCalled();
     });
 
@@ -133,6 +153,7 @@ describe("ContactUsForm", () => {
         submit();
 
         expect(await screen.findByText(SUCCESS)).toBeInTheDocument();
+        expect(screen.getByRole("status")).toHaveTextContent(SUCCESS);
         expect(mockPost).toHaveBeenCalledTimes(1);
         expect(mockPost).toHaveBeenCalledWith("/api/contact", {
             ...VALID,
@@ -141,6 +162,8 @@ describe("ContactUsForm", () => {
             website: "",
         });
 
+        expect(field("Name")).not.toBeInvalid();
+        expect(field("Name")).not.toHaveAttribute("aria-describedby");
         expect(field("Name")).toHaveValue("");
         expect(field("Email")).toHaveValue("");
         expect(field("Phone")).toHaveValue("");
@@ -159,6 +182,7 @@ describe("ContactUsForm", () => {
         submit();
 
         expect(await screen.findByText(FAILURE)).toBeInTheDocument();
+        expect(screen.getByRole("status")).toHaveTextContent(FAILURE);
         expect(screen.queryByText(SUCCESS)).not.toBeInTheDocument();
         expect(field("Name")).toHaveValue(VALID.name);
     });
@@ -171,6 +195,7 @@ describe("ContactUsForm", () => {
         submit();
 
         expect(await screen.findByText(FAILURE)).toBeInTheDocument();
+        expect(screen.getByRole("status")).toHaveTextContent(FAILURE);
         expect(screen.queryByText(SUCCESS)).not.toBeInTheDocument();
         expect(field("Name")).toHaveValue(VALID.name);
     });
