@@ -16,7 +16,6 @@ All protected pages use `GetServerSideProps` which runs on the server **before**
 - Unauthenticated users are redirected before any protected content loads
 
 **Protected Pages:**
-- `/resume-translator` - Line 140
 - `/courses` - Line 262
 - `/courses/software-engineering` - Line 302
 - `/courses/data-engineering` - Line 302
@@ -75,10 +74,8 @@ In production, the login flow:
 
 ### Test 1: Protected Pages Without Auth
 1. Open browser in incognito mode
-2. Navigate to `/resume-translator`
-3. **Expected:** Redirect to `/login?callbackUrl=/resume-translator`
-4. Try `/courses`
-5. **Expected:** Redirect to `/login?callbackUrl=/courses`
+2. Try `/courses`
+3. **Expected:** Redirect to `/login?callbackUrl=/courses`
 
 ### Test 2: Non-Org Member Login Attempt
 1. Set `NODE_ENV=production`
