@@ -1,6 +1,6 @@
 import { useClickOutside } from "@hooks";
 import clsx from "clsx";
-import { Dispatch, SetStateAction, useCallback, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useRef, useState } from "react";
 
 interface IOption {
     value: string;
@@ -19,9 +19,13 @@ type TProps = {
 const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TProps) => {
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState<IOption>();
+    const triggerRef = useRef<HTMLButtonElement>(null);
+    const listRef = useRef<HTMLUListElement>(null);
 
     const onClose = useCallback(() => {
         setOpen(false);
+        // The list is about to be display:none; don't strand focus on a hidden option.
+        if (listRef.current?.contains(document.activeElement)) triggerRef.current?.focus();
     }, []);
 
     const containerRef = useClickOutside<HTMLDivElement>(onClose);
@@ -57,8 +61,8 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
             ref={containerRef}
         >
             <button
+                ref={triggerRef}
                 type="button"
-                aria-haspopup="listbox"
                 aria-expanded={open}
                 onClick={() => setOpen((prev) => !prev)}
                 className="tw-flex tw-min-h-[52px] tw-w-full tw-items-center tw-py-[3px] tw-pl-5 tw-pr-10"
@@ -73,8 +77,10 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                     <i className="far fa-angle-down" aria-hidden="true" />
                 </span>
             </button>
-            <div
-                role="listbox"
+            {/* A disclosure over a plain list of buttons, not a listbox: that role would
+                promise arrow-key navigation this widget does not implement. */}
+            <ul
+                ref={listRef}
                 className={clsx(
                     "tw-absolute tw-left-0 tw-top-full tw-z-50 tw-w-full tw-min-w-full tw-rounded-md tw-bg-light-50 tw-py-[5px] tw-font-medium tw-shadow-4md tw-shadow-black/20",
                     !open && "tw-hidden",
@@ -82,24 +88,24 @@ const NiceSelect = ({ className, options, setValue, prefix, defaultValue }: TPro
                 )}
             >
                 {options?.map((item) => (
-                    <button
-                        key={item.value}
-                        type="button"
-                        role="option"
-                        aria-selected={item.value === selected?.value}
-                        onClick={() => currentHandler(item)}
-                        className="tw-group tw-flex tw-w-full tw-items-center tw-px-[30px] tw-py-[5px] tw-text-left tw-text-heading tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
-                    >
-                        {item.value === selected?.value && (
-                            <i
-                                className="fa fa-check tw-mr-2.5 tw-text-primary tw-transition-colors group-hover:tw-text-white"
-                                aria-hidden="true"
-                            />
-                        )}
-                        {item.label}
-                    </button>
+                    <li key={item.value}>
+                        <button
+                            type="button"
+                            aria-pressed={item.value === selected?.value}
+                            onClick={() => currentHandler(item)}
+                            className="tw-group tw-flex tw-w-full tw-items-center tw-px-[30px] tw-py-[5px] tw-text-left tw-text-heading tw-transition-colors hover:tw-bg-primary hover:tw-text-white"
+                        >
+                            {item.value === selected?.value && (
+                                <i
+                                    className="fa fa-check tw-mr-2.5 tw-text-primary tw-transition-colors group-hover:tw-text-white"
+                                    aria-hidden="true"
+                                />
+                            )}
+                            {item.label}
+                        </button>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };
