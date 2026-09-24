@@ -64,7 +64,7 @@ const MentorPage: PageProps = ({ data }) => {
                         highlight={true}
                     />
                 </div>
-                <FunfactArea data={content["funfact-area"]} />
+                <FunfactArea />
             </Wrapper>
             <GradationArea data={content["gradation-area"]} />
             <section className="tw-py-20 md:tw-py-[120px]">

@@ -1,5 +1,6 @@
 import SEO from "@components/seo/page-seo";
 import { MonoMeta, SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
+import { outcomes } from "@data/outcomes";
 import { HERO_META } from "@data/software-factory";
 import Layout from "@layout/layout-01";
 import Anchor from "@ui/anchor";
@@ -123,13 +124,11 @@ const buildPrograms = (factoryStatus: string): ProgramCard[] => [
 ];
 
 const STATS = [
-    ["97%", "Job Placement", "Graduates working in software engineering roles."],
-    ["$20M+", "Alumni Earnings", "Collective earnings unlocked for graduates and their families."],
-    [
-        "300+",
-        "Troops Trained",
-        "Veterans, service members, and military spouses through the program.",
-    ],
+    ...[outcomes.placementRate, outcomes.alumniEarnings, outcomes.troopsTrained].map((stat) => [
+        stat.display,
+        stat.label,
+        `${stat.qualifier}.`,
+    ]),
     ["$0", "Tuition, 501(c)(3)", "EIN 86-2122804. No income share, no loan, no catch."],
 ];
 

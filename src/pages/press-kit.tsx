@@ -1,5 +1,6 @@
 import SEO from "@components/seo/page-seo";
 import { MonoMeta, SectionEyebrow, SharpHeadline, StatStrip } from "@components/ui/design-system";
+import { outcomes } from "@data/outcomes";
 import teamMembers from "@data/team-members.json";
 import Layout from "@layout/layout-01";
 import Button from "@ui/button";
@@ -122,11 +123,15 @@ const PressKitPage: PageWithLayout = () => {
                         <StatStrip
                             tone="light"
                             cells={[
-                                { label: "Placement", value: "97%", sub: "of graduating troops" },
                                 {
-                                    label: "Alumni earnings",
-                                    value: "$20M+",
-                                    sub: "collective annual",
+                                    label: outcomes.placementRate.label,
+                                    value: outcomes.placementRate.display,
+                                    sub: outcomes.placementRate.qualifier,
+                                },
+                                {
+                                    label: outcomes.alumniEarnings.label,
+                                    value: outcomes.alumniEarnings.display,
+                                    sub: outcomes.alumniEarnings.qualifier,
                                 },
                                 { label: "Tax status", value: "501(c)(3)", sub: "EIN 86-2122804" },
                                 { label: "Founded", value: "2014", sub: "remote-first" },

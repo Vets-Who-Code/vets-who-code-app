@@ -1,3 +1,4 @@
+import { outcomes } from "@data/outcomes";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -84,9 +85,9 @@ const JoinCta = () => {
                         className="tw-m-0 tw-font-body tw-text-[#495057]"
                         style={{ fontSize: 17, lineHeight: 1.7, maxWidth: 520 }}
                     >
-                        We can only place 97% of troops because of the people who show up around
-                        them. Pick your pathway — apply, mentor, or fund a seat. Every role moves a
-                        veteran forward.
+                        We can only place {outcomes.placementRate.display} of troops because of the
+                        people who show up around them. Pick your pathway — apply, mentor, or fund a
+                        seat. Every role moves a veteran forward.
                     </p>
                 </motion.div>
 

@@ -1,3 +1,4 @@
+import { outcomes } from "@data/outcomes";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -69,10 +70,10 @@ const Theory = () => {
                         }}
                     >
                         Our Theory of Change is the working document that maps every hour of our
-                        curriculum to a labor-market outcome. It&apos;s how we justify a 97%
-                        placement rate to donors, board members, and the troops themselves. Read the
-                        full methodology — including the evaluation framework, mentor protocols, and
-                        2030 roadmap.
+                        curriculum to a labor-market outcome. It&apos;s how we justify a{" "}
+                        {outcomes.placementRate.display} placement rate to donors, board members,
+                        and the troops themselves. Read the full methodology — including the
+                        evaluation framework, mentor protocols, and 2030 roadmap.
                     </p>
 
                     <div className="tw-flex tw-flex-wrap tw-gap-4">

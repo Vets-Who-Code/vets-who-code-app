@@ -1,3 +1,4 @@
+import { outcomes } from "@data/outcomes";
 import clsx from "clsx";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./about.module.css";
@@ -61,10 +62,10 @@ const CHAPTERS: Chapter[] = [
         img: "https://res.cloudinary.com/vetswhocode/image/upload/v1746590042/4_a79tb5.png",
         body: [
             "Every veteran faces a crucible project — a full-stack application built under real-world constraints. Graduates emerge with production portfolios, lifelong allies, and offer letters that turn service stripes into six-figure salaries.",
-            "Collectively, alumni have earned $20M+ and now ship code at Microsoft, GitHub, Salesforce, JP Morgan Chase, Chewy, Apple, Google, and CBS Interactive. But the journey doesn't end at first employment. Alumni return as mentors and donors, passing on their knowledge and funding the next cohort. The pipeline feeds itself. That's by design.",
+            `Collectively, alumni have earned ${outcomes.alumniEarnings.display} and now ship code at Microsoft, GitHub, Salesforce, JP Morgan Chase, Chewy, Apple, Google, and CBS Interactive. But the journey doesn't end at first employment. Alumni return as mentors and donors, passing on their knowledge and funding the next cohort. The pipeline feeds itself. That's by design.`,
         ],
         callout: {
-            value: "$20M+",
+            value: outcomes.alumniEarnings.display,
             label: "Collective alumni earnings. Mentors. Donors. Next cohort fuel.",
         },
     },
@@ -75,7 +76,7 @@ const CHAPTERS: Chapter[] = [
         img: "https://res.cloudinary.com/vetswhocode/image/upload/v1746590043/9_ahefah.png",
         body: [
             "Veterans are stakeholders, not charity cases. That principle drives everything we build.",
-            "A decade in, Vets Who Code has evolved into a remote-first, AI-enabled nonprofit that blends human mentorship with machine intelligence to personalize learning and keep our curriculum evergreen. By 2030 we will have trained 500+ veterans as software engineers, generated $50M+ in collective alumni earnings, and maintained a 97% placement rate — built on small cohorts, not mass enrollment. We scale depth, not volume.",
+            `A decade in, Vets Who Code has evolved into a remote-first, AI-enabled nonprofit that blends human mentorship with machine intelligence to personalize learning and keep our curriculum evergreen. By 2030 we will have trained 500+ veterans as software engineers, generated $50M+ in collective alumni earnings, and maintained a ${outcomes.placementRate.display} placement rate — built on small cohorts, not mass enrollment. We scale depth, not volume.`,
             "If you're a veteran staring at the civilian tech world and wondering where you fit — this is it. Apply. Show up. Write the next chapter of your mission in code.",
         ],
         callout: {

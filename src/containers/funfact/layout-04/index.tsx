@@ -1,8 +1,9 @@
 import FunFact from "@components/funfact/funfact-01";
 import SectionTitle from "@components/section-title";
 import Section from "@components/ui/engagement-modal";
+import { OUTCOME_FUNFACTS, placementMethodology } from "@data/outcomes";
 import MottoText from "@ui/motto-text";
-import { ItemType, MottoType, SectionTitleType, TSection } from "@utils/types";
+import { MottoType, SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 
@@ -12,11 +13,10 @@ type TProps = TSection & {
     data: {
         section_title?: SectionTitleType;
         motto?: MottoType;
-        items?: ItemType[];
     };
 };
 
-const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSize }: TProps) => {
+const FunfactArea = ({ data: { section_title, motto }, space, bg, titleSize }: TProps) => {
     return (
         <Section className="funfact-area" space={space} bg={bg}>
             <div className="tw-container">
@@ -68,15 +68,22 @@ const FunfactArea = ({ data: { section_title, motto, items }, space, bg, titleSi
                             border: "1px solid rgba(185, 214, 242, 0.08)",
                         }}
                     >
-                        {items?.map((item, i) => (
+                        {OUTCOME_FUNFACTS.map((item, i) => (
                             <AnimatedFunFact
-                                key={item.id}
-                                counter={item.counter}
+                                key={item.key}
+                                counter={item.value}
                                 suffix={item.suffix}
                                 prefix={item.prefix}
                                 index={i}
-                                title={item.title}
-                                note={item.description}
+                                title={item.label}
+                                // The methodology sentence takes the placement
+                                // tile's note once its window and denominator
+                                // are confirmed (#1332); until then, the qualifier.
+                                note={
+                                    item.key === "placementRate"
+                                        ? (placementMethodology() ?? item.qualifier)
+                                        : item.qualifier
+                                }
                                 initial="offscreen"
                                 whileInView="onscreen"
                                 viewport={{ once: true, amount: 0.1, margin: "0px 0px -10% 0px" }}

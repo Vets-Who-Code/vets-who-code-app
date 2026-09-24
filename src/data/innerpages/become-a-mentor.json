@@ -17,34 +17,6 @@
       ]
     },
     {
-      "section": "funfact-area",
-      "items": [
-        {
-          "id": 1,
-          "title": "Years Operating",
-          "counter": 12,
-          "suffix": "+"
-        },
-        {
-          "id": 2,
-          "title": "Veterans Trained",
-          "counter": 300,
-          "suffix": "+"
-        },
-        {
-          "id": 3,
-          "title": "Lightcast-Validated Skills Taught",
-          "counter": 128
-        },
-        {
-          "id": 4,
-          "title": "Job Placement Rate",
-          "counter": 97,
-          "suffix": "%"
-        }
-      ]
-    },
-    {
       "section": "hero-image-area",
       "images": [
         {
