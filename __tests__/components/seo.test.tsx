@@ -38,6 +38,11 @@ const metaContent = (tags: ReactElement[], attr: "property" | "name", value: str
 const titles = (tags: ReactElement[]) =>
     tags.filter((tag) => tag.type === "title").map((tag) => tag.props.children as string);
 
+const jsonLd = (tags: ReactElement[]) =>
+    tags
+        .filter((tag) => tag.type === "script" && tag.props.type === "application/ld+json")
+        .map((tag) => tag.props.dangerouslySetInnerHTML.__html as string);
+
 describe("SEO metadata", () => {
     it("gives a route without its own PageSeo a canonical for that route", () => {
         const tags = captureHead(<DefaultSEO />);
@@ -91,5 +96,28 @@ describe("SEO metadata", () => {
         expect(metaContent(tags, "property", "og:image:alt")).toEqual([
             "Vets Who Code — free software engineering training for veterans and military spouses",
         ]);
+    });
+
+    it("emits JSON-LD only for articles, built from the page's own description", () => {
+        expect(jsonLd(captureHead(<PageSeo title="Foo" description="Bar" />))).toEqual([]);
+
+        const scripts = jsonLd(
+            captureHead(
+                <PageSeo
+                    title="Foo"
+                    description="Bar"
+                    jsonLdType="article"
+                    article={{
+                        publishedTime: "2026-01-01T00:00:00.000Z",
+                        modifiedTime: "2026-01-01T00:00:00.000Z",
+                        tags: [],
+                    }}
+                />
+            )
+        );
+
+        expect(scripts).toHaveLength(1);
+        expect(JSON.parse(scripts[0]).description).toBe("Bar");
+        expect(scripts[0]).not.toContain("Introductory CS course");
     });
 });
