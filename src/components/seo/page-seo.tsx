@@ -1,10 +1,10 @@
 import siteConfig from "@data/site-config";
 import { useRouter } from "next/router";
-import { ArticleJsonLd, NextSeo, NextSeoProps } from "next-seo";
+import { ArticleJsonLd, FAQPageJsonLd, NextSeo, NextSeoProps } from "next-seo";
 
 interface SeoProps extends NextSeoProps {
     template?: string;
-    jsonLdType?: "article";
+    jsonLdType?: "article" | "faq";
     article?: {
         publishedTime: string;
         modifiedTime: string;
@@ -13,6 +13,8 @@ interface SeoProps extends NextSeoProps {
         tags: string[];
     };
     image?: string;
+    /** Visible FAQ text; must match what the page renders. */
+    faq?: Array<{ question: string; answer: string }>;
 }
 
 /** Absolute canonical for a router path, with query and hash stripped. Shared
@@ -31,6 +33,7 @@ const PageSeo = ({
     article,
     image,
     additionalMetaTags,
+    faq,
 }: SeoProps) => {
     // Built from the router, not window.location in an effect — scrapers don't
     // run JS, so the effect version left og:url empty and every share fell back
@@ -114,6 +117,14 @@ const PageSeo = ({
                             : { name: siteConfig.name, type: "Organization", url: siteConfig.url }
                     }
                     description={description as string}
+                />
+            )}
+            {jsonLdType === "faq" && faq && faq.length > 0 && (
+                <FAQPageJsonLd
+                    mainEntity={faq.map((item) => ({
+                        questionName: item.question,
+                        acceptedAnswerText: item.answer,
+                    }))}
                 />
             )}
         </>
