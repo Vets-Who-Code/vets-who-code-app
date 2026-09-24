@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import AITeachingAssistant from "@/components/ai-assistant/AITeachingAssistant";
 
 const mockFetch = vi.fn();
