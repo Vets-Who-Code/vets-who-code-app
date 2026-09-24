@@ -34,11 +34,15 @@ describe("NewsletterForm", () => {
     });
 
     it("shows the required error and does not call fetch when submitted empty", async () => {
-        const { submit } = renderForm();
+        const { input, submit } = renderForm();
 
         fireEvent.click(submit);
 
         expect(await screen.findByText("Email is required")).toBeInTheDocument();
+        expect(input).toBeInvalid();
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(input).toHaveAccessibleDescription("Email is required");
+        expect(screen.getByRole("alert")).toHaveTextContent("Email is required");
         expect(mockFetch).not.toHaveBeenCalled();
     });
 
@@ -62,6 +66,8 @@ describe("NewsletterForm", () => {
         fireEvent.click(submit);
 
         expect(await screen.findByText("Thank you for subscribing!")).toBeInTheDocument();
+        expect(screen.getByRole("status")).toHaveTextContent("Thank you for subscribing!");
+        expect(input).not.toBeInvalid();
         expect(mockFetch).toHaveBeenCalledTimes(1);
         const [url, options] = mockFetch.mock.calls[0];
         expect(url).toBe("/api/newsletter");
@@ -80,6 +86,7 @@ describe("NewsletterForm", () => {
         fireEvent.click(submit);
 
         expect(await screen.findByText("Already subscribed")).toBeInTheDocument();
+        expect(screen.getByRole("alert")).toHaveTextContent("Already subscribed");
         expect(screen.queryByText("Thank you for subscribing!")).not.toBeInTheDocument();
     });
 
