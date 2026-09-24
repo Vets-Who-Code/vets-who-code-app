@@ -22,7 +22,7 @@ test.describe("Keyboard navigation", () => {
         await expect(page.locator("#main-content")).toBeFocused();
     });
 
-    test("desktop parents open on focus, close on Escape and never open a new tab", async ({
+    test("desktop parents open on focus, toggle on Enter and Space, close on Escape", async ({
         page,
         context,
         isMobile,
@@ -43,10 +43,35 @@ test.describe("Keyboard navigation", () => {
         await expect(about).toBeFocused();
         await expect(aboutUs).toBeHidden();
 
-        // Regression: the old <a href="#!" target="_blank"> opened /#! in a new tab.
+        // Enter reopens and Space closes the disclosure. Regression: the old
+        // <a href="#!" target="_blank"> opened /#! in a new tab.
         await page.keyboard.press("Enter");
+        await expect(about).toHaveAttribute("aria-expanded", "true");
+        await expect(aboutUs).toBeVisible();
         expect(context.pages()).toHaveLength(1);
         expect(page.url()).not.toContain("#!");
+
+        await page.keyboard.press("Space");
+        await expect(about).toHaveAttribute("aria-expanded", "false");
+        await expect(about).toBeFocused();
+    });
+
+    test("Tab straight after Escape never strands focus in the closing submenu", async ({
+        page,
+        isMobile,
+    }) => {
+        test.skip(isMobile, "the desktop menu only renders from the xl breakpoint");
+        await page.goto("/");
+        const nav = page.getByRole("navigation", { name: "Main Menu" });
+        const about = nav.getByRole("button", { name: "About", exact: true });
+
+        await about.focus();
+        await page.keyboard.press("Escape");
+        await page.keyboard.press("Tab");
+        // Outlast the submenu's 400ms visibility transition before checking.
+        await page.waitForTimeout(600);
+        expect(await page.evaluate(() => document.activeElement?.tagName)).not.toBe("BODY");
+        await expect(page.locator(":focus")).toBeVisible();
     });
 
     test("the mobile drawer takes focus, closes on Escape and returns focus", async ({
@@ -116,11 +141,24 @@ test.describe("Keyboard navigation", () => {
 
         await page.keyboard.press("Tab");
         await page.keyboard.press("Tab");
-        await expect(page.getByRole("option", { name: "Happening" })).toBeFocused();
+        const happening = page.getByRole("button", { name: "Happening", exact: true });
+        await expect(happening).toBeFocused();
+        await expect(happening).toHaveAttribute("aria-pressed", "false");
 
+        // Choosing hides the list and pushes ?type=, so focus must come back to the
+        // trigger and survive the route change.
         await page.keyboard.press("Enter");
         await expect(trigger).toHaveAttribute("aria-expanded", "false");
         await expect(trigger).toContainText("Happening");
+        await expect(page).toHaveURL(/type=happening/);
+        await page.waitForTimeout(500);
+        await expect(trigger).toBeFocused();
+
+        await page.keyboard.press("Enter");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Escape");
+        await expect(trigger).toHaveAttribute("aria-expanded", "false");
+        await expect(trigger).toBeFocused();
     });
 
     test("carousel pagination bullets show the focus ring", async ({ page }) => {
