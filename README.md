@@ -231,6 +231,7 @@ __tests__/                 # mirrors src/: api, components, data, lib, pages, pr
 src/**/__tests__/          # co-located: src/hooks, src/lib/interactive-lessons,
                            #             src/lib/lesson-sandbox, src/utils
 tests/                     # Playwright only — excluded from Vitest
+  a11y/*.spec.ts           # axe-core WCAG A/AA scan of public routes (chromium only)
   e2e/*.spec.ts
   security/*.spec.ts
 ```
@@ -329,7 +330,7 @@ Locally, Playwright runs `npm run build && npm run start` before the specs, so t
 
 ### Continuous Integration
 
-Both suites run on every pull request to `master`. [`.github/workflows/vitest.yml`](.github/workflows/vitest.yml) runs `npx vitest run --reporter=verbose`, and [`.github/workflows/playwright.yml`](.github/workflows/playwright.yml) runs a `chromium` + `firefox` matrix.
+Both suites run on every pull request to `master`. [`.github/workflows/vitest.yml`](.github/workflows/vitest.yml) runs `npx vitest run --reporter=verbose`, and [`.github/workflows/playwright.yml`](.github/workflows/playwright.yml) runs a `chromium` + `firefox` matrix. The `tests/a11y` axe scan runs on the `chromium` leg only and skips itself on every other project, so an accessibility violation on a public route fails the `test (chromium)` check with the route, rule id and selector in the log.
 
 ### Resources
 
