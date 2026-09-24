@@ -34,13 +34,16 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     const Layout = Component.Layout || FallbackLayout;
     const { layout } = pageProps;
     const layoutProps = layout || {};
+    // Blur only when the path changes. A query-only push (the /events filter, Load more,
+    // pagination) is an in-page update and must leave focus on the control that made it.
+    const path = router.asPath.split(/[?#]/)[0];
 
     useEffect(() => {
         const activeElement = document.activeElement;
         if (activeElement instanceof HTMLElement) {
             activeElement.blur();
         }
-    }, [router]);
+    }, [path]);
 
     useEffect(() => {
         document.body.className = pageProps.className || "";
