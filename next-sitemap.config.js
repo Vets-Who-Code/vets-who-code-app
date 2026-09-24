@@ -66,6 +66,9 @@ module.exports = {
         } else if (path === "/about-us" || path === "/contact-us" || path.startsWith("/team")) {
             priority = 0.7;
             changefreq = "monthly";
+        } else if (path.startsWith("/projects")) {
+            priority = 0.7;
+            changefreq = "monthly";
         }
 
         return {

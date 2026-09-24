@@ -263,13 +263,13 @@ Every page is a SPA-style composition of:
 4. **CTA banner** — dark with red accent line, newsletter or apply-now style
 5. **Footer** — navy, three-column, with nonprofit transparency seal
 
-Known pages: Home • About • Apply • Courses • Projects (Radix dialogs + Lucide icons for GitHub stats) • Blog • Events • FAQ (motion-animated accordion) • Career Guides • Code of Conduct • Contact • Donate.
+Known pages: Home • About • Apply • Courses • Projects (index + detail pages, Lucide icons for repo stats) • Blog • Events • FAQ (motion-animated accordion) • Career Guides • Code of Conduct • Contact • Donate.
 
 ---
 
 ## 10. Imagery & Iconography
 
-- **Icons:** hybrid — custom SVGs (dynamic import by name) are primary, Lucide for the projects page (GitFork/Eye/Star/X), Radix icons for some modals, FontAwesome Pro for legacy spots
+- **Icons:** hybrid — custom SVGs (dynamic import by name) are primary, Lucide for the projects pages (GitFork/Eye/Star), Radix icons for some modals, FontAwesome Pro for legacy spots
 - **Image treatment:** full-bleed heroes, `object-cover`, dark navy gradient overlay
 - **Cards:** default course thumbnail 370×229, Next/Image optimized, Cloudinary + Shopify CDN whitelisted
 - **No illustrations / no mascot** — photography of cohorts and code is the dominant imagery

@@ -1,15 +1,9 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { VWCContributor, VWCProject, VWCProjectRepo } from "@utils/types";
+import { render, screen } from "@testing-library/react";
+import { GithubRepo, VWCProject } from "@utils/types";
 import type { Mock } from "vitest";
+import { BuiltBy, LinkButtons, ProjectCard, RepoStats, TechStack } from "@/components/projects";
 import { getProjectData } from "@/lib/project";
-import Projects, {
-    LinkButtons,
-    ProjectCard,
-    ProjectDetailModal,
-    RepoStats,
-    TechStack,
-    TopContributors,
-} from "@/pages/projects";
+import Projects from "@/pages/projects";
 
 // Mock dependencies
 vi.mock("@components/seo/page-seo", () => ({
@@ -32,13 +26,8 @@ vi.mock("@components/vwc-grid", () => ({
     ),
 }));
 
-vi.mock("@components/markdown-renderer", () => ({
-    default: ({ content }: { content: string }) => <div data-testid="markdown">{content}</div>,
-}));
-
-// Mock the AnimatePresence component
+// The grid card animates with motion; render it as a plain div.
 vi.mock("motion/react", () => ({
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     motion: {
         div: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
     },
@@ -49,31 +38,32 @@ vi.mock("@/lib/project", () => ({
 }));
 
 // Mock data
-const mockContributor: VWCContributor = {
-    login: "testuser",
-    name: "Test User",
-    avatar_url: "https://example.com/avatar.jpg",
-    html_url: "https://github.com/testuser",
-    contributions: 10,
-};
-
-const mockRepo: VWCProjectRepo = {
+const mockRepo: GithubRepo = {
     html_url: "",
     stargazers_count: 100,
     forks_count: 20,
     open_issues_count: 5,
     subscribers_count: 15,
-    contributors: [mockContributor],
 };
 
 const mockProject: VWCProject = {
     details: {
         index: 0,
+        slug: "test-project",
         name: "Test Project",
         headline: "A test project",
+        summary: "Does one thing.",
+        serves: "Test users",
         owner: "testowner",
         repo: "test-repo",
         technologies: ["React", "TypeScript"],
+        builtBy: [
+            { login: "testuser" },
+            { login: "staffer", profile: "/team/staffer" },
+            { login: "storyteller", story: "/blogs/storyteller" },
+        ],
+        shippedAt: "2020-01-01",
+        status: "live",
         thumbnail: {
             src: "https://example.com/thumbnail.jpg",
             alt: "Test thumbnail",
@@ -112,6 +102,11 @@ describe("LinkButtons Component", () => {
         const liveLink = screen.getByText("Live").closest("a");
         expect(liveLink).toHaveAttribute("href", liveURL);
     });
+
+    it("omits the Live link when live_url is null", () => {
+        render(<LinkButtons github_url="https://github.com/test" live_url={null} />);
+        expect(screen.queryByText("Live")).not.toBeInTheDocument();
+    });
 });
 
 describe("RepoStats Component", () => {
@@ -125,67 +120,43 @@ describe("RepoStats Component", () => {
     });
 });
 
-describe("TopContributors Component", () => {
-    it("renders contributor information", () => {
-        render(<TopContributors contributors={[mockContributor]} />);
+describe("BuiltBy Component", () => {
+    it("links each login to GitHub with a GitHub-hosted avatar", () => {
+        render(<BuiltBy contributors={mockProject.details.builtBy} />);
 
-        expect(screen.getByText("Test User")).toBeInTheDocument();
-        expect(screen.getByText("@testuser")).toBeInTheDocument();
-        expect(screen.getByAltText("Test User")).toHaveAttribute(
+        const link = screen.getByTitle("View testuser's profile");
+        expect(link).toHaveAttribute("href", "https://github.com/testuser");
+        expect(link.querySelector("img")).toHaveAttribute(
             "src",
-            "https://example.com/avatar.jpg"
+            "https://avatars.githubusercontent.com/testuser?s=64"
+        );
+        expect(screen.getByText("@testuser")).toBeInTheDocument();
+    });
+
+    it("prefers an internal profile path when one is set", () => {
+        render(<BuiltBy contributors={mockProject.details.builtBy} />);
+        expect(screen.getByTitle("View staffer's profile")).toHaveAttribute(
+            "href",
+            "/team/staffer"
         );
     });
-});
 
-describe("ProjectDetailModal Component", () => {
-    it("renders project details", () => {
-        render(<ProjectDetailModal project={mockProject} />);
-
-        expect(screen.getByText("Test Project")).toBeInTheDocument();
-        expect(screen.getByText("A test project")).toBeInTheDocument();
-        expect(screen.getByAltText("Test thumbnail")).toBeInTheDocument();
-    });
-
-    it("renders markdown content", () => {
-        render(<ProjectDetailModal project={mockProject} />);
-        expect(screen.getByTestId("markdown")).toHaveTextContent("Test description");
-    });
-
-    it("keeps the hashflag divider badge decorative", () => {
-        const { container } = render(<ProjectDetailModal project={mockProject} />);
-        expect(container.querySelector('img[src*="hashflag-white-vscode"]')).toHaveAttribute(
-            "alt",
-            ""
-        );
+    it("links a transition story when one is set", () => {
+        render(<BuiltBy contributors={mockProject.details.builtBy} />);
+        const stories = screen.getAllByText("Read their story");
+        expect(stories).toHaveLength(1);
+        expect(stories[0].closest("a")).toHaveAttribute("href", "/blogs/storyteller");
     });
 });
 
 describe("ProjectCard Component", () => {
-    it("opens modal on click", async () => {
+    it("links the card to the project's detail page", () => {
         render(<ProjectCard project={mockProject} />);
 
-        // Click the project card to open modal
-        fireEvent.click(screen.getByText("Test Project"));
-
-        // Verify modal content is visible
-        await waitFor(() => {
-            expect(screen.getByText(mockProject.details.technologies[0])).toBeInTheDocument();
-        });
-    });
-
-    it("closes modal when clicking close button", () => {
-        render(<ProjectCard project={mockProject} />);
-
-        // Open the modal
-        fireEvent.click(screen.getByText("Test Project"));
-
-        // Click the close button
-        fireEvent.click(screen.getByTestId("close-button"));
-
-        // Verify modal is closed
-        // Note: We might need to use waitFor here if there are animations
-        expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+        const link = screen.getByTitle("View Test Project");
+        expect(link).toHaveAttribute("href", "/projects/test-project");
+        expect(link).toHaveTextContent("Test Project");
+        expect(link).toHaveTextContent("A test project");
     });
 });
 
@@ -202,11 +173,8 @@ describe("Projects Page", () => {
     it("renders description text", () => {
         render(<Projects projects={[mockProject]} />);
 
-        expect(
-            screen.getByText(/Welcome to the Vets Who Code project showcase/)
-        ).toBeInTheDocument();
-        expect(screen.getByText(/Here, you'll find innovative applications/)).toBeInTheDocument();
-        expect(screen.getByText(/Explore their work and discover/)).toBeInTheDocument();
+        expect(screen.getByText(/ship software to production/)).toBeInTheDocument();
+        expect(screen.getByText(/Each project links to its source on GitHub/)).toBeInTheDocument();
     });
 });
 
