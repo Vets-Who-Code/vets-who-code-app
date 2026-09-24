@@ -49,24 +49,8 @@ const ApplyPage: PageProps = ({ data }) => {
                 <FunfactArea />
             </Wrapper>
 
-            {/* Mission pull-quote + alumni proof before applicants commit */}
-            <div className="dark-section tw-bg-navy tw-mt-20 md:tw-mt-[120px] tw-py-20 md:tw-py-[120px]">
-                <div className="tw-container">
-                    <PullQuote
-                        emphasis="We don't train veterans to fill seats."
-                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
-                    />
-                    <div className="tw-mt-14 md:tw-mt-20">
-                        <AlumniStrip align="center" />
-                    </div>
-                </div>
-            </div>
-
             {/* Decision guides for applicants still comparing programs */}
-            <nav
-                aria-label="Decision guides"
-                className="tw-container tw-relative tw-z-10 tw-mt-20 md:tw-mt-[120px]"
-            >
+            <nav aria-label="Decision guides" className="tw-container tw-mt-20 md:tw-mt-[120px]">
                 <p className="tw-mb-4 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.12em] tw-text-[#495057]">
                     Still deciding? Read the guides.
                 </p>
@@ -83,6 +67,19 @@ const ApplyPage: PageProps = ({ data }) => {
                     ))}
                 </ul>
             </nav>
+
+            {/* Mission pull-quote + alumni proof before applicants commit */}
+            <div className="dark-section tw-bg-navy tw-mt-20 md:tw-mt-[120px] tw-py-20 md:tw-py-[120px]">
+                <div className="tw-container">
+                    <PullQuote
+                        emphasis="We don't train veterans to fill seats."
+                        continuation="We train them to be impactful on their engineering teams at companies that shape the world."
+                    />
+                    <div className="tw-mt-14 md:tw-mt-20">
+                        <AlumniStrip align="center" />
+                    </div>
+                </div>
+            </div>
 
             <Wrapper>
                 <HeroImageArea data={content["hero-image-area"]} />
