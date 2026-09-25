@@ -79,6 +79,7 @@ const JobsPage: PageWithLayout = ({ jobs, categories, jobTypes }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage="Job Board"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-16">

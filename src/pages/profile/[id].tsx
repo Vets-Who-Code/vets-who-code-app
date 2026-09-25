@@ -75,6 +75,7 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage={isOwner ? "Profile" : user.name || "Member"}
                 showTitle={false}
+                hideHeading={true}
             />
 
             {isOwner && form.notification && (

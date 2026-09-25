@@ -78,6 +78,7 @@ const PlacementDetail: PageWithLayout = () => {
                 ]}
                 currentPage={data.company || "Placement"}
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12 tw-max-w-2xl tw-space-y-6">

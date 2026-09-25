@@ -56,6 +56,7 @@ const MosPage: PageWithLayout = () => {
                 pages={[{ path: "/", label: "home" }]}
                 currentPage={`MOS ${code ?? ""}`}
                 showTitle={false}
+                hideHeading={data !== null}
             />
 
             <div className="tw-container tw-py-12 tw-max-w-3xl tw-space-y-6">

@@ -224,6 +224,7 @@ const Assessment: PageWithLayout = () => {
                     ]}
                     currentPage="Assessment Complete"
                     showTitle={false}
+                    hideHeading={true}
                 />
                 <div className="tw-container tw-py-12">
                     <div className="tw-mx-auto tw-max-w-2xl tw-rounded-xl tw-bg-white tw-p-8 tw-text-center tw-shadow-lg">
@@ -311,6 +312,7 @@ const Assessment: PageWithLayout = () => {
                 ]}
                 currentPage="Coding Assessment"
                 showTitle={false}
+                hideHeading={true}
             />
 
             {/* Notification */}

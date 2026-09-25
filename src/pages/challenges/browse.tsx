@@ -147,6 +147,7 @@ const BrowseChallengesPage: PageWithLayout = () => {
                 ]}
                 currentPage="Browse"
                 showTitle={false}
+                hideHeading={true}
             />
 
             <div className="tw-container tw-py-12">
