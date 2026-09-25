@@ -49,6 +49,8 @@ const Input = forwardRef<HTMLInputElement, IProps>(
         const errorClass = state === "error" && "!tw-border-danger";
         const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-primary";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
+        const feedbackId = `${id}-feedback`;
+        const hasFeedback = Boolean(feedbackText && showState);
 
         return (
             <>
@@ -56,6 +58,8 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                     type={type}
                     disabled={disabled}
                     ref={ref}
+                    aria-invalid={state === "error" ? true : undefined}
+                    aria-describedby={hasFeedback ? feedbackId : undefined}
                     className={cn(
                         "form-control",
                         defaultClass,
@@ -82,8 +86,8 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                     max={max}
                     {...restProps}
                 />
-                {feedbackText && showState && (
-                    <Feedback state={state} showErrorOnly={showErrorOnly}>
+                {hasFeedback && (
+                    <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
                         {feedbackText}
                     </Feedback>
                 )}

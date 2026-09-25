@@ -37,9 +37,13 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
         const afterClass =
             "after:tw-absolute after:tw-content[''] after:tw-block after:tw-bg-primary after:tw-w-2 after:tw-h-2 after:tw-top-1/2 after:tw-left-1/2 after:-tw-translate-x-1/2 after:-tw-translate-y-1/2 after:tw-scale-0 after:tw-transition-transform after:tw-duration-300 after:tw-rounded-sm after:z-10";
 
+        const feedbackId = `${id}-feedback`;
+        const hasFeedback = Boolean(feedbackText && showState);
+
         return (
             <div className="custom-checkbox">
                 <label
+                    htmlFor={id}
                     className={cn(
                         "tw-relative tw-block tw-max-w-fit tw-cursor-pointer tw-pl-7 tw-leading-snug",
                         className
@@ -57,6 +61,8 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
                         onBlur={onBlur}
                         value={value}
                         ref={ref}
+                        aria-invalid={state === "error" ? true : undefined}
+                        aria-describedby={hasFeedback ? feedbackId : undefined}
                         className="tw-peer tw-sr-only"
                         {...restProps}
                     />
@@ -71,8 +77,8 @@ const Checkbox = forwardRef<HTMLInputElement, IProps>(
                     />
                     {label}
                 </label>
-                {feedbackText && showState && (
-                    <Feedback state={state} showErrorOnly={showErrorOnly}>
+                {hasFeedback && (
+                    <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
                         {feedbackText}
                     </Feedback>
                 )}

@@ -277,9 +277,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                             })
                             .map((option) => (
                                 <div key={option.id} className="tw-mb-6">
-                                    <label className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
+                                    <span className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
                                         {option.name}
-                                    </label>
+                                    </span>
                                     <div className="tw-flex tw-flex-wrap tw-gap-2">
                                         {option.values.map((value) => (
                                             <button
@@ -303,9 +303,9 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
                         {/* Quantity */}
                         <div className="tw-mb-8">
-                            <label className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
+                            <span className="tw-block tw-font-semibold tw-text-secondary tw-mb-3">
                                 Quantity
-                            </label>
+                            </span>
                             <div className="tw-flex tw-items-center tw-gap-4">
                                 <button
                                     onClick={() => setQuantity(Math.max(1, quantity - 1))}

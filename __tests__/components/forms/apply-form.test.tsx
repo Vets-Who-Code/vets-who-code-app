@@ -155,6 +155,28 @@ describe("ApplyForm", () => {
         expect(screen.getByText("Email is required")).toBeInTheDocument();
         expectStep(1);
         expect(screen.queryByRole("heading", { name: "Location Details" })).not.toBeInTheDocument();
+
+        const firstName = screen.getByLabelText(/first name/i);
+        expect(firstName).toBeInvalid();
+        expect(firstName).toHaveAttribute("aria-invalid", "true");
+        expect(firstName).toHaveAccessibleDescription("First name is required");
+        expect(screen.getAllByRole("alert").map((el) => el.textContent)).toContain(
+            "First name is required"
+        );
+    });
+
+    it("drops the invalid state and description once the field is corrected", async () => {
+        render(<ApplyForm />);
+
+        clickNext();
+        expect(await screen.findByText("First name is required")).toBeInTheDocument();
+
+        fill(/first name/i, VALID.firstName);
+
+        const firstName = screen.getByLabelText(/first name/i);
+        await waitFor(() => expect(firstName).not.toBeInvalid());
+        expect(firstName).not.toHaveAttribute("aria-invalid");
+        expect(firstName).not.toHaveAttribute("aria-describedby");
     });
 
     it("advances to step 2 with valid data and keeps the values when going back", async () => {
@@ -177,7 +199,9 @@ describe("ApplyForm", () => {
 
         expect(screen.queryByLabelText(/list previous courses/i)).not.toBeInTheDocument();
 
-        fireEvent.click(screen.getByLabelText(/previously attended/i));
+        const checkbox = screen.getByLabelText(/previously attended/i);
+        expect(checkbox).toHaveAttribute("id", "hasAttendedPreviousCourse");
+        fireEvent.click(checkbox);
 
         expect(screen.getByLabelText(/list previous courses/i)).toBeInTheDocument();
 
@@ -195,7 +219,9 @@ describe("ApplyForm", () => {
 
         expect(screen.queryByLabelText(/list concurrent courses/i)).not.toBeInTheDocument();
 
-        fireEvent.click(screen.getByLabelText(/attending any other courses/i));
+        const checkbox = screen.getByLabelText(/attending any other courses/i);
+        expect(checkbox).toHaveAttribute("id", "willAttendAnotherCourse");
+        fireEvent.click(checkbox);
 
         expect(screen.getByLabelText(/list concurrent courses/i)).toBeInTheDocument();
 
@@ -294,6 +320,7 @@ describe("ApplyForm", () => {
         await submitValidApplication();
 
         expect(await screen.findByText(FAILURE_MESSAGE)).toBeInTheDocument();
+        expect(screen.getByRole("alert")).toHaveTextContent(FAILURE_MESSAGE);
         expect(screen.queryByTestId("emoji-rain")).not.toBeInTheDocument();
         expect(screen.queryByText(SUCCESS_MESSAGE)).not.toBeInTheDocument();
         expect(

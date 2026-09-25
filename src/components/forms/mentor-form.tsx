@@ -31,6 +31,7 @@ type IFormValues = IMentorFormValues | IMenteeFormValues;
 
 const MentorMenteeForm = () => {
     const [message, setMessage] = useState("");
+    const [submitFailed, setSubmitFailed] = useState(false);
     const [showEmojiRain, setShowEmojiRain] = useState<boolean>(false);
     const [role, setRole] = useState<"mentor" | "mentee">("mentor");
 
@@ -54,6 +55,7 @@ const MentorMenteeForm = () => {
             await axios.post(endpoint, submissionData);
 
             setMessage(`Thank you for registering as a ${role}!`);
+            setSubmitFailed(false);
             setShowEmojiRain(true);
 
             setTimeout(() => setShowEmojiRain(false), 5000);
@@ -61,6 +63,7 @@ const MentorMenteeForm = () => {
             reset();
         } catch (_error) {
             setMessage("Failed to submit the form. Please try again later.");
+            setSubmitFailed(true);
         }
     };
 
@@ -306,7 +309,9 @@ const MentorMenteeForm = () => {
                 >
                     Register as {role === "mentor" ? "Mentor" : "Mentee"}
                 </Button>
-                {message && <Feedback state="success">{message}</Feedback>}
+                {message && (
+                    <Feedback state={submitFailed ? "error" : "success"}>{message}</Feedback>
+                )}
                 {showEmojiRain && <EmojiRain />}
             </form>
         </div>

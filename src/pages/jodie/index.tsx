@@ -363,6 +363,7 @@ const JodiePage: PageWithLayout = () => {
                                     type="text"
                                     value={input}
                                     onChange={(e) => setInput(e.target.value)}
+                                    aria-label="Ask J0d!e"
                                     placeholder={`Ask about ${currentMod?.title || "the curriculum"}...`}
                                     disabled={isLoading}
                                     className="tw-flex-1 tw-border tw-border-navy/10 tw-rounded-lg tw-px-4 tw-py-2 focus:tw-outline-none focus:tw-border-primary disabled:tw-bg-navy/5"
@@ -431,6 +432,7 @@ const JodiePage: PageWithLayout = () => {
                             <textarea
                                 value={codeInput}
                                 onChange={(e) => setCodeInput(e.target.value)}
+                                aria-label="Code or prompt"
                                 rows={12}
                                 className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary focus:tw-outline-none tw-mb-4"
                                 placeholder={

@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import MockInterview from "@/components/jobs/MockInterview";
 
 const mockFetch = vi.fn();
@@ -26,13 +26,14 @@ describe("MockInterview", () => {
     it("starts interview and shows first question", async () => {
         mockFetch.mockResolvedValue({
             ok: true,
-            json: () => Promise.resolve({
-                session_id: "int-123",
-                question: "Tell me about React.",
-                question_number: 1,
-                total_questions: 5,
-                interview_type: "mixed",
-            }),
+            json: () =>
+                Promise.resolve({
+                    session_id: "int-123",
+                    question: "Tell me about React.",
+                    question_number: 1,
+                    total_questions: 5,
+                    interview_type: "mixed",
+                }),
         });
 
         render(<MockInterview />);
@@ -59,13 +60,14 @@ describe("MockInterview", () => {
         // Start interview
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                session_id: "int-123",
-                question: "Question 1?",
-                question_number: 1,
-                total_questions: 3,
-                interview_type: "mixed",
-            }),
+            json: () =>
+                Promise.resolve({
+                    session_id: "int-123",
+                    question: "Question 1?",
+                    question_number: 1,
+                    total_questions: 3,
+                    interview_type: "mixed",
+                }),
         });
 
         render(<MockInterview />);
@@ -82,14 +84,18 @@ describe("MockInterview", () => {
         // Submit answer
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                feedback: "Good answer!",
-                score: 7,
-                next_question: "Question 2?",
-                session_complete: false,
-            }),
+            json: () =>
+                Promise.resolve({
+                    feedback: "Good answer!",
+                    score: 7,
+                    next_question: "Question 2?",
+                    session_complete: false,
+                }),
         });
 
+        expect(screen.getByLabelText("Your answer")).toBe(
+            screen.getByPlaceholderText("Type your answer...")
+        );
         fireEvent.change(screen.getByPlaceholderText("Type your answer..."), {
             target: { value: "My answer about React" },
         });
@@ -100,22 +106,26 @@ describe("MockInterview", () => {
             expect(screen.getByText("Good answer!")).toBeInTheDocument();
         });
 
-        expect(mockFetch).toHaveBeenCalledWith("/api/j0di3/jobs/interview/int-123/answer", expect.objectContaining({
-            method: "POST",
-        }));
+        expect(mockFetch).toHaveBeenCalledWith(
+            "/api/j0di3/jobs/interview/int-123/answer",
+            expect.objectContaining({
+                method: "POST",
+            })
+        );
     });
 
     it("shows complete state when interview is done", async () => {
         // Start
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                session_id: "int-123",
-                question: "Q1?",
-                question_number: 1,
-                total_questions: 1,
-                interview_type: "mixed",
-            }),
+            json: () =>
+                Promise.resolve({
+                    session_id: "int-123",
+                    question: "Q1?",
+                    question_number: 1,
+                    total_questions: 1,
+                    interview_type: "mixed",
+                }),
         });
 
         render(<MockInterview />);
@@ -130,11 +140,12 @@ describe("MockInterview", () => {
         // Submit final answer → complete
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                feedback: "Done",
-                score: 8,
-                session_complete: true,
-            }),
+            json: () =>
+                Promise.resolve({
+                    feedback: "Done",
+                    score: 8,
+                    session_complete: true,
+                }),
         });
 
         fireEvent.change(screen.getByPlaceholderText("Type your answer..."), {
@@ -169,13 +180,14 @@ describe("MockInterview", () => {
         // Start
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                session_id: "int-1",
-                question: "Q?",
-                question_number: 1,
-                total_questions: 1,
-                interview_type: "mixed",
-            }),
+            json: () =>
+                Promise.resolve({
+                    session_id: "int-1",
+                    question: "Q?",
+                    question_number: 1,
+                    total_questions: 1,
+                    interview_type: "mixed",
+                }),
         });
 
         render(<MockInterview />);
@@ -190,11 +202,12 @@ describe("MockInterview", () => {
         // Submit final answer → complete
         mockFetch.mockResolvedValueOnce({
             ok: true,
-            json: () => Promise.resolve({
-                feedback: "Done",
-                score: 6,
-                session_complete: true,
-            }),
+            json: () =>
+                Promise.resolve({
+                    feedback: "Done",
+                    score: 6,
+                    session_complete: true,
+                }),
         });
 
         fireEvent.change(screen.getByPlaceholderText("Type your answer..."), {

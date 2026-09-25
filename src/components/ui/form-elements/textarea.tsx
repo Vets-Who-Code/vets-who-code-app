@@ -47,12 +47,16 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
         const focusBorderClass =
             customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
         const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
+        const feedbackId = `${id}-feedback`;
+        const hasFeedback = Boolean(feedbackText && showState);
 
         return (
             <>
                 <textarea
                     disabled={disabled}
                     ref={ref}
+                    aria-invalid={state === "error" ? true : undefined}
+                    aria-describedby={hasFeedback ? feedbackId : undefined}
                     className={cn(
                         "form-control",
                         defaultClass,
@@ -77,8 +81,8 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
                     readOnly={readonly}
                     {...restProps}
                 />
-                {feedbackText && showState && (
-                    <Feedback state={state} showErrorOnly={showErrorOnly}>
+                {hasFeedback && (
+                    <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
                         {feedbackText}
                     </Feedback>
                 )}

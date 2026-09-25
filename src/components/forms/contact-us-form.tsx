@@ -137,12 +137,16 @@ const ContactUsForm = ({ heading }: TProps) => {
                             type="text"
                             placeholder="Your Name *"
                             className={FIELD}
+                            aria-invalid={hasKey(errors, "name") || undefined}
+                            aria-describedby={hasKey(errors, "name") ? "name-feedback" : undefined}
                             {...register("name", {
                                 validate: (value) => check(validateRequired(value, "Name")),
                             })}
                         />
                         {hasKey(errors, "name") && (
-                            <Feedback state={fieldState("name")}>{errors.name?.message}</Feedback>
+                            <Feedback id="name-feedback" state={fieldState("name")}>
+                                {errors.name?.message}
+                            </Feedback>
                         )}
                     </div>
 
@@ -155,12 +159,18 @@ const ContactUsForm = ({ heading }: TProps) => {
                             type="email"
                             placeholder="Your Email *"
                             className={FIELD}
+                            aria-invalid={hasKey(errors, "email") || undefined}
+                            aria-describedby={
+                                hasKey(errors, "email") ? "email-feedback" : undefined
+                            }
                             {...register("email", {
                                 validate: (value) => check(validateEmail(value)),
                             })}
                         />
                         {hasKey(errors, "email") && (
-                            <Feedback state={fieldState("email")}>{errors.email?.message}</Feedback>
+                            <Feedback id="email-feedback" state={fieldState("email")}>
+                                {errors.email?.message}
+                            </Feedback>
                         )}
                     </div>
 
@@ -173,13 +183,19 @@ const ContactUsForm = ({ heading }: TProps) => {
                             type="tel"
                             placeholder="Your Phone"
                             className={FIELD}
+                            aria-invalid={hasKey(errors, "phone") || undefined}
+                            aria-describedby={
+                                hasKey(errors, "phone") ? "phone-feedback" : undefined
+                            }
                             {...register("phone", {
                                 // Optional on this page, so only validate what was typed.
                                 validate: (value) => (value ? check(validatePhone(value)) : true),
                             })}
                         />
                         {hasKey(errors, "phone") && (
-                            <Feedback state={fieldState("phone")}>{errors.phone?.message}</Feedback>
+                            <Feedback id="phone-feedback" state={fieldState("phone")}>
+                                {errors.phone?.message}
+                            </Feedback>
                         )}
                     </div>
 
@@ -192,12 +208,16 @@ const ContactUsForm = ({ heading }: TProps) => {
                             type="text"
                             placeholder="Subject *"
                             className={FIELD}
+                            aria-invalid={hasKey(errors, "subject") || undefined}
+                            aria-describedby={
+                                hasKey(errors, "subject") ? "subject-feedback" : undefined
+                            }
                             {...register("subject", {
                                 validate: (value) => check(validateRequired(value, "Subject")),
                             })}
                         />
                         {hasKey(errors, "subject") && (
-                            <Feedback state={fieldState("subject")}>
+                            <Feedback id="subject-feedback" state={fieldState("subject")}>
                                 {errors.subject?.message}
                             </Feedback>
                         )}
@@ -212,6 +232,8 @@ const ContactUsForm = ({ heading }: TProps) => {
                         id="reason"
                         className={FIELD}
                         defaultValue=""
+                        aria-invalid={hasKey(errors, "reason") || undefined}
+                        aria-describedby={hasKey(errors, "reason") ? "reason-feedback" : undefined}
                         {...register("reason", {
                             validate: (value) => check(validateRequired(value, "Reason")),
                         })}
@@ -224,7 +246,9 @@ const ContactUsForm = ({ heading }: TProps) => {
                         ))}
                     </select>
                     {hasKey(errors, "reason") && (
-                        <Feedback state={fieldState("reason")}>{errors.reason?.message}</Feedback>
+                        <Feedback id="reason-feedback" state={fieldState("reason")}>
+                            {errors.reason?.message}
+                        </Feedback>
                     )}
                 </div>
 
@@ -237,12 +261,18 @@ const ContactUsForm = ({ heading }: TProps) => {
                         rows={6}
                         placeholder="Message"
                         className={clsx(FIELD, "tw-resize-y tw-leading-[1.6]")}
+                        aria-invalid={hasKey(errors, "message") || undefined}
+                        aria-describedby={
+                            hasKey(errors, "message") ? "message-feedback" : undefined
+                        }
                         {...register("message", {
                             validate: (value) => check(validateRequired(value, "Message")),
                         })}
                     />
                     {hasKey(errors, "message") && (
-                        <Feedback state={fieldState("message")}>{errors.message?.message}</Feedback>
+                        <Feedback id="message-feedback" state={fieldState("message")}>
+                            {errors.message?.message}
+                        </Feedback>
                     )}
                 </div>
 
@@ -254,7 +284,9 @@ const ContactUsForm = ({ heading }: TProps) => {
                 </div>
 
                 {serverMessage && (
-                    <p className="tw-m-0 tw-font-body tw-text-base tw-text-navy">{serverMessage}</p>
+                    <p role="status" className="tw-m-0 tw-font-body tw-text-base tw-text-navy">
+                        {serverMessage}
+                    </p>
                 )}
             </form>
         </div>
