@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import type { Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { ElementType, useEffect } from "react";
+import { ElementType, useEffect, useRef } from "react";
 import ErrorBoundary from "@/components/error-boundary";
 import SEO from "@/components/seo/deafult-seo";
 import FallbackLayout from "@/layouts/fallback";
@@ -37,8 +37,13 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
     // Blur only when the path changes. A query-only push (the /events filter, Load more,
     // pagination) is an in-page update and must leave focus on the control that made it.
     const path = router.asPath.split(/[?#]/)[0];
+    // Compare with the last path rather than blurring on mount: the first run lands just after
+    // hydration and would drop focus a keyboard user already moved while the page loaded.
+    const lastPath = useRef(path);
 
     useEffect(() => {
+        if (lastPath.current === path) return;
+        lastPath.current = path;
         const activeElement = document.activeElement;
         if (activeElement instanceof HTMLElement) {
             activeElement.blur();
