@@ -22,7 +22,7 @@ const Video02 = forwardRef<HTMLDivElement, TProps>(({ poster, video, className }
                 <img
                     className="tw-w-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
                     src={poster.src}
-                    alt={poster?.alt || "video poster"}
+                    alt={poster?.alt || ""}
                     width={poster?.width || 1170}
                     height={poster?.height || 620}
                     loading={poster?.loading || "lazy"}

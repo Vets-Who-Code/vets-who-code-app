@@ -12,14 +12,14 @@ const Logo = ({ variant = "dark", className }: TProps) => {
             {variant === "dark" ? (
                 <img
                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489505/VWC_Logo_Horizontal_gsxn3h.png"
-                    alt="Logo"
+                    alt="Vets Who Code"
                     width={158}
                     height={26}
                 />
             ) : (
                 <img
                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto/v1627489505/VWC_Logo_Horizontal_gsxn3h.png"
-                    alt="Logo"
+                    alt="Vets Who Code"
                     width={158}
                     height={26}
                 />

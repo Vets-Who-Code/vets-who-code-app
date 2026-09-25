@@ -50,7 +50,7 @@ const VideoArea = ({ data: { images, video }, space, bg }: TProps) => {
                 >
                     <img
                         src="/images/shape-animation/medal.svg"
-                        alt="shape"
+                        alt=""
                         loading="lazy"
                         width={178}
                         height={178}
@@ -65,7 +65,7 @@ const VideoArea = ({ data: { images, video }, space, bg }: TProps) => {
                 >
                     <img
                         src="/images/shape-animation/dog-tag.svg"
-                        alt="shape"
+                        alt=""
                         loading="lazy"
                         width={178}
                         height={178}

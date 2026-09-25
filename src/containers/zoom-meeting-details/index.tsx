@@ -5,6 +5,7 @@ import { IZoomMeeting } from "@utils/types";
 
 type TProps = Pick<
     IZoomMeeting,
+    | "title"
     | "host"
     | "start_date"
     | "date"
@@ -18,6 +19,7 @@ type TProps = Pick<
 >;
 
 const ZoomMeetingDetails = ({
+    title,
     host,
     start_date,
     date,
@@ -38,7 +40,7 @@ const ZoomMeetingDetails = ({
                             <figure className="tw-mb-7.5 tw-h-[400px]">
                                 <img
                                     src={thumbnail.src}
-                                    alt={thumbnail?.alt || "zoom meeting"}
+                                    alt={thumbnail?.alt || title}
                                     width="770"
                                     className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                                 />

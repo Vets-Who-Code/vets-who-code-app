@@ -26,7 +26,7 @@ const VideoButton = ({ label, className, videoId }: TProps) => {
                 <img
                     className="icon tw-w-16 md:tw-w-auto"
                     src="/images/icons/icon-youtube-play.png"
-                    alt="youtube play"
+                    alt=""
                     loading="lazy"
                     width={100}
                     height={70}

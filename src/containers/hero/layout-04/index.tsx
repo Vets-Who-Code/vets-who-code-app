@@ -37,7 +37,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                     <div className="tw-absolute tw-inset-0 -tw-z-10">
                         <img
                             src={images[0].src}
-                            alt={images[0]?.alt || "bg"}
+                            alt={images[0]?.alt || ""}
                             loading="eager"
                             className="tw-h-full tw-w-full tw-object-cover"
                         />

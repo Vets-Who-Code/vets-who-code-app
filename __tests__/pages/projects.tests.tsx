@@ -151,6 +151,14 @@ describe("ProjectDetailModal Component", () => {
         render(<ProjectDetailModal project={mockProject} />);
         expect(screen.getByTestId("markdown")).toHaveTextContent("Test description");
     });
+
+    it("keeps the hashflag divider badge decorative", () => {
+        const { container } = render(<ProjectDetailModal project={mockProject} />);
+        expect(container.querySelector('img[src*="hashflag-white-vscode"]')).toHaveAttribute(
+            "alt",
+            ""
+        );
+    });
 });
 
 describe("ProjectCard Component", () => {

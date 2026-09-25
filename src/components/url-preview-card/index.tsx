@@ -143,7 +143,7 @@ export default function URLPreviewCard({ url, className = "" }: URLPreviewCardPr
             <div className="tw-relative tw-h-48 tw-bg-gray-100 tw-overflow-hidden">
                 <Image
                     src={displayImage}
-                    alt={metadata.title || "Preview image"}
+                    alt={metadata.title || ""}
                     fill={true}
                     className="tw-object-cover group-hover:tw-scale-105 tw-transition-transform tw-duration-300"
                     unoptimized={true}

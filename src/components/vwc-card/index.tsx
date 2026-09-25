@@ -32,7 +32,7 @@ export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
                         <img
                             className="tw-w-full tw-rounded-t"
                             src={thumbnail.src}
-                            alt={thumbnail?.alt || "Course"}
+                            alt={thumbnail?.alt || title}
                             width={thumbnail?.width || 370}
                             height={thumbnail?.height || 229}
                             loading={thumbnail?.loading || "lazy"}

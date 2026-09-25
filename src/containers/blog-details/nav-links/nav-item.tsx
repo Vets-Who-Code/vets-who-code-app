@@ -18,13 +18,7 @@ const NavItem = ({ title, path, image, variant }: TProps) => {
         >
             {image?.src && (
                 <div className="tw-absolute tw-inset-0 -tw-z-1 tw-rounded tw-opacity-0 tw-transition-opacity tw-duration-300 before:tw-absolute before:tw-inset-0 before:tw-rounded before:tw-bg-bodyGradient before:tw-opacity-50 before:tw-content-[''] group-hover:tw-opacity-100">
-                    <img
-                        src={image.src}
-                        alt={
-                            image?.alt || variant === "prev" ? "Prev Navigation" : "Next Navigation"
-                        }
-                        className="tw-h-full tw-w-full tw-object-cover"
-                    />
+                    <img src={image.src} alt="" className="tw-h-full tw-w-full tw-object-cover" />
                 </div>
             )}
 
