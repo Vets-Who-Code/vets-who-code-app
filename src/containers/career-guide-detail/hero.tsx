@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { Fragment } from "react";
+import { facetHref } from "@/lib/career-guide-facets";
 import { BRANCH_META } from "./branch-meta";
 import type { CareerGuideDetail } from "./types";
 
@@ -94,13 +96,29 @@ const Hero = ({ detail }: Props) => {
         <section id="sec-overview" className="tw-bg-secondary tw-pt-16 md:tw-pt-20">
             <div className="tw-container">
                 {/* Breadcrumb */}
-                <div className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]">
-                    <span>Home</span>
+                <nav
+                    aria-label="Breadcrumb"
+                    className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-[#DEE2E6]"
+                >
+                    <Link href="/" className="hover:tw-text-cream">
+                        Home
+                    </Link>
                     <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
-                    <span>Career Guides</span>
+                    <Link href="/career-guides" className="hover:tw-text-cream">
+                        Career Guides
+                    </Link>
                     <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
-                    <span className="tw-text-cream">{detail.code}</span>
-                </div>
+                    <Link
+                        href={facetHref({ kind: "branch", value: detail.branch }, 1)}
+                        className="hover:tw-text-cream"
+                    >
+                        {detail.branch}
+                    </Link>
+                    <span className="tw-mx-2 tw-text-[#B9D6F2]/70">/</span>
+                    <span aria-current="page" className="tw-text-cream">
+                        {detail.code}
+                    </span>
+                </nav>
 
                 {/* Eyebrow row */}
                 <div className="tw-mt-10 tw-flex tw-flex-wrap tw-items-center tw-gap-3">

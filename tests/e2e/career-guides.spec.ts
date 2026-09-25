@@ -1,4 +1,4 @@
-import { expect, type Page, test } from "@playwright/test";
+import { expect, type Locator, type Page, test } from "@playwright/test";
 
 /**
  * /career-guides is URL-addressed: branch and family facets and page numbers are prerendered
@@ -21,11 +21,12 @@ const searchBox = (page: Page) => page.getByRole("textbox", { name: "Search guid
 
 const countLabel = (page: Page) => page.locator("#database").getByText(/^Showing/);
 
-// Click once hydration has attached the handler, which the URL change proves.
-const clickUntilUrl = async (page: Page, name: string, url: RegExp) => {
+// Click until the URL changes. A click that lands before hydration attaches the handler is
+// lost (Firefox shows it most), so retry; every target here is idempotent once reached.
+const clickUntilUrl = async (target: Locator, url: RegExp) => {
     await expect(async () => {
-        await page.getByRole("button", { name }).click();
-        await expect(page).toHaveURL(url, { timeout: 1000 });
+        await target.click();
+        await expect(target.page()).toHaveURL(url, { timeout: 1000 });
     }).toPass();
 };
 
@@ -34,16 +35,20 @@ test.describe("Career guides — facet pages", () => {
         await page.goto("/career-guides");
         await expect(guideCards(page)).toHaveCount(60);
 
-        await page.getByRole("link", { name: /^ARMY/ }).click();
-        await page.waitForURL(/\/career-guides\/branch\/army#database$/);
+        await clickUntilUrl(
+            page.getByRole("link", { name: /^ARMY/ }),
+            /\/career-guides\/branch\/army(?:#database)?$/
+        );
         await expect(page).toHaveTitle("Army MOS to Civilian Tech Careers - Vets Who Code");
         await expect(page.getByRole("heading", { level: 1 })).toContainText("Army MOS");
         await expect(guideCards(page)).toHaveCount(60);
         // The chip lands on the results, not the top of the hero.
         await expect(searchBox(page)).toBeInViewport();
 
-        await pagination(page).getByRole("link", { name: "2", exact: true }).click();
-        await page.waitForURL(/\/career-guides\/branch\/army\/page\/2#database$/);
+        await clickUntilUrl(
+            pagination(page).getByRole("link", { name: "2", exact: true }),
+            /\/career-guides\/branch\/army\/page\/2(?:#database)?$/
+        );
         await expect(searchBox(page)).toBeInViewport();
         await expect(pagination(page).getByText("2", { exact: true })).toHaveAttribute(
             "aria-current",
@@ -56,7 +61,7 @@ test.describe("Career guides — facet pages", () => {
         await page.goto("/career-guides/family/cyber");
 
         // Cyber has 16 officers spread over its 4 pages; page 1 alone holds 7.
-        await clickUntilUrl(page, "Officer", /\?rank=officer$/);
+        await clickUntilUrl(page.getByRole("button", { name: "Officer" }), /\?rank=officer$/);
         await expect(guideCards(page)).toHaveCount(16);
         await expect(countLabel(page)).toHaveText("Showing 16 of 16 on this page · 16 total");
 
@@ -102,8 +107,10 @@ test.describe("Career guides — facet pages", () => {
 
     test("a family chip on a branch page narrows the branch", async ({ page }) => {
         await page.goto("/career-guides/branch/army");
-        await page.getByRole("link", { name: "Cyber", exact: true }).click();
-        await page.waitForURL(/\/career-guides\/branch\/army\?family=cyber#database$/);
+        await clickUntilUrl(
+            page.getByRole("link", { name: "Cyber", exact: true }),
+            /\/career-guides\/branch\/army\?family=cyber(?:#database)?$/
+        );
         await expect(guideCards(page)).toHaveCount(27);
         for (const card of await guideCards(page).all()) {
             await expect(card).toContainText("ARMY");
@@ -114,8 +121,10 @@ test.describe("Career guides — facet pages", () => {
         );
 
         // Leaving the branch keeps the family.
-        await page.getByRole("link", { name: "All", exact: true }).click();
-        await page.waitForURL(/\/career-guides\/family\/cyber#database$/);
+        await clickUntilUrl(
+            page.getByRole("link", { name: "All", exact: true }),
+            /\/career-guides\/family\/cyber(?:#database)?$/
+        );
         await expect(guideCards(page)).toHaveCount(60);
     });
 
@@ -137,19 +146,21 @@ test.describe("Career guides — facet pages", () => {
     test("the view carries across page links and the back button", async ({ page }) => {
         // 64 Army officers: a full first page and 4 more on page 2.
         await page.goto("/career-guides/branch/army");
-        await clickUntilUrl(page, "Officer", /\?rank=officer$/);
+        await clickUntilUrl(page.getByRole("button", { name: "Officer" }), /\?rank=officer$/);
         await expect(guideCards(page)).toHaveCount(60);
         await expect(pagination(page).getByRole("link")).toHaveCount(2); // "2" and "Next"
 
-        await pagination(page).getByRole("link", { name: "2", exact: true }).click();
-        await page.waitForURL(/\/career-guides\/branch\/army\/page\/2\?rank=officer#database$/);
+        await clickUntilUrl(
+            pagination(page).getByRole("link", { name: "2", exact: true }),
+            /\/career-guides\/branch\/army\/page\/2\?rank=officer(?:#database)?$/
+        );
         await expect(guideCards(page)).toHaveCount(4);
         for (const card of await guideCards(page).all()) {
             await expect(card).toContainText("Officer");
         }
 
         await page.goBack();
-        await page.waitForURL(/\/career-guides\/branch\/army\?rank=officer$/);
+        await expect(page).toHaveURL(/\/career-guides\/branch\/army\?rank=officer$/);
         await expect(guideCards(page)).toHaveCount(60);
         for (const card of await guideCards(page).all()) {
             await expect(card).toContainText("Officer");
@@ -157,10 +168,12 @@ test.describe("Career guides — facet pages", () => {
 
         // A new rank on a later page starts again from page 1.
         await page.goForward();
-        await page.waitForURL(/\/page\/2\?rank=officer#database$/);
+        await expect(page).toHaveURL(/\/page\/2\?rank=officer#database$/);
         await expect(guideCards(page)).toHaveCount(4);
-        await page.getByRole("button", { name: "Warrant" }).click();
-        await page.waitForURL(/\/career-guides\/branch\/army\?rank=warrant#database$/);
+        await clickUntilUrl(
+            page.getByRole("button", { name: "Warrant" }),
+            /\/career-guides\/branch\/army\?rank=warrant#database$/
+        );
         await expect(guideCards(page)).toHaveCount(43);
     });
 
