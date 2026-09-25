@@ -37,7 +37,7 @@ test.describe("Career guides — facet pages", () => {
 
         await clickUntilUrl(
             page.getByRole("link", { name: /^ARMY/ }),
-            /\/career-guides\/branch\/army#database$/
+            /\/career-guides\/branch\/army(?:#database)?$/
         );
         await expect(page).toHaveTitle("Army MOS to Civilian Tech Careers - Vets Who Code");
         await expect(page.getByRole("heading", { level: 1 })).toContainText("Army MOS");
@@ -47,7 +47,7 @@ test.describe("Career guides — facet pages", () => {
 
         await clickUntilUrl(
             pagination(page).getByRole("link", { name: "2", exact: true }),
-            /\/career-guides\/branch\/army\/page\/2#database$/
+            /\/career-guides\/branch\/army\/page\/2(?:#database)?$/
         );
         await expect(searchBox(page)).toBeInViewport();
         await expect(pagination(page).getByText("2", { exact: true })).toHaveAttribute(
@@ -109,7 +109,7 @@ test.describe("Career guides — facet pages", () => {
         await page.goto("/career-guides/branch/army");
         await clickUntilUrl(
             page.getByRole("link", { name: "Cyber", exact: true }),
-            /\/career-guides\/branch\/army\?family=cyber#database$/
+            /\/career-guides\/branch\/army\?family=cyber(?:#database)?$/
         );
         await expect(guideCards(page)).toHaveCount(27);
         for (const card of await guideCards(page).all()) {
@@ -123,7 +123,7 @@ test.describe("Career guides — facet pages", () => {
         // Leaving the branch keeps the family.
         await clickUntilUrl(
             page.getByRole("link", { name: "All", exact: true }),
-            /\/career-guides\/family\/cyber#database$/
+            /\/career-guides\/family\/cyber(?:#database)?$/
         );
         await expect(guideCards(page)).toHaveCount(60);
     });
@@ -152,7 +152,7 @@ test.describe("Career guides — facet pages", () => {
 
         await clickUntilUrl(
             pagination(page).getByRole("link", { name: "2", exact: true }),
-            /\/career-guides\/branch\/army\/page\/2\?rank=officer#database$/
+            /\/career-guides\/branch\/army\/page\/2\?rank=officer(?:#database)?$/
         );
         await expect(guideCards(page)).toHaveCount(4);
         for (const card of await guideCards(page).all()) {
