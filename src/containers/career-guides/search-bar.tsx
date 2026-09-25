@@ -93,8 +93,8 @@ const SearchBar = ({ guides, query, onQuery, onPick }: Props) => {
                     onFocus={() => setFocused(true)}
                     onBlur={() => setTimeout(() => setFocused(false), 150)}
                     onKeyDown={onKey}
-                    placeholder={'try "cyber", "11B", "intel", "pilot"…'}
-                    aria-label="Search career guides"
+                    placeholder="Search this page by code, title, or civilian role…"
+                    aria-label="Search guides on this page"
                     className="tw-flex-1 tw-bg-transparent tw-font-body tw-text-[19px] tw-text-cream tw-outline-none placeholder:tw-text-cream/60"
                 />
                 <span className="tw-flex tw-items-center tw-gap-2 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-cream/70">

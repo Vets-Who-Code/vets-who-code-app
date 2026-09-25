@@ -116,7 +116,8 @@ and the largest one is app source rather than a dependency: `src/lib/curriculum-
 This is tooling. The fixes it points at are owned by open issues:
 
 - #1270 — marketing and blog route weight, including the 196 kB curriculum-graph chunk above
-- #1271 — the `/career-guides` 1.22 MB page-data payload
+- #1271 — the `/career-guides` 1.22 MB page-data payload. Resolved: the index now ships 15.5 kB
+  of page data and the largest facet page 21.8 kB, with no page-data warning
 - #1273 — unused dependencies and unreferenced images
 
 **Bundle size budgets are deliberately not set yet.** A `size-limit` CI gate is deferred until

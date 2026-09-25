@@ -1,19 +1,26 @@
 import clsx from "clsx";
-import { FAMILIES } from "@/lib/career-guides";
+import Link from "next/link";
+import { FAMILIES, type FamilyStat } from "@/lib/career-guide-facets";
 import { BRANCH_META, BRANCH_ORDER } from "./branch-meta";
 import type { Branch, Family, Rank, SortKey } from "./types";
 
 interface Props {
+    branch?: Branch;
+    family?: Family;
+    /** Listing URL for a branch and/or family, keeping the current rank, sort and search */
+    hrefFor: (branch?: Branch, family?: Family) => string;
     branchCounts: Record<Branch, number>;
-    branch: "all" | Branch;
-    onBranch: (v: "all" | Branch) => void;
+    familyStats: Record<Family, FamilyStat>;
     rank: "all" | Rank;
     onRank: (v: "all" | Rank) => void;
-    family: "all" | Family;
-    onFamily: (v: "all" | Family) => void;
     sort: SortKey;
     onSort: (v: SortKey) => void;
+    /** The rest of the facet is still loading for rank, sort or a branch + family pair */
+    loading?: boolean;
     showing: number;
+    /** Guides on this page; search works within these */
+    pageRows: number;
+    /** Guides matching the branch, family and rank, across all pages */
     total: number;
 }
 
@@ -35,17 +42,25 @@ const SORT_OPTS: Array<{ key: SortKey; label: string }> = [
 const RAINBOW =
     "linear-gradient(90deg, #6b8050 0%, #6b8050 20%, #5b87c4 20%, #5b87c4 40%, #8eb4d8 40%, #8eb4d8 60%, #d9514a 60%, #d9514a 80%, #e89149 80%, #e89149 100%)";
 
+const CHIP =
+    "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors";
+const CHIP_ACTIVE = "tw-border-accent tw-bg-accent tw-text-secondary";
+const CHIP_IDLE =
+    "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream";
+
 const Filters = ({
-    branchCounts,
     branch,
-    onBranch,
+    family,
+    hrefFor,
+    branchCounts,
+    familyStats,
     rank,
     onRank,
-    family,
-    onFamily,
     sort,
     onSort,
+    loading,
     showing,
+    pageRows,
     total,
 }: Props) => {
     const allCount = BRANCH_ORDER.reduce((sum, b) => sum + branchCounts[b], 0);
@@ -54,15 +69,11 @@ const Filters = ({
         <div className="tw-flex tw-flex-col tw-gap-6">
             {/* Branch chips */}
             <div className="tw-flex tw-flex-wrap tw-gap-2">
-                <button
-                    type="button"
-                    onClick={() => onBranch("all")}
-                    className={clsx(
-                        "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
-                        branch === "all"
-                            ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                            : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
-                    )}
+                <Link
+                    href={hrefFor(undefined, family)}
+                    prefetch={false}
+                    aria-current={branch ? undefined : "true"}
+                    className={clsx(CHIP, branch ? CHIP_IDLE : CHIP_ACTIVE)}
                 >
                     <span
                         aria-hidden={true}
@@ -70,28 +81,26 @@ const Filters = ({
                         style={{ backgroundImage: RAINBOW }}
                     />
                     All
-                    <span
-                        className={clsx(
-                            "tw-tabular-nums",
-                            branch === "all" ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
-                        )}
-                    >
-                        {allCount.toLocaleString()}
-                    </span>
-                </button>
+                    {!family && (
+                        <span
+                            className={clsx(
+                                "tw-tabular-nums",
+                                branch ? "tw-text-[#DEE2E6]" : "tw-text-secondary/80"
+                            )}
+                        >
+                            {allCount.toLocaleString()}
+                        </span>
+                    )}
+                </Link>
                 {BRANCH_ORDER.map((b) => {
                     const active = branch === b;
                     return (
-                        <button
-                            type="button"
+                        <Link
                             key={b}
-                            onClick={() => onBranch(b)}
-                            className={clsx(
-                                "tw-flex tw-items-center tw-gap-2.5 tw-border tw-px-3.5 tw-py-2 tw-font-mono tw-text-[11.5px] tw-uppercase tw-tracking-[0.08em] tw-transition-colors",
-                                active
-                                    ? "tw-border-accent tw-bg-accent tw-text-secondary"
-                                    : "tw-border-cream/[0.18] tw-bg-secondary tw-text-[#DEE2E6] hover:tw-border-[#6C757D] hover:tw-text-cream"
-                            )}
+                            href={hrefFor(b, family)}
+                            prefetch={false}
+                            aria-current={active ? "true" : undefined}
+                            className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
                         >
                             <span
                                 aria-hidden={true}
@@ -99,15 +108,57 @@ const Filters = ({
                                 style={{ backgroundColor: BRANCH_META[b].color }}
                             />
                             {BRANCH_META[b].short}
-                            <span
-                                className={clsx(
-                                    "tw-tabular-nums",
-                                    active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
-                                )}
-                            >
-                                {branchCounts[b].toLocaleString()}
-                            </span>
-                        </button>
+                            {/* Whole-branch counts; with a family picked they would overstate the pair */}
+                            {!family && (
+                                <span
+                                    className={clsx(
+                                        "tw-tabular-nums",
+                                        active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                                    )}
+                                >
+                                    {branchCounts[b].toLocaleString()}
+                                </span>
+                            )}
+                        </Link>
+                    );
+                })}
+            </div>
+
+            {/* Family chips */}
+            <div className="tw-flex tw-flex-wrap tw-items-center tw-gap-2">
+                <span className="tw-mr-1 tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
+                    Family
+                </span>
+                <Link
+                    href={hrefFor(branch, undefined)}
+                    prefetch={false}
+                    aria-current={family ? undefined : "true"}
+                    className={clsx(CHIP, family ? CHIP_IDLE : CHIP_ACTIVE)}
+                >
+                    All families
+                </Link>
+                {FAMILIES.map((f) => {
+                    const active = family === f;
+                    return (
+                        <Link
+                            key={f}
+                            href={hrefFor(branch, f)}
+                            prefetch={false}
+                            aria-current={active ? "true" : undefined}
+                            className={clsx(CHIP, active ? CHIP_ACTIVE : CHIP_IDLE)}
+                        >
+                            {f}
+                            {!branch && (
+                                <span
+                                    className={clsx(
+                                        "tw-tabular-nums",
+                                        active ? "tw-text-secondary/80" : "tw-text-[#DEE2E6]"
+                                    )}
+                                >
+                                    {familyStats[f].count.toLocaleString()}
+                                </span>
+                            )}
+                        </Link>
                     );
                 })}
             </div>
@@ -138,25 +189,6 @@ const Filters = ({
                     </div>
                 </div>
 
-                {/* Family */}
-                <label className="tw-flex tw-items-center tw-gap-3">
-                    <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
-                        Family
-                    </span>
-                    <select
-                        value={family}
-                        onChange={(e) => onFamily(e.target.value as Family | "all")}
-                        className="tw-border tw-border-cream/[0.18] tw-bg-secondary tw-px-3 tw-py-1.5 tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em] tw-text-cream tw-outline-none focus:tw-border-accent"
-                    >
-                        <option value="all">All families</option>
-                        {FAMILIES.map((f) => (
-                            <option key={f} value={f}>
-                                {f}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-
                 {/* Sort */}
                 <label className="tw-flex tw-items-center tw-gap-3">
                     <span className="tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
@@ -176,15 +208,25 @@ const Filters = ({
                 </label>
 
                 <span className="tw-ml-auto tw-font-mono tw-text-[10.5px] tw-uppercase tw-tracking-[0.12em] tw-text-[#DEE2E6]">
-                    Showing{" "}
-                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
-                        {showing.toLocaleString()}
-                    </span>{" "}
-                    of{" "}
-                    <span className="tw-font-bold tw-text-cream tw-tabular-nums">
-                        {total.toLocaleString()}
-                    </span>{" "}
-                    Guides
+                    {loading ? (
+                        "Loading…"
+                    ) : (
+                        <>
+                            Showing{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {showing.toLocaleString()}
+                            </span>{" "}
+                            of{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {pageRows.toLocaleString()}
+                            </span>{" "}
+                            on this page ·{" "}
+                            <span className="tw-font-bold tw-text-cream tw-tabular-nums">
+                                {total.toLocaleString()}
+                            </span>{" "}
+                            total
+                        </>
+                    )}
                 </span>
             </div>
         </div>
