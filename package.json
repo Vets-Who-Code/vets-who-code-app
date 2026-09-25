@@ -102,6 +102,7 @@
     "ws": "^8.18.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@biomejs/biome": "2.3.14",
     "@commitlint/cli": "^20.4.0",
     "@commitlint/config-conventional": "^21.2.2",
