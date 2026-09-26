@@ -125,6 +125,11 @@ const nextConfig = {
                 destination: "/programs/accelerator",
                 permanent: true,
             },
+            {
+                source: "/resume-translator",
+                destination: "/career-guides",
+                permanent: true,
+            },
         ];
     },
 

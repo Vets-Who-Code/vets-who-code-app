@@ -23,31 +23,27 @@ const CtaBand = ({ code }: Props) => (
             <div className="tw-flex tw-items-center tw-gap-3">
                 <span className="tw-inline-block tw-h-[2px] tw-w-4 tw-bg-primary" />
                 <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
-                    / Translator · Live
+                    Cohort 2027 · Intake Open
                 </span>
             </div>
 
             <h2 className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.02em] [line-height:1] [font-size:clamp(32px,4.5vw,56px)]">
-                Translate <span className="tw-text-accent">{code}</span> into a resume that ships.
+                Ship <span className="tw-text-accent">{code}</span> into a software engineering
+                career.
             </h2>
 
             <p className="tw-max-w-[680px] tw-font-body tw-text-[17px] tw-leading-[1.55] tw-text-[#DEE2E6]">
-                Pair this guide with the VWC AI-powered translator: drop in your service record, get
-                back ATS-optimized civilian resume language tuned to the tech roles above.
+                The pathways above are the destination. Vets Who Code is the route: a free,
+                remote-first software engineering accelerator for active duty, veterans, and
+                military spouses. 17 weeks at 20–30 hours a week, and a body of work that ships.
             </p>
 
             <div className="tw-flex tw-flex-wrap tw-gap-4">
                 <Link
-                    href="/resume-translator"
+                    href="/apply"
                     className="tw-inline-flex tw-items-center tw-gap-2 tw-bg-accent tw-px-7 tw-py-4 tw-font-mono tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-secondary tw-transition-colors hover:tw-bg-gold-bright active:tw-scale-[0.97]"
                 >
-                    Translate {code} →
-                </Link>
-                <Link
-                    href="/apply"
-                    className="tw-inline-flex tw-items-center tw-gap-2 tw-border tw-border-accent tw-px-7 tw-py-4 tw-font-mono tw-text-[12px] tw-font-bold tw-uppercase tw-tracking-[0.1em] tw-text-accent tw-transition-colors hover:tw-bg-accent hover:tw-text-secondary active:tw-scale-[0.97]"
-                >
-                    Apply for Cohort 2027
+                    Apply for Cohort 2027 →
                 </Link>
                 <Link
                     href="/career-guides"

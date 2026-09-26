@@ -21,20 +21,10 @@ const exclude = [
 
     // Gated troop experience
     "/assessment",
-    "/assignments",
-    "/assignments/*",
-    "/certificates",
-    "/certificates/*",
     "/challenges",
     "/challenges/*",
-    "/courses",
-    "/courses/*",
     "/jodie",
     "/jodie/*",
-    "/resume-translator",
-    "/resume-translator/*",
-    "/submissions",
-    "/submissions/*",
     "/zoom-meetings",
     "/zoom-meetings/*",
 
@@ -54,7 +44,6 @@ const exclude = [
 
     // Search endpoints (index blog posts directly, not search UIs)
     "/blogs/search",
-    "/courses/search",
 
     // Legacy duplicate (canonical contact lives at /contact-us)
     "/contact-me",

@@ -13,5 +13,4 @@ export { default as useProfileForm } from "./use-profile-form";
 export { default as useScrollTop } from "./use-scroll-top";
 export { default as useSort } from "./use-sort";
 export { default as useSticky } from "./use-sticky";
-export { default as useTranslator } from "./use-translator";
 export { default as useWindowSize } from "./use-window-size";

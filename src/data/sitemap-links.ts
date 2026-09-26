@@ -64,7 +64,6 @@ export const sitemapExtraColumns: SitemapColumn[] = [
     {
         heading: "More",
         links: [
-            { label: "Resume Translator", path: "/resume-translator" },
             { label: "Join Our Community", path: "/join-our-community" },
             { label: "Store", path: "/store" },
         ],

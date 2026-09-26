@@ -15,7 +15,7 @@ hitting one endpoint never consumes another endpoint's budget.
 The J0dI3 limit is enforced centrally in `src/lib/j0di3-proxy.ts`, so every
 `/api/j0di3/*` route is covered in one place.
 
-Other endpoints (e.g. `/api/military-resume/*`) apply their own limits directly with
+Other endpoints (e.g. `/api/jobs/parse-resume`) apply their own limits directly with
 `checkRateLimit` — see the individual handlers.
 
 ## Response on limit

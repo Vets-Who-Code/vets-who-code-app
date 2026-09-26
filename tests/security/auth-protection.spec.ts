@@ -42,9 +42,4 @@ test.describe("Public Routes - No Auth Required", () => {
         const response = await page.goto("/apply");
         expect(response?.status()).toBe(200);
     });
-
-    test("Resume Translator is publicly accessible", async ({ page }) => {
-        const response = await page.goto("/resume-translator");
-        expect(response?.status()).toBe(200);
-    });
 });
