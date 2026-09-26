@@ -70,7 +70,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                             <select
                                 id="mediaTypeFilter"
                                 name="mediaTypeFilter"
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-ring-primary sm:tw-text-sm h-12"
                                 value={mediaTypeFilter}
                                 onChange={(e) => setMediaTypeFilter(e.target.value)}
                             >
@@ -93,7 +93,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                             <select
                                 id="yearFilter"
                                 name="yearFilter"
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 tw-text-base focus:tw-border-primary focus:tw-ring-primary sm:tw-text-sm h-12"
                                 value={yearFilter}
                                 onChange={(e) => setYearFilter(e.target.value)}
                             >
@@ -117,7 +117,7 @@ const MediaPage: PageWithLayout = ({ allMediaItems, page }) => {
                                 type="text"
                                 id="searchTerm"
                                 name="searchTerm"
-                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 focus:tw-border-primary focus:tw-outline-none focus:tw-ring-primary sm:tw-text-sm h-12 appearance-none py-3 text-base"
+                                className="tw-mt-1 tw-block tw-w-full tw-rounded-md tw-border-gray-300 tw-py-3 tw-pl-3 tw-pr-10 focus:tw-border-primary focus:tw-ring-primary sm:tw-text-sm h-12 appearance-none py-3 text-base"
                                 placeholder="Keywords..."
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}

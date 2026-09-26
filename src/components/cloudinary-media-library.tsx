@@ -204,11 +204,18 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                             }}
                         >
                             {images.map((image) => (
-                                <div
+                                <button
                                     key={image.public_id}
+                                    type="button"
+                                    aria-pressed={isSelected(image)}
                                     onClick={() => handleImageClick(image)}
                                     style={{
                                         position: "relative",
+                                        display: "block",
+                                        width: "100%",
+                                        padding: 0,
+                                        background: "none",
+                                        textAlign: "left",
                                         cursor: "pointer",
                                         border: isSelected(image)
                                             ? "3px solid #FDB330"
@@ -289,7 +296,7 @@ const CloudinaryMediaLibrary: React.FC<CloudinaryMediaLibraryProps> = ({
                                             {(image.bytes / 1024).toFixed(0)}KB
                                         </p>
                                     </div>
-                                </div>
+                                </button>
                             ))}
                         </div>
 

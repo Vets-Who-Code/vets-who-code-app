@@ -299,9 +299,7 @@ export default function ResumeScorer() {
     };
 
     const passFailColor = (pf: string) => {
-        return pf === "PASS"
-            ? "tw-bg-gold-light tw-text-ink"
-            : "tw-bg-cream tw-text-red-dark";
+        return pf === "PASS" ? "tw-bg-gold-light tw-text-ink" : "tw-bg-cream tw-text-red-dark";
     };
 
     const DIMENSION_LABELS: Record<string, { label: string; icon: string }> = {
@@ -398,7 +396,7 @@ export default function ResumeScorer() {
                         onChange={(e) => setResumeText(e.target.value)}
                         aria-label="Resume text"
                         rows={8}
-                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary"
                         placeholder="Or paste your resume text here..."
                     />
                     {resumeText && (
@@ -418,7 +416,7 @@ export default function ResumeScorer() {
                             id="target-role"
                             value={targetRole}
                             onChange={(e) => setTargetRole(e.target.value)}
-                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 tw-text-sm focus:tw-border-primary"
                         >
                             {TARGET_ROLES.map((role) => (
                                 <option key={role} value={role}>
@@ -442,7 +440,7 @@ export default function ResumeScorer() {
                         onChange={(e) => setJobDescription(e.target.value)}
                         aria-label="Job posting"
                         rows={14}
-                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary"
                         placeholder="Paste the job posting for JD match analysis and AI rewrite..."
                     />
                 </div>

@@ -111,7 +111,7 @@ const CohortDetail: PageWithLayout = () => {
                         aria-label="Troop emails to add"
                         rows={3}
                         placeholder="Comma- or newline-separated emails"
-                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                        className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                     />
                     <button
                         type="button"

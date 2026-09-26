@@ -1,7 +1,8 @@
+import { useKeyboardFocus } from "@hooks";
 import { SafeLocalStorage, SafeSessionStorage } from "@utils/safe-storage";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./EngagementModal.module.css";
 
 interface EngagementModalProps {
@@ -37,7 +38,17 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
     forceShow,
 }) => {
     const [open, setOpen] = useState(false);
-    const modalRef = useRef<HTMLDivElement>(null);
+
+    const dismiss = useCallback(() => {
+        setOpen(false);
+        SafeLocalStorage.setItem(DISMISSED_KEY, true);
+    }, []);
+
+    // Escape closes, Tab cycles inside the panel, focus lands on the close button
+    // on open and returns to the previously focused element on dismiss. The modal opens
+    // on scroll, not from a control, so that element may be far above the reader:
+    // return focus without scrolling the page back to it.
+    const modalRef = useKeyboardFocus<HTMLDivElement>(open, dismiss, true);
 
     // Expose method to manually open modal for debugging
     // This can be called from browser console: window.openEngagementModal()
@@ -71,7 +82,10 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
         // First-time visitors are still deciding what this place is. Never interrupt them.
         if (visits < MIN_VISITS) return;
 
+        // Once per page view: a scroll or exit-intent after dismissal must not reopen it.
         const reveal = () => {
+            window.removeEventListener("scroll", onScroll);
+            document.removeEventListener("mouseout", onMouseOut);
             setOpen(true);
             SafeLocalStorage.setItem(DISMISSED_KEY, true);
         };
@@ -99,31 +113,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
         };
     }, [forceShow]);
 
-    // Accessibility: close on ESC
-    useEffect(() => {
-        if (!open) return;
-        const onKeyDown = (e: KeyboardEvent) => {
-            if (e.key === "Escape") dismiss();
-        };
-        window.addEventListener("keydown", onKeyDown);
-        return () => window.removeEventListener("keydown", onKeyDown);
-    }, [open]);
-
-    // Accessibility: focus trap
-    useEffect(() => {
-        if (!open || !modalRef.current) return;
-        const focusable = modalRef.current.querySelectorAll<HTMLElement>(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusable.length) focusable[0].focus();
-    }, [open]);
-
     // Dismiss on click outside
-    const dismiss = () => {
-        setOpen(false);
-        SafeLocalStorage.setItem(DISMISSED_KEY, true);
-    };
-
     const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) dismiss();
     };
@@ -152,6 +142,7 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                         exit={{ opacity: 0 }}
                         onClick={handleBackdropClick}
                         aria-modal="true"
+                        aria-labelledby="engagement-modal-title"
                         role="dialog"
                     >
                         <motion.div
@@ -165,12 +156,15 @@ export const EngagementModal: React.FC<EngagementModalProps> = ({
                             <button
                                 type="button"
                                 aria-label="Close"
-                                className="tw-absolute tw-right-6 tw-top-6 tw-text-4xl tw-text-secondary hover:tw-text-primary focus:tw-outline-none"
+                                className="tw-absolute tw-right-6 tw-top-6 tw-text-4xl tw-text-secondary hover:tw-text-primary"
                                 onClick={dismiss}
                             >
                                 &times;
                             </button>
-                            <h2 className="tw-mb-2 tw-mt-4 tw-text-center tw-text-4xl tw-font-extrabold tw-text-primary sm:tw-text-5xl">
+                            <h2
+                                id="engagement-modal-title"
+                                className="tw-mb-2 tw-mt-4 tw-text-center tw-text-4xl tw-font-extrabold tw-text-primary sm:tw-text-5xl"
+                            >
                                 {headline}
                             </h2>
                             <div className="tw-mb-2 tw-flex tw-justify-center">

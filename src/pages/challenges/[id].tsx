@@ -7,9 +7,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { getServerSession } from "next-auth/next";
 import { useCallback, useEffect, useState } from "react";
+import { options } from "@/lib/auth-options";
 import type { Challenge, ClientResults, ClientTestResult, TestCase } from "@/lib/challenge-runner";
 import { runChallenge } from "@/lib/challenge-runner";
-import { options } from "@/lib/auth-options";
 
 interface SubmissionResponse {
     passed?: boolean;
@@ -277,7 +277,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                 value={code}
                                 onChange={(e) => setCode(e.target.value)}
                                 rows={15}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-bg-navy/5 tw-px-4 tw-py-3 tw-font-mono tw-text-sm focus:tw-border-primary"
                                 placeholder="Write your solution here..."
                                 spellCheck={false}
                             />
@@ -345,7 +345,7 @@ const ChallengeDetailPage: PageWithLayout = () => {
                                     value={coachQuestion}
                                     onChange={(e) => setCoachQuestion(e.target.value)}
                                     placeholder="Where am I stuck?"
-                                    className="tw-flex-1 tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                    className="tw-flex-1 tw-rounded-md tw-border tw-border-navy/10 tw-bg-white tw-px-3 tw-py-2 tw-text-sm focus:tw-border-primary"
                                 />
                                 <button
                                     type="button"

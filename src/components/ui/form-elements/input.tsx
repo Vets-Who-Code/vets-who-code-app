@@ -38,17 +38,14 @@ const Input = forwardRef<HTMLInputElement, IProps>(
         const focusClass =
             customStyle !== "nofocus" &&
             !readonly &&
-            "focus:tw-shadow-none focus:tw-outline-0 focus:tw-text-body focus:tw-bg-white focus:tw-border-primary";
+            "focus:tw-shadow-none focus:tw-text-body focus:tw-bg-white focus:tw-border-primary";
         const readOnlyAndDisabledClass = (readonly || disabled) && "tw-bg-gray-300 tw-opacity-100";
         const readOnlyFocusClass =
-            customStyle !== "nofocus" &&
-            readonly &&
-            "focus:tw-shadow-none focus:tw-outline-0 focus:tw-text-body";
+            customStyle !== "nofocus" && readonly && "focus:tw-shadow-none focus:tw-text-body";
         const successClass = !showErrorOnly && state === "success" && "!tw-border-success";
         const warningClass = !showErrorOnly && state === "warning" && "!tw-border-warning";
         const errorClass = state === "error" && "!tw-border-danger";
         const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-primary";
-        const noFocusClass = customStyle === "nofocus" && "focus:tw-outline-0";
         const feedbackId = `${id}-feedback`;
         const hasFeedback = Boolean(feedbackText && showState);
 
@@ -70,7 +67,6 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                         warningClass,
                         errorClass,
                         focusBorderClass,
-                        noFocusClass,
                         bg === "white" && "tw-bg-white",
                         bg === "light" && "tw-bg-gray-50",
                         className

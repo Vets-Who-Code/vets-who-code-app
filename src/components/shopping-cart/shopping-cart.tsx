@@ -1,4 +1,4 @@
-import { useCart } from "@hooks";
+import { useCart, useKeyboardFocus } from "@hooks";
 import { formatPrice } from "@lib/shopify";
 import clsx from "clsx";
 
@@ -9,6 +9,8 @@ interface ShoppingCartProps {
 
 const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
     const { cart, cartTotal, cartCurrency, isLoading, updateCartLines, removeFromCart } = useCart();
+    // Escape closes, Tab stays inside the panel, focus returns to the opener on close.
+    const panelRef = useKeyboardFocus<HTMLDivElement>(isOpen, onClose);
 
     const handleUpdateQuantity = async (lineId: string, newQuantity: number) => {
         if (newQuantity < 1) return;
@@ -47,17 +49,25 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                 onClick={onClose}
             />
 
-            {/* Cart Panel */}
+            {/* Cart Panel — tw-invisible when closed so the off-screen buttons leave
+                the tab order and the accessibility tree. */}
             <div
+                ref={panelRef}
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="cart-title"
                 className={clsx(
                     "tw-fixed tw-right-0 tw-top-0 tw-h-full tw-w-full md:tw-w-[400px] tw-bg-white tw-shadow-2xl tw-transition-transform tw-duration-300 tw-z-50 tw-flex tw-flex-col",
-                    isOpen ? "tw-translate-x-0" : "tw-translate-x-full"
+                    isOpen ? "tw-translate-x-0" : "tw-translate-x-full tw-invisible"
                 )}
             >
                 {/* Header */}
                 <div className="tw-flex tw-items-center tw-justify-between tw-p-6 tw-border-b tw-border-gray-200">
-                    <h2 className="tw-text-2xl tw-font-bold tw-text-secondary">Shopping Cart</h2>
+                    <h2 id="cart-title" className="tw-text-2xl tw-font-bold tw-text-secondary">
+                        Shopping Cart
+                    </h2>
                     <button
+                        type="button"
                         onClick={onClose}
                         className="tw-text-gray-500 hover:tw-text-gray-200 tw-transition-colors"
                         aria-label="Close cart"
@@ -143,6 +153,8 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                         {/* Quantity Controls */}
                                         <div className="tw-flex tw-items-center tw-gap-2 tw-mt-3">
                                             <button
+                                                type="button"
+                                                aria-label={`Decrease quantity of ${line.merchandise.product.title}`}
                                                 onClick={() =>
                                                     handleUpdateQuantity(line.id, line.quantity - 1)
                                                 }
@@ -155,6 +167,8 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                                 {line.quantity}
                                             </span>
                                             <button
+                                                type="button"
+                                                aria-label={`Increase quantity of ${line.merchandise.product.title}`}
                                                 onClick={() =>
                                                     handleUpdateQuantity(line.id, line.quantity + 1)
                                                 }
@@ -164,6 +178,8 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                                 +
                                             </button>
                                             <button
+                                                type="button"
+                                                aria-label={`Remove ${line.merchandise.product.title}`}
                                                 onClick={() => handleRemove(line.id)}
                                                 disabled={isLoading}
                                                 className="tw-ml-auto tw-text-red-dark hover:tw-text-red-dark tw-text-sm tw-font-medium disabled:tw-opacity-50"
@@ -191,6 +207,7 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                         </div>
 
                         <button
+                            type="button"
                             onClick={handleCheckout}
                             disabled={isLoading}
                             className="tw-w-full tw-bg-primary tw-text-white tw-font-bold tw-py-4 tw-rounded-lg hover:tw-bg-primary-dark tw-transition-colors tw-duration-300 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"

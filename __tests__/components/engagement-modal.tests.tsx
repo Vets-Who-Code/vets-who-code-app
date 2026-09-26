@@ -2,14 +2,22 @@ import { EngagementModal } from "@components/ui/engagement-modal/EngagementModal
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { SafeLocalStorage } from "@utils/safe-storage";
 
-vi.mock("motion/react", () => ({
-    AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
-    motion: {
-        div: ({ children, ...rest }: React.ComponentProps<"div">) => (
-            <div {...rest}>{children}</div>
-        ),
-    },
-}));
+// useKeyboardFocus needs the panel ref, so the motion mock must forward it.
+vi.mock("motion/react", async () => {
+    const { forwardRef } = await import("react");
+    return {
+        AnimatePresence: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
+        motion: {
+            div: forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
+                ({ children, ...rest }, ref) => (
+                    <div ref={ref} {...rest}>
+                        {children}
+                    </div>
+                )
+            ),
+        },
+    };
+});
 
 const PROPS = {
     headline: "Your Next Mission Starts Here.",
@@ -97,5 +105,60 @@ describe("EngagementModal", () => {
         unmount();
         render(<EngagementModal {...PROPS} />);
         expect(SafeLocalStorage.getItem<number>("vwc_visit_count", 0)).toBe(1);
+    });
+
+    describe("keyboard", () => {
+        const openModal = async () => {
+            SafeLocalStorage.setItem("vwc_visit_count", 3);
+            render(
+                <>
+                    <button type="button">Opener</button>
+                    <EngagementModal {...PROPS} />
+                </>
+            );
+            screen.getByRole("button", { name: "Opener" }).focus();
+            scrollTo(1);
+            await waitFor(() => expect(modal()).toBeInTheDocument());
+        };
+
+        it("is labelled by its headline and focuses the close button on open", async () => {
+            await openModal();
+            const dialog = screen.getByRole("dialog", { name: PROPS.headline });
+            const close = screen.getByRole("button", { name: "Close" });
+
+            expect(dialog).toBeInTheDocument();
+            expect(close).not.toHaveClass("focus:tw-outline-none");
+            expect(document.activeElement).toBe(close);
+        });
+
+        it("keeps Tab inside the dialog", async () => {
+            await openModal();
+            const dialog = screen.getByRole("dialog");
+
+            fireEvent.keyDown(window, { key: "Tab" });
+            expect(dialog.contains(document.activeElement)).toBe(true);
+            fireEvent.keyDown(window, { key: "Tab", shiftKey: true });
+            expect(document.activeElement).toBe(screen.getByRole("button", { name: "Close" }));
+        });
+
+        it("closes on Escape and returns focus to the previously focused element", async () => {
+            await openModal();
+
+            fireEvent.keyDown(window, { key: "Escape" });
+            expect(modal()).not.toBeInTheDocument();
+            expect(document.activeElement).toBe(screen.getByRole("button", { name: "Opener" }));
+        });
+
+        it("returns focus without scrolling and stays closed on later scrolls", async () => {
+            await openModal();
+            const focus = vi.spyOn(screen.getByRole("button", { name: "Opener" }), "focus");
+
+            fireEvent.keyDown(window, { key: "Escape" });
+            expect(focus).toHaveBeenCalledWith({ preventScroll: true });
+
+            scrollTo(1);
+            fireEvent.mouseOut(document, { clientY: 0, relatedTarget: null });
+            expect(modal()).not.toBeInTheDocument();
+        });
     });
 });

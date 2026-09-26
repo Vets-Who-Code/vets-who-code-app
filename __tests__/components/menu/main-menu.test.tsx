@@ -1,11 +1,20 @@
-import { fireEvent, render, screen } from "@testing-library/react";
 import MainMenu from "@components/menu/main-menu";
+import { fireEvent, render, screen } from "@testing-library/react";
 
 const menu = [
     {
         id: 1,
         label: "About",
         path: "/about-us",
+        submenu: [{ id: 11, label: "Team", path: "/team" }],
+    },
+];
+
+const disclosureMenu = [
+    {
+        id: 1,
+        label: "About",
+        path: "#!",
         submenu: [{ id: 11, label: "Team", path: "/team" }],
     },
 ];
@@ -30,5 +39,61 @@ describe("MainMenu", () => {
 
         fireEvent.focusOut(child, { relatedTarget: outside });
         expect(parent).toHaveAttribute("aria-expanded", "false");
+    });
+
+    it('renders a "#!" parent as a disclosure button, not a link', () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+
+        expect(screen.queryByRole("link", { name: "About" })).not.toBeInTheDocument();
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+        expect(parent).toHaveAttribute("aria-controls", "nav-1-submenu");
+    });
+
+    it("reveals the submenu on focus and hides it again on Escape without moving focus", () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+        const submenu = document.getElementById("nav-1-submenu");
+
+        expect(submenu).toHaveClass("tw-invisible");
+        expect(submenu).not.toHaveClass("tw-visible");
+
+        fireEvent.focusIn(parent);
+        expect(parent).toHaveAttribute("aria-expanded", "true");
+        expect(submenu).toHaveClass("tw-visible");
+        expect(submenu).not.toHaveClass("tw-invisible");
+
+        fireEvent.keyDown(parent, { key: "Escape" });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+        expect(submenu).toHaveClass("tw-invisible");
+        expect(submenu).not.toHaveClass("tw-visible");
+        expect(document.activeElement).toBe(parent);
+    });
+
+    it("toggles the submenu with Enter and Space on the disclosure button", () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+
+        parent.focus();
+        fireEvent.keyDown(parent, { key: "Escape" });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+
+        fireEvent.keyDown(parent, { key: "Enter" });
+        expect(parent).toHaveAttribute("aria-expanded", "true");
+
+        fireEvent.keyDown(parent, { key: " " });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+    });
+
+    it("reopens the submenu when focus enters one of its links", () => {
+        render(<MainMenu menu={disclosureMenu} />);
+        const parent = screen.getByRole("button", { name: "About" });
+
+        parent.focus();
+        fireEvent.keyDown(parent, { key: "Escape" });
+        expect(parent).toHaveAttribute("aria-expanded", "false");
+
+        fireEvent.focusIn(screen.getByRole("link", { name: "Team" }));
+        expect(parent).toHaveAttribute("aria-expanded", "true");
     });
 });

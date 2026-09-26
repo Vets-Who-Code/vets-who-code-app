@@ -172,7 +172,7 @@ export default function MockInterview() {
                                 type="text"
                                 value={jobTitle}
                                 onChange={(e) => setJobTitle(e.target.value)}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary focus:tw-outline-none"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-2 focus:tw-border-primary"
                                 placeholder="e.g., Frontend Developer, AI Engineer"
                             />
                         </div>
@@ -188,7 +188,7 @@ export default function MockInterview() {
                                 value={jobDescription}
                                 onChange={(e) => setJobDescription(e.target.value)}
                                 rows={4}
-                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none"
+                                className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary"
                                 placeholder="Paste the job description for more targeted questions..."
                             />
                         </div>
@@ -266,7 +266,7 @@ export default function MockInterview() {
                             onChange={(e) => setAnswer(e.target.value)}
                             aria-label="Your answer"
                             rows={6}
-                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary focus:tw-outline-none tw-mb-4"
+                            className="tw-w-full tw-rounded-md tw-border tw-border-navy/10 tw-px-4 tw-py-3 tw-text-sm focus:tw-border-primary tw-mb-4"
                             placeholder="Type your answer..."
                         />
                         <div className="tw-flex tw-gap-3">
