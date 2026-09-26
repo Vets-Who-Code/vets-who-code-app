@@ -30,6 +30,7 @@ const PageSeo = ({
     jsonLdType,
     article,
     image,
+    additionalMetaTags,
 }: SeoProps) => {
     // Built from the router, not window.location in an effect — scrapers don't
     // run JS, so the effect version left og:url empty and every share fell back
@@ -92,6 +93,9 @@ const PageSeo = ({
                     // Caller-supplied openGraph wins over everything above.
                     ...openGraph,
                 }}
+                // next-seo 5 never emits twitter:description on its own; the
+                // homepage passes one here so the card text matches the meta.
+                additionalMetaTags={additionalMetaTags}
             />
             {jsonLdType === "article" && article && (
                 <ArticleJsonLd

@@ -1,19 +1,27 @@
+import { formatAsOf, OutcomeStat, outcomes, placementMethodology } from "@data/outcomes";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
 
-const STATS = [
-    {
-        n: "97",
-        suffix: "%",
-        label: "Placement rate",
-        sub: "Of graduates land tech roles within months of completion.",
-    },
-    {
-        n: "$20M",
-        suffix: "+",
-        label: "Alumni earnings",
-        sub: "Collective compensation earned by VWC alumni to date.",
-    },
+// "97%" → n "97", suffix "%" so the module tiles keep the gold suffix split
+// the two literal tiles below use.
+const tile = (stat: OutcomeStat): StatTile => {
+    const [, n = stat.display, suffix = ""] = stat.display.match(/^(.*?)([%+]*)$/) ?? [];
+    return { n, suffix, label: stat.label, sub: stat.qualifier };
+};
+
+type StatTile = {
+    n: string;
+    suffix: string;
+    label: string;
+    sub: string;
+    methodology?: string | null;
+};
+
+const STATS: StatTile[] = [
+    // The methodology sentence prints under the placement tile only once its
+    // window and denominator are confirmed (#1332); until then it is null.
+    { ...tile(outcomes.placementRate), methodology: placementMethodology() },
+    tile(outcomes.alumniEarnings),
     {
         n: "500",
         suffix: "+",
@@ -31,10 +39,12 @@ const STATS = [
 const Stats = () => {
     return (
         <section
+            id="methodology"
             className="dark-section tw-relative tw-overflow-hidden tw-bg-navy tw-py-[100px] tw-text-white"
             style={{
                 borderTop: "1px solid rgba(185,214,242,0.08)",
                 borderBottom: "1px solid rgba(185,214,242,0.08)",
+                scrollMarginTop: 96,
             }}
             aria-labelledby="about-stats-headline"
         >
@@ -133,12 +143,25 @@ const Stats = () => {
                             >
                                 {s.sub}
                             </p>
+                            {s.methodology && (
+                                <p
+                                    className="tw-m-0 tw-mt-2 tw-font-body"
+                                    style={{
+                                        fontSize: 13,
+                                        lineHeight: 1.55,
+                                        color: "rgba(248,249,250,0.75)",
+                                        maxWidth: 220,
+                                    }}
+                                >
+                                    {s.methodology}
+                                </p>
+                            )}
                         </motion.div>
                     ))}
                 </div>
 
                 <div
-                    className="tw-mt-14 tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-4 tw-pt-8"
+                    className="tw-mt-14 tw-flex tw-flex-col tw-gap-3 tw-pt-8"
                     style={{
                         borderTop: "1px solid rgba(185,214,242,0.08)",
                         fontFamily: "var(--font-mono)",
@@ -149,7 +172,16 @@ const Stats = () => {
                     }}
                 >
                     <span>EIN 86-2122804 · 501(c)(3) Nonprofit · Tax-deductible</span>
-                    <span>Source · Internal cohort data · Updated quarterly</span>
+                    {/* Public methodology note (#1329): one line per number, only for
+                        numbers whose source is on record. */}
+                    {Object.values(outcomes)
+                        .filter((stat) => stat.source)
+                        .map((stat) => (
+                            <span key={stat.key}>
+                                {stat.label} · {stat.source}
+                                {stat.asOf ? ` · As of ${formatAsOf(stat.asOf)}` : ""}
+                            </span>
+                        ))}
                 </div>
             </div>
         </section>

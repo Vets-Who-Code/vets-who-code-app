@@ -1,5 +1,6 @@
 import SEO from "@components/seo/page-seo";
 import { MonoMeta, SectionEyebrow, SharpHeadline, StatStrip } from "@components/ui/design-system";
+import { outcomes } from "@data/outcomes";
 import siteConfig from "@data/site-config";
 import Layout from "@layout/layout-01";
 import type { NextPage } from "next";
@@ -87,14 +88,14 @@ const SponsorPage: PageWithLayout = () => {
                             tone="dark"
                             cells={[
                                 {
-                                    label: "Placement",
-                                    value: "97%",
-                                    sub: "of graduating troops",
+                                    label: outcomes.placementRate.label,
+                                    value: outcomes.placementRate.display,
+                                    sub: outcomes.placementRate.qualifier,
                                 },
                                 {
-                                    label: "Alumni earnings",
-                                    value: "$20M+",
-                                    sub: "collective annual",
+                                    label: outcomes.alumniEarnings.label,
+                                    value: outcomes.alumniEarnings.display,
+                                    sub: outcomes.alumniEarnings.qualifier,
                                 },
                                 {
                                     label: "Tax status",

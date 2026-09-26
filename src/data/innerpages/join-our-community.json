@@ -16,33 +16,6 @@
             ]
         }, 
         {
-            "section": "funfact-area",
-            "items": [
-                {
-                    "id": 1,
-                    "title": "Finished Sessions",
-                    "counter": 1.926
-                },
-                {
-                    "id": 2,
-                    "title": "Online Enrollment",
-                    "counter": 3.092,
-                    "suffix": "+"
-                },
-                {
-                    "id": 3,
-                    "title": "Subjects Taught",
-                    "counter": 200
-                },
-                {
-                    "id": 4,
-                    "title": "Satisfaction rate",
-                    "suffix": "%",
-                    "counter": 100
-                }
-            ]
-        },
-        {
             "section": "hero-image-area",
             "images": [
                 {

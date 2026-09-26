@@ -1,5 +1,6 @@
 import DefaultSEO from "@components/seo/deafult-seo";
 import PageSeo from "@components/seo/page-seo";
+import { outcomes, outcomesSummary } from "@data/outcomes";
 import { render } from "@testing-library/react";
 import { HeadManagerContext } from "next/dist/shared/lib/head-manager-context.shared-runtime";
 import type { ReactElement } from "react";
@@ -84,6 +85,30 @@ describe("SEO metadata", () => {
         );
 
         expect(titles(tags)).toEqual(["Foo Post - Vets Who Code"]);
+    });
+
+    it("carries the outcome numbers in every homepage description slot", () => {
+        const tags = captureHead(
+            <>
+                <DefaultSEO />
+                <PageSeo
+                    title="Home"
+                    description={outcomesSummary}
+                    additionalMetaTags={[{ name: "twitter:description", content: outcomesSummary }]}
+                />
+            </>
+        );
+
+        expect(metaContent(tags, "name", "description")).toEqual([outcomesSummary]);
+        expect(metaContent(tags, "property", "og:description")).toEqual([outcomesSummary]);
+        expect(metaContent(tags, "name", "twitter:description")).toEqual([outcomesSummary]);
+        for (const stat of [
+            outcomes.placementRate,
+            outcomes.alumniEarnings,
+            outcomes.troopsTrained,
+        ]) {
+            expect(outcomesSummary).toContain(stat.display);
+        }
     });
 
     it("ships no placeholder social metadata", () => {

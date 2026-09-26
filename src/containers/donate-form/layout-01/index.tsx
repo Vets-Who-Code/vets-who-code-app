@@ -1,5 +1,6 @@
 import DonateForm from "@components/forms/donate-form";
 import Section from "@components/ui/engagement-modal";
+import { outcomes } from "@data/outcomes";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
@@ -46,38 +47,22 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
 
                 {/* Donation Impact Metrics */}
                 <motion.div
-                    className="tw-mb-12 tw-grid tw-grid-cols-2 tw-gap-6 md:tw-grid-cols-4"
+                    className="tw-mb-12 tw-grid tw-grid-cols-1 tw-gap-6 sm:tw-grid-cols-3"
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    <div className="tw-text-center">
-                        <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            300+
-                        </span>
-                        <span className="tw-mt-2 tw-block">Veterans Served</span>
-                    </div>
-                    <div className="tw-text-center">
-                        <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            90%
-                        </span>
-                        <span className="tw-mt-2 tw-block">Job Placement Rate</span>
-                    </div>
-                    <div className="tw-text-center">
-                        <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            40%
-                        </span>
-                        <span className="tw-mt-2 tw-block">Average Salary Increase</span>
-                    </div>
-                    <div className="tw-text-center">
-                        <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
-                            80%
-                        </span>
-                        <span className="tw-mt-2 tw-block">
-                            Felt Supported for Learning Journey
-                        </span>
-                    </div>
+                    {[outcomes.troopsTrained, outcomes.placementRate, outcomes.alumniEarnings].map(
+                        (stat) => (
+                            <div key={stat.key} className="tw-text-center">
+                                <span className="tw-block tw-text-4xl tw-font-bold tw-text-primary">
+                                    {stat.display}
+                                </span>
+                                <span className="tw-mt-2 tw-block">{stat.label}</span>
+                            </div>
+                        )
+                    )}
                 </motion.div>
 
                 {/* Donation Form */}

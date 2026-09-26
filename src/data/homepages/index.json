@@ -105,37 +105,7 @@
                 "text": "Ten years. One way of doing this.",
                 "path": "/about-us",
                 "pathText": "Read our story"
-            },
-            "items": [
-                {
-                    "id": 1,
-                    "title": "Alumni Earnings",
-                    "prefix": "$",
-                    "suffix": "M+",
-                    "counter": 20,
-                    "description": "Collective first-year compensation"
-                },
-                {
-                    "id": 2,
-                    "title": "Troops Trained",
-                    "suffix": "+",
-                    "counter": 300,
-                    "description": "Veterans and military spouses since 2014"
-                },
-                {
-                    "id": 3,
-                    "title": "Job Placement Rate",
-                    "suffix": "%",
-                    "counter": 97,
-                    "description": "Verified outcomes"
-                },
-                {
-                    "id": 4,
-                    "title": "Validated Skills",
-                    "counter": 128,
-                    "description": "Lightcast-verified"
-                }
-            ]
+            }
         }, 
         {
             "section": "video-area",
@@ -205,11 +175,7 @@
                         }
                     ]
                 }
-            ],
-            "total_reviews": {
-                "heading": "4.9/5.0",
-                "text": "Average Rating By Our Troops"
-            }
+            ]
         }, 
         {
             "section": "event-area",

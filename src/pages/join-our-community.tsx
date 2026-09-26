@@ -41,7 +41,7 @@ const JoinCommunity: PageProps = ({ data }) => {
             />
             <Wrapper>
                 <CtaArea data={content["cta-area"]} space="none" />
-                <FunfactArea data={content["funfact-area"]} />
+                <FunfactArea />
                 <HeroImageArea data={content["hero-image-area"]} />
             </Wrapper>
         </>

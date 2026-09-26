@@ -1,6 +1,5 @@
 import Shape2 from "@assets/svgs/shape-2.svg";
 import SectionTitle from "@components/section-title";
-import RatingBox from "@components/testimonial/rating-box";
 import Testimonial03 from "@components/testimonial/testimonial-03";
 import Testimonial04 from "@components/testimonial/testimonial-04";
 import Section from "@components/ui/engagement-modal";
@@ -15,15 +14,11 @@ type TProps = TSection & {
         section_title?: SectionTitleType;
         buttons?: ButtonType[];
         items?: ItemType[];
-        total_reviews?: {
-            text?: string;
-            heading?: string;
-        };
     };
 };
 
 const TestimonialArea = ({
-    data: { section_title, buttons, items, total_reviews },
+    data: { section_title, buttons, items },
     space,
     bg,
     titleSize,
@@ -92,7 +87,6 @@ const TestimonialArea = ({
                     viewport={{ once: true, amount: 0.4 }}
                     variants={scrollUpVariants}
                 >
-                    {total_reviews && <RatingBox {...total_reviews} className="tw-mb-7.5" />}
                     {items?.[2] && (
                         <Testimonial03
                             image={{

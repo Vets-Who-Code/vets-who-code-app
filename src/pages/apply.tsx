@@ -44,7 +44,7 @@ const ApplyPage: PageProps = ({ data }) => {
             <Wrapper>
                 <CtaArea data={content["cta-area"]} space="none" />
                 <PreworkButton />
-                <FunfactArea data={content["funfact-area"]} />
+                <FunfactArea />
             </Wrapper>
 
             {/* Mission pull-quote + alumni proof before applicants commit */}
