@@ -145,4 +145,28 @@ describe("SEO metadata", () => {
         expect(JSON.parse(scripts[0]).description).toBe("Bar");
         expect(scripts[0]).not.toContain("Introductory CS course");
     });
+
+    it("emits FAQPage structured data from the faq prop", () => {
+        const tags = captureHead(
+            <PageSeo
+                title="Foo"
+                description="Bar"
+                jsonLdType="faq"
+                faq={[{ question: "Q1", answer: "A1" }]}
+            />
+        );
+
+        const scripts = jsonLd(tags).map((script) => JSON.parse(script));
+        expect(scripts).toHaveLength(1);
+        expect(scripts[0]["@type"]).toBe("FAQPage");
+        expect(scripts[0].mainEntity).toEqual([
+            { "@type": "Question", name: "Q1", acceptedAnswer: { "@type": "Answer", text: "A1" } },
+        ]);
+    });
+
+    it("emits no structured data without a jsonLdType", () => {
+        const tags = captureHead(<PageSeo title="Foo" description="Bar" />);
+
+        expect(jsonLd(tags)).toEqual([]);
+    });
 });
