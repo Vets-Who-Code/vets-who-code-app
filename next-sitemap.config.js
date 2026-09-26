@@ -34,19 +34,8 @@ const exclude = [
     "/url-preview-demo",
     "/_offline",
 
-    // Theme scaffolding variants (canonical blog lives at /blogs/blog)
-    "/blogs/blog-classic",
-    "/blogs/blog-classic/*",
-    "/blogs/blog-grid-sidebar",
-    "/blogs/blog-grid-sidebar/*",
-    "/blogs/blog-list",
-    "/blogs/blog-list/*",
-
     // Search endpoints (index blog posts directly, not search UIs)
     "/blogs/search",
-
-    // Legacy duplicate (canonical contact lives at /contact-us)
-    "/contact-me",
 ];
 
 module.exports = {
