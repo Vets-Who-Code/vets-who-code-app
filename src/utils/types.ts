@@ -185,21 +185,43 @@ export interface ICourse {
     curriculum: IDType[];
 }
 
+export interface VWCProjectContributor {
+    /** GitHub login; the avatar and default profile link derive from it. */
+    login: string;
+    /** Internal path that replaces the GitHub profile link, e.g. /team/jerome-hardaway. */
+    profile?: string;
+    /** Path to the contributor's transition story, e.g. /blogs/<slug>. */
+    story?: string;
+}
+
+export type VWCProjectStatus = "live" | "maintained" | "archived";
+
 export interface VWCProjectDetails {
     index: number;
+    /** Derived by the loader from the JSON filename; not stored in the record. */
+    slug: string;
     name: string;
     headline: string;
+    /** What it does, in at most 160 characters; doubles as the meta description. */
+    summary: string;
+    /** Who it serves. */
+    serves: string;
     long_description: string[];
     technologies: string[];
+    builtBy: VWCProjectContributor[];
+    /** ISO date (YYYY-MM-DD) of the first ship; the repo's created_at when unknown. */
+    shippedAt: string;
+    status: VWCProjectStatus;
     owner: string;
     repo: string;
-    live_url?: string;
+    live_url?: string | null;
     thumbnail: ImageType;
 }
 
 export interface VWCProject {
     details: VWCProjectDetails;
-    repo: VWCProjectRepo;
+    /** GitHub stats, or null when the fetch failed (no token, rate limit, 404). */
+    repo: GithubRepo | null;
 }
 
 export interface GithubUser {
@@ -220,10 +242,6 @@ export interface GithubRepo {
     open_issues_count: number;
     forks_count: number;
     subscribers_count: number;
-}
-
-export interface VWCProjectRepo extends GithubRepo {
-    contributors: VWCContributor[];
 }
 
 export interface VWCContributor extends GithubContributor, GithubUser {}

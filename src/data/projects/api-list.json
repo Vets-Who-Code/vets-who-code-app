@@ -2,6 +2,8 @@
   "index": 5,
   "name": "API List",
   "headline": "Curated Collection of Fun and Free APIs for Learning JavaScript",
+  "summary": "A curated list of free public APIs, grouped by category (AI, art, books, food, government data and more), for practicing JavaScript against real data.",
+  "serves": "Troops and anyone learning JavaScript who needs live data to build against.",
   "long_description": [
     "The API List is a curated collection of interesting and free APIs designed to help learners practice and enhance their JavaScript skills. It offers a diverse range of APIs across various categories, including AI, art, books, code repositories, food, gaming, government data, health, language, open-source projects, and more.",
     "Key features include:",
@@ -15,6 +17,45 @@
     "APIs",
     "Web Development"
   ],
+  "builtBy": [
+    {
+      "login": "thatdeji"
+    },
+    {
+      "login": "ptenteromano",
+      "story": "/blogs/vets-who-code-servicing-tech-opportunities-to-those-who-served"
+    },
+    {
+      "login": "usmcamgrimm"
+    },
+    {
+      "login": "Emmajperrez"
+    },
+    {
+      "login": "EugeneGohh"
+    },
+    {
+      "login": "jwrubel"
+    },
+    {
+      "login": "jeromehardaway",
+      "profile": "/team/jerome-hardaway"
+    },
+    {
+      "login": "11bDev"
+    },
+    {
+      "login": "iNeso1984"
+    },
+    {
+      "login": "CaptAmericaJS"
+    },
+    {
+      "login": "semperry"
+    }
+  ],
+  "shippedAt": "2019-08-06",
+  "status": "maintained",
   "owner": "Vets-Who-Code",
   "repo": "api-list",
   "live_url": null,

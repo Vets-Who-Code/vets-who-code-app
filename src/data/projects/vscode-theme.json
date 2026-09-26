@@ -2,6 +2,8 @@
   "index": 8,
   "name": "Hashflag VS Code Theme",
   "headline": "Military-Inspired VS Code Color Theme by Vets Who Code",
+  "summary": "HashFlag, a Visual Studio Code color theme on the VS Marketplace with a navy, red and gold palette and contrast tuned for long coding sessions.",
+  "serves": "Engineers who use VS Code.",
   "long_description": [
     "The Vets Who Code VS Code Theme, known as 'HashFlag,' is a color theme for Visual Studio Code inspired by military valor and spirit. Developed by Vets Who Code, a non-profit organization dedicated to helping veterans transition into technology careers, this theme offers a patriotic coding experience.",
     "Key features of the theme include:",
@@ -14,6 +16,21 @@
     "JSON",
     "Color Theme Development"
   ],
+  "builtBy": [
+    {
+      "login": "jeromehardaway",
+      "profile": "/team/jerome-hardaway"
+    },
+    {
+      "login": "bhankee",
+      "story": "/blogs/my-journey-launching-jets-to-helping-businesses-take-off"
+    },
+    {
+      "login": "nodeselector"
+    }
+  ],
+  "shippedAt": "2018-11-17",
+  "status": "live",
   "owner": "Vets-Who-Code",
   "repo": "vetswhocode-vs-code-theme",
   "live_url": "https://marketplace.visualstudio.com/items?itemName=OfficialVetsWhoCode.HashFlag",

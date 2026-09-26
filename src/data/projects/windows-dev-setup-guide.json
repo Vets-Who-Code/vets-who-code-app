@@ -2,6 +2,8 @@
   "index": 3,
   "name": "Windows Dev Guide",
   "headline": "Comprehensive Guide to Setting Up a Windows Development Environment",
+  "summary": "A step-by-step guide to a Windows web development environment: WSL 2, Windows Terminal, Git and GitHub CLI, Zsh, Node.js, VS Code, Chocolatey and Python.",
+  "serves": "Engineers setting up a web development environment on Windows.",
   "long_description": [
     "The Windows Dev Guide provides a step-by-step walkthrough for setting up a development environment on Windows. It covers essential tools and configurations to enhance productivity for developers working on Windows platforms.",
     "Key sections include:",
@@ -20,6 +22,22 @@
     "Node.js",
     "Python"
   ],
+  "builtBy": [
+    {
+      "login": "stephanlamoureux"
+    },
+    {
+      "login": "usmcamgrimm"
+    },
+    {
+      "login": "chaturrved"
+    },
+    {
+      "login": "Yuri-NagaSaki"
+    }
+  ],
+  "shippedAt": "2022-03-23",
+  "status": "maintained",
   "owner": "Vets-Who-Code",
   "repo": "windows-dev-guide",
   "live_url": null,
