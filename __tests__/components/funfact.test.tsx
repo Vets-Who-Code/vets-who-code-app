@@ -6,7 +6,9 @@ import { OUTCOME_FUNFACTS } from "@data/outcomes";
 import { render } from "@testing-library/react";
 import { renderToStaticMarkup } from "react-dom/server";
 
-const text = (html: string) => html.replace(/<[^>]+>/g, "");
+// Read the text a crawler would see by parsing the markup, not by stripping tags with a regex.
+const text = (html: string) =>
+    new DOMParser().parseFromString(html, "text/html").body.textContent ?? "";
 
 // renderToStaticMarkup runs no effects, so this is exactly what a crawler
 // that never executes JS receives.
