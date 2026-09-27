@@ -34,7 +34,7 @@ const MentorPage: PageProps = ({ data }) => {
     const content = normalizedData<PageContent>(data.page?.content, "section");
     const mentorText = [
         "VWC mentors don't tutor. They operate as engineering managers for veterans transitioning into software engineering — running 1-on-1s, reviewing code, challenging assumptions, and preparing troops for the standards they'll face on real engineering teams.",
-        "We pair working engineers with small cohorts of 10–15 veterans and military spouses going through our 17-week accelerator. Your commitment is real but manageable: weekly check-ins, async code reviews, and direct involvement in someone's career trajectory.",
+        "We pair each working engineer with up to three veterans and military spouses going through our 17-week accelerator, and you meet with each of them one-on-one. Your commitment is real: at least two hours a week of one-on-ones, code reviews, and direct involvement in someone's career trajectory. Many mentors give more.",
         "Our alumni are engineering at Microsoft, Accenture, Amazon, Google, GitHub, Booz Allen, and Deloitte. Many of them came back to mentor the next cohort. That pipeline started with someone doing exactly what you're considering right now.",
     ];
 

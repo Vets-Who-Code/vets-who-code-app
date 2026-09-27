@@ -176,7 +176,7 @@ const ROUTES = [
     {
         kicker: "03 / Mentors & Instructors",
         title: "You have reps to give.",
-        body: "Working engineers pair with troops, review code, and lead sessions. Two hours a month is enough to matter.",
+        body: "Working engineers pair with troops, review code, and lead sessions. Two hours a week is enough to matter.",
         link: "Volunteer",
         path: "/mentor",
     },
