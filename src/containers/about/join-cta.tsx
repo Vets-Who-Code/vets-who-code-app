@@ -23,7 +23,7 @@ const PATHWAYS: Pathway[] = [
     {
         kind: "For Senior Engineers",
         title: "Mentor a troop",
-        body: "We need senior engineers who've made the leap themselves. Show up on Slack, run a code review, sit on a final project panel. Two hours a month moves someone's career.",
+        body: "We need senior engineers who've made the leap themselves. Show up on Slack, run a code review, sit on a final project panel. Two hours a week moves someone's career.",
         cta: "Become a mentor",
         href: "/mentor",
     },

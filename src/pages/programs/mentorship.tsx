@@ -20,9 +20,9 @@ const gridLines = {
 } as const;
 
 const DUTY: Array<[string, string]> = [
-    ["Commitment", "4–5 hrs / month"],
+    ["Commitment", "2+ hrs / week"],
     ["Term", "One cohort · 17 weeks"],
-    ["Cohort size", "10–15 troops"],
+    ["Troops per mentor", "Up to 3"],
     ["Location", "Remote"],
 ];
 
@@ -67,7 +67,7 @@ const TRACKS = [
 ];
 
 const COMMITMENT = [
-    ["01", "One 45-minute sync every week", "On a schedule you and your mentee set."],
+    ["01", "At least two hours a week, one-on-one", "On a schedule you and each troop set."],
     [
         "02",
         "One pre-gate artifact read per unit",
@@ -154,7 +154,7 @@ const MentorshipPage: PageWithLayout = () => {
         <>
             <SEO
                 title="Mentorship Program | Vets Who Code"
-                description="Staff the middle of the accelerator. One cohort, seventeen weeks, four to five hours a month — pre-gate artifact review and the judgment a model cannot supply."
+                description="Staff the middle of the accelerator. One cohort, seventeen weeks, at least two hours a week — pre-gate artifact review and the judgment a model cannot supply."
             />
 
             {/* 1 — Hero */}
@@ -317,9 +317,9 @@ const MentorshipPage: PageWithLayout = () => {
                             <span className="tw-text-gold">owe them.</span>
                         </h2>
                         <p className="tw-mt-6 tw-max-w-[46ch] tw-font-body tw-text-[17px] tw-leading-[1.7] tw-text-[rgba(185,214,242,0.86)]">
-                            Four to five hours a month, for one cohort. Standing appointments, not
-                            availability. At the end of seventeen weeks you decide whether to take
-                            another.
+                            At least two hours a week, for up to three troops in one cohort.
+                            Standing appointments, not availability. At the end of seventeen weeks
+                            you decide whether to take another.
                         </p>
                     </div>
                     <ol className="tw-m-0 tw-list-none tw-p-0">
@@ -530,8 +530,8 @@ const MentorshipPage: PageWithLayout = () => {
                             Take one cohort.
                         </h2>
                         <p className="tw-mt-6 tw-max-w-[52ch] tw-font-body tw-text-[17px] tw-leading-[1.7] tw-text-[rgba(185,214,242,0.86)]">
-                            Seventeen weeks, four to five hours a month, one engineer who will
-                            remember your name for the rest of their career.
+                            Seventeen weeks, at least two hours a week, up to three engineers who
+                            will remember your name for the rest of their careers.
                         </p>
                     </div>
                     <div className="md:tw-justify-self-end">
