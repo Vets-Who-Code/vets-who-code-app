@@ -71,6 +71,8 @@ public/audio/blogs/
 
 graphify-out/
 src/data/blog-graphics/**/out/
+# Graphic sources stay local; the rendered PNGs live on Cloudinary
+src/data/blog-graphics/*/
 
 # Linter/scoring artifacts
 eslint-report.json
