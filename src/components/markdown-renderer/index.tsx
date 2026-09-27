@@ -11,11 +11,12 @@ type TProps = {
 const MarkdownRenderer = ({ content, className }: TProps) => {
     const renderer = new marked.Renderer();
 
-    // Custom link renderer to open links in new tabs
+    // Custom link renderer to open external links in new tabs
     // eslint-disable-next-line @typescript-eslint/unbound-method
     const linkRenderer = renderer.link;
     renderer.link = (href, linkTitle, text) => {
         const html = linkRenderer.call(renderer, href, linkTitle, text);
+        if (!/^https?:\/\//i.test(href || "")) return html;
         return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ');
     };
 
