@@ -1,5 +1,6 @@
 import { buildGuideMeta } from "@containers/career-guide-detail/derive";
 import type { CareerGuideDetail } from "@containers/career-guide-detail/types";
+import metaOverrides from "@data/career-guide-meta-overrides.json";
 import prerender from "@data/career-guides-prerender.json";
 import { getCareerGuideData, getCareerGuideDetail, loadCareerGuides } from "@/lib/career-guides";
 
@@ -98,8 +99,9 @@ describe("career-guides", () => {
         const keys = Object.keys(getCareerGuideData().training);
         const metas = keys.map((key) => {
             const detail = detailFor(key);
-            return { key, detail, ...buildGuideMeta(detail) };
+            return { key, detail, ...buildGuideMeta(detail, key.toLowerCase()) };
         });
+        const overridden = new Set(Object.keys(metaOverrides));
         // The code is unique by construction, so uniqueness of the raw strings proves
         // nothing; the distinctiveness checks compare text with the code removed.
         const withoutCode = (text: string, code: string) => text.split(code).join("");
@@ -111,7 +113,8 @@ describe("career-guides", () => {
         });
 
         it("leads with the code and job title, then names the branch", () => {
-            for (const { detail, title } of metas) {
+            for (const { key, detail, title } of metas) {
+                if (overridden.has(key.toLowerCase())) continue;
                 expect(title.startsWith(`${detail.code} ${detail.training.title}`)).toBe(true);
                 expect(withoutCode(title, detail.code)).toContain(detail.branch);
             }
@@ -134,13 +137,29 @@ describe("career-guides", () => {
         });
 
         it("tells Client Systems Technician siblings apart by pipeline and outcome", () => {
-            const a = buildGuideMeta(detailFor("2E7X1"));
-            const b = buildGuideMeta(detailFor("2E7X2"));
+            const a = buildGuideMeta(detailFor("2E7X1"), "2e7x1");
+            const b = buildGuideMeta(detailFor("2E7X2"), "2e7x2");
             expect(withoutCode(a.description, "2E7X1")).not.toBe(
                 withoutCode(b.description, "2E7X2")
             );
             expect(a.description).toContain("16 weeks");
             expect(b.description).toContain("14 weeks");
+        });
+
+        // Top MOS guides by impressions answer "what is MOS ####" (#1421). The 60/155
+        // limits are before PageSeo's " - Vets Who Code" suffix.
+        it("serves the override for each top MOS guide", () => {
+            const slugs = ["0111", "0231", "0211", "0206", "0204", "0241"];
+            expect([...overridden].sort()).toEqual([...slugs].sort());
+            for (const slug of slugs) {
+                const { title, description } = buildGuideMeta(detailFor(slug), slug);
+                expect(title.startsWith(`What Is MOS ${slug}? `), title).toBe(true);
+                expect(title.length, title).toBeLessThanOrEqual(60);
+                expect(description.length, description).toBeLessThanOrEqual(155);
+                expect(description, description).toContain(
+                    `${slug}s move into software engineering`
+                );
+            }
         });
     });
 });
