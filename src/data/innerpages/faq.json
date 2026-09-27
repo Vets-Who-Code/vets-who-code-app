@@ -193,11 +193,11 @@
                 {
                     "id": 16,
                     "category": "Mentorship",
-                    "title": "Do mentors stay involved after graduation?",
+                    "title": "Does mentorship end after the 17 weeks?",
                     "texts": [
                         {
                             "id": 1,
-                            "content": "Many do. The VWC alumni network stays active on Slack, refers each other for roles, and reviews each other's work long after the program ends. Graduates regularly return as mentors for the next cohort."
+                            "content": "No. You never really graduate from Vets Who Code. The door stays open for as long as you need it, and many mentor relationships last well beyond the program; our founder still mentors alumni who are now principal engineers. The alumni network stays active on Slack, refers each other for roles, and reviews each other's work. Many alumni come back to mentor the next cohort."
                         }
                     ]
                 },
