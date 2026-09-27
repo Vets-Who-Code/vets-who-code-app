@@ -4,14 +4,16 @@ import type { ComponentProps } from "react";
 import { facetHref, facetSeo, parseFacetSegments } from "@/lib/career-guide-facets";
 import { loadCareerGuides } from "@/lib/career-guides";
 import FacetPage, { getStaticPaths, getStaticProps } from "@/pages/career-guides/[...facet]";
-import { getStaticProps as getIndexProps } from "@/pages/career-guides/index";
+import IndexPage, { getStaticProps as getIndexProps } from "@/pages/career-guides/index";
 
 vi.mock("next/router", () => ({
     useRouter: () => ({ isReady: false, asPath: "/career-guides/branch/army", query: {} }),
 }));
 
 vi.mock("@components/seo/page-seo", () => ({
-    default: ({ title }: { title: string }) => <div data-testid="seo" data-title={title} />,
+    default: ({ title, description }: { title: string; description: string }) => (
+        <div data-testid="seo" data-title={title} data-description={description} />
+    ),
 }));
 
 type FacetProps = ComponentProps<typeof FacetPage>;
@@ -60,7 +62,7 @@ describe("career-guides/[...facet]", () => {
             branch: [],
             family: [],
         } as Record<string, string[]>;
-        const titles = new Set(["Career Guides — Military Job Code Translator"]);
+        const titles = new Set(["MOS Translator: Military Job Codes to Civilian Careers"]);
         const descriptions = new Set<string>();
 
         for (const p of paths) {
@@ -84,6 +86,21 @@ describe("career-guides/[...facet]", () => {
         expect(titles.size).toBe(paths.length + 1);
         expect(descriptions.size).toBe(paths.length);
     }, 60_000);
+
+    it("writes the index snippet for the MOS query, within length limits, with the page's count", () => {
+        const index = getIndexProps({}) as GetStaticPropsResult<ComponentProps<typeof IndexPage>>;
+        if (!("props" in index)) throw new Error("no index props");
+        render(<IndexPage {...index.props} />);
+
+        const seo = screen.getByTestId("seo");
+        const title = seo.getAttribute("data-title") ?? "";
+        const description = seo.getAttribute("data-description") ?? "";
+        expect(title).toMatch(/^MOS Translator: Military Job Codes to Civilian Careers$/);
+        expect(title.length).toBeLessThanOrEqual(60);
+        expect(description).toMatch(/military MOS/);
+        expect(description.length).toBeLessThanOrEqual(155);
+        expect(description).toContain(`${index.props.total.toLocaleString()} career guides`);
+    });
 
     it("404s unknown facets and pages past the end", () => {
         expect(getStaticProps({ params: { facet: ["branch", "space-force"] } })).toEqual({

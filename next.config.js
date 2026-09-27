@@ -131,6 +131,11 @@ const nextConfig = {
                 permanent: true,
             },
             {
+                source: "/careers",
+                destination: "/career-guides",
+                permanent: true,
+            },
+            {
                 source: "/blogs/blog-classic/:path*",
                 destination: "/blogs/blog",
                 permanent: true,

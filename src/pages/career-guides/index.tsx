@@ -34,8 +34,8 @@ const CareerGuidesPage: PageWithLayout = ({
 }) => (
     <>
         <SEO
-            title="Career Guides — Military Job Code Translator"
-            description={`From job code to civilian career. Browse ${total.toLocaleString()} military career guides across all five branches with civilian salary bands, certifications, and demand signals sourced from Lightcast labor data.`}
+            title="MOS Translator: Military Job Codes to Civilian Careers"
+            description={`Translate a military MOS, rating, or AFSC into a civilian job. ${total.toLocaleString()} career guides for all five branches with salaries, certifications, and job demand.`}
         />
         <CareerGuidesContainer
             rows={rows}
