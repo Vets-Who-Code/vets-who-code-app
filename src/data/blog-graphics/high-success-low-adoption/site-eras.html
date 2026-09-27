@@ -1,0 +1,156 @@
+<link rel="stylesheet" href="../_brand.css" />
+<style>
+    .title {
+        font-size: 56px;
+        color: var(--navy);
+        text-align: center;
+        margin-top: 10px;
+    }
+    .timeline {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex: 1;
+        width: 100%;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    .card {
+        flex: 1;
+        height: 420px;
+        background: var(--cream);
+        border: 3px solid var(--navy-sky);
+        border-radius: 12px;
+        padding: 36px 24px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .card.current {
+        background: var(--navy-midnight);
+        border-color: var(--gold);
+        transform: translateY(-12px);
+    }
+    .era-label {
+        font-family: "GothamPro", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        color: var(--red);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 24px;
+        position: relative;
+        z-index: 2;
+    }
+    .card.current .era-label {
+        color: var(--gold);
+    }
+    .tech {
+        font-family: "GothamPro", sans-serif;
+        font-weight: 900;
+        font-size: 30px;
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 2;
+        min-height: 75px;
+    }
+    .card.current .tech {
+        color: var(--cream);
+    }
+    .desc {
+        font-family: "Gilroy", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: var(--navy-deep);
+        line-height: 1.45;
+        position: relative;
+        z-index: 2;
+    }
+    .card.current .desc {
+        color: var(--navy-sky);
+    }
+    .card-num {
+        font-family: "GothamPro", sans-serif;
+        font-weight: 900;
+        font-size: 200px;
+        color: var(--navy);
+        opacity: 0.05;
+        position: absolute;
+        bottom: -40px;
+        right: -16px;
+        line-height: 1;
+        z-index: 1;
+        letter-spacing: -0.05em;
+    }
+    .card.current .card-num {
+        color: var(--cream);
+        opacity: 0.04;
+    }
+    .arrow {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+    }
+</style>
+
+<div class="artboard">
+    <h1 class="title">ONE SITE. FOUR ERAS.</h1>
+
+    <div class="timeline">
+        <div class="card">
+            <div class="card-num">1</div>
+            <div class="era-label">Era 01</div>
+            <div class="tech">Bootstrap<br>+ MySQL</div>
+            <div class="desc">One-page site.</div>
+        </div>
+
+        <div class="arrow">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--navy-ocean)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="8 18 16 12 8 6"></polyline>
+            </svg>
+        </div>
+
+        <div class="card">
+            <div class="card-num">2</div>
+            <div class="era-label">Era 02</div>
+            <div class="tech">Gatsby</div>
+            <div class="desc">Static generation.</div>
+        </div>
+
+        <div class="arrow">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--navy-ocean)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="8 18 16 12 8 6"></polyline>
+            </svg>
+        </div>
+
+        <div class="card">
+            <div class="card-num">3</div>
+            <div class="era-label">Era 03</div>
+            <div class="tech">Create<br>React App</div>
+            <div class="desc">React matures.</div>
+        </div>
+
+        <div class="arrow">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--navy-ocean)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="8 18 16 12 8 6"></polyline>
+            </svg>
+        </div>
+
+        <div class="card current">
+            <div class="card-num">4</div>
+            <div class="era-label">Era 04 &middot; Today</div>
+            <div class="tech">Next.js</div>
+            <div class="desc">Today, with Gemini running security and content workflows.</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>What you build matters less than whether you maintain it.</span>
+        <span class="brand">Vets Who Code</span>
+    </div>
+</div>
