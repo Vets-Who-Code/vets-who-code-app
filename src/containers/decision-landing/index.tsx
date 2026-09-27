@@ -11,9 +11,9 @@ type TProps = {
     mdxSource: MDXRemoteSerializeResult;
 };
 
-// Body links are plain MDX anchors on purpose: MarkdownRenderer would add
-// target="_blank" rel="nofollow", which defeats the internal links to /apply
-// and /curriculum these pages exist to carry.
+// Body links are plain MDX anchors: these pages are MDX, so they render through
+// next-mdx-remote rather than MarkdownRenderer, and their /apply and /curriculum
+// links stay same-tab internal links.
 const DecisionLandingContainer = ({ frontmatter, mdxSource }: TProps) => (
     <>
         <section

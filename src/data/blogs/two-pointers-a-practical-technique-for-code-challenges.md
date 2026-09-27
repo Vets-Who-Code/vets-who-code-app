@@ -261,3 +261,7 @@ If this post sparked a new insight or helped you grow as a developer, imagine th
 Your donation isn’t just support — it’s opportunity. It’s a laptop in the hands of a veteran. It’s one more line of code that leads to a six-figure salary. It’s a future reimagined.
 
 [**Donate Now**](https://vetswhocode.io/donate) or [**Sponsor Us on GitHub**](https://github.com/sponsors/vetswhocode) to power this mission forward. Every dollar, every star, every share helps. Let's build something bigger — together.
+
+### Know a Veteran Who Wants to Code?
+
+Vets Who Code is a free, remote software engineering accelerator for veterans and military spouses. If you know one who's ready to become a software engineer, send them this post and tell them to [**Apply**](/apply). We'll take it from there.
