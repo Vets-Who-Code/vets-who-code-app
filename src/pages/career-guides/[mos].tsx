@@ -11,6 +11,7 @@ import { getCareerGuideDetail } from "@/lib/career-guides";
 
 interface MosPageProps {
     detail: CareerGuideDetail;
+    slug: string;
     jsonLd: ReturnType<typeof buildCareerGuideJsonLd>;
 }
 
@@ -18,8 +19,8 @@ type PageWithLayout = NextPage<MosPageProps> & {
     Layout?: typeof Layout01;
 };
 
-const MosPage: PageWithLayout = ({ detail, jsonLd }) => {
-    const { title: pageTitle, description: pageDescription } = buildGuideMeta(detail);
+const MosPage: PageWithLayout = ({ detail, slug, jsonLd }) => {
+    const { title: pageTitle, description: pageDescription } = buildGuideMeta(detail, slug);
 
     return (
         <>
@@ -60,6 +61,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
                 bodyClass: "tw-bg-secondary",
             },
             detail,
+            slug,
             jsonLd: buildCareerGuideJsonLd(detail, slug),
         },
     };

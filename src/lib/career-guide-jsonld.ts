@@ -25,7 +25,7 @@ export const buildCareerGuideJsonLd = (
 ): { "@context": string; "@graph": JsonLdNode[] } => {
     const { code, branch, training } = detail;
     const url = `${siteConfig.url}/career-guides/${slug}`;
-    const { title, description } = buildGuideMeta(detail);
+    const { title, description } = buildGuideMeta(detail, slug);
 
     // Salaries of the guide's own matched civilian pathways. With none, the listing and the
     // salary band fall back to a placeholder range, which is never published as salary data.

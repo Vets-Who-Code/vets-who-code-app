@@ -1,3 +1,4 @@
+import metaOverrides from "@data/career-guide-meta-overrides.json";
 import { normaliseBranch } from "./branch-meta";
 import type {
     CareerGuideDetail,
@@ -143,13 +144,20 @@ export const buildDetail = (input: {
     };
 };
 
+// Hand-written "what is MOS ####" meta for the top guides by search impressions (#1421),
+// keyed by guide slug. Every other guide uses the template in buildGuideMeta.
+const META_OVERRIDES = new Map(Object.entries(metaOverrides));
+
 // 2,905 of the 4,202 guides share their training title with another guide (64 are
 // "Client Systems Technician"), so the page title carries the branch and the
 // description carries the fields that actually differ between siblings: pipeline
 // length, school, and top civilian match.
 export const buildGuideMeta = (
-    detail: CareerGuideDetail
+    detail: CareerGuideDetail,
+    slug: string
 ): { title: string; description: string } => {
+    const override = META_OVERRIDES.get(slug);
+    if (override) return override;
     const { code, branch, training, summary } = detail;
     const school = training.program.split(",")[0].trim();
     const duration =
