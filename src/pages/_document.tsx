@@ -1,7 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-    render() {
+    override render() {
         const pageProps = this.props?.__NEXT_DATA__?.props?.pageProps;
         const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID; // Get the GA ID from environment variables
 
