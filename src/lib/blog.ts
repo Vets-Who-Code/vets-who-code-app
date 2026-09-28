@@ -47,7 +47,7 @@ const processImageField = (image: ImageType): ImageType => {
 export function getPostBySlug(slug: string, fields: Array<keyof IBlog> | "all" = []): IBlog {
     const realSlug = slug.replace(/\.md$/, "");
     const fullPath = join(postsDirectory, `${realSlug}.md`);
-    const fileContents = JSON.parse(JSON.stringify(fs.readFileSync(fullPath, "utf8"))) as BlogType;
+    const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
     const blogData = data as BlogType;
