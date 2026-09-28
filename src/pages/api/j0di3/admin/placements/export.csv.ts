@@ -2,6 +2,7 @@ import axios from "axios";
 import type { NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
 import { type AuthenticatedRequest, requireRole } from "@/lib/rbac";
+import { toSafeError } from "@/utils/safe-error";
 
 export default requireRole("ADMIN")(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
@@ -21,7 +22,7 @@ export default requireRole("ADMIN")(async (req: AuthenticatedRequest, res: NextA
         if (axios.isAxiosError(error) && error.response) {
             return res.status(error.response.status).json({ error: "Export failed" });
         }
-        console.error("[admin/placements/export.csv] error:", error);
+        console.error("[admin/placements/export.csv] error:", toSafeError(error));
         return res.status(500).json({ error: "Internal server error" });
     }
 });
