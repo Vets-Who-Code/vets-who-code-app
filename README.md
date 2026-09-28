@@ -11,10 +11,10 @@
   <a href="https://github.com/Vets-Who-Code/vets-who-code-app">
     <img src="https://img.shields.io/github/package-json/v/Vets-Who-Code/vets-who-code-app?style=flat-square" alt="Version" />
   </a>
-  <img src="https://img.shields.io/badge/node-v18.18.0-brightgreen.svg?style=flat-square" alt="node" />
-  <img src="https://img.shields.io/badge/npm-v9.0.0-blue.svg?style=flat-square" alt="npm" />
-  <a href="https://github.com/Vets-Who-Code/vwc-site/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square" alt="License: MIT" />
+  <img src="https://img.shields.io/badge/node-v20-brightgreen.svg?style=flat-square" alt="node" />
+  <img src="https://img.shields.io/badge/npm-only-blue.svg?style=flat-square" alt="npm" />
+  <a href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE">
+    <img src="https://img.shields.io/badge/License-AGPL--3.0-yellow.svg?style=flat-square" alt="License: AGPL-3.0" />
   </a>
   <a href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/contributing.md">
     <img src="https://img.shields.io/badge/contributions-welcome-orange.svg?style=flat-square" alt="Contributions Welcome" />
@@ -54,14 +54,13 @@ Hey there, Soldier! Welcome to the **Vets Who Code Web App**. This project serve
 
 This app is built using a modern tech stack including:
 
-- Next.js 15
+- Next.js 15 (Pages Router)
 - TypeScript
 - Tailwind CSS
-- Playwright for testing
+- Prisma + Postgres
+- NextAuth (GitHub OAuth)
 - MDX for content
-- shadcn/ui components
-- Server Actions
-- Server Components
+- Vitest and Playwright for testing
 
 ### Our Mission :dart:
 
@@ -78,9 +77,9 @@ To get a local copy up and running, you'll need a few things installed on your m
 ### Prerequisites 🛠️
 
 - [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) (v18.18.0 or higher)
+- [Node.js](http://nodejs.org/) v20 (see `.nvmrc`)
 - [NVM](https://github.com/creationix/nvm)
-- [pnpm](https://pnpm.io/) (recommended) or npm
+- npm — the only supported package manager; `preinstall` rejects yarn, pnpm, and bun
 
 ### Installation Steps :wrench:
 
@@ -188,7 +187,7 @@ Remember, this is optional. If you prefer to set up your development environment
 
 - Scrapes/reads the blog markdown file in system blog folder.
 - Blog title, content and summary are returned to inject in a dynamic prompt that is given to Google Gemini.
-- Gemini returns JSON formatted to be able to give this return value as an input to Google Imagen to build an image.
+- Gemini returns JSON that becomes the prompt for a Gemini image model, which builds the image.
 - After the image is generated it is uploaded to [Cloudinary](https://cloudinary.com/) into the blog-images folder.
 
 **How to Run**
@@ -200,9 +199,6 @@ Remember, this is optional. If you prefer to set up your development environment
   - GEMINI_API_KEY
 - Run this script followed by the blog article slug as second arg like this example:
   `npm run generate:blog-image <blog-slug-here>`
-
-To get a local copy up and running, you'll need a few things installed on your machine.
-`npx tsx scripts/generate-blog-image.ts`
 
 ## Blog Audio
 
@@ -349,7 +345,7 @@ Curious about upcoming features? Check our [Roadmap](https://github.com/orgs/Vet
 
 ## License :scroll:
 
-This project is under the GNU Affero General Public License v3.0 - see the [License]() for more details.
+This project is under the GNU Affero General Public License v3.0 — see the [LICENSE](LICENSE) for details.
 
 ---
 
