@@ -4,13 +4,12 @@ import {
     bandColor,
     buildGraph,
     computeDepths,
-    EDGES,
     MANIFEST,
     SUBJECT_BANDS,
     SUBJECTS,
-    TOPICS,
     type Topic,
 } from "@/lib/curriculum-graph";
+import { EDGES, TOPICS } from "@/lib/curriculum-graph-data";
 
 const topic = (id: string, subject: string, overrides: Partial<Topic> = {}): Topic => ({
     id,

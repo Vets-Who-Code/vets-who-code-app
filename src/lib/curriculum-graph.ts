@@ -1,7 +1,5 @@
-import edgesJson from "@data/curriculum-graph/edges.json";
 import manifestJson from "@data/curriculum-graph/manifest.json";
 import subjectsJson from "@data/curriculum-graph/subjects.json";
-import topicsJson from "@data/curriculum-graph/topics.json";
 
 export type TopicType = "conceptual" | "procedural" | "representational" | "language" | "meta";
 export type ExitDepth = "guided" | "scaffolded" | "unassisted";
@@ -58,8 +56,6 @@ export type Manifest = {
     structureAdaptedFrom: { name: string; url: string; license: string };
 };
 
-export const TOPICS = topicsJson as Topic[];
-export const EDGES = edgesJson as GraphEdge[];
 export const SUBJECTS = subjectsJson as Subject[];
 export const MANIFEST = manifestJson as Manifest;
 
