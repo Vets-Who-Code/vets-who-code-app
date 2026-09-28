@@ -24,8 +24,7 @@
     }
 }
 
-.btnPrimary,
-.btnOutline {
+.btnPrimary {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -61,25 +60,8 @@
     transform: scale(0.97);
 }
 
-.btnOutline {
-    background: transparent;
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
-.btnOutline:hover {
-    border-color: #fdb330;
-    color: #fdb330;
-    transform: translateY(-1px);
-}
-
-.btnOutline:active {
-    transform: scale(0.97);
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .btnPrimary:hover,
-    .btnOutline:hover {
+    .btnPrimary:hover {
         transform: none;
     }
 }
