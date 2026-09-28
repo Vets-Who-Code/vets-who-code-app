@@ -100,30 +100,16 @@ aliases; spot-checked with grep). They still carry alts like `"shape"`, `"bg"`, 
 `"popular"`, `"team"`. Fix them if they are ever wired up; otherwise they are candidates for
 deletion.
 
-- `src/components/blog-card/blog-01.tsx`, `blog-02.tsx`
-- `src/components/course-card/course-01.tsx` … `course-04.tsx`
-- `src/components/image-box/image-box-01.tsx`, `image-box-03.tsx`, `image-box-04.tsx`
-- `src/components/review/index.tsx`
-- `src/components/testimonial/testimonial-01.tsx`, `-02`, `-05`, `-06`
-- `src/components/ui/video-with-poster/video-01.tsx`
+- `src/components/course-card/course-02.tsx` … `course-04.tsx`
 - `src/components/widgets/banner-widget.tsx`, `recent-courses-widget.tsx`
 - `src/components/cloudinary-upload-example.tsx`
-- `src/containers/about/layout-01`, `about/layout-02`
 - `src/containers/app-download`
-- `src/containers/blog/layout-01`
-- `src/containers/brand/layout-02`
-- `src/containers/cta/layout-02`
-- `src/containers/faq/layout-01`, `faq/layout-04`
 - `src/containers/gallery/item.tsx`
-- `src/containers/hero/layout-01`, `-02`, `-03`, `-05`, `-06`, `-07`, `-08`
-- `src/containers/newsletter/layout-01`
 - `src/containers/profile/bio.tsx`
 - `src/containers/register-guide`
-- `src/containers/service/layout-06`, `service/layout-08`
-- `src/containers/team/layout-01`
-- `src/containers/testimonial/layout-05`
 - `src/containers/timeline/item.tsx`
-- `src/containers/video/layout-01`, `-02`, `-03`, `-06`, `-07`
+
+The other entries on the original list were deleted under issue #1375.
 
 Data files no page consumes: `src/data/innerpages/about-us.json`, `theory-of-change.json`,
 `become-a-mentor.json`, `become-a-teacher.json`.
