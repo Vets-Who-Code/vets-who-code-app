@@ -1,7 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 export default class MyDocument extends Document {
-    render() {
+    override render() {
         const pageProps = this.props?.__NEXT_DATA__?.props?.pageProps;
         const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID; // Get the GA ID from environment variables
 
@@ -42,12 +42,6 @@ export default class MyDocument extends Document {
                         crossOrigin="anonymous"
                     />
 
-                    <link
-                        rel="stylesheet"
-                        href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css"
-                        integrity="sha384-rqn26AG5Pj86AF4SO72RK5fyefcQ/x32DNQfChxWvbXIyXFePlEktwD18fEz+kQU"
-                        crossOrigin="anonymous"
-                    />
                     {gaId && ( // Only include the script if the GA ID is present
                         <>
                             <script

@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { type AuthenticatedRequest, requireAuth, requireRole } from "@/lib/rbac";
+import { toSafeError } from "@/utils/safe-error";
 
 type Method = "GET" | "POST" | "PATCH" | "DELETE";
 
@@ -101,7 +102,7 @@ async function dispatch(
                 error.response.data?.detail || error.response.data?.error || "J0dI3 request failed";
             return res.status(status).json({ error: message });
         }
-        console.error("[j0di3-proxy] Unexpected error:", error);
+        console.error("[j0di3-proxy] Unexpected error:", toSafeError(error));
         return res.status(500).json({ error: "Internal server error" });
     }
 }

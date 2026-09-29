@@ -181,28 +181,58 @@ We support development containers for an easier setup experience.
 
 Remember, this is optional. If you prefer to set up your development environment manually, you can continue to do so.
 
-## Image Generation Script for Blog Post Images
+## Blog Media 🖼️
 
-**How it Works**
+Blog headers, audio overviews, and inline graphics are generated from the post's markdown and uploaded to [Cloudinary](https://cloudinary.com/). The media files never live in git; the post references them by Cloudinary path.
+
+Every script reads `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`, and `GEMINI_API_KEY` from `.env`.
+
+### Header image and audio
+
+```sh
+npm run generate:blog-media <slug>   # header image + audio overview in one run
+npm run generate:blog-image <slug>   # header image only
+```
+
+The header lands at `blog-images/<slug>`; reference it in the post's front matter as `image.src: "blog-images/<slug>.png"`. The audio lands at `blog-audio/<slug>.wav`, and the post page picks it up by slug.
+
+**How the header image is made**
 
 - Scrapes/reads the blog markdown file in system blog folder.
 - Blog title, content and summary are returned to inject in a dynamic prompt that is given to Google Gemini.
 - Gemini returns JSON that becomes the prompt for a Gemini image model, which builds the image.
 - After the image is generated it is uploaded to [Cloudinary](https://cloudinary.com/) into the blog-images folder.
 
-**How to Run**
+### Inline graphics
 
-- Verify you have the following environment variables locally in a .env file:
-  - NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-  - CLOUDINARY_API_KEY
-  - CLOUDINARY_API_SECRET
-  - GEMINI_API_KEY
-- Run this script followed by the blog article slug as second arg like this example:
-  `npm run generate:blog-image <blog-slug-here>`
+Inline graphics are HTML artboards styled by `src/data/blog-graphics/_brand.css`, rendered to PNG with Playwright, then uploaded.
 
-## Blog Audio
+```sh
+mkdir -p src/data/blog-graphics/<slug>
+npm run generate:blog-graphic <slug> -- --draft <name> "<what the graphic should say>"  # Gemini drafts <name>.html
+npm run generate:blog-graphic <slug> -- --dry   # render PNGs to out/ for review, no upload
+npm run generate:blog-graphic <slug>            # render and upload every graphic in the folder
+```
+
+Edit the drafted HTML until the `--dry` render reads right, then upload. Embed each one in the post as `![alt text](blog-graphics/<slug>-<name>)`. The per-post folders are gitignored: the sources stay on your machine and only the PNGs are published.
+
+### Audio staging
 
 `public/audio/blogs/` is a **local staging directory** — it is gitignored and never committed. `npm run generate:blog-audio` writes WAVs there on the way to Cloudinary; the site itself always plays from Cloudinary (see `src/lib/blog.ts`), and `.vercelignore` keeps the directory out of deploys. The newer per-post script (`npm run generate:blog-media`) streams straight to Cloudinary and does not use this directory at all.
+
+## Code Quality 🧹
+
+[Biome](https://biomejs.dev) is the only linter and formatter — there is no ESLint or Prettier config.
+
+```sh
+npm run typecheck   # tsc, no emit
+npm run lint        # Biome lint, no writes
+npm run lint:fix    # typecheck, then biome check --write
+npm run format      # Biome format only
+npm run check       # biome ci — what to run before pushing
+```
+
+A pre-commit hook runs `biome check --write` on staged files, and a commit-msg hook enforces [Conventional Commits](contributing.md#commit-message-guidelines).
 
 ## Testing 🧪
 
@@ -334,6 +364,12 @@ Both suites run on every pull request to `master`. [`.github/workflows/vitest.ym
 - [Testing Library (React)](https://testing-library.com/docs/react-testing-library/intro/)
 - [Playwright documentation](https://playwright.dev)
 - Still stuck? See [Further Help](contributing.md#further-help) in the contributing guide.
+
+## Project Docs 📚
+
+- [`AGENTS.md`](AGENTS.md) — architecture, where new code goes, path aliases, auth guards, and conventions. Written for AI coding agents, and the fastest orientation for humans too.
+- [`docs/`](docs) — deep dives: [design system](docs/DESIGN_DOC.md), [brand style guide](docs/brand-style-guide.md), [database](docs/DATABASE_GUIDE.md), [deployment](docs/DEPLOYMENT.md), [Shopify](docs/SHOPIFY_SETUP.md), [email](docs/EMAIL_SETUP.md), and more.
+- `/api-docs` — Swagger UI for every API route, generated at build time from `@swagger` JSDoc blocks. The raw spec is served at `/api/docs`.
 
 ## Contributing :handshake:
 

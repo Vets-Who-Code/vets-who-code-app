@@ -133,12 +133,6 @@ const HeroSection = () => {
                             <Link href="#discovery" className={styles.btnPrimary}>
                                 Book Discovery <span aria-hidden="true">→</span>
                             </Link>
-                            <Link
-                                href="/files/vwc-software-factory-capabilities.pdf"
-                                className={styles.btnOutline}
-                            >
-                                Download Capabilities Brief (PDF)
-                            </Link>
                         </div>
                     </motion.div>
                 </div>

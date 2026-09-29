@@ -1,11 +1,5 @@
-import {
-    buildGraph,
-    EDGES,
-    MANIFEST,
-    SUBJECT_BANDS,
-    SUBJECTS,
-    TOPICS,
-} from "@lib/curriculum-graph";
+import { buildGraph, MANIFEST, SUBJECT_BANDS, SUBJECTS } from "@lib/curriculum-graph";
+import { EDGES, TOPICS } from "@lib/curriculum-graph-data";
 import { useCallback, useMemo, useState } from "react";
 import styles from "./curriculum-graph.module.css";
 import GraphCanvas from "./graph-canvas";

@@ -1,14 +1,13 @@
 import { DOMAIN_TITLES } from "@data/curriculum-domains";
 import siteConfig from "@data/site-config";
 import {
-    EDGES,
     type EdgeStrength,
     MANIFEST,
     SUBJECT_BANDS,
     SUBJECTS,
-    TOPICS,
     type Topic,
 } from "./curriculum-graph";
+import { EDGES, TOPICS } from "./curriculum-graph-data";
 
 /** One page per domain. Source list for getStaticPaths, in subject order. */
 export const DOMAIN_IDS: string[] = SUBJECTS.flatMap((s) => s.domains.map((d) => d.id));

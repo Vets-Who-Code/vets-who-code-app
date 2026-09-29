@@ -1,6 +1,7 @@
 import type { NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
 import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { toSafeError } from "@/utils/safe-error";
 
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     const troopId = req.user!.troopId;
@@ -28,7 +29,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
                 error: error.response.data?.detail || "J0dI3 request failed",
             });
         }
-        console.error("[troops/me] Unexpected error:", error);
+        console.error("[troops/me] Unexpected error:", toSafeError(error));
         return res.status(500).json({ error: "Internal server error" });
     }
 });

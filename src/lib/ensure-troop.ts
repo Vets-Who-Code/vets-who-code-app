@@ -1,5 +1,6 @@
 import j0di3 from "@/lib/j0di3-client";
 import prisma from "@/lib/prisma";
+import { toSafeError } from "@/utils/safe-error";
 
 /**
  * Ensures a user has a linked J0dI3 troop profile *and* a stored access token.
@@ -42,7 +43,7 @@ export async function ensureTroop(userId: string): Promise<string | null> {
             }
             return dbUser.troopId;
         } catch (error) {
-            console.error("[ensureTroop] Failed to rotate troop access token:", error);
+            console.error("[ensureTroop] Failed to rotate troop access token:", toSafeError(error));
             return dbUser.troopId;
         }
     }
@@ -66,7 +67,7 @@ export async function ensureTroop(userId: string): Promise<string | null> {
 
         return data.id;
     } catch (error) {
-        console.error("[ensureTroop] Failed to register troop with J0dI3:", error);
+        console.error("[ensureTroop] Failed to register troop with J0dI3:", toSafeError(error));
         return null;
     }
 }

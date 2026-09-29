@@ -5,7 +5,8 @@ import {
     domainJsonLd,
     educationalLevel,
 } from "@lib/curriculum-domain";
-import { EDGES, MANIFEST, SUBJECTS, TOPICS } from "@lib/curriculum-graph";
+import { MANIFEST, SUBJECTS } from "@lib/curriculum-graph";
+import { EDGES, TOPICS } from "@lib/curriculum-graph-data";
 
 const page = (id: string) => {
     const built = buildDomainPage(id);
