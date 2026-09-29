@@ -1,7 +1,8 @@
 import SectionTitle from "@components/section-title";
 import { DOMAIN_TITLES } from "@data/curriculum-domains";
 import siteConfig from "@data/site-config";
-import { MANIFEST, SUBJECTS, TOPICS } from "@lib/curriculum-graph";
+import { MANIFEST, SUBJECTS } from "@lib/curriculum-graph";
+import { TOPICS } from "@lib/curriculum-graph-data";
 import Button from "@ui/button";
 import Link from "next/link";
 import styles from "./curriculum-graph.module.css";

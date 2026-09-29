@@ -29,11 +29,12 @@ const BlogSearch: PageProps = ({ data }) => {
         if (s) {
             const search = (s as string).toLowerCase();
             const filteredCourses = data.blogs?.filter((blog) => {
-                const { title, category, content } = blog;
+                const { title, category, excerpt, tags } = blog;
                 return (
                     title.toLowerCase().includes(search) ||
-                    category.title === search ||
-                    content.toLowerCase().includes(search)
+                    category.title.toLowerCase().includes(search) ||
+                    excerpt.toLowerCase().includes(search) ||
+                    tags.some((tag) => tag.title.toLowerCase().includes(search))
                 );
             });
             setBlogs(filteredCourses);
@@ -69,7 +70,7 @@ const BlogSearch: PageProps = ({ data }) => {
 BlogSearch.Layout = Layout01;
 
 export const getStaticProps: GetStaticProps = () => {
-    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "content"]);
+    const { blogs } = getAllBlogs(["title", "image", "category", "postedAt", "excerpt", "tags"]);
 
     return {
         props: {
