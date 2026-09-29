@@ -59,14 +59,6 @@ class SafeStorageClass {
     }
 
     /**
-     * Check if storage is available
-     */
-    isAvailable(): boolean {
-        this.ensureInitialized();
-        return this.storage !== null;
-    }
-
-    /**
      * Get item from storage with type safety and error handling
      */
     getItem<T>(key: string, defaultValue: T): T {
@@ -186,40 +178,9 @@ class SafeStorageClass {
     }
 
     /**
-     * Clear all storage
-     */
-    clear(): void {
-        this.ensureInitialized();
-
-        try {
-            this.storage?.clear();
-        } catch (error) {
-            console.error(`Error clearing ${this.storageType}Storage:`, error);
-        }
-    }
-
-    /**
-     * Get all keys from storage
-     */
-    getAllKeys(): string[] {
-        this.ensureInitialized();
-
-        try {
-            if (!this.storage) {
-                return [];
-            }
-
-            return Object.keys(this.storage);
-        } catch (error) {
-            console.error(`Error getting keys from ${this.storageType}Storage:`, error);
-            return [];
-        }
-    }
-
-    /**
      * Clear expired items from storage
      */
-    clearExpired(): void {
+    private clearExpired(): void {
         this.ensureInitialized();
 
         try {
@@ -227,9 +188,7 @@ class SafeStorageClass {
                 return;
             }
 
-            const keys = this.getAllKeys();
-
-            for (const key of keys) {
+            for (const key of Object.keys(this.storage)) {
                 try {
                     const item = this.storage.getItem(key);
                     if (!item) continue;
@@ -248,121 +207,8 @@ class SafeStorageClass {
             console.error(`Error clearing expired items from ${this.storageType}Storage:`, error);
         }
     }
-
-    /**
-     * Get storage size in bytes
-     */
-    getStorageSize(): number {
-        this.ensureInitialized();
-
-        try {
-            if (!this.storage) {
-                return 0;
-            }
-
-            let size = 0;
-            const keys = this.getAllKeys();
-
-            for (const key of keys) {
-                const item = this.storage.getItem(key);
-                if (item) {
-                    size += key.length + item.length;
-                }
-            }
-
-            return size;
-        } catch (error) {
-            console.error(`Error calculating ${this.storageType}Storage size:`, error);
-            return 0;
-        }
-    }
-
-    /**
-     * Migrate old format data to new format
-     */
-    migrateItem<T>(key: string, defaultValue: T): T {
-        this.ensureInitialized();
-
-        try {
-            if (!this.storage) {
-                return defaultValue;
-            }
-
-            const item = this.storage.getItem(key);
-
-            if (!item) {
-                return defaultValue;
-            }
-
-            // Try to parse as new format first
-            try {
-                const parsed: StorageItem<T> = JSON.parse(item);
-                if (parsed.value !== undefined && parsed.timestamp !== undefined) {
-                    // Already in new format
-                    return this.getItem(key, defaultValue);
-                }
-            } catch {
-                // Not in new format, continue with migration
-            }
-
-            // Parse as old format (direct value)
-            const oldValue = JSON.parse(item);
-
-            // Save in new format
-            this.setItem(key, oldValue);
-
-            return oldValue;
-        } catch (error) {
-            console.error(`Error migrating ${key} in ${this.storageType}Storage:`, error);
-
-            // Remove corrupted data
-            try {
-                this.storage?.removeItem(key);
-            } catch {
-                // Silent fail on cleanup
-            }
-
-            return defaultValue;
-        }
-    }
 }
 
 // Create singleton instances
 export const SafeLocalStorage = new SafeStorageClass("local");
 export const SafeSessionStorage = new SafeStorageClass("session");
-
-// Default export for backward compatibility
-export default SafeLocalStorage;
-
-/**
- * React hook for using SafeStorage
- */
-export function useSafeStorage<T>(
-    key: string,
-    defaultValue: T,
-    options?: {
-        type?: StorageType;
-        ttlMinutes?: number;
-    }
-) {
-    const storage = options?.type === "session" ? SafeSessionStorage : SafeLocalStorage;
-
-    const getValue = (): T => {
-        return storage.getItem(key, defaultValue);
-    };
-
-    const setValue = (value: T): boolean => {
-        return storage.setItem(key, value, options?.ttlMinutes);
-    };
-
-    const removeValue = (): void => {
-        storage.removeItem(key);
-    };
-
-    return {
-        value: getValue(),
-        setValue,
-        removeValue,
-        isAvailable: storage.isAvailable(),
-    };
-}
