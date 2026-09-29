@@ -40,7 +40,10 @@ module.exports = {
                       content: ["./src/**/*.tsx"],
                       defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
                       safelist: {
-                          standard: safelist,
+                          // FontAwesome icon classes also live in src/data JSON and .ts files,
+                          // which `content` doesn't scan. Standard only, so the unused
+                          // `.fad.fa-*` duotone rules still get purged.
+                          standard: [...safelist, /^fa-/],
                           deep: safelist,
                           greedy: safelist,
                       },
