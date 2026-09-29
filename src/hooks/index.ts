@@ -3,7 +3,6 @@ export { default as useClickOutside } from "./use-click-outside";
 export { default as useCountdown } from "./use-countdown";
 export { default as useFilter } from "./use-filter";
 export { default as useGitHubProfile } from "./use-github-profile";
-export { default as useDynamicIconImport } from "./use-icon";
 export { default as useInterval } from "./use-interval";
 export { default as useKeyboardFocus } from "./use-keyboard-focus";
 export { default as useLoadMore } from "./use-load-more";
