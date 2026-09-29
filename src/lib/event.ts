@@ -1,6 +1,5 @@
 import { getStartOfDay } from "@utils/date";
 import { IEvent } from "@utils/types";
-import { parseISO } from "date-fns";
 import fs from "fs";
 import path from "path";
 import { getSlugs } from "./util";
@@ -36,8 +35,8 @@ export function getEventeBySlug(slug: string, fields: Array<keyof IEvent> | "all
 }
 
 // Event dates are "YYYY-MM-DD" strings. `new Date` reads those as UTC midnight, which is
-// the previous day west of UTC; parseISO reads them as local dates like the rest of the day math.
-const dayStart = (date: string) => getStartOfDay(parseISO(date)).getTime();
+// the previous day west of UTC; getStartOfDay reads them as local dates, like the day math.
+const dayStart = (date: string) => getStartOfDay(date).getTime();
 
 const byStartDate = (a: IEvent, b: IEvent) => dayStart(a.start_date) - dayStart(b.start_date);
 
