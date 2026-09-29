@@ -163,8 +163,8 @@ git push origin feature/your-feature-name
 
 ## Code Style and Linting
 
-- We use [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/) for code styling and linting. Make sure your code adheres to our configurations.
-- Run the linter before submitting a PR to ensure your code passes.
+- We use [Biome](https://biomejs.dev) for linting and formatting. There is no ESLint or Prettier config.
+- Run `npm run check` before submitting a PR. `npm run lint:fix` applies safe fixes and formatting.
 
 ## Commit Message Guidelines
 
