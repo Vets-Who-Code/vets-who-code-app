@@ -2,6 +2,7 @@ import axios from "axios";
 import type { NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
 import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { toSafeError } from "@/utils/safe-error";
 
 export default requireAuth(async (req: AuthenticatedRequest, res: NextApiResponse) => {
     if (req.method !== "GET") return res.status(405).json({ error: "Method not allowed" });
@@ -28,7 +29,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
                 error: "Download failed",
             });
         }
-        console.error("[resume/download] error:", error);
+        console.error("[resume/download] error:", toSafeError(error));
         return res.status(500).json({ error: "Internal server error" });
     }
 });

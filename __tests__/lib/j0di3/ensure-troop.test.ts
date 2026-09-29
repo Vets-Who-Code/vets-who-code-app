@@ -153,7 +153,7 @@ describe("ensureTroop", () => {
         expect(result).toBeNull();
         expect(consoleSpy).toHaveBeenCalledWith(
             "[ensureTroop] Failed to register troop with J0dI3:",
-            expect.any(Error)
+            { name: "Error", message: "Network error" }
         );
 
         consoleSpy.mockRestore();

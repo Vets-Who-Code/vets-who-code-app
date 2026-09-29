@@ -3,6 +3,7 @@ import FormData from "form-data";
 import type { NextApiResponse } from "next";
 import j0di3 from "@/lib/j0di3-client";
 import { type AuthenticatedRequest, requireAuth } from "@/lib/rbac";
+import { toSafeError } from "@/utils/safe-error";
 
 export const config = {
     api: { bodyParser: { sizeLimit: "5mb" } },
@@ -44,7 +45,7 @@ export default requireAuth(async (req: AuthenticatedRequest, res: NextApiRespons
                 error: error.response.data?.detail || "J0dI3 upload failed",
             });
         }
-        console.error("[resume/upload] error:", error);
+        console.error("[resume/upload] error:", toSafeError(error));
         return res.status(500).json({ error: "Internal server error" });
     }
 });
