@@ -117,7 +117,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.1.0",
-    "@types/cookie": "^0.5.1",
+    "@types/cookie": "^1.0.0",
     "@types/google.maps": "^3.58.1",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/marked": "^4.0.3",
