@@ -19,7 +19,7 @@ function getEventIcon(type: string): string {
         case "WatchEvent":
             return "fas fa-star";
         case "ForkEvent":
-            return "fas fa-code-fork";
+            return "fas fa-code-branch";
         case "DeleteEvent":
             return "fas fa-trash";
         case "IssueCommentEvent":

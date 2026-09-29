@@ -9,7 +9,7 @@ interface GitHubStatsGridProps {
 const STAT_CARDS = [
     { key: "repos", label: "REPOSITORIES", icon: "fas fa-code-branch" },
     { key: "stars", label: "TOTAL STARS", icon: "fas fa-star" },
-    { key: "forks", label: "TOTAL FORKS", icon: "fas fa-code-fork" },
+    { key: "forks", label: "TOTAL FORKS", icon: "fas fa-code-branch" },
     { key: "languages", label: "LANGUAGES", icon: "fas fa-language" },
 ] as const;
 
