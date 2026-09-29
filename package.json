@@ -133,7 +133,7 @@
     "@vitest/coverage-v8": "^4.0.18",
     "autoprefixer": "^10.4.4",
     "happy-dom": "^20.5.0",
-    "husky": "^7.0.4",
+    "husky": "^9.1.7",
     "lint-staged": "^12.3.7",
     "only-allow": "^1.2.2",
     "postcss": "^8.4.12",
