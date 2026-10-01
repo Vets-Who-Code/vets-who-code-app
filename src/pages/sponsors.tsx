@@ -285,7 +285,7 @@ const SponsorPage: PageWithLayout = () => {
                                 key={t.id}
                                 className="tw-flex tw-flex-col tw-border-t-2 tw-border-red tw-bg-cream tw-p-8"
                             >
-                                <MonoMeta tone="muted" size="md">
+                                <MonoMeta tone="accent" size="md">
                                     Option 0{i + 1}
                                 </MonoMeta>
                                 <h3 className="tw-mt-4 tw-font-heading tw-text-[22px] tw-font-bold tw-uppercase tw-text-navy [letter-spacing:-0.01em] [line-height:1.2]">
