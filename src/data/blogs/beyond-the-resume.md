@@ -21,7 +21,6 @@ tags:
     - Organizational Growth
     - Healthcare Technology
     - Success Stories
-    - Veterans Day
 is_featured: true
 views: 1200
 ---
@@ -32,7 +31,7 @@ When Darnell Settles III, Director of Web and Digital Strategy at Methodist Le B
 
 ### **Recognizing Veteran Potential**
 
-Darnell reflects on the hiring process: "One aspect that stood out to me the most was the sense that candidates from Vets Who Code are known commodities. I expected our hire to hit the ground running, and I must say, my expectations were not only met but exceeded." This initial impression was crucial, highlighting the rigorous training and discipline instilled in veterans through programs like Vets Who Code, which equips them with the necessary technical skills and industry knowledge to excel in the tech industry.
+Darnell reflects on the hiring process: "One aspect that stood out to me the most was the sense that candidates from Vets Who Code are known commodities. I expected our hire to hit the ground running, and I must say, my expectations were not only met but exceeded." This initial impression was crucial, highlighting the rigorous training and discipline instilled in veterans through accelerators like Vets Who Code, which equips them with the necessary technical skills and industry knowledge to excel in the tech industry.
 
 <p align="center">
   <img src="v1714768081/adrian_grimm_blog_image_rfyamx.png" alt="Adrian Grimm, Web Developer II at Methodist Le Bonheur Healthcare, United States Marine Corps veteran and Vets Who Code alumnus">
@@ -40,15 +39,17 @@ Darnell reflects on the hiring process: "One aspect that stood out to me the mos
 
 ### **Adrian's Impact at Methodist**
 
-From his first day at Methodist, Adrian demonstrated an exceptional ability to integrate into the team. Darnell notes, "The veteran we hired has seamlessly integrated into our team, bringing a calm demeanor and a positive 'can-do' attitude that has been invaluable." Adrian's military background provided him with unique problem-solving skills and a distinctive approach to teamwork and leadership that enriched the IT department. His ability to think quickly and adapt to changing circumstances allowed us to overcome complex technical challenges more efficiently, while his leadership style fostered a more collaborative and supportive work environment.
+From his first day at Methodist, Adrian demonstrated an exceptional ability to integrate into the team. Darnell notes, "The veteran we hired has seamlessly integrated into our team, bringing a calm demeanor and a positive 'can-do' attitude that has been invaluable." Adrian's military background provided him with unique problem-solving skills and a distinctive approach to teamwork and leadership that enriched the IT department. His ability to think quickly and adapt to changing circumstances allowed the team to overcome complex technical challenges more efficiently, while his leadership style fostered a more collaborative and supportive work environment.
 
 ### **Technical and Organizational Contributions**
 
-Adrian's influence extended beyond his immediate team. He played a pivotal role in overhauling outdated practices, leading crucial upgrades, and improving processes like version control and documentation. "Adrian led us through these crucial upgrades with a level of precision and expertise that brought our processes in line with current best practices," Darnell explains, highlighting the tangible benefits of Adrian's contributions. For instance, he implemented a new version control system that significantly improved our code management, leading to faster and more efficient development cycles.
+Adrian's influence extended beyond his immediate team. He played a pivotal role in overhauling outdated practices, leading crucial upgrades, and improving processes like version control and documentation. "Adrian led us through these crucial upgrades with a level of precision and expertise that brought our processes in line with current best practices," Darnell explains, highlighting the tangible benefits of Adrian's contributions. For instance, he implemented a new version control system that significantly improved Methodist's code management, leading to faster and more efficient development cycles.
 
 ### **The Rewards of Hiring a Veteran**
 
-Reflecting on the experience, Darnell shares that one of the most rewarding aspects has been witnessing the tangible impact of their collaboration on projects and the organization as a whole. "Beyond the technical contributions, knowing that we are supporting the mission of our healthcare system, indirectly impacting patient care, and supporting our associates, is incredibly fulfilling." Adrian's unique perspective and problem-solving skills have led to innovative solutions that have improved the efficiency and effectiveness of our projects, directly contributing to our organization's success.
+Reflecting on the experience, Darnell shares that one of the most rewarding aspects has been witnessing the tangible impact of their collaboration on projects and the organization as a whole. "Beyond the technical contributions, knowing that we are supporting the mission of our healthcare system, indirectly impacting patient care, and supporting our associates, is incredibly fulfilling." Adrian's unique perspective and problem-solving skills have led to innovative solutions that have improved the efficiency and effectiveness of the team's projects, directly contributing to Methodist's success.
+
+<!-- TODO(jerome): add one hard metric from Darnell here (e.g. ramp-up weeks or deploy frequency). -->
 
 ### **A Call to Other Employers**
 
@@ -56,15 +57,15 @@ Darnell's experience with Adrian has reinforced his belief in the value veterans
 
 ### **Conclusion: Transform Your Team by Hiring Veterans**
 
-Darnell Settles III's overwhelmingly positive experience with a disciplined and talented Marine Corps veteran, Adrian Grimm, is a testament to the exceptional value veterans can bring to any organization, especially in the tech industry. Adrian's journey from the battlefield to a leading role at Methodist Le Bonheur Healthcare is not just a success story; it's a beacon of hope for all employers and proof of the skills, dedication, and unique perspectives that veterans offer.
-At Methodist, hiring Adrian was not just about filling a position; it was about embracing diversity of experience and leveraging a background built on leadership, strategic thinking, and teamwork. His success story is a clarion call to all employers looking for resilient, adaptable, and skilled professionals ready to contribute from day one.
-**Take Action Now: Hire a Veteran**
+Darnell Settles III's overwhelmingly positive experience with a disciplined and talented Marine Corps veteran, Adrian Grimm, is a testament to the exceptional value veterans can bring to any organization, especially in the tech industry. Adrian's path from the Marine Corps to a leading role at Methodist Le Bonheur Healthcare is proof of the skills, dedication, and unique perspectives that veterans offer.
+At Methodist, hiring Adrian was not just about filling a position; it was about embracing diversity of experience and leveraging a background built on leadership, strategic thinking, and teamwork. Employers looking for resilient, adaptable, and skilled professionals ready to contribute from day one should take note.
+**Take Action Now: [Hire a Veteran](/jobs)**
 We encourage other companies to consider how they can also benefit from veterans' unparalleled work ethic and innovative problem-solving skills. By partnering with Vets Who Code, you can discover candidates who are equipped with cutting-edge tech skills and possess a proven track record of leadership and performance under pressure, giving you the confidence that you're getting the best.
 **Join us in this rewarding journey. Reach out to Vets Who Code today and start transforming your team with the excellence only a veteran can deliver.**
-For more information on how you can hire talented veterans like Adrian and make a meaningful impact on your team and projects, visit [Vets Who Code](https://vetswhocode.io/).
+For more information on how you can hire talented veterans like Adrian and make a meaningful impact on your team and projects, visit [Vets Who Code](https://vetswhocode.io/). To back the accelerator that trained Adrian, [become a sponsor](/sponsors).
 
 ### Support Vets Who Code
 
-If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. You can also sponsor us on GitHub to get technical updates and support our mission. Together, we can make a difference.
+If this story resonates with you, consider supporting Vets Who Code to help more veterans transition into successful tech careers. [Donate](https://vetswhocode.io/donate) now to make a significant impact. Together, we can make a difference.
 
 ---
