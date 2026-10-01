@@ -404,7 +404,7 @@ const SponsorPage: PageWithLayout = () => {
                                         </span>
                                         <span
                                             id={`partner-${i}`}
-                                            className="tw-font-mono tw-text-xs tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-opacity-0 tw-transition-opacity group-hover:tw-opacity-100 group-focus:tw-opacity-100"
+                                            className="tw-text-center tw-font-mono tw-text-xs tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-opacity-0 tw-transition-opacity group-hover:tw-opacity-100 group-focus:tw-opacity-100"
                                         >
                                             <Todo value={partner.contribution} />
                                         </span>
