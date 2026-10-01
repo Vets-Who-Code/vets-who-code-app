@@ -26,7 +26,7 @@ const benefits = [
         label: "03",
         title: "Direct sponsorship",
         description:
-            "Fund the program. Every dollar trains more veterans. EIN 86-2122804 — VWC is a 501(c)(3).",
+            "Fund the accelerator. Every dollar trains more veterans. EIN 86-2122804 — VWC is a 501(c)(3).",
     },
 ];
 
@@ -155,8 +155,8 @@ const SponsorPage: PageWithLayout = () => {
                             <p>
                                 Only 1 in 4 of the U.S. population meets the military&apos;s
                                 physical, behavioral, and educational standards. The people who do
-                                make it through are exceptionally well-trained, disciplined, team-
-                                oriented, goal-driven, and built for leadership.
+                                make it through are exceptionally well-trained, disciplined,
+                                team-oriented, goal-driven, and built for leadership.
                             </p>
                             <p>
                                 That stack of attributes maps directly to the tech industry.
