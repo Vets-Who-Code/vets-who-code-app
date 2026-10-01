@@ -381,25 +381,32 @@ const SponsorPage: PageWithLayout = () => {
                             </p>
                         </div>
                         <ul className="tw-mt-12 tw-grid tw-list-none tw-grid-cols-2 tw-gap-6 tw-p-0 md:tw-grid-cols-4">
-                            {approvedPartners.map((partner) => (
+                            {approvedPartners.map((partner, i) => (
                                 <li key={partner.name}>
                                     <a
                                         href={partner.url}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        aria-describedby={`partner-${partner.name}`}
-                                        className="tw-group tw-flex tw-h-full tw-flex-col tw-items-center tw-justify-center tw-gap-3 tw-border tw-border-gray-100 tw-bg-white tw-p-6 focus-visible:tw-outline focus-visible:tw-outline-[3px] focus-visible:tw-outline-gold"
+                                        aria-describedby={
+                                            isTodo(partner.contribution)
+                                                ? undefined
+                                                : `partner-${i}`
+                                        }
+                                        className="tw-group tw-flex tw-h-full tw-min-h-[150px] tw-flex-col tw-items-center tw-justify-center tw-gap-3 tw-border tw-border-gray-100 tw-bg-white tw-p-6 focus-visible:tw-outline focus-visible:tw-outline-[3px] focus-visible:tw-outline-gold"
                                     >
                                         <img
                                             src={partner.logo}
                                             alt={`${partner.name} logo`}
-                                            className="tw-h-10 tw-w-auto"
+                                            className="tw-h-10 tw-w-auto tw-max-w-full"
                                         />
+                                        <span className="tw-font-heading tw-text-[13px] tw-font-bold tw-uppercase tw-text-navy">
+                                            {partner.name}
+                                        </span>
                                         <span
-                                            id={`partner-${partner.name}`}
+                                            id={`partner-${i}`}
                                             className="tw-font-mono tw-text-xs tw-uppercase tw-tracking-[0.1em] tw-text-gray-300 tw-opacity-0 tw-transition-opacity group-hover:tw-opacity-100 group-focus:tw-opacity-100"
                                         >
-                                            {partner.contribution}
+                                            <Todo value={partner.contribution} />
                                         </span>
                                     </a>
                                 </li>
