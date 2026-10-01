@@ -5,10 +5,8 @@ import {
     alumniOutcomes,
     engagementTracks,
     isTodo,
-    sponsorBenefits,
     sponsorLinks,
     sponsorStats,
-    sponsorTiers,
     techPartners,
     testimonials,
 } from "@data/sponsors";
@@ -45,17 +43,6 @@ const LABEL = "tw-mb-2 tw-block tw-font-heading tw-text-[13px] tw-font-medium tw
 
 const approvedPartners = techPartners.filter((partner) => partner.logoApproved);
 const OTHER_TRACK = "Something else";
-
-const faq = [
-    {
-        question: "What is the Work Opportunity Tax Credit?",
-        answer: "The Work Opportunity Tax Credit (WOTC) is a federal income tax credit available to employers who hire and retain veterans and other targeted groups facing significant barriers to employment. There is no per-hire cap.",
-    },
-    {
-        question: "Is Vets Who Code a registered nonprofit?",
-        answer: "Yes. Vets Who Code Inc. is a 501(c)(3) nonprofit, EIN 86-2122804.",
-    },
-];
 
 type SubmitState = "ready" | "sending" | "sent" | "error";
 
@@ -95,8 +82,6 @@ const SponsorPage: PageWithLayout = () => {
             <SEO
                 title="Become a Sponsor"
                 description="Sponsor Vets Who Code, the 501(c)(3) software engineering accelerator for veterans. Fund troops, host interns, guarantee interviews, or put your tools in their hands."
-                jsonLdType="faq"
-                faq={faq}
             />
             <Head>
                 <script
@@ -181,27 +166,7 @@ const SponsorPage: PageWithLayout = () => {
                     </div>
 
                     <div className="tw-mt-14">
-                        <StatStrip
-                            tone="dark"
-                            cells={sponsorStats.map((stat, i) => ({
-                                label: stat.label,
-                                value: (
-                                    <>
-                                        {stat.value}
-                                        <sup className="tw-ml-1 tw-text-[14px]">
-                                            <a
-                                                href={`#source-${i + 1}`}
-                                                id={`source-ref-${i + 1}`}
-                                                className="tw-text-gold hover:tw-underline"
-                                                aria-label={`Source ${i + 1}`}
-                                            >
-                                                {i + 1}
-                                            </a>
-                                        </sup>
-                                    </>
-                                ),
-                            }))}
-                        />
+                        <StatStrip tone="dark" cells={sponsorStats} />
                     </div>
                 </div>
             </section>
@@ -239,26 +204,16 @@ const SponsorPage: PageWithLayout = () => {
                     </div>
                     <ul className="tw-m-0 tw-grid tw-list-none tw-gap-6 tw-p-0 sm:tw-grid-cols-[repeat(auto-fit,minmax(240px,1fr))]">
                         {alumniOutcomes.map((alum) => (
-                            <li key={alum.name} className="tw-border-t-2 tw-border-red tw-bg-white">
-                                <img
-                                    src={alum.photo}
-                                    alt={`${alum.name}, ${alum.role} at ${alum.org}`}
-                                    className="tw-h-auto tw-w-full"
-                                    width={2000}
-                                    height={600}
-                                    loading="lazy"
-                                />
-                                <div className="tw-p-6">
-                                    <MonoMeta tone="muted" size="xs">
-                                        Alumni outcome · {alum.branch}
-                                    </MonoMeta>
-                                    <h3 className="tw-mt-3 tw-font-heading tw-text-[20px] tw-font-bold tw-uppercase tw-text-navy">
-                                        {alum.name}
-                                    </h3>
-                                    <p className="tw-mt-2 tw-mb-0 tw-font-body tw-text-gray-300">
-                                        {alum.role}, {alum.org}
-                                    </p>
-                                </div>
+                            <li key={alum.name}>
+                                <a href={alum.sourceUrl} className="tw-block">
+                                    <img
+                                        src={alum.photo}
+                                        alt={`${alum.name}, ${alum.branch}, ${alum.role} at ${alum.org}. Read his story.`}
+                                        className="tw-h-auto tw-w-full"
+                                        width={2000}
+                                        height={600}
+                                    />
+                                </a>
                             </li>
                         ))}
                     </ul>
@@ -306,64 +261,6 @@ const SponsorPage: PageWithLayout = () => {
                             </article>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/* Tiers + what sponsors get */}
-            <section className="dark-section tw-bg-navy tw-py-20 md:tw-py-[120px]">
-                <div className="tw-container">
-                    <div className="tw-flex tw-flex-col tw-gap-4">
-                        <SectionEyebrow label="Sponsorship Tiers" subLabel="PRICE" tone="dark" />
-                        <SharpHeadline as="h2" size="h2" tone="white">
-                            Pick your
-                            <br />
-                            <span className="tw-text-gold">level.</span>
-                        </SharpHeadline>
-                    </div>
-                    <div className="tw-mt-14 tw-grid tw-gap-8 md:tw-grid-cols-3">
-                        {sponsorTiers.map((tier) => (
-                            <article
-                                key={tier.name}
-                                className="tw-flex tw-flex-col tw-gap-4 tw-border tw-border-cream/20 tw-p-8"
-                            >
-                                <h3 className="tw-m-0 tw-font-heading tw-text-[22px] tw-font-bold tw-uppercase tw-text-gold">
-                                    {tier.name}
-                                </h3>
-                                <p className="tw-m-0 tw-font-heading tw-text-[30px] tw-font-semibold tw-text-cream">
-                                    <Todo value={tier.amount} />
-                                </p>
-                                <p className="tw-m-0 tw-font-body tw-text-[#DEE2E6]">
-                                    <Todo value={tier.funds} />
-                                </p>
-                                <ul className="tw-m-0 tw-list-none tw-space-y-2 tw-border-t tw-border-cream/10 tw-p-0 tw-pt-4 tw-font-body tw-text-[#F8F9FA]">
-                                    {tier.benefits.map((benefit) => (
-                                        <li key={benefit}>
-                                            <span aria-hidden="true" className="tw-text-gold">
-                                                ▸{" "}
-                                            </span>
-                                            {benefit}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </article>
-                        ))}
-                    </div>
-
-                    <h3 className="tw-mt-20 tw-font-heading tw-text-[22px] tw-font-bold tw-uppercase tw-text-white">
-                        What sponsors get
-                    </h3>
-                    <dl className="tw-mt-8 tw-grid tw-gap-8 sm:tw-grid-cols-2 lg:tw-grid-cols-4">
-                        {sponsorBenefits.map((b) => (
-                            <div key={b.title} className="tw-border-t tw-border-gold tw-pt-4">
-                                <dt className="tw-font-heading tw-font-bold tw-uppercase tw-text-gold">
-                                    {b.title}
-                                </dt>
-                                <dd className="tw-mt-2 tw-ml-0 tw-font-body tw-text-[#F8F9FA]">
-                                    {b.description}
-                                </dd>
-                            </div>
-                        ))}
-                    </dl>
                 </div>
             </section>
 
@@ -432,21 +329,10 @@ const SponsorPage: PageWithLayout = () => {
                             are disciplined, team-oriented, and built for leadership, and they step
                             into engineering roles ready to contribute on day one.
                         </p>
-                        <div className="tw-mt-6 tw-border-t tw-border-cream/10">
-                            {faq.map((item) => (
-                                <details
-                                    key={item.question}
-                                    className="tw-group tw-border-b tw-border-cream/10 tw-py-5"
-                                >
-                                    <summary className="tw-cursor-pointer tw-font-heading tw-font-bold tw-uppercase tw-text-gold">
-                                        {item.question}
-                                    </summary>
-                                    <p className="tw-mt-4 tw-mb-0 tw-font-body tw-text-[#F8F9FA] tw-leading-[1.65]">
-                                        {item.answer}
-                                    </p>
-                                </details>
-                            ))}
-                        </div>
+                        <p className="tw-mt-4 tw-font-body tw-text-[#F8F9FA] tw-leading-[1.65] [font-size:clamp(16px,1.2vw,18px)]">
+                            Hiring a veteran also qualifies for the federal Work Opportunity Tax
+                            Credit (WOTC), with no per-hire cap.
+                        </p>
                     </div>
                 </div>
             </section>
@@ -578,27 +464,6 @@ const SponsorPage: PageWithLayout = () => {
                             </p>
                         )}
                     </form>
-                </div>
-            </section>
-
-            {/* Sources */}
-            <section className="tw-bg-cream tw-py-12">
-                <div className="tw-container">
-                    <h2 className="tw-font-mono tw-text-xs tw-uppercase tw-tracking-[0.12em] tw-text-gray-300">
-                        Sources
-                    </h2>
-                    <ol className="tw-mt-4 tw-space-y-2 tw-pl-5 tw-font-body tw-text-sm tw-text-gray-300">
-                        {sponsorStats.map((stat, i) => (
-                            <li key={stat.label} id={`source-${i + 1}`}>
-                                <strong className="tw-text-navy">{stat.value}</strong> —{" "}
-                                {stat.source} {stat.sample && <Todo value={stat.sample} />}{" "}
-                                <a href={`#source-ref-${i + 1}`} className="tw-text-red">
-                                    <span aria-hidden="true">↩</span>
-                                    <span className="tw-sr-only">Back to stat</span>
-                                </a>
-                            </li>
-                        ))}
-                    </ol>
                 </div>
             </section>
         </>

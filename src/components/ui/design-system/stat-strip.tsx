@@ -1,9 +1,8 @@
 import clsx from "clsx";
-import type { ReactNode } from "react";
 
 export interface StatCell {
     label: string;
-    value: ReactNode;
+    value: string;
     sub?: string;
 }
 

@@ -20,11 +20,4 @@ describe("/sponsors", () => {
             else expect(logo).not.toBeInTheDocument();
         }
     });
-
-    it("links every stat footnote to a source", () => {
-        for (const marker of screen.getAllByRole("link", { name: /^Source \d$/ })) {
-            const id = marker.getAttribute("href")?.slice(1) ?? "";
-            expect(document.getElementById(id)).toBeInTheDocument();
-        }
-    });
 });

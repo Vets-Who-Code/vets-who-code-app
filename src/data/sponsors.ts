@@ -17,14 +17,6 @@ export type TechPartner = {
     logoApproved: boolean;
 };
 
-export type SponsorTier = {
-    name: string;
-    amount: string;
-    /** What the money buys, e.g. "Trains N troops". */
-    funds: string;
-    benefits: string[];
-};
-
 export type Testimonial = {
     quote: string;
     name: string;
@@ -46,9 +38,7 @@ export type AlumniOutcome = {
 export type Stat = {
     value: string;
     label: string;
-    source: string;
-    /** Sample size and timeframe behind the number, where one applies. */
-    sample?: string;
+    sub: string;
 };
 
 export type EngagementTrack = {
@@ -170,55 +160,6 @@ export const techPartners: TechPartner[] = [
     },
 ];
 
-// Tier names and the split of benefits are a starting draft for Jerome to confirm.
-export const sponsorTiers: SponsorTier[] = [
-    {
-        name: "Squad",
-        amount: "TODO(jerome): tier amount",
-        funds: "TODO(jerome): what this tier funds",
-        benefits: ["Impact reporting for CSR/ESG", "Logo on /sponsors"],
-    },
-    {
-        name: "Platoon",
-        amount: "TODO(jerome): tier amount",
-        funds: "TODO(jerome): what this tier funds",
-        benefits: [
-            "Everything in Squad",
-            "Employee mentor and volunteer slots",
-            "First look at job-ready troops",
-        ],
-    },
-    {
-        name: "Company",
-        amount: "TODO(jerome): tier amount",
-        funds: "TODO(jerome): what this tier funds",
-        benefits: [
-            "Everything in Platoon",
-            "Brand placement across the accelerator",
-            "Guaranteed interview pipeline",
-        ],
-    },
-];
-
-export const sponsorBenefits = [
-    {
-        title: "First look at troops",
-        description: "Meet job-ready software engineers before they hit the open market.",
-    },
-    {
-        title: "Brand placement",
-        description: "Your name in front of veterans, mentors, and the engineering community.",
-    },
-    {
-        title: "Mentor and volunteer slots",
-        description: "Put your engineers in the room as mentors, reviewers, and speakers.",
-    },
-    {
-        title: "Impact reporting",
-        description: "Numbers you can drop straight into CSR and ESG reports.",
-    },
-];
-
 export const engagementTracks: EngagementTrack[] = [
     {
         id: "internships",
@@ -267,29 +208,17 @@ export const alumniOutcomes: AlumniOutcome[] = [
     },
 ];
 
-const SAMPLE_TODO = "TODO(jerome): sample size + timeframe";
-
 export const sponsorStats: Stat[] = [
     {
         value: outcomes.placementRate.display,
         label: outcomes.placementRate.label,
-        source: `${outcomes.placementRate.qualifier}. ${outcomes.placementRate.source}.`,
-        sample: SAMPLE_TODO,
+        sub: outcomes.placementRate.qualifier,
     },
     {
         value: outcomes.alumniEarnings.display,
         label: outcomes.alumniEarnings.label,
-        source: `${outcomes.alumniEarnings.qualifier}. ${outcomes.alumniEarnings.source}.`,
-        sample: SAMPLE_TODO,
+        sub: outcomes.alumniEarnings.qualifier,
     },
-    {
-        value: "501(c)(3)",
-        label: "Tax status",
-        source: "Vets Who Code Inc. is a 501(c)(3) nonprofit, EIN 86-2122804.",
-    },
-    {
-        value: "Eligible",
-        label: "WOTC",
-        source: "Work Opportunity Tax Credit, U.S. Department of Labor. No per-hire cap.",
-    },
+    { value: "501(c)(3)", label: "Tax status", sub: "EIN 86-2122804" },
+    { value: "Eligible", label: "WOTC", sub: "no per-hire cap" },
 ];
