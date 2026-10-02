@@ -49,8 +49,6 @@ Adrian's influence extended beyond his immediate team. He played a pivotal role 
 
 Reflecting on the experience, Darnell shares that one of the most rewarding aspects has been witnessing the tangible impact of their collaboration on projects and the organization as a whole. "Beyond the technical contributions, knowing that we are supporting the mission of our healthcare system, indirectly impacting patient care, and supporting our associates, is incredibly fulfilling." Adrian's unique perspective and problem-solving skills have led to innovative solutions that have improved the efficiency and effectiveness of the team's projects, directly contributing to Methodist's success.
 
-<!-- TODO(jerome): add one hard metric from Darnell here (e.g. ramp-up weeks or deploy frequency). -->
-
 ### **A Call to Other Employers**
 
 Darnell's experience with Adrian has reinforced his belief in the value veterans add to a workforce and inspired him to advocate for more veteran hires. "Without a doubt, I would hire from Vets Who Code again. The experience has been overwhelmingly positive, and I believe in veterans' immense value to our team and our healthcare mission."
