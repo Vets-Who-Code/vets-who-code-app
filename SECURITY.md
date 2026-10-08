@@ -26,7 +26,7 @@ Out of scope here:
 - The J0dI3 service, which runs separately and is reached through
   `src/lib/j0di3-client.ts`
 - Third-party platforms we integrate with rather than operate — Shopify,
-  Cloudinary, Resend, Neon, Vercel, GitHub. Report those to the vendor.
+  Cloudinary, Neon, Vercel, GitHub. Report those to the vendor.
 
 ## Supported versions
 
