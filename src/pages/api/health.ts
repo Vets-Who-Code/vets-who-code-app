@@ -18,7 +18,7 @@ interface HealthResponse {
     checks: CheckResult[];
 }
 
-const REQUIRED_ENV_VARS = ["DATABASE_URL", "NEXTAUTH_SECRET", "NEXTAUTH_URL"];
+const REQUIRED_ENV_VARS = ["DATABASE_URL"];
 
 async function checkDatabase(): Promise<CheckResult> {
     const start = Date.now();

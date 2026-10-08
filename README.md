@@ -58,7 +58,6 @@ This app is built using a modern tech stack including:
 - TypeScript
 - Tailwind CSS
 - Prisma + Postgres
-- NextAuth (GitHub OAuth)
 - MDX for content
 - Vitest and Playwright for testing
 
@@ -121,12 +120,8 @@ $ npm run dev:setup   # first-time database bootstrap (prisma generate && prisma
 | Variable | Purpose |
 | --- | --- |
 | `DATABASE_URL` | Prisma connection string (`prisma/schema.prisma`). Must be `postgresql://` — the datasource provider is `postgresql`, so a `file:` SQLite URL fails validation with `P1012`. |
-| `NEXTAUTH_SECRET` | Session encryption key. Generate one with `openssl rand -base64 32`. |
-| `NEXTAUTH_URL` | Base URL of the app. `http://localhost:3000` in development. |
-| `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` | GitHub OAuth app credentials. Create an app at [github.com/settings/developers](https://github.com/settings/developers) with the callback URL `http://localhost:3000/api/auth/callback/github`. |
-| `GITHUB_ORG` | GitHub organization that gates sign-in. Membership is the **sole** login gate — there is no allowlist and no dev bypass. |
 
-`/api/health` reports the environment as unhealthy when `DATABASE_URL`, `NEXTAUTH_SECRET`, or `NEXTAUTH_URL` is missing.
+`/api/health` reports the environment as unhealthy when `DATABASE_URL` is missing.
 
 ### Optional, by feature
 
@@ -135,7 +130,6 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 | Feature | Variables |
 | --- | --- |
 | AI assistant and content scripts | `PRIMARY_AI_PROVIDER`, `GOOGLE_GENERATIVE_AI_API_KEY`, `GEMINI_API_KEY`, `GOOGLE_PRIVATE_KEY`, `GEMINI_MODEL`, `TECH_PATHWAYS_MODEL`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `OPENAI_API_KEY`, `PHI3_ENDPOINT`, `PHI3_API_KEY` |
-| J0dI3 AI backend | `J0DI3_API_URL`, `J0DI3_API_KEY` |
 | Slack form notifications | `APPLY_WEBHOOK_ID`, `CONTACT_WEBHOOK_ID`, `MENTOR_WEBHOOK_ID` |
 | GitHub API reads (org, repos, PRs) | `GITHUB_TOKEN` |
 | Cloudinary media | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` |
@@ -146,7 +140,6 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 
 ### Development vs production
 
-- `NEXTAUTH_URL` is `http://localhost:3000` locally and the deployed origin in production.
 - `DATABASE_URL` is Postgres in both environments — your own local or Neon branch in development, the project's Neon database in production.
 - Production values live in the Vercel project settings, not in any file in this repo.
 - `NEXT_PUBLIC_*` values are inlined into the browser bundle at build time. Never put a secret behind that prefix.
@@ -342,7 +335,7 @@ The `Microsoft Edge` and `Google Chrome` projects drive system-installed branded
 npx playwright test --project=chromium --project=firefox --project="Mobile Chrome"
 ```
 
-Locally, Playwright runs `npm run build && npm run start` before the specs, so the first run takes a couple of minutes. Specs that need Shopify or NextAuth credentials skip themselves when those environment variables are missing.
+Locally, Playwright runs `npm run build && npm run start` before the specs, so the first run takes a couple of minutes. Specs that need Shopify credentials skip themselves when those environment variables are missing.
 
 ### Best Practices
 

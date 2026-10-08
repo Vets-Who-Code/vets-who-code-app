@@ -46,9 +46,6 @@ For a production deployment, you'll need to:
 3. **Set environment variables in Vercel**:
 
     - `DATABASE_URL`: Your PostgreSQL connection string
-    - `NEXTAUTH_SECRET`: Random secret for NextAuth
-    - `NEXTAUTH_URL`: Your production URL
-    - `GITHUB_CLIENT_ID` & `GITHUB_CLIENT_SECRET`: For OAuth
 
 4. **Run initial migration**:
     ```bash

@@ -6,8 +6,6 @@ interface MenuItem {
     path: string;
     external?: boolean;
     status?: MenuStatus;
-    requiresAuth?: boolean;
-    hideWhenAuth?: boolean;
 }
 
 interface MegaMenuColumn {
@@ -99,7 +97,6 @@ const navigation: NavigationItem[] = [
                 id: 1201,
                 label: "Apply",
                 path: "/apply",
-                hideWhenAuth: true,
             },
             {
                 id: 1202,
@@ -117,12 +114,6 @@ const navigation: NavigationItem[] = [
         label: "Hire",
         path: "#!",
         submenu: [
-            {
-                id: 301,
-                label: "Job Board",
-                path: "/jobs",
-                status: "new",
-            },
             {
                 id: 302,
                 label: "Career Guides",
@@ -197,43 +188,5 @@ const navigation: NavigationItem[] = [
         path: "/contact-us",
     },
 ];
-
-export function filterMenuByAuth(items: NavigationItem[], isAuthed: boolean): NavigationItem[] {
-    const visible = (item: MenuItem) => {
-        if (item.requiresAuth && !isAuthed) return false;
-        if (item.hideWhenAuth && isAuthed) return false;
-        return true;
-    };
-
-    return (
-        items
-            .filter(visible)
-            .map((item) => {
-                if ("submenu" in item && item.submenu) {
-                    return { ...item, submenu: item.submenu.filter(visible) };
-                }
-                if ("megamenu" in item && item.megamenu) {
-                    return {
-                        ...item,
-                        megamenu: item.megamenu
-                            .map((col) => ({
-                                ...col,
-                                submenu: col.submenu?.filter(visible),
-                            }))
-                            // An empty column leaves a hole in the grid — drop it.
-                            .filter((col) => col.submenu?.length),
-                    };
-                }
-                return item;
-            })
-            // Drop parents whose submenu became empty after filtering — a parent
-            // that hovers but reveals nothing is worse than a hidden parent.
-            .filter((item) => {
-                if ("submenu" in item && item.submenu && item.submenu.length === 0) return false;
-                if ("megamenu" in item && item.megamenu && item.megamenu.length === 0) return false;
-                return true;
-            })
-    );
-}
 
 export default navigation;

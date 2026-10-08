@@ -60,7 +60,7 @@ export const outcomes: {
         source: INTERNAL_SOURCE,
         asOf: DIGINOMICA_DATE,
         derivation:
-            "Placed graduates ÷ graduates in the window. Placements are the J0dI3 admin placements rows (troop, company, role, start_date, salary, status), exported at /api/j0di3/admin/placements/export.csv. Which status values count as placed is not yet defined.",
+            "Placed graduates ÷ graduates in the window. The placements data source, and which status values count as placed, are not yet defined.",
     },
     alumniEarnings: {
         key: "alumniEarnings",

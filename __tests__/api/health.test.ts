@@ -44,8 +44,6 @@ describe("GET /api/health", () => {
         process.env = {
             ...originalEnv,
             DATABASE_URL: "postgresql://localhost:5432/test",
-            NEXTAUTH_SECRET: "test-secret",
-            NEXTAUTH_URL: "http://localhost:3000",
         };
         mockQueryRaw.mockResolvedValue([{ "?column?": 1 }]);
     });
@@ -65,8 +63,7 @@ describe("GET /api/health", () => {
     });
 
     it("returns 200 and status degraded when env vars are missing but DB works", async () => {
-        delete process.env.NEXTAUTH_SECRET;
-        delete process.env.NEXTAUTH_URL;
+        delete process.env.DATABASE_URL;
         const { req, res } = createMockReqRes();
 
         await handler(req, res);
@@ -129,7 +126,7 @@ describe("GET /api/health", () => {
     });
 
     it("environment check lists missing variable names when applicable", async () => {
-        delete process.env.NEXTAUTH_SECRET;
+        delete process.env.DATABASE_URL;
         const { req, res } = createMockReqRes();
 
         await handler(req, res);
@@ -138,20 +135,7 @@ describe("GET /api/health", () => {
         const envCheck = body.checks.find((c: { name: string }) => c.name === "environment");
         expect(envCheck).toBeDefined();
         expect(envCheck.status).toBe("unhealthy");
-        expect(envCheck.missing).toEqual(["NEXTAUTH_SECRET"]);
-    });
-
-    it("reports all missing env vars correctly", async () => {
-        delete process.env.DATABASE_URL;
-        delete process.env.NEXTAUTH_SECRET;
-        delete process.env.NEXTAUTH_URL;
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        const body = (res.json as Mock).mock.calls[0][0];
-        const envCheck = body.checks.find((c: { name: string }) => c.name === "environment");
-        expect(envCheck.missing).toEqual(["DATABASE_URL", "NEXTAUTH_SECRET", "NEXTAUTH_URL"]);
+        expect(envCheck.missing).toEqual(["DATABASE_URL"]);
     });
 
     it("database check reports responseTime even when unhealthy", async () => {

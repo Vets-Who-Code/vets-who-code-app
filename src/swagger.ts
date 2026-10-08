@@ -29,22 +29,6 @@ export const getApiDocs = () => {
                 },
             ],
             components: {
-                securitySchemes: {
-                    SessionCookie: {
-                        type: "apiKey",
-                        in: "cookie",
-                        name: "next-auth.session-token",
-                        description:
-                            "NextAuth session cookie for local development (GitHub OAuth). Sign in at /login.",
-                    },
-                    SecureSessionCookie: {
-                        type: "apiKey",
-                        in: "cookie",
-                        name: "__Secure-next-auth.session-token",
-                        description:
-                            "NextAuth session cookie for HTTPS environments (GitHub OAuth). Sign in at /login.",
-                    },
-                },
                 schemas: {},
             },
         },

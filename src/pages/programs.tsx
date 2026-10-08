@@ -171,7 +171,7 @@ const ROUTES = [
         title: "You need engineers, or software.",
         body: "Hire from the graduate pool, or contract the Software Factory to build and hand back.",
         link: "Talk to us",
-        path: "/jobs",
+        path: "/contact-us",
     },
     {
         kicker: "03 / Mentors & Instructors",
