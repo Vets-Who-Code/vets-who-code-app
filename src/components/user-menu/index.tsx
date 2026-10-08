@@ -7,9 +7,7 @@ import { useEffect, useRef, useState } from "react";
 // Signed-in destinations live here (behind the avatar), not in the public top nav.
 const USER_NAV_LINKS = [
     { label: "Learn", path: "/learn" },
-    { label: "Reps", path: "/challenges" },
     { label: "Assessment", path: "/assessment" },
-    { label: "J0d!e", path: "/jodie" },
 ];
 
 const UserMenu = () => {
@@ -63,8 +61,7 @@ const UserMenu = () => {
         // solid red so the two CTAs read as equal weight without competing.
         return (
             <Button
-                path="https://j0di3.vetswhocode.io/login"
-                target="_self"
+                path="/login"
                 size="sm"
                 variant="outlined"
                 className="tw-whitespace-nowrap"

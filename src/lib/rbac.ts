@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import prisma from "@/lib/prisma";
 import { options } from "@/lib/auth-options";
 
 export type Role = "STUDENT" | "INSTRUCTOR" | "ADMIN" | "MENTOR";
@@ -11,8 +10,6 @@ export interface AuthenticatedRequest extends NextApiRequest {
         name: string | null;
         email: string;
         role: Role;
-        troopId: string | null;
-        troopToken: string | null;
     };
 }
 
@@ -35,19 +32,11 @@ export function requireAuth(
             return res.status(401).json({ error: "Unauthorized - Please sign in" });
         }
 
-        // Fetch troopId and troopAccessToken from database
-        const dbUser = await prisma.user.findUnique({
-            where: { id: session.user.id },
-            select: { troopId: true, troopAccessToken: true },
-        });
-
         req.user = {
             id: session.user.id,
             name: session.user.name || null,
             email: session.user.email || "",
             role: (session.user.role as Role) || "STUDENT",
-            troopId: dbUser?.troopId || null,
-            troopToken: dbUser?.troopAccessToken || null,
         };
 
         return handler(req, res);

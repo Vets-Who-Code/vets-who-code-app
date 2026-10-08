@@ -7,21 +7,6 @@ import { expect, test } from "@playwright/test";
  * without proper authentication in production mode.
  */
 
-test.describe("Protected Routes - Authentication Required", () => {
-    test.beforeEach(async ({ page }) => {
-        // Clear all cookies to ensure unauthenticated state
-        // Note: localStorage clearing is not needed since server-side auth uses cookies only
-        await page.context().clearCookies();
-    });
-
-    test("Job Board - redirects to login when unauthenticated", async ({ page }) => {
-        await page.goto("/jobs");
-
-        await page.waitForURL(/\/login/);
-        expect(page.url()).toContain("/login");
-    });
-});
-
 test.describe("Public Routes - No Auth Required", () => {
     test("Homepage is publicly accessible", async ({ page }) => {
         const response = await page.goto("/");

@@ -39,7 +39,7 @@ export const sitemapColumns: SitemapColumn[] = [
             { label: "Mentor", path: "/mentor" },
             { label: "Donate", path: "/donate" },
             { label: "Sponsors", path: "/sponsors" },
-            { label: "Hire Our Troops", path: "/jobs" },
+            { label: "Hire Our Troops", path: "/contact-us" },
         ],
     },
     {
@@ -78,9 +78,7 @@ export const sitemapExtraColumns: SitemapColumn[] = [
         heading: "Member Tools",
         links: [
             { label: "Profile", path: "/profile" },
-            { label: "Reps (Challenges)", path: "/challenges" },
             { label: "Assessment", path: "/assessment" },
-            { label: "J0d!e", path: "/jodie" },
         ],
     },
     {

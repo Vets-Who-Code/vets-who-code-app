@@ -34,7 +34,7 @@ describe("Programs hub page", () => {
         renderPage();
         const expected = [
             ["Apply now →", "/apply"],
-            ["Talk to us →", "/jobs"],
+            ["Talk to us →", "/contact-us"],
             ["Volunteer →", "/mentor"],
             ["Ways to give →", "/donate"],
         ];

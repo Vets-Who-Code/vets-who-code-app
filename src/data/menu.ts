@@ -118,12 +118,6 @@ const navigation: NavigationItem[] = [
         path: "#!",
         submenu: [
             {
-                id: 301,
-                label: "Job Board",
-                path: "/jobs",
-                status: "new",
-            },
-            {
                 id: 302,
                 label: "Career Guides",
                 path: "/career-guides",

@@ -15,10 +15,8 @@ import {
     NotificationToast,
     ProfileHeader,
     ProfileNav,
-    ProfileSettings,
     RepositoryShowcase,
     ServiceRecord,
-    TroopDashboard,
 } from "@/components/profile";
 import useGitHubProfile from "@/hooks/use-github-profile";
 import useProfileForm from "@/hooks/use-profile-form";
@@ -157,12 +155,6 @@ const MemberProfile: PageWithLayout = ({ user, isOwner }) => {
                         onCancel={form.handleCancel}
                     />
                 )}
-
-                {/* J0dI3 — AI dashboard */}
-                {activeTab === "j0di3" && <TroopDashboard />}
-
-                {/* Settings — only for owner */}
-                {activeTab === "settings" && isOwner && <ProfileSettings />}
             </div>
         </>
     );

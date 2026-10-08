@@ -83,7 +83,7 @@ export function checkRateLimit(
  * One-line opt-in rate limiting for API routes.
  * Buckets are namespaced by `name` so endpoints with different limits
  * never share counters. Defaults to keying by client IP; pass `key`
- * to key by something else (e.g. troopId or user id).
+ * to key by something else (e.g. user id).
  * When the limit is exceeded, sends a 429 with a Retry-After header
  * and returns false — the caller should stop handling the request.
  */
