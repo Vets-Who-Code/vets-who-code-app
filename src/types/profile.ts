@@ -125,9 +125,7 @@ export type ProfileTab =
     | "command-center"
     | "arsenal"
     | "ops-log"
-    | "service-record"
-    | "j0di3"
-    | "settings";
+    | "service-record";
 
 export interface ProfileTabDef {
     id: ProfileTab;
@@ -140,8 +138,6 @@ export const PROFILE_TABS: ProfileTabDef[] = [
     { id: "arsenal", label: "Arsenal", icon: "fas fa-tools" },
     { id: "ops-log", label: "Ops Log", icon: "fas fa-clipboard-list" },
     { id: "service-record", label: "Service Record", icon: "fas fa-medal" },
-    { id: "j0di3", label: "J0dI3", icon: "fas fa-robot" },
-    { id: "settings", label: "Settings", icon: "fas fa-cog" },
 ];
 
 // GitHub language colors (subset of common languages)

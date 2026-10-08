@@ -135,7 +135,6 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 | Feature | Variables |
 | --- | --- |
 | AI assistant and content scripts | `PRIMARY_AI_PROVIDER`, `GOOGLE_GENERATIVE_AI_API_KEY`, `GEMINI_API_KEY`, `GOOGLE_PRIVATE_KEY`, `GEMINI_MODEL`, `TECH_PATHWAYS_MODEL`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `OPENAI_API_KEY`, `PHI3_ENDPOINT`, `PHI3_API_KEY` |
-| J0dI3 AI backend | `J0DI3_API_URL`, `J0DI3_API_KEY` |
 | Slack form notifications | `APPLY_WEBHOOK_ID`, `CONTACT_WEBHOOK_ID`, `MENTOR_WEBHOOK_ID` |
 | GitHub API reads (org, repos, PRs) | `GITHUB_TOKEN` |
 | Cloudinary media | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` |

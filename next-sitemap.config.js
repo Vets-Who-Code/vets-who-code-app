@@ -21,10 +21,6 @@ const exclude = [
 
     // Gated troop experience
     "/assessment",
-    "/challenges",
-    "/challenges/*",
-    "/jodie",
-    "/jodie/*",
     "/zoom-meetings",
     "/zoom-meetings/*",
 

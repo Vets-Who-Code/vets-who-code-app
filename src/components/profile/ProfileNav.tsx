@@ -7,7 +7,8 @@ interface ProfileNavProps {
     isOwner?: boolean;
 }
 
-const OWNER_ONLY_TABS: ProfileTab[] = ["settings"];
+// Empty since the J0dI3 settings tab was removed.
+const OWNER_ONLY_TABS: ProfileTab[] = [];
 
 const ProfileNav = ({ activeTab, onTabChange, isOwner = true }: ProfileNavProps) => {
     const visibleTabs = isOwner

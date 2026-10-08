@@ -88,8 +88,8 @@ const runCommand = (raw: string): CommandResult => {
         case "jobs":
         case "hire":
             return {
-                output: ["→ redirecting to /jobs ..."],
-                navigateTo: "/jobs",
+                output: ["→ redirecting to /contact-us ..."],
+                navigateTo: "/contact-us",
             };
         case "careers":
         case "mos":

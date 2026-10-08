@@ -5,7 +5,5 @@ export { default as LanguageBreakdown } from "./LanguageBreakdown";
 export { default as NotificationToast } from "./NotificationToast";
 export { default as ProfileHeader } from "./ProfileHeader";
 export { default as ProfileNav } from "./ProfileNav";
-export { default as ProfileSettings } from "./ProfileSettings";
 export { default as RepositoryShowcase } from "./RepositoryShowcase";
 export { default as ServiceRecord } from "./ServiceRecord";
-export { default as TroopDashboard } from "./TroopDashboard";

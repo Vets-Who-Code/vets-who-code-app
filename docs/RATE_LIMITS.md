@@ -8,12 +8,8 @@ hitting one endpoint never consumes another endpoint's budget.
 
 | Endpoint        | Limit      | Window | Keyed by                                  |
 | --------------- | ---------- | ------ | ----------------------------------------- |
-| `/api/j0di3/*`  | 30 req/min | 60s    | troopId, falling back to user id, then IP |
 | `/api/contact`  | 5 req/min  | 60s    | client IP                                 |
 | `/api/health`   | 30 req/min | 60s    | client IP                                 |
-
-The J0dI3 limit is enforced centrally in `src/lib/j0di3-proxy.ts`, so every
-`/api/j0di3/*` route is covered in one place.
 
 Other endpoints (e.g. `/api/jobs/parse-resume`) apply their own limits directly with
 `checkRateLimit` — see the individual handlers.

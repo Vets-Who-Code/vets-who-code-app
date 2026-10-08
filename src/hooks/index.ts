@@ -7,7 +7,6 @@ export { default as useInterval } from "./use-interval";
 export { default as useKeyboardFocus } from "./use-keyboard-focus";
 export { default as useLoadMore } from "./use-load-more";
 export { default as useMount } from "./use-mount";
-export { default as usePdfUpload } from "./use-pdf-upload";
 export { default as useProfileForm } from "./use-profile-form";
 export { default as useScrollTop } from "./use-scroll-top";
 export { default as useSort } from "./use-sort";

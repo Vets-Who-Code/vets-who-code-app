@@ -26,7 +26,7 @@ const DevAccess: NextPage = () => {
         // Redirect after 2 seconds
         const timeout = setTimeout(() => {
             const callbackUrl = router.query.callbackUrl as string;
-            router.push(callbackUrl || "/jobs");
+            router.push(callbackUrl || "/");
         }, 2000);
 
         return () => clearTimeout(timeout);
