@@ -5,7 +5,6 @@ import BlogAuthor from "@containers/blog-details/blog-author";
 import BlogSidebar from "@containers/blog-details/blog-sidebar";
 import BlogNavLinks from "@containers/blog-details/nav-links";
 import Layout01 from "@layout/layout-01";
-import { toCapitalize } from "@utils/methods";
 import { BlogMetaType, IBlog, IInstructor } from "@utils/types";
 import type { GetStaticPaths, NextPage } from "next";
 import { getAllBlogs, getPostBySlug, getPrevNextPost, getTags } from "../../lib/blog";
@@ -35,7 +34,7 @@ const BlogDetails: PageProps = ({ data: { blog, prevAndNextPost, recentPosts, ta
     return (
         <>
             <SEO
-                title={toCapitalize(blog.title)}
+                title={blog.title}
                 description={blog.description as string}
                 jsonLdType="article"
                 article={{
