@@ -133,7 +133,6 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 | Slack form notifications | `APPLY_WEBHOOK_ID`, `CONTACT_WEBHOOK_ID`, `MENTOR_WEBHOOK_ID` |
 | GitHub API reads (org, repos, PRs) | `GITHUB_TOKEN` |
 | Cloudinary media | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` |
-| Email (Resend) | `RESEND_API_KEY`, `EMAIL_FROM` |
 | Shopify commerce | `SHOPIFY_STORE_DOMAIN`, `SHOPIFY_STOREFRONT_ACCESS_TOKEN`, `SHOPIFY_WEBHOOK_SECRET` (or `SHOPIFY_API_SECRET` / `SHOPIFY_CLIENT_SECRET`) |
 | Labor-market data | `LIGHTCAST_CLIENT_ID`, `LIGHTCAST_CLIENT_SECRET`, `CENSUS_API_KEY` |
 | Public site config | `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`, `NEXT_PUBLIC_COHORT_START_DATE`, `NEXT_PUBLIC_SITE_URL` |
@@ -361,7 +360,7 @@ Both suites run on every pull request to `master`. [`.github/workflows/vitest.ym
 ## Project Docs 📚
 
 - [`AGENTS.md`](AGENTS.md) — architecture, where new code goes, path aliases, auth guards, and conventions. Written for AI coding agents, and the fastest orientation for humans too.
-- [`docs/`](docs) — deep dives: [design system](docs/DESIGN_DOC.md), [brand style guide](docs/brand-style-guide.md), [database](docs/DATABASE_GUIDE.md), [deployment](docs/DEPLOYMENT.md), [Shopify](docs/SHOPIFY_SETUP.md), [email](docs/EMAIL_SETUP.md), and more.
+- [`docs/`](docs) — deep dives: [design system](docs/DESIGN_DOC.md), [brand style guide](docs/brand-style-guide.md), [database](docs/DATABASE_GUIDE.md), [deployment](docs/DEPLOYMENT.md), [Shopify](docs/SHOPIFY_SETUP.md), and more.
 - `/api-docs` — Swagger UI for every API route, generated at build time from `@swagger` JSDoc blocks. The raw spec is served at `/api/docs`.
 
 ## Contributing :handshake:

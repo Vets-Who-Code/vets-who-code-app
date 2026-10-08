@@ -1,15 +1,16 @@
+import { canonicalFor } from "@components/seo/page-seo";
 import Social, { SocialLink } from "@components/ui/social";
-import { MouseEvent, useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { MouseEvent } from "react";
 
 type TProps = {
     className?: string;
 };
 
 const SocialShare = ({ className }: TProps) => {
-    const [href, setHref] = useState("");
-    useEffect(() => {
-        setHref(window.location.href);
-    }, []);
+    // From the router, not window.location in an effect, so the server HTML
+    // already carries the URL instead of an empty `url=`.
+    const href = encodeURIComponent(canonicalFor(useRouter().asPath));
 
     const clickHandler = (e: MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();

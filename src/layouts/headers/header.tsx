@@ -7,6 +7,7 @@ import BurgerButton from "@ui/burger-button";
 import Button from "@ui/button";
 import CountdownTimer from "@ui/countdown-timer/layout-03";
 import { getCohortStartDate, isCohortUpcoming } from "@utils/cohort";
+import { formatDate } from "@utils/date";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -95,7 +96,9 @@ const Header = ({ shadow, fluid }: TProps) => {
                         {cohortUpcoming && (
                             <>
                                 <p className="tw-mb-3.8 tw-flex-100 tw-text-center md:tw-mb-0 md:tw-mr-7.5 md:tw-flex-1 md:tw-text-left">
-                                    New Cohort Starts:
+                                    {/* The countdown digits are client-only, so the date itself
+                                        keeps the label from rendering empty in server HTML. */}
+                                    New Cohort Starts: {formatDate(cohortStartDate as string)}
                                 </p>
                                 <div className="tw-flex tw-items-center sm:tw-mr-[45px] md:tw-mr-5 lg:tw-mr-[45px]">
                                     <i

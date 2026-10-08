@@ -24,7 +24,7 @@ routes under `src/pages/api/`, and its build and deployment configuration.
 Out of scope here:
 
 - Third-party platforms we integrate with rather than operate — Shopify,
-  Cloudinary, Resend, Neon, Vercel, GitHub. Report those to the vendor.
+  Cloudinary, Neon, Vercel, GitHub. Report those to the vendor.
 
 ## Supported versions
 
