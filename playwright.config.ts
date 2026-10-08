@@ -69,7 +69,6 @@ export default defineConfig({
         reuseExistingServer: !process.env.CI,
         timeout: process.env.CI ? 30000 : 120000,
         env: {
-            NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET || "test-secret-for-playwright",
             // Forward Shopify creds when present so /store can render real
             // products for e2e tests that depend on them. When unset (most CI
             // runs), the Shopify-dependent specs skip themselves at runtime.

@@ -7,25 +7,11 @@ const prerender = require("./src/data/career-guides-prerender.json");
 // Routes that must not appear in the XML sitemap or be crawled.
 // Grouped by reason so future additions are easy to slot in.
 const exclude = [
-    // Admin panel
-    "/admin",
-    "/admin/*",
-
-    // Auth & account
-    "/auth/*",
-    "/login",
-    "/profile",
-    "/profile/*",
-    "/orders",
-    "/orders/*",
-
     // Gated troop experience
-    "/assessment",
     "/zoom-meetings",
     "/zoom-meetings/*",
 
     // Internal / dev-only
-    "/dev-access",
     "/editor-page",
     "/url-preview-demo",
     "/_offline",

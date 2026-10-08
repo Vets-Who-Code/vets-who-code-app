@@ -1,7 +1,6 @@
 import Logo from "@components/logo";
 import MainMenu from "@components/menu/main-menu";
-import UserMenu from "@components/user-menu";
-import menu, { filterMenuByAuth } from "@data/menu";
+import menu from "@data/menu";
 import siteConfig from "@data/site-config";
 import { useSticky } from "@hooks";
 import BurgerButton from "@ui/burger-button";
@@ -11,8 +10,7 @@ import { getCohortStartDate, isCohortUpcoming } from "@utils/cohort";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const MobileMenu = dynamic(() => import("../../components/menu/mobile-menu"), {
     ssr: false,
@@ -42,13 +40,8 @@ const Header = ({ shadow, fluid }: TProps) => {
         },
         [measuredRef]
     );
-    const { status } = useSession();
     const cohortStartDate = getCohortStartDate(siteConfig.cohortStartDate);
     const cohortUpcoming = isCohortUpcoming(cohortStartDate);
-    const filteredMenu = useMemo(
-        () => filterMenuByAuth(menu, status === "authenticated"),
-        [status]
-    );
 
     useEffect(() => {
         setOffcanvas(false);
@@ -144,7 +137,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                             <MainMenu
                                 className="tw-hidden xl:tw-block"
                                 align="center"
-                                menu={filteredMenu}
+                                menu={menu}
                                 hoverStyle="B"
                             />
                             <div className="tw-flex tw-items-center tw-justify-end tw-gap-4 tw-shrink-0">
@@ -173,7 +166,6 @@ const Header = ({ shadow, fluid }: TProps) => {
                                 {/* Socials moved out of the header — the container has no
                                     slack, and the nav needs their 145px to stay on one line.
                                     They still render in the footer. */}
-                                <UserMenu />
                                 <BurgerButton
                                     className="tw-pl-2 xl:tw-hidden"
                                     color="dark"
@@ -189,7 +181,7 @@ const Header = ({ shadow, fluid }: TProps) => {
             <MobileMenu
                 isOpen={offcanvas}
                 onClose={() => setOffcanvas(false)}
-                menu={filteredMenu}
+                menu={menu}
             />
         </>
     );
