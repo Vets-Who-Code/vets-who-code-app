@@ -318,7 +318,7 @@ const HeroCodeSnippet = () => {
                                             autoCapitalize="off"
                                             autoCorrect="off"
                                             aria-label="Terminal command input"
-                                            className="tw-w-[60%] tw-border-0 tw-bg-transparent tw-p-0 tw-outline-none focus:tw-outline-none focus:tw-ring-0"
+                                            className="tw-w-[60%] tw-border-0 tw-bg-transparent tw-p-0 tw-outline-none focus-visible:tw-outline focus-visible:tw-outline-2 focus-visible:tw-outline-offset-4 focus-visible:tw-outline-gold"
                                             style={{
                                                 font: "inherit",
                                                 color: "inherit",

@@ -3,7 +3,7 @@ import Button from "@ui/button";
 import { ButtonType, HeadingType, ImageType, TextType, VideoType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
@@ -25,10 +25,13 @@ type TProps = {
 const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps) => {
     const [isOpen, setOpen] = useState(false);
     const words = headings?.slice(1, headings.length).map((heading) => heading.content) || [];
+    // One pass that lands back on the first word, so the screen-reader headline matches what
+    // stays on screen. Reduced motion skips the typing and shows that word outright.
     const { text: animatedText } = useTypewriter({
-        words,
-        loop: true,
+        words: [...words.slice(1), ...words.slice(0, 1)],
+        loop: 1,
     });
+    const reduceMotion = useReducedMotion();
 
     return (
         <>
@@ -76,8 +79,12 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                     }}
                                 >
                                     {headings[0].content}
+                                    {words[0] && <span className="tw-sr-only"> {words[0]}</span>}
                                 </h1>
-                                <div className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]">
+                                <div
+                                    className="tw-flex tw-min-h-[60px] tw-items-center tw-justify-center md:tw-min-h-[70px]"
+                                    aria-hidden="true"
+                                >
                                     <span
                                         style={{
                                             fontFamily: "var(--font-headline)",
@@ -89,8 +96,14 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                                             color: "var(--red, #c5203e)",
                                         }}
                                     >
-                                        {animatedText}
-                                        <Cursor />
+                                        {reduceMotion ? (
+                                            words[0]
+                                        ) : (
+                                            <>
+                                                {animatedText}
+                                                <Cursor />
+                                            </>
+                                        )}
                                     </span>
                                 </div>
                             </div>
