@@ -19,7 +19,7 @@ const ServiceArea = ({ data: { items, motto }, space, bg }: TProps) => {
     return (
         <Section className="service-area" space={space} bg={bg}>
             <div className="tw-container">
-                <h2 className="tw-sr-only">Service Section</h2>
+                <h2 className="tw-sr-only">How We Train</h2>
                 <div className="tw-relative tw-top-[-90px] tw-z-10 tw-mb-[-90px] tw-grid tw-grid-cols-1 tw-gap-7.5 md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-top-[-125px] xl:tw-mb-[-125px]">
                     {items?.map((item) => (
                         <AnimatedServiceCard
