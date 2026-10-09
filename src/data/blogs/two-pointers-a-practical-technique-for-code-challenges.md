@@ -36,6 +36,8 @@ This pattern shines when you need to compare or interact with values from both e
 
 A classic use case! You want to know if a string reads the same backward and forward.
 
+![Animated trace of is_palindrome on "racecar": the start and end pointers compare r/r, a/a and c/c, step inward until they meet at e, and the function returns True.](blog-graphics/two-pointers-palindrome)
+
 **Python:**
 
 ```python
@@ -74,6 +76,8 @@ function isPalindrome(text) {
 ### Example 2: Find a Pair That Sums to a Target
 
 Given a sorted array, can you find if any two numbers within it add up to a specific target?
+
+![Animated trace of has_pair_with_sum on [1, 3, 4, 6, 8, 11] with target 10: the sum is too big or too small at each step, so the right or left pointer moves in until 4 + 6 equals 10 and the function returns True.](blog-graphics/two-pointers-pairsum)
 
 **Python:**
 
@@ -128,6 +132,8 @@ This pattern is your go-to when you're comparing two separate sequences, or when
 ### Example 3: Merge Two Sorted Arrays
 
 Combine two sorted arrays into one perfectly sorted array.
+
+![Animated trace of merge_sorted_arrays on [1, 4, 7] and [2, 5, 6, 9]: each step copies the smaller front value into merged_array, then the leftover 9 is copied once first_array runs out, giving [1, 2, 4, 5, 6, 7, 9].](blog-graphics/two-pointers-merge)
 
 **Python:**
 
@@ -191,6 +197,8 @@ function mergeSortedArrays(firstArray, secondArray) {
 ### Example 4: Subsequence Check
 
 Want to know if all the characters in one string appear in another, in the same order?
+
+![Animated trace of is_subsequence for "ace" in "abcde": the source pointer advances every step, the candidate pointer advances only on a match, and the function returns True once all three letters are found.](blog-graphics/two-pointers-subsequence)
 
 **Python:**
 
