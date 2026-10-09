@@ -19,3 +19,25 @@ describe("MarkdownRenderer links", () => {
         expect(link).toHaveAttribute("rel", "nofollow");
     });
 });
+
+const PYTHON_FENCE = "```python\ndef go():\n    return True\n```";
+const PLAIN_FENCE = "```\nnpm run dev\n```";
+
+describe("MarkdownRenderer code blocks", () => {
+    it("highlights a fenced block in a registered language", () => {
+        const { container } = render(<MarkdownRenderer content={PYTHON_FENCE} />);
+
+        const code = container.querySelector("code");
+        expect(code).toHaveClass("hljs", "language-python");
+        expect(code?.querySelector(".hljs-keyword")).toHaveTextContent("def");
+        expect(code).toHaveTextContent("def go(): return True");
+    });
+
+    it("leaves an unlabelled block as plain text", () => {
+        const { container } = render(<MarkdownRenderer content={PLAIN_FENCE} />);
+
+        const code = container.querySelector("code");
+        expect(code).toHaveTextContent("npm run dev");
+        expect(code?.querySelector("span")).toBeNull();
+    });
+});

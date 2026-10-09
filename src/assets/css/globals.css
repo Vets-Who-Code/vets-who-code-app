@@ -83,6 +83,7 @@
     --gold-deep: #c9a227;
     --cream: #eeede9;
     --ink: #1a1823;
+    --obsidian: #0b1215; /* terminal/code surfaces */
     --white: #ffffff;
     --black: #000000;
 
@@ -757,4 +758,34 @@ a.tw-rounded-full:not(.vwc-avatar) {
         margin: 1.5cm;
     }
 }
+/* Code blocks in Markdown content: same palette as the home page terminal. */
+.tw-prose pre {
+    background: var(--obsidian);
+    border-left: 3px solid var(--gold);
+    border-radius: 0;
+    color: var(--off-white);
+    font-family: var(--font-mono);
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-meta {
+    color: var(--gold);
+}
+
+.hljs-title,
+.hljs-built_in {
+    color: var(--link-on-dark);
+}
+
+.hljs-number,
+.hljs-string {
+    color: var(--gold-light);
+}
+
+.hljs-comment {
+    color: var(--muted-on-dark-rgba);
+    font-style: normal;
+}
+
 /* purgecss end ignore */

@@ -1,7 +1,22 @@
 import SafeHTML from "@components/safe-html";
 import clsx from "clsx";
+import hljs from "highlight.js/lib/core";
+import bash from "highlight.js/lib/languages/bash";
+import javascript from "highlight.js/lib/languages/javascript";
+import python from "highlight.js/lib/languages/python";
+import typescript from "highlight.js/lib/languages/typescript";
 import { marked } from "marked";
 import { getImageUrl } from "@/lib/cloudinary-helpers";
+
+// Core build plus the languages posts use; register more here as fences need them.
+hljs.registerLanguage("bash", bash);
+hljs.registerLanguage("javascript", javascript);
+hljs.registerLanguage("python", python);
+hljs.registerLanguage("typescript", typescript);
+
+// Fences without a registered language stay plain; no auto-detection.
+const highlight = (code: string, lang: string) =>
+    hljs.getLanguage(lang) ? hljs.highlight(code, { language: lang }).value : code;
 
 type TProps = {
     content: string;
@@ -40,7 +55,11 @@ const MarkdownRenderer = ({ content, className }: TProps) => {
     );
 
     // Process markdown and return sanitized HTML
-    const htmlContent = marked(processedContent, { renderer });
+    const htmlContent = marked(processedContent, {
+        renderer,
+        highlight,
+        langPrefix: "hljs language-",
+    });
 
     return (
         <SafeHTML
