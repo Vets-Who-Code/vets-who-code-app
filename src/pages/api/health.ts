@@ -1,60 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import prisma from "@/lib/prisma";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { version } from "../../../package.json";
 
-interface CheckResult {
-    name: string;
-    status: "healthy" | "unhealthy";
-    responseTime?: number;
-    missing?: string[];
-}
-
 interface HealthResponse {
-    status: "healthy" | "degraded" | "unhealthy";
+    status: "healthy";
     version: string;
     timestamp: string;
     uptime: number;
-    checks: CheckResult[];
-}
-
-const REQUIRED_ENV_VARS = ["DATABASE_URL"];
-
-async function checkDatabase(): Promise<CheckResult> {
-    const start = Date.now();
-    try {
-        await prisma.$queryRaw`SELECT 1`;
-        return {
-            name: "database",
-            status: "healthy",
-            responseTime: Date.now() - start,
-        };
-    } catch {
-        return {
-            name: "database",
-            status: "unhealthy",
-            responseTime: Date.now() - start,
-        };
-    }
-}
-
-function checkEnvironment(): CheckResult {
-    const missing = REQUIRED_ENV_VARS.filter((v) => !process.env[v]);
-
-    if (missing.length === 0) {
-        return { name: "environment", status: "healthy" };
-    }
-
-    return { name: "environment", status: "unhealthy", missing };
-}
-
-function aggregateStatus(checks: CheckResult[]): "healthy" | "degraded" | "unhealthy" {
-    const db = checks.find((c) => c.name === "database");
-    const env = checks.find((c) => c.name === "environment");
-
-    if (db?.status === "unhealthy") return "unhealthy";
-    if (env?.status === "unhealthy") return "degraded";
-    return "healthy";
 }
 
 /**
@@ -62,24 +14,22 @@ function aggregateStatus(checks: CheckResult[]): "healthy" | "degraded" | "unhea
  * /api/health:
  *   get:
  *     summary: Service health check
- *     description: Reports database and environment health. Rate limited to 30 requests per minute per IP.
+ *     description: Reports that the app is up, with its version and uptime. Rate limited to 30 requests per minute per IP.
  *     tags:
  *       - Health
  *     responses:
  *       200:
- *         description: Service is healthy or degraded
+ *         description: Service is healthy
  *       405:
  *         description: Method not allowed
  *       429:
  *         description: Rate limit exceeded. Retry after the number of seconds in the Retry-After header.
- *       503:
- *         description: Service is unhealthy
  */
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<HealthResponse | { error: string }>
 ) {
-    // 30 req/min per IP — health checks are cheap but hit the database.
+    // 30 req/min per IP.
     if (!enforceRateLimit(req, res, { name: "health", maxRequests: 30, windowMs: 60 * 1000 })) {
         return;
     }
@@ -88,18 +38,10 @@ export default async function handler(
         return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const dbCheck = await checkDatabase();
-    const envCheck = checkEnvironment();
-    const checks = [dbCheck, envCheck];
-    const status = aggregateStatus(checks);
-
-    const statusCode = status === "unhealthy" ? 503 : 200;
-
-    return res.status(statusCode).json({
-        status,
+    return res.status(200).json({
+        status: "healthy",
         version,
         timestamp: new Date().toISOString(),
         uptime: process.uptime(),
-        checks,
     });
 }

@@ -337,7 +337,6 @@
             "!public/workbox-*.js",
             "!public/fallback-*.js",
             "!./scripts",
-            "!./prisma",
             "!**/next.config.js",
             "!**/commitlint.config.js",
             "!**/*.min.css",

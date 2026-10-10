@@ -66,12 +66,7 @@ cp .env.example .env.local
 ```
 Update .env.local with the required values. Check the README for configuration details
 
-6. Run database migrations:
-```bash
-npx prisma migrate dev
-```
-
-7. Start the development server:
+6. Start the development server:
 ```bash
 npm run dev
 ```

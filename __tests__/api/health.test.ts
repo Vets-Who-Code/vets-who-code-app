@@ -2,16 +2,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
 import handler from "@/pages/api/health";
 
-vi.mock("@/lib/prisma", () => ({
-    default: {
-        $queryRaw: vi.fn(),
-    },
-}));
-
-import prisma from "@/lib/prisma";
-
-const mockQueryRaw = prisma.$queryRaw as Mock;
-
 // Each call gets a unique IP by default so the per-IP rate limiter
 // never interferes across tests. Pass `ip` to share a bucket on purpose.
 let nextIp = 0;
@@ -38,21 +28,7 @@ function createMockReqRes(
 }
 
 describe("GET /api/health", () => {
-    const originalEnv = process.env;
-
-    beforeEach(() => {
-        process.env = {
-            ...originalEnv,
-            DATABASE_URL: "postgresql://localhost:5432/test",
-        };
-        mockQueryRaw.mockResolvedValue([{ "?column?": 1 }]);
-    });
-
-    afterEach(() => {
-        process.env = originalEnv;
-    });
-
-    it("returns 200 and status healthy when DB is reachable and env vars are set", async () => {
+    it("returns 200 and status healthy", async () => {
         const { req, res } = createMockReqRes();
 
         await handler(req, res);
@@ -60,28 +36,6 @@ describe("GET /api/health", () => {
         expect(res.status).toHaveBeenCalledWith(200);
         const body = (res.json as Mock).mock.calls[0][0];
         expect(body.status).toBe("healthy");
-    });
-
-    it("returns 200 and status degraded when env vars are missing but DB works", async () => {
-        delete process.env.DATABASE_URL;
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        expect(res.status).toHaveBeenCalledWith(200);
-        const body = (res.json as Mock).mock.calls[0][0];
-        expect(body.status).toBe("degraded");
-    });
-
-    it("returns 503 and status unhealthy when DB query throws", async () => {
-        mockQueryRaw.mockRejectedValue(new Error("Connection refused"));
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        expect(res.status).toHaveBeenCalledWith(503);
-        const body = (res.json as Mock).mock.calls[0][0];
-        expect(body.status).toBe("unhealthy");
     });
 
     it("returns 405 for non-GET methods", async () => {
@@ -95,7 +49,7 @@ describe("GET /api/health", () => {
         }
     });
 
-    it("response includes version, timestamp, uptime, and checks array", async () => {
+    it("response includes version, timestamp, and uptime", async () => {
         const { req, res } = createMockReqRes();
 
         await handler(req, res);
@@ -108,46 +62,6 @@ describe("GET /api/health", () => {
         expect(body).toHaveProperty("uptime");
         expect(typeof body.uptime).toBe("number");
         expect(body.uptime).toBeGreaterThanOrEqual(0);
-        expect(Array.isArray(body.checks)).toBe(true);
-        expect(body.checks).toHaveLength(2);
-    });
-
-    it("database check includes responseTime as a number", async () => {
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        const body = (res.json as Mock).mock.calls[0][0];
-        const dbCheck = body.checks.find((c: { name: string }) => c.name === "database");
-        expect(dbCheck).toBeDefined();
-        expect(dbCheck.status).toBe("healthy");
-        expect(typeof dbCheck.responseTime).toBe("number");
-        expect(dbCheck.responseTime).toBeGreaterThanOrEqual(0);
-    });
-
-    it("environment check lists missing variable names when applicable", async () => {
-        delete process.env.DATABASE_URL;
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        const body = (res.json as Mock).mock.calls[0][0];
-        const envCheck = body.checks.find((c: { name: string }) => c.name === "environment");
-        expect(envCheck).toBeDefined();
-        expect(envCheck.status).toBe("unhealthy");
-        expect(envCheck.missing).toEqual(["DATABASE_URL"]);
-    });
-
-    it("database check reports responseTime even when unhealthy", async () => {
-        mockQueryRaw.mockRejectedValue(new Error("timeout"));
-        const { req, res } = createMockReqRes();
-
-        await handler(req, res);
-
-        const body = (res.json as Mock).mock.calls[0][0];
-        const dbCheck = body.checks.find((c: { name: string }) => c.name === "database");
-        expect(dbCheck.status).toBe("unhealthy");
-        expect(typeof dbCheck.responseTime).toBe("number");
     });
 
     it("returns 429 with Retry-After after 30 requests per minute from one IP", async () => {
