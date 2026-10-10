@@ -11,7 +11,7 @@
   <a href="https://github.com/Vets-Who-Code/vets-who-code-app">
     <img src="https://img.shields.io/github/package-json/v/Vets-Who-Code/vets-who-code-app?style=flat-square" alt="Version" />
   </a>
-  <img src="https://img.shields.io/badge/node-v20-brightgreen.svg?style=flat-square" alt="node" />
+  <img src="https://img.shields.io/badge/node-v24-brightgreen.svg?style=flat-square" alt="node" />
   <img src="https://img.shields.io/badge/npm-only-blue.svg?style=flat-square" alt="npm" />
   <a href="https://github.com/Vets-Who-Code/vets-who-code-app/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-AGPL--3.0-yellow.svg?style=flat-square" alt="License: AGPL-3.0" />
@@ -75,7 +75,7 @@ To get a local copy up and running, you'll need a few things installed on your m
 ### Prerequisites 🛠️
 
 - [Git](http://git-scm.com/)
-- [Node.js](http://nodejs.org/) v20 (see `.nvmrc`)
+- [Node.js](http://nodejs.org/) v24 (see `.nvmrc`)
 - [NVM](https://github.com/creationix/nvm)
 - npm — the only supported package manager; `preinstall` rejects yarn, pnpm, and bun
 
@@ -109,7 +109,7 @@ Every variable below is optional. The feature that reads it stays off, or falls 
 
 | Feature | Variables |
 | --- | --- |
-| AI assistant and content scripts | `PRIMARY_AI_PROVIDER`, `GOOGLE_GENERATIVE_AI_API_KEY`, `GEMINI_API_KEY`, `GOOGLE_PRIVATE_KEY`, `GEMINI_MODEL`, `TECH_PATHWAYS_MODEL`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `OPENAI_API_KEY`, `PHI3_ENDPOINT`, `PHI3_API_KEY` |
+| Contact-form spam filter and content scripts | `PRIMARY_AI_PROVIDER`, `GOOGLE_GENERATIVE_AI_API_KEY`, `GEMINI_API_KEY`, `GOOGLE_PRIVATE_KEY`, `GEMINI_MODEL`, `TECH_PATHWAYS_MODEL`, `AZURE_OPENAI_API_KEY`, `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_DEPLOYMENT`, `OPENAI_API_KEY` |
 | Slack form notifications | `APPLY_WEBHOOK_ID`, `CONTACT_WEBHOOK_ID`, `MENTOR_WEBHOOK_ID` |
 | GitHub API reads (org, repos, PRs) | `GITHUB_TOKEN` |
 | Cloudinary media | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` |
@@ -224,8 +224,7 @@ npx vitest run --coverage                          # with a coverage report
 
 ```text
 __tests__/                 # mirrors src/: api, components, data, lib, pages, scripts, utils
-src/**/__tests__/          # co-located: src/hooks, src/lib/interactive-lessons,
-                           #             src/lib/lesson-sandbox, src/utils
+src/**/__tests__/          # co-located: src/hooks, src/utils
 tests/                     # Playwright only — excluded from Vitest
   a11y/*.spec.ts           # axe-core WCAG A/AA scan of public routes (chromium only)
   e2e/*.spec.ts
@@ -302,7 +301,7 @@ open coverage/index.html
 npx playwright install                                    # first time only
 npx playwright test                                       # every spec
 npx playwright test --project=chromium                    # one browser
-npx playwright test tests/e2e/interactive-lesson.spec.ts  # one file
+npx playwright test tests/e2e/apply.spec.ts             # one file
 ```
 
 Projects defined in `playwright.config.ts`: `chromium`, `firefox`, `Mobile Chrome`, `Microsoft Edge`, `Google Chrome`.
@@ -337,7 +336,6 @@ Both suites run on every pull request to `master`. [`.github/workflows/vitest.ym
 
 ## Project Docs 📚
 
-- [`AGENTS.md`](AGENTS.md) — architecture, where new code goes, path aliases, auth guards, and conventions. Written for AI coding agents, and the fastest orientation for humans too.
 - [`docs/`](docs) — deep dives: [design system](docs/DESIGN_DOC.md), [brand style guide](docs/brand-style-guide.md), [Shopify](docs/SHOPIFY_SETUP.md), and more.
 - `/api-docs` — Swagger UI for every API route, generated at build time from `@swagger` JSDoc blocks. The raw spec is served at `/api/docs`.
 
