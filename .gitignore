@@ -87,7 +87,6 @@ storybook-static
 /*.zip
 
 # Per-developer AI assistant guidance — kept out of the public repo
-CLAUDE.md
 AGENTS.md
 .cursorrules
 gemini.md
