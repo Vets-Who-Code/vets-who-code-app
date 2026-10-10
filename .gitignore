@@ -63,7 +63,6 @@ public/fallback-*.js
 complexity-report.json
 npm_output.log
 
-/src/generated/prisma
 audio-cloudinary-urls.json
 
 # Blog audio staging (generated locally, uploaded to Cloudinary)
@@ -95,8 +94,6 @@ gemini.md
 .gemini/
 .github/copilot-instructions.md
 
-# Local SQLite dev database (never commit)
-prisma/dev.db
 *.db
 
 # Personal editor workspace settings

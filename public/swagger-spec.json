@@ -80,22 +80,19 @@
     "/api/health": {
       "get": {
         "summary": "Service health check",
-        "description": "Reports database and environment health. Rate limited to 30 requests per minute per IP.",
+        "description": "Reports that the app is up, with its version and uptime. Rate limited to 30 requests per minute per IP.",
         "tags": [
           "Health"
         ],
         "responses": {
           "200": {
-            "description": "Service is healthy or degraded"
+            "description": "Service is healthy"
           },
           "405": {
             "description": "Method not allowed"
           },
           "429": {
             "description": "Rate limit exceeded. Retry after the number of seconds in the Retry-After header."
-          },
-          "503": {
-            "description": "Service is unhealthy"
           }
         }
       }

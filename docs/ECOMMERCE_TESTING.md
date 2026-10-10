@@ -61,67 +61,9 @@ SHOPIFY_STOREFRONT_ACCESS_TOKEN="your-storefront-token"
 ### Code Location:
 - Variant selection: `src/pages/store/products/[handle].tsx:68-93`
 
-## 3. Order Confirmation Webhook ❌ TO IMPLEMENT
+## 3. Orders
 
-### Requirements:
-- Shopify webhook endpoint at `/api/shopify/webhooks/orders/create`
-- Verify webhook signature (HMAC)
-- Store order details in database
-- Send confirmation email to customer (optional)
-
-### Webhook Setup in Shopify:
-1. Go to Shopify Admin → Settings → Notifications → Webhooks
-2. Create webhook:
-   - Event: Order creation
-   - Format: JSON
-   - URL: `https://your-domain.com/api/shopify/webhooks/orders/create`
-   - Version: 2024-01 or latest
-
-### Test Steps:
-1. Complete a test order on Shopify checkout
-2. Verify webhook is received at endpoint
-3. Check database for order record
-4. Verify order details are correct
-
-### Expected Data:
-```json
-{
-  "id": 1234567890,
-  "email": "customer@example.com",
-  "total_price": "29.99",
-  "currency": "USD",
-  "line_items": [...],
-  "created_at": "2024-01-02T00:00:00Z",
-  "customer": {...}
-}
-```
-
-## 4. Order History Page ❌ TO IMPLEMENT
-
-### Requirements:
-- Page at `/orders` or `/store/orders`
-- Fetch user's orders from database or Shopify
-- Display order list with:
-  - Order number
-  - Date
-  - Items
-  - Total amount
-  - Order status
-  - Tracking info (if available)
-
-### Test Steps:
-1. Login as user
-2. Navigate to `/orders`
-3. Verify orders are displayed
-4. Click on an order to see details
-5. Check tracking link (if available)
-
-### Expected Behavior:
-- Shows all user's orders
-- Most recent orders first
-- Can view order details
-- Shows order status (pending, fulfilled, etc.)
-- Empty state if no orders
+Orders live in Shopify Admin. The app has no order webhook or order history page, so check test orders in **Shopify Admin → Orders**.
 
 ## Browser Testing Matrix
 
