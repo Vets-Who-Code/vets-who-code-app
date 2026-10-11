@@ -6,8 +6,8 @@ import Input from "@ui/form-elements/input";
 import TextArea from "@ui/form-elements/textarea";
 import { githubRegex, linkedinRegex } from "@utils/formValidations";
 import { hasKey } from "@utils/methods";
+import { postJson } from "@utils/post-json";
 import { validateEmail } from "@utils/validators";
-import axios from "axios";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -117,7 +117,7 @@ const ApplyForm = () => {
                 yearSeparated: parseOrNull(data.yearSeparated),
             };
 
-            await axios.post("/api/apply", formData);
+            await postJson("/api/apply", formData);
             setMessage("Thank you for your application! We'll review it and get back to you soon.");
             setShowEmojiRain(true);
 

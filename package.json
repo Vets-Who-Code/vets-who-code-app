@@ -51,7 +51,6 @@
     "@vercel/analytics": "^1.4.1",
     "ace-builds": "^1.44.0",
     "ai": "^5.0.93",
-    "axios": "^1.4.0",
     "cloudinary": "2.11.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.4.0",

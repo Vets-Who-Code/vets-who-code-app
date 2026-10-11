@@ -1,10 +1,10 @@
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
-import axios, { type AxiosResponse } from "axios";
+import { postJson } from "@utils/post-json";
 import ContactUsForm from "@/components/forms/contact-us-form";
 
-vi.mock("axios");
+vi.mock("@utils/post-json");
 
-const mockPost = vi.mocked(axios.post);
+const mockPost = vi.mocked(postJson);
 
 const VALID = {
     name: "Jane Engineer",
@@ -103,7 +103,7 @@ describe("ContactUsForm", () => {
     });
 
     it("treats phone as optional but validates a typed value", async () => {
-        mockPost.mockResolvedValue({ status: 200 } as AxiosResponse);
+        mockPost.mockResolvedValue({ status: 200 } as Response);
         render(<ContactUsForm />);
 
         fillRequiredFields();
@@ -125,7 +125,7 @@ describe("ContactUsForm", () => {
     });
 
     it("sends the selected role with the submission", async () => {
-        mockPost.mockResolvedValue({ status: 200 } as AxiosResponse);
+        mockPost.mockResolvedValue({ status: 200 } as Response);
         render(<ContactUsForm />);
 
         fireEvent.click(roleButton("Press"));
@@ -144,7 +144,7 @@ describe("ContactUsForm", () => {
     });
 
     it("posts the form, thanks the sender and resets everything on success", async () => {
-        mockPost.mockResolvedValue({ status: 200 } as AxiosResponse);
+        mockPost.mockResolvedValue({ status: 200 } as Response);
         render(<ContactUsForm />);
 
         fireEvent.click(roleButton("Partner"));
@@ -188,7 +188,7 @@ describe("ContactUsForm", () => {
     });
 
     it("shows the error message when the response is not a 200", async () => {
-        mockPost.mockResolvedValue({ status: 202 } as AxiosResponse);
+        mockPost.mockResolvedValue({ status: 202 } as Response);
         render(<ContactUsForm />);
 
         fillRequiredFields();
@@ -201,9 +201,9 @@ describe("ContactUsForm", () => {
     });
 
     it("disables the submit button while the request is pending", async () => {
-        let settle: (value: AxiosResponse) => void = () => {};
+        let settle: (value: Response) => void = () => {};
         mockPost.mockReturnValue(
-            new Promise<AxiosResponse>((resolve) => {
+            new Promise<Response>((resolve) => {
                 settle = resolve;
             })
         );
@@ -216,7 +216,7 @@ describe("ContactUsForm", () => {
         await waitFor(() => expect(button).toBeDisabled());
 
         await act(async () => {
-            settle({ status: 200 } as AxiosResponse);
+            settle({ status: 200 } as Response);
         });
 
         expect(await screen.findByText(SUCCESS)).toBeInTheDocument();

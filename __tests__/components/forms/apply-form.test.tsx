@@ -1,9 +1,9 @@
 import ApplyForm from "@components/forms/apply-form";
 import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { githubRegex, linkedinRegex } from "@utils/formValidations";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 
-vi.mock("axios");
+vi.mock("@utils/post-json");
 
 vi.mock("@components/EmojiRain", () => ({
     default: () => <div data-testid="emoji-rain" />,
@@ -20,7 +20,7 @@ vi.mock("motion/react", () => ({
     },
 }));
 
-const mockPost = vi.mocked(axios.post);
+const mockPost = vi.mocked(postJson);
 
 const VALID = {
     firstName: "Jody",

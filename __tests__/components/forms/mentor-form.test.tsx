@@ -1,14 +1,14 @@
 import MentorMenteeForm from "@components/forms/mentor-form";
 import { fireEvent, render, screen } from "@testing-library/react";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 
-vi.mock("axios");
+vi.mock("@utils/post-json");
 
 vi.mock("@components/EmojiRain", () => ({
     default: () => <div data-testid="emoji-rain" />,
 }));
 
-const mockPost = vi.mocked(axios.post);
+const mockPost = vi.mocked(postJson);
 
 const MENTOR_FIELDS: Array<[string, string]> = [
     ["Name *", "Jody Grinder"],

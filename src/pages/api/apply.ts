@@ -1,7 +1,7 @@
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { enforceRateLimit } from "@/lib/rate-limit";
 import { checkParams } from "@/lib/api-helpers";
+import { enforceRateLimit } from "@/lib/rate-limit";
 
 // Define the ParsedBody interface to type-check the request body
 interface ParsedBody {
@@ -105,16 +105,12 @@ function buildSlackMessage(parsedBody: ParsedBody): string {
 }
 
 async function postToSlack(text: string): Promise<void> {
-    await axios.post(
-        `https://hooks.slack.com/services/${process.env.APPLY_WEBHOOK_ID ?? ""}`,
-        JSON.stringify({ text })
-    );
+    await postJson(`https://hooks.slack.com/services/${process.env.APPLY_WEBHOOK_ID ?? ""}`, {
+        text,
+    });
 }
 
-export default async function handler(
-    req: NextApiRequest, 
-    res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -123,7 +119,7 @@ export default async function handler(
         !enforceRateLimit(req, res, {
             name: "apply",
             maxRequests: 3,
-            windowMs: 10 * 60 * 1000 // 10 miniutes
+            windowMs: 10 * 60 * 1000, // 10 miniutes
         })
     ) {
         return;
@@ -135,9 +131,7 @@ export default async function handler(
         const hasErrors = validateBody(parsedBody);
 
         if (hasErrors) {
-            return res
-            .status(422)
-            .json({ error: "Missing or incorrect required property" });
+            return res.status(422).json({ error: "Missing or incorrect required property" });
         }
 
         const text = buildSlackMessage(parsedBody);
@@ -146,8 +140,6 @@ export default async function handler(
 
         return res.status(200).json({ message: "SUCCESS" });
     } catch (_err) {
-        return res
-            .status(500)
-            .json({ message: "Failed to post to #apply channel" });
+        return res.status(500).json({ message: "Failed to post to #apply channel" });
     }
 }

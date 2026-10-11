@@ -1,4 +1,3 @@
-import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 import type { Mock } from "vitest";
 import { classifyContact } from "@/lib/api-helpers/classify-contact";
@@ -8,7 +7,7 @@ vi.mock("@/lib/api-helpers/classify-contact", () => ({
     classifyContact: vi.fn(),
 }));
 
-vi.mock("axios");
+const mockFetch = vi.fn();
 
 // Each call gets a unique IP by default so the per-IP rate limiter
 // never interferes across tests. Pass `ip` to share a bucket on purpose.
@@ -38,6 +37,13 @@ function createMockReqRes(
 describe("POST /api/contact", () => {
     beforeEach(() => {
         process.env.CONTACT_WEBHOOK_ID = "T00/B00/xxx";
+        mockFetch.mockReset();
+        mockFetch.mockResolvedValue({ ok: true, status: 200 });
+        vi.stubGlobal("fetch", mockFetch);
+    });
+
+    afterEach(() => {
+        vi.unstubAllGlobals();
     });
 
     describe("honeypot", () => {
@@ -54,7 +60,7 @@ describe("POST /api/contact", () => {
             expect(res.status).toHaveBeenCalledWith(200);
             expect(res.json).toHaveBeenCalledWith(expect.objectContaining({ filtered: true }));
             // Never reaches Slack, and never spends a classifier call.
-            expect(axios).not.toHaveBeenCalled();
+            expect(mockFetch).not.toHaveBeenCalled();
             expect(classifyContact).not.toHaveBeenCalled();
         });
 
@@ -70,7 +76,7 @@ describe("POST /api/contact", () => {
             await handler(req, res);
 
             expect(res.status).toHaveBeenCalledWith(200);
-            expect(axios).toHaveBeenCalled();
+            expect(mockFetch).toHaveBeenCalled();
         });
     });
 
@@ -138,7 +144,7 @@ describe("POST /api/contact", () => {
                 filtered: true,
                 reason: "SEO pitch detected",
             });
-            expect(axios).not.toHaveBeenCalled();
+            expect(mockFetch).not.toHaveBeenCalled();
         });
 
         it("should post to Slack when sendToSlack is true", async () => {
@@ -148,7 +154,7 @@ describe("POST /api/contact", () => {
                 confidence: 0.98,
                 reason: "Genuine inquiry",
             });
-            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
+            mockFetch.mockResolvedValue({ ok: true, status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "John Doe",
@@ -159,11 +165,9 @@ describe("POST /api/contact", () => {
 
             await handler(req, res);
 
-            expect(axios).toHaveBeenCalledWith(
-                expect.objectContaining({
-                    method: "POST",
-                    baseURL: "https://hooks.slack.com",
-                })
+            expect(mockFetch).toHaveBeenCalledWith(
+                "https://hooks.slack.com/services/T00/B00/xxx",
+                expect.objectContaining({ method: "POST" })
             );
             expect(res.status).toHaveBeenCalledWith(200);
             expect(res.json).toHaveBeenCalledWith({ message: "SUCCESS" });
@@ -171,7 +175,7 @@ describe("POST /api/contact", () => {
 
         it("should fail-open and post to Slack when classification returns null", async () => {
             (classifyContact as Mock).mockResolvedValue(null);
-            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
+            mockFetch.mockResolvedValue({ ok: true, status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "Test User",
@@ -181,14 +185,14 @@ describe("POST /api/contact", () => {
 
             await handler(req, res);
 
-            expect(axios).toHaveBeenCalled();
+            expect(mockFetch).toHaveBeenCalled();
             expect(res.status).toHaveBeenCalledWith(200);
             expect(res.json).toHaveBeenCalledWith({ message: "SUCCESS" });
         });
 
         it("should call classifyContact with correct input", async () => {
             (classifyContact as Mock).mockResolvedValue(null);
-            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
+            mockFetch.mockResolvedValue({ ok: true, status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "Jane",
@@ -208,7 +212,7 @@ describe("POST /api/contact", () => {
 
         it("should pass defaults when optional fields are missing", async () => {
             (classifyContact as Mock).mockResolvedValue(null);
-            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
+            mockFetch.mockResolvedValue({ ok: true, status: 200 });
 
             const { req, res } = createMockReqRes({
                 email: "test@example.com",
@@ -237,7 +241,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should return 500 when Slack webhook fails with Error", async () => {
-            (axios as unknown as Mock).mockRejectedValue(new Error("Slack API timeout"));
+            mockFetch.mockRejectedValue(new Error("Slack API timeout"));
 
             const { req, res } = createMockReqRes({
                 name: "Test",
@@ -254,7 +258,7 @@ describe("POST /api/contact", () => {
         });
 
         it("should return 500 with generic message for non-Error exceptions", async () => {
-            (axios as unknown as Mock).mockRejectedValue("unknown failure");
+            mockFetch.mockRejectedValue("unknown failure");
 
             const { req, res } = createMockReqRes({
                 name: "Test",
@@ -270,8 +274,25 @@ describe("POST /api/contact", () => {
             });
         });
 
+        it("should return 500 when Slack responds with a non-2xx status", async () => {
+            mockFetch.mockResolvedValue({ ok: false, status: 404 });
+
+            const { req, res } = createMockReqRes({
+                name: "Test",
+                email: "test@example.com",
+                message: "Testing the contact form submission",
+            });
+
+            await handler(req, res);
+
+            expect(res.status).toHaveBeenCalledWith(500);
+            expect(res.json).toHaveBeenCalledWith({
+                message: "Failed post to #contact channel: Request failed with status code 404",
+            });
+        });
+
         it("should include formatted message in Slack payload", async () => {
-            (axios as unknown as Mock).mockResolvedValue({ status: 200 });
+            mockFetch.mockResolvedValue({ ok: true, status: 200 });
 
             const { req, res } = createMockReqRes({
                 name: "John Doe",
@@ -282,8 +303,8 @@ describe("POST /api/contact", () => {
 
             await handler(req, res);
 
-            const axiosCall = (axios as unknown as Mock).mock.calls[0][0];
-            const payload = JSON.parse(axiosCall.data);
+            const [, init] = mockFetch.mock.calls[0];
+            const payload = JSON.parse(init.body);
             expect(payload.text).toContain("John Doe");
             expect(payload.text).toContain("john@example.com");
             expect(payload.text).toContain("555-0000");

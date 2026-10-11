@@ -1,4 +1,4 @@
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "@/lib/api-helpers";
 
@@ -51,14 +51,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ].join("\n");
 
         // Send the constructed message to Slack (using the same mentor webhook)
-        await axios
-            .post(
-                `https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`,
-                JSON.stringify({ text })
-            )
-            .catch(() => {
-                throw new Error("Failed to post to Slack");
-            });
+        await postJson(`https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`, {
+            text,
+        }).catch(() => {
+            throw new Error("Failed to post to Slack");
+        });
 
         // Respond with a success message
         return res.status(200).json({ message: "SUCCESS" });
