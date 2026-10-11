@@ -1,6 +1,7 @@
 import { BlogMetaType, IBlog } from "@utils/types";
 import PopularTagsWidget from "@widgets/popular-tags-widget";
 import RecentPostsWidget from "@widgets/recent-posts-widget";
+import SearchWidget from "@widgets/search-widget";
 
 type TProps = {
     recentPosts: Pick<IBlog, "title" | "path">[];
@@ -10,6 +11,7 @@ type TProps = {
 const BlogSidebar = ({ recentPosts, tags }: TProps) => {
     return (
         <>
+            <SearchWidget />
             <RecentPostsWidget recentPosts={recentPosts} />
             <PopularTagsWidget tags={tags} />
         </>

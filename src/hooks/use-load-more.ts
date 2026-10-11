@@ -37,8 +37,7 @@ const useLoadMore = <T>(items: T[], initialShow: number, loadPerClick: number) =
         setPageNumb(pageNumber);
         setItemsToShow(items.slice(0, itemToFetch));
         setHasMore(items.length > itemToFetch);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [router.query, pageNumb]);
+    }, [router.query, pageNumb, items]);
 
     return { hasMore, itemsToShow, handlerLoadMore };
 };
