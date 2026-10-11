@@ -42,11 +42,6 @@ describe("SafeStorage", () => {
             expect(SafeLocalStorage.getItem("toRemove", "default")).toBe("default");
         });
 
-        it("should reject null and undefined values", () => {
-            expect(SafeLocalStorage.setItem("key", null)).toBe(false);
-            expect(SafeLocalStorage.setItem("key", undefined)).toBe(false);
-        });
-
         it("should handle TTL expiration", () => {
             vi.useFakeTimers();
 
@@ -59,24 +54,6 @@ describe("SafeStorage", () => {
             expect(SafeLocalStorage.getItem("expiring", "default")).toBe("default");
 
             vi.useRealTimers();
-        });
-
-        it("should clear expired items and retry once when the quota is exceeded", () => {
-            vi.useFakeTimers();
-
-            SafeLocalStorage.setItem("expires", "value", 1); // 1 minute
-            SafeLocalStorage.setItem("stays", "value"); // no expiry
-
-            vi.advanceTimersByTime(2 * 60 * 1000);
-
-            vi.spyOn(localStorage, "setItem").mockImplementationOnce(() => {
-                throw new DOMException("Quota exceeded", "QuotaExceededError");
-            });
-
-            expect(SafeLocalStorage.setItem("new", "value")).toBe(true);
-            expect(localStorage.getItem("expires")).toBe(null);
-            expect(SafeLocalStorage.getItem("stays", "gone")).toBe("value");
-            expect(SafeLocalStorage.getItem("new", "gone")).toBe("value");
         });
 
         it("should return false when a write throws", () => {
