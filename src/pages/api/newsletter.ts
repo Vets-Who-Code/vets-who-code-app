@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import { enforceRateLimit } from "@/lib/rate-limit";
 
 const MAILCHIMP_API_SERVER = "https://us4.api.mailchimp.com/3.0/lists";
 const MAILCHIMP_LIST_ID = process.env?.MAILCHIMP_LIST_ID ?? "";
@@ -43,6 +44,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
+
+    if (!enforceRateLimit(req, res, { name: "newsletter", maxRequests: 5, windowMs: 60 * 1000 })) {
+        return;
+    }
+
     let requestData: RequestData;
 
     try {

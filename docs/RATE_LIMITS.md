@@ -6,13 +6,17 @@ hitting one endpoint never consumes another endpoint's budget.
 
 ## Limits
 
-| Endpoint        | Limit      | Window | Keyed by                                  |
-| --------------- | ---------- | ------ | ----------------------------------------- |
-| `/api/contact`  | 5 req/min  | 60s    | client IP                                 |
-| `/api/health`   | 30 req/min | 60s    | client IP                                 |
+| Endpoint                      | Limit    | Window | Keyed by  |
+| ----------------------------- | -------- | ------ | --------- |
+| `/api/apply`                  | 3 req    | 10 min | client IP |
+| `/api/contact`                | 5 req    | 60s    | client IP |
+| `/api/health`                 | 30 req   | 60s    | client IP |
+| `/api/mentor`, `/api/mentee`  | 3 req    | 10 min | client IP |
+| `/api/newsletter`             | 5 req    | 60s    | client IP |
+| `/api/og/fetch`               | 10 req   | 15 min | client IP |
 
-Other endpoints (e.g. `/api/jobs/parse-resume`) apply their own limits directly with
-`checkRateLimit` — see the individual handlers.
+`/api/mentor` and `/api/mentee` share one bucket because both post to the same
+Slack webhook.
 
 ## Response on limit
 
