@@ -131,8 +131,3 @@ FontAwesome:
 
 `src/containers/theory-of-change/pipeline.tsx` root `<svg>` has no `role`/`aria-label` but
 contains `<text>` nodes inside a section with `aria-labelledby`; acceptable.
-
-## Note on email templates
-
-`src/emails/` does not exist in this repository despite the mention in `AGENTS.md`; there are no
-React Email images to audit.

@@ -74,7 +74,6 @@
     "react": "^18.3.1",
     "react-ace": "^11.0.1",
     "react-dom": "^18.3.1",
-    "react-email": "^5.1.1",
     "react-hook-form": "^7.89.0",
     "react-simple-typewriter": "^3.0.1",
     "swagger-ui-react": "5.33.1",
