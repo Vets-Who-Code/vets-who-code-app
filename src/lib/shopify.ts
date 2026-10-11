@@ -6,7 +6,7 @@
 // Environment variables
 const domain = process.env.SHOPIFY_STORE_DOMAIN!;
 const storefrontAccessToken = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
-const apiVersion = "2024-01";
+const apiVersion = "2026-10";
 
 // Shopify Storefront API endpoint
 const endpoint = `https://${domain}/api/${apiVersion}/graphql.json`;
@@ -48,7 +48,7 @@ export interface ShopifyProduct {
     options: Array<{
         id: string;
         name: string;
-        values: string[];
+        optionValues: Array<{ name: string }>;
     }>;
     tags: string[];
     vendor: string;
@@ -111,10 +111,6 @@ export interface ShopifyCart {
             amount: string;
             currencyCode: string;
         };
-        totalTaxAmount: {
-            amount: string;
-            currencyCode: string;
-        } | null;
     };
     lines: {
         edges: Array<{
@@ -244,7 +240,9 @@ const PRODUCT_FRAGMENT = `
     options {
       id
       name
-      values
+      optionValues {
+        name
+      }
     }
   }
 `;
@@ -260,10 +258,6 @@ const CART_FRAGMENT = `
         currencyCode
       }
       subtotalAmount {
-        amount
-        currencyCode
-      }
-      totalTaxAmount {
         amount
         currencyCode
       }
@@ -358,9 +352,10 @@ export async function getProduct(handle: string): Promise<ShopifyProduct | null>
         variables: { handle },
     });
 
+    // Throw so callers can tell an outage from a missing product (null).
     if (response.errors) {
         console.error("Shopify API errors:", response.errors);
-        return null;
+        throw new Error("Failed to fetch product");
     }
 
     return response.data.product;
