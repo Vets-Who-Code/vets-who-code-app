@@ -127,4 +127,24 @@ test.describe("Apply journey", () => {
         await expect(confirmation(page)).toBeVisible();
         expect(calls).toBe(2);
     });
+
+    test("advances on one low click on Next after a corrected field", async ({ page }) => {
+        await page.goto("/apply");
+        const next = page.getByRole("button", { name: "Next →" });
+        const email = page.getByLabel("Email Address");
+
+        await page.getByLabel("First Name").fill(APPLICATION.firstName);
+        await page.getByLabel("Last Name").fill(APPLICATION.lastName);
+        await email.fill("jane.doe@");
+        // Retry until hydration attaches the handler and the error shows.
+        await expect(async () => {
+            await next.click();
+            await expect(page.getByText("Invalid email format")).toBeVisible({ timeout: 1000 });
+        }).toPass();
+
+        await email.fill(APPLICATION.email);
+        // Low on the 52px button: if the error line collapses on blur, the release misses it.
+        await next.click({ position: { x: 68, y: 44 } });
+        await expect(page.getByText("Step 2 of 5")).toBeVisible();
+    });
 });
