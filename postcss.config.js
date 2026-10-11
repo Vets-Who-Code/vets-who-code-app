@@ -45,7 +45,9 @@ module.exports = {
                           // `.fad.fa-*` duotone rules still get purged.
                           standard: [...safelist, /^fa-/],
                           deep: safelist,
-                          greedy: safelist,
+                          // Swagger UI renders its classes at runtime, so `content` never
+                          // sees them. Keep every rule from swagger-ui-react's stylesheet.
+                          greedy: [...safelist, /swagger-ui/],
                       },
                   },
               ]
