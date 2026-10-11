@@ -39,7 +39,7 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                             ))}
                         </div>
                         <div className="tw-mt-[50px] tw-text-center">
-                            {hasMore ? (
+                            {hasMore && (
                                 <Button
                                     variant="outlined"
                                     className="tw-min-w-[250px] tw-border-gray-500"
@@ -48,13 +48,11 @@ const BlogArea = ({ data: { blogs } }: TProps) => {
                                     Load More{" "}
                                     <i className="fal fa-redo tw-ml-4" aria-hidden="true" />
                                 </Button>
-                            ) : (
-                                <p>No course to show</p>
                             )}
                         </div>
                     </>
                 ) : (
-                    <h6>No Blog found</h6>
+                    <h6>No posts match that search.</h6>
                 )}
             </div>
         </Section>

@@ -37,8 +37,10 @@ const blogs = [
 const results = (s: string) => {
     router.query = { s };
     render(<BlogSearch data={{ blogs }} />);
-    return screen.queryAllByRole("heading", { level: 3 }).map((h) => h.textContent);
+    return titles();
 };
+
+const titles = () => screen.queryAllByRole("heading", { level: 3 }).map((h) => h.textContent);
 
 describe("/blogs/search", () => {
     it("ships no post bodies in its page data", async () => {
@@ -67,5 +69,21 @@ describe("/blogs/search", () => {
 
     it("matches the title", () => {
         expect(results("shipping")).toEqual(["Shipping Audio"]);
+    });
+
+    it("shows matches once the query arrives after hydration", () => {
+        router.query = {};
+        const { rerender } = render(<BlogSearch data={{ blogs }} />);
+        router.query = { s: "cloudinary" };
+        rerender(<BlogSearch data={{ blogs }} />);
+        expect(titles()).toEqual(["Shipping Audio"]);
+    });
+
+    it("shows the new query's matches when the query changes", () => {
+        router.query = { s: "cloudinary" };
+        const { rerender } = render(<BlogSearch data={{ blogs }} />);
+        router.query = { s: "community" };
+        rerender(<BlogSearch data={{ blogs }} />);
+        expect(titles()).toEqual(["Veterans Day Update"]);
     });
 });
