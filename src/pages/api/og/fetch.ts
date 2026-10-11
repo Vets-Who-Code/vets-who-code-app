@@ -1,10 +1,17 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "node-html-parser";
+import { enforceRateLimit } from "@/lib/rate-limit";
 import type { OGFetchResponse, URLMetadata } from "@/types/url-metadata";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<OGFetchResponse>) {
     if (req.method !== "POST" && req.method !== "GET") {
         return res.status(405).json({ success: false, error: "Method not allowed" });
+    }
+
+    if (
+        !enforceRateLimit(req, res, { name: "og-fetch", maxRequests: 10, windowMs: 15 * 60 * 1000 })
+    ) {
+        return;
     }
 
     const url = req.method === "POST" ? req.body.url : req.query.url;
