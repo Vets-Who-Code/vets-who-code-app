@@ -37,4 +37,12 @@ describe("gitAPI.get", () => {
         expect(result).toEqual({ status: 404, data: undefined });
         expect(json).not.toHaveBeenCalled();
     });
+
+    it.each(["//evil.com/x", "@evil.com/x", "https://evil.com/x"])(
+        "refuses %s without sending the token",
+        async (path) => {
+            await expect(gitAPI.get(path)).rejects.toThrow("Refusing non-GitHub API path");
+            expect(mockFetch).not.toHaveBeenCalled();
+        }
+    );
 });
