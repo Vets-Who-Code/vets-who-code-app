@@ -38,6 +38,14 @@ describe("GET /api/health", () => {
         expect(body.status).toBe("healthy");
     });
 
+    it("is never cached, since it reports live status", async () => {
+        const { req, res } = createMockReqRes();
+
+        await handler(req, res);
+
+        expect(res.setHeader).toHaveBeenCalledWith("Cache-Control", "no-store");
+    });
+
     it("returns 405 for non-GET methods", async () => {
         for (const method of ["POST", "PUT", "DELETE"]) {
             const { req, res } = createMockReqRes(method);

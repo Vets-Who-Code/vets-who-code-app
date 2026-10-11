@@ -1,4 +1,5 @@
 import { handleApiError } from "@lib/api-error-handler";
+import { setPublicCache } from "@lib/cache-control";
 import { getCollections } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -18,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         const collections = await getCollections(limit);
 
+        setPublicCache(res, 300, 600);
         return res.status(200).json({ collections });
     } catch (error) {
         handleApiError(error, res, "Failed to fetch collections");

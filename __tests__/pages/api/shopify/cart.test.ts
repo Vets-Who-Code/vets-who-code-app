@@ -17,7 +17,7 @@ vi.mock("@lib/shopify", () => shopify);
 const CART = { id: "gid://shopify/Cart/1", checkoutUrl: "https://shop.example/checkout" };
 
 function makeRes() {
-    const res: Record<string, unknown> = { statusCode: 0, body: undefined };
+    const res: Record<string, unknown> = { statusCode: 0, body: undefined, headers: {} };
     res.status = vi.fn((c: number) => {
         res.statusCode = c;
         return res;
@@ -26,7 +26,15 @@ function makeRes() {
         res.body = b;
         return res;
     });
-    return res as Record<string, unknown> & { statusCode: number; body: unknown };
+    res.setHeader = vi.fn((name: string, value: string) => {
+        (res.headers as Record<string, string>)[name] = value;
+        return res;
+    });
+    return res as Record<string, unknown> & {
+        statusCode: number;
+        body: unknown;
+        headers: Record<string, string>;
+    };
 }
 
 type Route = () => Promise<{ default: (req: never, res: never) => unknown }>;
@@ -230,5 +238,41 @@ describe("POST /api/shopify/cart/remove", () => {
         const res = await call(remove, { method: "POST", body: { cartId: CART.id, lineIds } });
         expect(res.statusCode).toBe(500);
         expect(res.body).toMatchObject({ error: "Failed to remove items from cart" });
+    });
+});
+
+describe("cart Cache-Control (issue #1276)", () => {
+    it("marks GET /api/shopify/cart/[cartId] private, no-store", async () => {
+        shopify.getCart.mockResolvedValue(CART);
+        const res = await call(() => import("@/pages/api/shopify/cart/[cartId]"), {
+            method: "GET",
+            query: { cartId: CART.id },
+        });
+        expect(res.statusCode).toBe(200);
+        expect(res.headers["Cache-Control"]).toBe("private, no-store");
+    });
+
+    it.each<[string, Route, Record<string, unknown>]>([
+        ["create", () => import("@/pages/api/shopify/cart/create"), {}],
+        [
+            "add",
+            () => import("@/pages/api/shopify/cart/add"),
+            { cartId: CART.id, lines: [{ merchandiseId: "v1", quantity: 1 }] },
+        ],
+        [
+            "update",
+            () => import("@/pages/api/shopify/cart/update"),
+            { cartId: CART.id, lines: [{ id: "l1", quantity: 1 }] },
+        ],
+        [
+            "remove",
+            () => import("@/pages/api/shopify/cart/remove"),
+            { cartId: CART.id, lineIds: ["l1"] },
+        ],
+    ])("never emits a public directive from cart/%s", async (_label, route, body) => {
+        for (const fn of Object.values(shopify)) fn.mockResolvedValue(CART);
+        const res = await call(route, { method: "POST", body });
+        expect(res.statusCode).toBeLessThan(300);
+        expect(res.headers["Cache-Control"] ?? "").not.toMatch(/public/);
     });
 });
