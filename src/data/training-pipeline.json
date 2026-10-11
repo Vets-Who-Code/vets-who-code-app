@@ -71587,6 +71587,23 @@
         "ace_credits": "Up to 15 semester hours recommended in Information Technology, Computer Science, or Cybersecurity",
         "generatedAt": "2026-02-22T00:00:00.000Z"
     },
+    "1D7X1K": {
+        "branch": "Air Force",
+        "title": "Knowledge Operations Management",
+        "formerly": ["3D0X1", "3A0X1"],
+        "program": "Knowledge Operations Management Apprentice Course, Keesler AFB, MS",
+        "hours": 328,
+        "weeks": 8,
+        "topics": [
+            "Coordinating, managing, and controlling information",
+            "Information flow, distribution, life cycle, and disposal",
+            "Identifying and analyzing data",
+            "Planning and integrating base communications systems",
+            "Training users on authoritative data sources, data services, and presentation tools",
+            "Assessing how contracts and contingency and exercise plans affect manpower, equipment, and systems"
+        ],
+        "civilian_certs": []
+    },
     "3D131": {
         "branch": "Air Force",
         "title": "Client Systems Technician",

@@ -24,6 +24,8 @@ export interface GuideEntry {
     /** Full training-pipeline key (lowercased); unique even when codes collide across branches */
     slug: string;
     title: string;
+    /** Legacy codes, so a search for the old code finds the guide */
+    formerly?: string[];
     branch: Branch;
     rank: Rank;
     family: Family;
