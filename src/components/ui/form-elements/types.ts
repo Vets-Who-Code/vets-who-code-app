@@ -25,4 +25,6 @@ export interface IInputProps extends IFeedback {
     onClick?: (e: MouseEvent<TInput>) => void;
     onBlur?: (e: FocusEvent<TInput>) => void;
     customStyle?: TCustomStyle;
+    /** Keep room for one feedback line so showing or hiding an error never reflows the form. */
+    reserveFeedback?: boolean;
 }

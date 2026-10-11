@@ -26,6 +26,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
             showState,
             showErrorOnly,
             customStyle,
+            reserveFeedback,
             ...restProps
         },
         ref
@@ -46,6 +47,12 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
             customStyle !== "nofocus" && !state && "focus:tw-border-navy-ocean";
         const feedbackId = `${id}-feedback`;
         const hasFeedback = Boolean(feedbackText && showState);
+
+        const feedback = hasFeedback && (
+            <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
+                {feedbackText}
+            </Feedback>
+        );
 
         return (
             <>
@@ -77,11 +84,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
                     readOnly={readonly}
                     {...restProps}
                 />
-                {hasFeedback && (
-                    <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
-                        {feedbackText}
-                    </Feedback>
-                )}
+                {reserveFeedback ? <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div> : feedback}
             </>
         );
     }

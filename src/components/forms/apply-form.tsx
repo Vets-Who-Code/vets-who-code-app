@@ -72,7 +72,7 @@ const ApplyForm = () => {
         watch,
         trigger,
     } = useForm<IFormValues>({
-        mode: "onBlur",
+        mode: "onTouched",
     });
 
     const watchHasAttendedPreviousCourses = watch("hasAttendedPreviousCourse", false);
@@ -246,6 +246,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "firstName")}
+                                                        reserveFeedback={true}
                                                         {...register("firstName", {
                                                             required: "First name is required",
                                                             minLength: {
@@ -274,6 +275,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "lastName")}
+                                                        reserveFeedback={true}
                                                         {...register("lastName", {
                                                             required: "Last name is required",
                                                             minLength: {
@@ -304,6 +306,7 @@ const ApplyForm = () => {
                                                             : "success"
                                                     }
                                                     showState={!!hasKey(errors, "email")}
+                                                    reserveFeedback={true}
                                                     {...register("email", {
                                                         validate: (value) => {
                                                             const result = validateEmail(value);
@@ -350,6 +353,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "city")}
+                                                        reserveFeedback={true}
                                                         {...register("city", {
                                                             required: "City is required",
                                                         })}
@@ -373,6 +377,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "state")}
+                                                        reserveFeedback={true}
                                                         {...register("state", {
                                                             required: "State/Province is required",
                                                         })}
@@ -398,6 +403,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "zipCode")}
+                                                        reserveFeedback={true}
                                                         {...register("zipCode", {
                                                             required: "Zip/Postal code is required",
                                                         })}
@@ -421,6 +427,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "country")}
+                                                        reserveFeedback={true}
                                                         {...register("country", {
                                                             required: "Country is required",
                                                         })}
@@ -462,6 +469,7 @@ const ApplyForm = () => {
                                                             : "success"
                                                     }
                                                     showState={!!hasKey(errors, "branchOfService")}
+                                                    reserveFeedback={true}
                                                     {...register("branchOfService", {
                                                         required: "Branch of service is required",
                                                     })}
@@ -486,6 +494,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "yearJoined")}
+                                                        reserveFeedback={true}
                                                         {...register("yearJoined", {
                                                             required: "Year joined is required",
                                                             pattern: {
@@ -518,6 +527,7 @@ const ApplyForm = () => {
                                                         showState={
                                                             !!hasKey(errors, "yearSeparated")
                                                         }
+                                                        reserveFeedback={true}
                                                         {...register("yearSeparated", {
                                                             required: "Year separated is required",
                                                             pattern: {
@@ -581,6 +591,7 @@ const ApplyForm = () => {
                                                         showState={
                                                             !!hasKey(errors, "previousCourses")
                                                         }
+                                                        reserveFeedback={true}
                                                         {...register("previousCourses", {
                                                             required:
                                                                 watchHasAttendedPreviousCourses
@@ -621,6 +632,7 @@ const ApplyForm = () => {
                                                                 : "success"
                                                         }
                                                         showState={!!hasKey(errors, "otherCourses")}
+                                                        reserveFeedback={true}
                                                         {...register("otherCourses", {
                                                             required: watchWillAttendAnotherCourse
                                                                 ? "Please list concurrent courses or uncheck the box"
@@ -668,6 +680,7 @@ const ApplyForm = () => {
                                                     showState={
                                                         !!hasKey(errors, "linkedInAccountName")
                                                     }
+                                                    reserveFeedback={true}
                                                     {...register("linkedInAccountName", {
                                                         required:
                                                             "LinkedIn profile URL is required",
@@ -701,6 +714,7 @@ const ApplyForm = () => {
                                                     showState={
                                                         !!hasKey(errors, "githubAccountName")
                                                     }
+                                                    reserveFeedback={true}
                                                     {...register("githubAccountName", {
                                                         required: "GitHub profile URL is required",
                                                         pattern: {
@@ -743,6 +757,7 @@ const ApplyForm = () => {
                                                             showState={
                                                                 !!hasKey(errors, "preworkLink")
                                                             }
+                                                            reserveFeedback={true}
                                                             {...register("preworkLink", {
                                                                 required:
                                                                     "Prework live link is required",
@@ -776,6 +791,7 @@ const ApplyForm = () => {
                                                             showState={
                                                                 !!hasKey(errors, "preworkRepo")
                                                             }
+                                                            reserveFeedback={true}
                                                             {...register("preworkRepo", {
                                                                 required:
                                                                     "Prework repository URL is required",
