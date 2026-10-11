@@ -16,9 +16,10 @@ import { useState } from "react";
 
 interface ProductDetailPageProps {
     product: ShopifyProduct | null;
+    unavailable?: boolean;
 }
 
-const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
+const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, unavailable }) => {
     const router = useRouter();
     const { addToCart, isLoading: cartLoading, cartCount } = useCart();
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -29,6 +30,29 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
     const [selectedOptions, setSelectedOptions] = useState<Record<string, string>>({});
     const [quantity, setQuantity] = useState(1);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+    // Shopify outage: say so instead of claiming the product doesn't exist
+    if (unavailable) {
+        return (
+            <Layout>
+                <SEO title="Store Unavailable" />
+                <div className="tw-container tw-mx-auto tw-px-4 tw-py-20 tw-text-center">
+                    <h1 className="tw-text-4xl tw-font-bold tw-text-secondary tw-mb-4">
+                        Store Temporarily Unavailable
+                    </h1>
+                    <p className="tw-text-xl tw-text-gray-300 tw-mb-8">
+                        We can't reach our store right now. Try again in a few minutes.
+                    </p>
+                    <a
+                        href={router.asPath}
+                        className="tw-inline-block tw-bg-primary tw-text-white tw-px-6 tw-py-3 tw-rounded-lg hover:tw-bg-primary-dark tw-transition-colors tw-font-semibold"
+                    >
+                        Try Again
+                    </a>
+                </div>
+            </Layout>
+        );
+    }
 
     // Show 404 if product not found
     if (!product) {
@@ -268,10 +292,10 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                 // Only show options with multiple values
                                 // Hide default Shopify "Title" option with "Default Title" value
                                 return (
-                                    option.values.length > 1 &&
+                                    option.optionValues.length > 1 &&
                                     !(
                                         option.name === "Title" &&
-                                        option.values.includes("Default Title")
+                                        option.optionValues.some((v) => v.name === "Default Title")
                                     )
                                 );
                             })
@@ -281,7 +305,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
                                         {option.name}
                                     </span>
                                     <div className="tw-flex tw-flex-wrap tw-gap-2">
-                                        {option.values.map((value) => (
+                                        {option.optionValues.map(({ name: value }) => (
                                             <button
                                                 key={value}
                                                 onClick={() =>
@@ -378,6 +402,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product }) => {
 
 export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = async ({
     params,
+    res,
 }) => {
     const handle = params?.handle as string;
 
@@ -403,8 +428,12 @@ export const getServerSideProps: GetServerSideProps<ProductDetailPageProps> = as
         };
     } catch (error) {
         console.error(`Failed to fetch product ${handle}:`, error);
+        res.statusCode = 503;
         return {
-            notFound: true,
+            props: {
+                product: null,
+                unavailable: true,
+            },
         };
     }
 };
