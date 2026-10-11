@@ -11,7 +11,7 @@ import {
     testimonials,
 } from "@data/sponsors";
 import Layout from "@layout/layout-01";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { type FormEvent, type ReactNode, useState } from "react";
@@ -63,7 +63,7 @@ const SponsorPage: PageWithLayout = () => {
         const field = (key: string) => String(form.get(key) ?? "");
         setSubmitState("sending");
         try {
-            await axios.post("/api/contact", {
+            await postJson("/api/contact", {
                 name: field("name"),
                 email: field("email"),
                 website: field("website"),

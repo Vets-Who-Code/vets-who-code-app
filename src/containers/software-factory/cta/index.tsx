@@ -1,5 +1,5 @@
 import { BUDGET_CHIPS, SERVICE_CHIPS } from "@data/software-factory";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import { useState } from "react";
 import styles from "./cta.module.css";
 
@@ -46,7 +46,7 @@ const CtaSection = () => {
                 brief,
             ].join("\n");
 
-            const res = await axios.post("/api/contact", {
+            const res = await postJson("/api/contact", {
                 name,
                 email,
                 website,
