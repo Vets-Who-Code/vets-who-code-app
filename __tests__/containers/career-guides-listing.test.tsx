@@ -167,6 +167,16 @@ describe("career-guides listing", () => {
         expect(fetchMock).not.toHaveBeenCalled();
     });
 
+    it("finds a guide by a legacy code", () => {
+        const rows = [guide("c900", { formerly: ["3D0X1", "3A0X1"] }), ...cyber.slice(0, 10)];
+        renderListing(
+            "/career-guides/family/cyber?q=3a0x1",
+            { kind: "family", value: "Cyber" },
+            rows
+        );
+        expect(shownSlugs()).toEqual(["c900"]);
+    });
+
     it("says the whole facet is empty when a filter, not a search, finds nothing", async () => {
         // Every Army guide here is Enlisted.
         renderListing(

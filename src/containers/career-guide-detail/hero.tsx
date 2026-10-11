@@ -144,6 +144,8 @@ const Hero = ({ detail }: Props) => {
                     <div className="tw-flex tw-min-w-0 tw-flex-col tw-gap-6 [container-type:inline-size]">
                         <span className="tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.14em] tw-text-[#DEE2E6]">
                             {detail.code} · {meta.short} · {detail.rank}
+                            {detail.training.formerly &&
+                                ` · Formerly ${detail.training.formerly.join(" / ")}`}
                         </span>
                         <h1
                             className="tw-font-heading tw-font-semibold tw-uppercase tw-text-cream [letter-spacing:-0.025em] [line-height:0.98]"
