@@ -1,4 +1,3 @@
-import NewsletterForm from "@components/forms/newsletter-form";
 import SectionTitle from "@components/section-title";
 import Section from "@components/ui/engagement-modal";
 import { SectionTitleType, TSection } from "@utils/types";
@@ -35,7 +34,15 @@ const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProp
                         descClass="tw-text-lg tw-font-medium"
                     />
                 )}
-                <NewsletterForm className="tw-mx-auto tw-mt-[50px]" />
+                <div className="tw-mx-auto tw-mt-[50px] tw-max-w-[480px] tw-border-t-4 tw-border-gold tw-bg-white tw-shadow-2xl">
+                    {/* ponytail: Substack's iframe is cross-origin, so only this frame is ours to style */}
+                    <iframe
+                        src="https://vetswhocode.substack.com/embed"
+                        title="Subscribe to the Vets Who Code newsletter"
+                        className="tw-block tw-h-[320px] tw-w-full tw-border-0"
+                        scrolling="no"
+                    />
+                </div>
             </motion.div>
         </Section>
     );
