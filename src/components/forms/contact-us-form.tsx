@@ -1,13 +1,13 @@
 import Button from "@ui/button";
 import Feedback from "@ui/form-elements/feedback";
 import { hasKey } from "@utils/methods";
+import { postJson } from "@utils/post-json";
 import {
     type ValidationResult,
     validateEmail,
     validatePhone,
     validateRequired,
 } from "@utils/validators";
-import axios from "axios";
 import clsx from "clsx";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -58,7 +58,7 @@ const ContactUsForm = ({ heading }: TProps) => {
 
     const onSubmit: SubmitHandler<IFormValues> = async (data) => {
         try {
-            const response = await axios.post("/api/contact", { ...data, role });
+            const response = await postJson("/api/contact", { ...data, role });
             if (response.status === 200) {
                 setServerMessage("Thank you for your message!");
                 reset();

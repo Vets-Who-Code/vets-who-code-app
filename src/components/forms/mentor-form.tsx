@@ -4,7 +4,7 @@ import Feedback from "@ui/form-elements/feedback";
 import Input from "@ui/form-elements/input";
 import { validateProfileLink } from "@utils/formValidations";
 import { hasKey } from "@utils/methods";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import { useState } from "react";
 import { FieldErrors, SubmitHandler, useForm } from "react-hook-form";
 
@@ -52,7 +52,7 @@ const MentorMenteeForm = () => {
 
             // Use the same endpoint for both mentors and mentees
             const endpoint = role === "mentor" ? "/api/mentor" : "/api/mentee";
-            await axios.post(endpoint, submissionData);
+            await postJson(endpoint, submissionData);
 
             setMessage(`Thank you for registering as a ${role}!`);
             setSubmitFailed(false);

@@ -39,6 +39,16 @@ describe("career-guides", () => {
             expect(marine?.civilian).toBe("Avionics Technician");
         });
 
+        // Issue #1123: the field was 3A0X1, then 3D0X1, before it became 1D7X1K.
+        it("lists 1D7X1K Knowledge Operations Management with its legacy codes", () => {
+            const kom = guides.find((g) => g.slug === "1d7x1k");
+            expect(kom?.title).toBe("Knowledge Operations Management");
+            expect(kom?.branch).toBe("Air Force");
+            expect(kom?.rank).toBe("Enlisted");
+            expect(kom?.formerly).toEqual(["3D0X1", "3A0X1"]);
+            expect(guides.filter((g) => !g.formerly).every((g) => !("formerly" in g))).toBe(true);
+        });
+
         it("gives every guide a unique slug", () => {
             const slugs = guides.map((g) => g.slug);
             expect(new Set(slugs).size).toBe(slugs.length);

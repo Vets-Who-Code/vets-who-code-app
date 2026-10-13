@@ -1,3 +1,4 @@
+import { setPublicCache } from "@lib/cache-control";
 import { readFileSync } from "fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { join } from "path";
@@ -8,5 +9,6 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     }
     const specPath = join(process.cwd(), "public", "swagger-spec.json");
     const spec = JSON.parse(readFileSync(specPath, "utf-8"));
+    setPublicCache(res, 3600, 86400);
     res.status(200).json(spec);
 }

@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from "axios";
+import { postJson } from "@utils/post-json";
 import { NextApiRequest, NextApiResponse } from "next";
 import { checkLength, checkParams, contactErrors } from "@/lib/api-helpers";
 import { classifyContact } from "@/lib/api-helpers/classify-contact";
@@ -37,16 +37,10 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
 
     const text: string = lines.join("");
 
-    const payload: string = JSON.stringify({ text });
-
-    const axiosConfig: AxiosRequestConfig = {
-        method: "POST",
-        baseURL: "https://hooks.slack.com",
-        url: `/services/${(process.env.CONTACT_WEBHOOK_ID as string) ?? ""}`,
-        data: payload,
-    };
-
-    await axios(axiosConfig);
+    await postJson(
+        `https://hooks.slack.com/services/${(process.env.CONTACT_WEBHOOK_ID as string) ?? ""}`,
+        { text }
+    );
 }
 
 /**

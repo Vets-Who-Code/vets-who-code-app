@@ -5,6 +5,8 @@ export type Rank = "Enlisted" | "Warrant" | "Officer";
 export interface TrainingData {
     branch: string;
     title: string;
+    /** Legacy codes this one replaced, newest first (e.g. 3D0X1, 3A0X1) */
+    formerly?: string[];
     program: string;
     hours: number;
     weeks?: number;

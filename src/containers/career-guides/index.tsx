@@ -56,6 +56,7 @@ const demandWeight = (g: GuideEntry) =>
 const matchesQuery = (g: GuideEntry, q: string) =>
     g.code.toLowerCase().includes(q) ||
     g.title.toLowerCase().includes(q) ||
+    g.formerly?.some((c) => c.toLowerCase().includes(q)) ||
     g.civilian.toLowerCase().includes(q) ||
     g.certs.some((c) => c.toLowerCase().includes(q));
 

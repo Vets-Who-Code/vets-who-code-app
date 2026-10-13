@@ -1,6 +1,7 @@
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "@/lib/api-helpers";
+import { enforceRateLimit } from "@/lib/rate-limit";
 
 // Define the ParsedBody type for mentee
 interface ParsedBody {
@@ -15,6 +16,11 @@ interface ParsedBody {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    // 3 req/10 min per IP, one bucket shared with /api/mentor — both post to the same webhook.
+    if (!enforceRateLimit(req, res, { name: "mentor", maxRequests: 3, windowMs: 10 * 60 * 1000 })) {
+        return;
+    }
+
     try {
         const parsedBody = req.body as ParsedBody; // Cast to ensure body matches ParsedBody interface
 
@@ -51,14 +57,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ].join("\n");
 
         // Send the constructed message to Slack (using the same mentor webhook)
-        await axios
-            .post(
-                `https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`,
-                JSON.stringify({ text })
-            )
-            .catch(() => {
-                throw new Error("Failed to post to Slack");
-            });
+        await postJson(`https://hooks.slack.com/services/${process.env.MENTOR_WEBHOOK_ID ?? ""}`, {
+            text,
+        }).catch(() => {
+            throw new Error("Failed to post to Slack");
+        });
 
         // Respond with a success message
         return res.status(200).json({ message: "SUCCESS" });

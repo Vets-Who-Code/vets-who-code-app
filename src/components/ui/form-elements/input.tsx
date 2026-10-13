@@ -27,6 +27,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
             showState,
             showErrorOnly,
             customStyle,
+            reserveFeedback,
             min,
             max,
             ...restProps
@@ -48,6 +49,12 @@ const Input = forwardRef<HTMLInputElement, IProps>(
         const focusBorderClass = customStyle !== "nofocus" && !state && "focus:tw-border-primary";
         const feedbackId = `${id}-feedback`;
         const hasFeedback = Boolean(feedbackText && showState);
+
+        const feedback = hasFeedback && (
+            <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
+                {feedbackText}
+            </Feedback>
+        );
 
         return (
             <>
@@ -82,11 +89,7 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                     max={max}
                     {...restProps}
                 />
-                {hasFeedback && (
-                    <Feedback id={feedbackId} state={state} showErrorOnly={showErrorOnly}>
-                        {feedbackText}
-                    </Feedback>
-                )}
+                {reserveFeedback ? <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div> : feedback}
             </>
         );
     }

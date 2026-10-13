@@ -186,6 +186,7 @@ export const loadCareerGuides = (): GuideEntry[] => {
             code,
             slug: key.toLowerCase(),
             title: entry.title,
+            ...(entry.formerly && { formerly: entry.formerly }),
             branch,
             rank,
             family,

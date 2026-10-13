@@ -6,6 +6,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
  * Get cart details by ID
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    res.setHeader("Cache-Control", "private, no-store");
+
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
     }

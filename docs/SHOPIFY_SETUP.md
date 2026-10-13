@@ -251,12 +251,12 @@ For issues with:
 ## Resources
 
 - [Shopify Storefront API Documentation](https://shopify.dev/docs/api/storefront)
-- [Shopify GraphQL Explorer](https://shopify.dev/docs/api/storefront/2024-01/queries)
+- [Shopify GraphQL Explorer](https://shopify.dev/docs/api/storefront/2026-10/queries)
 - [Next.js Static Site Generation](https://nextjs.org/docs/basic-features/data-fetching/get-static-props)
 - [TypeScript Shopify Types](https://github.com/Shopify/hydrogen/tree/main/packages/hydrogen-react)
 
 ---
 
 **Created**: November 2024
-**Integration Version**: Shopify Storefront API 2024-01
+**Integration Version**: Shopify Storefront API 2026-10
 **Framework**: Next.js 15 with TypeScript

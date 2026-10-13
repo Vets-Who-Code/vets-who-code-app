@@ -1,5 +1,5 @@
 import { BUDGET_CHIPS, SERVICE_CHIPS } from "@data/software-factory";
-import axios from "axios";
+import { postJson } from "@utils/post-json";
 import { useState } from "react";
 import styles from "./cta.module.css";
 
@@ -46,7 +46,7 @@ const CtaSection = () => {
                 brief,
             ].join("\n");
 
-            const res = await axios.post("/api/contact", {
+            const res = await postJson("/api/contact", {
                 name,
                 email,
                 website,
@@ -128,7 +128,7 @@ const CtaSection = () => {
                         </p>
                         <ul className={styles.bullets}>
                             <li>· Currently booking Q4 2026 and Q1 2027</li>
-                            <li>· 2 squads available</li>
+                            <li>· 1 fire team available</li>
                             <li>· Average response time: 1 business day</li>
                         </ul>
                     </div>

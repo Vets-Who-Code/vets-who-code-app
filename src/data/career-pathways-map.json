@@ -192158,6 +192158,53 @@
             "dataSource": "curated"
         }
     ],
+    "1D7X1K": [
+        {
+            "role": "Computer User Support Specialist",
+            "matchLevel": "High match",
+            "avgSalary": 62000,
+            "demand": "Stable demand",
+            "skillsToClose": [
+                "Help desk ticketing workflows",
+                "Windows and macOS troubleshooting"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Technical Writer",
+            "matchLevel": "Good match",
+            "avgSalary": 90000,
+            "demand": "Stable demand",
+            "skillsToClose": [
+                "Docs-as-code with Markdown and Git",
+                "Writing for developer audiences"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Database Administrator",
+            "matchLevel": "Moderate match",
+            "avgSalary": 105000,
+            "demand": "Stable demand",
+            "skillsToClose": [
+                "SQL and relational data modeling",
+                "Backup, recovery, and access control"
+            ],
+            "dataSource": "curated"
+        },
+        {
+            "role": "Software Developer",
+            "matchLevel": "Moderate match",
+            "avgSalary": 136000,
+            "demand": "High demand",
+            "skillsToClose": [
+                "JavaScript/TypeScript or Python fundamentals",
+                "Version control with Git",
+                "Web application frameworks"
+            ],
+            "dataSource": "curated"
+        }
+    ],
     "3D0X2": [
         {
             "role": "Systems Administrator",
