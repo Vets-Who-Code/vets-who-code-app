@@ -93,7 +93,7 @@ const nextConfig = {
                             // silently fails to load for anyone with the SW registered.
                             "connect-src 'self' https://www.clarity.ms https://vitals.vercel-insights.com https://github.com https://api.github.com https://github.githubassets.com https://avatars.githubusercontent.com https://www.paypalobjects.com https://cdn.shopify.com https://hashflagswag.myshopify.com https://res.cloudinary.com https://widgets.guidestar.org https://www.google-analytics.com https://cdn.jsdelivr.net https://huggingface.co https://cdn-lfs.huggingface.co https://cdn-lfs-us-1.huggingface.co",
                             "worker-src 'self' https://cdn.jsdelivr.net",
-                            "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org",
+                            "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://donorbox.org https://vetswhocode.substack.com",
                             "media-src 'self' https://res.cloudinary.com",
                             "object-src 'none'",
                             "base-uri 'self'",

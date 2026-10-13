@@ -12,7 +12,6 @@ hitting one endpoint never consumes another endpoint's budget.
 | `/api/contact`                | 5 req    | 60s    | client IP |
 | `/api/health`                 | 30 req   | 60s    | client IP |
 | `/api/mentor`, `/api/mentee`  | 3 req    | 10 min | client IP |
-| `/api/newsletter`             | 5 req    | 60s    | client IP |
 | `/api/og/fetch`               | 10 req   | 15 min | client IP |
 
 `/api/mentor` and `/api/mentee` share one bucket because both post to the same

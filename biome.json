@@ -43,8 +43,7 @@
             "!public/fallback-*.js",
             "!./complexity-report.json",
             "!**/*.min.css",
-            "!**/*.min.js",
-            "!public/mailchimp.js"
+            "!**/*.min.js"
         ]
     },
     "linter": {
@@ -340,8 +339,7 @@
             "!**/next.config.js",
             "!**/commitlint.config.js",
             "!**/*.min.css",
-            "!**/*.min.js",
-            "!public/mailchimp.js"
+            "!**/*.min.js"
         ]
     },
     "javascript": {
