@@ -209,17 +209,17 @@ describe("classifyContact", () => {
 
         await classifyContact(validInput);
 
-        expect(consoleSpy).toHaveBeenCalledWith("Contact classification:", expect.any(String));
-
-        const loggedJson = JSON.parse(consoleSpy.mock.calls[0][1] as string);
-        expect(loggedJson).toEqual({
+        const logged = consoleSpy.mock.calls[0][0] as string;
+        const entry = JSON.parse(logged);
+        expect(entry.msg).toBe("Contact classification");
+        expect(entry.context).toEqual({
             category: "relevant",
             confidence: 0.92,
             sendToSlack: true,
         });
         // Ensure no PII is logged
-        expect(consoleSpy.mock.calls[0][1]).not.toContain("jane@example.com");
-        expect(consoleSpy.mock.calls[0][1]).not.toContain("Jane Doe");
+        expect(logged).not.toContain("jane@example.com");
+        expect(logged).not.toContain("Jane Doe");
 
         consoleSpy.mockRestore();
     });

@@ -1,12 +1,14 @@
 import { setPublicCache } from "@lib/cache-control";
 import { getProduct } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 
 /**
  * GET /api/shopify/products/[handle]
  * Get a single product by handle
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -27,10 +29,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         setPublicCache(res, 300, 600);
         return res.status(200).json({ product });
     } catch (error) {
-        console.error("Error fetching product:", error);
+        logger.error("Error fetching product", { error });
         return res.status(500).json({
             error: "Failed to fetch product",
             message: error instanceof Error ? error.message : "Unknown error",
         });
     }
 }
+
+export default withApiLogging(handler);

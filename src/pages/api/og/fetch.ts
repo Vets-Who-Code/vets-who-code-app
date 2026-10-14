@@ -1,9 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parse } from "node-html-parser";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import type { OGFetchResponse, URLMetadata } from "@/types/url-metadata";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<OGFetchResponse>) {
+async function handler(req: NextApiRequest, res: NextApiResponse<OGFetchResponse>) {
     if (req.method !== "POST" && req.method !== "GET") {
         return res.status(405).json({ success: false, error: "Method not allowed" });
     }
@@ -89,7 +91,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
         return res.status(200).json({ success: true, data: metadata });
     } catch (error) {
-        console.error("Error fetching URL metadata:", error);
+        logger.error("Error fetching URL metadata", { error });
 
         if (error instanceof TypeError && error.message.includes("Invalid URL")) {
             return res.status(400).json({ success: false, error: "Invalid URL format" });
@@ -105,3 +107,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         });
     }
 }
+
+export default withApiLogging(handler);

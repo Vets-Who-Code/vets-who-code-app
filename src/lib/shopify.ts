@@ -1,3 +1,5 @@
+import { logger } from "@/lib/logger";
+
 /**
  * Shopify Storefront API Client
  * Handles all interactions with Shopify's Storefront API for products, cart, and checkout
@@ -170,7 +172,7 @@ async function shopifyFetch<T>({
 
         return await result.json();
     } catch (error) {
-        console.error("Shopify API request failed:", error);
+        logger.error("Shopify API request failed", { error });
         throw error;
     }
 }
@@ -327,7 +329,7 @@ export async function getProducts(limit = 100, query?: string): Promise<ShopifyP
     });
 
     if (response.errors) {
-        console.error("Shopify API errors:", response.errors);
+        logger.error("Shopify API errors", { errors: response.errors });
         throw new Error("Failed to fetch products");
     }
 
@@ -354,7 +356,7 @@ export async function getProduct(handle: string): Promise<ShopifyProduct | null>
 
     // Throw so callers can tell an outage from a missing product (null).
     if (response.errors) {
-        console.error("Shopify API errors:", response.errors);
+        logger.error("Shopify API errors", { errors: response.errors });
         throw new Error("Failed to fetch product");
     }
 
@@ -396,7 +398,7 @@ export async function getCollections(limit = 100): Promise<ShopifyCollection[]> 
     });
 
     if (response.errors) {
-        console.error("Shopify API errors:", response.errors);
+        logger.error("Shopify API errors", { errors: response.errors });
         throw new Error("Failed to fetch collections");
     }
 
@@ -441,7 +443,7 @@ export async function getCollection(
     });
 
     if (response.errors) {
-        console.error("Shopify API errors:", response.errors);
+        logger.error("Shopify API errors", { errors: response.errors });
         return null;
     }
 
@@ -477,7 +479,7 @@ export async function createCart(): Promise<ShopifyCart> {
     });
 
     if (response.data.cartCreate.userErrors.length > 0) {
-        console.error("Cart creation errors:", response.data.cartCreate.userErrors);
+        logger.error("Cart creation errors", { userErrors: response.data.cartCreate.userErrors });
         throw new Error(response.data.cartCreate.userErrors[0].message);
     }
 
@@ -503,7 +505,7 @@ export async function getCart(cartId: string): Promise<ShopifyCart | null> {
     });
 
     if (response.errors) {
-        console.error("Shopify API errors:", response.errors);
+        logger.error("Shopify API errors", { errors: response.errors });
         return null;
     }
 
@@ -543,7 +545,7 @@ export async function addToCart(
     });
 
     if (response.data.cartLinesAdd.userErrors.length > 0) {
-        console.error("Add to cart errors:", response.data.cartLinesAdd.userErrors);
+        logger.error("Add to cart errors", { userErrors: response.data.cartLinesAdd.userErrors });
         throw new Error(response.data.cartLinesAdd.userErrors[0].message);
     }
 
@@ -583,7 +585,9 @@ export async function updateCartLines(
     });
 
     if (response.data.cartLinesUpdate.userErrors.length > 0) {
-        console.error("Update cart errors:", response.data.cartLinesUpdate.userErrors);
+        logger.error("Update cart errors", {
+            userErrors: response.data.cartLinesUpdate.userErrors,
+        });
         throw new Error(response.data.cartLinesUpdate.userErrors[0].message);
     }
 
@@ -620,7 +624,9 @@ export async function removeFromCart(cartId: string, lineIds: string[]): Promise
     });
 
     if (response.data.cartLinesRemove.userErrors.length > 0) {
-        console.error("Remove from cart errors:", response.data.cartLinesRemove.userErrors);
+        logger.error("Remove from cart errors", {
+            userErrors: response.data.cartLinesRemove.userErrors,
+        });
         throw new Error(response.data.cartLinesRemove.userErrors[0].message);
     }
 
