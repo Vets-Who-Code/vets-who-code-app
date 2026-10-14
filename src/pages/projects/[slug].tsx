@@ -1,6 +1,12 @@
 import Breadcrumb from "@components/breadcrumb";
 import MarkdownRenderer from "@components/markdown-renderer";
-import { BuiltBy, LinkButtons, RepoStats, TechStack } from "@components/projects";
+import {
+    BuiltBy,
+    FeaturedPullRequests,
+    LinkButtons,
+    RepoStats,
+    TechStack,
+} from "@components/projects";
 import SEO from "@components/seo/page-seo";
 import siteConfig from "@data/site-config";
 import Layout01 from "@layout/layout-01";
@@ -104,6 +110,9 @@ const ProjectDetail: PageProps = ({ project }: TProps) => {
                                 <MarkdownRenderer content={pg} />
                             </div>
                         ))}
+                        {details.featuredPullRequests && (
+                            <FeaturedPullRequests pullRequests={details.featuredPullRequests} />
+                        )}
                     </div>
                 </div>
             </div>

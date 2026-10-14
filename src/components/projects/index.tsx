@@ -1,7 +1,12 @@
 import { VWCGridCard } from "@components/vwc-card";
 import { GitHubLogoIcon, GlobeIcon } from "@radix-ui/react-icons";
 import Anchor from "@ui/anchor";
-import { GithubRepo, VWCProject, VWCProjectContributor } from "@utils/types";
+import {
+    GithubRepo,
+    VWCFeaturedPullRequest,
+    VWCProject,
+    VWCProjectContributor,
+} from "@utils/types";
 import { CircleDot, Eye, GitFork, Star } from "lucide-react";
 import Link from "next/link";
 
@@ -156,6 +161,36 @@ export const BuiltBy = ({ contributors }: BuiltByProps) => {
                 ))}
             </ul>
         </>
+    );
+};
+
+interface FeaturedPullRequestsProps {
+    pullRequests: VWCFeaturedPullRequest[];
+}
+
+export const FeaturedPullRequests = ({ pullRequests }: FeaturedPullRequestsProps) => {
+    return (
+        <section className="tw-mt-10" aria-labelledby="featured-prs">
+            <h2 id="featured-prs" className="tw-mb-4 tw-text-h4 tw-text-secondary">
+                Featured pull requests
+            </h2>
+            <ul className="tw-m-0 tw-list-none tw-space-y-6 tw-p-0">
+                {pullRequests.map((pr) => (
+                    <li key={pr.url} className="tw-border-l-2 tw-border-primary tw-pl-4">
+                        <Anchor
+                            path={pr.url}
+                            className="tw-font-medium tw-text-secondary hover:tw-text-primary hover:tw-underline"
+                        >
+                            {pr.title}
+                        </Anchor>
+                        <p className="tw-mb-1 tw-text-sm tw-uppercase tw-tracking-wider tw-text-primary">
+                            {pr.repo} #{pr.number} · @{pr.author} · Merged {pr.mergedAt}
+                        </p>
+                        <p className="tw-mb-0 tw-text-secondary">{pr.note}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
     );
 };
 
