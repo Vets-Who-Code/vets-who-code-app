@@ -1,11 +1,13 @@
 import { getCart } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 
 /**
  * GET /api/shopify/cart/[cartId]
  * Get cart details by ID
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     res.setHeader("Cache-Control", "private, no-store");
 
     if (req.method !== "GET") {
@@ -27,10 +29,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return res.status(200).json({ cart });
     } catch (error) {
-        console.error("Error fetching cart:", error);
+        logger.error("Error fetching cart", { error });
         return res.status(500).json({
             error: "Failed to fetch cart",
             message: error instanceof Error ? error.message : "Unknown error",
         });
     }
 }
+
+export default withApiLogging(handler);

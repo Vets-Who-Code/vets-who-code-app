@@ -42,7 +42,7 @@ type Route = () => Promise<{ default: (req: never, res: never) => unknown }>;
 async function call(route: Route, req: Record<string, unknown>) {
     const { default: handler } = await route();
     const res = makeRes();
-    await handler(req as never, res as never);
+    await handler({ headers: {}, ...req } as never, res as never);
     return res;
 }
 
