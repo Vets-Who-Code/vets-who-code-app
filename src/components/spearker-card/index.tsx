@@ -1,5 +1,6 @@
 import { ISpeaker } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 
 type TProps = Omit<ISpeaker, "id"> & {
     className?: string;
@@ -10,10 +11,11 @@ const SpeakerCard = ({ className, name, designation, image }: TProps) => {
         <div className={clsx("speaker tw-text-center", className)}>
             <div className="tw-mx-auto tw-mb-7 tw-h-[170px] tw-w-[170px]">
                 {image?.src && (
-                    <img
+                    <Image
                         src={image.src}
                         alt={image?.alt || name}
-                        width="200"
+                        width={200}
+                        height={200}
                         className="tw-w-full tw-rounded-full tw-object-cover"
                     />
                 )}

@@ -1,6 +1,7 @@
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 
 type TProps = Pick<IBlog, "title" | "path" | "image"> & {
     variant: "prev" | "next";
@@ -18,7 +19,13 @@ const NavItem = ({ title, path, image, variant }: TProps) => {
         >
             {image?.src && (
                 <div className="tw-absolute tw-inset-0 -tw-z-1 tw-rounded tw-opacity-0 tw-transition-opacity tw-duration-300 before:tw-absolute before:tw-inset-0 before:tw-rounded before:tw-bg-bodyGradient before:tw-opacity-50 before:tw-content-[''] group-hover:tw-opacity-100">
-                    <img src={image.src} alt="" className="tw-h-full tw-w-full tw-object-cover" />
+                    <Image
+                        src={image.src}
+                        alt=""
+                        fill={true}
+                        sizes="(max-width: 767px) 100vw, 50vw"
+                        className="tw-object-cover"
+                    />
                 </div>
             )}
 

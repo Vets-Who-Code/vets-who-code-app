@@ -1,6 +1,7 @@
 import { ImageType, ItemType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 type FaqItem = ItemType & { category?: string };
 
@@ -34,16 +35,22 @@ const FaqArea = ({ data: { images, items } }: TProps) => {
                     variants={scrollUpVariants}
                 >
                     {images?.[0]?.src && (
-                        <img
+                        <Image
                             src={images[0].src}
                             alt={images[0]?.alt || ""}
+                            width={images[0].width || 6000}
+                            height={images[0].height || 3000}
+                            sizes="(max-width: 767px) 100vw, 66vw"
                             className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                         />
                     )}
                     {images?.[1]?.src && (
-                        <img
+                        <Image
                             src={images[1].src}
                             alt={images[1]?.alt || ""}
+                            width={images[1].width || 6000}
+                            height={images[1].height || 3000}
+                            sizes="(max-width: 767px) 100vw, 34vw"
                             className="tw-h-full tw-w-full tw-rounded tw-object-cover"
                         />
                     )}

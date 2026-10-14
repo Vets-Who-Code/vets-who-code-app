@@ -1,5 +1,6 @@
 import { outcomes } from "@data/outcomes";
 import clsx from "clsx";
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./about.module.css";
 
@@ -301,10 +302,12 @@ const Story = () => {
                                                 aria-hidden="true"
                                                 className="tw-absolute tw-left-0 tw-top-0 tw-z-10 tw-h-[2px] tw-w-14 tw-bg-red"
                                             />
-                                            <img
+                                            <Image
                                                 src={c.img}
                                                 alt=""
-                                                className="tw-absolute tw-inset-0 tw-h-full tw-w-full tw-object-cover"
+                                                fill={true}
+                                                sizes="(max-width: 991px) 100vw, 50vw"
+                                                className="tw-object-cover"
                                             />
                                         </div>
                                         <div

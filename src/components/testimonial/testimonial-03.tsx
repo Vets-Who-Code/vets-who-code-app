@@ -1,5 +1,6 @@
 import { ImageType, ItemType } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 
 type TProps = Pick<ItemType, "description" | "name" | "designation"> & {
     image: ImageType;
@@ -40,7 +41,7 @@ const Testimonial03 = ({ description, name, designation, image, className }: TPr
 
             {image?.src && (
                 <div className="tw-mb-5 tw-flex tw-items-center tw-gap-4 tw-relative">
-                    <img
+                    <Image
                         src={image.src}
                         width={image?.width || 60}
                         height={image?.height || 60}

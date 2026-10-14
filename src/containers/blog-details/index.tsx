@@ -6,6 +6,7 @@ import SocialShare from "@components/social-share/layout-03";
 import Anchor from "@ui/anchor";
 import { formatDate } from "@utils/date";
 import { IBlog } from "@utils/types";
+import Image from "next/image";
 
 function BlogDetails({ image, title, category, author, postedAt, content, tags, audioUrl }: IBlog) {
     return (
@@ -13,11 +14,14 @@ function BlogDetails({ image, title, category, author, postedAt, content, tags, 
             <div className="entry-header tw-mb-5">
                 {image?.src && (
                     <figure role="none" className="tw-mb-7">
-                        <img
+                        <Image
                             className="tw-w-full tw-rounded tw-object-cover"
                             src={image.src}
                             alt={image?.alt || title}
-                            width="770"
+                            width={image.width || 770}
+                            height={image.height || 403}
+                            priority={true}
+                            sizes="(max-width: 991px) 100vw, 770px"
                         />
                     </figure>
                 )}

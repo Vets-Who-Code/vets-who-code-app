@@ -1,6 +1,7 @@
 import { useCart, useKeyboardFocus } from "@hooks";
 import { formatPrice } from "@lib/shopify";
 import clsx from "clsx";
+import Image from "next/image";
 
 interface ShoppingCartProps {
     isOpen: boolean;
@@ -125,8 +126,10 @@ const ShoppingCart: React.FC<ShoppingCartProps> = ({ isOpen, onClose }) => {
                                 >
                                     {/* Product Image */}
                                     {line.merchandise.product.featuredImage && (
-                                        <img
+                                        <Image
                                             src={line.merchandise.product.featuredImage.url}
+                                            width={80}
+                                            height={80}
                                             alt={
                                                 line.merchandise.product.featuredImage.altText ||
                                                 line.merchandise.product.title

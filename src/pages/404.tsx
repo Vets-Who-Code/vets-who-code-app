@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import SEO from "@/components/seo/page-seo";
 import Button from "@/components/ui/button";
@@ -11,7 +12,7 @@ const Error404Page = () => {
                 <div className="tw-container tw-flex tw-h-screen tw-items-center tw-justify-center tw-py-[100px]">
                     <div className="tw-text-center">
                         <div className="tw-mb-10 child:tw-mx-auto">
-                            <img
+                            <Image
                                 src="/images/others/page-404-image.png"
                                 alt="Not Found"
                                 width={407}
