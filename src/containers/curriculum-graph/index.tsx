@@ -63,6 +63,7 @@ const LAYERS = [
         question: "How do we know it took?",
         title: "An artifact closes it out, or nothing does",
         body: "Nothing gets checked off because a video ended. Each idea names the thing you have to produce and the standard it gets judged against. You built it and it meets the criterion, or you're not done. Trained to standard, or not trained.",
+        link: { href: "/the-standard", label: "Read the standard →" },
     },
 ];
 
@@ -200,6 +201,11 @@ const CurriculumGraphContainer = () => (
                             </div>
                             <h3 className={styles.cardHeading}>{layer.title}</h3>
                             <p className={styles.cardBody}>{layer.body}</p>
+                            {"link" in layer && layer.link ? (
+                                <Link href={layer.link.href} className={styles.layerLink}>
+                                    {layer.link.label}
+                                </Link>
+                            ) : null}
                         </div>
                     ))}
                 </div>

@@ -48,6 +48,7 @@ export const HOW_IT_RUNS = [
         index: "04",
         title: "Every rep leaves an artifact",
         body: "Nothing completes because a video ended. Each concept names the thing you produce and the criterion it is judged against, and you meet it three times at decreasing support. Trained to standard, or not trained — and the artifacts accumulate.",
+        link: { href: "/the-standard", label: "Read the standard →" },
     },
 ];
 
