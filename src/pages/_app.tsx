@@ -1,4 +1,5 @@
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { MotionConfig } from "motion/react";
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
@@ -79,6 +80,7 @@ const MyApp = ({ Component, pageProps }: CustomAppProps): JSX.Element => {
                             <Component {...pageProps} />
                         </ErrorBoundary>
                         <Analytics />
+                        <SpeedInsights />
                     </Layout>
                 </CartProvider>
             </UIProvider>
