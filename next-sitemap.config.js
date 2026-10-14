@@ -2,7 +2,7 @@
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vetswhocode.io";
 
-const prerender = require("./src/data/career-guides-prerender.json");
+const training = require("./src/data/training-pipeline.json");
 
 // Routes that must not appear in the XML sitemap or be crawled.
 // Grouped by reason so future additions are easy to slot in.
@@ -25,13 +25,15 @@ module.exports = {
     generateRobotsTxt: true,
     generateIndexSitemap: true,
     exclude,
-    // Guide detail URLs come from the same data file getStaticPaths reads, so sitemap
-    // coverage is not a side effect of what happened to be prerendered. Locs are
-    // returned relative, which is how next-sitemap merges them with the build-derived
-    // entries by path (prerendered guides are not duplicated).
+    // Every guide detail URL (slug = lowercased training-pipeline key, as in loadCareerGuides),
+    // so sitemap coverage is not a side effect of what happened to be prerendered. The facet
+    // pages link to all of them. Locs are returned relative, which is how next-sitemap merges
+    // them with the build-derived entries by path (prerendered guides are not duplicated).
     additionalPaths: async (config) =>
         Promise.all(
-            prerender.guides.map((g) => config.transform(config, `/career-guides/${g.slug}`))
+            Object.keys(training).map((key) =>
+                config.transform(config, `/career-guides/${key.toLowerCase()}`)
+            )
         ),
     // Per-route crawl hints. Everything not matched falls back to 0.5 / weekly.
     transform: async (config, path) => {
