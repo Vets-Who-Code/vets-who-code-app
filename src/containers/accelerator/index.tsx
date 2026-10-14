@@ -6,6 +6,7 @@ import {
     NOT_FOR_YOU,
     PROGRAM_FACTS,
     PROOF,
+    WE_WONT,
 } from "@data/accelerator";
 import { MANIFEST } from "@lib/curriculum-graph";
 import Button from "@ui/button";
@@ -82,6 +83,27 @@ const AcceleratorContainer = () => (
                             ))}
                         </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section className={styles.wontSection}>
+            <div className="tw-container">
+                <SectionTitle
+                    align="left"
+                    subtitle="Our side"
+                    title="What we won't do"
+                    description="Fit cuts both ways. These are the lines we hold, for every troop."
+                />
+                <div className={`${styles.fitCard} ${styles.fitCardNegative} ${styles.wontCard}`}>
+                    <p className={styles.fitLabel}>Our commitments</p>
+                    <ul className={styles.fitList}>
+                        {WE_WONT.map((item) => (
+                            <li key={item} className={styles.fitItem}>
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
         </section>

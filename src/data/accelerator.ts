@@ -28,6 +28,29 @@ export const NOT_FOR_YOU = [
     "You want to work entirely alone. The sessions are the program, not an add-on.",
 ];
 
+/**
+ * What VWC refuses to do: our commitments, not the applicant's disqualifiers (#1432).
+ * Every line has to be true today and carry no number to defend. Each names its source.
+ */
+export const WE_WONT = [
+    // HOW_IT_RUNS 04: "Nothing completes because a video ended."
+    "We won't mark you done because a video ended.",
+    // FOR_YOU: "You would rather be told the standard than be told you are doing great."
+    "We won't trade the standard for “you’re doing great.”",
+    // src/pages/programs/mentorship.tsx RELEASE Phase 03: "The troop proves it alone ...
+    // graded by someone who is not you" (said to the mentor).
+    "Your mentor doesn't grade your gates. You prove it alone, to someone else.",
+    // NOT_FOR_YOU: "You want someone to place you in a job rather than help you earn one."
+    "We won't place you in a job. We'll help you earn one.",
+    // PROOF: "$0 Tuition ... No income share, no loan, no catch."
+    "We won't charge you. No tuition, no income share, no loan.",
+    // BODY_OF_WORK comment: "There is no capstone. Engineers do not finish; they accumulate evidence."
+    "There is no capstone. Engineers don't finish. They accumulate evidence.",
+    // Owner decision on epic #1427: "You never truly graduate. The door is open for as long
+    // as you need it."
+    "We don't cut you loose when the accelerator ends. The door is open for as long as you need it.",
+];
+
 export const HOW_IT_RUNS = [
     {
         index: "01",

@@ -179,6 +179,16 @@
     background: #c5203e;
 }
 
+/* ========== WHAT WE WON'T DO ========== */
+.wontSection {
+    background: #fff;
+    padding: 0 0 104px;
+}
+
+.wontCard {
+    margin-top: 48px;
+}
+
 /* ========== HOW IT RUNS ========== */
 .howSection {
     background: #eeede9;
