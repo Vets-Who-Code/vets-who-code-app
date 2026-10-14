@@ -100,6 +100,11 @@ const AcceleratorContainer = () => (
                             <span className={styles.howIndex}>{item.index}</span>
                             <h3 className={styles.cardHeading}>{item.title}</h3>
                             <p className={styles.cardBody}>{item.body}</p>
+                            {"link" in item && item.link ? (
+                                <Link href={item.link.href} className={styles.cardLink}>
+                                    {item.link.label}
+                                </Link>
+                            ) : null}
                         </div>
                     ))}
                 </div>

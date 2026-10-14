@@ -222,6 +222,24 @@
     margin: 0;
 }
 
+.cardLink {
+    display: inline-block;
+    margin-top: 18px;
+    font-family: GothamPro, system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #091f40;
+    text-decoration: none;
+    border-bottom: 2px solid #c5203e;
+    padding-bottom: 3px;
+}
+
+.cardLink:hover {
+    color: #c5203e;
+}
+
 /* ========== BODY OF WORK ========== */
 .workSection {
     background: #fff;
