@@ -19,7 +19,7 @@
     "typecheck": "tsc -p tsconfig.json",
     "lint": "biome lint",
     "lint:fix": "npm run typecheck && biome check --write",
-    "prepare": "husky install",
+    "prepare": "husky",
     "postbuild": "next-sitemap",
     "check": "biome ci",
     "security:audit": "npm audit",
