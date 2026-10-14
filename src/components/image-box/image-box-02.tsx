@@ -1,6 +1,7 @@
 import Anchor from "@ui/anchor";
 import { ImageType } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 import { forwardRef } from "react";
 
 export type ImageBoxProps = {
@@ -25,7 +26,14 @@ const ImageBox = forwardRef<HTMLDivElement, ImageBoxProps>(
                 )}
             >
                 {image?.src && (
-                    <img src={image.src} alt={image?.alt || title} className="tw-mx-auto tw-mb-6" />
+                    <Image
+                        src={image.src}
+                        alt={image?.alt || title}
+                        width={image.width || 1080}
+                        height={image.height || 1080}
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
+                        className="tw-mx-auto tw-mb-6"
+                    />
                 )}
                 <h3 className="tw-m-0 tw-text-xl tw-leading-normal tw-text-secondary">{title}</h3>
                 <p className="tw-mb-[34px] tw-mt-2.5 tw-leading-relaxed">{description}</p>

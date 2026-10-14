@@ -4,6 +4,7 @@ import { outcomes } from "@data/outcomes";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 const AnimatedDonateForm = motion(DonateForm);
 
@@ -100,7 +101,7 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                                 a ticketing startup focused on live events.&quot;
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <img
+                                <Image
                                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1721082085/josh-morton.jpg"
                                     alt="Josh Morton"
                                     width={40}
@@ -126,7 +127,7 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                                 that&#39;s something no amount of money can buy."
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <img
+                                <Image
                                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1721086509/Image_from_iOS_pdujsr.jpg"
                                     alt="Cameron Porter"
                                     width={40}
@@ -149,7 +150,7 @@ const DonateFormArea = ({ data: { section_title }, space }: TProps) => {
                                 veterans&#39; immense value to our team and our healthcare mission."
                             </p>
                             <div className="tw-flex tw-items-center">
-                                <img
+                                <Image
                                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_thumb,g_face,r_max,w_80,h_80/v1748652090/AB1_6721_towfh2.jpg"
                                     alt="Darnell Settles"
                                     width={40}

@@ -6,6 +6,7 @@ import Layout from "@layout/layout-01";
 import Button from "@ui/button";
 import clsx from "clsx";
 import type { NextPage } from "next";
+import Image from "next/image";
 
 type PageWithLayout = NextPage & {
     Layout: typeof Layout;
@@ -267,7 +268,7 @@ const PressKitPage: PageWithLayout = () => {
                             ) : null}
                         </div>
                         <div className="tw-order-first">
-                            <img
+                            <Image
                                 src={HEADSHOT_PREVIEW}
                                 alt="Jerome Hardaway, founder of Vets Who Code, smiling in a black-and-white portrait wearing a leather jacket over a hoodie and a #VetsWhoCode flag tee"
                                 width={350}

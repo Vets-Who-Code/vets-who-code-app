@@ -2,6 +2,7 @@ import HTMLContent from "@components/html-content";
 import ZoomInfo from "@components/widgets/zoom-info-widget";
 import CountdownTimer from "@ui/countdown-timer/layout-02";
 import { IZoomMeeting } from "@utils/types";
+import Image from "next/image";
 
 type TProps = Pick<
     IZoomMeeting,
@@ -37,12 +38,14 @@ const ZoomMeetingDetails = ({
                 <div className="tw-grid tw-grid-cols-3 tw-gap-10">
                     <div className="tw-col-span-full lg:tw-col-[1/3]">
                         {thumbnail?.src && (
-                            <figure className="tw-mb-7.5 tw-h-[400px]">
-                                <img
+                            <figure className="tw-relative tw-mb-7.5 tw-h-[400px]">
+                                <Image
                                     src={thumbnail.src}
                                     alt={thumbnail?.alt || title}
-                                    width="770"
-                                    className="tw-h-full tw-w-full tw-rounded tw-object-cover"
+                                    fill={true}
+                                    priority={true}
+                                    sizes="(max-width: 991px) 100vw, 770px"
+                                    className="tw-rounded tw-object-cover"
                                 />
                             </figure>
                         )}

@@ -2,6 +2,7 @@ import { useCart } from "@hooks";
 import { formatPrice, ShopifyProduct } from "@lib/shopify";
 import Anchor from "@ui/anchor";
 import clsx from "clsx";
+import Image from "next/image";
 import { forwardRef, useState } from "react";
 
 interface TProps {
@@ -57,12 +58,12 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(({ className, product }, 
         >
             <figure className="tw-relative tw-overflow-hidden tw-aspect-square">
                 {image && (
-                    <img
+                    <Image
                         src={image.url}
                         alt={image.altText || product.title}
                         width={image.width}
                         height={image.height}
-                        loading="lazy"
+                        sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 25vw"
                         className="tw-w-full tw-h-full tw-object-cover tw-transition-transform tw-duration-1000 tw-ease-out group-hover:tw-scale-110"
                     />
                 )}

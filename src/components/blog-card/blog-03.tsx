@@ -1,6 +1,7 @@
 import Anchor from "@ui/anchor";
 import { IBlog } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 import { forwardRef } from "react";
 
 type TProps = Pick<IBlog, "image" | "path" | "title" | "category" | "postedAt"> & {
@@ -20,13 +21,14 @@ const BlogCard = forwardRef<HTMLDivElement, TProps>(
                             role="none"
                             className="tw-h-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
                         >
-                            <img
+                            <Image
                                 className="tw-h-full tw-w-full tw-object-cover"
                                 src={image.src}
                                 alt={image?.alt || title}
                                 width={image.width || 480}
                                 height={image.height || 250}
                                 loading={image.loading || "lazy"}
+                                sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
                             />
                         </figure>
                     )}
