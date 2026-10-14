@@ -32,6 +32,13 @@ describe("postJson", () => {
         );
     });
 
+    it("attaches the response to the rejection", async () => {
+        const response = { ok: false, status: 429 };
+        mockFetch.mockResolvedValue(response);
+
+        await expect(postJson("/api/contact", {})).rejects.toMatchObject({ response });
+    });
+
     it("rejects on a network failure", async () => {
         mockFetch.mockRejectedValue(new TypeError("Failed to fetch"));
 
