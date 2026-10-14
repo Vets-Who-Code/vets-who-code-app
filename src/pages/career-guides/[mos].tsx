@@ -6,11 +6,13 @@ import prerender from "@data/career-guides-prerender.json";
 import Layout01 from "@layout/layout-01";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import { getStoriesByJobCode, type JobCodeStory } from "@/lib/blog";
 import { buildCareerGuideJsonLd } from "@/lib/career-guide-jsonld";
 import { getCareerGuideDetail } from "@/lib/career-guides";
 
 interface MosPageProps {
     detail: CareerGuideDetail;
+    stories: JobCodeStory[];
     slug: string;
     jsonLd: ReturnType<typeof buildCareerGuideJsonLd>;
 }
@@ -19,7 +21,7 @@ type PageWithLayout = NextPage<MosPageProps> & {
     Layout?: typeof Layout01;
 };
 
-const MosPage: PageWithLayout = ({ detail, slug, jsonLd }) => {
+const MosPage: PageWithLayout = ({ detail, stories, slug, jsonLd }) => {
     const { title: pageTitle, description: pageDescription } = buildGuideMeta(detail, slug);
 
     return (
@@ -33,7 +35,7 @@ const MosPage: PageWithLayout = ({ detail, slug, jsonLd }) => {
                     }}
                 />
             </Head>
-            <CareerGuideDetailContainer detail={detail} />
+            <CareerGuideDetailContainer detail={detail} stories={stories} />
         </>
     );
 };
@@ -61,6 +63,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
                 bodyClass: "tw-bg-secondary",
             },
             detail,
+            stories: getStoriesByJobCode(slug),
             slug,
             jsonLd: buildCareerGuideJsonLd(detail, slug),
         },

@@ -225,3 +225,24 @@ export function getPostsByAuthor(
     if (limit) result = result.slice(skip, skip + limit);
     return { posts: result, count: totalPosts };
 }
+
+export interface JobCodeStory {
+    title: string;
+    slug: string;
+    excerpt: string;
+    image: ImageType;
+}
+
+/** Stories whose front-matter `jobCodes` names this career-guide key; only what a card needs. */
+export function getStoriesByJobCode(code: string): JobCodeStory[] {
+    const key = code.toLowerCase();
+    const { blogs } = getAllBlogs(["title", "slug", "description", "image", "jobCodes"]);
+    return blogs
+        .filter((post) => post.jobCodes?.some((c) => c.toLowerCase() === key))
+        .map((post) => ({
+            title: post.title,
+            slug: post.slug,
+            excerpt: post.description ?? "",
+            image: post.image,
+        }));
+}
