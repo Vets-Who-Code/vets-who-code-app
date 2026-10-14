@@ -21,13 +21,14 @@ import PullQuote from "@ui/pull-quote";
 import WorkBelt from "@ui/work-belt";
 import Wrapper from "@ui/wrapper/wrapper-02";
 import { normalizedData } from "@utils/methods";
-import { IBlog, IEvent, IMedia } from "@utils/types";
+import { IBlog, IEvent, IMedia, VWCFeaturedPullRequest } from "@utils/types";
 import type { NextPage } from "next";
 import { GetStaticProps } from "next";
 import { getAllBlogs } from "../lib/blog";
 import { getUpcomingEvents } from "../lib/event";
 import { getAllMediaPosts } from "../lib/mdx-pages";
 import { getPageData } from "../lib/page";
+import { getLatestFeaturedPullRequest } from "../lib/project";
 
 interface PageContent {
     section: string;
@@ -41,6 +42,7 @@ interface PageData {
     events: IEvent[];
     media: IMedia[];
     blogs: IBlog[];
+    featuredPullRequest: VWCFeaturedPullRequest | null;
 }
 
 type TProps = {
@@ -104,7 +106,7 @@ const Home: PageProps = ({ data }) => {
             </div>
 
             {/* Work belt — points at shipped projects before the curriculum preview */}
-            <WorkBelt />
+            <WorkBelt pullRequest={data.featuredPullRequest} />
 
             <CurriculumColumns />
 
@@ -186,6 +188,7 @@ export const getStaticProps: GetStaticProps = () => {
                 events,
                 media,
                 blogs,
+                featuredPullRequest: getLatestFeaturedPullRequest(),
             },
             layout: {
                 footerMode: "light",

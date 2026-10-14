@@ -38,6 +38,35 @@
       "login": "usmcamgrimm"
     }
   ],
+  "featuredPullRequests": [
+    {
+      "repo": "vets-who-code-app",
+      "number": 325,
+      "title": "Migrate to next js",
+      "url": "https://github.com/Vets-Who-Code/vets-who-code-app/pull/325",
+      "author": "andrew-t-james",
+      "mergedAt": "2022-03-26",
+      "note": "Moved the site from Gatsby to Next.js across 215 files; a peer reviewer left 6 inline comments and the author replied in-thread before merge."
+    },
+    {
+      "repo": "vets-who-code-app",
+      "number": 208,
+      "title": "Adjust page headers and page titles to be uniform",
+      "url": "https://github.com/Vets-Who-Code/vets-who-code-app/pull/208",
+      "author": "usmcamgrimm",
+      "mergedAt": "2020-10-13",
+      "note": "After a changes-requested review with 2 inline comments, rebuilt the page header on gatsby-background-image inside a header tag and mocked its query for the tests before approval."
+    },
+    {
+      "repo": "vets-who-code-app",
+      "number": 204,
+      "title": "Dark mode",
+      "url": "https://github.com/Vets-Who-Code/vets-who-code-app/pull/204",
+      "author": "gixxerblade",
+      "mergedAt": "2020-10-11",
+      "note": "Addressed two changes-requested reviews and 13 inline comments from a peer reviewer in follow-up commits before approval."
+    }
+  ],
   "shippedAt": "2017-02-05",
   "status": "live",
   "owner": "Vets-Who-Code",
