@@ -49,8 +49,6 @@ export const WE_WONT = [
     // Owner decision on epic #1427: "You never truly graduate. The door is open for as long
     // as you need it."
     "We don't cut you loose when the accelerator ends. The door is open for as long as you need it.",
-    // mentorship.tsx ARC, Weeks 03-06: "This is where attrition happens." No rate is published.
-    "Not everyone finishes, and that's the point.",
 ];
 
 export const HOW_IT_RUNS = [
