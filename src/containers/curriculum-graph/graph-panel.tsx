@@ -1,15 +1,25 @@
 import { buildGraph, MANIFEST, SUBJECT_BANDS, SUBJECTS } from "@lib/curriculum-graph";
-import { EDGES, TOPICS } from "@lib/curriculum-graph-data";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "./curriculum-graph.module.css";
 import GraphCanvas from "./graph-canvas";
 import Inspector from "./inspector";
 
+type GraphData = typeof import("@lib/curriculum-graph-data");
+
 const GraphPanel = () => {
     const [selected, setSelected] = useState<string | null>(null);
     const [hiddenSubjects, setHiddenSubjects] = useState<ReadonlySet<string>>(new Set<string>());
+    const [data, setData] = useState<GraphData | null>(null);
 
-    const graph = useMemo(() => buildGraph(TOPICS, EDGES, hiddenSubjects), [hiddenSubjects]);
+    // The topic and edge lists are most of this page's weight, so they load after first paint.
+    useEffect(() => {
+        import("@lib/curriculum-graph-data").then(setData);
+    }, []);
+
+    const graph = useMemo(
+        () => (data ? buildGraph(data.TOPICS, data.EDGES, hiddenSubjects) : null),
+        [data, hiddenSubjects]
+    );
 
     const toggleSubject = useCallback(
         (subjectId: string) => {
@@ -18,10 +28,10 @@ const GraphPanel = () => {
             else next.add(subjectId);
             setHiddenSubjects(next);
             // A selection whose subject just went dark has nothing left to point at.
-            const node = TOPICS.find((t) => t.id === selected);
+            const node = data?.TOPICS.find((t) => t.id === selected);
             if (node && next.has(node.subject)) setSelected(null);
         },
-        [hiddenSubjects, selected]
+        [data, hiddenSubjects, selected]
     );
 
     return (
