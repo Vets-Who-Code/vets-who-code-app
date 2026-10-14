@@ -44,6 +44,7 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
                             alt={images[0]?.alt || ""}
                             fill={true}
                             priority={true}
+                            fetchPriority="high"
                             sizes="100vw"
                             className="tw-object-cover"
                         />
