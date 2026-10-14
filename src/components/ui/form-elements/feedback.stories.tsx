@@ -19,7 +19,8 @@ const meta: Meta<typeof Feedback> = {
 export default meta;
 type Story = StoryObj<typeof Feedback>;
 
-export const Error: Story = {
+export const ErrorState: Story = {
+    name: "Error",
     args: {
         state: "error",
         children: "Please enter a valid email address",

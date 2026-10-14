@@ -43,7 +43,7 @@ export async function generateMedia(
     }
 
     // Run audio generation
-    console.log("\n" + "━".repeat(50));
+    console.log(`\n${"━".repeat(50)}`);
     console.log("Step 2/2: Generating blog audio...");
     console.log("━".repeat(50));
     try {
@@ -55,7 +55,7 @@ export async function generateMedia(
     }
 
     // Summary
-    console.log("\n" + "━".repeat(50));
+    console.log(`\n${"━".repeat(50)}`);
     console.log("Summary:");
     console.log("━".repeat(50));
     console.log(`  Image: ${imageOk ? "✅ Success" : "❌ Failed"}`);

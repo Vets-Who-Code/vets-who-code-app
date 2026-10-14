@@ -103,8 +103,11 @@ const sanitizeForSSR = (dirty: string): string => {
             // Filter attributes to only allowed ones
             const safeAttrs: string[] = [];
             const attrRegex = /([a-zA-Z][a-zA-Z0-9-]*)\s*(?:=\s*(?:"([^"]*)"|'([^']*)'|(\S+)))?/g;
-            let attrMatch;
-            while ((attrMatch = attrRegex.exec(attrs)) !== null) {
+            for (
+                let attrMatch = attrRegex.exec(attrs);
+                attrMatch !== null;
+                attrMatch = attrRegex.exec(attrs)
+            ) {
                 const attrName = attrMatch[1].toLowerCase();
                 if (
                     ALLOWED_ATTR_SET.has(attrName) ||

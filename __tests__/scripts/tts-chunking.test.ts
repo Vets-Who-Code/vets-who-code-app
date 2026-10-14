@@ -5,7 +5,7 @@ import {
     normalizeLoudness,
 } from "../../scripts/generate-single-blog-audio";
 
-const paragraph = (words: number) => Array(words).fill("word").join(" ");
+const paragraph = (words: number) => new Array(words).fill("word").join(" ");
 
 describe("chunkForTts", () => {
     it("keeps short text in a single chunk", () => {
@@ -13,7 +13,7 @@ describe("chunkForTts", () => {
     });
 
     it("splits past the per-request word budget", () => {
-        const chunks = chunkForTts(Array(6).fill(paragraph(400)).join("\n\n"));
+        const chunks = chunkForTts(new Array(6).fill(paragraph(400)).join("\n\n"));
         expect(chunks.length).toBeGreaterThan(1);
         for (const chunk of chunks) {
             expect(chunk.split(/\s+/).length).toBeLessThanOrEqual(1500 + 400);
@@ -21,7 +21,7 @@ describe("chunkForTts", () => {
     });
 
     it("loses no words when splitting", () => {
-        const text = Array(6).fill(paragraph(400)).join("\n\n");
+        const text = new Array(6).fill(paragraph(400)).join("\n\n");
         const chunked = chunkForTts(text).join(" ").split(/\s+/).length;
         expect(chunked).toBe(text.split(/\s+/).length);
     });

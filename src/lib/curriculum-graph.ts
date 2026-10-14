@@ -188,7 +188,10 @@ export function buildGraph(
         // Within a layer, place each node inside its subject's sector rather than at an
         // arbitrary point on the circle.
         const perSubject: Record<string, Topic[]> = {};
-        for (const t of row) (perSubject[t.subject] = perSubject[t.subject] || []).push(t);
+        for (const t of row) {
+            perSubject[t.subject] = perSubject[t.subject] || [];
+            perSubject[t.subject].push(t);
+        }
         for (const [subject, members] of Object.entries(perSubject)) {
             const base = sectorAngle[subject] ?? 0;
             members.forEach((t, i) => {
