@@ -3,6 +3,7 @@ import { SectionEyebrow, SharpHeadline } from "@components/ui/design-system";
 import Layout from "@layout/layout-01";
 import Button from "@ui/button";
 import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 
 type PageWithLayout = NextPage & {
     Layout: typeof Layout;
@@ -484,6 +485,16 @@ const MentorshipPage: PageWithLayout = () => {
                             </div>
                         ))}
                     </div>
+                    <p className="tw-mt-12 tw-max-w-[66ch] tw-font-body tw-text-[17px] tw-leading-[1.7] tw-text-gray-300">
+                        Your own growth has a guide too. Read the{" "}
+                        <Link
+                            href="/programs/mentorship/standards"
+                            className="tw-font-semibold tw-text-navy tw-underline"
+                        >
+                            mentor standards and development guide
+                        </Link>
+                        .
+                    </p>
                 </div>
             </section>
 
