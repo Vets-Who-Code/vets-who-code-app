@@ -1,8 +1,7 @@
 import SectionTitle from "@components/section-title";
 import { DOMAIN_TITLES } from "@data/curriculum-domains";
 import siteConfig from "@data/site-config";
-import { MANIFEST, SUBJECTS } from "@lib/curriculum-graph";
-import { TOPICS } from "@lib/curriculum-graph-data";
+import { MANIFEST, SUBJECTS, type Topic } from "@lib/curriculum-graph";
 import Button from "@ui/button";
 import Link from "next/link";
 import styles from "./curriculum-graph.module.css";
@@ -66,19 +65,16 @@ const LAYERS = [
     },
 ];
 
-// A real record, read straight out of the dataset — the section's claim is that every
-// node is specified to this level, so it must not be a hand-written mock.
-const SAMPLE = TOPICS.find((t) => t.id === "ret-faithful") ?? TOPICS[0];
-const SAMPLE_SUBJECT = SUBJECTS.find((s) => s.id === SAMPLE.subject)?.title ?? SAMPLE.subject;
-const NODE_RECORD: [string, React.ReactNode][] = [
-    ["Concept", SAMPLE.label],
-    ["Description", SAMPLE.description],
-    ["Subject", SAMPLE_SUBJECT],
-    ["Domain", SAMPLE.domain],
+// The sample topic arrives as a prop so this module never bundles the full topic list.
+const nodeRecord = (sample: Topic): [string, React.ReactNode][] => [
+    ["Concept", sample.label],
+    ["Description", sample.description],
+    ["Subject", SUBJECTS.find((s) => s.id === sample.subject)?.title ?? sample.subject],
+    ["Domain", sample.domain],
     [
         "Type",
         <>
-            {SAMPLE.type}{" "}
+            {sample.type}{" "}
             <span className={styles.recordAside}>
                 (of: conceptual / procedural / representational / language / meta)
             </span>
@@ -87,13 +83,13 @@ const NODE_RECORD: [string, React.ReactNode][] = [
     [
         "Exit depth",
         <>
-            {SAMPLE.exitDepth}{" "}
+            {sample.exitDepth}{" "}
             <span className={styles.recordAside}>(of: guided / scaffolded / unassisted)</span>
         </>,
     ],
-    ["Market anchor", SAMPLE.marketAnchor.join(" · ")],
-    ["Evidence criterion", SAMPLE.evidence],
-    ["Prerequisite depth", `${SAMPLE.depth} — longest chain of load-bearing links beneath it`],
+    ["Market anchor", sample.marketAnchor.join(" · ")],
+    ["Evidence criterion", sample.evidence],
+    ["Prerequisite depth", `${sample.depth} — longest chain of load-bearing links beneath it`],
 ];
 
 const QUESTIONS = [
@@ -129,7 +125,7 @@ const PROVENANCE = [
     },
 ];
 
-const CurriculumGraphContainer = () => (
+const CurriculumGraphContainer = ({ sample }: { sample: Topic }) => (
     <>
         <div className={styles.metaStrip}>
             {siteConfig.cohortStatus} &nbsp;·&nbsp; 17 weeks &nbsp;·&nbsp; Free &nbsp;·&nbsp; Remote
@@ -314,10 +310,10 @@ const CurriculumGraphContainer = () => (
                             <p className={styles.recordKicker}>
                                 Node T20 &nbsp;·&nbsp; sample record
                             </p>
-                            <p className={styles.recordTitle}>{SAMPLE.label}</p>
+                            <p className={styles.recordTitle}>{sample.label}</p>
                         </div>
                         <dl className={styles.recordTable}>
-                            {NODE_RECORD.map(([term, value]) => (
+                            {nodeRecord(sample).map(([term, value]) => (
                                 <div key={term} className={styles.recordRow}>
                                     <dt className={styles.recordTerm}>{term}</dt>
                                     <dd className={styles.recordValue}>{value}</dd>
