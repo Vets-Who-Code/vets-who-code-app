@@ -11,6 +11,7 @@ import Layout from "@layout/layout-01";
 import Wrapper from "@ui/wrapper/wrapper-04";
 import { normalizedData } from "@utils/methods";
 import type { GetStaticProps, NextPage } from "next";
+import Link from "next/link";
 import { getPageData } from "../lib/page";
 
 interface PageContent {
@@ -91,6 +92,16 @@ const MentorPage: PageProps = ({ data }) => {
                             You don&apos;t need to be a veteran to mentor. You need to be good at
                             your job and willing to invest time in someone who&apos;s working to get
                             where you are.
+                        </p>
+                        <p className="tw-font-body tw-text-gray-300 tw-leading-[1.6] [font-size:clamp(16px,1.2vw,18px)]">
+                            See what good mentoring looks like at each stage in the{" "}
+                            <Link
+                                href="/programs/mentorship/standards"
+                                className="tw-font-semibold tw-text-navy tw-underline"
+                            >
+                                mentor standards and development guide
+                            </Link>
+                            .
                         </p>
                     </div>
                 </div>
