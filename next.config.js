@@ -82,7 +82,15 @@ const nextConfig = {
                         key: "Content-Security-Policy",
                         value: [
                             "default-src 'self'",
-                            "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.clarity.ms https://va.vercel-scripts.com https://www.googletagmanager.com https://pro.fontawesome.com https://cdn.jsdelivr.net",
+                            // CSP exceptions (#1224):
+                            // - 'unsafe-eval' is dev-only; Next's HMR / React Refresh needs eval.
+                            //   No production page needs it (verified against a prod build).
+                            // - 'unsafe-inline' stays for scripts: _document inlines the gtag
+                            //   bootstrap and _app the Clarity loader. Nonces need per-request
+                            //   middleware, which would end static optimization for every SSG
+                            //   page, and hashes would break whenever the inline code or GA ID
+                            //   changes.
+                            `script-src 'self'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""} 'unsafe-inline' https://www.clarity.ms https://va.vercel-scripts.com https://www.googletagmanager.com https://pro.fontawesome.com https://cdn.jsdelivr.net`,
                             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://pro.fontawesome.com",
                             "img-src 'self' data: blob: https://res.cloudinary.com https://avatars.githubusercontent.com https://github.githubassets.com https://www.paypalobjects.com https://cdn.shopify.com https://*.myshopify.com https://cdn.jsdelivr.net https://widgets.guidestar.org https://*.googleapis.com https://images.huffingtonpost.com https://images.ctfassets.net https://www.hackerrank.com https://*.businessinsider.com https://i.insider.com https://cdn.sstatic.net https://i.stack.imgur.com https://stackoverflow.blog https://cdn.stackoverflow.co",
                             "font-src 'self' data: https://fonts.gstatic.com https://pro.fontawesome.com",
