@@ -192,7 +192,7 @@ export function buildGraph(
         for (const [subject, members] of Object.entries(perSubject)) {
             const base = sectorAngle[subject] ?? 0;
             members.forEach((t, i) => {
-                const spread = members.length === 1 ? 0 : (i / (members.length - 1) - 0.5);
+                const spread = members.length === 1 ? 0 : i / (members.length - 1) - 0.5;
                 const a = base + spread * sectorWidth;
                 positions[t.id] = {
                     x: Math.cos(a) * radius,

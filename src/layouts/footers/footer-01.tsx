@@ -41,10 +41,7 @@ const Footer01 = ({ mode }: TProps) => {
                             style={{
                                 fontFamily: "var(--font-mono)",
                                 fontSize: "10px",
-                                color:
-                                    mode === "dark"
-                                        ? "#F8F9FA"
-                                        : "var(--navy, #091f40)",
+                                color: mode === "dark" ? "#F8F9FA" : "var(--navy, #091f40)",
                                 letterSpacing: "0.08em",
                                 textTransform: "uppercase",
                                 marginBottom: "8px",

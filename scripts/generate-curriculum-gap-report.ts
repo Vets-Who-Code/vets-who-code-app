@@ -56,7 +56,13 @@ function main() {
 
     const roleStats = new Map<
         string,
-        { highMatch: number; goodMatch: number; moderateMatch: number; weightedScore: number; byBranch: Map<string, number> }
+        {
+            highMatch: number;
+            goodMatch: number;
+            moderateMatch: number;
+            weightedScore: number;
+            byBranch: Map<string, number>;
+        }
     >();
     const skillFrequency = new Map<string, number>();
 
@@ -101,9 +107,7 @@ function main() {
         .sort((a, b) => b.weightedScore - a.weightedScore);
 
     // Top skills by demand
-    const topSkills = [...skillFrequency.entries()]
-        .sort(([, a], [, b]) => b - a)
-        .slice(0, 30);
+    const topSkills = [...skillFrequency.entries()].sort(([, a], [, b]) => b - a).slice(0, 30);
 
     // Build markdown
     const generatedAt = new Date().toISOString();
@@ -112,7 +116,9 @@ function main() {
     lines.push("");
     lines.push(`Generated ${generatedAt} from \`tech-pathways-map.json\`.`);
     lines.push("");
-    lines.push(`Analyzed **${totalCodes}** MOS codes across all branches. Roles below are ranked by weighted recommendation score: each "high match" counts 3, "good" 2, "moderate" 1.`);
+    lines.push(
+        `Analyzed **${totalCodes}** MOS codes across all branches. Roles below are ranked by weighted recommendation score: each "high match" counts 3, "good" 2, "moderate" 1.`
+    );
     lines.push("");
     lines.push("## Top tech roles by veteran fit demand");
     lines.push("");
@@ -126,7 +132,9 @@ function main() {
     lines.push("");
     lines.push("## Top recommended skills (curriculum signal)");
     lines.push("");
-    lines.push("Skills that show up most often in `skillsToLearn` — concrete signals about what curriculum content would serve the most veterans.");
+    lines.push(
+        "Skills that show up most often in `skillsToLearn` — concrete signals about what curriculum content would serve the most veterans."
+    );
     lines.push("");
     lines.push("| Skill | Frequency |");
     lines.push("|---|---:|");
@@ -136,9 +144,15 @@ function main() {
     lines.push("");
     lines.push("## How to read this");
     lines.push("");
-    lines.push("- A role with high **weighted score** but few **high matches** means it's broadly applicable but not a deep fit for any single MOS — useful as a back-pocket option, not a flagship.");
-    lines.push("- A role with concentrated **high matches** in one branch is a niche — possibly worth a branch-specific path.");
-    lines.push("- The **skill frequency** list is the curriculum demand signal: skills appearing 1000+ times across MOSes are universal pre-reqs; rare skills are specialty paths.");
+    lines.push(
+        "- A role with high **weighted score** but few **high matches** means it's broadly applicable but not a deep fit for any single MOS — useful as a back-pocket option, not a flagship."
+    );
+    lines.push(
+        "- A role with concentrated **high matches** in one branch is a niche — possibly worth a branch-specific path."
+    );
+    lines.push(
+        "- The **skill frequency** list is the curriculum demand signal: skills appearing 1000+ times across MOSes are universal pre-reqs; rare skills are specialty paths."
+    );
     lines.push("");
 
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });

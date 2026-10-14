@@ -82,7 +82,6 @@ const TabContainer = ({ className, children, variant, idPrefix = "tab" }: Contai
     return <div className={clsx("tab", className)}>{renderChildren}</div>;
 };
 
-export { TabContainer, TabList, TabNav, TabContent, TabPane };
 export type {
     ContainerProps,
     ContentProps,
@@ -92,5 +91,6 @@ export type {
     TProps,
     TVariant,
 } from "./types";
+export { TabContainer, TabContent, TabList, TabNav, TabPane };
 
 export default TabContainer;

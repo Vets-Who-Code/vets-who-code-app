@@ -29,7 +29,9 @@ describe("chunkForTts", () => {
 
 describe("cleanMarkdownToText", () => {
     it("drops images instead of narrating their alt text", () => {
-        const clean = cleanMarkdownToText("Intro.\n\n![A chart of the job market](v123/chart.jpg)\n\nOutro.");
+        const clean = cleanMarkdownToText(
+            "Intro.\n\n![A chart of the job market](v123/chart.jpg)\n\nOutro."
+        );
         expect(clean).not.toContain("chart");
         expect(clean).toContain("Intro.");
         expect(clean).toContain("Outro.");
@@ -44,7 +46,10 @@ const tone = (seconds: number, amplitude: number) => {
     const samples = Math.round(24000 * seconds);
     const pcm = Buffer.alloc(samples * 2);
     for (let i = 0; i < samples; i++) {
-        pcm.writeInt16LE(Math.round(Math.sin((i / 24000) * 2 * Math.PI * 220) * amplitude * 32767), i * 2);
+        pcm.writeInt16LE(
+            Math.round(Math.sin((i / 24000) * 2 * Math.PI * 220) * amplitude * 32767),
+            i * 2
+        );
     }
     return pcm;
 };

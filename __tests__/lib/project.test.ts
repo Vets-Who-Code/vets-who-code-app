@@ -55,25 +55,28 @@ describe("project records (data contract)", () => {
         expect(records).toHaveLength(jsonFiles.length);
     });
 
-    it.each(
-        records.map((record) => [record.slug, record] as const)
-    )("%s carries the catalog fields", (_slug, record) => {
-        expect(record.summary.trim().length).toBeGreaterThan(0);
-        expect(record.summary.length).toBeLessThanOrEqual(160);
-        expect(record.serves.trim().length).toBeGreaterThan(0);
-        expect(record.owner).toBe("Vets-Who-Code");
-        expect(["live", "maintained", "archived"]).toContain(record.status);
-        expect(record.shippedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-        expect(record.builtBy.length).toBeGreaterThan(0);
-        for (const contributor of record.builtBy) {
-            expect(contributor.login).toMatch(/^[A-Za-z0-9-]+$/);
-            if (contributor.profile) expect(contributor.profile).toMatch(/^\//);
-            if (contributor.story) {
-                const post = `${contributor.story.replace(/^\/blogs\//, "")}.md`;
-                expect(fs.existsSync(path.join(process.cwd(), "src/data/blogs", post))).toBe(true);
+    it.each(records.map((record) => [record.slug, record] as const))(
+        "%s carries the catalog fields",
+        (_slug, record) => {
+            expect(record.summary.trim().length).toBeGreaterThan(0);
+            expect(record.summary.length).toBeLessThanOrEqual(160);
+            expect(record.serves.trim().length).toBeGreaterThan(0);
+            expect(record.owner).toBe("Vets-Who-Code");
+            expect(["live", "maintained", "archived"]).toContain(record.status);
+            expect(record.shippedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+            expect(record.builtBy.length).toBeGreaterThan(0);
+            for (const contributor of record.builtBy) {
+                expect(contributor.login).toMatch(/^[A-Za-z0-9-]+$/);
+                if (contributor.profile) expect(contributor.profile).toMatch(/^\//);
+                if (contributor.story) {
+                    const post = `${contributor.story.replace(/^\/blogs\//, "")}.md`;
+                    expect(fs.existsSync(path.join(process.cwd(), "src/data/blogs", post))).toBe(
+                        true
+                    );
+                }
             }
         }
-    });
+    );
 
     it("lists no private or founder-only repository", () => {
         const repos = records.map((record) => record.repo);
