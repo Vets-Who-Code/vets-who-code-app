@@ -1,8 +1,8 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
+import fs from "fs";
+import path from "path";
 import { z } from "zod";
 import { withGeneratedAt } from "./lib/generated-at";
 
@@ -98,8 +98,12 @@ async function main() {
     const descriptionsPath = path.join(process.cwd(), "src/data/job-codes-descriptions.json");
     const outputPath = path.join(process.cwd(), "src/data/training-pipeline.json");
 
-    const descriptions: Record<string, string> = JSON.parse(fs.readFileSync(descriptionsPath, "utf-8"));
-    const existingMap: Record<string, TrainingEntry> = JSON.parse(fs.readFileSync(outputPath, "utf-8"));
+    const descriptions: Record<string, string> = JSON.parse(
+        fs.readFileSync(descriptionsPath, "utf-8")
+    );
+    const existingMap: Record<string, TrainingEntry> = JSON.parse(
+        fs.readFileSync(outputPath, "utf-8")
+    );
 
     // Build lookup: raw code -> { branch, description }
     // First occurrence wins for branch; descriptions concatenate
@@ -108,7 +112,10 @@ async function main() {
         const { branch, code } = parseBranchAndCode(branchCode);
         if (codeData.has(code)) {
             const existing = codeData.get(code)!;
-            codeData.set(code, { branch: existing.branch, description: `${existing.description}\n\n${desc}` });
+            codeData.set(code, {
+                branch: existing.branch,
+                description: `${existing.description}\n\n${desc}`,
+            });
         } else {
             codeData.set(code, { branch, description: desc });
         }
@@ -134,7 +141,9 @@ async function main() {
         const batchNum = Math.floor(i / BATCH_SIZE) + 1;
         const totalBatches = Math.ceil(codesToGenerate.length / BATCH_SIZE);
 
-        console.log(`\nBatch ${batchNum}/${totalBatches} (codes ${i + 1}-${Math.min(i + BATCH_SIZE, codesToGenerate.length)})`);
+        console.log(
+            `\nBatch ${batchNum}/${totalBatches} (codes ${i + 1}-${Math.min(i + BATCH_SIZE, codesToGenerate.length)})`
+        );
 
         const results = await Promise.allSettled(
             batch.map(async ([code, data]) => {

@@ -1,4 +1,9 @@
-import { saveOfflineProgress, getOfflineQueue, clearOfflineQueue, isOnline } from "@/lib/offline-sync";
+import {
+    clearOfflineQueue,
+    getOfflineQueue,
+    isOnline,
+    saveOfflineProgress,
+} from "@/lib/offline-sync";
 
 // Mock SafeLocalStorage
 const store = new Map<string, string>();

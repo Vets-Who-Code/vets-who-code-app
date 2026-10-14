@@ -140,20 +140,22 @@ describe("image alt fallbacks", () => {
     describe("NavItem", () => {
         // Regression: the old expression parsed as `(image.alt || variant === "prev") ? ... : ...`,
         // so the hover background was announced even when the link already carried the title.
-        it.each([
-            "prev",
-            "next",
-        ] as const)("keeps the %s hover background decorative even when image.alt is set", (variant) => {
-            const { container } = render(
-                <NavItem
-                    title="From Combat to Code"
-                    path="/blogs/combat-to-code"
-                    image={{ src: "/images/combat.jpg", alt: "Marine at a laptop" }}
-                    variant={variant}
-                />
-            );
-            expect(container.querySelector("img")).toHaveAttribute("alt", "");
-            expect(screen.getByRole("link", { name: "From Combat to Code" })).toBeInTheDocument();
-        });
+        it.each(["prev", "next"] as const)(
+            "keeps the %s hover background decorative even when image.alt is set",
+            (variant) => {
+                const { container } = render(
+                    <NavItem
+                        title="From Combat to Code"
+                        path="/blogs/combat-to-code"
+                        image={{ src: "/images/combat.jpg", alt: "Marine at a laptop" }}
+                        variant={variant}
+                    />
+                );
+                expect(container.querySelector("img")).toHaveAttribute("alt", "");
+                expect(
+                    screen.getByRole("link", { name: "From Combat to Code" })
+                ).toBeInTheDocument();
+            }
+        );
     });
 });
