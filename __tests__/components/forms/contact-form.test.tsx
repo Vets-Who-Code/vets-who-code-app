@@ -31,6 +31,14 @@ const submit = () => fireEvent.click(screen.getByRole("button", { name: "Send Me
 
 const roleButton = (name: string) => screen.getByRole("button", { name });
 
+// What postJson rejects with on a non-2xx status: an Error carrying the Response.
+const httpError = (status: number, body: unknown) => {
+    const response = new Response(typeof body === "string" ? body : JSON.stringify(body), {
+        status,
+    });
+    return Object.assign(new Error(`Request failed with status code ${status}`), { response });
+};
+
 describe("ContactUsForm", () => {
     beforeEach(() => {
         mockPost.mockReset();
@@ -185,6 +193,60 @@ describe("ContactUsForm", () => {
         expect(screen.getByRole("status")).toHaveTextContent(FAILURE);
         expect(screen.queryByText(SUCCESS)).not.toBeInTheDocument();
         expect(field("Name")).toHaveValue(VALID.name);
+    });
+
+    it("shows the rate-limit message from a 429 response body", async () => {
+        mockPost.mockRejectedValue(
+            httpError(429, { error: "Too many requests. Please try again later." })
+        );
+        render(<ContactUsForm />);
+
+        fillRequiredFields();
+        submit();
+
+        expect(await screen.findByRole("status")).toHaveTextContent(
+            "Too many requests. Please try again later."
+        );
+        expect(field("Name")).toHaveValue(VALID.name);
+    });
+
+    it("shows the validation message from a 400 response body", async () => {
+        mockPost.mockRejectedValue(
+            httpError(400, { error: "Message is too short for submission" })
+        );
+        render(<ContactUsForm />);
+
+        fillRequiredFields();
+        submit();
+
+        expect(await screen.findByRole("status")).toHaveTextContent(
+            "Message is too short for submission"
+        );
+    });
+
+    it("falls back to a per-status message when a 4xx body is unreadable", async () => {
+        mockPost.mockRejectedValue(httpError(429, "not json"));
+        render(<ContactUsForm />);
+
+        fillRequiredFields();
+        submit();
+
+        expect(await screen.findByRole("status")).toHaveTextContent(
+            "Too many messages sent. Please wait a minute and try again."
+        );
+    });
+
+    it("never shows the body of a 500 response", async () => {
+        mockPost.mockRejectedValue(
+            httpError(500, { message: "Failed post to #contact channel: secret detail" })
+        );
+        render(<ContactUsForm />);
+
+        fillRequiredFields();
+        submit();
+
+        expect(await screen.findByRole("status")).toHaveTextContent(FAILURE);
+        expect(screen.queryByText(/secret detail/)).not.toBeInTheDocument();
     });
 
     it("shows the error message when the response is not a 200", async () => {
