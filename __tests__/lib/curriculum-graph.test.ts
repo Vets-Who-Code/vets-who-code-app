@@ -141,7 +141,8 @@ describe("buildGraph", () => {
         expect(graph?.radius).toBeCloseTo(furthest, 6);
     });
 
-    it("lays out the full dataset fast enough for a click", () => {
+    // Coverage instrumentation slows every call, so the timing bound only holds without it.
+    it.skipIf(process.env.COVERAGE)("lays out the full dataset fast enough for a click", () => {
         buildGraph(TOPICS, EDGES); // warm
         const started = performance.now();
         buildGraph(TOPICS, EDGES);
