@@ -268,6 +268,8 @@ export interface IBlog {
     content: string;
     excerpt: string;
     audioUrl?: string | null;
+    /** Career-guide keys (training-pipeline.json, e.g. "YN_CG") for the job the author served in. */
+    jobCodes?: string[];
 }
 
 export interface ISocial {
