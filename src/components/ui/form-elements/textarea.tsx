@@ -84,7 +84,11 @@ const Textarea = forwardRef<HTMLTextAreaElement, IProps>(
                     readOnly={readonly}
                     {...restProps}
                 />
-                {reserveFeedback ? <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div> : feedback}
+                {reserveFeedback ? (
+                    <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div>
+                ) : (
+                    feedback
+                )}
             </>
         );
     }

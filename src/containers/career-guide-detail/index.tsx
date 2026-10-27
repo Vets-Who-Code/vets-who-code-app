@@ -36,9 +36,9 @@ const CareerGuideDetailContainer = ({ detail }: Props) => (
                 <p className="tw-flex tw-items-start tw-gap-2.5 tw-rounded-md tw-border tw-border-cream/15 tw-bg-cream/5 tw-px-4 tw-py-3 tw-font-body tw-text-[12.5px] tw-leading-[1.55] tw-text-[#DEE2E6]">
                     <i className="fas fa-info-circle tw-mt-0.5 tw-text-accent" aria-hidden={true} />
                     <span>
-                        This career guide was generated using AI analysis of military job code
-                        data. Salary figures, certification coverage percentages, and career matches
-                        are estimates — verify with official sources before making career decisions.
+                        This career guide was generated using AI analysis of military job code data.
+                        Salary figures, certification coverage percentages, and career matches are
+                        estimates — verify with official sources before making career decisions.
                     </span>
                 </p>
             </div>

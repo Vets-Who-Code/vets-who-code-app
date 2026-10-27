@@ -65,7 +65,6 @@ const DifferentiatorsSection = () => {
                         </motion.div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

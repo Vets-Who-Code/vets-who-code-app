@@ -1,7 +1,7 @@
 import "dotenv/config";
+import { GoogleGenAI } from "@google/genai";
 import * as fs from "fs";
 import * as path from "path";
-import { GoogleGenAI } from "@google/genai";
 import cloudinary from "@/lib/cloudinary";
 import { imagenPromptVariants, type Theme } from "./image-prompts";
 
@@ -10,35 +10,33 @@ const BLOG_DIR = path.resolve(process.cwd(), "src/data/blogs");
 const MAX_RETRIES = 3;
 
 type BlogPostSummary = {
-  title: string;
-  content: string;
+    title: string;
+    content: string;
 };
 
 export function readBlogPost(slug: string): BlogPostSummary {
-  const filePath = path.join(BLOG_DIR, `${slug}.md`);
+    const filePath = path.join(BLOG_DIR, `${slug}.md`);
 
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Blog post not found for slug "${slug}".`);
-  }
+    if (!fs.existsSync(filePath)) {
+        throw new Error(`Blog post not found for slug "${slug}".`);
+    }
 
-  const raw = fs.readFileSync(filePath, "utf-8");
+    const raw = fs.readFileSync(filePath, "utf-8");
 
-  const titleMatch = raw.match(/^title:\s*["']?(.+?)["']?\s*$/m);
-  const title = titleMatch?.[1]?.trim() ?? slug;
-  const content = raw.replace(/^---[\s\S]*?---\n?/, "").trim();
+    const titleMatch = raw.match(/^title:\s*["']?(.+?)["']?\s*$/m);
+    const title = titleMatch?.[1]?.trim() ?? slug;
+    const content = raw.replace(/^---[\s\S]*?---\n?/, "").trim();
 
-  return { title, content };
+    return { title, content };
 }
 
 async function generateBlogStructuredDataWithGemini(
-  title: string,
-  content: string,
+    title: string,
+    content: string
 ): Promise<Theme> {
-  console.log(
-    "\x1b[34m\x1b[43m\x1b[1m🤖 Analyzing blog content with Gemini...\x1b[0m",
-  );
+    console.log("\x1b[34m\x1b[43m\x1b[1m🤖 Analyzing blog content with Gemini...\x1b[0m");
 
-  const prompt = `Analyze this blog post and create a visual theme for a 1950s propaganda-style poster.
+    const prompt = `Analyze this blog post and create a visual theme for a 1950s propaganda-style poster.
 
 Blog Title: ${title}
 Blog Content: ${content}
@@ -57,143 +55,135 @@ Rules:
 - All tone must be positive and empowering
 - No references to text or typography`;
 
-  const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
-    contents: prompt,
-  });
+    const response = await ai.models.generateContent({
+        model: "gemini-3.1-pro-preview",
+        contents: prompt,
+    });
 
-  const raw = response.text ?? "";
-  const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
+    const raw = response.text ?? "";
+    const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
 
-  let theme;
+    let theme;
 
-  try {
-    theme = JSON.parse(cleaned);
-  } catch (err: any) {
-    const truncated =
-      cleaned.length > 1000 ? `${cleaned.slice(0, 1000)}...` : cleaned;
-    throw new Error(
-      `Failed to parse Gemini JSON response: ${err?.message ?? err}\nCleaned payload (truncated):\n${truncated}`,
-    );
-  }
+    try {
+        theme = JSON.parse(cleaned);
+    } catch (err: any) {
+        const truncated = cleaned.length > 1000 ? `${cleaned.slice(0, 1000)}...` : cleaned;
+        throw new Error(
+            `Failed to parse Gemini JSON response: ${err?.message ?? err}\nCleaned payload (truncated):\n${truncated}`
+        );
+    }
 
-  return theme;
+    return theme;
 }
 
 export function buildImagenPrompt(theme: Theme, variantIndex = 0): string {
-  return imagenPromptVariants[variantIndex](theme);
+    return imagenPromptVariants[variantIndex](theme);
 }
 
 async function generateImage(prompt: string): Promise<string> {
-  console.log(
-    "\n\x1b[34m\x1b[43m\x1b[1m🖼️ Generating image with Gemini...\x1b[0m",
-  );
+    console.log("\n\x1b[34m\x1b[43m\x1b[1m🖼️ Generating image with Gemini...\x1b[0m");
 
-  const response = await ai.models.generateContent({
-    model: "gemini-3-pro-image",
-    contents: prompt,
-    config: {
-      imageConfig: { aspectRatio: "16:9" },
-    },
-  });
+    const response = await ai.models.generateContent({
+        model: "gemini-3-pro-image",
+        contents: prompt,
+        config: {
+            imageConfig: { aspectRatio: "16:9" },
+        },
+    });
 
-  const imageBytes = response.candidates?.[0]?.content?.parts?.find(
-    (part) => part.inlineData?.data,
-  )?.inlineData?.data;
-  if (!imageBytes) {
-    throw new Error("Gemini returned no image bytes.");
-  }
+    const imageBytes = response.candidates?.[0]?.content?.parts?.find(
+        (part) => part.inlineData?.data
+    )?.inlineData?.data;
+    if (!imageBytes) {
+        throw new Error("Gemini returned no image bytes.");
+    }
 
-  return imageBytes;
+    return imageBytes;
 }
 
-async function uploadToCloudinary(
-  imageBytes: string,
-  slug: string,
-): Promise<string> {
-  // Wrap base64 bytes as a data URI so Cloudinary knows the format
-  const dataUri = `data:image/png;base64,${imageBytes}`;
+async function uploadToCloudinary(imageBytes: string, slug: string): Promise<string> {
+    // Wrap base64 bytes as a data URI so Cloudinary knows the format
+    const dataUri = `data:image/png;base64,${imageBytes}`;
 
-  return new Promise((resolve, reject) => {
-    cloudinary.uploader.upload(
-      dataUri,
-      {
-        resource_type: "image",
-        public_id: slug,
-        folder: "blog-images",
-        overwrite: true,
-        invalidate: true,
-      },
-      (error, result) => {
-        if (error) {
-          reject(error);
-        } else if (result?.secure_url) {
-          resolve(result.secure_url);
-        } else {
-          reject(new Error("Upload succeeded but no secure_url returned"));
-        }
-      },
-    );
-  });
+    return new Promise((resolve, reject) => {
+        cloudinary.uploader.upload(
+            dataUri,
+            {
+                resource_type: "image",
+                public_id: slug,
+                folder: "blog-images",
+                overwrite: true,
+                invalidate: true,
+            },
+            (error, result) => {
+                if (error) {
+                    reject(error);
+                } else if (result?.secure_url) {
+                    resolve(result.secure_url);
+                } else {
+                    reject(new Error("Upload succeeded but no secure_url returned"));
+                }
+            }
+        );
+    });
 }
 
 export async function main() {
-  // Read the slug from the command line
-  const slug = process.argv[2];
-  if (!slug) {
-    throw new Error("No slug provided as argument.");
-  }
+    // Read the slug from the command line
+    const slug = process.argv[2];
+    if (!slug) {
+        throw new Error("No slug provided as argument.");
+    }
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    throw new Error("Missing GEMINI_API_KEY.");
-  }
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+        throw new Error("Missing GEMINI_API_KEY.");
+    }
 
-  // Initialize the client here
-  ai = new GoogleGenAI({ apiKey });
+    // Initialize the client here
+    ai = new GoogleGenAI({ apiKey });
 
-  // Read the blog post content from markdown file.
-  const { title, content } = readBlogPost(slug);
+    // Read the blog post content from markdown file.
+    const { title, content } = readBlogPost(slug);
 
-  // Call Gemini to analyze the content and return JSON describing a visual theme.
-  const theme = await generateBlogStructuredDataWithGemini(title, content);
+    // Call Gemini to analyze the content and return JSON describing a visual theme.
+    const theme = await generateBlogStructuredDataWithGemini(title, content);
 
-  const imageBytes = await generateImageWithRetry(theme);
+    const imageBytes = await generateImageWithRetry(theme);
 
-  const url = await uploadToCloudinary(imageBytes, slug);
+    const url = await uploadToCloudinary(imageBytes, slug);
 
-  console.log(
-    `\n\x1b[34m\x1b[43m\x1b[1m Uploaded! Cloudinary URL: ${url}\x1b[0m`,
-  );
+    console.log(`\n\x1b[34m\x1b[43m\x1b[1m Uploaded! Cloudinary URL: ${url}\x1b[0m`);
 }
 
 if (require.main === module) {
-  main().catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+    main().catch((err) => {
+        console.error(err);
+        process.exit(1);
+    });
 }
 
 // Detect if any tecxt exists on image
 async function detectTextInImage(
-  imageBase64: string,
+    imageBase64: string
 ): Promise<{ hasText: boolean; detectedText?: string }> {
-  console.log("  🔍 Checking image for text...");
+    console.log("  🔍 Checking image for text...");
 
-  const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
-    contents: [
-      {
-        role: "user",
-        parts: [
-          {
-            inlineData: {
-              mimeType: "image/png",
-              data: imageBase64,
-            },
-          },
-          {
-            text: `Analyze this image carefully. Does it contain ANY text, letters, numbers, words, labels, captions, or typography of any kind?
+    const response = await ai.models.generateContent({
+        model: "gemini-3.1-pro-preview",
+        contents: [
+            {
+                role: "user",
+                parts: [
+                    {
+                        inlineData: {
+                            mimeType: "image/png",
+                            data: imageBase64,
+                        },
+                    },
+                    {
+                        text: `Analyze this image carefully. Does it contain ANY text, letters, numbers, words, labels, captions, or typography of any kind?
 
 Be VERY strict: even a single letter or number counts as text.
 
@@ -202,49 +192,49 @@ Respond with ONLY a JSON object (no markdown fences):
   "hasText": true or false,
   "detectedText": "describe any text you see, or null if none"
 }`,
-          },
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  });
+    });
 
-  const raw = response.text ?? "{}";
-  const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
+    const raw = response.text ?? "{}";
+    const cleaned = raw.replace(/```(?:json)?|```/g, "").trim();
 
-  try {
-    return JSON.parse(cleaned);
-  } catch {
-    // If parsing fails, assume no text (fail open)
-    return { hasText: false };
-  }
+    try {
+        return JSON.parse(cleaned);
+    } catch {
+        // If parsing fails, assume no text (fail open)
+        return { hasText: false };
+    }
 }
 
 async function generateImageWithRetry(theme: Theme): Promise<string> {
-  for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    console.log(`\n📸 Attempt ${attempt}/${MAX_RETRIES}`);
-    let prompt = buildImagenPrompt(theme, attempt - 1);
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+        console.log(`\n📸 Attempt ${attempt}/${MAX_RETRIES}`);
+        const prompt = buildImagenPrompt(theme, attempt - 1);
 
-    const imageBytes = await generateImage(prompt);
+        const imageBytes = await generateImage(prompt);
 
-    // Check for text
-    const textCheck = await detectTextInImage(imageBytes);
+        // Check for text
+        const textCheck = await detectTextInImage(imageBytes);
 
-    if (!textCheck.hasText) {
-      console.log("  ✅ No text detected - image is valid!");
-      return imageBytes;
+        if (!textCheck.hasText) {
+            console.log("  ✅ No text detected - image is valid!");
+            return imageBytes;
+        }
+
+        console.log(` ⚠️  Text detected: "${textCheck.detectedText}"`);
+
+        if (attempt < MAX_RETRIES) {
+            console.log("  🔄 Retrying...");
+        } else {
+            console.log(
+                " ⚠️  Max retries reached. Proceeding with last image (manual review recommended)."
+            );
+            return imageBytes;
+        }
     }
 
-    console.log(` ⚠️  Text detected: "${textCheck.detectedText}"`);
-
-    if (attempt < MAX_RETRIES) {
-      console.log("  🔄 Retrying...");
-    } else {
-      console.log(
-        " ⚠️  Max retries reached. Proceeding with last image (manual review recommended).",
-      );
-      return imageBytes;
-    }
-  }
-
-  throw new Error("Failed to generate image without text after max retries");
+    throw new Error("Failed to generate image without text after max retries");
 }
