@@ -194,6 +194,21 @@ export interface VWCProjectContributor {
     story?: string;
 }
 
+/** A merged troop PR, captured at authoring time so it never depends on the GitHub API. */
+export interface VWCFeaturedPullRequest {
+    /** Repository name under the project's owner. */
+    repo: string;
+    number: number;
+    title: string;
+    url: string;
+    /** GitHub login; must appear in the project's builtBy. */
+    author: string;
+    /** ISO date (YYYY-MM-DD) the PR merged. */
+    mergedAt: string;
+    /** One sentence on what shipped and how it was reviewed, factual from the PR itself. */
+    note: string;
+}
+
 export type VWCProjectStatus = "live" | "maintained" | "archived";
 
 export interface VWCProjectDetails {
@@ -209,6 +224,7 @@ export interface VWCProjectDetails {
     long_description: string[];
     technologies: string[];
     builtBy: VWCProjectContributor[];
+    featuredPullRequests?: VWCFeaturedPullRequest[];
     /** ISO date (YYYY-MM-DD) of the first ship; the repo's created_at when unknown. */
     shippedAt: string;
     status: VWCProjectStatus;

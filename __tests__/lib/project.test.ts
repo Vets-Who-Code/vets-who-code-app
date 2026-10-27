@@ -4,6 +4,7 @@ import type { Mock } from "vitest";
 import { getGithubRepo } from "@/lib/github";
 import {
     getAllProjects,
+    getLatestFeaturedPullRequest,
     getProjectBySlug,
     getProjectData,
     getProjectPageData,
@@ -55,23 +56,45 @@ describe("project records (data contract)", () => {
         expect(records).toHaveLength(jsonFiles.length);
     });
 
-    it.each(
-        records.map((record) => [record.slug, record] as const)
-    )("%s carries the catalog fields", (_slug, record) => {
-        expect(record.summary.trim().length).toBeGreaterThan(0);
-        expect(record.summary.length).toBeLessThanOrEqual(160);
-        expect(record.serves.trim().length).toBeGreaterThan(0);
-        expect(record.owner).toBe("Vets-Who-Code");
-        expect(["live", "maintained", "archived"]).toContain(record.status);
-        expect(record.shippedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-        expect(record.builtBy.length).toBeGreaterThan(0);
-        for (const contributor of record.builtBy) {
-            expect(contributor.login).toMatch(/^[A-Za-z0-9-]+$/);
-            if (contributor.profile) expect(contributor.profile).toMatch(/^\//);
-            if (contributor.story) {
-                const post = `${contributor.story.replace(/^\/blogs\//, "")}.md`;
-                expect(fs.existsSync(path.join(process.cwd(), "src/data/blogs", post))).toBe(true);
+    it.each(records.map((record) => [record.slug, record] as const))(
+        "%s carries the catalog fields",
+        (_slug, record) => {
+            expect(record.summary.trim().length).toBeGreaterThan(0);
+            expect(record.summary.length).toBeLessThanOrEqual(160);
+            expect(record.serves.trim().length).toBeGreaterThan(0);
+            expect(record.owner).toBe("Vets-Who-Code");
+            expect(["live", "maintained", "archived"]).toContain(record.status);
+            expect(record.shippedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+            expect(record.builtBy.length).toBeGreaterThan(0);
+            for (const contributor of record.builtBy) {
+                expect(contributor.login).toMatch(/^[A-Za-z0-9-]+$/);
+                if (contributor.profile) expect(contributor.profile).toMatch(/^\//);
+                if (contributor.story) {
+                    const post = `${contributor.story.replace(/^\/blogs\//, "")}.md`;
+                    expect(fs.existsSync(path.join(process.cwd(), "src/data/blogs", post))).toBe(
+                        true
+                    );
+                }
             }
+        }
+    );
+
+    it.each(
+        records
+            .filter((record) => record.featuredPullRequests)
+            .map((record) => [record.slug, record] as const)
+    )("%s features only merged PRs from its own repo by its builtBy troops", (_slug, record) => {
+        const logins = record.builtBy.map((contributor) => contributor.login);
+        for (const pr of record.featuredPullRequests ?? []) {
+            expect(logins).toContain(pr.author);
+            expect(pr.author).not.toBe("jeromehardaway");
+            expect(pr.repo).toBe(record.repo);
+            expect(pr.url).toBe(
+                `https://github.com/${record.owner}/${record.repo}/pull/${pr.number}`
+            );
+            expect(pr.mergedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+            expect(pr.title.trim().length).toBeGreaterThan(0);
+            expect(pr.note.trim().length).toBeGreaterThan(0);
         }
     });
 
@@ -79,6 +102,22 @@ describe("project records (data contract)", () => {
         const repos = records.map((record) => record.repo);
         expect(repos).not.toContain("web-curriculum");
         expect(repos).not.toContain("vets-who-code.github.io");
+    });
+});
+
+describe("getLatestFeaturedPullRequest", () => {
+    it("returns the most recently merged featured PR across the catalog", () => {
+        const all = getAllProjects().flatMap((project) => project.featuredPullRequests ?? []);
+        const latest = getLatestFeaturedPullRequest();
+
+        expect(latest).not.toBeNull();
+        for (const pr of all) expect((latest?.mergedAt ?? "") >= pr.mergedAt).toBe(true);
+    });
+
+    it("returns null when no record features a PR", () => {
+        const readdir = vi.spyOn(fs, "readdirSync").mockReturnValue(["prework.json"] as never);
+        expect(getLatestFeaturedPullRequest()).toBeNull();
+        readdir.mockRestore();
     });
 });
 
