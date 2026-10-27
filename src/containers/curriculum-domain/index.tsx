@@ -142,6 +142,13 @@ const CurriculumDomainContainer = ({ page }: Props) => {
                         title="What you will be able to do"
                         description="In prerequisite order. Each idea names the artifact that closes it, the market demand that put it on the map, and what it stands on."
                     />
+                    <p className={styles.note}>
+                        Every Evidence line on this page is part of the standard we train to.{" "}
+                        <Link href="/the-standard" className={styles.topicLink}>
+                            See the whole standard
+                        </Link>
+                        .
+                    </p>
                     <div className={styles.topicList}>
                         {page.topics.map((topic) => (
                             <article key={topic.id} id={topic.id} className={styles.topic}>
