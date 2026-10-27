@@ -1,7 +1,7 @@
 import Button from "@ui/button";
 import Feedback from "@ui/form-elements/feedback";
 import { hasKey } from "@utils/methods";
-import { postJson } from "@utils/post-json";
+import { type HttpError, postJson } from "@utils/post-json";
 import {
     type ValidationResult,
     validateEmail,
@@ -45,6 +45,28 @@ const MONO_LABEL = "tw-font-mono tw-text-[11px] tw-uppercase tw-tracking-[0.1em]
 
 type TProps = { heading?: string };
 
+const GENERIC_ERROR = "There was an error. Please try again later.";
+
+// The API's 4xx bodies carry a short, server-authored `error` string that is safe to
+// show. 5xx bodies can include internal details, so those get the generic message.
+const FALLBACK_BY_STATUS: Record<number, string> = {
+    400: "Your message is too short. Please add more detail.",
+    422: "Please fill in your email and message.",
+    429: "Too many messages sent. Please wait a minute and try again.",
+};
+
+const errorMessageFor = async (error: unknown): Promise<string> => {
+    const response = (error as Partial<HttpError> | undefined)?.response;
+    const fallback = response && FALLBACK_BY_STATUS[response.status];
+    if (!response || !fallback) return GENERIC_ERROR;
+    try {
+        const body = await response.json();
+        return typeof body?.error === "string" ? body.error : fallback;
+    } catch {
+        return fallback;
+    }
+};
+
 const ContactUsForm = ({ heading }: TProps) => {
     const [role, setRole] = useState<Role>("Applicant");
     const [serverMessage, setServerMessage] = useState("");
@@ -64,10 +86,10 @@ const ContactUsForm = ({ heading }: TProps) => {
                 reset();
                 setRole("Applicant");
             } else {
-                setServerMessage("There was an error. Please try again later.");
+                setServerMessage(GENERIC_ERROR);
             }
-        } catch {
-            setServerMessage("There was an error. Please try again later.");
+        } catch (error) {
+            setServerMessage(await errorMessageFor(error));
         }
     };
 

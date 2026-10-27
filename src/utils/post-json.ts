@@ -1,3 +1,6 @@
+/** Rejection from postJson on a non-2xx status; `response` lets callers read the body. */
+export type HttpError = Error & { response: Response };
+
 /**
  * POST a JSON body and reject on a non-2xx response, the way axios.post did.
  * fetch only rejects on network failure, so the status check lives here once.
@@ -9,7 +12,9 @@ export async function postJson(url: string, data: unknown): Promise<Response> {
         body: JSON.stringify(data),
     });
     if (!res.ok) {
-        throw new Error(`Request failed with status code ${res.status}`);
+        const error = new Error(`Request failed with status code ${res.status}`) as HttpError;
+        error.response = res;
+        throw error;
     }
     return res;
 }
