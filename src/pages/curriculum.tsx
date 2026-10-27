@@ -1,10 +1,15 @@
 import SEO from "@components/seo/page-seo";
 import CurriculumGraphContainer from "@containers/curriculum-graph";
 import Layout from "@layout/layout-01";
-import { MANIFEST } from "@lib/curriculum-graph";
+import { MANIFEST, type Topic } from "@lib/curriculum-graph";
+import { TOPICS } from "@lib/curriculum-graph-data";
 import type { GetStaticProps, NextPage } from "next";
 
-type CurriculumGraphPageProps = NextPage & {
+type TProps = {
+    sample: Topic;
+};
+
+type CurriculumGraphPageProps = NextPage<TProps> & {
     Layout: typeof Layout;
 };
 
@@ -16,20 +21,23 @@ const DESCRIPTION =
     `${MANIFEST.acyclic ? "zero cycles" : "unvalidated"} — the ${MANIFEST.name} ` +
     `${MANIFEST.version} behind the Vets Who Code accelerator.`;
 
-const CurriculumGraphPage: CurriculumGraphPageProps = () => {
+const CurriculumGraphPage: CurriculumGraphPageProps = ({ sample }) => {
     return (
         <>
             <SEO title="Curriculum — The Hashflag Method" description={DESCRIPTION} />
-            <CurriculumGraphContainer />
+            <CurriculumGraphContainer sample={sample} />
         </>
     );
 };
 
 CurriculumGraphPage.Layout = Layout;
 
-export const getStaticProps: GetStaticProps = () => {
+export const getStaticProps: GetStaticProps<TProps> = () => {
     return {
         props: {
+            // A real record, read straight out of the dataset — the section's claim is that
+            // every node is specified to this level, so it must not be a hand-written mock.
+            sample: TOPICS.find((t) => t.id === "ret-faithful") ?? TOPICS[0],
             layout: {
                 headerShadow: true,
                 headerFluid: false,
