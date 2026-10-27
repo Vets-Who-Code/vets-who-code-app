@@ -14,4 +14,22 @@ describe("Home hero", () => {
             "From Service To Software Engineer"
         );
     });
+
+    it("loads the background image eagerly at high priority across the full viewport", () => {
+        const { container } = render(
+            <HeroArea
+                data={{
+                    headings,
+                    images: [
+                        { src: "https://res.cloudinary.com/vetswhocode/image/upload/hero.png" },
+                    ],
+                }}
+            />
+        );
+        const img = container.querySelector("img");
+        expect(img).toHaveAttribute("fetchpriority", "high");
+        expect(img).toHaveAttribute("sizes", "100vw");
+        expect(img).not.toHaveAttribute("loading", "lazy");
+        expect(img?.getAttribute("srcset")).toContain("/_next/image?url=");
+    });
 });

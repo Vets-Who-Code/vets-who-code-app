@@ -3,6 +3,7 @@ import Section from "@components/ui/engagement-modal";
 import { SectionTitleType, TSection } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 type TProps = TSection & {
     data: {
@@ -14,9 +15,11 @@ const NewsletterArea = ({ data: { section_title }, space, bg, titleSize }: TProp
     return (
         <Section className="tw-relative" space={space} bg={bg} id="newsletter">
             <div className="tw-absolute tw-inset-0 -tw-z-1 child:tw-h-full child:tw-w-full child:tw-object-cover">
-                <img
+                <Image
                     src="https://res.cloudinary.com/vetswhocode/image/upload/f_auto,q_auto:good,dpr_auto,c_fill,w_1920,h_1080/v1678670156/website-images/vetswhocode-newsletter-bg.jpg"
                     alt=""
+                    fill={true}
+                    sizes="100vw"
                 />
             </div>
             <motion.div

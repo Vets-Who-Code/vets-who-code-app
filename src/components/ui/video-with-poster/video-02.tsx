@@ -1,6 +1,7 @@
 import VideoButton from "@ui/video-button";
 import { ImageType, VideoType } from "@utils/types";
 import clsx from "clsx";
+import Image from "next/image";
 import { forwardRef } from "react";
 
 type TProps = {
@@ -19,13 +20,14 @@ const Video02 = forwardRef<HTMLDivElement, TProps>(({ poster, video, className }
             ref={ref}
         >
             {poster?.src && (
-                <img
+                <Image
                     className="tw-w-full tw-transition-transform tw-duration-1500 group-hover:tw-scale-110"
                     src={poster.src}
                     alt={poster?.alt || ""}
                     width={poster?.width || 1170}
                     height={poster?.height || 620}
                     loading={poster?.loading || "lazy"}
+                    sizes="(max-width: 1000px) 100vw, 970px"
                 />
             )}
             {video && <VideoButton videoId={video.videoId} />}

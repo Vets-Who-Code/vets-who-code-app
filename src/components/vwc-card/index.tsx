@@ -2,6 +2,7 @@ import { ImageType } from "@utils/types";
 import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion } from "motion/react";
+import Image from "next/image";
 import { forwardRef } from "react";
 
 type TProps = {
@@ -29,7 +30,7 @@ export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
             >
                 <figure className="tw-relative">
                     {thumbnail?.src && (
-                        <img
+                        <Image
                             className="tw-w-full tw-rounded-t"
                             src={thumbnail.src}
                             alt={thumbnail?.alt || title}
@@ -37,6 +38,7 @@ export const VWCGridCard = forwardRef<HTMLDivElement, TProps>(
                             height={thumbnail?.height || 229}
                             loading={thumbnail?.loading || "lazy"}
                             draggable="false"
+                            sizes="(max-width: 767px) 100vw, (max-width: 991px) 50vw, 33vw"
                         />
                     )}
                 </figure>

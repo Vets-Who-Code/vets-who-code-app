@@ -11,6 +11,7 @@ import {
 } from "@lib/shopify";
 import clsx from "clsx";
 import type { GetServerSideProps } from "next";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -191,9 +192,13 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, unavaila
                     <div>
                         {currentImage && (
                             <div className="tw-sticky tw-top-4">
-                                <img
+                                <Image
                                     src={currentImage.url}
                                     alt={currentImage.altText || product.title}
+                                    width={currentImage.width}
+                                    height={currentImage.height}
+                                    priority={true}
+                                    sizes="(max-width: 767px) 100vw, 50vw"
                                     className="tw-w-full tw-rounded-2xl tw-shadow-lg"
                                 />
 
@@ -211,9 +216,12 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ product, unavaila
                                                         : "tw-border-gray-200 hover:tw-border-gray-300"
                                                 )}
                                             >
-                                                <img
+                                                <Image
                                                     src={image.url}
                                                     alt={image.altText || product.title}
+                                                    width={image.width}
+                                                    height={image.height}
+                                                    sizes="(max-width: 767px) 25vw, 12vw"
                                                     className="tw-w-full tw-aspect-square tw-object-cover"
                                                 />
                                             </button>

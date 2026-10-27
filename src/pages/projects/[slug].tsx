@@ -7,6 +7,7 @@ import Layout01 from "@layout/layout-01";
 import { VWCProject } from "@utils/types";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { getProjectPageData, getProjectSlugs } from "../../lib/project";
 
 type TProps = {
@@ -74,9 +75,13 @@ const ProjectDetail: PageProps = ({ project }: TProps) => {
             <div className="tw-container tw-pb-15 md:tw-pb-20 lg:tw-pb-[100px]">
                 <div className="tw-grid tw-grid-cols-1 tw-gap-10 md:tw-grid-cols-3">
                     <div className="tw-space-y-6 md:tw-col-span-1">
-                        <img
+                        <Image
                             src={details.thumbnail.src}
-                            alt={details.thumbnail.alt}
+                            alt={details.thumbnail.alt || details.name}
+                            width={details.thumbnail.width || 2400}
+                            height={details.thumbnail.height || 1600}
+                            priority={true}
+                            sizes="(max-width: 767px) 100vw, 33vw"
                             draggable="false"
                             className="tw-w-full tw-rounded-md tw-drop-shadow-lg"
                         />

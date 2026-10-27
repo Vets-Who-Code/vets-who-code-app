@@ -5,6 +5,7 @@ import { scrollUpVariants } from "@utils/variants";
 import clsx from "clsx";
 import { motion, useReducedMotion } from "motion/react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState } from "react";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 
@@ -38,11 +39,14 @@ const HeroArea = ({ data: { images, headings, texts, buttons, video } }: TProps)
             <div className="hero-area dark-section tw-relative tw-pb-[130px] tw-pt-[100px] md:tw-py-[170px] xl:tw-pb-[248px] xl:tw-pt-[270px]">
                 {images?.[0]?.src && (
                     <div className="tw-absolute tw-inset-0 -tw-z-10">
-                        <img
+                        <Image
                             src={images[0].src}
                             alt={images[0]?.alt || ""}
-                            loading="eager"
-                            className="tw-h-full tw-w-full tw-object-cover"
+                            fill={true}
+                            priority={true}
+                            fetchPriority="high"
+                            sizes="100vw"
+                            className="tw-object-cover"
                         />
                         <div
                             style={{

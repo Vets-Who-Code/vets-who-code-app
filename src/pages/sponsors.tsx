@@ -14,6 +14,7 @@ import Layout from "@layout/layout-01";
 import { postJson } from "@utils/post-json";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { type FormEvent, type ReactNode, useState } from "react";
 
 type PageWithLayout = NextPage & {
@@ -206,12 +207,13 @@ const SponsorPage: PageWithLayout = () => {
                         {alumniOutcomes.map((alum) => (
                             <li key={alum.name}>
                                 <a href={alum.sourceUrl} className="tw-block">
-                                    <img
+                                    <Image
                                         src={alum.photo}
                                         alt={`${alum.name}, ${alum.branch}, ${alum.role} at ${alum.org}. Read his story.`}
                                         className="tw-h-auto tw-w-full"
                                         width={2000}
                                         height={600}
+                                        sizes="(max-width: 575px) 100vw, 50vw"
                                     />
                                 </a>
                             </li>

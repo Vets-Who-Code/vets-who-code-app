@@ -1,17 +1,18 @@
 import Social, { SocialLink } from "@ui/social";
 import { IInstructor } from "@utils/types";
+import Image from "next/image";
 
 const BlogAuthor = ({ name, image, bio, socials }: IInstructor) => {
     return (
         <div className="blog-author tw-mt-10 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start">
             <div className="tw-min-w-[100px] tw-max-w-[140px] tw-shrink-0 tw-text-center">
                 {image?.src && (
-                    <img
+                    <Image
                         alt={image?.alt || name}
                         src={image.src}
                         className="tw-rounded-full"
-                        height="100"
-                        width="100"
+                        height={100}
+                        width={100}
                     />
                 )}
                 {socials?.length > 0 && (
