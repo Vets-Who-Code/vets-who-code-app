@@ -2,8 +2,9 @@ import { setPublicCache } from "@lib/cache-control";
 import { readFileSync } from "fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { join } from "path";
+import { withApiLogging } from "@/lib/api-logger";
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {
         return res.status(405).json({ message: "Method not allowed" });
     }
@@ -12,3 +13,5 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     setPublicCache(res, 3600, 86400);
     res.status(200).json(spec);
 }
+
+export default withApiLogging(handler);

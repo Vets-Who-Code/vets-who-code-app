@@ -1,3 +1,4 @@
+import { logger } from "@/lib/logger";
 /**
  * Lightcast (formerly Emsi) API client
  * OAuth2 client credentials flow with token caching and salary data lookups
@@ -48,9 +49,9 @@ export function validateLightcastConfig(): void {
     const hasSecret = !!process.env.LIGHTCAST_CLIENT_SECRET;
 
     if (hasId && hasSecret) {
-        console.info("Lightcast: configured (client credentials set)");
+        logger.info("Lightcast: configured (client credentials set)");
     } else if (hasId || hasSecret) {
-        console.warn(
+        logger.warn(
             "Lightcast: partially configured — " +
                 `LIGHTCAST_CLIENT_ID: ${hasId ? "set" : "MISSING"}, ` +
                 `LIGHTCAST_CLIENT_SECRET: ${hasSecret ? "set" : "MISSING"}. ` +
@@ -90,7 +91,7 @@ async function getAccessToken(): Promise<string | null> {
 
         if (!response.ok) {
             if (!authFailureLogged) {
-                console.error(
+                logger.error(
                     `Lightcast: OAuth token request failed (${response.status}). ` +
                         "Check LIGHTCAST_CLIENT_ID and LIGHTCAST_CLIENT_SECRET. " +
                         "Falling back to Census/curated salary data."
@@ -110,7 +111,7 @@ async function getAccessToken(): Promise<string | null> {
         return cachedToken;
     } catch (err) {
         if (!authFailureLogged) {
-            console.error("Lightcast: OAuth token request error:", err);
+            logger.error("Lightcast: OAuth token request error", { error: err });
             authFailureLogged = true;
         }
         return null;
@@ -178,7 +179,7 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
         });
 
         if (!salaryRes.ok) {
-            console.warn(`Lightcast: salary fetch failed for SOC ${socCode} (${salaryRes.status})`);
+            logger.warn(`Lightcast: salary fetch failed for SOC ${socCode} (${salaryRes.status})`);
             return null;
         }
 
@@ -215,7 +216,7 @@ export async function fetchSalaryBySOC(socCode: string): Promise<LightcastSalary
         salaryCache.set(socCode, { data: result, fetchedAt: Date.now() });
         return result;
     } catch (err) {
-        console.warn(`Lightcast: fetch error for SOC ${socCode}:`, err);
+        logger.warn(`Lightcast: fetch error for SOC ${socCode}`, { error: err });
         return null;
     }
 }
