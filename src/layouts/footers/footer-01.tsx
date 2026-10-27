@@ -74,7 +74,7 @@ const Footer01 = ({ mode }: TProps) => {
                         aria-label="Vets Who Code Candid/Guidestar Transparency Seal"
                     >
                         <img
-                            src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9981881/svg"
+                            src="https://widgets.candid.org/TransparencySeal/9981881/svg"
                             alt="Candid/Guidestar Transparency Seal"
                             title="Candid/Guidestar Transparency Seal"
                             width={80}
