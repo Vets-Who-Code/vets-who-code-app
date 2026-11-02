@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "A retry hides a flaky test. It doesn't fix it. How Vets Who Code teaches troops to find the nondeterminism behind an intermittent failure, with a Vitest example where the test was right and the code was wrong."
 image:
     {
-        src: "v1736709455/evidence-based_j4ucdv.jpg",
-        alt: "Paper notes pinned to a dark board and connected with red string",
+        src: "v1793579138/blog-images/fix-the-flaky-test-at-its-cause.jpg",
+        alt: "Navy and red linocut of a mechanic with a wrench reaching into a wall of turning gears",
     }
 category: "Engineering Practice"
 tags:

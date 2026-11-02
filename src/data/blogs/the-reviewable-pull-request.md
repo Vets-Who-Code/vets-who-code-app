@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "A pull request is a message to a busy reader. How Vets Who Code teaches troops to scope, sequence and describe a change so it merges without a round of confusion, with a before-and-after PR description and a split commit history."
 image:
     {
-        src: "v1685585775/checklist_pis3uf.jpg",
-        alt: "Translucent document panels floating above a keyboard in blue light",
+        src: "v1793579278/blog-images/the-reviewable-pull-request.jpg",
+        alt: "Navy and red linocut of a worker inspecting parts laid out in an open tray under a lamp",
     }
 category: "Engineering Practice"
 tags:

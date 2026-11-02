@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "A review that only catches naming and formatting has not reviewed the code. How Vets Who Code teaches troops to find the defect in someone else's diff, with a worked example of a race condition hiding behind a clean-looking change."
 image:
     {
-        src: "v1685585775/checklist_pis3uf.jpg",
-        alt: "Translucent document panels floating above a keyboard in blue light",
+        src: "v1793579198/blog-images/how-we-teach-code-review-find-the-defect-not-the-nit.jpg",
+        alt: "Navy and red linocut of a worker shining a flashlight into the gears of a large machine",
     }
 category: "Engineering Practice"
 tags:

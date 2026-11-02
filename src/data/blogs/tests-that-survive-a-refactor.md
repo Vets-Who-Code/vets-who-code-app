@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "A test that breaks when behavior stays the same is a tax on every change. How Vets Who Code teaches troops to test React components the way a user sees them, with a brittle test and a durable one run against the same refactor."
 image:
     {
-        src: "v1685585775/checklist_pis3uf.jpg",
-        alt: "Translucent document panels floating above a keyboard in blue light",
+        src: "v1793579234/blog-images/tests-that-survive-a-refactor.jpg",
+        alt: "Navy and red linocut of a worker swinging a sledgehammer at a gear in front of blueprints",
     }
 category: "Engineering Practice"
 tags:

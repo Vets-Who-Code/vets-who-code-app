@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "An endpoint test that only checks the happy path tests the part of the API least likely to hurt you. How Vets Who Code teaches troops to cover the happy path, validation failure and auth failure, with a FastAPI and pytest example."
 image:
     {
-        src: "v1685585775/checklist_pis3uf.jpg",
-        alt: "Translucent document panels floating above a keyboard in blue light",
+        src: "v1793579318/blog-images/three-cases-every-endpoint-test-covers.jpg",
+        alt: "Navy and red linocut of three workers between an open door and a sealed vault, one measuring gears with calipers",
     }
 category: "Engineering Practice"
 tags:

@@ -5,8 +5,8 @@ author: "Jerome Hardaway"
 description: "Print statements answer the questions you already thought to ask. A debugger answers the ones you didn't. How Vets Who Code teaches troops to find a bug by stepping, with a git bisect session and a VS Code debugging walkthrough of a real JavaScript trap."
 image:
     {
-        src: "v1736709455/evidence-based_j4ucdv.jpg",
-        alt: "Paper notes pinned to a dark board and connected with red string",
+        src: "v1793579071/blog-images/debug-by-stepping-not-by-printing.jpg",
+        alt: "Navy and red linocut of a worker at a control panel beside a magnifying glass revealing the gears inside a machine",
     }
 category: "Engineering Practice"
 tags:
