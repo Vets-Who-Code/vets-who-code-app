@@ -16,6 +16,9 @@ const exclude = [
     "/url-preview-demo",
     "/_offline",
 
+    // Post-donation redirect target; a visit fires an Ads conversion
+    "/thank-you",
+
     // Search endpoints (index blog posts directly, not search UIs)
     "/blogs/search",
 ];
