@@ -1,5 +1,7 @@
 import { updateCartLines } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 
 /**
  * POST /api/shopify/cart/update
@@ -9,7 +11,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
  *   lines: Array<{ id: string; quantity: number }>
  * }
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -39,10 +41,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return res.status(200).json({ cart });
     } catch (error) {
-        console.error("Error updating cart:", error);
+        logger.error("Error updating cart", { error });
         return res.status(500).json({
             error: "Failed to update cart",
             message: error instanceof Error ? error.message : "Unknown error",
         });
     }
 }
+
+export default withApiLogging(handler);

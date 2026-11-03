@@ -1,6 +1,8 @@
 import { postJson } from "@utils/post-json";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "@/lib/api-helpers";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 
 // Define the ParsedBody type
@@ -14,7 +16,7 @@ interface ParsedBody {
     "employer-restrictions": string;
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     // 3 req/10 min per IP, one bucket shared with /api/mentee — both post to the same webhook.
     if (!enforceRateLimit(req, res, { name: "mentor", maxRequests: 3, windowMs: 10 * 60 * 1000 })) {
         return;
@@ -61,9 +63,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         // Respond with a success message
         return res.status(200).json({ message: "SUCCESS" });
-    } catch (_err) {
-        // Log the error for debugging and respond with an error message
-        // console.error("Handler error:", err);
+    } catch (err) {
+        logger.error("Failed to post mentor submission to Slack", { error: err });
         return res.status(500).json({ message: "Failed to post to #mentor channel" });
     }
 }
+
+export default withApiLogging(handler);

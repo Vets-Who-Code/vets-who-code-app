@@ -2,6 +2,7 @@ import { handleApiError } from "@lib/api-error-handler";
 import { setPublicCache } from "@lib/cache-control";
 import { getCollections } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
 
 /**
  * GET /api/shopify/collections
@@ -9,7 +10,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
  * Query params:
  *   - limit: number of collections to fetch (default: 100)
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "GET") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -26,3 +27,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return;
     }
 }
+
+export default withApiLogging(handler);

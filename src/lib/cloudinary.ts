@@ -1,4 +1,5 @@
 import { v2 as cloudinary } from "cloudinary";
+import { logger } from "@/lib/logger";
 
 // Configure Cloudinary
 cloudinary.config({
@@ -57,7 +58,7 @@ export async function uploadImage(
         const result = await cloudinary.uploader.upload(file, defaultOptions);
         return result as UploadResult;
     } catch (error) {
-        console.error("Error uploading to Cloudinary:", error);
+        logger.error("Error uploading to Cloudinary", { error });
         throw new Error("Failed to upload image to Cloudinary");
     }
 }
@@ -72,7 +73,7 @@ export async function deleteImage(publicId: string): Promise<{ result: string }>
         const result = await cloudinary.uploader.destroy(publicId);
         return result;
     } catch (error) {
-        console.error("Error deleting from Cloudinary:", error);
+        logger.error("Error deleting from Cloudinary", { error });
         throw new Error("Failed to delete image from Cloudinary");
     }
 }
@@ -122,7 +123,7 @@ export async function uploadMultipleImages(
         const results = await Promise.all(uploadPromises);
         return results;
     } catch (error) {
-        console.error("Error uploading multiple images:", error);
+        logger.error("Error uploading multiple images", { error });
         throw new Error("Failed to upload multiple images to Cloudinary");
     }
 }
@@ -207,7 +208,7 @@ export async function listImages(options: ListImagesOptions = {}): Promise<ListI
             total_count: result.total_count,
         };
     } catch (error) {
-        console.error("Error listing images from Cloudinary:", error);
+        logger.error("Error listing images from Cloudinary", { error });
         throw new Error("Failed to list images from Cloudinary");
     }
 }
@@ -263,7 +264,7 @@ export async function searchImages(
             total_count: result.total_count,
         };
     } catch (error) {
-        console.error("Error searching images in Cloudinary:", error);
+        logger.error("Error searching images in Cloudinary", { error });
         throw new Error("Failed to search images in Cloudinary");
     }
 }
@@ -280,7 +281,7 @@ export async function getImageByPublicId(publicId: string): Promise<CloudinaryRe
         });
         return result as CloudinaryResource;
     } catch (error) {
-        console.error("Error fetching image from Cloudinary:", error);
+        logger.error("Error fetching image from Cloudinary", { error });
         throw new Error("Failed to fetch image from Cloudinary");
     }
 }
@@ -299,7 +300,7 @@ export async function listFolders(): Promise<
         const result = await cloudinary.api.root_folders();
         return result.folders;
     } catch (error) {
-        console.error("Error listing folders from Cloudinary:", error);
+        logger.error("Error listing folders from Cloudinary", { error });
         throw new Error("Failed to list folders from Cloudinary");
     }
 }
@@ -319,7 +320,7 @@ export async function getSubfolders(folder: string): Promise<
         const result = await cloudinary.api.sub_folders(folder);
         return result.folders;
     } catch (error) {
-        console.error("Error getting subfolders from Cloudinary:", error);
+        logger.error("Error getting subfolders from Cloudinary", { error });
         throw new Error("Failed to get subfolders from Cloudinary");
     }
 }

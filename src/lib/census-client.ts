@@ -1,3 +1,4 @@
+import { logger } from "@/lib/logger";
 /**
  * Census Bureau / ACS API client
  * Fetches occupation earnings from ACS Subject Tables (S2401 series)
@@ -55,7 +56,7 @@ export function isCensusConfigured(): boolean {
  */
 export function validateCensusConfig(): void {
     if (process.env.CENSUS_API_KEY) {
-        console.info("Census ACS: configured (API key set)");
+        logger.info("Census ACS: configured (API key set)");
     }
     // If not set, it's intentionally unconfigured — no warning needed
 }
@@ -94,14 +95,14 @@ export async function fetchCensusSalary(socCode: string): Promise<CensusSalaryDa
         if (!response.ok) {
             if (response.status === 401 || response.status === 403) {
                 if (!authFailureLogged) {
-                    console.error(
+                    logger.error(
                         `Census ACS: API key rejected (${response.status}). ` +
                             "Check CENSUS_API_KEY. Falling back to curated salary data."
                     );
                     authFailureLogged = true;
                 }
             } else {
-                console.warn(`Census ACS: fetch failed for SOC ${socCode} (${response.status})`);
+                logger.warn(`Census ACS: fetch failed for SOC ${socCode} (${response.status})`);
             }
             return null;
         }
@@ -126,7 +127,7 @@ export async function fetchCensusSalary(socCode: string): Promise<CensusSalaryDa
         censusCache.set(socCode, { data: result, fetchedAt: Date.now() });
         return result;
     } catch (err) {
-        console.warn(`Census ACS: fetch error for SOC ${socCode}:`, err);
+        logger.warn(`Census ACS: fetch error for SOC ${socCode}`, { error: err });
         return null;
     }
 }

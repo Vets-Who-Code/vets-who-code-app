@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 import { version } from "../../../package.json";
 
@@ -25,7 +26,7 @@ interface HealthResponse {
  *       429:
  *         description: Rate limit exceeded. Retry after the number of seconds in the Retry-After header.
  */
-export default async function handler(
+async function handler(
     req: NextApiRequest,
     res: NextApiResponse<HealthResponse | { error: string }>
 ) {
@@ -46,3 +47,5 @@ export default async function handler(
         uptime: process.uptime(),
     });
 }
+
+export default withApiLogging(handler);

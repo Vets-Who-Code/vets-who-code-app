@@ -1,6 +1,8 @@
 import { postJson } from "@utils/post-json";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { checkParams } from "@/lib/api-helpers";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 
 // Define the ParsedBody interface to type-check the request body
@@ -110,7 +112,7 @@ async function postToSlack(text: string): Promise<void> {
     });
 }
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -139,7 +141,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await postToSlack(text);
 
         return res.status(200).json({ message: "SUCCESS" });
-    } catch (_err) {
+    } catch (err) {
+        logger.error("Failed to post apply submission to Slack", { error: err });
         return res.status(500).json({ message: "Failed to post to #apply channel" });
     }
 }
+
+export default withApiLogging(handler);
