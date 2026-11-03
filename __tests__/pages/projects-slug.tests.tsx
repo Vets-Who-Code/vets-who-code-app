@@ -116,6 +116,45 @@ describe("Project detail page", () => {
         expect(screen.getByText("206")).toBeInTheDocument();
     });
 
+    it("renders no featured pull requests section when the record has none", () => {
+        render(<ProjectDetail project={mockProject} />);
+
+        expect(
+            screen.queryByRole("heading", { name: "Featured pull requests" })
+        ).not.toBeInTheDocument();
+    });
+
+    it("renders featured pull requests linked to GitHub in a new tab", () => {
+        const withPrs: VWCProject = {
+            ...mockProject,
+            details: {
+                ...mockProject.details,
+                featuredPullRequests: [
+                    {
+                        repo: "test-repo",
+                        number: 42,
+                        title: "Add the thing",
+                        url: "https://github.com/Vets-Who-Code/test-repo/pull/42",
+                        author: "troop",
+                        mergedAt: "2022-03-26",
+                        note: "Addressed 3 inline review comments before merge.",
+                    },
+                ],
+            },
+        };
+        render(<ProjectDetail project={withPrs} />);
+
+        expect(screen.getByRole("heading", { name: "Featured pull requests" })).toBeInTheDocument();
+        const link = screen.getByRole("link", { name: "Add the thing" });
+        expect(link).toHaveAttribute("href", "https://github.com/Vets-Who-Code/test-repo/pull/42");
+        expect(link).toHaveAttribute("target", "_blank");
+        expect(link).toHaveAttribute("rel", "noopener noreferrer");
+        expect(screen.getByText(/test-repo #42 · @troop · Merged 2022-03-26/)).toBeInTheDocument();
+        expect(
+            screen.getByText("Addressed 3 inline review comments before merge.")
+        ).toBeInTheDocument();
+    });
+
     it("emits SoftwareSourceCode structured data", () => {
         const { container } = render(<ProjectDetail project={mockProject} />);
         const jsonLd = readJsonLd(container);
