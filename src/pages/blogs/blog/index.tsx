@@ -3,7 +3,7 @@ import SEO from "@components/seo/page-seo";
 import BlogArea from "@containers/blog-full/layout-01";
 import Layout01 from "@layout/layout-01";
 import { IBlog } from "@utils/types";
-import type { GetServerSideProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { getAllBlogs } from "../../../lib/blog";
 
 type TProps = {
@@ -39,14 +39,12 @@ const BlogGrid: PageProps = ({ data: { blogs, currentPage, numberOfPages } }) =>
 
 BlogGrid.Layout = Layout01;
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-    const page = query.page;
-    const currentPage = !page || Number.isNaN(+page) ? 1 : +page;
-    const skip = (currentPage - 1) * POSTS_PER_PAGE;
-
+// Page 1 only. `/blogs/blog?page=N` is rewritten to the static `page/[page]` route by
+// src/middleware.ts, so the listing never hits the filesystem at request time.
+export const getStaticProps: GetStaticProps<TProps> = () => {
     const { blogs, count } = getAllBlogs(
         ["title", "slug", "image", "category", "postedAt"],
-        skip,
+        0,
         POSTS_PER_PAGE
     );
 
@@ -54,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         props: {
             data: {
                 blogs,
-                currentPage,
+                currentPage: 1,
                 numberOfPages: Math.ceil(count / POSTS_PER_PAGE),
             },
             layout: {
