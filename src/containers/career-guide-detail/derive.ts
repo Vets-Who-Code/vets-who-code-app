@@ -148,23 +148,39 @@ export const buildDetail = (input: {
 // keyed by guide slug. Every other guide uses the template in buildGuideMeta.
 const META_OVERRIDES = new Map(Object.entries(metaOverrides));
 
-// 2,905 of the 4,202 guides share their training title with another guide (64 are
-// "Client Systems Technician"), so the page title carries the branch and the
-// description carries the fields that actually differ between siblings: pipeline
-// length, school, and top civilian match.
+// What each branch calls its job codes, so the title answers "what is MOS 0111",
+// "what is AFSC 1A0X1" or "what is the HM rating". Navy four-digit codes are officer
+// designators, not ratings.
+const codeTerm = (branch: CareerGuideDetail["branch"], code: string): string => {
+    if (branch === "Army" || branch === "Marine Corps") return "MOS";
+    if (branch === "Air Force") return "AFSC";
+    if (branch === "Navy" && /^\d{4}$/.test(code)) return "designator";
+    return "rating";
+};
+
+// Titles lead with the definition query (#1421). 2,905 of the 4,202 guides share their
+// training title with another guide (64 are "Client Systems Technician"), so the title
+// carries the branch and the description carries the fields that differ between
+// siblings: pipeline length, school, and top tech role.
 export const buildGuideMeta = (
     detail: CareerGuideDetail,
     slug: string
 ): { title: string; description: string } => {
     const override = META_OVERRIDES.get(slug);
     if (override) return override;
-    const { code, branch, training, summary } = detail;
+    const { code, branch, training, techPathway } = detail;
+    const term = codeTerm(branch, code);
+    const question =
+        term === "rating"
+            ? `What Is the ${code} Rating?`
+            : `What Is ${term[0].toUpperCase()}${term.slice(1)} ${code}?`;
     const school = training.program.split(",")[0].trim();
     const duration =
         training.weeks !== undefined ? `${training.weeks} weeks` : `${training.hours} hours`;
-    const match = summary.topMatch === "—" ? "" : ` → ${summary.topMatch}`;
+    const techRole = techPathway?.roles[0]?.title;
+    const bridge = `Tech path: ${techRole ?? "software engineering"}.`;
     return {
-        title: `${code} ${training.title} — ${branch} Career Guide`,
-        description: `${branch} ${code} (${training.title}) career guide: ${duration} at ${school}${match}, ${summary.salaryBand}.`,
+        title: `${question} ${branch} ${training.title}`,
+        description: `${branch} ${term} ${code} is the ${training.title} job: ${duration} at ${school}. ${bridge}`,
     };
 };

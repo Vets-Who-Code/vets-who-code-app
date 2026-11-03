@@ -122,11 +122,37 @@ describe("career-guides", () => {
             expect(new Set(metas.map((m) => m.description)).size).toBe(metas.length);
         });
 
-        it("leads with the code and job title, then names the branch", () => {
-            for (const { key, detail, title } of metas) {
+        it("asks the definition question first, then names the branch and job", () => {
+            for (const { key, detail, title, description } of metas) {
                 if (overridden.has(key.toLowerCase())) continue;
-                expect(title.startsWith(`${detail.code} ${detail.training.title}`)).toBe(true);
-                expect(withoutCode(title, detail.code)).toContain(detail.branch);
+                expect(title.startsWith("What Is "), title).toBe(true);
+                expect(title.endsWith(`? ${detail.branch} ${detail.training.title}`), title).toBe(
+                    true
+                );
+                expect(description, description).toContain(
+                    `${detail.code} is the ${detail.training.title} job`
+                );
+                expect(description, description).toContain("Tech path: ");
+            }
+        });
+
+        it("uses each branch's name for its job codes", () => {
+            const cases: Array<[string, string, string]> = [
+                ["11B", "What Is MOS 11B? Army Infantryman", "Army MOS 11B is the"],
+                ["0311", "What Is MOS 0311? Marine Corps Rifleman", "Marine Corps MOS 0311 is the"],
+                [
+                    "3P0X1",
+                    "What Is AFSC 3P0X1? Air Force Security Forces",
+                    "Air Force AFSC 3P0X1 is the",
+                ],
+                ["HM", "What Is the HM Rating? Navy Hospital Corpsman", "Navy rating HM is the"],
+                ["1100", "What Is Designator 1100? Navy ", "Navy designator 1100 is the"],
+                ["BM", "What Is the BM Rating? Coast Guard ", "Coast Guard rating BM is the"],
+            ];
+            for (const [key, titleStart, descriptionStart] of cases) {
+                const { title, description } = buildGuideMeta(detailFor(key), key.toLowerCase());
+                expect(title.startsWith(titleStart), title).toBe(true);
+                expect(description.startsWith(descriptionStart), description).toBe(true);
             }
         });
 
