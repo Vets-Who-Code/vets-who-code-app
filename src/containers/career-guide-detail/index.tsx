@@ -1,3 +1,5 @@
+import type { JobCodeStory } from "@lib/blog";
+import AlumniStories from "./alumni-stories";
 import AnchorNav from "./anchor-nav";
 import CtaBand from "./cta-band";
 import Hero from "./hero";
@@ -13,6 +15,7 @@ import type { CareerGuideDetail } from "./types";
 
 interface Props {
     detail: CareerGuideDetail;
+    stories?: JobCodeStory[];
 }
 
 const ANCHORS = [
@@ -26,7 +29,7 @@ const ANCHORS = [
     { id: "sec-systems", label: "Systems" },
 ];
 
-const CareerGuideDetailContainer = ({ detail }: Props) => (
+const CareerGuideDetailContainer = ({ detail, stories = [] }: Props) => (
     <>
         <StatusBar code={detail.code} />
         <AnchorNav items={ANCHORS} />
@@ -62,6 +65,7 @@ const CareerGuideDetailContainer = ({ detail }: Props) => (
         )}
         <TrainingSection training={detail.training} certs={detail.certs} />
         <SystemsTable systems={detail.systems} />
+        <AlumniStories code={detail.code} stories={stories} />
         <CtaBand code={detail.code} />
         {detail.training.generatedAt && (
             <footer className="tw-border-t tw-border-cream/10 tw-bg-secondary tw-py-8">

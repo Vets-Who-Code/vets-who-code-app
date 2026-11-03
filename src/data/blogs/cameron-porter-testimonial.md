@@ -1,13 +1,15 @@
 ---
-title: "From Coast Guard Yeoman to Tech Professional: My Journey with Vets Who Code"
+title: "From Coast Guard Yeoman (YN) to Tech: How I More Than Doubled My Salary"
 postedAt: "2024-07-15T10:00:00.000Z"
 author: "Cameron"
-description: "A former Coast Guard Yeoman shares his journey of transitioning into a tech career with the help of Vets Who Code."
+description: "A former Coast Guard Yeoman (YN) on moving into tech with Vets Who Code: JavaScript, React, Next.js, and more than double the salary within two years."
 image:
     {
         src: "v1721086509/Image_from_iOS_pdujsr.jpg",
     }
 category: "Testimonial"
+jobCodes:
+    - YN_CG
 tags:
     - Career Transition
     - Veteran Stories
