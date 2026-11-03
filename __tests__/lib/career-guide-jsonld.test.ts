@@ -14,7 +14,7 @@ const graphFor = (slug: string) => {
 };
 
 // One guide per branch. BM_CG has no civilian pathways, so its listing and salary band
-// fall back to a placeholder range; it is also absent from mos-to-soc-map.json.
+// fall back to a placeholder range.
 const CASES = [
     {
         slug: "11b",
@@ -44,7 +44,14 @@ const CASES = [
         median: 81500,
         soc: ["11-1021", "13-1199", "13-1061", "13-1151"],
     },
-    { slug: "bm_cg", branch: "Coast Guard", weeks: "P13W", median: undefined, soc: undefined },
+    {
+        slug: "bm_cg",
+        branch: "Coast Guard",
+        weeks: "P13W",
+        median: undefined,
+        // Derived (not curated): tech-pathways roleKeys joined to tech-roles-taxonomy SOC codes.
+        soc: ["15-2051", "15-1211", "15-1212", "11-3021"],
+    },
 ];
 
 const BRANCH_PATHS: Record<string, string> = {
@@ -118,13 +125,8 @@ describe("buildCareerGuideJsonLd", () => {
             }
         });
 
-        it("carries SOC codes only when mos-to-soc-map.json has the code", () => {
-            const occupation = node("Occupation");
-            if (soc === undefined) {
-                expect(occupation).not.toHaveProperty("occupationalCategory");
-            } else {
-                expect(occupation.occupationalCategory).toEqual(soc);
-            }
+        it("carries the guide's SOC codes from mos-to-soc-map.json", () => {
+            expect(node("Occupation").occupationalCategory).toEqual(soc);
         });
 
         it("expresses the training pipeline as a program with an ISO 8601 duration", () => {

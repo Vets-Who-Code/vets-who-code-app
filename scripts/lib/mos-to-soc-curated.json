@@ -1,0 +1,92 @@
+{
+  "11B": [
+    { "soc": "11-1021", "role": "Operations Manager" },
+    { "soc": "33-9032", "role": "Security Operations Manager" },
+    { "soc": "13-1061", "role": "Emergency Management Specialist" },
+    { "soc": "33-3051", "role": "Law Enforcement Officer" }
+  ],
+  "25B": [
+    { "soc": "15-1244", "role": "IT Systems Administrator" },
+    { "soc": "15-1241", "role": "Network Administrator" },
+    { "soc": "15-1212", "role": "Cybersecurity Analyst" },
+    { "soc": "15-1232", "role": "Help Desk Manager" }
+  ],
+  "35F": [
+    { "soc": "15-2051", "role": "Business Intelligence Analyst" },
+    { "soc": "15-1212", "role": "Threat Intelligence Analyst" },
+    { "soc": "15-2041", "role": "Data Analyst" },
+    { "soc": "13-1111", "role": "Security Operations Analyst" }
+  ],
+  "68W": [
+    { "soc": "29-2042", "role": "Emergency Medical Technician" },
+    { "soc": "29-2043", "role": "Paramedic" },
+    { "soc": "29-1141", "role": "Registered Nurse" },
+    { "soc": "41-4011", "role": "Medical Device Sales Representative" }
+  ],
+  "31B": [
+    { "soc": "33-3051", "role": "Law Enforcement Officer" },
+    { "soc": "11-9199", "role": "Corporate Security Manager" },
+    { "soc": "33-9099", "role": "Loss Prevention Manager" },
+    { "soc": "33-3021", "role": "Federal Agent (CBP/ICE/DEA)" }
+  ],
+  "42A": [
+    { "soc": "13-1071", "role": "Human Resources Specialist" },
+    { "soc": "11-3121", "role": "HR Manager" },
+    { "soc": "43-3051", "role": "Payroll Administrator" },
+    { "soc": "13-1071", "role": "Recruiting Coordinator" }
+  ],
+  "92Y": [
+    { "soc": "11-3071", "role": "Inventory Manager" },
+    { "soc": "13-1081", "role": "Supply Chain Coordinator" },
+    { "soc": "11-3071", "role": "Warehouse Operations Manager" },
+    { "soc": "13-1023", "role": "Procurement Specialist" }
+  ],
+  "88M": [
+    { "soc": "11-3071", "role": "Fleet Manager" },
+    { "soc": "13-1081", "role": "Logistics Coordinator" },
+    { "soc": "11-3071", "role": "Transportation Manager" },
+    { "soc": "53-3032", "role": "CDL Truck Driver" }
+  ],
+  "91B": [
+    { "soc": "49-3023", "role": "Automotive Technician" },
+    { "soc": "49-1011", "role": "Fleet Maintenance Manager" },
+    { "soc": "49-3042", "role": "Heavy Equipment Mechanic" },
+    { "soc": "49-1011", "role": "Maintenance Supervisor" }
+  ],
+  "3P0X1": [
+    { "soc": "11-9199", "role": "Security Operations Manager" },
+    { "soc": "33-3051", "role": "Law Enforcement Officer" },
+    { "soc": "33-9099", "role": "Loss Prevention Director" },
+    { "soc": "13-1061", "role": "Emergency Management Coordinator" }
+  ],
+  "HM": [
+    { "soc": "31-9092", "role": "Medical Assistant" },
+    { "soc": "29-2042", "role": "Emergency Medical Technician" },
+    { "soc": "29-1141", "role": "Registered Nurse" },
+    { "soc": "29-1071", "role": "Physician Assistant" }
+  ],
+  "IT": [
+    { "soc": "15-1241", "role": "Network Administrator" },
+    { "soc": "15-1212", "role": "Cybersecurity Analyst" },
+    { "soc": "15-1244", "role": "Systems Administrator" },
+    { "soc": "15-1299", "role": "IT Project Manager" }
+  ],
+  "CTN": [
+    { "soc": "15-1212", "role": "Cybersecurity Analyst" },
+    { "soc": "15-1299", "role": "Penetration Tester" },
+    { "soc": "15-1212", "role": "Security Engineer" },
+    { "soc": "15-1212", "role": "SOC Analyst" }
+  ],
+  "0311": [
+    { "soc": "11-1021", "role": "Operations Manager" },
+    { "soc": "13-1199", "role": "Security Consultant" },
+    { "soc": "13-1061", "role": "Emergency Management Specialist" },
+    { "soc": "13-1151", "role": "Corporate Trainer" }
+  ],
+  "2651": [
+    { "soc": "15-1241", "role": "Network Engineer" },
+    { "soc": "15-1212", "role": "Cybersecurity Analyst" },
+    { "soc": "15-1244", "role": "IT Systems Administrator" },
+    { "soc": "15-1241", "role": "Telecommunications Specialist" }
+  ]
+}
