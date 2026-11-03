@@ -1,11 +1,11 @@
 import {
-    getCloudinaryUrl,
+    extractPublicIdFromUrl,
     getBlogHeaderUrl,
     getBlogOpenGraphUrl,
     getBlogThumbnailUrl,
-    extractPublicIdFromUrl,
-    isCloudinaryUrl,
+    getCloudinaryUrl,
     getImageUrl,
+    isCloudinaryUrl,
 } from "@/lib/cloudinary-helpers";
 
 describe("cloudinary-helpers", () => {
@@ -52,8 +52,12 @@ describe("cloudinary-helpers", () => {
         });
 
         it("should return full URLs as-is", () => {
-            expect(getBlogHeaderUrl("https://example.com/img.jpg")).toBe("https://example.com/img.jpg");
-            expect(getBlogHeaderUrl("http://example.com/img.jpg")).toBe("http://example.com/img.jpg");
+            expect(getBlogHeaderUrl("https://example.com/img.jpg")).toBe(
+                "https://example.com/img.jpg"
+            );
+            expect(getBlogHeaderUrl("http://example.com/img.jpg")).toBe(
+                "http://example.com/img.jpg"
+            );
         });
 
         it("should generate Cloudinary URL for public IDs", () => {
@@ -69,7 +73,9 @@ describe("cloudinary-helpers", () => {
         });
 
         it("should return full URLs as-is", () => {
-            expect(getBlogOpenGraphUrl("https://example.com/img.jpg")).toBe("https://example.com/img.jpg");
+            expect(getBlogOpenGraphUrl("https://example.com/img.jpg")).toBe(
+                "https://example.com/img.jpg"
+            );
         });
 
         it("should generate 1200x630 OG image URL", () => {
@@ -105,7 +111,9 @@ describe("cloudinary-helpers", () => {
 
     describe("isCloudinaryUrl", () => {
         it("should return true for Cloudinary URLs", () => {
-            expect(isCloudinaryUrl("https://res.cloudinary.com/test/image/upload/img.jpg")).toBe(true);
+            expect(isCloudinaryUrl("https://res.cloudinary.com/test/image/upload/img.jpg")).toBe(
+                true
+            );
         });
 
         it("should return false for non-Cloudinary URLs", () => {

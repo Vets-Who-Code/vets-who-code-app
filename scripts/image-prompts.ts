@@ -1,13 +1,13 @@
 export type Theme = {
-  mainSubject: string;
-  keyMessage: string;
-  visualMetaphor: string;
-  symbolicElements: string;
-  fullThemeDescription: string;
+    mainSubject: string;
+    keyMessage: string;
+    visualMetaphor: string;
+    symbolicElements: string;
+    fullThemeDescription: string;
 };
 
 export const imagenPromptVariants: Array<(theme: Theme) => string> = [
-  (theme) => `
+    (theme) => `
   Create a high-impact, symbolic 1950s military hand-carved linocut block print illustration.
 
 Constraints:
@@ -26,7 +26,7 @@ Focus on visually representing the specific subject matter of this theme.
 Make the imagery directly relevant to the topic described.
   
  `,
-  (theme) => `
+    (theme) => `
   A wordless, hand-carved block print illustration in a 1950s modernist style.
 
   This is a PURE VISUAL composition.
@@ -47,7 +47,7 @@ Make the imagery directly relevant to the topic described.
 
   
  `,
-  (theme) => `
+    (theme) => `
 
   Create a high-impact, symbolic 1950s military wordless geometric mural study.
 

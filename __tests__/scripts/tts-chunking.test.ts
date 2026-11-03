@@ -5,7 +5,7 @@ import {
     normalizeLoudness,
 } from "../../scripts/generate-single-blog-audio";
 
-const paragraph = (words: number) => Array(words).fill("word").join(" ");
+const paragraph = (words: number) => new Array(words).fill("word").join(" ");
 
 describe("chunkForTts", () => {
     it("keeps short text in a single chunk", () => {
@@ -13,7 +13,7 @@ describe("chunkForTts", () => {
     });
 
     it("splits past the per-request word budget", () => {
-        const chunks = chunkForTts(Array(6).fill(paragraph(400)).join("\n\n"));
+        const chunks = chunkForTts(new Array(6).fill(paragraph(400)).join("\n\n"));
         expect(chunks.length).toBeGreaterThan(1);
         for (const chunk of chunks) {
             expect(chunk.split(/\s+/).length).toBeLessThanOrEqual(1500 + 400);
@@ -21,7 +21,7 @@ describe("chunkForTts", () => {
     });
 
     it("loses no words when splitting", () => {
-        const text = Array(6).fill(paragraph(400)).join("\n\n");
+        const text = new Array(6).fill(paragraph(400)).join("\n\n");
         const chunked = chunkForTts(text).join(" ").split(/\s+/).length;
         expect(chunked).toBe(text.split(/\s+/).length);
     });
@@ -29,7 +29,9 @@ describe("chunkForTts", () => {
 
 describe("cleanMarkdownToText", () => {
     it("drops images instead of narrating their alt text", () => {
-        const clean = cleanMarkdownToText("Intro.\n\n![A chart of the job market](v123/chart.jpg)\n\nOutro.");
+        const clean = cleanMarkdownToText(
+            "Intro.\n\n![A chart of the job market](v123/chart.jpg)\n\nOutro."
+        );
         expect(clean).not.toContain("chart");
         expect(clean).toContain("Intro.");
         expect(clean).toContain("Outro.");
@@ -44,7 +46,10 @@ const tone = (seconds: number, amplitude: number) => {
     const samples = Math.round(24000 * seconds);
     const pcm = Buffer.alloc(samples * 2);
     for (let i = 0; i < samples; i++) {
-        pcm.writeInt16LE(Math.round(Math.sin((i / 24000) * 2 * Math.PI * 220) * amplitude * 32767), i * 2);
+        pcm.writeInt16LE(
+            Math.round(Math.sin((i / 24000) * 2 * Math.PI * 220) * amplitude * 32767),
+            i * 2
+        );
     }
     return pcm;
 };

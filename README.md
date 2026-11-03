@@ -202,7 +202,9 @@ npm run format      # Biome format only
 npm run check       # biome ci — what to run before pushing
 ```
 
-A pre-commit hook runs `biome check --write` on staged files, and a commit-msg hook enforces [Conventional Commits](contributing.md#commit-message-guidelines).
+A pre-commit hook runs `biome check --write` on staged files and then `npm run typecheck`, and a commit-msg hook enforces [Conventional Commits](contributing.md#commit-message-guidelines).
+
+CI runs `npm run typecheck` and `npx biome ci` on every pull request (`.github/workflows/ci.yml`) and fails on any type or lint error.
 
 ## Testing 🧪
 

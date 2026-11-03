@@ -181,11 +181,7 @@ const Header = ({ shadow, fluid }: TProps) => {
                     <div className="tw-h-20" />
                 </div>
             </header>
-            <MobileMenu
-                isOpen={offcanvas}
-                onClose={() => setOffcanvas(false)}
-                menu={menu}
-            />
+            <MobileMenu isOpen={offcanvas} onClose={() => setOffcanvas(false)} menu={menu} />
         </>
     );
 };

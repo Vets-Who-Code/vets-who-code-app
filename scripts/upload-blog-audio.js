@@ -85,7 +85,7 @@ async function uploadAllAudioFiles() {
     fs.writeFileSync(outputPath, JSON.stringify(results, null, 2));
     console.log(`\nResults saved to: ${outputPath}`);
 
-    console.log("\n" + "=".repeat(60));
+    console.log(`\n${"=".repeat(60)}`);
     console.log("Blog Slug → Cloudinary URL Mapping");
     console.log("=".repeat(60));
     results.forEach(({ slug, url }) => {

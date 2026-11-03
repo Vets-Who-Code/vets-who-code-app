@@ -76,7 +76,7 @@ const VideoModal = ({ videoId, show, onClose, className }: TModal) => {
                                     className="modal-content tw-pointer-events-auto tw-relative tw-flex tw-w-full tw-flex-col tw-rounded tw-bg-white tw-bg-clip-padding"
                                     onClick={(e) => e.stopPropagation()}
                                     onKeyPress={(e) => e.stopPropagation()}
-                                    tabIndex={0}
+                                    tabIndex={-1}
                                 >
                                     {videoLoading && (
                                         <div className="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center">
