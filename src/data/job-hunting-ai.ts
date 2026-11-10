@@ -5,12 +5,16 @@
  */
 import type { StatCell } from "@components/ui/design-system";
 
-// ===== Links still pending =====
-// Set to "#" until they exist. A button whose URL is still "#" renders disabled.
-export const KIT_ZIP_URL = "#";
-export const KIT_REPO_URL = "#";
-export const KIT_REPO_SLUG = "#";
-export const SLIDES_PDF_URL = "#";
+// ===== Kit and slides links =====
+// A URL still set to "#" renders its button disabled. The zip comes from the kit's tagged
+// release, so a download matches the version printed on the page. The slides are on
+// Cloudinary, which serves them as a PDF that opens in the browser.
+export const KIT_VERSION = "v1.1.0";
+export const KIT_REPO_SLUG = "Vets-Who-Code/ai-era-job-kit";
+export const KIT_REPO_URL = `https://github.com/${KIT_REPO_SLUG}`;
+export const KIT_ZIP_URL = `${KIT_REPO_URL}/archive/refs/tags/${KIT_VERSION}.zip`;
+export const SLIDES_PDF_URL =
+    "https://res.cloudinary.com/vetswhocode/image/upload/v1794284154/Getting-the-Job-in-the-Era-of-AI-Presentation_bc45ek.pdf";
 
 export const RSVP_URL = "https://master.dev/workshops/getting-a-job-v4/";
 
@@ -231,7 +235,7 @@ export const KIT: SectionIntro & {
     slides: { label: string; href: string };
     codeBlocks: CodeBlock[];
 } = {
-    eyebrow: "AI-Era Job Kit · v1.1.0",
+    eyebrow: `AI-Era Job Kit · ${KIT_VERSION}`,
     title: "Get the kit.",
     lede: "A free, portfolio-first toolkit. Your portfolio is the base; your resume, LinkedIn and GitHub are scored against the market and rebuilt from it.",
     bullets: [
