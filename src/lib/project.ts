@@ -1,4 +1,4 @@
-import { GithubRepo, VWCProject, VWCProjectDetails } from "@utils/types";
+import { GithubRepo, VWCFeaturedPullRequest, VWCProject, VWCProjectDetails } from "@utils/types";
 import fs from "fs";
 import path from "path";
 import { getGithubRepo } from "./github";
@@ -21,6 +21,15 @@ export function getProjectBySlug(slug: string): VWCProjectDetails {
 export const getAllProjects = (): VWCProjectDetails[] => {
     return getProjectSlugs().map((slug) => getProjectBySlug(slug));
 };
+
+/** The most recently merged featured PR across the catalog, for the homepage WorkBelt. */
+export const getLatestFeaturedPullRequest = (): VWCFeaturedPullRequest | null =>
+    getAllProjects()
+        .flatMap((project) => project.featuredPullRequests ?? [])
+        .reduce<VWCFeaturedPullRequest | null>(
+            (latest, pr) => (!latest || pr.mergedAt > latest.mergedAt ? pr : latest),
+            null
+        );
 
 // Stats are decorative. A missing token, a rate limit or a 404 on one repo must
 // not reject the whole catalog, so each project degrades to repo: null alone.
