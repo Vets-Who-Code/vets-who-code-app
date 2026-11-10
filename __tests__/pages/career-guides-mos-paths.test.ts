@@ -2,8 +2,8 @@ import prerender from "@data/career-guides-prerender.json";
 import { getCareerGuideDetail } from "@/lib/career-guides";
 import { getStaticPaths } from "@/pages/career-guides/[mos]";
 
-// The prerender set and the sitemap tranche both read career-guides-prerender.json.
-// A stale slug there would ship a 404 into both; this guards the file.
+// The prerender set reads career-guides-prerender.json.
+// A stale slug there would ship a 404; this guards the file.
 describe("career-guides/[mos] getStaticPaths", () => {
     it("prerenders exactly the prerender-file slugs and blocks on the rest", async () => {
         const result = await getStaticPaths({});
