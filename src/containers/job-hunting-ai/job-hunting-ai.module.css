@@ -1,0 +1,28 @@
+/* Job Hunting in the Age of AI. Radius is 0 everywhere by design, including the focus ring
+   (globals.css rounds it by default). */
+
+.page :focus-visible {
+    outline: 3px solid #fdb330;
+    outline-offset: 2px;
+    border-radius: 0;
+}
+
+.hero {
+    background: var(--hero-gradient), #091f40;
+}
+
+/* Every grid stacks to one column at phone width, including the shared stat strip. */
+@media (max-width: 479px) {
+    .page .stats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page *,
+    .page *::before,
+    .page *::after {
+        transition: none !important;
+        transform: none !important;
+    }
+}
