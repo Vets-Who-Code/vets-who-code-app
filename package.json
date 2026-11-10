@@ -38,7 +38,8 @@
     "generate:military-systems": "tsx -r dotenv/config scripts/generate-military-systems.ts",
     "generate:career-pathways": "tsx -r dotenv/config scripts/generate-career-pathways.ts",
     "generate:tech-pathways": "tsx -r dotenv/config scripts/generate-tech-pathways.ts",
-    "generate:curriculum-gap-report": "tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts",
+    "generate:mos-to-soc": "tsx scripts/generate-mos-to-soc.ts",
+    "generate:curriculum-gap-report":"tsx -r dotenv/config scripts/generate-curriculum-gap-report.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
