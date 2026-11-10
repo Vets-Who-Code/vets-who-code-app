@@ -9,12 +9,15 @@ export interface StatCell {
 interface Props {
     cells: StatCell[];
     tone?: "light" | "dark";
+    /** Gold values read as the headline numbers on a navy hero. */
+    valueTone?: "default" | "gold";
     className?: string;
 }
 
-const StatStrip = ({ cells, tone = "dark", className }: Props) => {
+const StatStrip = ({ cells, tone = "dark", valueTone = "default", className }: Props) => {
     const cellLabelColor = tone === "dark" ? "tw-text-[#DEE2E6]" : "tw-text-[#495057]";
-    const cellValueColor = tone === "dark" ? "tw-text-cream" : "tw-text-navy";
+    const cellValueColor =
+        valueTone === "gold" ? "tw-text-gold" : tone === "dark" ? "tw-text-cream" : "tw-text-navy";
     const borderColor = tone === "dark" ? "tw-border-cream/10" : "tw-border-gray-100";
     const cols =
         cells.length === 4

@@ -6,6 +6,7 @@ type Size = "h1" | "h2" | "h3";
 
 interface Props {
     as?: "h1" | "h2" | "h3" | "h4";
+    id?: string;
     size?: Size;
     tone?: Tone;
     align?: "left" | "center";
@@ -27,6 +28,7 @@ const SIZE_CLASS: Record<Size, string> = {
 
 const SharpHeadline = ({
     as: Tag = "h2",
+    id,
     size = "h2",
     tone = "navy",
     align = "left",
@@ -35,6 +37,7 @@ const SharpHeadline = ({
 }: Props) => {
     return (
         <Tag
+            id={id}
             className={clsx(
                 "tw-m-0 tw-font-heading tw-font-semibold tw-uppercase [letter-spacing:-0.02em]",
                 SIZE_CLASS[size],

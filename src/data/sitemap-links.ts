@@ -49,6 +49,7 @@ export const sitemapColumns: SitemapColumn[] = [
             { label: "Career Guides", path: "/career-guides" },
             ...decisionGuideLinks,
             { label: "Portfolio Checklist", path: "/portfolio-checklist" },
+            { label: "Job Hunting in the Age of AI", path: "/job-hunting-in-the-age-of-ai" },
             { label: "Events", path: "/events" },
             { label: "Media", path: "/media" },
             { label: "Game", path: "/game" },
