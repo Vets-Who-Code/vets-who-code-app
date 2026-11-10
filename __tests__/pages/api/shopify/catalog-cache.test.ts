@@ -36,7 +36,7 @@ type Route = () => Promise<{ default: (req: never, res: never) => unknown }>;
 async function call(route: Route, query: Record<string, string>) {
     const { default: handler } = await route();
     const res = makeRes();
-    await handler({ method: "GET", query } as never, res as never);
+    await handler({ method: "GET", query, headers: {} } as never, res as never);
     return res;
 }
 

@@ -2,6 +2,8 @@ import { postJson } from "@utils/post-json";
 import { NextApiRequest, NextApiResponse } from "next";
 import { checkLength, checkParams, contactErrors } from "@/lib/api-helpers";
 import { classifyContact } from "@/lib/api-helpers/classify-contact";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 import { enforceRateLimit } from "@/lib/rate-limit";
 
 interface ParsedBody {
@@ -81,7 +83,7 @@ async function postToSlack(parsedBody: ParsedBody): Promise<void> {
  *       500:
  *         description: Failed to deliver the message
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     // 5 req/min per IP — strict, this endpoint triggers AI classification and Slack posts.
     if (!enforceRateLimit(req, res, { name: "contact", maxRequests: 5, windowMs: 60 * 1000 })) {
         return;
@@ -134,6 +136,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         await postToSlack(parsedBody);
         return res.status(200).json({ message: "SUCCESS" });
     } catch (err: unknown) {
+        logger.error("Failed to post contact submission to Slack", { error: err });
         const errorMessage: string =
             err instanceof Error
                 ? `Failed post to #contact channel: ${err.message}`
@@ -141,3 +144,5 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(500).json({ message: errorMessage });
     }
 }
+
+export default withApiLogging(handler);

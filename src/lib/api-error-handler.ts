@@ -1,4 +1,5 @@
 import type { NextApiResponse } from "next";
+import { logger } from "@/lib/logger";
 
 /**
  * Handles API errors consistently across all routes.
@@ -20,7 +21,7 @@ import type { NextApiResponse } from "next";
 export function handleApiError(error: unknown, res: NextApiResponse, customMessage?: string): void {
     const message = customMessage || "An unexpected error occurred";
 
-    console.error(message, error);
+    logger.error(message, { error });
 
     res.status(500).json({
         error: message,

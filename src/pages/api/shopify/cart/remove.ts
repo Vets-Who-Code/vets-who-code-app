@@ -1,5 +1,7 @@
 import { removeFromCart } from "@lib/shopify";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withApiLogging } from "@/lib/api-logger";
+import { logger } from "@/lib/logger";
 
 /**
  * POST /api/shopify/cart/remove
@@ -9,7 +11,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
  *   lineIds: string[]
  * }
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method not allowed" });
     }
@@ -36,10 +38,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return res.status(200).json({ cart });
     } catch (error) {
-        console.error("Error removing from cart:", error);
+        logger.error("Error removing from cart", { error });
         return res.status(500).json({
             error: "Failed to remove items from cart",
             message: error instanceof Error ? error.message : "Unknown error",
         });
     }
 }
+
+export default withApiLogging(handler);

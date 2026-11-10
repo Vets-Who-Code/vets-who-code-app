@@ -3,6 +3,7 @@
  * Three-tier fallback: Lightcast → Census ACS → static curated data
  */
 
+import { logger } from "@/lib/logger";
 import { fetchCensusSalary, isCensusConfigured, validateCensusConfig } from "./census-client";
 import {
     fetchSalaryBySOC,
@@ -29,7 +30,7 @@ function validateOnce(): void {
     validateCensusConfig();
 
     if (!isLightcastConfigured() && !isCensusConfigured()) {
-        console.info(
+        logger.info(
             "Labor market: no external APIs configured. " +
                 "Career pathways will use curated salary data. " +
                 "Set LIGHTCAST_CLIENT_ID + LIGHTCAST_CLIENT_SECRET and/or CENSUS_API_KEY for live data."
@@ -60,7 +61,9 @@ export async function fetchLaborMarketData(
                 };
             }
         } catch (err) {
-            console.warn(`Labor market: Lightcast failed for SOC ${socCode}, trying Census:`, err);
+            logger.warn(`Labor market: Lightcast failed for SOC ${socCode}, trying Census`, {
+                error: err,
+            });
         }
     }
 
@@ -77,7 +80,9 @@ export async function fetchLaborMarketData(
                 };
             }
         } catch (err) {
-            console.warn(`Labor market: Census failed for SOC ${socCode}, using curated:`, err);
+            logger.warn(`Labor market: Census failed for SOC ${socCode}, using curated`, {
+                error: err,
+            });
         }
     }
 

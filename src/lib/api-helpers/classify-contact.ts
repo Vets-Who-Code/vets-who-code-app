@@ -1,4 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
+import { logger } from "@/lib/logger";
 
 export interface ContactClassification {
     sendToSlack: boolean;
@@ -68,7 +69,7 @@ export async function classifyContact(
         process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
     if (!apiKey) {
-        console.warn(
+        logger.warn(
             "GEMINI_API_KEY or GOOGLE_GENERATIVE_AI_API_KEY not configured, skipping spam classification"
         );
         return null;
@@ -97,27 +98,23 @@ export async function classifyContact(
         const text: string | undefined = response.text;
 
         if (!text) {
-            console.error("Gemini returned empty response, failing open");
+            logger.error("Gemini returned empty response, failing open");
             return null;
         }
 
         const classification: ContactClassification = JSON.parse(text) as ContactClassification;
 
-        console.info(
-            "Contact classification:",
-            JSON.stringify({
-                category: classification.category,
-                confidence: classification.confidence,
-                sendToSlack: classification.sendToSlack,
-            })
-        );
+        logger.info("Contact classification", {
+            category: classification.category,
+            confidence: classification.confidence,
+            sendToSlack: classification.sendToSlack,
+        });
 
         return classification;
     } catch (error: unknown) {
-        console.error(
-            "Gemini classification failed, failing open:",
-            error instanceof Error ? error.message : "Unknown error"
-        );
+        logger.error("Gemini classification failed, failing open", {
+            error: error instanceof Error ? error.message : "Unknown error",
+        });
         return null;
     }
 }
