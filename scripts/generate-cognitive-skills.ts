@@ -1,8 +1,8 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
+import fs from "fs";
+import path from "path";
 import { z } from "zod";
 
 const SKILLS_TAXONOMY = [
@@ -103,14 +103,8 @@ async function main() {
         process.env.GOOGLE_GENERATIVE_AI_API_KEY = apiKey;
     }
 
-    const descriptionsPath = path.join(
-        process.cwd(),
-        "src/data/job-codes-descriptions.json"
-    );
-    const cognitiveMapPath = path.join(
-        process.cwd(),
-        "src/data/cognitive-skills-map.json"
-    );
+    const descriptionsPath = path.join(process.cwd(), "src/data/job-codes-descriptions.json");
+    const cognitiveMapPath = path.join(process.cwd(), "src/data/cognitive-skills-map.json");
 
     const descriptions: Record<string, string> = JSON.parse(
         fs.readFileSync(descriptionsPath, "utf-8")
@@ -125,10 +119,7 @@ async function main() {
     for (const [branchCode, desc] of Object.entries(descriptions)) {
         const code = stripBranchPrefix(branchCode);
         if (codeDescriptions.has(code)) {
-            codeDescriptions.set(
-                code,
-                `${codeDescriptions.get(code)}\n\n${desc}`
-            );
+            codeDescriptions.set(code, `${codeDescriptions.get(code)}\n\n${desc}`);
         } else {
             codeDescriptions.set(code, desc);
         }

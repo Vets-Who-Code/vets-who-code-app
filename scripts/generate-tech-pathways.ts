@@ -123,12 +123,17 @@ async function loadEnrichedTaxonomy(): Promise<EnrichedRole[]> {
                 ...role,
                 salaryRange: labor.salaryRange
                     ? { min: labor.salaryRange.p25, max: labor.salaryRange.p75 }
-                    : { min: Math.round(labor.avgSalary * 0.8), max: Math.round(labor.avgSalary * 1.2) },
+                    : {
+                          min: Math.round(labor.avgSalary * 0.8),
+                          max: Math.round(labor.avgSalary * 1.2),
+                      },
                 demand: labor.demand,
                 dataSource: labor.dataSource,
             });
         } catch (err) {
-            console.warn(`  Lightcast lookup failed for ${role.title} (${role.socCode}); using curated fallback.`);
+            console.warn(
+                `  Lightcast lookup failed for ${role.title} (${role.socCode}); using curated fallback.`
+            );
             enriched.push({
                 ...role,
                 salaryRange: { min: 80000, max: 140000 },
@@ -157,9 +162,7 @@ function buildPrompt(ctx: MosContext, taxonomy: EnrichedRole[]): string {
     // Trim taxonomy to just what Gemini needs to pick a key — passing the
     // full descriptions and stack arrays bloats the prompt and seems to
     // confuse Gemini's structured-output mode.
-    const taxonomyLines = taxonomy
-        .map((r) => `- ${r.key} | ${r.title} (${r.track})`)
-        .join("\n");
+    const taxonomyLines = taxonomy.map((r) => `- ${r.key} | ${r.title} (${r.track})`).join("\n");
 
     return `Military Background:
 - Code: ${ctx.code}
@@ -243,9 +246,7 @@ const BATCH_SIZE = 10;
 const BATCH_DELAY_MS = 1000;
 
 async function main() {
-    const apiKey =
-        process.env.GOOGLE_GENERATIVE_AI_API_KEY ||
-        process.env.GEMINI_API_KEY;
+    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_API_KEY;
     if (!apiKey) {
         console.error(
             "Missing Google AI API key. Set GOOGLE_GENERATIVE_AI_API_KEY or GEMINI_API_KEY in .env."
@@ -257,9 +258,9 @@ async function main() {
     }
 
     // Load all input data
-    const trainingMap = loadJson<Record<string, { branch: string; title: string; topics: string[] }>>(
-        path.join(DATA_DIR, "training-pipeline.json")
-    );
+    const trainingMap = loadJson<
+        Record<string, { branch: string; title: string; topics: string[] }>
+    >(path.join(DATA_DIR, "training-pipeline.json"));
     const cognitiveMap = loadJson<
         Record<string, { cognitiveSkills: Array<{ skill: string; civilianTranslation: string }> }>
     >(path.join(DATA_DIR, "cognitive-skills-map.json"));

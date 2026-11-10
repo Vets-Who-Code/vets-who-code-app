@@ -167,10 +167,6 @@ if (args.length === 0 || args.includes("--dry-run")) {
     migrateBlogContentImages(true);
 } else {
     console.log("Usage:");
-    console.log(
-        "  node scripts/migrate-blog-content-images.js --dry-run    # Preview changes"
-    );
-    console.log(
-        "  node scripts/migrate-blog-content-images.js --apply      # Apply changes"
-    );
+    console.log("  node scripts/migrate-blog-content-images.js --dry-run    # Preview changes");
+    console.log("  node scripts/migrate-blog-content-images.js --apply      # Apply changes");
 }

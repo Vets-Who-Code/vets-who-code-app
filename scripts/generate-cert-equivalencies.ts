@@ -1,8 +1,8 @@
 import "dotenv/config";
-import fs from "fs";
-import path from "path";
 import { google } from "@ai-sdk/google";
 import { generateObject } from "ai";
+import fs from "fs";
+import path from "path";
 import { z } from "zod";
 
 const CertSchema = z.object({
@@ -34,10 +34,7 @@ function stripBranchPrefix(key: string): string {
     return colonIdx === -1 ? key : key.slice(colonIdx + 1);
 }
 
-async function generateForCode(
-    code: string,
-    description: string
-): Promise<CertEntry | null> {
+async function generateForCode(code: string, description: string): Promise<CertEntry | null> {
     try {
         const model = google("gemini-2.0-flash");
 
@@ -81,7 +78,9 @@ async function main() {
     const descriptionsPath = path.join(process.cwd(), "src/data/job-codes-descriptions.json");
     const outputPath = path.join(process.cwd(), "src/data/cert-equivalencies.json");
 
-    const descriptions: Record<string, string> = JSON.parse(fs.readFileSync(descriptionsPath, "utf-8"));
+    const descriptions: Record<string, string> = JSON.parse(
+        fs.readFileSync(descriptionsPath, "utf-8")
+    );
     const existingMap: Record<string, CertEntry> = JSON.parse(fs.readFileSync(outputPath, "utf-8"));
 
     const codeDescriptions = new Map<string, string>();
@@ -95,7 +94,9 @@ async function main() {
     }
 
     const existingCodes = new Set(Object.keys(existingMap));
-    const codesToGenerate = [...codeDescriptions.entries()].filter(([code]) => !existingCodes.has(code));
+    const codesToGenerate = [...codeDescriptions.entries()].filter(
+        ([code]) => !existingCodes.has(code)
+    );
 
     console.log(`Total unique codes: ${codeDescriptions.size}`);
     console.log(`Already covered: ${existingCodes.size}`);
@@ -114,7 +115,9 @@ async function main() {
         const batchNum = Math.floor(i / BATCH_SIZE) + 1;
         const totalBatches = Math.ceil(codesToGenerate.length / BATCH_SIZE);
 
-        console.log(`\nBatch ${batchNum}/${totalBatches} (codes ${i + 1}-${Math.min(i + BATCH_SIZE, codesToGenerate.length)})`);
+        console.log(
+            `\nBatch ${batchNum}/${totalBatches} (codes ${i + 1}-${Math.min(i + BATCH_SIZE, codesToGenerate.length)})`
+        );
 
         const results = await Promise.allSettled(
             batch.map(async ([code, description]) => {

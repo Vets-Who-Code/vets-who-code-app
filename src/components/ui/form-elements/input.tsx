@@ -89,7 +89,11 @@ const Input = forwardRef<HTMLInputElement, IProps>(
                     max={max}
                     {...restProps}
                 />
-                {reserveFeedback ? <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div> : feedback}
+                {reserveFeedback ? (
+                    <div className="tw-flow-root tw-min-h-[28.5px]">{feedback}</div>
+                ) : (
+                    feedback
+                )}
             </>
         );
     }

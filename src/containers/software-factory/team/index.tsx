@@ -56,8 +56,8 @@ const TeamSection = () => {
                             maxWidth: "480px",
                         }}
                     >
-                        Every engagement is led by VWC leadership. No surprise resumes, no
-                        offshore subcontracting, no junior-only teams.
+                        Every engagement is led by VWC leadership. No surprise resumes, no offshore
+                        subcontracting, no junior-only teams.
                     </p>
                 </motion.div>
 
@@ -76,7 +76,7 @@ const TeamSection = () => {
                                     <Image
                                         src={t.image}
                                         alt={t.name}
-                                        fill
+                                        fill={true}
                                         sizes="(max-width: 575px) 100vw, (max-width: 991px) 200px, 240px"
                                         className={styles.photoImg}
                                     />
