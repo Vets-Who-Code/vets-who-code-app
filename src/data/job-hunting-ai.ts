@@ -5,11 +5,11 @@
  */
 import type { StatCell } from "@components/ui/design-system";
 
-// ===== Links still pending =====
-// Set to "#" until they exist. A button whose URL is still "#" renders disabled.
-export const KIT_ZIP_URL = "#";
-export const KIT_REPO_URL = "#";
-export const KIT_REPO_SLUG = "#";
+// ===== Kit and slides links =====
+// A URL still set to "#" renders its button disabled.
+export const KIT_REPO_SLUG = "Vets-Who-Code/ai-era-job-kit";
+export const KIT_REPO_URL = `https://github.com/${KIT_REPO_SLUG}`;
+export const KIT_ZIP_URL = `${KIT_REPO_URL}/archive/refs/heads/main.zip`;
 export const SLIDES_PDF_URL = "#";
 
 export const RSVP_URL = "https://master.dev/workshops/getting-a-job-v4/";
